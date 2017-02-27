@@ -1,10 +1,9 @@
 Lua Wireshark Dissectors
-========================
+------------------------
 
 Lua wireshark dissector scripts provide an easily customized cross platform dissection solution for viewing common exchange protocols.
 
-Windows
--------
+#Windows
 
 Place lua script(s) in the wireshark plugins directory. In a traditional install this is C:\Program Files\Wireshark\plugins\[version]\
 
