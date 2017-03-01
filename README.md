@@ -4,7 +4,8 @@ Lua wireshark dissector scripts provide an easily customized cross platform diss
 
 #Use
 
-To dissect packets, place lua script(s) in the wireshark plugins directory. In a traditional windows install:
+To dissect packets, place lua script(s) in the wireshark plugins directory.  
+The standard path on a standard windows install:
 
     C:\Program Files\Wireshark\plugins\[version]\
 
@@ -23,4 +24,4 @@ Note: the existing model is still in beta and subject to rapid development.
 Please report any dissection errors to contact.omi at protonmail.  Include a small note on what you expect, a zipped minimal capture demonstrating the problem, and a link or pdf specification documenting the correct behavior. 
 
 
-The Open Markets Initiative (Omi) is a group of technologists dedicated to increasing the stability of electronic financial markets using modern development methods. Enjoy.
+The Open Markets Initiative (Omi) is a group of technologists dedicated to enhancing the stability of electronic financial markets using modern development methods. Enjoy.
