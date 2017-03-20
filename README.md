@@ -21,7 +21,7 @@ These dissector scripts are source generated.  Updates are greatly appreciated; 
 
 Note: the existing model is still in beta and subject to rapid development.
 
-Please report any dissection errors to contact.omi at protonmail.  Include a small note on what you expect, a zipped minimal capture demonstrating the problem, and a link or pdf specification documenting the correct behavior. 
+Please report any dissection errors as issues.  Include a small note on the protocol and version, what you expect, a zipped minimal capture demonstrating the problem, and a link or pdf specification documenting the correct behavior. 
 
 # Disclaimer
 
