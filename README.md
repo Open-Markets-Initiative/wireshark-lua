@@ -20,8 +20,6 @@ The standard path on a linux install:
 
 Note: Some packets contain enough information to programmatically determine the correct protocol specification.  Some do not.  If you add multiple dissectors to your plugins folder, wireshark will dissect each "conversation" based on the first matching protocol. 
 
-For more information:
-
 https://www.wireshark.org/docs/wsug_html_chunked/ChAppFilesConfigurationSection.html
 
 # Development
