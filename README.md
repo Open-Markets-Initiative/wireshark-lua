@@ -2,18 +2,25 @@
 
 Lua wireshark dissector scripts provide an easily customized cross platform dissection solution for viewing common binary exchange protocols.
 
+https://wiki.wireshark.org/Lua#How_Lua_fits_into_Wireshark
+
 # Use
 
 To dissect packets, place lua script(s) in the wireshark plugins directory.  
-The standard path on a standard windows install:
+
+The standard path on a windows install:
 
     C:\Program Files\Wireshark\plugins\[version]\
+    
+The standard path on a linux install:
+
+    /usr/share/wireshark/plugins
 
 Note: Some packets contain enough information to programmatically determine the correct protocol specification.  Some do not.  If you add multiple dissectors to your plugins folder, wireshark will dissect each "conversation" based on the first matching protocol. 
 
 For more information:
 
-https://wiki.wireshark.org/Lua#How_Lua_fits_into_Wireshark
+https://www.wireshark.org/docs/wsug_html_chunked/ChAppFilesConfigurationSection.html
 
 # Development
 
