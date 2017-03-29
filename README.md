@@ -2,6 +2,8 @@
 
 Lua wireshark dissector scripts provide an easily customized cross platform dissection solution for viewing common binary exchange protocols.
 
+For more information:
+
 https://wiki.wireshark.org/Lua#How_Lua_fits_into_Wireshark
 
 # Use
