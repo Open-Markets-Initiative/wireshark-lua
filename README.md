@@ -14,7 +14,7 @@ The standard path on a windows install:
     
 The standard path on a linux install:
 
-    /usr/share/wireshark/plugins
+     //usr/share/wireshark/plugins
 
 Note: Some packets contain enough information to programmatically determine the correct protocol specification.  Some do not.  If you add multiple dissectors to your plugins folder, wireshark will dissect each "conversation" based on the first matching protocol. 
 
