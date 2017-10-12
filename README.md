@@ -24,11 +24,12 @@ https://www.wireshark.org/docs/wsug_html_chunked/ChAppFilesConfigurationSection.
 
 # Development
 
-This repository is source generated. The dissector scripts are source generated...as are the words you are reading right now.  Updates are greatly appreciated; however, source generation requires a slighty different workflow.  The recommended process is to post a copied script with suggested edits and explanation.  If the changes are applicable to some or all protocols, we will update the generator and regenerate.
+This repository is source generated. The posted dissector scripts are source generated...as are the words you are reading right now.  Updates are greatly appreciated; however, source generation requires a slighty different workflow.  The recommended process is to post a copied script with suggested edits and explanation.  If the changes are applicable to some or all protocols, we will update the model and regenerate.
 
 Note: the existing model is still in beta and subject to rapid development.
 
 Please report any dissection errors as issues.  Include a small note on the protocol and version, what you expect, a zipped minimal capture demonstrating the problem, and a link or pdf specification documenting the correct behavior. 
+
 
 # Disclaimer
 

@@ -6233,9 +6233,6 @@ calculate.payload = function(buffer, offset, code)
     return calculate.md_incremental_refresh_trade_summary(buffer, offset)
   end
 
-  -- Report error
-  error("Unknown Type: "..code)
-
   return 0
 end
 

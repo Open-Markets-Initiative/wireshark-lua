@@ -6933,9 +6933,6 @@ calculate.payload = function(buffer, offset, code)
     return calculate.snapshot_full_refresh_order_book(buffer, offset)
   end
 
-  -- Report error
-  error("Unknown Type: "..code)
-
   return 0
 end
 

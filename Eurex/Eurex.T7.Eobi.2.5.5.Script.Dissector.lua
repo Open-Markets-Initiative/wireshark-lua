@@ -2703,9 +2703,6 @@ calculate.payload = function(buffer, offset, code)
     return calculate.trade_reversal(buffer, offset)
   end
 
-  -- Report error
-  error("Unknown Type: "..code)
-
   return 0
 end
 

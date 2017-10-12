@@ -5514,9 +5514,6 @@ calculate.payload = function(buffer, offset, code)
     return 36
   end
 
-  -- Report error
-  error("Unknown Type: "..code)
-
   return 0
 end
 

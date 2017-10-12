@@ -1978,9 +1978,6 @@ calculate.data = function(buffer, offset, code)
     return 25
   end
 
-  -- Report error
-  error("Unknown Type: "..code)
-
   return 0
 end
 
@@ -2172,9 +2169,6 @@ calculate.payload = function(buffer, offset, code)
   if code == 3 then
     return calculate.application_message(buffer, offset)
   end
-
-  -- Report error
-  error("Unknown Type: "..code)
 
   return 0
 end
