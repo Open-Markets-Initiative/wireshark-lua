@@ -13,11 +13,10 @@ C:\Program Files\Wireshark\plugins\[version]\
 ```
 The standard path on a linux install:
 
-
 ```
 //usr/share/wireshark/plugins
 ```
-Note: Some packets contain enough information to programmatically determine the correct protocol specification.  Some do not.  If you add multiple dissectors to your plugins folder, wireshark will dissect each "conversation" based on the first matching protocol.
+Note: Some packets contain enough information to programmatically determine the correct protocol specification.  *Some do not.*  If you add multiple dissectors to your plugins folder, wireshark will dissect each "conversation" based on the first matching protocol.
 
 ## Protocols
 
@@ -34,7 +33,7 @@ Note: Some packets contain enough information to programmatically determine the 
 
 ## Development
 
-Updates are greatly appreciated; however, this entire repository is source generated...even the words you are reading right now...and code generation requires a slighty different workflow.  The recommended process is to post a copied script with suggested edits and explanation.  If the changes are applicable to some or all protocols, we will update the model and regenerate.
+Updates are greatly appreciated; however, this entire repository is source generated...including the words you are reading right now. Code generation requires a slighty different workflow.  The recommended process is to post a copied script with suggested edits and explanation.  If the changes are applicable to some or all protocols, we will update the model and regenerate.
 
 Note: The dissector model is still in beta and subject to rapid development.
 
