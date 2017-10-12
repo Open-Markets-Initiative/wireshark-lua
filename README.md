@@ -5,8 +5,6 @@ Lua wireshark dissector scripts provide an easily customized cross platform diss
 ## Usage
 
 To dissect packets, place lua script(s) in the wireshark plugins directory. For full configuration information: [Wireshark Files Configuration](https://www.wireshark.org/docs/wsug_html_chunked/ChAppFilesConfigurationSection.html "Wireshark Lua Configuration")
-
-
 The standard path on a windows install:
 
     C:\Program Files\Wireshark\plugins\[version]\
