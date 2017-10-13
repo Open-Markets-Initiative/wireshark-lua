@@ -1,10 +1,10 @@
 ## Lua Wireshark Dissectors
 
-Lua wireshark dissector scripts provide an easily customized cross platform dissection solution for viewing common binary exchange protocols. For more information: [Wireshark Lua Documentation.](https://wiki.wireshark.org/Lua#How_Lua_fits_into_Wireshark "How Lua fits into Wireshark")
+Lua wireshark dissector scripts provide an easily customized cross platform dissection solution for viewing common binary exchange protocols. For more information: [How Lua fits into Wireshark.](https://wiki.wireshark.org/Lua#How_Lua_fits_into_Wireshark "Wireshark's Lua Documentation")
 
 ## Usage
 
-To dissect packets, place lua script(s) in the wireshark plugins directory. For configuration information: [Wireshark Files Configuration.](https://www.wireshark.org/docs/wsug_html_chunked/ChAppFilesConfigurationSection.html "Wireshark Lua Configuration")
+To dissect packets, place lua script(s) in the wireshark plugins directory and open capture.
 
 The standard path on a windows install:
 
@@ -16,8 +16,7 @@ The standard path on a linux install:
 ```
 //usr/share/wireshark/plugins
 ```
-Note: Some packets contain enough information to programmatically determine the correct protocol specification.  *Some do not.*  If you add multiple dissectors to your plugins folder, wireshark will dissect each "conversation" based on the first matching protocol.
-
+For all configuration information: [Wireshark Paths.](https://www.wireshark.org/docs/wsug_html_chunked/ChAppFilesConfigurationSection.html "Wireshark Files Configuration Documentation")
 ## Protocols
 
 |Organization | Protocol | Data | Version|
@@ -31,9 +30,11 @@ Note: Some packets contain enough information to programmatically determine the 
 |Miax | Mach | Tom | 1.9.0|
 |Miax | Mach | cTom | 1.1.0|
 
+Note: Some packets contain enough information to programmatically determine the correct protocol specification.  *Some do not.*  If you add multiple dissectors to your plugins folder, wireshark will dissect each "conversation" based on the first matching protocol.
+
 ## Development
 
-Updates are greatly appreciated; however, this entire repository is source generated...including the words you are reading right now. Code generation requires a slighty different workflow.  The recommended process is to post a copied script with suggested edits and explanation.  If the changes are applicable to some or all protocols, we will update the model and regenerate.
+Updates are greatly appreciated; however, this entire repository is source generated...including the words you are reading right now. Code generation requires a slighty different workflow.  The recommended process is to post a dissector script with suggested edits and explanation.  If the changes are applicable to some or all protocols, we will update the model and regenerate.
 
 Note: The dissector model is still in beta and subject to rapid development.
 
