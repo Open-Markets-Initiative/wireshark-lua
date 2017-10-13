@@ -21,13 +21,10 @@ For all configuration information: [Wireshark Configuration Files.](https://www.
 
 |Organization | Protocol | Data | Version | Date | Testing|
 |--- | --- | --- | --- | --- | ---|
-
 |Asx | Itch | Mdp | 2.4.0 | 7/15/2014 | Untested|
-
 |Cme | Sbe | Mdp | 8.1.0 | 7/1/2016 | Verified|
 |Cme | Sbe | Mdp | 6.1.0 | 1/9/2016 | Verified|
 |Cme | Sbe | Mdp | 5.1.0 | 8/6/2014 | Verified|
-
 |Eurex | T7 | Eobi | 2.5.5 | 11/7/2014 | Known Bug|
 |Ice | iMpact | Mdp | 1.24.0 | 3/30/2016 | Verified|
 |Miax | Mach | cTom | 1.1.0 | 7/15/2016 | Verified|
@@ -39,7 +36,7 @@ Note: Some packets contain enough information to programmatically determine the 
 
 Updates are greatly appreciated; however, this entire repository is source generated...including the words you are reading right now. Code generation requires a slighty different workflow.  The recommended process is to post a dissector script with suggested edits and explanation.  If the changes are applicable to some or all protocols, we will update the model and regenerate.
 
-Note: The dissector model is still in beta and subject to rapid development.
+Note: Our dissector model is still in beta and subject to rapid development.
 
 Please report any dissection errors as issues.  Include a small note on the protocol and version, what you expect, a zipped minimal capture demonstrating the problem, and a link or pdf specification documenting the correct behavior. 
 
