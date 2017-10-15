@@ -19,16 +19,8 @@ The standard path on a linux install:
 For all configuration information: [Wireshark Configuration Files.](https://www.wireshark.org/docs/wsug_html_chunked/ChAppFilesConfigurationSection.html "Wireshark Files Configuration Documentation")
 ## Protocols
 
-|Organization | Protocol | Data | Version | Date | Testing|
-|--- | --- | --- | --- | --- | ---|
-|Asx | Itch | Mdp | 2.4.0 | 7/15/2014 | Untested|
-|Cme | Sbe | Mdp | 8.1.0 | 7/1/2016 | Verified|
-|Cme | Sbe | Mdp | 6.1.0 | 1/9/2016 | Verified|
-|Cme | Sbe | Mdp | 5.1.0 | 8/6/2014 | Verified|
-|Eurex | T7 | Eobi | 2.5.5 | 11/7/2014 | Known Bug|
-|Ice | iMpact | Mdp | 1.24.0 | 3/30/2016 | Verified|
-|Miax | Mach | cTom | 1.1.0 | 7/15/2016 | Verified|
-|Miax | Mach | Tom | 1.9.0 | 1/15/2016 | Verified|
+|Organization | Protocol | Data | Version | Date | Size | Testing|
+|--- | --- | --- | --- | --- | --- | ---|
 
 Note: Some packets contain enough information to programmatically determine the correct protocol specification.  *Some do not.*  If you add multiple dissectors to your plugins folder, wireshark will dissect each "conversation" based on the first matching protocol.
 
@@ -42,5 +34,7 @@ Please report any dissection errors as issues.  Include a small note on the prot
 
 ## Disclaimer
 
-The Open Markets Initiative (Omi) is a group of technologists dedicated to enhancing the stability of electronic financial markets using modern development methods. Any similaraity between existing people, places and/or protocols is purely incidental. Enjoy.
+The Open Markets Initiative (Omi) is a group of technologists dedicated to enhancing the stability of electronic financial markets using modern development methods.
+
+Any similaraity between existing people, places and/or protocols is purely incidental. Enjoy.
 
