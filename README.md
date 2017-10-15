@@ -19,16 +19,10 @@ The standard path on a linux install:
 For all configuration information: [Wireshark Configuration Files.](https://www.wireshark.org/docs/wsug_html_chunked/ChAppFilesConfigurationSection.html "Wireshark Files Configuration Documentation")
 ## Protocols
 
-|Organization | Protocol | Data | Version | Date | Size | Testing|
-|--- | --- | --- | --- | --- | --- | ---|
-|Asx | Itch | Mdp | 2.4.0 | 7/15/2014 | 4837 | Untested|
-|Cme | Sbe | Mdp | 8.1.0 | 7/1/2016 | 7429 | Verified|
-|Cme | Sbe | Mdp | 6.1.0 | 1/9/2016 | 6715 | Verified|
-|Cme | Sbe | Mdp | 5.1.0 | 8/6/2014 | 6706 | Verified|
-|Eurex | T7 | Eobi | 2.5.5 | 11/7/2014 | 3053 | Known Bug|
-|Ice | iMpact | Mdp | 1.24.0 | 3/30/2016 | 6106 | Verified|
-|Miax | Mach | cTom | 1.1.0 | 7/15/2016 | 2422 | Verified|
-|Miax | Mach | Tom | 1.9.0 | 1/15/2016 | 2143 | Verified|
+| Protocol | Data | Version | Date | Size | Testing|
+| --- | --- | --- | --- | --- | ---|
+| Itch | Mdp | 2.4.0 | 7/15/2014 | 4837 | Untested|
+
 
 Note: Some packets contain enough information to programmatically determine the correct protocol specification.  *Some do not.*  If you add multiple dissectors to your plugins folder, wireshark will dissect each "conversation" based on the first matching protocol.
 
