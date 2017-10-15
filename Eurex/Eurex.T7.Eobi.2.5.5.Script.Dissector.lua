@@ -112,13 +112,13 @@ eurex_t7_eobi_2_5_5.fields.packet_header = ProtoField.new("Packet Header", "Eure
 eurex_t7_eobi_2_5_5.fields.packet_id = ProtoField.new("Packet Id", "Eurex.T7.Eobi.packetid", ftypes.UINT16)
 eurex_t7_eobi_2_5_5.fields.packet_info = ProtoField.new("Packet Info", "Eurex.T7.Eobi.packetinfo", ftypes.STRING)
 eurex_t7_eobi_2_5_5.fields.packet_seq_num = ProtoField.new("Packet Seq Num", "Eurex.T7.Eobi.packetseqnum", ftypes.UINT32)
-eurex_t7_eobi_2_5_5.fields.pad1 = ProtoField.new("Pad1", "Eurex.T7.Eobi.pad1", ftypes.STRING)
-eurex_t7_eobi_2_5_5.fields.pad2 = ProtoField.new("Pad2", "Eurex.T7.Eobi.pad2", ftypes.STRING)
-eurex_t7_eobi_2_5_5.fields.pad3 = ProtoField.new("Pad3", "Eurex.T7.Eobi.pad3", ftypes.STRING)
-eurex_t7_eobi_2_5_5.fields.pad4 = ProtoField.new("Pad4", "Eurex.T7.Eobi.pad4", ftypes.STRING)
-eurex_t7_eobi_2_5_5.fields.pad5 = ProtoField.new("Pad5", "Eurex.T7.Eobi.pad5", ftypes.STRING)
-eurex_t7_eobi_2_5_5.fields.pad6 = ProtoField.new("Pad6", "Eurex.T7.Eobi.pad6", ftypes.STRING)
-eurex_t7_eobi_2_5_5.fields.pad7 = ProtoField.new("Pad7", "Eurex.T7.Eobi.pad7", ftypes.STRING)
+eurex_t7_eobi_2_5_5.fields.pad1 = ProtoField.new("Pad1", "Eurex.T7.Eobi.pad1", ftypes.BYTES)
+eurex_t7_eobi_2_5_5.fields.pad2 = ProtoField.new("Pad2", "Eurex.T7.Eobi.pad2", ftypes.BYTES)
+eurex_t7_eobi_2_5_5.fields.pad3 = ProtoField.new("Pad3", "Eurex.T7.Eobi.pad3", ftypes.BYTES)
+eurex_t7_eobi_2_5_5.fields.pad4 = ProtoField.new("Pad4", "Eurex.T7.Eobi.pad4", ftypes.BYTES)
+eurex_t7_eobi_2_5_5.fields.pad5 = ProtoField.new("Pad5", "Eurex.T7.Eobi.pad5", ftypes.BYTES)
+eurex_t7_eobi_2_5_5.fields.pad6 = ProtoField.new("Pad6", "Eurex.T7.Eobi.pad6", ftypes.BYTES)
+eurex_t7_eobi_2_5_5.fields.pad7 = ProtoField.new("Pad7", "Eurex.T7.Eobi.pad7", ftypes.BYTES)
 eurex_t7_eobi_2_5_5.fields.partial_order_execution = ProtoField.new("Partial Order Execution", "Eurex.T7.Eobi.partialorderexecution", ftypes.STRING)
 eurex_t7_eobi_2_5_5.fields.partition_id = ProtoField.new("Partition ID", "Eurex.T7.Eobi.partitionid", ftypes.UINT8)
 eurex_t7_eobi_2_5_5.fields.payload = ProtoField.new("Payload", "Eurex.T7.Eobi.payload", ftypes.STRING)
@@ -166,7 +166,7 @@ end
 dissect.pad3 = function(buffer, offset, packet, parent)
   local size = 3
   local range = buffer(offset, size)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = display.pad3(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_2_5_5.fields.pad3, range, value, display)
@@ -277,7 +277,7 @@ dissect.md_trade_entry_grp_fields = function(buffer, offset, packet, parent)
   -- MD Entry Type: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index = dissect.md_entry_type(buffer, index, packet, parent)
 
-  -- Pad3: 3 Byte Ascii String
+  -- Pad3: 3 Byte
   index = dissect.pad3(buffer, index, packet, parent)
 
   return index
@@ -305,7 +305,7 @@ end
 dissect.pad7 = function(buffer, offset, packet, parent)
   local size = 7
   local range = buffer(offset, size)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = display.pad7(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_2_5_5.fields.pad7, range, value, display)
@@ -475,7 +475,7 @@ dissect.trade_reversal_fields = function(buffer, offset, packet, parent)
   -- No MD Entries: 1 Byte Unsigned Fixed Width Integer
   index = dissect.no_md_entries(buffer, index, packet, parent)
 
-  -- Pad7: 7 Byte Ascii String
+  -- Pad7: 7 Byte
   index = dissect.pad7(buffer, index, packet, parent)
 
   -- MD Trade Entry Grp: Struct of 4 fields
@@ -511,7 +511,7 @@ end
 dissect.pad6 = function(buffer, offset, packet, parent)
   local size = 6
   local range = buffer(offset, size)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = display.pad6(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_2_5_5.fields.pad6, range, value, display)
@@ -606,7 +606,7 @@ dissect.trade_report_fields = function(buffer, offset, packet, parent)
   -- Match Sub Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index = dissect.match_sub_type(buffer, index, packet, parent)
 
-  -- Pad6: 6 Byte Ascii String
+  -- Pad6: 6 Byte
   index = dissect.pad6(buffer, index, packet, parent)
 
   return index
@@ -789,7 +789,7 @@ dissect.order_details_fields = function(buffer, offset, packet, parent)
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index = dissect.side(buffer, index, packet, parent)
 
-  -- Pad3: 3 Byte Ascii String
+  -- Pad3: 3 Byte
   index = dissect.pad3(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
@@ -857,7 +857,7 @@ dissect.quote_request_fields = function(buffer, offset, packet, parent)
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index = dissect.side(buffer, index, packet, parent)
 
-  -- Pad3: 3 Byte Ascii String
+  -- Pad3: 3 Byte
   index = dissect.pad3(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -1059,7 +1059,7 @@ end
 dissect.pad4 = function(buffer, offset, packet, parent)
   local size = 4
   local range = buffer(offset, size)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = display.pad4(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_2_5_5.fields.pad4, range, value, display)
@@ -1088,7 +1088,7 @@ dissect.product_state_change_fields = function(buffer, offset, packet, parent)
   -- Fast Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index = dissect.fast_market_indicator(buffer, index, packet, parent)
 
-  -- Pad4: 4 Byte Ascii String
+  -- Pad4: 4 Byte
   index = dissect.pad4(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -1122,7 +1122,7 @@ dissect.partial_order_execution_fields = function(buffer, offset, packet, parent
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index = dissect.side(buffer, index, packet, parent)
 
-  -- Pad7: 7 Byte Ascii String
+  -- Pad7: 7 Byte
   index = dissect.pad7(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
@@ -1168,7 +1168,7 @@ end
 dissect.pad5 = function(buffer, offset, packet, parent)
   local size = 5
   local range = buffer(offset, size)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = display.pad5(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_2_5_5.fields.pad5, range, value, display)
@@ -1387,7 +1387,7 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   -- Application Sequence Reset Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index = dissect.application_sequence_reset_indicator(buffer, index, packet, parent)
 
-  -- Pad5: 5 Byte Ascii String
+  -- Pad5: 5 Byte
   index = dissect.pad5(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -1461,7 +1461,7 @@ dissect.order_modify_same_prio_fields = function(buffer, offset, packet, parent)
   -- Prev Display Qty: 4 Byte Signed Fixed Width Integer
   index = dissect.prev_display_qty(buffer, index, packet, parent)
 
-  -- Pad4: 4 Byte Ascii String
+  -- Pad4: 4 Byte
   index = dissect.pad4(buffer, index, packet, parent)
 
   -- Security ID: 8 Byte Signed Fixed Width Integer
@@ -1541,7 +1541,7 @@ dissect.order_modify_fields = function(buffer, offset, packet, parent)
   -- Prev Display Qty: 4 Byte Signed Fixed Width Integer
   index = dissect.prev_display_qty(buffer, index, packet, parent)
 
-  -- Pad4: 4 Byte Ascii String
+  -- Pad4: 4 Byte
   index = dissect.pad4(buffer, index, packet, parent)
 
   -- Security ID: 8 Byte Signed Fixed Width Integer
@@ -1686,7 +1686,7 @@ dissect.md_instrument_entry_grp_fields = function(buffer, offset, packet, parent
   -- MD Entry Type: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index = dissect.md_entry_type(buffer, index, packet, parent)
 
-  -- Pad3: 3 Byte Ascii String
+  -- Pad3: 3 Byte
   index = dissect.pad3(buffer, index, packet, parent)
 
   return index
@@ -1714,7 +1714,7 @@ end
 dissect.pad2 = function(buffer, offset, packet, parent)
   local size = 2
   local range = buffer(offset, size)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = display.pad2(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_2_5_5.fields.pad2, range, value, display)
@@ -1886,7 +1886,7 @@ dissect.instrument_summary_fields = function(buffer, offset, packet, parent)
   -- No MD Entries: 1 Byte Unsigned Fixed Width Integer
   index = dissect.no_md_entries(buffer, index, packet, parent)
 
-  -- Pad2: 2 Byte Ascii String
+  -- Pad2: 2 Byte
   index = dissect.pad2(buffer, index, packet, parent)
 
   -- MD Instrument Entry Grp: Struct of 4 fields
@@ -1934,7 +1934,7 @@ dissect.instrument_state_change_fields = function(buffer, offset, packet, parent
   -- Fast Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index = dissect.fast_market_indicator(buffer, index, packet, parent)
 
-  -- Pad5: 5 Byte Ascii String
+  -- Pad5: 5 Byte
   index = dissect.pad5(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -1968,7 +1968,7 @@ dissect.heartbeat_fields = function(buffer, offset, packet, parent)
   -- Last Msg Seq Num Processed: 4 Byte Unsigned Fixed Width Integer
   index = dissect.last_msg_seq_num_processed(buffer, index, packet, parent)
 
-  -- Pad4: 4 Byte Ascii String
+  -- Pad4: 4 Byte
   index = dissect.pad4(buffer, index, packet, parent)
 
   return index
@@ -1999,7 +1999,7 @@ dissect.full_order_execution_fields = function(buffer, offset, packet, parent)
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index = dissect.side(buffer, index, packet, parent)
 
-  -- Pad7: 7 Byte Ascii String
+  -- Pad7: 7 Byte
   index = dissect.pad7(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
@@ -2179,7 +2179,7 @@ dissect.execution_summary_fields = function(buffer, offset, packet, parent)
   -- Trade Condition: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
   index = dissect.trade_condition(buffer, index, packet, parent)
 
-  -- Pad2: 2 Byte Ascii String
+  -- Pad2: 2 Byte
   index = dissect.pad2(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Unsigned Fixed Width Integer
@@ -2188,7 +2188,7 @@ dissect.execution_summary_fields = function(buffer, offset, packet, parent)
   -- Resting Hidden Qty: 4 Byte Signed Fixed Width Integer
   index = dissect.resting_hidden_qty(buffer, index, packet, parent)
 
-  -- Pad4: 4 Byte Ascii String
+  -- Pad4: 4 Byte
   index = dissect.pad4(buffer, index, packet, parent)
 
   return index
@@ -2222,7 +2222,7 @@ dissect.cross_request_fields = function(buffer, offset, packet, parent)
   -- Last Qty: 4 Byte Signed Fixed Width Integer
   index = dissect.last_qty(buffer, index, packet, parent)
 
-  -- Pad4: 4 Byte Ascii String
+  -- Pad4: 4 Byte
   index = dissect.pad4(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -2402,7 +2402,7 @@ dissect.instrmt_leg_grp_fields = function(buffer, offset, packet, parent)
   -- Leg Symbol: 4 Byte Signed Fixed Width Integer
   index = dissect.leg_symbol(buffer, index, packet, parent)
 
-  -- Pad4: 4 Byte Ascii String
+  -- Pad4: 4 Byte
   index = dissect.pad4(buffer, index, packet, parent)
 
   -- Leg Security ID: 8 Byte Signed Fixed Width Integer
@@ -2414,7 +2414,7 @@ dissect.instrmt_leg_grp_fields = function(buffer, offset, packet, parent)
   -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index = dissect.leg_side(buffer, index, packet, parent)
 
-  -- Pad3: 3 Byte Ascii String
+  -- Pad3: 3 Byte
   index = dissect.pad3(buffer, index, packet, parent)
 
   return index
@@ -2442,7 +2442,7 @@ end
 dissect.pad1 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = display.pad1(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_2_5_5.fields.pad1, range, value, display)
@@ -2581,7 +2581,7 @@ dissect.add_complex_instrument_fields = function(buffer, offset, packet, parent)
   -- No Legs: 1 Byte Unsigned Fixed Width Integer
   index = dissect.no_legs(buffer, index, packet, parent)
 
-  -- Pad1: 1 Byte Ascii String
+  -- Pad1: 1 Byte
   index = dissect.pad1(buffer, index, packet, parent)
 
   -- Instrmt Leg Grp: Struct of 6 fields
