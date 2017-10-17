@@ -55,7 +55,7 @@ show.time_message = true
 show.trade_cancellation = true
 show.trade_spread_execution_chain = true
 show.volume_and_open_interest = true
-show.payload = true
+show.payload = false
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields

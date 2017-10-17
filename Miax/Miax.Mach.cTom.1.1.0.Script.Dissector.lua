@@ -35,8 +35,8 @@ show.underlying_trading_status_message = true
 show.wide_complex_double_sided_top_of_market_message = true
 show.wide_complex_top_of_market_bid_message = true
 show.wide_complex_top_of_market_offer_message = true
-show.data = true
-show.payload = true
+show.data = false
+show.payload = false
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields

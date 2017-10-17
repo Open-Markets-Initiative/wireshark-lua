@@ -50,7 +50,7 @@ show.snapshot_order = true
 show.top_of_book = true
 show.trade_report = true
 show.trade_reversal = true
-show.payload = true
+show.payload = false
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields

@@ -79,7 +79,7 @@ show.snapshot_full_refresh_group = true
 show.snapshot_full_refresh_groups = true
 show.underlyings_group = true
 show.underlyings_groups = true
-show.payload = true
+show.payload = false
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields

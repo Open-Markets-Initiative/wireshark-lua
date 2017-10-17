@@ -89,7 +89,7 @@ show.snapshot_full_refresh_order_book_group = true
 show.snapshot_full_refresh_order_book_groups = true
 show.underlyings_group = true
 show.underlyings_groups = true
-show.payload = true
+show.payload = false
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields

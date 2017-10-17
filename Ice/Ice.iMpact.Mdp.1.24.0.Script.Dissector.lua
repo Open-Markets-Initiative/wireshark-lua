@@ -64,7 +64,7 @@ show.strategy_leg_definition = true
 show.strip_info_message = true
 show.system_text_message = true
 show.trade_message = true
-show.payload = true
+show.payload = false
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
