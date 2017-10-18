@@ -244,6 +244,7 @@ end
 
 -- Display MD Entry Px
 display.md_entry_px = function(value)
+  local factor = 100000000
   return "MD Entry Px: "..value/factor
 end
 
@@ -349,6 +350,7 @@ end
 
 -- Display Last Px
 display.last_px = function(value)
+  local factor = 100000000
   return "Last Px: "..value/factor
 end
 
@@ -627,6 +629,7 @@ end
 
 -- Display Offer Px
 display.offer_px = function(value)
+  local factor = 100000000
   return "Offer Px: "..value/factor
 end
 
@@ -644,6 +647,7 @@ end
 
 -- Display Bid Px
 display.bid_px = function(value)
+  local factor = 100000000
   return "Bid Px: "..value/factor
 end
 
@@ -698,6 +702,7 @@ end
 
 -- Display Price
 display.price = function(value)
+  local factor = 100000000
   return "Price: "..value/factor
 end
 
@@ -1488,6 +1493,7 @@ end
 
 -- Display Prev Price
 display.prev_price = function(value)
+  local factor = 100000000
   return "Prev Price: "..value/factor
 end
 
