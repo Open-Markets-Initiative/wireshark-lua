@@ -244,8 +244,7 @@ end
 
 -- Display MD Entry Px
 display.md_entry_px = function(value)
-  local precision = 8
-  return "MD Entry Px: "..value/10^precision
+  return "MD Entry Px: "..value/factor
 end
 
 -- Dissect MD Entry Px Field
@@ -350,8 +349,7 @@ end
 
 -- Display Last Px
 display.last_px = function(value)
-  local precision = 8
-  return "Last Px: "..value/10^precision
+  return "Last Px: "..value/factor
 end
 
 -- Dissect Last Px Field
@@ -629,8 +627,7 @@ end
 
 -- Display Offer Px
 display.offer_px = function(value)
-  local precision = 8
-  return "Offer Px: "..value/10^precision
+  return "Offer Px: "..value/factor
 end
 
 -- Dissect Offer Px Field
@@ -647,8 +644,7 @@ end
 
 -- Display Bid Px
 display.bid_px = function(value)
-  local precision = 8
-  return "Bid Px: "..value/10^precision
+  return "Bid Px: "..value/factor
 end
 
 -- Dissect Bid Px Field
@@ -702,8 +698,7 @@ end
 
 -- Display Price
 display.price = function(value)
-  local precision = 8
-  return "Price: "..value/10^precision
+  return "Price: "..value/factor
 end
 
 -- Dissect Price Field
@@ -1493,8 +1488,7 @@ end
 
 -- Display Prev Price
 display.prev_price = function(value)
-  local precision = 8
-  return "Prev Price: "..value/10^precision
+  return "Prev Price: "..value/factor
 end
 
 -- Dissect Prev Price Field
