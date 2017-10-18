@@ -21,7 +21,7 @@ For all configuration information: [Wireshark Configuration Files.](https://www.
 
 |Organization | Protocol | Data | Version | Date | Size | Testing|
 |--- | --- | --- | --- | --- | --- | ---|
-|Asx | Itch | Mdp | 2.4.0 | 7/15/2014 | 4837 | Verified|
+|Asx | T24 | Itch | 2.4.0 | 7/15/2014 | 4837 | Verified|
 |Cme | Sbe | Mdp | 8.1.0 | 7/1/2016 | 7429 | Verified|
 |Cme | Sbe | Mdp | 6.1.0 | 1/9/2016 | 6715 | Verified|
 |Cme | Sbe | Mdp | 5.1.0 | 8/6/2014 | 6706 | Verified|
