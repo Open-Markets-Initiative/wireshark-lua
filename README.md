@@ -25,6 +25,7 @@ For all configuration information: [Wireshark Configuration Files.](https://www.
 |Cme | Sbe | Mdp | 8.1.0 | 7/1/2016 | 7429 | Verified|
 |Cme | Sbe | Mdp | 6.1.0 | 1/9/2016 | 6715 | Verified|
 |Cme | Sbe | Mdp | 5.1.0 | 8/6/2014 | 6706 | Verified|
+|Eurex | T7 | Eobi | 3.0.71 | 8/3/2015 | 3077 | Untested|
 |Eurex | T7 | Eobi | 2.5.5 | 11/7/2014 | 3059 | Known Bug|
 |Ice | iMpact | Mdp | 1.24.0 | 3/30/2016 | 6106 | Verified|
 |Miax | Mach | cTom | 1.1.0 | 7/15/2016 | 2422 | Verified|
