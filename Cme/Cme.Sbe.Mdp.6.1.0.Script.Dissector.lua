@@ -660,7 +660,8 @@ end
 
 -- Display MD Entry Px
 display.md_entry_px = function(value)
-  return "MD Entry Px: "..value
+  local factor = 10000000
+  return "MD Entry Px: "..value/factor
 end
 
 -- Dissect MD Entry Px Field
@@ -1298,7 +1299,8 @@ end
 
 -- Display Min Lot Size
 display.min_lot_size = function(value)
-  return "Min Lot Size: "..value
+  local factor = 10000
+  return "Min Lot Size: "..value/factor
 end
 
 -- Dissect Min Lot Size Field
@@ -2473,7 +2475,8 @@ end
 
 -- Display High Limit Price
 display.high_limit_price = function(value)
-  return "High Limit Price: "..value
+  local factor = 10000000
+  return "High Limit Price: "..value/factor
 end
 
 -- Dissect High Limit Price Field
@@ -2490,7 +2493,8 @@ end
 
 -- Display Low Limit Price
 display.low_limit_price = function(value)
-  return "Low Limit Price: "..value
+  local factor = 10000000
+  return "Low Limit Price: "..value/factor
 end
 
 -- Dissect Low Limit Price Field
@@ -2761,7 +2765,8 @@ end
 
 -- Display Trading Reference Price
 display.trading_reference_price = function(value)
-  return "Trading Reference Price: "..value
+  local factor = 10000000
+  return "Trading Reference Price: "..value/factor
 end
 
 -- Dissect Trading Reference Price Field
@@ -2778,7 +2783,8 @@ end
 
 -- Display Unit Of Measure Qty
 display.unit_of_measure_qty = function(value)
-  return "Unit Of Measure Qty: "..value
+  local factor = 10000000
+  return "Unit Of Measure Qty: "..value/factor
 end
 
 -- Dissect Unit Of Measure Qty Field
@@ -2880,7 +2886,8 @@ end
 
 -- Display Display Factor
 display.display_factor = function(value)
-  return "Display Factor: "..value
+  local factor = 10000000
+  return "Display Factor: "..value/factor
 end
 
 -- Dissect Display Factor Field
@@ -2897,7 +2904,8 @@ end
 
 -- Display Min Price Increment Amount
 display.min_price_increment_amount = function(value)
-  return "Min Price Increment Amount: "..value
+  local factor = 10000000
+  return "Min Price Increment Amount: "..value/factor
 end
 
 -- Dissect Min Price Increment Amount Field
@@ -2914,7 +2922,8 @@ end
 
 -- Display Min Price Increment
 display.min_price_increment = function(value)
-  return "Min Price Increment: "..value
+  local factor = 10000000
+  return "Min Price Increment: "..value/factor
 end
 
 -- Dissect Min Price Increment Field
@@ -2982,7 +2991,8 @@ end
 
 -- Display Min Cab Price
 display.min_cab_price = function(value)
-  return "Min Cab Price: "..value
+  local factor = 10000000
+  return "Min Cab Price: "..value/factor
 end
 
 -- Dissect Min Cab Price Field
@@ -3033,7 +3043,8 @@ end
 
 -- Display Strike Price
 display.strike_price = function(value)
-  return "Strike Price: "..value
+  local factor = 10000000
+  return "Strike Price: "..value/factor
 end
 
 -- Dissect Strike Price Field
@@ -4070,7 +4081,8 @@ end
 
 -- Display Max Price Variation
 display.max_price_variation = function(value)
-  return "Max Price Variation: "..value
+  local factor = 10000000
+  return "Max Price Variation: "..value/factor
 end
 
 -- Dissect Max Price Variation Field
@@ -5273,7 +5285,8 @@ end
 
 -- Display Leg Option Delta
 display.leg_option_delta = function(value)
-  return "Leg Option Delta: "..value
+  local factor = 10000
+  return "Leg Option Delta: "..value/factor
 end
 
 -- Dissect Leg Option Delta Field
@@ -5290,7 +5303,8 @@ end
 
 -- Display Leg Price
 display.leg_price = function(value)
-  return "Leg Price: "..value
+  local factor = 10000000
+  return "Leg Price: "..value/factor
 end
 
 -- Dissect Leg Price Field
@@ -5454,7 +5468,8 @@ end
 
 -- Display Price Ratio
 display.price_ratio = function(value)
-  return "Price Ratio: "..value
+  local factor = 10000000
+  return "Price Ratio: "..value/factor
 end
 
 -- Dissect Price Ratio Field
