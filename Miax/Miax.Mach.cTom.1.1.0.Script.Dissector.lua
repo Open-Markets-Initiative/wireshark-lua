@@ -1213,12 +1213,6 @@ display.leg_side = function(value)
   if value == A then
     return "Leg Side: Ask (A)"
   end
-  if value == B then
-    return "Leg Side: Bid (B)"
-  end
-  if value == A then
-    return "Leg Side: Ask (A)"
-  end
 
   return "Leg Side: Unknown("..value..")"
 end
@@ -1284,7 +1278,7 @@ dissect.leg_definition_fields = function(buffer, offset, packet, parent)
   -- Leg Ratio Qty: 2 Byte Unsigned Fixed Width Integer
   index = dissect.leg_ratio_qty(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index = dissect.leg_side(buffer, index, packet, parent)
 
   -- Reserved8: 8 Byte
@@ -1622,12 +1616,6 @@ display.long_term_option = function(value)
   if value == "N" then
     return "Long Term Option: No (N)"
   end
-  if value == "Y" then
-    return "Long Term Option: Yes (Y)"
-  end
-  if value == "N" then
-    return "Long Term Option: No (N)"
-  end
 
   return "Long Term Option: Unknown("..value..")"
 end
@@ -1646,12 +1634,6 @@ end
 
 -- Display Field: Restricted Option
 display.restricted_option = function(value)
-  if value == "Y" then
-    return "Restricted Option: Yes (Y)"
-  end
-  if value == "N" then
-    return "Restricted Option: No (N)"
-  end
   if value == "Y" then
     return "Restricted Option: Yes (Y)"
   end
@@ -1710,12 +1692,6 @@ end
 
 -- Display Field: Callor Put
 display.callor_put = function(value)
-  if value == "C" then
-    return "Callor Put: Call (C)"
-  end
-  if value == "P" then
-    return "Callor Put: Put (P)"
-  end
   if value == "C" then
     return "Callor Put: Call (C)"
   end
@@ -1850,7 +1826,7 @@ dissect.series_update_fields = function(buffer, offset, packet, parent)
   -- Strike Price: 4 Byte Unsigned Fixed Width Integer
   index = dissect.strike_price(buffer, index, packet, parent)
 
-  -- Callor Put: 1 Byte Ascii String Enum with 4 values
+  -- Callor Put: 1 Byte Ascii String Enum with 2 values
   index = dissect.callor_put(buffer, index, packet, parent)
 
   -- Opening Time: 8 Byte Ascii String
@@ -1859,10 +1835,10 @@ dissect.series_update_fields = function(buffer, offset, packet, parent)
   -- Closing Time: 8 Byte Ascii String
   index = dissect.closing_time(buffer, index, packet, parent)
 
-  -- Restricted Option: 1 Byte Ascii String Enum with 4 values
+  -- Restricted Option: 1 Byte Ascii String Enum with 2 values
   index = dissect.restricted_option(buffer, index, packet, parent)
 
-  -- Long Term Option: 1 Byte Ascii String Enum with 4 values
+  -- Long Term Option: 1 Byte Ascii String Enum with 2 values
   index = dissect.long_term_option(buffer, index, packet, parent)
 
   -- Active On Miax: 1 Byte Ascii String Enum with 2 values

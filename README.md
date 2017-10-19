@@ -28,7 +28,7 @@ For all configuration information: [Wireshark Configuration Files.](https://www.
 |Eurex | T7 | Eobi | 3.0.71 | 8/3/2015 | 3077 | Untested|
 |Eurex | T7 | Eobi | 2.5.5 | 11/7/2014 | 3059 | Known Bug|
 |Ice | iMpact | Mdp | 1.24.0 | 3/30/2016 | 6106 | Verified|
-|Miax | Mach | cTom | 1.1.0 | 7/15/2016 | 2422 | Verified|
+|Miax | Mach | cTom | 1.1.0 | 7/15/2016 | 2398 | Verified|
 |Miax | Mach | Tom | 1.9.0 | 1/15/2016 | 2143 | Verified|
 
 Note: Some packets contain enough information to programmatically determine the correct protocol specification.  *Some do not.*  If you add multiple dissectors to your plugins folder, wireshark will dissect each "conversation" based on the first matching protocol.
