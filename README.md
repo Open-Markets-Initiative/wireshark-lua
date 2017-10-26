@@ -39,11 +39,16 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 Note: Our dissector model is still in beta and subject to rapid development.
 
+
+Production captures are required for protocol verification.  If your organization has the rights to donate captures, and you wish to make the world a better place, please contact us.
+
 Please report any dissection errors as issues.  Include a small note on the protocol and version, what you expect, a zipped minimal capture demonstrating the problem, and a link or pdf specification documenting the correct behavior. 
 
 ## Disclaimer
 
 The Open Markets Initiative (Omi) is a group of technologists dedicated to enhancing the stability of electronic financial markets using modern development methods.
 
-Any similaraity between existing people, places and/or protocols is purely incidental. Enjoy.
+Any similaraity between existing people, places and/or protocols is purely incidental.
+
+Enjoy.
 
