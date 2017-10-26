@@ -12,7 +12,7 @@ local show = {}
 local format = {}
 local display = {}
 local dissect = {}
-local calculate = {}
+local size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
@@ -142,16 +142,16 @@ display.expected_event_time__nano__seconds_part = function(value)
   return "Expected Event Time: Nano- Seconds Part: "..value
 end
 
--- Dissect Expected Event Time: Nano- Seconds Part Field
+-- Dissect: Expected Event Time: Nano- Seconds Part
 dissect.expected_event_time__nano__seconds_part = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.expected_event_time__nano__seconds_part(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.expected_event_time__nano__seconds_part, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Seconds Part
@@ -159,19 +159,19 @@ display.seconds_part = function(value)
   return "Seconds Part: "..value
 end
 
--- Dissect Seconds Part Field
+-- Dissect: Seconds Part
 dissect.seconds_part = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.seconds_part(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.seconds_part, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
--- Display Field: Event Reason
+-- Display: Event Reason
 display.event_reason = function(value)
   if value == "A" then
     return "Event Reason: Automatic (A)"
@@ -183,19 +183,19 @@ display.event_reason = function(value)
   return "Event Reason: Unknown("..value..")"
 end
 
--- Dissect Event Reason Field
+-- Dissect: Event Reason
 dissect.event_reason = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.event_reason(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.event_reason, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
--- Display Field: Trading Status
+-- Display: Trading Status
 display.trading_status = function(value)
   if value == "H" then
     return "Trading Status: Halted (H)"
@@ -210,16 +210,16 @@ display.trading_status = function(value)
   return "Trading Status: Unknown("..value..")"
 end
 
--- Dissect Trading Status Field
+-- Dissect: Trading Status
 dissect.trading_status = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.trading_status(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.trading_status, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Underlying Symbol
@@ -227,16 +227,16 @@ display.underlying_symbol = function(value)
   return "Underlying Symbol: "..value
 end
 
--- Dissect Underlying Symbol Field
+-- Dissect: Underlying Symbol
 dissect.underlying_symbol = function(buffer, offset, packet, parent)
-  local size = 11
-  local range = buffer(offset, size)
+  local length = 11
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.underlying_symbol(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.underlying_symbol, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Timestamp
@@ -244,16 +244,16 @@ display.timestamp = function(value)
   return "Timestamp: "..value
 end
 
--- Dissect Timestamp Field
+-- Dissect: Timestamp
 dissect.timestamp = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.timestamp, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Underlying Trading Status Message
@@ -298,7 +298,7 @@ dissect.underlying_trading_status_message = function(buffer, offset, packet, par
   return dissect.underlying_trading_status_message_fields(buffer, offset, packet, parent)
 end
 
--- Display Field: Trade Condition
+-- Display: Trade Condition
 display.trade_condition = function(value)
   if value == "A" then
     return "Trade Condition: Cancel Of Trade (A)"
@@ -307,16 +307,16 @@ display.trade_condition = function(value)
   return "Trade Condition: Unknown("..value..")"
 end
 
--- Dissect Trade Condition Field
+-- Dissect: Trade Condition
 dissect.trade_condition = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.trade_condition(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.trade_condition, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Trade Size
@@ -324,16 +324,16 @@ display.trade_size = function(value)
   return "Trade Size: "..value
 end
 
--- Dissect Trade Size Field
+-- Dissect: Trade Size
 dissect.trade_size = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.trade_size(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.trade_size, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Trade Price
@@ -341,16 +341,16 @@ display.trade_price = function(value)
   return "Trade Price: "..value
 end
 
--- Dissect Trade Price Field
+-- Dissect: Trade Price
 dissect.trade_price = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.trade_price(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.trade_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Correction Number
@@ -358,16 +358,16 @@ display.correction_number = function(value)
   return "Correction Number: "..value
 end
 
--- Dissect Correction Number Field
+-- Dissect: Correction Number
 dissect.correction_number = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.correction_number(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.correction_number, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Trade ID
@@ -375,16 +375,16 @@ display.trade_id = function(value)
   return "Trade ID: "..value
 end
 
--- Dissect Trade ID Field
+-- Dissect: Trade ID
 dissect.trade_id = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.trade_id(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.trade_id, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Product ID
@@ -392,16 +392,16 @@ display.product_id = function(value)
   return "Product ID: "..value
 end
 
--- Dissect Product ID Field
+-- Dissect: Product ID
 dissect.product_id = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.product_id(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.product_id, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Trade Cancel Message
@@ -454,16 +454,16 @@ display.reference_correction_number = function(value)
   return "Reference Correction Number: "..value
 end
 
--- Dissect Reference Correction Number Field
+-- Dissect: Reference Correction Number
 dissect.reference_correction_number = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.reference_correction_number(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.reference_correction_number, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Reference Trade ID
@@ -471,16 +471,16 @@ display.reference_trade_id = function(value)
   return "Reference Trade ID: "..value
 end
 
--- Dissect Reference Trade ID Field
+-- Dissect: Reference Trade ID
 dissect.reference_trade_id = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.reference_trade_id(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.reference_trade_id, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Trade Message
@@ -534,7 +534,7 @@ dissect.trade_message = function(buffer, offset, packet, parent)
   return dissect.trade_message_fields(buffer, offset, packet, parent)
 end
 
--- Display Field: Offer Condition
+-- Display: Offer Condition
 display.offer_condition = function(value)
   if value == "A" then
     return "Offer Condition: Regular (A)"
@@ -552,16 +552,16 @@ display.offer_condition = function(value)
   return "Offer Condition: Unknown("..value..")"
 end
 
--- Dissect Offer Condition Field
+-- Dissect: Offer Condition
 dissect.offer_condition = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.offer_condition(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.offer_condition, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Offer Priority Customer Size
@@ -569,16 +569,16 @@ display.offer_priority_customer_size = function(value)
   return "Offer Priority Customer Size: "..value
 end
 
--- Dissect Offer Priority Customer Size Field
+-- Dissect: Offer Priority Customer Size
 dissect.offer_priority_customer_size = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.offer_priority_customer_size(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.offer_priority_customer_size, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Offer Size
@@ -586,16 +586,16 @@ display.offer_size = function(value)
   return "Offer Size: "..value
 end
 
--- Dissect Offer Size Field
+-- Dissect: Offer Size
 dissect.offer_size = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.offer_size(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.offer_size, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Offer Price
@@ -603,19 +603,19 @@ display.offer_price = function(value)
   return "Offer Price: "..value
 end
 
--- Dissect Offer Price Field
+-- Dissect: Offer Price
 dissect.offer_price = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.offer_price(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.offer_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
--- Display Field: Bid Condition
+-- Display: Bid Condition
 display.bid_condition = function(value)
   if value == "A" then
     return "Bid Condition: Regular (A)"
@@ -633,16 +633,16 @@ display.bid_condition = function(value)
   return "Bid Condition: Unknown("..value..")"
 end
 
--- Dissect Bid Condition Field
+-- Dissect: Bid Condition
 dissect.bid_condition = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.bid_condition(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.bid_condition, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Bid Priority Customer Size
@@ -650,16 +650,16 @@ display.bid_priority_customer_size = function(value)
   return "Bid Priority Customer Size: "..value
 end
 
--- Dissect Bid Priority Customer Size Field
+-- Dissect: Bid Priority Customer Size
 dissect.bid_priority_customer_size = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.bid_priority_customer_size(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.bid_priority_customer_size, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Bid Size
@@ -667,16 +667,16 @@ display.bid_size = function(value)
   return "Bid Size: "..value
 end
 
--- Dissect Bid Size Field
+-- Dissect: Bid Size
 dissect.bid_size = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.bid_size(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.bid_size, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Bid Price
@@ -684,16 +684,16 @@ display.bid_price = function(value)
   return "Bid Price: "..value
 end
 
--- Dissect Bid Price Field
+-- Dissect: Bid Price
 dissect.bid_price = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.bid_price(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.bid_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Wide Double Sided Top of Market Message
@@ -804,7 +804,7 @@ dissect.double_sided_top_of_market_compact_message = function(buffer, offset, pa
   return dissect.double_sided_top_of_market_compact_message_fields(buffer, offset, packet, parent)
 end
 
--- Display Field: Mbbo Condition
+-- Display: Mbbo Condition
 display.mbbo_condition = function(value)
   if value == "A" then
     return "Mbbo Condition: Regular (A)"
@@ -822,16 +822,16 @@ display.mbbo_condition = function(value)
   return "Mbbo Condition: Unknown("..value..")"
 end
 
--- Dissect Mbbo Condition Field
+-- Dissect: Mbbo Condition
 dissect.mbbo_condition = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.mbbo_condition(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.mbbo_condition, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display MBBO Priority Customer Size
@@ -839,16 +839,16 @@ display.mbbo_priority_customer_size = function(value)
   return "MBBO Priority Customer Size: "..value
 end
 
--- Dissect MBBO Priority Customer Size Field
+-- Dissect: MBBO Priority Customer Size
 dissect.mbbo_priority_customer_size = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.mbbo_priority_customer_size(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.mbbo_priority_customer_size, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display MBBO Size
@@ -856,16 +856,16 @@ display.mbbo_size = function(value)
   return "MBBO Size: "..value
 end
 
--- Dissect MBBO Size Field
+-- Dissect: MBBO Size
 dissect.mbbo_size = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.mbbo_size(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.mbbo_size, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display MBBO Price
@@ -873,16 +873,16 @@ display.mbbo_price = function(value)
   return "MBBO Price: "..value
 end
 
--- Dissect MBBO Price Field
+-- Dissect: MBBO Price
 dissect.mbbo_price = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.mbbo_price(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.mbbo_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Wide Top of Market Offer Message
@@ -974,16 +974,16 @@ display.mbbo_priority_customer_size = function(value)
   return "Mbbo Priority Customer Size: "..value
 end
 
--- Dissect Mbbo Priority Customer Size Field
+-- Dissect: Mbbo Priority Customer Size
 dissect.mbbo_priority_customer_size = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.mbbo_priority_customer_size(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.mbbo_priority_customer_size, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Mbbo Size
@@ -991,16 +991,16 @@ display.mbbo_size = function(value)
   return "Mbbo Size: "..value
 end
 
--- Dissect Mbbo Size Field
+-- Dissect: Mbbo Size
 dissect.mbbo_size = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.mbbo_size(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.mbbo_size, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Mbbo Price
@@ -1008,16 +1008,16 @@ display.mbbo_price = function(value)
   return "Mbbo Price: "..value
 end
 
--- Dissect Mbbo Price Field
+-- Dissect: Mbbo Price
 dissect.mbbo_price = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.mbbo_price(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.mbbo_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Top of Market Offer Compact Message
@@ -1104,7 +1104,7 @@ dissect.top_of_market_bid_compact_message = function(buffer, offset, packet, par
   return dissect.top_of_market_bid_compact_message_fields(buffer, offset, packet, parent)
 end
 
--- Display Field: System Status
+-- Display: System Status
 display.system_status = function(value)
   if value == "S" then
     return "System Status: Startof System Hours (S)"
@@ -1128,16 +1128,16 @@ display.system_status = function(value)
   return "System Status: Unknown("..value..")"
 end
 
--- Dissect System Status Field
+-- Dissect: System Status
 dissect.system_status = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.system_status(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.system_status, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Session ID
@@ -1145,16 +1145,16 @@ display.session_id = function(value)
   return "Session ID: "..value
 end
 
--- Dissect Session ID Field
+-- Dissect: Session ID
 dissect.session_id = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.session_id(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.session_id, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display To M Version
@@ -1162,16 +1162,16 @@ display.to_m_version = function(value)
   return "To M Version: "..value
 end
 
--- Dissect To M Version Field
+-- Dissect: To M Version
 dissect.to_m_version = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.to_m_version(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.to_m_version, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Notification Time
@@ -1179,16 +1179,16 @@ display.notification_time = function(value)
   return "Notification Time: "..value
 end
 
--- Dissect Notification Time Field
+-- Dissect: Notification Time
 dissect.notification_time = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.notification_time(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.notification_time, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: System State Message
@@ -1232,16 +1232,16 @@ display.reserved = function(value)
   return "Reserved: "..value
 end
 
--- Dissect Reserved Field
+-- Dissect: Reserved
 dissect.reserved = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.reserved(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.reserved, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Priority Quote Width
@@ -1249,19 +1249,19 @@ display.priority_quote_width = function(value)
   return "Priority Quote Width: "..value
 end
 
--- Dissect Priority Quote Width Field
+-- Dissect: Priority Quote Width
 dissect.priority_quote_width = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.priority_quote_width(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.priority_quote_width, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
--- Display Field: Opening Underlying Market Code
+-- Display: Opening Underlying Market Code
 display.opening_underlying_market_code = function(value)
   if value == "A" then
     return "Opening Underlying Market Code: Nyse Amex (A)"
@@ -1318,19 +1318,19 @@ display.opening_underlying_market_code = function(value)
   return "Opening Underlying Market Code: Unknown("..value..")"
 end
 
--- Dissect Opening Underlying Market Code Field
+-- Dissect: Opening Underlying Market Code
 dissect.opening_underlying_market_code = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.opening_underlying_market_code(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.opening_underlying_market_code, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
--- Display Field: Liquidity Acceptance Increment Indicator
+-- Display: Liquidity Acceptance Increment Indicator
 display.liquidity_acceptance_increment_indicator = function(value)
   if value == "P" then
     return "Liquidity Acceptance Increment Indicator: Penny (P)"
@@ -1345,19 +1345,19 @@ display.liquidity_acceptance_increment_indicator = function(value)
   return "Liquidity Acceptance Increment Indicator: Unknown("..value..")"
 end
 
--- Dissect Liquidity Acceptance Increment Indicator Field
+-- Dissect: Liquidity Acceptance Increment Indicator
 dissect.liquidity_acceptance_increment_indicator = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.liquidity_acceptance_increment_indicator(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.liquidity_acceptance_increment_indicator, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
--- Display Field: MIAXBBO Posting Increment Indicator
+-- Display: MIAXBBO Posting Increment Indicator
 display.miaxbbo_posting_increment_indicator = function(value)
   if value == "P" then
     return "MIAXBBO Posting Increment Indicator: Penny (P)"
@@ -1372,16 +1372,16 @@ display.miaxbbo_posting_increment_indicator = function(value)
   return "MIAXBBO Posting Increment Indicator: Unknown("..value..")"
 end
 
--- Dissect MIAXBBO Posting Increment Indicator Field
+-- Dissect: MIAXBBO Posting Increment Indicator
 dissect.miaxbbo_posting_increment_indicator = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.miaxbbo_posting_increment_indicator(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.miaxbbo_posting_increment_indicator, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Activeon MIAX
@@ -1389,16 +1389,16 @@ display.activeon_miax = function(value)
   return "Activeon MIAX: "..value
 end
 
--- Dissect Activeon MIAX Field
+-- Dissect: Activeon MIAX
 dissect.activeon_miax = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.activeon_miax(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.activeon_miax, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Long Term Option
@@ -1406,16 +1406,16 @@ display.long_term_option = function(value)
   return "Long Term Option: "..value
 end
 
--- Dissect Long Term Option Field
+-- Dissect: Long Term Option
 dissect.long_term_option = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.long_term_option(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.long_term_option, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Restricted Option
@@ -1423,16 +1423,16 @@ display.restricted_option = function(value)
   return "Restricted Option: "..value
 end
 
--- Dissect Restricted Option Field
+-- Dissect: Restricted Option
 dissect.restricted_option = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.restricted_option(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.restricted_option, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Closing Time
@@ -1440,16 +1440,16 @@ display.closing_time = function(value)
   return "Closing Time: "..value
 end
 
--- Dissect Closing Time Field
+-- Dissect: Closing Time
 dissect.closing_time = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.closing_time(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.closing_time, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Opening Time
@@ -1457,16 +1457,16 @@ display.opening_time = function(value)
   return "Opening Time: "..value
 end
 
--- Dissect Opening Time Field
+-- Dissect: Opening Time
 dissect.opening_time = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.opening_time(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.opening_time, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Callor Put
@@ -1474,16 +1474,16 @@ display.callor_put = function(value)
   return "Callor Put: "..value
 end
 
--- Dissect Callor Put Field
+-- Dissect: Callor Put
 dissect.callor_put = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.callor_put(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.callor_put, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Strike Price
@@ -1491,16 +1491,16 @@ display.strike_price = function(value)
   return "Strike Price: "..value
 end
 
--- Dissect Strike Price Field
+-- Dissect: Strike Price
 dissect.strike_price = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.strike_price(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.strike_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Expiration Date
@@ -1508,16 +1508,16 @@ display.expiration_date = function(value)
   return "Expiration Date: "..value
 end
 
--- Dissect Expiration Date Field
+-- Dissect: Expiration Date
 dissect.expiration_date = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.expiration_date(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.expiration_date, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Security Symbol
@@ -1525,16 +1525,16 @@ display.security_symbol = function(value)
   return "Security Symbol: "..value
 end
 
--- Dissect Security Symbol Field
+-- Dissect: Security Symbol
 dissect.security_symbol = function(buffer, offset, packet, parent)
-  local size = 6
-  local range = buffer(offset, size)
+  local length = 6
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.security_symbol(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.security_symbol, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Product Add/ Update Time
@@ -1542,16 +1542,16 @@ display.product_add__update_time = function(value)
   return "Product Add/ Update Time: "..value
 end
 
--- Dissect Product Add/ Update Time Field
+-- Dissect: Product Add/ Update Time
 dissect.product_add__update_time = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.product_add__update_time(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.product_add__update_time, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Series Update
@@ -1657,7 +1657,7 @@ dissect.system_time_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Data
-calculate.data = function(buffer, offset, code)
+size_of.data = function(buffer, offset, code)
   -- Size of System Time Message
   if code == "1" then
     return 4
@@ -1710,7 +1710,7 @@ calculate.data = function(buffer, offset, code)
   return 0
 end
 
--- Display function for Branch: Data
+-- Display: Data
 display.data = function(buffer, offset, packet, parent)
   return ""
 end
@@ -1769,7 +1769,7 @@ dissect.data_branches = function(code, buffer, offset, packet, parent)
   return offset
 end
 
--- Dissect Data
+-- Dissect: Data
 dissect.data = function(buffer, offset, packet, parent)
   -- Parse Data type dependency
   local code = buffer(offset - 1, 1):string()
@@ -1779,7 +1779,7 @@ dissect.data = function(buffer, offset, packet, parent)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = calculate.data(buffer, offset, code)
+  local size = size_of.data(buffer, offset, code)
   if size == 0 then
     return offset
   end
@@ -1792,7 +1792,7 @@ dissect.data = function(buffer, offset, packet, parent)
   return dissect.data_branches(code, buffer, offset, packet, element)
 end
 
--- Display Field: Message Type
+-- Display: Message Type
 display.message_type = function(value)
   if value == "1" then
     return "Message Type: System Time Message (1)"
@@ -1834,20 +1834,20 @@ display.message_type = function(value)
   return "Message Type: Unknown("..value..")"
 end
 
--- Dissect Message Type Field
+-- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.message_type, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Calculate runtime size: Application Message
-calculate.application_message = function(buffer, offset)
+size_of.application_message = function(buffer, offset)
   local index = 0
 
   index = index + 1
@@ -1855,7 +1855,7 @@ calculate.application_message = function(buffer, offset)
   -- Calculate runtime size of Data field
   local data_offset = offset + index
   local data_type = buffer(data_offset - 1, 1):string()
-  index = index + calculate.data(buffer, data_offset, data_type)
+  index = index + size_of.data(buffer, data_offset, data_type)
 
   return index
 end
@@ -1882,8 +1882,8 @@ end
 dissect.application_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.application_message then
-    local size = calculate.application_message(buffer, offset)
-    local range = buffer(offset, size)
+    local length = size_of.application_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.application_message(buffer, packet, parent)
     parent = parent:add(miax_mach_tom_1_9.fields.application_message, range, display)
   end
@@ -1892,16 +1892,16 @@ dissect.application_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-calculate.payload = function(buffer, offset, code)
+size_of.payload = function(buffer, offset, code)
   -- Size of Application Message
   if code == 3 then
-    return calculate.application_message(buffer, offset)
+    return size_of.application_message(buffer, offset)
   end
 
   return 0
 end
 
--- Display function for Branch: Payload
+-- Display: Payload
 display.payload = function(buffer, offset, packet, parent)
   return ""
 end
@@ -1916,7 +1916,7 @@ dissect.payload_branches = function(code, buffer, offset, packet, parent)
   return offset
 end
 
--- Dissect Payload
+-- Dissect: Payload
 dissect.payload = function(buffer, offset, packet, parent)
   -- Parse Payload type dependency
   local code = buffer(offset - 2, 1):le_uint()
@@ -1926,7 +1926,7 @@ dissect.payload = function(buffer, offset, packet, parent)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = calculate.payload(buffer, offset, code)
+  local size = size_of.payload(buffer, offset, code)
   if size == 0 then
     return offset
   end
@@ -1944,19 +1944,19 @@ display.session_number = function(value)
   return "Session Number: "..value
 end
 
--- Dissect Session Number Field
+-- Dissect: Session Number
 dissect.session_number = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.session_number(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.session_number, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
--- Display Field: Packet Type
+-- Display: Packet Type
 display.packet_type = function(value)
   if value == 0 then
     return "Packet Type: Heartbeat (0)"
@@ -1974,16 +1974,16 @@ display.packet_type = function(value)
   return "Packet Type: Unknown("..value..")"
 end
 
--- Dissect Packet Type Field
+-- Dissect: Packet Type
 dissect.packet_type = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.packet_type(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.packet_type, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Packet Length
@@ -1991,16 +1991,16 @@ display.packet_length = function(value)
   return "Packet Length: "..value
 end
 
--- Dissect Packet Length Field
+-- Dissect: Packet Length
 dissect.packet_length = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.packet_length(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.packet_length, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Sequence Number
@@ -2008,20 +2008,20 @@ display.sequence_number = function(value)
   return "Sequence Number: "..value
 end
 
--- Dissect Sequence Number Field
+-- Dissect: Sequence Number
 dissect.sequence_number = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.sequence_number, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Calculate runtime size: Message
-calculate.message = function(buffer, offset)
+size_of.message = function(buffer, offset)
   local index = 0
 
   index = index + 12
@@ -2029,7 +2029,7 @@ calculate.message = function(buffer, offset)
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 2, 1):le_uint()
-  index = index + calculate.payload(buffer, payload_offset, payload_type)
+  index = index + size_of.payload(buffer, payload_offset, payload_type)
 
   return index
 end
@@ -2065,8 +2065,8 @@ end
 dissect.message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.message then
-    local size = calculate.message(buffer, offset)
-    local range = buffer(offset, size)
+    local length = size_of.message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.message(buffer, packet, parent)
     parent = parent:add(miax_mach_tom_1_9.fields.message, range, display)
   end

@@ -12,7 +12,7 @@ local show = {}
 local format = {}
 local display = {}
 local dissect = {}
-local calculate = {}
+local size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
@@ -354,16 +354,16 @@ display.vwap = function(value)
   return "VWAP: "..value
 end
 
--- Dissect VWAP Field
+-- Dissect: VWAP
 dissect.vwap = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.vwap(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.vwap, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Low
@@ -371,16 +371,16 @@ display.low = function(value)
   return "Low: "..value
 end
 
--- Dissect Low Field
+-- Dissect: Low
 dissect.low = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.low(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.low, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display High
@@ -388,16 +388,16 @@ display.high = function(value)
   return "High: "..value
 end
 
--- Dissect High Field
+-- Dissect: High
 dissect.high = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.high(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.high, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display EFP Volume
@@ -405,16 +405,16 @@ display.efp_volume = function(value)
   return "EFP Volume: "..value
 end
 
--- Dissect EFP Volume Field
+-- Dissect: EFP Volume
 dissect.efp_volume = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.efp_volume(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.efp_volume, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display EFS Volume
@@ -422,16 +422,16 @@ display.efs_volume = function(value)
   return "EFS Volume: "..value
 end
 
--- Dissect EFS Volume Field
+-- Dissect: EFS Volume
 dissect.efs_volume = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.efs_volume(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.efs_volume, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Block Volume
@@ -439,16 +439,16 @@ display.block_volume = function(value)
   return "Block Volume: "..value
 end
 
--- Dissect Block Volume Field
+-- Dissect: Block Volume
 dissect.block_volume = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.block_volume(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.block_volume, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Old Style Options Trade and Market Stats Message
@@ -498,16 +498,16 @@ display.delta = function(value)
   return "Delta: "..value
 end
 
--- Dissect Delta Field
+-- Dissect: Delta
 dissect.delta = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.delta(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.delta, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Settlement Price
@@ -515,16 +515,16 @@ display.settlement_price = function(value)
   return "Settlement Price: "..value
 end
 
--- Dissect Settlement Price Field
+-- Dissect: Settlement Price
 dissect.settlement_price = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.settlement_price(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.settlement_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Volatility
@@ -532,16 +532,16 @@ display.volatility = function(value)
   return "Volatility: "..value
 end
 
--- Dissect Volatility Field
+-- Dissect: Volatility
 dissect.volatility = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.volatility(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.volatility, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Valuation Date Time
@@ -549,16 +549,16 @@ display.valuation_date_time = function(value)
   return "Valuation Date Time: "..value
 end
 
--- Dissect Valuation Date Time Field
+-- Dissect: Valuation Date Time
 dissect.valuation_date_time = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.valuation_date_time(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.valuation_date_time, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Is Official
@@ -566,16 +566,16 @@ display.is_official = function(value)
   return "Is Official: "..value
 end
 
--- Dissect Is Official Field
+-- Dissect: Is Official
 dissect.is_official = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.is_official(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.is_official, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Date Time
@@ -583,16 +583,16 @@ display.date_time = function(value)
   return "Date Time: "..value
 end
 
--- Dissect Date Time Field
+-- Dissect: Date Time
 dissect.date_time = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.date_time(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.date_time, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Settlement Price With Deal Price Precision
@@ -600,16 +600,16 @@ display.settlement_price_with_deal_price_precision = function(value)
   return "Settlement Price With Deal Price Precision: "..value
 end
 
--- Dissect Settlement Price With Deal Price Precision Field
+-- Dissect: Settlement Price With Deal Price Precision
 dissect.settlement_price_with_deal_price_precision = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.settlement_price_with_deal_price_precision(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.settlement_price_with_deal_price_precision, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Market ID
@@ -617,16 +617,16 @@ display.market_id = function(value)
   return "Market ID: "..value
 end
 
--- Dissect Market ID Field
+-- Dissect: Market ID
 dissect.market_id = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.market_id(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.market_id, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Option Settlement Price Message
@@ -682,16 +682,16 @@ display.open_interest_date = function(value)
   return "Open Interest Date: "..value
 end
 
--- Dissect Open Interest Date Field
+-- Dissect: Open Interest Date
 dissect.open_interest_date = function(buffer, offset, packet, parent)
-  local size = 10
-  local range = buffer(offset, size)
+  local length = 10
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.open_interest_date(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.open_interest_date, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Open Interest
@@ -699,16 +699,16 @@ display.open_interest = function(value)
   return "Open Interest: "..value
 end
 
--- Dissect Open Interest Field
+-- Dissect: Open Interest
 dissect.open_interest = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.open_interest(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.open_interest, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Option Open Interest Message
@@ -752,16 +752,16 @@ display.side = function(value)
   return "Side: "..value
 end
 
--- Dissect Side Field
+-- Dissect: Side
 dissect.side = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.side(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.side, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Quantity
@@ -769,16 +769,16 @@ display.quantity = function(value)
   return "Quantity: "..value
 end
 
--- Dissect Quantity Field
+-- Dissect: Quantity
 dissect.quantity = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.quantity(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.quantity, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Underlying Market ID
@@ -786,16 +786,16 @@ display.underlying_market_id = function(value)
   return "Underlying Market ID: "..value
 end
 
--- Dissect Underlying Market ID Field
+-- Dissect: Underlying Market ID
 dissect.underlying_market_id = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.underlying_market_id(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.underlying_market_id, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Market Type ID
@@ -803,16 +803,16 @@ display.market_type_id = function(value)
   return "Market Type ID: "..value
 end
 
--- Dissect Market Type ID Field
+-- Dissect: Market Type ID
 dissect.market_type_id = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.market_type_id(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.market_type_id, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display RFQ System ID
@@ -820,16 +820,16 @@ display.rfq_system_id = function(value)
   return "RFQ System ID: "..value
 end
 
--- Dissect RFQ System ID Field
+-- Dissect: RFQ System ID
 dissect.rfq_system_id = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.rfq_system_id(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.rfq_system_id, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Message Timestamp
@@ -837,16 +837,16 @@ display.message_timestamp = function(value)
   return "Message Timestamp: "..value
 end
 
--- Dissect Message Timestamp Field
+-- Dissect: Message Timestamp
 dissect.message_timestamp = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.message_timestamp(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.message_timestamp, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: RFQ Message
@@ -899,16 +899,16 @@ display.unit_of_measure = function(value)
   return "Unit Of Measure: "..value
 end
 
--- Dissect Unit Of Measure Field
+-- Dissect: Unit Of Measure
 dissect.unit_of_measure = function(buffer, offset, packet, parent)
-  local size = 30
-  local range = buffer(offset, size)
+  local length = 30
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.unit_of_measure(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.unit_of_measure, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Guaranteed Cross Supported
@@ -916,16 +916,16 @@ display.guaranteed_cross_supported = function(value)
   return "Guaranteed Cross Supported: "..value
 end
 
--- Dissect Guaranteed Cross Supported Field
+-- Dissect: Guaranteed Cross Supported
 dissect.guaranteed_cross_supported = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.guaranteed_cross_supported(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.guaranteed_cross_supported, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Cross Order Supported
@@ -933,16 +933,16 @@ display.cross_order_supported = function(value)
   return "Cross Order Supported: "..value
 end
 
--- Dissect Cross Order Supported Field
+-- Dissect: Cross Order Supported
 dissect.cross_order_supported = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.cross_order_supported(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.cross_order_supported, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display GT Allowed
@@ -950,16 +950,16 @@ display.gt_allowed = function(value)
   return "GT Allowed: "..value
 end
 
--- Dissect GT Allowed Field
+-- Dissect: GT Allowed
 dissect.gt_allowed = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.gt_allowed(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.gt_allowed, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Is Block Only
@@ -967,16 +967,16 @@ display.is_block_only = function(value)
   return "Is Block Only: "..value
 end
 
--- Dissect Is Block Only Field
+-- Dissect: Is Block Only
 dissect.is_block_only = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.is_block_only(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.is_block_only, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Settlement Type
@@ -984,16 +984,16 @@ display.settlement_type = function(value)
   return "Settlement Type: "..value
 end
 
--- Dissect Settlement Type Field
+-- Dissect: Settlement Type
 dissect.settlement_type = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.settlement_type(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.settlement_type, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Flex Allowed
@@ -1001,16 +1001,16 @@ display.flex_allowed = function(value)
   return "Flex Allowed: "..value
 end
 
--- Dissect Flex Allowed Field
+-- Dissect: Flex Allowed
 dissect.flex_allowed = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.flex_allowed(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.flex_allowed, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Tick Value
@@ -1018,16 +1018,16 @@ display.tick_value = function(value)
   return "Tick Value: "..value
 end
 
--- Dissect Tick Value Field
+-- Dissect: Tick Value
 dissect.tick_value = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.tick_value(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.tick_value, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Unit Qty Denominator
@@ -1035,16 +1035,16 @@ display.unit_qty_denominator = function(value)
   return "Unit Qty Denominator: "..value
 end
 
--- Dissect Unit Qty Denominator Field
+-- Dissect: Unit Qty Denominator
 dissect.unit_qty_denominator = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.unit_qty_denominator(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.unit_qty_denominator, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Settle Price Denominator
@@ -1052,16 +1052,16 @@ display.settle_price_denominator = function(value)
   return "Settle Price Denominator: "..value
 end
 
--- Dissect Settle Price Denominator Field
+-- Dissect: Settle Price Denominator
 dissect.settle_price_denominator = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.settle_price_denominator(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.settle_price_denominator, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Hedge Market ID
@@ -1069,16 +1069,16 @@ display.hedge_market_id = function(value)
   return "Hedge Market ID: "..value
 end
 
--- Dissect Hedge Market ID Field
+-- Dissect: Hedge Market ID
 dissect.hedge_market_id = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.hedge_market_id(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.hedge_market_id, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Options Expiration Type
@@ -1086,16 +1086,16 @@ display.options_expiration_type = function(value)
   return "Options Expiration Type: "..value
 end
 
--- Dissect Options Expiration Type Field
+-- Dissect: Options Expiration Type
 dissect.options_expiration_type = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.options_expiration_type(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.options_expiration_type, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Options Style
@@ -1103,16 +1103,16 @@ display.options_style = function(value)
   return "Options Style: "..value
 end
 
--- Dissect Options Style Field
+-- Dissect: Options Style
 dissect.options_style = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.options_style(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.options_style, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Options Expiration Day
@@ -1120,16 +1120,16 @@ display.options_expiration_day = function(value)
   return "Options Expiration Day: "..value
 end
 
--- Dissect Options Expiration Day Field
+-- Dissect: Options Expiration Day
 dissect.options_expiration_day = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.options_expiration_day(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.options_expiration_day, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Options Expiration Month
@@ -1137,16 +1137,16 @@ display.options_expiration_month = function(value)
   return "Options Expiration Month: "..value
 end
 
--- Dissect Options Expiration Month Field
+-- Dissect: Options Expiration Month
 dissect.options_expiration_month = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.options_expiration_month(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.options_expiration_month, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Options Expiration Year
@@ -1154,16 +1154,16 @@ display.options_expiration_year = function(value)
   return "Options Expiration Year: "..value
 end
 
--- Dissect Options Expiration Year Field
+-- Dissect: Options Expiration Year
 dissect.options_expiration_year = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.options_expiration_year(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.options_expiration_year, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Increment Premium Price
@@ -1171,16 +1171,16 @@ display.increment_premium_price = function(value)
   return "Increment Premium Price: "..value
 end
 
--- Dissect Increment Premium Price Field
+-- Dissect: Increment Premium Price
 dissect.increment_premium_price = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.increment_premium_price(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.increment_premium_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Max Options Price
@@ -1188,16 +1188,16 @@ display.max_options_price = function(value)
   return "Max Options Price: "..value
 end
 
--- Dissect Max Options Price Field
+-- Dissect: Max Options Price
 dissect.max_options_price = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.max_options_price(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.max_options_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Min Options Price
@@ -1205,16 +1205,16 @@ display.min_options_price = function(value)
   return "Min Options Price: "..value
 end
 
--- Dissect Min Options Price Field
+-- Dissect: Min Options Price
 dissect.min_options_price = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.min_options_price(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.min_options_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Num Decimals Strike Price
@@ -1222,16 +1222,16 @@ display.num_decimals_strike_price = function(value)
   return "Num Decimals Strike Price: "..value
 end
 
--- Dissect Num Decimals Strike Price Field
+-- Dissect: Num Decimals Strike Price
 dissect.num_decimals_strike_price = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.num_decimals_strike_price(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.num_decimals_strike_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Currency
@@ -1239,16 +1239,16 @@ display.currency = function(value)
   return "Currency: "..value
 end
 
--- Dissect Currency Field
+-- Dissect: Currency
 dissect.currency = function(buffer, offset, packet, parent)
-  local size = 20
-  local range = buffer(offset, size)
+  local length = 20
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.currency(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.currency, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Min Qty
@@ -1256,16 +1256,16 @@ display.min_qty = function(value)
   return "Min Qty: "..value
 end
 
--- Dissect Min Qty Field
+-- Dissect: Min Qty
 dissect.min_qty = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.min_qty(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.min_qty, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Deal Price Denominator
@@ -1273,16 +1273,16 @@ display.deal_price_denominator = function(value)
   return "Deal Price Denominator: "..value
 end
 
--- Dissect Deal Price Denominator Field
+-- Dissect: Deal Price Denominator
 dissect.deal_price_denominator = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.deal_price_denominator(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.deal_price_denominator, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Strike Price
@@ -1290,16 +1290,16 @@ display.strike_price = function(value)
   return "Strike Price: "..value
 end
 
--- Dissect Strike Price Field
+-- Dissect: Strike Price
 dissect.strike_price = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.strike_price(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.strike_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Option Type
@@ -1307,16 +1307,16 @@ display.option_type = function(value)
   return "Option Type: "..value
 end
 
--- Dissect Option Type Field
+-- Dissect: Option Type
 dissect.option_type = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.option_type(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.option_type, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Market Desc
@@ -1324,16 +1324,16 @@ display.market_desc = function(value)
   return "Market Desc: "..value
 end
 
--- Dissect Market Desc Field
+-- Dissect: Market Desc
 dissect.market_desc = function(buffer, offset, packet, parent)
-  local size = 120
-  local range = buffer(offset, size)
+  local length = 120
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.market_desc(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.market_desc, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Lot Size
@@ -1341,16 +1341,16 @@ display.lot_size = function(value)
   return "Lot Size: "..value
 end
 
--- Dissect Lot Size Field
+-- Dissect: Lot Size
 dissect.lot_size = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.lot_size(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.lot_size, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Increment Qty
@@ -1358,16 +1358,16 @@ display.increment_qty = function(value)
   return "Increment Qty: "..value
 end
 
--- Dissect Increment Qty Field
+-- Dissect: Increment Qty
 dissect.increment_qty = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.increment_qty(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.increment_qty, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Order Price Denominator
@@ -1375,16 +1375,16 @@ display.order_price_denominator = function(value)
   return "Order Price Denominator: "..value
 end
 
--- Dissect Order Price Denominator Field
+-- Dissect: Order Price Denominator
 dissect.order_price_denominator = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.order_price_denominator(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.order_price_denominator, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Trading Status
@@ -1392,16 +1392,16 @@ display.trading_status = function(value)
   return "Trading Status: "..value
 end
 
--- Dissect Trading Status Field
+-- Dissect: Trading Status
 dissect.trading_status = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.trading_status(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.trading_status, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Futures Contract Symbol
@@ -1409,16 +1409,16 @@ display.futures_contract_symbol = function(value)
   return "Futures Contract Symbol: "..value
 end
 
--- Dissect Futures Contract Symbol Field
+-- Dissect: Futures Contract Symbol
 dissect.futures_contract_symbol = function(buffer, offset, packet, parent)
-  local size = 70
-  local range = buffer(offset, size)
+  local length = 70
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.futures_contract_symbol(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.futures_contract_symbol, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: New Options Market Definition Message
@@ -1549,16 +1549,16 @@ display.strategy_symbol = function(value)
   return "Strategy Symbol: "..value
 end
 
--- Dissect Strategy Symbol Field
+-- Dissect: Strategy Symbol
 dissect.strategy_symbol = function(buffer, offset, packet, parent)
-  local size = 18
-  local range = buffer(offset, size)
+  local length = 18
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.strategy_symbol(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.strategy_symbol, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Security Sub Type
@@ -1566,16 +1566,16 @@ display.security_sub_type = function(value)
   return "Security Sub Type: "..value
 end
 
--- Dissect Security Sub Type Field
+-- Dissect: Security Sub Type
 dissect.security_sub_type = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.security_sub_type(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.security_sub_type, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Hedge Delta
@@ -1583,16 +1583,16 @@ display.hedge_delta = function(value)
   return "Hedge Delta: "..value
 end
 
--- Dissect Hedge Delta Field
+-- Dissect: Hedge Delta
 dissect.hedge_delta = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.hedge_delta(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.hedge_delta, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Hedge Price Denominator
@@ -1600,16 +1600,16 @@ display.hedge_price_denominator = function(value)
   return "Hedge Price Denominator: "..value
 end
 
--- Dissect Hedge Price Denominator Field
+-- Dissect: Hedge Price Denominator
 dissect.hedge_price_denominator = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.hedge_price_denominator(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.hedge_price_denominator, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Hedge Price
@@ -1617,16 +1617,16 @@ display.hedge_price = function(value)
   return "Hedge Price: "..value
 end
 
--- Dissect Hedge Price Field
+-- Dissect: Hedge Price
 dissect.hedge_price = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:uint64()
   local display = display.hedge_price(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.hedge_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Hedge Side
@@ -1634,16 +1634,16 @@ display.hedge_side = function(value)
   return "Hedge Side: "..value
 end
 
--- Dissect Hedge Side Field
+-- Dissect: Hedge Side
 dissect.hedge_side = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.hedge_side(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.hedge_side, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Hedge Security Type
@@ -1651,16 +1651,16 @@ display.hedge_security_type = function(value)
   return "Hedge Security Type: "..value
 end
 
--- Dissect Hedge Security Type Field
+-- Dissect: Hedge Security Type
 dissect.hedge_security_type = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.hedge_security_type(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.hedge_security_type, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Hedge Market Id
@@ -1668,16 +1668,16 @@ display.hedge_market_id = function(value)
   return "Hedge Market Id: "..value
 end
 
--- Dissect Hedge Market Id Field
+-- Dissect: Hedge Market Id
 dissect.hedge_market_id = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.hedge_market_id(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.hedge_market_id, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display HedgeBodyLength
@@ -1685,16 +1685,16 @@ display.hedgebodylength = function(value)
   return "HedgeBodyLength: "..value
 end
 
--- Dissect HedgeBodyLength Field
+-- Dissect: HedgeBodyLength
 dissect.hedgebodylength = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.hedgebodylength(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.hedgebodylength, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Hedge Definition
@@ -1747,16 +1747,16 @@ display.number_of_hedge_definitions = function(value)
   return "Number Of Hedge Definitions: "..value
 end
 
--- Dissect Number Of Hedge Definitions Field
+-- Dissect: Number Of Hedge Definitions
 dissect.number_of_hedge_definitions = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.number_of_hedge_definitions(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.number_of_hedge_definitions, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Leg Side
@@ -1764,16 +1764,16 @@ display.leg_side = function(value)
   return "Leg Side: "..value
 end
 
--- Dissect Leg Side Field
+-- Dissect: Leg Side
 dissect.leg_side = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.leg_side(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.leg_side, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Leg Ratio
@@ -1781,16 +1781,16 @@ display.leg_ratio = function(value)
   return "Leg Ratio: "..value
 end
 
--- Dissect Leg Ratio Field
+-- Dissect: Leg Ratio
 dissect.leg_ratio = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.leg_ratio(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.leg_ratio, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Leg Underlying Market Id
@@ -1798,16 +1798,16 @@ display.leg_underlying_market_id = function(value)
   return "Leg Underlying Market Id: "..value
 end
 
--- Dissect Leg Underlying Market Id Field
+-- Dissect: Leg Underlying Market Id
 dissect.leg_underlying_market_id = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.leg_underlying_market_id(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.leg_underlying_market_id, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Leg Market Id
@@ -1815,16 +1815,16 @@ display.leg_market_id = function(value)
   return "Leg Market Id: "..value
 end
 
--- Dissect Leg Market Id Field
+-- Dissect: Leg Market Id
 dissect.leg_market_id = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.leg_market_id(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.leg_market_id, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Leg Body Length
@@ -1832,16 +1832,16 @@ display.leg_body_length = function(value)
   return "Leg Body Length: "..value
 end
 
--- Dissect Leg Body Length Field
+-- Dissect: Leg Body Length
 dissect.leg_body_length = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.leg_body_length(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.leg_body_length, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Strategy Leg Definition
@@ -1888,16 +1888,16 @@ display.number_of_strategy_leg_definitions = function(value)
   return "Number Of Strategy Leg Definitions: "..value
 end
 
--- Dissect Number Of Strategy Leg Definitions Field
+-- Dissect: Number Of Strategy Leg Definitions
 dissect.number_of_strategy_leg_definitions = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.number_of_strategy_leg_definitions(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.number_of_strategy_leg_definitions, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Increment Price
@@ -1905,16 +1905,16 @@ display.increment_price = function(value)
   return "Increment Price: "..value
 end
 
--- Dissect Increment Price Field
+-- Dissect: Increment Price
 dissect.increment_price = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.increment_price(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.increment_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Contract Symbol
@@ -1922,20 +1922,20 @@ display.contract_symbol = function(value)
   return "Contract Symbol: "..value
 end
 
--- Dissect Contract Symbol Field
+-- Dissect: Contract Symbol
 dissect.contract_symbol = function(buffer, offset, packet, parent)
-  local size = 35
-  local range = buffer(offset, size)
+  local length = 35
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.contract_symbol(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.contract_symbol, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Calculate runtime size: New Options Strategy Definition Message
-calculate.new_options_strategy_definition_message = function(buffer, offset)
+size_of.new_options_strategy_definition_message = function(buffer, offset)
   local index = 0
 
   index = index + 58
@@ -2025,8 +2025,8 @@ end
 dissect.new_options_strategy_definition_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.new_options_strategy_definition_message then
-    local size = calculate.new_options_strategy_definition_message(buffer, offset)
-    local range = buffer(offset, size)
+    local length = size_of.new_options_strategy_definition_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.new_options_strategy_definition_message(buffer, packet, parent)
     parent = parent:add(ice_impact_mdp_1_24.fields.new_options_strategy_definition_message, range, display)
   end
@@ -2039,16 +2039,16 @@ display.price_level_position = function(value)
   return "Price Level Position: "..value
 end
 
--- Dissect Price Level Position Field
+-- Dissect: Price Level Position
 dissect.price_level_position = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.price_level_position(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.price_level_position, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Delete Price Level Message
@@ -2089,16 +2089,16 @@ display.implied_order_count = function(value)
   return "Implied Order Count: "..value
 end
 
--- Dissect Implied Order Count Field
+-- Dissect: Implied Order Count
 dissect.implied_order_count = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.implied_order_count(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.implied_order_count, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Implied Quantity
@@ -2106,16 +2106,16 @@ display.implied_quantity = function(value)
   return "Implied Quantity: "..value
 end
 
--- Dissect Implied Quantity Field
+-- Dissect: Implied Quantity
 dissect.implied_quantity = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.implied_quantity(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.implied_quantity, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Order Count
@@ -2123,16 +2123,16 @@ display.order_count = function(value)
   return "Order Count: "..value
 end
 
--- Dissect Order Count Field
+-- Dissect: Order Count
 dissect.order_count = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.order_count(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.order_count, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Price
@@ -2140,16 +2140,16 @@ display.price = function(value)
   return "Price: "..value
 end
 
--- Dissect Price Field
+-- Dissect: Price
 dissect.price = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.price(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Change Price Level Message
@@ -2301,16 +2301,16 @@ display.eur__price = function(value)
   return "EUR  Price: "..value
 end
 
--- Dissect EUR  Price Field
+-- Dissect: EUR  Price
 dissect.eur__price = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.eur__price(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.eur__price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display GBP  Price
@@ -2318,16 +2318,16 @@ display.gbp__price = function(value)
   return "GBP  Price: "..value
 end
 
--- Dissect GBP  Price Field
+-- Dissect: GBP  Price
 dissect.gbp__price = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.gbp__price(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.gbp__price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Is Final
@@ -2335,16 +2335,16 @@ display.is_final = function(value)
   return "Is Final: "..value
 end
 
--- Dissect Is Final Field
+-- Dissect: Is Final
 dissect.is_final = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.is_final(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.is_final, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Is Balanced
@@ -2352,16 +2352,16 @@ display.is_balanced = function(value)
   return "Is Balanced: "..value
 end
 
--- Dissect Is Balanced Field
+-- Dissect: Is Balanced
 dissect.is_balanced = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.is_balanced(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.is_balanced, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display USD  Price
@@ -2369,16 +2369,16 @@ display.usd__price = function(value)
   return "USD  Price: "..value
 end
 
--- Dissect USD  Price Field
+-- Dissect: USD  Price
 dissect.usd__price = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.usd__price(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.usd__price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Agg  Offer  Qty
@@ -2386,16 +2386,16 @@ display.agg__offer__qty = function(value)
   return "Agg  Offer  Qty: "..value
 end
 
--- Dissect Agg  Offer  Qty Field
+-- Dissect: Agg  Offer  Qty
 dissect.agg__offer__qty = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.agg__offer__qty(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.agg__offer__qty, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Agg  Bid  Qty
@@ -2403,16 +2403,16 @@ display.agg__bid__qty = function(value)
   return "Agg  Bid  Qty: "..value
 end
 
--- Dissect Agg  Bid  Qty Field
+-- Dissect: Agg  Bid  Qty
 dissect.agg__bid__qty = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.agg__bid__qty(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.agg__bid__qty, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Round
@@ -2420,16 +2420,16 @@ display.round = function(value)
   return "Round: "..value
 end
 
--- Dissect Round Field
+-- Dissect: Round
 dissect.round = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.round(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.round, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Description
@@ -2437,16 +2437,16 @@ display.description = function(value)
   return "Description: "..value
 end
 
--- Dissect Description Field
+-- Dissect: Description
 dissect.description = function(buffer, offset, packet, parent)
-  local size = 20
-  local range = buffer(offset, size)
+  local length = 20
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.description(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.description, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Time
@@ -2454,16 +2454,16 @@ display.time = function(value)
   return "Time: "..value
 end
 
--- Dissect Time Field
+-- Dissect: Time
 dissect.time = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.time(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.time, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Auction  Date
@@ -2471,16 +2471,16 @@ display.auction__date = function(value)
   return "Auction  Date: "..value
 end
 
--- Dissect Auction  Date Field
+-- Dissect: Auction  Date
 dissect.auction__date = function(buffer, offset, packet, parent)
-  local size = 10
-  local range = buffer(offset, size)
+  local length = 10
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.auction__date(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.auction__date, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Fixing Lockdown Message
@@ -2548,16 +2548,16 @@ display.threshold__imbalance__qty = function(value)
   return "Threshold  Imbalance  Qty: "..value
 end
 
--- Dissect Threshold  Imbalance  Qty Field
+-- Dissect: Threshold  Imbalance  Qty
 dissect.threshold__imbalance__qty = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.threshold__imbalance__qty(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.threshold__imbalance__qty, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Auction End Time
@@ -2565,16 +2565,16 @@ display.auction_end_time = function(value)
   return "Auction End Time: "..value
 end
 
--- Dissect Auction End Time Field
+-- Dissect: Auction End Time
 dissect.auction_end_time = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.auction_end_time(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.auction_end_time, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Status
@@ -2582,16 +2582,16 @@ display.status = function(value)
   return "Status: "..value
 end
 
--- Dissect Status Field
+-- Dissect: Status
 dissect.status = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.status(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.status, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Fixing Transition Message
@@ -2638,16 +2638,16 @@ display.start_or_end = function(value)
   return "Start Or End: "..value
 end
 
--- Dissect Start Or End Field
+-- Dissect: Start Or End
 dissect.start_or_end = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.start_or_end(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.start_or_end, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Message Bundle Marker
@@ -2682,16 +2682,16 @@ display.order_id = function(value)
   return "Order ID: "..value
 end
 
--- Dissect Order ID Field
+-- Dissect: Order ID
 dissect.order_id = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.order_id(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.order_id, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Delete Order Message
@@ -2729,16 +2729,16 @@ display.sequence_within_millis = function(value)
   return "Sequence Within Millis: "..value
 end
 
--- Dissect Sequence Within Millis Field
+-- Dissect: Sequence Within Millis
 dissect.sequence_within_millis = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.sequence_within_millis(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.sequence_within_millis, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Extra Flags
@@ -2746,16 +2746,16 @@ display.extra_flags = function(value)
   return "Extra Flags: "..value
 end
 
--- Dissect Extra Flags Field
+-- Dissect: Extra Flags
 dissect.extra_flags = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.extra_flags(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.extra_flags, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Order Entry Date Time
@@ -2763,16 +2763,16 @@ display.order_entry_date_time = function(value)
   return "Order Entry Date Time: "..value
 end
 
--- Dissect Order Entry Date Time Field
+-- Dissect: Order Entry Date Time
 dissect.order_entry_date_time = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.order_entry_date_time(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.order_entry_date_time, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Is RFQ
@@ -2780,16 +2780,16 @@ display.is_rfq = function(value)
   return "Is RFQ: "..value
 end
 
--- Dissect Is RFQ Field
+-- Dissect: Is RFQ
 dissect.is_rfq = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.is_rfq(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.is_rfq, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Is Implied
@@ -2797,16 +2797,16 @@ display.is_implied = function(value)
   return "Is Implied: "..value
 end
 
--- Dissect Is Implied Field
+-- Dissect: Is Implied
 dissect.is_implied = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.is_implied(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.is_implied, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Order Sequence ID
@@ -2814,16 +2814,16 @@ display.order_sequence_id = function(value)
   return "Order Sequence ID: "..value
 end
 
--- Dissect Order Sequence ID Field
+-- Dissect: Order Sequence ID
 dissect.order_sequence_id = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.order_sequence_id(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.order_sequence_id, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Add or Modify Order Message
@@ -2942,16 +2942,16 @@ display.special_field_length = function(value)
   return "Special Field Length: "..value
 end
 
--- Dissect Special Field Length Field
+-- Dissect: Special Field Length
 dissect.special_field_length = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.special_field_length(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.special_field_length, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Special Field Id
@@ -2959,16 +2959,16 @@ display.special_field_id = function(value)
   return "Special Field Id: "..value
 end
 
--- Dissect Special Field Id Field
+-- Dissect: Special Field Id
 dissect.special_field_id = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.special_field_id(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.special_field_id, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Special Field
@@ -3006,20 +3006,20 @@ display.number_of_special_fields = function(value)
   return "Number Of Special Fields: "..value
 end
 
--- Dissect Number Of Special Fields Field
+-- Dissect: Number Of Special Fields
 dissect.number_of_special_fields = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.number_of_special_fields(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.number_of_special_fields, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Calculate runtime size: Special Field Message
-calculate.special_field_message = function(buffer, offset)
+size_of.special_field_message = function(buffer, offset)
   local index = 0
 
   index = index + 1
@@ -3057,8 +3057,8 @@ end
 dissect.special_field_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.special_field_message then
-    local size = calculate.special_field_message(buffer, offset)
-    local range = buffer(offset, size)
+    local length = size_of.special_field_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.special_field_message(buffer, packet, parent)
     parent = parent:add(ice_impact_mdp_1_24.fields.special_field_message, range, display)
   end
@@ -3071,16 +3071,16 @@ display.num_decimals_options_price = function(value)
   return "Num Decimals Options Price: "..value
 end
 
--- Dissect Num Decimals Options Price Field
+-- Dissect: Num Decimals Options Price
 dissect.num_decimals_options_price = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.num_decimals_options_price(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.num_decimals_options_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display ISIN
@@ -3088,16 +3088,16 @@ display.isin = function(value)
   return "ISIN: "..value
 end
 
--- Dissect ISIN Field
+-- Dissect: ISIN
 dissect.isin = function(buffer, offset, packet, parent)
-  local size = 12
-  local range = buffer(offset, size)
+  local length = 12
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.isin(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.isin, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Off Exchange Increment Option Price
@@ -3105,16 +3105,16 @@ display.off_exchange_increment_option_price = function(value)
   return "Off Exchange Increment Option Price: "..value
 end
 
--- Dissect Off Exchange Increment Option Price Field
+-- Dissect: Off Exchange Increment Option Price
 dissect.off_exchange_increment_option_price = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.off_exchange_increment_option_price(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.off_exchange_increment_option_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Off Exchange Increment Price
@@ -3122,16 +3122,16 @@ display.off_exchange_increment_price = function(value)
   return "Off Exchange Increment Price: "..value
 end
 
--- Dissect Off Exchange Increment Price Field
+-- Dissect: Off Exchange Increment Price
 dissect.off_exchange_increment_price = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.off_exchange_increment_price(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.off_exchange_increment_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Off Exchange Increment Qty
@@ -3139,16 +3139,16 @@ display.off_exchange_increment_qty = function(value)
   return "Off Exchange Increment Qty: "..value
 end
 
--- Dissect Off Exchange Increment Qty Field
+-- Dissect: Off Exchange Increment Qty
 dissect.off_exchange_increment_qty = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.off_exchange_increment_qty(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.off_exchange_increment_qty, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Off Exchange Increment Qty Denominator
@@ -3156,16 +3156,16 @@ display.off_exchange_increment_qty_denominator = function(value)
   return "Off Exchange Increment Qty Denominator: "..value
 end
 
--- Dissect Off Exchange Increment Qty Denominator Field
+-- Dissect: Off Exchange Increment Qty Denominator
 dissect.off_exchange_increment_qty_denominator = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.off_exchange_increment_qty_denominator(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.off_exchange_increment_qty_denominator, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display MIC Code
@@ -3173,16 +3173,16 @@ display.mic_code = function(value)
   return "MIC Code: "..value
 end
 
--- Dissect MIC Code Field
+-- Dissect: MIC Code
 dissect.mic_code = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.mic_code(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.mic_code, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Strip Name
@@ -3190,16 +3190,16 @@ display.strip_name = function(value)
   return "Strip Name: "..value
 end
 
--- Dissect Strip Name Field
+-- Dissect: Strip Name
 dissect.strip_name = function(buffer, offset, packet, parent)
-  local size = 50
-  local range = buffer(offset, size)
+  local length = 50
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.strip_name(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.strip_name, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Strip ID
@@ -3207,16 +3207,16 @@ display.strip_id = function(value)
   return "Strip ID: "..value
 end
 
--- Dissect Strip ID Field
+-- Dissect: Strip ID
 dissect.strip_id = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.strip_id(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.strip_id, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Hub Alias
@@ -3224,16 +3224,16 @@ display.hub_alias = function(value)
   return "Hub Alias: "..value
 end
 
--- Dissect Hub Alias Field
+-- Dissect: Hub Alias
 dissect.hub_alias = function(buffer, offset, packet, parent)
-  local size = 80
-  local range = buffer(offset, size)
+  local length = 80
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.hub_alias(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.hub_alias, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Hub ID
@@ -3241,16 +3241,16 @@ display.hub_id = function(value)
   return "Hub ID: "..value
 end
 
--- Dissect Hub ID Field
+-- Dissect: Hub ID
 dissect.hub_id = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.hub_id(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.hub_id, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Product Name
@@ -3258,16 +3258,16 @@ display.product_name = function(value)
   return "Product Name: "..value
 end
 
--- Dissect Product Name Field
+-- Dissect: Product Name
 dissect.product_name = function(buffer, offset, packet, parent)
-  local size = 62
-  local range = buffer(offset, size)
+  local length = 62
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.product_name(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.product_name, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Product ID
@@ -3275,16 +3275,16 @@ display.product_id = function(value)
   return "Product ID: "..value
 end
 
--- Dissect Product ID Field
+-- Dissect: Product ID
 dissect.product_id = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.product_id(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.product_id, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Max Price
@@ -3292,16 +3292,16 @@ display.max_price = function(value)
   return "Max Price: "..value
 end
 
--- Dissect Max Price Field
+-- Dissect: Max Price
 dissect.max_price = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.max_price(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.max_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Min Price
@@ -3309,16 +3309,16 @@ display.min_price = function(value)
   return "Min Price: "..value
 end
 
--- Dissect Min Price Field
+-- Dissect: Min Price
 dissect.min_price = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.min_price(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.min_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Cleared Alias
@@ -3326,16 +3326,16 @@ display.cleared_alias = function(value)
   return "Cleared Alias: "..value
 end
 
--- Dissect Cleared Alias Field
+-- Dissect: Cleared Alias
 dissect.cleared_alias = function(buffer, offset, packet, parent)
-  local size = 15
-  local range = buffer(offset, size)
+  local length = 15
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.cleared_alias(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.cleared_alias, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Unit Quantity
@@ -3343,16 +3343,16 @@ display.unit_quantity = function(value)
   return "Unit Quantity: "..value
 end
 
--- Dissect Unit Quantity Field
+-- Dissect: Unit Quantity
 dissect.unit_quantity = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.unit_quantity(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.unit_quantity, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Maturity Day
@@ -3360,16 +3360,16 @@ display.maturity_day = function(value)
   return "Maturity Day: "..value
 end
 
--- Dissect Maturity Day Field
+-- Dissect: Maturity Day
 dissect.maturity_day = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.maturity_day(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.maturity_day, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Maturity Month
@@ -3377,16 +3377,16 @@ display.maturity_month = function(value)
   return "Maturity Month: "..value
 end
 
--- Dissect Maturity Month Field
+-- Dissect: Maturity Month
 dissect.maturity_month = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.maturity_month(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.maturity_month, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Maturity Year
@@ -3394,16 +3394,16 @@ display.maturity_year = function(value)
   return "Maturity Year: "..value
 end
 
--- Dissect Maturity Year Field
+-- Dissect: Maturity Year
 dissect.maturity_year = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.maturity_year(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.maturity_year, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: New Expiry Message
@@ -3585,20 +3585,20 @@ display.number_of_leg_definitions = function(value)
   return "Number Of Leg Definitions: "..value
 end
 
--- Dissect Number Of Leg Definitions Field
+-- Dissect: Number Of Leg Definitions
 dissect.number_of_leg_definitions = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.number_of_leg_definitions(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.number_of_leg_definitions, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Calculate runtime size: New Futures Strategy Definition Message
-calculate.new_futures_strategy_definition_message = function(buffer, offset)
+size_of.new_futures_strategy_definition_message = function(buffer, offset)
   local index = 0
 
   index = index + 89
@@ -3669,8 +3669,8 @@ end
 dissect.new_futures_strategy_definition_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.new_futures_strategy_definition_message then
-    local size = calculate.new_futures_strategy_definition_message(buffer, offset)
-    local range = buffer(offset, size)
+    local length = size_of.new_futures_strategy_definition_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.new_futures_strategy_definition_message(buffer, packet, parent)
     parent = parent:add(ice_impact_mdp_1_24.fields.new_futures_strategy_definition_message, range, display)
   end
@@ -3683,16 +3683,16 @@ display.ipl_down = function(value)
   return "IPL Down: "..value
 end
 
--- Dissect IPL Down Field
+-- Dissect: IPL Down
 dissect.ipl_down = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.ipl_down(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.ipl_down, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display IPL Up
@@ -3700,16 +3700,16 @@ display.ipl_up = function(value)
   return "IPL Up: "..value
 end
 
--- Dissect IPL Up Field
+-- Dissect: IPL Up
 dissect.ipl_up = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.ipl_up(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.ipl_up, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display IPL Hold Duration
@@ -3717,16 +3717,16 @@ display.ipl_hold_duration = function(value)
   return "IPL Hold Duration: "..value
 end
 
--- Dissect IPL Hold Duration Field
+-- Dissect: IPL Hold Duration
 dissect.ipl_hold_duration = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.ipl_hold_duration(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.ipl_hold_duration, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Is Up
@@ -3734,16 +3734,16 @@ display.is_up = function(value)
   return "Is Up: "..value
 end
 
--- Dissect Is Up Field
+-- Dissect: Is Up
 dissect.is_up = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.is_up(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.is_up, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Notification Date Time
@@ -3751,16 +3751,16 @@ display.notification_date_time = function(value)
   return "Notification Date Time: "..value
 end
 
--- Dissect Notification Date Time Field
+-- Dissect: Notification Date Time
 dissect.notification_date_time = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.notification_date_time(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.notification_date_time, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display IPL Hold Type
@@ -3768,16 +3768,16 @@ display.ipl_hold_type = function(value)
   return "IPL Hold Type: "..value
 end
 
--- Dissect IPL Hold Type Field
+-- Dissect: IPL Hold Type
 dissect.ipl_hold_type = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.ipl_hold_type(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.ipl_hold_type, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Interval Price Limit Notification Message
@@ -3830,16 +3830,16 @@ display.end_day = function(value)
   return "End Day: "..value
 end
 
--- Dissect End Day Field
+-- Dissect: End Day
 dissect.end_day = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.end_day(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.end_day, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display End Month
@@ -3847,16 +3847,16 @@ display.end_month = function(value)
   return "End Month: "..value
 end
 
--- Dissect End Month Field
+-- Dissect: End Month
 dissect.end_month = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.end_month(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.end_month, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display End Year
@@ -3864,16 +3864,16 @@ display.end_year = function(value)
   return "End Year: "..value
 end
 
--- Dissect End Year Field
+-- Dissect: End Year
 dissect.end_year = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.end_year(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.end_year, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Begin Day
@@ -3881,16 +3881,16 @@ display.begin_day = function(value)
   return "Begin Day: "..value
 end
 
--- Dissect Begin Day Field
+-- Dissect: Begin Day
 dissect.begin_day = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.begin_day(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.begin_day, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Begin Month
@@ -3898,16 +3898,16 @@ display.begin_month = function(value)
   return "Begin Month: "..value
 end
 
--- Dissect Begin Month Field
+-- Dissect: Begin Month
 dissect.begin_month = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.begin_month(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.begin_month, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Begin Year
@@ -3915,16 +3915,16 @@ display.begin_year = function(value)
   return "Begin Year: "..value
 end
 
--- Dissect Begin Year Field
+-- Dissect: Begin Year
 dissect.begin_year = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.begin_year(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.begin_year, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Strip Type
@@ -3932,16 +3932,16 @@ display.strip_type = function(value)
   return "Strip Type: "..value
 end
 
--- Dissect Strip Type Field
+-- Dissect: Strip Type
 dissect.strip_type = function(buffer, offset, packet, parent)
-  local size = 20
-  local range = buffer(offset, size)
+  local length = 20
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.strip_type(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.strip_type, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Old Strip ID
@@ -3949,16 +3949,16 @@ display.old_strip_id = function(value)
   return "Old Strip ID: "..value
 end
 
--- Dissect Old Strip ID Field
+-- Dissect: Old Strip ID
 dissect.old_strip_id = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.old_strip_id(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.old_strip_id, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Strip Info Message
@@ -4020,16 +4020,16 @@ display.pre_open_volume = function(value)
   return "Pre Open Volume: "..value
 end
 
--- Dissect Pre Open Volume Field
+-- Dissect: Pre Open Volume
 dissect.pre_open_volume = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.pre_open_volume(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.pre_open_volume, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Has Pre Open Volume
@@ -4037,16 +4037,16 @@ display.has_pre_open_volume = function(value)
   return "Has Pre Open Volume: "..value
 end
 
--- Dissect Has Pre Open Volume Field
+-- Dissect: Has Pre Open Volume
 dissect.has_pre_open_volume = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.has_pre_open_volume(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.has_pre_open_volume, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Pre Open Price
@@ -4054,16 +4054,16 @@ display.pre_open_price = function(value)
   return "Pre Open Price: "..value
 end
 
--- Dissect Pre Open Price Field
+-- Dissect: Pre Open Price
 dissect.pre_open_price = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.pre_open_price(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.pre_open_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Pre Open Price Indicator Message
@@ -4110,16 +4110,16 @@ display.event_type = function(value)
   return "Event Type: "..value
 end
 
--- Dissect Event Type Field
+-- Dissect: Event Type
 dissect.event_type = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.event_type(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.event_type, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Market Event Message
@@ -4160,16 +4160,16 @@ display.opening_price = function(value)
   return "Opening Price: "..value
 end
 
--- Dissect Opening Price Field
+-- Dissect: Opening Price
 dissect.opening_price = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.opening_price(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.opening_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Volume
@@ -4177,16 +4177,16 @@ display.volume = function(value)
   return "Volume: "..value
 end
 
--- Dissect Volume Field
+-- Dissect: Volume
 dissect.volume = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.volume(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.volume, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: End of Day Market Summary Message
@@ -4257,16 +4257,16 @@ display.valuation_date____applying_date = function(value)
   return "Valuation Date /  Applying Date: "..value
 end
 
--- Dissect Valuation Date /  Applying Date Field
+-- Dissect: Valuation Date /  Applying Date
 dissect.valuation_date____applying_date = function(buffer, offset, packet, parent)
-  local size = 10
-  local range = buffer(offset, size)
+  local length = 10
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.valuation_date____applying_date(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.valuation_date____applying_date, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Published Date Time
@@ -4274,16 +4274,16 @@ display.published_date_time = function(value)
   return "Published Date Time: "..value
 end
 
--- Dissect Published Date Time Field
+-- Dissect: Published Date Time
 dissect.published_date_time = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.published_date_time(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.published_date_time, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Short Name
@@ -4291,16 +4291,16 @@ display.short_name = function(value)
   return "Short Name: "..value
 end
 
--- Dissect Short Name Field
+-- Dissect: Short Name
 dissect.short_name = function(buffer, offset, packet, parent)
-  local size = 30
-  local range = buffer(offset, size)
+  local length = 30
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.short_name(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.short_name, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Marker Index Prices
@@ -4386,16 +4386,16 @@ display.close_price = function(value)
   return "Close Price: "..value
 end
 
--- Dissect Close Price Field
+-- Dissect: Close Price
 dissect.close_price = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.close_price(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.close_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Close Price Message
@@ -4436,16 +4436,16 @@ display.open_price = function(value)
   return "Open Price: "..value
 end
 
--- Dissect Open Price Field
+-- Dissect: Open Price
 dissect.open_price = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.open_price(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.open_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Open Price Message
@@ -4486,16 +4486,16 @@ display.open_interest_change = function(value)
   return "Open Interest Change: "..value
 end
 
--- Dissect Open Interest Change Field
+-- Dissect: Open Interest Change
 dissect.open_interest_change = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.open_interest_change(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.open_interest_change, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Open Interest Message
@@ -4542,16 +4542,16 @@ display.text_message_extra_fld = function(value)
   return "Text Message Extra Fld: "..value
 end
 
--- Dissect Text Message Extra Fld Field
+-- Dissect: Text Message Extra Fld
 dissect.text_message_extra_fld = function(buffer, offset, packet, parent)
-  local size = 800
-  local range = buffer(offset, size)
+  local length = 800
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.text_message_extra_fld(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.text_message_extra_fld, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Text Message
@@ -4559,16 +4559,16 @@ display.text_message = function(value)
   return "Text Message: "..value
 end
 
--- Dissect Text Message Field
+-- Dissect: Text Message
 dissect.text_message = function(buffer, offset, packet, parent)
-  local size = 200
-  local range = buffer(offset, size)
+  local length = 200
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.text_message(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.text_message, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: System Text Message
@@ -4693,16 +4693,16 @@ display.off_market_trade_type = function(value)
   return "Off Market Trade Type: "..value
 end
 
--- Dissect Off Market Trade Type Field
+-- Dissect: Off Market Trade Type
 dissect.off_market_trade_type = function(buffer, offset, packet, parent)
-  local size = 3
-  local range = buffer(offset, size)
+  local length = 3
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.off_market_trade_type(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.off_market_trade_type, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Old Off Market Trade Type
@@ -4710,16 +4710,16 @@ display.old_off_market_trade_type = function(value)
   return "Old Off Market Trade Type: "..value
 end
 
--- Dissect Old Off Market Trade Type Field
+-- Dissect: Old Off Market Trade Type
 dissect.old_off_market_trade_type = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.old_off_market_trade_type(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.old_off_market_trade_type, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Trade ID
@@ -4727,16 +4727,16 @@ display.trade_id = function(value)
   return "Trade ID: "..value
 end
 
--- Dissect Trade ID Field
+-- Dissect: Trade ID
 dissect.trade_id = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.trade_id(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.trade_id, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Cancelled Trade Message
@@ -4837,16 +4837,16 @@ display.is_system_priced_leg = function(value)
   return "Is System Priced Leg: "..value
 end
 
--- Dissect Is System Priced Leg Field
+-- Dissect: Is System Priced Leg
 dissect.is_system_priced_leg = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.is_system_priced_leg(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.is_system_priced_leg, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Delivery End Date Time
@@ -4854,16 +4854,16 @@ display.delivery_end_date_time = function(value)
   return "Delivery End Date Time: "..value
 end
 
--- Dissect Delivery End Date Time Field
+-- Dissect: Delivery End Date Time
 dissect.delivery_end_date_time = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.delivery_end_date_time(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.delivery_end_date_time, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Delivery Begin Date Time
@@ -4871,16 +4871,16 @@ display.delivery_begin_date_time = function(value)
   return "Delivery Begin Date Time: "..value
 end
 
--- Dissect Delivery Begin Date Time Field
+-- Dissect: Delivery Begin Date Time
 dissect.delivery_begin_date_time = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.delivery_begin_date_time(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.delivery_begin_date_time, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Transact Date Time
@@ -4888,16 +4888,16 @@ display.transact_date_time = function(value)
   return "Transact Date Time: "..value
 end
 
--- Dissect Transact Date Time Field
+-- Dissect: Transact Date Time
 dissect.transact_date_time = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.transact_date_time(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.transact_date_time, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Spot Market Trade Message
@@ -4956,16 +4956,16 @@ display.aggressor_side = function(value)
   return "Aggressor Side: "..value
 end
 
--- Dissect Aggressor Side Field
+-- Dissect: Aggressor Side
 dissect.aggressor_side = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.aggressor_side(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.aggressor_side, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Is Adjusted Trade
@@ -4973,16 +4973,16 @@ display.is_adjusted_trade = function(value)
   return "Is Adjusted Trade: "..value
 end
 
--- Dissect Is Adjusted Trade Field
+-- Dissect: Is Adjusted Trade
 dissect.is_adjusted_trade = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.is_adjusted_trade(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.is_adjusted_trade, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Is Implied Spread At Market Open
@@ -4990,16 +4990,16 @@ display.is_implied_spread_at_market_open = function(value)
   return "Is Implied Spread At Market Open: "..value
 end
 
--- Dissect Is Implied Spread At Market Open Field
+-- Dissect: Is Implied Spread At Market Open
 dissect.is_implied_spread_at_market_open = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.is_implied_spread_at_market_open(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.is_implied_spread_at_market_open, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display System Priced Leg Type
@@ -5007,16 +5007,16 @@ display.system_priced_leg_type = function(value)
   return "System Priced Leg Type: "..value
 end
 
--- Dissect System Priced Leg Type Field
+-- Dissect: System Priced Leg Type
 dissect.system_priced_leg_type = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.system_priced_leg_type(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.system_priced_leg_type, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Trade Message
@@ -5090,16 +5090,16 @@ display.previous_day_settlement_price = function(value)
   return "Previous Day Settlement Price: "..value
 end
 
--- Dissect Previous Day Settlement Price Field
+-- Dissect: Previous Day Settlement Price
 dissect.previous_day_settlement_price = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.previous_day_settlement_price(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.previous_day_settlement_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Has Previous Day Settlement Price
@@ -5107,16 +5107,16 @@ display.has_previous_day_settlement_price = function(value)
   return "Has Previous Day Settlement Price: "..value
 end
 
--- Dissect Has Previous Day Settlement Price Field
+-- Dissect: Has Previous Day Settlement Price
 dissect.has_previous_day_settlement_price = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.has_previous_day_settlement_price(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.has_previous_day_settlement_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Is Settle Price Official
@@ -5124,16 +5124,16 @@ display.is_settle_price_official = function(value)
   return "Is Settle Price Official: "..value
 end
 
--- Dissect Is Settle Price Official Field
+-- Dissect: Is Settle Price Official
 dissect.is_settle_price_official = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.is_settle_price_official(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.is_settle_price_official, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Reserved Field1
@@ -5141,16 +5141,16 @@ display.reserved_field1 = function(value)
   return "Reserved Field1: "..value
 end
 
--- Dissect Reserved Field1 Field
+-- Dissect: Reserved Field1
 dissect.reserved_field1 = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved_field1(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.reserved_field1, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Last Message Sequence ID
@@ -5158,16 +5158,16 @@ display.last_message_sequence_id = function(value)
   return "Last Message Sequence ID: "..value
 end
 
--- Dissect Last Message Sequence ID Field
+-- Dissect: Last Message Sequence ID
 dissect.last_message_sequence_id = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.last_message_sequence_id(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.last_message_sequence_id, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Settle Price Date Time
@@ -5175,16 +5175,16 @@ display.settle_price_date_time = function(value)
   return "Settle Price Date Time: "..value
 end
 
--- Dissect Settle Price Date Time Field
+-- Dissect: Settle Price Date Time
 dissect.settle_price_date_time = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.settle_price_date_time(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.settle_price_date_time, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Last Trade Date Time
@@ -5192,16 +5192,16 @@ display.last_trade_date_time = function(value)
   return "Last Trade Date Time: "..value
 end
 
--- Dissect Last Trade Date Time Field
+-- Dissect: Last Trade Date Time
 dissect.last_trade_date_time = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.last_trade_date_time(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.last_trade_date_time, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Last Trade Quantity
@@ -5209,16 +5209,16 @@ display.last_trade_quantity = function(value)
   return "Last Trade Quantity: "..value
 end
 
--- Dissect Last Trade Quantity Field
+-- Dissect: Last Trade Quantity
 dissect.last_trade_quantity = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.last_trade_quantity(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.last_trade_quantity, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Last Trade Price
@@ -5226,16 +5226,16 @@ display.last_trade_price = function(value)
   return "Last Trade Price: "..value
 end
 
--- Dissect Last Trade Price Field
+-- Dissect: Last Trade Price
 dissect.last_trade_price = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.last_trade_price(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.last_trade_price, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Num Of Book Entries
@@ -5243,16 +5243,16 @@ display.num_of_book_entries = function(value)
   return "Num Of Book Entries: "..value
 end
 
--- Dissect Num Of Book Entries Field
+-- Dissect: Num Of Book Entries
 dissect.num_of_book_entries = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.num_of_book_entries(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.num_of_book_entries, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Market Type
@@ -5260,16 +5260,16 @@ display.market_type = function(value)
   return "Market Type: "..value
 end
 
--- Dissect Market Type Field
+-- Dissect: Market Type
 dissect.market_type = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.market_type(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.market_type, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Market Snapshot Message
@@ -5372,7 +5372,7 @@ dissect.market_snapshot_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-calculate.payload = function(buffer, offset, code)
+size_of.payload = function(buffer, offset, code)
   -- Size of Market Snapshot Message
   if code == "C" then
     return 133
@@ -5447,7 +5447,7 @@ calculate.payload = function(buffer, offset, code)
   end
   -- Size of New Futures Strategy Definition Message
   if code == "9" then
-    return calculate.new_futures_strategy_definition_message(buffer, offset)
+    return size_of.new_futures_strategy_definition_message(buffer, offset)
   end
   -- Size of New Expiry Message
   if code == "R" then
@@ -5455,7 +5455,7 @@ calculate.payload = function(buffer, offset, code)
   end
   -- Size of Special Field Message
   if code == "b" then
-    return calculate.special_field_message(buffer, offset)
+    return size_of.special_field_message(buffer, offset)
   end
   -- Size of Market Snapshot Order Message
   if code == "D" then
@@ -5499,7 +5499,7 @@ calculate.payload = function(buffer, offset, code)
   end
   -- Size of New Options Strategy Definition Message
   if code == "U" then
-    return calculate.new_options_strategy_definition_message(buffer, offset)
+    return size_of.new_options_strategy_definition_message(buffer, offset)
   end
   -- Size of New Options Market Definition Message
   if code == "l" then
@@ -5525,7 +5525,7 @@ calculate.payload = function(buffer, offset, code)
   return 0
 end
 
--- Display function for Branch: Payload
+-- Display: Payload
 display.payload = function(buffer, offset, packet, parent)
   return ""
 end
@@ -5684,7 +5684,7 @@ dissect.payload_branches = function(code, buffer, offset, packet, parent)
   return offset
 end
 
--- Dissect Payload
+-- Dissect: Payload
 dissect.payload = function(buffer, offset, packet, parent)
   -- Parse Payload type dependency
   local code = buffer(offset - 3, 1):string()
@@ -5694,7 +5694,7 @@ dissect.payload = function(buffer, offset, packet, parent)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = calculate.payload(buffer, offset, code)
+  local size = size_of.payload(buffer, offset, code)
   if size == 0 then
     return offset
   end
@@ -5712,19 +5712,19 @@ display.length = function(value)
   return "Length: "..value
 end
 
--- Dissect Length Field
+-- Dissect: Length
 dissect.length = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.length(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.length, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
--- Display Field: Message Type
+-- Display: Message Type
 display.message_type = function(value)
   if value == "C" then
     return "Message Type: Market Snapshot Message (C)"
@@ -5841,16 +5841,16 @@ display.message_type = function(value)
   return "Message Type: Unknown("..value..")"
 end
 
--- Dissect Message Type Field
+-- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.message_type, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Message Header
@@ -5884,7 +5884,7 @@ dissect.message_header = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: Message
-calculate.message = function(buffer, offset)
+size_of.message = function(buffer, offset)
   local index = 0
 
   index = index + 3
@@ -5892,7 +5892,7 @@ calculate.message = function(buffer, offset)
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 3, 1):string()
-  index = index + calculate.payload(buffer, payload_offset, payload_type)
+  index = index + size_of.payload(buffer, payload_offset, payload_type)
 
   return index
 end
@@ -5919,8 +5919,8 @@ end
 dissect.message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.message then
-    local size = calculate.message(buffer, offset)
-    local range = buffer(offset, size)
+    local length = size_of.message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.message(buffer, packet, parent)
     parent = parent:add(ice_impact_mdp_1_24.fields.message, range, display)
   end
@@ -5933,16 +5933,16 @@ display.timestamp = function(value)
   return "Timestamp: "..value
 end
 
--- Dissect Timestamp Field
+-- Dissect: Timestamp
 dissect.timestamp = function(buffer, offset, packet, parent)
-  local size = 8
-  local range = buffer(offset, size)
+  local length = 8
+  local range = buffer(offset, length)
   local value = range:uint64()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.timestamp, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Count
@@ -5950,16 +5950,16 @@ display.count = function(value)
   return "Count: "..value
 end
 
--- Dissect Count Field
+-- Dissect: Count
 dissect.count = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.count(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.count, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Sequence
@@ -5967,16 +5967,16 @@ display.sequence = function(value)
   return "Sequence: "..value
 end
 
--- Dissect Sequence Field
+-- Dissect: Sequence
 dissect.sequence = function(buffer, offset, packet, parent)
-  local size = 4
-  local range = buffer(offset, size)
+  local length = 4
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.sequence(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.sequence, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display Session
@@ -5984,16 +5984,16 @@ display.session = function(value)
   return "Session: "..value
 end
 
--- Dissect Session Field
+-- Dissect: Session
 dissect.session = function(buffer, offset, packet, parent)
-  local size = 2
-  local range = buffer(offset, size)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.session(value, buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.session, range, value, display)
 
-  return offset + size
+  return offset + length
 end
 
 -- Display: Packet Header
