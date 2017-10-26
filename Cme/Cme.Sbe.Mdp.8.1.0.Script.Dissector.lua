@@ -9,6 +9,7 @@ local cme_sbe_mdp_8_1_0 = Proto("Cme.Sbe.Mdp.8.1.0.Lua", "Cme Sbe Mdp 8.1.0")
 
 -- Component Tables
 local show = {}
+local format = {}
 local display = {}
 local dissect = {}
 local calculate = {}
@@ -17,6 +18,79 @@ local verify = {}
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+-- Cme Sbe Mdp 8.1.0 Format Options
+format.admin_login = true
+format.admin_logout = true
+format.channel_reset = true
+format.channel_reset_group = true
+format.channel_reset_groups = true
+format.events_group = true
+format.events_groups = true
+format.group_size = true
+format.group_size8_byte = true
+format.inst_attrib_group = true
+format.inst_attrib_groups = true
+format.inst_attrib_value = true
+format.legs_group = true
+format.legs_groups = true
+format.lot_type_rules_group = true
+format.lot_type_rules_groups = true
+format.match_event_indicator = true
+format.maturity_month_year = true
+format.md_feed_types_group = true
+format.md_feed_types_groups = true
+format.md_incremental_refresh_book = true
+format.md_incremental_refresh_book_group = true
+format.md_incremental_refresh_book_groups = true
+format.md_incremental_refresh_book_order_group = true
+format.md_incremental_refresh_book_order_groups = true
+format.md_incremental_refresh_daily_statistics = true
+format.md_incremental_refresh_daily_statistics_group = true
+format.md_incremental_refresh_daily_statistics_groups = true
+format.md_incremental_refresh_limits_banding = true
+format.md_incremental_refresh_limits_banding_group = true
+format.md_incremental_refresh_limits_banding_groups = true
+format.md_incremental_refresh_order_book = true
+format.md_incremental_refresh_order_book_group = true
+format.md_incremental_refresh_order_book_groups = true
+format.md_incremental_refresh_session_statistics = true
+format.md_incremental_refresh_session_statistics_group = true
+format.md_incremental_refresh_session_statistics_groups = true
+format.md_incremental_refresh_trade = true
+format.md_incremental_refresh_trade_group = true
+format.md_incremental_refresh_trade_groups = true
+format.md_incremental_refresh_trade_summary = true
+format.md_incremental_refresh_trade_summary_group = true
+format.md_incremental_refresh_trade_summary_groups = true
+format.md_incremental_refresh_trade_summary_order_group = true
+format.md_incremental_refresh_trade_summary_order_groups = true
+format.md_incremental_refresh_volume = true
+format.md_incremental_refresh_volume_group = true
+format.md_incremental_refresh_volume_groups = true
+format.md_instrument_definition_future = true
+format.md_instrument_definition_option = true
+format.md_instrument_definition_spread = true
+format.message = true
+format.message_header = true
+format.packet = true
+format.packet_header = true
+format.quote_request = true
+format.related_instruments_group = true
+format.related_instruments_groups = true
+format.related_sym_group = true
+format.related_sym_groups = true
+format.security_status = true
+format.settl_price_type = true
+format.snapshot_full_refresh = true
+format.snapshot_full_refresh_group = true
+format.snapshot_full_refresh_groups = true
+format.snapshot_full_refresh_order_book = true
+format.snapshot_full_refresh_order_book_group = true
+format.snapshot_full_refresh_order_book_groups = true
+format.underlyings_group = true
+format.underlyings_groups = true
+format.payload = true
 
 -- Cme Sbe Mdp 8.1.0 Element Dissection Options
 show.admin_login = true
@@ -459,7 +533,7 @@ dissect.order_id = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Snapshot Full Refresh Order Book Group
+-- Display: Snapshot Full Refresh Order Book Group
 display.snapshot_full_refresh_order_book_group = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -533,7 +607,7 @@ dissect.block_length = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: group Size
+-- Display: group Size
 display.group_size = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -577,7 +651,7 @@ calculate.snapshot_full_refresh_order_book_groups = function(buffer, offset)
   return index
 end
 
--- Display function for: Snapshot Full Refresh Order Book Groups
+-- Display: Snapshot Full Refresh Order Book Groups
 display.snapshot_full_refresh_order_book_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -726,7 +800,7 @@ calculate.snapshot_full_refresh_order_book = function(buffer, offset)
   return index
 end
 
--- Display function for: Snapshot Full Refresh Order Book
+-- Display: Snapshot Full Refresh Order Book
 display.snapshot_full_refresh_order_book = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -826,7 +900,7 @@ dissect.md_update_action = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: MD Incremental Refresh Order Book Group
+-- Display: MD Incremental Refresh Order Book Group
 display.md_incremental_refresh_order_book_group = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -888,7 +962,7 @@ calculate.md_incremental_refresh_order_book_groups = function(buffer, offset)
   return index
 end
 
--- Display function for: MD Incremental Refresh Order Book Groups
+-- Display: MD Incremental Refresh Order Book Groups
 display.md_incremental_refresh_order_book_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -949,11 +1023,11 @@ display.last_trade_msg = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Last Trade Msg
 dissect.last_trade_msg_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Last Trade Msg
 dissect.last_trade_msg = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -975,11 +1049,11 @@ display.last_volume_msg = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Last Volume Msg
 dissect.last_volume_msg_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Last Volume Msg
 dissect.last_volume_msg = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -1001,11 +1075,11 @@ display.last_quote_msg = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Last Quote Msg
 dissect.last_quote_msg_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Last Quote Msg
 dissect.last_quote_msg = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -1027,11 +1101,11 @@ display.last_stats_msg = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Last Stats Msg
 dissect.last_stats_msg_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Last Stats Msg
 dissect.last_stats_msg = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -1053,11 +1127,11 @@ display.last_implied_msg = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Last Implied Msg
 dissect.last_implied_msg_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Last Implied Msg
 dissect.last_implied_msg = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -1079,11 +1153,11 @@ display.recovery_msg = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Recovery Msg
 dissect.recovery_msg_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Recovery Msg
 dissect.recovery_msg = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -1105,11 +1179,11 @@ display.reserved = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Reserved
 dissect.reserved_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Reserved
 dissect.reserved = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -1131,11 +1205,11 @@ display.end_of_event = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: End Of Event
 dissect.end_of_event_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: End Of Event
 dissect.end_of_event = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -1189,7 +1263,7 @@ display.match_event_indicator = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Match Event Indicator
 dissect.match_event_indicator_bits = function(buffer, offset, packet, parent)
 
   -- End Of Event: 1 Bit
@@ -1217,7 +1291,7 @@ dissect.match_event_indicator_bits = function(buffer, offset, packet, parent)
   parent:add(cme_sbe_mdp_8_1_0.fields.last_trade_msg, buffer(offset + 0, 1))
 end
 
--- Dissect Bit Field
+-- Dissect: Match Event Indicator
 dissect.match_event_indicator = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
@@ -1242,7 +1316,7 @@ calculate.md_incremental_refresh_order_book = function(buffer, offset)
   return index
 end
 
--- Display function for: MD Incremental Refresh Order Book
+-- Display: MD Incremental Refresh Order Book
 display.md_incremental_refresh_order_book = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1314,7 +1388,7 @@ dissect.last_qty = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: MD Incremental Refresh Trade Summary Order Group
+-- Display: MD Incremental Refresh Trade Summary Order Group
 display.md_incremental_refresh_trade_summary_order_group = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1365,7 +1439,7 @@ dissect.padding_5 = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: group Size8 Byte
+-- Display: group Size8 Byte
 display.group_size8_byte = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1412,7 +1486,7 @@ calculate.md_incremental_refresh_trade_summary_order_groups = function(buffer, o
   return index
 end
 
--- Display function for: MD Incremental Refresh Trade Summary Order Groups
+-- Display: MD Incremental Refresh Trade Summary Order Groups
 display.md_incremental_refresh_trade_summary_order_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1543,7 +1617,7 @@ dissect.md_entry_size = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: MD Incremental Refresh Trade Summary Group
+-- Display: MD Incremental Refresh Trade Summary Group
 display.md_incremental_refresh_trade_summary_group = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1608,7 +1682,7 @@ calculate.md_incremental_refresh_trade_summary_groups = function(buffer, offset)
   return index
 end
 
--- Display function for: MD Incremental Refresh Trade Summary Groups
+-- Display: MD Incremental Refresh Trade Summary Groups
 display.md_incremental_refresh_trade_summary_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1657,7 +1731,7 @@ calculate.md_incremental_refresh_trade_summary = function(buffer, offset)
   return index
 end
 
--- Display function for: MD Incremental Refresh Trade Summary
+-- Display: MD Incremental Refresh Trade Summary
 display.md_incremental_refresh_trade_summary = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1732,7 +1806,7 @@ dissect.related_security_id = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Related Instruments Group
+-- Display: Related Instruments Group
 display.related_instruments_group = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1776,7 +1850,7 @@ calculate.related_instruments_groups = function(buffer, offset)
   return index
 end
 
--- Display function for: Related Instruments Groups
+-- Display: Related Instruments Groups
 display.related_instruments_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1846,7 +1920,7 @@ dissect.underlying_security_id = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Underlyings Group
+-- Display: Underlyings Group
 display.underlyings_group = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1890,7 +1964,7 @@ calculate.underlyings_groups = function(buffer, offset)
   return index
 end
 
--- Display function for: Underlyings Groups
+-- Display: Underlyings Groups
 display.underlyings_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1961,7 +2035,7 @@ dissect.lot_type = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Lot Type Rules Group
+-- Display: Lot Type Rules Group
 display.lot_type_rules_group = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2005,7 +2079,7 @@ calculate.lot_type_rules_groups = function(buffer, offset)
   return index
 end
 
--- Display function for: Lot Type Rules Groups
+-- Display: Lot Type Rules Groups
 display.lot_type_rules_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2049,11 +2123,11 @@ display.electronic_match_eligible = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Electronic Match Eligible
 dissect.electronic_match_eligible_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Electronic Match Eligible
 dissect.electronic_match_eligible = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -2075,11 +2149,11 @@ display.order_cross_eligible = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Order Cross Eligible
 dissect.order_cross_eligible_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Order Cross Eligible
 dissect.order_cross_eligible = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -2101,11 +2175,11 @@ display.block_trade_eligible = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Block Trade Eligible
 dissect.block_trade_eligible_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Block Trade Eligible
 dissect.block_trade_eligible = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -2127,11 +2201,11 @@ display.efp_eligible = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: EFP Eligible
 dissect.efp_eligible_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: EFP Eligible
 dissect.efp_eligible = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -2153,11 +2227,11 @@ display.ebf_eligible = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: EBF Eligible
 dissect.ebf_eligible_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: EBF Eligible
 dissect.ebf_eligible = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -2179,11 +2253,11 @@ display.efs_eligible = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: EFS Eligible
 dissect.efs_eligible_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: EFS Eligible
 dissect.efs_eligible = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -2205,11 +2279,11 @@ display.efr_eligible = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: EFR Eligible
 dissect.efr_eligible_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: EFR Eligible
 dissect.efr_eligible = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -2231,11 +2305,11 @@ display.otc_eligible = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: OTC Eligible
 dissect.otc_eligible_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: OTC Eligible
 dissect.otc_eligible = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -2257,11 +2331,11 @@ display.i_link_indicative_mass_quoting_eligible = function(buffer, packet, paren
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: i Link Indicative Mass Quoting Eligible
 dissect.i_link_indicative_mass_quoting_eligible_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: i Link Indicative Mass Quoting Eligible
 dissect.i_link_indicative_mass_quoting_eligible = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -2283,11 +2357,11 @@ display.negative_strike_eligible = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Negative Strike Eligible
 dissect.negative_strike_eligible_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Negative Strike Eligible
 dissect.negative_strike_eligible = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -2309,11 +2383,11 @@ display.negative_price_outright_eligible = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Negative Price Outright Eligible
 dissect.negative_price_outright_eligible_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Negative Price Outright Eligible
 dissect.negative_price_outright_eligible = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -2335,11 +2409,11 @@ display.is_fractional = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Is Fractional
 dissect.is_fractional_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Is Fractional
 dissect.is_fractional = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -2361,11 +2435,11 @@ display.volatility_quoted_option = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Volatility Quoted Option
 dissect.volatility_quoted_option_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Volatility Quoted Option
 dissect.volatility_quoted_option = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -2387,11 +2461,11 @@ display.rfq_cross_eligible = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: RFQ Cross Eligible
 dissect.rfq_cross_eligible_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: RFQ Cross Eligible
 dissect.rfq_cross_eligible = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -2413,11 +2487,11 @@ display.zero_price_outright_eligible = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Zero Price Outright Eligible
 dissect.zero_price_outright_eligible_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Zero Price Outright Eligible
 dissect.zero_price_outright_eligible = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -2439,11 +2513,11 @@ display.decaying_product_eligibility = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Decaying Product Eligibility
 dissect.decaying_product_eligibility_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Decaying Product Eligibility
 dissect.decaying_product_eligibility = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -2465,11 +2539,11 @@ display.variable_product_eligibility = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Variable Product Eligibility
 dissect.variable_product_eligibility_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Variable Product Eligibility
 dissect.variable_product_eligibility = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -2491,11 +2565,11 @@ display.daily_product_eligibility = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Daily Product Eligibility
 dissect.daily_product_eligibility_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Daily Product Eligibility
 dissect.daily_product_eligibility = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -2517,11 +2591,11 @@ display.gt_orders_eligibility = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: GT Orders Eligibility
 dissect.gt_orders_eligibility_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: GT Orders Eligibility
 dissect.gt_orders_eligibility = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -2543,11 +2617,11 @@ display.implied_matching_eligibility = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Implied Matching Eligibility
 dissect.implied_matching_eligibility_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Implied Matching Eligibility
 dissect.implied_matching_eligibility = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -2569,11 +2643,11 @@ display.reserved_12 = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Reserved 12
 dissect.reserved_12_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Reserved 12
 dissect.reserved_12 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
@@ -2675,7 +2749,7 @@ display.inst_attrib_value = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Inst Attrib Value
 dissect.inst_attrib_value_bits = function(buffer, offset, packet, parent)
 
   -- Reserved 12: 12 Bit
@@ -2742,7 +2816,7 @@ dissect.inst_attrib_value_bits = function(buffer, offset, packet, parent)
   parent:add(cme_sbe_mdp_8_1_0.fields.electronic_match_eligible, buffer(offset + 0, 4))
 end
 
--- Dissect Bit Field
+-- Dissect: Inst Attrib Value
 dissect.inst_attrib_value = function(buffer, offset, packet, parent)
   local size = 4
   local range = buffer(offset, size)
@@ -2756,7 +2830,7 @@ dissect.inst_attrib_value = function(buffer, offset, packet, parent)
   return offset + 4
 end
 
--- Display function for: Inst Attrib Group
+-- Display: Inst Attrib Group
 display.inst_attrib_group = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2797,7 +2871,7 @@ calculate.inst_attrib_groups = function(buffer, offset)
   return index
 end
 
--- Display function for: Inst Attrib Groups
+-- Display: Inst Attrib Groups
 display.inst_attrib_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2867,7 +2941,7 @@ dissect.md_feed_type = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: MD Feed Types Group
+-- Display: MD Feed Types Group
 display.md_feed_types_group = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2911,7 +2985,7 @@ calculate.md_feed_types_groups = function(buffer, offset)
   return index
 end
 
--- Display function for: MD Feed Types Groups
+-- Display: MD Feed Types Groups
 display.md_feed_types_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2988,7 +3062,7 @@ dissect.event_type = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Events Group
+-- Display: Events Group
 display.events_group = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -3032,7 +3106,7 @@ calculate.events_groups = function(buffer, offset)
   return index
 end
 
--- Display function for: Events Groups
+-- Display: Events Groups
 display.events_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -3180,11 +3254,11 @@ display.final = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Final
 dissect.final_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Final
 dissect.final = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -3206,11 +3280,11 @@ display.actual = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Actual
 dissect.actual_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Actual
 dissect.actual = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -3232,11 +3306,11 @@ display.rounded = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Rounded
 dissect.rounded_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Rounded
 dissect.rounded = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -3258,11 +3332,11 @@ display.intraday = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Intraday
 dissect.intraday_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Intraday
 dissect.intraday = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -3284,11 +3358,11 @@ display.reserved_bits = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Reserved Bits
 dissect.reserved_bits_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Reserved Bits
 dissect.reserved_bits = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -3310,11 +3384,11 @@ display.null_value = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Null Value
 dissect.null_value_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Null Value
 dissect.null_value = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -3356,7 +3430,7 @@ display.settl_price_type = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Settl Price Type
 dissect.settl_price_type_bits = function(buffer, offset, packet, parent)
 
   -- Null Value: 1 Bit
@@ -3378,7 +3452,7 @@ dissect.settl_price_type_bits = function(buffer, offset, packet, parent)
   parent:add(cme_sbe_mdp_8_1_0.fields.final, buffer(offset + 0, 1))
 end
 
--- Dissect Bit Field
+-- Dissect: Settl Price Type
 dissect.settl_price_type = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
@@ -3793,7 +3867,7 @@ dissect.year = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Maturity Month Year
+-- Display: Maturity Month Year
 display.maturity_month_year = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4089,7 +4163,7 @@ calculate.md_instrument_definition_option = function(buffer, offset)
   return index
 end
 
--- Display function for: MD Instrument Definition Option
+-- Display: MD Instrument Definition Option
 display.md_instrument_definition_option = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4310,7 +4384,7 @@ dissect.order_qty = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Related Sym Group
+-- Display: Related Sym Group
 display.related_sym_group = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4366,7 +4440,7 @@ calculate.related_sym_groups = function(buffer, offset)
   return index
 end
 
--- Display function for: Related Sym Groups
+-- Display: Related Sym Groups
 display.related_sym_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4447,7 +4521,7 @@ calculate.quote_request = function(buffer, offset)
   return index
 end
 
--- Display function for: Quote Request
+-- Display: Quote Request
 display.quote_request = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4529,7 +4603,7 @@ dissect.md_price_level = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Snapshot Full Refresh Group
+-- Display: Snapshot Full Refresh Group
 display.snapshot_full_refresh_group = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4591,7 +4665,7 @@ calculate.snapshot_full_refresh_groups = function(buffer, offset)
   return index
 end
 
--- Display function for: Snapshot Full Refresh Groups
+-- Display: Snapshot Full Refresh Groups
 display.snapshot_full_refresh_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4673,7 +4747,7 @@ calculate.snapshot_full_refresh = function(buffer, offset)
   return index
 end
 
--- Display function for: Snapshot Full Refresh
+-- Display: Snapshot Full Refresh
 display.snapshot_full_refresh = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4735,7 +4809,7 @@ dissect.snapshot_full_refresh = function(buffer, offset, packet, parent)
   return dissect.snapshot_full_refresh_fields(buffer, offset, packet, element)
 end
 
--- Display function for: MD Incremental Refresh Volume Group
+-- Display: MD Incremental Refresh Volume Group
 display.md_incremental_refresh_volume_group = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4788,7 +4862,7 @@ calculate.md_incremental_refresh_volume_groups = function(buffer, offset)
   return index
 end
 
--- Display function for: MD Incremental Refresh Volume Groups
+-- Display: MD Incremental Refresh Volume Groups
 display.md_incremental_refresh_volume_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4835,7 +4909,7 @@ calculate.md_incremental_refresh_volume = function(buffer, offset)
   return index
 end
 
--- Display function for: MD Incremental Refresh Volume
+-- Display: MD Incremental Refresh Volume
 display.md_incremental_refresh_volume = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4890,7 +4964,7 @@ dissect.trade_id = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: MD Incremental Refresh Trade Group
+-- Display: MD Incremental Refresh Trade Group
 display.md_incremental_refresh_trade_group = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4955,7 +5029,7 @@ calculate.md_incremental_refresh_trade_groups = function(buffer, offset)
   return index
 end
 
--- Display function for: MD Incremental Refresh Trade Groups
+-- Display: MD Incremental Refresh Trade Groups
 display.md_incremental_refresh_trade_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -5002,7 +5076,7 @@ calculate.md_incremental_refresh_trade = function(buffer, offset)
   return index
 end
 
--- Display function for: MD Incremental Refresh Trade
+-- Display: MD Incremental Refresh Trade
 display.md_incremental_refresh_trade = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -5057,7 +5131,7 @@ dissect.padding_1 = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: MD Incremental Refresh Session Statistics Group
+-- Display: MD Incremental Refresh Session Statistics Group
 display.md_incremental_refresh_session_statistics_group = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -5119,7 +5193,7 @@ calculate.md_incremental_refresh_session_statistics_groups = function(buffer, of
   return index
 end
 
--- Display function for: MD Incremental Refresh Session Statistics Groups
+-- Display: MD Incremental Refresh Session Statistics Groups
 display.md_incremental_refresh_session_statistics_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -5166,7 +5240,7 @@ calculate.md_incremental_refresh_session_statistics = function(buffer, offset)
   return index
 end
 
--- Display function for: MD Incremental Refresh Session Statistics
+-- Display: MD Incremental Refresh Session Statistics
 display.md_incremental_refresh_session_statistics = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -5204,7 +5278,7 @@ dissect.md_incremental_refresh_session_statistics = function(buffer, offset, pac
   return dissect.md_incremental_refresh_session_statistics_fields(buffer, offset, packet, element)
 end
 
--- Display function for: MD Incremental Refresh Limits Banding Group
+-- Display: MD Incremental Refresh Limits Banding Group
 display.md_incremental_refresh_limits_banding_group = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -5257,7 +5331,7 @@ calculate.md_incremental_refresh_limits_banding_groups = function(buffer, offset
   return index
 end
 
--- Display function for: MD Incremental Refresh Limits Banding Groups
+-- Display: MD Incremental Refresh Limits Banding Groups
 display.md_incremental_refresh_limits_banding_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -5304,7 +5378,7 @@ calculate.md_incremental_refresh_limits_banding = function(buffer, offset)
   return index
 end
 
--- Display function for: MD Incremental Refresh Limits Banding
+-- Display: MD Incremental Refresh Limits Banding
 display.md_incremental_refresh_limits_banding = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -5359,7 +5433,7 @@ dissect.padding_7 = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: MD Incremental Refresh Daily Statistics Group
+-- Display: MD Incremental Refresh Daily Statistics Group
 display.md_incremental_refresh_daily_statistics_group = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -5424,7 +5498,7 @@ calculate.md_incremental_refresh_daily_statistics_groups = function(buffer, offs
   return index
 end
 
--- Display function for: MD Incremental Refresh Daily Statistics Groups
+-- Display: MD Incremental Refresh Daily Statistics Groups
 display.md_incremental_refresh_daily_statistics_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -5471,7 +5545,7 @@ calculate.md_incremental_refresh_daily_statistics = function(buffer, offset)
   return index
 end
 
--- Display function for: MD Incremental Refresh Daily Statistics
+-- Display: MD Incremental Refresh Daily Statistics
 display.md_incremental_refresh_daily_statistics = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -5553,7 +5627,7 @@ dissect.reference_id = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: MD Incremental Refresh Book Order Group
+-- Display: MD Incremental Refresh Book Order Group
 display.md_incremental_refresh_book_order_group = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -5609,7 +5683,7 @@ calculate.md_incremental_refresh_book_order_groups = function(buffer, offset)
   return index
 end
 
--- Display function for: MD Incremental Refresh Book Order Groups
+-- Display: MD Incremental Refresh Book Order Groups
 display.md_incremental_refresh_book_order_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -5645,7 +5719,7 @@ dissect.md_incremental_refresh_book_order_groups = function(buffer, offset, pack
   return dissect.md_incremental_refresh_book_order_groups_fields(buffer, offset, packet, element)
 end
 
--- Display function for: MD Incremental Refresh Book Group
+-- Display: MD Incremental Refresh Book Group
 display.md_incremental_refresh_book_group = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -5710,7 +5784,7 @@ calculate.md_incremental_refresh_book_groups = function(buffer, offset)
   return index
 end
 
--- Display function for: MD Incremental Refresh Book Groups
+-- Display: MD Incremental Refresh Book Groups
 display.md_incremental_refresh_book_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -5759,7 +5833,7 @@ calculate.md_incremental_refresh_book = function(buffer, offset)
   return index
 end
 
--- Display function for: MD Incremental Refresh Book
+-- Display: MD Incremental Refresh Book
 display.md_incremental_refresh_book = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -5923,7 +5997,7 @@ dissect.security_trading_status = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Security Status
+-- Display: Security Status
 display.security_status = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -6069,7 +6143,7 @@ dissect.leg_security_id = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Legs Group
+-- Display: Legs Group
 display.legs_group = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -6122,7 +6196,7 @@ calculate.legs_groups = function(buffer, offset)
   return index
 end
 
--- Display function for: Legs Groups
+-- Display: Legs Groups
 display.legs_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -6212,7 +6286,7 @@ calculate.md_instrument_definition_spread = function(buffer, offset)
   return index
 end
 
--- Display function for: MD Instrument Definition Spread
+-- Display: MD Instrument Definition Spread
 display.md_instrument_definition_spread = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -6486,7 +6560,7 @@ calculate.md_instrument_definition_future = function(buffer, offset)
   return index
 end
 
--- Display function for: MD Instrument Definition Future
+-- Display: MD Instrument Definition Future
 display.md_instrument_definition_future = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -6673,7 +6747,7 @@ dissect.text = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Admin Logout
+-- Display: Admin Logout
 display.admin_logout = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -6718,7 +6792,7 @@ dissect.heart_bt_int = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Admin Login
+-- Display: Admin Login
 display.admin_login = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -6746,7 +6820,7 @@ dissect.admin_login = function(buffer, offset, packet, parent)
   return dissect.admin_login_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Channel Reset Group
+-- Display: Channel Reset Group
 display.channel_reset_group = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -6787,7 +6861,7 @@ calculate.channel_reset_groups = function(buffer, offset)
   return index
 end
 
--- Display function for: Channel Reset Groups
+-- Display: Channel Reset Groups
 display.channel_reset_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -6834,7 +6908,7 @@ calculate.channel_reset = function(buffer, offset)
   return index
 end
 
--- Display function for: Channel Reset
+-- Display: Channel Reset
 display.channel_reset = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -7037,9 +7111,9 @@ dissect.payload_branches = function(code, buffer, offset, packet, parent)
   return offset
 end
 
--- Dissect: Payload
+-- Dissect Payload
 dissect.payload = function(buffer, offset, packet, parent)
-  -- Parse payload type dependency
+  -- Parse Payload type dependency
   local code = buffer(offset - 6, 2):le_uint()
 
   if not show.payload then
@@ -7203,7 +7277,7 @@ dissect.message_size = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Message Header
+-- Display: Message Header
 display.message_header = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -7257,7 +7331,7 @@ calculate.message = function(buffer, offset)
   return index
 end
 
--- Display function for: Message
+-- Display: Message
 display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -7323,7 +7397,7 @@ dissect.message_sequence_number = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Packet Header
+-- Display: Packet Header
 display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -7355,7 +7429,7 @@ dissect.packet_header = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
-function dissect.packet(buffer, packet, parent)
+dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 2 fields

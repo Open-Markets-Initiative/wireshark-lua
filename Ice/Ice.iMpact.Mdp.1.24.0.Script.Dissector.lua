@@ -9,6 +9,7 @@ local ice_impact_mdp_1_24_0 = Proto("Ice.iMpact.Mdp.1.24.0.Lua", "Ice iMpact Mdp
 
 -- Component Tables
 local show = {}
+local format = {}
 local display = {}
 local dissect = {}
 local calculate = {}
@@ -17,6 +18,54 @@ local verify = {}
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+-- Ice iMpact Mdp 1.24.0 Format Options
+format.add_or_modify_order_message = true
+format.add_price_level_message = true
+format.cancelled_trade_message = true
+format.change_price_level_message = true
+format.close_price_message = true
+format.delete_order_message = true
+format.delete_price_level_message = true
+format.end_of_day_market_summary_message = true
+format.fixing_lockdown_message = true
+format.fixing_transition_message = true
+format.hedge_definition = true
+format.interval_price_limit_notification_message = true
+format.investigated_trade_message = true
+format.leg_definition = true
+format.marker_index_prices = true
+format.market_event_message = true
+format.market_snapshot_message = true
+format.market_snapshot_order_message = true
+format.market_snapshot_price_level_message = true
+format.market_state_change_message = true
+format.market_statistics_message = true
+format.message = true
+format.message_bundle_marker = true
+format.message_header = true
+format.new_expiry_message = true
+format.new_futures_strategy_definition_message = true
+format.new_options_market_definition_message = true
+format.new_options_strategy_definition_message = true
+format.old_style_options_trade_and_market_stats_message = true
+format.open_interest_message = true
+format.open_price_message = true
+format.option_open_interest_message = true
+format.option_settlement_price_message = true
+format.packet = true
+format.packet_header = true
+format.pre_open_price_indicator_message = true
+format.rfq_message = true
+format.settlement_price_message = true
+format.special_field = true
+format.special_field_message = true
+format.spot_market_trade_message = true
+format.strategy_leg_definition = true
+format.strip_info_message = true
+format.system_text_message = true
+format.trade_message = true
+format.payload = true
 
 -- Ice iMpact Mdp 1.24.0 Element Dissection Options
 show.add_or_modify_order_message = true
@@ -402,7 +451,7 @@ dissect.block_volume = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Old Style Options Trade and Market Stats Message
+-- Display: Old Style Options Trade and Market Stats Message
 display.old_style_options_trade_and_market_stats_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -581,7 +630,7 @@ dissect.market_id = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Option Settlement Price Message
+-- Display: Option Settlement Price Message
 display.option_settlement_price_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -664,7 +713,7 @@ dissect.open_interest = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Option Open Interest Message
+-- Display: Option Open Interest Message
 display.option_open_interest_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -803,7 +852,7 @@ dissect.message_timestamp = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: RFQ Message
+-- Display: RFQ Message
 display.rfq_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1376,7 +1425,7 @@ dissect.futures_contract_symbol = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: New Options Market Definition Message
+-- Display: New Options Market Definition Message
 display.new_options_market_definition_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1653,7 +1702,7 @@ dissect.hedgebodylength = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Hedge Definition
+-- Display: Hedge Definition
 display.hedge_definition = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1801,7 +1850,7 @@ dissect.leg_body_length = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Strategy Leg Definition
+-- Display: Strategy Leg Definition
 display.strategy_leg_definition = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1911,7 +1960,7 @@ calculate.new_options_strategy_definition_message = function(buffer, offset)
   return index
 end
 
--- Display function for: New Options Strategy Definition Message
+-- Display: New Options Strategy Definition Message
 display.new_options_strategy_definition_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2010,7 +2059,7 @@ dissect.price_level_position = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Delete Price Level Message
+-- Display: Delete Price Level Message
 display.delete_price_level_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2112,7 +2161,7 @@ dissect.price = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Change Price Level Message
+-- Display: Change Price Level Message
 display.change_price_level_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2161,7 +2210,7 @@ dissect.change_price_level_message = function(buffer, offset, packet, parent)
   return dissect.change_price_level_message_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Add Price Level Message
+-- Display: Add Price Level Message
 display.add_price_level_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2210,7 +2259,7 @@ dissect.add_price_level_message = function(buffer, offset, packet, parent)
   return dissect.add_price_level_message_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Market Snapshot Price Level Message
+-- Display: Market Snapshot Price Level Message
 display.market_snapshot_price_level_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2446,7 +2495,7 @@ dissect.auction__date = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Fixing Lockdown Message
+-- Display: Fixing Lockdown Message
 display.fixing_lockdown_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2558,7 +2607,7 @@ dissect.status = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Fixing Transition Message
+-- Display: Fixing Transition Message
 display.fixing_transition_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2615,7 +2664,7 @@ dissect.start_or_end = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Message Bundle Marker
+-- Display: Message Bundle Marker
 display.message_bundle_marker = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2660,7 +2709,7 @@ dissect.order_id = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Delete Order Message
+-- Display: Delete Order Message
 display.delete_order_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2793,7 +2842,7 @@ dissect.order_sequence_id = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Add or Modify Order Message
+-- Display: Add or Modify Order Message
 display.add_or_modify_order_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2851,7 +2900,7 @@ dissect.add_or_modify_order_message = function(buffer, offset, packet, parent)
   return dissect.add_or_modify_order_message_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Market Snapshot Order Message
+-- Display: Market Snapshot Order Message
 display.market_snapshot_order_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2940,7 +2989,7 @@ dissect.special_field_id = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Special Field
+-- Display: Special Field
 display.special_field = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -3001,7 +3050,7 @@ calculate.special_field_message = function(buffer, offset)
   return index
 end
 
--- Display function for: Special Field Message
+-- Display: Special Field Message
 display.special_field_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -3377,7 +3426,7 @@ dissect.maturity_year = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: New Expiry Message
+-- Display: New Expiry Message
 display.new_expiry_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -3516,7 +3565,7 @@ dissect.new_expiry_message = function(buffer, offset, packet, parent)
   return dissect.new_expiry_message_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Leg Definition
+-- Display: Leg Definition
 display.leg_definition = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -3583,7 +3632,7 @@ calculate.new_futures_strategy_definition_message = function(buffer, offset)
   return index
 end
 
--- Display function for: New Futures Strategy Definition Message
+-- Display: New Futures Strategy Definition Message
 display.new_futures_strategy_definition_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -3754,7 +3803,7 @@ dissect.ipl_hold_type = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Interval Price Limit Notification Message
+-- Display: Interval Price Limit Notification Message
 display.interval_price_limit_notification_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -3936,7 +3985,7 @@ dissect.old_strip_id = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Strip Info Message
+-- Display: Strip Info Message
 display.strip_info_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4042,7 +4091,7 @@ dissect.pre_open_price = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Pre Open Price Indicator Message
+-- Display: Pre Open Price Indicator Message
 display.pre_open_price_indicator_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4099,7 +4148,7 @@ dissect.event_type = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Market Event Message
+-- Display: Market Event Message
 display.market_event_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4167,7 +4216,7 @@ dissect.volume = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: End of Day Market Summary Message
+-- Display: End of Day Market Summary Message
 display.end_of_day_market_summary_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4282,7 +4331,7 @@ dissect.short_name = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Marker Index Prices
+-- Display: Marker Index Prices
 display.marker_index_prices = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4325,7 +4374,7 @@ dissect.marker_index_prices = function(buffer, offset, packet, parent)
   return dissect.marker_index_prices_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Settlement Price Message
+-- Display: Settlement Price Message
 display.settlement_price_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4379,7 +4428,7 @@ dissect.close_price = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Close Price Message
+-- Display: Close Price Message
 display.close_price_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4430,7 +4479,7 @@ dissect.open_price = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Open Price Message
+-- Display: Open Price Message
 display.open_price_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4481,7 +4530,7 @@ dissect.open_interest_change = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Open Interest Message
+-- Display: Open Interest Message
 display.open_interest_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4555,7 +4604,7 @@ dissect.text_message = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: System Text Message
+-- Display: System Text Message
 display.system_text_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4589,7 +4638,7 @@ dissect.system_text_message = function(buffer, offset, packet, parent)
   return dissect.system_text_message_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Market State Change Message
+-- Display: Market State Change Message
 display.market_state_change_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4623,7 +4672,7 @@ dissect.market_state_change_message = function(buffer, offset, packet, parent)
   return dissect.market_state_change_message_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Market Statistics Message
+-- Display: Market Statistics Message
 display.market_statistics_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4726,7 +4775,7 @@ dissect.trade_id = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Cancelled Trade Message
+-- Display: Cancelled Trade Message
 display.cancelled_trade_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4772,7 +4821,7 @@ dissect.cancelled_trade_message = function(buffer, offset, packet, parent)
   return dissect.cancelled_trade_message_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Investigated Trade Message
+-- Display: Investigated Trade Message
 display.investigated_trade_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4889,7 +4938,7 @@ dissect.transact_date_time = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Spot Market Trade Message
+-- Display: Spot Market Trade Message
 display.spot_market_trade_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -5009,7 +5058,7 @@ dissect.system_priced_leg_type = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Trade Message
+-- Display: Trade Message
 display.trade_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -5263,7 +5312,7 @@ dissect.market_type = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Market Snapshot Message
+-- Display: Market Snapshot Message
 display.market_snapshot_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -5676,9 +5725,9 @@ dissect.payload_branches = function(code, buffer, offset, packet, parent)
   return offset
 end
 
--- Dissect: Payload
+-- Dissect Payload
 dissect.payload = function(buffer, offset, packet, parent)
-  -- Parse payload type dependency
+  -- Parse Payload type dependency
   local code = buffer(offset - 3, 1):string()
 
   if not show.payload then
@@ -5845,7 +5894,7 @@ dissect.message_type = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Message Header
+-- Display: Message Header
 display.message_header = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -5890,7 +5939,7 @@ calculate.message = function(buffer, offset)
   return index
 end
 
--- Display function for: Message
+-- Display: Message
 display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -5990,7 +6039,7 @@ dissect.session = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Packet Header
+-- Display: Packet Header
 display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -6028,7 +6077,7 @@ dissect.packet_header = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
-function dissect.packet(buffer, packet, parent)
+dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 4 fields

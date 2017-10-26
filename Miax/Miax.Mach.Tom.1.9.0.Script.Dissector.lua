@@ -9,6 +9,7 @@ local miax_mach_tom_1_9_0 = Proto("Miax.Mach.Tom.1.9.0.Lua", "Miax Mach Tom 1.9.
 
 -- Component Tables
 local show = {}
+local format = {}
 local display = {}
 local dissect = {}
 local calculate = {}
@@ -17,6 +18,25 @@ local verify = {}
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+-- Miax Mach Tom 1.9.0 Format Options
+format.application_message = true
+format.double_sided_top_of_market_compact_message = true
+format.message = true
+format.packet = true
+format.series_update = true
+format.system_state_message = true
+format.system_time_message = true
+format.top_of_market_bid_compact_message = true
+format.top_of_market_offer_compact_message = true
+format.trade_cancel_message = true
+format.trade_message = true
+format.underlying_trading_status_message = true
+format.wide_double_sided_top_of_market_message = true
+format.wide_top_of_market_bid_message = true
+format.wide_top_of_market_offer_message = true
+format.data = true
+format.payload = true
 
 -- Miax Mach Tom 1.9.0 Element Dissection Options
 show.application_message = true
@@ -236,7 +256,7 @@ dissect.timestamp = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Underlying Trading Status Message
+-- Display: Underlying Trading Status Message
 display.underlying_trading_status_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -385,7 +405,7 @@ dissect.product_id = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Trade Cancel Message
+-- Display: Trade Cancel Message
 display.trade_cancel_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -465,7 +485,7 @@ dissect.reference_trade_id = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Trade Message
+-- Display: Trade Message
 display.trade_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -679,7 +699,7 @@ dissect.bid_price = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Wide Double Sided Top of Market Message
+-- Display: Wide Double Sided Top of Market Message
 display.wide_double_sided_top_of_market_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -734,7 +754,7 @@ dissect.wide_double_sided_top_of_market_message = function(buffer, offset, packe
   return dissect.wide_double_sided_top_of_market_message_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Double-Sided Top of Market Compact Message
+-- Display: Double-Sided Top of Market Compact Message
 display.double_sided_top_of_market_compact_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -870,7 +890,7 @@ dissect.mbbo_price = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Wide Top of Market Offer Message
+-- Display: Wide Top of Market Offer Message
 display.wide_top_of_market_offer_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -913,7 +933,7 @@ dissect.wide_top_of_market_offer_message = function(buffer, offset, packet, pare
   return dissect.wide_top_of_market_offer_message_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Wide Top of Market Bid Message
+-- Display: Wide Top of Market Bid Message
 display.wide_top_of_market_bid_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1007,7 +1027,7 @@ dissect.mbbo_price = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Top of Market Offer Compact Message
+-- Display: Top of Market Offer Compact Message
 display.top_of_market_offer_compact_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1050,7 +1070,7 @@ dissect.top_of_market_offer_compact_message = function(buffer, offset, packet, p
   return dissect.top_of_market_offer_compact_message_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Top of Market Bid Compact Message
+-- Display: Top of Market Bid Compact Message
 display.top_of_market_bid_compact_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1180,7 +1200,7 @@ dissect.notification_time = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: System State Message
+-- Display: System State Message
 display.system_state_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1544,7 +1564,7 @@ dissect.product_add__update_time = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Series Update
+-- Display: Series Update
 display.series_update = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1620,7 +1640,7 @@ dissect.series_update = function(buffer, offset, packet, parent)
   return dissect.series_update_fields(buffer, offset, packet, element)
 end
 
--- Display function for: System Time Message
+-- Display: System Time Message
 display.system_time_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1761,9 +1781,9 @@ dissect.data_branches = function(code, buffer, offset, packet, parent)
   return offset
 end
 
--- Dissect: Data
+-- Dissect Data
 dissect.data = function(buffer, offset, packet, parent)
-  -- Parse data type dependency
+  -- Parse Data type dependency
   local code = buffer(offset - 1, 1):string()
 
   if not show.data then
@@ -1852,7 +1872,7 @@ calculate.application_message = function(buffer, offset)
   return index
 end
 
--- Display function for: Application Message
+-- Display: Application Message
 display.application_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1909,9 +1929,9 @@ dissect.payload_branches = function(code, buffer, offset, packet, parent)
   return offset
 end
 
--- Dissect: Payload
+-- Dissect Payload
 dissect.payload = function(buffer, offset, packet, parent)
-  -- Parse payload type dependency
+  -- Parse Payload type dependency
   local code = buffer(offset - 2, 1):le_uint()
 
   if not show.payload then
@@ -2027,7 +2047,7 @@ calculate.message = function(buffer, offset)
   return index
 end
 
--- Display function for: Message
+-- Display: Message
 display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2069,7 +2089,7 @@ dissect.message = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
-function dissect.packet(buffer, packet, parent)
+dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Message: Struct of 5 fields

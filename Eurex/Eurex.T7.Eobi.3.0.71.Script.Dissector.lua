@@ -9,6 +9,7 @@ local eurex_t7_eobi_3_0_71 = Proto("Eurex.T7.Eobi.3.0.71.Lua", "Eurex T7 Eobi 3.
 
 -- Component Tables
 local show = {}
+local format = {}
 local display = {}
 local dissect = {}
 local calculate = {}
@@ -17,6 +18,40 @@ local verify = {}
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+-- Eurex T7 Eobi 3.0.71 Format Options
+format.add_complex_instrument = true
+format.auction_bbo = true
+format.auction_clearing_price = true
+format.cross_request = true
+format.execution_summary = true
+format.full_order_execution = true
+format.heartbeat = true
+format.instrmt_leg_grp = true
+format.instrument_state_change = true
+format.instrument_summary = true
+format.md_instrument_entry_grp = true
+format.md_trade_entry_grp = true
+format.message = true
+format.message_header = true
+format.order_add = true
+format.order_delete = true
+format.order_details = true
+format.order_mass_delete = true
+format.order_modify = true
+format.order_modify_same_prio = true
+format.packet = true
+format.packet_header = true
+format.packet_info = true
+format.partial_order_execution = true
+format.product_state_change = true
+format.product_summary = true
+format.quote_request = true
+format.snapshot_order = true
+format.top_of_book = true
+format.trade_report = true
+format.trade_reversal = true
+format.payload = true
 
 -- Eurex T7 Eobi 3.0.71 Element Dissection Options
 show.add_complex_instrument = true
@@ -261,7 +296,7 @@ dissect.md_entry_px = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: MD Trade Entry Grp
+-- Display: MD Trade Entry Grp
 display.md_trade_entry_grp = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -448,7 +483,7 @@ calculate.trade_reversal = function(buffer, offset)
   return index
 end
 
--- Display function for: Trade Reversal
+-- Display: Trade Reversal
 display.trade_reversal = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -579,7 +614,7 @@ dissect.match_type = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Trade Report
+-- Display: Trade Report
 display.trade_report = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -664,7 +699,7 @@ dissect.bid_px = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Top Of Book
+-- Display: Top Of Book
 display.top_of_book = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -777,7 +812,7 @@ dissect.trd_reg_ts_time_priority = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Order Details
+-- Display: Order Details
 display.order_details = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -817,7 +852,7 @@ dissect.order_details = function(buffer, offset, packet, parent)
   return dissect.order_details_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Snapshot Order
+-- Display: Snapshot Order
 display.snapshot_order = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -845,7 +880,7 @@ dissect.snapshot_order = function(buffer, offset, packet, parent)
   return dissect.snapshot_order_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Quote Request
+-- Display: Quote Request
 display.quote_request = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1016,7 +1051,7 @@ dissect.last_msg_seq_num_processed = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Product Summary
+-- Display: Product Summary
 display.product_summary = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1073,7 +1108,7 @@ dissect.pad4 = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Product State Change
+-- Display: Product State Change
 display.product_state_change = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1116,7 +1151,7 @@ dissect.product_state_change = function(buffer, offset, packet, parent)
   return dissect.product_state_change_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Partial Order Execution
+-- Display: Partial Order Execution
 display.partial_order_execution = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1332,7 +1367,7 @@ dissect.header_length = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Packet Info
+-- Display: Packet Info
 display.packet_info = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1366,7 +1401,7 @@ dissect.packet_info = function(buffer, offset, packet, parent)
   return dissect.packet_info_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Packet Header
+-- Display: Packet Header
 display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1449,7 +1484,7 @@ dissect.trd_reg_ts_time_in = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Order Modify Same Prio
+-- Display: Order Modify Same Prio
 display.order_modify_same_prio = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1527,7 +1562,7 @@ dissect.trd_reg_ts_prev_time_priority = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Order Modify
+-- Display: Order Modify
 display.order_modify = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1573,7 +1608,7 @@ dissect.order_modify = function(buffer, offset, packet, parent)
   return dissect.order_modify_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Order Mass Delete
+-- Display: Order Mass Delete
 display.order_mass_delete = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1604,7 +1639,7 @@ dissect.order_mass_delete = function(buffer, offset, packet, parent)
   return dissect.order_mass_delete_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Order Delete
+-- Display: Order Delete
 display.order_delete = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1641,7 +1676,7 @@ dissect.order_delete = function(buffer, offset, packet, parent)
   return dissect.order_delete_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Order Add
+-- Display: Order Add
 display.order_add = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1675,7 +1710,7 @@ dissect.order_add = function(buffer, offset, packet, parent)
   return dissect.order_add_fields(buffer, offset, packet, element)
 end
 
--- Display function for: MD Instrument Entry Grp
+-- Display: MD Instrument Entry Grp
 display.md_instrument_entry_grp = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1860,7 +1895,7 @@ calculate.instrument_summary = function(buffer, offset)
   return index
 end
 
--- Display function for: Instrument Summary
+-- Display: Instrument Summary
 display.instrument_summary = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1920,7 +1955,7 @@ dissect.instrument_summary = function(buffer, offset, packet, parent)
   return dissect.instrument_summary_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Instrument State Change
+-- Display: Instrument State Change
 display.instrument_state_change = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1963,7 +1998,7 @@ dissect.instrument_state_change = function(buffer, offset, packet, parent)
   return dissect.instrument_state_change_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Heartbeat
+-- Display: Heartbeat
 display.heartbeat = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1994,7 +2029,7 @@ dissect.heartbeat = function(buffer, offset, packet, parent)
   return dissect.heartbeat_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Full Order Execution
+-- Display: Full Order Execution
 display.full_order_execution = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2173,7 +2208,7 @@ dissect.aggressor_timestamp = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Execution Summary
+-- Display: Execution Summary
 display.execution_summary = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2231,7 +2266,7 @@ dissect.execution_summary = function(buffer, offset, packet, parent)
   return dissect.execution_summary_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Cross Request
+-- Display: Cross Request
 display.cross_request = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2268,7 +2303,7 @@ dissect.cross_request = function(buffer, offset, packet, parent)
   return dissect.cross_request_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Auction Clearing Price
+-- Display: Auction Clearing Price
 display.auction_clearing_price = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2302,7 +2337,7 @@ dissect.auction_clearing_price = function(buffer, offset, packet, parent)
   return dissect.auction_clearing_price_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Auction BBO
+-- Display: Auction BBO
 display.auction_bbo = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2414,7 +2449,7 @@ dissect.leg_symbol = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Instrmt Leg Grp
+-- Display: Instrmt Leg Grp
 display.instrmt_leg_grp = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2578,7 +2613,7 @@ calculate.add_complex_instrument = function(buffer, offset)
   return index
 end
 
--- Display function for: Add Complex Instrument
+-- Display: Add Complex Instrument
 display.add_complex_instrument = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2833,9 +2868,9 @@ dissect.payload_branches = function(code, buffer, offset, packet, parent)
   return offset
 end
 
--- Dissect: Payload
+-- Dissect Payload
 dissect.payload = function(buffer, offset, packet, parent)
-  -- Parse payload type dependency
+  -- Parse Payload type dependency
   local code = buffer(offset - 6, 2):le_uint()
 
   if not show.payload then
@@ -2907,7 +2942,7 @@ dissect.body_len = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Message Header
+-- Display: Message Header
 display.message_header = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2955,7 +2990,7 @@ calculate.message = function(buffer, offset)
   return index
 end
 
--- Display function for: Message
+-- Display: Message
 display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2988,7 +3023,7 @@ dissect.message = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
-function dissect.packet(buffer, packet, parent)
+dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 8 fields

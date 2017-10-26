@@ -9,6 +9,7 @@ local asx_t24_itch_2_4_0 = Proto("Asx.T24.Itch.2.4.0.Lua", "Asx T24 Itch 2.4.0")
 
 -- Component Tables
 local show = {}
+local format = {}
 local display = {}
 local dissect = {}
 local calculate = {}
@@ -17,6 +18,45 @@ local verify = {}
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
+
+-- Asx T24 Itch 2.4.0 Format Options
+format.ad_hoc_text_message = true
+format.anomalous_order_threshold_publish = true
+format.custom_market_executed = true
+format.custom_market_order_added = true
+format.custom_market_order_deleted = true
+format.custom_market_order_replaced = true
+format.custom_market_trade = true
+format.equilibrium_price_auction_info = true
+format.future_symbol_directory = true
+format.implied_order_added = true
+format.implied_order_deleted = true
+format.implied_order_replaced = true
+format.market_settlement = true
+format.market_updates = true
+format.message = true
+format.message_header = true
+format.open__high__low__last_trade_adjustment = true
+format.option_symbol_directory = true
+format.order_added = true
+format.order_book_state = true
+format.order_deleted = true
+format.order_executed = true
+format.order_executed_with_price = true
+format.order_replaced = true
+format.order_volume_cancelled = true
+format.packet = true
+format.packet_header = true
+format.request_for_quote = true
+format.session = true
+format.spread_executed = true
+format.spread_symbol_directory = true
+format.system_event = true
+format.time_message = true
+format.trade_cancellation = true
+format.trade_spread_execution_chain = true
+format.volume_and_open_interest = true
+format.payload = true
 
 -- Asx T24 Itch 2.4.0 Element Dissection Options
 show.ad_hoc_text_message = true
@@ -331,7 +371,7 @@ dissect.timestamp = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Volume and Open Interest
+-- Display: Volume and Open Interest
 display.volume_and_open_interest = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -476,7 +516,7 @@ dissect.aot_price = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Anomalous Order Threshold Publish
+-- Display: Anomalous Order Threshold Publish
 display.anomalous_order_threshold_publish = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -562,7 +602,7 @@ dissect.price = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Request for Quote
+-- Display: Request for Quote
 display.request_for_quote = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -636,7 +676,7 @@ dissect.source_id = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Ad Hoc Text Message
+-- Display: Ad Hoc Text Message
 display.ad_hoc_text_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -724,7 +764,7 @@ dissect.settlement_price = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Market Settlement
+-- Display: Market Settlement
 display.market_settlement = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -775,11 +815,11 @@ display.opening_trade_price = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Opening Trade Price
 dissect.opening_trade_price_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Opening Trade Price
 dissect.opening_trade_price = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -801,11 +841,11 @@ display.highest_traded_price = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Highest Traded Price
 dissect.highest_traded_price_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Highest Traded Price
 dissect.highest_traded_price = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -827,11 +867,11 @@ display.lowest_traded_price = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Lowest Traded Price
 dissect.lowest_traded_price_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Lowest Traded Price
 dissect.lowest_traded_price = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -853,11 +893,11 @@ display.total_traded_volume_and_total_trades = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Total Traded Volume and Total Trades
 dissect.total_traded_volume_and_total_trades_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Total Traded Volume and Total Trades
 dissect.total_traded_volume_and_total_trades = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -879,11 +919,11 @@ display.last_traded_price = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Last Traded Price
 dissect.last_traded_price_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Last Traded Price
 dissect.last_traded_price = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -905,11 +945,11 @@ display.last_traded_volume = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Last Traded Volume
 dissect.last_traded_volume_bits = function(buffer, offset, packet, parent)
 end
 
--- Dissect Bit Field
+-- Dissect: Last Traded Volume
 dissect.last_traded_volume = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
@@ -972,7 +1012,7 @@ display.market_updates = function(buffer, packet, parent)
   return display:sub(1, -2)
 end
 
--- Dissect Bit Fields:
+-- Dissect Bit Fields: Market Updates
 dissect.market_updates_bits = function(buffer, offset, packet, parent)
 
   -- Reserved: 2 Byte
@@ -997,7 +1037,7 @@ dissect.market_updates_bits = function(buffer, offset, packet, parent)
   parent:add(asx_t24_itch_2_4_0.fields.opening_trade_price, buffer(offset + 0, 2))
 end
 
--- Dissect Bit Field
+-- Dissect: Market Updates
 dissect.market_updates = function(buffer, offset, packet, parent)
   local size = 2
   local range = buffer(offset, size)
@@ -1130,7 +1170,7 @@ dissect.opening_trade = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Open, High, Low, Last Trade Adjustment
+-- Display: Open, High, Low, Last Trade Adjustment
 display.open__high__low__last_trade_adjustment = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1273,7 +1313,7 @@ dissect.equilibrium_price = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Equilibrium Price Auction Info
+-- Display: Equilibrium Price Auction Info
 display.equilibrium_price_auction_info = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1339,7 +1379,7 @@ dissect.match_number = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Trade Cancellation
+-- Display: Trade Cancellation
 display.trade_cancellation = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1617,7 +1657,7 @@ dissect.side = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Custom Market Trade
+-- Display: Custom Market Trade
 display.custom_market_trade = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1704,7 +1744,7 @@ dissect.trade_side_of_leg = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Custom Market Executed
+-- Display: Custom Market Executed
 display.custom_market_executed = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1915,7 +1955,7 @@ dissect.buyer = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Trade Spread Execution Chain
+-- Display: Trade Spread Execution Chain
 display.trade_spread_execution_chain = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -1991,7 +2031,7 @@ dissect.trade_spread_execution_chain = function(buffer, offset, packet, parent)
   return dissect.trade_spread_execution_chain_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Spread Executed
+-- Display: Spread Executed
 display.spread_executed = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2075,7 +2115,7 @@ dissect.buying_order_number = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Order Executed with Price
+-- Display: Order Executed with Price
 display.order_executed_with_price = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2133,7 +2173,7 @@ dissect.order_executed_with_price = function(buffer, offset, packet, parent)
   return dissect.order_executed_with_price_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Order Executed
+-- Display: Order Executed
 display.order_executed = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2188,7 +2228,7 @@ dissect.order_executed = function(buffer, offset, packet, parent)
   return dissect.order_executed_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Custom Market Order Deleted
+-- Display: Custom Market Order Deleted
 display.custom_market_order_deleted = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2239,7 +2279,7 @@ dissect.order_book_priority = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Custom Market Order Replaced
+-- Display: Custom Market Order Replaced
 display.custom_market_order_replaced = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2704,7 +2744,7 @@ dissect.legs = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Custom Market Order Added
+-- Display: Custom Market Order Added
 display.custom_market_order_added = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2819,7 +2859,7 @@ dissect.custom_market_order_added = function(buffer, offset, packet, parent)
   return dissect.custom_market_order_added_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Implied Order Deleted
+-- Display: Implied Order Deleted
 display.implied_order_deleted = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2859,7 +2899,7 @@ dissect.implied_order_deleted = function(buffer, offset, packet, parent)
   return dissect.implied_order_deleted_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Implied Order Replaced
+-- Display: Implied Order Replaced
 display.implied_order_replaced = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2908,7 +2948,7 @@ dissect.implied_order_replaced = function(buffer, offset, packet, parent)
   return dissect.implied_order_replaced_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Implied Order Added
+-- Display: Implied Order Added
 display.implied_order_added = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2957,7 +2997,7 @@ dissect.implied_order_added = function(buffer, offset, packet, parent)
   return dissect.implied_order_added_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Order Deleted
+-- Display: Order Deleted
 display.order_deleted = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -2997,7 +3037,7 @@ dissect.order_deleted = function(buffer, offset, packet, parent)
   return dissect.order_deleted_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Order Volume Cancelled
+-- Display: Order Volume Cancelled
 display.order_volume_cancelled = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -3040,7 +3080,7 @@ dissect.order_volume_cancelled = function(buffer, offset, packet, parent)
   return dissect.order_volume_cancelled_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Order Replaced
+-- Display: Order Replaced
 display.order_replaced = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -3089,7 +3129,7 @@ dissect.order_replaced = function(buffer, offset, packet, parent)
   return dissect.order_replaced_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Order Added
+-- Display: Order Added
 display.order_added = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -3195,7 +3235,7 @@ dissect.trading_status = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Order Book State
+-- Display: Order Book State
 display.order_book_state = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -3675,7 +3715,7 @@ dissect.exchange = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Option Symbol Directory
+-- Display: Option Symbol Directory
 display.option_symbol_directory = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -3849,7 +3889,7 @@ dissect.first_leg_contract_number = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Spread Symbol Directory
+-- Display: Spread Symbol Directory
 display.spread_symbol_directory = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -3910,7 +3950,7 @@ dissect.spread_symbol_directory = function(buffer, offset, packet, parent)
   return dissect.spread_symbol_directory_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Future Symbol Directory
+-- Display: Future Symbol Directory
 display.future_symbol_directory = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4025,7 +4065,7 @@ dissect.event_code = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: System Event
+-- Display: System Event
 display.system_event = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4076,7 +4116,7 @@ dissect.second = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Time Message
+-- Display: Time Message
 display.time_message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4361,9 +4401,9 @@ dissect.payload_branches = function(code, buffer, offset, packet, parent)
   return offset
 end
 
--- Dissect: Payload
+-- Dissect Payload
 dissect.payload = function(buffer, offset, packet, parent)
-  -- Parse payload type dependency
+  -- Parse Payload type dependency
   local code = buffer(offset - 1, 1):string()
 
   if not show.payload then
@@ -4509,7 +4549,7 @@ dissect.length = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for: Message Header
+-- Display: Message Header
 display.message_header = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4554,7 +4594,7 @@ calculate.message = function(buffer, offset)
   return index
 end
 
--- Display function for: Message
+-- Display: Message
 display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4688,7 +4728,7 @@ dissect.protocol_version = function(buffer, offset, packet, parent)
   return offset + size
 end
 
--- Display function for Session
+-- Display: Session
 display.session = function(buffer, packet, parent)
   return buffer(0, 10):string()
 end
@@ -4725,7 +4765,7 @@ dissect.session = function(buffer, offset, packet, parent)
   return dissect.session_fields(buffer, offset, packet, element)
 end
 
--- Display function for: Packet Header
+-- Display: Packet Header
 display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
 end
@@ -4760,7 +4800,7 @@ dissect.packet_header = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
-function dissect.packet(buffer, packet, parent)
+dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 3 fields
