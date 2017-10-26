@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Asx T24 Itch 2.4.0 Protocol
-local asx_t24_itch_2_4_0 = Proto("Asx.T24.Itch.2.4.0.Lua", "Asx T24 Itch 2.4.0")
+-- Asx T24 Itch 2.4 Protocol
+local asx_t24_itch_2_4 = Proto("Asx.T24.Itch.2.4.Lua", "Asx T24 Itch 2.4")
 
 -- Component Tables
 local show = {}
@@ -19,7 +19,7 @@ local verify = {}
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Asx T24 Itch 2.4.0 Format Options
+-- Asx T24 Itch 2.4 Format Options
 format.ad_hoc_text_message = true
 format.anomalous_order_threshold_publish = true
 format.custom_market_executed = true
@@ -58,7 +58,7 @@ format.trade_spread_execution_chain = true
 format.volume_and_open_interest = true
 format.payload = true
 
--- Asx T24 Itch 2.4.0 Element Dissection Options
+-- Asx T24 Itch 2.4 Element Dissection Options
 show.ad_hoc_text_message = true
 show.anomalous_order_threshold_publish = true
 show.custom_market_executed = true
@@ -101,172 +101,172 @@ show.payload = false
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Asx T24 Itch 2.4.0 Fields
-asx_t24_itch_2_4_0.fields.activated = ProtoField.new("Activated", "Asx.T24.Itch.activated", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.ad_hoc_text_message = ProtoField.new("Ad Hoc Text Message", "Asx.T24.Itch.adhoctextmessage", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.anomalous_order_threshold_publish = ProtoField.new("Anomalous Order Threshold Publish", "Asx.T24.Itch.anomalousorderthresholdpublish", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.aot_lower_price = ProtoField.new("AOT Lower Price", "Asx.T24.Itch.aotlowerprice", ftypes.INT32)
-asx_t24_itch_2_4_0.fields.aot_price = ProtoField.new("AOT Price", "Asx.T24.Itch.aotprice", ftypes.INT32)
-asx_t24_itch_2_4_0.fields.aot_upper_price = ProtoField.new("AOT Upper Price", "Asx.T24.Itch.aotupperprice", ftypes.INT32)
-asx_t24_itch_2_4_0.fields.best_ask_price = ProtoField.new("Best Ask Price", "Asx.T24.Itch.bestaskprice", ftypes.INT32)
-asx_t24_itch_2_4_0.fields.best_ask_quantity = ProtoField.new("Best Ask Quantity", "Asx.T24.Itch.bestaskquantity", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.best_bid_price = ProtoField.new("Best Bid Price", "Asx.T24.Itch.bestbidprice", ftypes.INT32)
-asx_t24_itch_2_4_0.fields.best_bid_quantity = ProtoField.new("Best Bid Quantity", "Asx.T24.Itch.bestbidquantity", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.buyer = ProtoField.new("Buyer", "Asx.T24.Itch.buyer", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.buyer_order_number = ProtoField.new("Buyer Order Number", "Asx.T24.Itch.buyerordernumber", ftypes.UINT64)
-asx_t24_itch_2_4_0.fields.buyer_quantity_remaining = ProtoField.new("Buyer Quantity Remaining", "Asx.T24.Itch.buyerquantityremaining", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.buying_order_number = ProtoField.new("Buying Order Number", "Asx.T24.Itch.buyingordernumber", ftypes.UINT64)
-asx_t24_itch_2_4_0.fields.contract_number = ProtoField.new("Contract Number", "Asx.T24.Itch.contractnumber", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.contract_number_leg_1 = ProtoField.new("Contract Number Leg 1", "Asx.T24.Itch.contractnumberleg1", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.contract_number_leg_2 = ProtoField.new("Contract Number Leg 2", "Asx.T24.Itch.contractnumberleg2", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.contract_number_leg_3 = ProtoField.new("Contract Number Leg 3", "Asx.T24.Itch.contractnumberleg3", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.contract_number_leg_4 = ProtoField.new("Contract Number Leg 4", "Asx.T24.Itch.contractnumberleg4", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.contract_number_leg_5 = ProtoField.new("Contract Number Leg 5", "Asx.T24.Itch.contractnumberleg5", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.contract_number_leg_6 = ProtoField.new("Contract Number Leg 6", "Asx.T24.Itch.contractnumberleg6", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.contract_type = ProtoField.new("Contract Type", "Asx.T24.Itch.contracttype", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.count = ProtoField.new("Count", "Asx.T24.Itch.count", ftypes.UINT16)
-asx_t24_itch_2_4_0.fields.coupon_rate = ProtoField.new("Coupon Rate", "Asx.T24.Itch.couponrate", ftypes.UINT16)
-asx_t24_itch_2_4_0.fields.cumulative_volume = ProtoField.new("Cumulative Volume", "Asx.T24.Itch.cumulativevolume", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.currency = ProtoField.new("Currency", "Asx.T24.Itch.currency", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.custom_market_executed = ProtoField.new("Custom Market Executed", "Asx.T24.Itch.custommarketexecuted", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.custom_market_order_added = ProtoField.new("Custom Market Order Added", "Asx.T24.Itch.custommarketorderadded", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.custom_market_order_deleted = ProtoField.new("Custom Market Order Deleted", "Asx.T24.Itch.custommarketorderdeleted", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.custom_market_order_number = ProtoField.new("Custom Market Order Number", "Asx.T24.Itch.custommarketordernumber", ftypes.UINT64)
-asx_t24_itch_2_4_0.fields.custom_market_order_replaced = ProtoField.new("Custom Market Order Replaced", "Asx.T24.Itch.custommarketorderreplaced", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.custom_market_quantity_remaining = ProtoField.new("Custom Market Quantity Remaining", "Asx.T24.Itch.custommarketquantityremaining", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.custom_market_trade = ProtoField.new("Custom Market Trade", "Asx.T24.Itch.custommarkettrade", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.equilibrium_price = ProtoField.new("Equilibrium Price", "Asx.T24.Itch.equilibriumprice", ftypes.INT32)
-asx_t24_itch_2_4_0.fields.equilibrium_price_auction_info = ProtoField.new("Equilibrium Price Auction Info", "Asx.T24.Itch.equilibriumpriceauctioninfo", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.etr_lower_price = ProtoField.new("ETR Lower Price", "Asx.T24.Itch.etrlowerprice", ftypes.INT32)
-asx_t24_itch_2_4_0.fields.etr_price = ProtoField.new("ETR Price", "Asx.T24.Itch.etrprice", ftypes.INT32)
-asx_t24_itch_2_4_0.fields.etr_upper_price = ProtoField.new("ETR Upper Price", "Asx.T24.Itch.etrupperprice", ftypes.INT32)
-asx_t24_itch_2_4_0.fields.event_code = ProtoField.new("Event Code", "Asx.T24.Itch.eventcode", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.exchange = ProtoField.new("Exchange", "Asx.T24.Itch.exchange", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.executed_quantity = ProtoField.new("Executed Quantity", "Asx.T24.Itch.executedquantity", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.expiry_month = ProtoField.new("Expiry Month", "Asx.T24.Itch.expirymonth", ftypes.UINT8)
-asx_t24_itch_2_4_0.fields.expiry_year = ProtoField.new("Expiry Year", "Asx.T24.Itch.expiryyear", ftypes.UINT16)
-asx_t24_itch_2_4_0.fields.financial_type = ProtoField.new("Financial Type", "Asx.T24.Itch.financialtype", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.first_leg_contract_number = ProtoField.new("First Leg Contract Number", "Asx.T24.Itch.firstlegcontractnumber", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.future_symbol_directory = ProtoField.new("Future Symbol Directory", "Asx.T24.Itch.futuresymboldirectory", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.highest_trade = ProtoField.new("Highest Trade", "Asx.T24.Itch.highesttrade", ftypes.INT32)
-asx_t24_itch_2_4_0.fields.highest_traded_price = ProtoField.new("Highest Traded Price", "Asx.T24.Itch.highesttradedprice", ftypes.UINT16, nil, base.DEC, "0x000008")
-asx_t24_itch_2_4_0.fields.implied_order_added = ProtoField.new("Implied Order Added", "Asx.T24.Itch.impliedorderadded", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.implied_order_deleted = ProtoField.new("Implied Order Deleted", "Asx.T24.Itch.impliedorderdeleted", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.implied_order_replaced = ProtoField.new("Implied Order Replaced", "Asx.T24.Itch.impliedorderreplaced", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.instrument = ProtoField.new("Instrument", "Asx.T24.Itch.instrument", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.last_trade = ProtoField.new("Last Trade", "Asx.T24.Itch.lasttrade", ftypes.INT32)
-asx_t24_itch_2_4_0.fields.last_traded_price = ProtoField.new("Last Traded Price", "Asx.T24.Itch.lasttradedprice", ftypes.UINT16, nil, base.DEC, "0x000040")
-asx_t24_itch_2_4_0.fields.last_traded_volume = ProtoField.new("Last Traded Volume", "Asx.T24.Itch.lasttradedvolume", ftypes.UINT16, nil, base.DEC, "0x000080")
-asx_t24_itch_2_4_0.fields.last_trading_date = ProtoField.new("Last Trading Date", "Asx.T24.Itch.lasttradingdate", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.last_volume = ProtoField.new("Last Volume", "Asx.T24.Itch.lastvolume", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.legs = ProtoField.new("Legs", "Asx.T24.Itch.legs", ftypes.UINT8)
-asx_t24_itch_2_4_0.fields.length = ProtoField.new("Length", "Asx.T24.Itch.length", ftypes.UINT16)
-asx_t24_itch_2_4_0.fields.lot_size_or_face_value = ProtoField.new("Lot Size or Face Value", "Asx.T24.Itch.lotsizeorfacevalue", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.lowest_trade = ProtoField.new("Lowest Trade", "Asx.T24.Itch.lowesttrade", ftypes.INT32)
-asx_t24_itch_2_4_0.fields.lowest_traded_price = ProtoField.new("Lowest Traded Price", "Asx.T24.Itch.lowesttradedprice", ftypes.UINT16, nil, base.DEC, "0x000010")
-asx_t24_itch_2_4_0.fields.market_settlement = ProtoField.new("Market Settlement", "Asx.T24.Itch.marketsettlement", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.market_updates = ProtoField.new("Market Updates", "Asx.T24.Itch.marketupdates", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.match_number = ProtoField.new("Match Number", "Asx.T24.Itch.matchnumber", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.maturity_value = ProtoField.new("Maturity Value", "Asx.T24.Itch.maturityvalue", ftypes.UINT8)
-asx_t24_itch_2_4_0.fields.message = ProtoField.new("Message", "Asx.T24.Itch.message", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.message_header = ProtoField.new("Message Header", "Asx.T24.Itch.messageheader", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.message_type = ProtoField.new("Message Type", "Asx.T24.Itch.messagetype", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.open_interest = ProtoField.new("Open Interest", "Asx.T24.Itch.openinterest", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.open__high__low__last_trade_adjustment = ProtoField.new("Open, High, Low, Last Trade Adjustment", "Asx.T24.Itch.openhighlowlasttradeadjustment", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.opening_trade = ProtoField.new("Opening Trade", "Asx.T24.Itch.openingtrade", ftypes.INT32)
-asx_t24_itch_2_4_0.fields.opening_trade_price = ProtoField.new("Opening Trade Price", "Asx.T24.Itch.openingtradeprice", ftypes.UINT16, nil, base.DEC, "0x000004")
-asx_t24_itch_2_4_0.fields.option_symbol_directory = ProtoField.new("Option Symbol Directory", "Asx.T24.Itch.optionsymboldirectory", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.option_type = ProtoField.new("Option Type", "Asx.T24.Itch.optiontype", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.order_added = ProtoField.new("Order Added", "Asx.T24.Itch.orderadded", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.order_book_priority = ProtoField.new("Order Book Priority", "Asx.T24.Itch.orderbookpriority", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.order_book_state = ProtoField.new("Order Book State", "Asx.T24.Itch.orderbookstate", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.order_deleted = ProtoField.new("Order Deleted", "Asx.T24.Itch.orderdeleted", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.order_executed = ProtoField.new("Order Executed", "Asx.T24.Itch.orderexecuted", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.order_executed_with_price = ProtoField.new("Order Executed with Price", "Asx.T24.Itch.orderexecutedwithprice", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.order_number = ProtoField.new("Order Number", "Asx.T24.Itch.ordernumber", ftypes.UINT64)
-asx_t24_itch_2_4_0.fields.order_replaced = ProtoField.new("Order Replaced", "Asx.T24.Itch.orderreplaced", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.order_volume_cancelled = ProtoField.new("Order Volume Cancelled", "Asx.T24.Itch.ordervolumecancelled", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.packet = ProtoField.new("Packet", "Asx.T24.Itch.packet", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.packet_header = ProtoField.new("Packet Header", "Asx.T24.Itch.packetheader", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.payload = ProtoField.new("Payload", "Asx.T24.Itch.payload", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.payments_per_year = ProtoField.new("Payments per Year", "Asx.T24.Itch.paymentsperyear", ftypes.UINT8)
-asx_t24_itch_2_4_0.fields.price = ProtoField.new("Price", "Asx.T24.Itch.price", ftypes.INT32)
-asx_t24_itch_2_4_0.fields.price_decimal_position = ProtoField.new("Price Decimal Position", "Asx.T24.Itch.pricedecimalposition", ftypes.UINT8)
-asx_t24_itch_2_4_0.fields.price_fractional_denominator = ProtoField.new("Price Fractional Denominator", "Asx.T24.Itch.pricefractionaldenominator", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.price_leg_1 = ProtoField.new("Price Leg 1", "Asx.T24.Itch.priceleg1", ftypes.INT32)
-asx_t24_itch_2_4_0.fields.price_leg_2 = ProtoField.new("Price Leg 2", "Asx.T24.Itch.priceleg2", ftypes.INT32)
-asx_t24_itch_2_4_0.fields.price_leg_3 = ProtoField.new("Price Leg 3", "Asx.T24.Itch.priceleg3", ftypes.INT32)
-asx_t24_itch_2_4_0.fields.price_leg_4 = ProtoField.new("Price Leg 4", "Asx.T24.Itch.priceleg4", ftypes.INT32)
-asx_t24_itch_2_4_0.fields.price_leg_5 = ProtoField.new("Price Leg 5", "Asx.T24.Itch.priceleg5", ftypes.INT32)
-asx_t24_itch_2_4_0.fields.price_leg_6 = ProtoField.new("Price Leg 6", "Asx.T24.Itch.priceleg6", ftypes.INT32)
-asx_t24_itch_2_4_0.fields.price_minimum_tick = ProtoField.new("Price Minimum Tick", "Asx.T24.Itch.priceminimumtick", ftypes.UINT16)
-asx_t24_itch_2_4_0.fields.primary_ratio = ProtoField.new("Primary Ratio", "Asx.T24.Itch.primaryratio", ftypes.UINT8)
-asx_t24_itch_2_4_0.fields.printable = ProtoField.new("Printable", "Asx.T24.Itch.printable", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.prior_day_settlement = ProtoField.new("Prior Day Settlement", "Asx.T24.Itch.priordaysettlement", ftypes.INT32)
-asx_t24_itch_2_4_0.fields.protocol_version = ProtoField.new("Protocol Version", "Asx.T24.Itch.protocolversion", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.quantity = ProtoField.new("Quantity", "Asx.T24.Itch.quantity", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.quantity_remaining = ProtoField.new("Quantity Remaining", "Asx.T24.Itch.quantityremaining", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.ratio_leg_1 = ProtoField.new("Ratio Leg 1", "Asx.T24.Itch.ratioleg1", ftypes.UINT16)
-asx_t24_itch_2_4_0.fields.ratio_leg_2 = ProtoField.new("Ratio Leg 2", "Asx.T24.Itch.ratioleg2", ftypes.UINT16)
-asx_t24_itch_2_4_0.fields.ratio_leg_3 = ProtoField.new("Ratio Leg 3", "Asx.T24.Itch.ratioleg3", ftypes.UINT16)
-asx_t24_itch_2_4_0.fields.ratio_leg_4 = ProtoField.new("Ratio Leg 4", "Asx.T24.Itch.ratioleg4", ftypes.UINT16)
-asx_t24_itch_2_4_0.fields.ratio_leg_5 = ProtoField.new("Ratio Leg 5", "Asx.T24.Itch.ratioleg5", ftypes.UINT16)
-asx_t24_itch_2_4_0.fields.ratio_leg_6 = ProtoField.new("Ratio Leg 6", "Asx.T24.Itch.ratioleg6", ftypes.UINT16)
-asx_t24_itch_2_4_0.fields.request_for_quote = ProtoField.new("Request for Quote", "Asx.T24.Itch.requestforquote", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.reserved = ProtoField.new("Reserved", "Asx.T24.Itch.reserved", ftypes.BYTES)
-asx_t24_itch_2_4_0.fields.second = ProtoField.new("Second", "Asx.T24.Itch.second", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.second_leg_contract_number = ProtoField.new("Second Leg Contract Number", "Asx.T24.Itch.secondlegcontractnumber", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.secondary_ratio = ProtoField.new("Secondary Ratio", "Asx.T24.Itch.secondaryratio", ftypes.UINT8)
-asx_t24_itch_2_4_0.fields.seller_contract_number = ProtoField.new("Seller Contract Number", "Asx.T24.Itch.sellercontractnumber", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.seller_quantity_remaining = ProtoField.new("Seller Quantity Remaining", "Asx.T24.Itch.sellerquantityremaining", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.selling_order_number = ProtoField.new("Selling Order Number", "Asx.T24.Itch.sellingordernumber", ftypes.UINT64)
-asx_t24_itch_2_4_0.fields.sequence = ProtoField.new("Sequence", "Asx.T24.Itch.sequence", ftypes.UINT64)
-asx_t24_itch_2_4_0.fields.session = ProtoField.new("Session", "Asx.T24.Itch.session", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.session_week = ProtoField.new("Session Week", "Asx.T24.Itch.sessionweek", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.session_year = ProtoField.new("Session Year", "Asx.T24.Itch.sessionyear", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.settlement_price = ProtoField.new("Settlement Price", "Asx.T24.Itch.settlementprice", ftypes.INT32)
-asx_t24_itch_2_4_0.fields.settlement_type = ProtoField.new("Settlement Type", "Asx.T24.Itch.settlementtype", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.side = ProtoField.new("Side", "Asx.T24.Itch.side", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.side_leg_1 = ProtoField.new("Side Leg 1", "Asx.T24.Itch.sideleg1", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.side_leg_2 = ProtoField.new("Side Leg 2", "Asx.T24.Itch.sideleg2", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.side_leg_3 = ProtoField.new("Side Leg 3", "Asx.T24.Itch.sideleg3", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.side_leg_4 = ProtoField.new("Side Leg 4", "Asx.T24.Itch.sideleg4", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.side_leg_5 = ProtoField.new("Side Leg 5", "Asx.T24.Itch.sideleg5", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.side_leg_6 = ProtoField.new("Side Leg 6", "Asx.T24.Itch.sideleg6", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.side_of_buyer = ProtoField.new("Side of Buyer", "Asx.T24.Itch.sideofbuyer", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.side_of_seller = ProtoField.new("Side of Seller", "Asx.T24.Itch.sideofseller", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.source_id = ProtoField.new("Source Id", "Asx.T24.Itch.sourceid", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.spread_executed = ProtoField.new("Spread Executed", "Asx.T24.Itch.spreadexecuted", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.spread_symbol_directory = ProtoField.new("Spread Symbol Directory", "Asx.T24.Itch.spreadsymboldirectory", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.spread_trade_price = ProtoField.new("Spread Trade Price", "Asx.T24.Itch.spreadtradeprice", ftypes.INT32)
-asx_t24_itch_2_4_0.fields.strike = ProtoField.new("Strike", "Asx.T24.Itch.strike", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.strike_price_decimal_position = ProtoField.new("Strike Price Decimal Position", "Asx.T24.Itch.strikepricedecimalposition", ftypes.UINT8)
-asx_t24_itch_2_4_0.fields.strike_price_fractional_denominator = ProtoField.new("Strike Price Fractional Denominator", "Asx.T24.Itch.strikepricefractionaldenominator", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.strike_price_minimum_tick = ProtoField.new("Strike Price Minimum Tick", "Asx.T24.Itch.strikepriceminimumtick", ftypes.UINT16)
-asx_t24_itch_2_4_0.fields.system_event = ProtoField.new("System Event", "Asx.T24.Itch.systemevent", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.text_message = ProtoField.new("Text message", "Asx.T24.Itch.textmessage", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.time_message = ProtoField.new("Time Message", "Asx.T24.Itch.timemessage", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.timestamp = ProtoField.new("Timestamp", "Asx.T24.Itch.timestamp", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.total_traded_volume = ProtoField.new("Total Traded Volume", "Asx.T24.Itch.totaltradedvolume", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.total_traded_volume_and_total_trades = ProtoField.new("Total Traded Volume and Total Trades", "Asx.T24.Itch.totaltradedvolumeandtotaltrades", ftypes.UINT16, nil, base.DEC, "0x000020")
-asx_t24_itch_2_4_0.fields.total_trades = ProtoField.new("Total Trades", "Asx.T24.Itch.totaltrades", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.trade_cancellation = ProtoField.new("Trade Cancellation", "Asx.T24.Itch.tradecancellation", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.trade_date = ProtoField.new("Trade Date", "Asx.T24.Itch.tradedate", ftypes.UINT16)
-asx_t24_itch_2_4_0.fields.trade_price = ProtoField.new("Trade Price", "Asx.T24.Itch.tradeprice", ftypes.INT32)
-asx_t24_itch_2_4_0.fields.trade_side_of_leg = ProtoField.new("Trade Side of Leg", "Asx.T24.Itch.tradesideofleg", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.trade_side_of_noncustom_order = ProtoField.new("Trade Side of NonCustom Order", "Asx.T24.Itch.tradesideofnoncustomorder", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.trade_spread_execution_chain = ProtoField.new("Trade Spread Execution Chain", "Asx.T24.Itch.tradespreadexecutionchain", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.trade_type = ProtoField.new("Trade Type", "Asx.T24.Itch.tradetype", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.traded_contract_number = ProtoField.new("Traded Contract Number", "Asx.T24.Itch.tradedcontractnumber", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.trading_service = ProtoField.new("Trading Service", "Asx.T24.Itch.tradingservice", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.trading_status = ProtoField.new("Trading Status", "Asx.T24.Itch.tradingstatus", ftypes.STRING)
-asx_t24_itch_2_4_0.fields.underlying_contract_number = ProtoField.new("Underlying Contract Number", "Asx.T24.Itch.underlyingcontractnumber", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.voi_trade_date = ProtoField.new("VOI Trade Date", "Asx.T24.Itch.voitradedate", ftypes.UINT16)
-asx_t24_itch_2_4_0.fields.volatility = ProtoField.new("Volatility", "Asx.T24.Itch.volatility", ftypes.UINT32)
-asx_t24_itch_2_4_0.fields.volume_and_open_interest = ProtoField.new("Volume and Open Interest", "Asx.T24.Itch.volumeandopeninterest", ftypes.STRING)
+-- Asx T24 Itch 2.4 Fields
+asx_t24_itch_2_4.fields.activated = ProtoField.new("Activated", "Asx.T24.Itch.activated", ftypes.STRING)
+asx_t24_itch_2_4.fields.ad_hoc_text_message = ProtoField.new("Ad Hoc Text Message", "Asx.T24.Itch.adhoctextmessage", ftypes.STRING)
+asx_t24_itch_2_4.fields.anomalous_order_threshold_publish = ProtoField.new("Anomalous Order Threshold Publish", "Asx.T24.Itch.anomalousorderthresholdpublish", ftypes.STRING)
+asx_t24_itch_2_4.fields.aot_lower_price = ProtoField.new("AOT Lower Price", "Asx.T24.Itch.aotlowerprice", ftypes.INT32)
+asx_t24_itch_2_4.fields.aot_price = ProtoField.new("AOT Price", "Asx.T24.Itch.aotprice", ftypes.INT32)
+asx_t24_itch_2_4.fields.aot_upper_price = ProtoField.new("AOT Upper Price", "Asx.T24.Itch.aotupperprice", ftypes.INT32)
+asx_t24_itch_2_4.fields.best_ask_price = ProtoField.new("Best Ask Price", "Asx.T24.Itch.bestaskprice", ftypes.INT32)
+asx_t24_itch_2_4.fields.best_ask_quantity = ProtoField.new("Best Ask Quantity", "Asx.T24.Itch.bestaskquantity", ftypes.UINT32)
+asx_t24_itch_2_4.fields.best_bid_price = ProtoField.new("Best Bid Price", "Asx.T24.Itch.bestbidprice", ftypes.INT32)
+asx_t24_itch_2_4.fields.best_bid_quantity = ProtoField.new("Best Bid Quantity", "Asx.T24.Itch.bestbidquantity", ftypes.UINT32)
+asx_t24_itch_2_4.fields.buyer = ProtoField.new("Buyer", "Asx.T24.Itch.buyer", ftypes.UINT32)
+asx_t24_itch_2_4.fields.buyer_order_number = ProtoField.new("Buyer Order Number", "Asx.T24.Itch.buyerordernumber", ftypes.UINT64)
+asx_t24_itch_2_4.fields.buyer_quantity_remaining = ProtoField.new("Buyer Quantity Remaining", "Asx.T24.Itch.buyerquantityremaining", ftypes.UINT32)
+asx_t24_itch_2_4.fields.buying_order_number = ProtoField.new("Buying Order Number", "Asx.T24.Itch.buyingordernumber", ftypes.UINT64)
+asx_t24_itch_2_4.fields.contract_number = ProtoField.new("Contract Number", "Asx.T24.Itch.contractnumber", ftypes.UINT32)
+asx_t24_itch_2_4.fields.contract_number_leg_1 = ProtoField.new("Contract Number Leg 1", "Asx.T24.Itch.contractnumberleg1", ftypes.UINT32)
+asx_t24_itch_2_4.fields.contract_number_leg_2 = ProtoField.new("Contract Number Leg 2", "Asx.T24.Itch.contractnumberleg2", ftypes.UINT32)
+asx_t24_itch_2_4.fields.contract_number_leg_3 = ProtoField.new("Contract Number Leg 3", "Asx.T24.Itch.contractnumberleg3", ftypes.UINT32)
+asx_t24_itch_2_4.fields.contract_number_leg_4 = ProtoField.new("Contract Number Leg 4", "Asx.T24.Itch.contractnumberleg4", ftypes.UINT32)
+asx_t24_itch_2_4.fields.contract_number_leg_5 = ProtoField.new("Contract Number Leg 5", "Asx.T24.Itch.contractnumberleg5", ftypes.UINT32)
+asx_t24_itch_2_4.fields.contract_number_leg_6 = ProtoField.new("Contract Number Leg 6", "Asx.T24.Itch.contractnumberleg6", ftypes.UINT32)
+asx_t24_itch_2_4.fields.contract_type = ProtoField.new("Contract Type", "Asx.T24.Itch.contracttype", ftypes.STRING)
+asx_t24_itch_2_4.fields.count = ProtoField.new("Count", "Asx.T24.Itch.count", ftypes.UINT16)
+asx_t24_itch_2_4.fields.coupon_rate = ProtoField.new("Coupon Rate", "Asx.T24.Itch.couponrate", ftypes.UINT16)
+asx_t24_itch_2_4.fields.cumulative_volume = ProtoField.new("Cumulative Volume", "Asx.T24.Itch.cumulativevolume", ftypes.UINT32)
+asx_t24_itch_2_4.fields.currency = ProtoField.new("Currency", "Asx.T24.Itch.currency", ftypes.STRING)
+asx_t24_itch_2_4.fields.custom_market_executed = ProtoField.new("Custom Market Executed", "Asx.T24.Itch.custommarketexecuted", ftypes.STRING)
+asx_t24_itch_2_4.fields.custom_market_order_added = ProtoField.new("Custom Market Order Added", "Asx.T24.Itch.custommarketorderadded", ftypes.STRING)
+asx_t24_itch_2_4.fields.custom_market_order_deleted = ProtoField.new("Custom Market Order Deleted", "Asx.T24.Itch.custommarketorderdeleted", ftypes.STRING)
+asx_t24_itch_2_4.fields.custom_market_order_number = ProtoField.new("Custom Market Order Number", "Asx.T24.Itch.custommarketordernumber", ftypes.UINT64)
+asx_t24_itch_2_4.fields.custom_market_order_replaced = ProtoField.new("Custom Market Order Replaced", "Asx.T24.Itch.custommarketorderreplaced", ftypes.STRING)
+asx_t24_itch_2_4.fields.custom_market_quantity_remaining = ProtoField.new("Custom Market Quantity Remaining", "Asx.T24.Itch.custommarketquantityremaining", ftypes.UINT32)
+asx_t24_itch_2_4.fields.custom_market_trade = ProtoField.new("Custom Market Trade", "Asx.T24.Itch.custommarkettrade", ftypes.STRING)
+asx_t24_itch_2_4.fields.equilibrium_price = ProtoField.new("Equilibrium Price", "Asx.T24.Itch.equilibriumprice", ftypes.INT32)
+asx_t24_itch_2_4.fields.equilibrium_price_auction_info = ProtoField.new("Equilibrium Price Auction Info", "Asx.T24.Itch.equilibriumpriceauctioninfo", ftypes.STRING)
+asx_t24_itch_2_4.fields.etr_lower_price = ProtoField.new("ETR Lower Price", "Asx.T24.Itch.etrlowerprice", ftypes.INT32)
+asx_t24_itch_2_4.fields.etr_price = ProtoField.new("ETR Price", "Asx.T24.Itch.etrprice", ftypes.INT32)
+asx_t24_itch_2_4.fields.etr_upper_price = ProtoField.new("ETR Upper Price", "Asx.T24.Itch.etrupperprice", ftypes.INT32)
+asx_t24_itch_2_4.fields.event_code = ProtoField.new("Event Code", "Asx.T24.Itch.eventcode", ftypes.STRING)
+asx_t24_itch_2_4.fields.exchange = ProtoField.new("Exchange", "Asx.T24.Itch.exchange", ftypes.STRING)
+asx_t24_itch_2_4.fields.executed_quantity = ProtoField.new("Executed Quantity", "Asx.T24.Itch.executedquantity", ftypes.UINT32)
+asx_t24_itch_2_4.fields.expiry_month = ProtoField.new("Expiry Month", "Asx.T24.Itch.expirymonth", ftypes.UINT8)
+asx_t24_itch_2_4.fields.expiry_year = ProtoField.new("Expiry Year", "Asx.T24.Itch.expiryyear", ftypes.UINT16)
+asx_t24_itch_2_4.fields.financial_type = ProtoField.new("Financial Type", "Asx.T24.Itch.financialtype", ftypes.STRING)
+asx_t24_itch_2_4.fields.first_leg_contract_number = ProtoField.new("First Leg Contract Number", "Asx.T24.Itch.firstlegcontractnumber", ftypes.UINT32)
+asx_t24_itch_2_4.fields.future_symbol_directory = ProtoField.new("Future Symbol Directory", "Asx.T24.Itch.futuresymboldirectory", ftypes.STRING)
+asx_t24_itch_2_4.fields.highest_trade = ProtoField.new("Highest Trade", "Asx.T24.Itch.highesttrade", ftypes.INT32)
+asx_t24_itch_2_4.fields.highest_traded_price = ProtoField.new("Highest Traded Price", "Asx.T24.Itch.highesttradedprice", ftypes.UINT16, nil, base.DEC, "0x000008")
+asx_t24_itch_2_4.fields.implied_order_added = ProtoField.new("Implied Order Added", "Asx.T24.Itch.impliedorderadded", ftypes.STRING)
+asx_t24_itch_2_4.fields.implied_order_deleted = ProtoField.new("Implied Order Deleted", "Asx.T24.Itch.impliedorderdeleted", ftypes.STRING)
+asx_t24_itch_2_4.fields.implied_order_replaced = ProtoField.new("Implied Order Replaced", "Asx.T24.Itch.impliedorderreplaced", ftypes.STRING)
+asx_t24_itch_2_4.fields.instrument = ProtoField.new("Instrument", "Asx.T24.Itch.instrument", ftypes.STRING)
+asx_t24_itch_2_4.fields.last_trade = ProtoField.new("Last Trade", "Asx.T24.Itch.lasttrade", ftypes.INT32)
+asx_t24_itch_2_4.fields.last_traded_price = ProtoField.new("Last Traded Price", "Asx.T24.Itch.lasttradedprice", ftypes.UINT16, nil, base.DEC, "0x000040")
+asx_t24_itch_2_4.fields.last_traded_volume = ProtoField.new("Last Traded Volume", "Asx.T24.Itch.lasttradedvolume", ftypes.UINT16, nil, base.DEC, "0x000080")
+asx_t24_itch_2_4.fields.last_trading_date = ProtoField.new("Last Trading Date", "Asx.T24.Itch.lasttradingdate", ftypes.UINT32)
+asx_t24_itch_2_4.fields.last_volume = ProtoField.new("Last Volume", "Asx.T24.Itch.lastvolume", ftypes.UINT32)
+asx_t24_itch_2_4.fields.legs = ProtoField.new("Legs", "Asx.T24.Itch.legs", ftypes.UINT8)
+asx_t24_itch_2_4.fields.length = ProtoField.new("Length", "Asx.T24.Itch.length", ftypes.UINT16)
+asx_t24_itch_2_4.fields.lot_size_or_face_value = ProtoField.new("Lot Size or Face Value", "Asx.T24.Itch.lotsizeorfacevalue", ftypes.UINT32)
+asx_t24_itch_2_4.fields.lowest_trade = ProtoField.new("Lowest Trade", "Asx.T24.Itch.lowesttrade", ftypes.INT32)
+asx_t24_itch_2_4.fields.lowest_traded_price = ProtoField.new("Lowest Traded Price", "Asx.T24.Itch.lowesttradedprice", ftypes.UINT16, nil, base.DEC, "0x000010")
+asx_t24_itch_2_4.fields.market_settlement = ProtoField.new("Market Settlement", "Asx.T24.Itch.marketsettlement", ftypes.STRING)
+asx_t24_itch_2_4.fields.market_updates = ProtoField.new("Market Updates", "Asx.T24.Itch.marketupdates", ftypes.STRING)
+asx_t24_itch_2_4.fields.match_number = ProtoField.new("Match Number", "Asx.T24.Itch.matchnumber", ftypes.UINT32)
+asx_t24_itch_2_4.fields.maturity_value = ProtoField.new("Maturity Value", "Asx.T24.Itch.maturityvalue", ftypes.UINT8)
+asx_t24_itch_2_4.fields.message = ProtoField.new("Message", "Asx.T24.Itch.message", ftypes.STRING)
+asx_t24_itch_2_4.fields.message_header = ProtoField.new("Message Header", "Asx.T24.Itch.messageheader", ftypes.STRING)
+asx_t24_itch_2_4.fields.message_type = ProtoField.new("Message Type", "Asx.T24.Itch.messagetype", ftypes.STRING)
+asx_t24_itch_2_4.fields.open_interest = ProtoField.new("Open Interest", "Asx.T24.Itch.openinterest", ftypes.UINT32)
+asx_t24_itch_2_4.fields.open__high__low__last_trade_adjustment = ProtoField.new("Open, High, Low, Last Trade Adjustment", "Asx.T24.Itch.openhighlowlasttradeadjustment", ftypes.STRING)
+asx_t24_itch_2_4.fields.opening_trade = ProtoField.new("Opening Trade", "Asx.T24.Itch.openingtrade", ftypes.INT32)
+asx_t24_itch_2_4.fields.opening_trade_price = ProtoField.new("Opening Trade Price", "Asx.T24.Itch.openingtradeprice", ftypes.UINT16, nil, base.DEC, "0x000004")
+asx_t24_itch_2_4.fields.option_symbol_directory = ProtoField.new("Option Symbol Directory", "Asx.T24.Itch.optionsymboldirectory", ftypes.STRING)
+asx_t24_itch_2_4.fields.option_type = ProtoField.new("Option Type", "Asx.T24.Itch.optiontype", ftypes.STRING)
+asx_t24_itch_2_4.fields.order_added = ProtoField.new("Order Added", "Asx.T24.Itch.orderadded", ftypes.STRING)
+asx_t24_itch_2_4.fields.order_book_priority = ProtoField.new("Order Book Priority", "Asx.T24.Itch.orderbookpriority", ftypes.UINT32)
+asx_t24_itch_2_4.fields.order_book_state = ProtoField.new("Order Book State", "Asx.T24.Itch.orderbookstate", ftypes.STRING)
+asx_t24_itch_2_4.fields.order_deleted = ProtoField.new("Order Deleted", "Asx.T24.Itch.orderdeleted", ftypes.STRING)
+asx_t24_itch_2_4.fields.order_executed = ProtoField.new("Order Executed", "Asx.T24.Itch.orderexecuted", ftypes.STRING)
+asx_t24_itch_2_4.fields.order_executed_with_price = ProtoField.new("Order Executed with Price", "Asx.T24.Itch.orderexecutedwithprice", ftypes.STRING)
+asx_t24_itch_2_4.fields.order_number = ProtoField.new("Order Number", "Asx.T24.Itch.ordernumber", ftypes.UINT64)
+asx_t24_itch_2_4.fields.order_replaced = ProtoField.new("Order Replaced", "Asx.T24.Itch.orderreplaced", ftypes.STRING)
+asx_t24_itch_2_4.fields.order_volume_cancelled = ProtoField.new("Order Volume Cancelled", "Asx.T24.Itch.ordervolumecancelled", ftypes.STRING)
+asx_t24_itch_2_4.fields.packet = ProtoField.new("Packet", "Asx.T24.Itch.packet", ftypes.STRING)
+asx_t24_itch_2_4.fields.packet_header = ProtoField.new("Packet Header", "Asx.T24.Itch.packetheader", ftypes.STRING)
+asx_t24_itch_2_4.fields.payload = ProtoField.new("Payload", "Asx.T24.Itch.payload", ftypes.STRING)
+asx_t24_itch_2_4.fields.payments_per_year = ProtoField.new("Payments per Year", "Asx.T24.Itch.paymentsperyear", ftypes.UINT8)
+asx_t24_itch_2_4.fields.price = ProtoField.new("Price", "Asx.T24.Itch.price", ftypes.INT32)
+asx_t24_itch_2_4.fields.price_decimal_position = ProtoField.new("Price Decimal Position", "Asx.T24.Itch.pricedecimalposition", ftypes.UINT8)
+asx_t24_itch_2_4.fields.price_fractional_denominator = ProtoField.new("Price Fractional Denominator", "Asx.T24.Itch.pricefractionaldenominator", ftypes.UINT32)
+asx_t24_itch_2_4.fields.price_leg_1 = ProtoField.new("Price Leg 1", "Asx.T24.Itch.priceleg1", ftypes.INT32)
+asx_t24_itch_2_4.fields.price_leg_2 = ProtoField.new("Price Leg 2", "Asx.T24.Itch.priceleg2", ftypes.INT32)
+asx_t24_itch_2_4.fields.price_leg_3 = ProtoField.new("Price Leg 3", "Asx.T24.Itch.priceleg3", ftypes.INT32)
+asx_t24_itch_2_4.fields.price_leg_4 = ProtoField.new("Price Leg 4", "Asx.T24.Itch.priceleg4", ftypes.INT32)
+asx_t24_itch_2_4.fields.price_leg_5 = ProtoField.new("Price Leg 5", "Asx.T24.Itch.priceleg5", ftypes.INT32)
+asx_t24_itch_2_4.fields.price_leg_6 = ProtoField.new("Price Leg 6", "Asx.T24.Itch.priceleg6", ftypes.INT32)
+asx_t24_itch_2_4.fields.price_minimum_tick = ProtoField.new("Price Minimum Tick", "Asx.T24.Itch.priceminimumtick", ftypes.UINT16)
+asx_t24_itch_2_4.fields.primary_ratio = ProtoField.new("Primary Ratio", "Asx.T24.Itch.primaryratio", ftypes.UINT8)
+asx_t24_itch_2_4.fields.printable = ProtoField.new("Printable", "Asx.T24.Itch.printable", ftypes.STRING)
+asx_t24_itch_2_4.fields.prior_day_settlement = ProtoField.new("Prior Day Settlement", "Asx.T24.Itch.priordaysettlement", ftypes.INT32)
+asx_t24_itch_2_4.fields.protocol_version = ProtoField.new("Protocol Version", "Asx.T24.Itch.protocolversion", ftypes.STRING)
+asx_t24_itch_2_4.fields.quantity = ProtoField.new("Quantity", "Asx.T24.Itch.quantity", ftypes.UINT32)
+asx_t24_itch_2_4.fields.quantity_remaining = ProtoField.new("Quantity Remaining", "Asx.T24.Itch.quantityremaining", ftypes.UINT32)
+asx_t24_itch_2_4.fields.ratio_leg_1 = ProtoField.new("Ratio Leg 1", "Asx.T24.Itch.ratioleg1", ftypes.UINT16)
+asx_t24_itch_2_4.fields.ratio_leg_2 = ProtoField.new("Ratio Leg 2", "Asx.T24.Itch.ratioleg2", ftypes.UINT16)
+asx_t24_itch_2_4.fields.ratio_leg_3 = ProtoField.new("Ratio Leg 3", "Asx.T24.Itch.ratioleg3", ftypes.UINT16)
+asx_t24_itch_2_4.fields.ratio_leg_4 = ProtoField.new("Ratio Leg 4", "Asx.T24.Itch.ratioleg4", ftypes.UINT16)
+asx_t24_itch_2_4.fields.ratio_leg_5 = ProtoField.new("Ratio Leg 5", "Asx.T24.Itch.ratioleg5", ftypes.UINT16)
+asx_t24_itch_2_4.fields.ratio_leg_6 = ProtoField.new("Ratio Leg 6", "Asx.T24.Itch.ratioleg6", ftypes.UINT16)
+asx_t24_itch_2_4.fields.request_for_quote = ProtoField.new("Request for Quote", "Asx.T24.Itch.requestforquote", ftypes.STRING)
+asx_t24_itch_2_4.fields.reserved = ProtoField.new("Reserved", "Asx.T24.Itch.reserved", ftypes.BYTES)
+asx_t24_itch_2_4.fields.second = ProtoField.new("Second", "Asx.T24.Itch.second", ftypes.UINT32)
+asx_t24_itch_2_4.fields.second_leg_contract_number = ProtoField.new("Second Leg Contract Number", "Asx.T24.Itch.secondlegcontractnumber", ftypes.UINT32)
+asx_t24_itch_2_4.fields.secondary_ratio = ProtoField.new("Secondary Ratio", "Asx.T24.Itch.secondaryratio", ftypes.UINT8)
+asx_t24_itch_2_4.fields.seller_contract_number = ProtoField.new("Seller Contract Number", "Asx.T24.Itch.sellercontractnumber", ftypes.UINT32)
+asx_t24_itch_2_4.fields.seller_quantity_remaining = ProtoField.new("Seller Quantity Remaining", "Asx.T24.Itch.sellerquantityremaining", ftypes.UINT32)
+asx_t24_itch_2_4.fields.selling_order_number = ProtoField.new("Selling Order Number", "Asx.T24.Itch.sellingordernumber", ftypes.UINT64)
+asx_t24_itch_2_4.fields.sequence = ProtoField.new("Sequence", "Asx.T24.Itch.sequence", ftypes.UINT64)
+asx_t24_itch_2_4.fields.session = ProtoField.new("Session", "Asx.T24.Itch.session", ftypes.STRING)
+asx_t24_itch_2_4.fields.session_week = ProtoField.new("Session Week", "Asx.T24.Itch.sessionweek", ftypes.STRING)
+asx_t24_itch_2_4.fields.session_year = ProtoField.new("Session Year", "Asx.T24.Itch.sessionyear", ftypes.STRING)
+asx_t24_itch_2_4.fields.settlement_price = ProtoField.new("Settlement Price", "Asx.T24.Itch.settlementprice", ftypes.INT32)
+asx_t24_itch_2_4.fields.settlement_type = ProtoField.new("Settlement Type", "Asx.T24.Itch.settlementtype", ftypes.STRING)
+asx_t24_itch_2_4.fields.side = ProtoField.new("Side", "Asx.T24.Itch.side", ftypes.STRING)
+asx_t24_itch_2_4.fields.side_leg_1 = ProtoField.new("Side Leg 1", "Asx.T24.Itch.sideleg1", ftypes.STRING)
+asx_t24_itch_2_4.fields.side_leg_2 = ProtoField.new("Side Leg 2", "Asx.T24.Itch.sideleg2", ftypes.STRING)
+asx_t24_itch_2_4.fields.side_leg_3 = ProtoField.new("Side Leg 3", "Asx.T24.Itch.sideleg3", ftypes.STRING)
+asx_t24_itch_2_4.fields.side_leg_4 = ProtoField.new("Side Leg 4", "Asx.T24.Itch.sideleg4", ftypes.STRING)
+asx_t24_itch_2_4.fields.side_leg_5 = ProtoField.new("Side Leg 5", "Asx.T24.Itch.sideleg5", ftypes.STRING)
+asx_t24_itch_2_4.fields.side_leg_6 = ProtoField.new("Side Leg 6", "Asx.T24.Itch.sideleg6", ftypes.STRING)
+asx_t24_itch_2_4.fields.side_of_buyer = ProtoField.new("Side of Buyer", "Asx.T24.Itch.sideofbuyer", ftypes.STRING)
+asx_t24_itch_2_4.fields.side_of_seller = ProtoField.new("Side of Seller", "Asx.T24.Itch.sideofseller", ftypes.STRING)
+asx_t24_itch_2_4.fields.source_id = ProtoField.new("Source Id", "Asx.T24.Itch.sourceid", ftypes.STRING)
+asx_t24_itch_2_4.fields.spread_executed = ProtoField.new("Spread Executed", "Asx.T24.Itch.spreadexecuted", ftypes.STRING)
+asx_t24_itch_2_4.fields.spread_symbol_directory = ProtoField.new("Spread Symbol Directory", "Asx.T24.Itch.spreadsymboldirectory", ftypes.STRING)
+asx_t24_itch_2_4.fields.spread_trade_price = ProtoField.new("Spread Trade Price", "Asx.T24.Itch.spreadtradeprice", ftypes.INT32)
+asx_t24_itch_2_4.fields.strike = ProtoField.new("Strike", "Asx.T24.Itch.strike", ftypes.UINT32)
+asx_t24_itch_2_4.fields.strike_price_decimal_position = ProtoField.new("Strike Price Decimal Position", "Asx.T24.Itch.strikepricedecimalposition", ftypes.UINT8)
+asx_t24_itch_2_4.fields.strike_price_fractional_denominator = ProtoField.new("Strike Price Fractional Denominator", "Asx.T24.Itch.strikepricefractionaldenominator", ftypes.UINT32)
+asx_t24_itch_2_4.fields.strike_price_minimum_tick = ProtoField.new("Strike Price Minimum Tick", "Asx.T24.Itch.strikepriceminimumtick", ftypes.UINT16)
+asx_t24_itch_2_4.fields.system_event = ProtoField.new("System Event", "Asx.T24.Itch.systemevent", ftypes.STRING)
+asx_t24_itch_2_4.fields.text_message = ProtoField.new("Text message", "Asx.T24.Itch.textmessage", ftypes.STRING)
+asx_t24_itch_2_4.fields.time_message = ProtoField.new("Time Message", "Asx.T24.Itch.timemessage", ftypes.STRING)
+asx_t24_itch_2_4.fields.timestamp = ProtoField.new("Timestamp", "Asx.T24.Itch.timestamp", ftypes.UINT32)
+asx_t24_itch_2_4.fields.total_traded_volume = ProtoField.new("Total Traded Volume", "Asx.T24.Itch.totaltradedvolume", ftypes.UINT32)
+asx_t24_itch_2_4.fields.total_traded_volume_and_total_trades = ProtoField.new("Total Traded Volume and Total Trades", "Asx.T24.Itch.totaltradedvolumeandtotaltrades", ftypes.UINT16, nil, base.DEC, "0x000020")
+asx_t24_itch_2_4.fields.total_trades = ProtoField.new("Total Trades", "Asx.T24.Itch.totaltrades", ftypes.UINT32)
+asx_t24_itch_2_4.fields.trade_cancellation = ProtoField.new("Trade Cancellation", "Asx.T24.Itch.tradecancellation", ftypes.STRING)
+asx_t24_itch_2_4.fields.trade_date = ProtoField.new("Trade Date", "Asx.T24.Itch.tradedate", ftypes.UINT16)
+asx_t24_itch_2_4.fields.trade_price = ProtoField.new("Trade Price", "Asx.T24.Itch.tradeprice", ftypes.INT32)
+asx_t24_itch_2_4.fields.trade_side_of_leg = ProtoField.new("Trade Side of Leg", "Asx.T24.Itch.tradesideofleg", ftypes.STRING)
+asx_t24_itch_2_4.fields.trade_side_of_noncustom_order = ProtoField.new("Trade Side of NonCustom Order", "Asx.T24.Itch.tradesideofnoncustomorder", ftypes.STRING)
+asx_t24_itch_2_4.fields.trade_spread_execution_chain = ProtoField.new("Trade Spread Execution Chain", "Asx.T24.Itch.tradespreadexecutionchain", ftypes.STRING)
+asx_t24_itch_2_4.fields.trade_type = ProtoField.new("Trade Type", "Asx.T24.Itch.tradetype", ftypes.STRING)
+asx_t24_itch_2_4.fields.traded_contract_number = ProtoField.new("Traded Contract Number", "Asx.T24.Itch.tradedcontractnumber", ftypes.UINT32)
+asx_t24_itch_2_4.fields.trading_service = ProtoField.new("Trading Service", "Asx.T24.Itch.tradingservice", ftypes.STRING)
+asx_t24_itch_2_4.fields.trading_status = ProtoField.new("Trading Status", "Asx.T24.Itch.tradingstatus", ftypes.STRING)
+asx_t24_itch_2_4.fields.underlying_contract_number = ProtoField.new("Underlying Contract Number", "Asx.T24.Itch.underlyingcontractnumber", ftypes.UINT32)
+asx_t24_itch_2_4.fields.voi_trade_date = ProtoField.new("VOI Trade Date", "Asx.T24.Itch.voitradedate", ftypes.UINT16)
+asx_t24_itch_2_4.fields.volatility = ProtoField.new("Volatility", "Asx.T24.Itch.volatility", ftypes.UINT32)
+asx_t24_itch_2_4.fields.volume_and_open_interest = ProtoField.new("Volume and Open Interest", "Asx.T24.Itch.volumeandopeninterest", ftypes.STRING)
 
 -----------------------------------------------------------------------
--- Dissect Asx T24 Itch 2.4.0
+-- Dissect Asx T24 Itch 2.4
 -----------------------------------------------------------------------
 
 -- Display VOI Trade Date
@@ -281,7 +281,7 @@ dissect.voi_trade_date = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.voi_trade_date(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.voi_trade_date, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.voi_trade_date, range, value, display)
 
   return offset + size
 end
@@ -298,7 +298,7 @@ dissect.open_interest = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.open_interest(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.open_interest, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.open_interest, range, value, display)
 
   return offset + size
 end
@@ -315,7 +315,7 @@ dissect.cumulative_volume = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.cumulative_volume(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.cumulative_volume, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.cumulative_volume, range, value, display)
 
   return offset + size
 end
@@ -332,7 +332,7 @@ dissect.contract_number = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.contract_number(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.contract_number, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.contract_number, range, value, display)
 
   return offset + size
 end
@@ -349,7 +349,7 @@ dissect.trade_date = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.trade_date(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.trade_date, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.trade_date, range, value, display)
 
   return offset + size
 end
@@ -366,7 +366,7 @@ dissect.timestamp = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.timestamp, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.timestamp, range, value, display)
 
   return offset + size
 end
@@ -376,7 +376,7 @@ display.volume_and_open_interest = function(buffer, offset, size, packet, parent
   return ""
 end
 
--- Dissect Volume and Open Interest Fields
+-- Dissect Fields: Volume and Open Interest
 dissect.volume_and_open_interest_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -403,11 +403,11 @@ end
 
 -- Dissect: Volume and Open Interest
 dissect.volume_and_open_interest = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.volume_and_open_interest then
     local range = buffer(offset, 20)
     local display = display.volume_and_open_interest(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.volume_and_open_interest, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.volume_and_open_interest, range, display)
   end
 
   return dissect.volume_and_open_interest_fields(buffer, offset, packet, parent)
@@ -425,7 +425,7 @@ dissect.etr_lower_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.etr_lower_price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.etr_lower_price, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.etr_lower_price, range, value, display)
 
   return offset + size
 end
@@ -442,7 +442,7 @@ dissect.etr_upper_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.etr_upper_price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.etr_upper_price, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.etr_upper_price, range, value, display)
 
   return offset + size
 end
@@ -459,7 +459,7 @@ dissect.etr_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.etr_price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.etr_price, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.etr_price, range, value, display)
 
   return offset + size
 end
@@ -476,7 +476,7 @@ dissect.aot_lower_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.aot_lower_price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.aot_lower_price, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.aot_lower_price, range, value, display)
 
   return offset + size
 end
@@ -493,7 +493,7 @@ dissect.aot_upper_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.aot_upper_price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.aot_upper_price, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.aot_upper_price, range, value, display)
 
   return offset + size
 end
@@ -510,7 +510,7 @@ dissect.aot_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.aot_price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.aot_price, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.aot_price, range, value, display)
 
   return offset + size
 end
@@ -520,7 +520,7 @@ display.anomalous_order_threshold_publish = function(buffer, offset, size, packe
   return ""
 end
 
--- Dissect Anomalous Order Threshold Publish Fields
+-- Dissect Fields: Anomalous Order Threshold Publish
 dissect.anomalous_order_threshold_publish_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -556,11 +556,11 @@ end
 
 -- Dissect: Anomalous Order Threshold Publish
 dissect.anomalous_order_threshold_publish = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.anomalous_order_threshold_publish then
     local range = buffer(offset, 34)
     local display = display.anomalous_order_threshold_publish(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.anomalous_order_threshold_publish, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.anomalous_order_threshold_publish, range, display)
   end
 
   return dissect.anomalous_order_threshold_publish_fields(buffer, offset, packet, parent)
@@ -578,7 +578,7 @@ dissect.quantity = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.quantity(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.quantity, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.quantity, range, value, display)
 
   return offset + size
 end
@@ -595,7 +595,7 @@ dissect.price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.price, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.price, range, value, display)
 
   return offset + size
 end
@@ -605,7 +605,7 @@ display.request_for_quote = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Request for Quote Fields
+-- Dissect Fields: Request for Quote
 dissect.request_for_quote_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -629,11 +629,11 @@ end
 
 -- Dissect: Request for Quote
 dissect.request_for_quote = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.request_for_quote then
     local range = buffer(offset, 18)
     local display = display.request_for_quote(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.request_for_quote, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.request_for_quote, range, display)
   end
 
   return dissect.request_for_quote_fields(buffer, offset, packet, parent)
@@ -651,7 +651,7 @@ dissect.text_message = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.text_message(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.text_message, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.text_message, range, value, display)
 
   return offset + size
 end
@@ -668,7 +668,7 @@ dissect.source_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.source_id(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.source_id, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.source_id, range, value, display)
 
   return offset + size
 end
@@ -678,7 +678,7 @@ display.ad_hoc_text_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Ad Hoc Text Message Fields
+-- Dissect Fields: Ad Hoc Text Message
 dissect.ad_hoc_text_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -699,11 +699,11 @@ end
 
 -- Dissect: Ad Hoc Text Message
 dissect.ad_hoc_text_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.ad_hoc_text_message then
     local range = buffer(offset, 112)
     local display = display.ad_hoc_text_message(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.ad_hoc_text_message, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.ad_hoc_text_message, range, display)
   end
 
   return dissect.ad_hoc_text_message_fields(buffer, offset, packet, parent)
@@ -721,7 +721,7 @@ dissect.settlement_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.settlement_type(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.settlement_type, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.settlement_type, range, value, display)
 
   return offset + size
 end
@@ -738,7 +738,7 @@ dissect.volatility = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.volatility(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.volatility, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.volatility, range, value, display)
 
   return offset + size
 end
@@ -755,7 +755,7 @@ dissect.settlement_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.settlement_price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.settlement_price, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.settlement_price, range, value, display)
 
   return offset + size
 end
@@ -765,7 +765,7 @@ display.market_settlement = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Market Settlement Fields
+-- Dissect Fields: Market Settlement
 dissect.market_settlement_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -792,11 +792,11 @@ end
 
 -- Dissect: Market Settlement
 dissect.market_settlement = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.market_settlement then
     local range = buffer(offset, 19)
     local display = display.market_settlement(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.market_settlement, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.market_settlement, range, display)
   end
 
   return dissect.market_settlement_fields(buffer, offset, packet, parent)
@@ -819,7 +819,7 @@ dissect.opening_trade_price = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
   local display = display.opening_trade_price(range, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.opening_trade_price, range, display)
+  local element = parent:add(asx_t24_itch_2_4.fields.opening_trade_price, range, display)
 
   if show.opening_trade_price then
     dissect.opening_trade_price_bits(buffer, offset, packet, element)
@@ -845,7 +845,7 @@ dissect.highest_traded_price = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
   local display = display.highest_traded_price(range, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.highest_traded_price, range, display)
+  local element = parent:add(asx_t24_itch_2_4.fields.highest_traded_price, range, display)
 
   if show.highest_traded_price then
     dissect.highest_traded_price_bits(buffer, offset, packet, element)
@@ -871,7 +871,7 @@ dissect.lowest_traded_price = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
   local display = display.lowest_traded_price(range, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.lowest_traded_price, range, display)
+  local element = parent:add(asx_t24_itch_2_4.fields.lowest_traded_price, range, display)
 
   if show.lowest_traded_price then
     dissect.lowest_traded_price_bits(buffer, offset, packet, element)
@@ -897,7 +897,7 @@ dissect.total_traded_volume_and_total_trades = function(buffer, offset, packet, 
   local size = 0
   local range = buffer(offset, size)
   local display = display.total_traded_volume_and_total_trades(range, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.total_traded_volume_and_total_trades, range, display)
+  local element = parent:add(asx_t24_itch_2_4.fields.total_traded_volume_and_total_trades, range, display)
 
   if show.total_traded_volume_and_total_trades then
     dissect.total_traded_volume_and_total_trades_bits(buffer, offset, packet, element)
@@ -923,7 +923,7 @@ dissect.last_traded_price = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
   local display = display.last_traded_price(range, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.last_traded_price, range, display)
+  local element = parent:add(asx_t24_itch_2_4.fields.last_traded_price, range, display)
 
   if show.last_traded_price then
     dissect.last_traded_price_bits(buffer, offset, packet, element)
@@ -949,7 +949,7 @@ dissect.last_traded_volume = function(buffer, offset, packet, parent)
   local size = 0
   local range = buffer(offset, size)
   local display = display.last_traded_volume(range, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.last_traded_volume, range, display)
+  local element = parent:add(asx_t24_itch_2_4.fields.last_traded_volume, range, display)
 
   if show.last_traded_volume then
     dissect.last_traded_volume_bits(buffer, offset, packet, element)
@@ -970,7 +970,7 @@ dissect.reserved = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.reserved, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.reserved, range, value, display)
 
   return offset + size
 end
@@ -1011,25 +1011,25 @@ end
 dissect.market_updates_bits = function(buffer, offset, packet, parent)
 
   -- Reserved: 2 Byte
-  parent:add(asx_t24_itch_2_4_0.fields.reserved, buffer(offset + 0, 2))
+  parent:add(asx_t24_itch_2_4.fields.reserved, buffer(offset + 0, 2))
 
   -- Last Traded Volume: 1 Bit
-  parent:add(asx_t24_itch_2_4_0.fields.last_traded_volume, buffer(offset + 0, 2))
+  parent:add(asx_t24_itch_2_4.fields.last_traded_volume, buffer(offset + 0, 2))
 
   -- Last Traded Price: 1 Bit
-  parent:add(asx_t24_itch_2_4_0.fields.last_traded_price, buffer(offset + 0, 2))
+  parent:add(asx_t24_itch_2_4.fields.last_traded_price, buffer(offset + 0, 2))
 
   -- Total Traded Volume and Total Trades: 1 Bit
-  parent:add(asx_t24_itch_2_4_0.fields.total_traded_volume_and_total_trades, buffer(offset + 0, 2))
+  parent:add(asx_t24_itch_2_4.fields.total_traded_volume_and_total_trades, buffer(offset + 0, 2))
 
   -- Lowest Traded Price: 1 Bit
-  parent:add(asx_t24_itch_2_4_0.fields.lowest_traded_price, buffer(offset + 0, 2))
+  parent:add(asx_t24_itch_2_4.fields.lowest_traded_price, buffer(offset + 0, 2))
 
   -- Highest Traded Price: 1 Bit
-  parent:add(asx_t24_itch_2_4_0.fields.highest_traded_price, buffer(offset + 0, 2))
+  parent:add(asx_t24_itch_2_4.fields.highest_traded_price, buffer(offset + 0, 2))
 
   -- Opening Trade Price: 1 Bit
-  parent:add(asx_t24_itch_2_4_0.fields.opening_trade_price, buffer(offset + 0, 2))
+  parent:add(asx_t24_itch_2_4.fields.opening_trade_price, buffer(offset + 0, 2))
 end
 
 -- Dissect: Market Updates
@@ -1037,7 +1037,7 @@ dissect.market_updates = function(buffer, offset, packet, parent)
   local size = 2
   local range = buffer(offset, size)
   local display = display.market_updates(range, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.market_updates, range, display)
+  local element = parent:add(asx_t24_itch_2_4.fields.market_updates, range, display)
 
   if show.market_updates then
     dissect.market_updates_bits(buffer, offset, packet, element)
@@ -1058,7 +1058,7 @@ dissect.total_trades = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.total_trades(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.total_trades, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.total_trades, range, value, display)
 
   return offset + size
 end
@@ -1075,7 +1075,7 @@ dissect.total_traded_volume = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.total_traded_volume(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.total_traded_volume, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.total_traded_volume, range, value, display)
 
   return offset + size
 end
@@ -1092,7 +1092,7 @@ dissect.last_volume = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.last_volume(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.last_volume, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.last_volume, range, value, display)
 
   return offset + size
 end
@@ -1109,7 +1109,7 @@ dissect.last_trade = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.last_trade(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.last_trade, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.last_trade, range, value, display)
 
   return offset + size
 end
@@ -1126,7 +1126,7 @@ dissect.lowest_trade = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.lowest_trade(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.lowest_trade, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.lowest_trade, range, value, display)
 
   return offset + size
 end
@@ -1143,7 +1143,7 @@ dissect.highest_trade = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.highest_trade(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.highest_trade, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.highest_trade, range, value, display)
 
   return offset + size
 end
@@ -1160,7 +1160,7 @@ dissect.opening_trade = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.opening_trade(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.opening_trade, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.opening_trade, range, value, display)
 
   return offset + size
 end
@@ -1170,7 +1170,7 @@ display.open__high__low__last_trade_adjustment = function(buffer, offset, size, 
   return ""
 end
 
--- Dissect Open, High, Low, Last Trade Adjustment Fields
+-- Dissect Fields: Open, High, Low, Last Trade Adjustment
 dissect.open__high__low__last_trade_adjustment_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1212,11 +1212,11 @@ end
 
 -- Dissect: Open, High, Low, Last Trade Adjustment
 dissect.open__high__low__last_trade_adjustment = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.open__high__low__last_trade_adjustment then
     local range = buffer(offset, 40)
     local display = display.open__high__low__last_trade_adjustment(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.open__high__low__last_trade_adjustment, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.open__high__low__last_trade_adjustment, range, display)
   end
 
   return dissect.open__high__low__last_trade_adjustment_fields(buffer, offset, packet, parent)
@@ -1234,7 +1234,7 @@ dissect.best_ask_quantity = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.best_ask_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.best_ask_quantity, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.best_ask_quantity, range, value, display)
 
   return offset + size
 end
@@ -1251,7 +1251,7 @@ dissect.best_bid_quantity = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.best_bid_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.best_bid_quantity, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.best_bid_quantity, range, value, display)
 
   return offset + size
 end
@@ -1268,7 +1268,7 @@ dissect.best_ask_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.best_ask_price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.best_ask_price, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.best_ask_price, range, value, display)
 
   return offset + size
 end
@@ -1285,7 +1285,7 @@ dissect.best_bid_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.best_bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.best_bid_price, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.best_bid_price, range, value, display)
 
   return offset + size
 end
@@ -1302,7 +1302,7 @@ dissect.equilibrium_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.equilibrium_price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.equilibrium_price, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.equilibrium_price, range, value, display)
 
   return offset + size
 end
@@ -1312,7 +1312,7 @@ display.equilibrium_price_auction_info = function(buffer, offset, size, packet, 
   return ""
 end
 
--- Dissect Equilibrium Price Auction Info Fields
+-- Dissect Fields: Equilibrium Price Auction Info
 dissect.equilibrium_price_auction_info_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1345,11 +1345,11 @@ end
 
 -- Dissect: Equilibrium Price Auction Info
 dissect.equilibrium_price_auction_info = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.equilibrium_price_auction_info then
     local range = buffer(offset, 30)
     local display = display.equilibrium_price_auction_info(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.equilibrium_price_auction_info, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.equilibrium_price_auction_info, range, display)
   end
 
   return dissect.equilibrium_price_auction_info_fields(buffer, offset, packet, parent)
@@ -1367,7 +1367,7 @@ dissect.match_number = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.match_number(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.match_number, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.match_number, range, value, display)
 
   return offset + size
 end
@@ -1377,7 +1377,7 @@ display.trade_cancellation = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Trade Cancellation Fields
+-- Dissect Fields: Trade Cancellation
 dissect.trade_cancellation_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1395,11 +1395,11 @@ end
 
 -- Dissect: Trade Cancellation
 dissect.trade_cancellation = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.trade_cancellation then
     local range = buffer(offset, 10)
     local display = display.trade_cancellation(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.trade_cancellation, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.trade_cancellation, range, display)
   end
 
   return dissect.trade_cancellation_fields(buffer, offset, packet, parent)
@@ -1424,7 +1424,7 @@ dissect.printable = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.printable(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.printable, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.printable, range, value, display)
 
   return offset + size
 end
@@ -1441,7 +1441,7 @@ dissect.trade_side_of_noncustom_order = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trade_side_of_noncustom_order(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.trade_side_of_noncustom_order, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.trade_side_of_noncustom_order, range, value, display)
 
   return offset + size
 end
@@ -1458,7 +1458,7 @@ dissect.traded_contract_number = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.traded_contract_number(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.traded_contract_number, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.traded_contract_number, range, value, display)
 
   return offset + size
 end
@@ -1475,7 +1475,7 @@ dissect.trade_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.trade_price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.trade_price, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.trade_price, range, value, display)
 
   return offset + size
 end
@@ -1492,7 +1492,7 @@ dissect.executed_quantity = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.executed_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.executed_quantity, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.executed_quantity, range, value, display)
 
   return offset + size
 end
@@ -1552,7 +1552,7 @@ dissect.trade_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trade_type(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.trade_type, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.trade_type, range, value, display)
 
   return offset + size
 end
@@ -1569,7 +1569,7 @@ dissect.custom_market_quantity_remaining = function(buffer, offset, packet, pare
   local value = range:uint()
   local display = display.custom_market_quantity_remaining(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.custom_market_quantity_remaining, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.custom_market_quantity_remaining, range, value, display)
 
   return offset + size
 end
@@ -1586,7 +1586,7 @@ dissect.custom_market_order_number = function(buffer, offset, packet, parent)
   local value = range:uint64()
   local display = display.custom_market_order_number(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.custom_market_order_number, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.custom_market_order_number, range, value, display)
 
   return offset + size
 end
@@ -1603,7 +1603,7 @@ dissect.quantity_remaining = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.quantity_remaining(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.quantity_remaining, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.quantity_remaining, range, value, display)
 
   return offset + size
 end
@@ -1620,7 +1620,7 @@ dissect.order_number = function(buffer, offset, packet, parent)
   local value = range:uint64()
   local display = display.order_number(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.order_number, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.order_number, range, value, display)
 
   return offset + size
 end
@@ -1644,7 +1644,7 @@ dissect.side = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.side(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.side, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.side, range, value, display)
 
   return offset + size
 end
@@ -1654,7 +1654,7 @@ display.custom_market_trade = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Custom Market Trade Fields
+-- Dissect Fields: Custom Market Trade
 dissect.custom_market_trade_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1708,11 +1708,11 @@ end
 
 -- Dissect: Custom Market Trade
 dissect.custom_market_trade = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.custom_market_trade then
     local range = buffer(offset, 54)
     local display = display.custom_market_trade(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.custom_market_trade, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.custom_market_trade, range, display)
   end
 
   return dissect.custom_market_trade_fields(buffer, offset, packet, parent)
@@ -1730,7 +1730,7 @@ dissect.trade_side_of_leg = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trade_side_of_leg(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.trade_side_of_leg, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.trade_side_of_leg, range, value, display)
 
   return offset + size
 end
@@ -1740,7 +1740,7 @@ display.custom_market_executed = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Custom Market Executed Fields
+-- Dissect Fields: Custom Market Executed
 dissect.custom_market_executed_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1782,11 +1782,11 @@ end
 
 -- Dissect: Custom Market Executed
 dissect.custom_market_executed = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.custom_market_executed then
     local range = buffer(offset, 37)
     local display = display.custom_market_executed(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.custom_market_executed, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.custom_market_executed, range, display)
   end
 
   return dissect.custom_market_executed_fields(buffer, offset, packet, parent)
@@ -1804,7 +1804,7 @@ dissect.spread_trade_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.spread_trade_price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.spread_trade_price, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.spread_trade_price, range, value, display)
 
   return offset + size
 end
@@ -1821,7 +1821,7 @@ dissect.seller_quantity_remaining = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.seller_quantity_remaining(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.seller_quantity_remaining, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.seller_quantity_remaining, range, value, display)
 
   return offset + size
 end
@@ -1838,7 +1838,7 @@ dissect.selling_order_number = function(buffer, offset, packet, parent)
   local value = range:uint64()
   local display = display.selling_order_number(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.selling_order_number, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.selling_order_number, range, value, display)
 
   return offset + size
 end
@@ -1855,7 +1855,7 @@ dissect.side_of_seller = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.side_of_seller(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.side_of_seller, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.side_of_seller, range, value, display)
 
   return offset + size
 end
@@ -1872,7 +1872,7 @@ dissect.seller_contract_number = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.seller_contract_number(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.seller_contract_number, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.seller_contract_number, range, value, display)
 
   return offset + size
 end
@@ -1889,7 +1889,7 @@ dissect.buyer_quantity_remaining = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.buyer_quantity_remaining(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.buyer_quantity_remaining, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.buyer_quantity_remaining, range, value, display)
 
   return offset + size
 end
@@ -1906,7 +1906,7 @@ dissect.buyer_order_number = function(buffer, offset, packet, parent)
   local value = range:uint64()
   local display = display.buyer_order_number(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.buyer_order_number, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.buyer_order_number, range, value, display)
 
   return offset + size
 end
@@ -1923,7 +1923,7 @@ dissect.side_of_buyer = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.side_of_buyer(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.side_of_buyer, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.side_of_buyer, range, value, display)
 
   return offset + size
 end
@@ -1940,7 +1940,7 @@ dissect.buyer = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.buyer(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.buyer, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.buyer, range, value, display)
 
   return offset + size
 end
@@ -1950,7 +1950,7 @@ display.trade_spread_execution_chain = function(buffer, offset, size, packet, pa
   return ""
 end
 
--- Dissect Trade Spread Execution Chain Fields
+-- Dissect Fields: Trade Spread Execution Chain
 dissect.trade_spread_execution_chain_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2010,11 +2010,11 @@ end
 
 -- Dissect: Trade Spread Execution Chain
 dissect.trade_spread_execution_chain = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.trade_spread_execution_chain then
     local range = buffer(offset, 62)
     local display = display.trade_spread_execution_chain(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.trade_spread_execution_chain, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.trade_spread_execution_chain, range, display)
   end
 
   return dissect.trade_spread_execution_chain_fields(buffer, offset, packet, parent)
@@ -2025,7 +2025,7 @@ display.spread_executed = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Spread Executed Fields
+-- Dissect Fields: Spread Executed
 dissect.spread_executed_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2076,11 +2076,11 @@ end
 
 -- Dissect: Spread Executed
 dissect.spread_executed = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.spread_executed then
     local range = buffer(offset, 46)
     local display = display.spread_executed(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.spread_executed, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.spread_executed, range, display)
   end
 
   return dissect.spread_executed_fields(buffer, offset, packet, parent)
@@ -2098,7 +2098,7 @@ dissect.buying_order_number = function(buffer, offset, packet, parent)
   local value = range:uint64()
   local display = display.buying_order_number(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.buying_order_number, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.buying_order_number, range, value, display)
 
   return offset + size
 end
@@ -2108,7 +2108,7 @@ display.order_executed_with_price = function(buffer, offset, size, packet, paren
   return ""
 end
 
--- Dissect Order Executed with Price Fields
+-- Dissect Fields: Order Executed with Price
 dissect.order_executed_with_price_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2150,11 +2150,11 @@ end
 
 -- Dissect: Order Executed with Price
 dissect.order_executed_with_price = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.order_executed_with_price then
     local range = buffer(offset, 47)
     local display = display.order_executed_with_price(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.order_executed_with_price, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.order_executed_with_price, range, display)
   end
 
   return dissect.order_executed_with_price_fields(buffer, offset, packet, parent)
@@ -2165,7 +2165,7 @@ display.order_executed = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Order Executed Fields
+-- Dissect Fields: Order Executed
 dissect.order_executed_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2204,11 +2204,11 @@ end
 
 -- Dissect: Order Executed
 dissect.order_executed = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.order_executed then
     local range = buffer(offset, 36)
     local display = display.order_executed(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.order_executed, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.order_executed, range, display)
   end
 
   return dissect.order_executed_fields(buffer, offset, packet, parent)
@@ -2219,7 +2219,7 @@ display.custom_market_order_deleted = function(buffer, offset, size, packet, par
   return ""
 end
 
--- Dissect Custom Market Order Deleted Fields
+-- Dissect Fields: Custom Market Order Deleted
 dissect.custom_market_order_deleted_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2237,11 +2237,11 @@ end
 
 -- Dissect: Custom Market Order Deleted
 dissect.custom_market_order_deleted = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.custom_market_order_deleted then
     local range = buffer(offset, 14)
     local display = display.custom_market_order_deleted(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.custom_market_order_deleted, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.custom_market_order_deleted, range, display)
   end
 
   return dissect.custom_market_order_deleted_fields(buffer, offset, packet, parent)
@@ -2259,7 +2259,7 @@ dissect.order_book_priority = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.order_book_priority(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.order_book_priority, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.order_book_priority, range, value, display)
 
   return offset + size
 end
@@ -2269,7 +2269,7 @@ display.custom_market_order_replaced = function(buffer, offset, size, packet, pa
   return ""
 end
 
--- Dissect Custom Market Order Replaced Fields
+-- Dissect Fields: Custom Market Order Replaced
 dissect.custom_market_order_replaced_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2293,11 +2293,11 @@ end
 
 -- Dissect: Custom Market Order Replaced
 dissect.custom_market_order_replaced = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.custom_market_order_replaced then
     local range = buffer(offset, 22)
     local display = display.custom_market_order_replaced(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.custom_market_order_replaced, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.custom_market_order_replaced, range, display)
   end
 
   return dissect.custom_market_order_replaced_fields(buffer, offset, packet, parent)
@@ -2315,7 +2315,7 @@ dissect.price_leg_6 = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.price_leg_6(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.price_leg_6, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.price_leg_6, range, value, display)
 
   return offset + size
 end
@@ -2332,7 +2332,7 @@ dissect.ratio_leg_6 = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.ratio_leg_6(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.ratio_leg_6, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.ratio_leg_6, range, value, display)
 
   return offset + size
 end
@@ -2349,7 +2349,7 @@ dissect.side_leg_6 = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.side_leg_6(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.side_leg_6, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.side_leg_6, range, value, display)
 
   return offset + size
 end
@@ -2366,7 +2366,7 @@ dissect.contract_number_leg_6 = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.contract_number_leg_6(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.contract_number_leg_6, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.contract_number_leg_6, range, value, display)
 
   return offset + size
 end
@@ -2383,7 +2383,7 @@ dissect.price_leg_5 = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.price_leg_5(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.price_leg_5, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.price_leg_5, range, value, display)
 
   return offset + size
 end
@@ -2400,7 +2400,7 @@ dissect.ratio_leg_5 = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.ratio_leg_5(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.ratio_leg_5, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.ratio_leg_5, range, value, display)
 
   return offset + size
 end
@@ -2417,7 +2417,7 @@ dissect.side_leg_5 = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.side_leg_5(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.side_leg_5, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.side_leg_5, range, value, display)
 
   return offset + size
 end
@@ -2434,7 +2434,7 @@ dissect.contract_number_leg_5 = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.contract_number_leg_5(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.contract_number_leg_5, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.contract_number_leg_5, range, value, display)
 
   return offset + size
 end
@@ -2451,7 +2451,7 @@ dissect.price_leg_4 = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.price_leg_4(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.price_leg_4, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.price_leg_4, range, value, display)
 
   return offset + size
 end
@@ -2468,7 +2468,7 @@ dissect.ratio_leg_4 = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.ratio_leg_4(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.ratio_leg_4, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.ratio_leg_4, range, value, display)
 
   return offset + size
 end
@@ -2485,7 +2485,7 @@ dissect.side_leg_4 = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.side_leg_4(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.side_leg_4, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.side_leg_4, range, value, display)
 
   return offset + size
 end
@@ -2502,7 +2502,7 @@ dissect.contract_number_leg_4 = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.contract_number_leg_4(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.contract_number_leg_4, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.contract_number_leg_4, range, value, display)
 
   return offset + size
 end
@@ -2519,7 +2519,7 @@ dissect.price_leg_3 = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.price_leg_3(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.price_leg_3, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.price_leg_3, range, value, display)
 
   return offset + size
 end
@@ -2536,7 +2536,7 @@ dissect.ratio_leg_3 = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.ratio_leg_3(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.ratio_leg_3, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.ratio_leg_3, range, value, display)
 
   return offset + size
 end
@@ -2553,7 +2553,7 @@ dissect.side_leg_3 = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.side_leg_3(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.side_leg_3, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.side_leg_3, range, value, display)
 
   return offset + size
 end
@@ -2570,7 +2570,7 @@ dissect.contract_number_leg_3 = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.contract_number_leg_3(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.contract_number_leg_3, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.contract_number_leg_3, range, value, display)
 
   return offset + size
 end
@@ -2587,7 +2587,7 @@ dissect.price_leg_2 = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.price_leg_2(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.price_leg_2, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.price_leg_2, range, value, display)
 
   return offset + size
 end
@@ -2604,7 +2604,7 @@ dissect.ratio_leg_2 = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.ratio_leg_2(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.ratio_leg_2, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.ratio_leg_2, range, value, display)
 
   return offset + size
 end
@@ -2621,7 +2621,7 @@ dissect.side_leg_2 = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.side_leg_2(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.side_leg_2, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.side_leg_2, range, value, display)
 
   return offset + size
 end
@@ -2638,7 +2638,7 @@ dissect.contract_number_leg_2 = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.contract_number_leg_2(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.contract_number_leg_2, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.contract_number_leg_2, range, value, display)
 
   return offset + size
 end
@@ -2655,7 +2655,7 @@ dissect.price_leg_1 = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.price_leg_1(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.price_leg_1, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.price_leg_1, range, value, display)
 
   return offset + size
 end
@@ -2672,7 +2672,7 @@ dissect.ratio_leg_1 = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.ratio_leg_1(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.ratio_leg_1, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.ratio_leg_1, range, value, display)
 
   return offset + size
 end
@@ -2689,7 +2689,7 @@ dissect.side_leg_1 = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.side_leg_1(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.side_leg_1, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.side_leg_1, range, value, display)
 
   return offset + size
 end
@@ -2706,7 +2706,7 @@ dissect.contract_number_leg_1 = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.contract_number_leg_1(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.contract_number_leg_1, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.contract_number_leg_1, range, value, display)
 
   return offset + size
 end
@@ -2723,7 +2723,7 @@ dissect.legs = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.legs(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.legs, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.legs, range, value, display)
 
   return offset + size
 end
@@ -2733,7 +2733,7 @@ display.custom_market_order_added = function(buffer, offset, size, packet, paren
   return ""
 end
 
--- Dissect Custom Market Order Added Fields
+-- Dissect Fields: Custom Market Order Added
 dissect.custom_market_order_added_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2832,11 +2832,11 @@ end
 
 -- Dissect: Custom Market Order Added
 dissect.custom_market_order_added = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.custom_market_order_added then
     local range = buffer(offset, 89)
     local display = display.custom_market_order_added(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.custom_market_order_added, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.custom_market_order_added, range, display)
   end
 
   return dissect.custom_market_order_added_fields(buffer, offset, packet, parent)
@@ -2847,7 +2847,7 @@ display.implied_order_deleted = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Implied Order Deleted Fields
+-- Dissect Fields: Implied Order Deleted
 dissect.implied_order_deleted_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2871,11 +2871,11 @@ end
 
 -- Dissect: Implied Order Deleted
 dissect.implied_order_deleted = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.implied_order_deleted then
     local range = buffer(offset, 19)
     local display = display.implied_order_deleted(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.implied_order_deleted, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.implied_order_deleted, range, display)
   end
 
   return dissect.implied_order_deleted_fields(buffer, offset, packet, parent)
@@ -2886,7 +2886,7 @@ display.implied_order_replaced = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Implied Order Replaced Fields
+-- Dissect Fields: Implied Order Replaced
 dissect.implied_order_replaced_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2919,11 +2919,11 @@ end
 
 -- Dissect: Implied Order Replaced
 dissect.implied_order_replaced = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.implied_order_replaced then
     local range = buffer(offset, 31)
     local display = display.implied_order_replaced(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.implied_order_replaced, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.implied_order_replaced, range, display)
   end
 
   return dissect.implied_order_replaced_fields(buffer, offset, packet, parent)
@@ -2934,7 +2934,7 @@ display.implied_order_added = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Implied Order Added Fields
+-- Dissect Fields: Implied Order Added
 dissect.implied_order_added_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2967,11 +2967,11 @@ end
 
 -- Dissect: Implied Order Added
 dissect.implied_order_added = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.implied_order_added then
     local range = buffer(offset, 31)
     local display = display.implied_order_added(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.implied_order_added, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.implied_order_added, range, display)
   end
 
   return dissect.implied_order_added_fields(buffer, offset, packet, parent)
@@ -2982,7 +2982,7 @@ display.order_deleted = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Order Deleted Fields
+-- Dissect Fields: Order Deleted
 dissect.order_deleted_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -3006,11 +3006,11 @@ end
 
 -- Dissect: Order Deleted
 dissect.order_deleted = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.order_deleted then
     local range = buffer(offset, 19)
     local display = display.order_deleted(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.order_deleted, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.order_deleted, range, display)
   end
 
   return dissect.order_deleted_fields(buffer, offset, packet, parent)
@@ -3021,7 +3021,7 @@ display.order_volume_cancelled = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Order Volume Cancelled Fields
+-- Dissect Fields: Order Volume Cancelled
 dissect.order_volume_cancelled_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -3048,11 +3048,11 @@ end
 
 -- Dissect: Order Volume Cancelled
 dissect.order_volume_cancelled = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.order_volume_cancelled then
     local range = buffer(offset, 23)
     local display = display.order_volume_cancelled(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.order_volume_cancelled, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.order_volume_cancelled, range, display)
   end
 
   return dissect.order_volume_cancelled_fields(buffer, offset, packet, parent)
@@ -3063,7 +3063,7 @@ display.order_replaced = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Order Replaced Fields
+-- Dissect Fields: Order Replaced
 dissect.order_replaced_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -3096,11 +3096,11 @@ end
 
 -- Dissect: Order Replaced
 dissect.order_replaced = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.order_replaced then
     local range = buffer(offset, 31)
     local display = display.order_replaced(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.order_replaced, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.order_replaced, range, display)
   end
 
   return dissect.order_replaced_fields(buffer, offset, packet, parent)
@@ -3111,7 +3111,7 @@ display.order_added = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Order Added Fields
+-- Dissect Fields: Order Added
 dissect.order_added_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -3144,11 +3144,11 @@ end
 
 -- Dissect: Order Added
 dissect.order_added = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.order_added then
     local range = buffer(offset, 31)
     local display = display.order_added(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.order_added, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.order_added, range, display)
   end
 
   return dissect.order_added_fields(buffer, offset, packet, parent)
@@ -3206,7 +3206,7 @@ dissect.trading_status = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.trading_status, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.trading_status, range, value, display)
 
   return offset + size
 end
@@ -3216,7 +3216,7 @@ display.order_book_state = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Order Book State Fields
+-- Dissect Fields: Order Book State
 dissect.order_book_state_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -3237,11 +3237,11 @@ end
 
 -- Dissect: Order Book State
 dissect.order_book_state = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.order_book_state then
     local range = buffer(offset, 11)
     local display = display.order_book_state(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.order_book_state, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.order_book_state, range, display)
   end
 
   return dissect.order_book_state_fields(buffer, offset, packet, parent)
@@ -3266,7 +3266,7 @@ dissect.activated = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.activated(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.activated, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.activated, range, value, display)
 
   return offset + size
 end
@@ -3283,7 +3283,7 @@ dissect.payments_per_year = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.payments_per_year(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.payments_per_year, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.payments_per_year, range, value, display)
 
   return offset + size
 end
@@ -3300,7 +3300,7 @@ dissect.coupon_rate = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.coupon_rate(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.coupon_rate, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.coupon_rate, range, value, display)
 
   return offset + size
 end
@@ -3317,7 +3317,7 @@ dissect.maturity_value = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.maturity_value(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.maturity_value, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.maturity_value, range, value, display)
 
   return offset + size
 end
@@ -3334,7 +3334,7 @@ dissect.lot_size_or_face_value = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.lot_size_or_face_value(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.lot_size_or_face_value, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.lot_size_or_face_value, range, value, display)
 
   return offset + size
 end
@@ -3351,7 +3351,7 @@ dissect.currency = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.currency(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.currency, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.currency, range, value, display)
 
   return offset + size
 end
@@ -3384,7 +3384,7 @@ dissect.financial_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.financial_type(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.financial_type, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.financial_type, range, value, display)
 
   return offset + size
 end
@@ -3401,7 +3401,7 @@ dissect.prior_day_settlement = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.prior_day_settlement(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.prior_day_settlement, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.prior_day_settlement, range, value, display)
 
   return offset + size
 end
@@ -3418,7 +3418,7 @@ dissect.last_trading_date = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.last_trading_date(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.last_trading_date, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.last_trading_date, range, value, display)
 
   return offset + size
 end
@@ -3435,7 +3435,7 @@ dissect.strike_price_minimum_tick = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.strike_price_minimum_tick(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.strike_price_minimum_tick, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.strike_price_minimum_tick, range, value, display)
 
   return offset + size
 end
@@ -3452,7 +3452,7 @@ dissect.strike_price_fractional_denominator = function(buffer, offset, packet, p
   local value = range:uint()
   local display = display.strike_price_fractional_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.strike_price_fractional_denominator, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.strike_price_fractional_denominator, range, value, display)
 
   return offset + size
 end
@@ -3469,7 +3469,7 @@ dissect.strike_price_decimal_position = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.strike_price_decimal_position(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.strike_price_decimal_position, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.strike_price_decimal_position, range, value, display)
 
   return offset + size
 end
@@ -3486,7 +3486,7 @@ dissect.price_minimum_tick = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.price_minimum_tick(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.price_minimum_tick, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.price_minimum_tick, range, value, display)
 
   return offset + size
 end
@@ -3503,7 +3503,7 @@ dissect.price_fractional_denominator = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.price_fractional_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.price_fractional_denominator, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.price_fractional_denominator, range, value, display)
 
   return offset + size
 end
@@ -3520,7 +3520,7 @@ dissect.price_decimal_position = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.price_decimal_position(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.price_decimal_position, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.price_decimal_position, range, value, display)
 
   return offset + size
 end
@@ -3537,7 +3537,7 @@ dissect.underlying_contract_number = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.underlying_contract_number(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.underlying_contract_number, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.underlying_contract_number, range, value, display)
 
   return offset + size
 end
@@ -3554,7 +3554,7 @@ dissect.strike = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.strike(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.strike, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.strike, range, value, display)
 
   return offset + size
 end
@@ -3578,7 +3578,7 @@ dissect.option_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.option_type(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.option_type, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.option_type, range, value, display)
 
   return offset + size
 end
@@ -3595,7 +3595,7 @@ dissect.expiry_month = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.expiry_month(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.expiry_month, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.expiry_month, range, value, display)
 
   return offset + size
 end
@@ -3612,7 +3612,7 @@ dissect.expiry_year = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.expiry_year(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.expiry_year, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.expiry_year, range, value, display)
 
   return offset + size
 end
@@ -3651,7 +3651,7 @@ dissect.contract_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.contract_type(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.contract_type, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.contract_type, range, value, display)
 
   return offset + size
 end
@@ -3668,7 +3668,7 @@ dissect.instrument = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.instrument(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.instrument, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.instrument, range, value, display)
 
   return offset + size
 end
@@ -3685,7 +3685,7 @@ dissect.exchange = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.exchange(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.exchange, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.exchange, range, value, display)
 
   return offset + size
 end
@@ -3695,7 +3695,7 @@ display.option_symbol_directory = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Option Symbol Directory Fields
+-- Dissect Fields: Option Symbol Directory
 dissect.option_symbol_directory_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -3785,11 +3785,11 @@ end
 
 -- Dissect: Option Symbol Directory
 dissect.option_symbol_directory = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.option_symbol_directory then
     local range = buffer(offset, 74)
     local display = display.option_symbol_directory(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.option_symbol_directory, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.option_symbol_directory, range, display)
   end
 
   return dissect.option_symbol_directory_fields(buffer, offset, packet, parent)
@@ -3807,7 +3807,7 @@ dissect.secondary_ratio = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.secondary_ratio(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.secondary_ratio, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.secondary_ratio, range, value, display)
 
   return offset + size
 end
@@ -3824,7 +3824,7 @@ dissect.primary_ratio = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.primary_ratio(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.primary_ratio, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.primary_ratio, range, value, display)
 
   return offset + size
 end
@@ -3841,7 +3841,7 @@ dissect.second_leg_contract_number = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.second_leg_contract_number(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.second_leg_contract_number, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.second_leg_contract_number, range, value, display)
 
   return offset + size
 end
@@ -3858,7 +3858,7 @@ dissect.first_leg_contract_number = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.first_leg_contract_number(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.first_leg_contract_number, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.first_leg_contract_number, range, value, display)
 
   return offset + size
 end
@@ -3868,7 +3868,7 @@ display.spread_symbol_directory = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Spread Symbol Directory Fields
+-- Dissect Fields: Spread Symbol Directory
 dissect.spread_symbol_directory_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -3913,11 +3913,11 @@ end
 
 -- Dissect: Spread Symbol Directory
 dissect.spread_symbol_directory = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.spread_symbol_directory then
     local range = buffer(offset, 34)
     local display = display.spread_symbol_directory(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.spread_symbol_directory, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.spread_symbol_directory, range, display)
   end
 
   return dissect.spread_symbol_directory_fields(buffer, offset, packet, parent)
@@ -3928,7 +3928,7 @@ display.future_symbol_directory = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Future Symbol Directory Fields
+-- Dissect Fields: Future Symbol Directory
 dissect.future_symbol_directory_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -3994,11 +3994,11 @@ end
 
 -- Dissect: Future Symbol Directory
 dissect.future_symbol_directory = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.future_symbol_directory then
     local range = buffer(offset, 53)
     local display = display.future_symbol_directory(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.future_symbol_directory, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.future_symbol_directory, range, display)
   end
 
   return dissect.future_symbol_directory_fields(buffer, offset, packet, parent)
@@ -4032,7 +4032,7 @@ dissect.event_code = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.event_code(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.event_code, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.event_code, range, value, display)
 
   return offset + size
 end
@@ -4042,7 +4042,7 @@ display.system_event = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect System Event Fields
+-- Dissect Fields: System Event
 dissect.system_event_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -4060,11 +4060,11 @@ end
 
 -- Dissect: System Event
 dissect.system_event = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.system_event then
     local range = buffer(offset, 7)
     local display = display.system_event(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.system_event, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.system_event, range, display)
   end
 
   return dissect.system_event_fields(buffer, offset, packet, parent)
@@ -4082,7 +4082,7 @@ dissect.second = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.second(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.second, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.second, range, value, display)
 
   return offset + size
 end
@@ -4092,7 +4092,7 @@ display.time_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Time Message Fields
+-- Dissect Fields: Time Message
 dissect.time_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -4104,11 +4104,11 @@ end
 
 -- Dissect: Time Message
 dissect.time_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.time_message then
     local range = buffer(offset, 4)
     local display = display.time_message(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.time_message, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.time_message, range, display)
   end
 
   return dissect.time_message_fields(buffer, offset, packet, parent)
@@ -4389,7 +4389,7 @@ dissect.payload = function(buffer, offset, packet, parent)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.payload(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.payload, range, display)
+  local element = parent:add(asx_t24_itch_2_4.fields.payload, range, display)
 
   return dissect.payload_branches(code, buffer, offset, packet, element)
 end
@@ -4497,7 +4497,7 @@ dissect.message_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.message_type, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.message_type, range, value, display)
 
   return offset + size
 end
@@ -4514,7 +4514,7 @@ dissect.length = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.length(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.length, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.length, range, value, display)
 
   return offset + size
 end
@@ -4524,7 +4524,7 @@ display.message_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Message Header Fields
+-- Dissect Fields: Message Header
 dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -4539,11 +4539,11 @@ end
 
 -- Dissect: Message Header
 dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.message_header then
     local range = buffer(offset, 3)
     local display = display.message_header(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.message_header, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.message_header, range, display)
   end
 
   return dissect.message_header_fields(buffer, offset, packet, parent)
@@ -4568,7 +4568,7 @@ display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Message Fields
+-- Dissect Fields: Message
 dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -4583,12 +4583,12 @@ end
 
 -- Dissect: Message
 dissect.message = function(buffer, offset, packet, parent)
-  -- Optionally dissect dynamic struct
+  -- Optionally add dynamic struct element to protocol tree
   if show.message then
     local size = calculate.message(buffer, offset)
     local range = buffer(offset, size)
     local display = display.message(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.message, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.message, range, display)
   end
 
   return dissect.message_fields(buffer, offset, packet, parent)
@@ -4606,7 +4606,7 @@ dissect.count = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.count(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.count, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.count, range, value, display)
 
   return offset + size
 end
@@ -4623,7 +4623,7 @@ dissect.sequence = function(buffer, offset, packet, parent)
   local value = range:uint64()
   local display = display.sequence(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.sequence, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.sequence, range, value, display)
 
   return offset + size
 end
@@ -4640,7 +4640,7 @@ dissect.trading_service = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trading_service(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.trading_service, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.trading_service, range, value, display)
 
   return offset + size
 end
@@ -4657,7 +4657,7 @@ dissect.session_week = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.session_week(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.session_week, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.session_week, range, value, display)
 
   return offset + size
 end
@@ -4674,7 +4674,7 @@ dissect.session_year = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.session_year(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.session_year, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.session_year, range, value, display)
 
   return offset + size
 end
@@ -4691,7 +4691,7 @@ dissect.protocol_version = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.protocol_version(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_2_4_0.fields.protocol_version, range, value, display)
+  parent:add(asx_t24_itch_2_4.fields.protocol_version, range, value, display)
 
   return offset + size
 end
@@ -4701,7 +4701,7 @@ display.session = function(buffer, packet, parent)
   return buffer(0, 10):string()
 end
 
--- Dissect Session Fields
+-- Dissect Fields: Session
 dissect.session_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -4722,11 +4722,11 @@ end
 
 -- Dissect: Session
 dissect.session = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.session then
     local range = buffer(offset, 10)
     local display = display.session(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.session, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.session, range, display)
   end
 
   return dissect.session_fields(buffer, offset, packet, parent)
@@ -4737,7 +4737,7 @@ display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Packet Header Fields
+-- Dissect Fields: Packet Header
 dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -4755,11 +4755,11 @@ end
 
 -- Dissect: Packet Header
 dissect.packet_header = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.packet_header then
     local range = buffer(offset, 20)
     local display = display.packet_header(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_2_4_0.fields.packet_header, range, display)
+    parent = parent:add(asx_t24_itch_2_4.fields.packet_header, range, display)
   end
 
   return dissect.packet_header_fields(buffer, offset, packet, parent)
@@ -4786,23 +4786,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function asx_t24_itch_2_4_0.init()
+function asx_t24_itch_2_4.init()
 end
 
--- Dissector for Asx T24 Itch 2.4.0
-function asx_t24_itch_2_4_0.dissector(buffer, packet, parent)
+-- Dissector for Asx T24 Itch 2.4
+function asx_t24_itch_2_4.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = asx_t24_itch_2_4_0.name
+  packet.cols.protocol = asx_t24_itch_2_4.name
 
   -- Dissect protocol
-  local protocol = parent:add(asx_t24_itch_2_4_0, buffer(), asx_t24_itch_2_4_0.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(asx_t24_itch_2_4, buffer(), asx_t24_itch_2_4.description, "("..buffer:len().." Bytes)")
   local protocol_size = dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, asx_t24_itch_2_4_0)
+udp_table:add(65333, asx_t24_itch_2_4)
 
 
 -----------------------------------------------------------------------
@@ -4810,29 +4810,29 @@ udp_table:add(65333, asx_t24_itch_2_4_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.asx_t24_itch_2_4_0_packet_size = function(buffer)
+verify.asx_t24_itch_2_4_packet_size = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Asx T24 Itch 2.4.0
-local function asx_t24_itch_2_4_0_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Asx T24 Itch 2.4
+local function asx_t24_itch_2_4_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.asx_t24_itch_2_4_0_packet_size(buffer) then return false end
+  if not verify.asx_t24_itch_2_4_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = asx_t24_itch_2_4_0
-  asx_t24_itch_2_4_0.dissector(buffer, packet, parent)
+  packet.conversation = asx_t24_itch_2_4
+  asx_t24_itch_2_4.dissector(buffer, packet, parent)
 
   return true
 end
 
--- Register Asx T24 Itch 2.4.0 Heuristic
-asx_t24_itch_2_4_0:register_heuristic("udp", asx_t24_itch_2_4_0_heuristic)
+-- Register Asx T24 Itch 2.4 Heuristic
+asx_t24_itch_2_4:register_heuristic("udp", asx_t24_itch_2_4_heuristic)
 
 -----------------------------------------------------------------------
 -- This file was generated by a tool for the open markets initiative
--- Protocol Version: 2.4.0
+-- Protocol Version: 2.4
 -- Script Version: 1.0.0.0
 -- Date:
 -- License: Public/GPLv3

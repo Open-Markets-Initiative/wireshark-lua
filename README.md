@@ -21,15 +21,15 @@ For all configuration information: [Wireshark Configuration Files.](https://www.
 
 |Organization | Protocol | Data | Version | Date | Size | Testing|
 |--- | --- | --- | --- | --- | --- | ---|
-|Asx | T24 | Itch | 2.4.0 | 7/15/2014 | 4843 | Verified|
-|Cme | Sbe | Mdp | 8.1.0 | 7/1/2016 | 7452 | Verified|
-|Cme | Sbe | Mdp | 6.1.0 | 1/9/2016 | 6738 | Verified|
-|Cme | Sbe | Mdp | 5.1.0 | 8/6/2014 | 6729 | Verified|
+|Asx | T24 | Itch | 2.4 | 7/15/2014 | 4843 | Verified|
+|Cme | Sbe | Mdp | 8.1 | 7/1/2016 | 7452 | Verified|
+|Cme | Sbe | Mdp | 6.1 | 1/9/2016 | 6738 | Verified|
+|Cme | Sbe | Mdp | 5.1 | 8/6/2014 | 6729 | Verified|
 |Eurex | T7 | Eobi | 3.0.71 | 8/3/2015 | 3082 | Untested|
 |Eurex | T7 | Eobi | 2.5.5 | 11/7/2014 | 3064 | Known Bug|
-|Ice | iMpact | Mdp | 1.24.0 | 3/30/2016 | 6111 | Verified|
-|Miax | Mach | cTom | 1.1.0 | 7/15/2016 | 2404 | Verified|
-|Miax | Mach | Tom | 1.9.0 | 1/15/2016 | 2149 | Verified|
+|Ice | iMpact | Mdp | 1.24 | 3/30/2016 | 6111 | Verified|
+|Miax | Mach | cTom | 1.1 | 7/15/2016 | 2404 | Verified|
+|Miax | Mach | Tom | 1.9 | 1/15/2016 | 2149 | Verified|
 
 Note: Some packets contain enough information to programmatically determine the correct protocol specification.  *Some do not.*  If you add multiple dissectors to your plugins folder, wireshark will dissect each "conversation" based on the first matching protocol.
 

@@ -300,7 +300,7 @@ display.md_trade_entry_grp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect MD Trade Entry Grp Fields
+-- Dissect Fields: MD Trade Entry Grp
 dissect.md_trade_entry_grp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -321,7 +321,7 @@ end
 
 -- Dissect: MD Trade Entry Grp
 dissect.md_trade_entry_grp = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.md_trade_entry_grp then
     local range = buffer(offset, 16)
     local display = display.md_trade_entry_grp(buffer, packet, parent)
@@ -486,7 +486,7 @@ display.trade_reversal = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Trade Reversal Fields
+-- Dissect Fields: Trade Reversal
 dissect.trade_reversal_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -526,7 +526,7 @@ end
 
 -- Dissect: Trade Reversal
 dissect.trade_reversal = function(buffer, offset, packet, parent)
-  -- Optionally dissect dynamic struct
+  -- Optionally add dynamic struct element to protocol tree
   if show.trade_reversal then
     local size = calculate.trade_reversal(buffer, offset)
     local range = buffer(offset, size)
@@ -616,7 +616,7 @@ display.trade_report = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Trade Report Fields
+-- Dissect Fields: Trade Report
 dissect.trade_report_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -649,7 +649,7 @@ end
 
 -- Dissect: Trade Report
 dissect.trade_report = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.trade_report then
     local range = buffer(offset, 40)
     local display = display.trade_report(buffer, packet, parent)
@@ -700,7 +700,7 @@ display.top_of_book = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Top Of Book Fields
+-- Dissect Fields: Top Of Book
 dissect.top_of_book_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -721,7 +721,7 @@ end
 
 -- Dissect: Top Of Book
 dissect.top_of_book = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.top_of_book then
     local range = buffer(offset, 32)
     local display = display.top_of_book(buffer, packet, parent)
@@ -812,7 +812,7 @@ display.order_details = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Order Details Fields
+-- Dissect Fields: Order Details
 dissect.order_details_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -836,7 +836,7 @@ end
 
 -- Dissect: Order Details
 dissect.order_details = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.order_details then
     local range = buffer(offset, 24)
     local display = display.order_details(buffer, packet, parent)
@@ -851,7 +851,7 @@ display.snapshot_order = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Snapshot Order Fields
+-- Dissect Fields: Snapshot Order
 dissect.snapshot_order_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -863,7 +863,7 @@ end
 
 -- Dissect: Snapshot Order
 dissect.snapshot_order = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.snapshot_order then
     local range = buffer(offset, 24)
     local display = display.snapshot_order(buffer, packet, parent)
@@ -878,7 +878,7 @@ display.quote_request = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Quote Request Fields
+-- Dissect Fields: Quote Request
 dissect.quote_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -902,7 +902,7 @@ end
 
 -- Dissect: Quote Request
 dissect.quote_request = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.quote_request then
     local range = buffer(offset, 24)
     local display = display.quote_request(buffer, packet, parent)
@@ -1048,7 +1048,7 @@ display.product_summary = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Product Summary Fields
+-- Dissect Fields: Product Summary
 dissect.product_summary_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1072,7 +1072,7 @@ end
 
 -- Dissect: Product Summary
 dissect.product_summary = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.product_summary then
     local range = buffer(offset, 8)
     local display = display.product_summary(buffer, packet, parent)
@@ -1104,7 +1104,7 @@ display.product_state_change = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Product State Change Fields
+-- Dissect Fields: Product State Change
 dissect.product_state_change_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1131,7 +1131,7 @@ end
 
 -- Dissect: Product State Change
 dissect.product_state_change = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.product_state_change then
     local range = buffer(offset, 16)
     local display = display.product_state_change(buffer, packet, parent)
@@ -1146,7 +1146,7 @@ display.partial_order_execution = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Partial Order Execution Fields
+-- Dissect Fields: Partial Order Execution
 dissect.partial_order_execution_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1179,7 +1179,7 @@ end
 
 -- Dissect: Partial Order Execution
 dissect.partial_order_execution = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.partial_order_execution then
     local range = buffer(offset, 48)
     local display = display.partial_order_execution(buffer, packet, parent)
@@ -1361,7 +1361,7 @@ display.packet_info = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Packet Info Fields
+-- Dissect Fields: Packet Info
 dissect.packet_info_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1379,7 +1379,7 @@ end
 
 -- Dissect: Packet Info
 dissect.packet_info = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.packet_info then
     local range = buffer(offset, 8)
     local display = display.packet_info(buffer, packet, parent)
@@ -1394,7 +1394,7 @@ display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Packet Header Fields
+-- Dissect Fields: Packet Header
 dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1427,7 +1427,7 @@ end
 
 -- Dissect: Packet Header
 dissect.packet_header = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.packet_header then
     local range = buffer(offset, 32)
     local display = display.packet_header(buffer, packet, parent)
@@ -1476,7 +1476,7 @@ display.order_modify_same_prio = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Order Modify Same Prio Fields
+-- Dissect Fields: Order Modify Same Prio
 dissect.order_modify_same_prio_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1503,7 +1503,7 @@ end
 
 -- Dissect: Order Modify Same Prio
 dissect.order_modify_same_prio = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.order_modify_same_prio then
     local range = buffer(offset, 56)
     local display = display.order_modify_same_prio(buffer, packet, parent)
@@ -1553,7 +1553,7 @@ display.order_modify = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Order Modify Fields
+-- Dissect Fields: Order Modify
 dissect.order_modify_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1583,7 +1583,7 @@ end
 
 -- Dissect: Order Modify
 dissect.order_modify = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.order_modify then
     local range = buffer(offset, 64)
     local display = display.order_modify(buffer, packet, parent)
@@ -1598,7 +1598,7 @@ display.order_mass_delete = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Order Mass Delete Fields
+-- Dissect Fields: Order Mass Delete
 dissect.order_mass_delete_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1613,7 +1613,7 @@ end
 
 -- Dissect: Order Mass Delete
 dissect.order_mass_delete = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.order_mass_delete then
     local range = buffer(offset, 16)
     local display = display.order_mass_delete(buffer, packet, parent)
@@ -1628,7 +1628,7 @@ display.order_delete = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Order Delete Fields
+-- Dissect Fields: Order Delete
 dissect.order_delete_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1649,7 +1649,7 @@ end
 
 -- Dissect: Order Delete
 dissect.order_delete = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.order_delete then
     local range = buffer(offset, 48)
     local display = display.order_delete(buffer, packet, parent)
@@ -1664,7 +1664,7 @@ display.order_add = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Order Add Fields
+-- Dissect Fields: Order Add
 dissect.order_add_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1682,7 +1682,7 @@ end
 
 -- Dissect: Order Add
 dissect.order_add = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.order_add then
     local range = buffer(offset, 40)
     local display = display.order_add(buffer, packet, parent)
@@ -1697,7 +1697,7 @@ display.md_instrument_entry_grp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect MD Instrument Entry Grp Fields
+-- Dissect Fields: MD Instrument Entry Grp
 dissect.md_instrument_entry_grp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1718,7 +1718,7 @@ end
 
 -- Dissect: MD Instrument Entry Grp
 dissect.md_instrument_entry_grp = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.md_instrument_entry_grp then
     local range = buffer(offset, 16)
     local display = display.md_instrument_entry_grp(buffer, packet, parent)
@@ -1881,7 +1881,7 @@ display.instrument_summary = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Instrument Summary Fields
+-- Dissect Fields: Instrument Summary
 dissect.instrument_summary_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1924,7 +1924,7 @@ end
 
 -- Dissect: Instrument Summary
 dissect.instrument_summary = function(buffer, offset, packet, parent)
-  -- Optionally dissect dynamic struct
+  -- Optionally add dynamic struct element to protocol tree
   if show.instrument_summary then
     local size = calculate.instrument_summary(buffer, offset)
     local range = buffer(offset, size)
@@ -1940,7 +1940,7 @@ display.instrument_state_change = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Instrument State Change Fields
+-- Dissect Fields: Instrument State Change
 dissect.instrument_state_change_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1967,7 +1967,7 @@ end
 
 -- Dissect: Instrument State Change
 dissect.instrument_state_change = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.instrument_state_change then
     local range = buffer(offset, 24)
     local display = display.instrument_state_change(buffer, packet, parent)
@@ -1982,7 +1982,7 @@ display.heartbeat = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Heartbeat Fields
+-- Dissect Fields: Heartbeat
 dissect.heartbeat_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1997,7 +1997,7 @@ end
 
 -- Dissect: Heartbeat
 dissect.heartbeat = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.heartbeat then
     local range = buffer(offset, 8)
     local display = display.heartbeat(buffer, packet, parent)
@@ -2012,7 +2012,7 @@ display.full_order_execution = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Full Order Execution Fields
+-- Dissect Fields: Full Order Execution
 dissect.full_order_execution_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2045,7 +2045,7 @@ end
 
 -- Dissect: Full Order Execution
 dissect.full_order_execution = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.full_order_execution then
     local range = buffer(offset, 48)
     local display = display.full_order_execution(buffer, packet, parent)
@@ -2173,7 +2173,7 @@ display.execution_summary = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Execution Summary Fields
+-- Dissect Fields: Execution Summary
 dissect.execution_summary_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2215,7 +2215,7 @@ end
 
 -- Dissect: Execution Summary
 dissect.execution_summary = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.execution_summary then
     local range = buffer(offset, 56)
     local display = display.execution_summary(buffer, packet, parent)
@@ -2230,7 +2230,7 @@ display.cross_request = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Cross Request Fields
+-- Dissect Fields: Cross Request
 dissect.cross_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2251,7 +2251,7 @@ end
 
 -- Dissect: Cross Request
 dissect.cross_request = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.cross_request then
     local range = buffer(offset, 24)
     local display = display.cross_request(buffer, packet, parent)
@@ -2266,7 +2266,7 @@ display.auction_clearing_price = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Auction Clearing Price Fields
+-- Dissect Fields: Auction Clearing Price
 dissect.auction_clearing_price_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2284,7 +2284,7 @@ end
 
 -- Dissect: Auction Clearing Price
 dissect.auction_clearing_price = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.auction_clearing_price then
     local range = buffer(offset, 24)
     local display = display.auction_clearing_price(buffer, packet, parent)
@@ -2299,7 +2299,7 @@ display.auction_bbo = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Auction BBO Fields
+-- Dissect Fields: Auction BBO
 dissect.auction_bbo_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2320,7 +2320,7 @@ end
 
 -- Dissect: Auction BBO
 dissect.auction_bbo = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.auction_bbo then
     local range = buffer(offset, 32)
     local display = display.auction_bbo(buffer, packet, parent)
@@ -2410,7 +2410,7 @@ display.instrmt_leg_grp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Instrmt Leg Grp Fields
+-- Dissect Fields: Instrmt Leg Grp
 dissect.instrmt_leg_grp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2437,7 +2437,7 @@ end
 
 -- Dissect: Instrmt Leg Grp
 dissect.instrmt_leg_grp = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.instrmt_leg_grp then
     local range = buffer(offset, 24)
     local display = display.instrmt_leg_grp(buffer, packet, parent)
@@ -2573,7 +2573,7 @@ display.add_complex_instrument = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Add Complex Instrument Fields
+-- Dissect Fields: Add Complex Instrument
 dissect.add_complex_instrument_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2610,7 +2610,7 @@ end
 
 -- Dissect: Add Complex Instrument
 dissect.add_complex_instrument = function(buffer, offset, packet, parent)
-  -- Optionally dissect dynamic struct
+  -- Optionally add dynamic struct element to protocol tree
   if show.add_complex_instrument then
     local size = calculate.add_complex_instrument(buffer, offset)
     local range = buffer(offset, size)
@@ -2901,7 +2901,7 @@ display.message_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Message Header Fields
+-- Dissect Fields: Message Header
 dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2919,7 +2919,7 @@ end
 
 -- Dissect: Message Header
 dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.message_header then
     local range = buffer(offset, 8)
     local display = display.message_header(buffer, packet, parent)
@@ -2948,7 +2948,7 @@ display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Message Fields
+-- Dissect Fields: Message
 dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2963,7 +2963,7 @@ end
 
 -- Dissect: Message
 dissect.message = function(buffer, offset, packet, parent)
-  -- Optionally dissect dynamic struct
+  -- Optionally add dynamic struct element to protocol tree
   if show.message then
     local size = calculate.message(buffer, offset)
     local range = buffer(offset, size)

@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Ice iMpact Mdp 1.24.0 Protocol
-local ice_impact_mdp_1_24_0 = Proto("Ice.iMpact.Mdp.1.24.0.Lua", "Ice iMpact Mdp 1.24.0")
+-- Ice iMpact Mdp 1.24 Protocol
+local ice_impact_mdp_1_24 = Proto("Ice.iMpact.Mdp.1.24.Lua", "Ice iMpact Mdp 1.24")
 
 -- Component Tables
 local show = {}
@@ -19,7 +19,7 @@ local verify = {}
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Ice iMpact Mdp 1.24.0 Format Options
+-- Ice iMpact Mdp 1.24 Format Options
 format.add_or_modify_order_message = true
 format.add_price_level_message = true
 format.cancelled_trade_message = true
@@ -67,7 +67,7 @@ format.system_text_message = true
 format.trade_message = true
 format.payload = true
 
--- Ice iMpact Mdp 1.24.0 Element Dissection Options
+-- Ice iMpact Mdp 1.24 Element Dissection Options
 show.add_or_modify_order_message = true
 show.add_price_level_message = true
 show.cancelled_trade_message = true
@@ -119,234 +119,234 @@ show.payload = false
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Ice iMpact Mdp 1.24.0 Fields
-ice_impact_mdp_1_24_0.fields.add_or_modify_order_message = ProtoField.new("Add or Modify Order Message", "Ice.iMpact.Mdp.addormodifyordermessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.add_price_level_message = ProtoField.new("Add Price Level Message", "Ice.iMpact.Mdp.addpricelevelmessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.agg__bid__qty = ProtoField.new("Agg  Bid  Qty", "Ice.iMpact.Mdp.aggbidqty", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.agg__offer__qty = ProtoField.new("Agg  Offer  Qty", "Ice.iMpact.Mdp.aggofferqty", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.aggressor_side = ProtoField.new("Aggressor Side", "Ice.iMpact.Mdp.aggressorside", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.auction__date = ProtoField.new("Auction  Date", "Ice.iMpact.Mdp.auctiondate", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.auction_end_time = ProtoField.new("Auction End Time", "Ice.iMpact.Mdp.auctionendtime", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.begin_day = ProtoField.new("Begin Day", "Ice.iMpact.Mdp.beginday", ftypes.INT16)
-ice_impact_mdp_1_24_0.fields.begin_month = ProtoField.new("Begin Month", "Ice.iMpact.Mdp.beginmonth", ftypes.INT16)
-ice_impact_mdp_1_24_0.fields.begin_year = ProtoField.new("Begin Year", "Ice.iMpact.Mdp.beginyear", ftypes.INT16)
-ice_impact_mdp_1_24_0.fields.block_volume = ProtoField.new("Block Volume", "Ice.iMpact.Mdp.blockvolume", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.cancelled_trade_message = ProtoField.new("Cancelled Trade Message", "Ice.iMpact.Mdp.cancelledtrademessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.change_price_level_message = ProtoField.new("Change Price Level Message", "Ice.iMpact.Mdp.changepricelevelmessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.cleared_alias = ProtoField.new("Cleared Alias", "Ice.iMpact.Mdp.clearedalias", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.close_price = ProtoField.new("Close Price", "Ice.iMpact.Mdp.closeprice", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.close_price_message = ProtoField.new("Close Price Message", "Ice.iMpact.Mdp.closepricemessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.contract_symbol = ProtoField.new("Contract Symbol", "Ice.iMpact.Mdp.contractsymbol", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.count = ProtoField.new("Count", "Ice.iMpact.Mdp.count", ftypes.UINT16)
-ice_impact_mdp_1_24_0.fields.cross_order_supported = ProtoField.new("Cross Order Supported", "Ice.iMpact.Mdp.crossordersupported", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.currency = ProtoField.new("Currency", "Ice.iMpact.Mdp.currency", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.date_time = ProtoField.new("Date Time", "Ice.iMpact.Mdp.datetime", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.deal_price_denominator = ProtoField.new("Deal Price Denominator", "Ice.iMpact.Mdp.dealpricedenominator", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.delete_order_message = ProtoField.new("Delete Order Message", "Ice.iMpact.Mdp.deleteordermessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.delete_price_level_message = ProtoField.new("Delete Price Level Message", "Ice.iMpact.Mdp.deletepricelevelmessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.delivery_begin_date_time = ProtoField.new("Delivery Begin Date Time", "Ice.iMpact.Mdp.deliverybegindatetime", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.delivery_end_date_time = ProtoField.new("Delivery End Date Time", "Ice.iMpact.Mdp.deliveryenddatetime", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.delta = ProtoField.new("Delta", "Ice.iMpact.Mdp.delta", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.description = ProtoField.new("Description", "Ice.iMpact.Mdp.description", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.efp_volume = ProtoField.new("EFP Volume", "Ice.iMpact.Mdp.efpvolume", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.efs_volume = ProtoField.new("EFS Volume", "Ice.iMpact.Mdp.efsvolume", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.end_day = ProtoField.new("End Day", "Ice.iMpact.Mdp.endday", ftypes.INT16)
-ice_impact_mdp_1_24_0.fields.end_month = ProtoField.new("End Month", "Ice.iMpact.Mdp.endmonth", ftypes.INT16)
-ice_impact_mdp_1_24_0.fields.end_of_day_market_summary_message = ProtoField.new("End of Day Market Summary Message", "Ice.iMpact.Mdp.endofdaymarketsummarymessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.end_year = ProtoField.new("End Year", "Ice.iMpact.Mdp.endyear", ftypes.INT16)
-ice_impact_mdp_1_24_0.fields.eur__price = ProtoField.new("EUR  Price", "Ice.iMpact.Mdp.eurprice", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.event_type = ProtoField.new("Event Type", "Ice.iMpact.Mdp.eventtype", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.extra_flags = ProtoField.new("Extra Flags", "Ice.iMpact.Mdp.extraflags", ftypes.INT8, {[1]="Yes",[0]="No"})
-ice_impact_mdp_1_24_0.fields.fixing_lockdown_message = ProtoField.new("Fixing Lockdown Message", "Ice.iMpact.Mdp.fixinglockdownmessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.fixing_transition_message = ProtoField.new("Fixing Transition Message", "Ice.iMpact.Mdp.fixingtransitionmessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.flex_allowed = ProtoField.new("Flex Allowed", "Ice.iMpact.Mdp.flexallowed", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.futures_contract_symbol = ProtoField.new("Futures Contract Symbol", "Ice.iMpact.Mdp.futurescontractsymbol", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.gbp__price = ProtoField.new("GBP  Price", "Ice.iMpact.Mdp.gbpprice", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.gt_allowed = ProtoField.new("GT Allowed", "Ice.iMpact.Mdp.gtallowed", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.guaranteed_cross_supported = ProtoField.new("Guaranteed Cross Supported", "Ice.iMpact.Mdp.guaranteedcrosssupported", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.has_pre_open_volume = ProtoField.new("Has Pre Open Volume", "Ice.iMpact.Mdp.haspreopenvolume", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.has_previous_day_settlement_price = ProtoField.new("Has Previous Day Settlement Price", "Ice.iMpact.Mdp.haspreviousdaysettlementprice", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.hedge_definition = ProtoField.new("Hedge Definition", "Ice.iMpact.Mdp.hedgedefinition", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.hedge_delta = ProtoField.new("Hedge Delta", "Ice.iMpact.Mdp.hedgedelta", ftypes.UINT16)
-ice_impact_mdp_1_24_0.fields.hedge_market_id = ProtoField.new("Hedge Market Id", "Ice.iMpact.Mdp.hedgemarketid", ftypes.UINT32)
-ice_impact_mdp_1_24_0.fields.hedge_market_id = ProtoField.new("Hedge Market ID", "Ice.iMpact.Mdp.hedgemarketid", ftypes.UINT32)
-ice_impact_mdp_1_24_0.fields.hedge_price = ProtoField.new("Hedge Price", "Ice.iMpact.Mdp.hedgeprice", ftypes.UINT64)
-ice_impact_mdp_1_24_0.fields.hedge_price_denominator = ProtoField.new("Hedge Price Denominator", "Ice.iMpact.Mdp.hedgepricedenominator", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.hedge_security_type = ProtoField.new("Hedge Security Type", "Ice.iMpact.Mdp.hedgesecuritytype", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.hedge_side = ProtoField.new("Hedge Side", "Ice.iMpact.Mdp.hedgeside", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.hedgebodylength = ProtoField.new("HedgeBodyLength", "Ice.iMpact.Mdp.hedgebodylength", ftypes.UINT8)
-ice_impact_mdp_1_24_0.fields.high = ProtoField.new("High", "Ice.iMpact.Mdp.high", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.hub_alias = ProtoField.new("Hub Alias", "Ice.iMpact.Mdp.hubalias", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.hub_id = ProtoField.new("Hub ID", "Ice.iMpact.Mdp.hubid", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.implied_order_count = ProtoField.new("Implied Order Count", "Ice.iMpact.Mdp.impliedordercount", ftypes.INT16)
-ice_impact_mdp_1_24_0.fields.implied_quantity = ProtoField.new("Implied Quantity", "Ice.iMpact.Mdp.impliedquantity", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.increment_premium_price = ProtoField.new("Increment Premium Price", "Ice.iMpact.Mdp.incrementpremiumprice", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.increment_price = ProtoField.new("Increment Price", "Ice.iMpact.Mdp.incrementprice", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.increment_qty = ProtoField.new("Increment Qty", "Ice.iMpact.Mdp.incrementqty", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.interval_price_limit_notification_message = ProtoField.new("Interval Price Limit Notification Message", "Ice.iMpact.Mdp.intervalpricelimitnotificationmessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.investigated_trade_message = ProtoField.new("Investigated Trade Message", "Ice.iMpact.Mdp.investigatedtrademessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.ipl_down = ProtoField.new("IPL Down", "Ice.iMpact.Mdp.ipldown", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.ipl_hold_duration = ProtoField.new("IPL Hold Duration", "Ice.iMpact.Mdp.iplholdduration", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.ipl_hold_type = ProtoField.new("IPL Hold Type", "Ice.iMpact.Mdp.iplholdtype", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.ipl_up = ProtoField.new("IPL Up", "Ice.iMpact.Mdp.iplup", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.is_adjusted_trade = ProtoField.new("Is Adjusted Trade", "Ice.iMpact.Mdp.isadjustedtrade", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.is_balanced = ProtoField.new("Is Balanced", "Ice.iMpact.Mdp.isbalanced", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.is_block_only = ProtoField.new("Is Block Only", "Ice.iMpact.Mdp.isblockonly", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.is_final = ProtoField.new("Is Final", "Ice.iMpact.Mdp.isfinal", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.is_implied = ProtoField.new("Is Implied", "Ice.iMpact.Mdp.isimplied", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.is_implied_spread_at_market_open = ProtoField.new("Is Implied Spread At Market Open", "Ice.iMpact.Mdp.isimpliedspreadatmarketopen", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.is_official = ProtoField.new("Is Official", "Ice.iMpact.Mdp.isofficial", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.is_rfq = ProtoField.new("Is RFQ", "Ice.iMpact.Mdp.isrfq", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.is_settle_price_official = ProtoField.new("Is Settle Price Official", "Ice.iMpact.Mdp.issettlepriceofficial", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.is_system_priced_leg = ProtoField.new("Is System Priced Leg", "Ice.iMpact.Mdp.issystempricedleg", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.is_up = ProtoField.new("Is Up", "Ice.iMpact.Mdp.isup", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.isin = ProtoField.new("ISIN", "Ice.iMpact.Mdp.isin", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.last_message_sequence_id = ProtoField.new("Last Message Sequence ID", "Ice.iMpact.Mdp.lastmessagesequenceid", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.last_trade_date_time = ProtoField.new("Last Trade Date Time", "Ice.iMpact.Mdp.lasttradedatetime", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.last_trade_price = ProtoField.new("Last Trade Price", "Ice.iMpact.Mdp.lasttradeprice", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.last_trade_quantity = ProtoField.new("Last Trade Quantity", "Ice.iMpact.Mdp.lasttradequantity", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.leg_body_length = ProtoField.new("Leg Body Length", "Ice.iMpact.Mdp.legbodylength", ftypes.UINT8)
-ice_impact_mdp_1_24_0.fields.leg_definition = ProtoField.new("Leg Definition", "Ice.iMpact.Mdp.legdefinition", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.leg_market_id = ProtoField.new("Leg Market Id", "Ice.iMpact.Mdp.legmarketid", ftypes.UINT32)
-ice_impact_mdp_1_24_0.fields.leg_ratio = ProtoField.new("Leg Ratio", "Ice.iMpact.Mdp.legratio", ftypes.UINT16)
-ice_impact_mdp_1_24_0.fields.leg_side = ProtoField.new("Leg Side", "Ice.iMpact.Mdp.legside", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.leg_underlying_market_id = ProtoField.new("Leg Underlying Market Id", "Ice.iMpact.Mdp.legunderlyingmarketid", ftypes.UINT32)
-ice_impact_mdp_1_24_0.fields.length = ProtoField.new("Length", "Ice.iMpact.Mdp.length", ftypes.UINT16)
-ice_impact_mdp_1_24_0.fields.lot_size = ProtoField.new("Lot Size", "Ice.iMpact.Mdp.lotsize", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.low = ProtoField.new("Low", "Ice.iMpact.Mdp.low", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.marker_index_prices = ProtoField.new("Marker Index Prices", "Ice.iMpact.Mdp.markerindexprices", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.market_desc = ProtoField.new("Market Desc", "Ice.iMpact.Mdp.marketdesc", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.market_event_message = ProtoField.new("Market Event Message", "Ice.iMpact.Mdp.marketeventmessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.market_id = ProtoField.new("Market ID", "Ice.iMpact.Mdp.marketid", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.market_snapshot_message = ProtoField.new("Market Snapshot Message", "Ice.iMpact.Mdp.marketsnapshotmessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.market_snapshot_order_message = ProtoField.new("Market Snapshot Order Message", "Ice.iMpact.Mdp.marketsnapshotordermessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.market_snapshot_price_level_message = ProtoField.new("Market Snapshot Price Level Message", "Ice.iMpact.Mdp.marketsnapshotpricelevelmessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.market_state_change_message = ProtoField.new("Market State Change Message", "Ice.iMpact.Mdp.marketstatechangemessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.market_statistics_message = ProtoField.new("Market Statistics Message", "Ice.iMpact.Mdp.marketstatisticsmessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.market_type = ProtoField.new("Market Type", "Ice.iMpact.Mdp.markettype", ftypes.INT16)
-ice_impact_mdp_1_24_0.fields.market_type_id = ProtoField.new("Market Type ID", "Ice.iMpact.Mdp.markettypeid", ftypes.INT16)
-ice_impact_mdp_1_24_0.fields.maturity_day = ProtoField.new("Maturity Day", "Ice.iMpact.Mdp.maturityday", ftypes.INT16)
-ice_impact_mdp_1_24_0.fields.maturity_month = ProtoField.new("Maturity Month", "Ice.iMpact.Mdp.maturitymonth", ftypes.INT16)
-ice_impact_mdp_1_24_0.fields.maturity_year = ProtoField.new("Maturity Year", "Ice.iMpact.Mdp.maturityyear", ftypes.INT16)
-ice_impact_mdp_1_24_0.fields.max_options_price = ProtoField.new("Max Options Price", "Ice.iMpact.Mdp.maxoptionsprice", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.max_price = ProtoField.new("Max Price", "Ice.iMpact.Mdp.maxprice", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.message = ProtoField.new("Message", "Ice.iMpact.Mdp.message", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.message_bundle_marker = ProtoField.new("Message Bundle Marker", "Ice.iMpact.Mdp.messagebundlemarker", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.message_header = ProtoField.new("Message Header", "Ice.iMpact.Mdp.messageheader", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.message_timestamp = ProtoField.new("Message Timestamp", "Ice.iMpact.Mdp.messagetimestamp", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.message_type = ProtoField.new("Message Type", "Ice.iMpact.Mdp.messagetype", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.mic_code = ProtoField.new("MIC Code", "Ice.iMpact.Mdp.miccode", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.min_options_price = ProtoField.new("Min Options Price", "Ice.iMpact.Mdp.minoptionsprice", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.min_price = ProtoField.new("Min Price", "Ice.iMpact.Mdp.minprice", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.min_qty = ProtoField.new("Min Qty", "Ice.iMpact.Mdp.minqty", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.new_expiry_message = ProtoField.new("New Expiry Message", "Ice.iMpact.Mdp.newexpirymessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.new_futures_strategy_definition_message = ProtoField.new("New Futures Strategy Definition Message", "Ice.iMpact.Mdp.newfuturesstrategydefinitionmessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.new_options_market_definition_message = ProtoField.new("New Options Market Definition Message", "Ice.iMpact.Mdp.newoptionsmarketdefinitionmessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.new_options_strategy_definition_message = ProtoField.new("New Options Strategy Definition Message", "Ice.iMpact.Mdp.newoptionsstrategydefinitionmessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.notification_date_time = ProtoField.new("Notification Date Time", "Ice.iMpact.Mdp.notificationdatetime", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.num_decimals_options_price = ProtoField.new("Num Decimals Options Price", "Ice.iMpact.Mdp.numdecimalsoptionsprice", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.num_decimals_strike_price = ProtoField.new("Num Decimals Strike Price", "Ice.iMpact.Mdp.numdecimalsstrikeprice", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.num_of_book_entries = ProtoField.new("Num Of Book Entries", "Ice.iMpact.Mdp.numofbookentries", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.number_of_hedge_definitions = ProtoField.new("Number Of Hedge Definitions", "Ice.iMpact.Mdp.numberofhedgedefinitions", ftypes.INT8, {[1]="Yes",[0]="No"})
-ice_impact_mdp_1_24_0.fields.number_of_leg_definitions = ProtoField.new("Number Of Leg Definitions", "Ice.iMpact.Mdp.numberoflegdefinitions", ftypes.INT8, {[1]="Yes",[0]="No"})
-ice_impact_mdp_1_24_0.fields.number_of_special_fields = ProtoField.new("Number Of Special Fields", "Ice.iMpact.Mdp.numberofspecialfields", ftypes.INT8, {[1]="Yes",[0]="No"})
-ice_impact_mdp_1_24_0.fields.number_of_strategy_leg_definitions = ProtoField.new("Number Of Strategy Leg Definitions", "Ice.iMpact.Mdp.numberofstrategylegdefinitions", ftypes.INT8, {[1]="Yes",[0]="No"})
-ice_impact_mdp_1_24_0.fields.off_exchange_increment_option_price = ProtoField.new("Off Exchange Increment Option Price", "Ice.iMpact.Mdp.offexchangeincrementoptionprice", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.off_exchange_increment_price = ProtoField.new("Off Exchange Increment Price", "Ice.iMpact.Mdp.offexchangeincrementprice", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.off_exchange_increment_qty = ProtoField.new("Off Exchange Increment Qty", "Ice.iMpact.Mdp.offexchangeincrementqty", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.off_exchange_increment_qty_denominator = ProtoField.new("Off Exchange Increment Qty Denominator", "Ice.iMpact.Mdp.offexchangeincrementqtydenominator", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.off_market_trade_type = ProtoField.new("Off Market Trade Type", "Ice.iMpact.Mdp.offmarkettradetype", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.old_off_market_trade_type = ProtoField.new("Old Off Market Trade Type", "Ice.iMpact.Mdp.oldoffmarkettradetype", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.old_strip_id = ProtoField.new("Old Strip ID", "Ice.iMpact.Mdp.oldstripid", ftypes.INT16)
-ice_impact_mdp_1_24_0.fields.old_style_options_trade_and_market_stats_message = ProtoField.new("Old Style Options Trade and Market Stats Message", "Ice.iMpact.Mdp.oldstyleoptionstradeandmarketstatsmessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.open_interest = ProtoField.new("Open Interest", "Ice.iMpact.Mdp.openinterest", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.open_interest_change = ProtoField.new("Open Interest Change", "Ice.iMpact.Mdp.openinterestchange", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.open_interest_date = ProtoField.new("Open Interest Date", "Ice.iMpact.Mdp.openinterestdate", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.open_interest_message = ProtoField.new("Open Interest Message", "Ice.iMpact.Mdp.openinterestmessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.open_price = ProtoField.new("Open Price", "Ice.iMpact.Mdp.openprice", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.open_price_message = ProtoField.new("Open Price Message", "Ice.iMpact.Mdp.openpricemessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.opening_price = ProtoField.new("Opening Price", "Ice.iMpact.Mdp.openingprice", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.option_open_interest_message = ProtoField.new("Option Open Interest Message", "Ice.iMpact.Mdp.optionopeninterestmessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.option_settlement_price_message = ProtoField.new("Option Settlement Price Message", "Ice.iMpact.Mdp.optionsettlementpricemessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.option_type = ProtoField.new("Option Type", "Ice.iMpact.Mdp.optiontype", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.options_expiration_day = ProtoField.new("Options Expiration Day", "Ice.iMpact.Mdp.optionsexpirationday", ftypes.INT16)
-ice_impact_mdp_1_24_0.fields.options_expiration_month = ProtoField.new("Options Expiration Month", "Ice.iMpact.Mdp.optionsexpirationmonth", ftypes.INT16)
-ice_impact_mdp_1_24_0.fields.options_expiration_type = ProtoField.new("Options Expiration Type", "Ice.iMpact.Mdp.optionsexpirationtype", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.options_expiration_year = ProtoField.new("Options Expiration Year", "Ice.iMpact.Mdp.optionsexpirationyear", ftypes.INT16)
-ice_impact_mdp_1_24_0.fields.options_style = ProtoField.new("Options Style", "Ice.iMpact.Mdp.optionsstyle", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.order_count = ProtoField.new("Order Count", "Ice.iMpact.Mdp.ordercount", ftypes.INT16)
-ice_impact_mdp_1_24_0.fields.order_entry_date_time = ProtoField.new("Order Entry Date Time", "Ice.iMpact.Mdp.orderentrydatetime", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.order_id = ProtoField.new("Order ID", "Ice.iMpact.Mdp.orderid", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.order_price_denominator = ProtoField.new("Order Price Denominator", "Ice.iMpact.Mdp.orderpricedenominator", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.order_sequence_id = ProtoField.new("Order Sequence ID", "Ice.iMpact.Mdp.ordersequenceid", ftypes.INT16)
-ice_impact_mdp_1_24_0.fields.packet = ProtoField.new("Packet", "Ice.iMpact.Mdp.packet", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.packet_header = ProtoField.new("Packet Header", "Ice.iMpact.Mdp.packetheader", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.payload = ProtoField.new("Payload", "Ice.iMpact.Mdp.payload", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.pre_open_price = ProtoField.new("Pre Open Price", "Ice.iMpact.Mdp.preopenprice", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.pre_open_price_indicator_message = ProtoField.new("Pre Open Price Indicator Message", "Ice.iMpact.Mdp.preopenpriceindicatormessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.pre_open_volume = ProtoField.new("Pre Open Volume", "Ice.iMpact.Mdp.preopenvolume", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.previous_day_settlement_price = ProtoField.new("Previous Day Settlement Price", "Ice.iMpact.Mdp.previousdaysettlementprice", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.price = ProtoField.new("Price", "Ice.iMpact.Mdp.price", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.price_level_position = ProtoField.new("Price Level Position", "Ice.iMpact.Mdp.pricelevelposition", ftypes.INT8, {[1]="Yes",[0]="No"})
-ice_impact_mdp_1_24_0.fields.product_id = ProtoField.new("Product ID", "Ice.iMpact.Mdp.productid", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.product_name = ProtoField.new("Product Name", "Ice.iMpact.Mdp.productname", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.published_date_time = ProtoField.new("Published Date Time", "Ice.iMpact.Mdp.publisheddatetime", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.quantity = ProtoField.new("Quantity", "Ice.iMpact.Mdp.quantity", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.reserved_field1 = ProtoField.new("Reserved Field1", "Ice.iMpact.Mdp.reservedfield1", ftypes.BYTES)
-ice_impact_mdp_1_24_0.fields.rfq_message = ProtoField.new("RFQ Message", "Ice.iMpact.Mdp.rfqmessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.rfq_system_id = ProtoField.new("RFQ System ID", "Ice.iMpact.Mdp.rfqsystemid", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.round = ProtoField.new("Round", "Ice.iMpact.Mdp.round", ftypes.INT16)
-ice_impact_mdp_1_24_0.fields.security_sub_type = ProtoField.new("Security Sub Type", "Ice.iMpact.Mdp.securitysubtype", ftypes.INT16)
-ice_impact_mdp_1_24_0.fields.sequence = ProtoField.new("Sequence", "Ice.iMpact.Mdp.sequence", ftypes.UINT32)
-ice_impact_mdp_1_24_0.fields.sequence_within_millis = ProtoField.new("Sequence Within Millis", "Ice.iMpact.Mdp.sequencewithinmillis", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.session = ProtoField.new("Session", "Ice.iMpact.Mdp.session", ftypes.UINT16)
-ice_impact_mdp_1_24_0.fields.settle_price_date_time = ProtoField.new("Settle Price Date Time", "Ice.iMpact.Mdp.settlepricedatetime", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.settle_price_denominator = ProtoField.new("Settle Price Denominator", "Ice.iMpact.Mdp.settlepricedenominator", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.settlement_price = ProtoField.new("Settlement Price", "Ice.iMpact.Mdp.settlementprice", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.settlement_price_message = ProtoField.new("Settlement Price Message", "Ice.iMpact.Mdp.settlementpricemessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.settlement_price_with_deal_price_precision = ProtoField.new("Settlement Price With Deal Price Precision", "Ice.iMpact.Mdp.settlementpricewithdealpriceprecision", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.settlement_type = ProtoField.new("Settlement Type", "Ice.iMpact.Mdp.settlementtype", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.short_name = ProtoField.new("Short Name", "Ice.iMpact.Mdp.shortname", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.side = ProtoField.new("Side", "Ice.iMpact.Mdp.side", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.special_field = ProtoField.new("Special Field", "Ice.iMpact.Mdp.specialfield", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.special_field_id = ProtoField.new("Special Field Id", "Ice.iMpact.Mdp.specialfieldid", ftypes.UINT8)
-ice_impact_mdp_1_24_0.fields.special_field_length = ProtoField.new("Special Field Length", "Ice.iMpact.Mdp.specialfieldlength", ftypes.UINT16)
-ice_impact_mdp_1_24_0.fields.special_field_message = ProtoField.new("Special Field Message", "Ice.iMpact.Mdp.specialfieldmessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.spot_market_trade_message = ProtoField.new("Spot Market Trade Message", "Ice.iMpact.Mdp.spotmarkettrademessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.start_or_end = ProtoField.new("Start Or End", "Ice.iMpact.Mdp.startorend", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.status = ProtoField.new("Status", "Ice.iMpact.Mdp.status", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.strategy_leg_definition = ProtoField.new("Strategy Leg Definition", "Ice.iMpact.Mdp.strategylegdefinition", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.strategy_symbol = ProtoField.new("Strategy Symbol", "Ice.iMpact.Mdp.strategysymbol", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.strike_price = ProtoField.new("Strike Price", "Ice.iMpact.Mdp.strikeprice", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.strip_id = ProtoField.new("Strip ID", "Ice.iMpact.Mdp.stripid", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.strip_info_message = ProtoField.new("Strip Info Message", "Ice.iMpact.Mdp.stripinfomessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.strip_name = ProtoField.new("Strip Name", "Ice.iMpact.Mdp.stripname", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.strip_type = ProtoField.new("Strip Type", "Ice.iMpact.Mdp.striptype", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.system_priced_leg_type = ProtoField.new("System Priced Leg Type", "Ice.iMpact.Mdp.systempricedlegtype", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.system_text_message = ProtoField.new("System Text Message", "Ice.iMpact.Mdp.systemtextmessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.text_message = ProtoField.new("Text Message", "Ice.iMpact.Mdp.textmessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.text_message_extra_fld = ProtoField.new("Text Message Extra Fld", "Ice.iMpact.Mdp.textmessageextrafld", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.threshold__imbalance__qty = ProtoField.new("Threshold  Imbalance  Qty", "Ice.iMpact.Mdp.thresholdimbalanceqty", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.tick_value = ProtoField.new("Tick Value", "Ice.iMpact.Mdp.tickvalue", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.time = ProtoField.new("Time", "Ice.iMpact.Mdp.time", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.timestamp = ProtoField.new("Timestamp", "Ice.iMpact.Mdp.timestamp", ftypes.UINT64)
-ice_impact_mdp_1_24_0.fields.trade_id = ProtoField.new("Trade ID", "Ice.iMpact.Mdp.tradeid", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.trade_message = ProtoField.new("Trade Message", "Ice.iMpact.Mdp.trademessage", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.trading_status = ProtoField.new("Trading Status", "Ice.iMpact.Mdp.tradingstatus", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.transact_date_time = ProtoField.new("Transact Date Time", "Ice.iMpact.Mdp.transactdatetime", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.underlying_market_id = ProtoField.new("Underlying Market ID", "Ice.iMpact.Mdp.underlyingmarketid", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "Ice.iMpact.Mdp.unitofmeasure", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.unit_qty_denominator = ProtoField.new("Unit Qty Denominator", "Ice.iMpact.Mdp.unitqtydenominator", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.unit_quantity = ProtoField.new("Unit Quantity", "Ice.iMpact.Mdp.unitquantity", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.usd__price = ProtoField.new("USD  Price", "Ice.iMpact.Mdp.usdprice", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.valuation_date____applying_date = ProtoField.new("Valuation Date /  Applying Date", "Ice.iMpact.Mdp.valuationdateapplyingdate", ftypes.STRING)
-ice_impact_mdp_1_24_0.fields.valuation_date_time = ProtoField.new("Valuation Date Time", "Ice.iMpact.Mdp.valuationdatetime", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.volatility = ProtoField.new("Volatility", "Ice.iMpact.Mdp.volatility", ftypes.INT64)
-ice_impact_mdp_1_24_0.fields.volume = ProtoField.new("Volume", "Ice.iMpact.Mdp.volume", ftypes.INT32)
-ice_impact_mdp_1_24_0.fields.vwap = ProtoField.new("VWAP", "Ice.iMpact.Mdp.vwap", ftypes.INT64)
+-- Ice iMpact Mdp 1.24 Fields
+ice_impact_mdp_1_24.fields.add_or_modify_order_message = ProtoField.new("Add or Modify Order Message", "Ice.iMpact.Mdp.addormodifyordermessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.add_price_level_message = ProtoField.new("Add Price Level Message", "Ice.iMpact.Mdp.addpricelevelmessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.agg__bid__qty = ProtoField.new("Agg  Bid  Qty", "Ice.iMpact.Mdp.aggbidqty", ftypes.INT32)
+ice_impact_mdp_1_24.fields.agg__offer__qty = ProtoField.new("Agg  Offer  Qty", "Ice.iMpact.Mdp.aggofferqty", ftypes.INT32)
+ice_impact_mdp_1_24.fields.aggressor_side = ProtoField.new("Aggressor Side", "Ice.iMpact.Mdp.aggressorside", ftypes.STRING)
+ice_impact_mdp_1_24.fields.auction__date = ProtoField.new("Auction  Date", "Ice.iMpact.Mdp.auctiondate", ftypes.STRING)
+ice_impact_mdp_1_24.fields.auction_end_time = ProtoField.new("Auction End Time", "Ice.iMpact.Mdp.auctionendtime", ftypes.INT64)
+ice_impact_mdp_1_24.fields.begin_day = ProtoField.new("Begin Day", "Ice.iMpact.Mdp.beginday", ftypes.INT16)
+ice_impact_mdp_1_24.fields.begin_month = ProtoField.new("Begin Month", "Ice.iMpact.Mdp.beginmonth", ftypes.INT16)
+ice_impact_mdp_1_24.fields.begin_year = ProtoField.new("Begin Year", "Ice.iMpact.Mdp.beginyear", ftypes.INT16)
+ice_impact_mdp_1_24.fields.block_volume = ProtoField.new("Block Volume", "Ice.iMpact.Mdp.blockvolume", ftypes.INT32)
+ice_impact_mdp_1_24.fields.cancelled_trade_message = ProtoField.new("Cancelled Trade Message", "Ice.iMpact.Mdp.cancelledtrademessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.change_price_level_message = ProtoField.new("Change Price Level Message", "Ice.iMpact.Mdp.changepricelevelmessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.cleared_alias = ProtoField.new("Cleared Alias", "Ice.iMpact.Mdp.clearedalias", ftypes.STRING)
+ice_impact_mdp_1_24.fields.close_price = ProtoField.new("Close Price", "Ice.iMpact.Mdp.closeprice", ftypes.INT64)
+ice_impact_mdp_1_24.fields.close_price_message = ProtoField.new("Close Price Message", "Ice.iMpact.Mdp.closepricemessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.contract_symbol = ProtoField.new("Contract Symbol", "Ice.iMpact.Mdp.contractsymbol", ftypes.STRING)
+ice_impact_mdp_1_24.fields.count = ProtoField.new("Count", "Ice.iMpact.Mdp.count", ftypes.UINT16)
+ice_impact_mdp_1_24.fields.cross_order_supported = ProtoField.new("Cross Order Supported", "Ice.iMpact.Mdp.crossordersupported", ftypes.STRING)
+ice_impact_mdp_1_24.fields.currency = ProtoField.new("Currency", "Ice.iMpact.Mdp.currency", ftypes.STRING)
+ice_impact_mdp_1_24.fields.date_time = ProtoField.new("Date Time", "Ice.iMpact.Mdp.datetime", ftypes.INT64)
+ice_impact_mdp_1_24.fields.deal_price_denominator = ProtoField.new("Deal Price Denominator", "Ice.iMpact.Mdp.dealpricedenominator", ftypes.STRING)
+ice_impact_mdp_1_24.fields.delete_order_message = ProtoField.new("Delete Order Message", "Ice.iMpact.Mdp.deleteordermessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.delete_price_level_message = ProtoField.new("Delete Price Level Message", "Ice.iMpact.Mdp.deletepricelevelmessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.delivery_begin_date_time = ProtoField.new("Delivery Begin Date Time", "Ice.iMpact.Mdp.deliverybegindatetime", ftypes.INT64)
+ice_impact_mdp_1_24.fields.delivery_end_date_time = ProtoField.new("Delivery End Date Time", "Ice.iMpact.Mdp.deliveryenddatetime", ftypes.INT64)
+ice_impact_mdp_1_24.fields.delta = ProtoField.new("Delta", "Ice.iMpact.Mdp.delta", ftypes.INT64)
+ice_impact_mdp_1_24.fields.description = ProtoField.new("Description", "Ice.iMpact.Mdp.description", ftypes.STRING)
+ice_impact_mdp_1_24.fields.efp_volume = ProtoField.new("EFP Volume", "Ice.iMpact.Mdp.efpvolume", ftypes.INT32)
+ice_impact_mdp_1_24.fields.efs_volume = ProtoField.new("EFS Volume", "Ice.iMpact.Mdp.efsvolume", ftypes.INT32)
+ice_impact_mdp_1_24.fields.end_day = ProtoField.new("End Day", "Ice.iMpact.Mdp.endday", ftypes.INT16)
+ice_impact_mdp_1_24.fields.end_month = ProtoField.new("End Month", "Ice.iMpact.Mdp.endmonth", ftypes.INT16)
+ice_impact_mdp_1_24.fields.end_of_day_market_summary_message = ProtoField.new("End of Day Market Summary Message", "Ice.iMpact.Mdp.endofdaymarketsummarymessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.end_year = ProtoField.new("End Year", "Ice.iMpact.Mdp.endyear", ftypes.INT16)
+ice_impact_mdp_1_24.fields.eur__price = ProtoField.new("EUR  Price", "Ice.iMpact.Mdp.eurprice", ftypes.INT64)
+ice_impact_mdp_1_24.fields.event_type = ProtoField.new("Event Type", "Ice.iMpact.Mdp.eventtype", ftypes.STRING)
+ice_impact_mdp_1_24.fields.extra_flags = ProtoField.new("Extra Flags", "Ice.iMpact.Mdp.extraflags", ftypes.INT8, {[1]="Yes",[0]="No"})
+ice_impact_mdp_1_24.fields.fixing_lockdown_message = ProtoField.new("Fixing Lockdown Message", "Ice.iMpact.Mdp.fixinglockdownmessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.fixing_transition_message = ProtoField.new("Fixing Transition Message", "Ice.iMpact.Mdp.fixingtransitionmessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.flex_allowed = ProtoField.new("Flex Allowed", "Ice.iMpact.Mdp.flexallowed", ftypes.STRING)
+ice_impact_mdp_1_24.fields.futures_contract_symbol = ProtoField.new("Futures Contract Symbol", "Ice.iMpact.Mdp.futurescontractsymbol", ftypes.STRING)
+ice_impact_mdp_1_24.fields.gbp__price = ProtoField.new("GBP  Price", "Ice.iMpact.Mdp.gbpprice", ftypes.INT64)
+ice_impact_mdp_1_24.fields.gt_allowed = ProtoField.new("GT Allowed", "Ice.iMpact.Mdp.gtallowed", ftypes.STRING)
+ice_impact_mdp_1_24.fields.guaranteed_cross_supported = ProtoField.new("Guaranteed Cross Supported", "Ice.iMpact.Mdp.guaranteedcrosssupported", ftypes.STRING)
+ice_impact_mdp_1_24.fields.has_pre_open_volume = ProtoField.new("Has Pre Open Volume", "Ice.iMpact.Mdp.haspreopenvolume", ftypes.STRING)
+ice_impact_mdp_1_24.fields.has_previous_day_settlement_price = ProtoField.new("Has Previous Day Settlement Price", "Ice.iMpact.Mdp.haspreviousdaysettlementprice", ftypes.STRING)
+ice_impact_mdp_1_24.fields.hedge_definition = ProtoField.new("Hedge Definition", "Ice.iMpact.Mdp.hedgedefinition", ftypes.STRING)
+ice_impact_mdp_1_24.fields.hedge_delta = ProtoField.new("Hedge Delta", "Ice.iMpact.Mdp.hedgedelta", ftypes.UINT16)
+ice_impact_mdp_1_24.fields.hedge_market_id = ProtoField.new("Hedge Market Id", "Ice.iMpact.Mdp.hedgemarketid", ftypes.UINT32)
+ice_impact_mdp_1_24.fields.hedge_market_id = ProtoField.new("Hedge Market ID", "Ice.iMpact.Mdp.hedgemarketid", ftypes.UINT32)
+ice_impact_mdp_1_24.fields.hedge_price = ProtoField.new("Hedge Price", "Ice.iMpact.Mdp.hedgeprice", ftypes.UINT64)
+ice_impact_mdp_1_24.fields.hedge_price_denominator = ProtoField.new("Hedge Price Denominator", "Ice.iMpact.Mdp.hedgepricedenominator", ftypes.STRING)
+ice_impact_mdp_1_24.fields.hedge_security_type = ProtoField.new("Hedge Security Type", "Ice.iMpact.Mdp.hedgesecuritytype", ftypes.STRING)
+ice_impact_mdp_1_24.fields.hedge_side = ProtoField.new("Hedge Side", "Ice.iMpact.Mdp.hedgeside", ftypes.STRING)
+ice_impact_mdp_1_24.fields.hedgebodylength = ProtoField.new("HedgeBodyLength", "Ice.iMpact.Mdp.hedgebodylength", ftypes.UINT8)
+ice_impact_mdp_1_24.fields.high = ProtoField.new("High", "Ice.iMpact.Mdp.high", ftypes.INT64)
+ice_impact_mdp_1_24.fields.hub_alias = ProtoField.new("Hub Alias", "Ice.iMpact.Mdp.hubalias", ftypes.STRING)
+ice_impact_mdp_1_24.fields.hub_id = ProtoField.new("Hub ID", "Ice.iMpact.Mdp.hubid", ftypes.INT32)
+ice_impact_mdp_1_24.fields.implied_order_count = ProtoField.new("Implied Order Count", "Ice.iMpact.Mdp.impliedordercount", ftypes.INT16)
+ice_impact_mdp_1_24.fields.implied_quantity = ProtoField.new("Implied Quantity", "Ice.iMpact.Mdp.impliedquantity", ftypes.INT32)
+ice_impact_mdp_1_24.fields.increment_premium_price = ProtoField.new("Increment Premium Price", "Ice.iMpact.Mdp.incrementpremiumprice", ftypes.INT32)
+ice_impact_mdp_1_24.fields.increment_price = ProtoField.new("Increment Price", "Ice.iMpact.Mdp.incrementprice", ftypes.INT32)
+ice_impact_mdp_1_24.fields.increment_qty = ProtoField.new("Increment Qty", "Ice.iMpact.Mdp.incrementqty", ftypes.INT32)
+ice_impact_mdp_1_24.fields.interval_price_limit_notification_message = ProtoField.new("Interval Price Limit Notification Message", "Ice.iMpact.Mdp.intervalpricelimitnotificationmessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.investigated_trade_message = ProtoField.new("Investigated Trade Message", "Ice.iMpact.Mdp.investigatedtrademessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.ipl_down = ProtoField.new("IPL Down", "Ice.iMpact.Mdp.ipldown", ftypes.INT64)
+ice_impact_mdp_1_24.fields.ipl_hold_duration = ProtoField.new("IPL Hold Duration", "Ice.iMpact.Mdp.iplholdduration", ftypes.INT32)
+ice_impact_mdp_1_24.fields.ipl_hold_type = ProtoField.new("IPL Hold Type", "Ice.iMpact.Mdp.iplholdtype", ftypes.STRING)
+ice_impact_mdp_1_24.fields.ipl_up = ProtoField.new("IPL Up", "Ice.iMpact.Mdp.iplup", ftypes.INT64)
+ice_impact_mdp_1_24.fields.is_adjusted_trade = ProtoField.new("Is Adjusted Trade", "Ice.iMpact.Mdp.isadjustedtrade", ftypes.STRING)
+ice_impact_mdp_1_24.fields.is_balanced = ProtoField.new("Is Balanced", "Ice.iMpact.Mdp.isbalanced", ftypes.STRING)
+ice_impact_mdp_1_24.fields.is_block_only = ProtoField.new("Is Block Only", "Ice.iMpact.Mdp.isblockonly", ftypes.STRING)
+ice_impact_mdp_1_24.fields.is_final = ProtoField.new("Is Final", "Ice.iMpact.Mdp.isfinal", ftypes.STRING)
+ice_impact_mdp_1_24.fields.is_implied = ProtoField.new("Is Implied", "Ice.iMpact.Mdp.isimplied", ftypes.STRING)
+ice_impact_mdp_1_24.fields.is_implied_spread_at_market_open = ProtoField.new("Is Implied Spread At Market Open", "Ice.iMpact.Mdp.isimpliedspreadatmarketopen", ftypes.STRING)
+ice_impact_mdp_1_24.fields.is_official = ProtoField.new("Is Official", "Ice.iMpact.Mdp.isofficial", ftypes.STRING)
+ice_impact_mdp_1_24.fields.is_rfq = ProtoField.new("Is RFQ", "Ice.iMpact.Mdp.isrfq", ftypes.STRING)
+ice_impact_mdp_1_24.fields.is_settle_price_official = ProtoField.new("Is Settle Price Official", "Ice.iMpact.Mdp.issettlepriceofficial", ftypes.STRING)
+ice_impact_mdp_1_24.fields.is_system_priced_leg = ProtoField.new("Is System Priced Leg", "Ice.iMpact.Mdp.issystempricedleg", ftypes.STRING)
+ice_impact_mdp_1_24.fields.is_up = ProtoField.new("Is Up", "Ice.iMpact.Mdp.isup", ftypes.STRING)
+ice_impact_mdp_1_24.fields.isin = ProtoField.new("ISIN", "Ice.iMpact.Mdp.isin", ftypes.STRING)
+ice_impact_mdp_1_24.fields.last_message_sequence_id = ProtoField.new("Last Message Sequence ID", "Ice.iMpact.Mdp.lastmessagesequenceid", ftypes.INT32)
+ice_impact_mdp_1_24.fields.last_trade_date_time = ProtoField.new("Last Trade Date Time", "Ice.iMpact.Mdp.lasttradedatetime", ftypes.INT64)
+ice_impact_mdp_1_24.fields.last_trade_price = ProtoField.new("Last Trade Price", "Ice.iMpact.Mdp.lasttradeprice", ftypes.INT64)
+ice_impact_mdp_1_24.fields.last_trade_quantity = ProtoField.new("Last Trade Quantity", "Ice.iMpact.Mdp.lasttradequantity", ftypes.INT32)
+ice_impact_mdp_1_24.fields.leg_body_length = ProtoField.new("Leg Body Length", "Ice.iMpact.Mdp.legbodylength", ftypes.UINT8)
+ice_impact_mdp_1_24.fields.leg_definition = ProtoField.new("Leg Definition", "Ice.iMpact.Mdp.legdefinition", ftypes.STRING)
+ice_impact_mdp_1_24.fields.leg_market_id = ProtoField.new("Leg Market Id", "Ice.iMpact.Mdp.legmarketid", ftypes.UINT32)
+ice_impact_mdp_1_24.fields.leg_ratio = ProtoField.new("Leg Ratio", "Ice.iMpact.Mdp.legratio", ftypes.UINT16)
+ice_impact_mdp_1_24.fields.leg_side = ProtoField.new("Leg Side", "Ice.iMpact.Mdp.legside", ftypes.STRING)
+ice_impact_mdp_1_24.fields.leg_underlying_market_id = ProtoField.new("Leg Underlying Market Id", "Ice.iMpact.Mdp.legunderlyingmarketid", ftypes.UINT32)
+ice_impact_mdp_1_24.fields.length = ProtoField.new("Length", "Ice.iMpact.Mdp.length", ftypes.UINT16)
+ice_impact_mdp_1_24.fields.lot_size = ProtoField.new("Lot Size", "Ice.iMpact.Mdp.lotsize", ftypes.INT32)
+ice_impact_mdp_1_24.fields.low = ProtoField.new("Low", "Ice.iMpact.Mdp.low", ftypes.INT64)
+ice_impact_mdp_1_24.fields.marker_index_prices = ProtoField.new("Marker Index Prices", "Ice.iMpact.Mdp.markerindexprices", ftypes.STRING)
+ice_impact_mdp_1_24.fields.market_desc = ProtoField.new("Market Desc", "Ice.iMpact.Mdp.marketdesc", ftypes.STRING)
+ice_impact_mdp_1_24.fields.market_event_message = ProtoField.new("Market Event Message", "Ice.iMpact.Mdp.marketeventmessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.market_id = ProtoField.new("Market ID", "Ice.iMpact.Mdp.marketid", ftypes.INT32)
+ice_impact_mdp_1_24.fields.market_snapshot_message = ProtoField.new("Market Snapshot Message", "Ice.iMpact.Mdp.marketsnapshotmessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.market_snapshot_order_message = ProtoField.new("Market Snapshot Order Message", "Ice.iMpact.Mdp.marketsnapshotordermessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.market_snapshot_price_level_message = ProtoField.new("Market Snapshot Price Level Message", "Ice.iMpact.Mdp.marketsnapshotpricelevelmessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.market_state_change_message = ProtoField.new("Market State Change Message", "Ice.iMpact.Mdp.marketstatechangemessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.market_statistics_message = ProtoField.new("Market Statistics Message", "Ice.iMpact.Mdp.marketstatisticsmessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.market_type = ProtoField.new("Market Type", "Ice.iMpact.Mdp.markettype", ftypes.INT16)
+ice_impact_mdp_1_24.fields.market_type_id = ProtoField.new("Market Type ID", "Ice.iMpact.Mdp.markettypeid", ftypes.INT16)
+ice_impact_mdp_1_24.fields.maturity_day = ProtoField.new("Maturity Day", "Ice.iMpact.Mdp.maturityday", ftypes.INT16)
+ice_impact_mdp_1_24.fields.maturity_month = ProtoField.new("Maturity Month", "Ice.iMpact.Mdp.maturitymonth", ftypes.INT16)
+ice_impact_mdp_1_24.fields.maturity_year = ProtoField.new("Maturity Year", "Ice.iMpact.Mdp.maturityyear", ftypes.INT16)
+ice_impact_mdp_1_24.fields.max_options_price = ProtoField.new("Max Options Price", "Ice.iMpact.Mdp.maxoptionsprice", ftypes.INT64)
+ice_impact_mdp_1_24.fields.max_price = ProtoField.new("Max Price", "Ice.iMpact.Mdp.maxprice", ftypes.INT64)
+ice_impact_mdp_1_24.fields.message = ProtoField.new("Message", "Ice.iMpact.Mdp.message", ftypes.STRING)
+ice_impact_mdp_1_24.fields.message_bundle_marker = ProtoField.new("Message Bundle Marker", "Ice.iMpact.Mdp.messagebundlemarker", ftypes.STRING)
+ice_impact_mdp_1_24.fields.message_header = ProtoField.new("Message Header", "Ice.iMpact.Mdp.messageheader", ftypes.STRING)
+ice_impact_mdp_1_24.fields.message_timestamp = ProtoField.new("Message Timestamp", "Ice.iMpact.Mdp.messagetimestamp", ftypes.INT64)
+ice_impact_mdp_1_24.fields.message_type = ProtoField.new("Message Type", "Ice.iMpact.Mdp.messagetype", ftypes.STRING)
+ice_impact_mdp_1_24.fields.mic_code = ProtoField.new("MIC Code", "Ice.iMpact.Mdp.miccode", ftypes.STRING)
+ice_impact_mdp_1_24.fields.min_options_price = ProtoField.new("Min Options Price", "Ice.iMpact.Mdp.minoptionsprice", ftypes.INT64)
+ice_impact_mdp_1_24.fields.min_price = ProtoField.new("Min Price", "Ice.iMpact.Mdp.minprice", ftypes.INT64)
+ice_impact_mdp_1_24.fields.min_qty = ProtoField.new("Min Qty", "Ice.iMpact.Mdp.minqty", ftypes.INT32)
+ice_impact_mdp_1_24.fields.new_expiry_message = ProtoField.new("New Expiry Message", "Ice.iMpact.Mdp.newexpirymessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.new_futures_strategy_definition_message = ProtoField.new("New Futures Strategy Definition Message", "Ice.iMpact.Mdp.newfuturesstrategydefinitionmessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.new_options_market_definition_message = ProtoField.new("New Options Market Definition Message", "Ice.iMpact.Mdp.newoptionsmarketdefinitionmessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.new_options_strategy_definition_message = ProtoField.new("New Options Strategy Definition Message", "Ice.iMpact.Mdp.newoptionsstrategydefinitionmessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.notification_date_time = ProtoField.new("Notification Date Time", "Ice.iMpact.Mdp.notificationdatetime", ftypes.INT64)
+ice_impact_mdp_1_24.fields.num_decimals_options_price = ProtoField.new("Num Decimals Options Price", "Ice.iMpact.Mdp.numdecimalsoptionsprice", ftypes.STRING)
+ice_impact_mdp_1_24.fields.num_decimals_strike_price = ProtoField.new("Num Decimals Strike Price", "Ice.iMpact.Mdp.numdecimalsstrikeprice", ftypes.STRING)
+ice_impact_mdp_1_24.fields.num_of_book_entries = ProtoField.new("Num Of Book Entries", "Ice.iMpact.Mdp.numofbookentries", ftypes.INT32)
+ice_impact_mdp_1_24.fields.number_of_hedge_definitions = ProtoField.new("Number Of Hedge Definitions", "Ice.iMpact.Mdp.numberofhedgedefinitions", ftypes.INT8, {[1]="Yes",[0]="No"})
+ice_impact_mdp_1_24.fields.number_of_leg_definitions = ProtoField.new("Number Of Leg Definitions", "Ice.iMpact.Mdp.numberoflegdefinitions", ftypes.INT8, {[1]="Yes",[0]="No"})
+ice_impact_mdp_1_24.fields.number_of_special_fields = ProtoField.new("Number Of Special Fields", "Ice.iMpact.Mdp.numberofspecialfields", ftypes.INT8, {[1]="Yes",[0]="No"})
+ice_impact_mdp_1_24.fields.number_of_strategy_leg_definitions = ProtoField.new("Number Of Strategy Leg Definitions", "Ice.iMpact.Mdp.numberofstrategylegdefinitions", ftypes.INT8, {[1]="Yes",[0]="No"})
+ice_impact_mdp_1_24.fields.off_exchange_increment_option_price = ProtoField.new("Off Exchange Increment Option Price", "Ice.iMpact.Mdp.offexchangeincrementoptionprice", ftypes.INT32)
+ice_impact_mdp_1_24.fields.off_exchange_increment_price = ProtoField.new("Off Exchange Increment Price", "Ice.iMpact.Mdp.offexchangeincrementprice", ftypes.INT32)
+ice_impact_mdp_1_24.fields.off_exchange_increment_qty = ProtoField.new("Off Exchange Increment Qty", "Ice.iMpact.Mdp.offexchangeincrementqty", ftypes.INT32)
+ice_impact_mdp_1_24.fields.off_exchange_increment_qty_denominator = ProtoField.new("Off Exchange Increment Qty Denominator", "Ice.iMpact.Mdp.offexchangeincrementqtydenominator", ftypes.STRING)
+ice_impact_mdp_1_24.fields.off_market_trade_type = ProtoField.new("Off Market Trade Type", "Ice.iMpact.Mdp.offmarkettradetype", ftypes.STRING)
+ice_impact_mdp_1_24.fields.old_off_market_trade_type = ProtoField.new("Old Off Market Trade Type", "Ice.iMpact.Mdp.oldoffmarkettradetype", ftypes.STRING)
+ice_impact_mdp_1_24.fields.old_strip_id = ProtoField.new("Old Strip ID", "Ice.iMpact.Mdp.oldstripid", ftypes.INT16)
+ice_impact_mdp_1_24.fields.old_style_options_trade_and_market_stats_message = ProtoField.new("Old Style Options Trade and Market Stats Message", "Ice.iMpact.Mdp.oldstyleoptionstradeandmarketstatsmessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.open_interest = ProtoField.new("Open Interest", "Ice.iMpact.Mdp.openinterest", ftypes.INT32)
+ice_impact_mdp_1_24.fields.open_interest_change = ProtoField.new("Open Interest Change", "Ice.iMpact.Mdp.openinterestchange", ftypes.INT32)
+ice_impact_mdp_1_24.fields.open_interest_date = ProtoField.new("Open Interest Date", "Ice.iMpact.Mdp.openinterestdate", ftypes.STRING)
+ice_impact_mdp_1_24.fields.open_interest_message = ProtoField.new("Open Interest Message", "Ice.iMpact.Mdp.openinterestmessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.open_price = ProtoField.new("Open Price", "Ice.iMpact.Mdp.openprice", ftypes.INT64)
+ice_impact_mdp_1_24.fields.open_price_message = ProtoField.new("Open Price Message", "Ice.iMpact.Mdp.openpricemessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.opening_price = ProtoField.new("Opening Price", "Ice.iMpact.Mdp.openingprice", ftypes.INT64)
+ice_impact_mdp_1_24.fields.option_open_interest_message = ProtoField.new("Option Open Interest Message", "Ice.iMpact.Mdp.optionopeninterestmessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.option_settlement_price_message = ProtoField.new("Option Settlement Price Message", "Ice.iMpact.Mdp.optionsettlementpricemessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.option_type = ProtoField.new("Option Type", "Ice.iMpact.Mdp.optiontype", ftypes.STRING)
+ice_impact_mdp_1_24.fields.options_expiration_day = ProtoField.new("Options Expiration Day", "Ice.iMpact.Mdp.optionsexpirationday", ftypes.INT16)
+ice_impact_mdp_1_24.fields.options_expiration_month = ProtoField.new("Options Expiration Month", "Ice.iMpact.Mdp.optionsexpirationmonth", ftypes.INT16)
+ice_impact_mdp_1_24.fields.options_expiration_type = ProtoField.new("Options Expiration Type", "Ice.iMpact.Mdp.optionsexpirationtype", ftypes.STRING)
+ice_impact_mdp_1_24.fields.options_expiration_year = ProtoField.new("Options Expiration Year", "Ice.iMpact.Mdp.optionsexpirationyear", ftypes.INT16)
+ice_impact_mdp_1_24.fields.options_style = ProtoField.new("Options Style", "Ice.iMpact.Mdp.optionsstyle", ftypes.STRING)
+ice_impact_mdp_1_24.fields.order_count = ProtoField.new("Order Count", "Ice.iMpact.Mdp.ordercount", ftypes.INT16)
+ice_impact_mdp_1_24.fields.order_entry_date_time = ProtoField.new("Order Entry Date Time", "Ice.iMpact.Mdp.orderentrydatetime", ftypes.INT64)
+ice_impact_mdp_1_24.fields.order_id = ProtoField.new("Order ID", "Ice.iMpact.Mdp.orderid", ftypes.INT64)
+ice_impact_mdp_1_24.fields.order_price_denominator = ProtoField.new("Order Price Denominator", "Ice.iMpact.Mdp.orderpricedenominator", ftypes.STRING)
+ice_impact_mdp_1_24.fields.order_sequence_id = ProtoField.new("Order Sequence ID", "Ice.iMpact.Mdp.ordersequenceid", ftypes.INT16)
+ice_impact_mdp_1_24.fields.packet = ProtoField.new("Packet", "Ice.iMpact.Mdp.packet", ftypes.STRING)
+ice_impact_mdp_1_24.fields.packet_header = ProtoField.new("Packet Header", "Ice.iMpact.Mdp.packetheader", ftypes.STRING)
+ice_impact_mdp_1_24.fields.payload = ProtoField.new("Payload", "Ice.iMpact.Mdp.payload", ftypes.STRING)
+ice_impact_mdp_1_24.fields.pre_open_price = ProtoField.new("Pre Open Price", "Ice.iMpact.Mdp.preopenprice", ftypes.INT64)
+ice_impact_mdp_1_24.fields.pre_open_price_indicator_message = ProtoField.new("Pre Open Price Indicator Message", "Ice.iMpact.Mdp.preopenpriceindicatormessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.pre_open_volume = ProtoField.new("Pre Open Volume", "Ice.iMpact.Mdp.preopenvolume", ftypes.INT32)
+ice_impact_mdp_1_24.fields.previous_day_settlement_price = ProtoField.new("Previous Day Settlement Price", "Ice.iMpact.Mdp.previousdaysettlementprice", ftypes.INT64)
+ice_impact_mdp_1_24.fields.price = ProtoField.new("Price", "Ice.iMpact.Mdp.price", ftypes.INT64)
+ice_impact_mdp_1_24.fields.price_level_position = ProtoField.new("Price Level Position", "Ice.iMpact.Mdp.pricelevelposition", ftypes.INT8, {[1]="Yes",[0]="No"})
+ice_impact_mdp_1_24.fields.product_id = ProtoField.new("Product ID", "Ice.iMpact.Mdp.productid", ftypes.INT32)
+ice_impact_mdp_1_24.fields.product_name = ProtoField.new("Product Name", "Ice.iMpact.Mdp.productname", ftypes.STRING)
+ice_impact_mdp_1_24.fields.published_date_time = ProtoField.new("Published Date Time", "Ice.iMpact.Mdp.publisheddatetime", ftypes.INT64)
+ice_impact_mdp_1_24.fields.quantity = ProtoField.new("Quantity", "Ice.iMpact.Mdp.quantity", ftypes.INT32)
+ice_impact_mdp_1_24.fields.reserved_field1 = ProtoField.new("Reserved Field1", "Ice.iMpact.Mdp.reservedfield1", ftypes.BYTES)
+ice_impact_mdp_1_24.fields.rfq_message = ProtoField.new("RFQ Message", "Ice.iMpact.Mdp.rfqmessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.rfq_system_id = ProtoField.new("RFQ System ID", "Ice.iMpact.Mdp.rfqsystemid", ftypes.INT64)
+ice_impact_mdp_1_24.fields.round = ProtoField.new("Round", "Ice.iMpact.Mdp.round", ftypes.INT16)
+ice_impact_mdp_1_24.fields.security_sub_type = ProtoField.new("Security Sub Type", "Ice.iMpact.Mdp.securitysubtype", ftypes.INT16)
+ice_impact_mdp_1_24.fields.sequence = ProtoField.new("Sequence", "Ice.iMpact.Mdp.sequence", ftypes.UINT32)
+ice_impact_mdp_1_24.fields.sequence_within_millis = ProtoField.new("Sequence Within Millis", "Ice.iMpact.Mdp.sequencewithinmillis", ftypes.INT32)
+ice_impact_mdp_1_24.fields.session = ProtoField.new("Session", "Ice.iMpact.Mdp.session", ftypes.UINT16)
+ice_impact_mdp_1_24.fields.settle_price_date_time = ProtoField.new("Settle Price Date Time", "Ice.iMpact.Mdp.settlepricedatetime", ftypes.INT64)
+ice_impact_mdp_1_24.fields.settle_price_denominator = ProtoField.new("Settle Price Denominator", "Ice.iMpact.Mdp.settlepricedenominator", ftypes.STRING)
+ice_impact_mdp_1_24.fields.settlement_price = ProtoField.new("Settlement Price", "Ice.iMpact.Mdp.settlementprice", ftypes.INT64)
+ice_impact_mdp_1_24.fields.settlement_price_message = ProtoField.new("Settlement Price Message", "Ice.iMpact.Mdp.settlementpricemessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.settlement_price_with_deal_price_precision = ProtoField.new("Settlement Price With Deal Price Precision", "Ice.iMpact.Mdp.settlementpricewithdealpriceprecision", ftypes.INT64)
+ice_impact_mdp_1_24.fields.settlement_type = ProtoField.new("Settlement Type", "Ice.iMpact.Mdp.settlementtype", ftypes.STRING)
+ice_impact_mdp_1_24.fields.short_name = ProtoField.new("Short Name", "Ice.iMpact.Mdp.shortname", ftypes.STRING)
+ice_impact_mdp_1_24.fields.side = ProtoField.new("Side", "Ice.iMpact.Mdp.side", ftypes.STRING)
+ice_impact_mdp_1_24.fields.special_field = ProtoField.new("Special Field", "Ice.iMpact.Mdp.specialfield", ftypes.STRING)
+ice_impact_mdp_1_24.fields.special_field_id = ProtoField.new("Special Field Id", "Ice.iMpact.Mdp.specialfieldid", ftypes.UINT8)
+ice_impact_mdp_1_24.fields.special_field_length = ProtoField.new("Special Field Length", "Ice.iMpact.Mdp.specialfieldlength", ftypes.UINT16)
+ice_impact_mdp_1_24.fields.special_field_message = ProtoField.new("Special Field Message", "Ice.iMpact.Mdp.specialfieldmessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.spot_market_trade_message = ProtoField.new("Spot Market Trade Message", "Ice.iMpact.Mdp.spotmarkettrademessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.start_or_end = ProtoField.new("Start Or End", "Ice.iMpact.Mdp.startorend", ftypes.STRING)
+ice_impact_mdp_1_24.fields.status = ProtoField.new("Status", "Ice.iMpact.Mdp.status", ftypes.STRING)
+ice_impact_mdp_1_24.fields.strategy_leg_definition = ProtoField.new("Strategy Leg Definition", "Ice.iMpact.Mdp.strategylegdefinition", ftypes.STRING)
+ice_impact_mdp_1_24.fields.strategy_symbol = ProtoField.new("Strategy Symbol", "Ice.iMpact.Mdp.strategysymbol", ftypes.STRING)
+ice_impact_mdp_1_24.fields.strike_price = ProtoField.new("Strike Price", "Ice.iMpact.Mdp.strikeprice", ftypes.INT64)
+ice_impact_mdp_1_24.fields.strip_id = ProtoField.new("Strip ID", "Ice.iMpact.Mdp.stripid", ftypes.INT32)
+ice_impact_mdp_1_24.fields.strip_info_message = ProtoField.new("Strip Info Message", "Ice.iMpact.Mdp.stripinfomessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.strip_name = ProtoField.new("Strip Name", "Ice.iMpact.Mdp.stripname", ftypes.STRING)
+ice_impact_mdp_1_24.fields.strip_type = ProtoField.new("Strip Type", "Ice.iMpact.Mdp.striptype", ftypes.STRING)
+ice_impact_mdp_1_24.fields.system_priced_leg_type = ProtoField.new("System Priced Leg Type", "Ice.iMpact.Mdp.systempricedlegtype", ftypes.STRING)
+ice_impact_mdp_1_24.fields.system_text_message = ProtoField.new("System Text Message", "Ice.iMpact.Mdp.systemtextmessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.text_message = ProtoField.new("Text Message", "Ice.iMpact.Mdp.textmessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.text_message_extra_fld = ProtoField.new("Text Message Extra Fld", "Ice.iMpact.Mdp.textmessageextrafld", ftypes.STRING)
+ice_impact_mdp_1_24.fields.threshold__imbalance__qty = ProtoField.new("Threshold  Imbalance  Qty", "Ice.iMpact.Mdp.thresholdimbalanceqty", ftypes.INT32)
+ice_impact_mdp_1_24.fields.tick_value = ProtoField.new("Tick Value", "Ice.iMpact.Mdp.tickvalue", ftypes.INT64)
+ice_impact_mdp_1_24.fields.time = ProtoField.new("Time", "Ice.iMpact.Mdp.time", ftypes.INT64)
+ice_impact_mdp_1_24.fields.timestamp = ProtoField.new("Timestamp", "Ice.iMpact.Mdp.timestamp", ftypes.UINT64)
+ice_impact_mdp_1_24.fields.trade_id = ProtoField.new("Trade ID", "Ice.iMpact.Mdp.tradeid", ftypes.INT64)
+ice_impact_mdp_1_24.fields.trade_message = ProtoField.new("Trade Message", "Ice.iMpact.Mdp.trademessage", ftypes.STRING)
+ice_impact_mdp_1_24.fields.trading_status = ProtoField.new("Trading Status", "Ice.iMpact.Mdp.tradingstatus", ftypes.STRING)
+ice_impact_mdp_1_24.fields.transact_date_time = ProtoField.new("Transact Date Time", "Ice.iMpact.Mdp.transactdatetime", ftypes.INT64)
+ice_impact_mdp_1_24.fields.underlying_market_id = ProtoField.new("Underlying Market ID", "Ice.iMpact.Mdp.underlyingmarketid", ftypes.INT32)
+ice_impact_mdp_1_24.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "Ice.iMpact.Mdp.unitofmeasure", ftypes.STRING)
+ice_impact_mdp_1_24.fields.unit_qty_denominator = ProtoField.new("Unit Qty Denominator", "Ice.iMpact.Mdp.unitqtydenominator", ftypes.STRING)
+ice_impact_mdp_1_24.fields.unit_quantity = ProtoField.new("Unit Quantity", "Ice.iMpact.Mdp.unitquantity", ftypes.INT32)
+ice_impact_mdp_1_24.fields.usd__price = ProtoField.new("USD  Price", "Ice.iMpact.Mdp.usdprice", ftypes.INT64)
+ice_impact_mdp_1_24.fields.valuation_date____applying_date = ProtoField.new("Valuation Date /  Applying Date", "Ice.iMpact.Mdp.valuationdateapplyingdate", ftypes.STRING)
+ice_impact_mdp_1_24.fields.valuation_date_time = ProtoField.new("Valuation Date Time", "Ice.iMpact.Mdp.valuationdatetime", ftypes.INT64)
+ice_impact_mdp_1_24.fields.volatility = ProtoField.new("Volatility", "Ice.iMpact.Mdp.volatility", ftypes.INT64)
+ice_impact_mdp_1_24.fields.volume = ProtoField.new("Volume", "Ice.iMpact.Mdp.volume", ftypes.INT32)
+ice_impact_mdp_1_24.fields.vwap = ProtoField.new("VWAP", "Ice.iMpact.Mdp.vwap", ftypes.INT64)
 
 -----------------------------------------------------------------------
--- Dissect Ice iMpact Mdp 1.24.0
+-- Dissect Ice iMpact Mdp 1.24
 -----------------------------------------------------------------------
 
 -- Display VWAP
@@ -361,7 +361,7 @@ dissect.vwap = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.vwap(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.vwap, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.vwap, range, value, display)
 
   return offset + size
 end
@@ -378,7 +378,7 @@ dissect.low = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.low(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.low, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.low, range, value, display)
 
   return offset + size
 end
@@ -395,7 +395,7 @@ dissect.high = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.high(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.high, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.high, range, value, display)
 
   return offset + size
 end
@@ -412,7 +412,7 @@ dissect.efp_volume = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.efp_volume(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.efp_volume, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.efp_volume, range, value, display)
 
   return offset + size
 end
@@ -429,7 +429,7 @@ dissect.efs_volume = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.efs_volume(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.efs_volume, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.efs_volume, range, value, display)
 
   return offset + size
 end
@@ -446,7 +446,7 @@ dissect.block_volume = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.block_volume(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.block_volume, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.block_volume, range, value, display)
 
   return offset + size
 end
@@ -456,7 +456,7 @@ display.old_style_options_trade_and_market_stats_message = function(buffer, offs
   return ""
 end
 
--- Dissect Old Style Options Trade and Market Stats Message Fields
+-- Dissect Fields: Old Style Options Trade and Market Stats Message
 dissect.old_style_options_trade_and_market_stats_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -483,11 +483,11 @@ end
 
 -- Dissect: Old Style Options Trade and Market Stats Message
 dissect.old_style_options_trade_and_market_stats_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.old_style_options_trade_and_market_stats_message then
     local range = buffer(offset, 36)
     local display = display.old_style_options_trade_and_market_stats_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.old_style_options_trade_and_market_stats_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.old_style_options_trade_and_market_stats_message, range, display)
   end
 
   return dissect.old_style_options_trade_and_market_stats_message_fields(buffer, offset, packet, parent)
@@ -505,7 +505,7 @@ dissect.delta = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.delta(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.delta, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.delta, range, value, display)
 
   return offset + size
 end
@@ -522,7 +522,7 @@ dissect.settlement_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.settlement_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.settlement_price, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.settlement_price, range, value, display)
 
   return offset + size
 end
@@ -539,7 +539,7 @@ dissect.volatility = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.volatility(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.volatility, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.volatility, range, value, display)
 
   return offset + size
 end
@@ -556,7 +556,7 @@ dissect.valuation_date_time = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.valuation_date_time(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.valuation_date_time, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.valuation_date_time, range, value, display)
 
   return offset + size
 end
@@ -573,7 +573,7 @@ dissect.is_official = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.is_official(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.is_official, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.is_official, range, value, display)
 
   return offset + size
 end
@@ -590,7 +590,7 @@ dissect.date_time = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.date_time(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.date_time, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.date_time, range, value, display)
 
   return offset + size
 end
@@ -607,7 +607,7 @@ dissect.settlement_price_with_deal_price_precision = function(buffer, offset, pa
   local value = range:int64()
   local display = display.settlement_price_with_deal_price_precision(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.settlement_price_with_deal_price_precision, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.settlement_price_with_deal_price_precision, range, value, display)
 
   return offset + size
 end
@@ -624,7 +624,7 @@ dissect.market_id = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.market_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.market_id, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.market_id, range, value, display)
 
   return offset + size
 end
@@ -634,7 +634,7 @@ display.option_settlement_price_message = function(buffer, offset, size, packet,
   return ""
 end
 
--- Dissect Option Settlement Price Message Fields
+-- Dissect Fields: Option Settlement Price Message
 dissect.option_settlement_price_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -667,11 +667,11 @@ end
 
 -- Dissect: Option Settlement Price Message
 dissect.option_settlement_price_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.option_settlement_price_message then
     local range = buffer(offset, 53)
     local display = display.option_settlement_price_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.option_settlement_price_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.option_settlement_price_message, range, display)
   end
 
   return dissect.option_settlement_price_message_fields(buffer, offset, packet, parent)
@@ -689,7 +689,7 @@ dissect.open_interest_date = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.open_interest_date(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.open_interest_date, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.open_interest_date, range, value, display)
 
   return offset + size
 end
@@ -706,7 +706,7 @@ dissect.open_interest = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.open_interest(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.open_interest, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.open_interest, range, value, display)
 
   return offset + size
 end
@@ -716,7 +716,7 @@ display.option_open_interest_message = function(buffer, offset, size, packet, pa
   return ""
 end
 
--- Dissect Option Open Interest Message Fields
+-- Dissect Fields: Option Open Interest Message
 dissect.option_open_interest_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -737,11 +737,11 @@ end
 
 -- Dissect: Option Open Interest Message
 dissect.option_open_interest_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.option_open_interest_message then
     local range = buffer(offset, 26)
     local display = display.option_open_interest_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.option_open_interest_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.option_open_interest_message, range, display)
   end
 
   return dissect.option_open_interest_message_fields(buffer, offset, packet, parent)
@@ -759,7 +759,7 @@ dissect.side = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.side(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.side, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.side, range, value, display)
 
   return offset + size
 end
@@ -776,7 +776,7 @@ dissect.quantity = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.quantity(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.quantity, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.quantity, range, value, display)
 
   return offset + size
 end
@@ -793,7 +793,7 @@ dissect.underlying_market_id = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.underlying_market_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.underlying_market_id, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.underlying_market_id, range, value, display)
 
   return offset + size
 end
@@ -810,7 +810,7 @@ dissect.market_type_id = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.market_type_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.market_type_id, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.market_type_id, range, value, display)
 
   return offset + size
 end
@@ -827,7 +827,7 @@ dissect.rfq_system_id = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.rfq_system_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.rfq_system_id, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.rfq_system_id, range, value, display)
 
   return offset + size
 end
@@ -844,7 +844,7 @@ dissect.message_timestamp = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.message_timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.message_timestamp, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.message_timestamp, range, value, display)
 
   return offset + size
 end
@@ -854,7 +854,7 @@ display.rfq_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect RFQ Message Fields
+-- Dissect Fields: RFQ Message
 dissect.rfq_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -884,11 +884,11 @@ end
 
 -- Dissect: RFQ Message
 dissect.rfq_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.rfq_message then
     local range = buffer(offset, 31)
     local display = display.rfq_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.rfq_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.rfq_message, range, display)
   end
 
   return dissect.rfq_message_fields(buffer, offset, packet, parent)
@@ -906,7 +906,7 @@ dissect.unit_of_measure = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.unit_of_measure(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.unit_of_measure, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.unit_of_measure, range, value, display)
 
   return offset + size
 end
@@ -923,7 +923,7 @@ dissect.guaranteed_cross_supported = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.guaranteed_cross_supported(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.guaranteed_cross_supported, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.guaranteed_cross_supported, range, value, display)
 
   return offset + size
 end
@@ -940,7 +940,7 @@ dissect.cross_order_supported = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.cross_order_supported(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.cross_order_supported, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.cross_order_supported, range, value, display)
 
   return offset + size
 end
@@ -957,7 +957,7 @@ dissect.gt_allowed = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.gt_allowed(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.gt_allowed, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.gt_allowed, range, value, display)
 
   return offset + size
 end
@@ -974,7 +974,7 @@ dissect.is_block_only = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.is_block_only(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.is_block_only, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.is_block_only, range, value, display)
 
   return offset + size
 end
@@ -991,7 +991,7 @@ dissect.settlement_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.settlement_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.settlement_type, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.settlement_type, range, value, display)
 
   return offset + size
 end
@@ -1008,7 +1008,7 @@ dissect.flex_allowed = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.flex_allowed(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.flex_allowed, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.flex_allowed, range, value, display)
 
   return offset + size
 end
@@ -1025,7 +1025,7 @@ dissect.tick_value = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.tick_value(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.tick_value, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.tick_value, range, value, display)
 
   return offset + size
 end
@@ -1042,7 +1042,7 @@ dissect.unit_qty_denominator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.unit_qty_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.unit_qty_denominator, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.unit_qty_denominator, range, value, display)
 
   return offset + size
 end
@@ -1059,7 +1059,7 @@ dissect.settle_price_denominator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.settle_price_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.settle_price_denominator, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.settle_price_denominator, range, value, display)
 
   return offset + size
 end
@@ -1076,7 +1076,7 @@ dissect.hedge_market_id = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.hedge_market_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.hedge_market_id, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.hedge_market_id, range, value, display)
 
   return offset + size
 end
@@ -1093,7 +1093,7 @@ dissect.options_expiration_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.options_expiration_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.options_expiration_type, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.options_expiration_type, range, value, display)
 
   return offset + size
 end
@@ -1110,7 +1110,7 @@ dissect.options_style = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.options_style(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.options_style, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.options_style, range, value, display)
 
   return offset + size
 end
@@ -1127,7 +1127,7 @@ dissect.options_expiration_day = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.options_expiration_day(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.options_expiration_day, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.options_expiration_day, range, value, display)
 
   return offset + size
 end
@@ -1144,7 +1144,7 @@ dissect.options_expiration_month = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.options_expiration_month(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.options_expiration_month, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.options_expiration_month, range, value, display)
 
   return offset + size
 end
@@ -1161,7 +1161,7 @@ dissect.options_expiration_year = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.options_expiration_year(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.options_expiration_year, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.options_expiration_year, range, value, display)
 
   return offset + size
 end
@@ -1178,7 +1178,7 @@ dissect.increment_premium_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.increment_premium_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.increment_premium_price, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.increment_premium_price, range, value, display)
 
   return offset + size
 end
@@ -1195,7 +1195,7 @@ dissect.max_options_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.max_options_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.max_options_price, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.max_options_price, range, value, display)
 
   return offset + size
 end
@@ -1212,7 +1212,7 @@ dissect.min_options_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.min_options_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.min_options_price, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.min_options_price, range, value, display)
 
   return offset + size
 end
@@ -1229,7 +1229,7 @@ dissect.num_decimals_strike_price = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.num_decimals_strike_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.num_decimals_strike_price, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.num_decimals_strike_price, range, value, display)
 
   return offset + size
 end
@@ -1246,7 +1246,7 @@ dissect.currency = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.currency(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.currency, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.currency, range, value, display)
 
   return offset + size
 end
@@ -1263,7 +1263,7 @@ dissect.min_qty = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.min_qty(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.min_qty, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.min_qty, range, value, display)
 
   return offset + size
 end
@@ -1280,7 +1280,7 @@ dissect.deal_price_denominator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.deal_price_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.deal_price_denominator, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.deal_price_denominator, range, value, display)
 
   return offset + size
 end
@@ -1297,7 +1297,7 @@ dissect.strike_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.strike_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.strike_price, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.strike_price, range, value, display)
 
   return offset + size
 end
@@ -1314,7 +1314,7 @@ dissect.option_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.option_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.option_type, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.option_type, range, value, display)
 
   return offset + size
 end
@@ -1331,7 +1331,7 @@ dissect.market_desc = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.market_desc(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.market_desc, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.market_desc, range, value, display)
 
   return offset + size
 end
@@ -1348,7 +1348,7 @@ dissect.lot_size = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.lot_size(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.lot_size, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.lot_size, range, value, display)
 
   return offset + size
 end
@@ -1365,7 +1365,7 @@ dissect.increment_qty = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.increment_qty(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.increment_qty, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.increment_qty, range, value, display)
 
   return offset + size
 end
@@ -1382,7 +1382,7 @@ dissect.order_price_denominator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.order_price_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.order_price_denominator, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.order_price_denominator, range, value, display)
 
   return offset + size
 end
@@ -1399,7 +1399,7 @@ dissect.trading_status = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.trading_status, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.trading_status, range, value, display)
 
   return offset + size
 end
@@ -1416,7 +1416,7 @@ dissect.futures_contract_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.futures_contract_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.futures_contract_symbol, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.futures_contract_symbol, range, value, display)
 
   return offset + size
 end
@@ -1426,7 +1426,7 @@ display.new_options_market_definition_message = function(buffer, offset, size, p
   return ""
 end
 
--- Dissect New Options Market Definition Message Fields
+-- Dissect Fields: New Options Market Definition Message
 dissect.new_options_market_definition_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1534,11 +1534,11 @@ end
 
 -- Dissect: New Options Market Definition Message
 dissect.new_options_market_definition_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.new_options_market_definition_message then
     local range = buffer(offset, 321)
     local display = display.new_options_market_definition_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.new_options_market_definition_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.new_options_market_definition_message, range, display)
   end
 
   return dissect.new_options_market_definition_message_fields(buffer, offset, packet, parent)
@@ -1556,7 +1556,7 @@ dissect.strategy_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.strategy_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.strategy_symbol, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.strategy_symbol, range, value, display)
 
   return offset + size
 end
@@ -1573,7 +1573,7 @@ dissect.security_sub_type = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.security_sub_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.security_sub_type, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.security_sub_type, range, value, display)
 
   return offset + size
 end
@@ -1590,7 +1590,7 @@ dissect.hedge_delta = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.hedge_delta(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.hedge_delta, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.hedge_delta, range, value, display)
 
   return offset + size
 end
@@ -1607,7 +1607,7 @@ dissect.hedge_price_denominator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.hedge_price_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.hedge_price_denominator, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.hedge_price_denominator, range, value, display)
 
   return offset + size
 end
@@ -1624,7 +1624,7 @@ dissect.hedge_price = function(buffer, offset, packet, parent)
   local value = range:uint64()
   local display = display.hedge_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.hedge_price, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.hedge_price, range, value, display)
 
   return offset + size
 end
@@ -1641,7 +1641,7 @@ dissect.hedge_side = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.hedge_side(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.hedge_side, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.hedge_side, range, value, display)
 
   return offset + size
 end
@@ -1658,7 +1658,7 @@ dissect.hedge_security_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.hedge_security_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.hedge_security_type, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.hedge_security_type, range, value, display)
 
   return offset + size
 end
@@ -1675,7 +1675,7 @@ dissect.hedge_market_id = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.hedge_market_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.hedge_market_id, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.hedge_market_id, range, value, display)
 
   return offset + size
 end
@@ -1692,7 +1692,7 @@ dissect.hedgebodylength = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.hedgebodylength(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.hedgebodylength, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.hedgebodylength, range, value, display)
 
   return offset + size
 end
@@ -1702,7 +1702,7 @@ display.hedge_definition = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Hedge Definition Fields
+-- Dissect Fields: Hedge Definition
 dissect.hedge_definition_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1732,11 +1732,11 @@ end
 
 -- Dissect: Hedge Definition
 dissect.hedge_definition = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.hedge_definition then
     local range = buffer(offset, 18)
     local display = display.hedge_definition(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.hedge_definition, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.hedge_definition, range, display)
   end
 
   return dissect.hedge_definition_fields(buffer, offset, packet, parent)
@@ -1754,7 +1754,7 @@ dissect.number_of_hedge_definitions = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.number_of_hedge_definitions(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.number_of_hedge_definitions, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.number_of_hedge_definitions, range, value, display)
 
   return offset + size
 end
@@ -1771,7 +1771,7 @@ dissect.leg_side = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.leg_side(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.leg_side, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.leg_side, range, value, display)
 
   return offset + size
 end
@@ -1788,7 +1788,7 @@ dissect.leg_ratio = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.leg_ratio(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.leg_ratio, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.leg_ratio, range, value, display)
 
   return offset + size
 end
@@ -1805,7 +1805,7 @@ dissect.leg_underlying_market_id = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.leg_underlying_market_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.leg_underlying_market_id, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.leg_underlying_market_id, range, value, display)
 
   return offset + size
 end
@@ -1822,7 +1822,7 @@ dissect.leg_market_id = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.leg_market_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.leg_market_id, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.leg_market_id, range, value, display)
 
   return offset + size
 end
@@ -1839,7 +1839,7 @@ dissect.leg_body_length = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.leg_body_length(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.leg_body_length, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.leg_body_length, range, value, display)
 
   return offset + size
 end
@@ -1849,7 +1849,7 @@ display.strategy_leg_definition = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Strategy Leg Definition Fields
+-- Dissect Fields: Strategy Leg Definition
 dissect.strategy_leg_definition_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1873,11 +1873,11 @@ end
 
 -- Dissect: Strategy Leg Definition
 dissect.strategy_leg_definition = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.strategy_leg_definition then
     local range = buffer(offset, 12)
     local display = display.strategy_leg_definition(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.strategy_leg_definition, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.strategy_leg_definition, range, display)
   end
 
   return dissect.strategy_leg_definition_fields(buffer, offset, packet, parent)
@@ -1895,7 +1895,7 @@ dissect.number_of_strategy_leg_definitions = function(buffer, offset, packet, pa
   local value = range:int()
   local display = display.number_of_strategy_leg_definitions(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.number_of_strategy_leg_definitions, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.number_of_strategy_leg_definitions, range, value, display)
 
   return offset + size
 end
@@ -1912,7 +1912,7 @@ dissect.increment_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.increment_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.increment_price, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.increment_price, range, value, display)
 
   return offset + size
 end
@@ -1929,7 +1929,7 @@ dissect.contract_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.contract_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.contract_symbol, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.contract_symbol, range, value, display)
 
   return offset + size
 end
@@ -1958,7 +1958,7 @@ display.new_options_strategy_definition_message = function(buffer, offset, size,
   return ""
 end
 
--- Dissect New Options Strategy Definition Message Fields
+-- Dissect Fields: New Options Strategy Definition Message
 dissect.new_options_strategy_definition_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2023,12 +2023,12 @@ end
 
 -- Dissect: New Options Strategy Definition Message
 dissect.new_options_strategy_definition_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect dynamic struct
+  -- Optionally add dynamic struct element to protocol tree
   if show.new_options_strategy_definition_message then
     local size = calculate.new_options_strategy_definition_message(buffer, offset)
     local range = buffer(offset, size)
     local display = display.new_options_strategy_definition_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.new_options_strategy_definition_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.new_options_strategy_definition_message, range, display)
   end
 
   return dissect.new_options_strategy_definition_message_fields(buffer, offset, packet, parent)
@@ -2046,7 +2046,7 @@ dissect.price_level_position = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.price_level_position(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.price_level_position, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.price_level_position, range, value, display)
 
   return offset + size
 end
@@ -2056,7 +2056,7 @@ display.delete_price_level_message = function(buffer, offset, size, packet, pare
   return ""
 end
 
--- Dissect Delete Price Level Message Fields
+-- Dissect Fields: Delete Price Level Message
 dissect.delete_price_level_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2074,11 +2074,11 @@ end
 
 -- Dissect: Delete Price Level Message
 dissect.delete_price_level_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.delete_price_level_message then
     local range = buffer(offset, 6)
     local display = display.delete_price_level_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.delete_price_level_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.delete_price_level_message, range, display)
   end
 
   return dissect.delete_price_level_message_fields(buffer, offset, packet, parent)
@@ -2096,7 +2096,7 @@ dissect.implied_order_count = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.implied_order_count(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.implied_order_count, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.implied_order_count, range, value, display)
 
   return offset + size
 end
@@ -2113,7 +2113,7 @@ dissect.implied_quantity = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.implied_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.implied_quantity, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.implied_quantity, range, value, display)
 
   return offset + size
 end
@@ -2130,7 +2130,7 @@ dissect.order_count = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.order_count(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.order_count, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.order_count, range, value, display)
 
   return offset + size
 end
@@ -2147,7 +2147,7 @@ dissect.price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.price, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.price, range, value, display)
 
   return offset + size
 end
@@ -2157,7 +2157,7 @@ display.change_price_level_message = function(buffer, offset, size, packet, pare
   return ""
 end
 
--- Dissect Change Price Level Message Fields
+-- Dissect Fields: Change Price Level Message
 dissect.change_price_level_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2190,11 +2190,11 @@ end
 
 -- Dissect: Change Price Level Message
 dissect.change_price_level_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.change_price_level_message then
     local range = buffer(offset, 26)
     local display = display.change_price_level_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.change_price_level_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.change_price_level_message, range, display)
   end
 
   return dissect.change_price_level_message_fields(buffer, offset, packet, parent)
@@ -2205,7 +2205,7 @@ display.add_price_level_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Add Price Level Message Fields
+-- Dissect Fields: Add Price Level Message
 dissect.add_price_level_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2238,11 +2238,11 @@ end
 
 -- Dissect: Add Price Level Message
 dissect.add_price_level_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.add_price_level_message then
     local range = buffer(offset, 26)
     local display = display.add_price_level_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.add_price_level_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.add_price_level_message, range, display)
   end
 
   return dissect.add_price_level_message_fields(buffer, offset, packet, parent)
@@ -2253,7 +2253,7 @@ display.market_snapshot_price_level_message = function(buffer, offset, size, pac
   return ""
 end
 
--- Dissect Market Snapshot Price Level Message Fields
+-- Dissect Fields: Market Snapshot Price Level Message
 dissect.market_snapshot_price_level_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2286,11 +2286,11 @@ end
 
 -- Dissect: Market Snapshot Price Level Message
 dissect.market_snapshot_price_level_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.market_snapshot_price_level_message then
     local range = buffer(offset, 26)
     local display = display.market_snapshot_price_level_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.market_snapshot_price_level_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.market_snapshot_price_level_message, range, display)
   end
 
   return dissect.market_snapshot_price_level_message_fields(buffer, offset, packet, parent)
@@ -2308,7 +2308,7 @@ dissect.eur__price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.eur__price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.eur__price, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.eur__price, range, value, display)
 
   return offset + size
 end
@@ -2325,7 +2325,7 @@ dissect.gbp__price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.gbp__price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.gbp__price, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.gbp__price, range, value, display)
 
   return offset + size
 end
@@ -2342,7 +2342,7 @@ dissect.is_final = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.is_final(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.is_final, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.is_final, range, value, display)
 
   return offset + size
 end
@@ -2359,7 +2359,7 @@ dissect.is_balanced = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.is_balanced(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.is_balanced, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.is_balanced, range, value, display)
 
   return offset + size
 end
@@ -2376,7 +2376,7 @@ dissect.usd__price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.usd__price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.usd__price, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.usd__price, range, value, display)
 
   return offset + size
 end
@@ -2393,7 +2393,7 @@ dissect.agg__offer__qty = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.agg__offer__qty(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.agg__offer__qty, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.agg__offer__qty, range, value, display)
 
   return offset + size
 end
@@ -2410,7 +2410,7 @@ dissect.agg__bid__qty = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.agg__bid__qty(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.agg__bid__qty, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.agg__bid__qty, range, value, display)
 
   return offset + size
 end
@@ -2427,7 +2427,7 @@ dissect.round = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.round(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.round, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.round, range, value, display)
 
   return offset + size
 end
@@ -2444,7 +2444,7 @@ dissect.description = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.description(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.description, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.description, range, value, display)
 
   return offset + size
 end
@@ -2461,7 +2461,7 @@ dissect.time = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.time(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.time, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.time, range, value, display)
 
   return offset + size
 end
@@ -2478,7 +2478,7 @@ dissect.auction__date = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.auction__date(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.auction__date, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.auction__date, range, value, display)
 
   return offset + size
 end
@@ -2488,7 +2488,7 @@ display.fixing_lockdown_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fixing Lockdown Message Fields
+-- Dissect Fields: Fixing Lockdown Message
 dissect.fixing_lockdown_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2533,11 +2533,11 @@ end
 
 -- Dissect: Fixing Lockdown Message
 dissect.fixing_lockdown_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.fixing_lockdown_message then
     local range = buffer(offset, 78)
     local display = display.fixing_lockdown_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.fixing_lockdown_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.fixing_lockdown_message, range, display)
   end
 
   return dissect.fixing_lockdown_message_fields(buffer, offset, packet, parent)
@@ -2555,7 +2555,7 @@ dissect.threshold__imbalance__qty = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.threshold__imbalance__qty(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.threshold__imbalance__qty, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.threshold__imbalance__qty, range, value, display)
 
   return offset + size
 end
@@ -2572,7 +2572,7 @@ dissect.auction_end_time = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.auction_end_time(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.auction_end_time, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.auction_end_time, range, value, display)
 
   return offset + size
 end
@@ -2589,7 +2589,7 @@ dissect.status = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.status(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.status, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.status, range, value, display)
 
   return offset + size
 end
@@ -2599,7 +2599,7 @@ display.fixing_transition_message = function(buffer, offset, size, packet, paren
   return ""
 end
 
--- Dissect Fixing Transition Message Fields
+-- Dissect Fields: Fixing Transition Message
 dissect.fixing_transition_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2623,11 +2623,11 @@ end
 
 -- Dissect: Fixing Transition Message
 dissect.fixing_transition_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.fixing_transition_message then
     local range = buffer(offset, 25)
     local display = display.fixing_transition_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.fixing_transition_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.fixing_transition_message, range, display)
   end
 
   return dissect.fixing_transition_message_fields(buffer, offset, packet, parent)
@@ -2645,7 +2645,7 @@ dissect.start_or_end = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.start_or_end(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.start_or_end, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.start_or_end, range, value, display)
 
   return offset + size
 end
@@ -2655,7 +2655,7 @@ display.message_bundle_marker = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Message Bundle Marker Fields
+-- Dissect Fields: Message Bundle Marker
 dissect.message_bundle_marker_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2667,11 +2667,11 @@ end
 
 -- Dissect: Message Bundle Marker
 dissect.message_bundle_marker = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.message_bundle_marker then
     local range = buffer(offset, 1)
     local display = display.message_bundle_marker(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.message_bundle_marker, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.message_bundle_marker, range, display)
   end
 
   return dissect.message_bundle_marker_fields(buffer, offset, packet, parent)
@@ -2689,7 +2689,7 @@ dissect.order_id = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.order_id, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.order_id, range, value, display)
 
   return offset + size
 end
@@ -2699,7 +2699,7 @@ display.delete_order_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Delete Order Message Fields
+-- Dissect Fields: Delete Order Message
 dissect.delete_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2714,11 +2714,11 @@ end
 
 -- Dissect: Delete Order Message
 dissect.delete_order_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.delete_order_message then
     local range = buffer(offset, 12)
     local display = display.delete_order_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.delete_order_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.delete_order_message, range, display)
   end
 
   return dissect.delete_order_message_fields(buffer, offset, packet, parent)
@@ -2736,7 +2736,7 @@ dissect.sequence_within_millis = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.sequence_within_millis(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.sequence_within_millis, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.sequence_within_millis, range, value, display)
 
   return offset + size
 end
@@ -2753,7 +2753,7 @@ dissect.extra_flags = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.extra_flags(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.extra_flags, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.extra_flags, range, value, display)
 
   return offset + size
 end
@@ -2770,7 +2770,7 @@ dissect.order_entry_date_time = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.order_entry_date_time(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.order_entry_date_time, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.order_entry_date_time, range, value, display)
 
   return offset + size
 end
@@ -2787,7 +2787,7 @@ dissect.is_rfq = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.is_rfq(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.is_rfq, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.is_rfq, range, value, display)
 
   return offset + size
 end
@@ -2804,7 +2804,7 @@ dissect.is_implied = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.is_implied(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.is_implied, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.is_implied, range, value, display)
 
   return offset + size
 end
@@ -2821,7 +2821,7 @@ dissect.order_sequence_id = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.order_sequence_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.order_sequence_id, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.order_sequence_id, range, value, display)
 
   return offset + size
 end
@@ -2831,7 +2831,7 @@ display.add_or_modify_order_message = function(buffer, offset, size, packet, par
   return ""
 end
 
--- Dissect Add or Modify Order Message Fields
+-- Dissect Fields: Add or Modify Order Message
 dissect.add_or_modify_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2873,11 +2873,11 @@ end
 
 -- Dissect: Add or Modify Order Message
 dissect.add_or_modify_order_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.add_or_modify_order_message then
     local range = buffer(offset, 42)
     local display = display.add_or_modify_order_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.add_or_modify_order_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.add_or_modify_order_message, range, display)
   end
 
   return dissect.add_or_modify_order_message_fields(buffer, offset, packet, parent)
@@ -2888,7 +2888,7 @@ display.market_snapshot_order_message = function(buffer, offset, size, packet, p
   return ""
 end
 
--- Dissect Market Snapshot Order Message Fields
+-- Dissect Fields: Market Snapshot Order Message
 dissect.market_snapshot_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2927,11 +2927,11 @@ end
 
 -- Dissect: Market Snapshot Order Message
 dissect.market_snapshot_order_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.market_snapshot_order_message then
     local range = buffer(offset, 41)
     local display = display.market_snapshot_order_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.market_snapshot_order_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.market_snapshot_order_message, range, display)
   end
 
   return dissect.market_snapshot_order_message_fields(buffer, offset, packet, parent)
@@ -2949,7 +2949,7 @@ dissect.special_field_length = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.special_field_length(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.special_field_length, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.special_field_length, range, value, display)
 
   return offset + size
 end
@@ -2966,7 +2966,7 @@ dissect.special_field_id = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.special_field_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.special_field_id, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.special_field_id, range, value, display)
 
   return offset + size
 end
@@ -2976,7 +2976,7 @@ display.special_field = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Special Field Fields
+-- Dissect Fields: Special Field
 dissect.special_field_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2991,11 +2991,11 @@ end
 
 -- Dissect: Special Field
 dissect.special_field = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.special_field then
     local range = buffer(offset, 3)
     local display = display.special_field(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.special_field, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.special_field, range, display)
   end
 
   return dissect.special_field_fields(buffer, offset, packet, parent)
@@ -3013,7 +3013,7 @@ dissect.number_of_special_fields = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.number_of_special_fields(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.number_of_special_fields, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.number_of_special_fields, range, value, display)
 
   return offset + size
 end
@@ -3036,7 +3036,7 @@ display.special_field_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Special Field Message Fields
+-- Dissect Fields: Special Field Message
 dissect.special_field_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -3055,12 +3055,12 @@ end
 
 -- Dissect: Special Field Message
 dissect.special_field_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect dynamic struct
+  -- Optionally add dynamic struct element to protocol tree
   if show.special_field_message then
     local size = calculate.special_field_message(buffer, offset)
     local range = buffer(offset, size)
     local display = display.special_field_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.special_field_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.special_field_message, range, display)
   end
 
   return dissect.special_field_message_fields(buffer, offset, packet, parent)
@@ -3078,7 +3078,7 @@ dissect.num_decimals_options_price = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.num_decimals_options_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.num_decimals_options_price, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.num_decimals_options_price, range, value, display)
 
   return offset + size
 end
@@ -3095,7 +3095,7 @@ dissect.isin = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.isin(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.isin, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.isin, range, value, display)
 
   return offset + size
 end
@@ -3112,7 +3112,7 @@ dissect.off_exchange_increment_option_price = function(buffer, offset, packet, p
   local value = range:int()
   local display = display.off_exchange_increment_option_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.off_exchange_increment_option_price, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.off_exchange_increment_option_price, range, value, display)
 
   return offset + size
 end
@@ -3129,7 +3129,7 @@ dissect.off_exchange_increment_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.off_exchange_increment_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.off_exchange_increment_price, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.off_exchange_increment_price, range, value, display)
 
   return offset + size
 end
@@ -3146,7 +3146,7 @@ dissect.off_exchange_increment_qty = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.off_exchange_increment_qty(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.off_exchange_increment_qty, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.off_exchange_increment_qty, range, value, display)
 
   return offset + size
 end
@@ -3163,7 +3163,7 @@ dissect.off_exchange_increment_qty_denominator = function(buffer, offset, packet
   local value = range:string()
   local display = display.off_exchange_increment_qty_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.off_exchange_increment_qty_denominator, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.off_exchange_increment_qty_denominator, range, value, display)
 
   return offset + size
 end
@@ -3180,7 +3180,7 @@ dissect.mic_code = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.mic_code(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.mic_code, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.mic_code, range, value, display)
 
   return offset + size
 end
@@ -3197,7 +3197,7 @@ dissect.strip_name = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.strip_name(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.strip_name, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.strip_name, range, value, display)
 
   return offset + size
 end
@@ -3214,7 +3214,7 @@ dissect.strip_id = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.strip_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.strip_id, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.strip_id, range, value, display)
 
   return offset + size
 end
@@ -3231,7 +3231,7 @@ dissect.hub_alias = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.hub_alias(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.hub_alias, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.hub_alias, range, value, display)
 
   return offset + size
 end
@@ -3248,7 +3248,7 @@ dissect.hub_id = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.hub_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.hub_id, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.hub_id, range, value, display)
 
   return offset + size
 end
@@ -3265,7 +3265,7 @@ dissect.product_name = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.product_name(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.product_name, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.product_name, range, value, display)
 
   return offset + size
 end
@@ -3282,7 +3282,7 @@ dissect.product_id = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.product_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.product_id, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.product_id, range, value, display)
 
   return offset + size
 end
@@ -3299,7 +3299,7 @@ dissect.max_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.max_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.max_price, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.max_price, range, value, display)
 
   return offset + size
 end
@@ -3316,7 +3316,7 @@ dissect.min_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.min_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.min_price, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.min_price, range, value, display)
 
   return offset + size
 end
@@ -3333,7 +3333,7 @@ dissect.cleared_alias = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.cleared_alias(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.cleared_alias, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.cleared_alias, range, value, display)
 
   return offset + size
 end
@@ -3350,7 +3350,7 @@ dissect.unit_quantity = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.unit_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.unit_quantity, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.unit_quantity, range, value, display)
 
   return offset + size
 end
@@ -3367,7 +3367,7 @@ dissect.maturity_day = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.maturity_day(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.maturity_day, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.maturity_day, range, value, display)
 
   return offset + size
 end
@@ -3384,7 +3384,7 @@ dissect.maturity_month = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.maturity_month(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.maturity_month, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.maturity_month, range, value, display)
 
   return offset + size
 end
@@ -3401,7 +3401,7 @@ dissect.maturity_year = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.maturity_year(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.maturity_year, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.maturity_year, range, value, display)
 
   return offset + size
 end
@@ -3411,7 +3411,7 @@ display.new_expiry_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect New Expiry Message Fields
+-- Dissect Fields: New Expiry Message
 dissect.new_expiry_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -3534,11 +3534,11 @@ end
 
 -- Dissect: New Expiry Message
 dissect.new_expiry_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.new_expiry_message then
     local range = buffer(offset, 513)
     local display = display.new_expiry_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.new_expiry_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.new_expiry_message, range, display)
   end
 
   return dissect.new_expiry_message_fields(buffer, offset, packet, parent)
@@ -3549,7 +3549,7 @@ display.leg_definition = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Leg Definition Fields
+-- Dissect Fields: Leg Definition
 dissect.leg_definition_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -3570,11 +3570,11 @@ end
 
 -- Dissect: Leg Definition
 dissect.leg_definition = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.leg_definition then
     local range = buffer(offset, 8)
     local display = display.leg_definition(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.leg_definition, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.leg_definition, range, display)
   end
 
   return dissect.leg_definition_fields(buffer, offset, packet, parent)
@@ -3592,7 +3592,7 @@ dissect.number_of_leg_definitions = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.number_of_leg_definitions(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.number_of_leg_definitions, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.number_of_leg_definitions, range, value, display)
 
   return offset + size
 end
@@ -3615,7 +3615,7 @@ display.new_futures_strategy_definition_message = function(buffer, offset, size,
   return ""
 end
 
--- Dissect New Futures Strategy Definition Message Fields
+-- Dissect Fields: New Futures Strategy Definition Message
 dissect.new_futures_strategy_definition_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -3667,12 +3667,12 @@ end
 
 -- Dissect: New Futures Strategy Definition Message
 dissect.new_futures_strategy_definition_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect dynamic struct
+  -- Optionally add dynamic struct element to protocol tree
   if show.new_futures_strategy_definition_message then
     local size = calculate.new_futures_strategy_definition_message(buffer, offset)
     local range = buffer(offset, size)
     local display = display.new_futures_strategy_definition_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.new_futures_strategy_definition_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.new_futures_strategy_definition_message, range, display)
   end
 
   return dissect.new_futures_strategy_definition_message_fields(buffer, offset, packet, parent)
@@ -3690,7 +3690,7 @@ dissect.ipl_down = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.ipl_down(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.ipl_down, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.ipl_down, range, value, display)
 
   return offset + size
 end
@@ -3707,7 +3707,7 @@ dissect.ipl_up = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.ipl_up(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.ipl_up, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.ipl_up, range, value, display)
 
   return offset + size
 end
@@ -3724,7 +3724,7 @@ dissect.ipl_hold_duration = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.ipl_hold_duration(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.ipl_hold_duration, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.ipl_hold_duration, range, value, display)
 
   return offset + size
 end
@@ -3741,7 +3741,7 @@ dissect.is_up = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.is_up(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.is_up, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.is_up, range, value, display)
 
   return offset + size
 end
@@ -3758,7 +3758,7 @@ dissect.notification_date_time = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.notification_date_time(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.notification_date_time, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.notification_date_time, range, value, display)
 
   return offset + size
 end
@@ -3775,7 +3775,7 @@ dissect.ipl_hold_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.ipl_hold_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.ipl_hold_type, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.ipl_hold_type, range, value, display)
 
   return offset + size
 end
@@ -3785,7 +3785,7 @@ display.interval_price_limit_notification_message = function(buffer, offset, siz
   return ""
 end
 
--- Dissect Interval Price Limit Notification Message Fields
+-- Dissect Fields: Interval Price Limit Notification Message
 dissect.interval_price_limit_notification_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -3815,11 +3815,11 @@ end
 
 -- Dissect: Interval Price Limit Notification Message
 dissect.interval_price_limit_notification_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.interval_price_limit_notification_message then
     local range = buffer(offset, 34)
     local display = display.interval_price_limit_notification_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.interval_price_limit_notification_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.interval_price_limit_notification_message, range, display)
   end
 
   return dissect.interval_price_limit_notification_message_fields(buffer, offset, packet, parent)
@@ -3837,7 +3837,7 @@ dissect.end_day = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.end_day(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.end_day, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.end_day, range, value, display)
 
   return offset + size
 end
@@ -3854,7 +3854,7 @@ dissect.end_month = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.end_month(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.end_month, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.end_month, range, value, display)
 
   return offset + size
 end
@@ -3871,7 +3871,7 @@ dissect.end_year = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.end_year(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.end_year, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.end_year, range, value, display)
 
   return offset + size
 end
@@ -3888,7 +3888,7 @@ dissect.begin_day = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.begin_day(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.begin_day, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.begin_day, range, value, display)
 
   return offset + size
 end
@@ -3905,7 +3905,7 @@ dissect.begin_month = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.begin_month(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.begin_month, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.begin_month, range, value, display)
 
   return offset + size
 end
@@ -3922,7 +3922,7 @@ dissect.begin_year = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.begin_year(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.begin_year, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.begin_year, range, value, display)
 
   return offset + size
 end
@@ -3939,7 +3939,7 @@ dissect.strip_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.strip_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.strip_type, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.strip_type, range, value, display)
 
   return offset + size
 end
@@ -3956,7 +3956,7 @@ dissect.old_strip_id = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.old_strip_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.old_strip_id, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.old_strip_id, range, value, display)
 
   return offset + size
 end
@@ -3966,7 +3966,7 @@ display.strip_info_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Strip Info Message Fields
+-- Dissect Fields: Strip Info Message
 dissect.strip_info_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -4005,11 +4005,11 @@ end
 
 -- Dissect: Strip Info Message
 dissect.strip_info_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.strip_info_message then
     local range = buffer(offset, 88)
     local display = display.strip_info_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.strip_info_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.strip_info_message, range, display)
   end
 
   return dissect.strip_info_message_fields(buffer, offset, packet, parent)
@@ -4027,7 +4027,7 @@ dissect.pre_open_volume = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.pre_open_volume(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.pre_open_volume, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.pre_open_volume, range, value, display)
 
   return offset + size
 end
@@ -4044,7 +4044,7 @@ dissect.has_pre_open_volume = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.has_pre_open_volume(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.has_pre_open_volume, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.has_pre_open_volume, range, value, display)
 
   return offset + size
 end
@@ -4061,7 +4061,7 @@ dissect.pre_open_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.pre_open_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.pre_open_price, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.pre_open_price, range, value, display)
 
   return offset + size
 end
@@ -4071,7 +4071,7 @@ display.pre_open_price_indicator_message = function(buffer, offset, size, packet
   return ""
 end
 
--- Dissect Pre Open Price Indicator Message Fields
+-- Dissect Fields: Pre Open Price Indicator Message
 dissect.pre_open_price_indicator_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -4095,11 +4095,11 @@ end
 
 -- Dissect: Pre Open Price Indicator Message
 dissect.pre_open_price_indicator_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.pre_open_price_indicator_message then
     local range = buffer(offset, 25)
     local display = display.pre_open_price_indicator_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.pre_open_price_indicator_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.pre_open_price_indicator_message, range, display)
   end
 
   return dissect.pre_open_price_indicator_message_fields(buffer, offset, packet, parent)
@@ -4117,7 +4117,7 @@ dissect.event_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.event_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.event_type, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.event_type, range, value, display)
 
   return offset + size
 end
@@ -4127,7 +4127,7 @@ display.market_event_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Market Event Message Fields
+-- Dissect Fields: Market Event Message
 dissect.market_event_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -4145,11 +4145,11 @@ end
 
 -- Dissect: Market Event Message
 dissect.market_event_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.market_event_message then
     local range = buffer(offset, 13)
     local display = display.market_event_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.market_event_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.market_event_message, range, display)
   end
 
   return dissect.market_event_message_fields(buffer, offset, packet, parent)
@@ -4167,7 +4167,7 @@ dissect.opening_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.opening_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.opening_price, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.opening_price, range, value, display)
 
   return offset + size
 end
@@ -4184,7 +4184,7 @@ dissect.volume = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.volume(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.volume, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.volume, range, value, display)
 
   return offset + size
 end
@@ -4194,7 +4194,7 @@ display.end_of_day_market_summary_message = function(buffer, offset, size, packe
   return ""
 end
 
--- Dissect End of Day Market Summary Message Fields
+-- Dissect Fields: End of Day Market Summary Message
 dissect.end_of_day_market_summary_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -4242,11 +4242,11 @@ end
 
 -- Dissect: End of Day Market Summary Message
 dissect.end_of_day_market_summary_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.end_of_day_market_summary_message then
     local range = buffer(offset, 80)
     local display = display.end_of_day_market_summary_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.end_of_day_market_summary_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.end_of_day_market_summary_message, range, display)
   end
 
   return dissect.end_of_day_market_summary_message_fields(buffer, offset, packet, parent)
@@ -4264,7 +4264,7 @@ dissect.valuation_date____applying_date = function(buffer, offset, packet, paren
   local value = range:string()
   local display = display.valuation_date____applying_date(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.valuation_date____applying_date, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.valuation_date____applying_date, range, value, display)
 
   return offset + size
 end
@@ -4281,7 +4281,7 @@ dissect.published_date_time = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.published_date_time(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.published_date_time, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.published_date_time, range, value, display)
 
   return offset + size
 end
@@ -4298,7 +4298,7 @@ dissect.short_name = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.short_name(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.short_name, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.short_name, range, value, display)
 
   return offset + size
 end
@@ -4308,7 +4308,7 @@ display.marker_index_prices = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Marker Index Prices Fields
+-- Dissect Fields: Marker Index Prices
 dissect.marker_index_prices_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -4335,11 +4335,11 @@ end
 
 -- Dissect: Marker Index Prices
 dissect.marker_index_prices = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.marker_index_prices then
     local range = buffer(offset, 61)
     local display = display.marker_index_prices(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.marker_index_prices, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.marker_index_prices, range, display)
   end
 
   return dissect.marker_index_prices_fields(buffer, offset, packet, parent)
@@ -4350,7 +4350,7 @@ display.settlement_price_message = function(buffer, offset, size, packet, parent
   return ""
 end
 
--- Dissect Settlement Price Message Fields
+-- Dissect Fields: Settlement Price Message
 dissect.settlement_price_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -4371,11 +4371,11 @@ end
 
 -- Dissect: Settlement Price Message
 dissect.settlement_price_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.settlement_price_message then
     local range = buffer(offset, 25)
     local display = display.settlement_price_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.settlement_price_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.settlement_price_message, range, display)
   end
 
   return dissect.settlement_price_message_fields(buffer, offset, packet, parent)
@@ -4393,7 +4393,7 @@ dissect.close_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.close_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.close_price, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.close_price, range, value, display)
 
   return offset + size
 end
@@ -4403,7 +4403,7 @@ display.close_price_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Close Price Message Fields
+-- Dissect Fields: Close Price Message
 dissect.close_price_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -4421,11 +4421,11 @@ end
 
 -- Dissect: Close Price Message
 dissect.close_price_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.close_price_message then
     local range = buffer(offset, 20)
     local display = display.close_price_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.close_price_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.close_price_message, range, display)
   end
 
   return dissect.close_price_message_fields(buffer, offset, packet, parent)
@@ -4443,7 +4443,7 @@ dissect.open_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.open_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.open_price, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.open_price, range, value, display)
 
   return offset + size
 end
@@ -4453,7 +4453,7 @@ display.open_price_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Open Price Message Fields
+-- Dissect Fields: Open Price Message
 dissect.open_price_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -4471,11 +4471,11 @@ end
 
 -- Dissect: Open Price Message
 dissect.open_price_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.open_price_message then
     local range = buffer(offset, 20)
     local display = display.open_price_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.open_price_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.open_price_message, range, display)
   end
 
   return dissect.open_price_message_fields(buffer, offset, packet, parent)
@@ -4493,7 +4493,7 @@ dissect.open_interest_change = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.open_interest_change(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.open_interest_change, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.open_interest_change, range, value, display)
 
   return offset + size
 end
@@ -4503,7 +4503,7 @@ display.open_interest_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Open Interest Message Fields
+-- Dissect Fields: Open Interest Message
 dissect.open_interest_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -4527,11 +4527,11 @@ end
 
 -- Dissect: Open Interest Message
 dissect.open_interest_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.open_interest_message then
     local range = buffer(offset, 30)
     local display = display.open_interest_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.open_interest_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.open_interest_message, range, display)
   end
 
   return dissect.open_interest_message_fields(buffer, offset, packet, parent)
@@ -4549,7 +4549,7 @@ dissect.text_message_extra_fld = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.text_message_extra_fld(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.text_message_extra_fld, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.text_message_extra_fld, range, value, display)
 
   return offset + size
 end
@@ -4566,7 +4566,7 @@ dissect.text_message = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.text_message(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.text_message, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.text_message, range, value, display)
 
   return offset + size
 end
@@ -4576,7 +4576,7 @@ display.system_text_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect System Text Message Fields
+-- Dissect Fields: System Text Message
 dissect.system_text_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -4594,11 +4594,11 @@ end
 
 -- Dissect: System Text Message
 dissect.system_text_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.system_text_message then
     local range = buffer(offset, 1008)
     local display = display.system_text_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.system_text_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.system_text_message, range, display)
   end
 
   return dissect.system_text_message_fields(buffer, offset, packet, parent)
@@ -4609,7 +4609,7 @@ display.market_state_change_message = function(buffer, offset, size, packet, par
   return ""
 end
 
--- Dissect Market State Change Message Fields
+-- Dissect Fields: Market State Change Message
 dissect.market_state_change_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -4627,11 +4627,11 @@ end
 
 -- Dissect: Market State Change Message
 dissect.market_state_change_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.market_state_change_message then
     local range = buffer(offset, 13)
     local display = display.market_state_change_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.market_state_change_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.market_state_change_message, range, display)
   end
 
   return dissect.market_state_change_message_fields(buffer, offset, packet, parent)
@@ -4642,7 +4642,7 @@ display.market_statistics_message = function(buffer, offset, size, packet, paren
   return ""
 end
 
--- Dissect Market Statistics Message Fields
+-- Dissect Fields: Market Statistics Message
 dissect.market_statistics_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -4678,11 +4678,11 @@ end
 
 -- Dissect: Market Statistics Message
 dissect.market_statistics_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.market_statistics_message then
     local range = buffer(offset, 52)
     local display = display.market_statistics_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.market_statistics_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.market_statistics_message, range, display)
   end
 
   return dissect.market_statistics_message_fields(buffer, offset, packet, parent)
@@ -4700,7 +4700,7 @@ dissect.off_market_trade_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.off_market_trade_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.off_market_trade_type, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.off_market_trade_type, range, value, display)
 
   return offset + size
 end
@@ -4717,7 +4717,7 @@ dissect.old_off_market_trade_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.old_off_market_trade_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.old_off_market_trade_type, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.old_off_market_trade_type, range, value, display)
 
   return offset + size
 end
@@ -4734,7 +4734,7 @@ dissect.trade_id = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.trade_id, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.trade_id, range, value, display)
 
   return offset + size
 end
@@ -4744,7 +4744,7 @@ display.cancelled_trade_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Cancelled Trade Message Fields
+-- Dissect Fields: Cancelled Trade Message
 dissect.cancelled_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -4774,11 +4774,11 @@ end
 
 -- Dissect: Cancelled Trade Message
 dissect.cancelled_trade_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.cancelled_trade_message then
     local range = buffer(offset, 36)
     local display = display.cancelled_trade_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.cancelled_trade_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.cancelled_trade_message, range, display)
   end
 
   return dissect.cancelled_trade_message_fields(buffer, offset, packet, parent)
@@ -4789,7 +4789,7 @@ display.investigated_trade_message = function(buffer, offset, size, packet, pare
   return ""
 end
 
--- Dissect Investigated Trade Message Fields
+-- Dissect Fields: Investigated Trade Message
 dissect.investigated_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -4822,11 +4822,11 @@ end
 
 -- Dissect: Investigated Trade Message
 dissect.investigated_trade_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.investigated_trade_message then
     local range = buffer(offset, 37)
     local display = display.investigated_trade_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.investigated_trade_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.investigated_trade_message, range, display)
   end
 
   return dissect.investigated_trade_message_fields(buffer, offset, packet, parent)
@@ -4844,7 +4844,7 @@ dissect.is_system_priced_leg = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.is_system_priced_leg(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.is_system_priced_leg, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.is_system_priced_leg, range, value, display)
 
   return offset + size
 end
@@ -4861,7 +4861,7 @@ dissect.delivery_end_date_time = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.delivery_end_date_time(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.delivery_end_date_time, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.delivery_end_date_time, range, value, display)
 
   return offset + size
 end
@@ -4878,7 +4878,7 @@ dissect.delivery_begin_date_time = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.delivery_begin_date_time(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.delivery_begin_date_time, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.delivery_begin_date_time, range, value, display)
 
   return offset + size
 end
@@ -4895,7 +4895,7 @@ dissect.transact_date_time = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.transact_date_time(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.transact_date_time, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.transact_date_time, range, value, display)
 
   return offset + size
 end
@@ -4905,7 +4905,7 @@ display.spot_market_trade_message = function(buffer, offset, size, packet, paren
   return ""
 end
 
--- Dissect Spot Market Trade Message Fields
+-- Dissect Fields: Spot Market Trade Message
 dissect.spot_market_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -4941,11 +4941,11 @@ end
 
 -- Dissect: Spot Market Trade Message
 dissect.spot_market_trade_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.spot_market_trade_message then
     local range = buffer(offset, 50)
     local display = display.spot_market_trade_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.spot_market_trade_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.spot_market_trade_message, range, display)
   end
 
   return dissect.spot_market_trade_message_fields(buffer, offset, packet, parent)
@@ -4963,7 +4963,7 @@ dissect.aggressor_side = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.aggressor_side(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.aggressor_side, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.aggressor_side, range, value, display)
 
   return offset + size
 end
@@ -4980,7 +4980,7 @@ dissect.is_adjusted_trade = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.is_adjusted_trade(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.is_adjusted_trade, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.is_adjusted_trade, range, value, display)
 
   return offset + size
 end
@@ -4997,7 +4997,7 @@ dissect.is_implied_spread_at_market_open = function(buffer, offset, packet, pare
   local value = range:string()
   local display = display.is_implied_spread_at_market_open(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.is_implied_spread_at_market_open, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.is_implied_spread_at_market_open, range, value, display)
 
   return offset + size
 end
@@ -5014,7 +5014,7 @@ dissect.system_priced_leg_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.system_priced_leg_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.system_priced_leg_type, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.system_priced_leg_type, range, value, display)
 
   return offset + size
 end
@@ -5024,7 +5024,7 @@ display.trade_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Trade Message Fields
+-- Dissect Fields: Trade Message
 dissect.trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -5075,11 +5075,11 @@ end
 
 -- Dissect: Trade Message
 dissect.trade_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.trade_message then
     local range = buffer(offset, 46)
     local display = display.trade_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.trade_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.trade_message, range, display)
   end
 
   return dissect.trade_message_fields(buffer, offset, packet, parent)
@@ -5097,7 +5097,7 @@ dissect.previous_day_settlement_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.previous_day_settlement_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.previous_day_settlement_price, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.previous_day_settlement_price, range, value, display)
 
   return offset + size
 end
@@ -5114,7 +5114,7 @@ dissect.has_previous_day_settlement_price = function(buffer, offset, packet, par
   local value = range:string()
   local display = display.has_previous_day_settlement_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.has_previous_day_settlement_price, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.has_previous_day_settlement_price, range, value, display)
 
   return offset + size
 end
@@ -5131,7 +5131,7 @@ dissect.is_settle_price_official = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.is_settle_price_official(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.is_settle_price_official, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.is_settle_price_official, range, value, display)
 
   return offset + size
 end
@@ -5148,7 +5148,7 @@ dissect.reserved_field1 = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved_field1(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.reserved_field1, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.reserved_field1, range, value, display)
 
   return offset + size
 end
@@ -5165,7 +5165,7 @@ dissect.last_message_sequence_id = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.last_message_sequence_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.last_message_sequence_id, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.last_message_sequence_id, range, value, display)
 
   return offset + size
 end
@@ -5182,7 +5182,7 @@ dissect.settle_price_date_time = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.settle_price_date_time(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.settle_price_date_time, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.settle_price_date_time, range, value, display)
 
   return offset + size
 end
@@ -5199,7 +5199,7 @@ dissect.last_trade_date_time = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.last_trade_date_time(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.last_trade_date_time, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.last_trade_date_time, range, value, display)
 
   return offset + size
 end
@@ -5216,7 +5216,7 @@ dissect.last_trade_quantity = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.last_trade_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.last_trade_quantity, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.last_trade_quantity, range, value, display)
 
   return offset + size
 end
@@ -5233,7 +5233,7 @@ dissect.last_trade_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.last_trade_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.last_trade_price, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.last_trade_price, range, value, display)
 
   return offset + size
 end
@@ -5250,7 +5250,7 @@ dissect.num_of_book_entries = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.num_of_book_entries(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.num_of_book_entries, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.num_of_book_entries, range, value, display)
 
   return offset + size
 end
@@ -5267,7 +5267,7 @@ dissect.market_type = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.market_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.market_type, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.market_type, range, value, display)
 
   return offset + size
 end
@@ -5277,7 +5277,7 @@ display.market_snapshot_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Market Snapshot Message Fields
+-- Dissect Fields: Market Snapshot Message
 dissect.market_snapshot_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -5361,11 +5361,11 @@ end
 
 -- Dissect: Market Snapshot Message
 dissect.market_snapshot_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.market_snapshot_message then
     local range = buffer(offset, 133)
     local display = display.market_snapshot_message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.market_snapshot_message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.market_snapshot_message, range, display)
   end
 
   return dissect.market_snapshot_message_fields(buffer, offset, packet, parent)
@@ -5702,7 +5702,7 @@ dissect.payload = function(buffer, offset, packet, parent)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.payload(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.payload, range, display)
+  local element = parent:add(ice_impact_mdp_1_24.fields.payload, range, display)
 
   return dissect.payload_branches(code, buffer, offset, packet, element)
 end
@@ -5719,7 +5719,7 @@ dissect.length = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.length(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.length, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.length, range, value, display)
 
   return offset + size
 end
@@ -5848,7 +5848,7 @@ dissect.message_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.message_type, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.message_type, range, value, display)
 
   return offset + size
 end
@@ -5858,7 +5858,7 @@ display.message_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Message Header Fields
+-- Dissect Fields: Message Header
 dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -5873,11 +5873,11 @@ end
 
 -- Dissect: Message Header
 dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.message_header then
     local range = buffer(offset, 3)
     local display = display.message_header(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.message_header, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.message_header, range, display)
   end
 
   return dissect.message_header_fields(buffer, offset, packet, parent)
@@ -5902,7 +5902,7 @@ display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Message Fields
+-- Dissect Fields: Message
 dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -5917,12 +5917,12 @@ end
 
 -- Dissect: Message
 dissect.message = function(buffer, offset, packet, parent)
-  -- Optionally dissect dynamic struct
+  -- Optionally add dynamic struct element to protocol tree
   if show.message then
     local size = calculate.message(buffer, offset)
     local range = buffer(offset, size)
     local display = display.message(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.message, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.message, range, display)
   end
 
   return dissect.message_fields(buffer, offset, packet, parent)
@@ -5940,7 +5940,7 @@ dissect.timestamp = function(buffer, offset, packet, parent)
   local value = range:uint64()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.timestamp, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.timestamp, range, value, display)
 
   return offset + size
 end
@@ -5957,7 +5957,7 @@ dissect.count = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.count(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.count, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.count, range, value, display)
 
   return offset + size
 end
@@ -5974,7 +5974,7 @@ dissect.sequence = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.sequence(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.sequence, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.sequence, range, value, display)
 
   return offset + size
 end
@@ -5991,7 +5991,7 @@ dissect.session = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.session(value, buffer, offset, packet, parent)
 
-  parent:add(ice_impact_mdp_1_24_0.fields.session, range, value, display)
+  parent:add(ice_impact_mdp_1_24.fields.session, range, value, display)
 
   return offset + size
 end
@@ -6001,7 +6001,7 @@ display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Packet Header Fields
+-- Dissect Fields: Packet Header
 dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -6022,11 +6022,11 @@ end
 
 -- Dissect: Packet Header
 dissect.packet_header = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.packet_header then
     local range = buffer(offset, 16)
     local display = display.packet_header(buffer, packet, parent)
-    parent = parent:add(ice_impact_mdp_1_24_0.fields.packet_header, range, display)
+    parent = parent:add(ice_impact_mdp_1_24.fields.packet_header, range, display)
   end
 
   return dissect.packet_header_fields(buffer, offset, packet, parent)
@@ -6054,23 +6054,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function ice_impact_mdp_1_24_0.init()
+function ice_impact_mdp_1_24.init()
 end
 
--- Dissector for Ice iMpact Mdp 1.24.0
-function ice_impact_mdp_1_24_0.dissector(buffer, packet, parent)
+-- Dissector for Ice iMpact Mdp 1.24
+function ice_impact_mdp_1_24.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = ice_impact_mdp_1_24_0.name
+  packet.cols.protocol = ice_impact_mdp_1_24.name
 
   -- Dissect protocol
-  local protocol = parent:add(ice_impact_mdp_1_24_0, buffer(), ice_impact_mdp_1_24_0.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(ice_impact_mdp_1_24, buffer(), ice_impact_mdp_1_24.description, "("..buffer:len().." Bytes)")
   local protocol_size = dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, ice_impact_mdp_1_24_0)
+udp_table:add(65333, ice_impact_mdp_1_24)
 
 
 -----------------------------------------------------------------------
@@ -6078,29 +6078,29 @@ udp_table:add(65333, ice_impact_mdp_1_24_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.ice_impact_mdp_1_24_0_packet_size = function(buffer)
+verify.ice_impact_mdp_1_24_packet_size = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Ice iMpact Mdp 1.24.0
-local function ice_impact_mdp_1_24_0_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Ice iMpact Mdp 1.24
+local function ice_impact_mdp_1_24_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.ice_impact_mdp_1_24_0_packet_size(buffer) then return false end
+  if not verify.ice_impact_mdp_1_24_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = ice_impact_mdp_1_24_0
-  ice_impact_mdp_1_24_0.dissector(buffer, packet, parent)
+  packet.conversation = ice_impact_mdp_1_24
+  ice_impact_mdp_1_24.dissector(buffer, packet, parent)
 
   return true
 end
 
--- Register Ice iMpact Mdp 1.24.0 Heuristic
-ice_impact_mdp_1_24_0:register_heuristic("udp", ice_impact_mdp_1_24_0_heuristic)
+-- Register Ice iMpact Mdp 1.24 Heuristic
+ice_impact_mdp_1_24:register_heuristic("udp", ice_impact_mdp_1_24_heuristic)
 
 -----------------------------------------------------------------------
 -- This file was generated by a tool for the open markets initiative
--- Protocol Version: 1.24.0
+-- Protocol Version: 1.24
 -- Script Version: 1.0.0.0
 -- Date:
 -- License: Public/GPLv3

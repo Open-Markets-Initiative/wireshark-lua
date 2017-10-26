@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Miax Mach Tom 1.9.0 Protocol
-local miax_mach_tom_1_9_0 = Proto("Miax.Mach.Tom.1.9.0.Lua", "Miax Mach Tom 1.9.0")
+-- Miax Mach Tom 1.9 Protocol
+local miax_mach_tom_1_9 = Proto("Miax.Mach.Tom.1.9.Lua", "Miax Mach Tom 1.9")
 
 -- Component Tables
 local show = {}
@@ -19,7 +19,7 @@ local verify = {}
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Miax Mach Tom 1.9.0 Format Options
+-- Miax Mach Tom 1.9 Format Options
 format.application_message = true
 format.double_sided_top_of_market_compact_message = true
 format.message = true
@@ -38,7 +38,7 @@ format.wide_top_of_market_offer_message = true
 format.data = true
 format.payload = true
 
--- Miax Mach Tom 1.9.0 Element Dissection Options
+-- Miax Mach Tom 1.9 Element Dissection Options
 show.application_message = true
 show.double_sided_top_of_market_compact_message = true
 show.message = true
@@ -61,80 +61,80 @@ show.payload = false
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax Mach Tom 1.9.0 Fields
-miax_mach_tom_1_9_0.fields.activeon_miax = ProtoField.new("Activeon MIAX", "Miax.Mach.Tom.activeonmiax", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.application_message = ProtoField.new("Application Message", "Miax.Mach.Tom.applicationmessage", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.bid_condition = ProtoField.new("Bid Condition", "Miax.Mach.Tom.bidcondition", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.bid_price = ProtoField.new("Bid Price", "Miax.Mach.Tom.bidprice", ftypes.UINT16)
-miax_mach_tom_1_9_0.fields.bid_priority_customer_size = ProtoField.new("Bid Priority Customer Size", "Miax.Mach.Tom.bidprioritycustomersize", ftypes.UINT16)
-miax_mach_tom_1_9_0.fields.bid_size = ProtoField.new("Bid Size", "Miax.Mach.Tom.bidsize", ftypes.UINT16)
-miax_mach_tom_1_9_0.fields.callor_put = ProtoField.new("Callor Put", "Miax.Mach.Tom.callorput", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.closing_time = ProtoField.new("Closing Time", "Miax.Mach.Tom.closingtime", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.correction_number = ProtoField.new("Correction Number", "Miax.Mach.Tom.correctionnumber", ftypes.UINT8)
-miax_mach_tom_1_9_0.fields.data = ProtoField.new("Data", "Miax.Mach.Tom.data", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.double_sided_top_of_market_compact_message = ProtoField.new("Double-Sided Top of Market Compact Message", "Miax.Mach.Tom.doublesidedtopofmarketcompactmessage", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.event_reason = ProtoField.new("Event Reason", "Miax.Mach.Tom.eventreason", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.expected_event_time__nano__seconds_part = ProtoField.new("Expected Event Time: Nano- Seconds Part", "Miax.Mach.Tom.expectedeventtimenanosecondspart", ftypes.UINT32)
-miax_mach_tom_1_9_0.fields.expiration_date = ProtoField.new("Expiration Date", "Miax.Mach.Tom.expirationdate", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.liquidity_acceptance_increment_indicator = ProtoField.new("Liquidity Acceptance Increment Indicator", "Miax.Mach.Tom.liquidityacceptanceincrementindicator", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.long_term_option = ProtoField.new("Long Term Option", "Miax.Mach.Tom.longtermoption", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.mbbo_condition = ProtoField.new("Mbbo Condition", "Miax.Mach.Tom.mbbocondition", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.mbbo_price = ProtoField.new("Mbbo Price", "Miax.Mach.Tom.mbboprice", ftypes.UINT16)
-miax_mach_tom_1_9_0.fields.mbbo_price = ProtoField.new("MBBO Price", "Miax.Mach.Tom.mbboprice", ftypes.UINT16)
-miax_mach_tom_1_9_0.fields.mbbo_priority_customer_size = ProtoField.new("Mbbo Priority Customer Size", "Miax.Mach.Tom.mbboprioritycustomersize", ftypes.UINT16)
-miax_mach_tom_1_9_0.fields.mbbo_priority_customer_size = ProtoField.new("MBBO Priority Customer Size", "Miax.Mach.Tom.mbboprioritycustomersize", ftypes.UINT16)
-miax_mach_tom_1_9_0.fields.mbbo_size = ProtoField.new("Mbbo Size", "Miax.Mach.Tom.mbbosize", ftypes.UINT16)
-miax_mach_tom_1_9_0.fields.mbbo_size = ProtoField.new("MBBO Size", "Miax.Mach.Tom.mbbosize", ftypes.UINT16)
-miax_mach_tom_1_9_0.fields.message = ProtoField.new("Message", "Miax.Mach.Tom.message", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.message_type = ProtoField.new("Message Type", "Miax.Mach.Tom.messagetype", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.miaxbbo_posting_increment_indicator = ProtoField.new("MIAXBBO Posting Increment Indicator", "Miax.Mach.Tom.miaxbbopostingincrementindicator", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.notification_time = ProtoField.new("Notification Time", "Miax.Mach.Tom.notificationtime", ftypes.UINT32)
-miax_mach_tom_1_9_0.fields.offer_condition = ProtoField.new("Offer Condition", "Miax.Mach.Tom.offercondition", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.offer_price = ProtoField.new("Offer Price", "Miax.Mach.Tom.offerprice", ftypes.UINT16)
-miax_mach_tom_1_9_0.fields.offer_priority_customer_size = ProtoField.new("Offer Priority Customer Size", "Miax.Mach.Tom.offerprioritycustomersize", ftypes.UINT16)
-miax_mach_tom_1_9_0.fields.offer_size = ProtoField.new("Offer Size", "Miax.Mach.Tom.offersize", ftypes.UINT16)
-miax_mach_tom_1_9_0.fields.opening_time = ProtoField.new("Opening Time", "Miax.Mach.Tom.openingtime", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.opening_underlying_market_code = ProtoField.new("Opening Underlying Market Code", "Miax.Mach.Tom.openingunderlyingmarketcode", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.packet = ProtoField.new("Packet", "Miax.Mach.Tom.packet", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.packet_length = ProtoField.new("Packet Length", "Miax.Mach.Tom.packetlength", ftypes.UINT16)
-miax_mach_tom_1_9_0.fields.packet_type = ProtoField.new("Packet Type", "Miax.Mach.Tom.packettype", ftypes.UINT8)
-miax_mach_tom_1_9_0.fields.payload = ProtoField.new("Payload", "Miax.Mach.Tom.payload", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.priority_quote_width = ProtoField.new("Priority Quote Width", "Miax.Mach.Tom.priorityquotewidth", ftypes.UINT32)
-miax_mach_tom_1_9_0.fields.product_add__update_time = ProtoField.new("Product Add/ Update Time", "Miax.Mach.Tom.productaddupdatetime", ftypes.UINT32)
-miax_mach_tom_1_9_0.fields.product_id = ProtoField.new("Product ID", "Miax.Mach.Tom.productid", ftypes.UINT32)
-miax_mach_tom_1_9_0.fields.reference_correction_number = ProtoField.new("Reference Correction Number", "Miax.Mach.Tom.referencecorrectionnumber", ftypes.UINT8)
-miax_mach_tom_1_9_0.fields.reference_trade_id = ProtoField.new("Reference Trade ID", "Miax.Mach.Tom.referencetradeid", ftypes.UINT32)
-miax_mach_tom_1_9_0.fields.reserved = ProtoField.new("Reserved", "Miax.Mach.Tom.reserved", ftypes.UINT64)
-miax_mach_tom_1_9_0.fields.restricted_option = ProtoField.new("Restricted Option", "Miax.Mach.Tom.restrictedoption", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.seconds_part = ProtoField.new("Seconds Part", "Miax.Mach.Tom.secondspart", ftypes.UINT32)
-miax_mach_tom_1_9_0.fields.security_symbol = ProtoField.new("Security Symbol", "Miax.Mach.Tom.securitysymbol", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.sequence_number = ProtoField.new("Sequence Number", "Miax.Mach.Tom.sequencenumber", ftypes.UINT64)
-miax_mach_tom_1_9_0.fields.series_update = ProtoField.new("Series Update", "Miax.Mach.Tom.seriesupdate", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.session_id = ProtoField.new("Session ID", "Miax.Mach.Tom.sessionid", ftypes.UINT32)
-miax_mach_tom_1_9_0.fields.session_number = ProtoField.new("Session Number", "Miax.Mach.Tom.sessionnumber", ftypes.UINT8)
-miax_mach_tom_1_9_0.fields.strike_price = ProtoField.new("Strike Price", "Miax.Mach.Tom.strikeprice", ftypes.UINT32)
-miax_mach_tom_1_9_0.fields.system_state_message = ProtoField.new("System State Message", "Miax.Mach.Tom.systemstatemessage", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.system_status = ProtoField.new("System Status", "Miax.Mach.Tom.systemstatus", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.system_time_message = ProtoField.new("System Time Message", "Miax.Mach.Tom.systemtimemessage", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.timestamp = ProtoField.new("Timestamp", "Miax.Mach.Tom.timestamp", ftypes.UINT32)
-miax_mach_tom_1_9_0.fields.to_m_version = ProtoField.new("To M Version", "Miax.Mach.Tom.tomversion", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.top_of_market_bid_compact_message = ProtoField.new("Top of Market Bid Compact Message", "Miax.Mach.Tom.topofmarketbidcompactmessage", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.top_of_market_offer_compact_message = ProtoField.new("Top of Market Offer Compact Message", "Miax.Mach.Tom.topofmarketoffercompactmessage", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "Miax.Mach.Tom.tradecancelmessage", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.trade_condition = ProtoField.new("Trade Condition", "Miax.Mach.Tom.tradecondition", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.trade_id = ProtoField.new("Trade ID", "Miax.Mach.Tom.tradeid", ftypes.UINT32)
-miax_mach_tom_1_9_0.fields.trade_message = ProtoField.new("Trade Message", "Miax.Mach.Tom.trademessage", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.trade_price = ProtoField.new("Trade Price", "Miax.Mach.Tom.tradeprice", ftypes.UINT32)
-miax_mach_tom_1_9_0.fields.trade_size = ProtoField.new("Trade Size", "Miax.Mach.Tom.tradesize", ftypes.UINT32)
-miax_mach_tom_1_9_0.fields.trading_status = ProtoField.new("Trading Status", "Miax.Mach.Tom.tradingstatus", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "Miax.Mach.Tom.underlyingsymbol", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.underlying_trading_status_message = ProtoField.new("Underlying Trading Status Message", "Miax.Mach.Tom.underlyingtradingstatusmessage", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.wide_double_sided_top_of_market_message = ProtoField.new("Wide Double Sided Top of Market Message", "Miax.Mach.Tom.widedoublesidedtopofmarketmessage", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.wide_top_of_market_bid_message = ProtoField.new("Wide Top of Market Bid Message", "Miax.Mach.Tom.widetopofmarketbidmessage", ftypes.STRING)
-miax_mach_tom_1_9_0.fields.wide_top_of_market_offer_message = ProtoField.new("Wide Top of Market Offer Message", "Miax.Mach.Tom.widetopofmarketoffermessage", ftypes.STRING)
+-- Miax Mach Tom 1.9 Fields
+miax_mach_tom_1_9.fields.activeon_miax = ProtoField.new("Activeon MIAX", "Miax.Mach.Tom.activeonmiax", ftypes.STRING)
+miax_mach_tom_1_9.fields.application_message = ProtoField.new("Application Message", "Miax.Mach.Tom.applicationmessage", ftypes.STRING)
+miax_mach_tom_1_9.fields.bid_condition = ProtoField.new("Bid Condition", "Miax.Mach.Tom.bidcondition", ftypes.STRING)
+miax_mach_tom_1_9.fields.bid_price = ProtoField.new("Bid Price", "Miax.Mach.Tom.bidprice", ftypes.UINT16)
+miax_mach_tom_1_9.fields.bid_priority_customer_size = ProtoField.new("Bid Priority Customer Size", "Miax.Mach.Tom.bidprioritycustomersize", ftypes.UINT16)
+miax_mach_tom_1_9.fields.bid_size = ProtoField.new("Bid Size", "Miax.Mach.Tom.bidsize", ftypes.UINT16)
+miax_mach_tom_1_9.fields.callor_put = ProtoField.new("Callor Put", "Miax.Mach.Tom.callorput", ftypes.STRING)
+miax_mach_tom_1_9.fields.closing_time = ProtoField.new("Closing Time", "Miax.Mach.Tom.closingtime", ftypes.STRING)
+miax_mach_tom_1_9.fields.correction_number = ProtoField.new("Correction Number", "Miax.Mach.Tom.correctionnumber", ftypes.UINT8)
+miax_mach_tom_1_9.fields.data = ProtoField.new("Data", "Miax.Mach.Tom.data", ftypes.STRING)
+miax_mach_tom_1_9.fields.double_sided_top_of_market_compact_message = ProtoField.new("Double-Sided Top of Market Compact Message", "Miax.Mach.Tom.doublesidedtopofmarketcompactmessage", ftypes.STRING)
+miax_mach_tom_1_9.fields.event_reason = ProtoField.new("Event Reason", "Miax.Mach.Tom.eventreason", ftypes.STRING)
+miax_mach_tom_1_9.fields.expected_event_time__nano__seconds_part = ProtoField.new("Expected Event Time: Nano- Seconds Part", "Miax.Mach.Tom.expectedeventtimenanosecondspart", ftypes.UINT32)
+miax_mach_tom_1_9.fields.expiration_date = ProtoField.new("Expiration Date", "Miax.Mach.Tom.expirationdate", ftypes.STRING)
+miax_mach_tom_1_9.fields.liquidity_acceptance_increment_indicator = ProtoField.new("Liquidity Acceptance Increment Indicator", "Miax.Mach.Tom.liquidityacceptanceincrementindicator", ftypes.STRING)
+miax_mach_tom_1_9.fields.long_term_option = ProtoField.new("Long Term Option", "Miax.Mach.Tom.longtermoption", ftypes.STRING)
+miax_mach_tom_1_9.fields.mbbo_condition = ProtoField.new("Mbbo Condition", "Miax.Mach.Tom.mbbocondition", ftypes.STRING)
+miax_mach_tom_1_9.fields.mbbo_price = ProtoField.new("Mbbo Price", "Miax.Mach.Tom.mbboprice", ftypes.UINT16)
+miax_mach_tom_1_9.fields.mbbo_price = ProtoField.new("MBBO Price", "Miax.Mach.Tom.mbboprice", ftypes.UINT16)
+miax_mach_tom_1_9.fields.mbbo_priority_customer_size = ProtoField.new("Mbbo Priority Customer Size", "Miax.Mach.Tom.mbboprioritycustomersize", ftypes.UINT16)
+miax_mach_tom_1_9.fields.mbbo_priority_customer_size = ProtoField.new("MBBO Priority Customer Size", "Miax.Mach.Tom.mbboprioritycustomersize", ftypes.UINT16)
+miax_mach_tom_1_9.fields.mbbo_size = ProtoField.new("Mbbo Size", "Miax.Mach.Tom.mbbosize", ftypes.UINT16)
+miax_mach_tom_1_9.fields.mbbo_size = ProtoField.new("MBBO Size", "Miax.Mach.Tom.mbbosize", ftypes.UINT16)
+miax_mach_tom_1_9.fields.message = ProtoField.new("Message", "Miax.Mach.Tom.message", ftypes.STRING)
+miax_mach_tom_1_9.fields.message_type = ProtoField.new("Message Type", "Miax.Mach.Tom.messagetype", ftypes.STRING)
+miax_mach_tom_1_9.fields.miaxbbo_posting_increment_indicator = ProtoField.new("MIAXBBO Posting Increment Indicator", "Miax.Mach.Tom.miaxbbopostingincrementindicator", ftypes.STRING)
+miax_mach_tom_1_9.fields.notification_time = ProtoField.new("Notification Time", "Miax.Mach.Tom.notificationtime", ftypes.UINT32)
+miax_mach_tom_1_9.fields.offer_condition = ProtoField.new("Offer Condition", "Miax.Mach.Tom.offercondition", ftypes.STRING)
+miax_mach_tom_1_9.fields.offer_price = ProtoField.new("Offer Price", "Miax.Mach.Tom.offerprice", ftypes.UINT16)
+miax_mach_tom_1_9.fields.offer_priority_customer_size = ProtoField.new("Offer Priority Customer Size", "Miax.Mach.Tom.offerprioritycustomersize", ftypes.UINT16)
+miax_mach_tom_1_9.fields.offer_size = ProtoField.new("Offer Size", "Miax.Mach.Tom.offersize", ftypes.UINT16)
+miax_mach_tom_1_9.fields.opening_time = ProtoField.new("Opening Time", "Miax.Mach.Tom.openingtime", ftypes.STRING)
+miax_mach_tom_1_9.fields.opening_underlying_market_code = ProtoField.new("Opening Underlying Market Code", "Miax.Mach.Tom.openingunderlyingmarketcode", ftypes.STRING)
+miax_mach_tom_1_9.fields.packet = ProtoField.new("Packet", "Miax.Mach.Tom.packet", ftypes.STRING)
+miax_mach_tom_1_9.fields.packet_length = ProtoField.new("Packet Length", "Miax.Mach.Tom.packetlength", ftypes.UINT16)
+miax_mach_tom_1_9.fields.packet_type = ProtoField.new("Packet Type", "Miax.Mach.Tom.packettype", ftypes.UINT8)
+miax_mach_tom_1_9.fields.payload = ProtoField.new("Payload", "Miax.Mach.Tom.payload", ftypes.STRING)
+miax_mach_tom_1_9.fields.priority_quote_width = ProtoField.new("Priority Quote Width", "Miax.Mach.Tom.priorityquotewidth", ftypes.UINT32)
+miax_mach_tom_1_9.fields.product_add__update_time = ProtoField.new("Product Add/ Update Time", "Miax.Mach.Tom.productaddupdatetime", ftypes.UINT32)
+miax_mach_tom_1_9.fields.product_id = ProtoField.new("Product ID", "Miax.Mach.Tom.productid", ftypes.UINT32)
+miax_mach_tom_1_9.fields.reference_correction_number = ProtoField.new("Reference Correction Number", "Miax.Mach.Tom.referencecorrectionnumber", ftypes.UINT8)
+miax_mach_tom_1_9.fields.reference_trade_id = ProtoField.new("Reference Trade ID", "Miax.Mach.Tom.referencetradeid", ftypes.UINT32)
+miax_mach_tom_1_9.fields.reserved = ProtoField.new("Reserved", "Miax.Mach.Tom.reserved", ftypes.UINT64)
+miax_mach_tom_1_9.fields.restricted_option = ProtoField.new("Restricted Option", "Miax.Mach.Tom.restrictedoption", ftypes.STRING)
+miax_mach_tom_1_9.fields.seconds_part = ProtoField.new("Seconds Part", "Miax.Mach.Tom.secondspart", ftypes.UINT32)
+miax_mach_tom_1_9.fields.security_symbol = ProtoField.new("Security Symbol", "Miax.Mach.Tom.securitysymbol", ftypes.STRING)
+miax_mach_tom_1_9.fields.sequence_number = ProtoField.new("Sequence Number", "Miax.Mach.Tom.sequencenumber", ftypes.UINT64)
+miax_mach_tom_1_9.fields.series_update = ProtoField.new("Series Update", "Miax.Mach.Tom.seriesupdate", ftypes.STRING)
+miax_mach_tom_1_9.fields.session_id = ProtoField.new("Session ID", "Miax.Mach.Tom.sessionid", ftypes.UINT32)
+miax_mach_tom_1_9.fields.session_number = ProtoField.new("Session Number", "Miax.Mach.Tom.sessionnumber", ftypes.UINT8)
+miax_mach_tom_1_9.fields.strike_price = ProtoField.new("Strike Price", "Miax.Mach.Tom.strikeprice", ftypes.UINT32)
+miax_mach_tom_1_9.fields.system_state_message = ProtoField.new("System State Message", "Miax.Mach.Tom.systemstatemessage", ftypes.STRING)
+miax_mach_tom_1_9.fields.system_status = ProtoField.new("System Status", "Miax.Mach.Tom.systemstatus", ftypes.STRING)
+miax_mach_tom_1_9.fields.system_time_message = ProtoField.new("System Time Message", "Miax.Mach.Tom.systemtimemessage", ftypes.STRING)
+miax_mach_tom_1_9.fields.timestamp = ProtoField.new("Timestamp", "Miax.Mach.Tom.timestamp", ftypes.UINT32)
+miax_mach_tom_1_9.fields.to_m_version = ProtoField.new("To M Version", "Miax.Mach.Tom.tomversion", ftypes.STRING)
+miax_mach_tom_1_9.fields.top_of_market_bid_compact_message = ProtoField.new("Top of Market Bid Compact Message", "Miax.Mach.Tom.topofmarketbidcompactmessage", ftypes.STRING)
+miax_mach_tom_1_9.fields.top_of_market_offer_compact_message = ProtoField.new("Top of Market Offer Compact Message", "Miax.Mach.Tom.topofmarketoffercompactmessage", ftypes.STRING)
+miax_mach_tom_1_9.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "Miax.Mach.Tom.tradecancelmessage", ftypes.STRING)
+miax_mach_tom_1_9.fields.trade_condition = ProtoField.new("Trade Condition", "Miax.Mach.Tom.tradecondition", ftypes.STRING)
+miax_mach_tom_1_9.fields.trade_id = ProtoField.new("Trade ID", "Miax.Mach.Tom.tradeid", ftypes.UINT32)
+miax_mach_tom_1_9.fields.trade_message = ProtoField.new("Trade Message", "Miax.Mach.Tom.trademessage", ftypes.STRING)
+miax_mach_tom_1_9.fields.trade_price = ProtoField.new("Trade Price", "Miax.Mach.Tom.tradeprice", ftypes.UINT32)
+miax_mach_tom_1_9.fields.trade_size = ProtoField.new("Trade Size", "Miax.Mach.Tom.tradesize", ftypes.UINT32)
+miax_mach_tom_1_9.fields.trading_status = ProtoField.new("Trading Status", "Miax.Mach.Tom.tradingstatus", ftypes.STRING)
+miax_mach_tom_1_9.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "Miax.Mach.Tom.underlyingsymbol", ftypes.STRING)
+miax_mach_tom_1_9.fields.underlying_trading_status_message = ProtoField.new("Underlying Trading Status Message", "Miax.Mach.Tom.underlyingtradingstatusmessage", ftypes.STRING)
+miax_mach_tom_1_9.fields.wide_double_sided_top_of_market_message = ProtoField.new("Wide Double Sided Top of Market Message", "Miax.Mach.Tom.widedoublesidedtopofmarketmessage", ftypes.STRING)
+miax_mach_tom_1_9.fields.wide_top_of_market_bid_message = ProtoField.new("Wide Top of Market Bid Message", "Miax.Mach.Tom.widetopofmarketbidmessage", ftypes.STRING)
+miax_mach_tom_1_9.fields.wide_top_of_market_offer_message = ProtoField.new("Wide Top of Market Offer Message", "Miax.Mach.Tom.widetopofmarketoffermessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
--- Dissect Miax Mach Tom 1.9.0
+-- Dissect Miax Mach Tom 1.9
 -----------------------------------------------------------------------
 
 -- Display Expected Event Time: Nano- Seconds Part
@@ -149,7 +149,7 @@ dissect.expected_event_time__nano__seconds_part = function(buffer, offset, packe
   local value = range:le_uint()
   local display = display.expected_event_time__nano__seconds_part(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.expected_event_time__nano__seconds_part, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.expected_event_time__nano__seconds_part, range, value, display)
 
   return offset + size
 end
@@ -166,7 +166,7 @@ dissect.seconds_part = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.seconds_part(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.seconds_part, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.seconds_part, range, value, display)
 
   return offset + size
 end
@@ -190,7 +190,7 @@ dissect.event_reason = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.event_reason(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.event_reason, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.event_reason, range, value, display)
 
   return offset + size
 end
@@ -217,7 +217,7 @@ dissect.trading_status = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.trading_status, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.trading_status, range, value, display)
 
   return offset + size
 end
@@ -234,7 +234,7 @@ dissect.underlying_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.underlying_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.underlying_symbol, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.underlying_symbol, range, value, display)
 
   return offset + size
 end
@@ -251,7 +251,7 @@ dissect.timestamp = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.timestamp, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.timestamp, range, value, display)
 
   return offset + size
 end
@@ -261,7 +261,7 @@ display.underlying_trading_status_message = function(buffer, offset, size, packe
   return ""
 end
 
--- Dissect Underlying Trading Status Message Fields
+-- Dissect Fields: Underlying Trading Status Message
 dissect.underlying_trading_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -288,11 +288,11 @@ end
 
 -- Dissect: Underlying Trading Status Message
 dissect.underlying_trading_status_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.underlying_trading_status_message then
     local range = buffer(offset, 25)
     local display = display.underlying_trading_status_message(buffer, packet, parent)
-    parent = parent:add(miax_mach_tom_1_9_0.fields.underlying_trading_status_message, range, display)
+    parent = parent:add(miax_mach_tom_1_9.fields.underlying_trading_status_message, range, display)
   end
 
   return dissect.underlying_trading_status_message_fields(buffer, offset, packet, parent)
@@ -314,7 +314,7 @@ dissect.trade_condition = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trade_condition(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.trade_condition, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.trade_condition, range, value, display)
 
   return offset + size
 end
@@ -331,7 +331,7 @@ dissect.trade_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.trade_size(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.trade_size, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.trade_size, range, value, display)
 
   return offset + size
 end
@@ -348,7 +348,7 @@ dissect.trade_price = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.trade_price(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.trade_price, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.trade_price, range, value, display)
 
   return offset + size
 end
@@ -365,7 +365,7 @@ dissect.correction_number = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.correction_number(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.correction_number, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.correction_number, range, value, display)
 
   return offset + size
 end
@@ -382,7 +382,7 @@ dissect.trade_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.trade_id, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.trade_id, range, value, display)
 
   return offset + size
 end
@@ -399,7 +399,7 @@ dissect.product_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.product_id(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.product_id, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.product_id, range, value, display)
 
   return offset + size
 end
@@ -409,7 +409,7 @@ display.trade_cancel_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Trade Cancel Message Fields
+-- Dissect Fields: Trade Cancel Message
 dissect.trade_cancel_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -439,11 +439,11 @@ end
 
 -- Dissect: Trade Cancel Message
 dissect.trade_cancel_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.trade_cancel_message then
     local range = buffer(offset, 22)
     local display = display.trade_cancel_message(buffer, packet, parent)
-    parent = parent:add(miax_mach_tom_1_9_0.fields.trade_cancel_message, range, display)
+    parent = parent:add(miax_mach_tom_1_9.fields.trade_cancel_message, range, display)
   end
 
   return dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
@@ -461,7 +461,7 @@ dissect.reference_correction_number = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.reference_correction_number(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.reference_correction_number, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.reference_correction_number, range, value, display)
 
   return offset + size
 end
@@ -478,7 +478,7 @@ dissect.reference_trade_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.reference_trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.reference_trade_id, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.reference_trade_id, range, value, display)
 
   return offset + size
 end
@@ -488,7 +488,7 @@ display.trade_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Trade Message Fields
+-- Dissect Fields: Trade Message
 dissect.trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -524,11 +524,11 @@ end
 
 -- Dissect: Trade Message
 dissect.trade_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.trade_message then
     local range = buffer(offset, 27)
     local display = display.trade_message(buffer, packet, parent)
-    parent = parent:add(miax_mach_tom_1_9_0.fields.trade_message, range, display)
+    parent = parent:add(miax_mach_tom_1_9.fields.trade_message, range, display)
   end
 
   return dissect.trade_message_fields(buffer, offset, packet, parent)
@@ -559,7 +559,7 @@ dissect.offer_condition = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.offer_condition(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.offer_condition, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.offer_condition, range, value, display)
 
   return offset + size
 end
@@ -576,7 +576,7 @@ dissect.offer_priority_customer_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.offer_priority_customer_size(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.offer_priority_customer_size, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.offer_priority_customer_size, range, value, display)
 
   return offset + size
 end
@@ -593,7 +593,7 @@ dissect.offer_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.offer_size(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.offer_size, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.offer_size, range, value, display)
 
   return offset + size
 end
@@ -610,7 +610,7 @@ dissect.offer_price = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.offer_price(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.offer_price, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.offer_price, range, value, display)
 
   return offset + size
 end
@@ -640,7 +640,7 @@ dissect.bid_condition = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.bid_condition(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.bid_condition, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.bid_condition, range, value, display)
 
   return offset + size
 end
@@ -657,7 +657,7 @@ dissect.bid_priority_customer_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.bid_priority_customer_size(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.bid_priority_customer_size, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.bid_priority_customer_size, range, value, display)
 
   return offset + size
 end
@@ -674,7 +674,7 @@ dissect.bid_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.bid_size(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.bid_size, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.bid_size, range, value, display)
 
   return offset + size
 end
@@ -691,7 +691,7 @@ dissect.bid_price = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.bid_price, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.bid_price, range, value, display)
 
   return offset + size
 end
@@ -701,7 +701,7 @@ display.wide_double_sided_top_of_market_message = function(buffer, offset, size,
   return ""
 end
 
--- Dissect Wide Double Sided Top of Market Message Fields
+-- Dissect Fields: Wide Double Sided Top of Market Message
 dissect.wide_double_sided_top_of_market_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -740,11 +740,11 @@ end
 
 -- Dissect: Wide Double Sided Top of Market Message
 dissect.wide_double_sided_top_of_market_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.wide_double_sided_top_of_market_message then
     local range = buffer(offset, 22)
     local display = display.wide_double_sided_top_of_market_message(buffer, packet, parent)
-    parent = parent:add(miax_mach_tom_1_9_0.fields.wide_double_sided_top_of_market_message, range, display)
+    parent = parent:add(miax_mach_tom_1_9.fields.wide_double_sided_top_of_market_message, range, display)
   end
 
   return dissect.wide_double_sided_top_of_market_message_fields(buffer, offset, packet, parent)
@@ -755,7 +755,7 @@ display.double_sided_top_of_market_compact_message = function(buffer, offset, si
   return ""
 end
 
--- Dissect Double-Sided Top of Market Compact Message Fields
+-- Dissect Fields: Double-Sided Top of Market Compact Message
 dissect.double_sided_top_of_market_compact_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -794,11 +794,11 @@ end
 
 -- Dissect: Double-Sided Top of Market Compact Message
 dissect.double_sided_top_of_market_compact_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.double_sided_top_of_market_compact_message then
     local range = buffer(offset, 22)
     local display = display.double_sided_top_of_market_compact_message(buffer, packet, parent)
-    parent = parent:add(miax_mach_tom_1_9_0.fields.double_sided_top_of_market_compact_message, range, display)
+    parent = parent:add(miax_mach_tom_1_9.fields.double_sided_top_of_market_compact_message, range, display)
   end
 
   return dissect.double_sided_top_of_market_compact_message_fields(buffer, offset, packet, parent)
@@ -829,7 +829,7 @@ dissect.mbbo_condition = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.mbbo_condition(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.mbbo_condition, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.mbbo_condition, range, value, display)
 
   return offset + size
 end
@@ -846,7 +846,7 @@ dissect.mbbo_priority_customer_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.mbbo_priority_customer_size(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.mbbo_priority_customer_size, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.mbbo_priority_customer_size, range, value, display)
 
   return offset + size
 end
@@ -863,7 +863,7 @@ dissect.mbbo_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.mbbo_size(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.mbbo_size, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.mbbo_size, range, value, display)
 
   return offset + size
 end
@@ -880,7 +880,7 @@ dissect.mbbo_price = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.mbbo_price(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.mbbo_price, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.mbbo_price, range, value, display)
 
   return offset + size
 end
@@ -890,7 +890,7 @@ display.wide_top_of_market_offer_message = function(buffer, offset, size, packet
   return ""
 end
 
--- Dissect Wide Top of Market Offer Message Fields
+-- Dissect Fields: Wide Top of Market Offer Message
 dissect.wide_top_of_market_offer_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -917,11 +917,11 @@ end
 
 -- Dissect: Wide Top of Market Offer Message
 dissect.wide_top_of_market_offer_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.wide_top_of_market_offer_message then
     local range = buffer(offset, 15)
     local display = display.wide_top_of_market_offer_message(buffer, packet, parent)
-    parent = parent:add(miax_mach_tom_1_9_0.fields.wide_top_of_market_offer_message, range, display)
+    parent = parent:add(miax_mach_tom_1_9.fields.wide_top_of_market_offer_message, range, display)
   end
 
   return dissect.wide_top_of_market_offer_message_fields(buffer, offset, packet, parent)
@@ -932,7 +932,7 @@ display.wide_top_of_market_bid_message = function(buffer, offset, size, packet, 
   return ""
 end
 
--- Dissect Wide Top of Market Bid Message Fields
+-- Dissect Fields: Wide Top of Market Bid Message
 dissect.wide_top_of_market_bid_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -959,11 +959,11 @@ end
 
 -- Dissect: Wide Top of Market Bid Message
 dissect.wide_top_of_market_bid_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.wide_top_of_market_bid_message then
     local range = buffer(offset, 15)
     local display = display.wide_top_of_market_bid_message(buffer, packet, parent)
-    parent = parent:add(miax_mach_tom_1_9_0.fields.wide_top_of_market_bid_message, range, display)
+    parent = parent:add(miax_mach_tom_1_9.fields.wide_top_of_market_bid_message, range, display)
   end
 
   return dissect.wide_top_of_market_bid_message_fields(buffer, offset, packet, parent)
@@ -981,7 +981,7 @@ dissect.mbbo_priority_customer_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.mbbo_priority_customer_size(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.mbbo_priority_customer_size, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.mbbo_priority_customer_size, range, value, display)
 
   return offset + size
 end
@@ -998,7 +998,7 @@ dissect.mbbo_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.mbbo_size(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.mbbo_size, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.mbbo_size, range, value, display)
 
   return offset + size
 end
@@ -1015,7 +1015,7 @@ dissect.mbbo_price = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.mbbo_price(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.mbbo_price, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.mbbo_price, range, value, display)
 
   return offset + size
 end
@@ -1025,7 +1025,7 @@ display.top_of_market_offer_compact_message = function(buffer, offset, size, pac
   return ""
 end
 
--- Dissect Top of Market Offer Compact Message Fields
+-- Dissect Fields: Top of Market Offer Compact Message
 dissect.top_of_market_offer_compact_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1052,11 +1052,11 @@ end
 
 -- Dissect: Top of Market Offer Compact Message
 dissect.top_of_market_offer_compact_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.top_of_market_offer_compact_message then
     local range = buffer(offset, 15)
     local display = display.top_of_market_offer_compact_message(buffer, packet, parent)
-    parent = parent:add(miax_mach_tom_1_9_0.fields.top_of_market_offer_compact_message, range, display)
+    parent = parent:add(miax_mach_tom_1_9.fields.top_of_market_offer_compact_message, range, display)
   end
 
   return dissect.top_of_market_offer_compact_message_fields(buffer, offset, packet, parent)
@@ -1067,7 +1067,7 @@ display.top_of_market_bid_compact_message = function(buffer, offset, size, packe
   return ""
 end
 
--- Dissect Top of Market Bid Compact Message Fields
+-- Dissect Fields: Top of Market Bid Compact Message
 dissect.top_of_market_bid_compact_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1094,11 +1094,11 @@ end
 
 -- Dissect: Top of Market Bid Compact Message
 dissect.top_of_market_bid_compact_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.top_of_market_bid_compact_message then
     local range = buffer(offset, 15)
     local display = display.top_of_market_bid_compact_message(buffer, packet, parent)
-    parent = parent:add(miax_mach_tom_1_9_0.fields.top_of_market_bid_compact_message, range, display)
+    parent = parent:add(miax_mach_tom_1_9.fields.top_of_market_bid_compact_message, range, display)
   end
 
   return dissect.top_of_market_bid_compact_message_fields(buffer, offset, packet, parent)
@@ -1135,7 +1135,7 @@ dissect.system_status = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.system_status(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.system_status, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.system_status, range, value, display)
 
   return offset + size
 end
@@ -1152,7 +1152,7 @@ dissect.session_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.session_id(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.session_id, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.session_id, range, value, display)
 
   return offset + size
 end
@@ -1169,7 +1169,7 @@ dissect.to_m_version = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.to_m_version(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.to_m_version, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.to_m_version, range, value, display)
 
   return offset + size
 end
@@ -1186,7 +1186,7 @@ dissect.notification_time = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.notification_time(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.notification_time, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.notification_time, range, value, display)
 
   return offset + size
 end
@@ -1196,7 +1196,7 @@ display.system_state_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect System State Message Fields
+-- Dissect Fields: System State Message
 dissect.system_state_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1217,11 +1217,11 @@ end
 
 -- Dissect: System State Message
 dissect.system_state_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.system_state_message then
     local range = buffer(offset, 17)
     local display = display.system_state_message(buffer, packet, parent)
-    parent = parent:add(miax_mach_tom_1_9_0.fields.system_state_message, range, display)
+    parent = parent:add(miax_mach_tom_1_9.fields.system_state_message, range, display)
   end
 
   return dissect.system_state_message_fields(buffer, offset, packet, parent)
@@ -1239,7 +1239,7 @@ dissect.reserved = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.reserved(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.reserved, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.reserved, range, value, display)
 
   return offset + size
 end
@@ -1256,7 +1256,7 @@ dissect.priority_quote_width = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.priority_quote_width(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.priority_quote_width, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.priority_quote_width, range, value, display)
 
   return offset + size
 end
@@ -1325,7 +1325,7 @@ dissect.opening_underlying_market_code = function(buffer, offset, packet, parent
   local value = range:string()
   local display = display.opening_underlying_market_code(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.opening_underlying_market_code, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.opening_underlying_market_code, range, value, display)
 
   return offset + size
 end
@@ -1352,7 +1352,7 @@ dissect.liquidity_acceptance_increment_indicator = function(buffer, offset, pack
   local value = range:string()
   local display = display.liquidity_acceptance_increment_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.liquidity_acceptance_increment_indicator, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.liquidity_acceptance_increment_indicator, range, value, display)
 
   return offset + size
 end
@@ -1379,7 +1379,7 @@ dissect.miaxbbo_posting_increment_indicator = function(buffer, offset, packet, p
   local value = range:string()
   local display = display.miaxbbo_posting_increment_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.miaxbbo_posting_increment_indicator, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.miaxbbo_posting_increment_indicator, range, value, display)
 
   return offset + size
 end
@@ -1396,7 +1396,7 @@ dissect.activeon_miax = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.activeon_miax(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.activeon_miax, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.activeon_miax, range, value, display)
 
   return offset + size
 end
@@ -1413,7 +1413,7 @@ dissect.long_term_option = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.long_term_option(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.long_term_option, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.long_term_option, range, value, display)
 
   return offset + size
 end
@@ -1430,7 +1430,7 @@ dissect.restricted_option = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.restricted_option(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.restricted_option, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.restricted_option, range, value, display)
 
   return offset + size
 end
@@ -1447,7 +1447,7 @@ dissect.closing_time = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.closing_time(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.closing_time, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.closing_time, range, value, display)
 
   return offset + size
 end
@@ -1464,7 +1464,7 @@ dissect.opening_time = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.opening_time(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.opening_time, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.opening_time, range, value, display)
 
   return offset + size
 end
@@ -1481,7 +1481,7 @@ dissect.callor_put = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.callor_put(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.callor_put, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.callor_put, range, value, display)
 
   return offset + size
 end
@@ -1498,7 +1498,7 @@ dissect.strike_price = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.strike_price(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.strike_price, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.strike_price, range, value, display)
 
   return offset + size
 end
@@ -1515,7 +1515,7 @@ dissect.expiration_date = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.expiration_date(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.expiration_date, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.expiration_date, range, value, display)
 
   return offset + size
 end
@@ -1532,7 +1532,7 @@ dissect.security_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.security_symbol, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.security_symbol, range, value, display)
 
   return offset + size
 end
@@ -1549,7 +1549,7 @@ dissect.product_add__update_time = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.product_add__update_time(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.product_add__update_time, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.product_add__update_time, range, value, display)
 
   return offset + size
 end
@@ -1559,7 +1559,7 @@ display.series_update = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Series Update Fields
+-- Dissect Fields: Series Update
 dissect.series_update_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1619,11 +1619,11 @@ end
 
 -- Dissect: Series Update
 dissect.series_update = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.series_update then
     local range = buffer(offset, 72)
     local display = display.series_update(buffer, packet, parent)
-    parent = parent:add(miax_mach_tom_1_9_0.fields.series_update, range, display)
+    parent = parent:add(miax_mach_tom_1_9.fields.series_update, range, display)
   end
 
   return dissect.series_update_fields(buffer, offset, packet, parent)
@@ -1634,7 +1634,7 @@ display.system_time_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect System Time Message Fields
+-- Dissect Fields: System Time Message
 dissect.system_time_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1646,11 +1646,11 @@ end
 
 -- Dissect: System Time Message
 dissect.system_time_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect static struct
+  -- Optionally add struct element to protocol tree
   if show.system_time_message then
     local range = buffer(offset, 4)
     local display = display.system_time_message(buffer, packet, parent)
-    parent = parent:add(miax_mach_tom_1_9_0.fields.system_time_message, range, display)
+    parent = parent:add(miax_mach_tom_1_9.fields.system_time_message, range, display)
   end
 
   return dissect.system_time_message_fields(buffer, offset, packet, parent)
@@ -1787,7 +1787,7 @@ dissect.data = function(buffer, offset, packet, parent)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.data(buffer, packet, parent)
-  local element = parent:add(miax_mach_tom_1_9_0.fields.data, range, display)
+  local element = parent:add(miax_mach_tom_1_9.fields.data, range, display)
 
   return dissect.data_branches(code, buffer, offset, packet, element)
 end
@@ -1841,7 +1841,7 @@ dissect.message_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.message_type, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.message_type, range, value, display)
 
   return offset + size
 end
@@ -1865,7 +1865,7 @@ display.application_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Application Message Fields
+-- Dissect Fields: Application Message
 dissect.application_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1880,12 +1880,12 @@ end
 
 -- Dissect: Application Message
 dissect.application_message = function(buffer, offset, packet, parent)
-  -- Optionally dissect dynamic struct
+  -- Optionally add dynamic struct element to protocol tree
   if show.application_message then
     local size = calculate.application_message(buffer, offset)
     local range = buffer(offset, size)
     local display = display.application_message(buffer, packet, parent)
-    parent = parent:add(miax_mach_tom_1_9_0.fields.application_message, range, display)
+    parent = parent:add(miax_mach_tom_1_9.fields.application_message, range, display)
   end
 
   return dissect.application_message_fields(buffer, offset, packet, parent)
@@ -1934,7 +1934,7 @@ dissect.payload = function(buffer, offset, packet, parent)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.payload(buffer, packet, parent)
-  local element = parent:add(miax_mach_tom_1_9_0.fields.payload, range, display)
+  local element = parent:add(miax_mach_tom_1_9.fields.payload, range, display)
 
   return dissect.payload_branches(code, buffer, offset, packet, element)
 end
@@ -1951,7 +1951,7 @@ dissect.session_number = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.session_number(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.session_number, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.session_number, range, value, display)
 
   return offset + size
 end
@@ -1981,7 +1981,7 @@ dissect.packet_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.packet_type(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.packet_type, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.packet_type, range, value, display)
 
   return offset + size
 end
@@ -1998,7 +1998,7 @@ dissect.packet_length = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.packet_length(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.packet_length, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.packet_length, range, value, display)
 
   return offset + size
 end
@@ -2015,7 +2015,7 @@ dissect.sequence_number = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(miax_mach_tom_1_9_0.fields.sequence_number, range, value, display)
+  parent:add(miax_mach_tom_1_9.fields.sequence_number, range, value, display)
 
   return offset + size
 end
@@ -2039,7 +2039,7 @@ display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Message Fields
+-- Dissect Fields: Message
 dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2063,12 +2063,12 @@ end
 
 -- Dissect: Message
 dissect.message = function(buffer, offset, packet, parent)
-  -- Optionally dissect dynamic struct
+  -- Optionally add dynamic struct element to protocol tree
   if show.message then
     local size = calculate.message(buffer, offset)
     local range = buffer(offset, size)
     local display = display.message(buffer, packet, parent)
-    parent = parent:add(miax_mach_tom_1_9_0.fields.message, range, display)
+    parent = parent:add(miax_mach_tom_1_9.fields.message, range, display)
   end
 
   return dissect.message_fields(buffer, offset, packet, parent)
@@ -2092,23 +2092,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function miax_mach_tom_1_9_0.init()
+function miax_mach_tom_1_9.init()
 end
 
--- Dissector for Miax Mach Tom 1.9.0
-function miax_mach_tom_1_9_0.dissector(buffer, packet, parent)
+-- Dissector for Miax Mach Tom 1.9
+function miax_mach_tom_1_9.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = miax_mach_tom_1_9_0.name
+  packet.cols.protocol = miax_mach_tom_1_9.name
 
   -- Dissect protocol
-  local protocol = parent:add(miax_mach_tom_1_9_0, buffer(), miax_mach_tom_1_9_0.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(miax_mach_tom_1_9, buffer(), miax_mach_tom_1_9.description, "("..buffer:len().." Bytes)")
   local protocol_size = dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, miax_mach_tom_1_9_0)
+udp_table:add(65333, miax_mach_tom_1_9)
 
 
 -----------------------------------------------------------------------
@@ -2116,29 +2116,29 @@ udp_table:add(65333, miax_mach_tom_1_9_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.miax_mach_tom_1_9_0_packet_size = function(buffer)
+verify.miax_mach_tom_1_9_packet_size = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Miax Mach Tom 1.9.0
-local function miax_mach_tom_1_9_0_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Miax Mach Tom 1.9
+local function miax_mach_tom_1_9_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.miax_mach_tom_1_9_0_packet_size(buffer) then return false end
+  if not verify.miax_mach_tom_1_9_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = miax_mach_tom_1_9_0
-  miax_mach_tom_1_9_0.dissector(buffer, packet, parent)
+  packet.conversation = miax_mach_tom_1_9
+  miax_mach_tom_1_9.dissector(buffer, packet, parent)
 
   return true
 end
 
--- Register Miax Mach Tom 1.9.0 Heuristic
-miax_mach_tom_1_9_0:register_heuristic("udp", miax_mach_tom_1_9_0_heuristic)
+-- Register Miax Mach Tom 1.9 Heuristic
+miax_mach_tom_1_9:register_heuristic("udp", miax_mach_tom_1_9_heuristic)
 
 -----------------------------------------------------------------------
 -- This file was generated by a tool for the open markets initiative
--- Protocol Version: 1.9.0
+-- Protocol Version: 1.9
 -- Script Version: 1.0.0.0
 -- Date:
 -- License: Public/GPLv3
