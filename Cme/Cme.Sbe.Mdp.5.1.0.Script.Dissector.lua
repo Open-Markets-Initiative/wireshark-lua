@@ -427,17 +427,16 @@ dissect.md_incremental_refresh_trade_summary_order_group_fields = function(buffe
   return index
 end
 
--- Dissect Struct: MD Incremental Refresh Trade Summary Order Group
+-- Dissect: MD Incremental Refresh Trade Summary Order Group
 dissect.md_incremental_refresh_trade_summary_order_group = function(buffer, offset, packet, parent)
-  if not show.md_incremental_refresh_trade_summary_order_group then
-    return dissect.md_incremental_refresh_trade_summary_order_group_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.md_incremental_refresh_trade_summary_order_group then
+    local range = buffer(offset, 16)
+    local display = display.md_incremental_refresh_trade_summary_order_group(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_trade_summary_order_group, range, display)
   end
 
-  local range = buffer(offset, 16)
-  local display = display.md_incremental_refresh_trade_summary_order_group(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_trade_summary_order_group, range, display)
-
-  return dissect.md_incremental_refresh_trade_summary_order_group_fields(buffer, offset, packet, element)
+  return dissect.md_incremental_refresh_trade_summary_order_group_fields(buffer, offset, packet, parent)
 end
 
 -- Display num In Group
@@ -512,17 +511,16 @@ dissect.group_size8_byte_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: group Size8 Byte
+-- Dissect: group Size8 Byte
 dissect.group_size8_byte = function(buffer, offset, packet, parent)
-  if not show.group_size8_byte then
-    return dissect.group_size8_byte_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.group_size8_byte then
+    local range = buffer(offset, 8)
+    local display = display.group_size8_byte(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.group_size8_byte, range, display)
   end
 
-  local range = buffer(offset, 8)
-  local display = display.group_size8_byte(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.group_size8_byte, range, display)
-
-  return dissect.group_size8_byte_fields(buffer, offset, packet, element)
+  return dissect.group_size8_byte_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: MD Incremental Refresh Trade Summary Order Groups
@@ -560,18 +558,17 @@ dissect.md_incremental_refresh_trade_summary_order_groups_fields = function(buff
   return index
 end
 
--- Dissect Struct: MD Incremental Refresh Trade Summary Order Groups
+-- Dissect: MD Incremental Refresh Trade Summary Order Groups
 dissect.md_incremental_refresh_trade_summary_order_groups = function(buffer, offset, packet, parent)
-  if not show.md_incremental_refresh_trade_summary_order_groups then
-    return dissect.md_incremental_refresh_trade_summary_order_groups_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.md_incremental_refresh_trade_summary_order_groups then
+    local size = calculate.md_incremental_refresh_trade_summary_order_groups(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.md_incremental_refresh_trade_summary_order_groups(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_trade_summary_order_groups, range, display)
   end
 
-  local size = calculate.md_incremental_refresh_trade_summary_order_groups(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.md_incremental_refresh_trade_summary_order_groups(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_trade_summary_order_groups, range, display)
-
-  return dissect.md_incremental_refresh_trade_summary_order_groups_fields(buffer, offset, packet, element)
+  return dissect.md_incremental_refresh_trade_summary_order_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Display Padding 6
@@ -776,17 +773,16 @@ dissect.md_incremental_refresh_trade_summary_group_fields = function(buffer, off
   return index
 end
 
--- Dissect Struct: MD Incremental Refresh Trade Summary Group
+-- Dissect: MD Incremental Refresh Trade Summary Group
 dissect.md_incremental_refresh_trade_summary_group = function(buffer, offset, packet, parent)
-  if not show.md_incremental_refresh_trade_summary_group then
-    return dissect.md_incremental_refresh_trade_summary_group_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.md_incremental_refresh_trade_summary_group then
+    local range = buffer(offset, 32)
+    local display = display.md_incremental_refresh_trade_summary_group(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_trade_summary_group, range, display)
   end
 
-  local range = buffer(offset, 32)
-  local display = display.md_incremental_refresh_trade_summary_group(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_trade_summary_group, range, display)
-
-  return dissect.md_incremental_refresh_trade_summary_group_fields(buffer, offset, packet, element)
+  return dissect.md_incremental_refresh_trade_summary_group_fields(buffer, offset, packet, parent)
 end
 
 -- Display: group Size
@@ -807,17 +803,16 @@ dissect.group_size_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: group Size
+-- Dissect: group Size
 dissect.group_size = function(buffer, offset, packet, parent)
-  if not show.group_size then
-    return dissect.group_size_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.group_size then
+    local range = buffer(offset, 3)
+    local display = display.group_size(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.group_size, range, display)
   end
 
-  local range = buffer(offset, 3)
-  local display = display.group_size(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.group_size, range, display)
-
-  return dissect.group_size_fields(buffer, offset, packet, element)
+  return dissect.group_size_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: MD Incremental Refresh Trade Summary Groups
@@ -855,18 +850,17 @@ dissect.md_incremental_refresh_trade_summary_groups_fields = function(buffer, of
   return index
 end
 
--- Dissect Struct: MD Incremental Refresh Trade Summary Groups
+-- Dissect: MD Incremental Refresh Trade Summary Groups
 dissect.md_incremental_refresh_trade_summary_groups = function(buffer, offset, packet, parent)
-  if not show.md_incremental_refresh_trade_summary_groups then
-    return dissect.md_incremental_refresh_trade_summary_groups_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.md_incremental_refresh_trade_summary_groups then
+    local size = calculate.md_incremental_refresh_trade_summary_groups(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.md_incremental_refresh_trade_summary_groups(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_trade_summary_groups, range, display)
   end
 
-  local size = calculate.md_incremental_refresh_trade_summary_groups(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.md_incremental_refresh_trade_summary_groups(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_trade_summary_groups, range, display)
-
-  return dissect.md_incremental_refresh_trade_summary_groups_fields(buffer, offset, packet, element)
+  return dissect.md_incremental_refresh_trade_summary_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Display Padding 2
@@ -1233,18 +1227,17 @@ dissect.md_incremental_refresh_trade_summary_fields = function(buffer, offset, p
   return index
 end
 
--- Dissect Struct: MD Incremental Refresh Trade Summary
+-- Dissect: MD Incremental Refresh Trade Summary
 dissect.md_incremental_refresh_trade_summary = function(buffer, offset, packet, parent)
-  if not show.md_incremental_refresh_trade_summary then
-    return dissect.md_incremental_refresh_trade_summary_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.md_incremental_refresh_trade_summary then
+    local size = calculate.md_incremental_refresh_trade_summary(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.md_incremental_refresh_trade_summary(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_trade_summary, range, display)
   end
 
-  local size = calculate.md_incremental_refresh_trade_summary(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.md_incremental_refresh_trade_summary(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_trade_summary, range, display)
-
-  return dissect.md_incremental_refresh_trade_summary_fields(buffer, offset, packet, element)
+  return dissect.md_incremental_refresh_trade_summary_fields(buffer, offset, packet, parent)
 end
 
 -- Display Underlying Symbol
@@ -1299,17 +1292,16 @@ dissect.underlyings_group_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Underlyings Group
+-- Dissect: Underlyings Group
 dissect.underlyings_group = function(buffer, offset, packet, parent)
-  if not show.underlyings_group then
-    return dissect.underlyings_group_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.underlyings_group then
+    local range = buffer(offset, 24)
+    local display = display.underlyings_group(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.underlyings_group, range, display)
   end
 
-  local range = buffer(offset, 24)
-  local display = display.underlyings_group(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.underlyings_group, range, display)
-
-  return dissect.underlyings_group_fields(buffer, offset, packet, element)
+  return dissect.underlyings_group_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: Underlyings Groups
@@ -1347,18 +1339,17 @@ dissect.underlyings_groups_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Underlyings Groups
+-- Dissect: Underlyings Groups
 dissect.underlyings_groups = function(buffer, offset, packet, parent)
-  if not show.underlyings_groups then
-    return dissect.underlyings_groups_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.underlyings_groups then
+    local size = calculate.underlyings_groups(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.underlyings_groups(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.underlyings_groups, range, display)
   end
 
-  local size = calculate.underlyings_groups(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.underlyings_groups(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.underlyings_groups, range, display)
-
-  return dissect.underlyings_groups_fields(buffer, offset, packet, element)
+  return dissect.underlyings_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Display Min Lot Size
@@ -1414,17 +1405,16 @@ dissect.lot_type_rules_group_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Lot Type Rules Group
+-- Dissect: Lot Type Rules Group
 dissect.lot_type_rules_group = function(buffer, offset, packet, parent)
-  if not show.lot_type_rules_group then
-    return dissect.lot_type_rules_group_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.lot_type_rules_group then
+    local range = buffer(offset, 5)
+    local display = display.lot_type_rules_group(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.lot_type_rules_group, range, display)
   end
 
-  local range = buffer(offset, 5)
-  local display = display.lot_type_rules_group(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.lot_type_rules_group, range, display)
-
-  return dissect.lot_type_rules_group_fields(buffer, offset, packet, element)
+  return dissect.lot_type_rules_group_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: Lot Type Rules Groups
@@ -1462,18 +1452,17 @@ dissect.lot_type_rules_groups_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Lot Type Rules Groups
+-- Dissect: Lot Type Rules Groups
 dissect.lot_type_rules_groups = function(buffer, offset, packet, parent)
-  if not show.lot_type_rules_groups then
-    return dissect.lot_type_rules_groups_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.lot_type_rules_groups then
+    local size = calculate.lot_type_rules_groups(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.lot_type_rules_groups(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.lot_type_rules_groups, range, display)
   end
 
-  local size = calculate.lot_type_rules_groups(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.lot_type_rules_groups(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.lot_type_rules_groups, range, display)
-
-  return dissect.lot_type_rules_groups_fields(buffer, offset, packet, element)
+  return dissect.lot_type_rules_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Display Electronic Match Eligible
@@ -2206,17 +2195,16 @@ dissect.inst_attrib_group_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Inst Attrib Group
+-- Dissect: Inst Attrib Group
 dissect.inst_attrib_group = function(buffer, offset, packet, parent)
-  if not show.inst_attrib_group then
-    return dissect.inst_attrib_group_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.inst_attrib_group then
+    local range = buffer(offset, 4)
+    local display = display.inst_attrib_group(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.inst_attrib_group, range, display)
   end
 
-  local range = buffer(offset, 4)
-  local display = display.inst_attrib_group(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.inst_attrib_group, range, display)
-
-  return dissect.inst_attrib_group_fields(buffer, offset, packet, element)
+  return dissect.inst_attrib_group_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: Inst Attrib Groups
@@ -2254,18 +2242,17 @@ dissect.inst_attrib_groups_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Inst Attrib Groups
+-- Dissect: Inst Attrib Groups
 dissect.inst_attrib_groups = function(buffer, offset, packet, parent)
-  if not show.inst_attrib_groups then
-    return dissect.inst_attrib_groups_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.inst_attrib_groups then
+    local size = calculate.inst_attrib_groups(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.inst_attrib_groups(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.inst_attrib_groups, range, display)
   end
 
-  local size = calculate.inst_attrib_groups(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.inst_attrib_groups(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.inst_attrib_groups, range, display)
-
-  return dissect.inst_attrib_groups_fields(buffer, offset, packet, element)
+  return dissect.inst_attrib_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Display Market Depth
@@ -2320,17 +2307,16 @@ dissect.md_feed_types_group_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: MD Feed Types Group
+-- Dissect: MD Feed Types Group
 dissect.md_feed_types_group = function(buffer, offset, packet, parent)
-  if not show.md_feed_types_group then
-    return dissect.md_feed_types_group_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.md_feed_types_group then
+    local range = buffer(offset, 4)
+    local display = display.md_feed_types_group(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_feed_types_group, range, display)
   end
 
-  local range = buffer(offset, 4)
-  local display = display.md_feed_types_group(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_feed_types_group, range, display)
-
-  return dissect.md_feed_types_group_fields(buffer, offset, packet, element)
+  return dissect.md_feed_types_group_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: MD Feed Types Groups
@@ -2368,18 +2354,17 @@ dissect.md_feed_types_groups_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: MD Feed Types Groups
+-- Dissect: MD Feed Types Groups
 dissect.md_feed_types_groups = function(buffer, offset, packet, parent)
-  if not show.md_feed_types_groups then
-    return dissect.md_feed_types_groups_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.md_feed_types_groups then
+    local size = calculate.md_feed_types_groups(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.md_feed_types_groups(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_feed_types_groups, range, display)
   end
 
-  local size = calculate.md_feed_types_groups(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.md_feed_types_groups(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_feed_types_groups, range, display)
-
-  return dissect.md_feed_types_groups_fields(buffer, offset, packet, element)
+  return dissect.md_feed_types_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Display Event Time
@@ -2441,17 +2426,16 @@ dissect.events_group_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Events Group
+-- Dissect: Events Group
 dissect.events_group = function(buffer, offset, packet, parent)
-  if not show.events_group then
-    return dissect.events_group_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.events_group then
+    local range = buffer(offset, 9)
+    local display = display.events_group(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.events_group, range, display)
   end
 
-  local range = buffer(offset, 9)
-  local display = display.events_group(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.events_group, range, display)
-
-  return dissect.events_group_fields(buffer, offset, packet, element)
+  return dissect.events_group_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: Events Groups
@@ -2489,18 +2473,17 @@ dissect.events_groups_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Events Groups
+-- Dissect: Events Groups
 dissect.events_groups = function(buffer, offset, packet, parent)
-  if not show.events_groups then
-    return dissect.events_groups_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.events_groups then
+    local size = calculate.events_groups(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.events_groups(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.events_groups, range, display)
   end
 
-  local size = calculate.events_groups(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.events_groups(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.events_groups, range, display)
-
-  return dissect.events_groups_fields(buffer, offset, packet, element)
+  return dissect.events_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Display User Defined Instrument
@@ -3235,17 +3218,16 @@ dissect.maturity_month_year_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Maturity Month Year
+-- Dissect: Maturity Month Year
 dissect.maturity_month_year = function(buffer, offset, packet, parent)
-  if not show.maturity_month_year then
-    return dissect.maturity_month_year_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.maturity_month_year then
+    local range = buffer(offset, 5)
+    local display = display.maturity_month_year(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.maturity_month_year, range, display)
   end
 
-  local range = buffer(offset, 5)
-  local display = display.maturity_month_year(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.maturity_month_year, range, display)
-
-  return dissect.maturity_month_year_fields(buffer, offset, packet, element)
+  return dissect.maturity_month_year_fields(buffer, offset, packet, parent)
 end
 
 -- Display Field: Put Or Call
@@ -3672,18 +3654,17 @@ dissect.md_instrument_definition_option_fields = function(buffer, offset, packet
   return index
 end
 
--- Dissect Struct: MD Instrument Definition Option
+-- Dissect: MD Instrument Definition Option
 dissect.md_instrument_definition_option = function(buffer, offset, packet, parent)
-  if not show.md_instrument_definition_option then
-    return dissect.md_instrument_definition_option_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.md_instrument_definition_option then
+    local size = calculate.md_instrument_definition_option(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.md_instrument_definition_option(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_instrument_definition_option, range, display)
   end
 
-  local size = calculate.md_instrument_definition_option(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.md_instrument_definition_option(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_instrument_definition_option, range, display)
-
-  return dissect.md_instrument_definition_option_fields(buffer, offset, packet, element)
+  return dissect.md_instrument_definition_option_fields(buffer, offset, packet, parent)
 end
 
 -- Display Side
@@ -3767,17 +3748,16 @@ dissect.related_sym_group_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Related Sym Group
+-- Dissect: Related Sym Group
 dissect.related_sym_group = function(buffer, offset, packet, parent)
-  if not show.related_sym_group then
-    return dissect.related_sym_group_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.related_sym_group then
+    local range = buffer(offset, 32)
+    local display = display.related_sym_group(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.related_sym_group, range, display)
   end
 
-  local range = buffer(offset, 32)
-  local display = display.related_sym_group(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.related_sym_group, range, display)
-
-  return dissect.related_sym_group_fields(buffer, offset, packet, element)
+  return dissect.related_sym_group_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: Related Sym Groups
@@ -3815,18 +3795,17 @@ dissect.related_sym_groups_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Related Sym Groups
+-- Dissect: Related Sym Groups
 dissect.related_sym_groups = function(buffer, offset, packet, parent)
-  if not show.related_sym_groups then
-    return dissect.related_sym_groups_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.related_sym_groups then
+    local size = calculate.related_sym_groups(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.related_sym_groups(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.related_sym_groups, range, display)
   end
 
-  local size = calculate.related_sym_groups(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.related_sym_groups(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.related_sym_groups, range, display)
-
-  return dissect.related_sym_groups_fields(buffer, offset, packet, element)
+  return dissect.related_sym_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Display Padding 3
@@ -3901,18 +3880,17 @@ dissect.quote_request_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Quote Request
+-- Dissect: Quote Request
 dissect.quote_request = function(buffer, offset, packet, parent)
-  if not show.quote_request then
-    return dissect.quote_request_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.quote_request then
+    local size = calculate.quote_request(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.quote_request(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.quote_request, range, display)
   end
 
-  local size = calculate.quote_request(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.quote_request(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.quote_request, range, display)
-
-  return dissect.quote_request_fields(buffer, offset, packet, element)
+  return dissect.quote_request_fields(buffer, offset, packet, parent)
 end
 
 -- Display Field: MD Entry Type
@@ -4078,17 +4056,16 @@ dissect.snapshot_full_refresh_group_fields = function(buffer, offset, packet, pa
   return index
 end
 
--- Dissect Struct: Snapshot Full Refresh Group
+-- Dissect: Snapshot Full Refresh Group
 dissect.snapshot_full_refresh_group = function(buffer, offset, packet, parent)
-  if not show.snapshot_full_refresh_group then
-    return dissect.snapshot_full_refresh_group_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.snapshot_full_refresh_group then
+    local range = buffer(offset, 22)
+    local display = display.snapshot_full_refresh_group(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.snapshot_full_refresh_group, range, display)
   end
 
-  local range = buffer(offset, 22)
-  local display = display.snapshot_full_refresh_group(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.snapshot_full_refresh_group, range, display)
-
-  return dissect.snapshot_full_refresh_group_fields(buffer, offset, packet, element)
+  return dissect.snapshot_full_refresh_group_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: Snapshot Full Refresh Groups
@@ -4126,18 +4103,17 @@ dissect.snapshot_full_refresh_groups_fields = function(buffer, offset, packet, p
   return index
 end
 
--- Dissect Struct: Snapshot Full Refresh Groups
+-- Dissect: Snapshot Full Refresh Groups
 dissect.snapshot_full_refresh_groups = function(buffer, offset, packet, parent)
-  if not show.snapshot_full_refresh_groups then
-    return dissect.snapshot_full_refresh_groups_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.snapshot_full_refresh_groups then
+    local size = calculate.snapshot_full_refresh_groups(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.snapshot_full_refresh_groups(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.snapshot_full_refresh_groups, range, display)
   end
 
-  local size = calculate.snapshot_full_refresh_groups(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.snapshot_full_refresh_groups(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.snapshot_full_refresh_groups, range, display)
-
-  return dissect.snapshot_full_refresh_groups_fields(buffer, offset, packet, element)
+  return dissect.snapshot_full_refresh_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Display Max Price Variation
@@ -4251,18 +4227,17 @@ dissect.snapshot_full_refresh_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Snapshot Full Refresh
+-- Dissect: Snapshot Full Refresh
 dissect.snapshot_full_refresh = function(buffer, offset, packet, parent)
-  if not show.snapshot_full_refresh then
-    return dissect.snapshot_full_refresh_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.snapshot_full_refresh then
+    local size = calculate.snapshot_full_refresh(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.snapshot_full_refresh(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.snapshot_full_refresh, range, display)
   end
 
-  local size = calculate.snapshot_full_refresh(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.snapshot_full_refresh(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.snapshot_full_refresh, range, display)
-
-  return dissect.snapshot_full_refresh_fields(buffer, offset, packet, element)
+  return dissect.snapshot_full_refresh_fields(buffer, offset, packet, parent)
 end
 
 -- Display: MD Incremental Refresh Volume Group
@@ -4292,17 +4267,16 @@ dissect.md_incremental_refresh_volume_group_fields = function(buffer, offset, pa
   return index
 end
 
--- Dissect Struct: MD Incremental Refresh Volume Group
+-- Dissect: MD Incremental Refresh Volume Group
 dissect.md_incremental_refresh_volume_group = function(buffer, offset, packet, parent)
-  if not show.md_incremental_refresh_volume_group then
-    return dissect.md_incremental_refresh_volume_group_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.md_incremental_refresh_volume_group then
+    local range = buffer(offset, 16)
+    local display = display.md_incremental_refresh_volume_group(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_volume_group, range, display)
   end
 
-  local range = buffer(offset, 16)
-  local display = display.md_incremental_refresh_volume_group(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_volume_group, range, display)
-
-  return dissect.md_incremental_refresh_volume_group_fields(buffer, offset, packet, element)
+  return dissect.md_incremental_refresh_volume_group_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: MD Incremental Refresh Volume Groups
@@ -4340,18 +4314,17 @@ dissect.md_incremental_refresh_volume_groups_fields = function(buffer, offset, p
   return index
 end
 
--- Dissect Struct: MD Incremental Refresh Volume Groups
+-- Dissect: MD Incremental Refresh Volume Groups
 dissect.md_incremental_refresh_volume_groups = function(buffer, offset, packet, parent)
-  if not show.md_incremental_refresh_volume_groups then
-    return dissect.md_incremental_refresh_volume_groups_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.md_incremental_refresh_volume_groups then
+    local size = calculate.md_incremental_refresh_volume_groups(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.md_incremental_refresh_volume_groups(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_volume_groups, range, display)
   end
 
-  local size = calculate.md_incremental_refresh_volume_groups(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.md_incremental_refresh_volume_groups(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_volume_groups, range, display)
-
-  return dissect.md_incremental_refresh_volume_groups_fields(buffer, offset, packet, element)
+  return dissect.md_incremental_refresh_volume_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: MD Incremental Refresh Volume
@@ -4389,18 +4362,17 @@ dissect.md_incremental_refresh_volume_fields = function(buffer, offset, packet, 
   return index
 end
 
--- Dissect Struct: MD Incremental Refresh Volume
+-- Dissect: MD Incremental Refresh Volume
 dissect.md_incremental_refresh_volume = function(buffer, offset, packet, parent)
-  if not show.md_incremental_refresh_volume then
-    return dissect.md_incremental_refresh_volume_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.md_incremental_refresh_volume then
+    local size = calculate.md_incremental_refresh_volume(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.md_incremental_refresh_volume(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_volume, range, display)
   end
 
-  local size = calculate.md_incremental_refresh_volume(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.md_incremental_refresh_volume(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_volume, range, display)
-
-  return dissect.md_incremental_refresh_volume_fields(buffer, offset, packet, element)
+  return dissect.md_incremental_refresh_volume_fields(buffer, offset, packet, parent)
 end
 
 -- Display Trade ID
@@ -4459,17 +4431,16 @@ dissect.md_incremental_refresh_trade_group_fields = function(buffer, offset, pac
   return index
 end
 
--- Dissect Struct: MD Incremental Refresh Trade Group
+-- Dissect: MD Incremental Refresh Trade Group
 dissect.md_incremental_refresh_trade_group = function(buffer, offset, packet, parent)
-  if not show.md_incremental_refresh_trade_group then
-    return dissect.md_incremental_refresh_trade_group_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.md_incremental_refresh_trade_group then
+    local range = buffer(offset, 32)
+    local display = display.md_incremental_refresh_trade_group(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_trade_group, range, display)
   end
 
-  local range = buffer(offset, 32)
-  local display = display.md_incremental_refresh_trade_group(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_trade_group, range, display)
-
-  return dissect.md_incremental_refresh_trade_group_fields(buffer, offset, packet, element)
+  return dissect.md_incremental_refresh_trade_group_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: MD Incremental Refresh Trade Groups
@@ -4507,18 +4478,17 @@ dissect.md_incremental_refresh_trade_groups_fields = function(buffer, offset, pa
   return index
 end
 
--- Dissect Struct: MD Incremental Refresh Trade Groups
+-- Dissect: MD Incremental Refresh Trade Groups
 dissect.md_incremental_refresh_trade_groups = function(buffer, offset, packet, parent)
-  if not show.md_incremental_refresh_trade_groups then
-    return dissect.md_incremental_refresh_trade_groups_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.md_incremental_refresh_trade_groups then
+    local size = calculate.md_incremental_refresh_trade_groups(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.md_incremental_refresh_trade_groups(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_trade_groups, range, display)
   end
 
-  local size = calculate.md_incremental_refresh_trade_groups(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.md_incremental_refresh_trade_groups(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_trade_groups, range, display)
-
-  return dissect.md_incremental_refresh_trade_groups_fields(buffer, offset, packet, element)
+  return dissect.md_incremental_refresh_trade_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: MD Incremental Refresh Trade
@@ -4556,18 +4526,17 @@ dissect.md_incremental_refresh_trade_fields = function(buffer, offset, packet, p
   return index
 end
 
--- Dissect Struct: MD Incremental Refresh Trade
+-- Dissect: MD Incremental Refresh Trade
 dissect.md_incremental_refresh_trade = function(buffer, offset, packet, parent)
-  if not show.md_incremental_refresh_trade then
-    return dissect.md_incremental_refresh_trade_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.md_incremental_refresh_trade then
+    local size = calculate.md_incremental_refresh_trade(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.md_incremental_refresh_trade(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_trade, range, display)
   end
 
-  local size = calculate.md_incremental_refresh_trade(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.md_incremental_refresh_trade(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_trade, range, display)
-
-  return dissect.md_incremental_refresh_trade_fields(buffer, offset, packet, element)
+  return dissect.md_incremental_refresh_trade_fields(buffer, offset, packet, parent)
 end
 
 -- Display: MD Incremental Refresh Session Statistics Group
@@ -4603,17 +4572,16 @@ dissect.md_incremental_refresh_session_statistics_group_fields = function(buffer
   return index
 end
 
--- Dissect Struct: MD Incremental Refresh Session Statistics Group
+-- Dissect: MD Incremental Refresh Session Statistics Group
 dissect.md_incremental_refresh_session_statistics_group = function(buffer, offset, packet, parent)
-  if not show.md_incremental_refresh_session_statistics_group then
-    return dissect.md_incremental_refresh_session_statistics_group_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.md_incremental_refresh_session_statistics_group then
+    local range = buffer(offset, 24)
+    local display = display.md_incremental_refresh_session_statistics_group(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_session_statistics_group, range, display)
   end
 
-  local range = buffer(offset, 24)
-  local display = display.md_incremental_refresh_session_statistics_group(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_session_statistics_group, range, display)
-
-  return dissect.md_incremental_refresh_session_statistics_group_fields(buffer, offset, packet, element)
+  return dissect.md_incremental_refresh_session_statistics_group_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: MD Incremental Refresh Session Statistics Groups
@@ -4651,18 +4619,17 @@ dissect.md_incremental_refresh_session_statistics_groups_fields = function(buffe
   return index
 end
 
--- Dissect Struct: MD Incremental Refresh Session Statistics Groups
+-- Dissect: MD Incremental Refresh Session Statistics Groups
 dissect.md_incremental_refresh_session_statistics_groups = function(buffer, offset, packet, parent)
-  if not show.md_incremental_refresh_session_statistics_groups then
-    return dissect.md_incremental_refresh_session_statistics_groups_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.md_incremental_refresh_session_statistics_groups then
+    local size = calculate.md_incremental_refresh_session_statistics_groups(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.md_incremental_refresh_session_statistics_groups(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_session_statistics_groups, range, display)
   end
 
-  local size = calculate.md_incremental_refresh_session_statistics_groups(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.md_incremental_refresh_session_statistics_groups(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_session_statistics_groups, range, display)
-
-  return dissect.md_incremental_refresh_session_statistics_groups_fields(buffer, offset, packet, element)
+  return dissect.md_incremental_refresh_session_statistics_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: MD Incremental Refresh Session Statistics
@@ -4700,18 +4667,17 @@ dissect.md_incremental_refresh_session_statistics_fields = function(buffer, offs
   return index
 end
 
--- Dissect Struct: MD Incremental Refresh Session Statistics
+-- Dissect: MD Incremental Refresh Session Statistics
 dissect.md_incremental_refresh_session_statistics = function(buffer, offset, packet, parent)
-  if not show.md_incremental_refresh_session_statistics then
-    return dissect.md_incremental_refresh_session_statistics_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.md_incremental_refresh_session_statistics then
+    local size = calculate.md_incremental_refresh_session_statistics(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.md_incremental_refresh_session_statistics(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_session_statistics, range, display)
   end
 
-  local size = calculate.md_incremental_refresh_session_statistics(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.md_incremental_refresh_session_statistics(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_session_statistics, range, display)
-
-  return dissect.md_incremental_refresh_session_statistics_fields(buffer, offset, packet, element)
+  return dissect.md_incremental_refresh_session_statistics_fields(buffer, offset, packet, parent)
 end
 
 -- Display: MD Incremental Refresh Limits Banding Group
@@ -4741,17 +4707,16 @@ dissect.md_incremental_refresh_limits_banding_group_fields = function(buffer, of
   return index
 end
 
--- Dissect Struct: MD Incremental Refresh Limits Banding Group
+-- Dissect: MD Incremental Refresh Limits Banding Group
 dissect.md_incremental_refresh_limits_banding_group = function(buffer, offset, packet, parent)
-  if not show.md_incremental_refresh_limits_banding_group then
-    return dissect.md_incremental_refresh_limits_banding_group_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.md_incremental_refresh_limits_banding_group then
+    local range = buffer(offset, 32)
+    local display = display.md_incremental_refresh_limits_banding_group(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_limits_banding_group, range, display)
   end
 
-  local range = buffer(offset, 32)
-  local display = display.md_incremental_refresh_limits_banding_group(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_limits_banding_group, range, display)
-
-  return dissect.md_incremental_refresh_limits_banding_group_fields(buffer, offset, packet, element)
+  return dissect.md_incremental_refresh_limits_banding_group_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: MD Incremental Refresh Limits Banding Groups
@@ -4789,18 +4754,17 @@ dissect.md_incremental_refresh_limits_banding_groups_fields = function(buffer, o
   return index
 end
 
--- Dissect Struct: MD Incremental Refresh Limits Banding Groups
+-- Dissect: MD Incremental Refresh Limits Banding Groups
 dissect.md_incremental_refresh_limits_banding_groups = function(buffer, offset, packet, parent)
-  if not show.md_incremental_refresh_limits_banding_groups then
-    return dissect.md_incremental_refresh_limits_banding_groups_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.md_incremental_refresh_limits_banding_groups then
+    local size = calculate.md_incremental_refresh_limits_banding_groups(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.md_incremental_refresh_limits_banding_groups(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_limits_banding_groups, range, display)
   end
 
-  local size = calculate.md_incremental_refresh_limits_banding_groups(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.md_incremental_refresh_limits_banding_groups(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_limits_banding_groups, range, display)
-
-  return dissect.md_incremental_refresh_limits_banding_groups_fields(buffer, offset, packet, element)
+  return dissect.md_incremental_refresh_limits_banding_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: MD Incremental Refresh Limits Banding
@@ -4838,18 +4802,17 @@ dissect.md_incremental_refresh_limits_banding_fields = function(buffer, offset, 
   return index
 end
 
--- Dissect Struct: MD Incremental Refresh Limits Banding
+-- Dissect: MD Incremental Refresh Limits Banding
 dissect.md_incremental_refresh_limits_banding = function(buffer, offset, packet, parent)
-  if not show.md_incremental_refresh_limits_banding then
-    return dissect.md_incremental_refresh_limits_banding_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.md_incremental_refresh_limits_banding then
+    local size = calculate.md_incremental_refresh_limits_banding(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.md_incremental_refresh_limits_banding(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_limits_banding, range, display)
   end
 
-  local size = calculate.md_incremental_refresh_limits_banding(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.md_incremental_refresh_limits_banding(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_limits_banding, range, display)
-
-  return dissect.md_incremental_refresh_limits_banding_fields(buffer, offset, packet, element)
+  return dissect.md_incremental_refresh_limits_banding_fields(buffer, offset, packet, parent)
 end
 
 -- Display Padding 7
@@ -4908,17 +4871,16 @@ dissect.md_incremental_refresh_daily_statistics_group_fields = function(buffer, 
   return index
 end
 
--- Dissect Struct: MD Incremental Refresh Daily Statistics Group
+-- Dissect: MD Incremental Refresh Daily Statistics Group
 dissect.md_incremental_refresh_daily_statistics_group = function(buffer, offset, packet, parent)
-  if not show.md_incremental_refresh_daily_statistics_group then
-    return dissect.md_incremental_refresh_daily_statistics_group_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.md_incremental_refresh_daily_statistics_group then
+    local range = buffer(offset, 32)
+    local display = display.md_incremental_refresh_daily_statistics_group(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_daily_statistics_group, range, display)
   end
 
-  local range = buffer(offset, 32)
-  local display = display.md_incremental_refresh_daily_statistics_group(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_daily_statistics_group, range, display)
-
-  return dissect.md_incremental_refresh_daily_statistics_group_fields(buffer, offset, packet, element)
+  return dissect.md_incremental_refresh_daily_statistics_group_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: MD Incremental Refresh Daily Statistics Groups
@@ -4956,18 +4918,17 @@ dissect.md_incremental_refresh_daily_statistics_groups_fields = function(buffer,
   return index
 end
 
--- Dissect Struct: MD Incremental Refresh Daily Statistics Groups
+-- Dissect: MD Incremental Refresh Daily Statistics Groups
 dissect.md_incremental_refresh_daily_statistics_groups = function(buffer, offset, packet, parent)
-  if not show.md_incremental_refresh_daily_statistics_groups then
-    return dissect.md_incremental_refresh_daily_statistics_groups_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.md_incremental_refresh_daily_statistics_groups then
+    local size = calculate.md_incremental_refresh_daily_statistics_groups(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.md_incremental_refresh_daily_statistics_groups(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_daily_statistics_groups, range, display)
   end
 
-  local size = calculate.md_incremental_refresh_daily_statistics_groups(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.md_incremental_refresh_daily_statistics_groups(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_daily_statistics_groups, range, display)
-
-  return dissect.md_incremental_refresh_daily_statistics_groups_fields(buffer, offset, packet, element)
+  return dissect.md_incremental_refresh_daily_statistics_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: MD Incremental Refresh Daily Statistics
@@ -5005,18 +4966,17 @@ dissect.md_incremental_refresh_daily_statistics_fields = function(buffer, offset
   return index
 end
 
--- Dissect Struct: MD Incremental Refresh Daily Statistics
+-- Dissect: MD Incremental Refresh Daily Statistics
 dissect.md_incremental_refresh_daily_statistics = function(buffer, offset, packet, parent)
-  if not show.md_incremental_refresh_daily_statistics then
-    return dissect.md_incremental_refresh_daily_statistics_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.md_incremental_refresh_daily_statistics then
+    local size = calculate.md_incremental_refresh_daily_statistics(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.md_incremental_refresh_daily_statistics(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_daily_statistics, range, display)
   end
 
-  local size = calculate.md_incremental_refresh_daily_statistics(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.md_incremental_refresh_daily_statistics(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_daily_statistics, range, display)
-
-  return dissect.md_incremental_refresh_daily_statistics_fields(buffer, offset, packet, element)
+  return dissect.md_incremental_refresh_daily_statistics_fields(buffer, offset, packet, parent)
 end
 
 -- Display: MD Incremental Refresh Book Group
@@ -5058,17 +5018,16 @@ dissect.md_incremental_refresh_book_group_fields = function(buffer, offset, pack
   return index
 end
 
--- Dissect Struct: MD Incremental Refresh Book Group
+-- Dissect: MD Incremental Refresh Book Group
 dissect.md_incremental_refresh_book_group = function(buffer, offset, packet, parent)
-  if not show.md_incremental_refresh_book_group then
-    return dissect.md_incremental_refresh_book_group_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.md_incremental_refresh_book_group then
+    local range = buffer(offset, 32)
+    local display = display.md_incremental_refresh_book_group(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_book_group, range, display)
   end
 
-  local range = buffer(offset, 32)
-  local display = display.md_incremental_refresh_book_group(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_book_group, range, display)
-
-  return dissect.md_incremental_refresh_book_group_fields(buffer, offset, packet, element)
+  return dissect.md_incremental_refresh_book_group_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: MD Incremental Refresh Book Groups
@@ -5106,18 +5065,17 @@ dissect.md_incremental_refresh_book_groups_fields = function(buffer, offset, pac
   return index
 end
 
--- Dissect Struct: MD Incremental Refresh Book Groups
+-- Dissect: MD Incremental Refresh Book Groups
 dissect.md_incremental_refresh_book_groups = function(buffer, offset, packet, parent)
-  if not show.md_incremental_refresh_book_groups then
-    return dissect.md_incremental_refresh_book_groups_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.md_incremental_refresh_book_groups then
+    local size = calculate.md_incremental_refresh_book_groups(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.md_incremental_refresh_book_groups(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_book_groups, range, display)
   end
 
-  local size = calculate.md_incremental_refresh_book_groups(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.md_incremental_refresh_book_groups(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_book_groups, range, display)
-
-  return dissect.md_incremental_refresh_book_groups_fields(buffer, offset, packet, element)
+  return dissect.md_incremental_refresh_book_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: MD Incremental Refresh Book
@@ -5155,18 +5113,17 @@ dissect.md_incremental_refresh_book_fields = function(buffer, offset, packet, pa
   return index
 end
 
--- Dissect Struct: MD Incremental Refresh Book
+-- Dissect: MD Incremental Refresh Book
 dissect.md_incremental_refresh_book = function(buffer, offset, packet, parent)
-  if not show.md_incremental_refresh_book then
-    return dissect.md_incremental_refresh_book_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.md_incremental_refresh_book then
+    local size = calculate.md_incremental_refresh_book(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.md_incremental_refresh_book(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_book, range, display)
   end
 
-  local size = calculate.md_incremental_refresh_book(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.md_incremental_refresh_book(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_incremental_refresh_book, range, display)
-
-  return dissect.md_incremental_refresh_book_fields(buffer, offset, packet, element)
+  return dissect.md_incremental_refresh_book_fields(buffer, offset, packet, parent)
 end
 
 -- Display Field: Security Trading Event
@@ -5331,17 +5288,16 @@ dissect.security_status_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Security Status
+-- Dissect: Security Status
 dissect.security_status = function(buffer, offset, packet, parent)
-  if not show.security_status then
-    return dissect.security_status_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.security_status then
+    local range = buffer(offset, 30)
+    local display = display.security_status(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.security_status, range, display)
   end
 
-  local range = buffer(offset, 30)
-  local display = display.security_status(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.security_status, range, display)
-
-  return dissect.security_status_fields(buffer, offset, packet, element)
+  return dissect.security_status_fields(buffer, offset, packet, parent)
 end
 
 -- Display Leg Option Delta
@@ -5465,17 +5421,16 @@ dissect.legs_group_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Legs Group
+-- Dissect: Legs Group
 dissect.legs_group = function(buffer, offset, packet, parent)
-  if not show.legs_group then
-    return dissect.legs_group_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.legs_group then
+    local range = buffer(offset, 18)
+    local display = display.legs_group(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.legs_group, range, display)
   end
 
-  local range = buffer(offset, 18)
-  local display = display.legs_group(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.legs_group, range, display)
-
-  return dissect.legs_group_fields(buffer, offset, packet, element)
+  return dissect.legs_group_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: Legs Groups
@@ -5513,18 +5468,17 @@ dissect.legs_groups_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Legs Groups
+-- Dissect: Legs Groups
 dissect.legs_groups = function(buffer, offset, packet, parent)
-  if not show.legs_groups then
-    return dissect.legs_groups_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.legs_groups then
+    local size = calculate.legs_groups(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.legs_groups(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.legs_groups, range, display)
   end
 
-  local size = calculate.legs_groups(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.legs_groups(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.legs_groups, range, display)
-
-  return dissect.legs_groups_fields(buffer, offset, packet, element)
+  return dissect.legs_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Display Price Ratio
@@ -5719,18 +5673,17 @@ dissect.md_instrument_definition_spread_fields = function(buffer, offset, packet
   return index
 end
 
--- Dissect Struct: MD Instrument Definition Spread
+-- Dissect: MD Instrument Definition Spread
 dissect.md_instrument_definition_spread = function(buffer, offset, packet, parent)
-  if not show.md_instrument_definition_spread then
-    return dissect.md_instrument_definition_spread_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.md_instrument_definition_spread then
+    local size = calculate.md_instrument_definition_spread(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.md_instrument_definition_spread(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_instrument_definition_spread, range, display)
   end
 
-  local size = calculate.md_instrument_definition_spread(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.md_instrument_definition_spread(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_instrument_definition_spread, range, display)
-
-  return dissect.md_instrument_definition_spread_fields(buffer, offset, packet, element)
+  return dissect.md_instrument_definition_spread_fields(buffer, offset, packet, parent)
 end
 
 -- Display Flow Schedule Type
@@ -6005,18 +5958,17 @@ dissect.md_instrument_definition_future_fields = function(buffer, offset, packet
   return index
 end
 
--- Dissect Struct: MD Instrument Definition Future
+-- Dissect: MD Instrument Definition Future
 dissect.md_instrument_definition_future = function(buffer, offset, packet, parent)
-  if not show.md_instrument_definition_future then
-    return dissect.md_instrument_definition_future_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.md_instrument_definition_future then
+    local size = calculate.md_instrument_definition_future(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.md_instrument_definition_future(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.md_instrument_definition_future, range, display)
   end
 
-  local size = calculate.md_instrument_definition_future(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.md_instrument_definition_future(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.md_instrument_definition_future, range, display)
-
-  return dissect.md_instrument_definition_future_fields(buffer, offset, packet, element)
+  return dissect.md_instrument_definition_future_fields(buffer, offset, packet, parent)
 end
 
 -- Display Text
@@ -6051,17 +6003,16 @@ dissect.admin_logout_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Admin Logout
+-- Dissect: Admin Logout
 dissect.admin_logout = function(buffer, offset, packet, parent)
-  if not show.admin_logout then
-    return dissect.admin_logout_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.admin_logout then
+    local range = buffer(offset, 180)
+    local display = display.admin_logout(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.admin_logout, range, display)
   end
 
-  local range = buffer(offset, 180)
-  local display = display.admin_logout(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.admin_logout, range, display)
-
-  return dissect.admin_logout_fields(buffer, offset, packet, element)
+  return dissect.admin_logout_fields(buffer, offset, packet, parent)
 end
 
 -- Display Heart Bt Int
@@ -6096,17 +6047,16 @@ dissect.admin_login_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Admin Login
+-- Dissect: Admin Login
 dissect.admin_login = function(buffer, offset, packet, parent)
-  if not show.admin_login then
-    return dissect.admin_login_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.admin_login then
+    local range = buffer(offset, 1)
+    local display = display.admin_login(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.admin_login, range, display)
   end
 
-  local range = buffer(offset, 1)
-  local display = display.admin_login(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.admin_login, range, display)
-
-  return dissect.admin_login_fields(buffer, offset, packet, element)
+  return dissect.admin_login_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Channel Reset Group
@@ -6124,17 +6074,16 @@ dissect.channel_reset_group_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Channel Reset Group
+-- Dissect: Channel Reset Group
 dissect.channel_reset_group = function(buffer, offset, packet, parent)
-  if not show.channel_reset_group then
-    return dissect.channel_reset_group_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.channel_reset_group then
+    local range = buffer(offset, 2)
+    local display = display.channel_reset_group(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.channel_reset_group, range, display)
   end
 
-  local range = buffer(offset, 2)
-  local display = display.channel_reset_group(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.channel_reset_group, range, display)
-
-  return dissect.channel_reset_group_fields(buffer, offset, packet, element)
+  return dissect.channel_reset_group_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: Channel Reset Groups
@@ -6172,18 +6121,17 @@ dissect.channel_reset_groups_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Channel Reset Groups
+-- Dissect: Channel Reset Groups
 dissect.channel_reset_groups = function(buffer, offset, packet, parent)
-  if not show.channel_reset_groups then
-    return dissect.channel_reset_groups_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.channel_reset_groups then
+    local size = calculate.channel_reset_groups(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.channel_reset_groups(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.channel_reset_groups, range, display)
   end
 
-  local size = calculate.channel_reset_groups(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.channel_reset_groups(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.channel_reset_groups, range, display)
-
-  return dissect.channel_reset_groups_fields(buffer, offset, packet, element)
+  return dissect.channel_reset_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: Channel Reset
@@ -6218,18 +6166,17 @@ dissect.channel_reset_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Channel Reset
+-- Dissect: Channel Reset
 dissect.channel_reset = function(buffer, offset, packet, parent)
-  if not show.channel_reset then
-    return dissect.channel_reset_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.channel_reset then
+    local size = calculate.channel_reset(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.channel_reset(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.channel_reset, range, display)
   end
 
-  local size = calculate.channel_reset(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.channel_reset(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.channel_reset, range, display)
-
-  return dissect.channel_reset_fields(buffer, offset, packet, element)
+  return dissect.channel_reset_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
@@ -6571,17 +6518,16 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Message Header
+-- Dissect: Message Header
 dissect.message_header = function(buffer, offset, packet, parent)
-  if not show.message_header then
-    return dissect.message_header_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.message_header then
+    local range = buffer(offset, 10)
+    local display = display.message_header(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.message_header, range, display)
   end
 
-  local range = buffer(offset, 10)
-  local display = display.message_header(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.message_header, range, display)
-
-  return dissect.message_header_fields(buffer, offset, packet, element)
+  return dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: Message
@@ -6616,18 +6562,17 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Message
+-- Dissect: Message
 dissect.message = function(buffer, offset, packet, parent)
-  if not show.message then
-    return dissect.message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.message then
+    local size = calculate.message(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.message(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.message, range, display)
   end
 
-  local size = calculate.message(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.message(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.message, range, display)
-
-  return dissect.message_fields(buffer, offset, packet, element)
+  return dissect.message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Sending Time
@@ -6682,17 +6627,16 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Packet Header
+-- Dissect: Packet Header
 dissect.packet_header = function(buffer, offset, packet, parent)
-  if not show.packet_header then
-    return dissect.packet_header_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.packet_header then
+    local range = buffer(offset, 12)
+    local display = display.packet_header(buffer, packet, parent)
+    parent = parent:add(cme_sbe_mdp_5_1_0.fields.packet_header, range, display)
   end
 
-  local range = buffer(offset, 12)
-  local display = display.packet_header(buffer, packet, parent)
-  local element = parent:add(cme_sbe_mdp_5_1_0.fields.packet_header, range, display)
-
-  return dissect.packet_header_fields(buffer, offset, packet, element)
+  return dissect.packet_header_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet

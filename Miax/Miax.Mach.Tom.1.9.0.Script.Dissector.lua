@@ -286,17 +286,16 @@ dissect.underlying_trading_status_message_fields = function(buffer, offset, pack
   return index
 end
 
--- Dissect Struct: Underlying Trading Status Message
+-- Dissect: Underlying Trading Status Message
 dissect.underlying_trading_status_message = function(buffer, offset, packet, parent)
-  if not show.underlying_trading_status_message then
-    return dissect.underlying_trading_status_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.underlying_trading_status_message then
+    local range = buffer(offset, 25)
+    local display = display.underlying_trading_status_message(buffer, packet, parent)
+    parent = parent:add(miax_mach_tom_1_9_0.fields.underlying_trading_status_message, range, display)
   end
 
-  local range = buffer(offset, 25)
-  local display = display.underlying_trading_status_message(buffer, packet, parent)
-  local element = parent:add(miax_mach_tom_1_9_0.fields.underlying_trading_status_message, range, display)
-
-  return dissect.underlying_trading_status_message_fields(buffer, offset, packet, element)
+  return dissect.underlying_trading_status_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Field: Trade Condition
@@ -438,17 +437,16 @@ dissect.trade_cancel_message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Trade Cancel Message
+-- Dissect: Trade Cancel Message
 dissect.trade_cancel_message = function(buffer, offset, packet, parent)
-  if not show.trade_cancel_message then
-    return dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.trade_cancel_message then
+    local range = buffer(offset, 22)
+    local display = display.trade_cancel_message(buffer, packet, parent)
+    parent = parent:add(miax_mach_tom_1_9_0.fields.trade_cancel_message, range, display)
   end
 
-  local range = buffer(offset, 22)
-  local display = display.trade_cancel_message(buffer, packet, parent)
-  local element = parent:add(miax_mach_tom_1_9_0.fields.trade_cancel_message, range, display)
-
-  return dissect.trade_cancel_message_fields(buffer, offset, packet, element)
+  return dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Reference Correction Number
@@ -524,17 +522,16 @@ dissect.trade_message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Trade Message
+-- Dissect: Trade Message
 dissect.trade_message = function(buffer, offset, packet, parent)
-  if not show.trade_message then
-    return dissect.trade_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.trade_message then
+    local range = buffer(offset, 27)
+    local display = display.trade_message(buffer, packet, parent)
+    parent = parent:add(miax_mach_tom_1_9_0.fields.trade_message, range, display)
   end
 
-  local range = buffer(offset, 27)
-  local display = display.trade_message(buffer, packet, parent)
-  local element = parent:add(miax_mach_tom_1_9_0.fields.trade_message, range, display)
-
-  return dissect.trade_message_fields(buffer, offset, packet, element)
+  return dissect.trade_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Field: Offer Condition
@@ -741,17 +738,16 @@ dissect.wide_double_sided_top_of_market_message_fields = function(buffer, offset
   return index
 end
 
--- Dissect Struct: Wide Double Sided Top of Market Message
+-- Dissect: Wide Double Sided Top of Market Message
 dissect.wide_double_sided_top_of_market_message = function(buffer, offset, packet, parent)
-  if not show.wide_double_sided_top_of_market_message then
-    return dissect.wide_double_sided_top_of_market_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.wide_double_sided_top_of_market_message then
+    local range = buffer(offset, 22)
+    local display = display.wide_double_sided_top_of_market_message(buffer, packet, parent)
+    parent = parent:add(miax_mach_tom_1_9_0.fields.wide_double_sided_top_of_market_message, range, display)
   end
 
-  local range = buffer(offset, 22)
-  local display = display.wide_double_sided_top_of_market_message(buffer, packet, parent)
-  local element = parent:add(miax_mach_tom_1_9_0.fields.wide_double_sided_top_of_market_message, range, display)
-
-  return dissect.wide_double_sided_top_of_market_message_fields(buffer, offset, packet, element)
+  return dissect.wide_double_sided_top_of_market_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Double-Sided Top of Market Compact Message
@@ -796,17 +792,16 @@ dissect.double_sided_top_of_market_compact_message_fields = function(buffer, off
   return index
 end
 
--- Dissect Struct: Double-Sided Top of Market Compact Message
+-- Dissect: Double-Sided Top of Market Compact Message
 dissect.double_sided_top_of_market_compact_message = function(buffer, offset, packet, parent)
-  if not show.double_sided_top_of_market_compact_message then
-    return dissect.double_sided_top_of_market_compact_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.double_sided_top_of_market_compact_message then
+    local range = buffer(offset, 22)
+    local display = display.double_sided_top_of_market_compact_message(buffer, packet, parent)
+    parent = parent:add(miax_mach_tom_1_9_0.fields.double_sided_top_of_market_compact_message, range, display)
   end
 
-  local range = buffer(offset, 22)
-  local display = display.double_sided_top_of_market_compact_message(buffer, packet, parent)
-  local element = parent:add(miax_mach_tom_1_9_0.fields.double_sided_top_of_market_compact_message, range, display)
-
-  return dissect.double_sided_top_of_market_compact_message_fields(buffer, offset, packet, element)
+  return dissect.double_sided_top_of_market_compact_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Field: Mbbo Condition
@@ -920,17 +915,16 @@ dissect.wide_top_of_market_offer_message_fields = function(buffer, offset, packe
   return index
 end
 
--- Dissect Struct: Wide Top of Market Offer Message
+-- Dissect: Wide Top of Market Offer Message
 dissect.wide_top_of_market_offer_message = function(buffer, offset, packet, parent)
-  if not show.wide_top_of_market_offer_message then
-    return dissect.wide_top_of_market_offer_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.wide_top_of_market_offer_message then
+    local range = buffer(offset, 15)
+    local display = display.wide_top_of_market_offer_message(buffer, packet, parent)
+    parent = parent:add(miax_mach_tom_1_9_0.fields.wide_top_of_market_offer_message, range, display)
   end
 
-  local range = buffer(offset, 15)
-  local display = display.wide_top_of_market_offer_message(buffer, packet, parent)
-  local element = parent:add(miax_mach_tom_1_9_0.fields.wide_top_of_market_offer_message, range, display)
-
-  return dissect.wide_top_of_market_offer_message_fields(buffer, offset, packet, element)
+  return dissect.wide_top_of_market_offer_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Wide Top of Market Bid Message
@@ -963,17 +957,16 @@ dissect.wide_top_of_market_bid_message_fields = function(buffer, offset, packet,
   return index
 end
 
--- Dissect Struct: Wide Top of Market Bid Message
+-- Dissect: Wide Top of Market Bid Message
 dissect.wide_top_of_market_bid_message = function(buffer, offset, packet, parent)
-  if not show.wide_top_of_market_bid_message then
-    return dissect.wide_top_of_market_bid_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.wide_top_of_market_bid_message then
+    local range = buffer(offset, 15)
+    local display = display.wide_top_of_market_bid_message(buffer, packet, parent)
+    parent = parent:add(miax_mach_tom_1_9_0.fields.wide_top_of_market_bid_message, range, display)
   end
 
-  local range = buffer(offset, 15)
-  local display = display.wide_top_of_market_bid_message(buffer, packet, parent)
-  local element = parent:add(miax_mach_tom_1_9_0.fields.wide_top_of_market_bid_message, range, display)
-
-  return dissect.wide_top_of_market_bid_message_fields(buffer, offset, packet, element)
+  return dissect.wide_top_of_market_bid_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Mbbo Priority Customer Size
@@ -1057,17 +1050,16 @@ dissect.top_of_market_offer_compact_message_fields = function(buffer, offset, pa
   return index
 end
 
--- Dissect Struct: Top of Market Offer Compact Message
+-- Dissect: Top of Market Offer Compact Message
 dissect.top_of_market_offer_compact_message = function(buffer, offset, packet, parent)
-  if not show.top_of_market_offer_compact_message then
-    return dissect.top_of_market_offer_compact_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.top_of_market_offer_compact_message then
+    local range = buffer(offset, 15)
+    local display = display.top_of_market_offer_compact_message(buffer, packet, parent)
+    parent = parent:add(miax_mach_tom_1_9_0.fields.top_of_market_offer_compact_message, range, display)
   end
 
-  local range = buffer(offset, 15)
-  local display = display.top_of_market_offer_compact_message(buffer, packet, parent)
-  local element = parent:add(miax_mach_tom_1_9_0.fields.top_of_market_offer_compact_message, range, display)
-
-  return dissect.top_of_market_offer_compact_message_fields(buffer, offset, packet, element)
+  return dissect.top_of_market_offer_compact_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Top of Market Bid Compact Message
@@ -1100,17 +1092,16 @@ dissect.top_of_market_bid_compact_message_fields = function(buffer, offset, pack
   return index
 end
 
--- Dissect Struct: Top of Market Bid Compact Message
+-- Dissect: Top of Market Bid Compact Message
 dissect.top_of_market_bid_compact_message = function(buffer, offset, packet, parent)
-  if not show.top_of_market_bid_compact_message then
-    return dissect.top_of_market_bid_compact_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.top_of_market_bid_compact_message then
+    local range = buffer(offset, 15)
+    local display = display.top_of_market_bid_compact_message(buffer, packet, parent)
+    parent = parent:add(miax_mach_tom_1_9_0.fields.top_of_market_bid_compact_message, range, display)
   end
 
-  local range = buffer(offset, 15)
-  local display = display.top_of_market_bid_compact_message(buffer, packet, parent)
-  local element = parent:add(miax_mach_tom_1_9_0.fields.top_of_market_bid_compact_message, range, display)
-
-  return dissect.top_of_market_bid_compact_message_fields(buffer, offset, packet, element)
+  return dissect.top_of_market_bid_compact_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Field: System Status
@@ -1224,17 +1215,16 @@ dissect.system_state_message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: System State Message
+-- Dissect: System State Message
 dissect.system_state_message = function(buffer, offset, packet, parent)
-  if not show.system_state_message then
-    return dissect.system_state_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.system_state_message then
+    local range = buffer(offset, 17)
+    local display = display.system_state_message(buffer, packet, parent)
+    parent = parent:add(miax_mach_tom_1_9_0.fields.system_state_message, range, display)
   end
 
-  local range = buffer(offset, 17)
-  local display = display.system_state_message(buffer, packet, parent)
-  local element = parent:add(miax_mach_tom_1_9_0.fields.system_state_message, range, display)
-
-  return dissect.system_state_message_fields(buffer, offset, packet, element)
+  return dissect.system_state_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Reserved
@@ -1627,17 +1617,16 @@ dissect.series_update_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Series Update
+-- Dissect: Series Update
 dissect.series_update = function(buffer, offset, packet, parent)
-  if not show.series_update then
-    return dissect.series_update_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.series_update then
+    local range = buffer(offset, 72)
+    local display = display.series_update(buffer, packet, parent)
+    parent = parent:add(miax_mach_tom_1_9_0.fields.series_update, range, display)
   end
 
-  local range = buffer(offset, 72)
-  local display = display.series_update(buffer, packet, parent)
-  local element = parent:add(miax_mach_tom_1_9_0.fields.series_update, range, display)
-
-  return dissect.series_update_fields(buffer, offset, packet, element)
+  return dissect.series_update_fields(buffer, offset, packet, parent)
 end
 
 -- Display: System Time Message
@@ -1655,17 +1644,16 @@ dissect.system_time_message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: System Time Message
+-- Dissect: System Time Message
 dissect.system_time_message = function(buffer, offset, packet, parent)
-  if not show.system_time_message then
-    return dissect.system_time_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.system_time_message then
+    local range = buffer(offset, 4)
+    local display = display.system_time_message(buffer, packet, parent)
+    parent = parent:add(miax_mach_tom_1_9_0.fields.system_time_message, range, display)
   end
 
-  local range = buffer(offset, 4)
-  local display = display.system_time_message(buffer, packet, parent)
-  local element = parent:add(miax_mach_tom_1_9_0.fields.system_time_message, range, display)
-
-  return dissect.system_time_message_fields(buffer, offset, packet, element)
+  return dissect.system_time_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Data
@@ -1890,18 +1878,17 @@ dissect.application_message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Application Message
+-- Dissect: Application Message
 dissect.application_message = function(buffer, offset, packet, parent)
-  if not show.application_message then
-    return dissect.application_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.application_message then
+    local size = calculate.application_message(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.application_message(buffer, packet, parent)
+    parent = parent:add(miax_mach_tom_1_9_0.fields.application_message, range, display)
   end
 
-  local size = calculate.application_message(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.application_message(buffer, packet, parent)
-  local element = parent:add(miax_mach_tom_1_9_0.fields.application_message, range, display)
-
-  return dissect.application_message_fields(buffer, offset, packet, element)
+  return dissect.application_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
@@ -2074,18 +2061,17 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Message
+-- Dissect: Message
 dissect.message = function(buffer, offset, packet, parent)
-  if not show.message then
-    return dissect.message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.message then
+    local size = calculate.message(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.message(buffer, packet, parent)
+    parent = parent:add(miax_mach_tom_1_9_0.fields.message, range, display)
   end
 
-  local size = calculate.message(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.message(buffer, packet, parent)
-  local element = parent:add(miax_mach_tom_1_9_0.fields.message, range, display)
-
-  return dissect.message_fields(buffer, offset, packet, element)
+  return dissect.message_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet

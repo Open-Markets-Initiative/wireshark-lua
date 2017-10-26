@@ -21,15 +21,15 @@ For all configuration information: [Wireshark Configuration Files.](https://www.
 
 |Organization | Protocol | Data | Version | Date | Size | Testing|
 |--- | --- | --- | --- | --- | --- | ---|
-|Asx | T24 | Itch | 2.4.0 | 7/15/2014 | 4877 | Verified|
-|Cme | Sbe | Mdp | 8.1.0 | 7/1/2016 | 7518 | Verified|
-|Cme | Sbe | Mdp | 6.1.0 | 1/9/2016 | 6794 | Verified|
-|Cme | Sbe | Mdp | 5.1.0 | 8/6/2014 | 6785 | Verified|
-|Eurex | T7 | Eobi | 3.0.71 | 8/3/2015 | 3112 | Untested|
-|Eurex | T7 | Eobi | 2.5.5 | 11/7/2014 | 3094 | Known Bug|
-|Ice | iMpact | Mdp | 1.24.0 | 3/30/2016 | 6155 | Verified|
-|Miax | Mach | cTom | 1.1.0 | 7/15/2016 | 2419 | Verified|
-|Miax | Mach | Tom | 1.9.0 | 1/15/2016 | 2163 | Verified|
+|Asx | T24 | Itch | 2.4.0 | 7/15/2014 | 4843 | Verified|
+|Cme | Sbe | Mdp | 8.1.0 | 7/1/2016 | 7452 | Verified|
+|Cme | Sbe | Mdp | 6.1.0 | 1/9/2016 | 6738 | Verified|
+|Cme | Sbe | Mdp | 5.1.0 | 8/6/2014 | 6729 | Verified|
+|Eurex | T7 | Eobi | 3.0.71 | 8/3/2015 | 3082 | Untested|
+|Eurex | T7 | Eobi | 2.5.5 | 11/7/2014 | 3064 | Known Bug|
+|Ice | iMpact | Mdp | 1.24.0 | 3/30/2016 | 6111 | Verified|
+|Miax | Mach | cTom | 1.1.0 | 7/15/2016 | 2404 | Verified|
+|Miax | Mach | Tom | 1.9.0 | 1/15/2016 | 2149 | Verified|
 
 Note: Some packets contain enough information to programmatically determine the correct protocol specification.  *Some do not.*  If you add multiple dissectors to your plugins folder, wireshark will dissect each "conversation" based on the first matching protocol.
 
@@ -41,9 +41,9 @@ Note: Our dissector model is still in beta and subject to rapid development.
 
 ## Testing
 
-Production captures are required for protocol verification.  If your organization has the rights to donate captures, and you wish to make the world a better place, please contact us.
-
 Please report any dissection errors as issues.  Include a small note on the protocol and version, what you expect, a zipped minimal capture demonstrating the problem, and a link or pdf specification documenting the correct behavior. 
+
+Production captures are required for protocol verification.  If your organization has the rights to donate captures, and you wish to make the world a better place, please contact us.
 
 ## Disclaimer
 

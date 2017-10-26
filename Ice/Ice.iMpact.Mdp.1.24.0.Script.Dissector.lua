@@ -481,17 +481,16 @@ dissect.old_style_options_trade_and_market_stats_message_fields = function(buffe
   return index
 end
 
--- Dissect Struct: Old Style Options Trade and Market Stats Message
+-- Dissect: Old Style Options Trade and Market Stats Message
 dissect.old_style_options_trade_and_market_stats_message = function(buffer, offset, packet, parent)
-  if not show.old_style_options_trade_and_market_stats_message then
-    return dissect.old_style_options_trade_and_market_stats_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.old_style_options_trade_and_market_stats_message then
+    local range = buffer(offset, 36)
+    local display = display.old_style_options_trade_and_market_stats_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.old_style_options_trade_and_market_stats_message, range, display)
   end
 
-  local range = buffer(offset, 36)
-  local display = display.old_style_options_trade_and_market_stats_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.old_style_options_trade_and_market_stats_message, range, display)
-
-  return dissect.old_style_options_trade_and_market_stats_message_fields(buffer, offset, packet, element)
+  return dissect.old_style_options_trade_and_market_stats_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Delta
@@ -666,17 +665,16 @@ dissect.option_settlement_price_message_fields = function(buffer, offset, packet
   return index
 end
 
--- Dissect Struct: Option Settlement Price Message
+-- Dissect: Option Settlement Price Message
 dissect.option_settlement_price_message = function(buffer, offset, packet, parent)
-  if not show.option_settlement_price_message then
-    return dissect.option_settlement_price_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.option_settlement_price_message then
+    local range = buffer(offset, 53)
+    local display = display.option_settlement_price_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.option_settlement_price_message, range, display)
   end
 
-  local range = buffer(offset, 53)
-  local display = display.option_settlement_price_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.option_settlement_price_message, range, display)
-
-  return dissect.option_settlement_price_message_fields(buffer, offset, packet, element)
+  return dissect.option_settlement_price_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Open Interest Date
@@ -737,17 +735,16 @@ dissect.option_open_interest_message_fields = function(buffer, offset, packet, p
   return index
 end
 
--- Dissect Struct: Option Open Interest Message
+-- Dissect: Option Open Interest Message
 dissect.option_open_interest_message = function(buffer, offset, packet, parent)
-  if not show.option_open_interest_message then
-    return dissect.option_open_interest_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.option_open_interest_message then
+    local range = buffer(offset, 26)
+    local display = display.option_open_interest_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.option_open_interest_message, range, display)
   end
 
-  local range = buffer(offset, 26)
-  local display = display.option_open_interest_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.option_open_interest_message, range, display)
-
-  return dissect.option_open_interest_message_fields(buffer, offset, packet, element)
+  return dissect.option_open_interest_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Side
@@ -885,17 +882,16 @@ dissect.rfq_message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: RFQ Message
+-- Dissect: RFQ Message
 dissect.rfq_message = function(buffer, offset, packet, parent)
-  if not show.rfq_message then
-    return dissect.rfq_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.rfq_message then
+    local range = buffer(offset, 31)
+    local display = display.rfq_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.rfq_message, range, display)
   end
 
-  local range = buffer(offset, 31)
-  local display = display.rfq_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.rfq_message, range, display)
-
-  return dissect.rfq_message_fields(buffer, offset, packet, element)
+  return dissect.rfq_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Unit Of Measure
@@ -1536,17 +1532,16 @@ dissect.new_options_market_definition_message_fields = function(buffer, offset, 
   return index
 end
 
--- Dissect Struct: New Options Market Definition Message
+-- Dissect: New Options Market Definition Message
 dissect.new_options_market_definition_message = function(buffer, offset, packet, parent)
-  if not show.new_options_market_definition_message then
-    return dissect.new_options_market_definition_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.new_options_market_definition_message then
+    local range = buffer(offset, 321)
+    local display = display.new_options_market_definition_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.new_options_market_definition_message, range, display)
   end
 
-  local range = buffer(offset, 321)
-  local display = display.new_options_market_definition_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.new_options_market_definition_message, range, display)
-
-  return dissect.new_options_market_definition_message_fields(buffer, offset, packet, element)
+  return dissect.new_options_market_definition_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Strategy Symbol
@@ -1735,17 +1730,16 @@ dissect.hedge_definition_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Hedge Definition
+-- Dissect: Hedge Definition
 dissect.hedge_definition = function(buffer, offset, packet, parent)
-  if not show.hedge_definition then
-    return dissect.hedge_definition_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.hedge_definition then
+    local range = buffer(offset, 18)
+    local display = display.hedge_definition(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.hedge_definition, range, display)
   end
 
-  local range = buffer(offset, 18)
-  local display = display.hedge_definition(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.hedge_definition, range, display)
-
-  return dissect.hedge_definition_fields(buffer, offset, packet, element)
+  return dissect.hedge_definition_fields(buffer, offset, packet, parent)
 end
 
 -- Display Number Of Hedge Definitions
@@ -1877,17 +1871,16 @@ dissect.strategy_leg_definition_fields = function(buffer, offset, packet, parent
   return index
 end
 
--- Dissect Struct: Strategy Leg Definition
+-- Dissect: Strategy Leg Definition
 dissect.strategy_leg_definition = function(buffer, offset, packet, parent)
-  if not show.strategy_leg_definition then
-    return dissect.strategy_leg_definition_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.strategy_leg_definition then
+    local range = buffer(offset, 12)
+    local display = display.strategy_leg_definition(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.strategy_leg_definition, range, display)
   end
 
-  local range = buffer(offset, 12)
-  local display = display.strategy_leg_definition(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.strategy_leg_definition, range, display)
-
-  return dissect.strategy_leg_definition_fields(buffer, offset, packet, element)
+  return dissect.strategy_leg_definition_fields(buffer, offset, packet, parent)
 end
 
 -- Display Number Of Strategy Leg Definitions
@@ -2028,18 +2021,17 @@ dissect.new_options_strategy_definition_message_fields = function(buffer, offset
   return index
 end
 
--- Dissect Struct: New Options Strategy Definition Message
+-- Dissect: New Options Strategy Definition Message
 dissect.new_options_strategy_definition_message = function(buffer, offset, packet, parent)
-  if not show.new_options_strategy_definition_message then
-    return dissect.new_options_strategy_definition_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.new_options_strategy_definition_message then
+    local size = calculate.new_options_strategy_definition_message(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.new_options_strategy_definition_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.new_options_strategy_definition_message, range, display)
   end
 
-  local size = calculate.new_options_strategy_definition_message(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.new_options_strategy_definition_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.new_options_strategy_definition_message, range, display)
-
-  return dissect.new_options_strategy_definition_message_fields(buffer, offset, packet, element)
+  return dissect.new_options_strategy_definition_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Price Level Position
@@ -2080,17 +2072,16 @@ dissect.delete_price_level_message_fields = function(buffer, offset, packet, par
   return index
 end
 
--- Dissect Struct: Delete Price Level Message
+-- Dissect: Delete Price Level Message
 dissect.delete_price_level_message = function(buffer, offset, packet, parent)
-  if not show.delete_price_level_message then
-    return dissect.delete_price_level_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.delete_price_level_message then
+    local range = buffer(offset, 6)
+    local display = display.delete_price_level_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.delete_price_level_message, range, display)
   end
 
-  local range = buffer(offset, 6)
-  local display = display.delete_price_level_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.delete_price_level_message, range, display)
-
-  return dissect.delete_price_level_message_fields(buffer, offset, packet, element)
+  return dissect.delete_price_level_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Implied Order Count
@@ -2197,17 +2188,16 @@ dissect.change_price_level_message_fields = function(buffer, offset, packet, par
   return index
 end
 
--- Dissect Struct: Change Price Level Message
+-- Dissect: Change Price Level Message
 dissect.change_price_level_message = function(buffer, offset, packet, parent)
-  if not show.change_price_level_message then
-    return dissect.change_price_level_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.change_price_level_message then
+    local range = buffer(offset, 26)
+    local display = display.change_price_level_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.change_price_level_message, range, display)
   end
 
-  local range = buffer(offset, 26)
-  local display = display.change_price_level_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.change_price_level_message, range, display)
-
-  return dissect.change_price_level_message_fields(buffer, offset, packet, element)
+  return dissect.change_price_level_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Add Price Level Message
@@ -2246,17 +2236,16 @@ dissect.add_price_level_message_fields = function(buffer, offset, packet, parent
   return index
 end
 
--- Dissect Struct: Add Price Level Message
+-- Dissect: Add Price Level Message
 dissect.add_price_level_message = function(buffer, offset, packet, parent)
-  if not show.add_price_level_message then
-    return dissect.add_price_level_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.add_price_level_message then
+    local range = buffer(offset, 26)
+    local display = display.add_price_level_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.add_price_level_message, range, display)
   end
 
-  local range = buffer(offset, 26)
-  local display = display.add_price_level_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.add_price_level_message, range, display)
-
-  return dissect.add_price_level_message_fields(buffer, offset, packet, element)
+  return dissect.add_price_level_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Market Snapshot Price Level Message
@@ -2295,17 +2284,16 @@ dissect.market_snapshot_price_level_message_fields = function(buffer, offset, pa
   return index
 end
 
--- Dissect Struct: Market Snapshot Price Level Message
+-- Dissect: Market Snapshot Price Level Message
 dissect.market_snapshot_price_level_message = function(buffer, offset, packet, parent)
-  if not show.market_snapshot_price_level_message then
-    return dissect.market_snapshot_price_level_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.market_snapshot_price_level_message then
+    local range = buffer(offset, 26)
+    local display = display.market_snapshot_price_level_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.market_snapshot_price_level_message, range, display)
   end
 
-  local range = buffer(offset, 26)
-  local display = display.market_snapshot_price_level_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.market_snapshot_price_level_message, range, display)
-
-  return dissect.market_snapshot_price_level_message_fields(buffer, offset, packet, element)
+  return dissect.market_snapshot_price_level_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display EUR  Price
@@ -2543,17 +2531,16 @@ dissect.fixing_lockdown_message_fields = function(buffer, offset, packet, parent
   return index
 end
 
--- Dissect Struct: Fixing Lockdown Message
+-- Dissect: Fixing Lockdown Message
 dissect.fixing_lockdown_message = function(buffer, offset, packet, parent)
-  if not show.fixing_lockdown_message then
-    return dissect.fixing_lockdown_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.fixing_lockdown_message then
+    local range = buffer(offset, 78)
+    local display = display.fixing_lockdown_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.fixing_lockdown_message, range, display)
   end
 
-  local range = buffer(offset, 78)
-  local display = display.fixing_lockdown_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.fixing_lockdown_message, range, display)
-
-  return dissect.fixing_lockdown_message_fields(buffer, offset, packet, element)
+  return dissect.fixing_lockdown_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Threshold  Imbalance  Qty
@@ -2634,17 +2621,16 @@ dissect.fixing_transition_message_fields = function(buffer, offset, packet, pare
   return index
 end
 
--- Dissect Struct: Fixing Transition Message
+-- Dissect: Fixing Transition Message
 dissect.fixing_transition_message = function(buffer, offset, packet, parent)
-  if not show.fixing_transition_message then
-    return dissect.fixing_transition_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.fixing_transition_message then
+    local range = buffer(offset, 25)
+    local display = display.fixing_transition_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.fixing_transition_message, range, display)
   end
 
-  local range = buffer(offset, 25)
-  local display = display.fixing_transition_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.fixing_transition_message, range, display)
-
-  return dissect.fixing_transition_message_fields(buffer, offset, packet, element)
+  return dissect.fixing_transition_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Start Or End
@@ -2679,17 +2665,16 @@ dissect.message_bundle_marker_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Message Bundle Marker
+-- Dissect: Message Bundle Marker
 dissect.message_bundle_marker = function(buffer, offset, packet, parent)
-  if not show.message_bundle_marker then
-    return dissect.message_bundle_marker_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.message_bundle_marker then
+    local range = buffer(offset, 1)
+    local display = display.message_bundle_marker(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.message_bundle_marker, range, display)
   end
 
-  local range = buffer(offset, 1)
-  local display = display.message_bundle_marker(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.message_bundle_marker, range, display)
-
-  return dissect.message_bundle_marker_fields(buffer, offset, packet, element)
+  return dissect.message_bundle_marker_fields(buffer, offset, packet, parent)
 end
 
 -- Display Order ID
@@ -2727,17 +2712,16 @@ dissect.delete_order_message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Delete Order Message
+-- Dissect: Delete Order Message
 dissect.delete_order_message = function(buffer, offset, packet, parent)
-  if not show.delete_order_message then
-    return dissect.delete_order_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.delete_order_message then
+    local range = buffer(offset, 12)
+    local display = display.delete_order_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.delete_order_message, range, display)
   end
 
-  local range = buffer(offset, 12)
-  local display = display.delete_order_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.delete_order_message, range, display)
-
-  return dissect.delete_order_message_fields(buffer, offset, packet, element)
+  return dissect.delete_order_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Sequence Within Millis
@@ -2887,17 +2871,16 @@ dissect.add_or_modify_order_message_fields = function(buffer, offset, packet, pa
   return index
 end
 
--- Dissect Struct: Add or Modify Order Message
+-- Dissect: Add or Modify Order Message
 dissect.add_or_modify_order_message = function(buffer, offset, packet, parent)
-  if not show.add_or_modify_order_message then
-    return dissect.add_or_modify_order_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.add_or_modify_order_message then
+    local range = buffer(offset, 42)
+    local display = display.add_or_modify_order_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.add_or_modify_order_message, range, display)
   end
 
-  local range = buffer(offset, 42)
-  local display = display.add_or_modify_order_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.add_or_modify_order_message, range, display)
-
-  return dissect.add_or_modify_order_message_fields(buffer, offset, packet, element)
+  return dissect.add_or_modify_order_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Market Snapshot Order Message
@@ -2942,17 +2925,16 @@ dissect.market_snapshot_order_message_fields = function(buffer, offset, packet, 
   return index
 end
 
--- Dissect Struct: Market Snapshot Order Message
+-- Dissect: Market Snapshot Order Message
 dissect.market_snapshot_order_message = function(buffer, offset, packet, parent)
-  if not show.market_snapshot_order_message then
-    return dissect.market_snapshot_order_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.market_snapshot_order_message then
+    local range = buffer(offset, 41)
+    local display = display.market_snapshot_order_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.market_snapshot_order_message, range, display)
   end
 
-  local range = buffer(offset, 41)
-  local display = display.market_snapshot_order_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.market_snapshot_order_message, range, display)
-
-  return dissect.market_snapshot_order_message_fields(buffer, offset, packet, element)
+  return dissect.market_snapshot_order_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Special Field Length
@@ -3007,17 +2989,16 @@ dissect.special_field_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Special Field
+-- Dissect: Special Field
 dissect.special_field = function(buffer, offset, packet, parent)
-  if not show.special_field then
-    return dissect.special_field_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.special_field then
+    local range = buffer(offset, 3)
+    local display = display.special_field(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.special_field, range, display)
   end
 
-  local range = buffer(offset, 3)
-  local display = display.special_field(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.special_field, range, display)
-
-  return dissect.special_field_fields(buffer, offset, packet, element)
+  return dissect.special_field_fields(buffer, offset, packet, parent)
 end
 
 -- Display Number Of Special Fields
@@ -3072,18 +3053,17 @@ dissect.special_field_message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Special Field Message
+-- Dissect: Special Field Message
 dissect.special_field_message = function(buffer, offset, packet, parent)
-  if not show.special_field_message then
-    return dissect.special_field_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.special_field_message then
+    local size = calculate.special_field_message(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.special_field_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.special_field_message, range, display)
   end
 
-  local size = calculate.special_field_message(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.special_field_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.special_field_message, range, display)
-
-  return dissect.special_field_message_fields(buffer, offset, packet, element)
+  return dissect.special_field_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Num Decimals Options Price
@@ -3552,17 +3532,16 @@ dissect.new_expiry_message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: New Expiry Message
+-- Dissect: New Expiry Message
 dissect.new_expiry_message = function(buffer, offset, packet, parent)
-  if not show.new_expiry_message then
-    return dissect.new_expiry_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.new_expiry_message then
+    local range = buffer(offset, 513)
+    local display = display.new_expiry_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.new_expiry_message, range, display)
   end
 
-  local range = buffer(offset, 513)
-  local display = display.new_expiry_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.new_expiry_message, range, display)
-
-  return dissect.new_expiry_message_fields(buffer, offset, packet, element)
+  return dissect.new_expiry_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Leg Definition
@@ -3589,17 +3568,16 @@ dissect.leg_definition_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Leg Definition
+-- Dissect: Leg Definition
 dissect.leg_definition = function(buffer, offset, packet, parent)
-  if not show.leg_definition then
-    return dissect.leg_definition_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.leg_definition then
+    local range = buffer(offset, 8)
+    local display = display.leg_definition(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.leg_definition, range, display)
   end
 
-  local range = buffer(offset, 8)
-  local display = display.leg_definition(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.leg_definition, range, display)
-
-  return dissect.leg_definition_fields(buffer, offset, packet, element)
+  return dissect.leg_definition_fields(buffer, offset, packet, parent)
 end
 
 -- Display Number Of Leg Definitions
@@ -3687,18 +3665,17 @@ dissect.new_futures_strategy_definition_message_fields = function(buffer, offset
   return index
 end
 
--- Dissect Struct: New Futures Strategy Definition Message
+-- Dissect: New Futures Strategy Definition Message
 dissect.new_futures_strategy_definition_message = function(buffer, offset, packet, parent)
-  if not show.new_futures_strategy_definition_message then
-    return dissect.new_futures_strategy_definition_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.new_futures_strategy_definition_message then
+    local size = calculate.new_futures_strategy_definition_message(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.new_futures_strategy_definition_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.new_futures_strategy_definition_message, range, display)
   end
 
-  local size = calculate.new_futures_strategy_definition_message(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.new_futures_strategy_definition_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.new_futures_strategy_definition_message, range, display)
-
-  return dissect.new_futures_strategy_definition_message_fields(buffer, offset, packet, element)
+  return dissect.new_futures_strategy_definition_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display IPL Down
@@ -3836,17 +3813,16 @@ dissect.interval_price_limit_notification_message_fields = function(buffer, offs
   return index
 end
 
--- Dissect Struct: Interval Price Limit Notification Message
+-- Dissect: Interval Price Limit Notification Message
 dissect.interval_price_limit_notification_message = function(buffer, offset, packet, parent)
-  if not show.interval_price_limit_notification_message then
-    return dissect.interval_price_limit_notification_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.interval_price_limit_notification_message then
+    local range = buffer(offset, 34)
+    local display = display.interval_price_limit_notification_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.interval_price_limit_notification_message, range, display)
   end
 
-  local range = buffer(offset, 34)
-  local display = display.interval_price_limit_notification_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.interval_price_limit_notification_message, range, display)
-
-  return dissect.interval_price_limit_notification_message_fields(buffer, offset, packet, element)
+  return dissect.interval_price_limit_notification_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display End Day
@@ -4027,17 +4003,16 @@ dissect.strip_info_message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Strip Info Message
+-- Dissect: Strip Info Message
 dissect.strip_info_message = function(buffer, offset, packet, parent)
-  if not show.strip_info_message then
-    return dissect.strip_info_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.strip_info_message then
+    local range = buffer(offset, 88)
+    local display = display.strip_info_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.strip_info_message, range, display)
   end
 
-  local range = buffer(offset, 88)
-  local display = display.strip_info_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.strip_info_message, range, display)
-
-  return dissect.strip_info_message_fields(buffer, offset, packet, element)
+  return dissect.strip_info_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Pre Open Volume
@@ -4118,17 +4093,16 @@ dissect.pre_open_price_indicator_message_fields = function(buffer, offset, packe
   return index
 end
 
--- Dissect Struct: Pre Open Price Indicator Message
+-- Dissect: Pre Open Price Indicator Message
 dissect.pre_open_price_indicator_message = function(buffer, offset, packet, parent)
-  if not show.pre_open_price_indicator_message then
-    return dissect.pre_open_price_indicator_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.pre_open_price_indicator_message then
+    local range = buffer(offset, 25)
+    local display = display.pre_open_price_indicator_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.pre_open_price_indicator_message, range, display)
   end
 
-  local range = buffer(offset, 25)
-  local display = display.pre_open_price_indicator_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.pre_open_price_indicator_message, range, display)
-
-  return dissect.pre_open_price_indicator_message_fields(buffer, offset, packet, element)
+  return dissect.pre_open_price_indicator_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Event Type
@@ -4169,17 +4143,16 @@ dissect.market_event_message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Market Event Message
+-- Dissect: Market Event Message
 dissect.market_event_message = function(buffer, offset, packet, parent)
-  if not show.market_event_message then
-    return dissect.market_event_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.market_event_message then
+    local range = buffer(offset, 13)
+    local display = display.market_event_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.market_event_message, range, display)
   end
 
-  local range = buffer(offset, 13)
-  local display = display.market_event_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.market_event_message, range, display)
-
-  return dissect.market_event_message_fields(buffer, offset, packet, element)
+  return dissect.market_event_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Opening Price
@@ -4267,17 +4240,16 @@ dissect.end_of_day_market_summary_message_fields = function(buffer, offset, pack
   return index
 end
 
--- Dissect Struct: End of Day Market Summary Message
+-- Dissect: End of Day Market Summary Message
 dissect.end_of_day_market_summary_message = function(buffer, offset, packet, parent)
-  if not show.end_of_day_market_summary_message then
-    return dissect.end_of_day_market_summary_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.end_of_day_market_summary_message then
+    local range = buffer(offset, 80)
+    local display = display.end_of_day_market_summary_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.end_of_day_market_summary_message, range, display)
   end
 
-  local range = buffer(offset, 80)
-  local display = display.end_of_day_market_summary_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.end_of_day_market_summary_message, range, display)
-
-  return dissect.end_of_day_market_summary_message_fields(buffer, offset, packet, element)
+  return dissect.end_of_day_market_summary_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Valuation Date /  Applying Date
@@ -4361,17 +4333,16 @@ dissect.marker_index_prices_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Marker Index Prices
+-- Dissect: Marker Index Prices
 dissect.marker_index_prices = function(buffer, offset, packet, parent)
-  if not show.marker_index_prices then
-    return dissect.marker_index_prices_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.marker_index_prices then
+    local range = buffer(offset, 61)
+    local display = display.marker_index_prices(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.marker_index_prices, range, display)
   end
 
-  local range = buffer(offset, 61)
-  local display = display.marker_index_prices(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.marker_index_prices, range, display)
-
-  return dissect.marker_index_prices_fields(buffer, offset, packet, element)
+  return dissect.marker_index_prices_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Settlement Price Message
@@ -4398,17 +4369,16 @@ dissect.settlement_price_message_fields = function(buffer, offset, packet, paren
   return index
 end
 
--- Dissect Struct: Settlement Price Message
+-- Dissect: Settlement Price Message
 dissect.settlement_price_message = function(buffer, offset, packet, parent)
-  if not show.settlement_price_message then
-    return dissect.settlement_price_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.settlement_price_message then
+    local range = buffer(offset, 25)
+    local display = display.settlement_price_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.settlement_price_message, range, display)
   end
 
-  local range = buffer(offset, 25)
-  local display = display.settlement_price_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.settlement_price_message, range, display)
-
-  return dissect.settlement_price_message_fields(buffer, offset, packet, element)
+  return dissect.settlement_price_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Close Price
@@ -4449,17 +4419,16 @@ dissect.close_price_message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Close Price Message
+-- Dissect: Close Price Message
 dissect.close_price_message = function(buffer, offset, packet, parent)
-  if not show.close_price_message then
-    return dissect.close_price_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.close_price_message then
+    local range = buffer(offset, 20)
+    local display = display.close_price_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.close_price_message, range, display)
   end
 
-  local range = buffer(offset, 20)
-  local display = display.close_price_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.close_price_message, range, display)
-
-  return dissect.close_price_message_fields(buffer, offset, packet, element)
+  return dissect.close_price_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Open Price
@@ -4500,17 +4469,16 @@ dissect.open_price_message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Open Price Message
+-- Dissect: Open Price Message
 dissect.open_price_message = function(buffer, offset, packet, parent)
-  if not show.open_price_message then
-    return dissect.open_price_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.open_price_message then
+    local range = buffer(offset, 20)
+    local display = display.open_price_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.open_price_message, range, display)
   end
 
-  local range = buffer(offset, 20)
-  local display = display.open_price_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.open_price_message, range, display)
-
-  return dissect.open_price_message_fields(buffer, offset, packet, element)
+  return dissect.open_price_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Open Interest Change
@@ -4557,17 +4525,16 @@ dissect.open_interest_message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Open Interest Message
+-- Dissect: Open Interest Message
 dissect.open_interest_message = function(buffer, offset, packet, parent)
-  if not show.open_interest_message then
-    return dissect.open_interest_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.open_interest_message then
+    local range = buffer(offset, 30)
+    local display = display.open_interest_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.open_interest_message, range, display)
   end
 
-  local range = buffer(offset, 30)
-  local display = display.open_interest_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.open_interest_message, range, display)
-
-  return dissect.open_interest_message_fields(buffer, offset, packet, element)
+  return dissect.open_interest_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Text Message Extra Fld
@@ -4625,17 +4592,16 @@ dissect.system_text_message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: System Text Message
+-- Dissect: System Text Message
 dissect.system_text_message = function(buffer, offset, packet, parent)
-  if not show.system_text_message then
-    return dissect.system_text_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.system_text_message then
+    local range = buffer(offset, 1008)
+    local display = display.system_text_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.system_text_message, range, display)
   end
 
-  local range = buffer(offset, 1008)
-  local display = display.system_text_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.system_text_message, range, display)
-
-  return dissect.system_text_message_fields(buffer, offset, packet, element)
+  return dissect.system_text_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Market State Change Message
@@ -4659,17 +4625,16 @@ dissect.market_state_change_message_fields = function(buffer, offset, packet, pa
   return index
 end
 
--- Dissect Struct: Market State Change Message
+-- Dissect: Market State Change Message
 dissect.market_state_change_message = function(buffer, offset, packet, parent)
-  if not show.market_state_change_message then
-    return dissect.market_state_change_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.market_state_change_message then
+    local range = buffer(offset, 13)
+    local display = display.market_state_change_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.market_state_change_message, range, display)
   end
 
-  local range = buffer(offset, 13)
-  local display = display.market_state_change_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.market_state_change_message, range, display)
-
-  return dissect.market_state_change_message_fields(buffer, offset, packet, element)
+  return dissect.market_state_change_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Market Statistics Message
@@ -4711,17 +4676,16 @@ dissect.market_statistics_message_fields = function(buffer, offset, packet, pare
   return index
 end
 
--- Dissect Struct: Market Statistics Message
+-- Dissect: Market Statistics Message
 dissect.market_statistics_message = function(buffer, offset, packet, parent)
-  if not show.market_statistics_message then
-    return dissect.market_statistics_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.market_statistics_message then
+    local range = buffer(offset, 52)
+    local display = display.market_statistics_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.market_statistics_message, range, display)
   end
 
-  local range = buffer(offset, 52)
-  local display = display.market_statistics_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.market_statistics_message, range, display)
-
-  return dissect.market_statistics_message_fields(buffer, offset, packet, element)
+  return dissect.market_statistics_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Off Market Trade Type
@@ -4808,17 +4772,16 @@ dissect.cancelled_trade_message_fields = function(buffer, offset, packet, parent
   return index
 end
 
--- Dissect Struct: Cancelled Trade Message
+-- Dissect: Cancelled Trade Message
 dissect.cancelled_trade_message = function(buffer, offset, packet, parent)
-  if not show.cancelled_trade_message then
-    return dissect.cancelled_trade_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.cancelled_trade_message then
+    local range = buffer(offset, 36)
+    local display = display.cancelled_trade_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.cancelled_trade_message, range, display)
   end
 
-  local range = buffer(offset, 36)
-  local display = display.cancelled_trade_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.cancelled_trade_message, range, display)
-
-  return dissect.cancelled_trade_message_fields(buffer, offset, packet, element)
+  return dissect.cancelled_trade_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Investigated Trade Message
@@ -4857,17 +4820,16 @@ dissect.investigated_trade_message_fields = function(buffer, offset, packet, par
   return index
 end
 
--- Dissect Struct: Investigated Trade Message
+-- Dissect: Investigated Trade Message
 dissect.investigated_trade_message = function(buffer, offset, packet, parent)
-  if not show.investigated_trade_message then
-    return dissect.investigated_trade_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.investigated_trade_message then
+    local range = buffer(offset, 37)
+    local display = display.investigated_trade_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.investigated_trade_message, range, display)
   end
 
-  local range = buffer(offset, 37)
-  local display = display.investigated_trade_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.investigated_trade_message, range, display)
-
-  return dissect.investigated_trade_message_fields(buffer, offset, packet, element)
+  return dissect.investigated_trade_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Is System Priced Leg
@@ -4977,17 +4939,16 @@ dissect.spot_market_trade_message_fields = function(buffer, offset, packet, pare
   return index
 end
 
--- Dissect Struct: Spot Market Trade Message
+-- Dissect: Spot Market Trade Message
 dissect.spot_market_trade_message = function(buffer, offset, packet, parent)
-  if not show.spot_market_trade_message then
-    return dissect.spot_market_trade_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.spot_market_trade_message then
+    local range = buffer(offset, 50)
+    local display = display.spot_market_trade_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.spot_market_trade_message, range, display)
   end
 
-  local range = buffer(offset, 50)
-  local display = display.spot_market_trade_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.spot_market_trade_message, range, display)
-
-  return dissect.spot_market_trade_message_fields(buffer, offset, packet, element)
+  return dissect.spot_market_trade_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Aggressor Side
@@ -5112,17 +5073,16 @@ dissect.trade_message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Trade Message
+-- Dissect: Trade Message
 dissect.trade_message = function(buffer, offset, packet, parent)
-  if not show.trade_message then
-    return dissect.trade_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.trade_message then
+    local range = buffer(offset, 46)
+    local display = display.trade_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.trade_message, range, display)
   end
 
-  local range = buffer(offset, 46)
-  local display = display.trade_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.trade_message, range, display)
-
-  return dissect.trade_message_fields(buffer, offset, packet, element)
+  return dissect.trade_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Previous Day Settlement Price
@@ -5399,17 +5359,16 @@ dissect.market_snapshot_message_fields = function(buffer, offset, packet, parent
   return index
 end
 
--- Dissect Struct: Market Snapshot Message
+-- Dissect: Market Snapshot Message
 dissect.market_snapshot_message = function(buffer, offset, packet, parent)
-  if not show.market_snapshot_message then
-    return dissect.market_snapshot_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.market_snapshot_message then
+    local range = buffer(offset, 133)
+    local display = display.market_snapshot_message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.market_snapshot_message, range, display)
   end
 
-  local range = buffer(offset, 133)
-  local display = display.market_snapshot_message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.market_snapshot_message, range, display)
-
-  return dissect.market_snapshot_message_fields(buffer, offset, packet, element)
+  return dissect.market_snapshot_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
@@ -5912,17 +5871,16 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Message Header
+-- Dissect: Message Header
 dissect.message_header = function(buffer, offset, packet, parent)
-  if not show.message_header then
-    return dissect.message_header_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.message_header then
+    local range = buffer(offset, 3)
+    local display = display.message_header(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.message_header, range, display)
   end
 
-  local range = buffer(offset, 3)
-  local display = display.message_header(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.message_header, range, display)
-
-  return dissect.message_header_fields(buffer, offset, packet, element)
+  return dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: Message
@@ -5957,18 +5915,17 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Message
+-- Dissect: Message
 dissect.message = function(buffer, offset, packet, parent)
-  if not show.message then
-    return dissect.message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.message then
+    local size = calculate.message(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.message(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.message, range, display)
   end
 
-  local size = calculate.message(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.message(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.message, range, display)
-
-  return dissect.message_fields(buffer, offset, packet, element)
+  return dissect.message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Timestamp
@@ -6063,17 +6020,16 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Packet Header
+-- Dissect: Packet Header
 dissect.packet_header = function(buffer, offset, packet, parent)
-  if not show.packet_header then
-    return dissect.packet_header_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.packet_header then
+    local range = buffer(offset, 16)
+    local display = display.packet_header(buffer, packet, parent)
+    parent = parent:add(ice_impact_mdp_1_24_0.fields.packet_header, range, display)
   end
 
-  local range = buffer(offset, 16)
-  local display = display.packet_header(buffer, packet, parent)
-  local element = parent:add(ice_impact_mdp_1_24_0.fields.packet_header, range, display)
-
-  return dissect.packet_header_fields(buffer, offset, packet, element)
+  return dissect.packet_header_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet

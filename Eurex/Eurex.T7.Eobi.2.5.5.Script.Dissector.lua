@@ -319,17 +319,16 @@ dissect.md_trade_entry_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: MD Trade Entry Grp
+-- Dissect: MD Trade Entry Grp
 dissect.md_trade_entry_grp = function(buffer, offset, packet, parent)
-  if not show.md_trade_entry_grp then
-    return dissect.md_trade_entry_grp_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.md_trade_entry_grp then
+    local range = buffer(offset, 16)
+    local display = display.md_trade_entry_grp(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.md_trade_entry_grp, range, display)
   end
 
-  local range = buffer(offset, 16)
-  local display = display.md_trade_entry_grp(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.md_trade_entry_grp, range, display)
-
-  return dissect.md_trade_entry_grp_fields(buffer, offset, packet, element)
+  return dissect.md_trade_entry_grp_fields(buffer, offset, packet, parent)
 end
 
 -- Display Pad7
@@ -525,18 +524,17 @@ dissect.trade_reversal_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Trade Reversal
+-- Dissect: Trade Reversal
 dissect.trade_reversal = function(buffer, offset, packet, parent)
-  if not show.trade_reversal then
-    return dissect.trade_reversal_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.trade_reversal then
+    local size = calculate.trade_reversal(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.trade_reversal(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.trade_reversal, range, display)
   end
 
-  local size = calculate.trade_reversal(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.trade_reversal(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.trade_reversal, range, display)
-
-  return dissect.trade_reversal_fields(buffer, offset, packet, element)
+  return dissect.trade_reversal_fields(buffer, offset, packet, parent)
 end
 
 -- Display Pad6
@@ -649,17 +647,16 @@ dissect.trade_report_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Trade Report
+-- Dissect: Trade Report
 dissect.trade_report = function(buffer, offset, packet, parent)
-  if not show.trade_report then
-    return dissect.trade_report_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.trade_report then
+    local range = buffer(offset, 40)
+    local display = display.trade_report(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.trade_report, range, display)
   end
 
-  local range = buffer(offset, 40)
-  local display = display.trade_report(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.trade_report, range, display)
-
-  return dissect.trade_report_fields(buffer, offset, packet, element)
+  return dissect.trade_report_fields(buffer, offset, packet, parent)
 end
 
 -- Display Offer Px
@@ -722,17 +719,16 @@ dissect.top_of_book_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Top Of Book
+-- Dissect: Top Of Book
 dissect.top_of_book = function(buffer, offset, packet, parent)
-  if not show.top_of_book then
-    return dissect.top_of_book_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.top_of_book then
+    local range = buffer(offset, 32)
+    local display = display.top_of_book(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.top_of_book, range, display)
   end
 
-  local range = buffer(offset, 32)
-  local display = display.top_of_book(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.top_of_book, range, display)
-
-  return dissect.top_of_book_fields(buffer, offset, packet, element)
+  return dissect.top_of_book_fields(buffer, offset, packet, parent)
 end
 
 -- Display Price
@@ -838,17 +834,16 @@ dissect.order_details_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Order Details
+-- Dissect: Order Details
 dissect.order_details = function(buffer, offset, packet, parent)
-  if not show.order_details then
-    return dissect.order_details_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.order_details then
+    local range = buffer(offset, 24)
+    local display = display.order_details(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.order_details, range, display)
   end
 
-  local range = buffer(offset, 24)
-  local display = display.order_details(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.order_details, range, display)
-
-  return dissect.order_details_fields(buffer, offset, packet, element)
+  return dissect.order_details_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Snapshot Order
@@ -866,17 +861,16 @@ dissect.snapshot_order_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Snapshot Order
+-- Dissect: Snapshot Order
 dissect.snapshot_order = function(buffer, offset, packet, parent)
-  if not show.snapshot_order then
-    return dissect.snapshot_order_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.snapshot_order then
+    local range = buffer(offset, 24)
+    local display = display.snapshot_order(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.snapshot_order, range, display)
   end
 
-  local range = buffer(offset, 24)
-  local display = display.snapshot_order(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.snapshot_order, range, display)
-
-  return dissect.snapshot_order_fields(buffer, offset, packet, element)
+  return dissect.snapshot_order_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Quote Request
@@ -906,17 +900,16 @@ dissect.quote_request_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Quote Request
+-- Dissect: Quote Request
 dissect.quote_request = function(buffer, offset, packet, parent)
-  if not show.quote_request then
-    return dissect.quote_request_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.quote_request then
+    local range = buffer(offset, 24)
+    local display = display.quote_request(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.quote_request, range, display)
   end
 
-  local range = buffer(offset, 24)
-  local display = display.quote_request(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.quote_request, range, display)
-
-  return dissect.quote_request_fields(buffer, offset, packet, element)
+  return dissect.quote_request_fields(buffer, offset, packet, parent)
 end
 
 -- Display Field: Fast Market Indicator
@@ -1077,17 +1070,16 @@ dissect.product_summary_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Product Summary
+-- Dissect: Product Summary
 dissect.product_summary = function(buffer, offset, packet, parent)
-  if not show.product_summary then
-    return dissect.product_summary_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.product_summary then
+    local range = buffer(offset, 8)
+    local display = display.product_summary(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.product_summary, range, display)
   end
 
-  local range = buffer(offset, 8)
-  local display = display.product_summary(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.product_summary, range, display)
-
-  return dissect.product_summary_fields(buffer, offset, packet, element)
+  return dissect.product_summary_fields(buffer, offset, packet, parent)
 end
 
 -- Display Pad4
@@ -1137,17 +1129,16 @@ dissect.product_state_change_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Product State Change
+-- Dissect: Product State Change
 dissect.product_state_change = function(buffer, offset, packet, parent)
-  if not show.product_state_change then
-    return dissect.product_state_change_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.product_state_change then
+    local range = buffer(offset, 16)
+    local display = display.product_state_change(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.product_state_change, range, display)
   end
 
-  local range = buffer(offset, 16)
-  local display = display.product_state_change(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.product_state_change, range, display)
-
-  return dissect.product_state_change_fields(buffer, offset, packet, element)
+  return dissect.product_state_change_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Partial Order Execution
@@ -1186,17 +1177,16 @@ dissect.partial_order_execution_fields = function(buffer, offset, packet, parent
   return index
 end
 
--- Dissect Struct: Partial Order Execution
+-- Dissect: Partial Order Execution
 dissect.partial_order_execution = function(buffer, offset, packet, parent)
-  if not show.partial_order_execution then
-    return dissect.partial_order_execution_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.partial_order_execution then
+    local range = buffer(offset, 48)
+    local display = display.partial_order_execution(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.partial_order_execution, range, display)
   end
 
-  local range = buffer(offset, 48)
-  local display = display.partial_order_execution(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.partial_order_execution, range, display)
-
-  return dissect.partial_order_execution_fields(buffer, offset, packet, element)
+  return dissect.partial_order_execution_fields(buffer, offset, packet, parent)
 end
 
 -- Display Pad5
@@ -1387,17 +1377,16 @@ dissect.packet_info_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Packet Info
+-- Dissect: Packet Info
 dissect.packet_info = function(buffer, offset, packet, parent)
-  if not show.packet_info then
-    return dissect.packet_info_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.packet_info then
+    local range = buffer(offset, 8)
+    local display = display.packet_info(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.packet_info, range, display)
   end
 
-  local range = buffer(offset, 8)
-  local display = display.packet_info(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.packet_info, range, display)
-
-  return dissect.packet_info_fields(buffer, offset, packet, element)
+  return dissect.packet_info_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Packet Header
@@ -1436,17 +1425,16 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Packet Header
+-- Dissect: Packet Header
 dissect.packet_header = function(buffer, offset, packet, parent)
-  if not show.packet_header then
-    return dissect.packet_header_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.packet_header then
+    local range = buffer(offset, 32)
+    local display = display.packet_header(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.packet_header, range, display)
   end
 
-  local range = buffer(offset, 32)
-  local display = display.packet_header(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.packet_header, range, display)
-
-  return dissect.packet_header_fields(buffer, offset, packet, element)
+  return dissect.packet_header_fields(buffer, offset, packet, parent)
 end
 
 -- Display Prev Display Qty
@@ -1513,17 +1501,16 @@ dissect.order_modify_same_prio_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Order Modify Same Prio
+-- Dissect: Order Modify Same Prio
 dissect.order_modify_same_prio = function(buffer, offset, packet, parent)
-  if not show.order_modify_same_prio then
-    return dissect.order_modify_same_prio_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.order_modify_same_prio then
+    local range = buffer(offset, 56)
+    local display = display.order_modify_same_prio(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.order_modify_same_prio, range, display)
   end
 
-  local range = buffer(offset, 56)
-  local display = display.order_modify_same_prio(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.order_modify_same_prio, range, display)
-
-  return dissect.order_modify_same_prio_fields(buffer, offset, packet, element)
+  return dissect.order_modify_same_prio_fields(buffer, offset, packet, parent)
 end
 
 -- Display Prev Price
@@ -1594,17 +1581,16 @@ dissect.order_modify_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Order Modify
+-- Dissect: Order Modify
 dissect.order_modify = function(buffer, offset, packet, parent)
-  if not show.order_modify then
-    return dissect.order_modify_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.order_modify then
+    local range = buffer(offset, 64)
+    local display = display.order_modify(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.order_modify, range, display)
   end
 
-  local range = buffer(offset, 64)
-  local display = display.order_modify(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.order_modify, range, display)
-
-  return dissect.order_modify_fields(buffer, offset, packet, element)
+  return dissect.order_modify_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Order Mass Delete
@@ -1625,17 +1611,16 @@ dissect.order_mass_delete_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Order Mass Delete
+-- Dissect: Order Mass Delete
 dissect.order_mass_delete = function(buffer, offset, packet, parent)
-  if not show.order_mass_delete then
-    return dissect.order_mass_delete_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.order_mass_delete then
+    local range = buffer(offset, 16)
+    local display = display.order_mass_delete(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.order_mass_delete, range, display)
   end
 
-  local range = buffer(offset, 16)
-  local display = display.order_mass_delete(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.order_mass_delete, range, display)
-
-  return dissect.order_mass_delete_fields(buffer, offset, packet, element)
+  return dissect.order_mass_delete_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Order Delete
@@ -1662,17 +1647,16 @@ dissect.order_delete_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Order Delete
+-- Dissect: Order Delete
 dissect.order_delete = function(buffer, offset, packet, parent)
-  if not show.order_delete then
-    return dissect.order_delete_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.order_delete then
+    local range = buffer(offset, 48)
+    local display = display.order_delete(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.order_delete, range, display)
   end
 
-  local range = buffer(offset, 48)
-  local display = display.order_delete(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.order_delete, range, display)
-
-  return dissect.order_delete_fields(buffer, offset, packet, element)
+  return dissect.order_delete_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Order Add
@@ -1696,17 +1680,16 @@ dissect.order_add_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Order Add
+-- Dissect: Order Add
 dissect.order_add = function(buffer, offset, packet, parent)
-  if not show.order_add then
-    return dissect.order_add_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.order_add then
+    local range = buffer(offset, 40)
+    local display = display.order_add(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.order_add, range, display)
   end
 
-  local range = buffer(offset, 40)
-  local display = display.order_add(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.order_add, range, display)
-
-  return dissect.order_add_fields(buffer, offset, packet, element)
+  return dissect.order_add_fields(buffer, offset, packet, parent)
 end
 
 -- Display: MD Instrument Entry Grp
@@ -1733,17 +1716,16 @@ dissect.md_instrument_entry_grp_fields = function(buffer, offset, packet, parent
   return index
 end
 
--- Dissect Struct: MD Instrument Entry Grp
+-- Dissect: MD Instrument Entry Grp
 dissect.md_instrument_entry_grp = function(buffer, offset, packet, parent)
-  if not show.md_instrument_entry_grp then
-    return dissect.md_instrument_entry_grp_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.md_instrument_entry_grp then
+    local range = buffer(offset, 16)
+    local display = display.md_instrument_entry_grp(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.md_instrument_entry_grp, range, display)
   end
 
-  local range = buffer(offset, 16)
-  local display = display.md_instrument_entry_grp(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.md_instrument_entry_grp, range, display)
-
-  return dissect.md_instrument_entry_grp_fields(buffer, offset, packet, element)
+  return dissect.md_instrument_entry_grp_fields(buffer, offset, packet, parent)
 end
 
 -- Display Pad2
@@ -1940,18 +1922,17 @@ dissect.instrument_summary_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Instrument Summary
+-- Dissect: Instrument Summary
 dissect.instrument_summary = function(buffer, offset, packet, parent)
-  if not show.instrument_summary then
-    return dissect.instrument_summary_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.instrument_summary then
+    local size = calculate.instrument_summary(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.instrument_summary(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.instrument_summary, range, display)
   end
 
-  local size = calculate.instrument_summary(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.instrument_summary(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.instrument_summary, range, display)
-
-  return dissect.instrument_summary_fields(buffer, offset, packet, element)
+  return dissect.instrument_summary_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Instrument State Change
@@ -1984,17 +1965,16 @@ dissect.instrument_state_change_fields = function(buffer, offset, packet, parent
   return index
 end
 
--- Dissect Struct: Instrument State Change
+-- Dissect: Instrument State Change
 dissect.instrument_state_change = function(buffer, offset, packet, parent)
-  if not show.instrument_state_change then
-    return dissect.instrument_state_change_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.instrument_state_change then
+    local range = buffer(offset, 24)
+    local display = display.instrument_state_change(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.instrument_state_change, range, display)
   end
 
-  local range = buffer(offset, 24)
-  local display = display.instrument_state_change(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.instrument_state_change, range, display)
-
-  return dissect.instrument_state_change_fields(buffer, offset, packet, element)
+  return dissect.instrument_state_change_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Heartbeat
@@ -2015,17 +1995,16 @@ dissect.heartbeat_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Heartbeat
+-- Dissect: Heartbeat
 dissect.heartbeat = function(buffer, offset, packet, parent)
-  if not show.heartbeat then
-    return dissect.heartbeat_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.heartbeat then
+    local range = buffer(offset, 8)
+    local display = display.heartbeat(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.heartbeat, range, display)
   end
 
-  local range = buffer(offset, 8)
-  local display = display.heartbeat(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.heartbeat, range, display)
-
-  return dissect.heartbeat_fields(buffer, offset, packet, element)
+  return dissect.heartbeat_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Full Order Execution
@@ -2064,17 +2043,16 @@ dissect.full_order_execution_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Full Order Execution
+-- Dissect: Full Order Execution
 dissect.full_order_execution = function(buffer, offset, packet, parent)
-  if not show.full_order_execution then
-    return dissect.full_order_execution_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.full_order_execution then
+    local range = buffer(offset, 48)
+    local display = display.full_order_execution(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.full_order_execution, range, display)
   end
 
-  local range = buffer(offset, 48)
-  local display = display.full_order_execution(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.full_order_execution, range, display)
-
-  return dissect.full_order_execution_fields(buffer, offset, packet, element)
+  return dissect.full_order_execution_fields(buffer, offset, packet, parent)
 end
 
 -- Display Resting Hidden Qty
@@ -2235,17 +2213,16 @@ dissect.execution_summary_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Execution Summary
+-- Dissect: Execution Summary
 dissect.execution_summary = function(buffer, offset, packet, parent)
-  if not show.execution_summary then
-    return dissect.execution_summary_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.execution_summary then
+    local range = buffer(offset, 56)
+    local display = display.execution_summary(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.execution_summary, range, display)
   end
 
-  local range = buffer(offset, 56)
-  local display = display.execution_summary(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.execution_summary, range, display)
-
-  return dissect.execution_summary_fields(buffer, offset, packet, element)
+  return dissect.execution_summary_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Cross Request
@@ -2272,17 +2249,16 @@ dissect.cross_request_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Cross Request
+-- Dissect: Cross Request
 dissect.cross_request = function(buffer, offset, packet, parent)
-  if not show.cross_request then
-    return dissect.cross_request_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.cross_request then
+    local range = buffer(offset, 24)
+    local display = display.cross_request(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.cross_request, range, display)
   end
 
-  local range = buffer(offset, 24)
-  local display = display.cross_request(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.cross_request, range, display)
-
-  return dissect.cross_request_fields(buffer, offset, packet, element)
+  return dissect.cross_request_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Auction Clearing Price
@@ -2306,17 +2282,16 @@ dissect.auction_clearing_price_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Auction Clearing Price
+-- Dissect: Auction Clearing Price
 dissect.auction_clearing_price = function(buffer, offset, packet, parent)
-  if not show.auction_clearing_price then
-    return dissect.auction_clearing_price_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.auction_clearing_price then
+    local range = buffer(offset, 24)
+    local display = display.auction_clearing_price(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.auction_clearing_price, range, display)
   end
 
-  local range = buffer(offset, 24)
-  local display = display.auction_clearing_price(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.auction_clearing_price, range, display)
-
-  return dissect.auction_clearing_price_fields(buffer, offset, packet, element)
+  return dissect.auction_clearing_price_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Auction BBO
@@ -2343,17 +2318,16 @@ dissect.auction_bbo_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Auction BBO
+-- Dissect: Auction BBO
 dissect.auction_bbo = function(buffer, offset, packet, parent)
-  if not show.auction_bbo then
-    return dissect.auction_bbo_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.auction_bbo then
+    local range = buffer(offset, 32)
+    local display = display.auction_bbo(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.auction_bbo, range, display)
   end
 
-  local range = buffer(offset, 32)
-  local display = display.auction_bbo(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.auction_bbo, range, display)
-
-  return dissect.auction_bbo_fields(buffer, offset, packet, element)
+  return dissect.auction_bbo_fields(buffer, offset, packet, parent)
 end
 
 -- Display Field: Leg Side
@@ -2461,17 +2435,16 @@ dissect.instrmt_leg_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Instrmt Leg Grp
+-- Dissect: Instrmt Leg Grp
 dissect.instrmt_leg_grp = function(buffer, offset, packet, parent)
-  if not show.instrmt_leg_grp then
-    return dissect.instrmt_leg_grp_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.instrmt_leg_grp then
+    local range = buffer(offset, 24)
+    local display = display.instrmt_leg_grp(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.instrmt_leg_grp, range, display)
   end
 
-  local range = buffer(offset, 24)
-  local display = display.instrmt_leg_grp(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.instrmt_leg_grp, range, display)
-
-  return dissect.instrmt_leg_grp_fields(buffer, offset, packet, element)
+  return dissect.instrmt_leg_grp_fields(buffer, offset, packet, parent)
 end
 
 -- Display Pad1
@@ -2635,18 +2608,17 @@ dissect.add_complex_instrument_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Add Complex Instrument
+-- Dissect: Add Complex Instrument
 dissect.add_complex_instrument = function(buffer, offset, packet, parent)
-  if not show.add_complex_instrument then
-    return dissect.add_complex_instrument_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.add_complex_instrument then
+    local size = calculate.add_complex_instrument(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.add_complex_instrument(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.add_complex_instrument, range, display)
   end
 
-  local size = calculate.add_complex_instrument(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.add_complex_instrument(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.add_complex_instrument, range, display)
-
-  return dissect.add_complex_instrument_fields(buffer, offset, packet, element)
+  return dissect.add_complex_instrument_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
@@ -2945,17 +2917,16 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Message Header
+-- Dissect: Message Header
 dissect.message_header = function(buffer, offset, packet, parent)
-  if not show.message_header then
-    return dissect.message_header_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.message_header then
+    local range = buffer(offset, 8)
+    local display = display.message_header(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.message_header, range, display)
   end
 
-  local range = buffer(offset, 8)
-  local display = display.message_header(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.message_header, range, display)
-
-  return dissect.message_header_fields(buffer, offset, packet, element)
+  return dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: Message
@@ -2990,18 +2961,17 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Message
+-- Dissect: Message
 dissect.message = function(buffer, offset, packet, parent)
-  if not show.message then
-    return dissect.message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.message then
+    local size = calculate.message(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.message(buffer, packet, parent)
+    parent = parent:add(eurex_t7_eobi_2_5_5.fields.message, range, display)
   end
 
-  local size = calculate.message(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.message(buffer, packet, parent)
-  local element = parent:add(eurex_t7_eobi_2_5_5.fields.message, range, display)
-
-  return dissect.message_fields(buffer, offset, packet, element)
+  return dissect.message_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet

@@ -401,17 +401,16 @@ dissect.volume_and_open_interest_fields = function(buffer, offset, packet, paren
   return index
 end
 
--- Dissect Struct: Volume and Open Interest
+-- Dissect: Volume and Open Interest
 dissect.volume_and_open_interest = function(buffer, offset, packet, parent)
-  if not show.volume_and_open_interest then
-    return dissect.volume_and_open_interest_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.volume_and_open_interest then
+    local range = buffer(offset, 20)
+    local display = display.volume_and_open_interest(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.volume_and_open_interest, range, display)
   end
 
-  local range = buffer(offset, 20)
-  local display = display.volume_and_open_interest(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.volume_and_open_interest, range, display)
-
-  return dissect.volume_and_open_interest_fields(buffer, offset, packet, element)
+  return dissect.volume_and_open_interest_fields(buffer, offset, packet, parent)
 end
 
 -- Display ETR Lower Price
@@ -555,17 +554,16 @@ dissect.anomalous_order_threshold_publish_fields = function(buffer, offset, pack
   return index
 end
 
--- Dissect Struct: Anomalous Order Threshold Publish
+-- Dissect: Anomalous Order Threshold Publish
 dissect.anomalous_order_threshold_publish = function(buffer, offset, packet, parent)
-  if not show.anomalous_order_threshold_publish then
-    return dissect.anomalous_order_threshold_publish_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.anomalous_order_threshold_publish then
+    local range = buffer(offset, 34)
+    local display = display.anomalous_order_threshold_publish(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.anomalous_order_threshold_publish, range, display)
   end
 
-  local range = buffer(offset, 34)
-  local display = display.anomalous_order_threshold_publish(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.anomalous_order_threshold_publish, range, display)
-
-  return dissect.anomalous_order_threshold_publish_fields(buffer, offset, packet, element)
+  return dissect.anomalous_order_threshold_publish_fields(buffer, offset, packet, parent)
 end
 
 -- Display Quantity
@@ -629,17 +627,16 @@ dissect.request_for_quote_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Request for Quote
+-- Dissect: Request for Quote
 dissect.request_for_quote = function(buffer, offset, packet, parent)
-  if not show.request_for_quote then
-    return dissect.request_for_quote_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.request_for_quote then
+    local range = buffer(offset, 18)
+    local display = display.request_for_quote(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.request_for_quote, range, display)
   end
 
-  local range = buffer(offset, 18)
-  local display = display.request_for_quote(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.request_for_quote, range, display)
-
-  return dissect.request_for_quote_fields(buffer, offset, packet, element)
+  return dissect.request_for_quote_fields(buffer, offset, packet, parent)
 end
 
 -- Display Text message
@@ -700,17 +697,16 @@ dissect.ad_hoc_text_message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Ad Hoc Text Message
+-- Dissect: Ad Hoc Text Message
 dissect.ad_hoc_text_message = function(buffer, offset, packet, parent)
-  if not show.ad_hoc_text_message then
-    return dissect.ad_hoc_text_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.ad_hoc_text_message then
+    local range = buffer(offset, 112)
+    local display = display.ad_hoc_text_message(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.ad_hoc_text_message, range, display)
   end
 
-  local range = buffer(offset, 112)
-  local display = display.ad_hoc_text_message(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.ad_hoc_text_message, range, display)
-
-  return dissect.ad_hoc_text_message_fields(buffer, offset, packet, element)
+  return dissect.ad_hoc_text_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Settlement Type
@@ -794,17 +790,16 @@ dissect.market_settlement_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Market Settlement
+-- Dissect: Market Settlement
 dissect.market_settlement = function(buffer, offset, packet, parent)
-  if not show.market_settlement then
-    return dissect.market_settlement_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.market_settlement then
+    local range = buffer(offset, 19)
+    local display = display.market_settlement(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.market_settlement, range, display)
   end
 
-  local range = buffer(offset, 19)
-  local display = display.market_settlement(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.market_settlement, range, display)
-
-  return dissect.market_settlement_fields(buffer, offset, packet, element)
+  return dissect.market_settlement_fields(buffer, offset, packet, parent)
 end
 
 -- Display Opening Trade Price
@@ -1215,17 +1210,16 @@ dissect.open__high__low__last_trade_adjustment_fields = function(buffer, offset,
   return index
 end
 
--- Dissect Struct: Open, High, Low, Last Trade Adjustment
+-- Dissect: Open, High, Low, Last Trade Adjustment
 dissect.open__high__low__last_trade_adjustment = function(buffer, offset, packet, parent)
-  if not show.open__high__low__last_trade_adjustment then
-    return dissect.open__high__low__last_trade_adjustment_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.open__high__low__last_trade_adjustment then
+    local range = buffer(offset, 40)
+    local display = display.open__high__low__last_trade_adjustment(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.open__high__low__last_trade_adjustment, range, display)
   end
 
-  local range = buffer(offset, 40)
-  local display = display.open__high__low__last_trade_adjustment(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.open__high__low__last_trade_adjustment, range, display)
-
-  return dissect.open__high__low__last_trade_adjustment_fields(buffer, offset, packet, element)
+  return dissect.open__high__low__last_trade_adjustment_fields(buffer, offset, packet, parent)
 end
 
 -- Display Best Ask Quantity
@@ -1349,17 +1343,16 @@ dissect.equilibrium_price_auction_info_fields = function(buffer, offset, packet,
   return index
 end
 
--- Dissect Struct: Equilibrium Price Auction Info
+-- Dissect: Equilibrium Price Auction Info
 dissect.equilibrium_price_auction_info = function(buffer, offset, packet, parent)
-  if not show.equilibrium_price_auction_info then
-    return dissect.equilibrium_price_auction_info_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.equilibrium_price_auction_info then
+    local range = buffer(offset, 30)
+    local display = display.equilibrium_price_auction_info(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.equilibrium_price_auction_info, range, display)
   end
 
-  local range = buffer(offset, 30)
-  local display = display.equilibrium_price_auction_info(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.equilibrium_price_auction_info, range, display)
-
-  return dissect.equilibrium_price_auction_info_fields(buffer, offset, packet, element)
+  return dissect.equilibrium_price_auction_info_fields(buffer, offset, packet, parent)
 end
 
 -- Display Match Number
@@ -1400,17 +1393,16 @@ dissect.trade_cancellation_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Trade Cancellation
+-- Dissect: Trade Cancellation
 dissect.trade_cancellation = function(buffer, offset, packet, parent)
-  if not show.trade_cancellation then
-    return dissect.trade_cancellation_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.trade_cancellation then
+    local range = buffer(offset, 10)
+    local display = display.trade_cancellation(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.trade_cancellation, range, display)
   end
 
-  local range = buffer(offset, 10)
-  local display = display.trade_cancellation(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.trade_cancellation, range, display)
-
-  return dissect.trade_cancellation_fields(buffer, offset, packet, element)
+  return dissect.trade_cancellation_fields(buffer, offset, packet, parent)
 end
 
 -- Display Field: Printable
@@ -1714,17 +1706,16 @@ dissect.custom_market_trade_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Custom Market Trade
+-- Dissect: Custom Market Trade
 dissect.custom_market_trade = function(buffer, offset, packet, parent)
-  if not show.custom_market_trade then
-    return dissect.custom_market_trade_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.custom_market_trade then
+    local range = buffer(offset, 54)
+    local display = display.custom_market_trade(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.custom_market_trade, range, display)
   end
 
-  local range = buffer(offset, 54)
-  local display = display.custom_market_trade(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.custom_market_trade, range, display)
-
-  return dissect.custom_market_trade_fields(buffer, offset, packet, element)
+  return dissect.custom_market_trade_fields(buffer, offset, packet, parent)
 end
 
 -- Display Trade Side of Leg
@@ -1789,17 +1780,16 @@ dissect.custom_market_executed_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Custom Market Executed
+-- Dissect: Custom Market Executed
 dissect.custom_market_executed = function(buffer, offset, packet, parent)
-  if not show.custom_market_executed then
-    return dissect.custom_market_executed_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.custom_market_executed then
+    local range = buffer(offset, 37)
+    local display = display.custom_market_executed(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.custom_market_executed, range, display)
   end
 
-  local range = buffer(offset, 37)
-  local display = display.custom_market_executed(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.custom_market_executed, range, display)
-
-  return dissect.custom_market_executed_fields(buffer, offset, packet, element)
+  return dissect.custom_market_executed_fields(buffer, offset, packet, parent)
 end
 
 -- Display Spread Trade Price
@@ -2018,17 +2008,16 @@ dissect.trade_spread_execution_chain_fields = function(buffer, offset, packet, p
   return index
 end
 
--- Dissect Struct: Trade Spread Execution Chain
+-- Dissect: Trade Spread Execution Chain
 dissect.trade_spread_execution_chain = function(buffer, offset, packet, parent)
-  if not show.trade_spread_execution_chain then
-    return dissect.trade_spread_execution_chain_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.trade_spread_execution_chain then
+    local range = buffer(offset, 62)
+    local display = display.trade_spread_execution_chain(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.trade_spread_execution_chain, range, display)
   end
 
-  local range = buffer(offset, 62)
-  local display = display.trade_spread_execution_chain(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.trade_spread_execution_chain, range, display)
-
-  return dissect.trade_spread_execution_chain_fields(buffer, offset, packet, element)
+  return dissect.trade_spread_execution_chain_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Spread Executed
@@ -2085,17 +2074,16 @@ dissect.spread_executed_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Spread Executed
+-- Dissect: Spread Executed
 dissect.spread_executed = function(buffer, offset, packet, parent)
-  if not show.spread_executed then
-    return dissect.spread_executed_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.spread_executed then
+    local range = buffer(offset, 46)
+    local display = display.spread_executed(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.spread_executed, range, display)
   end
 
-  local range = buffer(offset, 46)
-  local display = display.spread_executed(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.spread_executed, range, display)
-
-  return dissect.spread_executed_fields(buffer, offset, packet, element)
+  return dissect.spread_executed_fields(buffer, offset, packet, parent)
 end
 
 -- Display Buying Order Number
@@ -2160,17 +2148,16 @@ dissect.order_executed_with_price_fields = function(buffer, offset, packet, pare
   return index
 end
 
--- Dissect Struct: Order Executed with Price
+-- Dissect: Order Executed with Price
 dissect.order_executed_with_price = function(buffer, offset, packet, parent)
-  if not show.order_executed_with_price then
-    return dissect.order_executed_with_price_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.order_executed_with_price then
+    local range = buffer(offset, 47)
+    local display = display.order_executed_with_price(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.order_executed_with_price, range, display)
   end
 
-  local range = buffer(offset, 47)
-  local display = display.order_executed_with_price(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.order_executed_with_price, range, display)
-
-  return dissect.order_executed_with_price_fields(buffer, offset, packet, element)
+  return dissect.order_executed_with_price_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Order Executed
@@ -2215,17 +2202,16 @@ dissect.order_executed_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Order Executed
+-- Dissect: Order Executed
 dissect.order_executed = function(buffer, offset, packet, parent)
-  if not show.order_executed then
-    return dissect.order_executed_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.order_executed then
+    local range = buffer(offset, 36)
+    local display = display.order_executed(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.order_executed, range, display)
   end
 
-  local range = buffer(offset, 36)
-  local display = display.order_executed(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.order_executed, range, display)
-
-  return dissect.order_executed_fields(buffer, offset, packet, element)
+  return dissect.order_executed_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Custom Market Order Deleted
@@ -2249,17 +2235,16 @@ dissect.custom_market_order_deleted_fields = function(buffer, offset, packet, pa
   return index
 end
 
--- Dissect Struct: Custom Market Order Deleted
+-- Dissect: Custom Market Order Deleted
 dissect.custom_market_order_deleted = function(buffer, offset, packet, parent)
-  if not show.custom_market_order_deleted then
-    return dissect.custom_market_order_deleted_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.custom_market_order_deleted then
+    local range = buffer(offset, 14)
+    local display = display.custom_market_order_deleted(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.custom_market_order_deleted, range, display)
   end
 
-  local range = buffer(offset, 14)
-  local display = display.custom_market_order_deleted(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.custom_market_order_deleted, range, display)
-
-  return dissect.custom_market_order_deleted_fields(buffer, offset, packet, element)
+  return dissect.custom_market_order_deleted_fields(buffer, offset, packet, parent)
 end
 
 -- Display Order Book Priority
@@ -2306,17 +2291,16 @@ dissect.custom_market_order_replaced_fields = function(buffer, offset, packet, p
   return index
 end
 
--- Dissect Struct: Custom Market Order Replaced
+-- Dissect: Custom Market Order Replaced
 dissect.custom_market_order_replaced = function(buffer, offset, packet, parent)
-  if not show.custom_market_order_replaced then
-    return dissect.custom_market_order_replaced_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.custom_market_order_replaced then
+    local range = buffer(offset, 22)
+    local display = display.custom_market_order_replaced(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.custom_market_order_replaced, range, display)
   end
 
-  local range = buffer(offset, 22)
-  local display = display.custom_market_order_replaced(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.custom_market_order_replaced, range, display)
-
-  return dissect.custom_market_order_replaced_fields(buffer, offset, packet, element)
+  return dissect.custom_market_order_replaced_fields(buffer, offset, packet, parent)
 end
 
 -- Display Price Leg 6
@@ -2846,17 +2830,16 @@ dissect.custom_market_order_added_fields = function(buffer, offset, packet, pare
   return index
 end
 
--- Dissect Struct: Custom Market Order Added
+-- Dissect: Custom Market Order Added
 dissect.custom_market_order_added = function(buffer, offset, packet, parent)
-  if not show.custom_market_order_added then
-    return dissect.custom_market_order_added_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.custom_market_order_added then
+    local range = buffer(offset, 89)
+    local display = display.custom_market_order_added(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.custom_market_order_added, range, display)
   end
 
-  local range = buffer(offset, 89)
-  local display = display.custom_market_order_added(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.custom_market_order_added, range, display)
-
-  return dissect.custom_market_order_added_fields(buffer, offset, packet, element)
+  return dissect.custom_market_order_added_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Implied Order Deleted
@@ -2886,17 +2869,16 @@ dissect.implied_order_deleted_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Implied Order Deleted
+-- Dissect: Implied Order Deleted
 dissect.implied_order_deleted = function(buffer, offset, packet, parent)
-  if not show.implied_order_deleted then
-    return dissect.implied_order_deleted_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.implied_order_deleted then
+    local range = buffer(offset, 19)
+    local display = display.implied_order_deleted(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.implied_order_deleted, range, display)
   end
 
-  local range = buffer(offset, 19)
-  local display = display.implied_order_deleted(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.implied_order_deleted, range, display)
-
-  return dissect.implied_order_deleted_fields(buffer, offset, packet, element)
+  return dissect.implied_order_deleted_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Implied Order Replaced
@@ -2935,17 +2917,16 @@ dissect.implied_order_replaced_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Implied Order Replaced
+-- Dissect: Implied Order Replaced
 dissect.implied_order_replaced = function(buffer, offset, packet, parent)
-  if not show.implied_order_replaced then
-    return dissect.implied_order_replaced_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.implied_order_replaced then
+    local range = buffer(offset, 31)
+    local display = display.implied_order_replaced(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.implied_order_replaced, range, display)
   end
 
-  local range = buffer(offset, 31)
-  local display = display.implied_order_replaced(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.implied_order_replaced, range, display)
-
-  return dissect.implied_order_replaced_fields(buffer, offset, packet, element)
+  return dissect.implied_order_replaced_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Implied Order Added
@@ -2984,17 +2965,16 @@ dissect.implied_order_added_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Implied Order Added
+-- Dissect: Implied Order Added
 dissect.implied_order_added = function(buffer, offset, packet, parent)
-  if not show.implied_order_added then
-    return dissect.implied_order_added_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.implied_order_added then
+    local range = buffer(offset, 31)
+    local display = display.implied_order_added(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.implied_order_added, range, display)
   end
 
-  local range = buffer(offset, 31)
-  local display = display.implied_order_added(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.implied_order_added, range, display)
-
-  return dissect.implied_order_added_fields(buffer, offset, packet, element)
+  return dissect.implied_order_added_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Order Deleted
@@ -3024,17 +3004,16 @@ dissect.order_deleted_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Order Deleted
+-- Dissect: Order Deleted
 dissect.order_deleted = function(buffer, offset, packet, parent)
-  if not show.order_deleted then
-    return dissect.order_deleted_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.order_deleted then
+    local range = buffer(offset, 19)
+    local display = display.order_deleted(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.order_deleted, range, display)
   end
 
-  local range = buffer(offset, 19)
-  local display = display.order_deleted(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.order_deleted, range, display)
-
-  return dissect.order_deleted_fields(buffer, offset, packet, element)
+  return dissect.order_deleted_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Order Volume Cancelled
@@ -3067,17 +3046,16 @@ dissect.order_volume_cancelled_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Order Volume Cancelled
+-- Dissect: Order Volume Cancelled
 dissect.order_volume_cancelled = function(buffer, offset, packet, parent)
-  if not show.order_volume_cancelled then
-    return dissect.order_volume_cancelled_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.order_volume_cancelled then
+    local range = buffer(offset, 23)
+    local display = display.order_volume_cancelled(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.order_volume_cancelled, range, display)
   end
 
-  local range = buffer(offset, 23)
-  local display = display.order_volume_cancelled(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.order_volume_cancelled, range, display)
-
-  return dissect.order_volume_cancelled_fields(buffer, offset, packet, element)
+  return dissect.order_volume_cancelled_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Order Replaced
@@ -3116,17 +3094,16 @@ dissect.order_replaced_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Order Replaced
+-- Dissect: Order Replaced
 dissect.order_replaced = function(buffer, offset, packet, parent)
-  if not show.order_replaced then
-    return dissect.order_replaced_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.order_replaced then
+    local range = buffer(offset, 31)
+    local display = display.order_replaced(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.order_replaced, range, display)
   end
 
-  local range = buffer(offset, 31)
-  local display = display.order_replaced(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.order_replaced, range, display)
-
-  return dissect.order_replaced_fields(buffer, offset, packet, element)
+  return dissect.order_replaced_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Order Added
@@ -3165,17 +3142,16 @@ dissect.order_added_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Order Added
+-- Dissect: Order Added
 dissect.order_added = function(buffer, offset, packet, parent)
-  if not show.order_added then
-    return dissect.order_added_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.order_added then
+    local range = buffer(offset, 31)
+    local display = display.order_added(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.order_added, range, display)
   end
 
-  local range = buffer(offset, 31)
-  local display = display.order_added(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.order_added, range, display)
-
-  return dissect.order_added_fields(buffer, offset, packet, element)
+  return dissect.order_added_fields(buffer, offset, packet, parent)
 end
 
 -- Display Field: Trading Status
@@ -3259,17 +3235,16 @@ dissect.order_book_state_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Order Book State
+-- Dissect: Order Book State
 dissect.order_book_state = function(buffer, offset, packet, parent)
-  if not show.order_book_state then
-    return dissect.order_book_state_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.order_book_state then
+    local range = buffer(offset, 11)
+    local display = display.order_book_state(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.order_book_state, range, display)
   end
 
-  local range = buffer(offset, 11)
-  local display = display.order_book_state(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.order_book_state, range, display)
-
-  return dissect.order_book_state_fields(buffer, offset, packet, element)
+  return dissect.order_book_state_fields(buffer, offset, packet, parent)
 end
 
 -- Display Field: Activated
@@ -3808,17 +3783,16 @@ dissect.option_symbol_directory_fields = function(buffer, offset, packet, parent
   return index
 end
 
--- Dissect Struct: Option Symbol Directory
+-- Dissect: Option Symbol Directory
 dissect.option_symbol_directory = function(buffer, offset, packet, parent)
-  if not show.option_symbol_directory then
-    return dissect.option_symbol_directory_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.option_symbol_directory then
+    local range = buffer(offset, 74)
+    local display = display.option_symbol_directory(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.option_symbol_directory, range, display)
   end
 
-  local range = buffer(offset, 74)
-  local display = display.option_symbol_directory(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.option_symbol_directory, range, display)
-
-  return dissect.option_symbol_directory_fields(buffer, offset, packet, element)
+  return dissect.option_symbol_directory_fields(buffer, offset, packet, parent)
 end
 
 -- Display Secondary Ratio
@@ -3937,17 +3911,16 @@ dissect.spread_symbol_directory_fields = function(buffer, offset, packet, parent
   return index
 end
 
--- Dissect Struct: Spread Symbol Directory
+-- Dissect: Spread Symbol Directory
 dissect.spread_symbol_directory = function(buffer, offset, packet, parent)
-  if not show.spread_symbol_directory then
-    return dissect.spread_symbol_directory_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.spread_symbol_directory then
+    local range = buffer(offset, 34)
+    local display = display.spread_symbol_directory(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.spread_symbol_directory, range, display)
   end
 
-  local range = buffer(offset, 34)
-  local display = display.spread_symbol_directory(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.spread_symbol_directory, range, display)
-
-  return dissect.spread_symbol_directory_fields(buffer, offset, packet, element)
+  return dissect.spread_symbol_directory_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Future Symbol Directory
@@ -4019,17 +3992,16 @@ dissect.future_symbol_directory_fields = function(buffer, offset, packet, parent
   return index
 end
 
--- Dissect Struct: Future Symbol Directory
+-- Dissect: Future Symbol Directory
 dissect.future_symbol_directory = function(buffer, offset, packet, parent)
-  if not show.future_symbol_directory then
-    return dissect.future_symbol_directory_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.future_symbol_directory then
+    local range = buffer(offset, 53)
+    local display = display.future_symbol_directory(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.future_symbol_directory, range, display)
   end
 
-  local range = buffer(offset, 53)
-  local display = display.future_symbol_directory(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.future_symbol_directory, range, display)
-
-  return dissect.future_symbol_directory_fields(buffer, offset, packet, element)
+  return dissect.future_symbol_directory_fields(buffer, offset, packet, parent)
 end
 
 -- Display Field: Event Code
@@ -4086,17 +4058,16 @@ dissect.system_event_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: System Event
+-- Dissect: System Event
 dissect.system_event = function(buffer, offset, packet, parent)
-  if not show.system_event then
-    return dissect.system_event_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.system_event then
+    local range = buffer(offset, 7)
+    local display = display.system_event(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.system_event, range, display)
   end
 
-  local range = buffer(offset, 7)
-  local display = display.system_event(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.system_event, range, display)
-
-  return dissect.system_event_fields(buffer, offset, packet, element)
+  return dissect.system_event_fields(buffer, offset, packet, parent)
 end
 
 -- Display Second
@@ -4131,17 +4102,16 @@ dissect.time_message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Time Message
+-- Dissect: Time Message
 dissect.time_message = function(buffer, offset, packet, parent)
-  if not show.time_message then
-    return dissect.time_message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.time_message then
+    local range = buffer(offset, 4)
+    local display = display.time_message(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.time_message, range, display)
   end
 
-  local range = buffer(offset, 4)
-  local display = display.time_message(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.time_message, range, display)
-
-  return dissect.time_message_fields(buffer, offset, packet, element)
+  return dissect.time_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
@@ -4567,17 +4537,16 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Message Header
+-- Dissect: Message Header
 dissect.message_header = function(buffer, offset, packet, parent)
-  if not show.message_header then
-    return dissect.message_header_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.message_header then
+    local range = buffer(offset, 3)
+    local display = display.message_header(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.message_header, range, display)
   end
 
-  local range = buffer(offset, 3)
-  local display = display.message_header(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.message_header, range, display)
-
-  return dissect.message_header_fields(buffer, offset, packet, element)
+  return dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size: Message
@@ -4612,18 +4581,17 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Message
+-- Dissect: Message
 dissect.message = function(buffer, offset, packet, parent)
-  if not show.message then
-    return dissect.message_fields(buffer, offset, packet, parent)
+  -- Optionally dissect dynamic struct
+  if show.message then
+    local size = calculate.message(buffer, offset)
+    local range = buffer(offset, size)
+    local display = display.message(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.message, range, display)
   end
 
-  local size = calculate.message(buffer, offset)
-  local range = buffer(offset, size)
-  local display = display.message(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.message, range, display)
-
-  return dissect.message_fields(buffer, offset, packet, element)
+  return dissect.message_fields(buffer, offset, packet, parent)
 end
 
 -- Display Count
@@ -4752,17 +4720,16 @@ dissect.session_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Session
+-- Dissect: Session
 dissect.session = function(buffer, offset, packet, parent)
-  if not show.session then
-    return dissect.session_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.session then
+    local range = buffer(offset, 10)
+    local display = display.session(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.session, range, display)
   end
 
-  local range = buffer(offset, 10)
-  local display = display.session(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.session, range, display)
-
-  return dissect.session_fields(buffer, offset, packet, element)
+  return dissect.session_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Packet Header
@@ -4786,17 +4753,16 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect Struct: Packet Header
+-- Dissect: Packet Header
 dissect.packet_header = function(buffer, offset, packet, parent)
-  if not show.packet_header then
-    return dissect.packet_header_fields(buffer, offset, packet, parent)
+  -- Optionally dissect static struct
+  if show.packet_header then
+    local range = buffer(offset, 20)
+    local display = display.packet_header(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_2_4_0.fields.packet_header, range, display)
   end
 
-  local range = buffer(offset, 20)
-  local display = display.packet_header(buffer, packet, parent)
-  local element = parent:add(asx_t24_itch_2_4_0.fields.packet_header, range, display)
-
-  return dissect.packet_header_fields(buffer, offset, packet, element)
+  return dissect.packet_header_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
