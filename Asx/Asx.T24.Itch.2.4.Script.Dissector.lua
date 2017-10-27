@@ -4499,7 +4499,7 @@ dissect.message_type = function(buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_2_4.fields.message_type, range, value, display)
 
-  return offset + length
+  return offset + length, value
 end
 
 -- Display Length
@@ -4608,7 +4608,7 @@ dissect.count = function(buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_2_4.fields.count, range, value, display)
 
-  return offset + length
+  return offset + length, value
 end
 
 -- Display Sequence

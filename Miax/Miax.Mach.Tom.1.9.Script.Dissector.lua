@@ -1843,7 +1843,7 @@ dissect.message_type = function(buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.message_type, range, value, display)
 
-  return offset + length
+  return offset + length, value
 end
 
 -- Calculate runtime size: Application Message
@@ -1983,7 +1983,7 @@ dissect.packet_type = function(buffer, offset, packet, parent)
 
   parent:add(miax_mach_tom_1_9.fields.packet_type, range, value, display)
 
-  return offset + length
+  return offset + length, value
 end
 
 -- Display Packet Length

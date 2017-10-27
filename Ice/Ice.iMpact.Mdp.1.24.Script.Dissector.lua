@@ -1756,7 +1756,7 @@ dissect.number_of_hedge_definitions = function(buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.number_of_hedge_definitions, range, value, display)
 
-  return offset + length
+  return offset + length, value
 end
 
 -- Display Leg Side
@@ -1897,7 +1897,7 @@ dissect.number_of_strategy_leg_definitions = function(buffer, offset, packet, pa
 
   parent:add(ice_impact_mdp_1_24.fields.number_of_strategy_leg_definitions, range, value, display)
 
-  return offset + length
+  return offset + length, value
 end
 
 -- Display Increment Price
@@ -3015,7 +3015,7 @@ dissect.number_of_special_fields = function(buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.number_of_special_fields, range, value, display)
 
-  return offset + length
+  return offset + length, value
 end
 
 -- Calculate runtime size: Special Field Message
@@ -3594,7 +3594,7 @@ dissect.number_of_leg_definitions = function(buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.number_of_leg_definitions, range, value, display)
 
-  return offset + length
+  return offset + length, value
 end
 
 -- Calculate runtime size: New Futures Strategy Definition Message
@@ -5850,7 +5850,7 @@ dissect.message_type = function(buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.message_type, range, value, display)
 
-  return offset + length
+  return offset + length, value
 end
 
 -- Display: Message Header
@@ -5959,7 +5959,7 @@ dissect.count = function(buffer, offset, packet, parent)
 
   parent:add(ice_impact_mdp_1_24.fields.count, range, value, display)
 
-  return offset + length
+  return offset + length, value
 end
 
 -- Display Sequence

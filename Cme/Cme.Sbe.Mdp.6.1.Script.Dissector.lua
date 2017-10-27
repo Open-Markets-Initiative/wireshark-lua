@@ -453,7 +453,7 @@ dissect.num_in_group = function(buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp_6_1.fields.num_in_group, range, value, display)
 
-  return offset + length
+  return offset + length, value
 end
 
 -- Display Padding 5
@@ -6463,7 +6463,7 @@ dissect.template_id = function(buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp_6_1.fields.template_id, range, value, display)
 
-  return offset + length
+  return offset + length, value
 end
 
 -- Display Block Length

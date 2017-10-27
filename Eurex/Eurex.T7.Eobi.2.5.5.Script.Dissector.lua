@@ -362,7 +362,7 @@ dissect.no_md_entries = function(buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_2_5_5.fields.no_md_entries, range, value, display)
 
-  return offset + length
+  return offset + length, value
 end
 
 -- Display Trd Reg TS Execution Time
@@ -2478,7 +2478,7 @@ dissect.no_legs = function(buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_2_5_5.fields.no_legs, range, value, display)
 
-  return offset + length
+  return offset + length, value
 end
 
 -- Display: Implied Market Indicator
@@ -2876,7 +2876,7 @@ dissect.template_id = function(buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_2_5_5.fields.template_id, range, value, display)
 
-  return offset + length
+  return offset + length, value
 end
 
 -- Display Body Len
@@ -2893,7 +2893,7 @@ dissect.body_len = function(buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_2_5_5.fields.body_len, range, value, display)
 
-  return offset + length
+  return offset + length, value
 end
 
 -- Display: Message Header
@@ -2929,18 +2929,9 @@ dissect.message_header = function(buffer, offset, packet, parent)
   return dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Message
+-- Size Of: Message
 size_of.message = function(buffer, offset)
-  local index = 0
-
-  index = index + 8
-
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 6, 2):le_uint()
-  index = index + size_of.payload(buffer, payload_offset, payload_type)
-
-  return index
+  return buffer(offset + 0, 2):le_uint()
 end
 
 -- Display: Message
@@ -2963,15 +2954,18 @@ end
 
 -- Dissect: Message
 dissect.message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  -- Parse runtime struct size
+  local length = size_of.message(buffer, offset)
+
+  -- Optionally add struct element to protocol tree
   if show.message then
-    local length = size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.message(buffer, packet, parent)
     parent = parent:add(eurex_t7_eobi_2_5_5.fields.message, range, display)
   end
 
-  return dissect.message_fields(buffer, offset, packet, parent)
+  dissect.message_fields(buffer, offset, packet, parent)
+  return offset + length
 end
 
 -- Dissect Packet
