@@ -16,20 +16,20 @@ The standard path on a linux install:
 ```
 //usr/share/wireshark/plugins
 ```
-For all configuration information: [Wireshark Configuration Files.](https://www.wireshark.org/docs/wsug_html_chunked/ChAppFilesConfigurationSection.html "Wireshark Files Configuration Documentation")
+For configuration information: [Wireshark Configuration Files.](https://www.wireshark.org/docs/wsug_html_chunked/ChAppFilesConfigurationSection.html "Wireshark Files Configuration Documentation")
 ## Protocols
 
 |Organization | Protocol | Data | Version | Date | Size | Testing|
 |--- | --- | --- | --- | --- | --- | ---|
-|Asx | T24 | Itch | 2.4 | 7/15/2014 | 4843 | Verified|
-|Cme | Sbe | Mdp | 8.1 | 7/1/2016 | 7452 | Verified|
-|Cme | Sbe | Mdp | 6.1 | 1/9/2016 | 6738 | Verified|
-|Cme | Sbe | Mdp | 5.1 | 8/6/2014 | 6729 | Verified|
-|Eurex | T7 | Eobi | 3.0.71 | 8/3/2015 | 3076 | Untested|
-|Eurex | T7 | Eobi | 2.5.5 | 11/7/2014 | 3058 | Untested|
-|Ice | iMpact | Mdp | 1.24 | 3/30/2016 | 6111 | Verified|
-|Miax | Mach | cTom | 1.1 | 7/15/2016 | 2404 | Verified|
-|Miax | Mach | Tom | 1.9 | 1/15/2016 | 2149 | Verified|
+|[Asx](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Asx "Australian Securities Exchange Dissectors") | T24 | Itch | 2.4 | 7/15/2014 | 4843 | Verified|
+|[Cme](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange Dissectors") | Sbe | Mdp | 8.1 | 7/1/2016 | 7452 | Verified|
+|[Cme](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange Dissectors") | Sbe | Mdp | 6.1 | 1/9/2016 | 6738 | Verified|
+|[Cme](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange Dissectors") | Sbe | Mdp | 5.1 | 8/6/2014 | 6729 | Verified|
+|[Eurex](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Eurex "Eurex Exchange Dissectors") | T7 | Eobi | 3.0.71 | 8/3/2015 | 3076 | Untested|
+|[Eurex](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Eurex "Eurex Exchange Dissectors") | T7 | Eobi | 2.5.5 | 11/7/2014 | 3058 | Untested|
+|[Ice](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Ice "Intercontinental Exchange Dissectors") | iMpact | Mdp | 1.24 | 3/30/2016 | 6111 | Verified|
+|[Miax](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Miax "Miami International Securities Exchange Dissectors") | Mach | cTom | 1.1 | 7/15/2016 | 2404 | Verified|
+|[Miax](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Miax "Miami International Securities Exchange Dissectors") | Mach | Tom | 1.9 | 1/15/2016 | 2149 | Verified|
 
 Note: Some packets contain enough information to programmatically determine the correct protocol specification.  *Some do not.*  If you add multiple dissectors to your plugins folder, wireshark will dissect each "conversation" based on the first matching protocol.
 
