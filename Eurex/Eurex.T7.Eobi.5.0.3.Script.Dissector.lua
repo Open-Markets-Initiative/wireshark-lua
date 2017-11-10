@@ -3239,7 +3239,7 @@ end
 
 -- Verify Packet Id Field
 verify.packet_id = function(buffer)
-  if 13003 == buffer(2, 2):le_uint() then
+  if 13000 == buffer(2, 2):le_uint() then
     return true
   end
 
