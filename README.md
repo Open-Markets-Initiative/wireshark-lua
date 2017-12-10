@@ -6,12 +6,12 @@ Lua wireshark dissector scripts provide an easily customized cross platform diss
 
 To dissect packets, place lua script(s) in the wireshark plugins directory.
 
-The standard path on a windows install:
+Standard path on a windows install:
 
 ```
 C:\Program Files\Wireshark\plugins\[version]\
 ```
-The standard path on a linux install:
+Standard path on a linux install:
 
 ```
 //usr/share/wireshark/plugins
@@ -37,13 +37,13 @@ Note: Some packets contain enough information to programmatically determine the 
 
 ## Development
 
-Updates are greatly appreciated; however, this entire repository is source generated...including the words you are reading right now. Code generation requires a slighty different workflow.  The recommended process is to post a dissector script with suggested edits and explanation.  If the changes are applicable to some or all protocols, we will update the model and regenerate.
+Updates are greatly appreciated; however, this entire repository is source generated...including the words you are reading right now. Code generation requires a slightly different workflow.  The recommended process is to post a dissector script with suggested edits and explanation.  If the changes are applicable to some or all protocols, we will update the model and regenerate.
 
-Note: Our dissector model is still in beta and subject to rapid development.
+Note: Our dissector generation model is still under rapid development.
 
 ## Testing
 
-Please report any dissection errors as issues.  Include a small note on the protocol and version, what you expect, a zipped minimal capture demonstrating the problem, and a link or pdf specification documenting the correct behavior. 
+Please report any dissection errors as issues.  Include a small note on the protocol and version, what you expect, a zipped minimal capture demonstrating the problem, and a link or pdf specification documenting the correct behavior.
 
 Production captures are required for protocol verification.  If your organization has the rights to donate captures, and you wish to make the world a better place, please contact us.
 
@@ -51,7 +51,7 @@ Production captures are required for protocol verification.  If your organizatio
 
 The Open Markets Initiative (Omi) is a group of technologists dedicated to enhancing the stability of electronic financial markets using modern development methods.
 
-Any similaraity between existing people, places and/or protocols is purely incidental.
+Any similarities between existing people, places and/or protocols is purely incidental.
 
 Enjoy.
 
