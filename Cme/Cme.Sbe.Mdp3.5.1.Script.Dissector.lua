@@ -355,7 +355,7 @@ cme_sbe_mdp3_5_1.fields.zero_price_outright_eligible = ProtoField.new("Zero Pric
 -- Dissect Cme Sbe Mdp3 5.1
 -----------------------------------------------------------------------
 
--- Display Padding 4
+-- Display: Padding 4
 display.padding_4 = function(value)
   return "Padding 4: "..value
 end
@@ -372,7 +372,7 @@ dissect.padding_4 = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Last Qty
+-- Display: Last Qty
 display.last_qty = function(value)
   return "Last Qty: "..value
 end
@@ -389,7 +389,7 @@ dissect.last_qty = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Order ID
+-- Display: Order ID
 display.order_id = function(value)
   return "Order ID: "..value
 end
@@ -439,7 +439,7 @@ dissect.md_incremental_refresh_trade_summary_order_group = function(buffer, offs
   return dissect.md_incremental_refresh_trade_summary_order_group_fields(buffer, offset, packet, parent)
 end
 
--- Display num In Group
+-- Display: num In Group
 display.num_in_group = function(value)
   return "num In Group: "..value
 end
@@ -456,7 +456,7 @@ dissect.num_in_group = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Display Padding 5
+-- Display: Padding 5
 display.padding_5 = function(value)
   return "Padding 5: "..value
 end
@@ -473,7 +473,7 @@ dissect.padding_5 = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display block Length
+-- Display: block Length
 display.block_length = function(value)
   return "block Length: "..value
 end
@@ -571,7 +571,7 @@ dissect.md_incremental_refresh_trade_summary_order_groups = function(buffer, off
   return dissect.md_incremental_refresh_trade_summary_order_groups_fields(buffer, offset, packet, parent)
 end
 
--- Display Padding 6
+-- Display: Padding 6
 display.padding_6 = function(value)
   return "Padding 6: "..value
 end
@@ -651,7 +651,7 @@ dissect.aggressor_side = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Number Of Orders
+-- Display: Number Of Orders
 display.number_of_orders = function(value)
   return "Number Of Orders: "..value
 end
@@ -668,7 +668,7 @@ dissect.number_of_orders = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Rpt Seq
+-- Display: Rpt Seq
 display.rpt_seq = function(value)
   return "Rpt Seq: "..value
 end
@@ -685,7 +685,7 @@ dissect.rpt_seq = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Security ID
+-- Display: Security ID
 display.security_id = function(value)
   return "Security ID: "..value
 end
@@ -702,7 +702,7 @@ dissect.security_id = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display MD Entry Size
+-- Display: MD Entry Size
 display.md_entry_size = function(value)
   return "MD Entry Size: "..value
 end
@@ -719,7 +719,7 @@ dissect.md_entry_size = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display MD Entry Px
+-- Display: MD Entry Px
 display.md_entry_px = function(value)
   local factor = 10000000
   return "MD Entry Px: "..value/factor
@@ -863,7 +863,7 @@ dissect.md_incremental_refresh_trade_summary_groups = function(buffer, offset, p
   return dissect.md_incremental_refresh_trade_summary_groups_fields(buffer, offset, packet, parent)
 end
 
--- Display Padding 2
+-- Display: Padding 2
 display.padding_2 = function(value)
   return "Padding 2: "..value
 end
@@ -880,7 +880,7 @@ dissect.padding_2 = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Match Event Indicator
+-- Display: Match Event Indicator
 display.match_event_indicator = function(buffer, packet, parent)
   local display = ""
 
@@ -962,7 +962,7 @@ dissect.match_event_indicator = function(buffer, offset, packet, parent)
   return offset + 1
 end
 
--- Display Transact Time
+-- Display: Transact Time
 display.transact_time = function(value)
   return "Transact Time: "..value
 end
@@ -1032,7 +1032,7 @@ dissect.md_incremental_refresh_trade_summary = function(buffer, offset, packet, 
   return dissect.md_incremental_refresh_trade_summary_fields(buffer, offset, packet, parent)
 end
 
--- Display Underlying Symbol
+-- Display: Underlying Symbol
 display.underlying_symbol = function(value)
   return "Underlying Symbol: "..value
 end
@@ -1049,7 +1049,7 @@ dissect.underlying_symbol = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Underlying Security ID
+-- Display: Underlying Security ID
 display.underlying_security_id = function(value)
   return "Underlying Security ID: "..value
 end
@@ -1144,7 +1144,7 @@ dissect.underlyings_groups = function(buffer, offset, packet, parent)
   return dissect.underlyings_groups_fields(buffer, offset, packet, parent)
 end
 
--- Display Min Lot Size
+-- Display: Min Lot Size
 display.min_lot_size = function(value)
   local factor = 10000
   return "Min Lot Size: "..value/factor
@@ -1162,7 +1162,7 @@ dissect.min_lot_size = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Lot Type
+-- Display: Lot Type
 display.lot_type = function(value)
   return "Lot Type: "..value
 end
@@ -1257,7 +1257,7 @@ dissect.lot_type_rules_groups = function(buffer, offset, packet, parent)
   return dissect.lot_type_rules_groups_fields(buffer, offset, packet, parent)
 end
 
--- Display Inst Attrib Value
+-- Display: Inst Attrib Value
 display.inst_attrib_value = function(buffer, packet, parent)
   local display = ""
 
@@ -1501,7 +1501,7 @@ dissect.inst_attrib_groups = function(buffer, offset, packet, parent)
   return dissect.inst_attrib_groups_fields(buffer, offset, packet, parent)
 end
 
--- Display Market Depth
+-- Display: Market Depth
 display.market_depth = function(value)
   return "Market Depth: "..value
 end
@@ -1518,7 +1518,7 @@ dissect.market_depth = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display MD Feed Type
+-- Display: MD Feed Type
 display.md_feed_type = function(value)
   return "MD Feed Type: "..value
 end
@@ -1613,7 +1613,7 @@ dissect.md_feed_types_groups = function(buffer, offset, packet, parent)
   return dissect.md_feed_types_groups_fields(buffer, offset, packet, parent)
 end
 
--- Display Event Time
+-- Display: Event Time
 display.event_time = function(value)
   return "Event Time: "..value
 end
@@ -1732,7 +1732,7 @@ dissect.events_groups = function(buffer, offset, packet, parent)
   return dissect.events_groups_fields(buffer, offset, packet, parent)
 end
 
--- Display User Defined Instrument
+-- Display: User Defined Instrument
 display.user_defined_instrument = function(value)
   return "User Defined Instrument: "..value
 end
@@ -1749,7 +1749,7 @@ dissect.user_defined_instrument = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display High Limit Price
+-- Display: High Limit Price
 display.high_limit_price = function(value)
   local factor = 10000000
   return "High Limit Price: "..value/factor
@@ -1767,7 +1767,7 @@ dissect.high_limit_price = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Low Limit Price
+-- Display: Low Limit Price
 display.low_limit_price = function(value)
   local factor = 10000000
   return "Low Limit Price: "..value/factor
@@ -1785,7 +1785,7 @@ dissect.low_limit_price = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Open Interest Qty
+-- Display: Open Interest Qty
 display.open_interest_qty = function(value)
   return "Open Interest Qty: "..value
 end
@@ -1802,7 +1802,7 @@ dissect.open_interest_qty = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Cleared Volume
+-- Display: Cleared Volume
 display.cleared_volume = function(value)
   return "Cleared Volume: "..value
 end
@@ -1819,7 +1819,7 @@ dissect.cleared_volume = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Settl Price Type
+-- Display: Settl Price Type
 display.settl_price_type = function(buffer, packet, parent)
   local display = ""
 
@@ -1883,7 +1883,7 @@ dissect.settl_price_type = function(buffer, offset, packet, parent)
   return offset + 1
 end
 
--- Display Trading Reference Price
+-- Display: Trading Reference Price
 display.trading_reference_price = function(value)
   local factor = 10000000
   return "Trading Reference Price: "..value/factor
@@ -1901,7 +1901,7 @@ dissect.trading_reference_price = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Unit Of Measure Qty
+-- Display: Unit Of Measure Qty
 display.unit_of_measure_qty = function(value)
   local factor = 10000000
   return "Unit Of Measure Qty: "..value/factor
@@ -1919,7 +1919,7 @@ dissect.unit_of_measure_qty = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Unit Of Measure
+-- Display: Unit Of Measure
 display.unit_of_measure = function(value)
   return "Unit Of Measure: "..value
 end
@@ -1936,7 +1936,7 @@ dissect.unit_of_measure = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Price Display Format
+-- Display: Price Display Format
 display.price_display_format = function(value)
   return "Price Display Format: "..value
 end
@@ -1953,7 +1953,7 @@ dissect.price_display_format = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Sub Fraction
+-- Display: Sub Fraction
 display.sub_fraction = function(value)
   return "Sub Fraction: "..value
 end
@@ -1970,7 +1970,7 @@ dissect.sub_fraction = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Main Fraction
+-- Display: Main Fraction
 display.main_fraction = function(value)
   return "Main Fraction: "..value
 end
@@ -1987,7 +1987,7 @@ dissect.main_fraction = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Tick Rule
+-- Display: Tick Rule
 display.tick_rule = function(value)
   return "Tick Rule: "..value
 end
@@ -2004,7 +2004,7 @@ dissect.tick_rule = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Display Factor
+-- Display: Display Factor
 display.display_factor = function(value)
   local factor = 10000000
   return "Display Factor: "..value/factor
@@ -2022,7 +2022,7 @@ dissect.display_factor = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Min Price Increment Amount
+-- Display: Min Price Increment Amount
 display.min_price_increment_amount = function(value)
   local factor = 10000000
   return "Min Price Increment Amount: "..value/factor
@@ -2040,7 +2040,7 @@ dissect.min_price_increment_amount = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Min Price Increment
+-- Display: Min Price Increment
 display.min_price_increment = function(value)
   local factor = 10000000
   return "Min Price Increment: "..value/factor
@@ -2058,7 +2058,7 @@ dissect.min_price_increment = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Max Trade Vol
+-- Display: Max Trade Vol
 display.max_trade_vol = function(value)
   return "Max Trade Vol: "..value
 end
@@ -2075,7 +2075,7 @@ dissect.max_trade_vol = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Min Trade Vol
+-- Display: Min Trade Vol
 display.min_trade_vol = function(value)
   return "Min Trade Vol: "..value
 end
@@ -2092,7 +2092,7 @@ dissect.min_trade_vol = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Match Algorithm
+-- Display: Match Algorithm
 display.match_algorithm = function(value)
   return "Match Algorithm: "..value
 end
@@ -2109,7 +2109,7 @@ dissect.match_algorithm = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Min Cab Price
+-- Display: Min Cab Price
 display.min_cab_price = function(value)
   local factor = 10000000
   return "Min Cab Price: "..value/factor
@@ -2127,7 +2127,7 @@ dissect.min_cab_price = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Settl Currency
+-- Display: Settl Currency
 display.settl_currency = function(value)
   return "Settl Currency: "..value
 end
@@ -2144,7 +2144,7 @@ dissect.settl_currency = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Strike Currency
+-- Display: Strike Currency
 display.strike_currency = function(value)
   return "Strike Currency: "..value
 end
@@ -2161,7 +2161,7 @@ dissect.strike_currency = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Strike Price
+-- Display: Strike Price
 display.strike_price = function(value)
   local factor = 10000000
   return "Strike Price: "..value/factor
@@ -2179,7 +2179,7 @@ dissect.strike_price = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Currency
+-- Display: Currency
 display.currency = function(value)
   return "Currency: "..value
 end
@@ -2196,7 +2196,7 @@ dissect.currency = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display week
+-- Display: week
 display.week = function(value)
   -- Check if field has value
   if value == 255 then
@@ -2218,7 +2218,7 @@ dissect.week = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display day
+-- Display: day
 display.day = function(value)
   -- Check if field has value
   if value == 255 then
@@ -2240,7 +2240,7 @@ dissect.day = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display month
+-- Display: month
 display.month = function(value)
   -- Check if field has value
   if value == 255 then
@@ -2262,7 +2262,7 @@ dissect.month = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display year
+-- Display: year
 display.year = function(value)
   -- Check if field has value
   if value == 65535 then
@@ -2344,7 +2344,7 @@ dissect.put_or_call = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display CFI Code
+-- Display: CFI Code
 display.cfi_code = function(value)
   return "CFI Code: "..value
 end
@@ -2361,7 +2361,7 @@ dissect.cfi_code = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Security Type
+-- Display: Security Type
 display.security_type = function(value)
   return "Security Type: "..value
 end
@@ -2378,7 +2378,7 @@ dissect.security_type = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Symbol
+-- Display: Symbol
 display.symbol = function(value)
   return "Symbol: "..value
 end
@@ -2395,7 +2395,7 @@ dissect.symbol = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Asset
+-- Display: Asset
 display.asset = function(value)
   return "Asset: "..value
 end
@@ -2412,7 +2412,7 @@ dissect.asset = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Security Group
+-- Display: Security Group
 display.security_group = function(value)
   return "Security Group: "..value
 end
@@ -2429,7 +2429,7 @@ dissect.security_group = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Security Exchange
+-- Display: Security Exchange
 display.security_exchange = function(value)
   return "Security Exchange: "..value
 end
@@ -2446,7 +2446,7 @@ dissect.security_exchange = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Underlying Product
+-- Display: Underlying Product
 display.underlying_product = function(value)
   return "Underlying Product: "..value
 end
@@ -2463,7 +2463,7 @@ dissect.underlying_product = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Market Segment ID
+-- Display: Market Segment ID
 display.market_segment_id = function(value)
   return "Market Segment ID: "..value
 end
@@ -2480,7 +2480,7 @@ dissect.market_segment_id = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Appl ID
+-- Display: Appl ID
 display.appl_id = function(value)
   return "Appl ID: "..value
 end
@@ -2497,7 +2497,7 @@ dissect.appl_id = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display MD Security Trading Status
+-- Display: MD Security Trading Status
 display.md_security_trading_status = function(value)
   return "MD Security Trading Status: "..value
 end
@@ -2514,7 +2514,7 @@ dissect.md_security_trading_status = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Last Update Time
+-- Display: Last Update Time
 display.last_update_time = function(value)
   return "Last Update Time: "..value
 end
@@ -2558,7 +2558,7 @@ dissect.security_update_action = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Tot Num Reports
+-- Display: Tot Num Reports
 display.tot_num_reports = function(value)
   return "Tot Num Reports: "..value
 end
@@ -2757,7 +2757,7 @@ dissect.md_instrument_definition_option = function(buffer, offset, packet, paren
   return dissect.md_instrument_definition_option_fields(buffer, offset, packet, parent)
 end
 
--- Display Side
+-- Display: Side
 display.side = function(value)
   return "Side: "..value
 end
@@ -2774,7 +2774,7 @@ dissect.side = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Quote Type
+-- Display: Quote Type
 display.quote_type = function(value)
   return "Quote Type: "..value
 end
@@ -2791,7 +2791,7 @@ dissect.quote_type = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Order Qty
+-- Display: Order Qty
 display.order_qty = function(value)
   return "Order Qty: "..value
 end
@@ -2898,7 +2898,7 @@ dissect.related_sym_groups = function(buffer, offset, packet, parent)
   return dissect.related_sym_groups_fields(buffer, offset, packet, parent)
 end
 
--- Display Padding 3
+-- Display: Padding 3
 display.padding_3 = function(value)
   return "Padding 3: "..value
 end
@@ -2915,7 +2915,7 @@ dissect.padding_3 = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Quote Req ID
+-- Display: Quote Req ID
 display.quote_req_id = function(value)
   return "Quote Req ID: "..value
 end
@@ -3076,7 +3076,7 @@ dissect.open_close_settl_flag = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Trading Reference Date
+-- Display: Trading Reference Date
 display.trading_reference_date = function(value)
   return "Trading Reference Date: "..value
 end
@@ -3093,7 +3093,7 @@ dissect.trading_reference_date = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display MD Price Level
+-- Display: MD Price Level
 display.md_price_level = function(value)
   return "MD Price Level: "..value
 end
@@ -3206,7 +3206,7 @@ dissect.snapshot_full_refresh_groups = function(buffer, offset, packet, parent)
   return dissect.snapshot_full_refresh_groups_fields(buffer, offset, packet, parent)
 end
 
--- Display Max Price Variation
+-- Display: Max Price Variation
 display.max_price_variation = function(value)
   local factor = 10000000
   return "Max Price Variation: "..value/factor
@@ -3224,7 +3224,7 @@ dissect.max_price_variation = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Trade Date
+-- Display: Trade Date
 display.trade_date = function(value)
   return "Trade Date: "..value
 end
@@ -3241,7 +3241,7 @@ dissect.trade_date = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Last Msg Seq Num Processed
+-- Display: Last Msg Seq Num Processed
 display.last_msg_seq_num_processed = function(value)
   return "Last Msg Seq Num Processed: "..value
 end
@@ -3465,7 +3465,7 @@ dissect.md_incremental_refresh_volume = function(buffer, offset, packet, parent)
   return dissect.md_incremental_refresh_volume_fields(buffer, offset, packet, parent)
 end
 
--- Display Trade ID
+-- Display: Trade ID
 display.trade_id = function(value)
   return "Trade ID: "..value
 end
@@ -3905,7 +3905,7 @@ dissect.md_incremental_refresh_limits_banding = function(buffer, offset, packet,
   return dissect.md_incremental_refresh_limits_banding_fields(buffer, offset, packet, parent)
 end
 
--- Display Padding 7
+-- Display: Padding 7
 display.padding_7 = function(value)
   return "Padding 7: "..value
 end
@@ -4390,7 +4390,7 @@ dissect.security_status = function(buffer, offset, packet, parent)
   return dissect.security_status_fields(buffer, offset, packet, parent)
 end
 
--- Display Leg Option Delta
+-- Display: Leg Option Delta
 display.leg_option_delta = function(value)
   local factor = 10000
   return "Leg Option Delta: "..value/factor
@@ -4408,7 +4408,7 @@ dissect.leg_option_delta = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Leg Price
+-- Display: Leg Price
 display.leg_price = function(value)
   local factor = 10000000
   return "Leg Price: "..value/factor
@@ -4426,7 +4426,7 @@ dissect.leg_price = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Leg Ratio Qty
+-- Display: Leg Ratio Qty
 display.leg_ratio_qty = function(value)
   return "Leg Ratio Qty: "..value
 end
@@ -4467,7 +4467,7 @@ dissect.leg_side = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Leg Security ID
+-- Display: Leg Security ID
 display.leg_security_id = function(value)
   return "Leg Security ID: "..value
 end
@@ -4571,7 +4571,7 @@ dissect.legs_groups = function(buffer, offset, packet, parent)
   return dissect.legs_groups_fields(buffer, offset, packet, parent)
 end
 
--- Display Price Ratio
+-- Display: Price Ratio
 display.price_ratio = function(value)
   local factor = 10000000
   return "Price Ratio: "..value/factor
@@ -4589,7 +4589,7 @@ dissect.price_ratio = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Security Sub Type
+-- Display: Security Sub Type
 display.security_sub_type = function(value)
   return "Security Sub Type: "..value
 end
@@ -4776,7 +4776,7 @@ dissect.md_instrument_definition_spread = function(buffer, offset, packet, paren
   return dissect.md_instrument_definition_spread_fields(buffer, offset, packet, parent)
 end
 
--- Display Flow Schedule Type
+-- Display: Flow Schedule Type
 display.flow_schedule_type = function(value)
   return "Flow Schedule Type: "..value
 end
@@ -4793,7 +4793,7 @@ dissect.flow_schedule_type = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Contract Multiplier Unit
+-- Display: Contract Multiplier Unit
 display.contract_multiplier_unit = function(value)
   return "Contract Multiplier Unit: "..value
 end
@@ -4810,7 +4810,7 @@ dissect.contract_multiplier_unit = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Contract Multiplier
+-- Display: Contract Multiplier
 display.contract_multiplier = function(value)
   return "Contract Multiplier: "..value
 end
@@ -4827,7 +4827,7 @@ dissect.contract_multiplier = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Original Contract Size
+-- Display: Original Contract Size
 display.original_contract_size = function(value)
   return "Original Contract Size: "..value
 end
@@ -4844,7 +4844,7 @@ dissect.original_contract_size = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Decay Start Date
+-- Display: Decay Start Date
 display.decay_start_date = function(value)
   return "Decay Start Date: "..value
 end
@@ -4861,7 +4861,7 @@ dissect.decay_start_date = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Decay Quantity
+-- Display: Decay Quantity
 display.decay_quantity = function(value)
   return "Decay Quantity: "..value
 end
@@ -5061,7 +5061,7 @@ dissect.md_instrument_definition_future = function(buffer, offset, packet, paren
   return dissect.md_instrument_definition_future_fields(buffer, offset, packet, parent)
 end
 
--- Display Text
+-- Display: Text
 display.text = function(value)
   return "Text: "..value
 end
@@ -5105,7 +5105,7 @@ dissect.admin_logout = function(buffer, offset, packet, parent)
   return dissect.admin_logout_fields(buffer, offset, packet, parent)
 end
 
--- Display Heart Bt Int
+-- Display: Heart Bt Int
 display.heart_bt_int = function(value)
   return "Heart Bt Int: "..value
 end
@@ -5444,7 +5444,7 @@ dissect.payload = function(buffer, offset, packet, parent)
   return dissect.payload_branches(code, buffer, offset, packet, element)
 end
 
--- Display Version
+-- Display: Version
 display.version = function(value)
   return "Version: "..value
 end
@@ -5461,7 +5461,7 @@ dissect.version = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Schema Id
+-- Display: Schema Id
 display.schema_id = function(value)
   return "Schema Id: "..value
 end
@@ -5547,7 +5547,7 @@ dissect.template_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Display Block Length
+-- Display: Block Length
 display.block_length = function(value)
   return "Block Length: "..value
 end
@@ -5564,7 +5564,7 @@ dissect.block_length = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Message Size
+-- Display: Message Size
 display.message_size = function(value)
   return "Message Size: "..value
 end
@@ -5665,7 +5665,7 @@ dissect.message = function(buffer, offset, packet, parent)
   return dissect.message_fields(buffer, offset, packet, parent)
 end
 
--- Display Sending Time
+-- Display: Sending Time
 display.sending_time = function(value)
   return "Sending Time: "..value
 end
@@ -5682,7 +5682,7 @@ dissect.sending_time = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Message Sequence Number
+-- Display: Message Sequence Number
 display.message_sequence_number = function(value)
   return "Message Sequence Number: "..value
 end

@@ -199,7 +199,7 @@ eurex_t7_eobi_4_0_225.fields.trd_reg_ts_time_priority = ProtoField.new("Trd Reg 
 -- Dissect Eurex T7 Eobi 4.0.225
 -----------------------------------------------------------------------
 
--- Display Pad3
+-- Display: Pad3
 display.pad3 = function(value)
   return "Pad3: "..value
 end
@@ -270,7 +270,7 @@ dissect.md_entry_type = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display MD Entry Size
+-- Display: MD Entry Size
 display.md_entry_size = function(value)
   return "MD Entry Size: "..value
 end
@@ -287,7 +287,7 @@ dissect.md_entry_size = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display MD Entry Px
+-- Display: MD Entry Px
 display.md_entry_px = function(value)
   local factor = 100000000
   return "MD Entry Px: "..value/factor
@@ -341,7 +341,7 @@ dissect.md_trade_entry_grp = function(buffer, offset, packet, parent)
   return dissect.md_trade_entry_grp_fields(buffer, offset, packet, parent)
 end
 
--- Display Pad7
+-- Display: Pad7
 display.pad7 = function(value)
   return "Pad7: "..value
 end
@@ -358,7 +358,7 @@ dissect.pad7 = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display No MD Entries
+-- Display: No MD Entries
 display.no_md_entries = function(value)
   return "No MD Entries: "..value
 end
@@ -375,7 +375,7 @@ dissect.no_md_entries = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Display Trd Reg TS Execution Time
+-- Display: Trd Reg TS Execution Time
 display.trd_reg_ts_execution_time = function(value)
   return "Trd Reg TS Execution Time: "..value
 end
@@ -392,7 +392,7 @@ dissect.trd_reg_ts_execution_time = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Last Px
+-- Display: Last Px
 display.last_px = function(value)
   local factor = 100000000
   return "Last Px: "..value/factor
@@ -410,7 +410,7 @@ dissect.last_px = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Last Qty
+-- Display: Last Qty
 display.last_qty = function(value)
   return "Last Qty: "..value
 end
@@ -427,7 +427,7 @@ dissect.last_qty = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Trd Match ID
+-- Display: Trd Match ID
 display.trd_match_id = function(value)
   return "Trd Match ID: "..value
 end
@@ -444,7 +444,7 @@ dissect.trd_match_id = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Transact Time
+-- Display: Transact Time
 display.transact_time = function(value)
   return "Transact Time: "..value
 end
@@ -461,7 +461,7 @@ dissect.transact_time = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Security ID
+-- Display: Security ID
 display.security_id = function(value)
   return "Security ID: "..value
 end
@@ -547,7 +547,7 @@ dissect.trade_reversal = function(buffer, offset, packet, parent)
   return dissect.trade_reversal_fields(buffer, offset, packet, parent)
 end
 
--- Display Pad6
+-- Display: Pad6
 display.pad6 = function(value)
   return "Pad6: "..value
 end
@@ -672,7 +672,7 @@ dissect.trade_report = function(buffer, offset, packet, parent)
   return dissect.trade_report_fields(buffer, offset, packet, parent)
 end
 
--- Display Offer Px
+-- Display: Offer Px
 display.offer_px = function(value)
   local factor = 100000000
   return "Offer Px: "..value/factor
@@ -690,7 +690,7 @@ dissect.offer_px = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Bid Px
+-- Display: Bid Px
 display.bid_px = function(value)
   local factor = 100000000
   return "Bid Px: "..value/factor
@@ -744,7 +744,7 @@ dissect.top_of_book = function(buffer, offset, packet, parent)
   return dissect.top_of_book_fields(buffer, offset, packet, parent)
 end
 
--- Display Price
+-- Display: Price
 display.price = function(value)
   local factor = 100000000
   return "Price: "..value/factor
@@ -762,7 +762,7 @@ dissect.price = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Pad2
+-- Display: Pad2
 display.pad2 = function(value)
   return "Pad2: "..value
 end
@@ -824,7 +824,7 @@ dissect.side = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Display Qty
+-- Display: Display Qty
 display.display_qty = function(value)
   return "Display Qty: "..value
 end
@@ -841,7 +841,7 @@ dissect.display_qty = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Trd Reg TS Time Priority
+-- Display: Trd Reg TS Time Priority
 display.trd_reg_ts_time_priority = function(value)
   return "Trd Reg TS Time Priority: "..value
 end
@@ -1083,7 +1083,7 @@ dissect.trading_session_id = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Last Msg Seq Num Processed
+-- Display: Last Msg Seq Num Processed
 display.last_msg_seq_num_processed = function(value)
   return "Last Msg Seq Num Processed: "..value
 end
@@ -1139,7 +1139,7 @@ dissect.product_summary = function(buffer, offset, packet, parent)
   return dissect.product_summary_fields(buffer, offset, packet, parent)
 end
 
--- Display Pad4
+-- Display: Pad4
 display.pad4 = function(value)
   return "Pad4: "..value
 end
@@ -1249,7 +1249,7 @@ dissect.partial_order_execution = function(buffer, offset, packet, parent)
   return dissect.partial_order_execution_fields(buffer, offset, packet, parent)
 end
 
--- Display Pad5
+-- Display: Pad5
 display.pad5 = function(value)
   return "Pad5: "..value
 end
@@ -1314,7 +1314,7 @@ dissect.completion_indicator = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Partition ID
+-- Display: Partition ID
 display.partition_id = function(value)
   return "Partition ID: "..value
 end
@@ -1331,7 +1331,7 @@ dissect.partition_id = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Market Segment ID
+-- Display: Market Segment ID
 display.market_segment_id = function(value)
   return "Market Segment ID: "..value
 end
@@ -1348,7 +1348,7 @@ dissect.market_segment_id = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Application Sequence Number
+-- Display: Application Sequence Number
 display.application_sequence_number = function(value)
   return "Application Sequence Number: "..value
 end
@@ -1365,7 +1365,7 @@ dissect.application_sequence_number = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Packet Seq Num
+-- Display: Packet Seq Num
 display.packet_seq_num = function(value)
   return "Packet Seq Num: "..value
 end
@@ -1382,7 +1382,7 @@ dissect.packet_seq_num = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Packet Id
+-- Display: Packet Id
 display.packet_id = function(value)
   return "Packet Id: "..value
 end
@@ -1399,7 +1399,7 @@ dissect.packet_id = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Header Length
+-- Display: Header Length
 display.header_length = function(value)
   return "Header Length: "..value
 end
@@ -1497,7 +1497,7 @@ dissect.packet_header = function(buffer, offset, packet, parent)
   return dissect.packet_header_fields(buffer, offset, packet, parent)
 end
 
--- Display Prev Display Qty
+-- Display: Prev Display Qty
 display.prev_display_qty = function(value)
   return "Prev Display Qty: "..value
 end
@@ -1514,7 +1514,7 @@ dissect.prev_display_qty = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Trd Reg TS Time In
+-- Display: Trd Reg TS Time In
 display.trd_reg_ts_time_in = function(value)
   return "Trd Reg TS Time In: "..value
 end
@@ -1573,7 +1573,7 @@ dissect.order_modify_same_prio = function(buffer, offset, packet, parent)
   return dissect.order_modify_same_prio_fields(buffer, offset, packet, parent)
 end
 
--- Display Prev Price
+-- Display: Prev Price
 display.prev_price = function(value)
   local factor = 100000000
   return "Prev Price: "..value/factor
@@ -1591,7 +1591,7 @@ dissect.prev_price = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Trd Reg TS Prev Time Priority
+-- Display: Trd Reg TS Prev Time Priority
 display.trd_reg_ts_prev_time_priority = function(value)
   return "Trd Reg TS Prev Time Priority: "..value
 end
@@ -1788,7 +1788,7 @@ dissect.md_instrument_entry_grp = function(buffer, offset, packet, parent)
   return dissect.md_instrument_entry_grp_fields(buffer, offset, packet, parent)
 end
 
--- Display Pad1
+-- Display: Pad1
 display.pad1 = function(value)
   return "Pad1: "..value
 end
@@ -1925,7 +1925,7 @@ dissect.security_status = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Tot No Orders
+-- Display: Tot No Orders
 display.tot_no_orders = function(value)
   return "Tot No Orders: "..value
 end
@@ -1942,7 +1942,7 @@ dissect.tot_no_orders = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Last Update Time
+-- Display: Last Update Time
 display.last_update_time = function(value)
   return "Last Update Time: "..value
 end
@@ -2160,7 +2160,7 @@ dissect.full_order_execution = function(buffer, offset, packet, parent)
   return dissect.full_order_execution_fields(buffer, offset, packet, parent)
 end
 
--- Display Resting Cxl Qty
+-- Display: Resting Cxl Qty
 display.resting_cxl_qty = function(value)
   return "Resting Cxl Qty: "..value
 end
@@ -2177,7 +2177,7 @@ dissect.resting_cxl_qty = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Resting Hidden Qty
+-- Display: Resting Hidden Qty
 display.resting_hidden_qty = function(value)
   return "Resting Hidden Qty: "..value
 end
@@ -2239,7 +2239,7 @@ dissect.aggressor_side = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Exec ID
+-- Display: Exec ID
 display.exec_id = function(value)
   return "Exec ID: "..value
 end
@@ -2256,7 +2256,7 @@ dissect.exec_id = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Request Time
+-- Display: Request Time
 display.request_time = function(value)
   return "Request Time: "..value
 end
@@ -2273,7 +2273,7 @@ dissect.request_time = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Aggressor Time
+-- Display: Aggressor Time
 display.aggressor_time = function(value)
   return "Aggressor Time: "..value
 end
@@ -2407,7 +2407,7 @@ dissect.potential_security_trading_event = function(buffer, offset, packet, pare
   return offset + length
 end
 
--- Display Imbalance Qty
+-- Display: Imbalance Qty
 display.imbalance_qty = function(value)
   return "Imbalance Qty: "..value
 end
@@ -2472,7 +2472,7 @@ dissect.auction_clearing_price = function(buffer, offset, packet, parent)
   return dissect.auction_clearing_price_fields(buffer, offset, packet, parent)
 end
 
--- Display Offer Size
+-- Display: Offer Size
 display.offer_size = function(value)
   return "Offer Size: "..value
 end
@@ -2489,7 +2489,7 @@ dissect.offer_size = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Bid Size
+-- Display: Bid Size
 display.bid_size = function(value)
   return "Bid Size: "..value
 end
@@ -2578,7 +2578,7 @@ dissect.leg_side = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Leg Ratio Qty
+-- Display: Leg Ratio Qty
 display.leg_ratio_qty = function(value)
   return "Leg Ratio Qty: "..value
 end
@@ -2595,7 +2595,7 @@ dissect.leg_ratio_qty = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Leg Security ID
+-- Display: Leg Security ID
 display.leg_security_id = function(value)
   return "Leg Security ID: "..value
 end
@@ -2612,7 +2612,7 @@ dissect.leg_security_id = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Leg Symbol
+-- Display: Leg Symbol
 display.leg_symbol = function(value)
   return "Leg Symbol: "..value
 end
@@ -2671,7 +2671,7 @@ dissect.instrmt_leg_grp = function(buffer, offset, packet, parent)
   return dissect.instrmt_leg_grp_fields(buffer, offset, packet, parent)
 end
 
--- Display No Legs
+-- Display: No Legs
 display.no_legs = function(value)
   return "No Legs: "..value
 end
@@ -2754,7 +2754,7 @@ dissect.product_complex = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Security Sub Type
+-- Display: Security Sub Type
 display.security_sub_type = function(value)
   return "Security Sub Type: "..value
 end
@@ -3061,7 +3061,7 @@ dissect.payload = function(buffer, offset, packet, parent)
   return dissect.payload_branches(code, buffer, offset, packet, element)
 end
 
--- Display Msg Seq Num
+-- Display: Msg Seq Num
 display.msg_seq_num = function(value)
   return "Msg Seq Num: "..value
 end
@@ -3078,7 +3078,7 @@ dissect.msg_seq_num = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Template ID
+-- Display: Template ID
 display.template_id = function(value)
   return "Template ID: "..value
 end
@@ -3095,7 +3095,7 @@ dissect.template_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Display Body Len
+-- Display: Body Len
 display.body_len = function(value)
   return "Body Len: "..value
 end

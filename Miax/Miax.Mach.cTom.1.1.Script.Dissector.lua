@@ -149,7 +149,7 @@ miax_mach_ctom_1_1.fields.wide_size = ProtoField.new("Wide Size", "miax.mach.cto
 -- Dissect Miax Mach cTom 1.1
 -----------------------------------------------------------------------
 
--- Display Expected Event Time Nano Seconds Part
+-- Display: Expected Event Time Nano Seconds Part
 display.expected_event_time_nano_seconds_part = function(value)
   return "Expected Event Time Nano Seconds Part: "..value
 end
@@ -166,7 +166,7 @@ dissect.expected_event_time_nano_seconds_part = function(buffer, offset, packet,
   return offset + length
 end
 
--- Display Seconds Part
+-- Display: Seconds Part
 display.seconds_part = function(value)
   return "Seconds Part: "..value
 end
@@ -234,7 +234,7 @@ dissect.trading_status = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Underlying Symbol
+-- Display: Underlying Symbol
 display.underlying_symbol = function(value)
   return "Underlying Symbol: "..value
 end
@@ -251,7 +251,7 @@ dissect.underlying_symbol = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Timestamp
+-- Display: Timestamp
 display.timestamp = function(value)
   return "Timestamp: "..value
 end
@@ -310,7 +310,7 @@ dissect.underlying_trading_status_message = function(buffer, offset, packet, par
   return dissect.underlying_trading_status_message_fields(buffer, offset, packet, parent)
 end
 
--- Display Reserved16
+-- Display: Reserved16
 display.reserved16 = function(value)
   return "Reserved16: "..value
 end
@@ -351,7 +351,7 @@ dissect.trade_condition = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Trade Size
+-- Display: Trade Size
 display.trade_size = function(value)
   return "Trade Size: "..value
 end
@@ -368,7 +368,7 @@ dissect.trade_size = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Net Price
+-- Display: Net Price
 display.net_price = function(value)
   return "Net Price: "..value
 end
@@ -385,7 +385,7 @@ dissect.net_price = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Trade ID
+-- Display: Trade ID
 display.trade_id = function(value)
   return "Trade ID: "..value
 end
@@ -402,7 +402,7 @@ dissect.trade_id = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Strategy ID
+-- Display: Strategy ID
 display.strategy_id = function(value)
   return "Strategy ID: "..value
 end
@@ -503,7 +503,7 @@ dissect.offer_condition = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Reserved4
+-- Display: Reserved4
 display.reserved4 = function(value)
   return "Reserved4: "..value
 end
@@ -520,7 +520,7 @@ dissect.reserved4 = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Wide Offer Size
+-- Display: Wide Offer Size
 display.wide_offer_size = function(value)
   return "Wide Offer Size: "..value
 end
@@ -537,7 +537,7 @@ dissect.wide_offer_size = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Wide Offer Price
+-- Display: Wide Offer Price
 display.wide_offer_price = function(value)
   return "Wide Offer Price: "..value
 end
@@ -593,7 +593,7 @@ dissect.bid_condition = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Wide Bid Size
+-- Display: Wide Bid Size
 display.wide_bid_size = function(value)
   return "Wide Bid Size: "..value
 end
@@ -610,7 +610,7 @@ dissect.wide_bid_size = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Wide Bid Price
+-- Display: Wide Bid Price
 display.wide_bid_price = function(value)
   return "Wide Bid Price: "..value
 end
@@ -681,7 +681,7 @@ dissect.wide_complex_double_sided_top_of_market_message = function(buffer, offse
   return dissect.wide_complex_double_sided_top_of_market_message_fields(buffer, offset, packet, parent)
 end
 
--- Display Reserved2
+-- Display: Reserved2
 display.reserved2 = function(value)
   return "Reserved2: "..value
 end
@@ -698,7 +698,7 @@ dissect.reserved2 = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Compact Offer Size
+-- Display: Compact Offer Size
 display.compact_offer_size = function(value)
   return "Compact Offer Size: "..value
 end
@@ -715,7 +715,7 @@ dissect.compact_offer_size = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Compact Offer Price
+-- Display: Compact Offer Price
 display.compact_offer_price = function(value)
   return "Compact Offer Price: "..value
 end
@@ -732,7 +732,7 @@ dissect.compact_offer_price = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Compact Bid Size
+-- Display: Compact Bid Size
 display.compact_bid_size = function(value)
   return "Compact Bid Size: "..value
 end
@@ -749,7 +749,7 @@ dissect.compact_bid_size = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Compact Bid Price
+-- Display: Compact Bid Price
 display.compact_bid_price = function(value)
   return "Compact Bid Price: "..value
 end
@@ -847,7 +847,7 @@ dissect.top_of_market_quote_condition = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Wide Size
+-- Display: Wide Size
 display.wide_size = function(value)
   return "Wide Size: "..value
 end
@@ -864,7 +864,7 @@ dissect.wide_size = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Wide Price
+-- Display: Wide Price
 display.wide_price = function(value)
   return "Wide Price: "..value
 end
@@ -965,7 +965,7 @@ dissect.wide_complex_top_of_market_bid_message = function(buffer, offset, packet
   return dissect.wide_complex_top_of_market_bid_message_fields(buffer, offset, packet, parent)
 end
 
--- Display Compact Size
+-- Display: Compact Size
 display.compact_size = function(value)
   return "Compact Size: "..value
 end
@@ -982,7 +982,7 @@ dissect.compact_size = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Compact Price
+-- Display: Compact Price
 display.compact_price = function(value)
   return "Compact Price: "..value
 end
@@ -1113,7 +1113,7 @@ dissect.system_status = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Session ID
+-- Display: Session ID
 display.session_id = function(value)
   return "Session ID: "..value
 end
@@ -1130,7 +1130,7 @@ dissect.session_id = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Version
+-- Display: Version
 display.version = function(value)
   return "Version: "..value
 end
@@ -1147,7 +1147,7 @@ dissect.version = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Notification Time
+-- Display: Notification Time
 display.notification_time = function(value)
   return "Notification Time: "..value
 end
@@ -1200,7 +1200,7 @@ dissect.system_state_message = function(buffer, offset, packet, parent)
   return dissect.system_state_message_fields(buffer, offset, packet, parent)
 end
 
--- Display Reserved8
+-- Display: Reserved8
 display.reserved8 = function(value)
   return "Reserved8: "..value
 end
@@ -1241,7 +1241,7 @@ dissect.leg_side = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Leg Ratio Qty
+-- Display: Leg Ratio Qty
 display.leg_ratio_qty = function(value)
   return "Leg Ratio Qty: "..value
 end
@@ -1258,7 +1258,7 @@ dissect.leg_ratio_qty = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Product Id
+-- Display: Product Id
 display.product_id = function(value)
   return "Product Id: "..value
 end
@@ -1311,7 +1311,7 @@ dissect.leg_definition = function(buffer, offset, packet, parent)
   return dissect.leg_definition_fields(buffer, offset, packet, parent)
 end
 
--- Display Numberof Legs
+-- Display: Numberof Legs
 display.numberof_legs = function(value)
   return "Numberof Legs: "..value
 end
@@ -1328,7 +1328,7 @@ dissect.numberof_legs = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Reserved10
+-- Display: Reserved10
 display.reserved10 = function(value)
   return "Reserved10: "..value
 end
@@ -1369,7 +1369,7 @@ dissect.update_reason = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Reserved1
+-- Display: Reserved1
 display.reserved1 = function(value)
   return "Reserved1: "..value
 end
@@ -1410,7 +1410,7 @@ dissect.active_on_miax = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Strategy Add Time
+-- Display: Strategy Add Time
 display.strategy_add_time = function(value)
   return "Strategy Add Time: "..value
 end
@@ -1478,7 +1478,7 @@ dissect.complex_strategy_definition_message = function(buffer, offset, packet, p
   return dissect.complex_strategy_definition_message_fields(buffer, offset, packet, parent)
 end
 
--- Display Priority Quote Width
+-- Display: Priority Quote Width
 display.priority_quote_width = function(value)
   return "Priority Quote Width: "..value
 end
@@ -1666,7 +1666,7 @@ dissect.restricted_option = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Closing Time
+-- Display: Closing Time
 display.closing_time = function(value)
   return "Closing Time: "..value
 end
@@ -1683,7 +1683,7 @@ dissect.closing_time = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Opening Time
+-- Display: Opening Time
 display.opening_time = function(value)
   return "Opening Time: "..value
 end
@@ -1724,7 +1724,7 @@ dissect.callor_put = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Strike Price
+-- Display: Strike Price
 display.strike_price = function(value)
   return "Strike Price: "..value
 end
@@ -1741,7 +1741,7 @@ dissect.strike_price = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Expiration Date
+-- Display: Expiration Date
 display.expiration_date = function(value)
   return "Expiration Date: "..value
 end
@@ -1758,7 +1758,7 @@ dissect.expiration_date = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Security Symbol
+-- Display: Security Symbol
 display.security_symbol = function(value)
   return "Security Symbol: "..value
 end
@@ -1775,7 +1775,7 @@ dissect.security_symbol = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Product ID
+-- Display: Product ID
 display.product_id = function(value)
   return "Product ID: "..value
 end
@@ -1792,7 +1792,7 @@ dissect.product_id = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Product Add/ Update Time
+-- Display: Product Add/ Update Time
 display.product_add__update_time = function(value)
   return "Product Add/ Update Time: "..value
 end
@@ -2194,7 +2194,7 @@ dissect.payload = function(buffer, offset, packet, parent)
   return dissect.payload_branches(code, buffer, offset, packet, element)
 end
 
--- Display Session Number
+-- Display: Session Number
 display.session_number = function(value)
   return "Session Number: "..value
 end
@@ -2241,7 +2241,7 @@ dissect.packet_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Display Packet Length
+-- Display: Packet Length
 display.packet_length = function(value)
   return "Packet Length: "..value
 end
@@ -2258,7 +2258,7 @@ dissect.packet_length = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Sequence Number
+-- Display: Sequence Number
 display.sequence_number = function(value)
   return "Sequence Number: "..value
 end

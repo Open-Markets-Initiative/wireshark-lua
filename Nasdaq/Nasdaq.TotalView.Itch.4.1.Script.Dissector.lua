@@ -168,7 +168,7 @@ dissect.interest_flag = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Stock
+-- Display: Stock
 display.stock = function(value)
   return "Stock: "..value
 end
@@ -185,7 +185,7 @@ dissect.stock = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Timestamp
+-- Display: Timestamp
 display.timestamp = function(value)
   return "Timestamp: "..value
 end
@@ -325,7 +325,7 @@ dissect.cross_type = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Current Reference Price
+-- Display: Current Reference Price
 display.current_reference_price = function(value)
   return "Current Reference Price: "..value
 end
@@ -342,7 +342,7 @@ dissect.current_reference_price = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Near Price
+-- Display: Near Price
 display.near_price = function(value)
   return "Near Price: "..value
 end
@@ -359,7 +359,7 @@ dissect.near_price = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Far Price
+-- Display: Far Price
 display.far_price = function(value)
   return "Far Price: "..value
 end
@@ -406,7 +406,7 @@ dissect.imbalance_direction = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Imbalance Shares
+-- Display: Imbalance Shares
 display.imbalance_shares = function(value)
   return "Imbalance Shares: "..value
 end
@@ -423,7 +423,7 @@ dissect.imbalance_shares = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Paired Shares
+-- Display: Paired Shares
 display.paired_shares = function(value)
   return "Paired Shares: "..value
 end
@@ -494,7 +494,7 @@ dissect.net_order_imbalance_indicator_message = function(buffer, offset, packet,
   return dissect.net_order_imbalance_indicator_message_fields(buffer, offset, packet, parent)
 end
 
--- Display Match Number
+-- Display: Match Number
 display.match_number = function(value)
   return "Match Number: "..value
 end
@@ -541,7 +541,7 @@ dissect.broken_trade_execution_message = function(buffer, offset, packet, parent
   return dissect.broken_trade_execution_message_fields(buffer, offset, packet, parent)
 end
 
--- Display Cross Price
+-- Display: Cross Price
 display.cross_price = function(value)
   return "Cross Price: "..value
 end
@@ -558,7 +558,7 @@ dissect.cross_price = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Shares
+-- Display: Shares
 display.shares = function(value)
   return "Shares: "..value
 end
@@ -617,7 +617,7 @@ dissect.cross_trade_message = function(buffer, offset, packet, parent)
   return dissect.cross_trade_message_fields(buffer, offset, packet, parent)
 end
 
--- Display Price
+-- Display: Price
 display.price = function(value)
   return "Price: "..value
 end
@@ -658,7 +658,7 @@ dissect.side = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Order Reference Number
+-- Display: Order Reference Number
 display.order_reference_number = function(value)
   return "Order Reference Number: "..value
 end
@@ -720,7 +720,7 @@ dissect.trade_message = function(buffer, offset, packet, parent)
   return dissect.trade_message_fields(buffer, offset, packet, parent)
 end
 
--- Display New Order Reference Number
+-- Display: New Order Reference Number
 display.new_order_reference_number = function(value)
   return "New Order Reference Number: "..value
 end
@@ -737,7 +737,7 @@ dissect.new_order_reference_number = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Original Order Reference Number
+-- Display: Original Order Reference Number
 display.original_order_reference_number = function(value)
   return "Original Order Reference Number: "..value
 end
@@ -754,7 +754,7 @@ dissect.original_order_reference_number = function(buffer, offset, packet, paren
   return offset + length
 end
 
--- Display Timestamp  Nanoseconds
+-- Display: Timestamp  Nanoseconds
 display.timestamp__nanoseconds = function(value)
   return "Timestamp  Nanoseconds: "..value
 end
@@ -840,7 +840,7 @@ dissect.order_delete_message = function(buffer, offset, packet, parent)
   return dissect.order_delete_message_fields(buffer, offset, packet, parent)
 end
 
--- Display Canceled Shares
+-- Display: Canceled Shares
 display.canceled_shares = function(value)
   return "Canceled Shares: "..value
 end
@@ -890,7 +890,7 @@ dissect.order_cancel_message = function(buffer, offset, packet, parent)
   return dissect.order_cancel_message_fields(buffer, offset, packet, parent)
 end
 
--- Display Execution Price
+-- Display: Execution Price
 display.execution_price = function(value)
   return "Execution Price: "..value
 end
@@ -931,7 +931,7 @@ dissect.printable = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Executed Shares
+-- Display: Executed Shares
 display.executed_shares = function(value)
   return "Executed Shares: "..value
 end
@@ -1026,7 +1026,7 @@ dissect.order_executed_message = function(buffer, offset, packet, parent)
   return dissect.order_executed_message_fields(buffer, offset, packet, parent)
 end
 
--- Display Attribution
+-- Display: Attribution
 display.attribution = function(value)
   return "Attribution: "..value
 end
@@ -1217,7 +1217,7 @@ dissect.primary_market_maker = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Mpid
+-- Display: Mpid
 display.mpid = function(value)
   return "Mpid: "..value
 end
@@ -1336,7 +1336,7 @@ dissect.reg_sho_short_sale_price_test_restricted_indicator_message = function(bu
   return dissect.reg_sho_short_sale_price_test_restricted_indicator_message_fields(buffer, offset, packet, parent)
 end
 
--- Display Financial Status Indicator
+-- Display: Financial Status Indicator
 display.financial_status_indicator = function(value)
   return "Financial Status Indicator: "..value
 end
@@ -1506,7 +1506,7 @@ dissect.system_event_message = function(buffer, offset, packet, parent)
   return dissect.system_event_message_fields(buffer, offset, packet, parent)
 end
 
--- Display Second
+-- Display: Second
 display.second = function(value)
   return "Second: "..value
 end
@@ -1795,7 +1795,7 @@ dissect.message_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Display Length
+-- Display: Length
 display.length = function(value)
   return "Length: "..value
 end
@@ -1887,7 +1887,7 @@ dissect.message = function(buffer, offset, packet, parent)
   return dissect.message_fields(buffer, offset, packet, parent)
 end
 
--- Display Count
+-- Display: Count
 display.count = function(value)
   return "Count: "..value
 end
@@ -1904,7 +1904,7 @@ dissect.count = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Display Sequence
+-- Display: Sequence
 display.sequence = function(value)
   return "Sequence: "..value
 end
@@ -1921,7 +1921,7 @@ dissect.sequence = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display Session
+-- Display: Session
 display.session = function(value)
   return "Session: "..value
 end
