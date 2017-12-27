@@ -276,6 +276,8 @@ display.price_variation_indicator = function(value)
   if value == "C" then
     return "Price Variation Indicator: 30% or greater (C)"
   end
+  if value == " " then
+    return "Price Variation Indicator: Cannot be calculated ( )"
   end
 
   return "Price Variation Indicator: Unknown("..value..")"
