@@ -20,9 +20,9 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq TotalView Itch 4.1 Format Options
-format.add_order_no_mpid_message = true
+format.add_order_message = true
 format.add_order_with_mpid_message = true
-format.broken_trade_execution_message = true
+format.broken_trade_message = true
 format.cross_trade_message = true
 format.market_participant_position_message = true
 format.message = true
@@ -44,9 +44,9 @@ format.trade_message = true
 format.payload = true
 
 -- Nasdaq TotalView Itch 4.1 Element Dissection Options
-show.add_order_no_mpid_message = true
+show.add_order_message = true
 show.add_order_with_mpid_message = true
-show.broken_trade_execution_message = true
+show.broken_trade_message = true
 show.cross_trade_message = true
 show.market_participant_position_message = true
 show.message = true
@@ -72,10 +72,10 @@ show.payload = false
 -----------------------------------------------------------------------
 
 -- Nasdaq TotalView Itch 4.1 Fields
-nasdaq_totalview_itch_4_1.fields.add_order_no_mpid_message = ProtoField.new("Add Order No Mpid Message", "nasdaq.totalview.itch.addordernompidmessage", ftypes.STRING)
+nasdaq_totalview_itch_4_1.fields.add_order_message = ProtoField.new("Add Order Message", "nasdaq.totalview.itch.addordermessage", ftypes.STRING)
 nasdaq_totalview_itch_4_1.fields.add_order_with_mpid_message = ProtoField.new("Add Order with Mpid Message", "nasdaq.totalview.itch.addorderwithmpidmessage", ftypes.STRING)
 nasdaq_totalview_itch_4_1.fields.attribution = ProtoField.new("Attribution", "nasdaq.totalview.itch.attribution", ftypes.STRING)
-nasdaq_totalview_itch_4_1.fields.broken_trade_execution_message = ProtoField.new("Broken Trade Execution Message", "nasdaq.totalview.itch.brokentradeexecutionmessage", ftypes.STRING)
+nasdaq_totalview_itch_4_1.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "nasdaq.totalview.itch.brokentrademessage", ftypes.STRING)
 nasdaq_totalview_itch_4_1.fields.canceled_shares = ProtoField.new("Canceled Shares", "nasdaq.totalview.itch.canceledshares", ftypes.UINT32)
 nasdaq_totalview_itch_4_1.fields.count = ProtoField.new("Count", "nasdaq.totalview.itch.count", ftypes.UINT16)
 nasdaq_totalview_itch_4_1.fields.cross_price = ProtoField.new("Cross Price", "nasdaq.totalview.itch.crossprice", ftypes.UINT32)
@@ -141,16 +141,16 @@ nasdaq_totalview_itch_4_1.fields.trade_message = ProtoField.new("Trade Message",
 -- Display: Interest Flag
 display.interest_flag = function(value)
   if value == "B" then
-    return "Interest Flag: RPI orders available (B)"
+    return "Interest Flag: Rpi Buy (B)"
   end
   if value == "S" then
-    return "Interest Flag: RPI orders available (S)"
+    return "Interest Flag: Rpi Sell (S)"
   end
   if value == "A" then
-    return "Interest Flag: RPI orders available (A)"
+    return "Interest Flag: RpiBoth (A)"
   end
   if value == "N" then
-    return "Interest Flag: No RPI (N)"
+    return "Interest Flag: No Rpi (N)"
   end
 
   return "Interest Flag: Unknown("..value..")"
@@ -277,7 +277,7 @@ display.price_variation_indicator = function(value)
     return "Price Variation Indicator: 30% or greater (C)"
   end
   if value == " " then
-    return "Price Variation Indicator: Cannot be calculated ( )"
+    return "Price Variation Indicator: NoCalculation ( )"
   end
 
   return "Price Variation Indicator: Unknown("..value..")"
@@ -511,13 +511,13 @@ dissect.match_number = function(buffer, offset, packet, parent)
   return offset + length
 end
 
--- Display: Broken Trade Execution Message
-display.broken_trade_execution_message = function(buffer, offset, size, packet, parent)
+-- Display: Broken Trade Message
+display.broken_trade_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Broken Trade Execution Message
-dissect.broken_trade_execution_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Broken Trade Message
+dissect.broken_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
@@ -529,16 +529,16 @@ dissect.broken_trade_execution_message_fields = function(buffer, offset, packet,
   return index
 end
 
--- Dissect: Broken Trade Execution Message
-dissect.broken_trade_execution_message = function(buffer, offset, packet, parent)
+-- Dissect: Broken Trade Message
+dissect.broken_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.broken_trade_execution_message then
+  if show.broken_trade_message then
     local range = buffer(offset, 12)
-    local display = display.broken_trade_execution_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_4_1.fields.broken_trade_execution_message, range, display)
+    local display = display.broken_trade_message(buffer, packet, parent)
+    parent = parent:add(nasdaq_totalview_itch_4_1.fields.broken_trade_message, range, display)
   end
 
-  return dissect.broken_trade_execution_message_fields(buffer, offset, packet, parent)
+  return dissect.broken_trade_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Cross Price
@@ -1088,13 +1088,13 @@ dissect.add_order_with_mpid_message = function(buffer, offset, packet, parent)
   return dissect.add_order_with_mpid_message_fields(buffer, offset, packet, parent)
 end
 
--- Display: Add Order No Mpid Message
-display.add_order_no_mpid_message = function(buffer, offset, size, packet, parent)
+-- Display: Add Order Message
+display.add_order_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Add Order No Mpid Message
-dissect.add_order_no_mpid_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Add Order Message
+dissect.add_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
@@ -1118,16 +1118,16 @@ dissect.add_order_no_mpid_message_fields = function(buffer, offset, packet, pare
   return index
 end
 
--- Dissect: Add Order No Mpid Message
-dissect.add_order_no_mpid_message = function(buffer, offset, packet, parent)
+-- Dissect: Add Order Message
+dissect.add_order_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.add_order_no_mpid_message then
+  if show.add_order_message then
     local range = buffer(offset, 29)
-    local display = display.add_order_no_mpid_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_4_1.fields.add_order_no_mpid_message, range, display)
+    local display = display.add_order_message(buffer, packet, parent)
+    parent = parent:add(nasdaq_totalview_itch_4_1.fields.add_order_message, range, display)
   end
 
-  return dissect.add_order_no_mpid_message_fields(buffer, offset, packet, parent)
+  return dissect.add_order_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Market Participant State
@@ -1338,7 +1338,32 @@ end
 
 -- Display: Financial Status Indicator
 display.financial_status_indicator = function(value)
-  return "Financial Status Indicator: "..value
+  if value == "D" then
+    return "Financial Status Indicator: Delinquent (D)"
+  end
+  if value == "E" then
+    return "Financial Status Indicator: Deficient (E)"
+  end
+  if value == "Q" then
+    return "Financial Status Indicator: Bankrupt (Q)"
+  end
+  if value == "S" then
+    return "Financial Status Indicator: Suspended (S)"
+  end
+  if value == "G" then
+    return "Financial Status Indicator: Deficient and Bankrupt (G)"
+  end
+  if value == "H" then
+    return "Financial Status Indicator: Deficient and Delinquent (H)"
+  end
+  if value == "J" then
+    return "Financial Status Indicator: Delinquent and Bankrupt (J)"
+  end
+  if value == "K" then
+    return "Financial Status Indicator: Deficient Delinquent and Bankrupt (K)"
+  end
+
+  return "Financial Status Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Financial Status Indicator
@@ -1355,29 +1380,26 @@ end
 
 -- Display: Market Category
 display.market_category = function(value)
-  if value == "D" then
-    return "Market Category: Delinquent (D)"
+  if value == "N" then
+    return "Market Category: Nyse (N)"
   end
-  if value == "E" then
-    return "Market Category: Deficient (E)"
+  if value == "A" then
+    return "Market Category: Amex (A)"
+  end
+  if value == "P" then
+    return "Market Category: Arca (P)"
   end
   if value == "Q" then
-    return "Market Category: Bankrupt (Q)"
-  end
-  if value == "S" then
-    return "Market Category: Suspended (S)"
+    return "Market Category: Nasdaq Gsm (Q)"
   end
   if value == "G" then
-    return "Market Category: Deficient and Bankrupt (G)"
+    return "Market Category: Nasdaq Gm (G)"
   end
-  if value == "H" then
-    return "Market Category: Deficient and Delinquent (H)"
+  if value == "G" then
+    return "Market Category: Nasdaq Cm (G)"
   end
-  if value == "J" then
-    return "Market Category: Delinquent and Bankrupt (J)"
-  end
-  if value == "K" then
-    return "Market Category: Deficient Delinquent and Bankrupt (K)"
+  if value == "Z" then
+    return "Market Category: Bats (Z)"
   end
 
   return "Market Category: Unknown("..value..")"
@@ -1410,10 +1432,10 @@ dissect.stock_directory_message_fields = function(buffer, offset, packet, parent
   -- Stock: 8 Byte Ascii String
   index = dissect.stock(buffer, index, packet, parent)
 
-  -- Market Category: 1 Byte Ascii String Enum with 8 values
+  -- Market Category: 1 Byte Ascii String Enum with 7 values
   index = dissect.market_category(buffer, index, packet, parent)
 
-  -- Financial Status Indicator: 1 Byte Ascii String
+  -- Financial Status Indicator: 1 Byte Ascii String Enum with 8 values
   index = dissect.financial_status_indicator(buffer, index, packet, parent)
 
   return index
@@ -1572,7 +1594,7 @@ size_of.payload = function(buffer, offset, code)
   if code == "L" then
     return 19
   end
-  -- Size of Add Order No Mpid Message
+  -- Size of Add Order Message
   if code == "A" then
     return 29
   end
@@ -1608,7 +1630,7 @@ size_of.payload = function(buffer, offset, code)
   if code == "Q" then
     return 29
   end
-  -- Size of Broken Trade Execution Message
+  -- Size of Broken Trade Message
   if code == "B" then
     return 12
   end
@@ -1651,9 +1673,9 @@ dissect.payload_branches = function(code, buffer, offset, packet, parent)
   if code == "L" then
     return dissect.market_participant_position_message(buffer, offset, packet, parent)
   end
-  -- Dissect Add Order No Mpid Message
+  -- Dissect Add Order Message
   if code == "A" then
-    return dissect.add_order_no_mpid_message(buffer, offset, packet, parent)
+    return dissect.add_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Add Order with Mpid Message
   if code == "F" then
@@ -1687,9 +1709,9 @@ dissect.payload_branches = function(code, buffer, offset, packet, parent)
   if code == "Q" then
     return dissect.cross_trade_message(buffer, offset, packet, parent)
   end
-  -- Dissect Broken Trade Execution Message
+  -- Dissect Broken Trade Message
   if code == "B" then
-    return dissect.broken_trade_execution_message(buffer, offset, packet, parent)
+    return dissect.broken_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Net Order Imbalance Indicator Message
   if code == "I" then
@@ -1744,7 +1766,7 @@ display.message_type = function(value)
     return "Message Type: Market Participant Position Message (L)"
   end
   if value == "A" then
-    return "Message Type: Add Order No Mpid Message (A)"
+    return "Message Type: Add Order Message (A)"
   end
   if value == "F" then
     return "Message Type: Add Order with Mpid Message (F)"
@@ -1771,7 +1793,7 @@ display.message_type = function(value)
     return "Message Type: Cross Trade Message (Q)"
   end
   if value == "B" then
-    return "Message Type: Broken Trade Execution Message (B)"
+    return "Message Type: Broken Trade Message (B)"
   end
   if value == "I" then
     return "Message Type: Net Order Imbalance Indicator Message (I)"
