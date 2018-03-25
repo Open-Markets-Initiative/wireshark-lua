@@ -165,9 +165,9 @@ nyse_integratedfeed_xdp_2_1.fields.refresh_request_message = ProtoField.new("Ref
 nyse_integratedfeed_xdp_2_1.fields.replace_order_message = ProtoField.new("Replace Order Message", "nyse.integratedfeed.xdp.replaceordermessage", ftypes.STRING)
 nyse_integratedfeed_xdp_2_1.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.integratedfeed.xdp.requestresponsemessage", ftypes.STRING)
 nyse_integratedfeed_xdp_2_1.fields.requestseqnum = ProtoField.new("RequestSeqNum", "nyse.integratedfeed.xdp.requestseqnum", ftypes.UINT32)
-nyse_integratedfeed_xdp_2_1.fields.reserved1 = ProtoField.new("Reserved1", "nyse.integratedfeed.xdp.reserved1", ftypes.UINT8)
-nyse_integratedfeed_xdp_2_1.fields.reserved2 = ProtoField.new("Reserved2", "nyse.integratedfeed.xdp.reserved2", ftypes.UINT16)
-nyse_integratedfeed_xdp_2_1.fields.reserved4 = ProtoField.new("Reserved4", "nyse.integratedfeed.xdp.reserved4", ftypes.UINT32)
+nyse_integratedfeed_xdp_2_1.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.integratedfeed.xdp.reserved1", ftypes.BYTES)
+nyse_integratedfeed_xdp_2_1.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.integratedfeed.xdp.reserved2", ftypes.BYTES)
+nyse_integratedfeed_xdp_2_1.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.integratedfeed.xdp.reserved4", ftypes.BYTES)
 nyse_integratedfeed_xdp_2_1.fields.retail_price_improvement_message = ProtoField.new("Retail Price Improvement Message", "nyse.integratedfeed.xdp.retailpriceimprovementmessage", ftypes.STRING)
 nyse_integratedfeed_xdp_2_1.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.integratedfeed.xdp.retransmissionrequestmessage", ftypes.STRING)
 nyse_integratedfeed_xdp_2_1.fields.retransmitmethod = ProtoField.new("RetransmitMethod", "nyse.integratedfeed.xdp.retransmitmethod", ftypes.UINT8)
@@ -2062,23 +2062,23 @@ dissect.price_1 = function(buffer, offset, packet, parent)
   return offset + size_of.price_1
 end
 
--- Size: Reserved4
-size_of.reserved4 = 4
+-- Size: Reserved 4
+size_of.reserved_4 = 4
 
--- Display: Reserved4
-display.reserved4 = function(value)
-  return "Reserved4: "..value
+-- Display: Reserved 4
+display.reserved_4 = function(value)
+  return "Reserved 4: "..value
 end
 
--- Dissect: Reserved4
-dissect.reserved4 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved4)
-  local value = range:le_uint()
-  local display = display.reserved4(value, buffer, offset, packet, parent)
+-- Dissect: Reserved 4
+dissect.reserved_4 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.reserved_4)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.reserved_4(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_integratedfeed_xdp_2_1.fields.reserved4, range, value, display)
+  parent:add(nyse_integratedfeed_xdp_2_1.fields.reserved_4, range, value, display)
 
-  return offset + size_of.reserved4
+  return offset + size_of.reserved_4
 end
 
 -- Size: Halt Condition
@@ -2232,8 +2232,8 @@ dissect.security_status_message_fields = function(buffer, offset, packet, parent
   -- Halt Condition: 1 Byte Ascii String Enum with 12 values
   index = dissect.halt_condition(buffer, index, packet, parent)
 
-  -- Reserved4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.reserved4(buffer, index, packet, parent)
+  -- Reserved 4: 4 Byte
+  index = dissect.reserved_4(buffer, index, packet, parent)
 
   -- Price 1: 4 Byte Unsigned Fixed Width Integer
   index = dissect.price_1(buffer, index, packet, parent)
@@ -2734,23 +2734,23 @@ dissect.retransmission_request_message = function(buffer, offset, packet, parent
   return dissect.retransmission_request_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Reserved2
-size_of.reserved2 = 2
+-- Size: Reserved 2
+size_of.reserved_2 = 2
 
--- Display: Reserved2
-display.reserved2 = function(value)
-  return "Reserved2: "..value
+-- Display: Reserved 2
+display.reserved_2 = function(value)
+  return "Reserved 2: "..value
 end
 
--- Dissect: Reserved2
-dissect.reserved2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved2)
-  local value = range:le_uint()
-  local display = display.reserved2(value, buffer, offset, packet, parent)
+-- Dissect: Reserved 2
+dissect.reserved_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.reserved_2)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.reserved_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_integratedfeed_xdp_2_1.fields.reserved2, range, value, display)
+  parent:add(nyse_integratedfeed_xdp_2_1.fields.reserved_2, range, value, display)
 
-  return offset + size_of.reserved2
+  return offset + size_of.reserved_2
 end
 
 -- Size: Unit of Trade
@@ -3103,23 +3103,23 @@ dissect.market_id = function(buffer, offset, packet, parent)
   return offset + size_of.market_id
 end
 
--- Size: Reserved1
-size_of.reserved1 = 1
+-- Size: Reserved 1
+size_of.reserved_1 = 1
 
--- Display: Reserved1
-display.reserved1 = function(value)
-  return "Reserved1: "..value
+-- Display: Reserved 1
+display.reserved_1 = function(value)
+  return "Reserved 1: "..value
 end
 
--- Dissect: Reserved1
-dissect.reserved1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved1)
-  local value = range:le_uint()
-  local display = display.reserved1(value, buffer, offset, packet, parent)
+-- Dissect: Reserved 1
+dissect.reserved_1 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.reserved_1)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.reserved_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_integratedfeed_xdp_2_1.fields.reserved1, range, value, display)
+  parent:add(nyse_integratedfeed_xdp_2_1.fields.reserved_1, range, value, display)
 
-  return offset + size_of.reserved1
+  return offset + size_of.reserved_1
 end
 
 -- Size: Symbol
@@ -3156,8 +3156,8 @@ dissect.symbol_index_mapping_message_fields = function(buffer, offset, packet, p
   -- Symbol: 11 Byte Ascii String
   index = dissect.symbol(buffer, index, packet, parent)
 
-  -- Reserved1: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.reserved1(buffer, index, packet, parent)
+  -- Reserved 1: 1 Byte
+  index = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Market ID: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
   index = dissect.market_id(buffer, index, packet, parent)
@@ -3195,8 +3195,8 @@ dissect.symbol_index_mapping_message_fields = function(buffer, offset, packet, p
   -- Unit of Trade: 2 Byte Unsigned Fixed Width Integer
   index = dissect.unit_of_trade(buffer, index, packet, parent)
 
-  -- Reserved2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.reserved2(buffer, index, packet, parent)
+  -- Reserved 2: 2 Byte
+  index = dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
