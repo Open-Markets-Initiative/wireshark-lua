@@ -212,6 +212,9 @@ nyse_integratedfeed_xdp_2_1.fields.volume = ProtoField.new("Volume", "nyse.integ
 -- Dissect Nyse IntegratedFeed Xdp 2.1
 -----------------------------------------------------------------------
 
+-- Size: TotalVolume
+size_of.totalvolume = 4
+
 -- Display: TotalVolume
 display.totalvolume = function(value)
   return "TotalVolume: "..value
@@ -219,15 +222,17 @@ end
 
 -- Dissect: TotalVolume
 dissect.totalvolume = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.totalvolume)
   local value = range:le_uint()
   local display = display.totalvolume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.totalvolume, range, value, display)
 
-  return offset + length
+  return offset + size_of.totalvolume
 end
+
+-- Size: Close
+size_of.close = 4
 
 -- Display: Close
 display.close = function(value)
@@ -236,15 +241,17 @@ end
 
 -- Dissect: Close
 dissect.close = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.close)
   local value = range:le_uint()
   local display = display.close(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.close, range, value, display)
 
-  return offset + length
+  return offset + size_of.close
 end
+
+-- Size: Open
+size_of.open = 4
 
 -- Display: Open
 display.open = function(value)
@@ -253,15 +260,17 @@ end
 
 -- Dissect: Open
 dissect.open = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.open)
   local value = range:le_uint()
   local display = display.open(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.open, range, value, display)
 
-  return offset + length
+  return offset + size_of.open
 end
+
+-- Size: LowPrice
+size_of.lowprice = 4
 
 -- Display: LowPrice
 display.lowprice = function(value)
@@ -270,15 +279,17 @@ end
 
 -- Dissect: LowPrice
 dissect.lowprice = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.lowprice)
   local value = range:le_uint()
   local display = display.lowprice(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.lowprice, range, value, display)
 
-  return offset + length
+  return offset + size_of.lowprice
 end
+
+-- Size: HighPrice
+size_of.highprice = 4
 
 -- Display: HighPrice
 display.highprice = function(value)
@@ -287,15 +298,17 @@ end
 
 -- Dissect: HighPrice
 dissect.highprice = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.highprice)
   local value = range:le_uint()
   local display = display.highprice(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.highprice, range, value, display)
 
-  return offset + length
+  return offset + size_of.highprice
 end
+
+-- Size: SymbolIndex
+size_of.symbolindex = 4
 
 -- Display: SymbolIndex
 display.symbolindex = function(value)
@@ -304,15 +317,17 @@ end
 
 -- Dissect: SymbolIndex
 dissect.symbolindex = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.symbolindex)
   local value = range:le_uint()
   local display = display.symbolindex(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.symbolindex, range, value, display)
 
-  return offset + length
+  return offset + size_of.symbolindex
 end
+
+-- Size: SourceTimeNS
+size_of.sourcetimens = 4
 
 -- Display: SourceTimeNS
 display.sourcetimens = function(value)
@@ -321,15 +336,17 @@ end
 
 -- Dissect: SourceTimeNS
 dissect.sourcetimens = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.sourcetimens)
   local value = range:le_uint()
   local display = display.sourcetimens(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.sourcetimens, range, value, display)
 
-  return offset + length
+  return offset + size_of.sourcetimens
 end
+
+-- Size: SourceTime
+size_of.sourcetime = 4
 
 -- Display: SourceTime
 display.sourcetime = function(value)
@@ -338,14 +355,13 @@ end
 
 -- Dissect: SourceTime
 dissect.sourcetime = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.sourcetime)
   local value = range:le_uint()
   local display = display.sourcetime(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.sourcetime, range, value, display)
 
-  return offset + length
+  return offset + size_of.sourcetime
 end
 
 -- Display: Stock Summary Message
@@ -396,6 +412,9 @@ dissect.stock_summary_message = function(buffer, offset, packet, parent)
   return dissect.stock_summary_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: DBExecID
+size_of.dbexecid = 4
+
 -- Display: DBExecID
 display.dbexecid = function(value)
   return "DBExecID: "..value
@@ -403,15 +422,17 @@ end
 
 -- Dissect: DBExecID
 dissect.dbexecid = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.dbexecid)
   local value = range:le_uint()
   local display = display.dbexecid(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.dbexecid, range, value, display)
 
-  return offset + length
+  return offset + size_of.dbexecid
 end
+
+-- Size: PrintableFlag
+size_of.printableflag = 1
 
 -- Display: PrintableFlag
 display.printableflag = function(value)
@@ -427,15 +448,17 @@ end
 
 -- Dissect: PrintableFlag
 dissect.printableflag = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.printableflag)
   local value = range:le_uint()
   local display = display.printableflag(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.printableflag, range, value, display)
 
-  return offset + length
+  return offset + size_of.printableflag
 end
+
+-- Size: Volume
+size_of.volume = 4
 
 -- Display: Volume
 display.volume = function(value)
@@ -444,15 +467,17 @@ end
 
 -- Dissect: Volume
 dissect.volume = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.volume)
   local value = range:le_uint()
   local display = display.volume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.volume, range, value, display)
 
-  return offset + length
+  return offset + size_of.volume
 end
+
+-- Size: Price
+size_of.price = 4
 
 -- Display: Price
 display.price = function(value)
@@ -461,15 +486,17 @@ end
 
 -- Dissect: Price
 dissect.price = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.price)
   local value = range:le_uint()
   local display = display.price(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.price, range, value, display)
 
-  return offset + length
+  return offset + size_of.price
 end
+
+-- Size: TradeID
+size_of.tradeid = 4
 
 -- Display: TradeID
 display.tradeid = function(value)
@@ -478,15 +505,17 @@ end
 
 -- Dissect: TradeID
 dissect.tradeid = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.tradeid)
   local value = range:le_uint()
   local display = display.tradeid(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.tradeid, range, value, display)
 
-  return offset + length
+  return offset + size_of.tradeid
 end
+
+-- Size: SymbolSeqNum
+size_of.symbolseqnum = 4
 
 -- Display: SymbolSeqNum
 display.symbolseqnum = function(value)
@@ -495,14 +524,13 @@ end
 
 -- Dissect: SymbolSeqNum
 dissect.symbolseqnum = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.symbolseqnum)
   local value = range:le_uint()
   local display = display.symbolseqnum(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.symbolseqnum, range, value, display)
 
-  return offset + length
+  return offset + size_of.symbolseqnum
 end
 
 -- Display: Non-Displayed Trade Message
@@ -553,6 +581,9 @@ dissect.non_displayed_trade_message = function(buffer, offset, packet, parent)
   return dissect.non_displayed_trade_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: NumParitySplits
+size_of.numparitysplits = 1
+
 -- Display: NumParitySplits
 display.numparitysplits = function(value)
   return "NumParitySplits: "..value
@@ -560,15 +591,17 @@ end
 
 -- Dissect: NumParitySplits
 dissect.numparitysplits = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.numparitysplits)
   local value = range:le_uint()
   local display = display.numparitysplits(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.numparitysplits, range, value, display)
 
-  return offset + length
+  return offset + size_of.numparitysplits
 end
+
+-- Size: OrderID
+size_of.orderid = 8
 
 -- Display: OrderID
 display.orderid = function(value)
@@ -577,14 +610,13 @@ end
 
 -- Dissect: OrderID
 dissect.orderid = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.orderid)
   local value = range:le_uint64()
   local display = display.orderid(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.orderid, range, value, display)
 
-  return offset + length
+  return offset + size_of.orderid
 end
 
 -- Display: Order Execution Message
@@ -641,6 +673,9 @@ dissect.order_execution_message = function(buffer, offset, packet, parent)
   return dissect.order_execution_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: NumExtensions
+size_of.numextensions = 1
+
 -- Display: NumExtensions
 display.numextensions = function(value)
   return "NumExtensions: "..value
@@ -648,15 +683,17 @@ end
 
 -- Dissect: NumExtensions
 dissect.numextensions = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.numextensions)
   local value = range:le_uint()
   local display = display.numextensions(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.numextensions, range, value, display)
 
-  return offset + length
+  return offset + size_of.numextensions
 end
+
+-- Size: FreezeStatus
+size_of.freezestatus = 1
 
 -- Display: FreezeStatus
 display.freezestatus = function(value)
@@ -672,15 +709,17 @@ end
 
 -- Dissect: FreezeStatus
 dissect.freezestatus = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.freezestatus)
   local value = range:le_uint()
   local display = display.freezestatus(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.freezestatus, range, value, display)
 
-  return offset + length
+  return offset + size_of.freezestatus
 end
+
+-- Size: AuctionStatus
+size_of.auctionstatus = 1
 
 -- Display: AuctionStatus
 display.auctionstatus = function(value)
@@ -702,15 +741,17 @@ end
 
 -- Dissect: AuctionStatus
 dissect.auctionstatus = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.auctionstatus)
   local value = range:le_uint()
   local display = display.auctionstatus(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.auctionstatus, range, value, display)
 
-  return offset + length
+  return offset + size_of.auctionstatus
 end
+
+-- Size: LowerCollar
+size_of.lowercollar = 4
 
 -- Display: LowerCollar
 display.lowercollar = function(value)
@@ -719,15 +760,17 @@ end
 
 -- Dissect: LowerCollar
 dissect.lowercollar = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.lowercollar)
   local value = range:le_uint()
   local display = display.lowercollar(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.lowercollar, range, value, display)
 
-  return offset + length
+  return offset + size_of.lowercollar
 end
+
+-- Size: UpperCollar
+size_of.uppercollar = 4
 
 -- Display: UpperCollar
 display.uppercollar = function(value)
@@ -736,15 +779,17 @@ end
 
 -- Dissect: UpperCollar
 dissect.uppercollar = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.uppercollar)
   local value = range:le_uint()
   local display = display.uppercollar(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.uppercollar, range, value, display)
 
-  return offset + length
+  return offset + size_of.uppercollar
 end
+
+-- Size: IndicativeMatchPrice
+size_of.indicativematchprice = 4
 
 -- Display: IndicativeMatchPrice
 display.indicativematchprice = function(value)
@@ -753,15 +798,17 @@ end
 
 -- Dissect: IndicativeMatchPrice
 dissect.indicativematchprice = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.indicativematchprice)
   local value = range:le_uint()
   local display = display.indicativematchprice(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.indicativematchprice, range, value, display)
 
-  return offset + length
+  return offset + size_of.indicativematchprice
 end
+
+-- Size: SSRFilingPrice
+size_of.ssrfilingprice = 4
 
 -- Display: SSRFilingPrice
 display.ssrfilingprice = function(value)
@@ -770,15 +817,17 @@ end
 
 -- Dissect: SSRFilingPrice
 dissect.ssrfilingprice = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.ssrfilingprice)
   local value = range:le_uint()
   local display = display.ssrfilingprice(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.ssrfilingprice, range, value, display)
 
-  return offset + length
+  return offset + size_of.ssrfilingprice
 end
+
+-- Size: ClosingOnlyClearingPrice
+size_of.closingonlyclearingprice = 4
 
 -- Display: ClosingOnlyClearingPrice
 display.closingonlyclearingprice = function(value)
@@ -787,15 +836,17 @@ end
 
 -- Dissect: ClosingOnlyClearingPrice
 dissect.closingonlyclearingprice = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.closingonlyclearingprice)
   local value = range:le_uint()
   local display = display.closingonlyclearingprice(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.closingonlyclearingprice, range, value, display)
 
-  return offset + length
+  return offset + size_of.closingonlyclearingprice
 end
+
+-- Size: ContinuousBookClearingPrice
+size_of.continuousbookclearingprice = 4
 
 -- Display: ContinuousBookClearingPrice
 display.continuousbookclearingprice = function(value)
@@ -804,15 +855,17 @@ end
 
 -- Dissect: ContinuousBookClearingPrice
 dissect.continuousbookclearingprice = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.continuousbookclearingprice)
   local value = range:le_uint()
   local display = display.continuousbookclearingprice(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.continuousbookclearingprice, range, value, display)
 
-  return offset + length
+  return offset + size_of.continuousbookclearingprice
 end
+
+-- Size: ImbalanceSide
+size_of.imbalanceside = 1
 
 -- Display: ImbalanceSide
 display.imbalanceside = function(value)
@@ -831,15 +884,17 @@ end
 
 -- Dissect: ImbalanceSide
 dissect.imbalanceside = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.imbalanceside)
   local value = range:string()
   local display = display.imbalanceside(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.imbalanceside, range, value, display)
 
-  return offset + length
+  return offset + size_of.imbalanceside
 end
+
+-- Size: AuctionType
+size_of.auctiontype = 1
 
 -- Display: AuctionType
 display.auctiontype = function(value)
@@ -864,15 +919,17 @@ end
 
 -- Dissect: AuctionType
 dissect.auctiontype = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.auctiontype)
   local value = range:string()
   local display = display.auctiontype(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.auctiontype, range, value, display)
 
-  return offset + length
+  return offset + size_of.auctiontype
 end
+
+-- Size: AuctionTime
+size_of.auctiontime = 2
 
 -- Display: AuctionTime
 display.auctiontime = function(value)
@@ -881,15 +938,17 @@ end
 
 -- Dissect: AuctionTime
 dissect.auctiontime = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.auctiontime)
   local value = range:le_uint()
   local display = display.auctiontime(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.auctiontime, range, value, display)
 
-  return offset + length
+  return offset + size_of.auctiontime
 end
+
+-- Size: MarketImbalanceQty
+size_of.marketimbalanceqty = 4
 
 -- Display: MarketImbalanceQty
 display.marketimbalanceqty = function(value)
@@ -898,15 +957,17 @@ end
 
 -- Dissect: MarketImbalanceQty
 dissect.marketimbalanceqty = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.marketimbalanceqty)
   local value = range:le_uint()
   local display = display.marketimbalanceqty(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.marketimbalanceqty, range, value, display)
 
-  return offset + length
+  return offset + size_of.marketimbalanceqty
 end
+
+-- Size: TotalImbalanceQty
+size_of.totalimbalanceqty = 4
 
 -- Display: TotalImbalanceQty
 display.totalimbalanceqty = function(value)
@@ -915,15 +976,17 @@ end
 
 -- Dissect: TotalImbalanceQty
 dissect.totalimbalanceqty = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.totalimbalanceqty)
   local value = range:le_uint()
   local display = display.totalimbalanceqty(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.totalimbalanceqty, range, value, display)
 
-  return offset + length
+  return offset + size_of.totalimbalanceqty
 end
+
+-- Size: PairedQty
+size_of.pairedqty = 4
 
 -- Display: PairedQty
 display.pairedqty = function(value)
@@ -932,15 +995,17 @@ end
 
 -- Dissect: PairedQty
 dissect.pairedqty = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.pairedqty)
   local value = range:le_uint()
   local display = display.pairedqty(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.pairedqty, range, value, display)
 
-  return offset + length
+  return offset + size_of.pairedqty
 end
+
+-- Size: ReferencePrice
+size_of.referenceprice = 4
 
 -- Display: ReferencePrice
 display.referenceprice = function(value)
@@ -949,14 +1014,13 @@ end
 
 -- Dissect: ReferencePrice
 dissect.referenceprice = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.referenceprice)
   local value = range:le_uint()
   local display = display.referenceprice(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.referenceprice, range, value, display)
 
-  return offset + length
+  return offset + size_of.referenceprice
 end
 
 -- Display: Imbalance Message
@@ -1043,6 +1107,9 @@ dissect.imbalance_message = function(buffer, offset, packet, parent)
   return dissect.imbalance_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: FirmID
+size_of.firmid = 5
+
 -- Display: FirmID
 display.firmid = function(value)
   return "FirmID: "..value
@@ -1050,15 +1117,17 @@ end
 
 -- Dissect: FirmID
 dissect.firmid = function(buffer, offset, packet, parent)
-  local length = 5
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.firmid)
   local value = range:string()
   local display = display.firmid(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.firmid, range, value, display)
 
-  return offset + length
+  return offset + size_of.firmid
 end
+
+-- Size: Side
+size_of.side = 1
 
 -- Display: Side
 display.side = function(value)
@@ -1074,14 +1143,13 @@ end
 
 -- Dissect: Side
 dissect.side = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.side)
   local value = range:string()
   local display = display.side(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.side, range, value, display)
 
-  return offset + length
+  return offset + size_of.side
 end
 
 -- Display: Add Order Refresh Message
@@ -1138,6 +1206,9 @@ dissect.add_order_refresh_message = function(buffer, offset, packet, parent)
   return dissect.add_order_refresh_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: RPIIndicator
+size_of.rpiindicator = 1
+
 -- Display: RPIIndicator
 display.rpiindicator = function(value)
   if value == " " then
@@ -1158,14 +1229,13 @@ end
 
 -- Dissect: RPIIndicator
 dissect.rpiindicator = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.rpiindicator)
   local value = range:string()
   local display = display.rpiindicator(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.rpiindicator, range, value, display)
 
-  return offset + length
+  return offset + size_of.rpiindicator
 end
 
 -- Display: Retail Price Improvement Message
@@ -1204,6 +1274,9 @@ dissect.retail_price_improvement_message = function(buffer, offset, packet, pare
   return dissect.retail_price_improvement_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: CrossID
+size_of.crossid = 4
+
 -- Display: CrossID
 display.crossid = function(value)
   return "CrossID: "..value
@@ -1211,14 +1284,13 @@ end
 
 -- Dissect: CrossID
 dissect.crossid = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.crossid)
   local value = range:le_uint()
   local display = display.crossid(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.crossid, range, value, display)
 
-  return offset + length
+  return offset + size_of.crossid
 end
 
 -- Display: Cross Correction Message
@@ -1260,6 +1332,9 @@ dissect.cross_correction_message = function(buffer, offset, packet, parent)
   return dissect.cross_correction_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: CrossType
+size_of.crosstype = 1
+
 -- Display: CrossType
 display.crosstype = function(value)
   if value == "E" then
@@ -1280,14 +1355,13 @@ end
 
 -- Dissect: CrossType
 dissect.crosstype = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.crosstype)
   local value = range:string()
   local display = display.crosstype(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.crosstype, range, value, display)
 
-  return offset + length
+  return offset + size_of.crosstype
 end
 
 -- Display: Cross Trade Message
@@ -1410,6 +1484,9 @@ dissect.delete_order_message = function(buffer, offset, packet, parent)
   return dissect.delete_order_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: NewPriceParitySplits
+size_of.newpriceparitysplits = 1
+
 -- Display: NewPriceParitySplits
 display.newpriceparitysplits = function(value)
   return "NewPriceParitySplits: "..value
@@ -1417,15 +1494,17 @@ end
 
 -- Dissect: NewPriceParitySplits
 dissect.newpriceparitysplits = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.newpriceparitysplits)
   local value = range:le_uint()
   local display = display.newpriceparitysplits(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.newpriceparitysplits, range, value, display)
 
-  return offset + length
+  return offset + size_of.newpriceparitysplits
 end
+
+-- Size: PrevPriceParitySplits
+size_of.prevpriceparitysplits = 1
 
 -- Display: PrevPriceParitySplits
 display.prevpriceparitysplits = function(value)
@@ -1434,15 +1513,17 @@ end
 
 -- Dissect: PrevPriceParitySplits
 dissect.prevpriceparitysplits = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.prevpriceparitysplits)
   local value = range:le_uint()
   local display = display.prevpriceparitysplits(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.prevpriceparitysplits, range, value, display)
 
-  return offset + length
+  return offset + size_of.prevpriceparitysplits
 end
+
+-- Size: NewOrderID
+size_of.neworderid = 8
 
 -- Display: NewOrderID
 display.neworderid = function(value)
@@ -1451,14 +1532,13 @@ end
 
 -- Dissect: NewOrderID
 dissect.neworderid = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.neworderid)
   local value = range:le_uint64()
   local display = display.neworderid(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.neworderid, range, value, display)
 
-  return offset + length
+  return offset + size_of.neworderid
 end
 
 -- Display: Replace Order Message
@@ -1512,6 +1592,9 @@ dissect.replace_order_message = function(buffer, offset, packet, parent)
   return dissect.replace_order_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: PositionChange
+size_of.positionchange = 1
+
 -- Display: PositionChange
 display.positionchange = function(value)
   if value == 0 then
@@ -1526,14 +1609,13 @@ end
 
 -- Dissect: PositionChange
 dissect.positionchange = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.positionchange)
   local value = range:le_uint()
   local display = display.positionchange(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.positionchange, range, value, display)
 
-  return offset + length
+  return offset + size_of.positionchange
 end
 
 -- Display: Modify Order Message
@@ -1638,6 +1720,9 @@ dissect.add_order_message = function(buffer, offset, packet, parent)
   return dissect.add_order_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: LastSymbolSeqNum
+size_of.lastsymbolseqnum = 4
+
 -- Display: LastSymbolSeqNum
 display.lastsymbolseqnum = function(value)
   return "LastSymbolSeqNum: "..value
@@ -1645,15 +1730,17 @@ end
 
 -- Dissect: LastSymbolSeqNum
 dissect.lastsymbolseqnum = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.lastsymbolseqnum)
   local value = range:le_uint()
   local display = display.lastsymbolseqnum(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.lastsymbolseqnum, range, value, display)
 
-  return offset + length
+  return offset + size_of.lastsymbolseqnum
 end
+
+-- Size: LastSeqNum
+size_of.lastseqnum = 4
 
 -- Display: LastSeqNum
 display.lastseqnum = function(value)
@@ -1662,15 +1749,17 @@ end
 
 -- Dissect: LastSeqNum
 dissect.lastseqnum = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.lastseqnum)
   local value = range:le_uint()
   local display = display.lastseqnum(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.lastseqnum, range, value, display)
 
-  return offset + length
+  return offset + size_of.lastseqnum
 end
+
+-- Size: TotalRefreshPkts
+size_of.totalrefreshpkts = 2
 
 -- Display: TotalRefreshPkts
 display.totalrefreshpkts = function(value)
@@ -1679,15 +1768,17 @@ end
 
 -- Dissect: TotalRefreshPkts
 dissect.totalrefreshpkts = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.totalrefreshpkts)
   local value = range:le_uint()
   local display = display.totalrefreshpkts(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.totalrefreshpkts, range, value, display)
 
-  return offset + length
+  return offset + size_of.totalrefreshpkts
 end
+
+-- Size: CurrentRefreshPkt
+size_of.currentrefreshpkt = 2
 
 -- Display: CurrentRefreshPkt
 display.currentrefreshpkt = function(value)
@@ -1696,14 +1787,13 @@ end
 
 -- Dissect: CurrentRefreshPkt
 dissect.currentrefreshpkt = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.currentrefreshpkt)
   local value = range:le_uint()
   local display = display.currentrefreshpkt(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.currentrefreshpkt, range, value, display)
 
-  return offset + length
+  return offset + size_of.currentrefreshpkt
 end
 
 -- Display: Refresh Header Message
@@ -1742,6 +1832,9 @@ dissect.refresh_header_message = function(buffer, offset, packet, parent)
   return dissect.refresh_header_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: SessionState
+size_of.sessionstate = 1
+
 -- Display: SessionState
 display.sessionstate = function(value)
   return "SessionState: "..value
@@ -1749,15 +1842,17 @@ end
 
 -- Dissect: SessionState
 dissect.sessionstate = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.sessionstate)
   local value = range:string()
   local display = display.sessionstate(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.sessionstate, range, value, display)
 
-  return offset + length
+  return offset + size_of.sessionstate
 end
+
+-- Size: MarketState
+size_of.marketstate = 1
 
 -- Display: MarketState
 display.marketstate = function(value)
@@ -1782,15 +1877,17 @@ end
 
 -- Dissect: MarketState
 dissect.marketstate = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.marketstate)
   local value = range:string()
   local display = display.marketstate(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.marketstate, range, value, display)
 
-  return offset + length
+  return offset + size_of.marketstate
 end
+
+-- Size: SSRState
+size_of.ssrstate = 1
 
 -- Display: SSRState
 display.ssrstate = function(value)
@@ -1806,15 +1903,17 @@ end
 
 -- Dissect: SSRState
 dissect.ssrstate = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.ssrstate)
   local value = range:string()
   local display = display.ssrstate(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.ssrstate, range, value, display)
 
-  return offset + length
+  return offset + size_of.ssrstate
 end
+
+-- Size: Time
+size_of.time = 4
 
 -- Display: Time
 display.time = function(value)
@@ -1823,15 +1922,17 @@ end
 
 -- Dissect: Time
 dissect.time = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.time)
   local value = range:le_uint()
   local display = display.time(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.time, range, value, display)
 
-  return offset + length
+  return offset + size_of.time
 end
+
+-- Size: SSR Triggering Volume
+size_of.ssr_triggering_volume = 4
 
 -- Display: SSR Triggering Volume
 display.ssr_triggering_volume = function(value)
@@ -1840,15 +1941,17 @@ end
 
 -- Dissect: SSR Triggering Volume
 dissect.ssr_triggering_volume = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.ssr_triggering_volume)
   local value = range:le_uint()
   local display = display.ssr_triggering_volume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.ssr_triggering_volume, range, value, display)
 
-  return offset + length
+  return offset + size_of.ssr_triggering_volume
 end
+
+-- Size: SSR Triggering Exchange ID
+size_of.ssr_triggering_exchange_id = 1
 
 -- Display: SSR Triggering Exchange ID
 display.ssr_triggering_exchange_id = function(value)
@@ -1912,15 +2015,17 @@ end
 
 -- Dissect: SSR Triggering Exchange ID
 dissect.ssr_triggering_exchange_id = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.ssr_triggering_exchange_id)
   local value = range:string()
   local display = display.ssr_triggering_exchange_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.ssr_triggering_exchange_id, range, value, display)
 
-  return offset + length
+  return offset + size_of.ssr_triggering_exchange_id
 end
+
+-- Size: Price 2
+size_of.price_2 = 4
 
 -- Display: Price 2
 display.price_2 = function(value)
@@ -1929,15 +2034,17 @@ end
 
 -- Dissect: Price 2
 dissect.price_2 = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.price_2)
   local value = range:le_uint()
   local display = display.price_2(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.price_2, range, value, display)
 
-  return offset + length
+  return offset + size_of.price_2
 end
+
+-- Size: Price 1
+size_of.price_1 = 4
 
 -- Display: Price 1
 display.price_1 = function(value)
@@ -1946,15 +2053,17 @@ end
 
 -- Dissect: Price 1
 dissect.price_1 = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.price_1)
   local value = range:le_uint()
   local display = display.price_1(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.price_1, range, value, display)
 
-  return offset + length
+  return offset + size_of.price_1
 end
+
+-- Size: Reserved4
+size_of.reserved4 = 4
 
 -- Display: Reserved4
 display.reserved4 = function(value)
@@ -1963,15 +2072,17 @@ end
 
 -- Dissect: Reserved4
 dissect.reserved4 = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.reserved4)
   local value = range:le_uint()
   local display = display.reserved4(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.reserved4, range, value, display)
 
-  return offset + length
+  return offset + size_of.reserved4
 end
+
+-- Size: Halt Condition
+size_of.halt_condition = 1
 
 -- Display: Halt Condition
 display.halt_condition = function(value)
@@ -2017,15 +2128,17 @@ end
 
 -- Dissect: Halt Condition
 dissect.halt_condition = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.halt_condition)
   local value = range:string()
   local display = display.halt_condition(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.halt_condition, range, value, display)
 
-  return offset + length
+  return offset + size_of.halt_condition
 end
+
+-- Size: Security Status
+size_of.security_status = 1
 
 -- Display: Security Status
 display.security_status = function(value)
@@ -2083,14 +2196,13 @@ end
 
 -- Dissect: Security Status
 dissect.security_status = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.security_status)
   local value = range:string()
   local display = display.security_status(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.security_status, range, value, display)
 
-  return offset + length
+  return offset + size_of.security_status
 end
 
 -- Display: Security Status Message
@@ -2162,6 +2274,9 @@ dissect.security_status_message = function(buffer, offset, packet, parent)
   return dissect.security_status_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: NextSourceSeqNum
+size_of.nextsourceseqnum = 4
+
 -- Display: NextSourceSeqNum
 display.nextsourceseqnum = function(value)
   return "NextSourceSeqNum: "..value
@@ -2169,14 +2284,13 @@ end
 
 -- Dissect: NextSourceSeqNum
 dissect.nextsourceseqnum = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.nextsourceseqnum)
   local value = range:le_uint()
   local display = display.nextsourceseqnum(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.nextsourceseqnum, range, value, display)
 
-  return offset + length
+  return offset + size_of.nextsourceseqnum
 end
 
 -- Display: Symbol Clear Message
@@ -2215,6 +2329,9 @@ dissect.symbol_clear_message = function(buffer, offset, packet, parent)
   return dissect.symbol_clear_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: ChannelID
+size_of.channelid = 1
+
 -- Display: ChannelID
 display.channelid = function(value)
   return "ChannelID: "..value
@@ -2222,15 +2339,17 @@ end
 
 -- Dissect: ChannelID
 dissect.channelid = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.channelid)
   local value = range:le_uint()
   local display = display.channelid(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.channelid, range, value, display)
 
-  return offset + length
+  return offset + size_of.channelid
 end
+
+-- Size: ProductID
+size_of.productid = 1
 
 -- Display: ProductID
 display.productid = function(value)
@@ -2239,15 +2358,17 @@ end
 
 -- Dissect: ProductID
 dissect.productid = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.productid)
   local value = range:le_uint()
   local display = display.productid(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.productid, range, value, display)
 
-  return offset + length
+  return offset + size_of.productid
 end
+
+-- Size: EndSeqNum
+size_of.endseqnum = 4
 
 -- Display: EndSeqNum
 display.endseqnum = function(value)
@@ -2256,15 +2377,17 @@ end
 
 -- Dissect: EndSeqNum
 dissect.endseqnum = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.endseqnum)
   local value = range:le_uint()
   local display = display.endseqnum(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.endseqnum, range, value, display)
 
-  return offset + length
+  return offset + size_of.endseqnum
 end
+
+-- Size: BeginSeqNum
+size_of.beginseqnum = 4
 
 -- Display: BeginSeqNum
 display.beginseqnum = function(value)
@@ -2273,14 +2396,13 @@ end
 
 -- Dissect: BeginSeqNum
 dissect.beginseqnum = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.beginseqnum)
   local value = range:le_uint()
   local display = display.beginseqnum(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.beginseqnum, range, value, display)
 
-  return offset + length
+  return offset + size_of.beginseqnum
 end
 
 -- Display: Message Unavailable Message
@@ -2319,6 +2441,9 @@ dissect.message_unavailable_message = function(buffer, offset, packet, parent)
   return dissect.message_unavailable_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: SourceID
+size_of.sourceid = 10
+
 -- Display: SourceID
 display.sourceid = function(value)
   return "SourceID: "..value
@@ -2326,14 +2451,13 @@ end
 
 -- Dissect: SourceID
 dissect.sourceid = function(buffer, offset, packet, parent)
-  local length = 10
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.sourceid)
   local value = range:string()
   local display = display.sourceid(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.sourceid, range, value, display)
 
-  return offset + length
+  return offset + size_of.sourceid
 end
 
 -- Display: Refresh Request Message
@@ -2372,6 +2496,9 @@ dissect.refresh_request_message = function(buffer, offset, packet, parent)
   return dissect.refresh_request_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: RetransmitMethod
+size_of.retransmitmethod = 1
+
 -- Display: RetransmitMethod
 display.retransmitmethod = function(value)
   return "RetransmitMethod: "..value
@@ -2379,14 +2506,13 @@ end
 
 -- Dissect: RetransmitMethod
 dissect.retransmitmethod = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.retransmitmethod)
   local value = range:le_uint()
   local display = display.retransmitmethod(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.retransmitmethod, range, value, display)
 
-  return offset + length
+  return offset + size_of.retransmitmethod
 end
 
 -- Display: Symbol Index Mapping Request Message
@@ -2455,6 +2581,9 @@ dissect.heartbeat_response_message = function(buffer, offset, packet, parent)
   return dissect.heartbeat_response_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Status
+size_of.status = 1
+
 -- Display: Status
 display.status = function(value)
   if value == "0" then
@@ -2493,15 +2622,17 @@ end
 
 -- Dissect: Status
 dissect.status = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.status)
   local value = range:string()
   local display = display.status(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.status, range, value, display)
 
-  return offset + length
+  return offset + size_of.status
 end
+
+-- Size: RequestSeqNum
+size_of.requestseqnum = 4
 
 -- Display: RequestSeqNum
 display.requestseqnum = function(value)
@@ -2510,14 +2641,13 @@ end
 
 -- Dissect: RequestSeqNum
 dissect.requestseqnum = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.requestseqnum)
   local value = range:le_uint()
   local display = display.requestseqnum(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.requestseqnum, range, value, display)
 
-  return offset + length
+  return offset + size_of.requestseqnum
 end
 
 -- Display: Request Response Message
@@ -2604,6 +2734,9 @@ dissect.retransmission_request_message = function(buffer, offset, packet, parent
   return dissect.retransmission_request_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Reserved2
+size_of.reserved2 = 2
+
 -- Display: Reserved2
 display.reserved2 = function(value)
   return "Reserved2: "..value
@@ -2611,15 +2744,17 @@ end
 
 -- Dissect: Reserved2
 dissect.reserved2 = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.reserved2)
   local value = range:le_uint()
   local display = display.reserved2(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.reserved2, range, value, display)
 
-  return offset + length
+  return offset + size_of.reserved2
 end
+
+-- Size: Unit of Trade
+size_of.unit_of_trade = 2
 
 -- Display: Unit of Trade
 display.unit_of_trade = function(value)
@@ -2628,15 +2763,17 @@ end
 
 -- Dissect: Unit of Trade
 dissect.unit_of_trade = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.unit_of_trade)
   local value = range:le_uint()
   local display = display.unit_of_trade(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.unit_of_trade, range, value, display)
 
-  return offset + length
+  return offset + size_of.unit_of_trade
 end
+
+-- Size: MPV
+size_of.mpv = 2
 
 -- Display: MPV
 display.mpv = function(value)
@@ -2645,15 +2782,17 @@ end
 
 -- Dissect: MPV
 dissect.mpv = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.mpv)
   local value = range:le_uint()
   local display = display.mpv(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.mpv, range, value, display)
 
-  return offset + length
+  return offset + size_of.mpv
 end
+
+-- Size: Round Lot
+size_of.round_lot = 1
 
 -- Display: Round Lot
 display.round_lot = function(value)
@@ -2669,15 +2808,17 @@ end
 
 -- Dissect: Round Lot
 dissect.round_lot = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.round_lot)
   local value = range:string()
   local display = display.round_lot(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.round_lot, range, value, display)
 
-  return offset + length
+  return offset + size_of.round_lot
 end
+
+-- Size: Price Resolution
+size_of.price_resolution = 1
 
 -- Display: Price Resolution
 display.price_resolution = function(value)
@@ -2696,15 +2837,17 @@ end
 
 -- Dissect: Price Resolution
 dissect.price_resolution = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.price_resolution)
   local value = range:le_uint()
   local display = display.price_resolution(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.price_resolution, range, value, display)
 
-  return offset + length
+  return offset + size_of.price_resolution
 end
+
+-- Size: PrevCloseVolume
+size_of.prevclosevolume = 4
 
 -- Display: PrevCloseVolume
 display.prevclosevolume = function(value)
@@ -2713,15 +2856,17 @@ end
 
 -- Dissect: PrevCloseVolume
 dissect.prevclosevolume = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.prevclosevolume)
   local value = range:le_uint()
   local display = display.prevclosevolume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.prevclosevolume, range, value, display)
 
-  return offset + length
+  return offset + size_of.prevclosevolume
 end
+
+-- Size: PrevClosePrice
+size_of.prevcloseprice = 4
 
 -- Display: PrevClosePrice
 display.prevcloseprice = function(value)
@@ -2730,15 +2875,17 @@ end
 
 -- Dissect: PrevClosePrice
 dissect.prevcloseprice = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.prevcloseprice)
   local value = range:le_uint()
   local display = display.prevcloseprice(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.prevcloseprice, range, value, display)
 
-  return offset + length
+  return offset + size_of.prevcloseprice
 end
+
+-- Size: Lot Size
+size_of.lot_size = 2
 
 -- Display: Lot Size
 display.lot_size = function(value)
@@ -2747,15 +2894,17 @@ end
 
 -- Dissect: Lot Size
 dissect.lot_size = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.lot_size)
   local value = range:le_uint()
   local display = display.lot_size(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.lot_size, range, value, display)
 
-  return offset + length
+  return offset + size_of.lot_size
 end
+
+-- Size: Security Type
+size_of.security_type = 1
 
 -- Display: Security Type
 display.security_type = function(value)
@@ -2813,15 +2962,17 @@ end
 
 -- Dissect: Security Type
 dissect.security_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.security_type)
   local value = range:string()
   local display = display.security_type(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.security_type, range, value, display)
 
-  return offset + length
+  return offset + size_of.security_type
 end
+
+-- Size: PriceScaleCode
+size_of.pricescalecode = 1
 
 -- Display: PriceScaleCode
 display.pricescalecode = function(value)
@@ -2830,15 +2981,17 @@ end
 
 -- Dissect: PriceScaleCode
 dissect.pricescalecode = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.pricescalecode)
   local value = range:le_uint()
   local display = display.pricescalecode(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.pricescalecode, range, value, display)
 
-  return offset + length
+  return offset + size_of.pricescalecode
 end
+
+-- Size: Exchange Code
+size_of.exchange_code = 1
 
 -- Display: Exchange Code
 display.exchange_code = function(value)
@@ -2878,15 +3031,17 @@ end
 
 -- Dissect: Exchange Code
 dissect.exchange_code = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.exchange_code)
   local value = range:string()
   local display = display.exchange_code(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.exchange_code, range, value, display)
 
-  return offset + length
+  return offset + size_of.exchange_code
 end
+
+-- Size: System ID
+size_of.system_id = 1
 
 -- Display: System ID
 display.system_id = function(value)
@@ -2895,15 +3050,17 @@ end
 
 -- Dissect: System ID
 dissect.system_id = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.system_id)
   local value = range:le_uint()
   local display = display.system_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.system_id, range, value, display)
 
-  return offset + length
+  return offset + size_of.system_id
 end
+
+-- Size: Market ID
+size_of.market_id = 2
 
 -- Display: Market ID
 display.market_id = function(value)
@@ -2937,15 +3094,17 @@ end
 
 -- Dissect: Market ID
 dissect.market_id = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.market_id)
   local value = range:le_uint()
   local display = display.market_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.market_id, range, value, display)
 
-  return offset + length
+  return offset + size_of.market_id
 end
+
+-- Size: Reserved1
+size_of.reserved1 = 1
 
 -- Display: Reserved1
 display.reserved1 = function(value)
@@ -2954,15 +3113,17 @@ end
 
 -- Dissect: Reserved1
 dissect.reserved1 = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.reserved1)
   local value = range:le_uint()
   local display = display.reserved1(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.reserved1, range, value, display)
 
-  return offset + length
+  return offset + size_of.reserved1
 end
+
+-- Size: Symbol
+size_of.symbol = 11
 
 -- Display: Symbol
 display.symbol = function(value)
@@ -2971,14 +3132,13 @@ end
 
 -- Dissect: Symbol
 dissect.symbol = function(buffer, offset, packet, parent)
-  local length = 11
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.symbol)
   local value = range:string()
   local display = display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.symbol, range, value, display)
 
-  return offset + length
+  return offset + size_of.symbol
 end
 
 -- Display: Symbol Index Mapping Message
@@ -3053,6 +3213,9 @@ dissect.symbol_index_mapping_message = function(buffer, offset, packet, parent)
   return dissect.symbol_index_mapping_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Id
+size_of.id = 4
+
 -- Display: Id
 display.id = function(value)
   return "Id: "..value
@@ -3060,14 +3223,13 @@ end
 
 -- Dissect: Id
 dissect.id = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.id)
   local value = range:le_uint()
   local display = display.id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.id, range, value, display)
 
-  return offset + length
+  return offset + size_of.id
 end
 
 -- Display: Source Time Reference Message
@@ -3379,6 +3541,9 @@ dissect.payload = function(buffer, offset, packet, parent)
   return dissect.payload_branches(code, buffer, offset, packet, element)
 end
 
+-- Size: Message Type
+size_of.message_type = 2
+
 -- Display: Message Type
 display.message_type = function(value)
   if value == 1 then
@@ -3472,6 +3637,9 @@ dissect.message_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Message Size
+size_of.message_size = 2
+
 -- Display: Message Size
 display.message_size = function(value)
   return "Message Size: "..value
@@ -3479,14 +3647,13 @@ end
 
 -- Dissect: Message Size
 dissect.message_size = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_size)
   local value = range:le_uint()
   local display = display.message_size(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.message_size, range, value, display)
 
-  return offset + length
+  return offset + size_of.message_size
 end
 
 -- Display: Message Header
@@ -3564,6 +3731,9 @@ dissect.message = function(buffer, offset, packet, parent)
   return dissect.message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Nanoseconds
+size_of.nanoseconds = 4
+
 -- Display: Nanoseconds
 display.nanoseconds = function(value)
   return "Nanoseconds: "..value
@@ -3571,15 +3741,17 @@ end
 
 -- Dissect: Nanoseconds
 dissect.nanoseconds = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.nanoseconds)
   local value = range:le_uint()
   local display = display.nanoseconds(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.nanoseconds, range, value, display)
 
-  return offset + length
+  return offset + size_of.nanoseconds
 end
+
+-- Size: Timestamp
+size_of.timestamp = 4
 
 -- Display: Timestamp
 display.timestamp = function(value)
@@ -3588,15 +3760,17 @@ end
 
 -- Dissect: Timestamp
 dissect.timestamp = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.timestamp)
   local value = range:le_uint()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.timestamp, range, value, display)
 
-  return offset + length
+  return offset + size_of.timestamp
 end
+
+-- Size: Sequence Number
+size_of.sequence_number = 4
 
 -- Display: Sequence Number
 display.sequence_number = function(value)
@@ -3605,15 +3779,17 @@ end
 
 -- Dissect: Sequence Number
 dissect.sequence_number = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.sequence_number)
   local value = range:le_uint()
   local display = display.sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.sequence_number, range, value, display)
 
-  return offset + length
+  return offset + size_of.sequence_number
 end
+
+-- Size: Message Count
+size_of.message_count = 1
 
 -- Display: Message Count
 display.message_count = function(value)
@@ -3631,6 +3807,9 @@ dissect.message_count = function(buffer, offset, packet, parent)
 
   return offset + length, value
 end
+
+-- Size: Delivery Flag
+size_of.delivery_flag = 1
 
 -- Display: Delivery Flag
 display.delivery_flag = function(value)
@@ -3673,15 +3852,17 @@ end
 
 -- Dissect: Delivery Flag
 dissect.delivery_flag = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.delivery_flag)
   local value = range:le_uint()
   local display = display.delivery_flag(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.delivery_flag, range, value, display)
 
-  return offset + length
+  return offset + size_of.delivery_flag
 end
+
+-- Size: Packet Size
+size_of.packet_size = 2
 
 -- Display: Packet Size
 display.packet_size = function(value)
@@ -3690,14 +3871,13 @@ end
 
 -- Dissect: Packet Size
 dissect.packet_size = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.packet_size)
   local value = range:le_uint()
   local display = display.packet_size(value, buffer, offset, packet, parent)
 
   parent:add(nyse_integratedfeed_xdp_2_1.fields.packet_size, range, value, display)
 
-  return offset + length
+  return offset + size_of.packet_size
 end
 
 -- Display: Packet Header
@@ -3812,10 +3992,11 @@ nyse_integratedfeed_xdp_2_1:register_heuristic("udp", nyse_integratedfeed_xdp_2_
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
--- Specification:
--- Protocol Version: 2.1
--- Date:
--- Source Version: 1.1.0.0
+-- Protocol:
+-- Version: 2.1
+-- Date: Monday, January 29, 2018
+-- Script:
+-- Source Version: 1.2.0.0
 -- Compiler Version: 1.0
 -- License: Public/GPLv3
 -- Authors: Omi Developers

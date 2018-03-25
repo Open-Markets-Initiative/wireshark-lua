@@ -138,6 +138,9 @@ nasdaq_totalview_itch_4_1.fields.trade_message = ProtoField.new("Trade Message",
 -- Dissect Nasdaq TotalView Itch 4.1
 -----------------------------------------------------------------------
 
+-- Size: Interest Flag
+size_of.interest_flag = 1
+
 -- Display: Interest Flag
 display.interest_flag = function(value)
   if value == "B" then
@@ -158,15 +161,17 @@ end
 
 -- Dissect: Interest Flag
 dissect.interest_flag = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.interest_flag)
   local value = range:string()
   local display = display.interest_flag(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.interest_flag, range, value, display)
 
-  return offset + length
+  return offset + size_of.interest_flag
 end
+
+-- Size: Stock
+size_of.stock = 8
 
 -- Display: Stock
 display.stock = function(value)
@@ -175,15 +180,17 @@ end
 
 -- Dissect: Stock
 dissect.stock = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.stock)
   local value = range:string()
   local display = display.stock(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.stock, range, value, display)
 
-  return offset + length
+  return offset + size_of.stock
 end
+
+-- Size: Timestamp
+size_of.timestamp = 4
 
 -- Display: Timestamp
 display.timestamp = function(value)
@@ -192,14 +199,13 @@ end
 
 -- Dissect: Timestamp
 dissect.timestamp = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.timestamp)
   local value = range:uint()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.timestamp, range, value, display)
 
-  return offset + length
+  return offset + size_of.timestamp
 end
 
 -- Display: Retail Price Improvement Indicator Message
@@ -234,6 +240,9 @@ dissect.retail_price_improvement_indicator_message = function(buffer, offset, pa
 
   return dissect.retail_price_improvement_indicator_message_fields(buffer, offset, packet, parent)
 end
+
+-- Size: Price Variation Indicator
+size_of.price_variation_indicator = 1
 
 -- Display: Price Variation Indicator
 display.price_variation_indicator = function(value)
@@ -285,15 +294,17 @@ end
 
 -- Dissect: Price Variation Indicator
 dissect.price_variation_indicator = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.price_variation_indicator)
   local value = range:string()
   local display = display.price_variation_indicator(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.price_variation_indicator, range, value, display)
 
-  return offset + length
+  return offset + size_of.price_variation_indicator
 end
+
+-- Size: Cross Type
+size_of.cross_type = 1
 
 -- Display: Cross Type
 display.cross_type = function(value)
@@ -315,15 +326,17 @@ end
 
 -- Dissect: Cross Type
 dissect.cross_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.cross_type)
   local value = range:string()
   local display = display.cross_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.cross_type, range, value, display)
 
-  return offset + length
+  return offset + size_of.cross_type
 end
+
+-- Size: Current Reference Price
+size_of.current_reference_price = 4
 
 -- Display: Current Reference Price
 display.current_reference_price = function(value)
@@ -332,15 +345,17 @@ end
 
 -- Dissect: Current Reference Price
 dissect.current_reference_price = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.current_reference_price)
   local value = range:uint()
   local display = display.current_reference_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.current_reference_price, range, value, display)
 
-  return offset + length
+  return offset + size_of.current_reference_price
 end
+
+-- Size: Near Price
+size_of.near_price = 4
 
 -- Display: Near Price
 display.near_price = function(value)
@@ -349,15 +364,17 @@ end
 
 -- Dissect: Near Price
 dissect.near_price = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.near_price)
   local value = range:uint()
   local display = display.near_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.near_price, range, value, display)
 
-  return offset + length
+  return offset + size_of.near_price
 end
+
+-- Size: Far Price
+size_of.far_price = 4
 
 -- Display: Far Price
 display.far_price = function(value)
@@ -366,15 +383,17 @@ end
 
 -- Dissect: Far Price
 dissect.far_price = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.far_price)
   local value = range:uint()
   local display = display.far_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.far_price, range, value, display)
 
-  return offset + length
+  return offset + size_of.far_price
 end
+
+-- Size: Imbalance Direction
+size_of.imbalance_direction = 1
 
 -- Display: Imbalance Direction
 display.imbalance_direction = function(value)
@@ -396,15 +415,17 @@ end
 
 -- Dissect: Imbalance Direction
 dissect.imbalance_direction = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.imbalance_direction)
   local value = range:string()
   local display = display.imbalance_direction(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.imbalance_direction, range, value, display)
 
-  return offset + length
+  return offset + size_of.imbalance_direction
 end
+
+-- Size: Imbalance Shares
+size_of.imbalance_shares = 8
 
 -- Display: Imbalance Shares
 display.imbalance_shares = function(value)
@@ -413,15 +434,17 @@ end
 
 -- Dissect: Imbalance Shares
 dissect.imbalance_shares = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.imbalance_shares)
   local value = range:uint64()
   local display = display.imbalance_shares(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.imbalance_shares, range, value, display)
 
-  return offset + length
+  return offset + size_of.imbalance_shares
 end
+
+-- Size: Paired Shares
+size_of.paired_shares = 8
 
 -- Display: Paired Shares
 display.paired_shares = function(value)
@@ -430,14 +453,13 @@ end
 
 -- Dissect: Paired Shares
 dissect.paired_shares = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.paired_shares)
   local value = range:uint64()
   local display = display.paired_shares(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.paired_shares, range, value, display)
 
-  return offset + length
+  return offset + size_of.paired_shares
 end
 
 -- Display: Net Order Imbalance Indicator Message
@@ -494,6 +516,9 @@ dissect.net_order_imbalance_indicator_message = function(buffer, offset, packet,
   return dissect.net_order_imbalance_indicator_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Match Number
+size_of.match_number = 8
+
 -- Display: Match Number
 display.match_number = function(value)
   return "Match Number: "..value
@@ -501,14 +526,13 @@ end
 
 -- Dissect: Match Number
 dissect.match_number = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.match_number)
   local value = range:uint64()
   local display = display.match_number(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.match_number, range, value, display)
 
-  return offset + length
+  return offset + size_of.match_number
 end
 
 -- Display: Broken Trade Message
@@ -541,6 +565,9 @@ dissect.broken_trade_message = function(buffer, offset, packet, parent)
   return dissect.broken_trade_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Cross Price
+size_of.cross_price = 4
+
 -- Display: Cross Price
 display.cross_price = function(value)
   return "Cross Price: "..value
@@ -548,15 +575,17 @@ end
 
 -- Dissect: Cross Price
 dissect.cross_price = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.cross_price)
   local value = range:uint()
   local display = display.cross_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.cross_price, range, value, display)
 
-  return offset + length
+  return offset + size_of.cross_price
 end
+
+-- Size: Shares
+size_of.shares = 4
 
 -- Display: Shares
 display.shares = function(value)
@@ -565,14 +594,13 @@ end
 
 -- Dissect: Shares
 dissect.shares = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.shares)
   local value = range:uint()
   local display = display.shares(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.shares, range, value, display)
 
-  return offset + length
+  return offset + size_of.shares
 end
 
 -- Display: Cross Trade Message
@@ -617,6 +645,9 @@ dissect.cross_trade_message = function(buffer, offset, packet, parent)
   return dissect.cross_trade_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Price
+size_of.price = 4
+
 -- Display: Price
 display.price = function(value)
   return "Price: "..value
@@ -624,15 +655,17 @@ end
 
 -- Dissect: Price
 dissect.price = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.price)
   local value = range:uint()
   local display = display.price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.price, range, value, display)
 
-  return offset + length
+  return offset + size_of.price
 end
+
+-- Size: Side
+size_of.side = 1
 
 -- Display: Side
 display.side = function(value)
@@ -648,15 +681,17 @@ end
 
 -- Dissect: Side
 dissect.side = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.side)
   local value = range:string()
   local display = display.side(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.side, range, value, display)
 
-  return offset + length
+  return offset + size_of.side
 end
+
+-- Size: Order Reference Number
+size_of.order_reference_number = 8
 
 -- Display: Order Reference Number
 display.order_reference_number = function(value)
@@ -665,14 +700,13 @@ end
 
 -- Dissect: Order Reference Number
 dissect.order_reference_number = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.order_reference_number)
   local value = range:uint64()
   local display = display.order_reference_number(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.order_reference_number, range, value, display)
 
-  return offset + length
+  return offset + size_of.order_reference_number
 end
 
 -- Display: Trade Message
@@ -720,6 +754,9 @@ dissect.trade_message = function(buffer, offset, packet, parent)
   return dissect.trade_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: New Order Reference Number
+size_of.new_order_reference_number = 8
+
 -- Display: New Order Reference Number
 display.new_order_reference_number = function(value)
   return "New Order Reference Number: "..value
@@ -727,15 +764,17 @@ end
 
 -- Dissect: New Order Reference Number
 dissect.new_order_reference_number = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.new_order_reference_number)
   local value = range:uint64()
   local display = display.new_order_reference_number(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.new_order_reference_number, range, value, display)
 
-  return offset + length
+  return offset + size_of.new_order_reference_number
 end
+
+-- Size: Original Order Reference Number
+size_of.original_order_reference_number = 8
 
 -- Display: Original Order Reference Number
 display.original_order_reference_number = function(value)
@@ -744,15 +783,17 @@ end
 
 -- Dissect: Original Order Reference Number
 dissect.original_order_reference_number = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.original_order_reference_number)
   local value = range:uint64()
   local display = display.original_order_reference_number(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.original_order_reference_number, range, value, display)
 
-  return offset + length
+  return offset + size_of.original_order_reference_number
 end
+
+-- Size: Timestamp  Nanoseconds
+size_of.timestamp__nanoseconds = 4
 
 -- Display: Timestamp  Nanoseconds
 display.timestamp__nanoseconds = function(value)
@@ -761,14 +802,13 @@ end
 
 -- Dissect: Timestamp  Nanoseconds
 dissect.timestamp__nanoseconds = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.timestamp__nanoseconds)
   local value = range:uint()
   local display = display.timestamp__nanoseconds(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.timestamp__nanoseconds, range, value, display)
 
-  return offset + length
+  return offset + size_of.timestamp__nanoseconds
 end
 
 -- Display: Order Replace Message
@@ -840,6 +880,9 @@ dissect.order_delete_message = function(buffer, offset, packet, parent)
   return dissect.order_delete_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Canceled Shares
+size_of.canceled_shares = 4
+
 -- Display: Canceled Shares
 display.canceled_shares = function(value)
   return "Canceled Shares: "..value
@@ -847,14 +890,13 @@ end
 
 -- Dissect: Canceled Shares
 dissect.canceled_shares = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.canceled_shares)
   local value = range:uint()
   local display = display.canceled_shares(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.canceled_shares, range, value, display)
 
-  return offset + length
+  return offset + size_of.canceled_shares
 end
 
 -- Display: Order Cancel Message
@@ -890,6 +932,9 @@ dissect.order_cancel_message = function(buffer, offset, packet, parent)
   return dissect.order_cancel_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Execution Price
+size_of.execution_price = 4
+
 -- Display: Execution Price
 display.execution_price = function(value)
   return "Execution Price: "..value
@@ -897,15 +942,17 @@ end
 
 -- Dissect: Execution Price
 dissect.execution_price = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.execution_price)
   local value = range:uint()
   local display = display.execution_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.execution_price, range, value, display)
 
-  return offset + length
+  return offset + size_of.execution_price
 end
+
+-- Size: Printable
+size_of.printable = 1
 
 -- Display: Printable
 display.printable = function(value)
@@ -921,15 +968,17 @@ end
 
 -- Dissect: Printable
 dissect.printable = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.printable)
   local value = range:string()
   local display = display.printable(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.printable, range, value, display)
 
-  return offset + length
+  return offset + size_of.printable
 end
+
+-- Size: Executed Shares
+size_of.executed_shares = 4
 
 -- Display: Executed Shares
 display.executed_shares = function(value)
@@ -938,14 +987,13 @@ end
 
 -- Dissect: Executed Shares
 dissect.executed_shares = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.executed_shares)
   local value = range:uint()
   local display = display.executed_shares(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.executed_shares, range, value, display)
 
-  return offset + length
+  return offset + size_of.executed_shares
 end
 
 -- Display: Order Executed With Price Message
@@ -1026,6 +1074,9 @@ dissect.order_executed_message = function(buffer, offset, packet, parent)
   return dissect.order_executed_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Attribution
+size_of.attribution = 4
+
 -- Display: Attribution
 display.attribution = function(value)
   return "Attribution: "..value
@@ -1033,14 +1084,13 @@ end
 
 -- Dissect: Attribution
 dissect.attribution = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.attribution)
   local value = range:string()
   local display = display.attribution(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.attribution, range, value, display)
 
-  return offset + length
+  return offset + size_of.attribution
 end
 
 -- Display: Add Order with Mpid Message
@@ -1130,6 +1180,9 @@ dissect.add_order_message = function(buffer, offset, packet, parent)
   return dissect.add_order_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Market Participant State
+size_of.market_participant_state = 1
+
 -- Display: Market Participant State
 display.market_participant_state = function(value)
   if value == "A" then
@@ -1153,15 +1206,17 @@ end
 
 -- Dissect: Market Participant State
 dissect.market_participant_state = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.market_participant_state)
   local value = range:string()
   local display = display.market_participant_state(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.market_participant_state, range, value, display)
 
-  return offset + length
+  return offset + size_of.market_participant_state
 end
+
+-- Size: Market Maker Mode
+size_of.market_maker_mode = 1
 
 -- Display: Market Maker Mode
 display.market_maker_mode = function(value)
@@ -1183,15 +1238,17 @@ end
 
 -- Dissect: Market Maker Mode
 dissect.market_maker_mode = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.market_maker_mode)
   local value = range:string()
   local display = display.market_maker_mode(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.market_maker_mode, range, value, display)
 
-  return offset + length
+  return offset + size_of.market_maker_mode
 end
+
+-- Size: Primary Market Maker
+size_of.primary_market_maker = 1
 
 -- Display: Primary Market Maker
 display.primary_market_maker = function(value)
@@ -1207,15 +1264,17 @@ end
 
 -- Dissect: Primary Market Maker
 dissect.primary_market_maker = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.primary_market_maker)
   local value = range:string()
   local display = display.primary_market_maker(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.primary_market_maker, range, value, display)
 
-  return offset + length
+  return offset + size_of.primary_market_maker
 end
+
+-- Size: Mpid
+size_of.mpid = 4
 
 -- Display: Mpid
 display.mpid = function(value)
@@ -1224,14 +1283,13 @@ end
 
 -- Dissect: Mpid
 dissect.mpid = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.mpid)
   local value = range:string()
   local display = display.mpid(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.mpid, range, value, display)
 
-  return offset + length
+  return offset + size_of.mpid
 end
 
 -- Display: Market Participant Position Message
@@ -1276,6 +1334,9 @@ dissect.market_participant_position_message = function(buffer, offset, packet, p
   return dissect.market_participant_position_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Reg Sho Action
+size_of.reg_sho_action = 1
+
 -- Display: Reg Sho Action
 display.reg_sho_action = function(value)
   if value == "0" then
@@ -1293,14 +1354,13 @@ end
 
 -- Dissect: Reg Sho Action
 dissect.reg_sho_action = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.reg_sho_action)
   local value = range:string()
   local display = display.reg_sho_action(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.reg_sho_action, range, value, display)
 
-  return offset + length
+  return offset + size_of.reg_sho_action
 end
 
 -- Display: Reg Sho Short Sale Price Test Restricted Indicator Message
@@ -1336,6 +1396,9 @@ dissect.reg_sho_short_sale_price_test_restricted_indicator_message = function(bu
   return dissect.reg_sho_short_sale_price_test_restricted_indicator_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Financial Status Indicator
+size_of.financial_status_indicator = 1
+
 -- Display: Financial Status Indicator
 display.financial_status_indicator = function(value)
   if value == "D" then
@@ -1368,15 +1431,17 @@ end
 
 -- Dissect: Financial Status Indicator
 dissect.financial_status_indicator = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.financial_status_indicator)
   local value = range:string()
   local display = display.financial_status_indicator(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.financial_status_indicator, range, value, display)
 
-  return offset + length
+  return offset + size_of.financial_status_indicator
 end
+
+-- Size: Market Category
+size_of.market_category = 1
 
 -- Display: Market Category
 display.market_category = function(value)
@@ -1407,14 +1472,13 @@ end
 
 -- Dissect: Market Category
 dissect.market_category = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.market_category)
   local value = range:string()
   local display = display.market_category(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.market_category, range, value, display)
 
-  return offset + length
+  return offset + size_of.market_category
 end
 
 -- Display: Stock Directory Message
@@ -1453,6 +1517,9 @@ dissect.stock_directory_message = function(buffer, offset, packet, parent)
   return dissect.stock_directory_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Event Code
+size_of.event_code = 1
+
 -- Display: Event Code
 display.event_code = function(value)
   if value == "O" then
@@ -1488,14 +1555,13 @@ end
 
 -- Dissect: Event Code
 dissect.event_code = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.event_code)
   local value = range:string()
   local display = display.event_code(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.event_code, range, value, display)
 
-  return offset + length
+  return offset + size_of.event_code
 end
 
 -- Display: System Event Message
@@ -1528,6 +1594,9 @@ dissect.system_event_message = function(buffer, offset, packet, parent)
   return dissect.system_event_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Second
+size_of.second = 4
+
 -- Display: Second
 display.second = function(value)
   return "Second: "..value
@@ -1535,14 +1604,13 @@ end
 
 -- Dissect: Second
 dissect.second = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.second)
   local value = range:uint()
   local display = display.second(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.second, range, value, display)
 
-  return offset + length
+  return offset + size_of.second
 end
 
 -- Display: Time Stamp Message
@@ -1748,6 +1816,9 @@ dissect.payload = function(buffer, offset, packet, parent)
   return dissect.payload_branches(code, buffer, offset, packet, element)
 end
 
+-- Size: Message Type
+size_of.message_type = 1
+
 -- Display: Message Type
 display.message_type = function(value)
   if value == "T" then
@@ -1817,6 +1888,9 @@ dissect.message_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Length
+size_of.length = 2
+
 -- Display: Length
 display.length = function(value)
   return "Length: "..value
@@ -1824,14 +1898,13 @@ end
 
 -- Dissect: Length
 dissect.length = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.length)
   local value = range:uint()
   local display = display.length(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.length, range, value, display)
 
-  return offset + length
+  return offset + size_of.length
 end
 
 -- Display: Message Header
@@ -1909,6 +1982,9 @@ dissect.message = function(buffer, offset, packet, parent)
   return dissect.message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Count
+size_of.count = 2
+
 -- Display: Count
 display.count = function(value)
   return "Count: "..value
@@ -1926,6 +2002,9 @@ dissect.count = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Sequence
+size_of.sequence = 8
+
 -- Display: Sequence
 display.sequence = function(value)
   return "Sequence: "..value
@@ -1933,15 +2012,17 @@ end
 
 -- Dissect: Sequence
 dissect.sequence = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.sequence)
   local value = range:uint64()
   local display = display.sequence(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.sequence, range, value, display)
 
-  return offset + length
+  return offset + size_of.sequence
 end
+
+-- Size: Session
+size_of.session = 10
 
 -- Display: Session
 display.session = function(value)
@@ -1950,14 +2031,13 @@ end
 
 -- Dissect: Session
 dissect.session = function(buffer, offset, packet, parent)
-  local length = 10
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.session)
   local value = range:string()
   local display = display.session(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_totalview_itch_4_1.fields.session, range, value, display)
 
-  return offset + length
+  return offset + size_of.session
 end
 
 -- Display: Packet Header
@@ -2063,10 +2143,11 @@ nasdaq_totalview_itch_4_1:register_heuristic("udp", nasdaq_totalview_itch_4_1_he
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
--- Specification:
--- Protocol Version: 4.1
--- Date:
--- Source Version: 1.1.0.0
+-- Protocol:
+-- Version: 4.1
+-- Date: Thursday, June 12, 2014
+-- Script:
+-- Source Version: 1.2.0.0
 -- Compiler Version: 1.0
 -- License: Public/GPLv3
 -- Authors: Omi Developers

@@ -269,6 +269,9 @@ asx_t24_itch_1_13.fields.volume_and_open_interest = ProtoField.new("Volume and O
 -- Dissect Asx T24 Itch 1.13
 -----------------------------------------------------------------------
 
+-- Size: VOI Trade Date
+size_of.voi_trade_date = 2
+
 -- Display: VOI Trade Date
 display.voi_trade_date = function(value)
   return "VOI Trade Date: "..value
@@ -276,15 +279,17 @@ end
 
 -- Dissect: VOI Trade Date
 dissect.voi_trade_date = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.voi_trade_date)
   local value = range:uint()
   local display = display.voi_trade_date(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.voi_trade_date, range, value, display)
 
-  return offset + length
+  return offset + size_of.voi_trade_date
 end
+
+-- Size: Open Interest
+size_of.open_interest = 4
 
 -- Display: Open Interest
 display.open_interest = function(value)
@@ -293,15 +298,17 @@ end
 
 -- Dissect: Open Interest
 dissect.open_interest = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.open_interest)
   local value = range:uint()
   local display = display.open_interest(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.open_interest, range, value, display)
 
-  return offset + length
+  return offset + size_of.open_interest
 end
+
+-- Size: Cumulative Volume
+size_of.cumulative_volume = 4
 
 -- Display: Cumulative Volume
 display.cumulative_volume = function(value)
@@ -310,15 +317,17 @@ end
 
 -- Dissect: Cumulative Volume
 dissect.cumulative_volume = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.cumulative_volume)
   local value = range:uint()
   local display = display.cumulative_volume(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.cumulative_volume, range, value, display)
 
-  return offset + length
+  return offset + size_of.cumulative_volume
 end
+
+-- Size: Contract Number
+size_of.contract_number = 4
 
 -- Display: Contract Number
 display.contract_number = function(value)
@@ -327,15 +336,17 @@ end
 
 -- Dissect: Contract Number
 dissect.contract_number = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.contract_number)
   local value = range:uint()
   local display = display.contract_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.contract_number, range, value, display)
 
-  return offset + length
+  return offset + size_of.contract_number
 end
+
+-- Size: Trade Date
+size_of.trade_date = 2
 
 -- Display: Trade Date
 display.trade_date = function(value)
@@ -344,15 +355,17 @@ end
 
 -- Dissect: Trade Date
 dissect.trade_date = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.trade_date)
   local value = range:uint()
   local display = display.trade_date(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.trade_date, range, value, display)
 
-  return offset + length
+  return offset + size_of.trade_date
 end
+
+-- Size: Timestamp
+size_of.timestamp = 4
 
 -- Display: Timestamp
 display.timestamp = function(value)
@@ -361,14 +374,13 @@ end
 
 -- Dissect: Timestamp
 dissect.timestamp = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.timestamp)
   local value = range:uint()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.timestamp, range, value, display)
 
-  return offset + length
+  return offset + size_of.timestamp
 end
 
 -- Display: Volume and Open Interest
@@ -413,6 +425,9 @@ dissect.volume_and_open_interest = function(buffer, offset, packet, parent)
   return dissect.volume_and_open_interest_fields(buffer, offset, packet, parent)
 end
 
+-- Size: ETR Lower Price
+size_of.etr_lower_price = 4
+
 -- Display: ETR Lower Price
 display.etr_lower_price = function(value)
   return "ETR Lower Price: "..value
@@ -420,15 +435,17 @@ end
 
 -- Dissect: ETR Lower Price
 dissect.etr_lower_price = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.etr_lower_price)
   local value = range:int()
   local display = display.etr_lower_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.etr_lower_price, range, value, display)
 
-  return offset + length
+  return offset + size_of.etr_lower_price
 end
+
+-- Size: ETR Upper Price
+size_of.etr_upper_price = 4
 
 -- Display: ETR Upper Price
 display.etr_upper_price = function(value)
@@ -437,15 +454,17 @@ end
 
 -- Dissect: ETR Upper Price
 dissect.etr_upper_price = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.etr_upper_price)
   local value = range:int()
   local display = display.etr_upper_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.etr_upper_price, range, value, display)
 
-  return offset + length
+  return offset + size_of.etr_upper_price
 end
+
+-- Size: ETR Price
+size_of.etr_price = 4
 
 -- Display: ETR Price
 display.etr_price = function(value)
@@ -454,15 +473,17 @@ end
 
 -- Dissect: ETR Price
 dissect.etr_price = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.etr_price)
   local value = range:int()
   local display = display.etr_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.etr_price, range, value, display)
 
-  return offset + length
+  return offset + size_of.etr_price
 end
+
+-- Size: AOT Lower Price
+size_of.aot_lower_price = 4
 
 -- Display: AOT Lower Price
 display.aot_lower_price = function(value)
@@ -471,15 +492,17 @@ end
 
 -- Dissect: AOT Lower Price
 dissect.aot_lower_price = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.aot_lower_price)
   local value = range:int()
   local display = display.aot_lower_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.aot_lower_price, range, value, display)
 
-  return offset + length
+  return offset + size_of.aot_lower_price
 end
+
+-- Size: AOT Upper Price
+size_of.aot_upper_price = 4
 
 -- Display: AOT Upper Price
 display.aot_upper_price = function(value)
@@ -488,15 +511,17 @@ end
 
 -- Dissect: AOT Upper Price
 dissect.aot_upper_price = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.aot_upper_price)
   local value = range:int()
   local display = display.aot_upper_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.aot_upper_price, range, value, display)
 
-  return offset + length
+  return offset + size_of.aot_upper_price
 end
+
+-- Size: AOT Price
+size_of.aot_price = 4
 
 -- Display: AOT Price
 display.aot_price = function(value)
@@ -505,14 +530,13 @@ end
 
 -- Dissect: AOT Price
 dissect.aot_price = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.aot_price)
   local value = range:int()
   local display = display.aot_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.aot_price, range, value, display)
 
-  return offset + length
+  return offset + size_of.aot_price
 end
 
 -- Display: Anomalous Order Threshold Publish
@@ -566,6 +590,9 @@ dissect.anomalous_order_threshold_publish = function(buffer, offset, packet, par
   return dissect.anomalous_order_threshold_publish_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Quantity
+size_of.quantity = 4
+
 -- Display: Quantity
 display.quantity = function(value)
   return "Quantity: "..value
@@ -573,15 +600,17 @@ end
 
 -- Dissect: Quantity
 dissect.quantity = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.quantity)
   local value = range:uint()
   local display = display.quantity(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.quantity, range, value, display)
 
-  return offset + length
+  return offset + size_of.quantity
 end
+
+-- Size: Price
+size_of.price = 4
 
 -- Display: Price
 display.price = function(value)
@@ -590,14 +619,13 @@ end
 
 -- Dissect: Price
 dissect.price = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.price)
   local value = range:int()
   local display = display.price(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.price, range, value, display)
 
-  return offset + length
+  return offset + size_of.price
 end
 
 -- Display: Request for Quote
@@ -639,6 +667,9 @@ dissect.request_for_quote = function(buffer, offset, packet, parent)
   return dissect.request_for_quote_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Text message
+size_of.text_message = 100
+
 -- Display: Text message
 display.text_message = function(value)
   return "Text message: "..value
@@ -646,15 +677,17 @@ end
 
 -- Dissect: Text message
 dissect.text_message = function(buffer, offset, packet, parent)
-  local length = 100
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.text_message)
   local value = range:string()
   local display = display.text_message(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.text_message, range, value, display)
 
-  return offset + length
+  return offset + size_of.text_message
 end
+
+-- Size: Source Id
+size_of.source_id = 6
 
 -- Display: Source Id
 display.source_id = function(value)
@@ -663,14 +696,13 @@ end
 
 -- Dissect: Source Id
 dissect.source_id = function(buffer, offset, packet, parent)
-  local length = 6
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.source_id)
   local value = range:string()
   local display = display.source_id(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.source_id, range, value, display)
 
-  return offset + length
+  return offset + size_of.source_id
 end
 
 -- Display: Ad Hoc Text Message
@@ -709,6 +741,9 @@ dissect.ad_hoc_text_message = function(buffer, offset, packet, parent)
   return dissect.ad_hoc_text_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Settlement Type
+size_of.settlement_type = 1
+
 -- Display: Settlement Type
 display.settlement_type = function(value)
   return "Settlement Type: "..value
@@ -716,15 +751,17 @@ end
 
 -- Dissect: Settlement Type
 dissect.settlement_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.settlement_type)
   local value = range:string()
   local display = display.settlement_type(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.settlement_type, range, value, display)
 
-  return offset + length
+  return offset + size_of.settlement_type
 end
+
+-- Size: Volatility
+size_of.volatility = 4
 
 -- Display: Volatility
 display.volatility = function(value)
@@ -733,15 +770,17 @@ end
 
 -- Dissect: Volatility
 dissect.volatility = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.volatility)
   local value = range:uint()
   local display = display.volatility(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.volatility, range, value, display)
 
-  return offset + length
+  return offset + size_of.volatility
 end
+
+-- Size: Settlement Price
+size_of.settlement_price = 4
 
 -- Display: Settlement Price
 display.settlement_price = function(value)
@@ -750,14 +789,13 @@ end
 
 -- Dissect: Settlement Price
 dissect.settlement_price = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.settlement_price)
   local value = range:int()
   local display = display.settlement_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.settlement_price, range, value, display)
 
-  return offset + length
+  return offset + size_of.settlement_price
 end
 
 -- Display: Market Settlement
@@ -873,6 +911,9 @@ dissect.market_updates = function(buffer, offset, packet, parent)
   return offset + 1
 end
 
+-- Size: Total Trades
+size_of.total_trades = 4
+
 -- Display: Total Trades
 display.total_trades = function(value)
   return "Total Trades: "..value
@@ -880,15 +921,17 @@ end
 
 -- Dissect: Total Trades
 dissect.total_trades = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.total_trades)
   local value = range:uint()
   local display = display.total_trades(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.total_trades, range, value, display)
 
-  return offset + length
+  return offset + size_of.total_trades
 end
+
+-- Size: Total Traded Volume
+size_of.total_traded_volume = 4
 
 -- Display: Total Traded Volume
 display.total_traded_volume = function(value)
@@ -897,15 +940,17 @@ end
 
 -- Dissect: Total Traded Volume
 dissect.total_traded_volume = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.total_traded_volume)
   local value = range:uint()
   local display = display.total_traded_volume(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.total_traded_volume, range, value, display)
 
-  return offset + length
+  return offset + size_of.total_traded_volume
 end
+
+-- Size: Last Volume
+size_of.last_volume = 4
 
 -- Display: Last Volume
 display.last_volume = function(value)
@@ -914,15 +959,17 @@ end
 
 -- Dissect: Last Volume
 dissect.last_volume = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.last_volume)
   local value = range:uint()
   local display = display.last_volume(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.last_volume, range, value, display)
 
-  return offset + length
+  return offset + size_of.last_volume
 end
+
+-- Size: Last Trade
+size_of.last_trade = 4
 
 -- Display: Last Trade
 display.last_trade = function(value)
@@ -931,15 +978,17 @@ end
 
 -- Dissect: Last Trade
 dissect.last_trade = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.last_trade)
   local value = range:int()
   local display = display.last_trade(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.last_trade, range, value, display)
 
-  return offset + length
+  return offset + size_of.last_trade
 end
+
+-- Size: Lowest Trade
+size_of.lowest_trade = 4
 
 -- Display: Lowest Trade
 display.lowest_trade = function(value)
@@ -948,15 +997,17 @@ end
 
 -- Dissect: Lowest Trade
 dissect.lowest_trade = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.lowest_trade)
   local value = range:int()
   local display = display.lowest_trade(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.lowest_trade, range, value, display)
 
-  return offset + length
+  return offset + size_of.lowest_trade
 end
+
+-- Size: Highest Trade
+size_of.highest_trade = 4
 
 -- Display: Highest Trade
 display.highest_trade = function(value)
@@ -965,15 +1016,17 @@ end
 
 -- Dissect: Highest Trade
 dissect.highest_trade = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.highest_trade)
   local value = range:int()
   local display = display.highest_trade(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.highest_trade, range, value, display)
 
-  return offset + length
+  return offset + size_of.highest_trade
 end
+
+-- Size: Opening Trade
+size_of.opening_trade = 4
 
 -- Display: Opening Trade
 display.opening_trade = function(value)
@@ -982,14 +1035,13 @@ end
 
 -- Dissect: Opening Trade
 dissect.opening_trade = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.opening_trade)
   local value = range:int()
   local display = display.opening_trade(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.opening_trade, range, value, display)
 
-  return offset + length
+  return offset + size_of.opening_trade
 end
 
 -- Display: Open, High, Low, Last Trade Adjustment
@@ -1049,6 +1101,9 @@ dissect.open__high__low__last_trade_adjustment = function(buffer, offset, packet
   return dissect.open__high__low__last_trade_adjustment_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Best Ask Quantity
+size_of.best_ask_quantity = 4
+
 -- Display: Best Ask Quantity
 display.best_ask_quantity = function(value)
   return "Best Ask Quantity: "..value
@@ -1056,15 +1111,17 @@ end
 
 -- Dissect: Best Ask Quantity
 dissect.best_ask_quantity = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.best_ask_quantity)
   local value = range:uint()
   local display = display.best_ask_quantity(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.best_ask_quantity, range, value, display)
 
-  return offset + length
+  return offset + size_of.best_ask_quantity
 end
+
+-- Size: Best Bid Quantity
+size_of.best_bid_quantity = 4
 
 -- Display: Best Bid Quantity
 display.best_bid_quantity = function(value)
@@ -1073,15 +1130,17 @@ end
 
 -- Dissect: Best Bid Quantity
 dissect.best_bid_quantity = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.best_bid_quantity)
   local value = range:uint()
   local display = display.best_bid_quantity(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.best_bid_quantity, range, value, display)
 
-  return offset + length
+  return offset + size_of.best_bid_quantity
 end
+
+-- Size: Best Ask Price
+size_of.best_ask_price = 4
 
 -- Display: Best Ask Price
 display.best_ask_price = function(value)
@@ -1090,15 +1149,17 @@ end
 
 -- Dissect: Best Ask Price
 dissect.best_ask_price = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.best_ask_price)
   local value = range:int()
   local display = display.best_ask_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.best_ask_price, range, value, display)
 
-  return offset + length
+  return offset + size_of.best_ask_price
 end
+
+-- Size: Best Bid Price
+size_of.best_bid_price = 4
 
 -- Display: Best Bid Price
 display.best_bid_price = function(value)
@@ -1107,15 +1168,17 @@ end
 
 -- Dissect: Best Bid Price
 dissect.best_bid_price = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.best_bid_price)
   local value = range:int()
   local display = display.best_bid_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.best_bid_price, range, value, display)
 
-  return offset + length
+  return offset + size_of.best_bid_price
 end
+
+-- Size: Equilibrium Price
+size_of.equilibrium_price = 4
 
 -- Display: Equilibrium Price
 display.equilibrium_price = function(value)
@@ -1124,14 +1187,13 @@ end
 
 -- Dissect: Equilibrium Price
 dissect.equilibrium_price = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.equilibrium_price)
   local value = range:int()
   local display = display.equilibrium_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.equilibrium_price, range, value, display)
 
-  return offset + length
+  return offset + size_of.equilibrium_price
 end
 
 -- Display: Equilibrium Price Auction Info
@@ -1182,6 +1244,9 @@ dissect.equilibrium_price_auction_info = function(buffer, offset, packet, parent
   return dissect.equilibrium_price_auction_info_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Match Number
+size_of.match_number = 4
+
 -- Display: Match Number
 display.match_number = function(value)
   return "Match Number: "..value
@@ -1189,14 +1254,13 @@ end
 
 -- Dissect: Match Number
 dissect.match_number = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.match_number)
   local value = range:uint()
   local display = display.match_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.match_number, range, value, display)
 
-  return offset + length
+  return offset + size_of.match_number
 end
 
 -- Display: Trade Cancellation
@@ -1232,6 +1296,9 @@ dissect.trade_cancellation = function(buffer, offset, packet, parent)
   return dissect.trade_cancellation_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Printable
+size_of.printable = 1
+
 -- Display: Printable
 display.printable = function(value)
   if value == "N" then
@@ -1246,15 +1313,17 @@ end
 
 -- Dissect: Printable
 dissect.printable = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.printable)
   local value = range:string()
   local display = display.printable(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.printable, range, value, display)
 
-  return offset + length
+  return offset + size_of.printable
 end
+
+-- Size: Trade Side of NonCustom Order
+size_of.trade_side_of_noncustom_order = 1
 
 -- Display: Trade Side of NonCustom Order
 display.trade_side_of_noncustom_order = function(value)
@@ -1263,15 +1332,17 @@ end
 
 -- Dissect: Trade Side of NonCustom Order
 dissect.trade_side_of_noncustom_order = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.trade_side_of_noncustom_order)
   local value = range:string()
   local display = display.trade_side_of_noncustom_order(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.trade_side_of_noncustom_order, range, value, display)
 
-  return offset + length
+  return offset + size_of.trade_side_of_noncustom_order
 end
+
+-- Size: Traded Contract Number
+size_of.traded_contract_number = 4
 
 -- Display: Traded Contract Number
 display.traded_contract_number = function(value)
@@ -1280,15 +1351,17 @@ end
 
 -- Dissect: Traded Contract Number
 dissect.traded_contract_number = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.traded_contract_number)
   local value = range:uint()
   local display = display.traded_contract_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.traded_contract_number, range, value, display)
 
-  return offset + length
+  return offset + size_of.traded_contract_number
 end
+
+-- Size: Trade Price
+size_of.trade_price = 4
 
 -- Display: Trade Price
 display.trade_price = function(value)
@@ -1297,15 +1370,17 @@ end
 
 -- Dissect: Trade Price
 dissect.trade_price = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.trade_price)
   local value = range:int()
   local display = display.trade_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.trade_price, range, value, display)
 
-  return offset + length
+  return offset + size_of.trade_price
 end
+
+-- Size: Executed Quantity
+size_of.executed_quantity = 4
 
 -- Display: Executed Quantity
 display.executed_quantity = function(value)
@@ -1314,15 +1389,17 @@ end
 
 -- Dissect: Executed Quantity
 dissect.executed_quantity = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.executed_quantity)
   local value = range:uint()
   local display = display.executed_quantity(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.executed_quantity, range, value, display)
 
-  return offset + length
+  return offset + size_of.executed_quantity
 end
+
+-- Size: Trade Type
+size_of.trade_type = 1
 
 -- Display: Trade Type
 display.trade_type = function(value)
@@ -1374,15 +1451,17 @@ end
 
 -- Dissect: Trade Type
 dissect.trade_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.trade_type)
   local value = range:string()
   local display = display.trade_type(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.trade_type, range, value, display)
 
-  return offset + length
+  return offset + size_of.trade_type
 end
+
+-- Size: Custom Market Quantity Remaining
+size_of.custom_market_quantity_remaining = 4
 
 -- Display: Custom Market Quantity Remaining
 display.custom_market_quantity_remaining = function(value)
@@ -1391,15 +1470,17 @@ end
 
 -- Dissect: Custom Market Quantity Remaining
 dissect.custom_market_quantity_remaining = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.custom_market_quantity_remaining)
   local value = range:uint()
   local display = display.custom_market_quantity_remaining(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.custom_market_quantity_remaining, range, value, display)
 
-  return offset + length
+  return offset + size_of.custom_market_quantity_remaining
 end
+
+-- Size: Custom Market Order Number
+size_of.custom_market_order_number = 8
 
 -- Display: Custom Market Order Number
 display.custom_market_order_number = function(value)
@@ -1408,15 +1489,17 @@ end
 
 -- Dissect: Custom Market Order Number
 dissect.custom_market_order_number = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.custom_market_order_number)
   local value = range:uint64()
   local display = display.custom_market_order_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.custom_market_order_number, range, value, display)
 
-  return offset + length
+  return offset + size_of.custom_market_order_number
 end
+
+-- Size: Quantity Remaining
+size_of.quantity_remaining = 4
 
 -- Display: Quantity Remaining
 display.quantity_remaining = function(value)
@@ -1425,15 +1508,17 @@ end
 
 -- Dissect: Quantity Remaining
 dissect.quantity_remaining = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.quantity_remaining)
   local value = range:uint()
   local display = display.quantity_remaining(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.quantity_remaining, range, value, display)
 
-  return offset + length
+  return offset + size_of.quantity_remaining
 end
+
+-- Size: Order Number
+size_of.order_number = 8
 
 -- Display: Order Number
 display.order_number = function(value)
@@ -1442,15 +1527,17 @@ end
 
 -- Dissect: Order Number
 dissect.order_number = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.order_number)
   local value = range:uint64()
   local display = display.order_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.order_number, range, value, display)
 
-  return offset + length
+  return offset + size_of.order_number
 end
+
+-- Size: Side
+size_of.side = 1
 
 -- Display: Side
 display.side = function(value)
@@ -1466,14 +1553,13 @@ end
 
 -- Dissect: Side
 dissect.side = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.side)
   local value = range:string()
   local display = display.side(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.side, range, value, display)
 
-  return offset + length
+  return offset + size_of.side
 end
 
 -- Display: Custom Market Trade
@@ -1545,6 +1631,9 @@ dissect.custom_market_trade = function(buffer, offset, packet, parent)
   return dissect.custom_market_trade_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Trade Side of Leg
+size_of.trade_side_of_leg = 1
+
 -- Display: Trade Side of Leg
 display.trade_side_of_leg = function(value)
   return "Trade Side of Leg: "..value
@@ -1552,14 +1641,13 @@ end
 
 -- Dissect: Trade Side of Leg
 dissect.trade_side_of_leg = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.trade_side_of_leg)
   local value = range:string()
   local display = display.trade_side_of_leg(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.trade_side_of_leg, range, value, display)
 
-  return offset + length
+  return offset + size_of.trade_side_of_leg
 end
 
 -- Display: Custom Market Executed
@@ -1619,6 +1707,9 @@ dissect.custom_market_executed = function(buffer, offset, packet, parent)
   return dissect.custom_market_executed_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Spread Trade Price
+size_of.spread_trade_price = 4
+
 -- Display: Spread Trade Price
 display.spread_trade_price = function(value)
   return "Spread Trade Price: "..value
@@ -1626,15 +1717,17 @@ end
 
 -- Dissect: Spread Trade Price
 dissect.spread_trade_price = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.spread_trade_price)
   local value = range:int()
   local display = display.spread_trade_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.spread_trade_price, range, value, display)
 
-  return offset + length
+  return offset + size_of.spread_trade_price
 end
+
+-- Size: Seller Quantity Remaining
+size_of.seller_quantity_remaining = 4
 
 -- Display: Seller Quantity Remaining
 display.seller_quantity_remaining = function(value)
@@ -1643,15 +1736,17 @@ end
 
 -- Dissect: Seller Quantity Remaining
 dissect.seller_quantity_remaining = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.seller_quantity_remaining)
   local value = range:uint()
   local display = display.seller_quantity_remaining(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.seller_quantity_remaining, range, value, display)
 
-  return offset + length
+  return offset + size_of.seller_quantity_remaining
 end
+
+-- Size: Selling Order Number
+size_of.selling_order_number = 8
 
 -- Display: Selling Order Number
 display.selling_order_number = function(value)
@@ -1660,15 +1755,17 @@ end
 
 -- Dissect: Selling Order Number
 dissect.selling_order_number = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.selling_order_number)
   local value = range:uint64()
   local display = display.selling_order_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.selling_order_number, range, value, display)
 
-  return offset + length
+  return offset + size_of.selling_order_number
 end
+
+-- Size: Side of Seller
+size_of.side_of_seller = 1
 
 -- Display: Side of Seller
 display.side_of_seller = function(value)
@@ -1677,15 +1774,17 @@ end
 
 -- Dissect: Side of Seller
 dissect.side_of_seller = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.side_of_seller)
   local value = range:string()
   local display = display.side_of_seller(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.side_of_seller, range, value, display)
 
-  return offset + length
+  return offset + size_of.side_of_seller
 end
+
+-- Size: Seller Contract Number
+size_of.seller_contract_number = 4
 
 -- Display: Seller Contract Number
 display.seller_contract_number = function(value)
@@ -1694,15 +1793,17 @@ end
 
 -- Dissect: Seller Contract Number
 dissect.seller_contract_number = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.seller_contract_number)
   local value = range:uint()
   local display = display.seller_contract_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.seller_contract_number, range, value, display)
 
-  return offset + length
+  return offset + size_of.seller_contract_number
 end
+
+-- Size: Buyer Quantity Remaining
+size_of.buyer_quantity_remaining = 4
 
 -- Display: Buyer Quantity Remaining
 display.buyer_quantity_remaining = function(value)
@@ -1711,15 +1812,17 @@ end
 
 -- Dissect: Buyer Quantity Remaining
 dissect.buyer_quantity_remaining = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.buyer_quantity_remaining)
   local value = range:uint()
   local display = display.buyer_quantity_remaining(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.buyer_quantity_remaining, range, value, display)
 
-  return offset + length
+  return offset + size_of.buyer_quantity_remaining
 end
+
+-- Size: Buyer Order Number
+size_of.buyer_order_number = 8
 
 -- Display: Buyer Order Number
 display.buyer_order_number = function(value)
@@ -1728,15 +1831,17 @@ end
 
 -- Dissect: Buyer Order Number
 dissect.buyer_order_number = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.buyer_order_number)
   local value = range:uint64()
   local display = display.buyer_order_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.buyer_order_number, range, value, display)
 
-  return offset + length
+  return offset + size_of.buyer_order_number
 end
+
+-- Size: Side of Buyer
+size_of.side_of_buyer = 1
 
 -- Display: Side of Buyer
 display.side_of_buyer = function(value)
@@ -1745,15 +1850,17 @@ end
 
 -- Dissect: Side of Buyer
 dissect.side_of_buyer = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.side_of_buyer)
   local value = range:string()
   local display = display.side_of_buyer(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.side_of_buyer, range, value, display)
 
-  return offset + length
+  return offset + size_of.side_of_buyer
 end
+
+-- Size: Buyer
+size_of.buyer = 4
 
 -- Display: Buyer
 display.buyer = function(value)
@@ -1762,14 +1869,13 @@ end
 
 -- Dissect: Buyer
 dissect.buyer = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.buyer)
   local value = range:uint()
   local display = display.buyer(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.buyer, range, value, display)
 
-  return offset + length
+  return offset + size_of.buyer
 end
 
 -- Display: Trade Spread Execution Chain
@@ -1913,6 +2019,9 @@ dissect.spread_executed = function(buffer, offset, packet, parent)
   return dissect.spread_executed_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Buying Order Number
+size_of.buying_order_number = 8
+
 -- Display: Buying Order Number
 display.buying_order_number = function(value)
   return "Buying Order Number: "..value
@@ -1920,14 +2029,13 @@ end
 
 -- Dissect: Buying Order Number
 dissect.buying_order_number = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.buying_order_number)
   local value = range:uint64()
   local display = display.buying_order_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.buying_order_number, range, value, display)
 
-  return offset + length
+  return offset + size_of.buying_order_number
 end
 
 -- Display: Order Executed with Price
@@ -2074,6 +2182,9 @@ dissect.custom_market_order_deleted = function(buffer, offset, packet, parent)
   return dissect.custom_market_order_deleted_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Order Book Priority
+size_of.order_book_priority = 4
+
 -- Display: Order Book Priority
 display.order_book_priority = function(value)
   return "Order Book Priority: "..value
@@ -2081,14 +2192,13 @@ end
 
 -- Dissect: Order Book Priority
 dissect.order_book_priority = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.order_book_priority)
   local value = range:uint()
   local display = display.order_book_priority(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.order_book_priority, range, value, display)
 
-  return offset + length
+  return offset + size_of.order_book_priority
 end
 
 -- Display: Custom Market Order Replaced
@@ -2130,6 +2240,9 @@ dissect.custom_market_order_replaced = function(buffer, offset, packet, parent)
   return dissect.custom_market_order_replaced_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Price Leg 6
+size_of.price_leg_6 = 4
+
 -- Display: Price Leg 6
 display.price_leg_6 = function(value)
   return "Price Leg 6: "..value
@@ -2137,15 +2250,17 @@ end
 
 -- Dissect: Price Leg 6
 dissect.price_leg_6 = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.price_leg_6)
   local value = range:int()
   local display = display.price_leg_6(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.price_leg_6, range, value, display)
 
-  return offset + length
+  return offset + size_of.price_leg_6
 end
+
+-- Size: Ratio Leg 6
+size_of.ratio_leg_6 = 2
 
 -- Display: Ratio Leg 6
 display.ratio_leg_6 = function(value)
@@ -2154,15 +2269,17 @@ end
 
 -- Dissect: Ratio Leg 6
 dissect.ratio_leg_6 = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.ratio_leg_6)
   local value = range:uint()
   local display = display.ratio_leg_6(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.ratio_leg_6, range, value, display)
 
-  return offset + length
+  return offset + size_of.ratio_leg_6
 end
+
+-- Size: Side Leg 6
+size_of.side_leg_6 = 1
 
 -- Display: Side Leg 6
 display.side_leg_6 = function(value)
@@ -2171,15 +2288,17 @@ end
 
 -- Dissect: Side Leg 6
 dissect.side_leg_6 = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.side_leg_6)
   local value = range:string()
   local display = display.side_leg_6(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.side_leg_6, range, value, display)
 
-  return offset + length
+  return offset + size_of.side_leg_6
 end
+
+-- Size: Contract Number Leg 6
+size_of.contract_number_leg_6 = 4
 
 -- Display: Contract Number Leg 6
 display.contract_number_leg_6 = function(value)
@@ -2188,15 +2307,17 @@ end
 
 -- Dissect: Contract Number Leg 6
 dissect.contract_number_leg_6 = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.contract_number_leg_6)
   local value = range:uint()
   local display = display.contract_number_leg_6(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.contract_number_leg_6, range, value, display)
 
-  return offset + length
+  return offset + size_of.contract_number_leg_6
 end
+
+-- Size: Price Leg 5
+size_of.price_leg_5 = 4
 
 -- Display: Price Leg 5
 display.price_leg_5 = function(value)
@@ -2205,15 +2326,17 @@ end
 
 -- Dissect: Price Leg 5
 dissect.price_leg_5 = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.price_leg_5)
   local value = range:int()
   local display = display.price_leg_5(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.price_leg_5, range, value, display)
 
-  return offset + length
+  return offset + size_of.price_leg_5
 end
+
+-- Size: Ratio Leg 5
+size_of.ratio_leg_5 = 2
 
 -- Display: Ratio Leg 5
 display.ratio_leg_5 = function(value)
@@ -2222,15 +2345,17 @@ end
 
 -- Dissect: Ratio Leg 5
 dissect.ratio_leg_5 = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.ratio_leg_5)
   local value = range:uint()
   local display = display.ratio_leg_5(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.ratio_leg_5, range, value, display)
 
-  return offset + length
+  return offset + size_of.ratio_leg_5
 end
+
+-- Size: Side Leg 5
+size_of.side_leg_5 = 1
 
 -- Display: Side Leg 5
 display.side_leg_5 = function(value)
@@ -2239,15 +2364,17 @@ end
 
 -- Dissect: Side Leg 5
 dissect.side_leg_5 = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.side_leg_5)
   local value = range:string()
   local display = display.side_leg_5(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.side_leg_5, range, value, display)
 
-  return offset + length
+  return offset + size_of.side_leg_5
 end
+
+-- Size: Contract Number Leg 5
+size_of.contract_number_leg_5 = 4
 
 -- Display: Contract Number Leg 5
 display.contract_number_leg_5 = function(value)
@@ -2256,15 +2383,17 @@ end
 
 -- Dissect: Contract Number Leg 5
 dissect.contract_number_leg_5 = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.contract_number_leg_5)
   local value = range:uint()
   local display = display.contract_number_leg_5(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.contract_number_leg_5, range, value, display)
 
-  return offset + length
+  return offset + size_of.contract_number_leg_5
 end
+
+-- Size: Price Leg 4
+size_of.price_leg_4 = 4
 
 -- Display: Price Leg 4
 display.price_leg_4 = function(value)
@@ -2273,15 +2402,17 @@ end
 
 -- Dissect: Price Leg 4
 dissect.price_leg_4 = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.price_leg_4)
   local value = range:int()
   local display = display.price_leg_4(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.price_leg_4, range, value, display)
 
-  return offset + length
+  return offset + size_of.price_leg_4
 end
+
+-- Size: Ratio Leg 4
+size_of.ratio_leg_4 = 2
 
 -- Display: Ratio Leg 4
 display.ratio_leg_4 = function(value)
@@ -2290,15 +2421,17 @@ end
 
 -- Dissect: Ratio Leg 4
 dissect.ratio_leg_4 = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.ratio_leg_4)
   local value = range:uint()
   local display = display.ratio_leg_4(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.ratio_leg_4, range, value, display)
 
-  return offset + length
+  return offset + size_of.ratio_leg_4
 end
+
+-- Size: Side Leg 4
+size_of.side_leg_4 = 1
 
 -- Display: Side Leg 4
 display.side_leg_4 = function(value)
@@ -2307,15 +2440,17 @@ end
 
 -- Dissect: Side Leg 4
 dissect.side_leg_4 = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.side_leg_4)
   local value = range:string()
   local display = display.side_leg_4(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.side_leg_4, range, value, display)
 
-  return offset + length
+  return offset + size_of.side_leg_4
 end
+
+-- Size: Contract Number Leg 4
+size_of.contract_number_leg_4 = 4
 
 -- Display: Contract Number Leg 4
 display.contract_number_leg_4 = function(value)
@@ -2324,15 +2459,17 @@ end
 
 -- Dissect: Contract Number Leg 4
 dissect.contract_number_leg_4 = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.contract_number_leg_4)
   local value = range:uint()
   local display = display.contract_number_leg_4(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.contract_number_leg_4, range, value, display)
 
-  return offset + length
+  return offset + size_of.contract_number_leg_4
 end
+
+-- Size: Price Leg 3
+size_of.price_leg_3 = 4
 
 -- Display: Price Leg 3
 display.price_leg_3 = function(value)
@@ -2341,15 +2478,17 @@ end
 
 -- Dissect: Price Leg 3
 dissect.price_leg_3 = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.price_leg_3)
   local value = range:int()
   local display = display.price_leg_3(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.price_leg_3, range, value, display)
 
-  return offset + length
+  return offset + size_of.price_leg_3
 end
+
+-- Size: Ratio Leg 3
+size_of.ratio_leg_3 = 2
 
 -- Display: Ratio Leg 3
 display.ratio_leg_3 = function(value)
@@ -2358,15 +2497,17 @@ end
 
 -- Dissect: Ratio Leg 3
 dissect.ratio_leg_3 = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.ratio_leg_3)
   local value = range:uint()
   local display = display.ratio_leg_3(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.ratio_leg_3, range, value, display)
 
-  return offset + length
+  return offset + size_of.ratio_leg_3
 end
+
+-- Size: Side Leg 3
+size_of.side_leg_3 = 1
 
 -- Display: Side Leg 3
 display.side_leg_3 = function(value)
@@ -2375,15 +2516,17 @@ end
 
 -- Dissect: Side Leg 3
 dissect.side_leg_3 = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.side_leg_3)
   local value = range:string()
   local display = display.side_leg_3(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.side_leg_3, range, value, display)
 
-  return offset + length
+  return offset + size_of.side_leg_3
 end
+
+-- Size: Contract Number Leg 3
+size_of.contract_number_leg_3 = 4
 
 -- Display: Contract Number Leg 3
 display.contract_number_leg_3 = function(value)
@@ -2392,15 +2535,17 @@ end
 
 -- Dissect: Contract Number Leg 3
 dissect.contract_number_leg_3 = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.contract_number_leg_3)
   local value = range:uint()
   local display = display.contract_number_leg_3(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.contract_number_leg_3, range, value, display)
 
-  return offset + length
+  return offset + size_of.contract_number_leg_3
 end
+
+-- Size: Price Leg 2
+size_of.price_leg_2 = 4
 
 -- Display: Price Leg 2
 display.price_leg_2 = function(value)
@@ -2409,15 +2554,17 @@ end
 
 -- Dissect: Price Leg 2
 dissect.price_leg_2 = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.price_leg_2)
   local value = range:int()
   local display = display.price_leg_2(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.price_leg_2, range, value, display)
 
-  return offset + length
+  return offset + size_of.price_leg_2
 end
+
+-- Size: Ratio Leg 2
+size_of.ratio_leg_2 = 2
 
 -- Display: Ratio Leg 2
 display.ratio_leg_2 = function(value)
@@ -2426,15 +2573,17 @@ end
 
 -- Dissect: Ratio Leg 2
 dissect.ratio_leg_2 = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.ratio_leg_2)
   local value = range:uint()
   local display = display.ratio_leg_2(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.ratio_leg_2, range, value, display)
 
-  return offset + length
+  return offset + size_of.ratio_leg_2
 end
+
+-- Size: Side Leg 2
+size_of.side_leg_2 = 1
 
 -- Display: Side Leg 2
 display.side_leg_2 = function(value)
@@ -2443,15 +2592,17 @@ end
 
 -- Dissect: Side Leg 2
 dissect.side_leg_2 = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.side_leg_2)
   local value = range:string()
   local display = display.side_leg_2(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.side_leg_2, range, value, display)
 
-  return offset + length
+  return offset + size_of.side_leg_2
 end
+
+-- Size: Contract Number Leg 2
+size_of.contract_number_leg_2 = 4
 
 -- Display: Contract Number Leg 2
 display.contract_number_leg_2 = function(value)
@@ -2460,15 +2611,17 @@ end
 
 -- Dissect: Contract Number Leg 2
 dissect.contract_number_leg_2 = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.contract_number_leg_2)
   local value = range:uint()
   local display = display.contract_number_leg_2(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.contract_number_leg_2, range, value, display)
 
-  return offset + length
+  return offset + size_of.contract_number_leg_2
 end
+
+-- Size: Price Leg 1
+size_of.price_leg_1 = 4
 
 -- Display: Price Leg 1
 display.price_leg_1 = function(value)
@@ -2477,15 +2630,17 @@ end
 
 -- Dissect: Price Leg 1
 dissect.price_leg_1 = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.price_leg_1)
   local value = range:int()
   local display = display.price_leg_1(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.price_leg_1, range, value, display)
 
-  return offset + length
+  return offset + size_of.price_leg_1
 end
+
+-- Size: Ratio Leg 1
+size_of.ratio_leg_1 = 2
 
 -- Display: Ratio Leg 1
 display.ratio_leg_1 = function(value)
@@ -2494,15 +2649,17 @@ end
 
 -- Dissect: Ratio Leg 1
 dissect.ratio_leg_1 = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.ratio_leg_1)
   local value = range:uint()
   local display = display.ratio_leg_1(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.ratio_leg_1, range, value, display)
 
-  return offset + length
+  return offset + size_of.ratio_leg_1
 end
+
+-- Size: Side Leg 1
+size_of.side_leg_1 = 1
 
 -- Display: Side Leg 1
 display.side_leg_1 = function(value)
@@ -2511,15 +2668,17 @@ end
 
 -- Dissect: Side Leg 1
 dissect.side_leg_1 = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.side_leg_1)
   local value = range:string()
   local display = display.side_leg_1(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.side_leg_1, range, value, display)
 
-  return offset + length
+  return offset + size_of.side_leg_1
 end
+
+-- Size: Contract Number Leg 1
+size_of.contract_number_leg_1 = 4
 
 -- Display: Contract Number Leg 1
 display.contract_number_leg_1 = function(value)
@@ -2528,15 +2687,17 @@ end
 
 -- Dissect: Contract Number Leg 1
 dissect.contract_number_leg_1 = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.contract_number_leg_1)
   local value = range:uint()
   local display = display.contract_number_leg_1(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.contract_number_leg_1, range, value, display)
 
-  return offset + length
+  return offset + size_of.contract_number_leg_1
 end
+
+-- Size: Legs
+size_of.legs = 1
 
 -- Display: Legs
 display.legs = function(value)
@@ -2545,14 +2706,13 @@ end
 
 -- Dissect: Legs
 dissect.legs = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.legs)
   local value = range:uint()
   local display = display.legs(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.legs, range, value, display)
 
-  return offset + length
+  return offset + size_of.legs
 end
 
 -- Display: Custom Market Order Added
@@ -2981,6 +3141,9 @@ dissect.order_added = function(buffer, offset, packet, parent)
   return dissect.order_added_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Trading Status
+size_of.trading_status = 1
+
 -- Display: Trading Status
 display.trading_status = function(value)
   if value == "p" then
@@ -3028,14 +3191,13 @@ end
 
 -- Dissect: Trading Status
 dissect.trading_status = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.trading_status)
   local value = range:string()
   local display = display.trading_status(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.trading_status, range, value, display)
 
-  return offset + length
+  return offset + size_of.trading_status
 end
 
 -- Display: Order Book State
@@ -3074,6 +3236,9 @@ dissect.order_book_state = function(buffer, offset, packet, parent)
   return dissect.order_book_state_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Activated
+size_of.activated = 1
+
 -- Display: Activated
 display.activated = function(value)
   if value == "Y" then
@@ -3088,15 +3253,17 @@ end
 
 -- Dissect: Activated
 dissect.activated = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.activated)
   local value = range:string()
   local display = display.activated(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.activated, range, value, display)
 
-  return offset + length
+  return offset + size_of.activated
 end
+
+-- Size: Payments per Year
+size_of.payments_per_year = 1
 
 -- Display: Payments per Year
 display.payments_per_year = function(value)
@@ -3105,15 +3272,17 @@ end
 
 -- Dissect: Payments per Year
 dissect.payments_per_year = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.payments_per_year)
   local value = range:uint()
   local display = display.payments_per_year(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.payments_per_year, range, value, display)
 
-  return offset + length
+  return offset + size_of.payments_per_year
 end
+
+-- Size: Coupon Rate
+size_of.coupon_rate = 2
 
 -- Display: Coupon Rate
 display.coupon_rate = function(value)
@@ -3122,15 +3291,17 @@ end
 
 -- Dissect: Coupon Rate
 dissect.coupon_rate = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.coupon_rate)
   local value = range:uint()
   local display = display.coupon_rate(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.coupon_rate, range, value, display)
 
-  return offset + length
+  return offset + size_of.coupon_rate
 end
+
+-- Size: Maturity Value
+size_of.maturity_value = 1
 
 -- Display: Maturity Value
 display.maturity_value = function(value)
@@ -3139,15 +3310,17 @@ end
 
 -- Dissect: Maturity Value
 dissect.maturity_value = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.maturity_value)
   local value = range:uint()
   local display = display.maturity_value(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.maturity_value, range, value, display)
 
-  return offset + length
+  return offset + size_of.maturity_value
 end
+
+-- Size: Lot Size or Face Value
+size_of.lot_size_or_face_value = 4
 
 -- Display: Lot Size or Face Value
 display.lot_size_or_face_value = function(value)
@@ -3156,15 +3329,17 @@ end
 
 -- Dissect: Lot Size or Face Value
 dissect.lot_size_or_face_value = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.lot_size_or_face_value)
   local value = range:uint()
   local display = display.lot_size_or_face_value(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.lot_size_or_face_value, range, value, display)
 
-  return offset + length
+  return offset + size_of.lot_size_or_face_value
 end
+
+-- Size: Currency
+size_of.currency = 3
 
 -- Display: Currency
 display.currency = function(value)
@@ -3173,15 +3348,17 @@ end
 
 -- Dissect: Currency
 dissect.currency = function(buffer, offset, packet, parent)
-  local length = 3
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.currency)
   local value = range:string()
   local display = display.currency(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.currency, range, value, display)
 
-  return offset + length
+  return offset + size_of.currency
 end
+
+-- Size: Financial Type
+size_of.financial_type = 1
 
 -- Display: Financial Type
 display.financial_type = function(value)
@@ -3206,15 +3383,17 @@ end
 
 -- Dissect: Financial Type
 dissect.financial_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.financial_type)
   local value = range:string()
   local display = display.financial_type(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.financial_type, range, value, display)
 
-  return offset + length
+  return offset + size_of.financial_type
 end
+
+-- Size: Prior Day Settlement
+size_of.prior_day_settlement = 4
 
 -- Display: Prior Day Settlement
 display.prior_day_settlement = function(value)
@@ -3223,15 +3402,17 @@ end
 
 -- Dissect: Prior Day Settlement
 dissect.prior_day_settlement = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.prior_day_settlement)
   local value = range:int()
   local display = display.prior_day_settlement(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.prior_day_settlement, range, value, display)
 
-  return offset + length
+  return offset + size_of.prior_day_settlement
 end
+
+-- Size: Last Trading Date
+size_of.last_trading_date = 4
 
 -- Display: Last Trading Date
 display.last_trading_date = function(value)
@@ -3240,15 +3421,17 @@ end
 
 -- Dissect: Last Trading Date
 dissect.last_trading_date = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.last_trading_date)
   local value = range:uint()
   local display = display.last_trading_date(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.last_trading_date, range, value, display)
 
-  return offset + length
+  return offset + size_of.last_trading_date
 end
+
+-- Size: Strike Price Minimum Tick
+size_of.strike_price_minimum_tick = 2
 
 -- Display: Strike Price Minimum Tick
 display.strike_price_minimum_tick = function(value)
@@ -3257,15 +3440,17 @@ end
 
 -- Dissect: Strike Price Minimum Tick
 dissect.strike_price_minimum_tick = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.strike_price_minimum_tick)
   local value = range:uint()
   local display = display.strike_price_minimum_tick(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.strike_price_minimum_tick, range, value, display)
 
-  return offset + length
+  return offset + size_of.strike_price_minimum_tick
 end
+
+-- Size: Strike Price Fractional Denominator
+size_of.strike_price_fractional_denominator = 4
 
 -- Display: Strike Price Fractional Denominator
 display.strike_price_fractional_denominator = function(value)
@@ -3274,15 +3459,17 @@ end
 
 -- Dissect: Strike Price Fractional Denominator
 dissect.strike_price_fractional_denominator = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.strike_price_fractional_denominator)
   local value = range:uint()
   local display = display.strike_price_fractional_denominator(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.strike_price_fractional_denominator, range, value, display)
 
-  return offset + length
+  return offset + size_of.strike_price_fractional_denominator
 end
+
+-- Size: Strike Price Decimal Position
+size_of.strike_price_decimal_position = 1
 
 -- Display: Strike Price Decimal Position
 display.strike_price_decimal_position = function(value)
@@ -3291,15 +3478,17 @@ end
 
 -- Dissect: Strike Price Decimal Position
 dissect.strike_price_decimal_position = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.strike_price_decimal_position)
   local value = range:uint()
   local display = display.strike_price_decimal_position(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.strike_price_decimal_position, range, value, display)
 
-  return offset + length
+  return offset + size_of.strike_price_decimal_position
 end
+
+-- Size: Price Minimum Tick
+size_of.price_minimum_tick = 2
 
 -- Display: Price Minimum Tick
 display.price_minimum_tick = function(value)
@@ -3308,15 +3497,17 @@ end
 
 -- Dissect: Price Minimum Tick
 dissect.price_minimum_tick = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.price_minimum_tick)
   local value = range:uint()
   local display = display.price_minimum_tick(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.price_minimum_tick, range, value, display)
 
-  return offset + length
+  return offset + size_of.price_minimum_tick
 end
+
+-- Size: Price Fractional Denominator
+size_of.price_fractional_denominator = 4
 
 -- Display: Price Fractional Denominator
 display.price_fractional_denominator = function(value)
@@ -3325,15 +3516,17 @@ end
 
 -- Dissect: Price Fractional Denominator
 dissect.price_fractional_denominator = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.price_fractional_denominator)
   local value = range:uint()
   local display = display.price_fractional_denominator(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.price_fractional_denominator, range, value, display)
 
-  return offset + length
+  return offset + size_of.price_fractional_denominator
 end
+
+-- Size: Price Decimal Position
+size_of.price_decimal_position = 1
 
 -- Display: Price Decimal Position
 display.price_decimal_position = function(value)
@@ -3342,15 +3535,17 @@ end
 
 -- Dissect: Price Decimal Position
 dissect.price_decimal_position = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.price_decimal_position)
   local value = range:uint()
   local display = display.price_decimal_position(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.price_decimal_position, range, value, display)
 
-  return offset + length
+  return offset + size_of.price_decimal_position
 end
+
+-- Size: Underlying Contract Number
+size_of.underlying_contract_number = 4
 
 -- Display: Underlying Contract Number
 display.underlying_contract_number = function(value)
@@ -3359,15 +3554,17 @@ end
 
 -- Dissect: Underlying Contract Number
 dissect.underlying_contract_number = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.underlying_contract_number)
   local value = range:uint()
   local display = display.underlying_contract_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.underlying_contract_number, range, value, display)
 
-  return offset + length
+  return offset + size_of.underlying_contract_number
 end
+
+-- Size: Strike
+size_of.strike = 4
 
 -- Display: Strike
 display.strike = function(value)
@@ -3376,15 +3573,17 @@ end
 
 -- Dissect: Strike
 dissect.strike = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.strike)
   local value = range:uint()
   local display = display.strike(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.strike, range, value, display)
 
-  return offset + length
+  return offset + size_of.strike
 end
+
+-- Size: Option Type
+size_of.option_type = 1
 
 -- Display: Option Type
 display.option_type = function(value)
@@ -3400,15 +3599,17 @@ end
 
 -- Dissect: Option Type
 dissect.option_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.option_type)
   local value = range:string()
   local display = display.option_type(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.option_type, range, value, display)
 
-  return offset + length
+  return offset + size_of.option_type
 end
+
+-- Size: Expiry Month
+size_of.expiry_month = 1
 
 -- Display: Expiry Month
 display.expiry_month = function(value)
@@ -3417,15 +3618,17 @@ end
 
 -- Dissect: Expiry Month
 dissect.expiry_month = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.expiry_month)
   local value = range:uint()
   local display = display.expiry_month(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.expiry_month, range, value, display)
 
-  return offset + length
+  return offset + size_of.expiry_month
 end
+
+-- Size: Expiry Year
+size_of.expiry_year = 2
 
 -- Display: Expiry Year
 display.expiry_year = function(value)
@@ -3434,15 +3637,17 @@ end
 
 -- Dissect: Expiry Year
 dissect.expiry_year = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.expiry_year)
   local value = range:uint()
   local display = display.expiry_year(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.expiry_year, range, value, display)
 
-  return offset + length
+  return offset + size_of.expiry_year
 end
+
+-- Size: Contract Type
+size_of.contract_type = 1
 
 -- Display: Contract Type
 display.contract_type = function(value)
@@ -3473,15 +3678,17 @@ end
 
 -- Dissect: Contract Type
 dissect.contract_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.contract_type)
   local value = range:string()
   local display = display.contract_type(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.contract_type, range, value, display)
 
-  return offset + length
+  return offset + size_of.contract_type
 end
+
+-- Size: Instrument
+size_of.instrument = 6
 
 -- Display: Instrument
 display.instrument = function(value)
@@ -3490,15 +3697,17 @@ end
 
 -- Dissect: Instrument
 dissect.instrument = function(buffer, offset, packet, parent)
-  local length = 6
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.instrument)
   local value = range:string()
   local display = display.instrument(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.instrument, range, value, display)
 
-  return offset + length
+  return offset + size_of.instrument
 end
+
+-- Size: Exchange
+size_of.exchange = 6
 
 -- Display: Exchange
 display.exchange = function(value)
@@ -3507,14 +3716,13 @@ end
 
 -- Dissect: Exchange
 dissect.exchange = function(buffer, offset, packet, parent)
-  local length = 6
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.exchange)
   local value = range:string()
   local display = display.exchange(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.exchange, range, value, display)
 
-  return offset + length
+  return offset + size_of.exchange
 end
 
 -- Display: Option Symbol Directory
@@ -3622,6 +3830,9 @@ dissect.option_symbol_directory = function(buffer, offset, packet, parent)
   return dissect.option_symbol_directory_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Secondary Ratio
+size_of.secondary_ratio = 1
+
 -- Display: Secondary Ratio
 display.secondary_ratio = function(value)
   return "Secondary Ratio: "..value
@@ -3629,15 +3840,17 @@ end
 
 -- Dissect: Secondary Ratio
 dissect.secondary_ratio = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.secondary_ratio)
   local value = range:uint()
   local display = display.secondary_ratio(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.secondary_ratio, range, value, display)
 
-  return offset + length
+  return offset + size_of.secondary_ratio
 end
+
+-- Size: Primary Ratio
+size_of.primary_ratio = 1
 
 -- Display: Primary Ratio
 display.primary_ratio = function(value)
@@ -3646,15 +3859,17 @@ end
 
 -- Dissect: Primary Ratio
 dissect.primary_ratio = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.primary_ratio)
   local value = range:uint()
   local display = display.primary_ratio(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.primary_ratio, range, value, display)
 
-  return offset + length
+  return offset + size_of.primary_ratio
 end
+
+-- Size: Second Leg Contract Number
+size_of.second_leg_contract_number = 4
 
 -- Display: Second Leg Contract Number
 display.second_leg_contract_number = function(value)
@@ -3663,15 +3878,17 @@ end
 
 -- Dissect: Second Leg Contract Number
 dissect.second_leg_contract_number = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.second_leg_contract_number)
   local value = range:uint()
   local display = display.second_leg_contract_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.second_leg_contract_number, range, value, display)
 
-  return offset + length
+  return offset + size_of.second_leg_contract_number
 end
+
+-- Size: First Leg Contract Number
+size_of.first_leg_contract_number = 4
 
 -- Display: First Leg Contract Number
 display.first_leg_contract_number = function(value)
@@ -3680,14 +3897,13 @@ end
 
 -- Dissect: First Leg Contract Number
 dissect.first_leg_contract_number = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.first_leg_contract_number)
   local value = range:uint()
   local display = display.first_leg_contract_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.first_leg_contract_number, range, value, display)
 
-  return offset + length
+  return offset + size_of.first_leg_contract_number
 end
 
 -- Display: Spread Symbol Directory
@@ -3831,6 +4047,9 @@ dissect.future_symbol_directory = function(buffer, offset, packet, parent)
   return dissect.future_symbol_directory_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Event Code
+size_of.event_code = 1
+
 -- Display: Event Code
 display.event_code = function(value)
   if value == "O" then
@@ -3854,14 +4073,13 @@ end
 
 -- Dissect: Event Code
 dissect.event_code = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.event_code)
   local value = range:string()
   local display = display.event_code(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.event_code, range, value, display)
 
-  return offset + length
+  return offset + size_of.event_code
 end
 
 -- Display: System Event
@@ -3897,6 +4115,9 @@ dissect.system_event = function(buffer, offset, packet, parent)
   return dissect.system_event_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Second
+size_of.second = 4
+
 -- Display: Second
 display.second = function(value)
   return "Second: "..value
@@ -3904,14 +4125,13 @@ end
 
 -- Dissect: Second
 dissect.second = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.second)
   local value = range:uint()
   local display = display.second(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.second, range, value, display)
 
-  return offset + length
+  return offset + size_of.second
 end
 
 -- Display: Time Message
@@ -4221,6 +4441,9 @@ dissect.payload = function(buffer, offset, packet, parent)
   return dissect.payload_branches(code, buffer, offset, packet, element)
 end
 
+-- Size: Message Type
+size_of.message_type = 1
+
 -- Display: Message Type
 display.message_type = function(value)
   if value == "T" then
@@ -4329,6 +4552,9 @@ dissect.message_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Length
+size_of.length = 2
+
 -- Display: Length
 display.length = function(value)
   return "Length: "..value
@@ -4336,14 +4562,13 @@ end
 
 -- Dissect: Length
 dissect.length = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.length)
   local value = range:uint()
   local display = display.length(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.length, range, value, display)
 
-  return offset + length
+  return offset + size_of.length
 end
 
 -- Display: Message Header
@@ -4421,6 +4646,9 @@ dissect.message = function(buffer, offset, packet, parent)
   return dissect.message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Count
+size_of.count = 2
+
 -- Display: Count
 display.count = function(value)
   return "Count: "..value
@@ -4438,6 +4666,9 @@ dissect.count = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Sequence
+size_of.sequence = 8
+
 -- Display: Sequence
 display.sequence = function(value)
   return "Sequence: "..value
@@ -4445,15 +4676,17 @@ end
 
 -- Dissect: Sequence
 dissect.sequence = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.sequence)
   local value = range:uint64()
   local display = display.sequence(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.sequence, range, value, display)
 
-  return offset + length
+  return offset + size_of.sequence
 end
+
+-- Size: Trading Service
+size_of.trading_service = 3
 
 -- Display: Trading Service
 display.trading_service = function(value)
@@ -4462,15 +4695,17 @@ end
 
 -- Dissect: Trading Service
 dissect.trading_service = function(buffer, offset, packet, parent)
-  local length = 3
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.trading_service)
   local value = range:string()
   local display = display.trading_service(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.trading_service, range, value, display)
 
-  return offset + length
+  return offset + size_of.trading_service
 end
+
+-- Size: Session Week
+size_of.session_week = 2
 
 -- Display: Session Week
 display.session_week = function(value)
@@ -4479,15 +4714,17 @@ end
 
 -- Dissect: Session Week
 dissect.session_week = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.session_week)
   local value = range:string()
   local display = display.session_week(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.session_week, range, value, display)
 
-  return offset + length
+  return offset + size_of.session_week
 end
+
+-- Size: Session Year
+size_of.session_year = 2
 
 -- Display: Session Year
 display.session_year = function(value)
@@ -4496,15 +4733,17 @@ end
 
 -- Dissect: Session Year
 dissect.session_year = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.session_year)
   local value = range:string()
   local display = display.session_year(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.session_year, range, value, display)
 
-  return offset + length
+  return offset + size_of.session_year
 end
+
+-- Size: Protocol Version
+size_of.protocol_version = 3
 
 -- Display: Protocol Version
 display.protocol_version = function(value)
@@ -4513,14 +4752,13 @@ end
 
 -- Dissect: Protocol Version
 dissect.protocol_version = function(buffer, offset, packet, parent)
-  local length = 3
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.protocol_version)
   local value = range:string()
   local display = display.protocol_version(value, buffer, offset, packet, parent)
 
   parent:add(asx_t24_itch_1_13.fields.protocol_version, range, value, display)
 
-  return offset + length
+  return offset + size_of.protocol_version
 end
 
 -- Display: Session
@@ -4662,10 +4900,11 @@ asx_t24_itch_1_13:register_heuristic("udp", asx_t24_itch_1_13_heuristic)
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
--- Specification:
--- Protocol Version: 1.13
--- Date:
--- Source Version: 1.1.0.0
+-- Protocol:
+-- Version: 1.13
+-- Date: Tuesday, July 15, 2014
+-- Script:
+-- Source Version: 1.2.0.0
 -- Compiler Version: 1.0
 -- License: Public/GPLv3
 -- Authors: Omi Developers

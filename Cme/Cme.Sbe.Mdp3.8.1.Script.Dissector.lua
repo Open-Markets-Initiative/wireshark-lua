@@ -395,6 +395,9 @@ cme_sbe_mdp3_8_1.fields.zero_price_outright_eligible = ProtoField.new("Zero Pric
 -- Dissect Cme Sbe Mdp3 8.1
 -----------------------------------------------------------------------
 
+-- Size: MD Entry Type
+size_of.md_entry_type = 1
+
 -- Display: MD Entry Type
 display.md_entry_type = function(value)
   if value == "0" then
@@ -454,15 +457,17 @@ end
 
 -- Dissect: MD Entry Type
 dissect.md_entry_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.md_entry_type)
   local value = range:string()
   local display = display.md_entry_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.md_entry_type, range, value, display)
 
-  return offset + length
+  return offset + size_of.md_entry_type
 end
+
+-- Size: MD Display Qty
+size_of.md_display_qty = 4
 
 -- Display: MD Display Qty
 display.md_display_qty = function(value)
@@ -471,15 +476,17 @@ end
 
 -- Dissect: MD Display Qty
 dissect.md_display_qty = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.md_display_qty)
   local value = range:le_int()
   local display = display.md_display_qty(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.md_display_qty, range, value, display)
 
-  return offset + length
+  return offset + size_of.md_display_qty
 end
+
+-- Size: MD Entry Px
+size_of.md_entry_px = 8
 
 -- Display: MD Entry Px
 display.md_entry_px = function(value)
@@ -489,15 +496,17 @@ end
 
 -- Dissect: MD Entry Px
 dissect.md_entry_px = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.md_entry_px)
   local value = range:le_int64()
   local display = display.md_entry_px(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.md_entry_px, range, value, display)
 
-  return offset + length
+  return offset + size_of.md_entry_px
 end
+
+-- Size: MD Order Priority
+size_of.md_order_priority = 8
 
 -- Display: MD Order Priority
 display.md_order_priority = function(value)
@@ -506,15 +515,17 @@ end
 
 -- Dissect: MD Order Priority
 dissect.md_order_priority = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.md_order_priority)
   local value = range:le_uint64()
   local display = display.md_order_priority(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.md_order_priority, range, value, display)
 
-  return offset + length
+  return offset + size_of.md_order_priority
 end
+
+-- Size: Order ID
+size_of.order_id = 8
 
 -- Display: Order ID
 display.order_id = function(value)
@@ -523,14 +534,13 @@ end
 
 -- Dissect: Order ID
 dissect.order_id = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.order_id)
   local value = range:le_uint64()
   local display = display.order_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.order_id, range, value, display)
 
-  return offset + length
+  return offset + size_of.order_id
 end
 
 -- Display: Snapshot Full Refresh Order Book Group
@@ -572,6 +582,9 @@ dissect.snapshot_full_refresh_order_book_group = function(buffer, offset, packet
   return dissect.snapshot_full_refresh_order_book_group_fields(buffer, offset, packet, parent)
 end
 
+-- Size: num In Group
+size_of.num_in_group = 1
+
 -- Display: num In Group
 display.num_in_group = function(value)
   return "num In Group: "..value
@@ -589,6 +602,9 @@ dissect.num_in_group = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: block Length
+size_of.block_length = 2
+
 -- Display: block Length
 display.block_length = function(value)
   return "block Length: "..value
@@ -596,14 +612,13 @@ end
 
 -- Dissect: block Length
 dissect.block_length = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.block_length)
   local value = range:le_uint()
   local display = display.block_length(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.block_length, range, value, display)
 
-  return offset + length
+  return offset + size_of.block_length
 end
 
 -- Display: group Size
@@ -684,6 +699,9 @@ dissect.snapshot_full_refresh_order_book_groups = function(buffer, offset, packe
   return dissect.snapshot_full_refresh_order_book_groups_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Transact Time
+size_of.transact_time = 8
+
 -- Display: Transact Time
 display.transact_time = function(value)
   return "Transact Time: "..value
@@ -691,15 +709,17 @@ end
 
 -- Dissect: Transact Time
 dissect.transact_time = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.transact_time)
   local value = range:le_uint64()
   local display = display.transact_time(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.transact_time, range, value, display)
 
-  return offset + length
+  return offset + size_of.transact_time
 end
+
+-- Size: Current Chunk
+size_of.current_chunk = 4
 
 -- Display: Current Chunk
 display.current_chunk = function(value)
@@ -708,15 +728,17 @@ end
 
 -- Dissect: Current Chunk
 dissect.current_chunk = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.current_chunk)
   local value = range:le_uint()
   local display = display.current_chunk(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.current_chunk, range, value, display)
 
-  return offset + length
+  return offset + size_of.current_chunk
 end
+
+-- Size: No Chunks
+size_of.no_chunks = 4
 
 -- Display: No Chunks
 display.no_chunks = function(value)
@@ -725,15 +747,17 @@ end
 
 -- Dissect: No Chunks
 dissect.no_chunks = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.no_chunks)
   local value = range:le_uint()
   local display = display.no_chunks(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.no_chunks, range, value, display)
 
-  return offset + length
+  return offset + size_of.no_chunks
 end
+
+-- Size: Security ID
+size_of.security_id = 4
 
 -- Display: Security ID
 display.security_id = function(value)
@@ -742,15 +766,17 @@ end
 
 -- Dissect: Security ID
 dissect.security_id = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.security_id)
   local value = range:le_int()
   local display = display.security_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.security_id, range, value, display)
 
-  return offset + length
+  return offset + size_of.security_id
 end
+
+-- Size: Tot Num Reports
+size_of.tot_num_reports = 4
 
 -- Display: Tot Num Reports
 display.tot_num_reports = function(value)
@@ -759,15 +785,17 @@ end
 
 -- Dissect: Tot Num Reports
 dissect.tot_num_reports = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.tot_num_reports)
   local value = range:le_uint()
   local display = display.tot_num_reports(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.tot_num_reports, range, value, display)
 
-  return offset + length
+  return offset + size_of.tot_num_reports
 end
+
+-- Size: Last Msg Seq Num Processed
+size_of.last_msg_seq_num_processed = 4
 
 -- Display: Last Msg Seq Num Processed
 display.last_msg_seq_num_processed = function(value)
@@ -776,14 +804,13 @@ end
 
 -- Dissect: Last Msg Seq Num Processed
 dissect.last_msg_seq_num_processed = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.last_msg_seq_num_processed)
   local value = range:le_uint()
   local display = display.last_msg_seq_num_processed(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.last_msg_seq_num_processed, range, value, display)
 
-  return offset + length
+  return offset + size_of.last_msg_seq_num_processed
 end
 
 -- Calculate runtime size: Snapshot Full Refresh Order Book
@@ -843,6 +870,9 @@ dissect.snapshot_full_refresh_order_book = function(buffer, offset, packet, pare
   return dissect.snapshot_full_refresh_order_book_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Padding 6
+size_of.padding_6 = 6
+
 -- Display: Padding 6
 display.padding_6 = function(value)
   return "Padding 6: "..value
@@ -850,15 +880,17 @@ end
 
 -- Dissect: Padding 6
 dissect.padding_6 = function(buffer, offset, packet, parent)
-  local length = 6
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.padding_6)
   local value = range:bytes():tohex(false, " ")
   local display = display.padding_6(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.padding_6, range, value, display)
 
-  return offset + length
+  return offset + size_of.padding_6
 end
+
+-- Size: MD Update Action
+size_of.md_update_action = 1
 
 -- Display: MD Update Action
 display.md_update_action = function(value)
@@ -886,14 +918,13 @@ end
 
 -- Dissect: MD Update Action
 dissect.md_update_action = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.md_update_action)
   local value = range:le_uint()
   local display = display.md_update_action(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.md_update_action, range, value, display)
 
-  return offset + length
+  return offset + size_of.md_update_action
 end
 
 -- Display: MD Incremental Refresh Order Book Group
@@ -992,6 +1023,9 @@ dissect.md_incremental_refresh_order_book_groups = function(buffer, offset, pack
   return dissect.md_incremental_refresh_order_book_groups_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Padding 2
+size_of.padding_2 = 2
+
 -- Display: Padding 2
 display.padding_2 = function(value)
   return "Padding 2: "..value
@@ -999,14 +1033,13 @@ end
 
 -- Dissect: Padding 2
 dissect.padding_2 = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.padding_2)
   local value = range:bytes():tohex(false, " ")
   local display = display.padding_2(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.padding_2, range, value, display)
 
-  return offset + length
+  return offset + size_of.padding_2
 end
 
 -- Display: Match Event Indicator
@@ -1139,6 +1172,9 @@ dissect.md_incremental_refresh_order_book = function(buffer, offset, packet, par
   return dissect.md_incremental_refresh_order_book_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Padding 4
+size_of.padding_4 = 4
+
 -- Display: Padding 4
 display.padding_4 = function(value)
   return "Padding 4: "..value
@@ -1146,15 +1182,17 @@ end
 
 -- Dissect: Padding 4
 dissect.padding_4 = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.padding_4)
   local value = range:bytes():tohex(false, " ")
   local display = display.padding_4(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.padding_4, range, value, display)
 
-  return offset + length
+  return offset + size_of.padding_4
 end
+
+-- Size: Last Qty
+size_of.last_qty = 4
 
 -- Display: Last Qty
 display.last_qty = function(value)
@@ -1163,14 +1201,13 @@ end
 
 -- Dissect: Last Qty
 dissect.last_qty = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.last_qty)
   local value = range:le_int()
   local display = display.last_qty(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.last_qty, range, value, display)
 
-  return offset + length
+  return offset + size_of.last_qty
 end
 
 -- Display: MD Incremental Refresh Trade Summary Order Group
@@ -1206,6 +1243,9 @@ dissect.md_incremental_refresh_trade_summary_order_group = function(buffer, offs
   return dissect.md_incremental_refresh_trade_summary_order_group_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Padding 5
+size_of.padding_5 = 5
+
 -- Display: Padding 5
 display.padding_5 = function(value)
   return "Padding 5: "..value
@@ -1213,14 +1253,13 @@ end
 
 -- Dissect: Padding 5
 dissect.padding_5 = function(buffer, offset, packet, parent)
-  local length = 5
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.padding_5)
   local value = range:bytes():tohex(false, " ")
   local display = display.padding_5(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.padding_5, range, value, display)
 
-  return offset + length
+  return offset + size_of.padding_5
 end
 
 -- Display: group Size8 Byte
@@ -1304,6 +1343,9 @@ dissect.md_incremental_refresh_trade_summary_order_groups = function(buffer, off
   return dissect.md_incremental_refresh_trade_summary_order_groups_fields(buffer, offset, packet, parent)
 end
 
+-- Size: MD Trade Entry ID
+size_of.md_trade_entry_id = 4
+
 -- Display: MD Trade Entry ID
 display.md_trade_entry_id = function(value)
   return "MD Trade Entry ID: "..value
@@ -1311,15 +1353,17 @@ end
 
 -- Dissect: MD Trade Entry ID
 dissect.md_trade_entry_id = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.md_trade_entry_id)
   local value = range:le_uint()
   local display = display.md_trade_entry_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.md_trade_entry_id, range, value, display)
 
-  return offset + length
+  return offset + size_of.md_trade_entry_id
 end
+
+-- Size: Aggressor Side
+size_of.aggressor_side = 1
 
 -- Display: Aggressor Side
 display.aggressor_side = function(value)
@@ -1338,15 +1382,17 @@ end
 
 -- Dissect: Aggressor Side
 dissect.aggressor_side = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.aggressor_side)
   local value = range:le_uint()
   local display = display.aggressor_side(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.aggressor_side, range, value, display)
 
-  return offset + length
+  return offset + size_of.aggressor_side
 end
+
+-- Size: Number Of Orders
+size_of.number_of_orders = 4
 
 -- Display: Number Of Orders
 display.number_of_orders = function(value)
@@ -1355,15 +1401,17 @@ end
 
 -- Dissect: Number Of Orders
 dissect.number_of_orders = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.number_of_orders)
   local value = range:le_int()
   local display = display.number_of_orders(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.number_of_orders, range, value, display)
 
-  return offset + length
+  return offset + size_of.number_of_orders
 end
+
+-- Size: Rpt Seq
+size_of.rpt_seq = 4
 
 -- Display: Rpt Seq
 display.rpt_seq = function(value)
@@ -1372,15 +1420,17 @@ end
 
 -- Dissect: Rpt Seq
 dissect.rpt_seq = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.rpt_seq)
   local value = range:le_uint()
   local display = display.rpt_seq(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.rpt_seq, range, value, display)
 
-  return offset + length
+  return offset + size_of.rpt_seq
 end
+
+-- Size: MD Entry Size
+size_of.md_entry_size = 4
 
 -- Display: MD Entry Size
 display.md_entry_size = function(value)
@@ -1389,14 +1439,13 @@ end
 
 -- Dissect: MD Entry Size
 dissect.md_entry_size = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.md_entry_size)
   local value = range:le_int()
   local display = display.md_entry_size(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.md_entry_size, range, value, display)
 
-  return offset + length
+  return offset + size_of.md_entry_size
 end
 
 -- Display: MD Incremental Refresh Trade Summary Group
@@ -1551,6 +1600,9 @@ dissect.md_incremental_refresh_trade_summary = function(buffer, offset, packet, 
   return dissect.md_incremental_refresh_trade_summary_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Related Symbol
+size_of.related_symbol = 20
+
 -- Display: Related Symbol
 display.related_symbol = function(value)
   return "Related Symbol: "..value
@@ -1558,15 +1610,17 @@ end
 
 -- Dissect: Related Symbol
 dissect.related_symbol = function(buffer, offset, packet, parent)
-  local length = 20
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.related_symbol)
   local value = range:string()
   local display = display.related_symbol(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.related_symbol, range, value, display)
 
-  return offset + length
+  return offset + size_of.related_symbol
 end
+
+-- Size: Related Security ID
+size_of.related_security_id = 4
 
 -- Display: Related Security ID
 display.related_security_id = function(value)
@@ -1575,14 +1629,13 @@ end
 
 -- Dissect: Related Security ID
 dissect.related_security_id = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.related_security_id)
   local value = range:le_int()
   local display = display.related_security_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.related_security_id, range, value, display)
 
-  return offset + length
+  return offset + size_of.related_security_id
 end
 
 -- Display: Related Instruments Group
@@ -1663,6 +1716,9 @@ dissect.related_instruments_groups = function(buffer, offset, packet, parent)
   return dissect.related_instruments_groups_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Underlying Symbol
+size_of.underlying_symbol = 20
+
 -- Display: Underlying Symbol
 display.underlying_symbol = function(value)
   return "Underlying Symbol: "..value
@@ -1670,15 +1726,17 @@ end
 
 -- Dissect: Underlying Symbol
 dissect.underlying_symbol = function(buffer, offset, packet, parent)
-  local length = 20
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.underlying_symbol)
   local value = range:string()
   local display = display.underlying_symbol(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.underlying_symbol, range, value, display)
 
-  return offset + length
+  return offset + size_of.underlying_symbol
 end
+
+-- Size: Underlying Security ID
+size_of.underlying_security_id = 4
 
 -- Display: Underlying Security ID
 display.underlying_security_id = function(value)
@@ -1687,14 +1745,13 @@ end
 
 -- Dissect: Underlying Security ID
 dissect.underlying_security_id = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.underlying_security_id)
   local value = range:le_int()
   local display = display.underlying_security_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.underlying_security_id, range, value, display)
 
-  return offset + length
+  return offset + size_of.underlying_security_id
 end
 
 -- Display: Underlyings Group
@@ -1775,6 +1832,9 @@ dissect.underlyings_groups = function(buffer, offset, packet, parent)
   return dissect.underlyings_groups_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Min Lot Size
+size_of.min_lot_size = 4
+
 -- Display: Min Lot Size
 display.min_lot_size = function(value)
   local factor = 10000
@@ -1783,15 +1843,17 @@ end
 
 -- Dissect: Min Lot Size
 dissect.min_lot_size = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.min_lot_size)
   local value = range:le_int()
   local display = display.min_lot_size(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.min_lot_size, range, value, display)
 
-  return offset + length
+  return offset + size_of.min_lot_size
 end
+
+-- Size: Lot Type
+size_of.lot_type = 1
 
 -- Display: Lot Type
 display.lot_type = function(value)
@@ -1800,14 +1862,13 @@ end
 
 -- Dissect: Lot Type
 dissect.lot_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.lot_type)
   local value = range:le_int()
   local display = display.lot_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.lot_type, range, value, display)
 
-  return offset + length
+  return offset + size_of.lot_type
 end
 
 -- Display: Lot Type Rules Group
@@ -2132,6 +2193,9 @@ dissect.inst_attrib_groups = function(buffer, offset, packet, parent)
   return dissect.inst_attrib_groups_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Market Depth
+size_of.market_depth = 1
+
 -- Display: Market Depth
 display.market_depth = function(value)
   return "Market Depth: "..value
@@ -2139,15 +2203,17 @@ end
 
 -- Dissect: Market Depth
 dissect.market_depth = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.market_depth)
   local value = range:le_int()
   local display = display.market_depth(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.market_depth, range, value, display)
 
-  return offset + length
+  return offset + size_of.market_depth
 end
+
+-- Size: MD Feed Type
+size_of.md_feed_type = 3
 
 -- Display: MD Feed Type
 display.md_feed_type = function(value)
@@ -2156,14 +2222,13 @@ end
 
 -- Dissect: MD Feed Type
 dissect.md_feed_type = function(buffer, offset, packet, parent)
-  local length = 3
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.md_feed_type)
   local value = range:string()
   local display = display.md_feed_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.md_feed_type, range, value, display)
 
-  return offset + length
+  return offset + size_of.md_feed_type
 end
 
 -- Display: MD Feed Types Group
@@ -2244,6 +2309,9 @@ dissect.md_feed_types_groups = function(buffer, offset, packet, parent)
   return dissect.md_feed_types_groups_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Event Time
+size_of.event_time = 8
+
 -- Display: Event Time
 display.event_time = function(value)
   return "Event Time: "..value
@@ -2251,15 +2319,17 @@ end
 
 -- Dissect: Event Time
 dissect.event_time = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.event_time)
   local value = range:le_uint64()
   local display = display.event_time(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.event_time, range, value, display)
 
-  return offset + length
+  return offset + size_of.event_time
 end
+
+-- Size: Event Type
+size_of.event_type = 1
 
 -- Display: Event Type
 display.event_type = function(value)
@@ -2275,14 +2345,13 @@ end
 
 -- Dissect: Event Type
 dissect.event_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.event_type)
   local value = range:le_uint()
   local display = display.event_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.event_type, range, value, display)
 
-  return offset + length
+  return offset + size_of.event_type
 end
 
 -- Display: Events Group
@@ -2363,6 +2432,9 @@ dissect.events_groups = function(buffer, offset, packet, parent)
   return dissect.events_groups_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Trading Reference Date
+size_of.trading_reference_date = 2
+
 -- Display: Trading Reference Date
 display.trading_reference_date = function(value)
   return "Trading Reference Date: "..value
@@ -2370,15 +2442,17 @@ end
 
 -- Dissect: Trading Reference Date
 dissect.trading_reference_date = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.trading_reference_date)
   local value = range:le_uint()
   local display = display.trading_reference_date(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.trading_reference_date, range, value, display)
 
-  return offset + length
+  return offset + size_of.trading_reference_date
 end
+
+-- Size: User Defined Instrument
+size_of.user_defined_instrument = 1
 
 -- Display: User Defined Instrument
 display.user_defined_instrument = function(value)
@@ -2387,15 +2461,17 @@ end
 
 -- Dissect: User Defined Instrument
 dissect.user_defined_instrument = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.user_defined_instrument)
   local value = range:string()
   local display = display.user_defined_instrument(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.user_defined_instrument, range, value, display)
 
-  return offset + length
+  return offset + size_of.user_defined_instrument
 end
+
+-- Size: High Limit Price
+size_of.high_limit_price = 8
 
 -- Display: High Limit Price
 display.high_limit_price = function(value)
@@ -2405,15 +2481,17 @@ end
 
 -- Dissect: High Limit Price
 dissect.high_limit_price = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.high_limit_price)
   local value = range:le_int64()
   local display = display.high_limit_price(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.high_limit_price, range, value, display)
 
-  return offset + length
+  return offset + size_of.high_limit_price
 end
+
+-- Size: Low Limit Price
+size_of.low_limit_price = 8
 
 -- Display: Low Limit Price
 display.low_limit_price = function(value)
@@ -2423,15 +2501,17 @@ end
 
 -- Dissect: Low Limit Price
 dissect.low_limit_price = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.low_limit_price)
   local value = range:le_int64()
   local display = display.low_limit_price(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.low_limit_price, range, value, display)
 
-  return offset + length
+  return offset + size_of.low_limit_price
 end
+
+-- Size: Open Interest Qty
+size_of.open_interest_qty = 4
 
 -- Display: Open Interest Qty
 display.open_interest_qty = function(value)
@@ -2440,15 +2520,17 @@ end
 
 -- Dissect: Open Interest Qty
 dissect.open_interest_qty = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.open_interest_qty)
   local value = range:le_int()
   local display = display.open_interest_qty(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.open_interest_qty, range, value, display)
 
-  return offset + length
+  return offset + size_of.open_interest_qty
 end
+
+-- Size: Cleared Volume
+size_of.cleared_volume = 4
 
 -- Display: Cleared Volume
 display.cleared_volume = function(value)
@@ -2457,14 +2539,13 @@ end
 
 -- Dissect: Cleared Volume
 dissect.cleared_volume = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.cleared_volume)
   local value = range:le_int()
   local display = display.cleared_volume(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.cleared_volume, range, value, display)
 
-  return offset + length
+  return offset + size_of.cleared_volume
 end
 
 -- Display: Settl Price Type
@@ -2531,6 +2612,9 @@ dissect.settl_price_type = function(buffer, offset, packet, parent)
   return offset + 1
 end
 
+-- Size: Trading Reference Price
+size_of.trading_reference_price = 8
+
 -- Display: Trading Reference Price
 display.trading_reference_price = function(value)
   local factor = 10000000
@@ -2539,15 +2623,17 @@ end
 
 -- Dissect: Trading Reference Price
 dissect.trading_reference_price = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.trading_reference_price)
   local value = range:le_int64()
   local display = display.trading_reference_price(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.trading_reference_price, range, value, display)
 
-  return offset + length
+  return offset + size_of.trading_reference_price
 end
+
+-- Size: Unit Of Measure Qty
+size_of.unit_of_measure_qty = 8
 
 -- Display: Unit Of Measure Qty
 display.unit_of_measure_qty = function(value)
@@ -2557,15 +2643,17 @@ end
 
 -- Dissect: Unit Of Measure Qty
 dissect.unit_of_measure_qty = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.unit_of_measure_qty)
   local value = range:le_int64()
   local display = display.unit_of_measure_qty(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.unit_of_measure_qty, range, value, display)
 
-  return offset + length
+  return offset + size_of.unit_of_measure_qty
 end
+
+-- Size: Unit Of Measure
+size_of.unit_of_measure = 30
 
 -- Display: Unit Of Measure
 display.unit_of_measure = function(value)
@@ -2574,15 +2662,17 @@ end
 
 -- Dissect: Unit Of Measure
 dissect.unit_of_measure = function(buffer, offset, packet, parent)
-  local length = 30
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.unit_of_measure)
   local value = range:string()
   local display = display.unit_of_measure(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.unit_of_measure, range, value, display)
 
-  return offset + length
+  return offset + size_of.unit_of_measure
 end
+
+-- Size: Price Display Format
+size_of.price_display_format = 1
 
 -- Display: Price Display Format
 display.price_display_format = function(value)
@@ -2591,15 +2681,17 @@ end
 
 -- Dissect: Price Display Format
 dissect.price_display_format = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.price_display_format)
   local value = range:le_uint()
   local display = display.price_display_format(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.price_display_format, range, value, display)
 
-  return offset + length
+  return offset + size_of.price_display_format
 end
+
+-- Size: Sub Fraction
+size_of.sub_fraction = 1
 
 -- Display: Sub Fraction
 display.sub_fraction = function(value)
@@ -2608,15 +2700,17 @@ end
 
 -- Dissect: Sub Fraction
 dissect.sub_fraction = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.sub_fraction)
   local value = range:le_uint()
   local display = display.sub_fraction(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.sub_fraction, range, value, display)
 
-  return offset + length
+  return offset + size_of.sub_fraction
 end
+
+-- Size: Main Fraction
+size_of.main_fraction = 1
 
 -- Display: Main Fraction
 display.main_fraction = function(value)
@@ -2625,15 +2719,17 @@ end
 
 -- Dissect: Main Fraction
 dissect.main_fraction = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.main_fraction)
   local value = range:le_uint()
   local display = display.main_fraction(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.main_fraction, range, value, display)
 
-  return offset + length
+  return offset + size_of.main_fraction
 end
+
+-- Size: Tick Rule
+size_of.tick_rule = 1
 
 -- Display: Tick Rule
 display.tick_rule = function(value)
@@ -2642,15 +2738,17 @@ end
 
 -- Dissect: Tick Rule
 dissect.tick_rule = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.tick_rule)
   local value = range:le_int()
   local display = display.tick_rule(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.tick_rule, range, value, display)
 
-  return offset + length
+  return offset + size_of.tick_rule
 end
+
+-- Size: Display Factor
+size_of.display_factor = 8
 
 -- Display: Display Factor
 display.display_factor = function(value)
@@ -2660,15 +2758,17 @@ end
 
 -- Dissect: Display Factor
 dissect.display_factor = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.display_factor)
   local value = range:le_int64()
   local display = display.display_factor(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.display_factor, range, value, display)
 
-  return offset + length
+  return offset + size_of.display_factor
 end
+
+-- Size: Min Price Increment Amount
+size_of.min_price_increment_amount = 8
 
 -- Display: Min Price Increment Amount
 display.min_price_increment_amount = function(value)
@@ -2678,15 +2778,17 @@ end
 
 -- Dissect: Min Price Increment Amount
 dissect.min_price_increment_amount = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.min_price_increment_amount)
   local value = range:le_int64()
   local display = display.min_price_increment_amount(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.min_price_increment_amount, range, value, display)
 
-  return offset + length
+  return offset + size_of.min_price_increment_amount
 end
+
+-- Size: Min Price Increment
+size_of.min_price_increment = 8
 
 -- Display: Min Price Increment
 display.min_price_increment = function(value)
@@ -2696,15 +2798,17 @@ end
 
 -- Dissect: Min Price Increment
 dissect.min_price_increment = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.min_price_increment)
   local value = range:le_int64()
   local display = display.min_price_increment(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.min_price_increment, range, value, display)
 
-  return offset + length
+  return offset + size_of.min_price_increment
 end
+
+-- Size: Max Trade Vol
+size_of.max_trade_vol = 4
 
 -- Display: Max Trade Vol
 display.max_trade_vol = function(value)
@@ -2713,15 +2817,17 @@ end
 
 -- Dissect: Max Trade Vol
 dissect.max_trade_vol = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.max_trade_vol)
   local value = range:le_uint()
   local display = display.max_trade_vol(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.max_trade_vol, range, value, display)
 
-  return offset + length
+  return offset + size_of.max_trade_vol
 end
+
+-- Size: Min Trade Vol
+size_of.min_trade_vol = 4
 
 -- Display: Min Trade Vol
 display.min_trade_vol = function(value)
@@ -2730,15 +2836,17 @@ end
 
 -- Dissect: Min Trade Vol
 dissect.min_trade_vol = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.min_trade_vol)
   local value = range:le_uint()
   local display = display.min_trade_vol(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.min_trade_vol, range, value, display)
 
-  return offset + length
+  return offset + size_of.min_trade_vol
 end
+
+-- Size: Match Algorithm
+size_of.match_algorithm = 1
 
 -- Display: Match Algorithm
 display.match_algorithm = function(value)
@@ -2747,15 +2855,17 @@ end
 
 -- Dissect: Match Algorithm
 dissect.match_algorithm = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.match_algorithm)
   local value = range:string()
   local display = display.match_algorithm(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.match_algorithm, range, value, display)
 
-  return offset + length
+  return offset + size_of.match_algorithm
 end
+
+-- Size: Min Cab Price
+size_of.min_cab_price = 8
 
 -- Display: Min Cab Price
 display.min_cab_price = function(value)
@@ -2765,15 +2875,17 @@ end
 
 -- Dissect: Min Cab Price
 dissect.min_cab_price = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.min_cab_price)
   local value = range:le_int64()
   local display = display.min_cab_price(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.min_cab_price, range, value, display)
 
-  return offset + length
+  return offset + size_of.min_cab_price
 end
+
+-- Size: Settl Currency
+size_of.settl_currency = 3
 
 -- Display: Settl Currency
 display.settl_currency = function(value)
@@ -2782,15 +2894,17 @@ end
 
 -- Dissect: Settl Currency
 dissect.settl_currency = function(buffer, offset, packet, parent)
-  local length = 3
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.settl_currency)
   local value = range:string()
   local display = display.settl_currency(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.settl_currency, range, value, display)
 
-  return offset + length
+  return offset + size_of.settl_currency
 end
+
+-- Size: Strike Currency
+size_of.strike_currency = 3
 
 -- Display: Strike Currency
 display.strike_currency = function(value)
@@ -2799,15 +2913,17 @@ end
 
 -- Dissect: Strike Currency
 dissect.strike_currency = function(buffer, offset, packet, parent)
-  local length = 3
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.strike_currency)
   local value = range:string()
   local display = display.strike_currency(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.strike_currency, range, value, display)
 
-  return offset + length
+  return offset + size_of.strike_currency
 end
+
+-- Size: Strike Price
+size_of.strike_price = 8
 
 -- Display: Strike Price
 display.strike_price = function(value)
@@ -2817,15 +2933,17 @@ end
 
 -- Dissect: Strike Price
 dissect.strike_price = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.strike_price)
   local value = range:le_int64()
   local display = display.strike_price(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.strike_price, range, value, display)
 
-  return offset + length
+  return offset + size_of.strike_price
 end
+
+-- Size: Currency
+size_of.currency = 3
 
 -- Display: Currency
 display.currency = function(value)
@@ -2834,15 +2952,17 @@ end
 
 -- Dissect: Currency
 dissect.currency = function(buffer, offset, packet, parent)
-  local length = 3
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.currency)
   local value = range:string()
   local display = display.currency(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.currency, range, value, display)
 
-  return offset + length
+  return offset + size_of.currency
 end
+
+-- Size: week
+size_of.week = 1
 
 -- Display: week
 display.week = function(value)
@@ -2856,15 +2976,17 @@ end
 
 -- Dissect: week
 dissect.week = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.week)
   local value = range:le_uint()
   local display = display.week(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.week, range, value, display)
 
-  return offset + length
+  return offset + size_of.week
 end
+
+-- Size: day
+size_of.day = 1
 
 -- Display: day
 display.day = function(value)
@@ -2878,15 +3000,17 @@ end
 
 -- Dissect: day
 dissect.day = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.day)
   local value = range:le_uint()
   local display = display.day(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.day, range, value, display)
 
-  return offset + length
+  return offset + size_of.day
 end
+
+-- Size: month
+size_of.month = 1
 
 -- Display: month
 display.month = function(value)
@@ -2900,15 +3024,17 @@ end
 
 -- Dissect: month
 dissect.month = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.month)
   local value = range:le_uint()
   local display = display.month(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.month, range, value, display)
 
-  return offset + length
+  return offset + size_of.month
 end
+
+-- Size: year
+size_of.year = 2
 
 -- Display: year
 display.year = function(value)
@@ -2922,14 +3048,13 @@ end
 
 -- Dissect: year
 dissect.year = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.year)
   local value = range:le_uint()
   local display = display.year(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.year, range, value, display)
 
-  return offset + length
+  return offset + size_of.year
 end
 
 -- Display: Maturity Month Year
@@ -2968,6 +3093,9 @@ dissect.maturity_month_year = function(buffer, offset, packet, parent)
   return dissect.maturity_month_year_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Put Or Call
+size_of.put_or_call = 1
+
 -- Display: Put Or Call
 display.put_or_call = function(value)
   if value == 0 then
@@ -2982,15 +3110,17 @@ end
 
 -- Dissect: Put Or Call
 dissect.put_or_call = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.put_or_call)
   local value = range:le_uint()
   local display = display.put_or_call(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.put_or_call, range, value, display)
 
-  return offset + length
+  return offset + size_of.put_or_call
 end
+
+-- Size: CFI Code
+size_of.cfi_code = 6
 
 -- Display: CFI Code
 display.cfi_code = function(value)
@@ -2999,15 +3129,17 @@ end
 
 -- Dissect: CFI Code
 dissect.cfi_code = function(buffer, offset, packet, parent)
-  local length = 6
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.cfi_code)
   local value = range:string()
   local display = display.cfi_code(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.cfi_code, range, value, display)
 
-  return offset + length
+  return offset + size_of.cfi_code
 end
+
+-- Size: Security Type
+size_of.security_type = 6
 
 -- Display: Security Type
 display.security_type = function(value)
@@ -3016,15 +3148,17 @@ end
 
 -- Dissect: Security Type
 dissect.security_type = function(buffer, offset, packet, parent)
-  local length = 6
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.security_type)
   local value = range:string()
   local display = display.security_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.security_type, range, value, display)
 
-  return offset + length
+  return offset + size_of.security_type
 end
+
+-- Size: Symbol
+size_of.symbol = 20
 
 -- Display: Symbol
 display.symbol = function(value)
@@ -3033,15 +3167,17 @@ end
 
 -- Dissect: Symbol
 dissect.symbol = function(buffer, offset, packet, parent)
-  local length = 20
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.symbol)
   local value = range:string()
   local display = display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.symbol, range, value, display)
 
-  return offset + length
+  return offset + size_of.symbol
 end
+
+-- Size: Asset
+size_of.asset = 6
 
 -- Display: Asset
 display.asset = function(value)
@@ -3050,15 +3186,17 @@ end
 
 -- Dissect: Asset
 dissect.asset = function(buffer, offset, packet, parent)
-  local length = 6
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.asset)
   local value = range:string()
   local display = display.asset(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.asset, range, value, display)
 
-  return offset + length
+  return offset + size_of.asset
 end
+
+-- Size: Security Group
+size_of.security_group = 6
 
 -- Display: Security Group
 display.security_group = function(value)
@@ -3067,15 +3205,17 @@ end
 
 -- Dissect: Security Group
 dissect.security_group = function(buffer, offset, packet, parent)
-  local length = 6
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.security_group)
   local value = range:string()
   local display = display.security_group(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.security_group, range, value, display)
 
-  return offset + length
+  return offset + size_of.security_group
 end
+
+-- Size: Security Exchange
+size_of.security_exchange = 4
 
 -- Display: Security Exchange
 display.security_exchange = function(value)
@@ -3084,15 +3224,17 @@ end
 
 -- Dissect: Security Exchange
 dissect.security_exchange = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.security_exchange)
   local value = range:string()
   local display = display.security_exchange(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.security_exchange, range, value, display)
 
-  return offset + length
+  return offset + size_of.security_exchange
 end
+
+-- Size: Underlying Product
+size_of.underlying_product = 1
 
 -- Display: Underlying Product
 display.underlying_product = function(value)
@@ -3101,15 +3243,17 @@ end
 
 -- Dissect: Underlying Product
 dissect.underlying_product = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.underlying_product)
   local value = range:le_uint()
   local display = display.underlying_product(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.underlying_product, range, value, display)
 
-  return offset + length
+  return offset + size_of.underlying_product
 end
+
+-- Size: Market Segment ID
+size_of.market_segment_id = 1
 
 -- Display: Market Segment ID
 display.market_segment_id = function(value)
@@ -3118,15 +3262,17 @@ end
 
 -- Dissect: Market Segment ID
 dissect.market_segment_id = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.market_segment_id)
   local value = range:le_uint()
   local display = display.market_segment_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.market_segment_id, range, value, display)
 
-  return offset + length
+  return offset + size_of.market_segment_id
 end
+
+-- Size: Appl ID
+size_of.appl_id = 2
 
 -- Display: Appl ID
 display.appl_id = function(value)
@@ -3135,15 +3281,17 @@ end
 
 -- Dissect: Appl ID
 dissect.appl_id = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.appl_id)
   local value = range:le_int()
   local display = display.appl_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.appl_id, range, value, display)
 
-  return offset + length
+  return offset + size_of.appl_id
 end
+
+-- Size: MD Security Trading Status
+size_of.md_security_trading_status = 1
 
 -- Display: MD Security Trading Status
 display.md_security_trading_status = function(value)
@@ -3152,15 +3300,17 @@ end
 
 -- Dissect: MD Security Trading Status
 dissect.md_security_trading_status = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.md_security_trading_status)
   local value = range:le_uint()
   local display = display.md_security_trading_status(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.md_security_trading_status, range, value, display)
 
-  return offset + length
+  return offset + size_of.md_security_trading_status
 end
+
+-- Size: Last Update Time
+size_of.last_update_time = 8
 
 -- Display: Last Update Time
 display.last_update_time = function(value)
@@ -3169,15 +3319,17 @@ end
 
 -- Dissect: Last Update Time
 dissect.last_update_time = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.last_update_time)
   local value = range:le_uint64()
   local display = display.last_update_time(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.last_update_time, range, value, display)
 
-  return offset + length
+  return offset + size_of.last_update_time
 end
+
+-- Size: Security Update Action
+size_of.security_update_action = 1
 
 -- Display: Security Update Action
 display.security_update_action = function(value)
@@ -3196,14 +3348,13 @@ end
 
 -- Dissect: Security Update Action
 dissect.security_update_action = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.security_update_action)
   local value = range:string()
   local display = display.security_update_action(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.security_update_action, range, value, display)
 
-  return offset + length
+  return offset + size_of.security_update_action
 end
 
 -- Calculate runtime size: MD Instrument Definition Option
@@ -3396,6 +3547,9 @@ dissect.md_instrument_definition_option = function(buffer, offset, packet, paren
   return dissect.md_instrument_definition_option_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Side
+size_of.side = 1
+
 -- Display: Side
 display.side = function(value)
   return "Side: "..value
@@ -3403,15 +3557,17 @@ end
 
 -- Dissect: Side
 dissect.side = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.side)
   local value = range:le_int()
   local display = display.side(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.side, range, value, display)
 
-  return offset + length
+  return offset + size_of.side
 end
+
+-- Size: Quote Type
+size_of.quote_type = 1
 
 -- Display: Quote Type
 display.quote_type = function(value)
@@ -3420,15 +3576,17 @@ end
 
 -- Dissect: Quote Type
 dissect.quote_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.quote_type)
   local value = range:le_int()
   local display = display.quote_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.quote_type, range, value, display)
 
-  return offset + length
+  return offset + size_of.quote_type
 end
+
+-- Size: Order Qty
+size_of.order_qty = 4
 
 -- Display: Order Qty
 display.order_qty = function(value)
@@ -3437,14 +3595,13 @@ end
 
 -- Dissect: Order Qty
 dissect.order_qty = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.order_qty)
   local value = range:le_int()
   local display = display.order_qty(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.order_qty, range, value, display)
 
-  return offset + length
+  return offset + size_of.order_qty
 end
 
 -- Display: Related Sym Group
@@ -3537,6 +3694,9 @@ dissect.related_sym_groups = function(buffer, offset, packet, parent)
   return dissect.related_sym_groups_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Padding 3
+size_of.padding_3 = 3
+
 -- Display: Padding 3
 display.padding_3 = function(value)
   return "Padding 3: "..value
@@ -3544,15 +3704,17 @@ end
 
 -- Dissect: Padding 3
 dissect.padding_3 = function(buffer, offset, packet, parent)
-  local length = 3
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.padding_3)
   local value = range:bytes():tohex(false, " ")
   local display = display.padding_3(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.padding_3, range, value, display)
 
-  return offset + length
+  return offset + size_of.padding_3
 end
+
+-- Size: Quote Req ID
+size_of.quote_req_id = 23
 
 -- Display: Quote Req ID
 display.quote_req_id = function(value)
@@ -3561,14 +3723,13 @@ end
 
 -- Dissect: Quote Req ID
 dissect.quote_req_id = function(buffer, offset, packet, parent)
-  local length = 23
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.quote_req_id)
   local value = range:string()
   local display = display.quote_req_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.quote_req_id, range, value, display)
 
-  return offset + length
+  return offset + size_of.quote_req_id
 end
 
 -- Calculate runtime size: Quote Request
@@ -3622,6 +3783,9 @@ dissect.quote_request = function(buffer, offset, packet, parent)
   return dissect.quote_request_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Open Close Settl Flag
+size_of.open_close_settl_flag = 1
+
 -- Display: Open Close Settl Flag
 display.open_close_settl_flag = function(value)
   if value == 0 then
@@ -3636,15 +3800,17 @@ end
 
 -- Dissect: Open Close Settl Flag
 dissect.open_close_settl_flag = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.open_close_settl_flag)
   local value = range:le_uint()
   local display = display.open_close_settl_flag(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.open_close_settl_flag, range, value, display)
 
-  return offset + length
+  return offset + size_of.open_close_settl_flag
 end
+
+-- Size: MD Price Level
+size_of.md_price_level = 1
 
 -- Display: MD Price Level
 display.md_price_level = function(value)
@@ -3653,14 +3819,13 @@ end
 
 -- Dissect: MD Price Level
 dissect.md_price_level = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.md_price_level)
   local value = range:le_uint()
   local display = display.md_price_level(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.md_price_level, range, value, display)
 
-  return offset + length
+  return offset + size_of.md_price_level
 end
 
 -- Display: Snapshot Full Refresh Group
@@ -3759,6 +3924,9 @@ dissect.snapshot_full_refresh_groups = function(buffer, offset, packet, parent)
   return dissect.snapshot_full_refresh_groups_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Max Price Variation
+size_of.max_price_variation = 8
+
 -- Display: Max Price Variation
 display.max_price_variation = function(value)
   local factor = 10000000
@@ -3767,15 +3935,17 @@ end
 
 -- Dissect: Max Price Variation
 dissect.max_price_variation = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.max_price_variation)
   local value = range:le_int64()
   local display = display.max_price_variation(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.max_price_variation, range, value, display)
 
-  return offset + length
+  return offset + size_of.max_price_variation
 end
+
+-- Size: Trade Date
+size_of.trade_date = 2
 
 -- Display: Trade Date
 display.trade_date = function(value)
@@ -3784,14 +3954,13 @@ end
 
 -- Dissect: Trade Date
 dissect.trade_date = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.trade_date)
   local value = range:le_uint()
   local display = display.trade_date(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.trade_date, range, value, display)
 
-  return offset + length
+  return offset + size_of.trade_date
 end
 
 -- Calculate runtime size: Snapshot Full Refresh
@@ -4001,6 +4170,9 @@ dissect.md_incremental_refresh_volume = function(buffer, offset, packet, parent)
   return dissect.md_incremental_refresh_volume_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Trade ID
+size_of.trade_id = 4
+
 -- Display: Trade ID
 display.trade_id = function(value)
   return "Trade ID: "..value
@@ -4008,14 +4180,13 @@ end
 
 -- Dissect: Trade ID
 dissect.trade_id = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.trade_id)
   local value = range:le_int()
   local display = display.trade_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.trade_id, range, value, display)
 
-  return offset + length
+  return offset + size_of.trade_id
 end
 
 -- Display: MD Incremental Refresh Trade Group
@@ -4165,6 +4336,9 @@ dissect.md_incremental_refresh_trade = function(buffer, offset, packet, parent)
   return dissect.md_incremental_refresh_trade_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Padding 1
+size_of.padding_1 = 1
+
 -- Display: Padding 1
 display.padding_1 = function(value)
   return "Padding 1: "..value
@@ -4172,14 +4346,13 @@ end
 
 -- Dissect: Padding 1
 dissect.padding_1 = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.padding_1)
   local value = range:bytes():tohex(false, " ")
   local display = display.padding_1(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.padding_1, range, value, display)
 
-  return offset + length
+  return offset + size_of.padding_1
 end
 
 -- Display: MD Incremental Refresh Session Statistics Group
@@ -4461,6 +4634,9 @@ dissect.md_incremental_refresh_limits_banding = function(buffer, offset, packet,
   return dissect.md_incremental_refresh_limits_banding_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Padding 7
+size_of.padding_7 = 7
+
 -- Display: Padding 7
 display.padding_7 = function(value)
   return "Padding 7: "..value
@@ -4468,14 +4644,13 @@ end
 
 -- Dissect: Padding 7
 dissect.padding_7 = function(buffer, offset, packet, parent)
-  local length = 7
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.padding_7)
   local value = range:bytes():tohex(false, " ")
   local display = display.padding_7(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.padding_7, range, value, display)
 
-  return offset + length
+  return offset + size_of.padding_7
 end
 
 -- Display: MD Incremental Refresh Daily Statistics Group
@@ -4625,6 +4800,9 @@ dissect.md_incremental_refresh_daily_statistics = function(buffer, offset, packe
   return dissect.md_incremental_refresh_daily_statistics_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Order Update Action
+size_of.order_update_action = 1
+
 -- Display: Order Update Action
 display.order_update_action = function(value)
   if value == 0 then
@@ -4642,15 +4820,17 @@ end
 
 -- Dissect: Order Update Action
 dissect.order_update_action = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.order_update_action)
   local value = range:le_uint()
   local display = display.order_update_action(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.order_update_action, range, value, display)
 
-  return offset + length
+  return offset + size_of.order_update_action
 end
+
+-- Size: Reference ID
+size_of.reference_id = 1
 
 -- Display: Reference ID
 display.reference_id = function(value)
@@ -4659,14 +4839,13 @@ end
 
 -- Dissect: Reference ID
 dissect.reference_id = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.reference_id)
   local value = range:le_uint()
   local display = display.reference_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.reference_id, range, value, display)
 
-  return offset + length
+  return offset + size_of.reference_id
 end
 
 -- Display: MD Incremental Refresh Book Order Group
@@ -4911,6 +5090,9 @@ dissect.md_incremental_refresh_book = function(buffer, offset, packet, parent)
   return dissect.md_incremental_refresh_book_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Security Trading Event
+size_of.security_trading_event = 1
+
 -- Display: Security Trading Event
 display.security_trading_event = function(value)
   if value == 0 then
@@ -4934,15 +5116,17 @@ end
 
 -- Dissect: Security Trading Event
 dissect.security_trading_event = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.security_trading_event)
   local value = range:le_uint()
   local display = display.security_trading_event(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.security_trading_event, range, value, display)
 
-  return offset + length
+  return offset + size_of.security_trading_event
 end
+
+-- Size: Halt Reason
+size_of.halt_reason = 1
 
 -- Display: Halt Reason
 display.halt_reason = function(value)
@@ -4973,15 +5157,17 @@ end
 
 -- Dissect: Halt Reason
 dissect.halt_reason = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.halt_reason)
   local value = range:le_uint()
   local display = display.halt_reason(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.halt_reason, range, value, display)
 
-  return offset + length
+  return offset + size_of.halt_reason
 end
+
+-- Size: Security Trading Status
+size_of.security_trading_status = 1
 
 -- Display: Security Trading Status
 display.security_trading_status = function(value)
@@ -5024,14 +5210,13 @@ end
 
 -- Dissect: Security Trading Status
 dissect.security_trading_status = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.security_trading_status)
   local value = range:le_uint()
   local display = display.security_trading_status(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.security_trading_status, range, value, display)
 
-  return offset + length
+  return offset + size_of.security_trading_status
 end
 
 -- Display: Security Status
@@ -5085,6 +5270,9 @@ dissect.security_status = function(buffer, offset, packet, parent)
   return dissect.security_status_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Leg Option Delta
+size_of.leg_option_delta = 4
+
 -- Display: Leg Option Delta
 display.leg_option_delta = function(value)
   local factor = 10000
@@ -5093,15 +5281,17 @@ end
 
 -- Dissect: Leg Option Delta
 dissect.leg_option_delta = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.leg_option_delta)
   local value = range:le_int()
   local display = display.leg_option_delta(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.leg_option_delta, range, value, display)
 
-  return offset + length
+  return offset + size_of.leg_option_delta
 end
+
+-- Size: Leg Price
+size_of.leg_price = 8
 
 -- Display: Leg Price
 display.leg_price = function(value)
@@ -5111,15 +5301,17 @@ end
 
 -- Dissect: Leg Price
 dissect.leg_price = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.leg_price)
   local value = range:le_int64()
   local display = display.leg_price(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.leg_price, range, value, display)
 
-  return offset + length
+  return offset + size_of.leg_price
 end
+
+-- Size: Leg Ratio Qty
+size_of.leg_ratio_qty = 1
 
 -- Display: Leg Ratio Qty
 display.leg_ratio_qty = function(value)
@@ -5128,15 +5320,17 @@ end
 
 -- Dissect: Leg Ratio Qty
 dissect.leg_ratio_qty = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.leg_ratio_qty)
   local value = range:le_int()
   local display = display.leg_ratio_qty(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.leg_ratio_qty, range, value, display)
 
-  return offset + length
+  return offset + size_of.leg_ratio_qty
 end
+
+-- Size: Leg Side
+size_of.leg_side = 1
 
 -- Display: Leg Side
 display.leg_side = function(value)
@@ -5152,15 +5346,17 @@ end
 
 -- Dissect: Leg Side
 dissect.leg_side = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.leg_side)
   local value = range:le_uint()
   local display = display.leg_side(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.leg_side, range, value, display)
 
-  return offset + length
+  return offset + size_of.leg_side
 end
+
+-- Size: Leg Security ID
+size_of.leg_security_id = 4
 
 -- Display: Leg Security ID
 display.leg_security_id = function(value)
@@ -5169,14 +5365,13 @@ end
 
 -- Dissect: Leg Security ID
 dissect.leg_security_id = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.leg_security_id)
   local value = range:le_int()
   local display = display.leg_security_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.leg_security_id, range, value, display)
 
-  return offset + length
+  return offset + size_of.leg_security_id
 end
 
 -- Display: Legs Group
@@ -5266,6 +5461,9 @@ dissect.legs_groups = function(buffer, offset, packet, parent)
   return dissect.legs_groups_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Price Ratio
+size_of.price_ratio = 8
+
 -- Display: Price Ratio
 display.price_ratio = function(value)
   local factor = 10000000
@@ -5274,15 +5472,17 @@ end
 
 -- Dissect: Price Ratio
 dissect.price_ratio = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.price_ratio)
   local value = range:le_int64()
   local display = display.price_ratio(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.price_ratio, range, value, display)
 
-  return offset + length
+  return offset + size_of.price_ratio
 end
+
+-- Size: Security Sub Type
+size_of.security_sub_type = 5
 
 -- Display: Security Sub Type
 display.security_sub_type = function(value)
@@ -5291,14 +5491,13 @@ end
 
 -- Dissect: Security Sub Type
 dissect.security_sub_type = function(buffer, offset, packet, parent)
-  local length = 5
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.security_sub_type)
   local value = range:string()
   local display = display.security_sub_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.security_sub_type, range, value, display)
 
-  return offset + length
+  return offset + size_of.security_sub_type
 end
 
 -- Calculate runtime size: MD Instrument Definition Spread
@@ -5474,6 +5673,9 @@ dissect.md_instrument_definition_spread = function(buffer, offset, packet, paren
   return dissect.md_instrument_definition_spread_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Flow Schedule Type
+size_of.flow_schedule_type = 1
+
 -- Display: Flow Schedule Type
 display.flow_schedule_type = function(value)
   return "Flow Schedule Type: "..value
@@ -5481,15 +5683,17 @@ end
 
 -- Dissect: Flow Schedule Type
 dissect.flow_schedule_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.flow_schedule_type)
   local value = range:le_int()
   local display = display.flow_schedule_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.flow_schedule_type, range, value, display)
 
-  return offset + length
+  return offset + size_of.flow_schedule_type
 end
+
+-- Size: Contract Multiplier Unit
+size_of.contract_multiplier_unit = 1
 
 -- Display: Contract Multiplier Unit
 display.contract_multiplier_unit = function(value)
@@ -5498,15 +5702,17 @@ end
 
 -- Dissect: Contract Multiplier Unit
 dissect.contract_multiplier_unit = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.contract_multiplier_unit)
   local value = range:le_int()
   local display = display.contract_multiplier_unit(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.contract_multiplier_unit, range, value, display)
 
-  return offset + length
+  return offset + size_of.contract_multiplier_unit
 end
+
+-- Size: Contract Multiplier
+size_of.contract_multiplier = 4
 
 -- Display: Contract Multiplier
 display.contract_multiplier = function(value)
@@ -5515,15 +5721,17 @@ end
 
 -- Dissect: Contract Multiplier
 dissect.contract_multiplier = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.contract_multiplier)
   local value = range:le_int()
   local display = display.contract_multiplier(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.contract_multiplier, range, value, display)
 
-  return offset + length
+  return offset + size_of.contract_multiplier
 end
+
+-- Size: Original Contract Size
+size_of.original_contract_size = 4
 
 -- Display: Original Contract Size
 display.original_contract_size = function(value)
@@ -5532,15 +5740,17 @@ end
 
 -- Dissect: Original Contract Size
 dissect.original_contract_size = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.original_contract_size)
   local value = range:le_int()
   local display = display.original_contract_size(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.original_contract_size, range, value, display)
 
-  return offset + length
+  return offset + size_of.original_contract_size
 end
+
+-- Size: Decay Start Date
+size_of.decay_start_date = 2
 
 -- Display: Decay Start Date
 display.decay_start_date = function(value)
@@ -5549,15 +5759,17 @@ end
 
 -- Dissect: Decay Start Date
 dissect.decay_start_date = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.decay_start_date)
   local value = range:le_uint()
   local display = display.decay_start_date(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.decay_start_date, range, value, display)
 
-  return offset + length
+  return offset + size_of.decay_start_date
 end
+
+-- Size: Decay Quantity
+size_of.decay_quantity = 4
 
 -- Display: Decay Quantity
 display.decay_quantity = function(value)
@@ -5566,14 +5778,13 @@ end
 
 -- Dissect: Decay Quantity
 dissect.decay_quantity = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.decay_quantity)
   local value = range:le_int()
   local display = display.decay_quantity(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.decay_quantity, range, value, display)
 
-  return offset + length
+  return offset + size_of.decay_quantity
 end
 
 -- Calculate runtime size: MD Instrument Definition Future
@@ -5762,6 +5973,9 @@ dissect.md_instrument_definition_future = function(buffer, offset, packet, paren
   return dissect.md_instrument_definition_future_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Text
+size_of.text = 180
+
 -- Display: Text
 display.text = function(value)
   return "Text: "..value
@@ -5769,14 +5983,13 @@ end
 
 -- Dissect: Text
 dissect.text = function(buffer, offset, packet, parent)
-  local length = 180
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.text)
   local value = range:string()
   local display = display.text(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.text, range, value, display)
 
-  return offset + length
+  return offset + size_of.text
 end
 
 -- Display: Admin Logout
@@ -5806,6 +6019,9 @@ dissect.admin_logout = function(buffer, offset, packet, parent)
   return dissect.admin_logout_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Heart Bt Int
+size_of.heart_bt_int = 1
+
 -- Display: Heart Bt Int
 display.heart_bt_int = function(value)
   return "Heart Bt Int: "..value
@@ -5813,14 +6029,13 @@ end
 
 -- Dissect: Heart Bt Int
 dissect.heart_bt_int = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.heart_bt_int)
   local value = range:le_int()
   local display = display.heart_bt_int(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.heart_bt_int, range, value, display)
 
-  return offset + length
+  return offset + size_of.heart_bt_int
 end
 
 -- Display: Admin Login
@@ -6161,6 +6376,9 @@ dissect.payload = function(buffer, offset, packet, parent)
   return dissect.payload_branches(code, buffer, offset, packet, element)
 end
 
+-- Size: Version
+size_of.version = 2
+
 -- Display: Version
 display.version = function(value)
   return "Version: "..value
@@ -6168,15 +6386,17 @@ end
 
 -- Dissect: Version
 dissect.version = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.version)
   local value = range:le_uint()
   local display = display.version(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.version, range, value, display)
 
-  return offset + length
+  return offset + size_of.version
 end
+
+-- Size: Schema Id
+size_of.schema_id = 2
 
 -- Display: Schema Id
 display.schema_id = function(value)
@@ -6185,15 +6405,17 @@ end
 
 -- Dissect: Schema Id
 dissect.schema_id = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.schema_id)
   local value = range:le_uint()
   local display = display.schema_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.schema_id, range, value, display)
 
-  return offset + length
+  return offset + size_of.schema_id
 end
+
+-- Size: Template Id
+size_of.template_id = 2
 
 -- Display: Template Id
 display.template_id = function(value)
@@ -6270,6 +6492,9 @@ dissect.template_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Block Length
+size_of.block_length = 2
+
 -- Display: Block Length
 display.block_length = function(value)
   return "Block Length: "..value
@@ -6277,15 +6502,17 @@ end
 
 -- Dissect: Block Length
 dissect.block_length = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.block_length)
   local value = range:le_uint()
   local display = display.block_length(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.block_length, range, value, display)
 
-  return offset + length
+  return offset + size_of.block_length
 end
+
+-- Size: Message Size
+size_of.message_size = 2
 
 -- Display: Message Size
 display.message_size = function(value)
@@ -6294,14 +6521,13 @@ end
 
 -- Dissect: Message Size
 dissect.message_size = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_size)
   local value = range:le_uint()
   local display = display.message_size(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.message_size, range, value, display)
 
-  return offset + length
+  return offset + size_of.message_size
 end
 
 -- Display: Message Header
@@ -6388,6 +6614,9 @@ dissect.message = function(buffer, offset, packet, parent)
   return dissect.message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Sending Time
+size_of.sending_time = 8
+
 -- Display: Sending Time
 display.sending_time = function(value)
   return "Sending Time: "..value
@@ -6395,15 +6624,17 @@ end
 
 -- Dissect: Sending Time
 dissect.sending_time = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.sending_time)
   local value = range:le_uint64()
   local display = display.sending_time(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.sending_time, range, value, display)
 
-  return offset + length
+  return offset + size_of.sending_time
 end
+
+-- Size: Message Sequence Number
+size_of.message_sequence_number = 4
 
 -- Display: Message Sequence Number
 display.message_sequence_number = function(value)
@@ -6412,14 +6643,13 @@ end
 
 -- Dissect: Message Sequence Number
 dissect.message_sequence_number = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_sequence_number)
   local value = range:le_uint()
   local display = display.message_sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(cme_sbe_mdp3_8_1.fields.message_sequence_number, range, value, display)
 
-  return offset + length
+  return offset + size_of.message_sequence_number
 end
 
 -- Display: Packet Header
@@ -6534,10 +6764,11 @@ cme_sbe_mdp3_8_1:register_heuristic("udp", cme_sbe_mdp3_8_1_heuristic)
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
--- Specification:
--- Protocol Version: 8.1
--- Date:
--- Source Version: 1.1.0.0
+-- Protocol:
+-- Version: 8.1
+-- Date: Friday, July 1, 2016
+-- Script:
+-- Source Version: 1.2.0.0
 -- Compiler Version: 1.0
 -- License: Public/GPLv3
 -- Authors: Omi Developers

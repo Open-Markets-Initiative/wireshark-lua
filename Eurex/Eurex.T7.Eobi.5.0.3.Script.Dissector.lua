@@ -199,6 +199,9 @@ eurex_t7_eobi_5_0_3.fields.trd_reg_ts_time_priority = ProtoField.new("Trd Reg TS
 -- Dissect Eurex T7 Eobi 5.0.3
 -----------------------------------------------------------------------
 
+-- Size: Pad3
+size_of.pad3 = 3
+
 -- Display: Pad3
 display.pad3 = function(value)
   return "Pad3: "..value
@@ -206,15 +209,17 @@ end
 
 -- Dissect: Pad3
 dissect.pad3 = function(buffer, offset, packet, parent)
-  local length = 3
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.pad3)
   local value = range:bytes():tohex(false, " ")
   local display = display.pad3(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.pad3, range, value, display)
 
-  return offset + length
+  return offset + size_of.pad3
 end
+
+-- Size: MD Entry Type
+size_of.md_entry_type = 1
 
 -- Display: MD Entry Type
 display.md_entry_type = function(value)
@@ -260,15 +265,17 @@ end
 
 -- Dissect: MD Entry Type
 dissect.md_entry_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.md_entry_type)
   local value = range:le_uint()
   local display = display.md_entry_type(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.md_entry_type, range, value, display)
 
-  return offset + length
+  return offset + size_of.md_entry_type
 end
+
+-- Size: MD Entry Size
+size_of.md_entry_size = 4
 
 -- Display: MD Entry Size
 display.md_entry_size = function(value)
@@ -277,15 +284,17 @@ end
 
 -- Dissect: MD Entry Size
 dissect.md_entry_size = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.md_entry_size)
   local value = range:le_int()
   local display = display.md_entry_size(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.md_entry_size, range, value, display)
 
-  return offset + length
+  return offset + size_of.md_entry_size
 end
+
+-- Size: MD Entry Px
+size_of.md_entry_px = 8
 
 -- Display: MD Entry Px
 display.md_entry_px = function(value)
@@ -295,14 +304,13 @@ end
 
 -- Dissect: MD Entry Px
 dissect.md_entry_px = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.md_entry_px)
   local value = range:le_uint64()
   local display = display.md_entry_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.md_entry_px, range, value, display)
 
-  return offset + length
+  return offset + size_of.md_entry_px
 end
 
 -- Display: MD Trade Entry Grp
@@ -341,6 +349,9 @@ dissect.md_trade_entry_grp = function(buffer, offset, packet, parent)
   return dissect.md_trade_entry_grp_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Pad7
+size_of.pad7 = 7
+
 -- Display: Pad7
 display.pad7 = function(value)
   return "Pad7: "..value
@@ -348,15 +359,17 @@ end
 
 -- Dissect: Pad7
 dissect.pad7 = function(buffer, offset, packet, parent)
-  local length = 7
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.pad7)
   local value = range:bytes():tohex(false, " ")
   local display = display.pad7(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.pad7, range, value, display)
 
-  return offset + length
+  return offset + size_of.pad7
 end
+
+-- Size: No MD Entries
+size_of.no_md_entries = 1
 
 -- Display: No MD Entries
 display.no_md_entries = function(value)
@@ -375,6 +388,9 @@ dissect.no_md_entries = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Trd Reg TS Execution Time
+size_of.trd_reg_ts_execution_time = 8
+
 -- Display: Trd Reg TS Execution Time
 display.trd_reg_ts_execution_time = function(value)
   return "Trd Reg TS Execution Time: "..value
@@ -382,15 +398,17 @@ end
 
 -- Dissect: Trd Reg TS Execution Time
 dissect.trd_reg_ts_execution_time = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.trd_reg_ts_execution_time)
   local value = range:le_uint64()
   local display = display.trd_reg_ts_execution_time(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.trd_reg_ts_execution_time, range, value, display)
 
-  return offset + length
+  return offset + size_of.trd_reg_ts_execution_time
 end
+
+-- Size: Last Px
+size_of.last_px = 8
 
 -- Display: Last Px
 display.last_px = function(value)
@@ -400,15 +418,17 @@ end
 
 -- Dissect: Last Px
 dissect.last_px = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.last_px)
   local value = range:le_uint64()
   local display = display.last_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.last_px, range, value, display)
 
-  return offset + length
+  return offset + size_of.last_px
 end
+
+-- Size: Last Qty
+size_of.last_qty = 4
 
 -- Display: Last Qty
 display.last_qty = function(value)
@@ -417,15 +437,17 @@ end
 
 -- Dissect: Last Qty
 dissect.last_qty = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.last_qty)
   local value = range:le_int()
   local display = display.last_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.last_qty, range, value, display)
 
-  return offset + length
+  return offset + size_of.last_qty
 end
+
+-- Size: Trd Match ID
+size_of.trd_match_id = 4
 
 -- Display: Trd Match ID
 display.trd_match_id = function(value)
@@ -434,15 +456,17 @@ end
 
 -- Dissect: Trd Match ID
 dissect.trd_match_id = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.trd_match_id)
   local value = range:le_uint()
   local display = display.trd_match_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.trd_match_id, range, value, display)
 
-  return offset + length
+  return offset + size_of.trd_match_id
 end
+
+-- Size: Transact Time
+size_of.transact_time = 8
 
 -- Display: Transact Time
 display.transact_time = function(value)
@@ -451,15 +475,17 @@ end
 
 -- Dissect: Transact Time
 dissect.transact_time = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.transact_time)
   local value = range:le_uint64()
   local display = display.transact_time(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.transact_time, range, value, display)
 
-  return offset + length
+  return offset + size_of.transact_time
 end
+
+-- Size: Security ID
+size_of.security_id = 8
 
 -- Display: Security ID
 display.security_id = function(value)
@@ -468,14 +494,13 @@ end
 
 -- Dissect: Security ID
 dissect.security_id = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.security_id)
   local value = range:le_int64()
   local display = display.security_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.security_id, range, value, display)
 
-  return offset + length
+  return offset + size_of.security_id
 end
 
 -- Calculate runtime size: Trade Reversal
@@ -547,6 +572,9 @@ dissect.trade_reversal = function(buffer, offset, packet, parent)
   return dissect.trade_reversal_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Pad6
+size_of.pad6 = 6
+
 -- Display: Pad6
 display.pad6 = function(value)
   return "Pad6: "..value
@@ -554,15 +582,17 @@ end
 
 -- Dissect: Pad6
 dissect.pad6 = function(buffer, offset, packet, parent)
-  local length = 6
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.pad6)
   local value = range:bytes():tohex(false, " ")
   local display = display.pad6(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.pad6, range, value, display)
 
-  return offset + length
+  return offset + size_of.pad6
 end
+
+-- Size: Match Sub Type
+size_of.match_sub_type = 1
 
 -- Display: Match Sub Type
 display.match_sub_type = function(value)
@@ -587,15 +617,17 @@ end
 
 -- Dissect: Match Sub Type
 dissect.match_sub_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.match_sub_type)
   local value = range:le_uint()
   local display = display.match_sub_type(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.match_sub_type, range, value, display)
 
-  return offset + length
+  return offset + size_of.match_sub_type
 end
+
+-- Size: Match Type
+size_of.match_type = 1
 
 -- Display: Match Type
 display.match_type = function(value)
@@ -614,14 +646,13 @@ end
 
 -- Dissect: Match Type
 dissect.match_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.match_type)
   local value = range:le_uint()
   local display = display.match_type(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.match_type, range, value, display)
 
-  return offset + length
+  return offset + size_of.match_type
 end
 
 -- Display: Trade Report
@@ -672,6 +703,9 @@ dissect.trade_report = function(buffer, offset, packet, parent)
   return dissect.trade_report_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Offer Px
+size_of.offer_px = 8
+
 -- Display: Offer Px
 display.offer_px = function(value)
   local factor = 100000000
@@ -680,15 +714,17 @@ end
 
 -- Dissect: Offer Px
 dissect.offer_px = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.offer_px)
   local value = range:le_uint64()
   local display = display.offer_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.offer_px, range, value, display)
 
-  return offset + length
+  return offset + size_of.offer_px
 end
+
+-- Size: Bid Px
+size_of.bid_px = 8
 
 -- Display: Bid Px
 display.bid_px = function(value)
@@ -698,14 +734,13 @@ end
 
 -- Dissect: Bid Px
 dissect.bid_px = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.bid_px)
   local value = range:le_uint64()
   local display = display.bid_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.bid_px, range, value, display)
 
-  return offset + length
+  return offset + size_of.bid_px
 end
 
 -- Display: Top Of Book
@@ -744,6 +779,9 @@ dissect.top_of_book = function(buffer, offset, packet, parent)
   return dissect.top_of_book_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Price
+size_of.price = 8
+
 -- Display: Price
 display.price = function(value)
   local factor = 100000000
@@ -752,15 +790,17 @@ end
 
 -- Dissect: Price
 dissect.price = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.price)
   local value = range:le_uint64()
   local display = display.price(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.price, range, value, display)
 
-  return offset + length
+  return offset + size_of.price
 end
+
+-- Size: Pad2
+size_of.pad2 = 2
 
 -- Display: Pad2
 display.pad2 = function(value)
@@ -769,15 +809,17 @@ end
 
 -- Dissect: Pad2
 dissect.pad2 = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.pad2)
   local value = range:bytes():tohex(false, " ")
   local display = display.pad2(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.pad2, range, value, display)
 
-  return offset + length
+  return offset + size_of.pad2
 end
+
+-- Size: Ord Type
+size_of.ord_type = 1
 
 -- Display: Ord Type
 display.ord_type = function(value)
@@ -790,15 +832,17 @@ end
 
 -- Dissect: Ord Type
 dissect.ord_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.ord_type)
   local value = range:le_uint()
   local display = display.ord_type(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.ord_type, range, value, display)
 
-  return offset + length
+  return offset + size_of.ord_type
 end
+
+-- Size: Side
+size_of.side = 1
 
 -- Display: Side
 display.side = function(value)
@@ -814,15 +858,17 @@ end
 
 -- Dissect: Side
 dissect.side = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.side)
   local value = range:le_uint()
   local display = display.side(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.side, range, value, display)
 
-  return offset + length
+  return offset + size_of.side
 end
+
+-- Size: Display Qty
+size_of.display_qty = 4
 
 -- Display: Display Qty
 display.display_qty = function(value)
@@ -831,15 +877,17 @@ end
 
 -- Dissect: Display Qty
 dissect.display_qty = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.display_qty)
   local value = range:le_int()
   local display = display.display_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.display_qty, range, value, display)
 
-  return offset + length
+  return offset + size_of.display_qty
 end
+
+-- Size: Trd Reg TS Time Priority
+size_of.trd_reg_ts_time_priority = 8
 
 -- Display: Trd Reg TS Time Priority
 display.trd_reg_ts_time_priority = function(value)
@@ -848,14 +896,13 @@ end
 
 -- Dissect: Trd Reg TS Time Priority
 dissect.trd_reg_ts_time_priority = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.trd_reg_ts_time_priority)
   local value = range:le_uint64()
   local display = display.trd_reg_ts_time_priority(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.trd_reg_ts_time_priority, range, value, display)
 
-  return offset + length
+  return offset + size_of.trd_reg_ts_time_priority
 end
 
 -- Display: Order Details
@@ -966,6 +1013,9 @@ dissect.quote_request = function(buffer, offset, packet, parent)
   return dissect.quote_request_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Fast Market Indicator
+size_of.fast_market_indicator = 1
+
 -- Display: Fast Market Indicator
 display.fast_market_indicator = function(value)
   if value == 0 then
@@ -980,15 +1030,17 @@ end
 
 -- Dissect: Fast Market Indicator
 dissect.fast_market_indicator = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.fast_market_indicator)
   local value = range:le_uint()
   local display = display.fast_market_indicator(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.fast_market_indicator, range, value, display)
 
-  return offset + length
+  return offset + size_of.fast_market_indicator
 end
+
+-- Size: Trad Ses Status
+size_of.trad_ses_status = 1
 
 -- Display: Trad Ses Status
 display.trad_ses_status = function(value)
@@ -1007,15 +1059,17 @@ end
 
 -- Dissect: Trad Ses Status
 dissect.trad_ses_status = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.trad_ses_status)
   local value = range:le_uint()
   local display = display.trad_ses_status(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.trad_ses_status, range, value, display)
 
-  return offset + length
+  return offset + size_of.trad_ses_status
 end
+
+-- Size: Trading Session Sub ID
+size_of.trading_session_sub_id = 1
 
 -- Display: Trading Session Sub ID
 display.trading_session_sub_id = function(value)
@@ -1040,15 +1094,17 @@ end
 
 -- Dissect: Trading Session Sub ID
 dissect.trading_session_sub_id = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.trading_session_sub_id)
   local value = range:le_uint()
   local display = display.trading_session_sub_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.trading_session_sub_id, range, value, display)
 
-  return offset + length
+  return offset + size_of.trading_session_sub_id
 end
+
+-- Size: Trading Session ID
+size_of.trading_session_id = 1
 
 -- Display: Trading Session ID
 display.trading_session_id = function(value)
@@ -1073,15 +1129,17 @@ end
 
 -- Dissect: Trading Session ID
 dissect.trading_session_id = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.trading_session_id)
   local value = range:le_uint()
   local display = display.trading_session_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.trading_session_id, range, value, display)
 
-  return offset + length
+  return offset + size_of.trading_session_id
 end
+
+-- Size: Last Msg Seq Num Processed
+size_of.last_msg_seq_num_processed = 4
 
 -- Display: Last Msg Seq Num Processed
 display.last_msg_seq_num_processed = function(value)
@@ -1090,14 +1148,13 @@ end
 
 -- Dissect: Last Msg Seq Num Processed
 dissect.last_msg_seq_num_processed = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.last_msg_seq_num_processed)
   local value = range:le_uint()
   local display = display.last_msg_seq_num_processed(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.last_msg_seq_num_processed, range, value, display)
 
-  return offset + length
+  return offset + size_of.last_msg_seq_num_processed
 end
 
 -- Display: Product Summary
@@ -1139,6 +1196,9 @@ dissect.product_summary = function(buffer, offset, packet, parent)
   return dissect.product_summary_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Pad4
+size_of.pad4 = 4
+
 -- Display: Pad4
 display.pad4 = function(value)
   return "Pad4: "..value
@@ -1146,14 +1206,13 @@ end
 
 -- Dissect: Pad4
 dissect.pad4 = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.pad4)
   local value = range:bytes():tohex(false, " ")
   local display = display.pad4(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.pad4, range, value, display)
 
-  return offset + length
+  return offset + size_of.pad4
 end
 
 -- Display: Product State Change
@@ -1249,6 +1308,9 @@ dissect.partial_order_execution = function(buffer, offset, packet, parent)
   return dissect.partial_order_execution_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Pad5
+size_of.pad5 = 5
+
 -- Display: Pad5
 display.pad5 = function(value)
   return "Pad5: "..value
@@ -1256,15 +1318,17 @@ end
 
 -- Dissect: Pad5
 dissect.pad5 = function(buffer, offset, packet, parent)
-  local length = 5
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.pad5)
   local value = range:bytes():tohex(false, " ")
   local display = display.pad5(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.pad5, range, value, display)
 
-  return offset + length
+  return offset + size_of.pad5
 end
+
+-- Size: Application Sequence Reset Indicator
+size_of.application_sequence_reset_indicator = 1
 
 -- Display: Application Sequence Reset Indicator
 display.application_sequence_reset_indicator = function(value)
@@ -1280,15 +1344,17 @@ end
 
 -- Dissect: Application Sequence Reset Indicator
 dissect.application_sequence_reset_indicator = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.application_sequence_reset_indicator)
   local value = range:le_uint()
   local display = display.application_sequence_reset_indicator(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.application_sequence_reset_indicator, range, value, display)
 
-  return offset + length
+  return offset + size_of.application_sequence_reset_indicator
 end
+
+-- Size: Completion Indicator
+size_of.completion_indicator = 1
 
 -- Display: Completion Indicator
 display.completion_indicator = function(value)
@@ -1304,15 +1370,17 @@ end
 
 -- Dissect: Completion Indicator
 dissect.completion_indicator = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.completion_indicator)
   local value = range:le_uint()
   local display = display.completion_indicator(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.completion_indicator, range, value, display)
 
-  return offset + length
+  return offset + size_of.completion_indicator
 end
+
+-- Size: Partition ID
+size_of.partition_id = 1
 
 -- Display: Partition ID
 display.partition_id = function(value)
@@ -1321,15 +1389,17 @@ end
 
 -- Dissect: Partition ID
 dissect.partition_id = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.partition_id)
   local value = range:le_uint()
   local display = display.partition_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.partition_id, range, value, display)
 
-  return offset + length
+  return offset + size_of.partition_id
 end
+
+-- Size: Market Segment ID
+size_of.market_segment_id = 4
 
 -- Display: Market Segment ID
 display.market_segment_id = function(value)
@@ -1338,15 +1408,17 @@ end
 
 -- Dissect: Market Segment ID
 dissect.market_segment_id = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.market_segment_id)
   local value = range:le_int()
   local display = display.market_segment_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.market_segment_id, range, value, display)
 
-  return offset + length
+  return offset + size_of.market_segment_id
 end
+
+-- Size: Application Sequence Number
+size_of.application_sequence_number = 4
 
 -- Display: Application Sequence Number
 display.application_sequence_number = function(value)
@@ -1355,15 +1427,17 @@ end
 
 -- Dissect: Application Sequence Number
 dissect.application_sequence_number = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.application_sequence_number)
   local value = range:le_uint()
   local display = display.application_sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.application_sequence_number, range, value, display)
 
-  return offset + length
+  return offset + size_of.application_sequence_number
 end
+
+-- Size: Packet Seq Num
+size_of.packet_seq_num = 4
 
 -- Display: Packet Seq Num
 display.packet_seq_num = function(value)
@@ -1372,15 +1446,17 @@ end
 
 -- Dissect: Packet Seq Num
 dissect.packet_seq_num = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.packet_seq_num)
   local value = range:le_uint()
   local display = display.packet_seq_num(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.packet_seq_num, range, value, display)
 
-  return offset + length
+  return offset + size_of.packet_seq_num
 end
+
+-- Size: Packet Id
+size_of.packet_id = 2
 
 -- Display: Packet Id
 display.packet_id = function(value)
@@ -1389,15 +1465,17 @@ end
 
 -- Dissect: Packet Id
 dissect.packet_id = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.packet_id)
   local value = range:le_uint()
   local display = display.packet_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.packet_id, range, value, display)
 
-  return offset + length
+  return offset + size_of.packet_id
 end
+
+-- Size: Header Length
+size_of.header_length = 2
 
 -- Display: Header Length
 display.header_length = function(value)
@@ -1406,14 +1484,13 @@ end
 
 -- Dissect: Header Length
 dissect.header_length = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.header_length)
   local value = range:le_uint()
   local display = display.header_length(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.header_length, range, value, display)
 
-  return offset + length
+  return offset + size_of.header_length
 end
 
 -- Display: Packet Info
@@ -1497,6 +1574,9 @@ dissect.packet_header = function(buffer, offset, packet, parent)
   return dissect.packet_header_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Prev Display Qty
+size_of.prev_display_qty = 4
+
 -- Display: Prev Display Qty
 display.prev_display_qty = function(value)
   return "Prev Display Qty: "..value
@@ -1504,15 +1584,17 @@ end
 
 -- Dissect: Prev Display Qty
 dissect.prev_display_qty = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.prev_display_qty)
   local value = range:le_int()
   local display = display.prev_display_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.prev_display_qty, range, value, display)
 
-  return offset + length
+  return offset + size_of.prev_display_qty
 end
+
+-- Size: Trd Reg TS Time In
+size_of.trd_reg_ts_time_in = 8
 
 -- Display: Trd Reg TS Time In
 display.trd_reg_ts_time_in = function(value)
@@ -1521,14 +1603,13 @@ end
 
 -- Dissect: Trd Reg TS Time In
 dissect.trd_reg_ts_time_in = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.trd_reg_ts_time_in)
   local value = range:le_uint64()
   local display = display.trd_reg_ts_time_in(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.trd_reg_ts_time_in, range, value, display)
 
-  return offset + length
+  return offset + size_of.trd_reg_ts_time_in
 end
 
 -- Display: Order Modify Same Prio
@@ -1573,6 +1654,9 @@ dissect.order_modify_same_prio = function(buffer, offset, packet, parent)
   return dissect.order_modify_same_prio_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Prev Price
+size_of.prev_price = 8
+
 -- Display: Prev Price
 display.prev_price = function(value)
   local factor = 100000000
@@ -1581,15 +1665,17 @@ end
 
 -- Dissect: Prev Price
 dissect.prev_price = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.prev_price)
   local value = range:le_uint64()
   local display = display.prev_price(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.prev_price, range, value, display)
 
-  return offset + length
+  return offset + size_of.prev_price
 end
+
+-- Size: Trd Reg TS Prev Time Priority
+size_of.trd_reg_ts_prev_time_priority = 8
 
 -- Display: Trd Reg TS Prev Time Priority
 display.trd_reg_ts_prev_time_priority = function(value)
@@ -1598,14 +1684,13 @@ end
 
 -- Dissect: Trd Reg TS Prev Time Priority
 dissect.trd_reg_ts_prev_time_priority = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.trd_reg_ts_prev_time_priority)
   local value = range:le_uint64()
   local display = display.trd_reg_ts_prev_time_priority(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.trd_reg_ts_prev_time_priority, range, value, display)
 
-  return offset + length
+  return offset + size_of.trd_reg_ts_prev_time_priority
 end
 
 -- Display: Order Modify
@@ -1788,6 +1873,9 @@ dissect.md_instrument_entry_grp = function(buffer, offset, packet, parent)
   return dissect.md_instrument_entry_grp_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Pad1
+size_of.pad1 = 1
+
 -- Display: Pad1
 display.pad1 = function(value)
   return "Pad1: "..value
@@ -1795,15 +1883,17 @@ end
 
 -- Dissect: Pad1
 dissect.pad1 = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.pad1)
   local value = range:bytes():tohex(false, " ")
   local display = display.pad1(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.pad1, range, value, display)
 
-  return offset + length
+  return offset + size_of.pad1
 end
+
+-- Size: Security Trading Event
+size_of.security_trading_event = 1
 
 -- Display: Security Trading Event
 display.security_trading_event = function(value)
@@ -1819,15 +1909,17 @@ end
 
 -- Dissect: Security Trading Event
 dissect.security_trading_event = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.security_trading_event)
   local value = range:le_uint()
   local display = display.security_trading_event(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.security_trading_event, range, value, display)
 
-  return offset + length
+  return offset + size_of.security_trading_event
 end
+
+-- Size: Security Trading Status
+size_of.security_trading_status = 1
 
 -- Display: Security Trading Status
 display.security_trading_status = function(value)
@@ -1888,15 +1980,17 @@ end
 
 -- Dissect: Security Trading Status
 dissect.security_trading_status = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.security_trading_status)
   local value = range:le_uint()
   local display = display.security_trading_status(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.security_trading_status, range, value, display)
 
-  return offset + length
+  return offset + size_of.security_trading_status
 end
+
+-- Size: Security Status
+size_of.security_status = 1
 
 -- Display: Security Status
 display.security_status = function(value)
@@ -1918,15 +2012,17 @@ end
 
 -- Dissect: Security Status
 dissect.security_status = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.security_status)
   local value = range:le_uint()
   local display = display.security_status(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.security_status, range, value, display)
 
-  return offset + length
+  return offset + size_of.security_status
 end
+
+-- Size: Tot No Orders
+size_of.tot_no_orders = 2
 
 -- Display: Tot No Orders
 display.tot_no_orders = function(value)
@@ -1935,15 +2031,17 @@ end
 
 -- Dissect: Tot No Orders
 dissect.tot_no_orders = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.tot_no_orders)
   local value = range:le_uint()
   local display = display.tot_no_orders(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.tot_no_orders, range, value, display)
 
-  return offset + length
+  return offset + size_of.tot_no_orders
 end
+
+-- Size: Last Update Time
+size_of.last_update_time = 8
 
 -- Display: Last Update Time
 display.last_update_time = function(value)
@@ -1952,14 +2050,13 @@ end
 
 -- Dissect: Last Update Time
 dissect.last_update_time = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.last_update_time)
   local value = range:le_uint64()
   local display = display.last_update_time(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.last_update_time, range, value, display)
 
-  return offset + length
+  return offset + size_of.last_update_time
 end
 
 -- Calculate runtime size: Instrument Summary
@@ -2163,6 +2260,9 @@ dissect.full_order_execution = function(buffer, offset, packet, parent)
   return dissect.full_order_execution_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Resting Cxl Qty
+size_of.resting_cxl_qty = 4
+
 -- Display: Resting Cxl Qty
 display.resting_cxl_qty = function(value)
   return "Resting Cxl Qty: "..value
@@ -2170,15 +2270,17 @@ end
 
 -- Dissect: Resting Cxl Qty
 dissect.resting_cxl_qty = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.resting_cxl_qty)
   local value = range:le_int()
   local display = display.resting_cxl_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.resting_cxl_qty, range, value, display)
 
-  return offset + length
+  return offset + size_of.resting_cxl_qty
 end
+
+-- Size: Resting Hidden Qty
+size_of.resting_hidden_qty = 4
 
 -- Display: Resting Hidden Qty
 display.resting_hidden_qty = function(value)
@@ -2187,15 +2289,17 @@ end
 
 -- Dissect: Resting Hidden Qty
 dissect.resting_hidden_qty = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.resting_hidden_qty)
   local value = range:le_int()
   local display = display.resting_hidden_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.resting_hidden_qty, range, value, display)
 
-  return offset + length
+  return offset + size_of.resting_hidden_qty
 end
+
+-- Size: Trade Condition
+size_of.trade_condition = 1
 
 -- Display: Trade Condition
 display.trade_condition = function(value)
@@ -2208,15 +2312,17 @@ end
 
 -- Dissect: Trade Condition
 dissect.trade_condition = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.trade_condition)
   local value = range:le_uint()
   local display = display.trade_condition(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.trade_condition, range, value, display)
 
-  return offset + length
+  return offset + size_of.trade_condition
 end
+
+-- Size: Aggressor Side
+size_of.aggressor_side = 1
 
 -- Display: Aggressor Side
 display.aggressor_side = function(value)
@@ -2232,15 +2338,17 @@ end
 
 -- Dissect: Aggressor Side
 dissect.aggressor_side = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.aggressor_side)
   local value = range:le_uint()
   local display = display.aggressor_side(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.aggressor_side, range, value, display)
 
-  return offset + length
+  return offset + size_of.aggressor_side
 end
+
+-- Size: Exec ID
+size_of.exec_id = 8
 
 -- Display: Exec ID
 display.exec_id = function(value)
@@ -2249,15 +2357,17 @@ end
 
 -- Dissect: Exec ID
 dissect.exec_id = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.exec_id)
   local value = range:le_uint64()
   local display = display.exec_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.exec_id, range, value, display)
 
-  return offset + length
+  return offset + size_of.exec_id
 end
+
+-- Size: Request Time
+size_of.request_time = 8
 
 -- Display: Request Time
 display.request_time = function(value)
@@ -2266,15 +2376,17 @@ end
 
 -- Dissect: Request Time
 dissect.request_time = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.request_time)
   local value = range:le_uint64()
   local display = display.request_time(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.request_time, range, value, display)
 
-  return offset + length
+  return offset + size_of.request_time
 end
+
+-- Size: Aggressor Time
+size_of.aggressor_time = 8
 
 -- Display: Aggressor Time
 display.aggressor_time = function(value)
@@ -2283,14 +2395,13 @@ end
 
 -- Dissect: Aggressor Time
 dissect.aggressor_time = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.aggressor_time)
   local value = range:le_uint64()
   local display = display.aggressor_time(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.aggressor_time, range, value, display)
 
-  return offset + length
+  return offset + size_of.aggressor_time
 end
 
 -- Display: Execution Summary
@@ -2386,6 +2497,9 @@ dissect.cross_request = function(buffer, offset, packet, parent)
   return dissect.cross_request_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Potential Security Trading Event
+size_of.potential_security_trading_event = 1
+
 -- Display: Potential Security Trading Event
 display.potential_security_trading_event = function(value)
   if value == 0 then
@@ -2400,15 +2514,17 @@ end
 
 -- Dissect: Potential Security Trading Event
 dissect.potential_security_trading_event = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.potential_security_trading_event)
   local value = range:le_uint()
   local display = display.potential_security_trading_event(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.potential_security_trading_event, range, value, display)
 
-  return offset + length
+  return offset + size_of.potential_security_trading_event
 end
+
+-- Size: Imbalance Qty
+size_of.imbalance_qty = 4
 
 -- Display: Imbalance Qty
 display.imbalance_qty = function(value)
@@ -2417,14 +2533,13 @@ end
 
 -- Dissect: Imbalance Qty
 dissect.imbalance_qty = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.imbalance_qty)
   local value = range:le_int()
   local display = display.imbalance_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.imbalance_qty, range, value, display)
 
-  return offset + length
+  return offset + size_of.imbalance_qty
 end
 
 -- Display: Auction Clearing Price
@@ -2475,6 +2590,9 @@ dissect.auction_clearing_price = function(buffer, offset, packet, parent)
   return dissect.auction_clearing_price_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Offer Size
+size_of.offer_size = 4
+
 -- Display: Offer Size
 display.offer_size = function(value)
   return "Offer Size: "..value
@@ -2482,15 +2600,17 @@ end
 
 -- Dissect: Offer Size
 dissect.offer_size = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.offer_size)
   local value = range:le_int()
   local display = display.offer_size(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.offer_size, range, value, display)
 
-  return offset + length
+  return offset + size_of.offer_size
 end
+
+-- Size: Bid Size
+size_of.bid_size = 4
 
 -- Display: Bid Size
 display.bid_size = function(value)
@@ -2499,14 +2619,13 @@ end
 
 -- Dissect: Bid Size
 dissect.bid_size = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.bid_size)
   local value = range:le_int()
   local display = display.bid_size(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.bid_size, range, value, display)
 
-  return offset + length
+  return offset + size_of.bid_size
 end
 
 -- Display: Auction BBO
@@ -2557,6 +2676,9 @@ dissect.auction_bbo = function(buffer, offset, packet, parent)
   return dissect.auction_bbo_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Leg Side
+size_of.leg_side = 1
+
 -- Display: Leg Side
 display.leg_side = function(value)
   if value == 1 then
@@ -2571,15 +2693,17 @@ end
 
 -- Dissect: Leg Side
 dissect.leg_side = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.leg_side)
   local value = range:le_uint()
   local display = display.leg_side(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.leg_side, range, value, display)
 
-  return offset + length
+  return offset + size_of.leg_side
 end
+
+-- Size: Leg Ratio Qty
+size_of.leg_ratio_qty = 4
 
 -- Display: Leg Ratio Qty
 display.leg_ratio_qty = function(value)
@@ -2588,15 +2712,17 @@ end
 
 -- Dissect: Leg Ratio Qty
 dissect.leg_ratio_qty = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.leg_ratio_qty)
   local value = range:le_int()
   local display = display.leg_ratio_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.leg_ratio_qty, range, value, display)
 
-  return offset + length
+  return offset + size_of.leg_ratio_qty
 end
+
+-- Size: Leg Security ID
+size_of.leg_security_id = 8
 
 -- Display: Leg Security ID
 display.leg_security_id = function(value)
@@ -2605,15 +2731,17 @@ end
 
 -- Dissect: Leg Security ID
 dissect.leg_security_id = function(buffer, offset, packet, parent)
-  local length = 8
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.leg_security_id)
   local value = range:le_int64()
   local display = display.leg_security_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.leg_security_id, range, value, display)
 
-  return offset + length
+  return offset + size_of.leg_security_id
 end
+
+-- Size: Leg Symbol
+size_of.leg_symbol = 4
 
 -- Display: Leg Symbol
 display.leg_symbol = function(value)
@@ -2622,14 +2750,13 @@ end
 
 -- Dissect: Leg Symbol
 dissect.leg_symbol = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.leg_symbol)
   local value = range:le_int()
   local display = display.leg_symbol(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.leg_symbol, range, value, display)
 
-  return offset + length
+  return offset + size_of.leg_symbol
 end
 
 -- Display: Instrmt Leg Grp
@@ -2674,6 +2801,9 @@ dissect.instrmt_leg_grp = function(buffer, offset, packet, parent)
   return dissect.instrmt_leg_grp_fields(buffer, offset, packet, parent)
 end
 
+-- Size: No Legs
+size_of.no_legs = 1
+
 -- Display: No Legs
 display.no_legs = function(value)
   return "No Legs: "..value
@@ -2691,6 +2821,9 @@ dissect.no_legs = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Implied Market Indicator
+size_of.implied_market_indicator = 1
+
 -- Display: Implied Market Indicator
 display.implied_market_indicator = function(value)
   if value == 0 then
@@ -2705,15 +2838,17 @@ end
 
 -- Dissect: Implied Market Indicator
 dissect.implied_market_indicator = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.implied_market_indicator)
   local value = range:le_uint()
   local display = display.implied_market_indicator(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.implied_market_indicator, range, value, display)
 
-  return offset + length
+  return offset + size_of.implied_market_indicator
 end
+
+-- Size: Product Complex
+size_of.product_complex = 1
 
 -- Display: Product Complex
 display.product_complex = function(value)
@@ -2747,15 +2882,17 @@ end
 
 -- Dissect: Product Complex
 dissect.product_complex = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.product_complex)
   local value = range:le_uint()
   local display = display.product_complex(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.product_complex, range, value, display)
 
-  return offset + length
+  return offset + size_of.product_complex
 end
+
+-- Size: Security Sub Type
+size_of.security_sub_type = 4
 
 -- Display: Security Sub Type
 display.security_sub_type = function(value)
@@ -2764,14 +2901,13 @@ end
 
 -- Dissect: Security Sub Type
 dissect.security_sub_type = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.security_sub_type)
   local value = range:le_int()
   local display = display.security_sub_type(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.security_sub_type, range, value, display)
 
-  return offset + length
+  return offset + size_of.security_sub_type
 end
 
 -- Calculate runtime size: Add Complex Instrument
@@ -3064,6 +3200,9 @@ dissect.payload = function(buffer, offset, packet, parent)
   return dissect.payload_branches(code, buffer, offset, packet, element)
 end
 
+-- Size: Msg Seq Num
+size_of.msg_seq_num = 4
+
 -- Display: Msg Seq Num
 display.msg_seq_num = function(value)
   return "Msg Seq Num: "..value
@@ -3071,15 +3210,17 @@ end
 
 -- Dissect: Msg Seq Num
 dissect.msg_seq_num = function(buffer, offset, packet, parent)
-  local length = 4
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.msg_seq_num)
   local value = range:le_uint()
   local display = display.msg_seq_num(value, buffer, offset, packet, parent)
 
   parent:add(eurex_t7_eobi_5_0_3.fields.msg_seq_num, range, value, display)
 
-  return offset + length
+  return offset + size_of.msg_seq_num
 end
+
+-- Size: Template ID
+size_of.template_id = 2
 
 -- Display: Template ID
 display.template_id = function(value)
@@ -3097,6 +3238,9 @@ dissect.template_id = function(buffer, offset, packet, parent)
 
   return offset + length, value
 end
+
+-- Size: Body Len
+size_of.body_len = 2
 
 -- Display: Body Len
 display.body_len = function(value)
@@ -3269,10 +3413,11 @@ eurex_t7_eobi_5_0_3:register_heuristic("udp", eurex_t7_eobi_5_0_3_heuristic)
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
--- Specification:
--- Protocol Version: 5.0.3
--- Date:
--- Source Version: 1.1.0.0
+-- Protocol:
+-- Version: 5.0.3
+-- Date: Friday, June 9, 2017
+-- Script:
+-- Source Version: 1.2.0.0
 -- Compiler Version: 1.0
 -- License: Public/GPLv3
 -- Authors: Omi Developers
