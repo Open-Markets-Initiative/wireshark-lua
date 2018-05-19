@@ -725,7 +725,7 @@ size_of.trade_condition_4 = 1
 -- Display: Trade Condition 4
 display.trade_condition_4 = function(value)
   if value == " " then
-    return "Trade Condition 4: NA ( )"
+    return "Trade Condition 4: NA (<whitespace>)"
   end
   if value == "@" then
     return "Trade Condition 4: Regular Sale (@)"
@@ -781,7 +781,7 @@ size_of.trade_condition_3 = 1
 -- Display: Trade Condition 3
 display.trade_condition_3 = function(value)
   if value == " " then
-    return "Trade Condition 3: NA ( )"
+    return "Trade Condition 3: NA (<whitespace>)"
   end
   if value == "L" then
     return "Trade Condition 3: Sold Last (L)"
@@ -816,7 +816,7 @@ size_of.trade_condition_2 = 1
 -- Display: Trade Condition 2
 display.trade_condition_2 = function(value)
   if value == " " then
-    return "Trade Condition 2: NA ( )"
+    return "Trade Condition 2: NA (<whitespace>)"
   end
   if value == "F" then
     return "Trade Condition 2: Intermarket Sweep Order (F)"
@@ -1982,7 +1982,7 @@ display.halt_condition = function(value)
     return "Halt Condition: Security not delayedhalted (~)"
   end
   if value == " " then
-    return "Halt Condition: Not applicable ( )"
+    return "Halt Condition: Not applicable (<whitespace>)"
   end
   if value == "D" then
     return "Halt Condition: News dissemination (D)"
@@ -3769,7 +3769,7 @@ nyse_bqt_xdp_1_7_a:register_heuristic("udp", nyse_bqt_xdp_1_7_a_heuristic)
 -- Version: 1.7.a
 -- Date: Monday, July 24, 2017
 -- Script:
--- Source Version: 1.2.0.0
+-- Source Version: 1.3.0.0
 -- Compiler Version: 1.0
 -- License: Public/GPLv3
 -- Authors: Omi Developers

@@ -155,7 +155,7 @@ size_of.rpi_indicator = 1
 -- Display: RPI Indicator
 display.rpi_indicator = function(value)
   if value == " " then
-    return "RPI Indicator: No retail interest ( )"
+    return "RPI Indicator: No retail interest (<whitespace>)"
   end
   if value == "A" then
     return "RPI Indicator: Retail Interest on Bid side (A)"
@@ -744,7 +744,7 @@ display.halt_condition = function(value)
     return "Halt Condition: Security not delayedhalted (~)"
   end
   if value == " " then
-    return "Halt Condition: Not delayedhalted NYSE Tape A only ( )"
+    return "Halt Condition: Not delayedhalted NYSE Tape A only (<whitespace>)"
   end
   if value == "D" then
     return "Halt Condition: News dissemination (D)"
@@ -2562,7 +2562,7 @@ nyse_clientbbo_xdp_2_4_g:register_heuristic("udp", nyse_clientbbo_xdp_2_4_g_heur
 -- Version: 2.4.g
 -- Date: Monday, January 29, 2018
 -- Script:
--- Source Version: 1.2.0.0
+-- Source Version: 1.3.0.0
 -- Compiler Version: 1.0
 -- License: Public/GPLv3
 -- Authors: Omi Developers

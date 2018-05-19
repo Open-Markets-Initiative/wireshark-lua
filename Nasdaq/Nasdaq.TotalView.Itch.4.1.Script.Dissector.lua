@@ -286,7 +286,7 @@ display.price_variation_indicator = function(value)
     return "Price Variation Indicator: 30% or greater (C)"
   end
   if value == " " then
-    return "Price Variation Indicator: NoCalculation ( )"
+    return "Price Variation Indicator: NoCalculation (<whitespace>)"
   end
 
   return "Price Variation Indicator: Unknown("..value..")"
@@ -2147,7 +2147,7 @@ nasdaq_totalview_itch_4_1:register_heuristic("udp", nasdaq_totalview_itch_4_1_he
 -- Version: 4.1
 -- Date: Thursday, June 12, 2014
 -- Script:
--- Source Version: 1.2.0.0
+-- Source Version: 1.3.0.0
 -- Compiler Version: 1.0
 -- License: Public/GPLv3
 -- Authors: Omi Developers

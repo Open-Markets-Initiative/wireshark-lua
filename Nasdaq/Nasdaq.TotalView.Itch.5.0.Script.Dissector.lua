@@ -361,7 +361,7 @@ display.price_variation_indicator = function(value)
     return "Price Variation Indicator: 30% or greater (C)"
   end
   if value == " " then
-    return "Price Variation Indicator: NoCalculation ( )"
+    return "Price Variation Indicator: NoCalculation (<whitespace>)"
   end
 
   return "Price Variation Indicator: Unknown("..value..")"
@@ -1942,7 +1942,7 @@ display.inverse_indicator = function(value)
     return "Inverse Indicator: Not Inverse ETP (N)"
   end
   if value == " " then
-    return "Inverse Indicator: NA ( )"
+    return "Inverse Indicator: NA (<whitespace>)"
   end
 
   return "Inverse Indicator: Unknown("..value..")"
@@ -1990,7 +1990,7 @@ display.etp_flag = function(value)
     return "ETP Flag: Not ETP (N)"
   end
   if value == " " then
-    return "ETP Flag: NA ( )"
+    return "ETP Flag: NA (<whitespace>)"
   end
 
   return "ETP Flag: Unknown("..value..")"
@@ -2019,7 +2019,7 @@ display.luld_reference_price_tier = function(value)
     return "LULD Reference Price Tier: Tier 2 (2)"
   end
   if value == " " then
-    return "LULD Reference Price Tier: NA ( )"
+    return "LULD Reference Price Tier: NA (<whitespace>)"
   end
 
   return "LULD Reference Price Tier: Unknown("..value..")"
@@ -2048,7 +2048,7 @@ display.ipo_flag = function(value)
     return "IPO Flag: NASDAQ listed instrument (N)"
   end
   if value == " " then
-    return "IPO Flag: NA ( )"
+    return "IPO Flag: NA (<whitespace>)"
   end
 
   return "IPO Flag: Unknown("..value..")"
@@ -2077,7 +2077,7 @@ display.short_sale_threshold_indicator = function(value)
     return "Short Sale Threshold Indicator: not restricted (N)"
   end
   if value == " " then
-    return "Short Sale Threshold Indicator: NA ( )"
+    return "Short Sale Threshold Indicator: NA (<whitespace>)"
   end
 
   return "Short Sale Threshold Indicator: Unknown("..value..")"
@@ -2466,7 +2466,7 @@ display.financial_status_indicator = function(value)
     return "Financial Status Indicator: Normal (N)"
   end
   if value == " " then
-    return "Financial Status Indicator: NA ( )"
+    return "Financial Status Indicator: NA (<whitespace>)"
   end
 
   return "Financial Status Indicator: Unknown("..value..")"
@@ -2513,7 +2513,7 @@ display.market_category = function(value)
     return "Market Category: Investors Exchange (V)"
   end
   if value == " " then
-    return "Market Category: NA ( )"
+    return "Market Category: NA (<whitespace>)"
   end
 
   return "Market Category: Unknown("..value..")"
@@ -3219,7 +3219,7 @@ nasdaq_totalview_itch_5_0:register_heuristic("udp", nasdaq_totalview_itch_5_0_he
 -- Version: 5.0
 -- Date: Tuesday, September 12, 2017
 -- Script:
--- Source Version: 1.2.0.0
+-- Source Version: 1.3.0.0
 -- Compiler Version: 1.0
 -- License: Public/GPLv3
 -- Authors: Omi Developers

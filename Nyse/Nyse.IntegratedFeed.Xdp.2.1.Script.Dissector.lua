@@ -870,7 +870,7 @@ size_of.imbalanceside = 1
 -- Display: ImbalanceSide
 display.imbalanceside = function(value)
   if value == " " then
-    return "ImbalanceSide: No imbalance ( )"
+    return "ImbalanceSide: No imbalance (<whitespace>)"
   end
   if value == "B" then
     return "ImbalanceSide: Buy side (B)"
@@ -1212,7 +1212,7 @@ size_of.rpiindicator = 1
 -- Display: RPIIndicator
 display.rpiindicator = function(value)
   if value == " " then
-    return "RPIIndicator: No retail interest ( )"
+    return "RPIIndicator: No retail interest (<whitespace>)"
   end
   if value == "A" then
     return "RPIIndicator: Interest on bid (A)"
@@ -2090,7 +2090,7 @@ display.halt_condition = function(value)
     return "Halt Condition: Security not delayedhalted (~)"
   end
   if value == " " then
-    return "Halt Condition: Not delayedhalted NYSE Tape A only ( )"
+    return "Halt Condition: Not delayedhalted NYSE Tape A only (<whitespace>)"
   end
   if value == "D" then
     return "Halt Condition: News dissemination (D)"
@@ -4000,7 +4000,7 @@ nyse_integratedfeed_xdp_2_1:register_heuristic("udp", nyse_integratedfeed_xdp_2_
 -- Version: 2.1
 -- Date: Monday, January 29, 2018
 -- Script:
--- Source Version: 1.2.0.0
+-- Source Version: 1.3.0.0
 -- Compiler Version: 1.0
 -- License: Public/GPLv3
 -- Authors: Omi Developers
