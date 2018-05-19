@@ -2501,7 +2501,11 @@ size_of.retransmitmethod = 1
 
 -- Display: RetransmitMethod
 display.retransmitmethod = function(value)
-  return "RetransmitMethod: "..value
+  if value == 0 then
+    return "RetransmitMethod: UDP (0)"
+  end
+
+  return "RetransmitMethod: Unknown("..value..")"
 end
 
 -- Dissect: RetransmitMethod
@@ -2536,7 +2540,7 @@ dissect.symbol_index_mapping_request_message_fields = function(buffer, offset, p
   -- ChannelID: 1 Byte Unsigned Fixed Width Integer
   index = dissect.channelid(buffer, index, packet, parent)
 
-  -- RetransmitMethod: 1 Byte Unsigned Fixed Width Integer
+  -- RetransmitMethod: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
   index = dissect.retransmitmethod(buffer, index, packet, parent)
 
   return index
