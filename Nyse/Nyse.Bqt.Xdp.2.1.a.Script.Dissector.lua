@@ -368,7 +368,7 @@ end
 -- Dissect: Closing Price
 dissect.closing_price = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.closing_price)
-  local value = range:uint()
+  local value = range:le_uint()
   local display = display.closing_price(value, buffer, offset, packet, parent)
 
   parent:add(nyse_bqt_xdp_2_1_a.fields.closing_price, range, value, display)
@@ -400,7 +400,7 @@ end
 -- Dissect: Market ID of the Close
 dissect.market_id_of_the_close = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.market_id_of_the_close)
-  local value = range:uint()
+  local value = range:le_uint()
   local display = display.market_id_of_the_close(value, buffer, offset, packet, parent)
 
   parent:add(nyse_bqt_xdp_2_1_a.fields.market_id_of_the_close, range, value, display)
@@ -2262,7 +2262,7 @@ dissect.trade_session = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
   local display = display.trade_session(range, packet, parent)
-  local element = parent:add(nyse_bqt_xdp_2_1_a.fields.trade_session, range, display)
+  local element = parent:add_le(nyse_bqt_xdp_2_1_a.fields.trade_session, range, display)
 
   if show.trade_session then
     dissect.trade_session_bits(buffer, offset, packet, element)
