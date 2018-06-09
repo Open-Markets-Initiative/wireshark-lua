@@ -1,6 +1,6 @@
 ## Australian Securities Exchange
 
-![Asx Logo](https://github.com/Open-Markets-Initiative/contents/blob/master/logos/Asx.jpg = 100x20)
+![Asx Logo](https://github.com/Open-Markets-Initiative/contents/blob/master/logos/Asx.jpg =100x100)
 
 |Organization | Data | Protocol | Version | Date | Size | Testing|
 |--- | --- | --- | --- | --- | --- | ---|
