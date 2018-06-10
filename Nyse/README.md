@@ -1,4 +1,4 @@
-[Nyse](https://github.com/Open-Markets-Initiative/contents/blob/master/Logos/Nyse.png)
+![Nyse](https://github.com/Open-Markets-Initiative/contents/blob/master/Logos/Nyse.png)
 
 
 ## New York Stock Exchange

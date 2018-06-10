@@ -1,4 +1,4 @@
-[Cme](https://github.com/Open-Markets-Initiative/contents/blob/master/Logos/Cme.png)
+![Cme](https://github.com/Open-Markets-Initiative/contents/blob/master/Logos/Cme.png)
 
 
 ## Chicago Mercantile Exchange
