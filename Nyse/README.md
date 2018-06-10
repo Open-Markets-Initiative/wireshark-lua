@@ -1,5 +1,7 @@
-## New York Stock Exchange
+[Nyse](https://github.com/Open-Markets-Initiative/contents/blob/master/Logos/Nyse.png)
 
+
+## New York Stock Exchange
 
 |Organization | Data | Protocol | Version | Date | Size | Testing|
 |--- | --- | --- | --- | --- | --- | ---|

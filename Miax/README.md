@@ -1,5 +1,7 @@
-## Miami International Securities Exchange
+[Miax](https://github.com/Open-Markets-Initiative/contents/blob/master/Logos/Miax.png)
 
+
+## Miami International Securities Exchange
 
 |Organization | Data | Protocol | Version | Date | Size | Testing|
 |--- | --- | --- | --- | --- | --- | ---|

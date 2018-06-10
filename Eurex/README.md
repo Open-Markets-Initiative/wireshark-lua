@@ -1,5 +1,7 @@
-## Eurex Exchange
+[Eurex](https://github.com/Open-Markets-Initiative/contents/blob/master/Logos/Eurex.png)
 
+
+## Eurex Exchange
 
 |Organization | Data | Protocol | Version | Date | Size | Testing|
 |--- | --- | --- | --- | --- | --- | ---|

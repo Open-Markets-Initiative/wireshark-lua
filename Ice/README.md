@@ -1,5 +1,7 @@
-## Intercontinental Exchange
+[Ice](https://github.com/Open-Markets-Initiative/contents/blob/master/Logos/Ice.png)
 
+
+## Intercontinental Exchange
 
 |Organization | Data | Protocol | Version | Date | Size | Testing|
 |--- | --- | --- | --- | --- | --- | ---|

@@ -1,5 +1,7 @@
-## National Association of Securities Dealers Automated Quotations
+[Nasdaq](https://github.com/Open-Markets-Initiative/contents/blob/master/Logos/Nasdaq.png)
 
+
+## National Association of Securities Dealers Automated Quotations
 
 |Organization | Data | Protocol | Version | Date | Size | Testing|
 |--- | --- | --- | --- | --- | --- | ---|

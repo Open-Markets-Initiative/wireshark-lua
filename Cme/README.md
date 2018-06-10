@@ -1,5 +1,7 @@
-## Chicago Mercantile Exchange
+[Cme](https://github.com/Open-Markets-Initiative/contents/blob/master/Logos/Cme.png)
 
+
+## Chicago Mercantile Exchange
 
 |Organization | Data | Protocol | Version | Date | Size | Testing|
 |--- | --- | --- | --- | --- | --- | ---|
