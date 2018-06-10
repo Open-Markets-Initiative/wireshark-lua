@@ -1,4 +1,4 @@
-![Ice](https://github.com/Open-Markets-Initiative/contents/blob/master/Logos/Ice.png)
+![Ice](https://github.com/Open-Markets-Initiative/Directory/blob/master/Logos/Ice.png)
 
 
 ## Intercontinental Exchange
