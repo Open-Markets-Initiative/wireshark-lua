@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Nyse Bqt Xdp 1.7.a Protocol
-local nyse_bqt_xdp_1_7_a = Proto("Nyse.Bqt.Xdp.1.7.a.Lua", "Nyse Bqt Xdp 1.7.a")
+-- Nyse Bqt Xdp 2.1.a Protocol
+local nyse_bqt_xdp_v2_1_a = Proto("Nyse.Bqt.Xdp.v2.1.a.Lua", "Nyse Bqt Xdp 2.1.a")
 
 -- Component Tables
 local show = {}
@@ -19,8 +19,9 @@ local verify = {}
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Nyse Bqt Xdp 1.7.a Format Options
+-- Nyse Bqt Xdp 2.1.a Format Options
 format.bqt_message = true
+format.close_price = true
 format.consolidated_security_status_message = true
 format.consolidated_single_sided_quote_message = true
 format.consolidated_stock_summary_message = true
@@ -43,10 +44,12 @@ format.retransmission_request_message = true
 format.sequence_number_reset_message = true
 format.symbol_index_mapping_message = true
 format.symbol_index_mapping_request_message = true
+format.trade_session = true
 format.payload = true
 
--- Nyse Bqt Xdp 1.7.a Element Dissection Options
+-- Nyse Bqt Xdp 2.1.a Element Dissection Options
 show.bqt_message = true
+show.close_price = true
 show.consolidated_security_status_message = true
 show.consolidated_single_sided_quote_message = true
 show.consolidated_stock_summary_message = true
@@ -69,126 +72,132 @@ show.retransmission_request_message = true
 show.sequence_number_reset_message = true
 show.symbol_index_mapping_message = true
 show.symbol_index_mapping_request_message = true
+show.trade_session = true
 show.payload = false
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nyse Bqt Xdp 1.7.a Fields
-nyse_bqt_xdp_1_7_a.fields.ask_price = ProtoField.new("Ask Price", "nyse.bqt.xdp.1.7.a.askprice", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.ask_quote_condition = ProtoField.new("Ask Quote Condition", "nyse.bqt.xdp.1.7.a.askquotecondition", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.ask_volume = ProtoField.new("Ask Volume", "nyse.bqt.xdp.1.7.a.askvolume", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.beginseqnum = ProtoField.new("BeginSeqNum", "nyse.bqt.xdp.1.7.a.beginseqnum", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.bid_price = ProtoField.new("Bid Price", "nyse.bqt.xdp.1.7.a.bidprice", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.bid_quote_condition = ProtoField.new("Bid Quote Condition", "nyse.bqt.xdp.1.7.a.bidquotecondition", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.bid_volume = ProtoField.new("Bid Volume", "nyse.bqt.xdp.1.7.a.bidvolume", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.bqt_message = ProtoField.new("BQT Message", "nyse.bqt.xdp.1.7.a.bqtmessage", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.channelid = ProtoField.new("ChannelID", "nyse.bqt.xdp.1.7.a.channelid", ftypes.UINT8)
-nyse_bqt_xdp_1_7_a.fields.close = ProtoField.new("Close", "nyse.bqt.xdp.1.7.a.close", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.complete = ProtoField.new("Complete", "nyse.bqt.xdp.1.7.a.complete", ftypes.UINT8)
-nyse_bqt_xdp_1_7_a.fields.consolidated_security_status_message = ProtoField.new("Consolidated Security Status Message", "nyse.bqt.xdp.1.7.a.consolidatedsecuritystatusmessage", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.consolidated_single_sided_quote_message = ProtoField.new("Consolidated Single-Sided Quote Message", "nyse.bqt.xdp.1.7.a.consolidatedsinglesidedquotemessage", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.consolidated_stock_summary_message = ProtoField.new("Consolidated Stock Summary Message", "nyse.bqt.xdp.1.7.a.consolidatedstocksummarymessage", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.consolidated_symbol_clear_message = ProtoField.new("Consolidated Symbol Clear Message", "nyse.bqt.xdp.1.7.a.consolidatedsymbolclearmessage", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.consolidated_trade_cancel_message = ProtoField.new("Consolidated Trade Cancel Message", "nyse.bqt.xdp.1.7.a.consolidatedtradecancelmessage", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.consolidated_trade_correction_message = ProtoField.new("Consolidated Trade Correction Message", "nyse.bqt.xdp.1.7.a.consolidatedtradecorrectionmessage", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.consolidated_trade_message = ProtoField.new("Consolidated Trade Message", "nyse.bqt.xdp.1.7.a.consolidatedtrademessage", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.consolidated_trading_session_change_message = ProtoField.new("Consolidated Trading Session Change Message", "nyse.bqt.xdp.1.7.a.consolidatedtradingsessionchangemessage", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.consolidated_volume_message = ProtoField.new("Consolidated Volume Message", "nyse.bqt.xdp.1.7.a.consolidatedvolumemessage", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.currentrefreshpkt = ProtoField.new("CurrentRefreshPkt", "nyse.bqt.xdp.1.7.a.currentrefreshpkt", ftypes.UINT16)
-nyse_bqt_xdp_1_7_a.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.bqt.xdp.1.7.a.deliveryflag", ftypes.UINT8)
-nyse_bqt_xdp_1_7_a.fields.endseqnum = ProtoField.new("EndSeqNum", "nyse.bqt.xdp.1.7.a.endseqnum", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.bqt.xdp.1.7.a.exchangecode", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.bqt.xdp.1.7.a.haltcondition", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.bqt.xdp.1.7.a.heartbeatresponsemessage", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.high_price = ProtoField.new("High Price", "nyse.bqt.xdp.1.7.a.highprice", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.lastseqnum = ProtoField.new("LastSeqNum", "nyse.bqt.xdp.1.7.a.lastseqnum", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.lastsymbolseqnum = ProtoField.new("LastSymbolSeqNum", "nyse.bqt.xdp.1.7.a.lastsymbolseqnum", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.lot_size = ProtoField.new("Lot Size", "nyse.bqt.xdp.1.7.a.lotsize", ftypes.UINT16)
-nyse_bqt_xdp_1_7_a.fields.low_price = ProtoField.new("Low Price", "nyse.bqt.xdp.1.7.a.lowprice", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.market_id = ProtoField.new("Market ID", "nyse.bqt.xdp.1.7.a.marketid", ftypes.UINT16)
-nyse_bqt_xdp_1_7_a.fields.market_id_of_best_ask = ProtoField.new("Market ID of Best Ask", "nyse.bqt.xdp.1.7.a.marketidofbestask", ftypes.UINT16)
-nyse_bqt_xdp_1_7_a.fields.market_id_of_best_bid = ProtoField.new("Market ID of Best Bid", "nyse.bqt.xdp.1.7.a.marketidofbestbid", ftypes.UINT16)
-nyse_bqt_xdp_1_7_a.fields.market_id_of_high_price = ProtoField.new("Market ID of High Price", "nyse.bqt.xdp.1.7.a.marketidofhighprice", ftypes.UINT16)
-nyse_bqt_xdp_1_7_a.fields.market_id_of_low_price = ProtoField.new("Market ID of Low Price", "nyse.bqt.xdp.1.7.a.marketidoflowprice", ftypes.UINT16)
-nyse_bqt_xdp_1_7_a.fields.market_id_of_open_price = ProtoField.new("Market ID of Open Price", "nyse.bqt.xdp.1.7.a.marketidofopenprice", ftypes.UINT16)
-nyse_bqt_xdp_1_7_a.fields.market_id_of_the_close = ProtoField.new("Market ID of the Close", "nyse.bqt.xdp.1.7.a.marketidoftheclose", ftypes.UINT16)
-nyse_bqt_xdp_1_7_a.fields.marketstate = ProtoField.new("MarketState", "nyse.bqt.xdp.1.7.a.marketstate", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.message = ProtoField.new("Message", "nyse.bqt.xdp.1.7.a.message", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.message_count = ProtoField.new("Message Count", "nyse.bqt.xdp.1.7.a.messagecount", ftypes.UINT8)
-nyse_bqt_xdp_1_7_a.fields.message_header = ProtoField.new("Message Header", "nyse.bqt.xdp.1.7.a.messageheader", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.message_size = ProtoField.new("Message Size", "nyse.bqt.xdp.1.7.a.messagesize", ftypes.UINT16)
-nyse_bqt_xdp_1_7_a.fields.message_type = ProtoField.new("Message Type", "nyse.bqt.xdp.1.7.a.messagetype", ftypes.UINT16)
-nyse_bqt_xdp_1_7_a.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.bqt.xdp.1.7.a.messageunavailablemessage", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.mpv = ProtoField.new("MPV", "nyse.bqt.xdp.1.7.a.mpv", ftypes.UINT16)
-nyse_bqt_xdp_1_7_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.bqt.xdp.1.7.a.nanoseconds", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.nextsourceseqnum = ProtoField.new("NextSourceSeqNum", "nyse.bqt.xdp.1.7.a.nextsourceseqnum", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.num_close_prices = ProtoField.new("Num Close Prices", "nyse.bqt.xdp.1.7.a.numcloseprices", ftypes.UINT8)
-nyse_bqt_xdp_1_7_a.fields.open = ProtoField.new("Open", "nyse.bqt.xdp.1.7.a.open", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.original_trade_id = ProtoField.new("Original Trade ID", "nyse.bqt.xdp.1.7.a.originaltradeid", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.packet = ProtoField.new("Packet", "nyse.bqt.xdp.1.7.a.packet", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.bqt.xdp.1.7.a.packetheader", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.bqt.xdp.1.7.a.packetsize", ftypes.UINT16)
-nyse_bqt_xdp_1_7_a.fields.payload = ProtoField.new("Payload", "nyse.bqt.xdp.1.7.a.payload", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.prevcloseprice = ProtoField.new("PrevClosePrice", "nyse.bqt.xdp.1.7.a.prevcloseprice", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.prevclosevolume = ProtoField.new("PrevCloseVolume", "nyse.bqt.xdp.1.7.a.prevclosevolume", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.price = ProtoField.new("Price", "nyse.bqt.xdp.1.7.a.price", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.price_1 = ProtoField.new("Price 1", "nyse.bqt.xdp.1.7.a.price1", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.price_2 = ProtoField.new("Price 2", "nyse.bqt.xdp.1.7.a.price2", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.bqt.xdp.1.7.a.priceresolution", ftypes.UINT8)
-nyse_bqt_xdp_1_7_a.fields.pricescalecode = ProtoField.new("PriceScaleCode", "nyse.bqt.xdp.1.7.a.pricescalecode", ftypes.UINT8)
-nyse_bqt_xdp_1_7_a.fields.productid = ProtoField.new("ProductID", "nyse.bqt.xdp.1.7.a.productid", ftypes.UINT8)
-nyse_bqt_xdp_1_7_a.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.bqt.xdp.1.7.a.quotecondition", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.reason = ProtoField.new("Reason", "nyse.bqt.xdp.1.7.a.reason", ftypes.UINT8)
-nyse_bqt_xdp_1_7_a.fields.refresh_header_message = ProtoField.new("Refresh Header Message", "nyse.bqt.xdp.1.7.a.refreshheadermessage", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "nyse.bqt.xdp.1.7.a.refreshrequestmessage", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.bqt.xdp.1.7.a.requestresponsemessage", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.requestseqnum = ProtoField.new("RequestSeqNum", "nyse.bqt.xdp.1.7.a.requestseqnum", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.reserved1 = ProtoField.new("Reserved1", "nyse.bqt.xdp.1.7.a.reserved1", ftypes.BYTES)
-nyse_bqt_xdp_1_7_a.fields.reserved2 = ProtoField.new("Reserved2", "nyse.bqt.xdp.1.7.a.reserved2", ftypes.BYTES)
-nyse_bqt_xdp_1_7_a.fields.retail_pricing_indicator = ProtoField.new("Retail Pricing Indicator", "nyse.bqt.xdp.1.7.a.retailpricingindicator", ftypes.UINT8)
-nyse_bqt_xdp_1_7_a.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.bqt.xdp.1.7.a.retransmissionrequestmessage", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.retransmitmethod = ProtoField.new("RetransmitMethod", "nyse.bqt.xdp.1.7.a.retransmitmethod", ftypes.UINT8)
-nyse_bqt_xdp_1_7_a.fields.round_lot = ProtoField.new("Round Lot", "nyse.bqt.xdp.1.7.a.roundlot", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.security_status = ProtoField.new("Security Status", "nyse.bqt.xdp.1.7.a.securitystatus", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.security_type = ProtoField.new("Security Type", "nyse.bqt.xdp.1.7.a.securitytype", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.bqt.xdp.1.7.a.sequencenumber", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.bqt.xdp.1.7.a.sequencenumberresetmessage", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.sessionstate = ProtoField.new("SessionState", "nyse.bqt.xdp.1.7.a.sessionstate", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.side = ProtoField.new("Side", "nyse.bqt.xdp.1.7.a.side", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.source_time = ProtoField.new("Source Time", "nyse.bqt.xdp.1.7.a.sourcetime", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.source_time_ns = ProtoField.new("Source Time NS", "nyse.bqt.xdp.1.7.a.sourcetimens", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.sourceid = ProtoField.new("SourceID", "nyse.bqt.xdp.1.7.a.sourceid", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.sourcetime = ProtoField.new("SourceTime", "nyse.bqt.xdp.1.7.a.sourcetime", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.sourcetimens = ProtoField.new("SourceTimeNS", "nyse.bqt.xdp.1.7.a.sourcetimens", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.ssr_triggering_exchange_id = ProtoField.new("SSR Triggering Exchange ID", "nyse.bqt.xdp.1.7.a.ssrtriggeringexchangeid", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.ssr_triggering_volume = ProtoField.new("SSR Triggering Volume", "nyse.bqt.xdp.1.7.a.ssrtriggeringvolume", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.ssrstate = ProtoField.new("SSRState", "nyse.bqt.xdp.1.7.a.ssrstate", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.status = ProtoField.new("Status", "nyse.bqt.xdp.1.7.a.status", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.symbol = ProtoField.new("Symbol", "nyse.bqt.xdp.1.7.a.symbol", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.bqt.xdp.1.7.a.symbolindex", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.bqt.xdp.1.7.a.symbolindexmappingmessage", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.bqt.xdp.1.7.a.symbolindexmappingrequestmessage", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.symbol_seq_number = ProtoField.new("Symbol Seq Number", "nyse.bqt.xdp.1.7.a.symbolseqnumber", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.symbolindex = ProtoField.new("SymbolIndex", "nyse.bqt.xdp.1.7.a.symbolindex", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.symbolseqnum = ProtoField.new("SymbolSeqNum", "nyse.bqt.xdp.1.7.a.symbolseqnum", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.system_id = ProtoField.new("System ID", "nyse.bqt.xdp.1.7.a.systemid", ftypes.UINT8)
-nyse_bqt_xdp_1_7_a.fields.time = ProtoField.new("Time", "nyse.bqt.xdp.1.7.a.time", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.timestamp = ProtoField.new("Timestamp", "nyse.bqt.xdp.1.7.a.timestamp", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.total_volume = ProtoField.new("Total Volume", "nyse.bqt.xdp.1.7.a.totalvolume", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.totalrefreshpkts = ProtoField.new("TotalRefreshPkts", "nyse.bqt.xdp.1.7.a.totalrefreshpkts", ftypes.UINT16)
-nyse_bqt_xdp_1_7_a.fields.trade_condition_1 = ProtoField.new("Trade Condition 1", "nyse.bqt.xdp.1.7.a.tradecondition1", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.trade_condition_2 = ProtoField.new("Trade Condition 2", "nyse.bqt.xdp.1.7.a.tradecondition2", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.trade_condition_3 = ProtoField.new("Trade Condition 3", "nyse.bqt.xdp.1.7.a.tradecondition3", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.trade_condition_4 = ProtoField.new("Trade Condition 4", "nyse.bqt.xdp.1.7.a.tradecondition4", ftypes.STRING)
-nyse_bqt_xdp_1_7_a.fields.trade_id = ProtoField.new("Trade ID", "nyse.bqt.xdp.1.7.a.tradeid", ftypes.UINT32)
-nyse_bqt_xdp_1_7_a.fields.trade_session = ProtoField.new("Trade Session", "nyse.bqt.xdp.1.7.a.tradesession", ftypes.UINT8)
-nyse_bqt_xdp_1_7_a.fields.unit_of_trade = ProtoField.new("Unit of Trade", "nyse.bqt.xdp.1.7.a.unitoftrade", ftypes.UINT16)
-nyse_bqt_xdp_1_7_a.fields.volume = ProtoField.new("Volume", "nyse.bqt.xdp.1.7.a.volume", ftypes.UINT32)
+-- Nyse Bqt Xdp 2.1.a Fields
+nyse_bqt_xdp_v2_1_a.fields.ask_price = ProtoField.new("Ask Price", "nyse.bqt.xdp.v2.1.a.askprice", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.ask_quote_condition = ProtoField.new("Ask Quote Condition", "nyse.bqt.xdp.v2.1.a.askquotecondition", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.ask_volume = ProtoField.new("Ask Volume", "nyse.bqt.xdp.v2.1.a.askvolume", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.beginseqnum = ProtoField.new("BeginSeqNum", "nyse.bqt.xdp.v2.1.a.beginseqnum", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.bid_price = ProtoField.new("Bid Price", "nyse.bqt.xdp.v2.1.a.bidprice", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.bid_quote_condition = ProtoField.new("Bid Quote Condition", "nyse.bqt.xdp.v2.1.a.bidquotecondition", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.bid_volume = ProtoField.new("Bid Volume", "nyse.bqt.xdp.v2.1.a.bidvolume", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.bqt_message = ProtoField.new("BQT Message", "nyse.bqt.xdp.v2.1.a.bqtmessage", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.channelid = ProtoField.new("ChannelID", "nyse.bqt.xdp.v2.1.a.channelid", ftypes.UINT8)
+nyse_bqt_xdp_v2_1_a.fields.close_price = ProtoField.new("Close Price", "nyse.bqt.xdp.v2.1.a.closeprice", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.closing_price = ProtoField.new("Closing Price", "nyse.bqt.xdp.v2.1.a.closingprice", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.complete = ProtoField.new("Complete", "nyse.bqt.xdp.v2.1.a.complete", ftypes.UINT8)
+nyse_bqt_xdp_v2_1_a.fields.consolidated_security_status_message = ProtoField.new("Consolidated Security Status Message", "nyse.bqt.xdp.v2.1.a.consolidatedsecuritystatusmessage", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.consolidated_single_sided_quote_message = ProtoField.new("Consolidated Single-Sided Quote Message", "nyse.bqt.xdp.v2.1.a.consolidatedsinglesidedquotemessage", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.consolidated_stock_summary_message = ProtoField.new("Consolidated Stock Summary Message", "nyse.bqt.xdp.v2.1.a.consolidatedstocksummarymessage", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.consolidated_symbol_clear_message = ProtoField.new("Consolidated Symbol Clear Message", "nyse.bqt.xdp.v2.1.a.consolidatedsymbolclearmessage", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.consolidated_trade_cancel_message = ProtoField.new("Consolidated Trade Cancel Message", "nyse.bqt.xdp.v2.1.a.consolidatedtradecancelmessage", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.consolidated_trade_correction_message = ProtoField.new("Consolidated Trade Correction Message", "nyse.bqt.xdp.v2.1.a.consolidatedtradecorrectionmessage", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.consolidated_trade_message = ProtoField.new("Consolidated Trade Message", "nyse.bqt.xdp.v2.1.a.consolidatedtrademessage", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.consolidated_trading_session_change_message = ProtoField.new("Consolidated Trading Session Change Message", "nyse.bqt.xdp.v2.1.a.consolidatedtradingsessionchangemessage", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.consolidated_volume_message = ProtoField.new("Consolidated Volume Message", "nyse.bqt.xdp.v2.1.a.consolidatedvolumemessage", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.currentrefreshpkt = ProtoField.new("CurrentRefreshPkt", "nyse.bqt.xdp.v2.1.a.currentrefreshpkt", ftypes.UINT16)
+nyse_bqt_xdp_v2_1_a.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.bqt.xdp.v2.1.a.deliveryflag", ftypes.UINT8)
+nyse_bqt_xdp_v2_1_a.fields.endseqnum = ProtoField.new("EndSeqNum", "nyse.bqt.xdp.v2.1.a.endseqnum", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.bqt.xdp.v2.1.a.exchangecode", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.bqt.xdp.v2.1.a.haltcondition", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.bqt.xdp.v2.1.a.heartbeatresponsemessage", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.high_price = ProtoField.new("High Price", "nyse.bqt.xdp.v2.1.a.highprice", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.lastseqnum = ProtoField.new("LastSeqNum", "nyse.bqt.xdp.v2.1.a.lastseqnum", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.lastsymbolseqnum = ProtoField.new("LastSymbolSeqNum", "nyse.bqt.xdp.v2.1.a.lastsymbolseqnum", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.lot_size = ProtoField.new("Lot Size", "nyse.bqt.xdp.v2.1.a.lotsize", ftypes.UINT16)
+nyse_bqt_xdp_v2_1_a.fields.low_price = ProtoField.new("Low Price", "nyse.bqt.xdp.v2.1.a.lowprice", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.market_id = ProtoField.new("Market ID", "nyse.bqt.xdp.v2.1.a.marketid", ftypes.UINT16)
+nyse_bqt_xdp_v2_1_a.fields.market_id_of_best_ask = ProtoField.new("Market ID of Best Ask", "nyse.bqt.xdp.v2.1.a.marketidofbestask", ftypes.UINT16)
+nyse_bqt_xdp_v2_1_a.fields.market_id_of_best_bid = ProtoField.new("Market ID of Best Bid", "nyse.bqt.xdp.v2.1.a.marketidofbestbid", ftypes.UINT16)
+nyse_bqt_xdp_v2_1_a.fields.market_id_of_high_price = ProtoField.new("Market ID of High Price", "nyse.bqt.xdp.v2.1.a.marketidofhighprice", ftypes.UINT16)
+nyse_bqt_xdp_v2_1_a.fields.market_id_of_low_price = ProtoField.new("Market ID of Low Price", "nyse.bqt.xdp.v2.1.a.marketidoflowprice", ftypes.UINT16)
+nyse_bqt_xdp_v2_1_a.fields.market_id_of_open_price = ProtoField.new("Market ID of Open Price", "nyse.bqt.xdp.v2.1.a.marketidofopenprice", ftypes.UINT16)
+nyse_bqt_xdp_v2_1_a.fields.market_id_of_the_close = ProtoField.new("Market ID of the Close", "nyse.bqt.xdp.v2.1.a.marketidoftheclose", ftypes.UINT16)
+nyse_bqt_xdp_v2_1_a.fields.marketstate = ProtoField.new("MarketState", "nyse.bqt.xdp.v2.1.a.marketstate", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.message = ProtoField.new("Message", "nyse.bqt.xdp.v2.1.a.message", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.message_count = ProtoField.new("Message Count", "nyse.bqt.xdp.v2.1.a.messagecount", ftypes.UINT8)
+nyse_bqt_xdp_v2_1_a.fields.message_header = ProtoField.new("Message Header", "nyse.bqt.xdp.v2.1.a.messageheader", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.message_size = ProtoField.new("Message Size", "nyse.bqt.xdp.v2.1.a.messagesize", ftypes.UINT16)
+nyse_bqt_xdp_v2_1_a.fields.message_type = ProtoField.new("Message Type", "nyse.bqt.xdp.v2.1.a.messagetype", ftypes.UINT16)
+nyse_bqt_xdp_v2_1_a.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.bqt.xdp.v2.1.a.messageunavailablemessage", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.mpv = ProtoField.new("MPV", "nyse.bqt.xdp.v2.1.a.mpv", ftypes.UINT16)
+nyse_bqt_xdp_v2_1_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.bqt.xdp.v2.1.a.nanoseconds", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.nextsourceseqnum = ProtoField.new("NextSourceSeqNum", "nyse.bqt.xdp.v2.1.a.nextsourceseqnum", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.number_of_close_prices = ProtoField.new("Number Of Close Prices", "nyse.bqt.xdp.v2.1.a.numberofcloseprices", ftypes.UINT8)
+nyse_bqt_xdp_v2_1_a.fields.ok_for_late_hours = ProtoField.new("Ok for late hours", "nyse.bqt.xdp.v2.1.a.okforlatehours", ftypes.UINT8, nil, base.DEC, "0x04")
+nyse_bqt_xdp_v2_1_a.fields.ok_for_morning_hours = ProtoField.new("Ok for morning hours", "nyse.bqt.xdp.v2.1.a.okformorninghours", ftypes.UINT8, nil, base.DEC, "0x01")
+nyse_bqt_xdp_v2_1_a.fields.ok_for_national_hours = ProtoField.new("Ok for national hours", "nyse.bqt.xdp.v2.1.a.okfornationalhours", ftypes.UINT8, nil, base.DEC, "0x02")
+nyse_bqt_xdp_v2_1_a.fields.open = ProtoField.new("Open", "nyse.bqt.xdp.v2.1.a.open", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.original_trade_id = ProtoField.new("Original Trade ID", "nyse.bqt.xdp.v2.1.a.originaltradeid", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.packet = ProtoField.new("Packet", "nyse.bqt.xdp.v2.1.a.packet", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.bqt.xdp.v2.1.a.packetheader", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.bqt.xdp.v2.1.a.packetsize", ftypes.UINT16)
+nyse_bqt_xdp_v2_1_a.fields.payload = ProtoField.new("Payload", "nyse.bqt.xdp.v2.1.a.payload", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.prevcloseprice = ProtoField.new("PrevClosePrice", "nyse.bqt.xdp.v2.1.a.prevcloseprice", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.prevclosevolume = ProtoField.new("PrevCloseVolume", "nyse.bqt.xdp.v2.1.a.prevclosevolume", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.price = ProtoField.new("Price", "nyse.bqt.xdp.v2.1.a.price", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.price_1 = ProtoField.new("Price 1", "nyse.bqt.xdp.v2.1.a.price1", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.price_2 = ProtoField.new("Price 2", "nyse.bqt.xdp.v2.1.a.price2", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.bqt.xdp.v2.1.a.priceresolution", ftypes.UINT8)
+nyse_bqt_xdp_v2_1_a.fields.pricescalecode = ProtoField.new("PriceScaleCode", "nyse.bqt.xdp.v2.1.a.pricescalecode", ftypes.UINT8)
+nyse_bqt_xdp_v2_1_a.fields.productid = ProtoField.new("ProductID", "nyse.bqt.xdp.v2.1.a.productid", ftypes.UINT8)
+nyse_bqt_xdp_v2_1_a.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.bqt.xdp.v2.1.a.quotecondition", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.reason = ProtoField.new("Reason", "nyse.bqt.xdp.v2.1.a.reason", ftypes.UINT8)
+nyse_bqt_xdp_v2_1_a.fields.refresh_header_message = ProtoField.new("Refresh Header Message", "nyse.bqt.xdp.v2.1.a.refreshheadermessage", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "nyse.bqt.xdp.v2.1.a.refreshrequestmessage", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.bqt.xdp.v2.1.a.requestresponsemessage", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.requestseqnum = ProtoField.new("RequestSeqNum", "nyse.bqt.xdp.v2.1.a.requestseqnum", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.reserved = ProtoField.new("Reserved", "nyse.bqt.xdp.v2.1.a.reserved", ftypes.UINT8, nil, base.DEC, "0xF8")
+nyse_bqt_xdp_v2_1_a.fields.reserved1 = ProtoField.new("Reserved1", "nyse.bqt.xdp.v2.1.a.reserved1", ftypes.BYTES)
+nyse_bqt_xdp_v2_1_a.fields.reserved2 = ProtoField.new("Reserved2", "nyse.bqt.xdp.v2.1.a.reserved2", ftypes.BYTES)
+nyse_bqt_xdp_v2_1_a.fields.retail_pricing_indicator = ProtoField.new("Retail Pricing Indicator", "nyse.bqt.xdp.v2.1.a.retailpricingindicator", ftypes.UINT8)
+nyse_bqt_xdp_v2_1_a.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.bqt.xdp.v2.1.a.retransmissionrequestmessage", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.retransmitmethod = ProtoField.new("RetransmitMethod", "nyse.bqt.xdp.v2.1.a.retransmitmethod", ftypes.UINT8)
+nyse_bqt_xdp_v2_1_a.fields.round_lot = ProtoField.new("Round Lot", "nyse.bqt.xdp.v2.1.a.roundlot", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.security_status = ProtoField.new("Security Status", "nyse.bqt.xdp.v2.1.a.securitystatus", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.security_type = ProtoField.new("Security Type", "nyse.bqt.xdp.v2.1.a.securitytype", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.bqt.xdp.v2.1.a.sequencenumber", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.bqt.xdp.v2.1.a.sequencenumberresetmessage", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.sessionstate = ProtoField.new("SessionState", "nyse.bqt.xdp.v2.1.a.sessionstate", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.side = ProtoField.new("Side", "nyse.bqt.xdp.v2.1.a.side", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.source_time = ProtoField.new("Source Time", "nyse.bqt.xdp.v2.1.a.sourcetime", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.source_time_ns = ProtoField.new("Source Time NS", "nyse.bqt.xdp.v2.1.a.sourcetimens", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.sourceid = ProtoField.new("SourceID", "nyse.bqt.xdp.v2.1.a.sourceid", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.sourcetime = ProtoField.new("SourceTime", "nyse.bqt.xdp.v2.1.a.sourcetime", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.sourcetimens = ProtoField.new("SourceTimeNS", "nyse.bqt.xdp.v2.1.a.sourcetimens", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.ssr_triggering_exchange_id = ProtoField.new("SSR Triggering Exchange ID", "nyse.bqt.xdp.v2.1.a.ssrtriggeringexchangeid", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.ssr_triggering_volume = ProtoField.new("SSR Triggering Volume", "nyse.bqt.xdp.v2.1.a.ssrtriggeringvolume", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.ssrstate = ProtoField.new("SSRState", "nyse.bqt.xdp.v2.1.a.ssrstate", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.status = ProtoField.new("Status", "nyse.bqt.xdp.v2.1.a.status", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.symbol = ProtoField.new("Symbol", "nyse.bqt.xdp.v2.1.a.symbol", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.bqt.xdp.v2.1.a.symbolindex", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.bqt.xdp.v2.1.a.symbolindexmappingmessage", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.bqt.xdp.v2.1.a.symbolindexmappingrequestmessage", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.symbol_seq_number = ProtoField.new("Symbol Seq Number", "nyse.bqt.xdp.v2.1.a.symbolseqnumber", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.symbolindex = ProtoField.new("SymbolIndex", "nyse.bqt.xdp.v2.1.a.symbolindex", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.symbolseqnum = ProtoField.new("SymbolSeqNum", "nyse.bqt.xdp.v2.1.a.symbolseqnum", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.system_id = ProtoField.new("System ID", "nyse.bqt.xdp.v2.1.a.systemid", ftypes.UINT8)
+nyse_bqt_xdp_v2_1_a.fields.time = ProtoField.new("Time", "nyse.bqt.xdp.v2.1.a.time", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.timestamp = ProtoField.new("Timestamp", "nyse.bqt.xdp.v2.1.a.timestamp", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.total_volume = ProtoField.new("Total Volume", "nyse.bqt.xdp.v2.1.a.totalvolume", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.totalrefreshpkts = ProtoField.new("TotalRefreshPkts", "nyse.bqt.xdp.v2.1.a.totalrefreshpkts", ftypes.UINT16)
+nyse_bqt_xdp_v2_1_a.fields.trade_condition_1 = ProtoField.new("Trade Condition 1", "nyse.bqt.xdp.v2.1.a.tradecondition1", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.trade_condition_2 = ProtoField.new("Trade Condition 2", "nyse.bqt.xdp.v2.1.a.tradecondition2", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.trade_condition_3 = ProtoField.new("Trade Condition 3", "nyse.bqt.xdp.v2.1.a.tradecondition3", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.trade_condition_4 = ProtoField.new("Trade Condition 4", "nyse.bqt.xdp.v2.1.a.tradecondition4", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.trade_id = ProtoField.new("Trade ID", "nyse.bqt.xdp.v2.1.a.tradeid", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.trade_session = ProtoField.new("Trade Session", "nyse.bqt.xdp.v2.1.a.tradesession", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.unit_of_trade = ProtoField.new("Unit of Trade", "nyse.bqt.xdp.v2.1.a.unitoftrade", ftypes.UINT16)
+nyse_bqt_xdp_v2_1_a.fields.volume = ProtoField.new("Volume", "nyse.bqt.xdp.v2.1.a.volume", ftypes.UINT32)
 
 -----------------------------------------------------------------------
--- Dissect Nyse Bqt Xdp 1.7.a
+-- Dissect Nyse Bqt Xdp 2.1.a
 -----------------------------------------------------------------------
 
 -- Size: Complete
@@ -212,7 +221,7 @@ dissect.complete = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.complete(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.complete, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.complete, range, value, display)
 
   return offset + size_of.complete
 end
@@ -247,7 +256,7 @@ dissect.reason = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.reason(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.reason, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.reason, range, value, display)
 
   return offset + size_of.reason
 end
@@ -266,7 +275,7 @@ dissect.total_volume = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.total_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.total_volume, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.total_volume, range, value, display)
 
   return offset + size_of.total_volume
 end
@@ -285,7 +294,7 @@ dissect.symbol_seq_number = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.symbol_seq_number(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.symbol_seq_number, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.symbol_seq_number, range, value, display)
 
   return offset + size_of.symbol_seq_number
 end
@@ -304,7 +313,7 @@ dissect.symbol_index = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.symbol_index(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.symbol_index, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.symbol_index, range, value, display)
 
   return offset + size_of.symbol_index
 end
@@ -342,29 +351,29 @@ dissect.consolidated_volume_message = function(buffer, offset, packet, parent)
   if show.consolidated_volume_message then
     local range = buffer(offset, 14)
     local display = display.consolidated_volume_message(buffer, packet, parent)
-    parent = parent:add(nyse_bqt_xdp_1_7_a.fields.consolidated_volume_message, range, display)
+    parent = parent:add(nyse_bqt_xdp_v2_1_a.fields.consolidated_volume_message, range, display)
   end
 
   return dissect.consolidated_volume_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Close
-size_of.close = 4
+-- Size: Closing Price
+size_of.closing_price = 4
 
--- Display: Close
-display.close = function(value)
-  return "Close: "..value
+-- Display: Closing Price
+display.closing_price = function(value)
+  return "Closing Price: "..value
 end
 
--- Dissect: Close
-dissect.close = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.close)
+-- Dissect: Closing Price
+dissect.closing_price = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.closing_price)
   local value = range:le_uint()
-  local display = display.close(value, buffer, offset, packet, parent)
+  local display = display.closing_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.close, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.closing_price, range, value, display)
 
-  return offset + size_of.close
+  return offset + size_of.closing_price
 end
 
 -- Size: Market ID of the Close
@@ -394,28 +403,59 @@ dissect.market_id_of_the_close = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.market_id_of_the_close(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.market_id_of_the_close, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.market_id_of_the_close, range, value, display)
 
   return offset + size_of.market_id_of_the_close
 end
 
--- Size: Num Close Prices
-size_of.num_close_prices = 1
-
--- Display: Num Close Prices
-display.num_close_prices = function(value)
-  return "Num Close Prices: "..value
+-- Display: Close Price
+display.close_price = function(buffer, offset, size, packet, parent)
+  return ""
 end
 
--- Dissect: Num Close Prices
-dissect.num_close_prices = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.num_close_prices)
+-- Dissect Fields: Close Price
+dissect.close_price_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Market ID of the Close: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index = dissect.market_id_of_the_close(buffer, index, packet, parent)
+
+  -- Closing Price: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.closing_price(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Close Price
+dissect.close_price = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.close_price then
+    local range = buffer(offset, 6)
+    local display = display.close_price(buffer, packet, parent)
+    parent = parent:add(nyse_bqt_xdp_v2_1_a.fields.close_price, range, display)
+  end
+
+  return dissect.close_price_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Number Of Close Prices
+size_of.number_of_close_prices = 1
+
+-- Display: Number Of Close Prices
+display.number_of_close_prices = function(value)
+  return "Number Of Close Prices: "..value
+end
+
+-- Dissect: Number Of Close Prices
+dissect.number_of_close_prices = function(buffer, offset, packet, parent)
+  local length = 1
+  local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.num_close_prices(value, buffer, offset, packet, parent)
+  local display = display.number_of_close_prices(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.num_close_prices, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.number_of_close_prices, range, value, display)
 
-  return offset + size_of.num_close_prices
+  return offset + length, value
 end
 
 -- Size: Market ID of Open Price
@@ -445,7 +485,7 @@ dissect.market_id_of_open_price = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.market_id_of_open_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.market_id_of_open_price, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.market_id_of_open_price, range, value, display)
 
   return offset + size_of.market_id_of_open_price
 end
@@ -477,7 +517,7 @@ dissect.market_id_of_low_price = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.market_id_of_low_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.market_id_of_low_price, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.market_id_of_low_price, range, value, display)
 
   return offset + size_of.market_id_of_low_price
 end
@@ -509,7 +549,7 @@ dissect.market_id_of_high_price = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.market_id_of_high_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.market_id_of_high_price, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.market_id_of_high_price, range, value, display)
 
   return offset + size_of.market_id_of_high_price
 end
@@ -528,7 +568,7 @@ dissect.open = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.open(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.open, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.open, range, value, display)
 
   return offset + size_of.open
 end
@@ -547,7 +587,7 @@ dissect.low_price = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.low_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.low_price, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.low_price, range, value, display)
 
   return offset + size_of.low_price
 end
@@ -566,7 +606,7 @@ dissect.high_price = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.high_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.high_price, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.high_price, range, value, display)
 
   return offset + size_of.high_price
 end
@@ -585,7 +625,7 @@ dissect.source_time_ns = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.source_time_ns(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.source_time_ns, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.source_time_ns, range, value, display)
 
   return offset + size_of.source_time_ns
 end
@@ -604,9 +644,22 @@ dissect.source_time = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.source_time(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.source_time, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.source_time, range, value, display)
 
   return offset + size_of.source_time
+end
+
+-- Calculate runtime size: Consolidated Stock Summary Message
+size_of.consolidated_stock_summary_message = function(buffer, offset)
+  local index = 0
+
+  index = index + 35
+
+  -- Calculate field size from count
+  local close_price_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + close_price_count * 6
+
+  return index
 end
 
 -- Display: Consolidated Stock Summary Message
@@ -648,25 +701,27 @@ dissect.consolidated_stock_summary_message_fields = function(buffer, offset, pac
   -- Market ID of Open Price: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
   index = dissect.market_id_of_open_price(buffer, index, packet, parent)
 
-  -- Num Close Prices: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.num_close_prices(buffer, index, packet, parent)
+  -- Number Of Close Prices: 1 Byte Unsigned Fixed Width Integer
+  index = dissect.number_of_close_prices(buffer, index, packet, parent)
 
-  -- Market ID of the Close: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.market_id_of_the_close(buffer, index, packet, parent)
+  -- Close Price: Struct of 2 fields
+  local close_price_count = buffer(index - 1, 1):le_uint()
+  for i = 1, close_price_count do
+    index = dissect.close_price(buffer, index, packet, parent)
+  end
 
-  -- Close: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.close(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Consolidated Stock Summary Message
 dissect.consolidated_stock_summary_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.consolidated_stock_summary_message then
-    local range = buffer(offset, 41)
+    local length = size_of.consolidated_stock_summary_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.consolidated_stock_summary_message(buffer, packet, parent)
-    parent = parent:add(nyse_bqt_xdp_1_7_a.fields.consolidated_stock_summary_message, range, display)
+    parent = parent:add(nyse_bqt_xdp_v2_1_a.fields.consolidated_stock_summary_message, range, display)
   end
 
   return dissect.consolidated_stock_summary_message_fields(buffer, offset, packet, parent)
@@ -681,10 +736,10 @@ display.market_id = function(value)
     return "Market ID: NYSE Group BQT (0)"
   end
   if value == 1 then
-    return "Market ID: NYSE Cash (1)"
+    return "Market ID: NYSE (1)"
   end
   if value == 3 then
-    return "Market ID: NYSE Arca Cash (3)"
+    return "Market ID: NYSE Arca (3)"
   end
   if value == 4 then
     return "Market ID: NYSE Arca Options (4)"
@@ -699,10 +754,10 @@ display.market_id = function(value)
     return "Market ID: NYSE Amex Options (8)"
   end
   if value == 9 then
-    return "Market ID: NYSE American Cash (9)"
+    return "Market ID: NYSE American (9)"
   end
   if value == 10 then
-    return "Market ID: NYSE National Options (10)"
+    return "Market ID: NYSE National (10)"
   end
 
   return "Market ID: Unknown("..value..")"
@@ -714,7 +769,7 @@ dissect.market_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.market_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.market_id, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.market_id, range, value, display)
 
   return offset + size_of.market_id
 end
@@ -770,7 +825,7 @@ dissect.trade_condition_4 = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trade_condition_4(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.trade_condition_4, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.trade_condition_4, range, value, display)
 
   return offset + size_of.trade_condition_4
 end
@@ -805,7 +860,7 @@ dissect.trade_condition_3 = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trade_condition_3(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.trade_condition_3, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.trade_condition_3, range, value, display)
 
   return offset + size_of.trade_condition_3
 end
@@ -846,7 +901,7 @@ dissect.trade_condition_2 = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trade_condition_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.trade_condition_2, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.trade_condition_2, range, value, display)
 
   return offset + size_of.trade_condition_2
 end
@@ -878,7 +933,7 @@ dissect.trade_condition_1 = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trade_condition_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.trade_condition_1, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.trade_condition_1, range, value, display)
 
   return offset + size_of.trade_condition_1
 end
@@ -897,7 +952,7 @@ dissect.volume = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.volume, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.volume, range, value, display)
 
   return offset + size_of.volume
 end
@@ -916,7 +971,7 @@ dissect.price = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.price, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.price, range, value, display)
 
   return offset + size_of.price
 end
@@ -935,7 +990,7 @@ dissect.trade_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.trade_id, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.trade_id, range, value, display)
 
   return offset + size_of.trade_id
 end
@@ -954,7 +1009,7 @@ dissect.original_trade_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.original_trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.original_trade_id, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.original_trade_id, range, value, display)
 
   return offset + size_of.original_trade_id
 end
@@ -1016,7 +1071,7 @@ dissect.consolidated_trade_correction_message = function(buffer, offset, packet,
   if show.consolidated_trade_correction_message then
     local range = buffer(offset, 38)
     local display = display.consolidated_trade_correction_message(buffer, packet, parent)
-    parent = parent:add(nyse_bqt_xdp_1_7_a.fields.consolidated_trade_correction_message, range, display)
+    parent = parent:add(nyse_bqt_xdp_v2_1_a.fields.consolidated_trade_correction_message, range, display)
   end
 
   return dissect.consolidated_trade_correction_message_fields(buffer, offset, packet, parent)
@@ -1058,7 +1113,7 @@ dissect.consolidated_trade_cancel_message = function(buffer, offset, packet, par
   if show.consolidated_trade_cancel_message then
     local range = buffer(offset, 22)
     local display = display.consolidated_trade_cancel_message(buffer, packet, parent)
-    parent = parent:add(nyse_bqt_xdp_1_7_a.fields.consolidated_trade_cancel_message, range, display)
+    parent = parent:add(nyse_bqt_xdp_v2_1_a.fields.consolidated_trade_cancel_message, range, display)
   end
 
   return dissect.consolidated_trade_cancel_message_fields(buffer, offset, packet, parent)
@@ -1078,7 +1133,7 @@ dissect.symbolseqnum = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.symbolseqnum(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.symbolseqnum, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.symbolseqnum, range, value, display)
 
   return offset + size_of.symbolseqnum
 end
@@ -1097,7 +1152,7 @@ dissect.symbolindex = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.symbolindex(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.symbolindex, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.symbolindex, range, value, display)
 
   return offset + size_of.symbolindex
 end
@@ -1116,7 +1171,7 @@ dissect.sourcetimens = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.sourcetimens(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.sourcetimens, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.sourcetimens, range, value, display)
 
   return offset + size_of.sourcetimens
 end
@@ -1135,7 +1190,7 @@ dissect.sourcetime = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.sourcetime(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.sourcetime, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.sourcetime, range, value, display)
 
   return offset + size_of.sourcetime
 end
@@ -1194,7 +1249,7 @@ dissect.consolidated_trade_message = function(buffer, offset, packet, parent)
   if show.consolidated_trade_message then
     local range = buffer(offset, 34)
     local display = display.consolidated_trade_message(buffer, packet, parent)
-    parent = parent:add(nyse_bqt_xdp_1_7_a.fields.consolidated_trade_message, range, display)
+    parent = parent:add(nyse_bqt_xdp_v2_1_a.fields.consolidated_trade_message, range, display)
   end
 
   return dissect.consolidated_trade_message_fields(buffer, offset, packet, parent)
@@ -1227,7 +1282,7 @@ dissect.retail_pricing_indicator = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.retail_pricing_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.retail_pricing_indicator, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.retail_pricing_indicator, range, value, display)
 
   return offset + size_of.retail_pricing_indicator
 end
@@ -1262,7 +1317,7 @@ dissect.quote_condition = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.quote_condition(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.quote_condition, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.quote_condition, range, value, display)
 
   return offset + size_of.quote_condition
 end
@@ -1288,7 +1343,7 @@ dissect.side = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.side(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.side, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.side, range, value, display)
 
   return offset + size_of.side
 end
@@ -1335,7 +1390,7 @@ dissect.consolidated_single_sided_quote_message = function(buffer, offset, packe
   if show.consolidated_single_sided_quote_message then
     local range = buffer(offset, 21)
     local display = display.consolidated_single_sided_quote_message(buffer, packet, parent)
-    parent = parent:add(nyse_bqt_xdp_1_7_a.fields.consolidated_single_sided_quote_message, range, display)
+    parent = parent:add(nyse_bqt_xdp_v2_1_a.fields.consolidated_single_sided_quote_message, range, display)
   end
 
   return dissect.consolidated_single_sided_quote_message_fields(buffer, offset, packet, parent)
@@ -1368,7 +1423,7 @@ dissect.market_id_of_best_bid = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.market_id_of_best_bid(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.market_id_of_best_bid, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.market_id_of_best_bid, range, value, display)
 
   return offset + size_of.market_id_of_best_bid
 end
@@ -1400,7 +1455,7 @@ dissect.market_id_of_best_ask = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.market_id_of_best_ask(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.market_id_of_best_ask, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.market_id_of_best_ask, range, value, display)
 
   return offset + size_of.market_id_of_best_ask
 end
@@ -1432,7 +1487,7 @@ dissect.bid_quote_condition = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.bid_quote_condition(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.bid_quote_condition, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.bid_quote_condition, range, value, display)
 
   return offset + size_of.bid_quote_condition
 end
@@ -1464,7 +1519,7 @@ dissect.ask_quote_condition = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.ask_quote_condition(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.ask_quote_condition, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.ask_quote_condition, range, value, display)
 
   return offset + size_of.ask_quote_condition
 end
@@ -1483,7 +1538,7 @@ dissect.bid_volume = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.bid_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.bid_volume, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.bid_volume, range, value, display)
 
   return offset + size_of.bid_volume
 end
@@ -1502,7 +1557,7 @@ dissect.bid_price = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.bid_price, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.bid_price, range, value, display)
 
   return offset + size_of.bid_price
 end
@@ -1521,7 +1576,7 @@ dissect.ask_volume = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.ask_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.ask_volume, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.ask_volume, range, value, display)
 
   return offset + size_of.ask_volume
 end
@@ -1540,7 +1595,7 @@ dissect.ask_price = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.ask_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.ask_price, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.ask_price, range, value, display)
 
   return offset + size_of.ask_price
 end
@@ -1596,7 +1651,7 @@ dissect.bqt_message = function(buffer, offset, packet, parent)
   if show.bqt_message then
     local range = buffer(offset, 31)
     local display = display.bqt_message(buffer, packet, parent)
-    parent = parent:add(nyse_bqt_xdp_1_7_a.fields.bqt_message, range, display)
+    parent = parent:add(nyse_bqt_xdp_v2_1_a.fields.bqt_message, range, display)
   end
 
   return dissect.bqt_message_fields(buffer, offset, packet, parent)
@@ -1616,7 +1671,7 @@ dissect.lastsymbolseqnum = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.lastsymbolseqnum(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.lastsymbolseqnum, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.lastsymbolseqnum, range, value, display)
 
   return offset + size_of.lastsymbolseqnum
 end
@@ -1635,7 +1690,7 @@ dissect.lastseqnum = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.lastseqnum(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.lastseqnum, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.lastseqnum, range, value, display)
 
   return offset + size_of.lastseqnum
 end
@@ -1654,7 +1709,7 @@ dissect.totalrefreshpkts = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.totalrefreshpkts(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.totalrefreshpkts, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.totalrefreshpkts, range, value, display)
 
   return offset + size_of.totalrefreshpkts
 end
@@ -1673,7 +1728,7 @@ dissect.currentrefreshpkt = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.currentrefreshpkt(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.currentrefreshpkt, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.currentrefreshpkt, range, value, display)
 
   return offset + size_of.currentrefreshpkt
 end
@@ -1708,7 +1763,7 @@ dissect.refresh_header_message = function(buffer, offset, packet, parent)
   if show.refresh_header_message then
     local range = buffer(offset, 12)
     local display = display.refresh_header_message(buffer, packet, parent)
-    parent = parent:add(nyse_bqt_xdp_1_7_a.fields.refresh_header_message, range, display)
+    parent = parent:add(nyse_bqt_xdp_v2_1_a.fields.refresh_header_message, range, display)
   end
 
   return dissect.refresh_header_message_fields(buffer, offset, packet, parent)
@@ -1738,7 +1793,7 @@ dissect.sessionstate = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.sessionstate(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.sessionstate, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.sessionstate, range, value, display)
 
   return offset + size_of.sessionstate
 end
@@ -1773,7 +1828,7 @@ dissect.marketstate = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.marketstate(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.marketstate, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.marketstate, range, value, display)
 
   return offset + size_of.marketstate
 end
@@ -1799,7 +1854,7 @@ dissect.ssrstate = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.ssrstate(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.ssrstate, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.ssrstate, range, value, display)
 
   return offset + size_of.ssrstate
 end
@@ -1818,7 +1873,7 @@ dissect.time = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.time(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.time, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.time, range, value, display)
 
   return offset + size_of.time
 end
@@ -1837,7 +1892,7 @@ dissect.ssr_triggering_volume = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.ssr_triggering_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.ssr_triggering_volume, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.ssr_triggering_volume, range, value, display)
 
   return offset + size_of.ssr_triggering_volume
 end
@@ -1911,7 +1966,7 @@ dissect.ssr_triggering_exchange_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.ssr_triggering_exchange_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.ssr_triggering_exchange_id, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.ssr_triggering_exchange_id, range, value, display)
 
   return offset + size_of.ssr_triggering_exchange_id
 end
@@ -1930,7 +1985,7 @@ dissect.price_2 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.price_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.price_2, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.price_2, range, value, display)
 
   return offset + size_of.price_2
 end
@@ -1949,7 +2004,7 @@ dissect.price_1 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.price_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.price_1, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.price_1, range, value, display)
 
   return offset + size_of.price_1
 end
@@ -1968,7 +2023,7 @@ dissect.reserved2 = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.reserved2, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.reserved2, range, value, display)
 
   return offset + size_of.reserved2
 end
@@ -2021,7 +2076,7 @@ dissect.halt_condition = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.halt_condition(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.halt_condition, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.halt_condition, range, value, display)
 
   return offset + size_of.halt_condition
 end
@@ -2089,7 +2144,7 @@ dissect.security_status = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.security_status, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.security_status, range, value, display)
 
   return offset + size_of.security_status
 end
@@ -2160,29 +2215,60 @@ dissect.consolidated_security_status_message = function(buffer, offset, packet, 
   if show.consolidated_security_status_message then
     local range = buffer(offset, 42)
     local display = display.consolidated_security_status_message(buffer, packet, parent)
-    parent = parent:add(nyse_bqt_xdp_1_7_a.fields.consolidated_security_status_message, range, display)
+    parent = parent:add(nyse_bqt_xdp_v2_1_a.fields.consolidated_security_status_message, range, display)
   end
 
   return dissect.consolidated_security_status_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Trade Session
-size_of.trade_session = 1
-
 -- Display: Trade Session
-display.trade_session = function(value)
-  return "Trade Session: "..value
+display.trade_session = function(buffer, packet, parent)
+  local display = ""
+
+  -- Is Ok for late hours flag set?
+  if buffer:bitfield(5) > 0 then
+    display = display.."Ok for late hours|"
+  end
+  -- Is Ok for national hours flag set?
+  if buffer:bitfield(6) > 0 then
+    display = display.."Ok for national hours|"
+  end
+  -- Is Ok for morning hours flag set?
+  if buffer:bitfield(7) > 0 then
+    display = display.."Ok for morning hours|"
+  end
+
+  return display:sub(1, -2)
+end
+
+-- Dissect Bit Fields: Trade Session
+dissect.trade_session_bits = function(buffer, offset, packet, parent)
+
+  -- Reserved: 5 Bit
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.reserved, buffer(offset, 1))
+
+  -- Ok for late hours: 1 Bit
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.ok_for_late_hours, buffer(offset, 1))
+
+  -- Ok for national hours: 1 Bit
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.ok_for_national_hours, buffer(offset, 1))
+
+  -- Ok for morning hours: 1 Bit
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.ok_for_morning_hours, buffer(offset, 1))
 end
 
 -- Dissect: Trade Session
 dissect.trade_session = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trade_session)
-  local value = range:le_uint()
-  local display = display.trade_session(value, buffer, offset, packet, parent)
+  local size = 1
+  local range = buffer(offset, size)
+  local display = display.trade_session(range, packet, parent)
+  local element = parent:add_le(nyse_bqt_xdp_v2_1_a.fields.trade_session, range, display)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.trade_session, range, value, display)
+  if show.trade_session then
+    dissect.trade_session_bits(buffer, offset, packet, element)
+  end
 
-  return offset + size_of.trade_session
+  return offset + 1
 end
 
 -- Display: Consolidated Trading Session Change Message
@@ -2206,7 +2292,7 @@ dissect.consolidated_trading_session_change_message_fields = function(buffer, of
   -- SymbolSeqNum: 4 Byte Unsigned Fixed Width Integer
   index = dissect.symbolseqnum(buffer, index, packet, parent)
 
-  -- Trade Session: 1 Byte Unsigned Fixed Width Integer
+  -- Trade Session: 1 Byte Unsigned Fixed Width Integer: Struct of 4 fields
   index = dissect.trade_session(buffer, index, packet, parent)
 
   -- Market ID: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
@@ -2221,7 +2307,7 @@ dissect.consolidated_trading_session_change_message = function(buffer, offset, p
   if show.consolidated_trading_session_change_message then
     local range = buffer(offset, 19)
     local display = display.consolidated_trading_session_change_message(buffer, packet, parent)
-    parent = parent:add(nyse_bqt_xdp_1_7_a.fields.consolidated_trading_session_change_message, range, display)
+    parent = parent:add(nyse_bqt_xdp_v2_1_a.fields.consolidated_trading_session_change_message, range, display)
   end
 
   return dissect.consolidated_trading_session_change_message_fields(buffer, offset, packet, parent)
@@ -2241,7 +2327,7 @@ dissect.nextsourceseqnum = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.nextsourceseqnum(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.nextsourceseqnum, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.nextsourceseqnum, range, value, display)
 
   return offset + size_of.nextsourceseqnum
 end
@@ -2279,7 +2365,7 @@ dissect.consolidated_symbol_clear_message = function(buffer, offset, packet, par
   if show.consolidated_symbol_clear_message then
     local range = buffer(offset, 18)
     local display = display.consolidated_symbol_clear_message(buffer, packet, parent)
-    parent = parent:add(nyse_bqt_xdp_1_7_a.fields.consolidated_symbol_clear_message, range, display)
+    parent = parent:add(nyse_bqt_xdp_v2_1_a.fields.consolidated_symbol_clear_message, range, display)
   end
 
   return dissect.consolidated_symbol_clear_message_fields(buffer, offset, packet, parent)
@@ -2299,7 +2385,7 @@ dissect.channelid = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.channelid(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.channelid, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.channelid, range, value, display)
 
   return offset + size_of.channelid
 end
@@ -2318,7 +2404,7 @@ dissect.productid = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.productid(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.productid, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.productid, range, value, display)
 
   return offset + size_of.productid
 end
@@ -2337,7 +2423,7 @@ dissect.endseqnum = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.endseqnum(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.endseqnum, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.endseqnum, range, value, display)
 
   return offset + size_of.endseqnum
 end
@@ -2356,7 +2442,7 @@ dissect.beginseqnum = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.beginseqnum(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.beginseqnum, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.beginseqnum, range, value, display)
 
   return offset + size_of.beginseqnum
 end
@@ -2391,7 +2477,7 @@ dissect.message_unavailable_message = function(buffer, offset, packet, parent)
   if show.message_unavailable_message then
     local range = buffer(offset, 10)
     local display = display.message_unavailable_message(buffer, packet, parent)
-    parent = parent:add(nyse_bqt_xdp_1_7_a.fields.message_unavailable_message, range, display)
+    parent = parent:add(nyse_bqt_xdp_v2_1_a.fields.message_unavailable_message, range, display)
   end
 
   return dissect.message_unavailable_message_fields(buffer, offset, packet, parent)
@@ -2411,7 +2497,7 @@ dissect.sourceid = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.sourceid(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.sourceid, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.sourceid, range, value, display)
 
   return offset + size_of.sourceid
 end
@@ -2446,7 +2532,7 @@ dissect.refresh_request_message = function(buffer, offset, packet, parent)
   if show.refresh_request_message then
     local range = buffer(offset, 16)
     local display = display.refresh_request_message(buffer, packet, parent)
-    parent = parent:add(nyse_bqt_xdp_1_7_a.fields.refresh_request_message, range, display)
+    parent = parent:add(nyse_bqt_xdp_v2_1_a.fields.refresh_request_message, range, display)
   end
 
   return dissect.refresh_request_message_fields(buffer, offset, packet, parent)
@@ -2470,7 +2556,7 @@ dissect.retransmitmethod = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.retransmitmethod(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.retransmitmethod, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.retransmitmethod, range, value, display)
 
   return offset + size_of.retransmitmethod
 end
@@ -2508,7 +2594,7 @@ dissect.symbol_index_mapping_request_message = function(buffer, offset, packet, 
   if show.symbol_index_mapping_request_message then
     local range = buffer(offset, 17)
     local display = display.symbol_index_mapping_request_message(buffer, packet, parent)
-    parent = parent:add(nyse_bqt_xdp_1_7_a.fields.symbol_index_mapping_request_message, range, display)
+    parent = parent:add(nyse_bqt_xdp_v2_1_a.fields.symbol_index_mapping_request_message, range, display)
   end
 
   return dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, parent)
@@ -2535,7 +2621,7 @@ dissect.heartbeat_response_message = function(buffer, offset, packet, parent)
   if show.heartbeat_response_message then
     local range = buffer(offset, 10)
     local display = display.heartbeat_response_message(buffer, packet, parent)
-    parent = parent:add(nyse_bqt_xdp_1_7_a.fields.heartbeat_response_message, range, display)
+    parent = parent:add(nyse_bqt_xdp_v2_1_a.fields.heartbeat_response_message, range, display)
   end
 
   return dissect.heartbeat_response_message_fields(buffer, offset, packet, parent)
@@ -2574,7 +2660,7 @@ display.status = function(value)
     return "Status: Invalid Product ID (8)"
   end
   if value == "9" then
-    return "Status: 1 Invalid MsgType or 2 Mismatch between MsgType and MsgSize (9)"
+    return "Status: Invalid MsgType or Mismatch between MsgType and MsgSize (9)"
   end
 
   return "Status: Unknown("..value..")"
@@ -2586,7 +2672,7 @@ dissect.status = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.status, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.status, range, value, display)
 
   return offset + size_of.status
 end
@@ -2605,7 +2691,7 @@ dissect.requestseqnum = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.requestseqnum(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.requestseqnum, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.requestseqnum, range, value, display)
 
   return offset + size_of.requestseqnum
 end
@@ -2649,7 +2735,7 @@ dissect.request_response_message = function(buffer, offset, packet, parent)
   if show.request_response_message then
     local range = buffer(offset, 25)
     local display = display.request_response_message(buffer, packet, parent)
-    parent = parent:add(nyse_bqt_xdp_1_7_a.fields.request_response_message, range, display)
+    parent = parent:add(nyse_bqt_xdp_v2_1_a.fields.request_response_message, range, display)
   end
 
   return dissect.request_response_message_fields(buffer, offset, packet, parent)
@@ -2688,7 +2774,7 @@ dissect.retransmission_request_message = function(buffer, offset, packet, parent
   if show.retransmission_request_message then
     local range = buffer(offset, 20)
     local display = display.retransmission_request_message(buffer, packet, parent)
-    parent = parent:add(nyse_bqt_xdp_1_7_a.fields.retransmission_request_message, range, display)
+    parent = parent:add(nyse_bqt_xdp_v2_1_a.fields.retransmission_request_message, range, display)
   end
 
   return dissect.retransmission_request_message_fields(buffer, offset, packet, parent)
@@ -2708,7 +2794,7 @@ dissect.unit_of_trade = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.unit_of_trade(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.unit_of_trade, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.unit_of_trade, range, value, display)
 
   return offset + size_of.unit_of_trade
 end
@@ -2727,7 +2813,7 @@ dissect.mpv = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.mpv(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.mpv, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.mpv, range, value, display)
 
   return offset + size_of.mpv
 end
@@ -2753,7 +2839,7 @@ dissect.round_lot = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.round_lot(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.round_lot, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.round_lot, range, value, display)
 
   return offset + size_of.round_lot
 end
@@ -2782,7 +2868,7 @@ dissect.price_resolution = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.price_resolution(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.price_resolution, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.price_resolution, range, value, display)
 
   return offset + size_of.price_resolution
 end
@@ -2801,7 +2887,7 @@ dissect.prevclosevolume = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.prevclosevolume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.prevclosevolume, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.prevclosevolume, range, value, display)
 
   return offset + size_of.prevclosevolume
 end
@@ -2820,7 +2906,7 @@ dissect.prevcloseprice = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.prevcloseprice(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.prevcloseprice, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.prevcloseprice, range, value, display)
 
   return offset + size_of.prevcloseprice
 end
@@ -2839,7 +2925,7 @@ dissect.lot_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.lot_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.lot_size, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.lot_size, range, value, display)
 
   return offset + size_of.lot_size
 end
@@ -2907,7 +2993,7 @@ dissect.security_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.security_type, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.security_type, range, value, display)
 
   return offset + size_of.security_type
 end
@@ -2926,7 +3012,7 @@ dissect.pricescalecode = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.pricescalecode(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.pricescalecode, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.pricescalecode, range, value, display)
 
   return offset + size_of.pricescalecode
 end
@@ -2970,7 +3056,7 @@ dissect.exchange_code = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.exchange_code(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.exchange_code, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.exchange_code, range, value, display)
 
   return offset + size_of.exchange_code
 end
@@ -2989,7 +3075,7 @@ dissect.system_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.system_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.system_id, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.system_id, range, value, display)
 
   return offset + size_of.system_id
 end
@@ -3008,7 +3094,7 @@ dissect.reserved1 = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.reserved1, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.reserved1, range, value, display)
 
   return offset + size_of.reserved1
 end
@@ -3027,7 +3113,7 @@ dissect.symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.symbol, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.symbol, range, value, display)
 
   return offset + size_of.symbol
 end
@@ -3098,7 +3184,7 @@ dissect.symbol_index_mapping_message = function(buffer, offset, packet, parent)
   if show.symbol_index_mapping_message then
     local range = buffer(offset, 40)
     local display = display.symbol_index_mapping_message(buffer, packet, parent)
-    parent = parent:add(nyse_bqt_xdp_1_7_a.fields.symbol_index_mapping_message, range, display)
+    parent = parent:add(nyse_bqt_xdp_v2_1_a.fields.symbol_index_mapping_message, range, display)
   end
 
   return dissect.symbol_index_mapping_message_fields(buffer, offset, packet, parent)
@@ -3134,7 +3220,7 @@ dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   if show.sequence_number_reset_message then
     local range = buffer(offset, 10)
     local display = display.sequence_number_reset_message(buffer, packet, parent)
-    parent = parent:add(nyse_bqt_xdp_1_7_a.fields.sequence_number_reset_message, range, display)
+    parent = parent:add(nyse_bqt_xdp_v2_1_a.fields.sequence_number_reset_message, range, display)
   end
 
   return dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
@@ -3212,7 +3298,7 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Consolidated Stock Summary Message
   if code == 229 then
-    return 41
+    return size_of.consolidated_stock_summary_message(buffer, offset)
   end
   -- Size of Consolidated Volume Message
   if code == 240 then
@@ -3327,7 +3413,7 @@ dissect.payload = function(buffer, offset, packet, parent)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.payload(buffer, packet, parent)
-  local element = parent:add(nyse_bqt_xdp_1_7_a.fields.payload, range, display)
+  local element = parent:add(nyse_bqt_xdp_v2_1_a.fields.payload, range, display)
 
   return dissect.payload_branches(code, buffer, offset, packet, element)
 end
@@ -3405,7 +3491,7 @@ dissect.message_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.message_type, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -3424,7 +3510,7 @@ dissect.message_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.message_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.message_size, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.message_size, range, value, display)
 
   return offset + size_of.message_size
 end
@@ -3453,7 +3539,7 @@ dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     local range = buffer(offset, 4)
     local display = display.message_header(buffer, packet, parent)
-    parent = parent:add(nyse_bqt_xdp_1_7_a.fields.message_header, range, display)
+    parent = parent:add(nyse_bqt_xdp_v2_1_a.fields.message_header, range, display)
   end
 
   return dissect.message_header_fields(buffer, offset, packet, parent)
@@ -3498,7 +3584,7 @@ dissect.message = function(buffer, offset, packet, parent)
     local length = size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.message(buffer, packet, parent)
-    parent = parent:add(nyse_bqt_xdp_1_7_a.fields.message, range, display)
+    parent = parent:add(nyse_bqt_xdp_v2_1_a.fields.message, range, display)
   end
 
   return dissect.message_fields(buffer, offset, packet, parent)
@@ -3518,7 +3604,7 @@ dissect.nanoseconds = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.nanoseconds(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.nanoseconds, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.nanoseconds, range, value, display)
 
   return offset + size_of.nanoseconds
 end
@@ -3537,7 +3623,7 @@ dissect.timestamp = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.timestamp, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.timestamp, range, value, display)
 
   return offset + size_of.timestamp
 end
@@ -3556,7 +3642,7 @@ dissect.sequence_number = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.sequence_number, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.sequence_number, range, value, display)
 
   return offset + size_of.sequence_number
 end
@@ -3576,7 +3662,7 @@ dissect.message_count = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.message_count, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -3629,7 +3715,7 @@ dissect.delivery_flag = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.delivery_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.delivery_flag, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.delivery_flag, range, value, display)
 
   return offset + size_of.delivery_flag
 end
@@ -3648,7 +3734,7 @@ dissect.packet_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.packet_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_1_7_a.fields.packet_size, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.packet_size, range, value, display)
 
   return offset + size_of.packet_size
 end
@@ -3689,7 +3775,7 @@ dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     local range = buffer(offset, 16)
     local display = display.packet_header(buffer, packet, parent)
-    parent = parent:add(nyse_bqt_xdp_1_7_a.fields.packet_header, range, display)
+    parent = parent:add(nyse_bqt_xdp_v2_1_a.fields.packet_header, range, display)
   end
 
   return dissect.packet_header_fields(buffer, offset, packet, parent)
@@ -3716,23 +3802,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function nyse_bqt_xdp_1_7_a.init()
+function nyse_bqt_xdp_v2_1_a.init()
 end
 
--- Dissector for Nyse Bqt Xdp 1.7.a
-function nyse_bqt_xdp_1_7_a.dissector(buffer, packet, parent)
+-- Dissector for Nyse Bqt Xdp 2.1.a
+function nyse_bqt_xdp_v2_1_a.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = nyse_bqt_xdp_1_7_a.name
+  packet.cols.protocol = nyse_bqt_xdp_v2_1_a.name
 
   -- Dissect protocol
-  local protocol = parent:add(nyse_bqt_xdp_1_7_a, buffer(), nyse_bqt_xdp_1_7_a.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(nyse_bqt_xdp_v2_1_a, buffer(), nyse_bqt_xdp_v2_1_a.description, "("..buffer:len().." Bytes)")
   local protocol_size = dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, nyse_bqt_xdp_1_7_a)
+udp_table:add(65333, nyse_bqt_xdp_v2_1_a)
 
 
 -----------------------------------------------------------------------
@@ -3740,25 +3826,25 @@ udp_table:add(65333, nyse_bqt_xdp_1_7_a)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.nyse_bqt_xdp_1_7_a_packet_size = function(buffer)
+verify.nyse_bqt_xdp_v2_1_a_packet_size = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Nyse Bqt Xdp 1.7.a
-local function nyse_bqt_xdp_1_7_a_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Nyse Bqt Xdp 2.1.a
+local function nyse_bqt_xdp_v2_1_a_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.nyse_bqt_xdp_1_7_a_packet_size(buffer) then return false end
+  if not verify.nyse_bqt_xdp_v2_1_a_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = nyse_bqt_xdp_1_7_a
-  nyse_bqt_xdp_1_7_a.dissector(buffer, packet, parent)
+  packet.conversation = nyse_bqt_xdp_v2_1_a
+  nyse_bqt_xdp_v2_1_a.dissector(buffer, packet, parent)
 
   return true
 end
 
--- Register Nyse Bqt Xdp 1.7.a Heuristic
-nyse_bqt_xdp_1_7_a:register_heuristic("udp", nyse_bqt_xdp_1_7_a_heuristic)
+-- Register Nyse Bqt Xdp 2.1.a Heuristic
+nyse_bqt_xdp_v2_1_a:register_heuristic("udp", nyse_bqt_xdp_v2_1_a_heuristic)
 
 -----------------------------------------------------------------------
 -- This script was generated by the open markets initiative
@@ -3766,8 +3852,8 @@ nyse_bqt_xdp_1_7_a:register_heuristic("udp", nyse_bqt_xdp_1_7_a_heuristic)
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
 -- Protocol:
--- Version: 1.7.a
--- Date: Monday, July 24, 2017
+-- Version: 2.1.a
+-- Date: Wednesday, April 4, 2018
 -- Script:
 -- Source Version: 1.3.0.0
 -- Compiler Version: 1.1
