@@ -39,6 +39,7 @@ For configuration information: [Wireshark Configuration Files.](https://www.wire
 |[Nyse](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nyse "New York Stock Exchange Dissectors") | IntegratedFeed | Xdp | [2.1](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nyse/Nyse.IntegratedFeed.Xdp.v2.1.Script.Dissector.lua "New York Stock Exchange 2.1 Script Dissector") | 1/29/2018 | 4007 | Verified|
 |[Nyse Arca](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nyse "New York Stock Exchange Dissectors") | Bbo | Xdp | [2.4.c](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nyse/Nyse.Arca.Bbo.Xdp.v2.4.c.Script.Dissector.lua "New York Stock Exchange 2.4.c Script Dissector") | 7/13/2016 | 2572 | Verified|
 |[Nyse Client](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nyse "New York Stock Exchange Dissectors") | Bbo | Xdp | [2.4.g](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nyse/Nyse.Client.Bbo.Xdp.v2.4.g.Script.Dissector.lua "New York Stock Exchange 2.4.g Script Dissector") | 1/29/2018 | 2569 | Verified|
+|[Phlx](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Phlx "Philadelphia Stock Exchange Dissectors") | Itch | MarketDepth | [1.5](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Phlx/Phlx.Itch.MarketDepth.v1.5.Script.Dissector.lua "Philadelphia Stock Exchange 1.5 Script Dissector") | 9/30/2015 | 3088 | Untested|
 
 Note: Some packets contain enough information to programmatically determine the correct protocol specification.  *Some do not.*  If you add multiple dissectors to your plugins folder, wireshark will dissect each "conversation" based on the first matching protocol.
 
@@ -58,6 +59,7 @@ Production captures are required for protocol verification.  If your organizatio
 
 The Open Markets Initiative (Omi) is a group of technologists dedicated to enhancing the stability of electronic financial markets using modern development methods.
 
+For full project directory: [Omi](https://github.com/Open-Markets-Initiative/Directory "Open Markets Initiative Repository Directory")
 Any similarities between existing people, places and/or protocols is purely incidental.
 
 Enjoy.
