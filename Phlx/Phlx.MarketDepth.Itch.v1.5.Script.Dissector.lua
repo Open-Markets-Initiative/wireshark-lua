@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Phlx Itch MarketDepth 1.5 Protocol
-local phlx_itch_marketdepth_v1_5 = Proto("Phlx.Itch.MarketDepth.v1.5.Lua", "Phlx Itch MarketDepth 1.5")
+-- Phlx MarketDepth Itch 1.5 Protocol
+local phlx_marketdepth_itch_v1_5 = Proto("Phlx.MarketDepth.Itch.v1.5.Lua", "Phlx MarketDepth Itch 1.5")
 
 -- Component Tables
 local show = {}
@@ -19,7 +19,7 @@ local verify = {}
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Phlx Itch MarketDepth 1.5 Format Options
+-- Phlx MarketDepth Itch 1.5 Format Options
 format.add_order_message_long_form = true
 format.add_order_message_short_form = true
 format.add_quote_message_long_form = true
@@ -53,7 +53,7 @@ format.system_event_message = true
 format.trading_action_message = true
 format.payload = true
 
--- Phlx Itch MarketDepth 1.5 Element Dissection Options
+-- Phlx MarketDepth Itch 1.5 Element Dissection Options
 show.add_order_message_long_form = true
 show.add_order_message_short_form = true
 show.add_quote_message_long_form = true
@@ -91,101 +91,101 @@ show.payload = false
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Phlx Itch MarketDepth 1.5 Fields
-phlx_itch_marketdepth_v1_5.fields.add_order_message_long_form = ProtoField.new("Add Order Message Long Form", "phlx.itch.marketdepth.v1.5.addordermessagelongform", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.add_order_message_short_form = ProtoField.new("Add Order Message Short Form", "phlx.itch.marketdepth.v1.5.addordermessageshortform", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.add_quote_message_long_form = ProtoField.new("Add Quote Message Long Form", "phlx.itch.marketdepth.v1.5.addquotemessagelongform", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.add_quote_message_short_form = ProtoField.new("Add Quote Message Short Form", "phlx.itch.marketdepth.v1.5.addquotemessageshortform", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.ask = ProtoField.new("Ask", "phlx.itch.marketdepth.v1.5.ask", ftypes.UINT32)
-phlx_itch_marketdepth_v1_5.fields.ask_price = ProtoField.new("Ask Price", "phlx.itch.marketdepth.v1.5.askprice", ftypes.UINT16)
-phlx_itch_marketdepth_v1_5.fields.ask_reference_number_delta = ProtoField.new("Ask Reference Number Delta", "phlx.itch.marketdepth.v1.5.askreferencenumberdelta", ftypes.UINT32)
-phlx_itch_marketdepth_v1_5.fields.ask_size = ProtoField.new("Ask Size", "phlx.itch.marketdepth.v1.5.asksize", ftypes.UINT16)
-phlx_itch_marketdepth_v1_5.fields.auction_id = ProtoField.new("Auction ID", "phlx.itch.marketdepth.v1.5.auctionid", ftypes.UINT32)
-phlx_itch_marketdepth_v1_5.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "phlx.itch.marketdepth.v1.5.auctionnotificationmessage", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.auction_type = ProtoField.new("Auction Type", "phlx.itch.marketdepth.v1.5.auctiontype", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.base_reference_message = ProtoField.new("Base Reference Message", "phlx.itch.marketdepth.v1.5.basereferencemessage", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.base_reference_number = ProtoField.new("Base Reference Number", "phlx.itch.marketdepth.v1.5.basereferencenumber", ftypes.UINT64)
-phlx_itch_marketdepth_v1_5.fields.bid = ProtoField.new("Bid", "phlx.itch.marketdepth.v1.5.bid", ftypes.UINT32)
-phlx_itch_marketdepth_v1_5.fields.bid_price = ProtoField.new("Bid Price", "phlx.itch.marketdepth.v1.5.bidprice", ftypes.UINT16)
-phlx_itch_marketdepth_v1_5.fields.bid_reference_number_delta = ProtoField.new("Bid Reference Number Delta", "phlx.itch.marketdepth.v1.5.bidreferencenumberdelta", ftypes.UINT32)
-phlx_itch_marketdepth_v1_5.fields.bid_size = ProtoField.new("Bid Size", "phlx.itch.marketdepth.v1.5.bidsize", ftypes.UINT16)
-phlx_itch_marketdepth_v1_5.fields.block_delete_message = ProtoField.new("Block Delete Message", "phlx.itch.marketdepth.v1.5.blockdeletemessage", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.broken_trade_order_execution_message = ProtoField.new("Broken Trade Order Execution Message", "phlx.itch.marketdepth.v1.5.brokentradeorderexecutionmessage", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.cancelled_contracts = ProtoField.new("Cancelled Contracts", "phlx.itch.marketdepth.v1.5.cancelledcontracts", ftypes.UINT32)
-phlx_itch_marketdepth_v1_5.fields.cancelled_reference_number_delta = ProtoField.new("Cancelled Reference Number Delta", "phlx.itch.marketdepth.v1.5.cancelledreferencenumberdelta", ftypes.UINT32)
-phlx_itch_marketdepth_v1_5.fields.change_reason = ProtoField.new("Change Reason", "phlx.itch.marketdepth.v1.5.changereason", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.count = ProtoField.new("Count", "phlx.itch.marketdepth.v1.5.count", ftypes.UINT16)
-phlx_itch_marketdepth_v1_5.fields.cross_number = ProtoField.new("Cross Number", "phlx.itch.marketdepth.v1.5.crossnumber", ftypes.UINT32)
-phlx_itch_marketdepth_v1_5.fields.cross_type = ProtoField.new("Cross Type", "phlx.itch.marketdepth.v1.5.crosstype", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.current_trading_state = ProtoField.new("Current Trading State", "phlx.itch.marketdepth.v1.5.currenttradingstate", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.customer_indicator = ProtoField.new("Customer Indicator", "phlx.itch.marketdepth.v1.5.customerindicator", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.event_code = ProtoField.new("Event Code", "phlx.itch.marketdepth.v1.5.eventcode", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.executed_contracts = ProtoField.new("Executed Contracts", "phlx.itch.marketdepth.v1.5.executedcontracts", ftypes.UINT32)
-phlx_itch_marketdepth_v1_5.fields.expiration_date = ProtoField.new("Expiration Date", "phlx.itch.marketdepth.v1.5.expirationdate", ftypes.UINT8)
-phlx_itch_marketdepth_v1_5.fields.expiration_month = ProtoField.new("Expiration Month", "phlx.itch.marketdepth.v1.5.expirationmonth", ftypes.UINT8)
-phlx_itch_marketdepth_v1_5.fields.expiration_year = ProtoField.new("Expiration Year", "phlx.itch.marketdepth.v1.5.expirationyear", ftypes.UINT8)
-phlx_itch_marketdepth_v1_5.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "phlx.itch.marketdepth.v1.5.explicitstrikeprice", ftypes.UINT32)
-phlx_itch_marketdepth_v1_5.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "phlx.itch.marketdepth.v1.5.imbalancedirection", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.imbalance_price = ProtoField.new("Imbalance Price", "phlx.itch.marketdepth.v1.5.imbalanceprice", ftypes.UINT32)
-phlx_itch_marketdepth_v1_5.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "phlx.itch.marketdepth.v1.5.imbalancevolume", ftypes.UINT32)
-phlx_itch_marketdepth_v1_5.fields.length = ProtoField.new("Length", "phlx.itch.marketdepth.v1.5.length", ftypes.UINT16)
-phlx_itch_marketdepth_v1_5.fields.market_side = ProtoField.new("Market Side", "phlx.itch.marketdepth.v1.5.marketside", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.match_number = ProtoField.new("Match Number", "phlx.itch.marketdepth.v1.5.matchnumber", ftypes.UINT32)
-phlx_itch_marketdepth_v1_5.fields.message = ProtoField.new("Message", "phlx.itch.marketdepth.v1.5.message", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.message_header = ProtoField.new("Message Header", "phlx.itch.marketdepth.v1.5.messageheader", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.message_type = ProtoField.new("Message Type", "phlx.itch.marketdepth.v1.5.messagetype", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.mpv = ProtoField.new("Mpv", "phlx.itch.marketdepth.v1.5.mpv", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.new_reference_number_delta = ProtoField.new("New Reference Number Delta", "phlx.itch.marketdepth.v1.5.newreferencenumberdelta", ftypes.UINT32)
-phlx_itch_marketdepth_v1_5.fields.non_auction_options_trade_message = ProtoField.new("Non Auction Options Trade Message", "phlx.itch.marketdepth.v1.5.nonauctionoptionstrademessage", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.number_of_reference_number_deltas = ProtoField.new("Number of Reference Number Deltas", "phlx.itch.marketdepth.v1.5.numberofreferencenumberdeltas", ftypes.UINT16)
-phlx_itch_marketdepth_v1_5.fields.open_state = ProtoField.new("Open State", "phlx.itch.marketdepth.v1.5.openstate", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.option_directory_message = ProtoField.new("Option Directory Message", "phlx.itch.marketdepth.v1.5.optiondirectorymessage", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.option_id = ProtoField.new("Option ID", "phlx.itch.marketdepth.v1.5.optionid", ftypes.UINT32)
-phlx_itch_marketdepth_v1_5.fields.option_type = ProtoField.new("Option Type", "phlx.itch.marketdepth.v1.5.optiontype", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.options_closing_type = ProtoField.new("Options Closing Type", "phlx.itch.marketdepth.v1.5.optionsclosingtype", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.options_cross_trade_message = ProtoField.new("Options Cross Trade Message", "phlx.itch.marketdepth.v1.5.optionscrosstrademessage", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.order_id = ProtoField.new("Order ID", "phlx.itch.marketdepth.v1.5.orderid", ftypes.UINT32)
-phlx_itch_marketdepth_v1_5.fields.order_reference_number_delta = ProtoField.new("Order Reference Number Delta", "phlx.itch.marketdepth.v1.5.orderreferencenumberdelta", ftypes.UINT32)
-phlx_itch_marketdepth_v1_5.fields.order_replace_message_short_form = ProtoField.new("Order Replace Message Short Form", "phlx.itch.marketdepth.v1.5.orderreplacemessageshortform", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.original_ask_reference_number_delta = ProtoField.new("Original Ask Reference Number Delta", "phlx.itch.marketdepth.v1.5.originalaskreferencenumberdelta", ftypes.UINT32)
-phlx_itch_marketdepth_v1_5.fields.original_bid_reference_number_delta = ProtoField.new("Original Bid Reference Number Delta", "phlx.itch.marketdepth.v1.5.originalbidreferencenumberdelta", ftypes.UINT32)
-phlx_itch_marketdepth_v1_5.fields.original_reference_number_delta = ProtoField.new("Original Reference Number Delta", "phlx.itch.marketdepth.v1.5.originalreferencenumberdelta", ftypes.UINT32)
-phlx_itch_marketdepth_v1_5.fields.packet = ProtoField.new("Packet", "phlx.itch.marketdepth.v1.5.packet", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.packet_header = ProtoField.new("Packet Header", "phlx.itch.marketdepth.v1.5.packetheader", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.paired_contracts = ProtoField.new("Paired Contracts", "phlx.itch.marketdepth.v1.5.pairedcontracts", ftypes.UINT32)
-phlx_itch_marketdepth_v1_5.fields.payload = ProtoField.new("Payload", "phlx.itch.marketdepth.v1.5.payload", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.price = ProtoField.new("Price", "phlx.itch.marketdepth.v1.5.price", ftypes.UINT16)
-phlx_itch_marketdepth_v1_5.fields.printable = ProtoField.new("Printable", "phlx.itch.marketdepth.v1.5.printable", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.quote_delete_message = ProtoField.new("Quote Delete Message", "phlx.itch.marketdepth.v1.5.quotedeletemessage", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.quote_replace_long_form_message = ProtoField.new("Quote Replace Long Form Message", "phlx.itch.marketdepth.v1.5.quotereplacelongformmessage", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.quote_replace_short_form_message = ProtoField.new("Quote Replace Short Form Message", "phlx.itch.marketdepth.v1.5.quotereplaceshortformmessage", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.reference_number_delta = ProtoField.new("Reference Number Delta", "phlx.itch.marketdepth.v1.5.referencenumberdelta", ftypes.UINT32)
-phlx_itch_marketdepth_v1_5.fields.reserved = ProtoField.new("Reserved", "phlx.itch.marketdepth.v1.5.reserved", ftypes.BYTES)
-phlx_itch_marketdepth_v1_5.fields.second = ProtoField.new("Second", "phlx.itch.marketdepth.v1.5.second", ftypes.UINT32)
-phlx_itch_marketdepth_v1_5.fields.seconds_message = ProtoField.new("Seconds Message", "phlx.itch.marketdepth.v1.5.secondsmessage", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.security_open_message = ProtoField.new("Security Open Message", "phlx.itch.marketdepth.v1.5.securityopenmessage", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.security_symbol = ProtoField.new("Security Symbol", "phlx.itch.marketdepth.v1.5.securitysymbol", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.sequence = ProtoField.new("Sequence", "phlx.itch.marketdepth.v1.5.sequence", ftypes.UINT64)
-phlx_itch_marketdepth_v1_5.fields.session = ProtoField.new("Session", "phlx.itch.marketdepth.v1.5.session", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.single_side_cancel_message = ProtoField.new("Single Side Cancel Message", "phlx.itch.marketdepth.v1.5.singlesidecancelmessage", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.single_side_delete_message = ProtoField.new("Single Side Delete Message", "phlx.itch.marketdepth.v1.5.singlesidedeletemessage", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.single_side_executed_message = ProtoField.new("Single Side Executed Message", "phlx.itch.marketdepth.v1.5.singlesideexecutedmessage", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.single_side_executed_with_price_message = ProtoField.new("Single Side Executed with Price Message", "phlx.itch.marketdepth.v1.5.singlesideexecutedwithpricemessage", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.single_side_replace_long_form_message = ProtoField.new("Single Side Replace Long Form Message", "phlx.itch.marketdepth.v1.5.singlesidereplacelongformmessage", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.single_side_replace_message_long_form = ProtoField.new("Single Side Replace Message Long Form", "phlx.itch.marketdepth.v1.5.singlesidereplacemessagelongform", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.single_side_replace_message_short_form = ProtoField.new("Single Side Replace Message Short Form", "phlx.itch.marketdepth.v1.5.singlesidereplacemessageshortform", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.single_side_update_message = ProtoField.new("Single Side Update Message", "phlx.itch.marketdepth.v1.5.singlesideupdatemessage", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.source = ProtoField.new("Source", "phlx.itch.marketdepth.v1.5.source", ftypes.UINT8)
-phlx_itch_marketdepth_v1_5.fields.system_event_message = ProtoField.new("System Event Message", "phlx.itch.marketdepth.v1.5.systemeventmessage", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.timestamp = ProtoField.new("Timestamp", "phlx.itch.marketdepth.v1.5.timestamp", ftypes.UINT32)
-phlx_itch_marketdepth_v1_5.fields.tradable = ProtoField.new("Tradable", "phlx.itch.marketdepth.v1.5.tradable", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.trade_indicator = ProtoField.new("Trade Indicator", "phlx.itch.marketdepth.v1.5.tradeindicator", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.trading_action_message = ProtoField.new("Trading Action Message", "phlx.itch.marketdepth.v1.5.tradingactionmessage", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "phlx.itch.marketdepth.v1.5.underlyingsymbol", ftypes.STRING)
-phlx_itch_marketdepth_v1_5.fields.volume = ProtoField.new("Volume", "phlx.itch.marketdepth.v1.5.volume", ftypes.UINT16)
+-- Phlx MarketDepth Itch 1.5 Fields
+phlx_marketdepth_itch_v1_5.fields.add_order_message_long_form = ProtoField.new("Add Order Message Long Form", "phlx.marketdepth.itch.v1.5.addordermessagelongform", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.add_order_message_short_form = ProtoField.new("Add Order Message Short Form", "phlx.marketdepth.itch.v1.5.addordermessageshortform", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.add_quote_message_long_form = ProtoField.new("Add Quote Message Long Form", "phlx.marketdepth.itch.v1.5.addquotemessagelongform", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.add_quote_message_short_form = ProtoField.new("Add Quote Message Short Form", "phlx.marketdepth.itch.v1.5.addquotemessageshortform", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.ask = ProtoField.new("Ask", "phlx.marketdepth.itch.v1.5.ask", ftypes.UINT32)
+phlx_marketdepth_itch_v1_5.fields.ask_price = ProtoField.new("Ask Price", "phlx.marketdepth.itch.v1.5.askprice", ftypes.UINT16)
+phlx_marketdepth_itch_v1_5.fields.ask_reference_number_delta = ProtoField.new("Ask Reference Number Delta", "phlx.marketdepth.itch.v1.5.askreferencenumberdelta", ftypes.UINT32)
+phlx_marketdepth_itch_v1_5.fields.ask_size = ProtoField.new("Ask Size", "phlx.marketdepth.itch.v1.5.asksize", ftypes.UINT16)
+phlx_marketdepth_itch_v1_5.fields.auction_id = ProtoField.new("Auction ID", "phlx.marketdepth.itch.v1.5.auctionid", ftypes.UINT32)
+phlx_marketdepth_itch_v1_5.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "phlx.marketdepth.itch.v1.5.auctionnotificationmessage", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.auction_type = ProtoField.new("Auction Type", "phlx.marketdepth.itch.v1.5.auctiontype", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.base_reference_message = ProtoField.new("Base Reference Message", "phlx.marketdepth.itch.v1.5.basereferencemessage", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.base_reference_number = ProtoField.new("Base Reference Number", "phlx.marketdepth.itch.v1.5.basereferencenumber", ftypes.UINT64)
+phlx_marketdepth_itch_v1_5.fields.bid = ProtoField.new("Bid", "phlx.marketdepth.itch.v1.5.bid", ftypes.UINT32)
+phlx_marketdepth_itch_v1_5.fields.bid_price = ProtoField.new("Bid Price", "phlx.marketdepth.itch.v1.5.bidprice", ftypes.UINT16)
+phlx_marketdepth_itch_v1_5.fields.bid_reference_number_delta = ProtoField.new("Bid Reference Number Delta", "phlx.marketdepth.itch.v1.5.bidreferencenumberdelta", ftypes.UINT32)
+phlx_marketdepth_itch_v1_5.fields.bid_size = ProtoField.new("Bid Size", "phlx.marketdepth.itch.v1.5.bidsize", ftypes.UINT16)
+phlx_marketdepth_itch_v1_5.fields.block_delete_message = ProtoField.new("Block Delete Message", "phlx.marketdepth.itch.v1.5.blockdeletemessage", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.broken_trade_order_execution_message = ProtoField.new("Broken Trade Order Execution Message", "phlx.marketdepth.itch.v1.5.brokentradeorderexecutionmessage", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.cancelled_contracts = ProtoField.new("Cancelled Contracts", "phlx.marketdepth.itch.v1.5.cancelledcontracts", ftypes.UINT32)
+phlx_marketdepth_itch_v1_5.fields.cancelled_reference_number_delta = ProtoField.new("Cancelled Reference Number Delta", "phlx.marketdepth.itch.v1.5.cancelledreferencenumberdelta", ftypes.UINT32)
+phlx_marketdepth_itch_v1_5.fields.change_reason = ProtoField.new("Change Reason", "phlx.marketdepth.itch.v1.5.changereason", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.count = ProtoField.new("Count", "phlx.marketdepth.itch.v1.5.count", ftypes.UINT16)
+phlx_marketdepth_itch_v1_5.fields.cross_number = ProtoField.new("Cross Number", "phlx.marketdepth.itch.v1.5.crossnumber", ftypes.UINT32)
+phlx_marketdepth_itch_v1_5.fields.cross_type = ProtoField.new("Cross Type", "phlx.marketdepth.itch.v1.5.crosstype", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.current_trading_state = ProtoField.new("Current Trading State", "phlx.marketdepth.itch.v1.5.currenttradingstate", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.customer_indicator = ProtoField.new("Customer Indicator", "phlx.marketdepth.itch.v1.5.customerindicator", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.event_code = ProtoField.new("Event Code", "phlx.marketdepth.itch.v1.5.eventcode", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.executed_contracts = ProtoField.new("Executed Contracts", "phlx.marketdepth.itch.v1.5.executedcontracts", ftypes.UINT32)
+phlx_marketdepth_itch_v1_5.fields.expiration_date = ProtoField.new("Expiration Date", "phlx.marketdepth.itch.v1.5.expirationdate", ftypes.UINT8)
+phlx_marketdepth_itch_v1_5.fields.expiration_month = ProtoField.new("Expiration Month", "phlx.marketdepth.itch.v1.5.expirationmonth", ftypes.UINT8)
+phlx_marketdepth_itch_v1_5.fields.expiration_year = ProtoField.new("Expiration Year", "phlx.marketdepth.itch.v1.5.expirationyear", ftypes.UINT8)
+phlx_marketdepth_itch_v1_5.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "phlx.marketdepth.itch.v1.5.explicitstrikeprice", ftypes.UINT32)
+phlx_marketdepth_itch_v1_5.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "phlx.marketdepth.itch.v1.5.imbalancedirection", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.imbalance_price = ProtoField.new("Imbalance Price", "phlx.marketdepth.itch.v1.5.imbalanceprice", ftypes.UINT32)
+phlx_marketdepth_itch_v1_5.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "phlx.marketdepth.itch.v1.5.imbalancevolume", ftypes.UINT32)
+phlx_marketdepth_itch_v1_5.fields.length = ProtoField.new("Length", "phlx.marketdepth.itch.v1.5.length", ftypes.UINT16)
+phlx_marketdepth_itch_v1_5.fields.market_side = ProtoField.new("Market Side", "phlx.marketdepth.itch.v1.5.marketside", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.match_number = ProtoField.new("Match Number", "phlx.marketdepth.itch.v1.5.matchnumber", ftypes.UINT32)
+phlx_marketdepth_itch_v1_5.fields.message = ProtoField.new("Message", "phlx.marketdepth.itch.v1.5.message", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.message_header = ProtoField.new("Message Header", "phlx.marketdepth.itch.v1.5.messageheader", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.message_type = ProtoField.new("Message Type", "phlx.marketdepth.itch.v1.5.messagetype", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.mpv = ProtoField.new("Mpv", "phlx.marketdepth.itch.v1.5.mpv", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.new_reference_number_delta = ProtoField.new("New Reference Number Delta", "phlx.marketdepth.itch.v1.5.newreferencenumberdelta", ftypes.UINT32)
+phlx_marketdepth_itch_v1_5.fields.non_auction_options_trade_message = ProtoField.new("Non Auction Options Trade Message", "phlx.marketdepth.itch.v1.5.nonauctionoptionstrademessage", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.number_of_reference_number_deltas = ProtoField.new("Number of Reference Number Deltas", "phlx.marketdepth.itch.v1.5.numberofreferencenumberdeltas", ftypes.UINT16)
+phlx_marketdepth_itch_v1_5.fields.open_state = ProtoField.new("Open State", "phlx.marketdepth.itch.v1.5.openstate", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.option_directory_message = ProtoField.new("Option Directory Message", "phlx.marketdepth.itch.v1.5.optiondirectorymessage", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.option_id = ProtoField.new("Option ID", "phlx.marketdepth.itch.v1.5.optionid", ftypes.UINT32)
+phlx_marketdepth_itch_v1_5.fields.option_type = ProtoField.new("Option Type", "phlx.marketdepth.itch.v1.5.optiontype", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.options_closing_type = ProtoField.new("Options Closing Type", "phlx.marketdepth.itch.v1.5.optionsclosingtype", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.options_cross_trade_message = ProtoField.new("Options Cross Trade Message", "phlx.marketdepth.itch.v1.5.optionscrosstrademessage", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.order_id = ProtoField.new("Order ID", "phlx.marketdepth.itch.v1.5.orderid", ftypes.UINT32)
+phlx_marketdepth_itch_v1_5.fields.order_reference_number_delta = ProtoField.new("Order Reference Number Delta", "phlx.marketdepth.itch.v1.5.orderreferencenumberdelta", ftypes.UINT32)
+phlx_marketdepth_itch_v1_5.fields.order_replace_message_short_form = ProtoField.new("Order Replace Message Short Form", "phlx.marketdepth.itch.v1.5.orderreplacemessageshortform", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.original_ask_reference_number_delta = ProtoField.new("Original Ask Reference Number Delta", "phlx.marketdepth.itch.v1.5.originalaskreferencenumberdelta", ftypes.UINT32)
+phlx_marketdepth_itch_v1_5.fields.original_bid_reference_number_delta = ProtoField.new("Original Bid Reference Number Delta", "phlx.marketdepth.itch.v1.5.originalbidreferencenumberdelta", ftypes.UINT32)
+phlx_marketdepth_itch_v1_5.fields.original_reference_number_delta = ProtoField.new("Original Reference Number Delta", "phlx.marketdepth.itch.v1.5.originalreferencenumberdelta", ftypes.UINT32)
+phlx_marketdepth_itch_v1_5.fields.packet = ProtoField.new("Packet", "phlx.marketdepth.itch.v1.5.packet", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.packet_header = ProtoField.new("Packet Header", "phlx.marketdepth.itch.v1.5.packetheader", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.paired_contracts = ProtoField.new("Paired Contracts", "phlx.marketdepth.itch.v1.5.pairedcontracts", ftypes.UINT32)
+phlx_marketdepth_itch_v1_5.fields.payload = ProtoField.new("Payload", "phlx.marketdepth.itch.v1.5.payload", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.price = ProtoField.new("Price", "phlx.marketdepth.itch.v1.5.price", ftypes.UINT16)
+phlx_marketdepth_itch_v1_5.fields.printable = ProtoField.new("Printable", "phlx.marketdepth.itch.v1.5.printable", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.quote_delete_message = ProtoField.new("Quote Delete Message", "phlx.marketdepth.itch.v1.5.quotedeletemessage", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.quote_replace_long_form_message = ProtoField.new("Quote Replace Long Form Message", "phlx.marketdepth.itch.v1.5.quotereplacelongformmessage", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.quote_replace_short_form_message = ProtoField.new("Quote Replace Short Form Message", "phlx.marketdepth.itch.v1.5.quotereplaceshortformmessage", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.reference_number_delta = ProtoField.new("Reference Number Delta", "phlx.marketdepth.itch.v1.5.referencenumberdelta", ftypes.UINT32)
+phlx_marketdepth_itch_v1_5.fields.reserved = ProtoField.new("Reserved", "phlx.marketdepth.itch.v1.5.reserved", ftypes.BYTES)
+phlx_marketdepth_itch_v1_5.fields.second = ProtoField.new("Second", "phlx.marketdepth.itch.v1.5.second", ftypes.UINT32)
+phlx_marketdepth_itch_v1_5.fields.seconds_message = ProtoField.new("Seconds Message", "phlx.marketdepth.itch.v1.5.secondsmessage", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.security_open_message = ProtoField.new("Security Open Message", "phlx.marketdepth.itch.v1.5.securityopenmessage", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.security_symbol = ProtoField.new("Security Symbol", "phlx.marketdepth.itch.v1.5.securitysymbol", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.sequence = ProtoField.new("Sequence", "phlx.marketdepth.itch.v1.5.sequence", ftypes.UINT64)
+phlx_marketdepth_itch_v1_5.fields.session = ProtoField.new("Session", "phlx.marketdepth.itch.v1.5.session", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.single_side_cancel_message = ProtoField.new("Single Side Cancel Message", "phlx.marketdepth.itch.v1.5.singlesidecancelmessage", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.single_side_delete_message = ProtoField.new("Single Side Delete Message", "phlx.marketdepth.itch.v1.5.singlesidedeletemessage", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.single_side_executed_message = ProtoField.new("Single Side Executed Message", "phlx.marketdepth.itch.v1.5.singlesideexecutedmessage", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.single_side_executed_with_price_message = ProtoField.new("Single Side Executed with Price Message", "phlx.marketdepth.itch.v1.5.singlesideexecutedwithpricemessage", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.single_side_replace_long_form_message = ProtoField.new("Single Side Replace Long Form Message", "phlx.marketdepth.itch.v1.5.singlesidereplacelongformmessage", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.single_side_replace_message_long_form = ProtoField.new("Single Side Replace Message Long Form", "phlx.marketdepth.itch.v1.5.singlesidereplacemessagelongform", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.single_side_replace_message_short_form = ProtoField.new("Single Side Replace Message Short Form", "phlx.marketdepth.itch.v1.5.singlesidereplacemessageshortform", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.single_side_update_message = ProtoField.new("Single Side Update Message", "phlx.marketdepth.itch.v1.5.singlesideupdatemessage", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.source = ProtoField.new("Source", "phlx.marketdepth.itch.v1.5.source", ftypes.UINT8)
+phlx_marketdepth_itch_v1_5.fields.system_event_message = ProtoField.new("System Event Message", "phlx.marketdepth.itch.v1.5.systemeventmessage", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.timestamp = ProtoField.new("Timestamp", "phlx.marketdepth.itch.v1.5.timestamp", ftypes.UINT32)
+phlx_marketdepth_itch_v1_5.fields.tradable = ProtoField.new("Tradable", "phlx.marketdepth.itch.v1.5.tradable", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.trade_indicator = ProtoField.new("Trade Indicator", "phlx.marketdepth.itch.v1.5.tradeindicator", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.trading_action_message = ProtoField.new("Trading Action Message", "phlx.marketdepth.itch.v1.5.tradingactionmessage", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "phlx.marketdepth.itch.v1.5.underlyingsymbol", ftypes.STRING)
+phlx_marketdepth_itch_v1_5.fields.volume = ProtoField.new("Volume", "phlx.marketdepth.itch.v1.5.volume", ftypes.UINT16)
 
 -----------------------------------------------------------------------
--- Dissect Phlx Itch MarketDepth 1.5
+-- Dissect Phlx MarketDepth Itch 1.5
 -----------------------------------------------------------------------
 
 -- Size: Reserved
@@ -202,7 +202,7 @@ dissect.reserved = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.reserved, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.reserved, range, value, display)
 
   return offset + size_of.reserved
 end
@@ -237,7 +237,7 @@ dissect.customer_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.customer_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.customer_indicator, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.customer_indicator, range, value, display)
 
   return offset + size_of.customer_indicator
 end
@@ -256,7 +256,7 @@ dissect.imbalance_volume = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.imbalance_volume(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.imbalance_volume, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.imbalance_volume, range, value, display)
 
   return offset + size_of.imbalance_volume
 end
@@ -275,7 +275,7 @@ dissect.imbalance_price = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.imbalance_price(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.imbalance_price, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.imbalance_price, range, value, display)
 
   return offset + size_of.imbalance_price
 end
@@ -294,7 +294,7 @@ dissect.option_id = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.option_id(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.option_id, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.option_id, range, value, display)
 
   return offset + size_of.option_id
 end
@@ -320,7 +320,7 @@ dissect.imbalance_direction = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.imbalance_direction(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.imbalance_direction, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.imbalance_direction, range, value, display)
 
   return offset + size_of.imbalance_direction
 end
@@ -339,7 +339,7 @@ dissect.paired_contracts = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.paired_contracts(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.paired_contracts, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.paired_contracts, range, value, display)
 
   return offset + size_of.paired_contracts
 end
@@ -368,7 +368,7 @@ dissect.auction_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.auction_type(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.auction_type, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.auction_type, range, value, display)
 
   return offset + size_of.auction_type
 end
@@ -387,7 +387,7 @@ dissect.auction_id = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.auction_id(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.auction_id, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.auction_id, range, value, display)
 
   return offset + size_of.auction_id
 end
@@ -406,7 +406,7 @@ dissect.timestamp = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.timestamp, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.timestamp, range, value, display)
 
   return offset + size_of.timestamp
 end
@@ -459,7 +459,7 @@ dissect.auction_notification_message = function(buffer, offset, packet, parent)
   if show.auction_notification_message then
     local range = buffer(offset, 30)
     local display = display.auction_notification_message(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.auction_notification_message, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.auction_notification_message, range, display)
   end
 
   return dissect.auction_notification_message_fields(buffer, offset, packet, parent)
@@ -479,7 +479,7 @@ dissect.match_number = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.match_number(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.match_number, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.match_number, range, value, display)
 
   return offset + size_of.match_number
 end
@@ -498,7 +498,7 @@ dissect.cross_number = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.cross_number(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.cross_number, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.cross_number, range, value, display)
 
   return offset + size_of.cross_number
 end
@@ -530,7 +530,7 @@ dissect.broken_trade_order_execution_message = function(buffer, offset, packet, 
   if show.broken_trade_order_execution_message then
     local range = buffer(offset, 12)
     local display = display.broken_trade_order_execution_message(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.broken_trade_order_execution_message, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.broken_trade_order_execution_message, range, display)
   end
 
   return dissect.broken_trade_order_execution_message_fields(buffer, offset, packet, parent)
@@ -550,7 +550,7 @@ dissect.volume = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.volume(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.volume, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.volume, range, value, display)
 
   return offset + size_of.volume
 end
@@ -569,7 +569,7 @@ dissect.price = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.price(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.price, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.price, range, value, display)
 
   return offset + size_of.price
 end
@@ -592,7 +592,7 @@ dissect.cross_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.cross_type(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.cross_type, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.cross_type, range, value, display)
 
   return offset + size_of.cross_type
 end
@@ -636,7 +636,7 @@ dissect.options_cross_trade_message = function(buffer, offset, packet, parent)
   if show.options_cross_trade_message then
     local range = buffer(offset, 21)
     local display = display.options_cross_trade_message(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.options_cross_trade_message, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.options_cross_trade_message, range, display)
   end
 
   return dissect.options_cross_trade_message_fields(buffer, offset, packet, parent)
@@ -666,7 +666,7 @@ dissect.trade_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trade_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.trade_indicator, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.trade_indicator, range, value, display)
 
   return offset + size_of.trade_indicator
 end
@@ -710,7 +710,7 @@ dissect.non_auction_options_trade_message = function(buffer, offset, packet, par
   if show.non_auction_options_trade_message then
     local range = buffer(offset, 21)
     local display = display.non_auction_options_trade_message(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.non_auction_options_trade_message, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.non_auction_options_trade_message, range, display)
   end
 
   return dissect.non_auction_options_trade_message_fields(buffer, offset, packet, parent)
@@ -746,7 +746,7 @@ dissect.number_of_reference_number_deltas = function(buffer, offset, packet, par
   local value = range:uint()
   local display = display.number_of_reference_number_deltas(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.number_of_reference_number_deltas, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.number_of_reference_number_deltas, range, value, display)
 
   return offset + length, value
 end
@@ -796,7 +796,7 @@ dissect.block_delete_message = function(buffer, offset, packet, parent)
     local length = size_of.block_delete_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.block_delete_message(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.block_delete_message, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.block_delete_message, range, display)
   end
 
   return dissect.block_delete_message_fields(buffer, offset, packet, parent)
@@ -816,7 +816,7 @@ dissect.ask_reference_number_delta = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.ask_reference_number_delta(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.ask_reference_number_delta, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.ask_reference_number_delta, range, value, display)
 
   return offset + size_of.ask_reference_number_delta
 end
@@ -835,7 +835,7 @@ dissect.bid_reference_number_delta = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.bid_reference_number_delta(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.bid_reference_number_delta, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.bid_reference_number_delta, range, value, display)
 
   return offset + size_of.bid_reference_number_delta
 end
@@ -867,7 +867,7 @@ dissect.quote_delete_message = function(buffer, offset, packet, parent)
   if show.quote_delete_message then
     local range = buffer(offset, 12)
     local display = display.quote_delete_message(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.quote_delete_message, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.quote_delete_message, range, display)
   end
 
   return dissect.quote_delete_message_fields(buffer, offset, packet, parent)
@@ -887,7 +887,7 @@ dissect.ask_size = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.ask_size(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.ask_size, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.ask_size, range, value, display)
 
   return offset + size_of.ask_size
 end
@@ -906,7 +906,7 @@ dissect.ask = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.ask(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.ask, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.ask, range, value, display)
 
   return offset + size_of.ask
 end
@@ -925,7 +925,7 @@ dissect.bid_size = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.bid_size(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.bid_size, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.bid_size, range, value, display)
 
   return offset + size_of.bid_size
 end
@@ -944,7 +944,7 @@ dissect.bid = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.bid(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.bid, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.bid, range, value, display)
 
   return offset + size_of.bid
 end
@@ -963,7 +963,7 @@ dissect.original_ask_reference_number_delta = function(buffer, offset, packet, p
   local value = range:uint()
   local display = display.original_ask_reference_number_delta(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.original_ask_reference_number_delta, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.original_ask_reference_number_delta, range, value, display)
 
   return offset + size_of.original_ask_reference_number_delta
 end
@@ -982,7 +982,7 @@ dissect.original_bid_reference_number_delta = function(buffer, offset, packet, p
   local value = range:uint()
   local display = display.original_bid_reference_number_delta(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.original_bid_reference_number_delta, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.original_bid_reference_number_delta, range, value, display)
 
   return offset + size_of.original_bid_reference_number_delta
 end
@@ -1032,7 +1032,7 @@ dissect.quote_replace_long_form_message = function(buffer, offset, packet, paren
   if show.quote_replace_long_form_message then
     local range = buffer(offset, 32)
     local display = display.quote_replace_long_form_message(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.quote_replace_long_form_message, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.quote_replace_long_form_message, range, display)
   end
 
   return dissect.quote_replace_long_form_message_fields(buffer, offset, packet, parent)
@@ -1052,7 +1052,7 @@ dissect.ask_price = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.ask_price(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.ask_price, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.ask_price, range, value, display)
 
   return offset + size_of.ask_price
 end
@@ -1071,7 +1071,7 @@ dissect.bid_price = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.bid_price, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.bid_price, range, value, display)
 
   return offset + size_of.bid_price
 end
@@ -1121,7 +1121,7 @@ dissect.quote_replace_short_form_message = function(buffer, offset, packet, pare
   if show.quote_replace_short_form_message then
     local range = buffer(offset, 28)
     local display = display.quote_replace_short_form_message(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.quote_replace_short_form_message, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.quote_replace_short_form_message, range, display)
   end
 
   return dissect.quote_replace_short_form_message_fields(buffer, offset, packet, parent)
@@ -1154,7 +1154,7 @@ dissect.change_reason = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.change_reason(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.change_reason, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.change_reason, range, value, display)
 
   return offset + size_of.change_reason
 end
@@ -1173,7 +1173,7 @@ dissect.reference_number_delta = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.reference_number_delta(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.reference_number_delta, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.reference_number_delta, range, value, display)
 
   return offset + size_of.reference_number_delta
 end
@@ -1211,7 +1211,7 @@ dissect.single_side_update_message = function(buffer, offset, packet, parent)
   if show.single_side_update_message then
     local range = buffer(offset, 13)
     local display = display.single_side_update_message(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.single_side_update_message, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.single_side_update_message, range, display)
   end
 
   return dissect.single_side_update_message_fields(buffer, offset, packet, parent)
@@ -1241,7 +1241,7 @@ dissect.single_side_delete_message = function(buffer, offset, packet, parent)
   if show.single_side_delete_message then
     local range = buffer(offset, 8)
     local display = display.single_side_delete_message(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.single_side_delete_message, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.single_side_delete_message, range, display)
   end
 
   return dissect.single_side_delete_message_fields(buffer, offset, packet, parent)
@@ -1261,7 +1261,7 @@ dissect.order_id = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.order_id, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.order_id, range, value, display)
 
   return offset + size_of.order_id
 end
@@ -1280,7 +1280,7 @@ dissect.new_reference_number_delta = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.new_reference_number_delta(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.new_reference_number_delta, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.new_reference_number_delta, range, value, display)
 
   return offset + size_of.new_reference_number_delta
 end
@@ -1299,7 +1299,7 @@ dissect.original_reference_number_delta = function(buffer, offset, packet, paren
   local value = range:uint()
   local display = display.original_reference_number_delta(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.original_reference_number_delta, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.original_reference_number_delta, range, value, display)
 
   return offset + size_of.original_reference_number_delta
 end
@@ -1340,7 +1340,7 @@ dissect.single_side_replace_long_form_message = function(buffer, offset, packet,
   if show.single_side_replace_long_form_message then
     local range = buffer(offset, 20)
     local display = display.single_side_replace_long_form_message(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.single_side_replace_long_form_message, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.single_side_replace_long_form_message, range, display)
   end
 
   return dissect.single_side_replace_long_form_message_fields(buffer, offset, packet, parent)
@@ -1382,7 +1382,7 @@ dissect.order_replace_message_short_form = function(buffer, offset, packet, pare
   if show.order_replace_message_short_form then
     local range = buffer(offset, 20)
     local display = display.order_replace_message_short_form(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.order_replace_message_short_form, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.order_replace_message_short_form, range, display)
   end
 
   return dissect.order_replace_message_short_form_fields(buffer, offset, packet, parent)
@@ -1421,7 +1421,7 @@ dissect.single_side_replace_message_long_form = function(buffer, offset, packet,
   if show.single_side_replace_message_long_form then
     local range = buffer(offset, 16)
     local display = display.single_side_replace_message_long_form(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.single_side_replace_message_long_form, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.single_side_replace_message_long_form, range, display)
   end
 
   return dissect.single_side_replace_message_long_form_fields(buffer, offset, packet, parent)
@@ -1460,7 +1460,7 @@ dissect.single_side_replace_message_short_form = function(buffer, offset, packet
   if show.single_side_replace_message_short_form then
     local range = buffer(offset, 16)
     local display = display.single_side_replace_message_short_form(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.single_side_replace_message_short_form, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.single_side_replace_message_short_form, range, display)
   end
 
   return dissect.single_side_replace_message_short_form_fields(buffer, offset, packet, parent)
@@ -1480,7 +1480,7 @@ dissect.cancelled_contracts = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.cancelled_contracts(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.cancelled_contracts, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.cancelled_contracts, range, value, display)
 
   return offset + size_of.cancelled_contracts
 end
@@ -1512,7 +1512,7 @@ dissect.single_side_cancel_message = function(buffer, offset, packet, parent)
   if show.single_side_cancel_message then
     local range = buffer(offset, 12)
     local display = display.single_side_cancel_message(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.single_side_cancel_message, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.single_side_cancel_message, range, display)
   end
 
   return dissect.single_side_cancel_message_fields(buffer, offset, packet, parent)
@@ -1539,7 +1539,7 @@ dissect.printable = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.printable(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.printable, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.printable, range, value, display)
 
   return offset + size_of.printable
 end
@@ -1583,7 +1583,7 @@ dissect.single_side_executed_with_price_message = function(buffer, offset, packe
   if show.single_side_executed_with_price_message then
     local range = buffer(offset, 21)
     local display = display.single_side_executed_with_price_message(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.single_side_executed_with_price_message, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.single_side_executed_with_price_message, range, display)
   end
 
   return dissect.single_side_executed_with_price_message_fields(buffer, offset, packet, parent)
@@ -1603,7 +1603,7 @@ dissect.executed_contracts = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.executed_contracts(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.executed_contracts, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.executed_contracts, range, value, display)
 
   return offset + size_of.executed_contracts
 end
@@ -1641,7 +1641,7 @@ dissect.single_side_executed_message = function(buffer, offset, packet, parent)
   if show.single_side_executed_message then
     local range = buffer(offset, 20)
     local display = display.single_side_executed_message(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.single_side_executed_message, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.single_side_executed_message, range, display)
   end
 
   return dissect.single_side_executed_message_fields(buffer, offset, packet, parent)
@@ -1689,7 +1689,7 @@ dissect.add_quote_message_long_form = function(buffer, offset, packet, parent)
   if show.add_quote_message_long_form then
     local range = buffer(offset, 28)
     local display = display.add_quote_message_long_form(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.add_quote_message_long_form, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.add_quote_message_long_form, range, display)
   end
 
   return dissect.add_quote_message_long_form_fields(buffer, offset, packet, parent)
@@ -1737,7 +1737,7 @@ dissect.add_quote_message_short_form = function(buffer, offset, packet, parent)
   if show.add_quote_message_short_form then
     local range = buffer(offset, 24)
     local display = display.add_quote_message_short_form(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.add_quote_message_short_form, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.add_quote_message_short_form, range, display)
   end
 
   return dissect.add_quote_message_short_form_fields(buffer, offset, packet, parent)
@@ -1776,7 +1776,7 @@ dissect.market_side = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.market_side(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.market_side, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.market_side, range, value, display)
 
   return offset + size_of.market_side
 end
@@ -1795,7 +1795,7 @@ dissect.order_reference_number_delta = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.order_reference_number_delta(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.order_reference_number_delta, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.order_reference_number_delta, range, value, display)
 
   return offset + size_of.order_reference_number_delta
 end
@@ -1839,7 +1839,7 @@ dissect.add_order_message_long_form = function(buffer, offset, packet, parent)
   if show.add_order_message_long_form then
     local range = buffer(offset, 21)
     local display = display.add_order_message_long_form(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.add_order_message_long_form, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.add_order_message_long_form, range, display)
   end
 
   return dissect.add_order_message_long_form_fields(buffer, offset, packet, parent)
@@ -1884,7 +1884,7 @@ dissect.add_order_message_short_form = function(buffer, offset, packet, parent)
   if show.add_order_message_short_form then
     local range = buffer(offset, 21)
     local display = display.add_order_message_short_form(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.add_order_message_short_form, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.add_order_message_short_form, range, display)
   end
 
   return dissect.add_order_message_short_form_fields(buffer, offset, packet, parent)
@@ -1911,7 +1911,7 @@ dissect.open_state = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.open_state(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.open_state, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.open_state, range, value, display)
 
   return offset + size_of.open_state
 end
@@ -1943,7 +1943,7 @@ dissect.security_open_message = function(buffer, offset, packet, parent)
   if show.security_open_message then
     local range = buffer(offset, 9)
     local display = display.security_open_message(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.security_open_message, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.security_open_message, range, display)
   end
 
   return dissect.security_open_message_fields(buffer, offset, packet, parent)
@@ -1976,7 +1976,7 @@ dissect.current_trading_state = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.current_trading_state(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.current_trading_state, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.current_trading_state, range, value, display)
 
   return offset + size_of.current_trading_state
 end
@@ -2008,7 +2008,7 @@ dissect.trading_action_message = function(buffer, offset, packet, parent)
   if show.trading_action_message then
     local range = buffer(offset, 9)
     local display = display.trading_action_message(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.trading_action_message, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.trading_action_message, range, display)
   end
 
   return dissect.trading_action_message_fields(buffer, offset, packet, parent)
@@ -2038,7 +2038,7 @@ dissect.mpv = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.mpv(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.mpv, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.mpv, range, value, display)
 
   return offset + size_of.mpv
 end
@@ -2064,7 +2064,7 @@ dissect.tradable = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.tradable(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.tradable, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.tradable, range, value, display)
 
   return offset + size_of.tradable
 end
@@ -2093,7 +2093,7 @@ dissect.options_closing_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.options_closing_type(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.options_closing_type, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.options_closing_type, range, value, display)
 
   return offset + size_of.options_closing_type
 end
@@ -2112,7 +2112,7 @@ dissect.underlying_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.underlying_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.underlying_symbol, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.underlying_symbol, range, value, display)
 
   return offset + size_of.underlying_symbol
 end
@@ -2131,7 +2131,7 @@ dissect.source = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.source(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.source, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.source, range, value, display)
 
   return offset + size_of.source
 end
@@ -2157,7 +2157,7 @@ dissect.option_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.option_type(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.option_type, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.option_type, range, value, display)
 
   return offset + size_of.option_type
 end
@@ -2176,7 +2176,7 @@ dissect.explicit_strike_price = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.explicit_strike_price(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.explicit_strike_price, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.explicit_strike_price, range, value, display)
 
   return offset + size_of.explicit_strike_price
 end
@@ -2195,7 +2195,7 @@ dissect.expiration_date = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.expiration_date(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.expiration_date, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.expiration_date, range, value, display)
 
   return offset + size_of.expiration_date
 end
@@ -2214,7 +2214,7 @@ dissect.expiration_month = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.expiration_month(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.expiration_month, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.expiration_month, range, value, display)
 
   return offset + size_of.expiration_month
 end
@@ -2233,7 +2233,7 @@ dissect.expiration_year = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.expiration_year(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.expiration_year, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.expiration_year, range, value, display)
 
   return offset + size_of.expiration_year
 end
@@ -2252,7 +2252,7 @@ dissect.security_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.security_symbol, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.security_symbol, range, value, display)
 
   return offset + size_of.security_symbol
 end
@@ -2314,7 +2314,7 @@ dissect.option_directory_message = function(buffer, offset, packet, parent)
   if show.option_directory_message then
     local range = buffer(offset, 39)
     local display = display.option_directory_message(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.option_directory_message, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.option_directory_message, range, display)
   end
 
   return dissect.option_directory_message_fields(buffer, offset, packet, parent)
@@ -2334,7 +2334,7 @@ dissect.base_reference_number = function(buffer, offset, packet, parent)
   local value = range:uint64()
   local display = display.base_reference_number(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.base_reference_number, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.base_reference_number, range, value, display)
 
   return offset + size_of.base_reference_number
 end
@@ -2363,7 +2363,7 @@ dissect.base_reference_message = function(buffer, offset, packet, parent)
   if show.base_reference_message then
     local range = buffer(offset, 12)
     local display = display.base_reference_message(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.base_reference_message, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.base_reference_message, range, display)
   end
 
   return dissect.base_reference_message_fields(buffer, offset, packet, parent)
@@ -2383,7 +2383,7 @@ dissect.event_code = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.event_code(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.event_code, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.event_code, range, value, display)
 
   return offset + size_of.event_code
 end
@@ -2412,7 +2412,7 @@ dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     local range = buffer(offset, 5)
     local display = display.system_event_message(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.system_event_message, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.system_event_message, range, display)
   end
 
   return dissect.system_event_message_fields(buffer, offset, packet, parent)
@@ -2432,7 +2432,7 @@ dissect.second = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.second(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.second, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.second, range, value, display)
 
   return offset + size_of.second
 end
@@ -2458,7 +2458,7 @@ dissect.seconds_message = function(buffer, offset, packet, parent)
   if show.seconds_message then
     local range = buffer(offset, 4)
     local display = display.seconds_message(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.seconds_message, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.seconds_message, range, display)
   end
 
   return dissect.seconds_message_fields(buffer, offset, packet, parent)
@@ -2715,7 +2715,7 @@ dissect.payload = function(buffer, offset, packet, parent)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.payload(buffer, packet, parent)
-  local element = parent:add(phlx_itch_marketdepth_v1_5.fields.payload, range, display)
+  local element = parent:add(phlx_marketdepth_itch_v1_5.fields.payload, range, display)
 
   return dissect.payload_branches(code, buffer, offset, packet, element)
 end
@@ -2817,7 +2817,7 @@ dissect.message_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.message_type, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -2836,7 +2836,7 @@ dissect.length = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.length(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.length, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.length, range, value, display)
 
   return offset + size_of.length
 end
@@ -2865,7 +2865,7 @@ dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     local range = buffer(offset, 3)
     local display = display.message_header(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.message_header, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.message_header, range, display)
   end
 
   return dissect.message_header_fields(buffer, offset, packet, parent)
@@ -2910,7 +2910,7 @@ dissect.message = function(buffer, offset, packet, parent)
     local length = size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.message(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.message, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.message, range, display)
   end
 
   return dissect.message_fields(buffer, offset, packet, parent)
@@ -2931,7 +2931,7 @@ dissect.count = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.count(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.count, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.count, range, value, display)
 
   return offset + length, value
 end
@@ -2950,7 +2950,7 @@ dissect.sequence = function(buffer, offset, packet, parent)
   local value = range:uint64()
   local display = display.sequence(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.sequence, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.sequence, range, value, display)
 
   return offset + size_of.sequence
 end
@@ -2969,7 +2969,7 @@ dissect.session = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.session(value, buffer, offset, packet, parent)
 
-  parent:add(phlx_itch_marketdepth_v1_5.fields.session, range, value, display)
+  parent:add(phlx_marketdepth_itch_v1_5.fields.session, range, value, display)
 
   return offset + size_of.session
 end
@@ -3001,7 +3001,7 @@ dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     local range = buffer(offset, 20)
     local display = display.packet_header(buffer, packet, parent)
-    parent = parent:add(phlx_itch_marketdepth_v1_5.fields.packet_header, range, display)
+    parent = parent:add(phlx_marketdepth_itch_v1_5.fields.packet_header, range, display)
   end
 
   return dissect.packet_header_fields(buffer, offset, packet, parent)
@@ -3028,23 +3028,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function phlx_itch_marketdepth_v1_5.init()
+function phlx_marketdepth_itch_v1_5.init()
 end
 
--- Dissector for Phlx Itch MarketDepth 1.5
-function phlx_itch_marketdepth_v1_5.dissector(buffer, packet, parent)
+-- Dissector for Phlx MarketDepth Itch 1.5
+function phlx_marketdepth_itch_v1_5.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = phlx_itch_marketdepth_v1_5.name
+  packet.cols.protocol = phlx_marketdepth_itch_v1_5.name
 
   -- Dissect protocol
-  local protocol = parent:add(phlx_itch_marketdepth_v1_5, buffer(), phlx_itch_marketdepth_v1_5.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(phlx_marketdepth_itch_v1_5, buffer(), phlx_marketdepth_itch_v1_5.description, "("..buffer:len().." Bytes)")
   local protocol_size = dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, phlx_itch_marketdepth_v1_5)
+udp_table:add(65333, phlx_marketdepth_itch_v1_5)
 
 
 -----------------------------------------------------------------------
@@ -3052,25 +3052,25 @@ udp_table:add(65333, phlx_itch_marketdepth_v1_5)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.phlx_itch_marketdepth_v1_5_packet_size = function(buffer)
+verify.phlx_marketdepth_itch_v1_5_packet_size = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Phlx Itch MarketDepth 1.5
-local function phlx_itch_marketdepth_v1_5_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Phlx MarketDepth Itch 1.5
+local function phlx_marketdepth_itch_v1_5_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.phlx_itch_marketdepth_v1_5_packet_size(buffer) then return false end
+  if not verify.phlx_marketdepth_itch_v1_5_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = phlx_itch_marketdepth_v1_5
-  phlx_itch_marketdepth_v1_5.dissector(buffer, packet, parent)
+  packet.conversation = phlx_marketdepth_itch_v1_5
+  phlx_marketdepth_itch_v1_5.dissector(buffer, packet, parent)
 
   return true
 end
 
--- Register Phlx Itch MarketDepth 1.5 Heuristic
-phlx_itch_marketdepth_v1_5:register_heuristic("udp", phlx_itch_marketdepth_v1_5_heuristic)
+-- Register Phlx MarketDepth Itch 1.5 Heuristic
+phlx_marketdepth_itch_v1_5:register_heuristic("udp", phlx_marketdepth_itch_v1_5_heuristic)
 
 -----------------------------------------------------------------------
 -- This script was generated by the open markets initiative
