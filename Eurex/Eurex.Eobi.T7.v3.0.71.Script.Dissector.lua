@@ -546,7 +546,6 @@ dissect.trade_reversal_fields = function(buffer, offset, packet, parent)
     index = dissect.md_trade_entry_grp(buffer, index, packet, parent)
   end
 
-
   return index
 end
 
@@ -2010,7 +2009,6 @@ dissect.instrument_summary_fields = function(buffer, offset, packet, parent)
     index = dissect.md_instrument_entry_grp(buffer, index, packet, parent)
   end
 
-
   return index
 end
 
@@ -2745,7 +2743,6 @@ dissect.add_complex_instrument_fields = function(buffer, offset, packet, parent)
   for i = 1, instrmt_leg_grp_count do
     index = dissect.instrmt_leg_grp(buffer, index, packet, parent)
   end
-
 
   return index
 end

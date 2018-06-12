@@ -567,7 +567,6 @@ dissect.md_incremental_refresh_trade_summary_order_groups_fields = function(buff
     index = dissect.md_incremental_refresh_trade_summary_order_group(buffer, index, packet, parent)
   end
 
-
   return index
 end
 
@@ -875,7 +874,6 @@ dissect.md_incremental_refresh_trade_summary_groups_fields = function(buffer, of
     index = dissect.md_incremental_refresh_trade_summary_group(buffer, index, packet, parent)
   end
 
-
   return index
 end
 
@@ -1164,7 +1162,6 @@ dissect.underlyings_groups_fields = function(buffer, offset, packet, parent)
     index = dissect.underlyings_group(buffer, index, packet, parent)
   end
 
-
   return index
 end
 
@@ -1280,7 +1277,6 @@ dissect.lot_type_rules_groups_fields = function(buffer, offset, packet, parent)
   for i = 1, lot_type_rules_group_count do
     index = dissect.lot_type_rules_group(buffer, index, packet, parent)
   end
-
 
   return index
 end
@@ -1525,7 +1521,6 @@ dissect.inst_attrib_groups_fields = function(buffer, offset, packet, parent)
     index = dissect.inst_attrib_group(buffer, index, packet, parent)
   end
 
-
   return index
 end
 
@@ -1640,7 +1635,6 @@ dissect.md_feed_types_groups_fields = function(buffer, offset, packet, parent)
   for i = 1, md_feed_types_group_count do
     index = dissect.md_feed_types_group(buffer, index, packet, parent)
   end
-
 
   return index
 end
@@ -1763,7 +1757,6 @@ dissect.events_groups_fields = function(buffer, offset, packet, parent)
   for i = 1, events_group_count do
     index = dissect.events_group(buffer, index, packet, parent)
   end
-
 
   return index
 end
@@ -3018,7 +3011,6 @@ dissect.related_sym_groups_fields = function(buffer, offset, packet, parent)
     index = dissect.related_sym_group(buffer, index, packet, parent)
   end
 
-
   return index
 end
 
@@ -3338,7 +3330,6 @@ dissect.snapshot_full_refresh_groups_fields = function(buffer, offset, packet, p
     index = dissect.snapshot_full_refresh_group(buffer, index, packet, parent)
   end
 
-
   return index
 end
 
@@ -3555,7 +3546,6 @@ dissect.md_incremental_refresh_volume_groups_fields = function(buffer, offset, p
     index = dissect.md_incremental_refresh_volume_group(buffer, index, packet, parent)
   end
 
-
   return index
 end
 
@@ -3721,7 +3711,6 @@ dissect.md_incremental_refresh_trade_groups_fields = function(buffer, offset, pa
     index = dissect.md_incremental_refresh_trade_group(buffer, index, packet, parent)
   end
 
-
   return index
 end
 
@@ -3862,7 +3851,6 @@ dissect.md_incremental_refresh_session_statistics_groups_fields = function(buffe
     index = dissect.md_incremental_refresh_session_statistics_group(buffer, index, packet, parent)
   end
 
-
   return index
 end
 
@@ -3996,7 +3984,6 @@ dissect.md_incremental_refresh_limits_banding_groups_fields = function(buffer, o
   for i = 1, md_incremental_refresh_limits_banding_group_count do
     index = dissect.md_incremental_refresh_limits_banding_group(buffer, index, packet, parent)
   end
-
 
   return index
 end
@@ -4163,7 +4150,6 @@ dissect.md_incremental_refresh_daily_statistics_groups_fields = function(buffer,
     index = dissect.md_incremental_refresh_daily_statistics_group(buffer, index, packet, parent)
   end
 
-
   return index
 end
 
@@ -4309,7 +4295,6 @@ dissect.md_incremental_refresh_book_groups_fields = function(buffer, offset, pac
   for i = 1, md_incremental_refresh_book_group_count do
     index = dissect.md_incremental_refresh_book_group(buffer, index, packet, parent)
   end
-
 
   return index
 end
@@ -4728,7 +4713,6 @@ dissect.legs_groups_fields = function(buffer, offset, packet, parent)
   for i = 1, legs_group_count do
     index = dissect.legs_group(buffer, index, packet, parent)
   end
-
 
   return index
 end
@@ -5401,7 +5385,6 @@ dissect.channel_reset_groups_fields = function(buffer, offset, packet, parent)
   for i = 1, channel_reset_group_count do
     index = dissect.channel_reset_group(buffer, index, packet, parent)
   end
-
 
   return index
 end

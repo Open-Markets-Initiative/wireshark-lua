@@ -710,7 +710,6 @@ dissect.consolidated_stock_summary_message_fields = function(buffer, offset, pac
     index = dissect.close_price(buffer, index, packet, parent)
   end
 
-
   return index
 end
 

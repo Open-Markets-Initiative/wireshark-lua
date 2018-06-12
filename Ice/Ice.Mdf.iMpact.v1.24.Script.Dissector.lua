@@ -2139,7 +2139,6 @@ dissect.new_options_strategy_definition_message_fields = function(buffer, offset
     index = dissect.strategy_leg_definition(buffer, index, packet, parent)
   end
 
-
   -- Number Of Hedge Definitions: 1 Byte Signed Fixed Width Integer
   index = dissect.number_of_hedge_definitions(buffer, index, packet, parent)
 
@@ -2148,7 +2147,6 @@ dissect.new_options_strategy_definition_message_fields = function(buffer, offset
   for i = 1, hedge_definition_count do
     index = dissect.hedge_definition(buffer, index, packet, parent)
   end
-
 
   -- Security Sub Type: 2 Byte Signed Fixed Width Integer
   index = dissect.security_sub_type(buffer, index, packet, parent)
@@ -3254,7 +3252,6 @@ dissect.special_field_message_fields = function(buffer, offset, packet, parent)
     index = dissect.special_field(buffer, index, packet, parent)
   end
 
-
   return index
 end
 
@@ -3896,7 +3893,6 @@ dissect.new_futures_strategy_definition_message_fields = function(buffer, offset
   for i = 1, leg_definition_count do
     index = dissect.leg_definition(buffer, index, packet, parent)
   end
-
 
   -- Security Sub Type: 2 Byte Signed Fixed Width Integer
   index = dissect.security_sub_type(buffer, index, packet, parent)
@@ -6406,7 +6402,6 @@ dissect.packet = function(buffer, packet, parent)
   for i = 1, message_count do
     index = dissect.message(buffer, index, packet, parent)
   end
-
   return index
 end
 

@@ -785,7 +785,6 @@ dissect.block_delete_message_fields = function(buffer, offset, packet, parent)
     index = dissect.cancelled_reference_number_delta(buffer, index, packet, parent)
   end
 
-
   return index
 end
 
