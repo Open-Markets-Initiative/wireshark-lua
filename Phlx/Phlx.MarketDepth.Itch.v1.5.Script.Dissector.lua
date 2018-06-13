@@ -2466,7 +2466,7 @@ end
 -- Calculate runtime size of: Payload
 size_of.payload = function(buffer, offset, code)
   -- Size of Seconds Message
-  if code == "S" then
+  if code == "T" then
     return 4
   end
   -- Size of System Event Message
@@ -2585,7 +2585,7 @@ end
 -- Dissect Branches:
 dissect.payload_branches = function(code, buffer, offset, packet, parent)
   -- Dissect Seconds Message
-  if code == "S" then
+  if code == "T" then
     return dissect.seconds_message(buffer, offset, packet, parent)
   end
   -- Dissect System Event Message
@@ -2724,8 +2724,8 @@ size_of.message_type = 1
 
 -- Display: Message Type
 display.message_type = function(value)
-  if value == "S" then
-    return "Message Type: Seconds Message (S)"
+  if value == "T" then
+    return "Message Type: Seconds Message (T)"
   end
   if value == "S" then
     return "Message Type: System Event Message (S)"
