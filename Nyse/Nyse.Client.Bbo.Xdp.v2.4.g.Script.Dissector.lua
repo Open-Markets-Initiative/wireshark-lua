@@ -16,52 +16,6 @@ local size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
--- Declare Dissection Options
------------------------------------------------------------------------
-
--- Nyse Client Bbo Xdp 2.4.g Format Options
-format.heartbeat_response_message = true
-format.message = true
-format.message_header = true
-format.message_unavailable_message = true
-format.packet = true
-format.packet_header = true
-format.quote_message = true
-format.refresh_header_message = true
-format.refresh_request_message = true
-format.request_response_message = true
-format.retransmission_request_message = true
-format.security_status_message = true
-format.sequence_number_reset_message = true
-format.source_time_reference_message = true
-format.symbol_clear_message = true
-format.symbol_index_mapping_message = true
-format.symbol_index_mapping_request_message = true
-format.trading_session_change_message = true
-format.payload = true
-
--- Nyse Client Bbo Xdp 2.4.g Element Dissection Options
-show.heartbeat_response_message = true
-show.message = true
-show.message_header = true
-show.message_unavailable_message = true
-show.packet = true
-show.packet_header = true
-show.quote_message = true
-show.refresh_header_message = true
-show.refresh_request_message = true
-show.request_response_message = true
-show.retransmission_request_message = true
-show.security_status_message = true
-show.sequence_number_reset_message = true
-show.source_time_reference_message = true
-show.symbol_clear_message = true
-show.symbol_index_mapping_message = true
-show.symbol_index_mapping_request_message = true
-show.trading_session_change_message = true
-show.payload = false
-
------------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
@@ -144,6 +98,141 @@ nyse_client_bbo_xdp_v2_4_g.fields.totalrefreshpkts = ProtoField.new("TotalRefres
 nyse_client_bbo_xdp_v2_4_g.fields.trading_session = ProtoField.new("Trading Session", "nyse.client.bbo.xdp.v2.4.g.tradingsession", ftypes.UINT8)
 nyse_client_bbo_xdp_v2_4_g.fields.trading_session_change_message = ProtoField.new("Trading Session Change Message", "nyse.client.bbo.xdp.v2.4.g.tradingsessionchangemessage", ftypes.STRING)
 nyse_client_bbo_xdp_v2_4_g.fields.unit_of_trade = ProtoField.new("Unit of Trade", "nyse.client.bbo.xdp.v2.4.g.unitoftrade", ftypes.UINT16)
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+-- Nyse Client Bbo Xdp 2.4.g Element Dissection Options
+show.heartbeat_response_message = true
+show.message = true
+show.message_header = true
+show.message_unavailable_message = true
+show.packet = true
+show.packet_header = true
+show.quote_message = true
+show.refresh_header_message = true
+show.refresh_request_message = true
+show.request_response_message = true
+show.retransmission_request_message = true
+show.security_status_message = true
+show.sequence_number_reset_message = true
+show.source_time_reference_message = true
+show.symbol_clear_message = true
+show.symbol_index_mapping_message = true
+show.symbol_index_mapping_request_message = true
+show.trading_session_change_message = true
+show.payload = false
+
+-- Register Nyse Client Bbo Xdp 2.4.g Show Options
+nyse_client_bbo_xdp_v2_4_g.prefs.show_heartbeat_response_message = Pref.bool("Show Heartbeat Response Message", show.heartbeat_response_message, "Parse and add Heartbeat Response Message to protocol tree")
+nyse_client_bbo_xdp_v2_4_g.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+nyse_client_bbo_xdp_v2_4_g.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+nyse_client_bbo_xdp_v2_4_g.prefs.show_message_unavailable_message = Pref.bool("Show Message Unavailable Message", show.message_unavailable_message, "Parse and add Message Unavailable Message to protocol tree")
+nyse_client_bbo_xdp_v2_4_g.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+nyse_client_bbo_xdp_v2_4_g.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+nyse_client_bbo_xdp_v2_4_g.prefs.show_quote_message = Pref.bool("Show Quote Message", show.quote_message, "Parse and add Quote Message to protocol tree")
+nyse_client_bbo_xdp_v2_4_g.prefs.show_refresh_header_message = Pref.bool("Show Refresh Header Message", show.refresh_header_message, "Parse and add Refresh Header Message to protocol tree")
+nyse_client_bbo_xdp_v2_4_g.prefs.show_refresh_request_message = Pref.bool("Show Refresh Request Message", show.refresh_request_message, "Parse and add Refresh Request Message to protocol tree")
+nyse_client_bbo_xdp_v2_4_g.prefs.show_request_response_message = Pref.bool("Show Request Response Message", show.request_response_message, "Parse and add Request Response Message to protocol tree")
+nyse_client_bbo_xdp_v2_4_g.prefs.show_retransmission_request_message = Pref.bool("Show Retransmission Request Message", show.retransmission_request_message, "Parse and add Retransmission Request Message to protocol tree")
+nyse_client_bbo_xdp_v2_4_g.prefs.show_security_status_message = Pref.bool("Show Security Status Message", show.security_status_message, "Parse and add Security Status Message to protocol tree")
+nyse_client_bbo_xdp_v2_4_g.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
+nyse_client_bbo_xdp_v2_4_g.prefs.show_source_time_reference_message = Pref.bool("Show Source Time Reference Message", show.source_time_reference_message, "Parse and add Source Time Reference Message to protocol tree")
+nyse_client_bbo_xdp_v2_4_g.prefs.show_symbol_clear_message = Pref.bool("Show Symbol Clear Message", show.symbol_clear_message, "Parse and add Symbol Clear Message to protocol tree")
+nyse_client_bbo_xdp_v2_4_g.prefs.show_symbol_index_mapping_message = Pref.bool("Show Symbol Index Mapping Message", show.symbol_index_mapping_message, "Parse and add Symbol Index Mapping Message to protocol tree")
+nyse_client_bbo_xdp_v2_4_g.prefs.show_symbol_index_mapping_request_message = Pref.bool("Show Symbol Index Mapping Request Message", show.symbol_index_mapping_request_message, "Parse and add Symbol Index Mapping Request Message to protocol tree")
+nyse_client_bbo_xdp_v2_4_g.prefs.show_trading_session_change_message = Pref.bool("Show Trading Session Change Message", show.trading_session_change_message, "Parse and add Trading Session Change Message to protocol tree")
+nyse_client_bbo_xdp_v2_4_g.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+
+-- Handle changed preferences
+function nyse_client_bbo_xdp_v2_4_g.prefs_changed()
+  local changed = false
+
+  -- Check if show options have changed
+  if show.heartbeat_response_message ~= nyse_client_bbo_xdp_v2_4_g.prefs.show_heartbeat_response_message then
+    show.heartbeat_response_message = nyse_client_bbo_xdp_v2_4_g.prefs.show_heartbeat_response_message
+    changed = true
+  end
+  if show.message ~= nyse_client_bbo_xdp_v2_4_g.prefs.show_message then
+    show.message = nyse_client_bbo_xdp_v2_4_g.prefs.show_message
+    changed = true
+  end
+  if show.message_header ~= nyse_client_bbo_xdp_v2_4_g.prefs.show_message_header then
+    show.message_header = nyse_client_bbo_xdp_v2_4_g.prefs.show_message_header
+    changed = true
+  end
+  if show.message_unavailable_message ~= nyse_client_bbo_xdp_v2_4_g.prefs.show_message_unavailable_message then
+    show.message_unavailable_message = nyse_client_bbo_xdp_v2_4_g.prefs.show_message_unavailable_message
+    changed = true
+  end
+  if show.packet ~= nyse_client_bbo_xdp_v2_4_g.prefs.show_packet then
+    show.packet = nyse_client_bbo_xdp_v2_4_g.prefs.show_packet
+    changed = true
+  end
+  if show.packet_header ~= nyse_client_bbo_xdp_v2_4_g.prefs.show_packet_header then
+    show.packet_header = nyse_client_bbo_xdp_v2_4_g.prefs.show_packet_header
+    changed = true
+  end
+  if show.quote_message ~= nyse_client_bbo_xdp_v2_4_g.prefs.show_quote_message then
+    show.quote_message = nyse_client_bbo_xdp_v2_4_g.prefs.show_quote_message
+    changed = true
+  end
+  if show.refresh_header_message ~= nyse_client_bbo_xdp_v2_4_g.prefs.show_refresh_header_message then
+    show.refresh_header_message = nyse_client_bbo_xdp_v2_4_g.prefs.show_refresh_header_message
+    changed = true
+  end
+  if show.refresh_request_message ~= nyse_client_bbo_xdp_v2_4_g.prefs.show_refresh_request_message then
+    show.refresh_request_message = nyse_client_bbo_xdp_v2_4_g.prefs.show_refresh_request_message
+    changed = true
+  end
+  if show.request_response_message ~= nyse_client_bbo_xdp_v2_4_g.prefs.show_request_response_message then
+    show.request_response_message = nyse_client_bbo_xdp_v2_4_g.prefs.show_request_response_message
+    changed = true
+  end
+  if show.retransmission_request_message ~= nyse_client_bbo_xdp_v2_4_g.prefs.show_retransmission_request_message then
+    show.retransmission_request_message = nyse_client_bbo_xdp_v2_4_g.prefs.show_retransmission_request_message
+    changed = true
+  end
+  if show.security_status_message ~= nyse_client_bbo_xdp_v2_4_g.prefs.show_security_status_message then
+    show.security_status_message = nyse_client_bbo_xdp_v2_4_g.prefs.show_security_status_message
+    changed = true
+  end
+  if show.sequence_number_reset_message ~= nyse_client_bbo_xdp_v2_4_g.prefs.show_sequence_number_reset_message then
+    show.sequence_number_reset_message = nyse_client_bbo_xdp_v2_4_g.prefs.show_sequence_number_reset_message
+    changed = true
+  end
+  if show.source_time_reference_message ~= nyse_client_bbo_xdp_v2_4_g.prefs.show_source_time_reference_message then
+    show.source_time_reference_message = nyse_client_bbo_xdp_v2_4_g.prefs.show_source_time_reference_message
+    changed = true
+  end
+  if show.symbol_clear_message ~= nyse_client_bbo_xdp_v2_4_g.prefs.show_symbol_clear_message then
+    show.symbol_clear_message = nyse_client_bbo_xdp_v2_4_g.prefs.show_symbol_clear_message
+    changed = true
+  end
+  if show.symbol_index_mapping_message ~= nyse_client_bbo_xdp_v2_4_g.prefs.show_symbol_index_mapping_message then
+    show.symbol_index_mapping_message = nyse_client_bbo_xdp_v2_4_g.prefs.show_symbol_index_mapping_message
+    changed = true
+  end
+  if show.symbol_index_mapping_request_message ~= nyse_client_bbo_xdp_v2_4_g.prefs.show_symbol_index_mapping_request_message then
+    show.symbol_index_mapping_request_message = nyse_client_bbo_xdp_v2_4_g.prefs.show_symbol_index_mapping_request_message
+    changed = true
+  end
+  if show.trading_session_change_message ~= nyse_client_bbo_xdp_v2_4_g.prefs.show_trading_session_change_message then
+    show.trading_session_change_message = nyse_client_bbo_xdp_v2_4_g.prefs.show_trading_session_change_message
+    changed = true
+  end
+  if show.payload ~= nyse_client_bbo_xdp_v2_4_g.prefs.show_payload then
+    show.payload = nyse_client_bbo_xdp_v2_4_g.prefs.show_payload
+    changed = true
+  end
+
+  -- Reload on changed preference
+  if changed then
+    reload()
+  end
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Nyse Client Bbo Xdp 2.4.g

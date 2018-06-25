@@ -16,74 +16,6 @@ local size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
--- Declare Dissection Options
------------------------------------------------------------------------
-
--- Nyse IntegratedFeed Xdp 2.1.g Format Options
-format.add_order_message = true
-format.add_order_refresh_message = true
-format.cross_correction_message = true
-format.cross_trade_message = true
-format.delete_order_message = true
-format.heartbeat_response_message = true
-format.imbalance_message = true
-format.message = true
-format.message_header = true
-format.message_unavailable_message = true
-format.modify_order_message = true
-format.non_displayed_trade_message = true
-format.order_execution_message = true
-format.packet = true
-format.packet_header = true
-format.refresh_header_message = true
-format.refresh_request_message = true
-format.replace_order_message = true
-format.request_response_message = true
-format.retail_price_improvement_message = true
-format.retransmission_request_message = true
-format.security_status_message = true
-format.sequence_number_reset_message = true
-format.source_time_reference_message = true
-format.stock_summary_message = true
-format.symbol_clear_message = true
-format.symbol_index_mapping_message = true
-format.symbol_index_mapping_request_message = true
-format.trade_cancel_message = true
-format.payload = true
-
--- Nyse IntegratedFeed Xdp 2.1.g Element Dissection Options
-show.add_order_message = true
-show.add_order_refresh_message = true
-show.cross_correction_message = true
-show.cross_trade_message = true
-show.delete_order_message = true
-show.heartbeat_response_message = true
-show.imbalance_message = true
-show.message = true
-show.message_header = true
-show.message_unavailable_message = true
-show.modify_order_message = true
-show.non_displayed_trade_message = true
-show.order_execution_message = true
-show.packet = true
-show.packet_header = true
-show.refresh_header_message = true
-show.refresh_request_message = true
-show.replace_order_message = true
-show.request_response_message = true
-show.retail_price_improvement_message = true
-show.retransmission_request_message = true
-show.security_status_message = true
-show.sequence_number_reset_message = true
-show.source_time_reference_message = true
-show.stock_summary_message = true
-show.symbol_clear_message = true
-show.symbol_index_mapping_message = true
-show.symbol_index_mapping_request_message = true
-show.trade_cancel_message = true
-show.payload = false
-
------------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
@@ -207,6 +139,207 @@ nyse_integratedfeed_xdp_v2_1_g.fields.tradeid = ProtoField.new("TradeID", "nyse.
 nyse_integratedfeed_xdp_v2_1_g.fields.unit_of_trade = ProtoField.new("Unit of Trade", "nyse.integratedfeed.xdp.v2.1.g.unitoftrade", ftypes.UINT16)
 nyse_integratedfeed_xdp_v2_1_g.fields.uppercollar = ProtoField.new("UpperCollar", "nyse.integratedfeed.xdp.v2.1.g.uppercollar", ftypes.UINT32)
 nyse_integratedfeed_xdp_v2_1_g.fields.volume = ProtoField.new("Volume", "nyse.integratedfeed.xdp.v2.1.g.volume", ftypes.UINT32)
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+-- Nyse IntegratedFeed Xdp 2.1.g Element Dissection Options
+show.add_order_message = true
+show.add_order_refresh_message = true
+show.cross_correction_message = true
+show.cross_trade_message = true
+show.delete_order_message = true
+show.heartbeat_response_message = true
+show.imbalance_message = true
+show.message = true
+show.message_header = true
+show.message_unavailable_message = true
+show.modify_order_message = true
+show.non_displayed_trade_message = true
+show.order_execution_message = true
+show.packet = true
+show.packet_header = true
+show.refresh_header_message = true
+show.refresh_request_message = true
+show.replace_order_message = true
+show.request_response_message = true
+show.retail_price_improvement_message = true
+show.retransmission_request_message = true
+show.security_status_message = true
+show.sequence_number_reset_message = true
+show.source_time_reference_message = true
+show.stock_summary_message = true
+show.symbol_clear_message = true
+show.symbol_index_mapping_message = true
+show.symbol_index_mapping_request_message = true
+show.trade_cancel_message = true
+show.payload = false
+
+-- Register Nyse IntegratedFeed Xdp 2.1.g Show Options
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_add_order_message = Pref.bool("Show Add Order Message", show.add_order_message, "Parse and add Add Order Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_add_order_refresh_message = Pref.bool("Show Add Order Refresh Message", show.add_order_refresh_message, "Parse and add Add Order Refresh Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_cross_correction_message = Pref.bool("Show Cross Correction Message", show.cross_correction_message, "Parse and add Cross Correction Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_cross_trade_message = Pref.bool("Show Cross Trade Message", show.cross_trade_message, "Parse and add Cross Trade Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_delete_order_message = Pref.bool("Show Delete Order Message", show.delete_order_message, "Parse and add Delete Order Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_heartbeat_response_message = Pref.bool("Show Heartbeat Response Message", show.heartbeat_response_message, "Parse and add Heartbeat Response Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_imbalance_message = Pref.bool("Show Imbalance Message", show.imbalance_message, "Parse and add Imbalance Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_message_unavailable_message = Pref.bool("Show Message Unavailable Message", show.message_unavailable_message, "Parse and add Message Unavailable Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_modify_order_message = Pref.bool("Show Modify Order Message", show.modify_order_message, "Parse and add Modify Order Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_non_displayed_trade_message = Pref.bool("Show Non-Displayed Trade Message", show.non_displayed_trade_message, "Parse and add Non-Displayed Trade Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_order_execution_message = Pref.bool("Show Order Execution Message", show.order_execution_message, "Parse and add Order Execution Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_refresh_header_message = Pref.bool("Show Refresh Header Message", show.refresh_header_message, "Parse and add Refresh Header Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_refresh_request_message = Pref.bool("Show Refresh Request Message", show.refresh_request_message, "Parse and add Refresh Request Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_request_response_message = Pref.bool("Show Request Response Message", show.request_response_message, "Parse and add Request Response Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_retail_price_improvement_message = Pref.bool("Show Retail Price Improvement Message", show.retail_price_improvement_message, "Parse and add Retail Price Improvement Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_retransmission_request_message = Pref.bool("Show Retransmission Request Message", show.retransmission_request_message, "Parse and add Retransmission Request Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_security_status_message = Pref.bool("Show Security Status Message", show.security_status_message, "Parse and add Security Status Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_source_time_reference_message = Pref.bool("Show Source Time Reference Message", show.source_time_reference_message, "Parse and add Source Time Reference Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_stock_summary_message = Pref.bool("Show Stock Summary Message", show.stock_summary_message, "Parse and add Stock Summary Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_symbol_clear_message = Pref.bool("Show Symbol Clear Message", show.symbol_clear_message, "Parse and add Symbol Clear Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_symbol_index_mapping_message = Pref.bool("Show Symbol Index Mapping Message", show.symbol_index_mapping_message, "Parse and add Symbol Index Mapping Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_symbol_index_mapping_request_message = Pref.bool("Show Symbol Index Mapping Request Message", show.symbol_index_mapping_request_message, "Parse and add Symbol Index Mapping Request Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_trade_cancel_message = Pref.bool("Show Trade Cancel Message", show.trade_cancel_message, "Parse and add Trade Cancel Message to protocol tree")
+nyse_integratedfeed_xdp_v2_1_g.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+
+-- Handle changed preferences
+function nyse_integratedfeed_xdp_v2_1_g.prefs_changed()
+  local changed = false
+
+  -- Check if show options have changed
+  if show.add_order_message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_add_order_message then
+    show.add_order_message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_add_order_message
+    changed = true
+  end
+  if show.add_order_refresh_message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_add_order_refresh_message then
+    show.add_order_refresh_message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_add_order_refresh_message
+    changed = true
+  end
+  if show.cross_correction_message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_cross_correction_message then
+    show.cross_correction_message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_cross_correction_message
+    changed = true
+  end
+  if show.cross_trade_message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_cross_trade_message then
+    show.cross_trade_message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_cross_trade_message
+    changed = true
+  end
+  if show.delete_order_message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_delete_order_message then
+    show.delete_order_message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_delete_order_message
+    changed = true
+  end
+  if show.heartbeat_response_message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_heartbeat_response_message then
+    show.heartbeat_response_message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_heartbeat_response_message
+    changed = true
+  end
+  if show.imbalance_message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_imbalance_message then
+    show.imbalance_message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_imbalance_message
+    changed = true
+  end
+  if show.message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_message then
+    show.message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_message
+    changed = true
+  end
+  if show.message_header ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_message_header then
+    show.message_header = nyse_integratedfeed_xdp_v2_1_g.prefs.show_message_header
+    changed = true
+  end
+  if show.message_unavailable_message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_message_unavailable_message then
+    show.message_unavailable_message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_message_unavailable_message
+    changed = true
+  end
+  if show.modify_order_message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_modify_order_message then
+    show.modify_order_message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_modify_order_message
+    changed = true
+  end
+  if show.non_displayed_trade_message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_non_displayed_trade_message then
+    show.non_displayed_trade_message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_non_displayed_trade_message
+    changed = true
+  end
+  if show.order_execution_message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_order_execution_message then
+    show.order_execution_message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_order_execution_message
+    changed = true
+  end
+  if show.packet ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_packet then
+    show.packet = nyse_integratedfeed_xdp_v2_1_g.prefs.show_packet
+    changed = true
+  end
+  if show.packet_header ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_packet_header then
+    show.packet_header = nyse_integratedfeed_xdp_v2_1_g.prefs.show_packet_header
+    changed = true
+  end
+  if show.refresh_header_message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_refresh_header_message then
+    show.refresh_header_message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_refresh_header_message
+    changed = true
+  end
+  if show.refresh_request_message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_refresh_request_message then
+    show.refresh_request_message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_refresh_request_message
+    changed = true
+  end
+  if show.replace_order_message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_replace_order_message then
+    show.replace_order_message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_replace_order_message
+    changed = true
+  end
+  if show.request_response_message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_request_response_message then
+    show.request_response_message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_request_response_message
+    changed = true
+  end
+  if show.retail_price_improvement_message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_retail_price_improvement_message then
+    show.retail_price_improvement_message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_retail_price_improvement_message
+    changed = true
+  end
+  if show.retransmission_request_message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_retransmission_request_message then
+    show.retransmission_request_message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_retransmission_request_message
+    changed = true
+  end
+  if show.security_status_message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_security_status_message then
+    show.security_status_message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_security_status_message
+    changed = true
+  end
+  if show.sequence_number_reset_message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_sequence_number_reset_message then
+    show.sequence_number_reset_message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_sequence_number_reset_message
+    changed = true
+  end
+  if show.source_time_reference_message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_source_time_reference_message then
+    show.source_time_reference_message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_source_time_reference_message
+    changed = true
+  end
+  if show.stock_summary_message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_stock_summary_message then
+    show.stock_summary_message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_stock_summary_message
+    changed = true
+  end
+  if show.symbol_clear_message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_symbol_clear_message then
+    show.symbol_clear_message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_symbol_clear_message
+    changed = true
+  end
+  if show.symbol_index_mapping_message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_symbol_index_mapping_message then
+    show.symbol_index_mapping_message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_symbol_index_mapping_message
+    changed = true
+  end
+  if show.symbol_index_mapping_request_message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_symbol_index_mapping_request_message then
+    show.symbol_index_mapping_request_message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_symbol_index_mapping_request_message
+    changed = true
+  end
+  if show.trade_cancel_message ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_trade_cancel_message then
+    show.trade_cancel_message = nyse_integratedfeed_xdp_v2_1_g.prefs.show_trade_cancel_message
+    changed = true
+  end
+  if show.payload ~= nyse_integratedfeed_xdp_v2_1_g.prefs.show_payload then
+    show.payload = nyse_integratedfeed_xdp_v2_1_g.prefs.show_payload
+    changed = true
+  end
+
+  -- Reload on changed preference
+  if changed then
+    reload()
+  end
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Nyse IntegratedFeed Xdp 2.1.g

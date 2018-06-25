@@ -16,58 +16,6 @@ local size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
--- Declare Dissection Options
------------------------------------------------------------------------
-
--- Nasdaq TotalView Itch 4.1 Format Options
-format.add_order_message = true
-format.add_order_with_mpid_message = true
-format.broken_trade_message = true
-format.cross_trade_message = true
-format.market_participant_position_message = true
-format.message = true
-format.message_header = true
-format.net_order_imbalance_indicator_message = true
-format.order_cancel_message = true
-format.order_delete_message = true
-format.order_executed_message = true
-format.order_executed_with_price_message = true
-format.order_replace_message = true
-format.packet = true
-format.packet_header = true
-format.reg_sho_short_sale_price_test_restricted_indicator_message = true
-format.retail_price_improvement_indicator_message = true
-format.stock_directory_message = true
-format.system_event_message = true
-format.time_stamp_message = true
-format.trade_message = true
-format.payload = true
-
--- Nasdaq TotalView Itch 4.1 Element Dissection Options
-show.add_order_message = true
-show.add_order_with_mpid_message = true
-show.broken_trade_message = true
-show.cross_trade_message = true
-show.market_participant_position_message = true
-show.message = true
-show.message_header = true
-show.net_order_imbalance_indicator_message = true
-show.order_cancel_message = true
-show.order_delete_message = true
-show.order_executed_message = true
-show.order_executed_with_price_message = true
-show.order_replace_message = true
-show.packet = true
-show.packet_header = true
-show.reg_sho_short_sale_price_test_restricted_indicator_message = true
-show.retail_price_improvement_indicator_message = true
-show.stock_directory_message = true
-show.system_event_message = true
-show.time_stamp_message = true
-show.trade_message = true
-show.payload = false
-
------------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
@@ -133,6 +81,159 @@ nasdaq_totalview_itch_v4_1.fields.time_stamp_message = ProtoField.new("Time Stam
 nasdaq_totalview_itch_v4_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.totalview.itch.v4.1.timestamp", ftypes.UINT32)
 nasdaq_totalview_itch_v4_1.fields.timestamp__nanoseconds = ProtoField.new("Timestamp  Nanoseconds", "nasdaq.totalview.itch.v4.1.timestampnanoseconds", ftypes.UINT32)
 nasdaq_totalview_itch_v4_1.fields.trade_message = ProtoField.new("Trade Message", "nasdaq.totalview.itch.v4.1.trademessage", ftypes.STRING)
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+-- Nasdaq TotalView Itch 4.1 Element Dissection Options
+show.add_order_message = true
+show.add_order_with_mpid_message = true
+show.broken_trade_message = true
+show.cross_trade_message = true
+show.market_participant_position_message = true
+show.message = true
+show.message_header = true
+show.net_order_imbalance_indicator_message = true
+show.order_cancel_message = true
+show.order_delete_message = true
+show.order_executed_message = true
+show.order_executed_with_price_message = true
+show.order_replace_message = true
+show.packet = true
+show.packet_header = true
+show.reg_sho_short_sale_price_test_restricted_indicator_message = true
+show.retail_price_improvement_indicator_message = true
+show.stock_directory_message = true
+show.system_event_message = true
+show.time_stamp_message = true
+show.trade_message = true
+show.payload = false
+
+-- Register Nasdaq TotalView Itch 4.1 Show Options
+nasdaq_totalview_itch_v4_1.prefs.show_add_order_message = Pref.bool("Show Add Order Message", show.add_order_message, "Parse and add Add Order Message to protocol tree")
+nasdaq_totalview_itch_v4_1.prefs.show_add_order_with_mpid_message = Pref.bool("Show Add Order with Mpid Message", show.add_order_with_mpid_message, "Parse and add Add Order with Mpid Message to protocol tree")
+nasdaq_totalview_itch_v4_1.prefs.show_broken_trade_message = Pref.bool("Show Broken Trade Message", show.broken_trade_message, "Parse and add Broken Trade Message to protocol tree")
+nasdaq_totalview_itch_v4_1.prefs.show_cross_trade_message = Pref.bool("Show Cross Trade Message", show.cross_trade_message, "Parse and add Cross Trade Message to protocol tree")
+nasdaq_totalview_itch_v4_1.prefs.show_market_participant_position_message = Pref.bool("Show Market Participant Position Message", show.market_participant_position_message, "Parse and add Market Participant Position Message to protocol tree")
+nasdaq_totalview_itch_v4_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+nasdaq_totalview_itch_v4_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+nasdaq_totalview_itch_v4_1.prefs.show_net_order_imbalance_indicator_message = Pref.bool("Show Net Order Imbalance Indicator Message", show.net_order_imbalance_indicator_message, "Parse and add Net Order Imbalance Indicator Message to protocol tree")
+nasdaq_totalview_itch_v4_1.prefs.show_order_cancel_message = Pref.bool("Show Order Cancel Message", show.order_cancel_message, "Parse and add Order Cancel Message to protocol tree")
+nasdaq_totalview_itch_v4_1.prefs.show_order_delete_message = Pref.bool("Show Order Delete Message", show.order_delete_message, "Parse and add Order Delete Message to protocol tree")
+nasdaq_totalview_itch_v4_1.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
+nasdaq_totalview_itch_v4_1.prefs.show_order_executed_with_price_message = Pref.bool("Show Order Executed With Price Message", show.order_executed_with_price_message, "Parse and add Order Executed With Price Message to protocol tree")
+nasdaq_totalview_itch_v4_1.prefs.show_order_replace_message = Pref.bool("Show Order Replace Message", show.order_replace_message, "Parse and add Order Replace Message to protocol tree")
+nasdaq_totalview_itch_v4_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+nasdaq_totalview_itch_v4_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+nasdaq_totalview_itch_v4_1.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message = Pref.bool("Show Reg Sho Short Sale Price Test Restricted Indicator Message", show.reg_sho_short_sale_price_test_restricted_indicator_message, "Parse and add Reg Sho Short Sale Price Test Restricted Indicator Message to protocol tree")
+nasdaq_totalview_itch_v4_1.prefs.show_retail_price_improvement_indicator_message = Pref.bool("Show Retail Price Improvement Indicator Message", show.retail_price_improvement_indicator_message, "Parse and add Retail Price Improvement Indicator Message to protocol tree")
+nasdaq_totalview_itch_v4_1.prefs.show_stock_directory_message = Pref.bool("Show Stock Directory Message", show.stock_directory_message, "Parse and add Stock Directory Message to protocol tree")
+nasdaq_totalview_itch_v4_1.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
+nasdaq_totalview_itch_v4_1.prefs.show_time_stamp_message = Pref.bool("Show Time Stamp Message", show.time_stamp_message, "Parse and add Time Stamp Message to protocol tree")
+nasdaq_totalview_itch_v4_1.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
+nasdaq_totalview_itch_v4_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+
+-- Handle changed preferences
+function nasdaq_totalview_itch_v4_1.prefs_changed()
+  local changed = false
+
+  -- Check if show options have changed
+  if show.add_order_message ~= nasdaq_totalview_itch_v4_1.prefs.show_add_order_message then
+    show.add_order_message = nasdaq_totalview_itch_v4_1.prefs.show_add_order_message
+    changed = true
+  end
+  if show.add_order_with_mpid_message ~= nasdaq_totalview_itch_v4_1.prefs.show_add_order_with_mpid_message then
+    show.add_order_with_mpid_message = nasdaq_totalview_itch_v4_1.prefs.show_add_order_with_mpid_message
+    changed = true
+  end
+  if show.broken_trade_message ~= nasdaq_totalview_itch_v4_1.prefs.show_broken_trade_message then
+    show.broken_trade_message = nasdaq_totalview_itch_v4_1.prefs.show_broken_trade_message
+    changed = true
+  end
+  if show.cross_trade_message ~= nasdaq_totalview_itch_v4_1.prefs.show_cross_trade_message then
+    show.cross_trade_message = nasdaq_totalview_itch_v4_1.prefs.show_cross_trade_message
+    changed = true
+  end
+  if show.market_participant_position_message ~= nasdaq_totalview_itch_v4_1.prefs.show_market_participant_position_message then
+    show.market_participant_position_message = nasdaq_totalview_itch_v4_1.prefs.show_market_participant_position_message
+    changed = true
+  end
+  if show.message ~= nasdaq_totalview_itch_v4_1.prefs.show_message then
+    show.message = nasdaq_totalview_itch_v4_1.prefs.show_message
+    changed = true
+  end
+  if show.message_header ~= nasdaq_totalview_itch_v4_1.prefs.show_message_header then
+    show.message_header = nasdaq_totalview_itch_v4_1.prefs.show_message_header
+    changed = true
+  end
+  if show.net_order_imbalance_indicator_message ~= nasdaq_totalview_itch_v4_1.prefs.show_net_order_imbalance_indicator_message then
+    show.net_order_imbalance_indicator_message = nasdaq_totalview_itch_v4_1.prefs.show_net_order_imbalance_indicator_message
+    changed = true
+  end
+  if show.order_cancel_message ~= nasdaq_totalview_itch_v4_1.prefs.show_order_cancel_message then
+    show.order_cancel_message = nasdaq_totalview_itch_v4_1.prefs.show_order_cancel_message
+    changed = true
+  end
+  if show.order_delete_message ~= nasdaq_totalview_itch_v4_1.prefs.show_order_delete_message then
+    show.order_delete_message = nasdaq_totalview_itch_v4_1.prefs.show_order_delete_message
+    changed = true
+  end
+  if show.order_executed_message ~= nasdaq_totalview_itch_v4_1.prefs.show_order_executed_message then
+    show.order_executed_message = nasdaq_totalview_itch_v4_1.prefs.show_order_executed_message
+    changed = true
+  end
+  if show.order_executed_with_price_message ~= nasdaq_totalview_itch_v4_1.prefs.show_order_executed_with_price_message then
+    show.order_executed_with_price_message = nasdaq_totalview_itch_v4_1.prefs.show_order_executed_with_price_message
+    changed = true
+  end
+  if show.order_replace_message ~= nasdaq_totalview_itch_v4_1.prefs.show_order_replace_message then
+    show.order_replace_message = nasdaq_totalview_itch_v4_1.prefs.show_order_replace_message
+    changed = true
+  end
+  if show.packet ~= nasdaq_totalview_itch_v4_1.prefs.show_packet then
+    show.packet = nasdaq_totalview_itch_v4_1.prefs.show_packet
+    changed = true
+  end
+  if show.packet_header ~= nasdaq_totalview_itch_v4_1.prefs.show_packet_header then
+    show.packet_header = nasdaq_totalview_itch_v4_1.prefs.show_packet_header
+    changed = true
+  end
+  if show.reg_sho_short_sale_price_test_restricted_indicator_message ~= nasdaq_totalview_itch_v4_1.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message then
+    show.reg_sho_short_sale_price_test_restricted_indicator_message = nasdaq_totalview_itch_v4_1.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message
+    changed = true
+  end
+  if show.retail_price_improvement_indicator_message ~= nasdaq_totalview_itch_v4_1.prefs.show_retail_price_improvement_indicator_message then
+    show.retail_price_improvement_indicator_message = nasdaq_totalview_itch_v4_1.prefs.show_retail_price_improvement_indicator_message
+    changed = true
+  end
+  if show.stock_directory_message ~= nasdaq_totalview_itch_v4_1.prefs.show_stock_directory_message then
+    show.stock_directory_message = nasdaq_totalview_itch_v4_1.prefs.show_stock_directory_message
+    changed = true
+  end
+  if show.system_event_message ~= nasdaq_totalview_itch_v4_1.prefs.show_system_event_message then
+    show.system_event_message = nasdaq_totalview_itch_v4_1.prefs.show_system_event_message
+    changed = true
+  end
+  if show.time_stamp_message ~= nasdaq_totalview_itch_v4_1.prefs.show_time_stamp_message then
+    show.time_stamp_message = nasdaq_totalview_itch_v4_1.prefs.show_time_stamp_message
+    changed = true
+  end
+  if show.trade_message ~= nasdaq_totalview_itch_v4_1.prefs.show_trade_message then
+    show.trade_message = nasdaq_totalview_itch_v4_1.prefs.show_trade_message
+    changed = true
+  end
+  if show.payload ~= nasdaq_totalview_itch_v4_1.prefs.show_payload then
+    show.payload = nasdaq_totalview_itch_v4_1.prefs.show_payload
+    changed = true
+  end
+
+  -- Reload on changed preference
+  if changed then
+    reload()
+  end
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Nasdaq TotalView Itch 4.1

@@ -16,64 +16,6 @@ local size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
--- Declare Dissection Options
------------------------------------------------------------------------
-
--- Nasdaq TotalView Itch 5.0 Format Options
-format.add_order___no_mpid_attribution_message = true
-format.add_order_with_mpid_attribution_message = true
-format.broken_trade_message = true
-format.cross_trade_message = true
-format.ipo_quoting_period_update = true
-format.market_participant_position_message = true
-format.message = true
-format.message_header = true
-format.mwcb_decline_level_message = true
-format.mwcb_status_level_message = true
-format.net_order_imbalance_indicator_message = true
-format.order_cancel_message = true
-format.order_delete_message = true
-format.order_executed_message = true
-format.order_executed_with_price_message = true
-format.order_replace_message = true
-format.packet = true
-format.packet_header = true
-format.reg_sho_short_sale_price_test_restricted_indicator_message = true
-format.retail_interest_message = true
-format.stock_directory_message = true
-format.stock_trading_action_message = true
-format.system_event_message = true
-format.trade_message__non_cross_ = true
-format.payload = true
-
--- Nasdaq TotalView Itch 5.0 Element Dissection Options
-show.add_order___no_mpid_attribution_message = true
-show.add_order_with_mpid_attribution_message = true
-show.broken_trade_message = true
-show.cross_trade_message = true
-show.ipo_quoting_period_update = true
-show.market_participant_position_message = true
-show.message = true
-show.message_header = true
-show.mwcb_decline_level_message = true
-show.mwcb_status_level_message = true
-show.net_order_imbalance_indicator_message = true
-show.order_cancel_message = true
-show.order_delete_message = true
-show.order_executed_message = true
-show.order_executed_with_price_message = true
-show.order_replace_message = true
-show.packet = true
-show.packet_header = true
-show.reg_sho_short_sale_price_test_restricted_indicator_message = true
-show.retail_interest_message = true
-show.stock_directory_message = true
-show.stock_trading_action_message = true
-show.system_event_message = true
-show.trade_message__non_cross_ = true
-show.payload = false
-
------------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
@@ -164,6 +106,177 @@ nasdaq_totalview_itch_v5_0.fields.timestamp = ProtoField.new("Timestamp", "nasda
 nasdaq_totalview_itch_v5_0.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.totalview.itch.v5.0.trackingnumber", ftypes.UINT16)
 nasdaq_totalview_itch_v5_0.fields.trade_message__non_cross_ = ProtoField.new("Trade Message (Non-Cross)", "nasdaq.totalview.itch.v5.0.trademessagenoncross", ftypes.STRING)
 nasdaq_totalview_itch_v5_0.fields.trading_state = ProtoField.new("Trading State", "nasdaq.totalview.itch.v5.0.tradingstate", ftypes.STRING)
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+-- Nasdaq TotalView Itch 5.0 Element Dissection Options
+show.add_order___no_mpid_attribution_message = true
+show.add_order_with_mpid_attribution_message = true
+show.broken_trade_message = true
+show.cross_trade_message = true
+show.ipo_quoting_period_update = true
+show.market_participant_position_message = true
+show.message = true
+show.message_header = true
+show.mwcb_decline_level_message = true
+show.mwcb_status_level_message = true
+show.net_order_imbalance_indicator_message = true
+show.order_cancel_message = true
+show.order_delete_message = true
+show.order_executed_message = true
+show.order_executed_with_price_message = true
+show.order_replace_message = true
+show.packet = true
+show.packet_header = true
+show.reg_sho_short_sale_price_test_restricted_indicator_message = true
+show.retail_interest_message = true
+show.stock_directory_message = true
+show.stock_trading_action_message = true
+show.system_event_message = true
+show.trade_message__non_cross_ = true
+show.payload = false
+
+-- Register Nasdaq TotalView Itch 5.0 Show Options
+nasdaq_totalview_itch_v5_0.prefs.show_add_order___no_mpid_attribution_message = Pref.bool("Show Add Order – No MPID Attribution Message", show.add_order___no_mpid_attribution_message, "Parse and add Add Order – No MPID Attribution Message to protocol tree")
+nasdaq_totalview_itch_v5_0.prefs.show_add_order_with_mpid_attribution_message = Pref.bool("Show Add Order with MPID Attribution Message", show.add_order_with_mpid_attribution_message, "Parse and add Add Order with MPID Attribution Message to protocol tree")
+nasdaq_totalview_itch_v5_0.prefs.show_broken_trade_message = Pref.bool("Show Broken Trade Message", show.broken_trade_message, "Parse and add Broken Trade Message to protocol tree")
+nasdaq_totalview_itch_v5_0.prefs.show_cross_trade_message = Pref.bool("Show Cross Trade Message", show.cross_trade_message, "Parse and add Cross Trade Message to protocol tree")
+nasdaq_totalview_itch_v5_0.prefs.show_ipo_quoting_period_update = Pref.bool("Show IPO Quoting Period Update", show.ipo_quoting_period_update, "Parse and add IPO Quoting Period Update to protocol tree")
+nasdaq_totalview_itch_v5_0.prefs.show_market_participant_position_message = Pref.bool("Show Market Participant Position Message", show.market_participant_position_message, "Parse and add Market Participant Position Message to protocol tree")
+nasdaq_totalview_itch_v5_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+nasdaq_totalview_itch_v5_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+nasdaq_totalview_itch_v5_0.prefs.show_mwcb_decline_level_message = Pref.bool("Show MWCB Decline Level Message", show.mwcb_decline_level_message, "Parse and add MWCB Decline Level Message to protocol tree")
+nasdaq_totalview_itch_v5_0.prefs.show_mwcb_status_level_message = Pref.bool("Show MWCB Status Level Message", show.mwcb_status_level_message, "Parse and add MWCB Status Level Message to protocol tree")
+nasdaq_totalview_itch_v5_0.prefs.show_net_order_imbalance_indicator_message = Pref.bool("Show Net Order Imbalance Indicator Message", show.net_order_imbalance_indicator_message, "Parse and add Net Order Imbalance Indicator Message to protocol tree")
+nasdaq_totalview_itch_v5_0.prefs.show_order_cancel_message = Pref.bool("Show Order Cancel Message", show.order_cancel_message, "Parse and add Order Cancel Message to protocol tree")
+nasdaq_totalview_itch_v5_0.prefs.show_order_delete_message = Pref.bool("Show Order Delete Message", show.order_delete_message, "Parse and add Order Delete Message to protocol tree")
+nasdaq_totalview_itch_v5_0.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
+nasdaq_totalview_itch_v5_0.prefs.show_order_executed_with_price_message = Pref.bool("Show Order Executed With Price Message", show.order_executed_with_price_message, "Parse and add Order Executed With Price Message to protocol tree")
+nasdaq_totalview_itch_v5_0.prefs.show_order_replace_message = Pref.bool("Show Order Replace Message", show.order_replace_message, "Parse and add Order Replace Message to protocol tree")
+nasdaq_totalview_itch_v5_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+nasdaq_totalview_itch_v5_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+nasdaq_totalview_itch_v5_0.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message = Pref.bool("Show Reg SHO Short Sale Price Test Restricted Indicator Message", show.reg_sho_short_sale_price_test_restricted_indicator_message, "Parse and add Reg SHO Short Sale Price Test Restricted Indicator Message to protocol tree")
+nasdaq_totalview_itch_v5_0.prefs.show_retail_interest_message = Pref.bool("Show Retail Interest Message", show.retail_interest_message, "Parse and add Retail Interest Message to protocol tree")
+nasdaq_totalview_itch_v5_0.prefs.show_stock_directory_message = Pref.bool("Show Stock Directory Message", show.stock_directory_message, "Parse and add Stock Directory Message to protocol tree")
+nasdaq_totalview_itch_v5_0.prefs.show_stock_trading_action_message = Pref.bool("Show Stock Trading Action Message", show.stock_trading_action_message, "Parse and add Stock Trading Action Message to protocol tree")
+nasdaq_totalview_itch_v5_0.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
+nasdaq_totalview_itch_v5_0.prefs.show_trade_message__non_cross_ = Pref.bool("Show Trade Message (Non-Cross)", show.trade_message__non_cross_, "Parse and add Trade Message (Non-Cross) to protocol tree")
+nasdaq_totalview_itch_v5_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+
+-- Handle changed preferences
+function nasdaq_totalview_itch_v5_0.prefs_changed()
+  local changed = false
+
+  -- Check if show options have changed
+  if show.add_order___no_mpid_attribution_message ~= nasdaq_totalview_itch_v5_0.prefs.show_add_order___no_mpid_attribution_message then
+    show.add_order___no_mpid_attribution_message = nasdaq_totalview_itch_v5_0.prefs.show_add_order___no_mpid_attribution_message
+    changed = true
+  end
+  if show.add_order_with_mpid_attribution_message ~= nasdaq_totalview_itch_v5_0.prefs.show_add_order_with_mpid_attribution_message then
+    show.add_order_with_mpid_attribution_message = nasdaq_totalview_itch_v5_0.prefs.show_add_order_with_mpid_attribution_message
+    changed = true
+  end
+  if show.broken_trade_message ~= nasdaq_totalview_itch_v5_0.prefs.show_broken_trade_message then
+    show.broken_trade_message = nasdaq_totalview_itch_v5_0.prefs.show_broken_trade_message
+    changed = true
+  end
+  if show.cross_trade_message ~= nasdaq_totalview_itch_v5_0.prefs.show_cross_trade_message then
+    show.cross_trade_message = nasdaq_totalview_itch_v5_0.prefs.show_cross_trade_message
+    changed = true
+  end
+  if show.ipo_quoting_period_update ~= nasdaq_totalview_itch_v5_0.prefs.show_ipo_quoting_period_update then
+    show.ipo_quoting_period_update = nasdaq_totalview_itch_v5_0.prefs.show_ipo_quoting_period_update
+    changed = true
+  end
+  if show.market_participant_position_message ~= nasdaq_totalview_itch_v5_0.prefs.show_market_participant_position_message then
+    show.market_participant_position_message = nasdaq_totalview_itch_v5_0.prefs.show_market_participant_position_message
+    changed = true
+  end
+  if show.message ~= nasdaq_totalview_itch_v5_0.prefs.show_message then
+    show.message = nasdaq_totalview_itch_v5_0.prefs.show_message
+    changed = true
+  end
+  if show.message_header ~= nasdaq_totalview_itch_v5_0.prefs.show_message_header then
+    show.message_header = nasdaq_totalview_itch_v5_0.prefs.show_message_header
+    changed = true
+  end
+  if show.mwcb_decline_level_message ~= nasdaq_totalview_itch_v5_0.prefs.show_mwcb_decline_level_message then
+    show.mwcb_decline_level_message = nasdaq_totalview_itch_v5_0.prefs.show_mwcb_decline_level_message
+    changed = true
+  end
+  if show.mwcb_status_level_message ~= nasdaq_totalview_itch_v5_0.prefs.show_mwcb_status_level_message then
+    show.mwcb_status_level_message = nasdaq_totalview_itch_v5_0.prefs.show_mwcb_status_level_message
+    changed = true
+  end
+  if show.net_order_imbalance_indicator_message ~= nasdaq_totalview_itch_v5_0.prefs.show_net_order_imbalance_indicator_message then
+    show.net_order_imbalance_indicator_message = nasdaq_totalview_itch_v5_0.prefs.show_net_order_imbalance_indicator_message
+    changed = true
+  end
+  if show.order_cancel_message ~= nasdaq_totalview_itch_v5_0.prefs.show_order_cancel_message then
+    show.order_cancel_message = nasdaq_totalview_itch_v5_0.prefs.show_order_cancel_message
+    changed = true
+  end
+  if show.order_delete_message ~= nasdaq_totalview_itch_v5_0.prefs.show_order_delete_message then
+    show.order_delete_message = nasdaq_totalview_itch_v5_0.prefs.show_order_delete_message
+    changed = true
+  end
+  if show.order_executed_message ~= nasdaq_totalview_itch_v5_0.prefs.show_order_executed_message then
+    show.order_executed_message = nasdaq_totalview_itch_v5_0.prefs.show_order_executed_message
+    changed = true
+  end
+  if show.order_executed_with_price_message ~= nasdaq_totalview_itch_v5_0.prefs.show_order_executed_with_price_message then
+    show.order_executed_with_price_message = nasdaq_totalview_itch_v5_0.prefs.show_order_executed_with_price_message
+    changed = true
+  end
+  if show.order_replace_message ~= nasdaq_totalview_itch_v5_0.prefs.show_order_replace_message then
+    show.order_replace_message = nasdaq_totalview_itch_v5_0.prefs.show_order_replace_message
+    changed = true
+  end
+  if show.packet ~= nasdaq_totalview_itch_v5_0.prefs.show_packet then
+    show.packet = nasdaq_totalview_itch_v5_0.prefs.show_packet
+    changed = true
+  end
+  if show.packet_header ~= nasdaq_totalview_itch_v5_0.prefs.show_packet_header then
+    show.packet_header = nasdaq_totalview_itch_v5_0.prefs.show_packet_header
+    changed = true
+  end
+  if show.reg_sho_short_sale_price_test_restricted_indicator_message ~= nasdaq_totalview_itch_v5_0.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message then
+    show.reg_sho_short_sale_price_test_restricted_indicator_message = nasdaq_totalview_itch_v5_0.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message
+    changed = true
+  end
+  if show.retail_interest_message ~= nasdaq_totalview_itch_v5_0.prefs.show_retail_interest_message then
+    show.retail_interest_message = nasdaq_totalview_itch_v5_0.prefs.show_retail_interest_message
+    changed = true
+  end
+  if show.stock_directory_message ~= nasdaq_totalview_itch_v5_0.prefs.show_stock_directory_message then
+    show.stock_directory_message = nasdaq_totalview_itch_v5_0.prefs.show_stock_directory_message
+    changed = true
+  end
+  if show.stock_trading_action_message ~= nasdaq_totalview_itch_v5_0.prefs.show_stock_trading_action_message then
+    show.stock_trading_action_message = nasdaq_totalview_itch_v5_0.prefs.show_stock_trading_action_message
+    changed = true
+  end
+  if show.system_event_message ~= nasdaq_totalview_itch_v5_0.prefs.show_system_event_message then
+    show.system_event_message = nasdaq_totalview_itch_v5_0.prefs.show_system_event_message
+    changed = true
+  end
+  if show.trade_message__non_cross_ ~= nasdaq_totalview_itch_v5_0.prefs.show_trade_message__non_cross_ then
+    show.trade_message__non_cross_ = nasdaq_totalview_itch_v5_0.prefs.show_trade_message__non_cross_
+    changed = true
+  end
+  if show.payload ~= nasdaq_totalview_itch_v5_0.prefs.show_payload then
+    show.payload = nasdaq_totalview_itch_v5_0.prefs.show_payload
+    changed = true
+  end
+
+  -- Reload on changed preference
+  if changed then
+    reload()
+  end
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Nasdaq TotalView Itch 5.0

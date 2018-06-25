@@ -16,78 +16,6 @@ local size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
--- Declare Dissection Options
------------------------------------------------------------------------
-
--- Eurex Eobi T7 6.0.2 Format Options
-format.add_complex_instrument = true
-format.auction_bbo = true
-format.auction_clearing_price = true
-format.cross_request = true
-format.execution_summary = true
-format.full_order_execution = true
-format.heartbeat = true
-format.instrmt_leg_grp = true
-format.instrument_state_change = true
-format.instrument_summary = true
-format.md_instrument_entry_grp = true
-format.md_trade_entry_grp = true
-format.message = true
-format.message_header = true
-format.order_add = true
-format.order_delete = true
-format.order_details = true
-format.order_mass_delete = true
-format.order_modify = true
-format.order_modify_same_prio = true
-format.packet = true
-format.packet_header = true
-format.packet_info = true
-format.partial_order_execution = true
-format.product_state_change = true
-format.product_summary = true
-format.quote_request = true
-format.snapshot_order = true
-format.top_of_book = true
-format.trade_report = true
-format.trade_reversal = true
-format.payload = true
-
--- Eurex Eobi T7 6.0.2 Element Dissection Options
-show.add_complex_instrument = true
-show.auction_bbo = true
-show.auction_clearing_price = true
-show.cross_request = true
-show.execution_summary = true
-show.full_order_execution = true
-show.heartbeat = true
-show.instrmt_leg_grp = true
-show.instrument_state_change = true
-show.instrument_summary = true
-show.md_instrument_entry_grp = true
-show.md_trade_entry_grp = true
-show.message = true
-show.message_header = true
-show.order_add = true
-show.order_delete = true
-show.order_details = true
-show.order_mass_delete = true
-show.order_modify = true
-show.order_modify_same_prio = true
-show.packet = true
-show.packet_header = true
-show.packet_info = true
-show.partial_order_execution = true
-show.product_state_change = true
-show.product_summary = true
-show.quote_request = true
-show.snapshot_order = true
-show.top_of_book = true
-show.trade_report = true
-show.trade_reversal = true
-show.payload = false
-
------------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
@@ -196,6 +124,219 @@ eurex_eobi_t7_v6_0_2.fields.trd_reg_ts_execution_time = ProtoField.new("Trd Reg 
 eurex_eobi_t7_v6_0_2.fields.trd_reg_ts_prev_time_priority = ProtoField.new("Trd Reg TS Prev Time Priority", "eurex.eobi.t7.v6.0.2.trdregtsprevtimepriority", ftypes.UINT64)
 eurex_eobi_t7_v6_0_2.fields.trd_reg_ts_time_in = ProtoField.new("Trd Reg TS Time In", "eurex.eobi.t7.v6.0.2.trdregtstimein", ftypes.UINT64)
 eurex_eobi_t7_v6_0_2.fields.trd_reg_ts_time_priority = ProtoField.new("Trd Reg TS Time Priority", "eurex.eobi.t7.v6.0.2.trdregtstimepriority", ftypes.UINT64)
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+-- Eurex Eobi T7 6.0.2 Element Dissection Options
+show.add_complex_instrument = true
+show.auction_bbo = true
+show.auction_clearing_price = true
+show.cross_request = true
+show.execution_summary = true
+show.full_order_execution = true
+show.heartbeat = true
+show.instrmt_leg_grp = true
+show.instrument_state_change = true
+show.instrument_summary = true
+show.md_instrument_entry_grp = true
+show.md_trade_entry_grp = true
+show.message = true
+show.message_header = true
+show.order_add = true
+show.order_delete = true
+show.order_details = true
+show.order_mass_delete = true
+show.order_modify = true
+show.order_modify_same_prio = true
+show.packet = true
+show.packet_header = true
+show.packet_info = true
+show.partial_order_execution = true
+show.product_state_change = true
+show.product_summary = true
+show.quote_request = true
+show.snapshot_order = true
+show.top_of_book = true
+show.trade_report = true
+show.trade_reversal = true
+show.payload = false
+
+-- Register Eurex Eobi T7 6.0.2 Show Options
+eurex_eobi_t7_v6_0_2.prefs.show_add_complex_instrument = Pref.bool("Show Add Complex Instrument", show.add_complex_instrument, "Parse and add Add Complex Instrument to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_auction_bbo = Pref.bool("Show Auction BBO", show.auction_bbo, "Parse and add Auction BBO to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_auction_clearing_price = Pref.bool("Show Auction Clearing Price", show.auction_clearing_price, "Parse and add Auction Clearing Price to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_cross_request = Pref.bool("Show Cross Request", show.cross_request, "Parse and add Cross Request to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_execution_summary = Pref.bool("Show Execution Summary", show.execution_summary, "Parse and add Execution Summary to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_full_order_execution = Pref.bool("Show Full Order Execution", show.full_order_execution, "Parse and add Full Order Execution to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_heartbeat = Pref.bool("Show Heartbeat", show.heartbeat, "Parse and add Heartbeat to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_instrmt_leg_grp = Pref.bool("Show Instrmt Leg Grp", show.instrmt_leg_grp, "Parse and add Instrmt Leg Grp to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_instrument_state_change = Pref.bool("Show Instrument State Change", show.instrument_state_change, "Parse and add Instrument State Change to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_instrument_summary = Pref.bool("Show Instrument Summary", show.instrument_summary, "Parse and add Instrument Summary to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_md_instrument_entry_grp = Pref.bool("Show MD Instrument Entry Grp", show.md_instrument_entry_grp, "Parse and add MD Instrument Entry Grp to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_md_trade_entry_grp = Pref.bool("Show MD Trade Entry Grp", show.md_trade_entry_grp, "Parse and add MD Trade Entry Grp to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_order_add = Pref.bool("Show Order Add", show.order_add, "Parse and add Order Add to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_order_delete = Pref.bool("Show Order Delete", show.order_delete, "Parse and add Order Delete to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_order_details = Pref.bool("Show Order Details", show.order_details, "Parse and add Order Details to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_order_mass_delete = Pref.bool("Show Order Mass Delete", show.order_mass_delete, "Parse and add Order Mass Delete to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_order_modify = Pref.bool("Show Order Modify", show.order_modify, "Parse and add Order Modify to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_order_modify_same_prio = Pref.bool("Show Order Modify Same Prio", show.order_modify_same_prio, "Parse and add Order Modify Same Prio to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_packet_info = Pref.bool("Show Packet Info", show.packet_info, "Parse and add Packet Info to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_partial_order_execution = Pref.bool("Show Partial Order Execution", show.partial_order_execution, "Parse and add Partial Order Execution to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_product_state_change = Pref.bool("Show Product State Change", show.product_state_change, "Parse and add Product State Change to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_product_summary = Pref.bool("Show Product Summary", show.product_summary, "Parse and add Product Summary to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_quote_request = Pref.bool("Show Quote Request", show.quote_request, "Parse and add Quote Request to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_snapshot_order = Pref.bool("Show Snapshot Order", show.snapshot_order, "Parse and add Snapshot Order to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_top_of_book = Pref.bool("Show Top Of Book", show.top_of_book, "Parse and add Top Of Book to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_trade_report = Pref.bool("Show Trade Report", show.trade_report, "Parse and add Trade Report to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_trade_reversal = Pref.bool("Show Trade Reversal", show.trade_reversal, "Parse and add Trade Reversal to protocol tree")
+eurex_eobi_t7_v6_0_2.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+
+-- Handle changed preferences
+function eurex_eobi_t7_v6_0_2.prefs_changed()
+  local changed = false
+
+  -- Check if show options have changed
+  if show.add_complex_instrument ~= eurex_eobi_t7_v6_0_2.prefs.show_add_complex_instrument then
+    show.add_complex_instrument = eurex_eobi_t7_v6_0_2.prefs.show_add_complex_instrument
+    changed = true
+  end
+  if show.auction_bbo ~= eurex_eobi_t7_v6_0_2.prefs.show_auction_bbo then
+    show.auction_bbo = eurex_eobi_t7_v6_0_2.prefs.show_auction_bbo
+    changed = true
+  end
+  if show.auction_clearing_price ~= eurex_eobi_t7_v6_0_2.prefs.show_auction_clearing_price then
+    show.auction_clearing_price = eurex_eobi_t7_v6_0_2.prefs.show_auction_clearing_price
+    changed = true
+  end
+  if show.cross_request ~= eurex_eobi_t7_v6_0_2.prefs.show_cross_request then
+    show.cross_request = eurex_eobi_t7_v6_0_2.prefs.show_cross_request
+    changed = true
+  end
+  if show.execution_summary ~= eurex_eobi_t7_v6_0_2.prefs.show_execution_summary then
+    show.execution_summary = eurex_eobi_t7_v6_0_2.prefs.show_execution_summary
+    changed = true
+  end
+  if show.full_order_execution ~= eurex_eobi_t7_v6_0_2.prefs.show_full_order_execution then
+    show.full_order_execution = eurex_eobi_t7_v6_0_2.prefs.show_full_order_execution
+    changed = true
+  end
+  if show.heartbeat ~= eurex_eobi_t7_v6_0_2.prefs.show_heartbeat then
+    show.heartbeat = eurex_eobi_t7_v6_0_2.prefs.show_heartbeat
+    changed = true
+  end
+  if show.instrmt_leg_grp ~= eurex_eobi_t7_v6_0_2.prefs.show_instrmt_leg_grp then
+    show.instrmt_leg_grp = eurex_eobi_t7_v6_0_2.prefs.show_instrmt_leg_grp
+    changed = true
+  end
+  if show.instrument_state_change ~= eurex_eobi_t7_v6_0_2.prefs.show_instrument_state_change then
+    show.instrument_state_change = eurex_eobi_t7_v6_0_2.prefs.show_instrument_state_change
+    changed = true
+  end
+  if show.instrument_summary ~= eurex_eobi_t7_v6_0_2.prefs.show_instrument_summary then
+    show.instrument_summary = eurex_eobi_t7_v6_0_2.prefs.show_instrument_summary
+    changed = true
+  end
+  if show.md_instrument_entry_grp ~= eurex_eobi_t7_v6_0_2.prefs.show_md_instrument_entry_grp then
+    show.md_instrument_entry_grp = eurex_eobi_t7_v6_0_2.prefs.show_md_instrument_entry_grp
+    changed = true
+  end
+  if show.md_trade_entry_grp ~= eurex_eobi_t7_v6_0_2.prefs.show_md_trade_entry_grp then
+    show.md_trade_entry_grp = eurex_eobi_t7_v6_0_2.prefs.show_md_trade_entry_grp
+    changed = true
+  end
+  if show.message ~= eurex_eobi_t7_v6_0_2.prefs.show_message then
+    show.message = eurex_eobi_t7_v6_0_2.prefs.show_message
+    changed = true
+  end
+  if show.message_header ~= eurex_eobi_t7_v6_0_2.prefs.show_message_header then
+    show.message_header = eurex_eobi_t7_v6_0_2.prefs.show_message_header
+    changed = true
+  end
+  if show.order_add ~= eurex_eobi_t7_v6_0_2.prefs.show_order_add then
+    show.order_add = eurex_eobi_t7_v6_0_2.prefs.show_order_add
+    changed = true
+  end
+  if show.order_delete ~= eurex_eobi_t7_v6_0_2.prefs.show_order_delete then
+    show.order_delete = eurex_eobi_t7_v6_0_2.prefs.show_order_delete
+    changed = true
+  end
+  if show.order_details ~= eurex_eobi_t7_v6_0_2.prefs.show_order_details then
+    show.order_details = eurex_eobi_t7_v6_0_2.prefs.show_order_details
+    changed = true
+  end
+  if show.order_mass_delete ~= eurex_eobi_t7_v6_0_2.prefs.show_order_mass_delete then
+    show.order_mass_delete = eurex_eobi_t7_v6_0_2.prefs.show_order_mass_delete
+    changed = true
+  end
+  if show.order_modify ~= eurex_eobi_t7_v6_0_2.prefs.show_order_modify then
+    show.order_modify = eurex_eobi_t7_v6_0_2.prefs.show_order_modify
+    changed = true
+  end
+  if show.order_modify_same_prio ~= eurex_eobi_t7_v6_0_2.prefs.show_order_modify_same_prio then
+    show.order_modify_same_prio = eurex_eobi_t7_v6_0_2.prefs.show_order_modify_same_prio
+    changed = true
+  end
+  if show.packet ~= eurex_eobi_t7_v6_0_2.prefs.show_packet then
+    show.packet = eurex_eobi_t7_v6_0_2.prefs.show_packet
+    changed = true
+  end
+  if show.packet_header ~= eurex_eobi_t7_v6_0_2.prefs.show_packet_header then
+    show.packet_header = eurex_eobi_t7_v6_0_2.prefs.show_packet_header
+    changed = true
+  end
+  if show.packet_info ~= eurex_eobi_t7_v6_0_2.prefs.show_packet_info then
+    show.packet_info = eurex_eobi_t7_v6_0_2.prefs.show_packet_info
+    changed = true
+  end
+  if show.partial_order_execution ~= eurex_eobi_t7_v6_0_2.prefs.show_partial_order_execution then
+    show.partial_order_execution = eurex_eobi_t7_v6_0_2.prefs.show_partial_order_execution
+    changed = true
+  end
+  if show.product_state_change ~= eurex_eobi_t7_v6_0_2.prefs.show_product_state_change then
+    show.product_state_change = eurex_eobi_t7_v6_0_2.prefs.show_product_state_change
+    changed = true
+  end
+  if show.product_summary ~= eurex_eobi_t7_v6_0_2.prefs.show_product_summary then
+    show.product_summary = eurex_eobi_t7_v6_0_2.prefs.show_product_summary
+    changed = true
+  end
+  if show.quote_request ~= eurex_eobi_t7_v6_0_2.prefs.show_quote_request then
+    show.quote_request = eurex_eobi_t7_v6_0_2.prefs.show_quote_request
+    changed = true
+  end
+  if show.snapshot_order ~= eurex_eobi_t7_v6_0_2.prefs.show_snapshot_order then
+    show.snapshot_order = eurex_eobi_t7_v6_0_2.prefs.show_snapshot_order
+    changed = true
+  end
+  if show.top_of_book ~= eurex_eobi_t7_v6_0_2.prefs.show_top_of_book then
+    show.top_of_book = eurex_eobi_t7_v6_0_2.prefs.show_top_of_book
+    changed = true
+  end
+  if show.trade_report ~= eurex_eobi_t7_v6_0_2.prefs.show_trade_report then
+    show.trade_report = eurex_eobi_t7_v6_0_2.prefs.show_trade_report
+    changed = true
+  end
+  if show.trade_reversal ~= eurex_eobi_t7_v6_0_2.prefs.show_trade_reversal then
+    show.trade_reversal = eurex_eobi_t7_v6_0_2.prefs.show_trade_reversal
+    changed = true
+  end
+  if show.payload ~= eurex_eobi_t7_v6_0_2.prefs.show_payload then
+    show.payload = eurex_eobi_t7_v6_0_2.prefs.show_payload
+    changed = true
+  end
+
+  -- Reload on changed preference
+  if changed then
+    reload()
+  end
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Eurex Eobi T7 6.0.2

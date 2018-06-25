@@ -16,88 +16,6 @@ local size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
--- Declare Dissection Options
------------------------------------------------------------------------
-
--- Asx T24 Itch 1.13 Format Options
-format.ad_hoc_text_message = true
-format.anomalous_order_threshold_publish = true
-format.custom_market_executed = true
-format.custom_market_order_added = true
-format.custom_market_order_deleted = true
-format.custom_market_order_replaced = true
-format.custom_market_trade = true
-format.equilibrium_price_auction_info = true
-format.future_symbol_directory = true
-format.implied_order_added = true
-format.implied_order_deleted = true
-format.implied_order_replaced = true
-format.market_settlement = true
-format.market_updates = true
-format.message = true
-format.message_header = true
-format.open__high__low__last_trade_adjustment = true
-format.option_symbol_directory = true
-format.order_added = true
-format.order_book_state = true
-format.order_deleted = true
-format.order_executed = true
-format.order_executed_with_price = true
-format.order_replaced = true
-format.order_volume_cancelled = true
-format.packet = true
-format.packet_header = true
-format.request_for_quote = true
-format.session = true
-format.spread_executed = true
-format.spread_symbol_directory = true
-format.system_event = true
-format.time_message = true
-format.trade_cancellation = true
-format.trade_spread_execution_chain = true
-format.volume_and_open_interest = true
-format.payload = true
-
--- Asx T24 Itch 1.13 Element Dissection Options
-show.ad_hoc_text_message = true
-show.anomalous_order_threshold_publish = true
-show.custom_market_executed = true
-show.custom_market_order_added = true
-show.custom_market_order_deleted = true
-show.custom_market_order_replaced = true
-show.custom_market_trade = true
-show.equilibrium_price_auction_info = true
-show.future_symbol_directory = true
-show.implied_order_added = true
-show.implied_order_deleted = true
-show.implied_order_replaced = true
-show.market_settlement = true
-show.market_updates = true
-show.message = true
-show.message_header = true
-show.open__high__low__last_trade_adjustment = true
-show.option_symbol_directory = true
-show.order_added = true
-show.order_book_state = true
-show.order_deleted = true
-show.order_executed = true
-show.order_executed_with_price = true
-show.order_replaced = true
-show.order_volume_cancelled = true
-show.packet = true
-show.packet_header = true
-show.request_for_quote = true
-show.session = true
-show.spread_executed = true
-show.spread_symbol_directory = true
-show.system_event = true
-show.time_message = true
-show.trade_cancellation = true
-show.trade_spread_execution_chain = true
-show.volume_and_open_interest = true
-show.payload = false
-
------------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
@@ -264,6 +182,249 @@ asx_t24_itch_v1_13.fields.underlying_contract_number = ProtoField.new("Underlyin
 asx_t24_itch_v1_13.fields.voi_trade_date = ProtoField.new("VOI Trade Date", "asx.t24.itch.v1.13.voitradedate", ftypes.UINT16)
 asx_t24_itch_v1_13.fields.volatility = ProtoField.new("Volatility", "asx.t24.itch.v1.13.volatility", ftypes.UINT32)
 asx_t24_itch_v1_13.fields.volume_and_open_interest = ProtoField.new("Volume and Open Interest", "asx.t24.itch.v1.13.volumeandopeninterest", ftypes.STRING)
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+-- Asx T24 Itch 1.13 Element Dissection Options
+show.ad_hoc_text_message = true
+show.anomalous_order_threshold_publish = true
+show.custom_market_executed = true
+show.custom_market_order_added = true
+show.custom_market_order_deleted = true
+show.custom_market_order_replaced = true
+show.custom_market_trade = true
+show.equilibrium_price_auction_info = true
+show.future_symbol_directory = true
+show.implied_order_added = true
+show.implied_order_deleted = true
+show.implied_order_replaced = true
+show.market_settlement = true
+show.market_updates = true
+show.message = true
+show.message_header = true
+show.open__high__low__last_trade_adjustment = true
+show.option_symbol_directory = true
+show.order_added = true
+show.order_book_state = true
+show.order_deleted = true
+show.order_executed = true
+show.order_executed_with_price = true
+show.order_replaced = true
+show.order_volume_cancelled = true
+show.packet = true
+show.packet_header = true
+show.request_for_quote = true
+show.session = true
+show.spread_executed = true
+show.spread_symbol_directory = true
+show.system_event = true
+show.time_message = true
+show.trade_cancellation = true
+show.trade_spread_execution_chain = true
+show.volume_and_open_interest = true
+show.payload = false
+
+-- Register Asx T24 Itch 1.13 Show Options
+asx_t24_itch_v1_13.prefs.show_ad_hoc_text_message = Pref.bool("Show Ad Hoc Text Message", show.ad_hoc_text_message, "Parse and add Ad Hoc Text Message to protocol tree")
+asx_t24_itch_v1_13.prefs.show_anomalous_order_threshold_publish = Pref.bool("Show Anomalous Order Threshold Publish", show.anomalous_order_threshold_publish, "Parse and add Anomalous Order Threshold Publish to protocol tree")
+asx_t24_itch_v1_13.prefs.show_custom_market_executed = Pref.bool("Show Custom Market Executed", show.custom_market_executed, "Parse and add Custom Market Executed to protocol tree")
+asx_t24_itch_v1_13.prefs.show_custom_market_order_added = Pref.bool("Show Custom Market Order Added", show.custom_market_order_added, "Parse and add Custom Market Order Added to protocol tree")
+asx_t24_itch_v1_13.prefs.show_custom_market_order_deleted = Pref.bool("Show Custom Market Order Deleted", show.custom_market_order_deleted, "Parse and add Custom Market Order Deleted to protocol tree")
+asx_t24_itch_v1_13.prefs.show_custom_market_order_replaced = Pref.bool("Show Custom Market Order Replaced", show.custom_market_order_replaced, "Parse and add Custom Market Order Replaced to protocol tree")
+asx_t24_itch_v1_13.prefs.show_custom_market_trade = Pref.bool("Show Custom Market Trade", show.custom_market_trade, "Parse and add Custom Market Trade to protocol tree")
+asx_t24_itch_v1_13.prefs.show_equilibrium_price_auction_info = Pref.bool("Show Equilibrium Price Auction Info", show.equilibrium_price_auction_info, "Parse and add Equilibrium Price Auction Info to protocol tree")
+asx_t24_itch_v1_13.prefs.show_future_symbol_directory = Pref.bool("Show Future Symbol Directory", show.future_symbol_directory, "Parse and add Future Symbol Directory to protocol tree")
+asx_t24_itch_v1_13.prefs.show_implied_order_added = Pref.bool("Show Implied Order Added", show.implied_order_added, "Parse and add Implied Order Added to protocol tree")
+asx_t24_itch_v1_13.prefs.show_implied_order_deleted = Pref.bool("Show Implied Order Deleted", show.implied_order_deleted, "Parse and add Implied Order Deleted to protocol tree")
+asx_t24_itch_v1_13.prefs.show_implied_order_replaced = Pref.bool("Show Implied Order Replaced", show.implied_order_replaced, "Parse and add Implied Order Replaced to protocol tree")
+asx_t24_itch_v1_13.prefs.show_market_settlement = Pref.bool("Show Market Settlement", show.market_settlement, "Parse and add Market Settlement to protocol tree")
+asx_t24_itch_v1_13.prefs.show_market_updates = Pref.bool("Show Market Updates", show.market_updates, "Parse and add Market Updates to protocol tree")
+asx_t24_itch_v1_13.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+asx_t24_itch_v1_13.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+asx_t24_itch_v1_13.prefs.show_open__high__low__last_trade_adjustment = Pref.bool("Show Open, High, Low, Last Trade Adjustment", show.open__high__low__last_trade_adjustment, "Parse and add Open, High, Low, Last Trade Adjustment to protocol tree")
+asx_t24_itch_v1_13.prefs.show_option_symbol_directory = Pref.bool("Show Option Symbol Directory", show.option_symbol_directory, "Parse and add Option Symbol Directory to protocol tree")
+asx_t24_itch_v1_13.prefs.show_order_added = Pref.bool("Show Order Added", show.order_added, "Parse and add Order Added to protocol tree")
+asx_t24_itch_v1_13.prefs.show_order_book_state = Pref.bool("Show Order Book State", show.order_book_state, "Parse and add Order Book State to protocol tree")
+asx_t24_itch_v1_13.prefs.show_order_deleted = Pref.bool("Show Order Deleted", show.order_deleted, "Parse and add Order Deleted to protocol tree")
+asx_t24_itch_v1_13.prefs.show_order_executed = Pref.bool("Show Order Executed", show.order_executed, "Parse and add Order Executed to protocol tree")
+asx_t24_itch_v1_13.prefs.show_order_executed_with_price = Pref.bool("Show Order Executed with Price", show.order_executed_with_price, "Parse and add Order Executed with Price to protocol tree")
+asx_t24_itch_v1_13.prefs.show_order_replaced = Pref.bool("Show Order Replaced", show.order_replaced, "Parse and add Order Replaced to protocol tree")
+asx_t24_itch_v1_13.prefs.show_order_volume_cancelled = Pref.bool("Show Order Volume Cancelled", show.order_volume_cancelled, "Parse and add Order Volume Cancelled to protocol tree")
+asx_t24_itch_v1_13.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+asx_t24_itch_v1_13.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+asx_t24_itch_v1_13.prefs.show_request_for_quote = Pref.bool("Show Request for Quote", show.request_for_quote, "Parse and add Request for Quote to protocol tree")
+asx_t24_itch_v1_13.prefs.show_session = Pref.bool("Show Session", show.session, "Parse and add Session to protocol tree")
+asx_t24_itch_v1_13.prefs.show_spread_executed = Pref.bool("Show Spread Executed", show.spread_executed, "Parse and add Spread Executed to protocol tree")
+asx_t24_itch_v1_13.prefs.show_spread_symbol_directory = Pref.bool("Show Spread Symbol Directory", show.spread_symbol_directory, "Parse and add Spread Symbol Directory to protocol tree")
+asx_t24_itch_v1_13.prefs.show_system_event = Pref.bool("Show System Event", show.system_event, "Parse and add System Event to protocol tree")
+asx_t24_itch_v1_13.prefs.show_time_message = Pref.bool("Show Time Message", show.time_message, "Parse and add Time Message to protocol tree")
+asx_t24_itch_v1_13.prefs.show_trade_cancellation = Pref.bool("Show Trade Cancellation", show.trade_cancellation, "Parse and add Trade Cancellation to protocol tree")
+asx_t24_itch_v1_13.prefs.show_trade_spread_execution_chain = Pref.bool("Show Trade Spread Execution Chain", show.trade_spread_execution_chain, "Parse and add Trade Spread Execution Chain to protocol tree")
+asx_t24_itch_v1_13.prefs.show_volume_and_open_interest = Pref.bool("Show Volume and Open Interest", show.volume_and_open_interest, "Parse and add Volume and Open Interest to protocol tree")
+asx_t24_itch_v1_13.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+
+-- Handle changed preferences
+function asx_t24_itch_v1_13.prefs_changed()
+  local changed = false
+
+  -- Check if show options have changed
+  if show.ad_hoc_text_message ~= asx_t24_itch_v1_13.prefs.show_ad_hoc_text_message then
+    show.ad_hoc_text_message = asx_t24_itch_v1_13.prefs.show_ad_hoc_text_message
+    changed = true
+  end
+  if show.anomalous_order_threshold_publish ~= asx_t24_itch_v1_13.prefs.show_anomalous_order_threshold_publish then
+    show.anomalous_order_threshold_publish = asx_t24_itch_v1_13.prefs.show_anomalous_order_threshold_publish
+    changed = true
+  end
+  if show.custom_market_executed ~= asx_t24_itch_v1_13.prefs.show_custom_market_executed then
+    show.custom_market_executed = asx_t24_itch_v1_13.prefs.show_custom_market_executed
+    changed = true
+  end
+  if show.custom_market_order_added ~= asx_t24_itch_v1_13.prefs.show_custom_market_order_added then
+    show.custom_market_order_added = asx_t24_itch_v1_13.prefs.show_custom_market_order_added
+    changed = true
+  end
+  if show.custom_market_order_deleted ~= asx_t24_itch_v1_13.prefs.show_custom_market_order_deleted then
+    show.custom_market_order_deleted = asx_t24_itch_v1_13.prefs.show_custom_market_order_deleted
+    changed = true
+  end
+  if show.custom_market_order_replaced ~= asx_t24_itch_v1_13.prefs.show_custom_market_order_replaced then
+    show.custom_market_order_replaced = asx_t24_itch_v1_13.prefs.show_custom_market_order_replaced
+    changed = true
+  end
+  if show.custom_market_trade ~= asx_t24_itch_v1_13.prefs.show_custom_market_trade then
+    show.custom_market_trade = asx_t24_itch_v1_13.prefs.show_custom_market_trade
+    changed = true
+  end
+  if show.equilibrium_price_auction_info ~= asx_t24_itch_v1_13.prefs.show_equilibrium_price_auction_info then
+    show.equilibrium_price_auction_info = asx_t24_itch_v1_13.prefs.show_equilibrium_price_auction_info
+    changed = true
+  end
+  if show.future_symbol_directory ~= asx_t24_itch_v1_13.prefs.show_future_symbol_directory then
+    show.future_symbol_directory = asx_t24_itch_v1_13.prefs.show_future_symbol_directory
+    changed = true
+  end
+  if show.implied_order_added ~= asx_t24_itch_v1_13.prefs.show_implied_order_added then
+    show.implied_order_added = asx_t24_itch_v1_13.prefs.show_implied_order_added
+    changed = true
+  end
+  if show.implied_order_deleted ~= asx_t24_itch_v1_13.prefs.show_implied_order_deleted then
+    show.implied_order_deleted = asx_t24_itch_v1_13.prefs.show_implied_order_deleted
+    changed = true
+  end
+  if show.implied_order_replaced ~= asx_t24_itch_v1_13.prefs.show_implied_order_replaced then
+    show.implied_order_replaced = asx_t24_itch_v1_13.prefs.show_implied_order_replaced
+    changed = true
+  end
+  if show.market_settlement ~= asx_t24_itch_v1_13.prefs.show_market_settlement then
+    show.market_settlement = asx_t24_itch_v1_13.prefs.show_market_settlement
+    changed = true
+  end
+  if show.market_updates ~= asx_t24_itch_v1_13.prefs.show_market_updates then
+    show.market_updates = asx_t24_itch_v1_13.prefs.show_market_updates
+    changed = true
+  end
+  if show.message ~= asx_t24_itch_v1_13.prefs.show_message then
+    show.message = asx_t24_itch_v1_13.prefs.show_message
+    changed = true
+  end
+  if show.message_header ~= asx_t24_itch_v1_13.prefs.show_message_header then
+    show.message_header = asx_t24_itch_v1_13.prefs.show_message_header
+    changed = true
+  end
+  if show.open__high__low__last_trade_adjustment ~= asx_t24_itch_v1_13.prefs.show_open__high__low__last_trade_adjustment then
+    show.open__high__low__last_trade_adjustment = asx_t24_itch_v1_13.prefs.show_open__high__low__last_trade_adjustment
+    changed = true
+  end
+  if show.option_symbol_directory ~= asx_t24_itch_v1_13.prefs.show_option_symbol_directory then
+    show.option_symbol_directory = asx_t24_itch_v1_13.prefs.show_option_symbol_directory
+    changed = true
+  end
+  if show.order_added ~= asx_t24_itch_v1_13.prefs.show_order_added then
+    show.order_added = asx_t24_itch_v1_13.prefs.show_order_added
+    changed = true
+  end
+  if show.order_book_state ~= asx_t24_itch_v1_13.prefs.show_order_book_state then
+    show.order_book_state = asx_t24_itch_v1_13.prefs.show_order_book_state
+    changed = true
+  end
+  if show.order_deleted ~= asx_t24_itch_v1_13.prefs.show_order_deleted then
+    show.order_deleted = asx_t24_itch_v1_13.prefs.show_order_deleted
+    changed = true
+  end
+  if show.order_executed ~= asx_t24_itch_v1_13.prefs.show_order_executed then
+    show.order_executed = asx_t24_itch_v1_13.prefs.show_order_executed
+    changed = true
+  end
+  if show.order_executed_with_price ~= asx_t24_itch_v1_13.prefs.show_order_executed_with_price then
+    show.order_executed_with_price = asx_t24_itch_v1_13.prefs.show_order_executed_with_price
+    changed = true
+  end
+  if show.order_replaced ~= asx_t24_itch_v1_13.prefs.show_order_replaced then
+    show.order_replaced = asx_t24_itch_v1_13.prefs.show_order_replaced
+    changed = true
+  end
+  if show.order_volume_cancelled ~= asx_t24_itch_v1_13.prefs.show_order_volume_cancelled then
+    show.order_volume_cancelled = asx_t24_itch_v1_13.prefs.show_order_volume_cancelled
+    changed = true
+  end
+  if show.packet ~= asx_t24_itch_v1_13.prefs.show_packet then
+    show.packet = asx_t24_itch_v1_13.prefs.show_packet
+    changed = true
+  end
+  if show.packet_header ~= asx_t24_itch_v1_13.prefs.show_packet_header then
+    show.packet_header = asx_t24_itch_v1_13.prefs.show_packet_header
+    changed = true
+  end
+  if show.request_for_quote ~= asx_t24_itch_v1_13.prefs.show_request_for_quote then
+    show.request_for_quote = asx_t24_itch_v1_13.prefs.show_request_for_quote
+    changed = true
+  end
+  if show.session ~= asx_t24_itch_v1_13.prefs.show_session then
+    show.session = asx_t24_itch_v1_13.prefs.show_session
+    changed = true
+  end
+  if show.spread_executed ~= asx_t24_itch_v1_13.prefs.show_spread_executed then
+    show.spread_executed = asx_t24_itch_v1_13.prefs.show_spread_executed
+    changed = true
+  end
+  if show.spread_symbol_directory ~= asx_t24_itch_v1_13.prefs.show_spread_symbol_directory then
+    show.spread_symbol_directory = asx_t24_itch_v1_13.prefs.show_spread_symbol_directory
+    changed = true
+  end
+  if show.system_event ~= asx_t24_itch_v1_13.prefs.show_system_event then
+    show.system_event = asx_t24_itch_v1_13.prefs.show_system_event
+    changed = true
+  end
+  if show.time_message ~= asx_t24_itch_v1_13.prefs.show_time_message then
+    show.time_message = asx_t24_itch_v1_13.prefs.show_time_message
+    changed = true
+  end
+  if show.trade_cancellation ~= asx_t24_itch_v1_13.prefs.show_trade_cancellation then
+    show.trade_cancellation = asx_t24_itch_v1_13.prefs.show_trade_cancellation
+    changed = true
+  end
+  if show.trade_spread_execution_chain ~= asx_t24_itch_v1_13.prefs.show_trade_spread_execution_chain then
+    show.trade_spread_execution_chain = asx_t24_itch_v1_13.prefs.show_trade_spread_execution_chain
+    changed = true
+  end
+  if show.volume_and_open_interest ~= asx_t24_itch_v1_13.prefs.show_volume_and_open_interest then
+    show.volume_and_open_interest = asx_t24_itch_v1_13.prefs.show_volume_and_open_interest
+    changed = true
+  end
+  if show.payload ~= asx_t24_itch_v1_13.prefs.show_payload then
+    show.payload = asx_t24_itch_v1_13.prefs.show_payload
+    changed = true
+  end
+
+  -- Reload on changed preference
+  if changed then
+    reload()
+  end
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Asx T24 Itch 1.13

@@ -16,136 +16,6 @@ local size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
--- Declare Dissection Options
------------------------------------------------------------------------
-
--- Cme Mdp3 Sbe 5.1 Format Options
-format.admin_login = true
-format.admin_logout = true
-format.channel_reset = true
-format.channel_reset_group = true
-format.channel_reset_groups = true
-format.events_group = true
-format.events_groups = true
-format.group_size = true
-format.group_size8_byte = true
-format.inst_attrib_group = true
-format.inst_attrib_groups = true
-format.inst_attrib_value = true
-format.legs_group = true
-format.legs_groups = true
-format.lot_type_rules_group = true
-format.lot_type_rules_groups = true
-format.match_event_indicator = true
-format.maturity_month_year = true
-format.md_feed_types_group = true
-format.md_feed_types_groups = true
-format.md_incremental_refresh_book = true
-format.md_incremental_refresh_book_group = true
-format.md_incremental_refresh_book_groups = true
-format.md_incremental_refresh_daily_statistics = true
-format.md_incremental_refresh_daily_statistics_group = true
-format.md_incremental_refresh_daily_statistics_groups = true
-format.md_incremental_refresh_limits_banding = true
-format.md_incremental_refresh_limits_banding_group = true
-format.md_incremental_refresh_limits_banding_groups = true
-format.md_incremental_refresh_session_statistics = true
-format.md_incremental_refresh_session_statistics_group = true
-format.md_incremental_refresh_session_statistics_groups = true
-format.md_incremental_refresh_trade = true
-format.md_incremental_refresh_trade_group = true
-format.md_incremental_refresh_trade_groups = true
-format.md_incremental_refresh_trade_summary = true
-format.md_incremental_refresh_trade_summary_group = true
-format.md_incremental_refresh_trade_summary_groups = true
-format.md_incremental_refresh_trade_summary_order_group = true
-format.md_incremental_refresh_trade_summary_order_groups = true
-format.md_incremental_refresh_volume = true
-format.md_incremental_refresh_volume_group = true
-format.md_incremental_refresh_volume_groups = true
-format.md_instrument_definition_future = true
-format.md_instrument_definition_option = true
-format.md_instrument_definition_spread = true
-format.message = true
-format.message_header = true
-format.packet = true
-format.packet_header = true
-format.quote_request = true
-format.related_sym_group = true
-format.related_sym_groups = true
-format.security_status = true
-format.settl_price_type = true
-format.snapshot_full_refresh = true
-format.snapshot_full_refresh_group = true
-format.snapshot_full_refresh_groups = true
-format.underlyings_group = true
-format.underlyings_groups = true
-format.payload = true
-
--- Cme Mdp3 Sbe 5.1 Element Dissection Options
-show.admin_login = true
-show.admin_logout = true
-show.channel_reset = true
-show.channel_reset_group = true
-show.channel_reset_groups = true
-show.events_group = true
-show.events_groups = true
-show.group_size = true
-show.group_size8_byte = true
-show.inst_attrib_group = true
-show.inst_attrib_groups = true
-show.inst_attrib_value = true
-show.legs_group = true
-show.legs_groups = true
-show.lot_type_rules_group = true
-show.lot_type_rules_groups = true
-show.match_event_indicator = true
-show.maturity_month_year = true
-show.md_feed_types_group = true
-show.md_feed_types_groups = true
-show.md_incremental_refresh_book = true
-show.md_incremental_refresh_book_group = true
-show.md_incremental_refresh_book_groups = true
-show.md_incremental_refresh_daily_statistics = true
-show.md_incremental_refresh_daily_statistics_group = true
-show.md_incremental_refresh_daily_statistics_groups = true
-show.md_incremental_refresh_limits_banding = true
-show.md_incremental_refresh_limits_banding_group = true
-show.md_incremental_refresh_limits_banding_groups = true
-show.md_incremental_refresh_session_statistics = true
-show.md_incremental_refresh_session_statistics_group = true
-show.md_incremental_refresh_session_statistics_groups = true
-show.md_incremental_refresh_trade = true
-show.md_incremental_refresh_trade_group = true
-show.md_incremental_refresh_trade_groups = true
-show.md_incremental_refresh_trade_summary = true
-show.md_incremental_refresh_trade_summary_group = true
-show.md_incremental_refresh_trade_summary_groups = true
-show.md_incremental_refresh_trade_summary_order_group = true
-show.md_incremental_refresh_trade_summary_order_groups = true
-show.md_incremental_refresh_volume = true
-show.md_incremental_refresh_volume_group = true
-show.md_incremental_refresh_volume_groups = true
-show.md_instrument_definition_future = true
-show.md_instrument_definition_option = true
-show.md_instrument_definition_spread = true
-show.message = true
-show.message_header = true
-show.packet = true
-show.packet_header = true
-show.quote_request = true
-show.related_sym_group = true
-show.related_sym_groups = true
-show.security_status = true
-show.settl_price_type = true
-show.snapshot_full_refresh = true
-show.snapshot_full_refresh_group = true
-show.snapshot_full_refresh_groups = true
-show.underlyings_group = true
-show.underlyings_groups = true
-show.payload = false
-
------------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
@@ -350,6 +220,393 @@ cme_mdp3_sbe_v5_1.fields.volatility_quoted_option = ProtoField.new("Volatility Q
 cme_mdp3_sbe_v5_1.fields.week = ProtoField.new("week", "cme.mdp3.sbe.v5.1.week", ftypes.UINT8)
 cme_mdp3_sbe_v5_1.fields.year = ProtoField.new("year", "cme.mdp3.sbe.v5.1.year", ftypes.UINT16)
 cme_mdp3_sbe_v5_1.fields.zero_price_outright_eligible = ProtoField.new("Zero Price Outright Eligible", "cme.mdp3.sbe.v5.1.zeropriceoutrighteligible", ftypes.UINT32, nil, base.DEC, "0x00004000")
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+-- Cme Mdp3 Sbe 5.1 Element Dissection Options
+show.admin_login = true
+show.admin_logout = true
+show.channel_reset = true
+show.channel_reset_group = true
+show.channel_reset_groups = true
+show.events_group = true
+show.events_groups = true
+show.group_size = true
+show.group_size8_byte = true
+show.inst_attrib_group = true
+show.inst_attrib_groups = true
+show.inst_attrib_value = true
+show.legs_group = true
+show.legs_groups = true
+show.lot_type_rules_group = true
+show.lot_type_rules_groups = true
+show.match_event_indicator = true
+show.maturity_month_year = true
+show.md_feed_types_group = true
+show.md_feed_types_groups = true
+show.md_incremental_refresh_book = true
+show.md_incremental_refresh_book_group = true
+show.md_incremental_refresh_book_groups = true
+show.md_incremental_refresh_daily_statistics = true
+show.md_incremental_refresh_daily_statistics_group = true
+show.md_incremental_refresh_daily_statistics_groups = true
+show.md_incremental_refresh_limits_banding = true
+show.md_incremental_refresh_limits_banding_group = true
+show.md_incremental_refresh_limits_banding_groups = true
+show.md_incremental_refresh_session_statistics = true
+show.md_incremental_refresh_session_statistics_group = true
+show.md_incremental_refresh_session_statistics_groups = true
+show.md_incremental_refresh_trade = true
+show.md_incremental_refresh_trade_group = true
+show.md_incremental_refresh_trade_groups = true
+show.md_incremental_refresh_trade_summary = true
+show.md_incremental_refresh_trade_summary_group = true
+show.md_incremental_refresh_trade_summary_groups = true
+show.md_incremental_refresh_trade_summary_order_group = true
+show.md_incremental_refresh_trade_summary_order_groups = true
+show.md_incremental_refresh_volume = true
+show.md_incremental_refresh_volume_group = true
+show.md_incremental_refresh_volume_groups = true
+show.md_instrument_definition_future = true
+show.md_instrument_definition_option = true
+show.md_instrument_definition_spread = true
+show.message = true
+show.message_header = true
+show.packet = true
+show.packet_header = true
+show.quote_request = true
+show.related_sym_group = true
+show.related_sym_groups = true
+show.security_status = true
+show.settl_price_type = true
+show.snapshot_full_refresh = true
+show.snapshot_full_refresh_group = true
+show.snapshot_full_refresh_groups = true
+show.underlyings_group = true
+show.underlyings_groups = true
+show.payload = false
+
+-- Register Cme Mdp3 Sbe 5.1 Show Options
+cme_mdp3_sbe_v5_1.prefs.show_admin_login = Pref.bool("Show Admin Login", show.admin_login, "Parse and add Admin Login to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_admin_logout = Pref.bool("Show Admin Logout", show.admin_logout, "Parse and add Admin Logout to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_channel_reset = Pref.bool("Show Channel Reset", show.channel_reset, "Parse and add Channel Reset to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_channel_reset_group = Pref.bool("Show Channel Reset Group", show.channel_reset_group, "Parse and add Channel Reset Group to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_channel_reset_groups = Pref.bool("Show Channel Reset Groups", show.channel_reset_groups, "Parse and add Channel Reset Groups to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_events_group = Pref.bool("Show Events Group", show.events_group, "Parse and add Events Group to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_events_groups = Pref.bool("Show Events Groups", show.events_groups, "Parse and add Events Groups to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_group_size = Pref.bool("Show group Size", show.group_size, "Parse and add group Size to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_group_size8_byte = Pref.bool("Show group Size8 Byte", show.group_size8_byte, "Parse and add group Size8 Byte to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_inst_attrib_group = Pref.bool("Show Inst Attrib Group", show.inst_attrib_group, "Parse and add Inst Attrib Group to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_inst_attrib_groups = Pref.bool("Show Inst Attrib Groups", show.inst_attrib_groups, "Parse and add Inst Attrib Groups to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_inst_attrib_value = Pref.bool("Show Inst Attrib Value", show.inst_attrib_value, "Parse and add Inst Attrib Value to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_legs_group = Pref.bool("Show Legs Group", show.legs_group, "Parse and add Legs Group to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_legs_groups = Pref.bool("Show Legs Groups", show.legs_groups, "Parse and add Legs Groups to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_lot_type_rules_group = Pref.bool("Show Lot Type Rules Group", show.lot_type_rules_group, "Parse and add Lot Type Rules Group to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_lot_type_rules_groups = Pref.bool("Show Lot Type Rules Groups", show.lot_type_rules_groups, "Parse and add Lot Type Rules Groups to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_match_event_indicator = Pref.bool("Show Match Event Indicator", show.match_event_indicator, "Parse and add Match Event Indicator to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_maturity_month_year = Pref.bool("Show Maturity Month Year", show.maturity_month_year, "Parse and add Maturity Month Year to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_feed_types_group = Pref.bool("Show MD Feed Types Group", show.md_feed_types_group, "Parse and add MD Feed Types Group to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_feed_types_groups = Pref.bool("Show MD Feed Types Groups", show.md_feed_types_groups, "Parse and add MD Feed Types Groups to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_book = Pref.bool("Show MD Incremental Refresh Book", show.md_incremental_refresh_book, "Parse and add MD Incremental Refresh Book to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_book_group = Pref.bool("Show MD Incremental Refresh Book Group", show.md_incremental_refresh_book_group, "Parse and add MD Incremental Refresh Book Group to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_book_groups = Pref.bool("Show MD Incremental Refresh Book Groups", show.md_incremental_refresh_book_groups, "Parse and add MD Incremental Refresh Book Groups to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_daily_statistics = Pref.bool("Show MD Incremental Refresh Daily Statistics", show.md_incremental_refresh_daily_statistics, "Parse and add MD Incremental Refresh Daily Statistics to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_daily_statistics_group = Pref.bool("Show MD Incremental Refresh Daily Statistics Group", show.md_incremental_refresh_daily_statistics_group, "Parse and add MD Incremental Refresh Daily Statistics Group to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_daily_statistics_groups = Pref.bool("Show MD Incremental Refresh Daily Statistics Groups", show.md_incremental_refresh_daily_statistics_groups, "Parse and add MD Incremental Refresh Daily Statistics Groups to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_limits_banding = Pref.bool("Show MD Incremental Refresh Limits Banding", show.md_incremental_refresh_limits_banding, "Parse and add MD Incremental Refresh Limits Banding to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_limits_banding_group = Pref.bool("Show MD Incremental Refresh Limits Banding Group", show.md_incremental_refresh_limits_banding_group, "Parse and add MD Incremental Refresh Limits Banding Group to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_limits_banding_groups = Pref.bool("Show MD Incremental Refresh Limits Banding Groups", show.md_incremental_refresh_limits_banding_groups, "Parse and add MD Incremental Refresh Limits Banding Groups to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_session_statistics = Pref.bool("Show MD Incremental Refresh Session Statistics", show.md_incremental_refresh_session_statistics, "Parse and add MD Incremental Refresh Session Statistics to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_session_statistics_group = Pref.bool("Show MD Incremental Refresh Session Statistics Group", show.md_incremental_refresh_session_statistics_group, "Parse and add MD Incremental Refresh Session Statistics Group to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_session_statistics_groups = Pref.bool("Show MD Incremental Refresh Session Statistics Groups", show.md_incremental_refresh_session_statistics_groups, "Parse and add MD Incremental Refresh Session Statistics Groups to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_trade = Pref.bool("Show MD Incremental Refresh Trade", show.md_incremental_refresh_trade, "Parse and add MD Incremental Refresh Trade to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_trade_group = Pref.bool("Show MD Incremental Refresh Trade Group", show.md_incremental_refresh_trade_group, "Parse and add MD Incremental Refresh Trade Group to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_trade_groups = Pref.bool("Show MD Incremental Refresh Trade Groups", show.md_incremental_refresh_trade_groups, "Parse and add MD Incremental Refresh Trade Groups to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_trade_summary = Pref.bool("Show MD Incremental Refresh Trade Summary", show.md_incremental_refresh_trade_summary, "Parse and add MD Incremental Refresh Trade Summary to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_trade_summary_group = Pref.bool("Show MD Incremental Refresh Trade Summary Group", show.md_incremental_refresh_trade_summary_group, "Parse and add MD Incremental Refresh Trade Summary Group to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_trade_summary_groups = Pref.bool("Show MD Incremental Refresh Trade Summary Groups", show.md_incremental_refresh_trade_summary_groups, "Parse and add MD Incremental Refresh Trade Summary Groups to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_trade_summary_order_group = Pref.bool("Show MD Incremental Refresh Trade Summary Order Group", show.md_incremental_refresh_trade_summary_order_group, "Parse and add MD Incremental Refresh Trade Summary Order Group to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_trade_summary_order_groups = Pref.bool("Show MD Incremental Refresh Trade Summary Order Groups", show.md_incremental_refresh_trade_summary_order_groups, "Parse and add MD Incremental Refresh Trade Summary Order Groups to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_volume = Pref.bool("Show MD Incremental Refresh Volume", show.md_incremental_refresh_volume, "Parse and add MD Incremental Refresh Volume to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_volume_group = Pref.bool("Show MD Incremental Refresh Volume Group", show.md_incremental_refresh_volume_group, "Parse and add MD Incremental Refresh Volume Group to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_volume_groups = Pref.bool("Show MD Incremental Refresh Volume Groups", show.md_incremental_refresh_volume_groups, "Parse and add MD Incremental Refresh Volume Groups to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_instrument_definition_future = Pref.bool("Show MD Instrument Definition Future", show.md_instrument_definition_future, "Parse and add MD Instrument Definition Future to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_instrument_definition_option = Pref.bool("Show MD Instrument Definition Option", show.md_instrument_definition_option, "Parse and add MD Instrument Definition Option to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_md_instrument_definition_spread = Pref.bool("Show MD Instrument Definition Spread", show.md_instrument_definition_spread, "Parse and add MD Instrument Definition Spread to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_quote_request = Pref.bool("Show Quote Request", show.quote_request, "Parse and add Quote Request to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_related_sym_group = Pref.bool("Show Related Sym Group", show.related_sym_group, "Parse and add Related Sym Group to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_related_sym_groups = Pref.bool("Show Related Sym Groups", show.related_sym_groups, "Parse and add Related Sym Groups to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_security_status = Pref.bool("Show Security Status", show.security_status, "Parse and add Security Status to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_settl_price_type = Pref.bool("Show Settl Price Type", show.settl_price_type, "Parse and add Settl Price Type to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_snapshot_full_refresh = Pref.bool("Show Snapshot Full Refresh", show.snapshot_full_refresh, "Parse and add Snapshot Full Refresh to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_snapshot_full_refresh_group = Pref.bool("Show Snapshot Full Refresh Group", show.snapshot_full_refresh_group, "Parse and add Snapshot Full Refresh Group to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_snapshot_full_refresh_groups = Pref.bool("Show Snapshot Full Refresh Groups", show.snapshot_full_refresh_groups, "Parse and add Snapshot Full Refresh Groups to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_underlyings_group = Pref.bool("Show Underlyings Group", show.underlyings_group, "Parse and add Underlyings Group to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_underlyings_groups = Pref.bool("Show Underlyings Groups", show.underlyings_groups, "Parse and add Underlyings Groups to protocol tree")
+cme_mdp3_sbe_v5_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+
+-- Handle changed preferences
+function cme_mdp3_sbe_v5_1.prefs_changed()
+  local changed = false
+
+  -- Check if show options have changed
+  if show.admin_login ~= cme_mdp3_sbe_v5_1.prefs.show_admin_login then
+    show.admin_login = cme_mdp3_sbe_v5_1.prefs.show_admin_login
+    changed = true
+  end
+  if show.admin_logout ~= cme_mdp3_sbe_v5_1.prefs.show_admin_logout then
+    show.admin_logout = cme_mdp3_sbe_v5_1.prefs.show_admin_logout
+    changed = true
+  end
+  if show.channel_reset ~= cme_mdp3_sbe_v5_1.prefs.show_channel_reset then
+    show.channel_reset = cme_mdp3_sbe_v5_1.prefs.show_channel_reset
+    changed = true
+  end
+  if show.channel_reset_group ~= cme_mdp3_sbe_v5_1.prefs.show_channel_reset_group then
+    show.channel_reset_group = cme_mdp3_sbe_v5_1.prefs.show_channel_reset_group
+    changed = true
+  end
+  if show.channel_reset_groups ~= cme_mdp3_sbe_v5_1.prefs.show_channel_reset_groups then
+    show.channel_reset_groups = cme_mdp3_sbe_v5_1.prefs.show_channel_reset_groups
+    changed = true
+  end
+  if show.events_group ~= cme_mdp3_sbe_v5_1.prefs.show_events_group then
+    show.events_group = cme_mdp3_sbe_v5_1.prefs.show_events_group
+    changed = true
+  end
+  if show.events_groups ~= cme_mdp3_sbe_v5_1.prefs.show_events_groups then
+    show.events_groups = cme_mdp3_sbe_v5_1.prefs.show_events_groups
+    changed = true
+  end
+  if show.group_size ~= cme_mdp3_sbe_v5_1.prefs.show_group_size then
+    show.group_size = cme_mdp3_sbe_v5_1.prefs.show_group_size
+    changed = true
+  end
+  if show.group_size8_byte ~= cme_mdp3_sbe_v5_1.prefs.show_group_size8_byte then
+    show.group_size8_byte = cme_mdp3_sbe_v5_1.prefs.show_group_size8_byte
+    changed = true
+  end
+  if show.inst_attrib_group ~= cme_mdp3_sbe_v5_1.prefs.show_inst_attrib_group then
+    show.inst_attrib_group = cme_mdp3_sbe_v5_1.prefs.show_inst_attrib_group
+    changed = true
+  end
+  if show.inst_attrib_groups ~= cme_mdp3_sbe_v5_1.prefs.show_inst_attrib_groups then
+    show.inst_attrib_groups = cme_mdp3_sbe_v5_1.prefs.show_inst_attrib_groups
+    changed = true
+  end
+  if show.inst_attrib_value ~= cme_mdp3_sbe_v5_1.prefs.show_inst_attrib_value then
+    show.inst_attrib_value = cme_mdp3_sbe_v5_1.prefs.show_inst_attrib_value
+    changed = true
+  end
+  if show.legs_group ~= cme_mdp3_sbe_v5_1.prefs.show_legs_group then
+    show.legs_group = cme_mdp3_sbe_v5_1.prefs.show_legs_group
+    changed = true
+  end
+  if show.legs_groups ~= cme_mdp3_sbe_v5_1.prefs.show_legs_groups then
+    show.legs_groups = cme_mdp3_sbe_v5_1.prefs.show_legs_groups
+    changed = true
+  end
+  if show.lot_type_rules_group ~= cme_mdp3_sbe_v5_1.prefs.show_lot_type_rules_group then
+    show.lot_type_rules_group = cme_mdp3_sbe_v5_1.prefs.show_lot_type_rules_group
+    changed = true
+  end
+  if show.lot_type_rules_groups ~= cme_mdp3_sbe_v5_1.prefs.show_lot_type_rules_groups then
+    show.lot_type_rules_groups = cme_mdp3_sbe_v5_1.prefs.show_lot_type_rules_groups
+    changed = true
+  end
+  if show.match_event_indicator ~= cme_mdp3_sbe_v5_1.prefs.show_match_event_indicator then
+    show.match_event_indicator = cme_mdp3_sbe_v5_1.prefs.show_match_event_indicator
+    changed = true
+  end
+  if show.maturity_month_year ~= cme_mdp3_sbe_v5_1.prefs.show_maturity_month_year then
+    show.maturity_month_year = cme_mdp3_sbe_v5_1.prefs.show_maturity_month_year
+    changed = true
+  end
+  if show.md_feed_types_group ~= cme_mdp3_sbe_v5_1.prefs.show_md_feed_types_group then
+    show.md_feed_types_group = cme_mdp3_sbe_v5_1.prefs.show_md_feed_types_group
+    changed = true
+  end
+  if show.md_feed_types_groups ~= cme_mdp3_sbe_v5_1.prefs.show_md_feed_types_groups then
+    show.md_feed_types_groups = cme_mdp3_sbe_v5_1.prefs.show_md_feed_types_groups
+    changed = true
+  end
+  if show.md_incremental_refresh_book ~= cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_book then
+    show.md_incremental_refresh_book = cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_book
+    changed = true
+  end
+  if show.md_incremental_refresh_book_group ~= cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_book_group then
+    show.md_incremental_refresh_book_group = cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_book_group
+    changed = true
+  end
+  if show.md_incremental_refresh_book_groups ~= cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_book_groups then
+    show.md_incremental_refresh_book_groups = cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_book_groups
+    changed = true
+  end
+  if show.md_incremental_refresh_daily_statistics ~= cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_daily_statistics then
+    show.md_incremental_refresh_daily_statistics = cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_daily_statistics
+    changed = true
+  end
+  if show.md_incremental_refresh_daily_statistics_group ~= cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_daily_statistics_group then
+    show.md_incremental_refresh_daily_statistics_group = cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_daily_statistics_group
+    changed = true
+  end
+  if show.md_incremental_refresh_daily_statistics_groups ~= cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_daily_statistics_groups then
+    show.md_incremental_refresh_daily_statistics_groups = cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_daily_statistics_groups
+    changed = true
+  end
+  if show.md_incremental_refresh_limits_banding ~= cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_limits_banding then
+    show.md_incremental_refresh_limits_banding = cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_limits_banding
+    changed = true
+  end
+  if show.md_incremental_refresh_limits_banding_group ~= cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_limits_banding_group then
+    show.md_incremental_refresh_limits_banding_group = cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_limits_banding_group
+    changed = true
+  end
+  if show.md_incremental_refresh_limits_banding_groups ~= cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_limits_banding_groups then
+    show.md_incremental_refresh_limits_banding_groups = cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_limits_banding_groups
+    changed = true
+  end
+  if show.md_incremental_refresh_session_statistics ~= cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_session_statistics then
+    show.md_incremental_refresh_session_statistics = cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_session_statistics
+    changed = true
+  end
+  if show.md_incremental_refresh_session_statistics_group ~= cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_session_statistics_group then
+    show.md_incremental_refresh_session_statistics_group = cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_session_statistics_group
+    changed = true
+  end
+  if show.md_incremental_refresh_session_statistics_groups ~= cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_session_statistics_groups then
+    show.md_incremental_refresh_session_statistics_groups = cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_session_statistics_groups
+    changed = true
+  end
+  if show.md_incremental_refresh_trade ~= cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_trade then
+    show.md_incremental_refresh_trade = cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_trade
+    changed = true
+  end
+  if show.md_incremental_refresh_trade_group ~= cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_trade_group then
+    show.md_incremental_refresh_trade_group = cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_trade_group
+    changed = true
+  end
+  if show.md_incremental_refresh_trade_groups ~= cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_trade_groups then
+    show.md_incremental_refresh_trade_groups = cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_trade_groups
+    changed = true
+  end
+  if show.md_incremental_refresh_trade_summary ~= cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_trade_summary then
+    show.md_incremental_refresh_trade_summary = cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_trade_summary
+    changed = true
+  end
+  if show.md_incremental_refresh_trade_summary_group ~= cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_trade_summary_group then
+    show.md_incremental_refresh_trade_summary_group = cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_trade_summary_group
+    changed = true
+  end
+  if show.md_incremental_refresh_trade_summary_groups ~= cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_trade_summary_groups then
+    show.md_incremental_refresh_trade_summary_groups = cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_trade_summary_groups
+    changed = true
+  end
+  if show.md_incremental_refresh_trade_summary_order_group ~= cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_trade_summary_order_group then
+    show.md_incremental_refresh_trade_summary_order_group = cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_trade_summary_order_group
+    changed = true
+  end
+  if show.md_incremental_refresh_trade_summary_order_groups ~= cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_trade_summary_order_groups then
+    show.md_incremental_refresh_trade_summary_order_groups = cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_trade_summary_order_groups
+    changed = true
+  end
+  if show.md_incremental_refresh_volume ~= cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_volume then
+    show.md_incremental_refresh_volume = cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_volume
+    changed = true
+  end
+  if show.md_incremental_refresh_volume_group ~= cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_volume_group then
+    show.md_incremental_refresh_volume_group = cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_volume_group
+    changed = true
+  end
+  if show.md_incremental_refresh_volume_groups ~= cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_volume_groups then
+    show.md_incremental_refresh_volume_groups = cme_mdp3_sbe_v5_1.prefs.show_md_incremental_refresh_volume_groups
+    changed = true
+  end
+  if show.md_instrument_definition_future ~= cme_mdp3_sbe_v5_1.prefs.show_md_instrument_definition_future then
+    show.md_instrument_definition_future = cme_mdp3_sbe_v5_1.prefs.show_md_instrument_definition_future
+    changed = true
+  end
+  if show.md_instrument_definition_option ~= cme_mdp3_sbe_v5_1.prefs.show_md_instrument_definition_option then
+    show.md_instrument_definition_option = cme_mdp3_sbe_v5_1.prefs.show_md_instrument_definition_option
+    changed = true
+  end
+  if show.md_instrument_definition_spread ~= cme_mdp3_sbe_v5_1.prefs.show_md_instrument_definition_spread then
+    show.md_instrument_definition_spread = cme_mdp3_sbe_v5_1.prefs.show_md_instrument_definition_spread
+    changed = true
+  end
+  if show.message ~= cme_mdp3_sbe_v5_1.prefs.show_message then
+    show.message = cme_mdp3_sbe_v5_1.prefs.show_message
+    changed = true
+  end
+  if show.message_header ~= cme_mdp3_sbe_v5_1.prefs.show_message_header then
+    show.message_header = cme_mdp3_sbe_v5_1.prefs.show_message_header
+    changed = true
+  end
+  if show.packet ~= cme_mdp3_sbe_v5_1.prefs.show_packet then
+    show.packet = cme_mdp3_sbe_v5_1.prefs.show_packet
+    changed = true
+  end
+  if show.packet_header ~= cme_mdp3_sbe_v5_1.prefs.show_packet_header then
+    show.packet_header = cme_mdp3_sbe_v5_1.prefs.show_packet_header
+    changed = true
+  end
+  if show.quote_request ~= cme_mdp3_sbe_v5_1.prefs.show_quote_request then
+    show.quote_request = cme_mdp3_sbe_v5_1.prefs.show_quote_request
+    changed = true
+  end
+  if show.related_sym_group ~= cme_mdp3_sbe_v5_1.prefs.show_related_sym_group then
+    show.related_sym_group = cme_mdp3_sbe_v5_1.prefs.show_related_sym_group
+    changed = true
+  end
+  if show.related_sym_groups ~= cme_mdp3_sbe_v5_1.prefs.show_related_sym_groups then
+    show.related_sym_groups = cme_mdp3_sbe_v5_1.prefs.show_related_sym_groups
+    changed = true
+  end
+  if show.security_status ~= cme_mdp3_sbe_v5_1.prefs.show_security_status then
+    show.security_status = cme_mdp3_sbe_v5_1.prefs.show_security_status
+    changed = true
+  end
+  if show.settl_price_type ~= cme_mdp3_sbe_v5_1.prefs.show_settl_price_type then
+    show.settl_price_type = cme_mdp3_sbe_v5_1.prefs.show_settl_price_type
+    changed = true
+  end
+  if show.snapshot_full_refresh ~= cme_mdp3_sbe_v5_1.prefs.show_snapshot_full_refresh then
+    show.snapshot_full_refresh = cme_mdp3_sbe_v5_1.prefs.show_snapshot_full_refresh
+    changed = true
+  end
+  if show.snapshot_full_refresh_group ~= cme_mdp3_sbe_v5_1.prefs.show_snapshot_full_refresh_group then
+    show.snapshot_full_refresh_group = cme_mdp3_sbe_v5_1.prefs.show_snapshot_full_refresh_group
+    changed = true
+  end
+  if show.snapshot_full_refresh_groups ~= cme_mdp3_sbe_v5_1.prefs.show_snapshot_full_refresh_groups then
+    show.snapshot_full_refresh_groups = cme_mdp3_sbe_v5_1.prefs.show_snapshot_full_refresh_groups
+    changed = true
+  end
+  if show.underlyings_group ~= cme_mdp3_sbe_v5_1.prefs.show_underlyings_group then
+    show.underlyings_group = cme_mdp3_sbe_v5_1.prefs.show_underlyings_group
+    changed = true
+  end
+  if show.underlyings_groups ~= cme_mdp3_sbe_v5_1.prefs.show_underlyings_groups then
+    show.underlyings_groups = cme_mdp3_sbe_v5_1.prefs.show_underlyings_groups
+    changed = true
+  end
+  if show.payload ~= cme_mdp3_sbe_v5_1.prefs.show_payload then
+    show.payload = cme_mdp3_sbe_v5_1.prefs.show_payload
+    changed = true
+  end
+
+  -- Reload on changed preference
+  if changed then
+    reload()
+  end
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Cme Mdp3 Sbe 5.1

@@ -16,48 +16,6 @@ local size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
--- Declare Dissection Options
------------------------------------------------------------------------
-
--- Miax Tom Mach 1.9 Format Options
-format.application_message = true
-format.double_sided_top_of_market_compact_message = true
-format.message = true
-format.packet = true
-format.series_update = true
-format.system_state_message = true
-format.system_time_message = true
-format.top_of_market_bid_compact_message = true
-format.top_of_market_offer_compact_message = true
-format.trade_cancel_message = true
-format.trade_message = true
-format.underlying_trading_status_message = true
-format.wide_double_sided_top_of_market_message = true
-format.wide_top_of_market_bid_message = true
-format.wide_top_of_market_offer_message = true
-format.data = true
-format.payload = true
-
--- Miax Tom Mach 1.9 Element Dissection Options
-show.application_message = true
-show.double_sided_top_of_market_compact_message = true
-show.message = true
-show.packet = true
-show.series_update = true
-show.system_state_message = true
-show.system_time_message = true
-show.top_of_market_bid_compact_message = true
-show.top_of_market_offer_compact_message = true
-show.trade_cancel_message = true
-show.trade_message = true
-show.underlying_trading_status_message = true
-show.wide_double_sided_top_of_market_message = true
-show.wide_top_of_market_bid_message = true
-show.wide_top_of_market_offer_message = true
-show.data = false
-show.payload = false
-
------------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
@@ -132,6 +90,129 @@ miax_tom_mach_v1_9.fields.underlying_trading_status_message = ProtoField.new("Un
 miax_tom_mach_v1_9.fields.wide_double_sided_top_of_market_message = ProtoField.new("Wide Double Sided Top of Market Message", "miax.tom.mach.v1.9.widedoublesidedtopofmarketmessage", ftypes.STRING)
 miax_tom_mach_v1_9.fields.wide_top_of_market_bid_message = ProtoField.new("Wide Top of Market Bid Message", "miax.tom.mach.v1.9.widetopofmarketbidmessage", ftypes.STRING)
 miax_tom_mach_v1_9.fields.wide_top_of_market_offer_message = ProtoField.new("Wide Top of Market Offer Message", "miax.tom.mach.v1.9.widetopofmarketoffermessage", ftypes.STRING)
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+-- Miax Tom Mach 1.9 Element Dissection Options
+show.application_message = true
+show.double_sided_top_of_market_compact_message = true
+show.message = true
+show.packet = true
+show.series_update = true
+show.system_state_message = true
+show.system_time_message = true
+show.top_of_market_bid_compact_message = true
+show.top_of_market_offer_compact_message = true
+show.trade_cancel_message = true
+show.trade_message = true
+show.underlying_trading_status_message = true
+show.wide_double_sided_top_of_market_message = true
+show.wide_top_of_market_bid_message = true
+show.wide_top_of_market_offer_message = true
+show.data = false
+show.payload = false
+
+-- Register Miax Tom Mach 1.9 Show Options
+miax_tom_mach_v1_9.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
+miax_tom_mach_v1_9.prefs.show_double_sided_top_of_market_compact_message = Pref.bool("Show Double-Sided Top of Market Compact Message", show.double_sided_top_of_market_compact_message, "Parse and add Double-Sided Top of Market Compact Message to protocol tree")
+miax_tom_mach_v1_9.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+miax_tom_mach_v1_9.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+miax_tom_mach_v1_9.prefs.show_series_update = Pref.bool("Show Series Update", show.series_update, "Parse and add Series Update to protocol tree")
+miax_tom_mach_v1_9.prefs.show_system_state_message = Pref.bool("Show System State Message", show.system_state_message, "Parse and add System State Message to protocol tree")
+miax_tom_mach_v1_9.prefs.show_system_time_message = Pref.bool("Show System Time Message", show.system_time_message, "Parse and add System Time Message to protocol tree")
+miax_tom_mach_v1_9.prefs.show_top_of_market_bid_compact_message = Pref.bool("Show Top of Market Bid Compact Message", show.top_of_market_bid_compact_message, "Parse and add Top of Market Bid Compact Message to protocol tree")
+miax_tom_mach_v1_9.prefs.show_top_of_market_offer_compact_message = Pref.bool("Show Top of Market Offer Compact Message", show.top_of_market_offer_compact_message, "Parse and add Top of Market Offer Compact Message to protocol tree")
+miax_tom_mach_v1_9.prefs.show_trade_cancel_message = Pref.bool("Show Trade Cancel Message", show.trade_cancel_message, "Parse and add Trade Cancel Message to protocol tree")
+miax_tom_mach_v1_9.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
+miax_tom_mach_v1_9.prefs.show_underlying_trading_status_message = Pref.bool("Show Underlying Trading Status Message", show.underlying_trading_status_message, "Parse and add Underlying Trading Status Message to protocol tree")
+miax_tom_mach_v1_9.prefs.show_wide_double_sided_top_of_market_message = Pref.bool("Show Wide Double Sided Top of Market Message", show.wide_double_sided_top_of_market_message, "Parse and add Wide Double Sided Top of Market Message to protocol tree")
+miax_tom_mach_v1_9.prefs.show_wide_top_of_market_bid_message = Pref.bool("Show Wide Top of Market Bid Message", show.wide_top_of_market_bid_message, "Parse and add Wide Top of Market Bid Message to protocol tree")
+miax_tom_mach_v1_9.prefs.show_wide_top_of_market_offer_message = Pref.bool("Show Wide Top of Market Offer Message", show.wide_top_of_market_offer_message, "Parse and add Wide Top of Market Offer Message to protocol tree")
+miax_tom_mach_v1_9.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
+miax_tom_mach_v1_9.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+
+-- Handle changed preferences
+function miax_tom_mach_v1_9.prefs_changed()
+  local changed = false
+
+  -- Check if show options have changed
+  if show.application_message ~= miax_tom_mach_v1_9.prefs.show_application_message then
+    show.application_message = miax_tom_mach_v1_9.prefs.show_application_message
+    changed = true
+  end
+  if show.double_sided_top_of_market_compact_message ~= miax_tom_mach_v1_9.prefs.show_double_sided_top_of_market_compact_message then
+    show.double_sided_top_of_market_compact_message = miax_tom_mach_v1_9.prefs.show_double_sided_top_of_market_compact_message
+    changed = true
+  end
+  if show.message ~= miax_tom_mach_v1_9.prefs.show_message then
+    show.message = miax_tom_mach_v1_9.prefs.show_message
+    changed = true
+  end
+  if show.packet ~= miax_tom_mach_v1_9.prefs.show_packet then
+    show.packet = miax_tom_mach_v1_9.prefs.show_packet
+    changed = true
+  end
+  if show.series_update ~= miax_tom_mach_v1_9.prefs.show_series_update then
+    show.series_update = miax_tom_mach_v1_9.prefs.show_series_update
+    changed = true
+  end
+  if show.system_state_message ~= miax_tom_mach_v1_9.prefs.show_system_state_message then
+    show.system_state_message = miax_tom_mach_v1_9.prefs.show_system_state_message
+    changed = true
+  end
+  if show.system_time_message ~= miax_tom_mach_v1_9.prefs.show_system_time_message then
+    show.system_time_message = miax_tom_mach_v1_9.prefs.show_system_time_message
+    changed = true
+  end
+  if show.top_of_market_bid_compact_message ~= miax_tom_mach_v1_9.prefs.show_top_of_market_bid_compact_message then
+    show.top_of_market_bid_compact_message = miax_tom_mach_v1_9.prefs.show_top_of_market_bid_compact_message
+    changed = true
+  end
+  if show.top_of_market_offer_compact_message ~= miax_tom_mach_v1_9.prefs.show_top_of_market_offer_compact_message then
+    show.top_of_market_offer_compact_message = miax_tom_mach_v1_9.prefs.show_top_of_market_offer_compact_message
+    changed = true
+  end
+  if show.trade_cancel_message ~= miax_tom_mach_v1_9.prefs.show_trade_cancel_message then
+    show.trade_cancel_message = miax_tom_mach_v1_9.prefs.show_trade_cancel_message
+    changed = true
+  end
+  if show.trade_message ~= miax_tom_mach_v1_9.prefs.show_trade_message then
+    show.trade_message = miax_tom_mach_v1_9.prefs.show_trade_message
+    changed = true
+  end
+  if show.underlying_trading_status_message ~= miax_tom_mach_v1_9.prefs.show_underlying_trading_status_message then
+    show.underlying_trading_status_message = miax_tom_mach_v1_9.prefs.show_underlying_trading_status_message
+    changed = true
+  end
+  if show.wide_double_sided_top_of_market_message ~= miax_tom_mach_v1_9.prefs.show_wide_double_sided_top_of_market_message then
+    show.wide_double_sided_top_of_market_message = miax_tom_mach_v1_9.prefs.show_wide_double_sided_top_of_market_message
+    changed = true
+  end
+  if show.wide_top_of_market_bid_message ~= miax_tom_mach_v1_9.prefs.show_wide_top_of_market_bid_message then
+    show.wide_top_of_market_bid_message = miax_tom_mach_v1_9.prefs.show_wide_top_of_market_bid_message
+    changed = true
+  end
+  if show.wide_top_of_market_offer_message ~= miax_tom_mach_v1_9.prefs.show_wide_top_of_market_offer_message then
+    show.wide_top_of_market_offer_message = miax_tom_mach_v1_9.prefs.show_wide_top_of_market_offer_message
+    changed = true
+  end
+  if show.data ~= miax_tom_mach_v1_9.prefs.show_data then
+    show.data = miax_tom_mach_v1_9.prefs.show_data
+    changed = true
+  end
+  if show.payload ~= miax_tom_mach_v1_9.prefs.show_payload then
+    show.payload = miax_tom_mach_v1_9.prefs.show_payload
+    changed = true
+  end
+
+  -- Reload on changed preference
+  if changed then
+    reload()
+  end
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Miax Tom Mach 1.9

@@ -16,78 +16,6 @@ local size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
--- Declare Dissection Options
------------------------------------------------------------------------
-
--- Phlx MarketDepth Itch 1.5 Format Options
-format.add_order_message_long_form = true
-format.add_order_message_short_form = true
-format.add_quote_message_long_form = true
-format.add_quote_message_short_form = true
-format.auction_notification_message = true
-format.base_reference_message = true
-format.block_delete_message = true
-format.broken_trade_order_execution_message = true
-format.message = true
-format.message_header = true
-format.non_auction_options_trade_message = true
-format.option_directory_message = true
-format.options_cross_trade_message = true
-format.order_replace_message_short_form = true
-format.packet = true
-format.packet_header = true
-format.quote_delete_message = true
-format.quote_replace_long_form_message = true
-format.quote_replace_short_form_message = true
-format.seconds_message = true
-format.security_open_message = true
-format.single_side_cancel_message = true
-format.single_side_delete_message = true
-format.single_side_executed_message = true
-format.single_side_executed_with_price_message = true
-format.single_side_replace_long_form_message = true
-format.single_side_replace_message_long_form = true
-format.single_side_replace_message_short_form = true
-format.single_side_update_message = true
-format.system_event_message = true
-format.trading_action_message = true
-format.payload = true
-
--- Phlx MarketDepth Itch 1.5 Element Dissection Options
-show.add_order_message_long_form = true
-show.add_order_message_short_form = true
-show.add_quote_message_long_form = true
-show.add_quote_message_short_form = true
-show.auction_notification_message = true
-show.base_reference_message = true
-show.block_delete_message = true
-show.broken_trade_order_execution_message = true
-show.message = true
-show.message_header = true
-show.non_auction_options_trade_message = true
-show.option_directory_message = true
-show.options_cross_trade_message = true
-show.order_replace_message_short_form = true
-show.packet = true
-show.packet_header = true
-show.quote_delete_message = true
-show.quote_replace_long_form_message = true
-show.quote_replace_short_form_message = true
-show.seconds_message = true
-show.security_open_message = true
-show.single_side_cancel_message = true
-show.single_side_delete_message = true
-show.single_side_executed_message = true
-show.single_side_executed_with_price_message = true
-show.single_side_replace_long_form_message = true
-show.single_side_replace_message_long_form = true
-show.single_side_replace_message_short_form = true
-show.single_side_update_message = true
-show.system_event_message = true
-show.trading_action_message = true
-show.payload = false
-
------------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
@@ -183,6 +111,219 @@ phlx_marketdepth_itch_v1_5.fields.trade_indicator = ProtoField.new("Trade Indica
 phlx_marketdepth_itch_v1_5.fields.trading_action_message = ProtoField.new("Trading Action Message", "phlx.marketdepth.itch.v1.5.tradingactionmessage", ftypes.STRING)
 phlx_marketdepth_itch_v1_5.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "phlx.marketdepth.itch.v1.5.underlyingsymbol", ftypes.STRING)
 phlx_marketdepth_itch_v1_5.fields.volume = ProtoField.new("Volume", "phlx.marketdepth.itch.v1.5.volume", ftypes.UINT16)
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+-- Phlx MarketDepth Itch 1.5 Element Dissection Options
+show.add_order_message_long_form = true
+show.add_order_message_short_form = true
+show.add_quote_message_long_form = true
+show.add_quote_message_short_form = true
+show.auction_notification_message = true
+show.base_reference_message = true
+show.block_delete_message = true
+show.broken_trade_order_execution_message = true
+show.message = true
+show.message_header = true
+show.non_auction_options_trade_message = true
+show.option_directory_message = true
+show.options_cross_trade_message = true
+show.order_replace_message_short_form = true
+show.packet = true
+show.packet_header = true
+show.quote_delete_message = true
+show.quote_replace_long_form_message = true
+show.quote_replace_short_form_message = true
+show.seconds_message = true
+show.security_open_message = true
+show.single_side_cancel_message = true
+show.single_side_delete_message = true
+show.single_side_executed_message = true
+show.single_side_executed_with_price_message = true
+show.single_side_replace_long_form_message = true
+show.single_side_replace_message_long_form = true
+show.single_side_replace_message_short_form = true
+show.single_side_update_message = true
+show.system_event_message = true
+show.trading_action_message = true
+show.payload = false
+
+-- Register Phlx MarketDepth Itch 1.5 Show Options
+phlx_marketdepth_itch_v1_5.prefs.show_add_order_message_long_form = Pref.bool("Show Add Order Message Long Form", show.add_order_message_long_form, "Parse and add Add Order Message Long Form to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_add_order_message_short_form = Pref.bool("Show Add Order Message Short Form", show.add_order_message_short_form, "Parse and add Add Order Message Short Form to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_add_quote_message_long_form = Pref.bool("Show Add Quote Message Long Form", show.add_quote_message_long_form, "Parse and add Add Quote Message Long Form to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_add_quote_message_short_form = Pref.bool("Show Add Quote Message Short Form", show.add_quote_message_short_form, "Parse and add Add Quote Message Short Form to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_auction_notification_message = Pref.bool("Show Auction Notification Message", show.auction_notification_message, "Parse and add Auction Notification Message to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_base_reference_message = Pref.bool("Show Base Reference Message", show.base_reference_message, "Parse and add Base Reference Message to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_block_delete_message = Pref.bool("Show Block Delete Message", show.block_delete_message, "Parse and add Block Delete Message to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_broken_trade_order_execution_message = Pref.bool("Show Broken Trade Order Execution Message", show.broken_trade_order_execution_message, "Parse and add Broken Trade Order Execution Message to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_non_auction_options_trade_message = Pref.bool("Show Non Auction Options Trade Message", show.non_auction_options_trade_message, "Parse and add Non Auction Options Trade Message to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_option_directory_message = Pref.bool("Show Option Directory Message", show.option_directory_message, "Parse and add Option Directory Message to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_options_cross_trade_message = Pref.bool("Show Options Cross Trade Message", show.options_cross_trade_message, "Parse and add Options Cross Trade Message to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_order_replace_message_short_form = Pref.bool("Show Order Replace Message Short Form", show.order_replace_message_short_form, "Parse and add Order Replace Message Short Form to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_quote_delete_message = Pref.bool("Show Quote Delete Message", show.quote_delete_message, "Parse and add Quote Delete Message to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_quote_replace_long_form_message = Pref.bool("Show Quote Replace Long Form Message", show.quote_replace_long_form_message, "Parse and add Quote Replace Long Form Message to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_quote_replace_short_form_message = Pref.bool("Show Quote Replace Short Form Message", show.quote_replace_short_form_message, "Parse and add Quote Replace Short Form Message to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_seconds_message = Pref.bool("Show Seconds Message", show.seconds_message, "Parse and add Seconds Message to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_security_open_message = Pref.bool("Show Security Open Message", show.security_open_message, "Parse and add Security Open Message to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_single_side_cancel_message = Pref.bool("Show Single Side Cancel Message", show.single_side_cancel_message, "Parse and add Single Side Cancel Message to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_single_side_delete_message = Pref.bool("Show Single Side Delete Message", show.single_side_delete_message, "Parse and add Single Side Delete Message to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_single_side_executed_message = Pref.bool("Show Single Side Executed Message", show.single_side_executed_message, "Parse and add Single Side Executed Message to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_single_side_executed_with_price_message = Pref.bool("Show Single Side Executed with Price Message", show.single_side_executed_with_price_message, "Parse and add Single Side Executed with Price Message to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_single_side_replace_long_form_message = Pref.bool("Show Single Side Replace Long Form Message", show.single_side_replace_long_form_message, "Parse and add Single Side Replace Long Form Message to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_single_side_replace_message_long_form = Pref.bool("Show Single Side Replace Message Long Form", show.single_side_replace_message_long_form, "Parse and add Single Side Replace Message Long Form to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_single_side_replace_message_short_form = Pref.bool("Show Single Side Replace Message Short Form", show.single_side_replace_message_short_form, "Parse and add Single Side Replace Message Short Form to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_single_side_update_message = Pref.bool("Show Single Side Update Message", show.single_side_update_message, "Parse and add Single Side Update Message to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_trading_action_message = Pref.bool("Show Trading Action Message", show.trading_action_message, "Parse and add Trading Action Message to protocol tree")
+phlx_marketdepth_itch_v1_5.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+
+-- Handle changed preferences
+function phlx_marketdepth_itch_v1_5.prefs_changed()
+  local changed = false
+
+  -- Check if show options have changed
+  if show.add_order_message_long_form ~= phlx_marketdepth_itch_v1_5.prefs.show_add_order_message_long_form then
+    show.add_order_message_long_form = phlx_marketdepth_itch_v1_5.prefs.show_add_order_message_long_form
+    changed = true
+  end
+  if show.add_order_message_short_form ~= phlx_marketdepth_itch_v1_5.prefs.show_add_order_message_short_form then
+    show.add_order_message_short_form = phlx_marketdepth_itch_v1_5.prefs.show_add_order_message_short_form
+    changed = true
+  end
+  if show.add_quote_message_long_form ~= phlx_marketdepth_itch_v1_5.prefs.show_add_quote_message_long_form then
+    show.add_quote_message_long_form = phlx_marketdepth_itch_v1_5.prefs.show_add_quote_message_long_form
+    changed = true
+  end
+  if show.add_quote_message_short_form ~= phlx_marketdepth_itch_v1_5.prefs.show_add_quote_message_short_form then
+    show.add_quote_message_short_form = phlx_marketdepth_itch_v1_5.prefs.show_add_quote_message_short_form
+    changed = true
+  end
+  if show.auction_notification_message ~= phlx_marketdepth_itch_v1_5.prefs.show_auction_notification_message then
+    show.auction_notification_message = phlx_marketdepth_itch_v1_5.prefs.show_auction_notification_message
+    changed = true
+  end
+  if show.base_reference_message ~= phlx_marketdepth_itch_v1_5.prefs.show_base_reference_message then
+    show.base_reference_message = phlx_marketdepth_itch_v1_5.prefs.show_base_reference_message
+    changed = true
+  end
+  if show.block_delete_message ~= phlx_marketdepth_itch_v1_5.prefs.show_block_delete_message then
+    show.block_delete_message = phlx_marketdepth_itch_v1_5.prefs.show_block_delete_message
+    changed = true
+  end
+  if show.broken_trade_order_execution_message ~= phlx_marketdepth_itch_v1_5.prefs.show_broken_trade_order_execution_message then
+    show.broken_trade_order_execution_message = phlx_marketdepth_itch_v1_5.prefs.show_broken_trade_order_execution_message
+    changed = true
+  end
+  if show.message ~= phlx_marketdepth_itch_v1_5.prefs.show_message then
+    show.message = phlx_marketdepth_itch_v1_5.prefs.show_message
+    changed = true
+  end
+  if show.message_header ~= phlx_marketdepth_itch_v1_5.prefs.show_message_header then
+    show.message_header = phlx_marketdepth_itch_v1_5.prefs.show_message_header
+    changed = true
+  end
+  if show.non_auction_options_trade_message ~= phlx_marketdepth_itch_v1_5.prefs.show_non_auction_options_trade_message then
+    show.non_auction_options_trade_message = phlx_marketdepth_itch_v1_5.prefs.show_non_auction_options_trade_message
+    changed = true
+  end
+  if show.option_directory_message ~= phlx_marketdepth_itch_v1_5.prefs.show_option_directory_message then
+    show.option_directory_message = phlx_marketdepth_itch_v1_5.prefs.show_option_directory_message
+    changed = true
+  end
+  if show.options_cross_trade_message ~= phlx_marketdepth_itch_v1_5.prefs.show_options_cross_trade_message then
+    show.options_cross_trade_message = phlx_marketdepth_itch_v1_5.prefs.show_options_cross_trade_message
+    changed = true
+  end
+  if show.order_replace_message_short_form ~= phlx_marketdepth_itch_v1_5.prefs.show_order_replace_message_short_form then
+    show.order_replace_message_short_form = phlx_marketdepth_itch_v1_5.prefs.show_order_replace_message_short_form
+    changed = true
+  end
+  if show.packet ~= phlx_marketdepth_itch_v1_5.prefs.show_packet then
+    show.packet = phlx_marketdepth_itch_v1_5.prefs.show_packet
+    changed = true
+  end
+  if show.packet_header ~= phlx_marketdepth_itch_v1_5.prefs.show_packet_header then
+    show.packet_header = phlx_marketdepth_itch_v1_5.prefs.show_packet_header
+    changed = true
+  end
+  if show.quote_delete_message ~= phlx_marketdepth_itch_v1_5.prefs.show_quote_delete_message then
+    show.quote_delete_message = phlx_marketdepth_itch_v1_5.prefs.show_quote_delete_message
+    changed = true
+  end
+  if show.quote_replace_long_form_message ~= phlx_marketdepth_itch_v1_5.prefs.show_quote_replace_long_form_message then
+    show.quote_replace_long_form_message = phlx_marketdepth_itch_v1_5.prefs.show_quote_replace_long_form_message
+    changed = true
+  end
+  if show.quote_replace_short_form_message ~= phlx_marketdepth_itch_v1_5.prefs.show_quote_replace_short_form_message then
+    show.quote_replace_short_form_message = phlx_marketdepth_itch_v1_5.prefs.show_quote_replace_short_form_message
+    changed = true
+  end
+  if show.seconds_message ~= phlx_marketdepth_itch_v1_5.prefs.show_seconds_message then
+    show.seconds_message = phlx_marketdepth_itch_v1_5.prefs.show_seconds_message
+    changed = true
+  end
+  if show.security_open_message ~= phlx_marketdepth_itch_v1_5.prefs.show_security_open_message then
+    show.security_open_message = phlx_marketdepth_itch_v1_5.prefs.show_security_open_message
+    changed = true
+  end
+  if show.single_side_cancel_message ~= phlx_marketdepth_itch_v1_5.prefs.show_single_side_cancel_message then
+    show.single_side_cancel_message = phlx_marketdepth_itch_v1_5.prefs.show_single_side_cancel_message
+    changed = true
+  end
+  if show.single_side_delete_message ~= phlx_marketdepth_itch_v1_5.prefs.show_single_side_delete_message then
+    show.single_side_delete_message = phlx_marketdepth_itch_v1_5.prefs.show_single_side_delete_message
+    changed = true
+  end
+  if show.single_side_executed_message ~= phlx_marketdepth_itch_v1_5.prefs.show_single_side_executed_message then
+    show.single_side_executed_message = phlx_marketdepth_itch_v1_5.prefs.show_single_side_executed_message
+    changed = true
+  end
+  if show.single_side_executed_with_price_message ~= phlx_marketdepth_itch_v1_5.prefs.show_single_side_executed_with_price_message then
+    show.single_side_executed_with_price_message = phlx_marketdepth_itch_v1_5.prefs.show_single_side_executed_with_price_message
+    changed = true
+  end
+  if show.single_side_replace_long_form_message ~= phlx_marketdepth_itch_v1_5.prefs.show_single_side_replace_long_form_message then
+    show.single_side_replace_long_form_message = phlx_marketdepth_itch_v1_5.prefs.show_single_side_replace_long_form_message
+    changed = true
+  end
+  if show.single_side_replace_message_long_form ~= phlx_marketdepth_itch_v1_5.prefs.show_single_side_replace_message_long_form then
+    show.single_side_replace_message_long_form = phlx_marketdepth_itch_v1_5.prefs.show_single_side_replace_message_long_form
+    changed = true
+  end
+  if show.single_side_replace_message_short_form ~= phlx_marketdepth_itch_v1_5.prefs.show_single_side_replace_message_short_form then
+    show.single_side_replace_message_short_form = phlx_marketdepth_itch_v1_5.prefs.show_single_side_replace_message_short_form
+    changed = true
+  end
+  if show.single_side_update_message ~= phlx_marketdepth_itch_v1_5.prefs.show_single_side_update_message then
+    show.single_side_update_message = phlx_marketdepth_itch_v1_5.prefs.show_single_side_update_message
+    changed = true
+  end
+  if show.system_event_message ~= phlx_marketdepth_itch_v1_5.prefs.show_system_event_message then
+    show.system_event_message = phlx_marketdepth_itch_v1_5.prefs.show_system_event_message
+    changed = true
+  end
+  if show.trading_action_message ~= phlx_marketdepth_itch_v1_5.prefs.show_trading_action_message then
+    show.trading_action_message = phlx_marketdepth_itch_v1_5.prefs.show_trading_action_message
+    changed = true
+  end
+  if show.payload ~= phlx_marketdepth_itch_v1_5.prefs.show_payload then
+    show.payload = phlx_marketdepth_itch_v1_5.prefs.show_payload
+    changed = true
+  end
+
+  -- Reload on changed preference
+  if changed then
+    reload()
+  end
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Phlx MarketDepth Itch 1.5

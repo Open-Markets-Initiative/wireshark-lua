@@ -16,66 +16,6 @@ local size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
--- Declare Dissection Options
------------------------------------------------------------------------
-
--- Nyse Bqt Xdp 2.1.a Format Options
-format.bqt_message = true
-format.close_price = true
-format.consolidated_security_status_message = true
-format.consolidated_single_sided_quote_message = true
-format.consolidated_stock_summary_message = true
-format.consolidated_symbol_clear_message = true
-format.consolidated_trade_cancel_message = true
-format.consolidated_trade_correction_message = true
-format.consolidated_trade_message = true
-format.consolidated_trading_session_change_message = true
-format.consolidated_volume_message = true
-format.heartbeat_response_message = true
-format.message = true
-format.message_header = true
-format.message_unavailable_message = true
-format.packet = true
-format.packet_header = true
-format.refresh_header_message = true
-format.refresh_request_message = true
-format.request_response_message = true
-format.retransmission_request_message = true
-format.sequence_number_reset_message = true
-format.symbol_index_mapping_message = true
-format.symbol_index_mapping_request_message = true
-format.trade_session = true
-format.payload = true
-
--- Nyse Bqt Xdp 2.1.a Element Dissection Options
-show.bqt_message = true
-show.close_price = true
-show.consolidated_security_status_message = true
-show.consolidated_single_sided_quote_message = true
-show.consolidated_stock_summary_message = true
-show.consolidated_symbol_clear_message = true
-show.consolidated_trade_cancel_message = true
-show.consolidated_trade_correction_message = true
-show.consolidated_trade_message = true
-show.consolidated_trading_session_change_message = true
-show.consolidated_volume_message = true
-show.heartbeat_response_message = true
-show.message = true
-show.message_header = true
-show.message_unavailable_message = true
-show.packet = true
-show.packet_header = true
-show.refresh_header_message = true
-show.refresh_request_message = true
-show.request_response_message = true
-show.retransmission_request_message = true
-show.sequence_number_reset_message = true
-show.symbol_index_mapping_message = true
-show.symbol_index_mapping_request_message = true
-show.trade_session = true
-show.payload = false
-
------------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
@@ -195,6 +135,183 @@ nyse_bqt_xdp_v2_1_a.fields.trade_id = ProtoField.new("Trade ID", "nyse.bqt.xdp.v
 nyse_bqt_xdp_v2_1_a.fields.trade_session = ProtoField.new("Trade Session", "nyse.bqt.xdp.v2.1.a.tradesession", ftypes.STRING)
 nyse_bqt_xdp_v2_1_a.fields.unit_of_trade = ProtoField.new("Unit of Trade", "nyse.bqt.xdp.v2.1.a.unitoftrade", ftypes.UINT16)
 nyse_bqt_xdp_v2_1_a.fields.volume = ProtoField.new("Volume", "nyse.bqt.xdp.v2.1.a.volume", ftypes.UINT32)
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+-- Nyse Bqt Xdp 2.1.a Element Dissection Options
+show.bqt_message = true
+show.close_price = true
+show.consolidated_security_status_message = true
+show.consolidated_single_sided_quote_message = true
+show.consolidated_stock_summary_message = true
+show.consolidated_symbol_clear_message = true
+show.consolidated_trade_cancel_message = true
+show.consolidated_trade_correction_message = true
+show.consolidated_trade_message = true
+show.consolidated_trading_session_change_message = true
+show.consolidated_volume_message = true
+show.heartbeat_response_message = true
+show.message = true
+show.message_header = true
+show.message_unavailable_message = true
+show.packet = true
+show.packet_header = true
+show.refresh_header_message = true
+show.refresh_request_message = true
+show.request_response_message = true
+show.retransmission_request_message = true
+show.sequence_number_reset_message = true
+show.symbol_index_mapping_message = true
+show.symbol_index_mapping_request_message = true
+show.trade_session = true
+show.payload = false
+
+-- Register Nyse Bqt Xdp 2.1.a Show Options
+nyse_bqt_xdp_v2_1_a.prefs.show_bqt_message = Pref.bool("Show BQT Message", show.bqt_message, "Parse and add BQT Message to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_close_price = Pref.bool("Show Close Price", show.close_price, "Parse and add Close Price to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_security_status_message = Pref.bool("Show Consolidated Security Status Message", show.consolidated_security_status_message, "Parse and add Consolidated Security Status Message to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_single_sided_quote_message = Pref.bool("Show Consolidated Single-Sided Quote Message", show.consolidated_single_sided_quote_message, "Parse and add Consolidated Single-Sided Quote Message to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_stock_summary_message = Pref.bool("Show Consolidated Stock Summary Message", show.consolidated_stock_summary_message, "Parse and add Consolidated Stock Summary Message to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_symbol_clear_message = Pref.bool("Show Consolidated Symbol Clear Message", show.consolidated_symbol_clear_message, "Parse and add Consolidated Symbol Clear Message to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_trade_cancel_message = Pref.bool("Show Consolidated Trade Cancel Message", show.consolidated_trade_cancel_message, "Parse and add Consolidated Trade Cancel Message to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_trade_correction_message = Pref.bool("Show Consolidated Trade Correction Message", show.consolidated_trade_correction_message, "Parse and add Consolidated Trade Correction Message to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_trade_message = Pref.bool("Show Consolidated Trade Message", show.consolidated_trade_message, "Parse and add Consolidated Trade Message to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_trading_session_change_message = Pref.bool("Show Consolidated Trading Session Change Message", show.consolidated_trading_session_change_message, "Parse and add Consolidated Trading Session Change Message to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_volume_message = Pref.bool("Show Consolidated Volume Message", show.consolidated_volume_message, "Parse and add Consolidated Volume Message to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_heartbeat_response_message = Pref.bool("Show Heartbeat Response Message", show.heartbeat_response_message, "Parse and add Heartbeat Response Message to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_message_unavailable_message = Pref.bool("Show Message Unavailable Message", show.message_unavailable_message, "Parse and add Message Unavailable Message to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_refresh_header_message = Pref.bool("Show Refresh Header Message", show.refresh_header_message, "Parse and add Refresh Header Message to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_refresh_request_message = Pref.bool("Show Refresh Request Message", show.refresh_request_message, "Parse and add Refresh Request Message to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_request_response_message = Pref.bool("Show Request Response Message", show.request_response_message, "Parse and add Request Response Message to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_retransmission_request_message = Pref.bool("Show Retransmission Request Message", show.retransmission_request_message, "Parse and add Retransmission Request Message to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_symbol_index_mapping_message = Pref.bool("Show Symbol Index Mapping Message", show.symbol_index_mapping_message, "Parse and add Symbol Index Mapping Message to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_symbol_index_mapping_request_message = Pref.bool("Show Symbol Index Mapping Request Message", show.symbol_index_mapping_request_message, "Parse and add Symbol Index Mapping Request Message to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_trade_session = Pref.bool("Show Trade Session", show.trade_session, "Parse and add Trade Session to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+
+-- Handle changed preferences
+function nyse_bqt_xdp_v2_1_a.prefs_changed()
+  local changed = false
+
+  -- Check if show options have changed
+  if show.bqt_message ~= nyse_bqt_xdp_v2_1_a.prefs.show_bqt_message then
+    show.bqt_message = nyse_bqt_xdp_v2_1_a.prefs.show_bqt_message
+    changed = true
+  end
+  if show.close_price ~= nyse_bqt_xdp_v2_1_a.prefs.show_close_price then
+    show.close_price = nyse_bqt_xdp_v2_1_a.prefs.show_close_price
+    changed = true
+  end
+  if show.consolidated_security_status_message ~= nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_security_status_message then
+    show.consolidated_security_status_message = nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_security_status_message
+    changed = true
+  end
+  if show.consolidated_single_sided_quote_message ~= nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_single_sided_quote_message then
+    show.consolidated_single_sided_quote_message = nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_single_sided_quote_message
+    changed = true
+  end
+  if show.consolidated_stock_summary_message ~= nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_stock_summary_message then
+    show.consolidated_stock_summary_message = nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_stock_summary_message
+    changed = true
+  end
+  if show.consolidated_symbol_clear_message ~= nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_symbol_clear_message then
+    show.consolidated_symbol_clear_message = nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_symbol_clear_message
+    changed = true
+  end
+  if show.consolidated_trade_cancel_message ~= nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_trade_cancel_message then
+    show.consolidated_trade_cancel_message = nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_trade_cancel_message
+    changed = true
+  end
+  if show.consolidated_trade_correction_message ~= nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_trade_correction_message then
+    show.consolidated_trade_correction_message = nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_trade_correction_message
+    changed = true
+  end
+  if show.consolidated_trade_message ~= nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_trade_message then
+    show.consolidated_trade_message = nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_trade_message
+    changed = true
+  end
+  if show.consolidated_trading_session_change_message ~= nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_trading_session_change_message then
+    show.consolidated_trading_session_change_message = nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_trading_session_change_message
+    changed = true
+  end
+  if show.consolidated_volume_message ~= nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_volume_message then
+    show.consolidated_volume_message = nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_volume_message
+    changed = true
+  end
+  if show.heartbeat_response_message ~= nyse_bqt_xdp_v2_1_a.prefs.show_heartbeat_response_message then
+    show.heartbeat_response_message = nyse_bqt_xdp_v2_1_a.prefs.show_heartbeat_response_message
+    changed = true
+  end
+  if show.message ~= nyse_bqt_xdp_v2_1_a.prefs.show_message then
+    show.message = nyse_bqt_xdp_v2_1_a.prefs.show_message
+    changed = true
+  end
+  if show.message_header ~= nyse_bqt_xdp_v2_1_a.prefs.show_message_header then
+    show.message_header = nyse_bqt_xdp_v2_1_a.prefs.show_message_header
+    changed = true
+  end
+  if show.message_unavailable_message ~= nyse_bqt_xdp_v2_1_a.prefs.show_message_unavailable_message then
+    show.message_unavailable_message = nyse_bqt_xdp_v2_1_a.prefs.show_message_unavailable_message
+    changed = true
+  end
+  if show.packet ~= nyse_bqt_xdp_v2_1_a.prefs.show_packet then
+    show.packet = nyse_bqt_xdp_v2_1_a.prefs.show_packet
+    changed = true
+  end
+  if show.packet_header ~= nyse_bqt_xdp_v2_1_a.prefs.show_packet_header then
+    show.packet_header = nyse_bqt_xdp_v2_1_a.prefs.show_packet_header
+    changed = true
+  end
+  if show.refresh_header_message ~= nyse_bqt_xdp_v2_1_a.prefs.show_refresh_header_message then
+    show.refresh_header_message = nyse_bqt_xdp_v2_1_a.prefs.show_refresh_header_message
+    changed = true
+  end
+  if show.refresh_request_message ~= nyse_bqt_xdp_v2_1_a.prefs.show_refresh_request_message then
+    show.refresh_request_message = nyse_bqt_xdp_v2_1_a.prefs.show_refresh_request_message
+    changed = true
+  end
+  if show.request_response_message ~= nyse_bqt_xdp_v2_1_a.prefs.show_request_response_message then
+    show.request_response_message = nyse_bqt_xdp_v2_1_a.prefs.show_request_response_message
+    changed = true
+  end
+  if show.retransmission_request_message ~= nyse_bqt_xdp_v2_1_a.prefs.show_retransmission_request_message then
+    show.retransmission_request_message = nyse_bqt_xdp_v2_1_a.prefs.show_retransmission_request_message
+    changed = true
+  end
+  if show.sequence_number_reset_message ~= nyse_bqt_xdp_v2_1_a.prefs.show_sequence_number_reset_message then
+    show.sequence_number_reset_message = nyse_bqt_xdp_v2_1_a.prefs.show_sequence_number_reset_message
+    changed = true
+  end
+  if show.symbol_index_mapping_message ~= nyse_bqt_xdp_v2_1_a.prefs.show_symbol_index_mapping_message then
+    show.symbol_index_mapping_message = nyse_bqt_xdp_v2_1_a.prefs.show_symbol_index_mapping_message
+    changed = true
+  end
+  if show.symbol_index_mapping_request_message ~= nyse_bqt_xdp_v2_1_a.prefs.show_symbol_index_mapping_request_message then
+    show.symbol_index_mapping_request_message = nyse_bqt_xdp_v2_1_a.prefs.show_symbol_index_mapping_request_message
+    changed = true
+  end
+  if show.trade_session ~= nyse_bqt_xdp_v2_1_a.prefs.show_trade_session then
+    show.trade_session = nyse_bqt_xdp_v2_1_a.prefs.show_trade_session
+    changed = true
+  end
+  if show.payload ~= nyse_bqt_xdp_v2_1_a.prefs.show_payload then
+    show.payload = nyse_bqt_xdp_v2_1_a.prefs.show_payload
+    changed = true
+  end
+
+  -- Reload on changed preference
+  if changed then
+    reload()
+  end
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Nyse Bqt Xdp 2.1.a

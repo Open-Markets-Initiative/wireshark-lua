@@ -16,50 +16,6 @@ local size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
--- Declare Dissection Options
------------------------------------------------------------------------
-
--- Miax cTom Mach 1.1 Format Options
-format.application_message = true
-format.complex_double_sided_top_of_market_compact_message = true
-format.complex_strategy_definition_message = true
-format.complex_top_of_market_bid_compact_message = true
-format.complex_top_of_market_offer_compact_message = true
-format.leg_definition = true
-format.message = true
-format.packet = true
-format.series_update = true
-format.strategy_trade_message = true
-format.system_state_message = true
-format.system_time_message = true
-format.underlying_trading_status_message = true
-format.wide_complex_double_sided_top_of_market_message = true
-format.wide_complex_top_of_market_bid_message = true
-format.wide_complex_top_of_market_offer_message = true
-format.data = true
-format.payload = true
-
--- Miax cTom Mach 1.1 Element Dissection Options
-show.application_message = true
-show.complex_double_sided_top_of_market_compact_message = true
-show.complex_strategy_definition_message = true
-show.complex_top_of_market_bid_compact_message = true
-show.complex_top_of_market_offer_compact_message = true
-show.leg_definition = true
-show.message = true
-show.packet = true
-show.series_update = true
-show.strategy_trade_message = true
-show.system_state_message = true
-show.system_time_message = true
-show.underlying_trading_status_message = true
-show.wide_complex_double_sided_top_of_market_message = true
-show.wide_complex_top_of_market_bid_message = true
-show.wide_complex_top_of_market_offer_message = true
-show.data = false
-show.payload = false
-
------------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
@@ -144,6 +100,135 @@ miax_ctom_mach_v1_1.fields.wide_offer_price = ProtoField.new("Wide Offer Price",
 miax_ctom_mach_v1_1.fields.wide_offer_size = ProtoField.new("Wide Offer Size", "miax.ctom.mach.v1.1.wideoffersize", ftypes.UINT32)
 miax_ctom_mach_v1_1.fields.wide_price = ProtoField.new("Wide Price", "miax.ctom.mach.v1.1.wideprice", ftypes.INT64)
 miax_ctom_mach_v1_1.fields.wide_size = ProtoField.new("Wide Size", "miax.ctom.mach.v1.1.widesize", ftypes.UINT32)
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+-- Miax cTom Mach 1.1 Element Dissection Options
+show.application_message = true
+show.complex_double_sided_top_of_market_compact_message = true
+show.complex_strategy_definition_message = true
+show.complex_top_of_market_bid_compact_message = true
+show.complex_top_of_market_offer_compact_message = true
+show.leg_definition = true
+show.message = true
+show.packet = true
+show.series_update = true
+show.strategy_trade_message = true
+show.system_state_message = true
+show.system_time_message = true
+show.underlying_trading_status_message = true
+show.wide_complex_double_sided_top_of_market_message = true
+show.wide_complex_top_of_market_bid_message = true
+show.wide_complex_top_of_market_offer_message = true
+show.data = false
+show.payload = false
+
+-- Register Miax cTom Mach 1.1 Show Options
+miax_ctom_mach_v1_1.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
+miax_ctom_mach_v1_1.prefs.show_complex_double_sided_top_of_market_compact_message = Pref.bool("Show Complex Double-Sided Top of Market Compact Message", show.complex_double_sided_top_of_market_compact_message, "Parse and add Complex Double-Sided Top of Market Compact Message to protocol tree")
+miax_ctom_mach_v1_1.prefs.show_complex_strategy_definition_message = Pref.bool("Show Complex Strategy Definition Message", show.complex_strategy_definition_message, "Parse and add Complex Strategy Definition Message to protocol tree")
+miax_ctom_mach_v1_1.prefs.show_complex_top_of_market_bid_compact_message = Pref.bool("Show Complex Top Of Market Bid Compact Message", show.complex_top_of_market_bid_compact_message, "Parse and add Complex Top Of Market Bid Compact Message to protocol tree")
+miax_ctom_mach_v1_1.prefs.show_complex_top_of_market_offer_compact_message = Pref.bool("Show Complex Top Of Market Offer Compact Message", show.complex_top_of_market_offer_compact_message, "Parse and add Complex Top Of Market Offer Compact Message to protocol tree")
+miax_ctom_mach_v1_1.prefs.show_leg_definition = Pref.bool("Show Leg Definition", show.leg_definition, "Parse and add Leg Definition to protocol tree")
+miax_ctom_mach_v1_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+miax_ctom_mach_v1_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+miax_ctom_mach_v1_1.prefs.show_series_update = Pref.bool("Show Series Update", show.series_update, "Parse and add Series Update to protocol tree")
+miax_ctom_mach_v1_1.prefs.show_strategy_trade_message = Pref.bool("Show Strategy Trade Message", show.strategy_trade_message, "Parse and add Strategy Trade Message to protocol tree")
+miax_ctom_mach_v1_1.prefs.show_system_state_message = Pref.bool("Show System State Message", show.system_state_message, "Parse and add System State Message to protocol tree")
+miax_ctom_mach_v1_1.prefs.show_system_time_message = Pref.bool("Show System Time Message", show.system_time_message, "Parse and add System Time Message to protocol tree")
+miax_ctom_mach_v1_1.prefs.show_underlying_trading_status_message = Pref.bool("Show Underlying Trading Status Message", show.underlying_trading_status_message, "Parse and add Underlying Trading Status Message to protocol tree")
+miax_ctom_mach_v1_1.prefs.show_wide_complex_double_sided_top_of_market_message = Pref.bool("Show Wide Complex Double Sided Top of Market Message", show.wide_complex_double_sided_top_of_market_message, "Parse and add Wide Complex Double Sided Top of Market Message to protocol tree")
+miax_ctom_mach_v1_1.prefs.show_wide_complex_top_of_market_bid_message = Pref.bool("Show Wide Complex Top Of Market Bid Message", show.wide_complex_top_of_market_bid_message, "Parse and add Wide Complex Top Of Market Bid Message to protocol tree")
+miax_ctom_mach_v1_1.prefs.show_wide_complex_top_of_market_offer_message = Pref.bool("Show Wide Complex Top Of Market Offer Message", show.wide_complex_top_of_market_offer_message, "Parse and add Wide Complex Top Of Market Offer Message to protocol tree")
+miax_ctom_mach_v1_1.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
+miax_ctom_mach_v1_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+
+-- Handle changed preferences
+function miax_ctom_mach_v1_1.prefs_changed()
+  local changed = false
+
+  -- Check if show options have changed
+  if show.application_message ~= miax_ctom_mach_v1_1.prefs.show_application_message then
+    show.application_message = miax_ctom_mach_v1_1.prefs.show_application_message
+    changed = true
+  end
+  if show.complex_double_sided_top_of_market_compact_message ~= miax_ctom_mach_v1_1.prefs.show_complex_double_sided_top_of_market_compact_message then
+    show.complex_double_sided_top_of_market_compact_message = miax_ctom_mach_v1_1.prefs.show_complex_double_sided_top_of_market_compact_message
+    changed = true
+  end
+  if show.complex_strategy_definition_message ~= miax_ctom_mach_v1_1.prefs.show_complex_strategy_definition_message then
+    show.complex_strategy_definition_message = miax_ctom_mach_v1_1.prefs.show_complex_strategy_definition_message
+    changed = true
+  end
+  if show.complex_top_of_market_bid_compact_message ~= miax_ctom_mach_v1_1.prefs.show_complex_top_of_market_bid_compact_message then
+    show.complex_top_of_market_bid_compact_message = miax_ctom_mach_v1_1.prefs.show_complex_top_of_market_bid_compact_message
+    changed = true
+  end
+  if show.complex_top_of_market_offer_compact_message ~= miax_ctom_mach_v1_1.prefs.show_complex_top_of_market_offer_compact_message then
+    show.complex_top_of_market_offer_compact_message = miax_ctom_mach_v1_1.prefs.show_complex_top_of_market_offer_compact_message
+    changed = true
+  end
+  if show.leg_definition ~= miax_ctom_mach_v1_1.prefs.show_leg_definition then
+    show.leg_definition = miax_ctom_mach_v1_1.prefs.show_leg_definition
+    changed = true
+  end
+  if show.message ~= miax_ctom_mach_v1_1.prefs.show_message then
+    show.message = miax_ctom_mach_v1_1.prefs.show_message
+    changed = true
+  end
+  if show.packet ~= miax_ctom_mach_v1_1.prefs.show_packet then
+    show.packet = miax_ctom_mach_v1_1.prefs.show_packet
+    changed = true
+  end
+  if show.series_update ~= miax_ctom_mach_v1_1.prefs.show_series_update then
+    show.series_update = miax_ctom_mach_v1_1.prefs.show_series_update
+    changed = true
+  end
+  if show.strategy_trade_message ~= miax_ctom_mach_v1_1.prefs.show_strategy_trade_message then
+    show.strategy_trade_message = miax_ctom_mach_v1_1.prefs.show_strategy_trade_message
+    changed = true
+  end
+  if show.system_state_message ~= miax_ctom_mach_v1_1.prefs.show_system_state_message then
+    show.system_state_message = miax_ctom_mach_v1_1.prefs.show_system_state_message
+    changed = true
+  end
+  if show.system_time_message ~= miax_ctom_mach_v1_1.prefs.show_system_time_message then
+    show.system_time_message = miax_ctom_mach_v1_1.prefs.show_system_time_message
+    changed = true
+  end
+  if show.underlying_trading_status_message ~= miax_ctom_mach_v1_1.prefs.show_underlying_trading_status_message then
+    show.underlying_trading_status_message = miax_ctom_mach_v1_1.prefs.show_underlying_trading_status_message
+    changed = true
+  end
+  if show.wide_complex_double_sided_top_of_market_message ~= miax_ctom_mach_v1_1.prefs.show_wide_complex_double_sided_top_of_market_message then
+    show.wide_complex_double_sided_top_of_market_message = miax_ctom_mach_v1_1.prefs.show_wide_complex_double_sided_top_of_market_message
+    changed = true
+  end
+  if show.wide_complex_top_of_market_bid_message ~= miax_ctom_mach_v1_1.prefs.show_wide_complex_top_of_market_bid_message then
+    show.wide_complex_top_of_market_bid_message = miax_ctom_mach_v1_1.prefs.show_wide_complex_top_of_market_bid_message
+    changed = true
+  end
+  if show.wide_complex_top_of_market_offer_message ~= miax_ctom_mach_v1_1.prefs.show_wide_complex_top_of_market_offer_message then
+    show.wide_complex_top_of_market_offer_message = miax_ctom_mach_v1_1.prefs.show_wide_complex_top_of_market_offer_message
+    changed = true
+  end
+  if show.data ~= miax_ctom_mach_v1_1.prefs.show_data then
+    show.data = miax_ctom_mach_v1_1.prefs.show_data
+    changed = true
+  end
+  if show.payload ~= miax_ctom_mach_v1_1.prefs.show_payload then
+    show.payload = miax_ctom_mach_v1_1.prefs.show_payload
+    changed = true
+  end
+
+  -- Reload on changed preference
+  if changed then
+    reload()
+  end
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Miax cTom Mach 1.1
