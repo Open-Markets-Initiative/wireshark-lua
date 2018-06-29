@@ -3555,7 +3555,7 @@ eurex_eobi_t7_v5_0_3:register_heuristic("udp", eurex_eobi_t7_v5_0_3_heuristic)
 -- Version: 5.0.3
 -- Date: Friday, June 9, 2017
 -- Script:
--- Source Version: 1.3.0.0
+-- Source Version: 1.4.0.0
 -- Compiler Version: 1.1
 -- License: Public/GPLv3
 -- Authors: Omi Developers

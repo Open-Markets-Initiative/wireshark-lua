@@ -3308,7 +3308,7 @@ end
 
 -- Verify Packet Id Field
 verify.packet_id = function(buffer)
-  if 13003 == buffer(2, 2):le_uint() then
+  if 13004 == buffer(2, 2):le_uint() then
     return true
   end
 
@@ -3342,7 +3342,7 @@ eurex_eobi_t7_v3_0_71:register_heuristic("udp", eurex_eobi_t7_v3_0_71_heuristic)
 -- Version: 3.0.71
 -- Date: Monday, August 3, 2015
 -- Script:
--- Source Version: 1.3.0.0
+-- Source Version: 1.4.0.0
 -- Compiler Version: 1.1
 -- License: Public/GPLv3
 -- Authors: Omi Developers

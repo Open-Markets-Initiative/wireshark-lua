@@ -3221,7 +3221,7 @@ phlx_marketdepth_itch_v1_5:register_heuristic("udp", phlx_marketdepth_itch_v1_5_
 -- Version: 1.5
 -- Date: Wednesday, September 30, 2015
 -- Script:
--- Source Version: 1.3.0.0
+-- Source Version: 1.4.0.0
 -- Compiler Version: 1.1
 -- License: Public/GPLv3
 -- Authors: Omi Developers

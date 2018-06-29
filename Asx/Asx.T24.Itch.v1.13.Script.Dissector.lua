@@ -5065,7 +5065,7 @@ asx_t24_itch_v1_13:register_heuristic("udp", asx_t24_itch_v1_13_heuristic)
 -- Version: 1.13
 -- Date: Tuesday, July 15, 2014
 -- Script:
--- Source Version: 1.3.0.0
+-- Source Version: 1.4.0.0
 -- Compiler Version: 1.1
 -- License: Public/GPLv3
 -- Authors: Omi Developers
