@@ -862,14 +862,15 @@ display.cancelled_reference_number_delta = function(value)
   return "Cancelled Reference Number Delta: "..value
 end
 
--- Dissect Cancelled Reference Number Delta Field
+-- Dissect: Cancelled Reference Number Delta
 dissect.cancelled_reference_number_delta = function(buffer, offset, packet, parent)
-  local size =  = TODO
-  local range = buffer(offset, size)
+  local range = buffer(offset, size_of.cancelled_reference_number_delta)
   local value = range:uint()
   local display = display.cancelled_reference_number_delta(value, buffer, offset, packet, parent)
 
-  return offset + size
+  parent:add(phlx_marketdepth_itch_v1_5.fields.cancelled_reference_number_delta, range, value, display)
+
+  return offset + size_of.cancelled_reference_number_delta
 end
 
 -- Size: Number of Reference Number Deltas
