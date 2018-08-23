@@ -21,8 +21,8 @@ local verify = {}
 
 -- Cme Mdp3 Sbe 8.1 Fields
 cme_mdp3_sbe_v8_1.fields.actual = ProtoField.new("Actual", "cme.mdp3.sbe.v8.1.actual", ftypes.UINT8, nil, base.DEC, "0x02")
-cme_mdp3_sbe_v8_1.fields.admin_login = ProtoField.new("Admin Login", "cme.mdp3.sbe.v8.1.adminlogin", ftypes.STRING)
-cme_mdp3_sbe_v8_1.fields.admin_logout = ProtoField.new("Admin Logout", "cme.mdp3.sbe.v8.1.adminlogout", ftypes.STRING)
+cme_mdp3_sbe_v8_1.fields.admin_login15 = ProtoField.new("Admin Login15", "cme.mdp3.sbe.v8.1.adminlogin15", ftypes.STRING)
+cme_mdp3_sbe_v8_1.fields.admin_logout16 = ProtoField.new("Admin Logout16", "cme.mdp3.sbe.v8.1.adminlogout16", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.aggressor_side = ProtoField.new("Aggressor Side", "cme.mdp3.sbe.v8.1.aggressorside", ftypes.UINT8)
 cme_mdp3_sbe_v8_1.fields.appl_id = ProtoField.new("Appl ID", "cme.mdp3.sbe.v8.1.applid", ftypes.INT16)
 cme_mdp3_sbe_v8_1.fields.asset = ProtoField.new("Asset", "cme.mdp3.sbe.v8.1.asset", ftypes.STRING)
@@ -30,9 +30,9 @@ cme_mdp3_sbe_v8_1.fields.block_length = ProtoField.new("block Length", "cme.mdp3
 cme_mdp3_sbe_v8_1.fields.block_length = ProtoField.new("Block Length", "cme.mdp3.sbe.v8.1.blocklength", ftypes.UINT16)
 cme_mdp3_sbe_v8_1.fields.block_trade_eligible = ProtoField.new("Block Trade Eligible", "cme.mdp3.sbe.v8.1.blocktradeeligible", ftypes.UINT32, nil, base.DEC, "0x00000004")
 cme_mdp3_sbe_v8_1.fields.cfi_code = ProtoField.new("CFI Code", "cme.mdp3.sbe.v8.1.cficode", ftypes.STRING)
-cme_mdp3_sbe_v8_1.fields.channel_reset = ProtoField.new("Channel Reset", "cme.mdp3.sbe.v8.1.channelreset", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.channel_reset_group = ProtoField.new("Channel Reset Group", "cme.mdp3.sbe.v8.1.channelresetgroup", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.channel_reset_groups = ProtoField.new("Channel Reset Groups", "cme.mdp3.sbe.v8.1.channelresetgroups", ftypes.STRING)
+cme_mdp3_sbe_v8_1.fields.channel_reset4 = ProtoField.new("Channel Reset4", "cme.mdp3.sbe.v8.1.channelreset4", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.cleared_volume = ProtoField.new("Cleared Volume", "cme.mdp3.sbe.v8.1.clearedvolume", ftypes.INT32)
 cme_mdp3_sbe_v8_1.fields.contract_multiplier = ProtoField.new("Contract Multiplier", "cme.mdp3.sbe.v8.1.contractmultiplier", ftypes.INT32)
 cme_mdp3_sbe_v8_1.fields.contract_multiplier_unit = ProtoField.new("Contract Multiplier Unit", "cme.mdp3.sbe.v8.1.contractmultiplierunit", ftypes.INT8, {[1]="Yes",[0]="No"})
@@ -103,37 +103,37 @@ cme_mdp3_sbe_v8_1.fields.md_entry_type = ProtoField.new("MD Entry Type", "cme.md
 cme_mdp3_sbe_v8_1.fields.md_feed_type = ProtoField.new("MD Feed Type", "cme.mdp3.sbe.v8.1.mdfeedtype", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.md_feed_types_group = ProtoField.new("MD Feed Types Group", "cme.mdp3.sbe.v8.1.mdfeedtypesgroup", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.md_feed_types_groups = ProtoField.new("MD Feed Types Groups", "cme.mdp3.sbe.v8.1.mdfeedtypesgroups", ftypes.STRING)
-cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_book = ProtoField.new("MD Incremental Refresh Book", "cme.mdp3.sbe.v8.1.mdincrementalrefreshbook", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_book_group = ProtoField.new("MD Incremental Refresh Book Group", "cme.mdp3.sbe.v8.1.mdincrementalrefreshbookgroup", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_book_groups = ProtoField.new("MD Incremental Refresh Book Groups", "cme.mdp3.sbe.v8.1.mdincrementalrefreshbookgroups", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_book_order_group = ProtoField.new("MD Incremental Refresh Book Order Group", "cme.mdp3.sbe.v8.1.mdincrementalrefreshbookordergroup", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_book_order_groups = ProtoField.new("MD Incremental Refresh Book Order Groups", "cme.mdp3.sbe.v8.1.mdincrementalrefreshbookordergroups", ftypes.STRING)
-cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_daily_statistics = ProtoField.new("MD Incremental Refresh Daily Statistics", "cme.mdp3.sbe.v8.1.mdincrementalrefreshdailystatistics", ftypes.STRING)
+cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_book32 = ProtoField.new("MD Incremental Refresh Book32", "cme.mdp3.sbe.v8.1.mdincrementalrefreshbook32", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_daily_statistics_group = ProtoField.new("MD Incremental Refresh Daily Statistics Group", "cme.mdp3.sbe.v8.1.mdincrementalrefreshdailystatisticsgroup", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_daily_statistics_groups = ProtoField.new("MD Incremental Refresh Daily Statistics Groups", "cme.mdp3.sbe.v8.1.mdincrementalrefreshdailystatisticsgroups", ftypes.STRING)
-cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_limits_banding = ProtoField.new("MD Incremental Refresh Limits Banding", "cme.mdp3.sbe.v8.1.mdincrementalrefreshlimitsbanding", ftypes.STRING)
+cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_daily_statistics33 = ProtoField.new("MD Incremental Refresh Daily Statistics33", "cme.mdp3.sbe.v8.1.mdincrementalrefreshdailystatistics33", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_limits_banding_group = ProtoField.new("MD Incremental Refresh Limits Banding Group", "cme.mdp3.sbe.v8.1.mdincrementalrefreshlimitsbandinggroup", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_limits_banding_groups = ProtoField.new("MD Incremental Refresh Limits Banding Groups", "cme.mdp3.sbe.v8.1.mdincrementalrefreshlimitsbandinggroups", ftypes.STRING)
-cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_order_book = ProtoField.new("MD Incremental Refresh Order Book", "cme.mdp3.sbe.v8.1.mdincrementalrefreshorderbook", ftypes.STRING)
+cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_limits_banding34 = ProtoField.new("MD Incremental Refresh Limits Banding34", "cme.mdp3.sbe.v8.1.mdincrementalrefreshlimitsbanding34", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_order_book_group = ProtoField.new("MD Incremental Refresh Order Book Group", "cme.mdp3.sbe.v8.1.mdincrementalrefreshorderbookgroup", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_order_book_groups = ProtoField.new("MD Incremental Refresh Order Book Groups", "cme.mdp3.sbe.v8.1.mdincrementalrefreshorderbookgroups", ftypes.STRING)
-cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_session_statistics = ProtoField.new("MD Incremental Refresh Session Statistics", "cme.mdp3.sbe.v8.1.mdincrementalrefreshsessionstatistics", ftypes.STRING)
+cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_order_book43 = ProtoField.new("MD Incremental Refresh Order Book43", "cme.mdp3.sbe.v8.1.mdincrementalrefreshorderbook43", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_session_statistics_group = ProtoField.new("MD Incremental Refresh Session Statistics Group", "cme.mdp3.sbe.v8.1.mdincrementalrefreshsessionstatisticsgroup", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_session_statistics_groups = ProtoField.new("MD Incremental Refresh Session Statistics Groups", "cme.mdp3.sbe.v8.1.mdincrementalrefreshsessionstatisticsgroups", ftypes.STRING)
-cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_trade = ProtoField.new("MD Incremental Refresh Trade", "cme.mdp3.sbe.v8.1.mdincrementalrefreshtrade", ftypes.STRING)
+cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_session_statistics35 = ProtoField.new("MD Incremental Refresh Session Statistics35", "cme.mdp3.sbe.v8.1.mdincrementalrefreshsessionstatistics35", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_trade_group = ProtoField.new("MD Incremental Refresh Trade Group", "cme.mdp3.sbe.v8.1.mdincrementalrefreshtradegroup", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_trade_groups = ProtoField.new("MD Incremental Refresh Trade Groups", "cme.mdp3.sbe.v8.1.mdincrementalrefreshtradegroups", ftypes.STRING)
-cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_trade_summary = ProtoField.new("MD Incremental Refresh Trade Summary", "cme.mdp3.sbe.v8.1.mdincrementalrefreshtradesummary", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_trade_summary_group = ProtoField.new("MD Incremental Refresh Trade Summary Group", "cme.mdp3.sbe.v8.1.mdincrementalrefreshtradesummarygroup", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_trade_summary_groups = ProtoField.new("MD Incremental Refresh Trade Summary Groups", "cme.mdp3.sbe.v8.1.mdincrementalrefreshtradesummarygroups", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_trade_summary_order_group = ProtoField.new("MD Incremental Refresh Trade Summary Order Group", "cme.mdp3.sbe.v8.1.mdincrementalrefreshtradesummaryordergroup", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_trade_summary_order_groups = ProtoField.new("MD Incremental Refresh Trade Summary Order Groups", "cme.mdp3.sbe.v8.1.mdincrementalrefreshtradesummaryordergroups", ftypes.STRING)
-cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_volume = ProtoField.new("MD Incremental Refresh Volume", "cme.mdp3.sbe.v8.1.mdincrementalrefreshvolume", ftypes.STRING)
+cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_trade_summary42 = ProtoField.new("MD Incremental Refresh Trade Summary42", "cme.mdp3.sbe.v8.1.mdincrementalrefreshtradesummary42", ftypes.STRING)
+cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_trade36 = ProtoField.new("MD Incremental Refresh Trade36", "cme.mdp3.sbe.v8.1.mdincrementalrefreshtrade36", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_volume_group = ProtoField.new("MD Incremental Refresh Volume Group", "cme.mdp3.sbe.v8.1.mdincrementalrefreshvolumegroup", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_volume_groups = ProtoField.new("MD Incremental Refresh Volume Groups", "cme.mdp3.sbe.v8.1.mdincrementalrefreshvolumegroups", ftypes.STRING)
-cme_mdp3_sbe_v8_1.fields.md_instrument_definition_future = ProtoField.new("MD Instrument Definition Future", "cme.mdp3.sbe.v8.1.mdinstrumentdefinitionfuture", ftypes.STRING)
-cme_mdp3_sbe_v8_1.fields.md_instrument_definition_option = ProtoField.new("MD Instrument Definition Option", "cme.mdp3.sbe.v8.1.mdinstrumentdefinitionoption", ftypes.STRING)
-cme_mdp3_sbe_v8_1.fields.md_instrument_definition_spread = ProtoField.new("MD Instrument Definition Spread", "cme.mdp3.sbe.v8.1.mdinstrumentdefinitionspread", ftypes.STRING)
+cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_volume37 = ProtoField.new("MD Incremental Refresh Volume37", "cme.mdp3.sbe.v8.1.mdincrementalrefreshvolume37", ftypes.STRING)
+cme_mdp3_sbe_v8_1.fields.md_instrument_definition_future27 = ProtoField.new("MD Instrument Definition Future27", "cme.mdp3.sbe.v8.1.mdinstrumentdefinitionfuture27", ftypes.STRING)
+cme_mdp3_sbe_v8_1.fields.md_instrument_definition_option41 = ProtoField.new("MD Instrument Definition Option41", "cme.mdp3.sbe.v8.1.mdinstrumentdefinitionoption41", ftypes.STRING)
+cme_mdp3_sbe_v8_1.fields.md_instrument_definition_spread29 = ProtoField.new("MD Instrument Definition Spread29", "cme.mdp3.sbe.v8.1.mdinstrumentdefinitionspread29", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.md_order_priority = ProtoField.new("MD Order Priority", "cme.mdp3.sbe.v8.1.mdorderpriority", ftypes.UINT64)
 cme_mdp3_sbe_v8_1.fields.md_price_level = ProtoField.new("MD Price Level", "cme.mdp3.sbe.v8.1.mdpricelevel", ftypes.UINT8)
 cme_mdp3_sbe_v8_1.fields.md_security_trading_status = ProtoField.new("MD Security Trading Status", "cme.mdp3.sbe.v8.1.mdsecuritytradingstatus", ftypes.UINT8)
@@ -177,7 +177,7 @@ cme_mdp3_sbe_v8_1.fields.price_display_format = ProtoField.new("Price Display Fo
 cme_mdp3_sbe_v8_1.fields.price_ratio = ProtoField.new("Price Ratio", "cme.mdp3.sbe.v8.1.priceratio", ftypes.INT64)
 cme_mdp3_sbe_v8_1.fields.put_or_call = ProtoField.new("Put Or Call", "cme.mdp3.sbe.v8.1.putorcall", ftypes.UINT8)
 cme_mdp3_sbe_v8_1.fields.quote_req_id = ProtoField.new("Quote Req ID", "cme.mdp3.sbe.v8.1.quotereqid", ftypes.STRING)
-cme_mdp3_sbe_v8_1.fields.quote_request = ProtoField.new("Quote Request", "cme.mdp3.sbe.v8.1.quoterequest", ftypes.STRING)
+cme_mdp3_sbe_v8_1.fields.quote_request39 = ProtoField.new("Quote Request39", "cme.mdp3.sbe.v8.1.quoterequest39", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.quote_type = ProtoField.new("Quote Type", "cme.mdp3.sbe.v8.1.quotetype", ftypes.INT8, {[1]="Yes",[0]="No"})
 cme_mdp3_sbe_v8_1.fields.recovery_msg = ProtoField.new("Recovery Msg", "cme.mdp3.sbe.v8.1.recoverymsg", ftypes.UINT8, nil, base.DEC, "0x20")
 cme_mdp3_sbe_v8_1.fields.reference_id = ProtoField.new("Reference ID", "cme.mdp3.sbe.v8.1.referenceid", ftypes.UINT8)
@@ -197,7 +197,7 @@ cme_mdp3_sbe_v8_1.fields.schema_id = ProtoField.new("Schema Id", "cme.mdp3.sbe.v
 cme_mdp3_sbe_v8_1.fields.security_exchange = ProtoField.new("Security Exchange", "cme.mdp3.sbe.v8.1.securityexchange", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.security_group = ProtoField.new("Security Group", "cme.mdp3.sbe.v8.1.securitygroup", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.security_id = ProtoField.new("Security ID", "cme.mdp3.sbe.v8.1.securityid", ftypes.INT32)
-cme_mdp3_sbe_v8_1.fields.security_status = ProtoField.new("Security Status", "cme.mdp3.sbe.v8.1.securitystatus", ftypes.STRING)
+cme_mdp3_sbe_v8_1.fields.security_status30 = ProtoField.new("Security Status30", "cme.mdp3.sbe.v8.1.securitystatus30", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.security_sub_type = ProtoField.new("Security Sub Type", "cme.mdp3.sbe.v8.1.securitysubtype", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.security_trading_event = ProtoField.new("Security Trading Event", "cme.mdp3.sbe.v8.1.securitytradingevent", ftypes.UINT8)
 cme_mdp3_sbe_v8_1.fields.security_trading_status = ProtoField.new("Security Trading Status", "cme.mdp3.sbe.v8.1.securitytradingstatus", ftypes.UINT8)
@@ -207,12 +207,12 @@ cme_mdp3_sbe_v8_1.fields.sending_time = ProtoField.new("Sending Time", "cme.mdp3
 cme_mdp3_sbe_v8_1.fields.settl_currency = ProtoField.new("Settl Currency", "cme.mdp3.sbe.v8.1.settlcurrency", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.settl_price_type = ProtoField.new("Settl Price Type", "cme.mdp3.sbe.v8.1.settlpricetype", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.side = ProtoField.new("Side", "cme.mdp3.sbe.v8.1.side", ftypes.INT8, {[1]="Yes",[0]="No"})
-cme_mdp3_sbe_v8_1.fields.snapshot_full_refresh = ProtoField.new("Snapshot Full Refresh", "cme.mdp3.sbe.v8.1.snapshotfullrefresh", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.snapshot_full_refresh_group = ProtoField.new("Snapshot Full Refresh Group", "cme.mdp3.sbe.v8.1.snapshotfullrefreshgroup", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.snapshot_full_refresh_groups = ProtoField.new("Snapshot Full Refresh Groups", "cme.mdp3.sbe.v8.1.snapshotfullrefreshgroups", ftypes.STRING)
-cme_mdp3_sbe_v8_1.fields.snapshot_full_refresh_order_book = ProtoField.new("Snapshot Full Refresh Order Book", "cme.mdp3.sbe.v8.1.snapshotfullrefreshorderbook", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.snapshot_full_refresh_order_book_group = ProtoField.new("Snapshot Full Refresh Order Book Group", "cme.mdp3.sbe.v8.1.snapshotfullrefreshorderbookgroup", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.snapshot_full_refresh_order_book_groups = ProtoField.new("Snapshot Full Refresh Order Book Groups", "cme.mdp3.sbe.v8.1.snapshotfullrefreshorderbookgroups", ftypes.STRING)
+cme_mdp3_sbe_v8_1.fields.snapshot_full_refresh_order_book44 = ProtoField.new("Snapshot Full Refresh Order Book44", "cme.mdp3.sbe.v8.1.snapshotfullrefreshorderbook44", ftypes.STRING)
+cme_mdp3_sbe_v8_1.fields.snapshot_full_refresh38 = ProtoField.new("Snapshot Full Refresh38", "cme.mdp3.sbe.v8.1.snapshotfullrefresh38", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.strike_currency = ProtoField.new("Strike Currency", "cme.mdp3.sbe.v8.1.strikecurrency", ftypes.STRING)
 cme_mdp3_sbe_v8_1.fields.strike_price = ProtoField.new("Strike Price", "cme.mdp3.sbe.v8.1.strikeprice", ftypes.INT64)
 cme_mdp3_sbe_v8_1.fields.sub_fraction = ProtoField.new("Sub Fraction", "cme.mdp3.sbe.v8.1.subfraction", ftypes.UINT8)
@@ -246,11 +246,11 @@ cme_mdp3_sbe_v8_1.fields.zero_price_outright_eligible = ProtoField.new("Zero Pri
 -----------------------------------------------------------------------
 
 -- Cme Mdp3 Sbe 8.1 Element Dissection Options
-show.admin_login = true
-show.admin_logout = true
-show.channel_reset = true
+show.admin_login15 = true
+show.admin_logout16 = true
 show.channel_reset_group = true
 show.channel_reset_groups = true
+show.channel_reset4 = true
 show.events_group = true
 show.events_groups = true
 show.group_size = true
@@ -266,64 +266,64 @@ show.match_event_indicator = true
 show.maturity_month_year = true
 show.md_feed_types_group = true
 show.md_feed_types_groups = true
-show.md_incremental_refresh_book = true
 show.md_incremental_refresh_book_group = true
 show.md_incremental_refresh_book_groups = true
 show.md_incremental_refresh_book_order_group = true
 show.md_incremental_refresh_book_order_groups = true
-show.md_incremental_refresh_daily_statistics = true
+show.md_incremental_refresh_book32 = true
 show.md_incremental_refresh_daily_statistics_group = true
 show.md_incremental_refresh_daily_statistics_groups = true
-show.md_incremental_refresh_limits_banding = true
+show.md_incremental_refresh_daily_statistics33 = true
 show.md_incremental_refresh_limits_banding_group = true
 show.md_incremental_refresh_limits_banding_groups = true
-show.md_incremental_refresh_order_book = true
+show.md_incremental_refresh_limits_banding34 = true
 show.md_incremental_refresh_order_book_group = true
 show.md_incremental_refresh_order_book_groups = true
-show.md_incremental_refresh_session_statistics = true
+show.md_incremental_refresh_order_book43 = true
 show.md_incremental_refresh_session_statistics_group = true
 show.md_incremental_refresh_session_statistics_groups = true
-show.md_incremental_refresh_trade = true
+show.md_incremental_refresh_session_statistics35 = true
 show.md_incremental_refresh_trade_group = true
 show.md_incremental_refresh_trade_groups = true
-show.md_incremental_refresh_trade_summary = true
 show.md_incremental_refresh_trade_summary_group = true
 show.md_incremental_refresh_trade_summary_groups = true
 show.md_incremental_refresh_trade_summary_order_group = true
 show.md_incremental_refresh_trade_summary_order_groups = true
-show.md_incremental_refresh_volume = true
+show.md_incremental_refresh_trade_summary42 = true
+show.md_incremental_refresh_trade36 = true
 show.md_incremental_refresh_volume_group = true
 show.md_incremental_refresh_volume_groups = true
-show.md_instrument_definition_future = true
-show.md_instrument_definition_option = true
-show.md_instrument_definition_spread = true
+show.md_incremental_refresh_volume37 = true
+show.md_instrument_definition_future27 = true
+show.md_instrument_definition_option41 = true
+show.md_instrument_definition_spread29 = true
 show.message = true
 show.message_header = true
 show.packet = true
 show.packet_header = true
-show.quote_request = true
+show.quote_request39 = true
 show.related_instruments_group = true
 show.related_instruments_groups = true
 show.related_sym_group = true
 show.related_sym_groups = true
-show.security_status = true
+show.security_status30 = true
 show.settl_price_type = true
-show.snapshot_full_refresh = true
 show.snapshot_full_refresh_group = true
 show.snapshot_full_refresh_groups = true
-show.snapshot_full_refresh_order_book = true
 show.snapshot_full_refresh_order_book_group = true
 show.snapshot_full_refresh_order_book_groups = true
+show.snapshot_full_refresh_order_book44 = true
+show.snapshot_full_refresh38 = true
 show.underlyings_group = true
 show.underlyings_groups = true
 show.payload = false
 
 -- Register Cme Mdp3 Sbe 8.1 Show Options
-cme_mdp3_sbe_v8_1.prefs.show_admin_login = Pref.bool("Show Admin Login", show.admin_login, "Parse and add Admin Login to protocol tree")
-cme_mdp3_sbe_v8_1.prefs.show_admin_logout = Pref.bool("Show Admin Logout", show.admin_logout, "Parse and add Admin Logout to protocol tree")
-cme_mdp3_sbe_v8_1.prefs.show_channel_reset = Pref.bool("Show Channel Reset", show.channel_reset, "Parse and add Channel Reset to protocol tree")
+cme_mdp3_sbe_v8_1.prefs.show_admin_login15 = Pref.bool("Show Admin Login15", show.admin_login15, "Parse and add Admin Login15 to protocol tree")
+cme_mdp3_sbe_v8_1.prefs.show_admin_logout16 = Pref.bool("Show Admin Logout16", show.admin_logout16, "Parse and add Admin Logout16 to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_channel_reset_group = Pref.bool("Show Channel Reset Group", show.channel_reset_group, "Parse and add Channel Reset Group to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_channel_reset_groups = Pref.bool("Show Channel Reset Groups", show.channel_reset_groups, "Parse and add Channel Reset Groups to protocol tree")
+cme_mdp3_sbe_v8_1.prefs.show_channel_reset4 = Pref.bool("Show Channel Reset4", show.channel_reset4, "Parse and add Channel Reset4 to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_events_group = Pref.bool("Show Events Group", show.events_group, "Parse and add Events Group to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_events_groups = Pref.bool("Show Events Groups", show.events_groups, "Parse and add Events Groups to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_group_size = Pref.bool("Show group Size", show.group_size, "Parse and add group Size to protocol tree")
@@ -339,54 +339,54 @@ cme_mdp3_sbe_v8_1.prefs.show_match_event_indicator = Pref.bool("Show Match Event
 cme_mdp3_sbe_v8_1.prefs.show_maturity_month_year = Pref.bool("Show Maturity Month Year", show.maturity_month_year, "Parse and add Maturity Month Year to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_md_feed_types_group = Pref.bool("Show MD Feed Types Group", show.md_feed_types_group, "Parse and add MD Feed Types Group to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_md_feed_types_groups = Pref.bool("Show MD Feed Types Groups", show.md_feed_types_groups, "Parse and add MD Feed Types Groups to protocol tree")
-cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_book = Pref.bool("Show MD Incremental Refresh Book", show.md_incremental_refresh_book, "Parse and add MD Incremental Refresh Book to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_book_group = Pref.bool("Show MD Incremental Refresh Book Group", show.md_incremental_refresh_book_group, "Parse and add MD Incremental Refresh Book Group to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_book_groups = Pref.bool("Show MD Incremental Refresh Book Groups", show.md_incremental_refresh_book_groups, "Parse and add MD Incremental Refresh Book Groups to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_book_order_group = Pref.bool("Show MD Incremental Refresh Book Order Group", show.md_incremental_refresh_book_order_group, "Parse and add MD Incremental Refresh Book Order Group to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_book_order_groups = Pref.bool("Show MD Incremental Refresh Book Order Groups", show.md_incremental_refresh_book_order_groups, "Parse and add MD Incremental Refresh Book Order Groups to protocol tree")
-cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_daily_statistics = Pref.bool("Show MD Incremental Refresh Daily Statistics", show.md_incremental_refresh_daily_statistics, "Parse and add MD Incremental Refresh Daily Statistics to protocol tree")
+cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_book32 = Pref.bool("Show MD Incremental Refresh Book32", show.md_incremental_refresh_book32, "Parse and add MD Incremental Refresh Book32 to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_daily_statistics_group = Pref.bool("Show MD Incremental Refresh Daily Statistics Group", show.md_incremental_refresh_daily_statistics_group, "Parse and add MD Incremental Refresh Daily Statistics Group to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_daily_statistics_groups = Pref.bool("Show MD Incremental Refresh Daily Statistics Groups", show.md_incremental_refresh_daily_statistics_groups, "Parse and add MD Incremental Refresh Daily Statistics Groups to protocol tree")
-cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_limits_banding = Pref.bool("Show MD Incremental Refresh Limits Banding", show.md_incremental_refresh_limits_banding, "Parse and add MD Incremental Refresh Limits Banding to protocol tree")
+cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_daily_statistics33 = Pref.bool("Show MD Incremental Refresh Daily Statistics33", show.md_incremental_refresh_daily_statistics33, "Parse and add MD Incremental Refresh Daily Statistics33 to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_limits_banding_group = Pref.bool("Show MD Incremental Refresh Limits Banding Group", show.md_incremental_refresh_limits_banding_group, "Parse and add MD Incremental Refresh Limits Banding Group to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_limits_banding_groups = Pref.bool("Show MD Incremental Refresh Limits Banding Groups", show.md_incremental_refresh_limits_banding_groups, "Parse and add MD Incremental Refresh Limits Banding Groups to protocol tree")
-cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_order_book = Pref.bool("Show MD Incremental Refresh Order Book", show.md_incremental_refresh_order_book, "Parse and add MD Incremental Refresh Order Book to protocol tree")
+cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_limits_banding34 = Pref.bool("Show MD Incremental Refresh Limits Banding34", show.md_incremental_refresh_limits_banding34, "Parse and add MD Incremental Refresh Limits Banding34 to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_order_book_group = Pref.bool("Show MD Incremental Refresh Order Book Group", show.md_incremental_refresh_order_book_group, "Parse and add MD Incremental Refresh Order Book Group to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_order_book_groups = Pref.bool("Show MD Incremental Refresh Order Book Groups", show.md_incremental_refresh_order_book_groups, "Parse and add MD Incremental Refresh Order Book Groups to protocol tree")
-cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_session_statistics = Pref.bool("Show MD Incremental Refresh Session Statistics", show.md_incremental_refresh_session_statistics, "Parse and add MD Incremental Refresh Session Statistics to protocol tree")
+cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_order_book43 = Pref.bool("Show MD Incremental Refresh Order Book43", show.md_incremental_refresh_order_book43, "Parse and add MD Incremental Refresh Order Book43 to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_session_statistics_group = Pref.bool("Show MD Incremental Refresh Session Statistics Group", show.md_incremental_refresh_session_statistics_group, "Parse and add MD Incremental Refresh Session Statistics Group to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_session_statistics_groups = Pref.bool("Show MD Incremental Refresh Session Statistics Groups", show.md_incremental_refresh_session_statistics_groups, "Parse and add MD Incremental Refresh Session Statistics Groups to protocol tree")
-cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_trade = Pref.bool("Show MD Incremental Refresh Trade", show.md_incremental_refresh_trade, "Parse and add MD Incremental Refresh Trade to protocol tree")
+cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_session_statistics35 = Pref.bool("Show MD Incremental Refresh Session Statistics35", show.md_incremental_refresh_session_statistics35, "Parse and add MD Incremental Refresh Session Statistics35 to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_trade_group = Pref.bool("Show MD Incremental Refresh Trade Group", show.md_incremental_refresh_trade_group, "Parse and add MD Incremental Refresh Trade Group to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_trade_groups = Pref.bool("Show MD Incremental Refresh Trade Groups", show.md_incremental_refresh_trade_groups, "Parse and add MD Incremental Refresh Trade Groups to protocol tree")
-cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_trade_summary = Pref.bool("Show MD Incremental Refresh Trade Summary", show.md_incremental_refresh_trade_summary, "Parse and add MD Incremental Refresh Trade Summary to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_trade_summary_group = Pref.bool("Show MD Incremental Refresh Trade Summary Group", show.md_incremental_refresh_trade_summary_group, "Parse and add MD Incremental Refresh Trade Summary Group to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_trade_summary_groups = Pref.bool("Show MD Incremental Refresh Trade Summary Groups", show.md_incremental_refresh_trade_summary_groups, "Parse and add MD Incremental Refresh Trade Summary Groups to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_trade_summary_order_group = Pref.bool("Show MD Incremental Refresh Trade Summary Order Group", show.md_incremental_refresh_trade_summary_order_group, "Parse and add MD Incremental Refresh Trade Summary Order Group to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_trade_summary_order_groups = Pref.bool("Show MD Incremental Refresh Trade Summary Order Groups", show.md_incremental_refresh_trade_summary_order_groups, "Parse and add MD Incremental Refresh Trade Summary Order Groups to protocol tree")
-cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_volume = Pref.bool("Show MD Incremental Refresh Volume", show.md_incremental_refresh_volume, "Parse and add MD Incremental Refresh Volume to protocol tree")
+cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_trade_summary42 = Pref.bool("Show MD Incremental Refresh Trade Summary42", show.md_incremental_refresh_trade_summary42, "Parse and add MD Incremental Refresh Trade Summary42 to protocol tree")
+cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_trade36 = Pref.bool("Show MD Incremental Refresh Trade36", show.md_incremental_refresh_trade36, "Parse and add MD Incremental Refresh Trade36 to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_volume_group = Pref.bool("Show MD Incremental Refresh Volume Group", show.md_incremental_refresh_volume_group, "Parse and add MD Incremental Refresh Volume Group to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_volume_groups = Pref.bool("Show MD Incremental Refresh Volume Groups", show.md_incremental_refresh_volume_groups, "Parse and add MD Incremental Refresh Volume Groups to protocol tree")
-cme_mdp3_sbe_v8_1.prefs.show_md_instrument_definition_future = Pref.bool("Show MD Instrument Definition Future", show.md_instrument_definition_future, "Parse and add MD Instrument Definition Future to protocol tree")
-cme_mdp3_sbe_v8_1.prefs.show_md_instrument_definition_option = Pref.bool("Show MD Instrument Definition Option", show.md_instrument_definition_option, "Parse and add MD Instrument Definition Option to protocol tree")
-cme_mdp3_sbe_v8_1.prefs.show_md_instrument_definition_spread = Pref.bool("Show MD Instrument Definition Spread", show.md_instrument_definition_spread, "Parse and add MD Instrument Definition Spread to protocol tree")
+cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_volume37 = Pref.bool("Show MD Incremental Refresh Volume37", show.md_incremental_refresh_volume37, "Parse and add MD Incremental Refresh Volume37 to protocol tree")
+cme_mdp3_sbe_v8_1.prefs.show_md_instrument_definition_future27 = Pref.bool("Show MD Instrument Definition Future27", show.md_instrument_definition_future27, "Parse and add MD Instrument Definition Future27 to protocol tree")
+cme_mdp3_sbe_v8_1.prefs.show_md_instrument_definition_option41 = Pref.bool("Show MD Instrument Definition Option41", show.md_instrument_definition_option41, "Parse and add MD Instrument Definition Option41 to protocol tree")
+cme_mdp3_sbe_v8_1.prefs.show_md_instrument_definition_spread29 = Pref.bool("Show MD Instrument Definition Spread29", show.md_instrument_definition_spread29, "Parse and add MD Instrument Definition Spread29 to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-cme_mdp3_sbe_v8_1.prefs.show_quote_request = Pref.bool("Show Quote Request", show.quote_request, "Parse and add Quote Request to protocol tree")
+cme_mdp3_sbe_v8_1.prefs.show_quote_request39 = Pref.bool("Show Quote Request39", show.quote_request39, "Parse and add Quote Request39 to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_related_instruments_group = Pref.bool("Show Related Instruments Group", show.related_instruments_group, "Parse and add Related Instruments Group to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_related_instruments_groups = Pref.bool("Show Related Instruments Groups", show.related_instruments_groups, "Parse and add Related Instruments Groups to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_related_sym_group = Pref.bool("Show Related Sym Group", show.related_sym_group, "Parse and add Related Sym Group to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_related_sym_groups = Pref.bool("Show Related Sym Groups", show.related_sym_groups, "Parse and add Related Sym Groups to protocol tree")
-cme_mdp3_sbe_v8_1.prefs.show_security_status = Pref.bool("Show Security Status", show.security_status, "Parse and add Security Status to protocol tree")
+cme_mdp3_sbe_v8_1.prefs.show_security_status30 = Pref.bool("Show Security Status30", show.security_status30, "Parse and add Security Status30 to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_settl_price_type = Pref.bool("Show Settl Price Type", show.settl_price_type, "Parse and add Settl Price Type to protocol tree")
-cme_mdp3_sbe_v8_1.prefs.show_snapshot_full_refresh = Pref.bool("Show Snapshot Full Refresh", show.snapshot_full_refresh, "Parse and add Snapshot Full Refresh to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_snapshot_full_refresh_group = Pref.bool("Show Snapshot Full Refresh Group", show.snapshot_full_refresh_group, "Parse and add Snapshot Full Refresh Group to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_snapshot_full_refresh_groups = Pref.bool("Show Snapshot Full Refresh Groups", show.snapshot_full_refresh_groups, "Parse and add Snapshot Full Refresh Groups to protocol tree")
-cme_mdp3_sbe_v8_1.prefs.show_snapshot_full_refresh_order_book = Pref.bool("Show Snapshot Full Refresh Order Book", show.snapshot_full_refresh_order_book, "Parse and add Snapshot Full Refresh Order Book to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_snapshot_full_refresh_order_book_group = Pref.bool("Show Snapshot Full Refresh Order Book Group", show.snapshot_full_refresh_order_book_group, "Parse and add Snapshot Full Refresh Order Book Group to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_snapshot_full_refresh_order_book_groups = Pref.bool("Show Snapshot Full Refresh Order Book Groups", show.snapshot_full_refresh_order_book_groups, "Parse and add Snapshot Full Refresh Order Book Groups to protocol tree")
+cme_mdp3_sbe_v8_1.prefs.show_snapshot_full_refresh_order_book44 = Pref.bool("Show Snapshot Full Refresh Order Book44", show.snapshot_full_refresh_order_book44, "Parse and add Snapshot Full Refresh Order Book44 to protocol tree")
+cme_mdp3_sbe_v8_1.prefs.show_snapshot_full_refresh38 = Pref.bool("Show Snapshot Full Refresh38", show.snapshot_full_refresh38, "Parse and add Snapshot Full Refresh38 to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_underlyings_group = Pref.bool("Show Underlyings Group", show.underlyings_group, "Parse and add Underlyings Group to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_underlyings_groups = Pref.bool("Show Underlyings Groups", show.underlyings_groups, "Parse and add Underlyings Groups to protocol tree")
 cme_mdp3_sbe_v8_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
@@ -396,16 +396,12 @@ function cme_mdp3_sbe_v8_1.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.admin_login ~= cme_mdp3_sbe_v8_1.prefs.show_admin_login then
-    show.admin_login = cme_mdp3_sbe_v8_1.prefs.show_admin_login
+  if show.admin_login15 ~= cme_mdp3_sbe_v8_1.prefs.show_admin_login15 then
+    show.admin_login15 = cme_mdp3_sbe_v8_1.prefs.show_admin_login15
     changed = true
   end
-  if show.admin_logout ~= cme_mdp3_sbe_v8_1.prefs.show_admin_logout then
-    show.admin_logout = cme_mdp3_sbe_v8_1.prefs.show_admin_logout
-    changed = true
-  end
-  if show.channel_reset ~= cme_mdp3_sbe_v8_1.prefs.show_channel_reset then
-    show.channel_reset = cme_mdp3_sbe_v8_1.prefs.show_channel_reset
+  if show.admin_logout16 ~= cme_mdp3_sbe_v8_1.prefs.show_admin_logout16 then
+    show.admin_logout16 = cme_mdp3_sbe_v8_1.prefs.show_admin_logout16
     changed = true
   end
   if show.channel_reset_group ~= cme_mdp3_sbe_v8_1.prefs.show_channel_reset_group then
@@ -414,6 +410,10 @@ function cme_mdp3_sbe_v8_1.prefs_changed()
   end
   if show.channel_reset_groups ~= cme_mdp3_sbe_v8_1.prefs.show_channel_reset_groups then
     show.channel_reset_groups = cme_mdp3_sbe_v8_1.prefs.show_channel_reset_groups
+    changed = true
+  end
+  if show.channel_reset4 ~= cme_mdp3_sbe_v8_1.prefs.show_channel_reset4 then
+    show.channel_reset4 = cme_mdp3_sbe_v8_1.prefs.show_channel_reset4
     changed = true
   end
   if show.events_group ~= cme_mdp3_sbe_v8_1.prefs.show_events_group then
@@ -476,10 +476,6 @@ function cme_mdp3_sbe_v8_1.prefs_changed()
     show.md_feed_types_groups = cme_mdp3_sbe_v8_1.prefs.show_md_feed_types_groups
     changed = true
   end
-  if show.md_incremental_refresh_book ~= cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_book then
-    show.md_incremental_refresh_book = cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_book
-    changed = true
-  end
   if show.md_incremental_refresh_book_group ~= cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_book_group then
     show.md_incremental_refresh_book_group = cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_book_group
     changed = true
@@ -496,8 +492,8 @@ function cme_mdp3_sbe_v8_1.prefs_changed()
     show.md_incremental_refresh_book_order_groups = cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_book_order_groups
     changed = true
   end
-  if show.md_incremental_refresh_daily_statistics ~= cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_daily_statistics then
-    show.md_incremental_refresh_daily_statistics = cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_daily_statistics
+  if show.md_incremental_refresh_book32 ~= cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_book32 then
+    show.md_incremental_refresh_book32 = cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_book32
     changed = true
   end
   if show.md_incremental_refresh_daily_statistics_group ~= cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_daily_statistics_group then
@@ -508,8 +504,8 @@ function cme_mdp3_sbe_v8_1.prefs_changed()
     show.md_incremental_refresh_daily_statistics_groups = cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_daily_statistics_groups
     changed = true
   end
-  if show.md_incremental_refresh_limits_banding ~= cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_limits_banding then
-    show.md_incremental_refresh_limits_banding = cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_limits_banding
+  if show.md_incremental_refresh_daily_statistics33 ~= cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_daily_statistics33 then
+    show.md_incremental_refresh_daily_statistics33 = cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_daily_statistics33
     changed = true
   end
   if show.md_incremental_refresh_limits_banding_group ~= cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_limits_banding_group then
@@ -520,8 +516,8 @@ function cme_mdp3_sbe_v8_1.prefs_changed()
     show.md_incremental_refresh_limits_banding_groups = cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_limits_banding_groups
     changed = true
   end
-  if show.md_incremental_refresh_order_book ~= cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_order_book then
-    show.md_incremental_refresh_order_book = cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_order_book
+  if show.md_incremental_refresh_limits_banding34 ~= cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_limits_banding34 then
+    show.md_incremental_refresh_limits_banding34 = cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_limits_banding34
     changed = true
   end
   if show.md_incremental_refresh_order_book_group ~= cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_order_book_group then
@@ -532,8 +528,8 @@ function cme_mdp3_sbe_v8_1.prefs_changed()
     show.md_incremental_refresh_order_book_groups = cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_order_book_groups
     changed = true
   end
-  if show.md_incremental_refresh_session_statistics ~= cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_session_statistics then
-    show.md_incremental_refresh_session_statistics = cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_session_statistics
+  if show.md_incremental_refresh_order_book43 ~= cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_order_book43 then
+    show.md_incremental_refresh_order_book43 = cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_order_book43
     changed = true
   end
   if show.md_incremental_refresh_session_statistics_group ~= cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_session_statistics_group then
@@ -544,8 +540,8 @@ function cme_mdp3_sbe_v8_1.prefs_changed()
     show.md_incremental_refresh_session_statistics_groups = cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_session_statistics_groups
     changed = true
   end
-  if show.md_incremental_refresh_trade ~= cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_trade then
-    show.md_incremental_refresh_trade = cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_trade
+  if show.md_incremental_refresh_session_statistics35 ~= cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_session_statistics35 then
+    show.md_incremental_refresh_session_statistics35 = cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_session_statistics35
     changed = true
   end
   if show.md_incremental_refresh_trade_group ~= cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_trade_group then
@@ -554,10 +550,6 @@ function cme_mdp3_sbe_v8_1.prefs_changed()
   end
   if show.md_incremental_refresh_trade_groups ~= cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_trade_groups then
     show.md_incremental_refresh_trade_groups = cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_trade_groups
-    changed = true
-  end
-  if show.md_incremental_refresh_trade_summary ~= cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_trade_summary then
-    show.md_incremental_refresh_trade_summary = cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_trade_summary
     changed = true
   end
   if show.md_incremental_refresh_trade_summary_group ~= cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_trade_summary_group then
@@ -576,8 +568,12 @@ function cme_mdp3_sbe_v8_1.prefs_changed()
     show.md_incremental_refresh_trade_summary_order_groups = cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_trade_summary_order_groups
     changed = true
   end
-  if show.md_incremental_refresh_volume ~= cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_volume then
-    show.md_incremental_refresh_volume = cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_volume
+  if show.md_incremental_refresh_trade_summary42 ~= cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_trade_summary42 then
+    show.md_incremental_refresh_trade_summary42 = cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_trade_summary42
+    changed = true
+  end
+  if show.md_incremental_refresh_trade36 ~= cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_trade36 then
+    show.md_incremental_refresh_trade36 = cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_trade36
     changed = true
   end
   if show.md_incremental_refresh_volume_group ~= cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_volume_group then
@@ -588,16 +584,20 @@ function cme_mdp3_sbe_v8_1.prefs_changed()
     show.md_incremental_refresh_volume_groups = cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_volume_groups
     changed = true
   end
-  if show.md_instrument_definition_future ~= cme_mdp3_sbe_v8_1.prefs.show_md_instrument_definition_future then
-    show.md_instrument_definition_future = cme_mdp3_sbe_v8_1.prefs.show_md_instrument_definition_future
+  if show.md_incremental_refresh_volume37 ~= cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_volume37 then
+    show.md_incremental_refresh_volume37 = cme_mdp3_sbe_v8_1.prefs.show_md_incremental_refresh_volume37
     changed = true
   end
-  if show.md_instrument_definition_option ~= cme_mdp3_sbe_v8_1.prefs.show_md_instrument_definition_option then
-    show.md_instrument_definition_option = cme_mdp3_sbe_v8_1.prefs.show_md_instrument_definition_option
+  if show.md_instrument_definition_future27 ~= cme_mdp3_sbe_v8_1.prefs.show_md_instrument_definition_future27 then
+    show.md_instrument_definition_future27 = cme_mdp3_sbe_v8_1.prefs.show_md_instrument_definition_future27
     changed = true
   end
-  if show.md_instrument_definition_spread ~= cme_mdp3_sbe_v8_1.prefs.show_md_instrument_definition_spread then
-    show.md_instrument_definition_spread = cme_mdp3_sbe_v8_1.prefs.show_md_instrument_definition_spread
+  if show.md_instrument_definition_option41 ~= cme_mdp3_sbe_v8_1.prefs.show_md_instrument_definition_option41 then
+    show.md_instrument_definition_option41 = cme_mdp3_sbe_v8_1.prefs.show_md_instrument_definition_option41
+    changed = true
+  end
+  if show.md_instrument_definition_spread29 ~= cme_mdp3_sbe_v8_1.prefs.show_md_instrument_definition_spread29 then
+    show.md_instrument_definition_spread29 = cme_mdp3_sbe_v8_1.prefs.show_md_instrument_definition_spread29
     changed = true
   end
   if show.message ~= cme_mdp3_sbe_v8_1.prefs.show_message then
@@ -616,8 +616,8 @@ function cme_mdp3_sbe_v8_1.prefs_changed()
     show.packet_header = cme_mdp3_sbe_v8_1.prefs.show_packet_header
     changed = true
   end
-  if show.quote_request ~= cme_mdp3_sbe_v8_1.prefs.show_quote_request then
-    show.quote_request = cme_mdp3_sbe_v8_1.prefs.show_quote_request
+  if show.quote_request39 ~= cme_mdp3_sbe_v8_1.prefs.show_quote_request39 then
+    show.quote_request39 = cme_mdp3_sbe_v8_1.prefs.show_quote_request39
     changed = true
   end
   if show.related_instruments_group ~= cme_mdp3_sbe_v8_1.prefs.show_related_instruments_group then
@@ -636,16 +636,12 @@ function cme_mdp3_sbe_v8_1.prefs_changed()
     show.related_sym_groups = cme_mdp3_sbe_v8_1.prefs.show_related_sym_groups
     changed = true
   end
-  if show.security_status ~= cme_mdp3_sbe_v8_1.prefs.show_security_status then
-    show.security_status = cme_mdp3_sbe_v8_1.prefs.show_security_status
+  if show.security_status30 ~= cme_mdp3_sbe_v8_1.prefs.show_security_status30 then
+    show.security_status30 = cme_mdp3_sbe_v8_1.prefs.show_security_status30
     changed = true
   end
   if show.settl_price_type ~= cme_mdp3_sbe_v8_1.prefs.show_settl_price_type then
     show.settl_price_type = cme_mdp3_sbe_v8_1.prefs.show_settl_price_type
-    changed = true
-  end
-  if show.snapshot_full_refresh ~= cme_mdp3_sbe_v8_1.prefs.show_snapshot_full_refresh then
-    show.snapshot_full_refresh = cme_mdp3_sbe_v8_1.prefs.show_snapshot_full_refresh
     changed = true
   end
   if show.snapshot_full_refresh_group ~= cme_mdp3_sbe_v8_1.prefs.show_snapshot_full_refresh_group then
@@ -656,16 +652,20 @@ function cme_mdp3_sbe_v8_1.prefs_changed()
     show.snapshot_full_refresh_groups = cme_mdp3_sbe_v8_1.prefs.show_snapshot_full_refresh_groups
     changed = true
   end
-  if show.snapshot_full_refresh_order_book ~= cme_mdp3_sbe_v8_1.prefs.show_snapshot_full_refresh_order_book then
-    show.snapshot_full_refresh_order_book = cme_mdp3_sbe_v8_1.prefs.show_snapshot_full_refresh_order_book
-    changed = true
-  end
   if show.snapshot_full_refresh_order_book_group ~= cme_mdp3_sbe_v8_1.prefs.show_snapshot_full_refresh_order_book_group then
     show.snapshot_full_refresh_order_book_group = cme_mdp3_sbe_v8_1.prefs.show_snapshot_full_refresh_order_book_group
     changed = true
   end
   if show.snapshot_full_refresh_order_book_groups ~= cme_mdp3_sbe_v8_1.prefs.show_snapshot_full_refresh_order_book_groups then
     show.snapshot_full_refresh_order_book_groups = cme_mdp3_sbe_v8_1.prefs.show_snapshot_full_refresh_order_book_groups
+    changed = true
+  end
+  if show.snapshot_full_refresh_order_book44 ~= cme_mdp3_sbe_v8_1.prefs.show_snapshot_full_refresh_order_book44 then
+    show.snapshot_full_refresh_order_book44 = cme_mdp3_sbe_v8_1.prefs.show_snapshot_full_refresh_order_book44
+    changed = true
+  end
+  if show.snapshot_full_refresh38 ~= cme_mdp3_sbe_v8_1.prefs.show_snapshot_full_refresh38 then
+    show.snapshot_full_refresh38 = cme_mdp3_sbe_v8_1.prefs.show_snapshot_full_refresh38
     changed = true
   end
   if show.underlyings_group ~= cme_mdp3_sbe_v8_1.prefs.show_underlyings_group then
@@ -1109,8 +1109,8 @@ dissect.last_msg_seq_num_processed = function(buffer, offset, packet, parent)
   return offset + size_of.last_msg_seq_num_processed
 end
 
--- Calculate runtime size: Snapshot Full Refresh Order Book
-size_of.snapshot_full_refresh_order_book = function(buffer, offset)
+-- Calculate runtime size: Snapshot Full Refresh Order Book44
+size_of.snapshot_full_refresh_order_book44 = function(buffer, offset)
   local index = 0
 
   index = index + 28
@@ -1120,13 +1120,13 @@ size_of.snapshot_full_refresh_order_book = function(buffer, offset)
   return index
 end
 
--- Display: Snapshot Full Refresh Order Book
-display.snapshot_full_refresh_order_book = function(buffer, offset, size, packet, parent)
+-- Display: Snapshot Full Refresh Order Book44
+display.snapshot_full_refresh_order_book44 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Snapshot Full Refresh Order Book
-dissect.snapshot_full_refresh_order_book_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Snapshot Full Refresh Order Book44
+dissect.snapshot_full_refresh_order_book44_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Last Msg Seq Num Processed: 4 Byte Unsigned Fixed Width Integer
@@ -1153,17 +1153,17 @@ dissect.snapshot_full_refresh_order_book_fields = function(buffer, offset, packe
   return index
 end
 
--- Dissect: Snapshot Full Refresh Order Book
-dissect.snapshot_full_refresh_order_book = function(buffer, offset, packet, parent)
+-- Dissect: Snapshot Full Refresh Order Book44
+dissect.snapshot_full_refresh_order_book44 = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.snapshot_full_refresh_order_book then
-    local length = size_of.snapshot_full_refresh_order_book(buffer, offset)
+  if show.snapshot_full_refresh_order_book44 then
+    local length = size_of.snapshot_full_refresh_order_book44(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.snapshot_full_refresh_order_book(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v8_1.fields.snapshot_full_refresh_order_book, range, display)
+    local display = display.snapshot_full_refresh_order_book44(buffer, packet, parent)
+    parent = parent:add(cme_mdp3_sbe_v8_1.fields.snapshot_full_refresh_order_book44, range, display)
   end
 
-  return dissect.snapshot_full_refresh_order_book_fields(buffer, offset, packet, parent)
+  return dissect.snapshot_full_refresh_order_book44_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Padding 6
@@ -1419,8 +1419,8 @@ dissect.match_event_indicator = function(buffer, offset, packet, parent)
   return offset + 1
 end
 
--- Calculate runtime size: MD Incremental Refresh Order Book
-size_of.md_incremental_refresh_order_book = function(buffer, offset)
+-- Calculate runtime size: MD Incremental Refresh Order Book43
+size_of.md_incremental_refresh_order_book43 = function(buffer, offset)
   local index = 0
 
   index = index + 11
@@ -1430,13 +1430,13 @@ size_of.md_incremental_refresh_order_book = function(buffer, offset)
   return index
 end
 
--- Display: MD Incremental Refresh Order Book
-display.md_incremental_refresh_order_book = function(buffer, offset, size, packet, parent)
+-- Display: MD Incremental Refresh Order Book43
+display.md_incremental_refresh_order_book43 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: MD Incremental Refresh Order Book
-dissect.md_incremental_refresh_order_book_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: MD Incremental Refresh Order Book43
+dissect.md_incremental_refresh_order_book43_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -1454,17 +1454,17 @@ dissect.md_incremental_refresh_order_book_fields = function(buffer, offset, pack
   return index
 end
 
--- Dissect: MD Incremental Refresh Order Book
-dissect.md_incremental_refresh_order_book = function(buffer, offset, packet, parent)
+-- Dissect: MD Incremental Refresh Order Book43
+dissect.md_incremental_refresh_order_book43 = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.md_incremental_refresh_order_book then
-    local length = size_of.md_incremental_refresh_order_book(buffer, offset)
+  if show.md_incremental_refresh_order_book43 then
+    local length = size_of.md_incremental_refresh_order_book43(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.md_incremental_refresh_order_book(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_order_book, range, display)
+    local display = display.md_incremental_refresh_order_book43(buffer, packet, parent)
+    parent = parent:add(cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_order_book43, range, display)
   end
 
-  return dissect.md_incremental_refresh_order_book_fields(buffer, offset, packet, parent)
+  return dissect.md_incremental_refresh_order_book43_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Padding 4
@@ -1840,8 +1840,8 @@ dissect.md_incremental_refresh_trade_summary_groups = function(buffer, offset, p
   return dissect.md_incremental_refresh_trade_summary_groups_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: MD Incremental Refresh Trade Summary
-size_of.md_incremental_refresh_trade_summary = function(buffer, offset)
+-- Calculate runtime size: MD Incremental Refresh Trade Summary42
+size_of.md_incremental_refresh_trade_summary42 = function(buffer, offset)
   local index = 0
 
   index = index + 11
@@ -1853,13 +1853,13 @@ size_of.md_incremental_refresh_trade_summary = function(buffer, offset)
   return index
 end
 
--- Display: MD Incremental Refresh Trade Summary
-display.md_incremental_refresh_trade_summary = function(buffer, offset, size, packet, parent)
+-- Display: MD Incremental Refresh Trade Summary42
+display.md_incremental_refresh_trade_summary42 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: MD Incremental Refresh Trade Summary
-dissect.md_incremental_refresh_trade_summary_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: MD Incremental Refresh Trade Summary42
+dissect.md_incremental_refresh_trade_summary42_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -1880,17 +1880,17 @@ dissect.md_incremental_refresh_trade_summary_fields = function(buffer, offset, p
   return index
 end
 
--- Dissect: MD Incremental Refresh Trade Summary
-dissect.md_incremental_refresh_trade_summary = function(buffer, offset, packet, parent)
+-- Dissect: MD Incremental Refresh Trade Summary42
+dissect.md_incremental_refresh_trade_summary42 = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.md_incremental_refresh_trade_summary then
-    local length = size_of.md_incremental_refresh_trade_summary(buffer, offset)
+  if show.md_incremental_refresh_trade_summary42 then
+    local length = size_of.md_incremental_refresh_trade_summary42(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.md_incremental_refresh_trade_summary(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_trade_summary, range, display)
+    local display = display.md_incremental_refresh_trade_summary42(buffer, packet, parent)
+    parent = parent:add(cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_trade_summary42, range, display)
   end
 
-  return dissect.md_incremental_refresh_trade_summary_fields(buffer, offset, packet, parent)
+  return dissect.md_incremental_refresh_trade_summary42_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Related Symbol
@@ -3644,8 +3644,8 @@ dissect.security_update_action = function(buffer, offset, packet, parent)
   return offset + size_of.security_update_action
 end
 
--- Calculate runtime size: MD Instrument Definition Option
-size_of.md_instrument_definition_option = function(buffer, offset)
+-- Calculate runtime size: MD Instrument Definition Option41
+size_of.md_instrument_definition_option41 = function(buffer, offset)
   local index = 0
 
   index = index + 213
@@ -3665,13 +3665,13 @@ size_of.md_instrument_definition_option = function(buffer, offset)
   return index
 end
 
--- Display: MD Instrument Definition Option
-display.md_instrument_definition_option = function(buffer, offset, size, packet, parent)
+-- Display: MD Instrument Definition Option41
+display.md_instrument_definition_option41 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: MD Instrument Definition Option
-dissect.md_instrument_definition_option_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: MD Instrument Definition Option41
+dissect.md_instrument_definition_option41_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Match Event Indicator: Struct of 8 fields
@@ -3821,17 +3821,17 @@ dissect.md_instrument_definition_option_fields = function(buffer, offset, packet
   return index
 end
 
--- Dissect: MD Instrument Definition Option
-dissect.md_instrument_definition_option = function(buffer, offset, packet, parent)
+-- Dissect: MD Instrument Definition Option41
+dissect.md_instrument_definition_option41 = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.md_instrument_definition_option then
-    local length = size_of.md_instrument_definition_option(buffer, offset)
+  if show.md_instrument_definition_option41 then
+    local length = size_of.md_instrument_definition_option41(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.md_instrument_definition_option(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v8_1.fields.md_instrument_definition_option, range, display)
+    local display = display.md_instrument_definition_option41(buffer, packet, parent)
+    parent = parent:add(cme_mdp3_sbe_v8_1.fields.md_instrument_definition_option41, range, display)
   end
 
-  return dissect.md_instrument_definition_option_fields(buffer, offset, packet, parent)
+  return dissect.md_instrument_definition_option41_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Side
@@ -4018,8 +4018,8 @@ dissect.quote_req_id = function(buffer, offset, packet, parent)
   return offset + size_of.quote_req_id
 end
 
--- Calculate runtime size: Quote Request
-size_of.quote_request = function(buffer, offset)
+-- Calculate runtime size: Quote Request39
+size_of.quote_request39 = function(buffer, offset)
   local index = 0
 
   index = index + 35
@@ -4029,13 +4029,13 @@ size_of.quote_request = function(buffer, offset)
   return index
 end
 
--- Display: Quote Request
-display.quote_request = function(buffer, offset, size, packet, parent)
+-- Display: Quote Request39
+display.quote_request39 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Quote Request
-dissect.quote_request_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Request39
+dissect.quote_request39_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -4056,17 +4056,17 @@ dissect.quote_request_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Quote Request
-dissect.quote_request = function(buffer, offset, packet, parent)
+-- Dissect: Quote Request39
+dissect.quote_request39 = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.quote_request then
-    local length = size_of.quote_request(buffer, offset)
+  if show.quote_request39 then
+    local length = size_of.quote_request39(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.quote_request(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v8_1.fields.quote_request, range, display)
+    local display = display.quote_request39(buffer, packet, parent)
+    parent = parent:add(cme_mdp3_sbe_v8_1.fields.quote_request39, range, display)
   end
 
-  return dissect.quote_request_fields(buffer, offset, packet, parent)
+  return dissect.quote_request39_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Open Close Settl Flag
@@ -4248,8 +4248,8 @@ dissect.trade_date = function(buffer, offset, packet, parent)
   return offset + size_of.trade_date
 end
 
--- Calculate runtime size: Snapshot Full Refresh
-size_of.snapshot_full_refresh = function(buffer, offset)
+-- Calculate runtime size: Snapshot Full Refresh38
+size_of.snapshot_full_refresh38 = function(buffer, offset)
   local index = 0
 
   index = index + 59
@@ -4259,13 +4259,13 @@ size_of.snapshot_full_refresh = function(buffer, offset)
   return index
 end
 
--- Display: Snapshot Full Refresh
-display.snapshot_full_refresh = function(buffer, offset, size, packet, parent)
+-- Display: Snapshot Full Refresh38
+display.snapshot_full_refresh38 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Snapshot Full Refresh
-dissect.snapshot_full_refresh_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Snapshot Full Refresh38
+dissect.snapshot_full_refresh38_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Last Msg Seq Num Processed: 4 Byte Unsigned Fixed Width Integer
@@ -4307,17 +4307,17 @@ dissect.snapshot_full_refresh_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Snapshot Full Refresh
-dissect.snapshot_full_refresh = function(buffer, offset, packet, parent)
+-- Dissect: Snapshot Full Refresh38
+dissect.snapshot_full_refresh38 = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.snapshot_full_refresh then
-    local length = size_of.snapshot_full_refresh(buffer, offset)
+  if show.snapshot_full_refresh38 then
+    local length = size_of.snapshot_full_refresh38(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.snapshot_full_refresh(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v8_1.fields.snapshot_full_refresh, range, display)
+    local display = display.snapshot_full_refresh38(buffer, packet, parent)
+    parent = parent:add(cme_mdp3_sbe_v8_1.fields.snapshot_full_refresh38, range, display)
   end
 
-  return dissect.snapshot_full_refresh_fields(buffer, offset, packet, parent)
+  return dissect.snapshot_full_refresh38_fields(buffer, offset, packet, parent)
 end
 
 -- Display: MD Incremental Refresh Volume Group
@@ -4406,8 +4406,8 @@ dissect.md_incremental_refresh_volume_groups = function(buffer, offset, packet, 
   return dissect.md_incremental_refresh_volume_groups_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: MD Incremental Refresh Volume
-size_of.md_incremental_refresh_volume = function(buffer, offset)
+-- Calculate runtime size: MD Incremental Refresh Volume37
+size_of.md_incremental_refresh_volume37 = function(buffer, offset)
   local index = 0
 
   index = index + 11
@@ -4417,13 +4417,13 @@ size_of.md_incremental_refresh_volume = function(buffer, offset)
   return index
 end
 
--- Display: MD Incremental Refresh Volume
-display.md_incremental_refresh_volume = function(buffer, offset, size, packet, parent)
+-- Display: MD Incremental Refresh Volume37
+display.md_incremental_refresh_volume37 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: MD Incremental Refresh Volume
-dissect.md_incremental_refresh_volume_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: MD Incremental Refresh Volume37
+dissect.md_incremental_refresh_volume37_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -4441,17 +4441,17 @@ dissect.md_incremental_refresh_volume_fields = function(buffer, offset, packet, 
   return index
 end
 
--- Dissect: MD Incremental Refresh Volume
-dissect.md_incremental_refresh_volume = function(buffer, offset, packet, parent)
+-- Dissect: MD Incremental Refresh Volume37
+dissect.md_incremental_refresh_volume37 = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.md_incremental_refresh_volume then
-    local length = size_of.md_incremental_refresh_volume(buffer, offset)
+  if show.md_incremental_refresh_volume37 then
+    local length = size_of.md_incremental_refresh_volume37(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.md_incremental_refresh_volume(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_volume, range, display)
+    local display = display.md_incremental_refresh_volume37(buffer, packet, parent)
+    parent = parent:add(cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_volume37, range, display)
   end
 
-  return dissect.md_incremental_refresh_volume_fields(buffer, offset, packet, parent)
+  return dissect.md_incremental_refresh_volume37_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Trade ID
@@ -4571,8 +4571,8 @@ dissect.md_incremental_refresh_trade_groups = function(buffer, offset, packet, p
   return dissect.md_incremental_refresh_trade_groups_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: MD Incremental Refresh Trade
-size_of.md_incremental_refresh_trade = function(buffer, offset)
+-- Calculate runtime size: MD Incremental Refresh Trade36
+size_of.md_incremental_refresh_trade36 = function(buffer, offset)
   local index = 0
 
   index = index + 11
@@ -4582,13 +4582,13 @@ size_of.md_incremental_refresh_trade = function(buffer, offset)
   return index
 end
 
--- Display: MD Incremental Refresh Trade
-display.md_incremental_refresh_trade = function(buffer, offset, size, packet, parent)
+-- Display: MD Incremental Refresh Trade36
+display.md_incremental_refresh_trade36 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: MD Incremental Refresh Trade
-dissect.md_incremental_refresh_trade_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: MD Incremental Refresh Trade36
+dissect.md_incremental_refresh_trade36_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -4606,17 +4606,17 @@ dissect.md_incremental_refresh_trade_fields = function(buffer, offset, packet, p
   return index
 end
 
--- Dissect: MD Incremental Refresh Trade
-dissect.md_incremental_refresh_trade = function(buffer, offset, packet, parent)
+-- Dissect: MD Incremental Refresh Trade36
+dissect.md_incremental_refresh_trade36 = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.md_incremental_refresh_trade then
-    local length = size_of.md_incremental_refresh_trade(buffer, offset)
+  if show.md_incremental_refresh_trade36 then
+    local length = size_of.md_incremental_refresh_trade36(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.md_incremental_refresh_trade(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_trade, range, display)
+    local display = display.md_incremental_refresh_trade36(buffer, packet, parent)
+    parent = parent:add(cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_trade36, range, display)
   end
 
-  return dissect.md_incremental_refresh_trade_fields(buffer, offset, packet, parent)
+  return dissect.md_incremental_refresh_trade36_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Padding 1
@@ -4733,8 +4733,8 @@ dissect.md_incremental_refresh_session_statistics_groups = function(buffer, offs
   return dissect.md_incremental_refresh_session_statistics_groups_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: MD Incremental Refresh Session Statistics
-size_of.md_incremental_refresh_session_statistics = function(buffer, offset)
+-- Calculate runtime size: MD Incremental Refresh Session Statistics35
+size_of.md_incremental_refresh_session_statistics35 = function(buffer, offset)
   local index = 0
 
   index = index + 11
@@ -4744,13 +4744,13 @@ size_of.md_incremental_refresh_session_statistics = function(buffer, offset)
   return index
 end
 
--- Display: MD Incremental Refresh Session Statistics
-display.md_incremental_refresh_session_statistics = function(buffer, offset, size, packet, parent)
+-- Display: MD Incremental Refresh Session Statistics35
+display.md_incremental_refresh_session_statistics35 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: MD Incremental Refresh Session Statistics
-dissect.md_incremental_refresh_session_statistics_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: MD Incremental Refresh Session Statistics35
+dissect.md_incremental_refresh_session_statistics35_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -4768,17 +4768,17 @@ dissect.md_incremental_refresh_session_statistics_fields = function(buffer, offs
   return index
 end
 
--- Dissect: MD Incremental Refresh Session Statistics
-dissect.md_incremental_refresh_session_statistics = function(buffer, offset, packet, parent)
+-- Dissect: MD Incremental Refresh Session Statistics35
+dissect.md_incremental_refresh_session_statistics35 = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.md_incremental_refresh_session_statistics then
-    local length = size_of.md_incremental_refresh_session_statistics(buffer, offset)
+  if show.md_incremental_refresh_session_statistics35 then
+    local length = size_of.md_incremental_refresh_session_statistics35(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.md_incremental_refresh_session_statistics(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_session_statistics, range, display)
+    local display = display.md_incremental_refresh_session_statistics35(buffer, packet, parent)
+    parent = parent:add(cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_session_statistics35, range, display)
   end
 
-  return dissect.md_incremental_refresh_session_statistics_fields(buffer, offset, packet, parent)
+  return dissect.md_incremental_refresh_session_statistics35_fields(buffer, offset, packet, parent)
 end
 
 -- Display: MD Incremental Refresh Limits Banding Group
@@ -4867,8 +4867,8 @@ dissect.md_incremental_refresh_limits_banding_groups = function(buffer, offset, 
   return dissect.md_incremental_refresh_limits_banding_groups_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: MD Incremental Refresh Limits Banding
-size_of.md_incremental_refresh_limits_banding = function(buffer, offset)
+-- Calculate runtime size: MD Incremental Refresh Limits Banding34
+size_of.md_incremental_refresh_limits_banding34 = function(buffer, offset)
   local index = 0
 
   index = index + 11
@@ -4878,13 +4878,13 @@ size_of.md_incremental_refresh_limits_banding = function(buffer, offset)
   return index
 end
 
--- Display: MD Incremental Refresh Limits Banding
-display.md_incremental_refresh_limits_banding = function(buffer, offset, size, packet, parent)
+-- Display: MD Incremental Refresh Limits Banding34
+display.md_incremental_refresh_limits_banding34 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: MD Incremental Refresh Limits Banding
-dissect.md_incremental_refresh_limits_banding_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: MD Incremental Refresh Limits Banding34
+dissect.md_incremental_refresh_limits_banding34_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -4902,17 +4902,17 @@ dissect.md_incremental_refresh_limits_banding_fields = function(buffer, offset, 
   return index
 end
 
--- Dissect: MD Incremental Refresh Limits Banding
-dissect.md_incremental_refresh_limits_banding = function(buffer, offset, packet, parent)
+-- Dissect: MD Incremental Refresh Limits Banding34
+dissect.md_incremental_refresh_limits_banding34 = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.md_incremental_refresh_limits_banding then
-    local length = size_of.md_incremental_refresh_limits_banding(buffer, offset)
+  if show.md_incremental_refresh_limits_banding34 then
+    local length = size_of.md_incremental_refresh_limits_banding34(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.md_incremental_refresh_limits_banding(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_limits_banding, range, display)
+    local display = display.md_incremental_refresh_limits_banding34(buffer, packet, parent)
+    parent = parent:add(cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_limits_banding34, range, display)
   end
 
-  return dissect.md_incremental_refresh_limits_banding_fields(buffer, offset, packet, parent)
+  return dissect.md_incremental_refresh_limits_banding34_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Padding 7
@@ -5032,8 +5032,8 @@ dissect.md_incremental_refresh_daily_statistics_groups = function(buffer, offset
   return dissect.md_incremental_refresh_daily_statistics_groups_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: MD Incremental Refresh Daily Statistics
-size_of.md_incremental_refresh_daily_statistics = function(buffer, offset)
+-- Calculate runtime size: MD Incremental Refresh Daily Statistics33
+size_of.md_incremental_refresh_daily_statistics33 = function(buffer, offset)
   local index = 0
 
   index = index + 11
@@ -5043,13 +5043,13 @@ size_of.md_incremental_refresh_daily_statistics = function(buffer, offset)
   return index
 end
 
--- Display: MD Incremental Refresh Daily Statistics
-display.md_incremental_refresh_daily_statistics = function(buffer, offset, size, packet, parent)
+-- Display: MD Incremental Refresh Daily Statistics33
+display.md_incremental_refresh_daily_statistics33 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: MD Incremental Refresh Daily Statistics
-dissect.md_incremental_refresh_daily_statistics_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: MD Incremental Refresh Daily Statistics33
+dissect.md_incremental_refresh_daily_statistics33_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -5067,17 +5067,17 @@ dissect.md_incremental_refresh_daily_statistics_fields = function(buffer, offset
   return index
 end
 
--- Dissect: MD Incremental Refresh Daily Statistics
-dissect.md_incremental_refresh_daily_statistics = function(buffer, offset, packet, parent)
+-- Dissect: MD Incremental Refresh Daily Statistics33
+dissect.md_incremental_refresh_daily_statistics33 = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.md_incremental_refresh_daily_statistics then
-    local length = size_of.md_incremental_refresh_daily_statistics(buffer, offset)
+  if show.md_incremental_refresh_daily_statistics33 then
+    local length = size_of.md_incremental_refresh_daily_statistics33(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.md_incremental_refresh_daily_statistics(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_daily_statistics, range, display)
+    local display = display.md_incremental_refresh_daily_statistics33(buffer, packet, parent)
+    parent = parent:add(cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_daily_statistics33, range, display)
   end
 
-  return dissect.md_incremental_refresh_daily_statistics_fields(buffer, offset, packet, parent)
+  return dissect.md_incremental_refresh_daily_statistics33_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Order Update Action
@@ -5315,8 +5315,8 @@ dissect.md_incremental_refresh_book_groups = function(buffer, offset, packet, pa
   return dissect.md_incremental_refresh_book_groups_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: MD Incremental Refresh Book
-size_of.md_incremental_refresh_book = function(buffer, offset)
+-- Calculate runtime size: MD Incremental Refresh Book32
+size_of.md_incremental_refresh_book32 = function(buffer, offset)
   local index = 0
 
   index = index + 11
@@ -5328,13 +5328,13 @@ size_of.md_incremental_refresh_book = function(buffer, offset)
   return index
 end
 
--- Display: MD Incremental Refresh Book
-display.md_incremental_refresh_book = function(buffer, offset, size, packet, parent)
+-- Display: MD Incremental Refresh Book32
+display.md_incremental_refresh_book32 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: MD Incremental Refresh Book
-dissect.md_incremental_refresh_book_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: MD Incremental Refresh Book32
+dissect.md_incremental_refresh_book32_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -5355,17 +5355,17 @@ dissect.md_incremental_refresh_book_fields = function(buffer, offset, packet, pa
   return index
 end
 
--- Dissect: MD Incremental Refresh Book
-dissect.md_incremental_refresh_book = function(buffer, offset, packet, parent)
+-- Dissect: MD Incremental Refresh Book32
+dissect.md_incremental_refresh_book32 = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.md_incremental_refresh_book then
-    local length = size_of.md_incremental_refresh_book(buffer, offset)
+  if show.md_incremental_refresh_book32 then
+    local length = size_of.md_incremental_refresh_book32(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.md_incremental_refresh_book(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_book, range, display)
+    local display = display.md_incremental_refresh_book32(buffer, packet, parent)
+    parent = parent:add(cme_mdp3_sbe_v8_1.fields.md_incremental_refresh_book32, range, display)
   end
 
-  return dissect.md_incremental_refresh_book_fields(buffer, offset, packet, parent)
+  return dissect.md_incremental_refresh_book32_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Security Trading Event
@@ -5497,13 +5497,13 @@ dissect.security_trading_status = function(buffer, offset, packet, parent)
   return offset + size_of.security_trading_status
 end
 
--- Display: Security Status
-display.security_status = function(buffer, offset, size, packet, parent)
+-- Display: Security Status30
+display.security_status30 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Security Status
-dissect.security_status_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Security Status30
+dissect.security_status30_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -5536,16 +5536,16 @@ dissect.security_status_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Security Status
-dissect.security_status = function(buffer, offset, packet, parent)
+-- Dissect: Security Status30
+dissect.security_status30 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.security_status then
+  if show.security_status30 then
     local range = buffer(offset, 30)
-    local display = display.security_status(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v8_1.fields.security_status, range, display)
+    local display = display.security_status30(buffer, packet, parent)
+    parent = parent:add(cme_mdp3_sbe_v8_1.fields.security_status30, range, display)
   end
 
-  return dissect.security_status_fields(buffer, offset, packet, parent)
+  return dissect.security_status30_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Leg Option Delta
@@ -5777,8 +5777,8 @@ dissect.security_sub_type = function(buffer, offset, packet, parent)
   return offset + size_of.security_sub_type
 end
 
--- Calculate runtime size: MD Instrument Definition Spread
-size_of.md_instrument_definition_spread = function(buffer, offset)
+-- Calculate runtime size: MD Instrument Definition Spread29
+size_of.md_instrument_definition_spread29 = function(buffer, offset)
   local index = 0
 
   index = index + 195
@@ -5796,13 +5796,13 @@ size_of.md_instrument_definition_spread = function(buffer, offset)
   return index
 end
 
--- Display: MD Instrument Definition Spread
-display.md_instrument_definition_spread = function(buffer, offset, size, packet, parent)
+-- Display: MD Instrument Definition Spread29
+display.md_instrument_definition_spread29 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: MD Instrument Definition Spread
-dissect.md_instrument_definition_spread_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: MD Instrument Definition Spread29
+dissect.md_instrument_definition_spread29_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Match Event Indicator: Struct of 8 fields
@@ -5937,17 +5937,17 @@ dissect.md_instrument_definition_spread_fields = function(buffer, offset, packet
   return index
 end
 
--- Dissect: MD Instrument Definition Spread
-dissect.md_instrument_definition_spread = function(buffer, offset, packet, parent)
+-- Dissect: MD Instrument Definition Spread29
+dissect.md_instrument_definition_spread29 = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.md_instrument_definition_spread then
-    local length = size_of.md_instrument_definition_spread(buffer, offset)
+  if show.md_instrument_definition_spread29 then
+    local length = size_of.md_instrument_definition_spread29(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.md_instrument_definition_spread(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v8_1.fields.md_instrument_definition_spread, range, display)
+    local display = display.md_instrument_definition_spread29(buffer, packet, parent)
+    parent = parent:add(cme_mdp3_sbe_v8_1.fields.md_instrument_definition_spread29, range, display)
   end
 
-  return dissect.md_instrument_definition_spread_fields(buffer, offset, packet, parent)
+  return dissect.md_instrument_definition_spread29_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Flow Schedule Type
@@ -6064,8 +6064,8 @@ dissect.decay_quantity = function(buffer, offset, packet, parent)
   return offset + size_of.decay_quantity
 end
 
--- Calculate runtime size: MD Instrument Definition Future
-size_of.md_instrument_definition_future = function(buffer, offset)
+-- Calculate runtime size: MD Instrument Definition Future27
+size_of.md_instrument_definition_future27 = function(buffer, offset)
   local index = 0
 
   index = index + 216
@@ -6081,13 +6081,13 @@ size_of.md_instrument_definition_future = function(buffer, offset)
   return index
 end
 
--- Display: MD Instrument Definition Future
-display.md_instrument_definition_future = function(buffer, offset, size, packet, parent)
+-- Display: MD Instrument Definition Future27
+display.md_instrument_definition_future27 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: MD Instrument Definition Future
-dissect.md_instrument_definition_future_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: MD Instrument Definition Future27
+dissect.md_instrument_definition_future27_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Match Event Indicator: Struct of 8 fields
@@ -6237,17 +6237,17 @@ dissect.md_instrument_definition_future_fields = function(buffer, offset, packet
   return index
 end
 
--- Dissect: MD Instrument Definition Future
-dissect.md_instrument_definition_future = function(buffer, offset, packet, parent)
+-- Dissect: MD Instrument Definition Future27
+dissect.md_instrument_definition_future27 = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.md_instrument_definition_future then
-    local length = size_of.md_instrument_definition_future(buffer, offset)
+  if show.md_instrument_definition_future27 then
+    local length = size_of.md_instrument_definition_future27(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.md_instrument_definition_future(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v8_1.fields.md_instrument_definition_future, range, display)
+    local display = display.md_instrument_definition_future27(buffer, packet, parent)
+    parent = parent:add(cme_mdp3_sbe_v8_1.fields.md_instrument_definition_future27, range, display)
   end
 
-  return dissect.md_instrument_definition_future_fields(buffer, offset, packet, parent)
+  return dissect.md_instrument_definition_future27_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Text
@@ -6269,13 +6269,13 @@ dissect.text = function(buffer, offset, packet, parent)
   return offset + size_of.text
 end
 
--- Display: Admin Logout
-display.admin_logout = function(buffer, offset, size, packet, parent)
+-- Display: Admin Logout16
+display.admin_logout16 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Admin Logout
-dissect.admin_logout_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Admin Logout16
+dissect.admin_logout16_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Text: 180 Byte Ascii String
@@ -6284,16 +6284,16 @@ dissect.admin_logout_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Admin Logout
-dissect.admin_logout = function(buffer, offset, packet, parent)
+-- Dissect: Admin Logout16
+dissect.admin_logout16 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.admin_logout then
+  if show.admin_logout16 then
     local range = buffer(offset, 180)
-    local display = display.admin_logout(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v8_1.fields.admin_logout, range, display)
+    local display = display.admin_logout16(buffer, packet, parent)
+    parent = parent:add(cme_mdp3_sbe_v8_1.fields.admin_logout16, range, display)
   end
 
-  return dissect.admin_logout_fields(buffer, offset, packet, parent)
+  return dissect.admin_logout16_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Heart Bt Int
@@ -6315,13 +6315,13 @@ dissect.heart_bt_int = function(buffer, offset, packet, parent)
   return offset + size_of.heart_bt_int
 end
 
--- Display: Admin Login
-display.admin_login = function(buffer, offset, size, packet, parent)
+-- Display: Admin Login15
+display.admin_login15 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Admin Login
-dissect.admin_login_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Admin Login15
+dissect.admin_login15_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Heart Bt Int: 1 Byte Signed Fixed Width Integer
@@ -6330,16 +6330,16 @@ dissect.admin_login_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Admin Login
-dissect.admin_login = function(buffer, offset, packet, parent)
+-- Dissect: Admin Login15
+dissect.admin_login15 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.admin_login then
+  if show.admin_login15 then
     local range = buffer(offset, 1)
-    local display = display.admin_login(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v8_1.fields.admin_login, range, display)
+    local display = display.admin_login15(buffer, packet, parent)
+    parent = parent:add(cme_mdp3_sbe_v8_1.fields.admin_login15, range, display)
   end
 
-  return dissect.admin_login_fields(buffer, offset, packet, parent)
+  return dissect.admin_login15_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Channel Reset Group
@@ -6416,8 +6416,8 @@ dissect.channel_reset_groups = function(buffer, offset, packet, parent)
   return dissect.channel_reset_groups_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Channel Reset
-size_of.channel_reset = function(buffer, offset)
+-- Calculate runtime size: Channel Reset4
+size_of.channel_reset4 = function(buffer, offset)
   local index = 0
 
   index = index + 9
@@ -6427,13 +6427,13 @@ size_of.channel_reset = function(buffer, offset)
   return index
 end
 
--- Display: Channel Reset
-display.channel_reset = function(buffer, offset, size, packet, parent)
+-- Display: Channel Reset4
+display.channel_reset4 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Channel Reset
-dissect.channel_reset_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Channel Reset4
+dissect.channel_reset4_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -6448,96 +6448,96 @@ dissect.channel_reset_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Channel Reset
-dissect.channel_reset = function(buffer, offset, packet, parent)
+-- Dissect: Channel Reset4
+dissect.channel_reset4 = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.channel_reset then
-    local length = size_of.channel_reset(buffer, offset)
+  if show.channel_reset4 then
+    local length = size_of.channel_reset4(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.channel_reset(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v8_1.fields.channel_reset, range, display)
+    local display = display.channel_reset4(buffer, packet, parent)
+    parent = parent:add(cme_mdp3_sbe_v8_1.fields.channel_reset4, range, display)
   end
 
-  return dissect.channel_reset_fields(buffer, offset, packet, parent)
+  return dissect.channel_reset4_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
 size_of.payload = function(buffer, offset, code)
-  -- Size of Channel Reset
+  -- Size of Channel Reset4
   if code == 4 then
-    return size_of.channel_reset(buffer, offset)
+    return size_of.channel_reset4(buffer, offset)
   end
-  -- Size of Admin Heartbeat
+  -- Size of Admin Heartbeat12
   if code == 12 then
     return 0
   end
-  -- Size of Admin Login
+  -- Size of Admin Login15
   if code == 15 then
     return 1
   end
-  -- Size of Admin Logout
+  -- Size of Admin Logout16
   if code == 16 then
     return 180
   end
-  -- Size of MD Instrument Definition Future
+  -- Size of MD Instrument Definition Future27
   if code == 27 then
-    return size_of.md_instrument_definition_future(buffer, offset)
+    return size_of.md_instrument_definition_future27(buffer, offset)
   end
-  -- Size of MD Instrument Definition Spread
+  -- Size of MD Instrument Definition Spread29
   if code == 29 then
-    return size_of.md_instrument_definition_spread(buffer, offset)
+    return size_of.md_instrument_definition_spread29(buffer, offset)
   end
-  -- Size of Security Status
+  -- Size of Security Status30
   if code == 30 then
     return 30
   end
-  -- Size of MD Incremental Refresh Book
+  -- Size of MD Incremental Refresh Book32
   if code == 32 then
-    return size_of.md_incremental_refresh_book(buffer, offset)
+    return size_of.md_incremental_refresh_book32(buffer, offset)
   end
-  -- Size of MD Incremental Refresh Daily Statistics
+  -- Size of MD Incremental Refresh Daily Statistics33
   if code == 33 then
-    return size_of.md_incremental_refresh_daily_statistics(buffer, offset)
+    return size_of.md_incremental_refresh_daily_statistics33(buffer, offset)
   end
-  -- Size of MD Incremental Refresh Limits Banding
+  -- Size of MD Incremental Refresh Limits Banding34
   if code == 34 then
-    return size_of.md_incremental_refresh_limits_banding(buffer, offset)
+    return size_of.md_incremental_refresh_limits_banding34(buffer, offset)
   end
-  -- Size of MD Incremental Refresh Session Statistics
+  -- Size of MD Incremental Refresh Session Statistics35
   if code == 35 then
-    return size_of.md_incremental_refresh_session_statistics(buffer, offset)
+    return size_of.md_incremental_refresh_session_statistics35(buffer, offset)
   end
-  -- Size of MD Incremental Refresh Trade
+  -- Size of MD Incremental Refresh Trade36
   if code == 36 then
-    return size_of.md_incremental_refresh_trade(buffer, offset)
+    return size_of.md_incremental_refresh_trade36(buffer, offset)
   end
-  -- Size of MD Incremental Refresh Volume
+  -- Size of MD Incremental Refresh Volume37
   if code == 37 then
-    return size_of.md_incremental_refresh_volume(buffer, offset)
+    return size_of.md_incremental_refresh_volume37(buffer, offset)
   end
-  -- Size of Snapshot Full Refresh
+  -- Size of Snapshot Full Refresh38
   if code == 38 then
-    return size_of.snapshot_full_refresh(buffer, offset)
+    return size_of.snapshot_full_refresh38(buffer, offset)
   end
-  -- Size of Quote Request
+  -- Size of Quote Request39
   if code == 39 then
-    return size_of.quote_request(buffer, offset)
+    return size_of.quote_request39(buffer, offset)
   end
-  -- Size of MD Instrument Definition Option
+  -- Size of MD Instrument Definition Option41
   if code == 41 then
-    return size_of.md_instrument_definition_option(buffer, offset)
+    return size_of.md_instrument_definition_option41(buffer, offset)
   end
-  -- Size of MD Incremental Refresh Trade Summary
+  -- Size of MD Incremental Refresh Trade Summary42
   if code == 42 then
-    return size_of.md_incremental_refresh_trade_summary(buffer, offset)
+    return size_of.md_incremental_refresh_trade_summary42(buffer, offset)
   end
-  -- Size of MD Incremental Refresh Order Book
+  -- Size of MD Incremental Refresh Order Book43
   if code == 43 then
-    return size_of.md_incremental_refresh_order_book(buffer, offset)
+    return size_of.md_incremental_refresh_order_book43(buffer, offset)
   end
-  -- Size of Snapshot Full Refresh Order Book
+  -- Size of Snapshot Full Refresh Order Book44
   if code == 44 then
-    return size_of.snapshot_full_refresh_order_book(buffer, offset)
+    return size_of.snapshot_full_refresh_order_book44(buffer, offset)
   end
 
   return 0
@@ -6550,80 +6550,80 @@ end
 
 -- Dissect Branches:
 dissect.payload_branches = function(buffer, offset, packet, parent, code)
-  -- Dissect Channel Reset
+  -- Dissect Channel Reset4
   if code == 4 then
-    return dissect.channel_reset(buffer, offset, packet, parent)
+    return dissect.channel_reset4(buffer, offset, packet, parent)
   end
-  -- Dissect Admin Heartbeat
+  -- Dissect Admin Heartbeat12
   if code == 12 then
   end
-  -- Dissect Admin Login
+  -- Dissect Admin Login15
   if code == 15 then
-    return dissect.admin_login(buffer, offset, packet, parent)
+    return dissect.admin_login15(buffer, offset, packet, parent)
   end
-  -- Dissect Admin Logout
+  -- Dissect Admin Logout16
   if code == 16 then
-    return dissect.admin_logout(buffer, offset, packet, parent)
+    return dissect.admin_logout16(buffer, offset, packet, parent)
   end
-  -- Dissect MD Instrument Definition Future
+  -- Dissect MD Instrument Definition Future27
   if code == 27 then
-    return dissect.md_instrument_definition_future(buffer, offset, packet, parent)
+    return dissect.md_instrument_definition_future27(buffer, offset, packet, parent)
   end
-  -- Dissect MD Instrument Definition Spread
+  -- Dissect MD Instrument Definition Spread29
   if code == 29 then
-    return dissect.md_instrument_definition_spread(buffer, offset, packet, parent)
+    return dissect.md_instrument_definition_spread29(buffer, offset, packet, parent)
   end
-  -- Dissect Security Status
+  -- Dissect Security Status30
   if code == 30 then
-    return dissect.security_status(buffer, offset, packet, parent)
+    return dissect.security_status30(buffer, offset, packet, parent)
   end
-  -- Dissect MD Incremental Refresh Book
+  -- Dissect MD Incremental Refresh Book32
   if code == 32 then
-    return dissect.md_incremental_refresh_book(buffer, offset, packet, parent)
+    return dissect.md_incremental_refresh_book32(buffer, offset, packet, parent)
   end
-  -- Dissect MD Incremental Refresh Daily Statistics
+  -- Dissect MD Incremental Refresh Daily Statistics33
   if code == 33 then
-    return dissect.md_incremental_refresh_daily_statistics(buffer, offset, packet, parent)
+    return dissect.md_incremental_refresh_daily_statistics33(buffer, offset, packet, parent)
   end
-  -- Dissect MD Incremental Refresh Limits Banding
+  -- Dissect MD Incremental Refresh Limits Banding34
   if code == 34 then
-    return dissect.md_incremental_refresh_limits_banding(buffer, offset, packet, parent)
+    return dissect.md_incremental_refresh_limits_banding34(buffer, offset, packet, parent)
   end
-  -- Dissect MD Incremental Refresh Session Statistics
+  -- Dissect MD Incremental Refresh Session Statistics35
   if code == 35 then
-    return dissect.md_incremental_refresh_session_statistics(buffer, offset, packet, parent)
+    return dissect.md_incremental_refresh_session_statistics35(buffer, offset, packet, parent)
   end
-  -- Dissect MD Incremental Refresh Trade
+  -- Dissect MD Incremental Refresh Trade36
   if code == 36 then
-    return dissect.md_incremental_refresh_trade(buffer, offset, packet, parent)
+    return dissect.md_incremental_refresh_trade36(buffer, offset, packet, parent)
   end
-  -- Dissect MD Incremental Refresh Volume
+  -- Dissect MD Incremental Refresh Volume37
   if code == 37 then
-    return dissect.md_incremental_refresh_volume(buffer, offset, packet, parent)
+    return dissect.md_incremental_refresh_volume37(buffer, offset, packet, parent)
   end
-  -- Dissect Snapshot Full Refresh
+  -- Dissect Snapshot Full Refresh38
   if code == 38 then
-    return dissect.snapshot_full_refresh(buffer, offset, packet, parent)
+    return dissect.snapshot_full_refresh38(buffer, offset, packet, parent)
   end
-  -- Dissect Quote Request
+  -- Dissect Quote Request39
   if code == 39 then
-    return dissect.quote_request(buffer, offset, packet, parent)
+    return dissect.quote_request39(buffer, offset, packet, parent)
   end
-  -- Dissect MD Instrument Definition Option
+  -- Dissect MD Instrument Definition Option41
   if code == 41 then
-    return dissect.md_instrument_definition_option(buffer, offset, packet, parent)
+    return dissect.md_instrument_definition_option41(buffer, offset, packet, parent)
   end
-  -- Dissect MD Incremental Refresh Trade Summary
+  -- Dissect MD Incremental Refresh Trade Summary42
   if code == 42 then
-    return dissect.md_incremental_refresh_trade_summary(buffer, offset, packet, parent)
+    return dissect.md_incremental_refresh_trade_summary42(buffer, offset, packet, parent)
   end
-  -- Dissect MD Incremental Refresh Order Book
+  -- Dissect MD Incremental Refresh Order Book43
   if code == 43 then
-    return dissect.md_incremental_refresh_order_book(buffer, offset, packet, parent)
+    return dissect.md_incremental_refresh_order_book43(buffer, offset, packet, parent)
   end
-  -- Dissect Snapshot Full Refresh Order Book
+  -- Dissect Snapshot Full Refresh Order Book44
   if code == 44 then
-    return dissect.snapshot_full_refresh_order_book(buffer, offset, packet, parent)
+    return dissect.snapshot_full_refresh_order_book44(buffer, offset, packet, parent)
   end
 
   return offset
