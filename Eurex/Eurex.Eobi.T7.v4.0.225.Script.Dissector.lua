@@ -3215,7 +3215,7 @@ display.payload = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Branches:
-dissect.payload_branches = function(code, buffer, offset, packet, parent)
+dissect.payload_branches = function(buffer, offset, packet, parent, code)
   -- Dissect Add Complex Instrument
   if code == 13400 then
     return dissect.add_complex_instrument(buffer, offset, packet, parent)
@@ -3313,12 +3313,9 @@ dissect.payload_branches = function(code, buffer, offset, packet, parent)
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent)
-  -- Parse Payload type dependency
-  local code = buffer(offset - 6, 2):le_uint()
-
+dissect.payload = function(buffer, offset, packet, parent, code)
   if not show.payload then
-    return dissect.payload_branches(code, buffer, offset, packet, parent)
+    return dissect.payload_branches(buffer, offset, packet, parent, code)
   end
 
   -- Calculate size and check that branch is not empty
@@ -3332,7 +3329,7 @@ dissect.payload = function(buffer, offset, packet, parent)
   local display = display.payload(buffer, packet, parent)
   local element = parent:add(eurex_eobi_t7_v4_0_225.fields.payload, range, display)
 
-  return dissect.payload_branches(code, buffer, offset, packet, element)
+  return dissect.payload_branches(buffer, offset, packet, parent, code)
 end
 
 -- Size: Msg Seq Num
@@ -3445,7 +3442,8 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   index = dissect.message_header(buffer, index, packet, parent)
 
   -- Payload: Runtime Type with 23 branches
-  index = dissect.payload(buffer, index, packet, parent)
+  local code = buffer(index - 6, 2):le_uint()
+  index = dissect.payload(buffer, index, packet, parent, code)
 
   return index
 end
@@ -3477,6 +3475,7 @@ dissect.packet = function(buffer, packet, parent)
   while index < buffer:len() do
     index = dissect.message(buffer, index, packet, parent)
   end
+
 
   return index
 end
@@ -3552,7 +3551,7 @@ eurex_eobi_t7_v4_0_225:register_heuristic("udp", eurex_eobi_t7_v4_0_225_heuristi
 -- Version: 4.0.225
 -- Date: Friday, November 11, 2016
 -- Script:
--- Source Version: 1.4.0.0
+-- Source Version: 1.5.0.0
 -- Compiler Version: 1.1
 -- License: Public/GPLv3
 -- Authors: Omi Developers

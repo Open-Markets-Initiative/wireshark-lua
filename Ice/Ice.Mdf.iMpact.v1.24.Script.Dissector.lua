@@ -6072,7 +6072,7 @@ display.payload = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Branches:
-dissect.payload_branches = function(code, buffer, offset, packet, parent)
+dissect.payload_branches = function(buffer, offset, packet, parent, code)
   -- Dissect Market Snapshot Message
   if code == "C" then
     return dissect.market_snapshot_message(buffer, offset, packet, parent)
@@ -6226,12 +6226,9 @@ dissect.payload_branches = function(code, buffer, offset, packet, parent)
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent)
-  -- Parse Payload type dependency
-  local code = buffer(offset - 3, 1):string()
-
+dissect.payload = function(buffer, offset, packet, parent, code)
   if not show.payload then
-    return dissect.payload_branches(code, buffer, offset, packet, parent)
+    return dissect.payload_branches(buffer, offset, packet, parent, code)
   end
 
   -- Calculate size and check that branch is not empty
@@ -6245,7 +6242,7 @@ dissect.payload = function(buffer, offset, packet, parent)
   local display = display.payload(buffer, packet, parent)
   local element = parent:add(ice_mdf_impact_v1_24.fields.payload, range, display)
 
-  return dissect.payload_branches(code, buffer, offset, packet, element)
+  return dissect.payload_branches(buffer, offset, packet, parent, code)
 end
 
 -- Size: Length
@@ -6456,7 +6453,8 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   index = dissect.message_header(buffer, index, packet, parent)
 
   -- Payload: Runtime Type with 37 branches
-  index = dissect.payload(buffer, index, packet, parent)
+  local code = buffer(index - 3, 1):string()
+  index = dissect.payload(buffer, index, packet, parent, code)
 
   return index
 end
@@ -6599,6 +6597,7 @@ dissect.packet = function(buffer, packet, parent)
   for i = 1, message_count do
     index = dissect.message(buffer, index, packet, parent)
   end
+
   return index
 end
 
@@ -6661,7 +6660,7 @@ ice_mdf_impact_v1_24:register_heuristic("udp", ice_mdf_impact_v1_24_heuristic)
 -- Version: 1.24
 -- Date: Wednesday, March 30, 2016
 -- Script:
--- Source Version: 1.4.0.0
+-- Source Version: 1.5.0.0
 -- Compiler Version: 1.1
 -- License: Public/GPLv3
 -- Authors: Omi Developers

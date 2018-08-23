@@ -1821,7 +1821,7 @@ display.payload = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Branches:
-dissect.payload_branches = function(code, buffer, offset, packet, parent)
+dissect.payload_branches = function(buffer, offset, packet, parent, code)
   -- Dissect Time Stamp Message
   if code == "T" then
     return dissect.time_stamp_message(buffer, offset, packet, parent)
@@ -1895,12 +1895,9 @@ dissect.payload_branches = function(code, buffer, offset, packet, parent)
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent)
-  -- Parse Payload type dependency
-  local code = buffer(offset - 1, 1):string()
-
+dissect.payload = function(buffer, offset, packet, parent, code)
   if not show.payload then
-    return dissect.payload_branches(code, buffer, offset, packet, parent)
+    return dissect.payload_branches(buffer, offset, packet, parent, code)
   end
 
   -- Calculate size and check that branch is not empty
@@ -1914,7 +1911,7 @@ dissect.payload = function(buffer, offset, packet, parent)
   local display = display.payload(buffer, packet, parent)
   local element = parent:add(nasdaq_totalview_itch_v4_1.fields.payload, range, display)
 
-  return dissect.payload_branches(code, buffer, offset, packet, element)
+  return dissect.payload_branches(buffer, offset, packet, parent, code)
 end
 
 -- Size: Message Type
@@ -2065,7 +2062,8 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   index = dissect.message_header(buffer, index, packet, parent)
 
   -- Payload: Runtime Type with 17 branches
-  index = dissect.payload(buffer, index, packet, parent)
+  local code = buffer(index - 1, 1):string()
+  index = dissect.payload(buffer, index, packet, parent, code)
 
   return index
 end
@@ -2186,6 +2184,7 @@ dissect.packet = function(buffer, packet, parent)
     index = dissect.message(buffer, index, packet, parent)
   end
 
+
   return index
 end
 
@@ -2248,7 +2247,7 @@ nasdaq_totalview_itch_v4_1:register_heuristic("udp", nasdaq_totalview_itch_v4_1_
 -- Version: 4.1
 -- Date: Thursday, June 12, 2014
 -- Script:
--- Source Version: 1.4.0.0
+-- Source Version: 1.5.0.0
 -- Compiler Version: 1.1
 -- License: Public/GPLv3
 -- Authors: Omi Developers

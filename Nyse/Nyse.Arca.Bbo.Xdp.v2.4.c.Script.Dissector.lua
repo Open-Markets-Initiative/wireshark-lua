@@ -2148,7 +2148,7 @@ display.payload = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Branches:
-dissect.payload_branches = function(code, buffer, offset, packet, parent)
+dissect.payload_branches = function(buffer, offset, packet, parent, code)
   -- Dissect Sequence Number Reset Message
   if code == 1 then
     return dissect.sequence_number_reset_message(buffer, offset, packet, parent)
@@ -2210,12 +2210,9 @@ dissect.payload_branches = function(code, buffer, offset, packet, parent)
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent)
-  -- Parse Payload type dependency
-  local code = buffer(offset - 2, 2):le_uint()
-
+dissect.payload = function(buffer, offset, packet, parent, code)
   if not show.payload then
-    return dissect.payload_branches(code, buffer, offset, packet, parent)
+    return dissect.payload_branches(buffer, offset, packet, parent, code)
   end
 
   -- Calculate size and check that branch is not empty
@@ -2229,7 +2226,7 @@ dissect.payload = function(buffer, offset, packet, parent)
   local display = display.payload(buffer, packet, parent)
   local element = parent:add(nyse_arca_bbo_xdp_v2_4_c.fields.payload, range, display)
 
-  return dissect.payload_branches(code, buffer, offset, packet, element)
+  return dissect.payload_branches(buffer, offset, packet, parent, code)
 end
 
 -- Size: Message Type
@@ -2371,7 +2368,8 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   index = dissect.message_header(buffer, index, packet, parent)
 
   -- Payload: Runtime Type with 14 branches
-  index = dissect.payload(buffer, index, packet, parent)
+  local code = buffer(index - 2, 2):le_uint()
+  index = dissect.payload(buffer, index, packet, parent, code)
 
   return index
 end
@@ -2592,6 +2590,7 @@ dissect.packet = function(buffer, packet, parent)
     index = dissect.message(buffer, index, packet, parent)
   end
 
+
   return index
 end
 
@@ -2654,7 +2653,7 @@ nyse_arca_bbo_xdp_v2_4_c:register_heuristic("udp", nyse_arca_bbo_xdp_v2_4_c_heur
 -- Version: 2.4.c
 -- Date: Wednesday, July 13, 2016
 -- Script:
--- Source Version: 1.4.0.0
+-- Source Version: 1.5.0.0
 -- Compiler Version: 1.1
 -- License: Public/GPLv3
 -- Authors: Omi Developers
