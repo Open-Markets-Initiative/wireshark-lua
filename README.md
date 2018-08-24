@@ -49,6 +49,10 @@ For configuration information: [Wireshark Configuration Files.](https://www.wire
 
 Note: Some packets contain enough information to programmatically determine the correct protocol specification.  *Some do not.*  If you add multiple dissectors to your plugins folder, wireshark will dissect each "conversation" based on the first matching protocol.
 
+|Protocol Count | Generated Lines|
+|--- | ---|
+|25 | 99077|
+
 ## Development
 
 Updates are greatly appreciated; however, this entire repository is source generated...including the words you are reading right now. Code generation requires a slightly different workflow.  The recommended process is to post a dissector script with suggested edits and explanation.  If the changes are applicable to some or all protocols, we will update the model and regenerate.
