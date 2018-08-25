@@ -26,6 +26,7 @@ For configuration information: [Wireshark Configuration Files.](https://www.wire
 |[Cme](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange Dissectors") | Mdp3 | Sbe | [8.1](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Mdp3.Sbe.v8.1.Script.Dissector.lua "Chicago Mercantile Exchange 8.1 Script Dissector") | 7/1/2016 | 7050 | Verified|
 |[Cme](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange Dissectors") | Mdp3 | Sbe | [6.1](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Mdp3.Sbe.v6.1.Script.Dissector.lua "Chicago Mercantile Exchange 6.1 Script Dissector") | 1/9/2016 | 6280 | Verified|
 |[Cme](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange Dissectors") | Mdp3 | Sbe | [5.1](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Mdp3.Sbe.v5.1.Script.Dissector.lua "Chicago Mercantile Exchange 5.1 Script Dissector") | 8/6/2014 | 6271 | Verified|
+|[Eurex](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Eurex "Eurex Exchange Dissectors") | Eobi | T7 | [7.0.0](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Eurex/Eurex.Eobi.T7.v7.0.0.Script.Dissector.lua "Eurex Exchange 7.0.0 Script Dissector") | 8/20/2018 | 3779 | Untested|
 |[Eurex](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Eurex "Eurex Exchange Dissectors") | Eobi | T7 | [6.1.0](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Eurex/Eurex.Eobi.T7.v6.1.0.Script.Dissector.lua "Eurex Exchange 6.1.0 Script Dissector") | 3/20/2018 | 3651 | Untested|
 |[Eurex](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Eurex "Eurex Exchange Dissectors") | Eobi | T7 | [6.0.2](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Eurex/Eurex.Eobi.T7.v6.0.2.Script.Dissector.lua "Eurex Exchange 6.0.2 Script Dissector") | 10/23/2017 | 3648 | Untested|
 |[Eurex](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Eurex "Eurex Exchange Dissectors") | Eobi | T7 | [5.0.3](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Eurex/Eurex.Eobi.T7.v5.0.3.Script.Dissector.lua "Eurex Exchange 5.0.3 Script Dissector") | 6/9/2017 | 3561 | Untested|
@@ -53,11 +54,11 @@ Note: Some packets contain enough information to programmatically determine the 
 
 Updates are greatly appreciated; however, this entire repository is source generated...including the words you are reading right now. Code generation requires a slightly different workflow.  The recommended process is to post a dissector script with suggested edits and explanation.  If the changes are applicable to some or all protocols, we will update the model and regenerate.
 
-Note: Our dissector model is still under rapid development.
-
 |Protocol Count | Generated Lines|
 |--- | ---|
-|25 | 99077|
+|26 | 102,856|
+
+Note: Our dissector model is still under rapid development.
 
 ## Testing
 
