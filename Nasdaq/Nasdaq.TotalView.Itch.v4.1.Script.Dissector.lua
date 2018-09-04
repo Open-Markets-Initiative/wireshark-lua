@@ -27,6 +27,7 @@ nasdaq_totalview_itch_v4_1.fields.broken_trade_message = ProtoField.new("Broken 
 nasdaq_totalview_itch_v4_1.fields.canceled_shares = ProtoField.new("Canceled Shares", "nasdaq.totalview.itch.v4.1.canceledshares", ftypes.UINT32)
 nasdaq_totalview_itch_v4_1.fields.count = ProtoField.new("Count", "nasdaq.totalview.itch.v4.1.count", ftypes.UINT16)
 nasdaq_totalview_itch_v4_1.fields.cross_price = ProtoField.new("Cross Price", "nasdaq.totalview.itch.v4.1.crossprice", ftypes.UINT32)
+nasdaq_totalview_itch_v4_1.fields.cross_shares = ProtoField.new("Cross Shares", "nasdaq.totalview.itch.v4.1.crossshares", ftypes.UINT64)
 nasdaq_totalview_itch_v4_1.fields.cross_trade_message = ProtoField.new("Cross Trade Message", "nasdaq.totalview.itch.v4.1.crosstrademessage", ftypes.STRING)
 nasdaq_totalview_itch_v4_1.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.totalview.itch.v4.1.crosstype", ftypes.STRING)
 nasdaq_totalview_itch_v4_1.fields.current_reference_price = ProtoField.new("Current Reference Price", "nasdaq.totalview.itch.v4.1.currentreferenceprice", ftypes.UINT32)
@@ -79,7 +80,7 @@ nasdaq_totalview_itch_v4_1.fields.stock_directory_message = ProtoField.new("Stoc
 nasdaq_totalview_itch_v4_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.totalview.itch.v4.1.systemeventmessage", ftypes.STRING)
 nasdaq_totalview_itch_v4_1.fields.time_stamp_message = ProtoField.new("Time Stamp Message", "nasdaq.totalview.itch.v4.1.timestampmessage", ftypes.STRING)
 nasdaq_totalview_itch_v4_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.totalview.itch.v4.1.timestamp", ftypes.UINT32)
-nasdaq_totalview_itch_v4_1.fields.timestamp__nanoseconds = ProtoField.new("Timestamp  Nanoseconds", "nasdaq.totalview.itch.v4.1.timestampnanoseconds", ftypes.UINT32)
+nasdaq_totalview_itch_v4_1.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "nasdaq.totalview.itch.v4.1.timestampnanoseconds", ftypes.UINT32)
 nasdaq_totalview_itch_v4_1.fields.trade_message = ProtoField.new("Trade Message", "nasdaq.totalview.itch.v4.1.trademessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
@@ -251,7 +252,7 @@ display.interest_flag = function(value)
     return "Interest Flag: Rpi Sell (S)"
   end
   if value == "A" then
-    return "Interest Flag: RpiBoth (A)"
+    return "Interest Flag: Rpi Both (A)"
   end
   if value == "N" then
     return "Interest Flag: No Rpi (N)"
@@ -351,43 +352,43 @@ display.price_variation_indicator = function(value)
     return "Price Variation Indicator: Less (L)"
   end
   if value == "1" then
-    return "Price Variation Indicator: 1 to 1.99% (1)"
+    return "Price Variation Indicator: 1 To1.99% (1)"
   end
   if value == "2" then
-    return "Price Variation Indicator: 2 to 2.99% (2)"
+    return "Price Variation Indicator: 2 To2.99% (2)"
   end
   if value == "3" then
-    return "Price Variation Indicator: 3 to 3.99% (3)"
+    return "Price Variation Indicator: 3 To3.99% (3)"
   end
   if value == "4" then
-    return "Price Variation Indicator: 4 to 4.99% (4)"
+    return "Price Variation Indicator: 4 To4.99% (4)"
   end
   if value == "5" then
-    return "Price Variation Indicator: 5 to 5.99% (5)"
+    return "Price Variation Indicator: 5 To5.99% (5)"
   end
   if value == "6" then
-    return "Price Variation Indicator: 6 to 6.99% (6)"
+    return "Price Variation Indicator: 6 To6.99% (6)"
   end
   if value == "7" then
-    return "Price Variation Indicator: 7 to 7.99% (7)"
+    return "Price Variation Indicator: 7 To7.99% (7)"
   end
   if value == "8" then
-    return "Price Variation Indicator: 8 to 8.99% (8)"
+    return "Price Variation Indicator: 8 To8.99% (8)"
   end
   if value == "9" then
-    return "Price Variation Indicator: 9 to 9.99% (9)"
+    return "Price Variation Indicator: 9 To9.99% (9)"
   end
   if value == "A" then
-    return "Price Variation Indicator: 10 to 19.99% (A)"
+    return "Price Variation Indicator: 10 To19.99% (A)"
   end
   if value == "B" then
-    return "Price Variation Indicator: 20 to 29.99% (B)"
+    return "Price Variation Indicator: 20 To29.99% (B)"
   end
   if value == "C" then
-    return "Price Variation Indicator: 30% or greater (C)"
+    return "Price Variation Indicator: 30% Or Greater (C)"
   end
   if value == " " then
-    return "Price Variation Indicator: NoCalculation (<whitespace>)"
+    return "Price Variation Indicator: No Calculation (<whitespace>)"
   end
 
   return "Price Variation Indicator: Unknown("..value..")"
@@ -416,10 +417,10 @@ display.cross_type = function(value)
     return "Cross Type: Closing (C)"
   end
   if value == "H" then
-    return "Cross Type: Cross for IPO and halted (H)"
+    return "Cross Type: Cross For Ip O And Halted (H)"
   end
   if value == "I" then
-    return "Cross Type: NASDAQ Cross Network (I)"
+    return "Cross Type: Nasda Q Cross Network (I)"
   end
 
   return "Cross Type: Unknown("..value..")"
@@ -499,16 +500,16 @@ size_of.imbalance_direction = 1
 -- Display: Imbalance Direction
 display.imbalance_direction = function(value)
   if value == "B" then
-    return "Imbalance Direction: buy (B)"
+    return "Imbalance Direction: Buy (B)"
   end
   if value == "S" then
-    return "Imbalance Direction: sell (S)"
+    return "Imbalance Direction: Sell (S)"
   end
   if value == "N" then
-    return "Imbalance Direction: no (N)"
+    return "Imbalance Direction: No (N)"
   end
   if value == "O" then
-    return "Imbalance Direction: Insufficient orders (O)"
+    return "Imbalance Direction: Insufficient Orders (O)"
   end
 
   return "Imbalance Direction: Unknown("..value..")"
@@ -685,23 +686,23 @@ dissect.cross_price = function(buffer, offset, packet, parent)
   return offset + size_of.cross_price
 end
 
--- Size: Shares
-size_of.shares = 4
+-- Size: Cross Shares
+size_of.cross_shares = 8
 
--- Display: Shares
-display.shares = function(value)
-  return "Shares: "..value
+-- Display: Cross Shares
+display.cross_shares = function(value)
+  return "Cross Shares: "..value
 end
 
--- Dissect: Shares
-dissect.shares = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.shares)
-  local value = range:uint()
-  local display = display.shares(value, buffer, offset, packet, parent)
+-- Dissect: Cross Shares
+dissect.cross_shares = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.cross_shares)
+  local value = range:uint64()
+  local display = display.cross_shares(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v4_1.fields.shares, range, value, display)
+  parent:add(nasdaq_totalview_itch_v4_1.fields.cross_shares, range, value, display)
 
-  return offset + size_of.shares
+  return offset + size_of.cross_shares
 end
 
 -- Display: Cross Trade Message
@@ -716,8 +717,8 @@ dissect.cross_trade_message_fields = function(buffer, offset, packet, parent)
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
   index = dissect.timestamp(buffer, index, packet, parent)
 
-  -- Shares: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.shares(buffer, index, packet, parent)
+  -- Cross Shares: 8 Byte Unsigned Fixed Width Integer
+  index = dissect.cross_shares(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
   index = dissect.stock(buffer, index, packet, parent)
@@ -738,7 +739,7 @@ end
 dissect.cross_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cross_trade_message then
-    local range = buffer(offset, 29)
+    local range = buffer(offset, 33)
     local display = display.cross_trade_message(buffer, packet, parent)
     parent = parent:add(nasdaq_totalview_itch_v4_1.fields.cross_trade_message, range, display)
   end
@@ -765,16 +766,35 @@ dissect.price = function(buffer, offset, packet, parent)
   return offset + size_of.price
 end
 
+-- Size: Shares
+size_of.shares = 4
+
+-- Display: Shares
+display.shares = function(value)
+  return "Shares: "..value
+end
+
+-- Dissect: Shares
+dissect.shares = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.shares)
+  local value = range:uint()
+  local display = display.shares(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_totalview_itch_v4_1.fields.shares, range, value, display)
+
+  return offset + size_of.shares
+end
+
 -- Size: Side
 size_of.side = 1
 
 -- Display: Side
 display.side = function(value)
   if value == "B" then
-    return "Side: buy (B)"
+    return "Side: Buy (B)"
   end
   if value == "S" then
-    return "Side: sell (S)"
+    return "Side: Sell (S)"
   end
 
   return "Side: Unknown("..value..")"
@@ -893,23 +913,23 @@ dissect.original_order_reference_number = function(buffer, offset, packet, paren
   return offset + size_of.original_order_reference_number
 end
 
--- Size: Timestamp  Nanoseconds
-size_of.timestamp__nanoseconds = 4
+-- Size: Timestamp Nanoseconds
+size_of.timestamp_nanoseconds = 4
 
--- Display: Timestamp  Nanoseconds
-display.timestamp__nanoseconds = function(value)
-  return "Timestamp  Nanoseconds: "..value
+-- Display: Timestamp Nanoseconds
+display.timestamp_nanoseconds = function(value)
+  return "Timestamp Nanoseconds: "..value
 end
 
--- Dissect: Timestamp  Nanoseconds
-dissect.timestamp__nanoseconds = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.timestamp__nanoseconds)
+-- Dissect: Timestamp Nanoseconds
+dissect.timestamp_nanoseconds = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.timestamp_nanoseconds)
   local value = range:uint()
-  local display = display.timestamp__nanoseconds(value, buffer, offset, packet, parent)
+  local display = display.timestamp_nanoseconds(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v4_1.fields.timestamp__nanoseconds, range, value, display)
+  parent:add(nasdaq_totalview_itch_v4_1.fields.timestamp_nanoseconds, range, value, display)
 
-  return offset + size_of.timestamp__nanoseconds
+  return offset + size_of.timestamp_nanoseconds
 end
 
 -- Display: Order Replace Message
@@ -921,8 +941,8 @@ end
 dissect.order_replace_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp  Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp__nanoseconds(buffer, index, packet, parent)
+  -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.timestamp_nanoseconds(buffer, index, packet, parent)
 
   -- Original Order Reference Number: 8 Byte Unsigned Fixed Width Integer
   index = dissect.original_order_reference_number(buffer, index, packet, parent)
@@ -1058,10 +1078,10 @@ size_of.printable = 1
 -- Display: Printable
 display.printable = function(value)
   if value == "N" then
-    return "Printable: nonprintable (N)"
+    return "Printable: Nonprintable (N)"
   end
   if value == "Y" then
-    return "Printable: printable (Y)"
+    return "Printable: Printable (Y)"
   end
 
   return "Printable: Unknown("..value..")"
@@ -1290,7 +1310,7 @@ display.market_participant_state = function(value)
     return "Market Participant State: Active (A)"
   end
   if value == "E" then
-    return "Market Participant State: ExcusedWithdrawn (E)"
+    return "Market Participant State: Excused Withdrawn (E)"
   end
   if value == "W" then
     return "Market Participant State: Withdrawn (W)"
@@ -1322,16 +1342,16 @@ size_of.market_maker_mode = 1
 -- Display: Market Maker Mode
 display.market_maker_mode = function(value)
   if value == "N" then
-    return "Market Maker Mode: normal (N)"
+    return "Market Maker Mode: Normal (N)"
   end
   if value == "P" then
-    return "Market Maker Mode: passive (P)"
+    return "Market Maker Mode: Passive (P)"
   end
   if value == "S" then
-    return "Market Maker Mode: syndicate (S)"
+    return "Market Maker Mode: Syndicate (S)"
   end
   if value == "L" then
-    return "Market Maker Mode: penalty (L)"
+    return "Market Maker Mode: Penalty (L)"
   end
 
   return "Market Maker Mode: Unknown("..value..")"
@@ -1354,10 +1374,10 @@ size_of.primary_market_maker = 1
 -- Display: Primary Market Maker
 display.primary_market_maker = function(value)
   if value == "Y" then
-    return "Primary Market Maker: primary (Y)"
+    return "Primary Market Maker: Primary (Y)"
   end
   if value == "N" then
-    return "Primary Market Maker: nonprimary (N)"
+    return "Primary Market Maker: Nonprimary (N)"
   end
 
   return "Primary Market Maker: Unknown("..value..")"
@@ -1441,13 +1461,13 @@ size_of.reg_sho_action = 1
 -- Display: Reg Sho Action
 display.reg_sho_action = function(value)
   if value == "0" then
-    return "Reg Sho Action: No price (0)"
+    return "Reg Sho Action: No Price (0)"
   end
   if value == "1" then
-    return "Reg Sho Action: Reg SHO Short Sale Price Test Restriction (1)"
+    return "Reg Sho Action: Reg Sh O Short Sale Price Test Restriction (1)"
   end
   if value == "2" then
-    return "Reg Sho Action: Reg SHO Short Sale Price Test (2)"
+    return "Reg Sho Action: Reg Sh O Short Sale Price Test (2)"
   end
 
   return "Reg Sho Action: Unknown("..value..")"
@@ -1515,16 +1535,16 @@ display.financial_status_indicator = function(value)
     return "Financial Status Indicator: Suspended (S)"
   end
   if value == "G" then
-    return "Financial Status Indicator: Deficient and Bankrupt (G)"
+    return "Financial Status Indicator: Deficient And Bankrupt (G)"
   end
   if value == "H" then
-    return "Financial Status Indicator: Deficient and Delinquent (H)"
+    return "Financial Status Indicator: Deficient And Delinquent (H)"
   end
   if value == "J" then
-    return "Financial Status Indicator: Delinquent and Bankrupt (J)"
+    return "Financial Status Indicator: Delinquent And Bankrupt (J)"
   end
   if value == "K" then
-    return "Financial Status Indicator: Deficient Delinquent and Bankrupt (K)"
+    return "Financial Status Indicator: Deficient Delinquent And Bankrupt (K)"
   end
 
   return "Financial Status Indicator: Unknown("..value..")"
@@ -1624,22 +1644,22 @@ size_of.event_code = 1
 -- Display: Event Code
 display.event_code = function(value)
   if value == "O" then
-    return "Event Code: Start of Messages (O)"
+    return "Event Code: Start Of Messages (O)"
   end
   if value == "S" then
-    return "Event Code: Start of System hours (S)"
+    return "Event Code: Start Of System Hours (S)"
   end
   if value == "Q" then
-    return "Event Code: Start of Market hours (Q)"
+    return "Event Code: Start Of Market Hours (Q)"
   end
   if value == "M" then
-    return "Event Code: End of Market hours (M)"
+    return "Event Code: End Of Market Hours (M)"
   end
   if value == "E" then
-    return "Event Code: End of System hours (E)"
+    return "Event Code: End Of System Hours (E)"
   end
   if value == "C" then
-    return "Event Code: End of Message (C)"
+    return "Event Code: End Of Message (C)"
   end
   if value == "A" then
     return "Event Code: Halt (A)"
@@ -1797,7 +1817,7 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Cross Trade Message
   if code == "Q" then
-    return 29
+    return 33
   end
   -- Size of Broken Trade Message
   if code == "B" then

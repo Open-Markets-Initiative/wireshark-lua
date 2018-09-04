@@ -25,7 +25,7 @@ eurex_eobi_t7_v5_0_3.fields.aggressor_side = ProtoField.new("Aggressor Side", "e
 eurex_eobi_t7_v5_0_3.fields.aggressor_time = ProtoField.new("Aggressor Time", "eurex.eobi.t7.v5.0.3.aggressortime", ftypes.UINT64)
 eurex_eobi_t7_v5_0_3.fields.application_sequence_number = ProtoField.new("Application Sequence Number", "eurex.eobi.t7.v5.0.3.applicationsequencenumber", ftypes.UINT32)
 eurex_eobi_t7_v5_0_3.fields.application_sequence_reset_indicator = ProtoField.new("Application Sequence Reset Indicator", "eurex.eobi.t7.v5.0.3.applicationsequenceresetindicator", ftypes.UINT8)
-eurex_eobi_t7_v5_0_3.fields.auction_bbo = ProtoField.new("Auction BBO", "eurex.eobi.t7.v5.0.3.auctionbbo", ftypes.STRING)
+eurex_eobi_t7_v5_0_3.fields.auction_bbo = ProtoField.new("Auction Bbo", "eurex.eobi.t7.v5.0.3.auctionbbo", ftypes.STRING)
 eurex_eobi_t7_v5_0_3.fields.auction_clearing_price = ProtoField.new("Auction Clearing Price", "eurex.eobi.t7.v5.0.3.auctionclearingprice", ftypes.STRING)
 eurex_eobi_t7_v5_0_3.fields.bid_px = ProtoField.new("Bid Px", "eurex.eobi.t7.v5.0.3.bidpx", ftypes.UINT64)
 eurex_eobi_t7_v5_0_3.fields.bid_size = ProtoField.new("Bid Size", "eurex.eobi.t7.v5.0.3.bidsize", ftypes.INT32)
@@ -33,7 +33,7 @@ eurex_eobi_t7_v5_0_3.fields.body_len = ProtoField.new("Body Len", "eurex.eobi.t7
 eurex_eobi_t7_v5_0_3.fields.completion_indicator = ProtoField.new("Completion Indicator", "eurex.eobi.t7.v5.0.3.completionindicator", ftypes.UINT8)
 eurex_eobi_t7_v5_0_3.fields.cross_request = ProtoField.new("Cross Request", "eurex.eobi.t7.v5.0.3.crossrequest", ftypes.STRING)
 eurex_eobi_t7_v5_0_3.fields.display_qty = ProtoField.new("Display Qty", "eurex.eobi.t7.v5.0.3.displayqty", ftypes.INT32)
-eurex_eobi_t7_v5_0_3.fields.exec_id = ProtoField.new("Exec ID", "eurex.eobi.t7.v5.0.3.execid", ftypes.UINT64)
+eurex_eobi_t7_v5_0_3.fields.exec_id = ProtoField.new("Exec Id", "eurex.eobi.t7.v5.0.3.execid", ftypes.UINT64)
 eurex_eobi_t7_v5_0_3.fields.execution_summary = ProtoField.new("Execution Summary", "eurex.eobi.t7.v5.0.3.executionsummary", ftypes.STRING)
 eurex_eobi_t7_v5_0_3.fields.fast_market_indicator = ProtoField.new("Fast Market Indicator", "eurex.eobi.t7.v5.0.3.fastmarketindicator", ftypes.UINT8)
 eurex_eobi_t7_v5_0_3.fields.full_order_execution = ProtoField.new("Full Order Execution", "eurex.eobi.t7.v5.0.3.fullorderexecution", ftypes.STRING)
@@ -49,22 +49,22 @@ eurex_eobi_t7_v5_0_3.fields.last_px = ProtoField.new("Last Px", "eurex.eobi.t7.v
 eurex_eobi_t7_v5_0_3.fields.last_qty = ProtoField.new("Last Qty", "eurex.eobi.t7.v5.0.3.lastqty", ftypes.INT32)
 eurex_eobi_t7_v5_0_3.fields.last_update_time = ProtoField.new("Last Update Time", "eurex.eobi.t7.v5.0.3.lastupdatetime", ftypes.UINT64)
 eurex_eobi_t7_v5_0_3.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "eurex.eobi.t7.v5.0.3.legratioqty", ftypes.INT32)
-eurex_eobi_t7_v5_0_3.fields.leg_security_id = ProtoField.new("Leg Security ID", "eurex.eobi.t7.v5.0.3.legsecurityid", ftypes.INT64)
+eurex_eobi_t7_v5_0_3.fields.leg_security_id = ProtoField.new("Leg Security Id", "eurex.eobi.t7.v5.0.3.legsecurityid", ftypes.INT64)
 eurex_eobi_t7_v5_0_3.fields.leg_side = ProtoField.new("Leg Side", "eurex.eobi.t7.v5.0.3.legside", ftypes.UINT8)
 eurex_eobi_t7_v5_0_3.fields.leg_symbol = ProtoField.new("Leg Symbol", "eurex.eobi.t7.v5.0.3.legsymbol", ftypes.INT32)
 eurex_eobi_t7_v5_0_3.fields.market_segment_id = ProtoField.new("Market Segment ID", "eurex.eobi.t7.v5.0.3.marketsegmentid", ftypes.INT32)
 eurex_eobi_t7_v5_0_3.fields.match_sub_type = ProtoField.new("Match Sub Type", "eurex.eobi.t7.v5.0.3.matchsubtype", ftypes.UINT8)
 eurex_eobi_t7_v5_0_3.fields.match_type = ProtoField.new("Match Type", "eurex.eobi.t7.v5.0.3.matchtype", ftypes.UINT8)
-eurex_eobi_t7_v5_0_3.fields.md_entry_px = ProtoField.new("MD Entry Px", "eurex.eobi.t7.v5.0.3.mdentrypx", ftypes.UINT64)
-eurex_eobi_t7_v5_0_3.fields.md_entry_size = ProtoField.new("MD Entry Size", "eurex.eobi.t7.v5.0.3.mdentrysize", ftypes.INT32)
-eurex_eobi_t7_v5_0_3.fields.md_entry_type = ProtoField.new("MD Entry Type", "eurex.eobi.t7.v5.0.3.mdentrytype", ftypes.UINT8)
-eurex_eobi_t7_v5_0_3.fields.md_instrument_entry_grp = ProtoField.new("MD Instrument Entry Grp", "eurex.eobi.t7.v5.0.3.mdinstrumententrygrp", ftypes.STRING)
-eurex_eobi_t7_v5_0_3.fields.md_trade_entry_grp = ProtoField.new("MD Trade Entry Grp", "eurex.eobi.t7.v5.0.3.mdtradeentrygrp", ftypes.STRING)
+eurex_eobi_t7_v5_0_3.fields.md_entry_px = ProtoField.new("Md Entry Px", "eurex.eobi.t7.v5.0.3.mdentrypx", ftypes.UINT64)
+eurex_eobi_t7_v5_0_3.fields.md_entry_size = ProtoField.new("Md Entry Size", "eurex.eobi.t7.v5.0.3.mdentrysize", ftypes.INT32)
+eurex_eobi_t7_v5_0_3.fields.md_entry_type = ProtoField.new("Md Entry Type", "eurex.eobi.t7.v5.0.3.mdentrytype", ftypes.UINT8)
+eurex_eobi_t7_v5_0_3.fields.md_instrument_entry_grp = ProtoField.new("Md Instrument Entry Grp", "eurex.eobi.t7.v5.0.3.mdinstrumententrygrp", ftypes.STRING)
+eurex_eobi_t7_v5_0_3.fields.md_trade_entry_grp = ProtoField.new("Md Trade Entry Grp", "eurex.eobi.t7.v5.0.3.mdtradeentrygrp", ftypes.STRING)
 eurex_eobi_t7_v5_0_3.fields.message = ProtoField.new("Message", "eurex.eobi.t7.v5.0.3.message", ftypes.STRING)
 eurex_eobi_t7_v5_0_3.fields.message_header = ProtoField.new("Message Header", "eurex.eobi.t7.v5.0.3.messageheader", ftypes.STRING)
 eurex_eobi_t7_v5_0_3.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "eurex.eobi.t7.v5.0.3.msgseqnum", ftypes.UINT32)
 eurex_eobi_t7_v5_0_3.fields.no_legs = ProtoField.new("No Legs", "eurex.eobi.t7.v5.0.3.nolegs", ftypes.UINT8)
-eurex_eobi_t7_v5_0_3.fields.no_md_entries = ProtoField.new("No MD Entries", "eurex.eobi.t7.v5.0.3.nomdentries", ftypes.UINT8)
+eurex_eobi_t7_v5_0_3.fields.no_md_entries = ProtoField.new("No Md Entries", "eurex.eobi.t7.v5.0.3.nomdentries", ftypes.UINT8)
 eurex_eobi_t7_v5_0_3.fields.offer_px = ProtoField.new("Offer Px", "eurex.eobi.t7.v5.0.3.offerpx", ftypes.UINT64)
 eurex_eobi_t7_v5_0_3.fields.offer_size = ProtoField.new("Offer Size", "eurex.eobi.t7.v5.0.3.offersize", ftypes.INT32)
 eurex_eobi_t7_v5_0_3.fields.ord_type = ProtoField.new("Ord Type", "eurex.eobi.t7.v5.0.3.ordtype", ftypes.UINT8)
@@ -100,28 +100,28 @@ eurex_eobi_t7_v5_0_3.fields.quote_request = ProtoField.new("Quote Request", "eur
 eurex_eobi_t7_v5_0_3.fields.request_time = ProtoField.new("Request Time", "eurex.eobi.t7.v5.0.3.requesttime", ftypes.UINT64)
 eurex_eobi_t7_v5_0_3.fields.resting_cxl_qty = ProtoField.new("Resting Cxl Qty", "eurex.eobi.t7.v5.0.3.restingcxlqty", ftypes.INT32)
 eurex_eobi_t7_v5_0_3.fields.resting_hidden_qty = ProtoField.new("Resting Hidden Qty", "eurex.eobi.t7.v5.0.3.restinghiddenqty", ftypes.INT32)
-eurex_eobi_t7_v5_0_3.fields.security_id = ProtoField.new("Security ID", "eurex.eobi.t7.v5.0.3.securityid", ftypes.INT64)
+eurex_eobi_t7_v5_0_3.fields.security_id = ProtoField.new("Security Id", "eurex.eobi.t7.v5.0.3.securityid", ftypes.INT64)
 eurex_eobi_t7_v5_0_3.fields.security_status = ProtoField.new("Security Status", "eurex.eobi.t7.v5.0.3.securitystatus", ftypes.UINT8)
 eurex_eobi_t7_v5_0_3.fields.security_sub_type = ProtoField.new("Security Sub Type", "eurex.eobi.t7.v5.0.3.securitysubtype", ftypes.INT32)
 eurex_eobi_t7_v5_0_3.fields.security_trading_event = ProtoField.new("Security Trading Event", "eurex.eobi.t7.v5.0.3.securitytradingevent", ftypes.UINT8)
 eurex_eobi_t7_v5_0_3.fields.security_trading_status = ProtoField.new("Security Trading Status", "eurex.eobi.t7.v5.0.3.securitytradingstatus", ftypes.UINT8)
 eurex_eobi_t7_v5_0_3.fields.side = ProtoField.new("Side", "eurex.eobi.t7.v5.0.3.side", ftypes.UINT8)
 eurex_eobi_t7_v5_0_3.fields.snapshot_order = ProtoField.new("Snapshot Order", "eurex.eobi.t7.v5.0.3.snapshotorder", ftypes.STRING)
-eurex_eobi_t7_v5_0_3.fields.template_id = ProtoField.new("Template ID", "eurex.eobi.t7.v5.0.3.templateid", ftypes.UINT16)
+eurex_eobi_t7_v5_0_3.fields.template_id = ProtoField.new("Template Id", "eurex.eobi.t7.v5.0.3.templateid", ftypes.UINT16)
 eurex_eobi_t7_v5_0_3.fields.top_of_book = ProtoField.new("Top Of Book", "eurex.eobi.t7.v5.0.3.topofbook", ftypes.STRING)
 eurex_eobi_t7_v5_0_3.fields.tot_no_orders = ProtoField.new("Tot No Orders", "eurex.eobi.t7.v5.0.3.totnoorders", ftypes.UINT16)
 eurex_eobi_t7_v5_0_3.fields.trad_ses_status = ProtoField.new("Trad Ses Status", "eurex.eobi.t7.v5.0.3.tradsesstatus", ftypes.UINT8)
 eurex_eobi_t7_v5_0_3.fields.trade_condition = ProtoField.new("Trade Condition", "eurex.eobi.t7.v5.0.3.tradecondition", ftypes.UINT8)
 eurex_eobi_t7_v5_0_3.fields.trade_report = ProtoField.new("Trade Report", "eurex.eobi.t7.v5.0.3.tradereport", ftypes.STRING)
 eurex_eobi_t7_v5_0_3.fields.trade_reversal = ProtoField.new("Trade Reversal", "eurex.eobi.t7.v5.0.3.tradereversal", ftypes.STRING)
-eurex_eobi_t7_v5_0_3.fields.trading_session_id = ProtoField.new("Trading Session ID", "eurex.eobi.t7.v5.0.3.tradingsessionid", ftypes.UINT8)
-eurex_eobi_t7_v5_0_3.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub ID", "eurex.eobi.t7.v5.0.3.tradingsessionsubid", ftypes.UINT8)
+eurex_eobi_t7_v5_0_3.fields.trading_session_id = ProtoField.new("Trading Session Id", "eurex.eobi.t7.v5.0.3.tradingsessionid", ftypes.UINT8)
+eurex_eobi_t7_v5_0_3.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "eurex.eobi.t7.v5.0.3.tradingsessionsubid", ftypes.UINT8)
 eurex_eobi_t7_v5_0_3.fields.transact_time = ProtoField.new("Transact Time", "eurex.eobi.t7.v5.0.3.transacttime", ftypes.UINT64)
-eurex_eobi_t7_v5_0_3.fields.trd_match_id = ProtoField.new("Trd Match ID", "eurex.eobi.t7.v5.0.3.trdmatchid", ftypes.UINT32)
-eurex_eobi_t7_v5_0_3.fields.trd_reg_ts_execution_time = ProtoField.new("Trd Reg TS Execution Time", "eurex.eobi.t7.v5.0.3.trdregtsexecutiontime", ftypes.UINT64)
-eurex_eobi_t7_v5_0_3.fields.trd_reg_ts_prev_time_priority = ProtoField.new("Trd Reg TS Prev Time Priority", "eurex.eobi.t7.v5.0.3.trdregtsprevtimepriority", ftypes.UINT64)
-eurex_eobi_t7_v5_0_3.fields.trd_reg_ts_time_in = ProtoField.new("Trd Reg TS Time In", "eurex.eobi.t7.v5.0.3.trdregtstimein", ftypes.UINT64)
-eurex_eobi_t7_v5_0_3.fields.trd_reg_ts_time_priority = ProtoField.new("Trd Reg TS Time Priority", "eurex.eobi.t7.v5.0.3.trdregtstimepriority", ftypes.UINT64)
+eurex_eobi_t7_v5_0_3.fields.trd_match_id = ProtoField.new("Trd Match Id", "eurex.eobi.t7.v5.0.3.trdmatchid", ftypes.UINT32)
+eurex_eobi_t7_v5_0_3.fields.trd_reg_ts_execution_time = ProtoField.new("Trd Reg Ts Execution Time", "eurex.eobi.t7.v5.0.3.trdregtsexecutiontime", ftypes.UINT64)
+eurex_eobi_t7_v5_0_3.fields.trd_reg_ts_prev_time_priority = ProtoField.new("Trd Reg Ts Prev Time Priority", "eurex.eobi.t7.v5.0.3.trdregtsprevtimepriority", ftypes.UINT64)
+eurex_eobi_t7_v5_0_3.fields.trd_reg_ts_time_in = ProtoField.new("Trd Reg Ts Time In", "eurex.eobi.t7.v5.0.3.trdregtstimein", ftypes.UINT64)
+eurex_eobi_t7_v5_0_3.fields.trd_reg_ts_time_priority = ProtoField.new("Trd Reg Ts Time Priority", "eurex.eobi.t7.v5.0.3.trdregtstimepriority", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -163,7 +163,7 @@ show.payload = false
 
 -- Register Eurex Eobi T7 5.0.3 Show Options
 eurex_eobi_t7_v5_0_3.prefs.show_add_complex_instrument = Pref.bool("Show Add Complex Instrument", show.add_complex_instrument, "Parse and add Add Complex Instrument to protocol tree")
-eurex_eobi_t7_v5_0_3.prefs.show_auction_bbo = Pref.bool("Show Auction BBO", show.auction_bbo, "Parse and add Auction BBO to protocol tree")
+eurex_eobi_t7_v5_0_3.prefs.show_auction_bbo = Pref.bool("Show Auction Bbo", show.auction_bbo, "Parse and add Auction Bbo to protocol tree")
 eurex_eobi_t7_v5_0_3.prefs.show_auction_clearing_price = Pref.bool("Show Auction Clearing Price", show.auction_clearing_price, "Parse and add Auction Clearing Price to protocol tree")
 eurex_eobi_t7_v5_0_3.prefs.show_cross_request = Pref.bool("Show Cross Request", show.cross_request, "Parse and add Cross Request to protocol tree")
 eurex_eobi_t7_v5_0_3.prefs.show_execution_summary = Pref.bool("Show Execution Summary", show.execution_summary, "Parse and add Execution Summary to protocol tree")
@@ -172,8 +172,8 @@ eurex_eobi_t7_v5_0_3.prefs.show_heartbeat = Pref.bool("Show Heartbeat", show.hea
 eurex_eobi_t7_v5_0_3.prefs.show_instrmt_leg_grp = Pref.bool("Show Instrmt Leg Grp", show.instrmt_leg_grp, "Parse and add Instrmt Leg Grp to protocol tree")
 eurex_eobi_t7_v5_0_3.prefs.show_instrument_state_change = Pref.bool("Show Instrument State Change", show.instrument_state_change, "Parse and add Instrument State Change to protocol tree")
 eurex_eobi_t7_v5_0_3.prefs.show_instrument_summary = Pref.bool("Show Instrument Summary", show.instrument_summary, "Parse and add Instrument Summary to protocol tree")
-eurex_eobi_t7_v5_0_3.prefs.show_md_instrument_entry_grp = Pref.bool("Show MD Instrument Entry Grp", show.md_instrument_entry_grp, "Parse and add MD Instrument Entry Grp to protocol tree")
-eurex_eobi_t7_v5_0_3.prefs.show_md_trade_entry_grp = Pref.bool("Show MD Trade Entry Grp", show.md_trade_entry_grp, "Parse and add MD Trade Entry Grp to protocol tree")
+eurex_eobi_t7_v5_0_3.prefs.show_md_instrument_entry_grp = Pref.bool("Show Md Instrument Entry Grp", show.md_instrument_entry_grp, "Parse and add Md Instrument Entry Grp to protocol tree")
+eurex_eobi_t7_v5_0_3.prefs.show_md_trade_entry_grp = Pref.bool("Show Md Trade Entry Grp", show.md_trade_entry_grp, "Parse and add Md Trade Entry Grp to protocol tree")
 eurex_eobi_t7_v5_0_3.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 eurex_eobi_t7_v5_0_3.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 eurex_eobi_t7_v5_0_3.prefs.show_order_add = Pref.bool("Show Order Add", show.order_add, "Parse and add Order Add to protocol tree")
@@ -359,52 +359,52 @@ dissect.pad3 = function(buffer, offset, packet, parent)
   return offset + size_of.pad3
 end
 
--- Size: MD Entry Type
+-- Size: Md Entry Type
 size_of.md_entry_type = 1
 
--- Display: MD Entry Type
+-- Display: Md Entry Type
 display.md_entry_type = function(value)
   if value == 2 then
-    return "MD Entry Type: Trade (2)"
+    return "Md Entry Type: Trade (2)"
   end
   if value == 4 then
-    return "MD Entry Type: Opening Price (4)"
+    return "Md Entry Type: Opening Price (4)"
   end
   if value == 5 then
-    return "MD Entry Type: Closing Price (5)"
+    return "Md Entry Type: Closing Price (5)"
   end
   if value == 7 then
-    return "MD Entry Type: High Price (7)"
+    return "Md Entry Type: High Price (7)"
   end
   if value == 8 then
-    return "MD Entry Type: Low Price (8)"
+    return "Md Entry Type: Low Price (8)"
   end
   if value == 66 then
-    return "MD Entry Type: Trade Volume (66)"
+    return "Md Entry Type: Trade Volume (66)"
   end
   if value == 101 then
-    return "MD Entry Type: Previous Closing Price (101)"
+    return "Md Entry Type: Previous Closing Price (101)"
   end
   if value == 200 then
-    return "MD Entry Type: Opening Auction (200)"
+    return "Md Entry Type: Opening Auction (200)"
   end
   if value == 201 then
-    return "MD Entry Type: Intraday Auction (201)"
+    return "Md Entry Type: Intraday Auction (201)"
   end
   if value == 202 then
-    return "MD Entry Type: Circuit Breaker Auction (202)"
+    return "Md Entry Type: Circuit Breaker Auction (202)"
   end
   if value == 203 then
-    return "MD Entry Type: Closing Auction (203)"
+    return "Md Entry Type: Closing Auction (203)"
   end
   if value == 204 then
-    return "MD Entry Type: IPO Auction (204)"
+    return "Md Entry Type: Ipo Auction (204)"
   end
 
-  return "MD Entry Type: Unknown("..value..")"
+  return "Md Entry Type: Unknown("..value..")"
 end
 
--- Dissect: MD Entry Type
+-- Dissect: Md Entry Type
 dissect.md_entry_type = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.md_entry_type)
   local value = range:le_uint()
@@ -415,15 +415,15 @@ dissect.md_entry_type = function(buffer, offset, packet, parent)
   return offset + size_of.md_entry_type
 end
 
--- Size: MD Entry Size
+-- Size: Md Entry Size
 size_of.md_entry_size = 4
 
--- Display: MD Entry Size
+-- Display: Md Entry Size
 display.md_entry_size = function(value)
-  return "MD Entry Size: "..value
+  return "Md Entry Size: "..value
 end
 
--- Dissect: MD Entry Size
+-- Dissect: Md Entry Size
 dissect.md_entry_size = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.md_entry_size)
   local value = range:le_int()
@@ -434,16 +434,16 @@ dissect.md_entry_size = function(buffer, offset, packet, parent)
   return offset + size_of.md_entry_size
 end
 
--- Size: MD Entry Px
+-- Size: Md Entry Px
 size_of.md_entry_px = 8
 
--- Display: MD Entry Px
+-- Display: Md Entry Px
 display.md_entry_px = function(value)
   local factor = 100000000
-  return "MD Entry Px: "..value/factor
+  return "Md Entry Px: "..value/factor
 end
 
--- Dissect: MD Entry Px
+-- Dissect: Md Entry Px
 dissect.md_entry_px = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.md_entry_px)
   local value = range:le_uint64()
@@ -454,22 +454,22 @@ dissect.md_entry_px = function(buffer, offset, packet, parent)
   return offset + size_of.md_entry_px
 end
 
--- Display: MD Trade Entry Grp
+-- Display: Md Trade Entry Grp
 display.md_trade_entry_grp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: MD Trade Entry Grp
+-- Dissect Fields: Md Trade Entry Grp
 dissect.md_trade_entry_grp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- MD Entry Px: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Px: 8 Byte Unsigned Fixed Width Integer
   index = dissect.md_entry_px(buffer, index, packet, parent)
 
-  -- MD Entry Size: 4 Byte Signed Fixed Width Integer
+  -- Md Entry Size: 4 Byte Signed Fixed Width Integer
   index = dissect.md_entry_size(buffer, index, packet, parent)
 
-  -- MD Entry Type: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
+  -- Md Entry Type: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
   index = dissect.md_entry_type(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
@@ -478,7 +478,7 @@ dissect.md_trade_entry_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: MD Trade Entry Grp
+-- Dissect: Md Trade Entry Grp
 dissect.md_trade_entry_grp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.md_trade_entry_grp then
@@ -509,15 +509,15 @@ dissect.pad7 = function(buffer, offset, packet, parent)
   return offset + size_of.pad7
 end
 
--- Size: No MD Entries
+-- Size: No Md Entries
 size_of.no_md_entries = 1
 
--- Display: No MD Entries
+-- Display: No Md Entries
 display.no_md_entries = function(value)
-  return "No MD Entries: "..value
+  return "No Md Entries: "..value
 end
 
--- Dissect: No MD Entries
+-- Dissect: No Md Entries
 dissect.no_md_entries = function(buffer, offset, packet, parent)
   local length = 1
   local range = buffer(offset, length)
@@ -529,15 +529,15 @@ dissect.no_md_entries = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Trd Reg TS Execution Time
+-- Size: Trd Reg Ts Execution Time
 size_of.trd_reg_ts_execution_time = 8
 
--- Display: Trd Reg TS Execution Time
+-- Display: Trd Reg Ts Execution Time
 display.trd_reg_ts_execution_time = function(value)
-  return "Trd Reg TS Execution Time: "..value
+  return "Trd Reg Ts Execution Time: "..value
 end
 
--- Dissect: Trd Reg TS Execution Time
+-- Dissect: Trd Reg Ts Execution Time
 dissect.trd_reg_ts_execution_time = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.trd_reg_ts_execution_time)
   local value = range:le_uint64()
@@ -587,15 +587,15 @@ dissect.last_qty = function(buffer, offset, packet, parent)
   return offset + size_of.last_qty
 end
 
--- Size: Trd Match ID
+-- Size: Trd Match Id
 size_of.trd_match_id = 4
 
--- Display: Trd Match ID
+-- Display: Trd Match Id
 display.trd_match_id = function(value)
-  return "Trd Match ID: "..value
+  return "Trd Match Id: "..value
 end
 
--- Dissect: Trd Match ID
+-- Dissect: Trd Match Id
 dissect.trd_match_id = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.trd_match_id)
   local value = range:le_uint()
@@ -625,15 +625,15 @@ dissect.transact_time = function(buffer, offset, packet, parent)
   return offset + size_of.transact_time
 end
 
--- Size: Security ID
+-- Size: Security Id
 size_of.security_id = 8
 
--- Display: Security ID
+-- Display: Security Id
 display.security_id = function(value)
-  return "Security ID: "..value
+  return "Security Id: "..value
 end
 
--- Dissect: Security ID
+-- Dissect: Security Id
 dissect.security_id = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.security_id)
   local value = range:le_int64()
@@ -666,13 +666,13 @@ end
 dissect.trade_reversal_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security ID: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index = dissect.transact_time(buffer, index, packet, parent)
 
-  -- Trd Match ID: 4 Byte Unsigned Fixed Width Integer
+  -- Trd Match Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.trd_match_id(buffer, index, packet, parent)
 
   -- Last Qty: 4 Byte Signed Fixed Width Integer
@@ -681,16 +681,16 @@ dissect.trade_reversal_fields = function(buffer, offset, packet, parent)
   -- Last Px: 8 Byte Unsigned Fixed Width Integer
   index = dissect.last_px(buffer, index, packet, parent)
 
-  -- Trd Reg TS Execution Time: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Execution Time: 8 Byte Unsigned Fixed Width Integer
   index = dissect.trd_reg_ts_execution_time(buffer, index, packet, parent)
 
-  -- No MD Entries: 1 Byte Unsigned Fixed Width Integer
+  -- No Md Entries: 1 Byte Unsigned Fixed Width Integer
   index = dissect.no_md_entries(buffer, index, packet, parent)
 
   -- Pad7: 7 Byte
   index = dissect.pad7(buffer, index, packet, parent)
 
-  -- MD Trade Entry Grp: Struct of 4 fields
+  -- Md Trade Entry Grp: Struct of 4 fields
   local md_trade_entry_grp_count = buffer(index - 8, 1):le_uint()
   for i = 1, md_trade_entry_grp_count do
     index = dissect.md_trade_entry_grp(buffer, index, packet, parent)
@@ -749,7 +749,7 @@ display.match_sub_type = function(value)
     return "Match Sub Type: Circuit Breaker Auction (4)"
   end
   if value == 5 then
-    return "Match Sub Type: IPO Auction (5)"
+    return "Match Sub Type: Ipo Auction (5)"
   end
 
   return "Match Sub Type: Unknown("..value..")"
@@ -804,13 +804,13 @@ end
 dissect.trade_report_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security ID: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index = dissect.transact_time(buffer, index, packet, parent)
 
-  -- Trd Match ID: 4 Byte Unsigned Fixed Width Integer
+  -- Trd Match Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.trd_match_id(buffer, index, packet, parent)
 
   -- Last Qty: 4 Byte Signed Fixed Width Integer
@@ -895,7 +895,7 @@ dissect.top_of_book_fields = function(buffer, offset, packet, parent)
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index = dissect.transact_time(buffer, index, packet, parent)
 
-  -- Security ID: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Bid Px: 8 Byte Unsigned Fixed Width Integer
@@ -1026,15 +1026,15 @@ dissect.display_qty = function(buffer, offset, packet, parent)
   return offset + size_of.display_qty
 end
 
--- Size: Trd Reg TS Time Priority
+-- Size: Trd Reg Ts Time Priority
 size_of.trd_reg_ts_time_priority = 8
 
--- Display: Trd Reg TS Time Priority
+-- Display: Trd Reg Ts Time Priority
 display.trd_reg_ts_time_priority = function(value)
-  return "Trd Reg TS Time Priority: "..value
+  return "Trd Reg Ts Time Priority: "..value
 end
 
--- Dissect: Trd Reg TS Time Priority
+-- Dissect: Trd Reg Ts Time Priority
 dissect.trd_reg_ts_time_priority = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.trd_reg_ts_time_priority)
   local value = range:le_uint64()
@@ -1054,7 +1054,7 @@ end
 dissect.order_details_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Trd Reg TS Time Priority: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer
   index = dissect.trd_reg_ts_time_priority(buffer, index, packet, parent)
 
   -- Display Qty: 4 Byte Signed Fixed Width Integer
@@ -1123,7 +1123,7 @@ end
 dissect.quote_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security ID: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Last Qty: 4 Byte Signed Fixed Width Integer
@@ -1208,31 +1208,31 @@ dissect.trad_ses_status = function(buffer, offset, packet, parent)
   return offset + size_of.trad_ses_status
 end
 
--- Size: Trading Session Sub ID
+-- Size: Trading Session Sub Id
 size_of.trading_session_sub_id = 1
 
--- Display: Trading Session Sub ID
+-- Display: Trading Session Sub Id
 display.trading_session_sub_id = function(value)
   if value == 1 then
-    return "Trading Session Sub ID: Pre Trading (1)"
+    return "Trading Session Sub Id: Pre Trading (1)"
   end
   if value == 3 then
-    return "Trading Session Sub ID: Trading (3)"
+    return "Trading Session Sub Id: Trading (3)"
   end
   if value == 4 then
-    return "Trading Session Sub ID: Closing (4)"
+    return "Trading Session Sub Id: Closing (4)"
   end
   if value == 5 then
-    return "Trading Session Sub ID: Post Trading (5)"
+    return "Trading Session Sub Id: Post Trading (5)"
   end
   if value == 7 then
-    return "Trading Session Sub ID: Quiescent (7)"
+    return "Trading Session Sub Id: Quiescent (7)"
   end
 
-  return "Trading Session Sub ID: Unknown("..value..")"
+  return "Trading Session Sub Id: Unknown("..value..")"
 end
 
--- Dissect: Trading Session Sub ID
+-- Dissect: Trading Session Sub Id
 dissect.trading_session_sub_id = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.trading_session_sub_id)
   local value = range:le_uint()
@@ -1243,31 +1243,31 @@ dissect.trading_session_sub_id = function(buffer, offset, packet, parent)
   return offset + size_of.trading_session_sub_id
 end
 
--- Size: Trading Session ID
+-- Size: Trading Session Id
 size_of.trading_session_id = 1
 
--- Display: Trading Session ID
+-- Display: Trading Session Id
 display.trading_session_id = function(value)
   if value == 1 then
-    return "Trading Session ID: Day (1)"
+    return "Trading Session Id: Day (1)"
   end
   if value == 3 then
-    return "Trading Session ID: Morning (3)"
+    return "Trading Session Id: Morning (3)"
   end
   if value == 5 then
-    return "Trading Session ID: Evening (5)"
+    return "Trading Session Id: Evening (5)"
   end
   if value == 6 then
-    return "Trading Session ID: After Hours (6)"
+    return "Trading Session Id: After Hours (6)"
   end
   if value == 7 then
-    return "Trading Session ID: Holiday (7)"
+    return "Trading Session Id: Holiday (7)"
   end
 
-  return "Trading Session ID: Unknown("..value..")"
+  return "Trading Session Id: Unknown("..value..")"
 end
 
--- Dissect: Trading Session ID
+-- Dissect: Trading Session Id
 dissect.trading_session_id = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.trading_session_id)
   local value = range:le_uint()
@@ -1309,10 +1309,10 @@ dissect.product_summary_fields = function(buffer, offset, packet, parent)
   -- Last Msg Seq Num Processed: 4 Byte Unsigned Fixed Width Integer
   index = dissect.last_msg_seq_num_processed(buffer, index, packet, parent)
 
-  -- Trading Session ID: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index = dissect.trading_session_id(buffer, index, packet, parent)
 
-  -- Trading Session Sub ID: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trading Session Sub Id: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index = dissect.trading_session_sub_id(buffer, index, packet, parent)
 
   -- Trad Ses Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -1364,10 +1364,10 @@ end
 dissect.product_state_change_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Trading Session ID: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index = dissect.trading_session_id(buffer, index, packet, parent)
 
-  -- Trading Session Sub ID: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trading Session Sub Id: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index = dissect.trading_session_sub_id(buffer, index, packet, parent)
 
   -- Trad Ses Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -1418,13 +1418,13 @@ dissect.partial_order_execution_fields = function(buffer, offset, packet, parent
   -- Price: 8 Byte Unsigned Fixed Width Integer
   index = dissect.price(buffer, index, packet, parent)
 
-  -- Trd Reg TS Time Priority: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer
   index = dissect.trd_reg_ts_time_priority(buffer, index, packet, parent)
 
-  -- Security ID: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer
   index = dissect.security_id(buffer, index, packet, parent)
 
-  -- Trd Match ID: 4 Byte Unsigned Fixed Width Integer
+  -- Trd Match Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.trd_match_id(buffer, index, packet, parent)
 
   -- Last Qty: 4 Byte Signed Fixed Width Integer
@@ -1733,15 +1733,15 @@ dissect.prev_display_qty = function(buffer, offset, packet, parent)
   return offset + size_of.prev_display_qty
 end
 
--- Size: Trd Reg TS Time In
+-- Size: Trd Reg Ts Time In
 size_of.trd_reg_ts_time_in = 8
 
--- Display: Trd Reg TS Time In
+-- Display: Trd Reg Ts Time In
 display.trd_reg_ts_time_in = function(value)
-  return "Trd Reg TS Time In: "..value
+  return "Trd Reg Ts Time In: "..value
 end
 
--- Dissect: Trd Reg TS Time In
+-- Dissect: Trd Reg Ts Time In
 dissect.trd_reg_ts_time_in = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.trd_reg_ts_time_in)
   local value = range:le_uint64()
@@ -1761,7 +1761,7 @@ end
 dissect.order_modify_same_prio_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Trd Reg TS Time In: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Time In: 8 Byte Unsigned Fixed Width Integer
   index = dissect.trd_reg_ts_time_in(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -1773,7 +1773,7 @@ dissect.order_modify_same_prio_fields = function(buffer, offset, packet, parent)
   -- Pad4: 4 Byte
   index = dissect.pad4(buffer, index, packet, parent)
 
-  -- Security ID: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Order Details: Struct of 6 fields
@@ -1814,15 +1814,15 @@ dissect.prev_price = function(buffer, offset, packet, parent)
   return offset + size_of.prev_price
 end
 
--- Size: Trd Reg TS Prev Time Priority
+-- Size: Trd Reg Ts Prev Time Priority
 size_of.trd_reg_ts_prev_time_priority = 8
 
--- Display: Trd Reg TS Prev Time Priority
+-- Display: Trd Reg Ts Prev Time Priority
 display.trd_reg_ts_prev_time_priority = function(value)
-  return "Trd Reg TS Prev Time Priority: "..value
+  return "Trd Reg Ts Prev Time Priority: "..value
 end
 
--- Dissect: Trd Reg TS Prev Time Priority
+-- Dissect: Trd Reg Ts Prev Time Priority
 dissect.trd_reg_ts_prev_time_priority = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.trd_reg_ts_prev_time_priority)
   local value = range:le_uint64()
@@ -1842,10 +1842,10 @@ end
 dissect.order_modify_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Trd Reg TS Time In: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Time In: 8 Byte Unsigned Fixed Width Integer
   index = dissect.trd_reg_ts_time_in(buffer, index, packet, parent)
 
-  -- Trd Reg TS Prev Time Priority: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Prev Time Priority: 8 Byte Unsigned Fixed Width Integer
   index = dissect.trd_reg_ts_prev_time_priority(buffer, index, packet, parent)
 
   -- Prev Price: 8 Byte Unsigned Fixed Width Integer
@@ -1857,7 +1857,7 @@ dissect.order_modify_fields = function(buffer, offset, packet, parent)
   -- Pad4: 4 Byte
   index = dissect.pad4(buffer, index, packet, parent)
 
-  -- Security ID: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Order Details: Struct of 6 fields
@@ -1887,7 +1887,7 @@ end
 dissect.order_mass_delete_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security ID: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -1917,13 +1917,13 @@ end
 dissect.order_delete_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Trd Reg TS Time In: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Time In: 8 Byte Unsigned Fixed Width Integer
   index = dissect.trd_reg_ts_time_in(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index = dissect.transact_time(buffer, index, packet, parent)
 
-  -- Security ID: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Order Details: Struct of 6 fields
@@ -1953,10 +1953,10 @@ end
 dissect.order_add_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Trd Reg TS Time In: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Time In: 8 Byte Unsigned Fixed Width Integer
   index = dissect.trd_reg_ts_time_in(buffer, index, packet, parent)
 
-  -- Security ID: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Order Details: Struct of 6 fields
@@ -1977,22 +1977,22 @@ dissect.order_add = function(buffer, offset, packet, parent)
   return dissect.order_add_fields(buffer, offset, packet, parent)
 end
 
--- Display: MD Instrument Entry Grp
+-- Display: Md Instrument Entry Grp
 display.md_instrument_entry_grp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: MD Instrument Entry Grp
+-- Dissect Fields: Md Instrument Entry Grp
 dissect.md_instrument_entry_grp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- MD Entry Px: 8 Byte Unsigned Fixed Width Integer
+  -- Md Entry Px: 8 Byte Unsigned Fixed Width Integer
   index = dissect.md_entry_px(buffer, index, packet, parent)
 
-  -- MD Entry Size: 4 Byte Signed Fixed Width Integer
+  -- Md Entry Size: 4 Byte Signed Fixed Width Integer
   index = dissect.md_entry_size(buffer, index, packet, parent)
 
-  -- MD Entry Type: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
+  -- Md Entry Type: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
   index = dissect.md_entry_type(buffer, index, packet, parent)
 
   -- Pad3: 3 Byte
@@ -2001,7 +2001,7 @@ dissect.md_instrument_entry_grp_fields = function(buffer, offset, packet, parent
   return index
 end
 
--- Dissect: MD Instrument Entry Grp
+-- Dissect: Md Instrument Entry Grp
 dissect.md_instrument_entry_grp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.md_instrument_entry_grp then
@@ -2109,10 +2109,10 @@ display.security_trading_status = function(value)
     return "Security Trading Status: Closing Auction Freeze (211)"
   end
   if value == 212 then
-    return "Security Trading Status: IPO Auction (212)"
+    return "Security Trading Status: Ipo Auction (212)"
   end
   if value == 213 then
-    return "Security Trading Status: IPO Auction Freeze (213)"
+    return "Security Trading Status: Ipo Auction Freeze (213)"
   end
 
   return "Security Trading Status: Unknown("..value..")"
@@ -2221,13 +2221,13 @@ end
 dissect.instrument_summary_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security ID: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Last Update Time: 8 Byte Unsigned Fixed Width Integer
   index = dissect.last_update_time(buffer, index, packet, parent)
 
-  -- Trd Reg TS Execution Time: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Execution Time: 8 Byte Unsigned Fixed Width Integer
   index = dissect.trd_reg_ts_execution_time(buffer, index, packet, parent)
 
   -- Tot No Orders: 2 Byte Unsigned Fixed Width Integer
@@ -2245,13 +2245,13 @@ dissect.instrument_summary_fields = function(buffer, offset, packet, parent)
   -- Security Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index = dissect.security_trading_event(buffer, index, packet, parent)
 
-  -- No MD Entries: 1 Byte Unsigned Fixed Width Integer
+  -- No Md Entries: 1 Byte Unsigned Fixed Width Integer
   index = dissect.no_md_entries(buffer, index, packet, parent)
 
   -- Pad1: 1 Byte
   index = dissect.pad1(buffer, index, packet, parent)
 
-  -- MD Instrument Entry Grp: Struct of 4 fields
+  -- Md Instrument Entry Grp: Struct of 4 fields
   local md_instrument_entry_grp_count = buffer(index - 2, 1):le_uint()
   for i = 1, md_instrument_entry_grp_count do
     index = dissect.md_instrument_entry_grp(buffer, index, packet, parent)
@@ -2282,7 +2282,7 @@ end
 dissect.instrument_state_change_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security ID: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Security Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
@@ -2369,13 +2369,13 @@ dissect.full_order_execution_fields = function(buffer, offset, packet, parent)
   -- Price: 8 Byte Unsigned Fixed Width Integer
   index = dissect.price(buffer, index, packet, parent)
 
-  -- Trd Reg TS Time Priority: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer
   index = dissect.trd_reg_ts_time_priority(buffer, index, packet, parent)
 
-  -- Security ID: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer
   index = dissect.security_id(buffer, index, packet, parent)
 
-  -- Trd Match ID: 4 Byte Unsigned Fixed Width Integer
+  -- Trd Match Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.trd_match_id(buffer, index, packet, parent)
 
   -- Last Qty: 4 Byte Signed Fixed Width Integer
@@ -2486,15 +2486,15 @@ dissect.aggressor_side = function(buffer, offset, packet, parent)
   return offset + size_of.aggressor_side
 end
 
--- Size: Exec ID
+-- Size: Exec Id
 size_of.exec_id = 8
 
--- Display: Exec ID
+-- Display: Exec Id
 display.exec_id = function(value)
-  return "Exec ID: "..value
+  return "Exec Id: "..value
 end
 
--- Dissect: Exec ID
+-- Dissect: Exec Id
 dissect.exec_id = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.exec_id)
   local value = range:le_uint64()
@@ -2552,7 +2552,7 @@ end
 dissect.execution_summary_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security ID: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Aggressor Time: 8 Byte Unsigned Fixed Width Integer
@@ -2561,7 +2561,7 @@ dissect.execution_summary_fields = function(buffer, offset, packet, parent)
   -- Request Time: 8 Byte Unsigned Fixed Width Integer
   index = dissect.request_time(buffer, index, packet, parent)
 
-  -- Exec ID: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index = dissect.exec_id(buffer, index, packet, parent)
 
   -- Last Qty: 4 Byte Signed Fixed Width Integer
@@ -2609,7 +2609,7 @@ end
 dissect.cross_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security ID: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Last Qty: 4 Byte Signed Fixed Width Integer
@@ -2693,7 +2693,7 @@ dissect.auction_clearing_price_fields = function(buffer, offset, packet, parent)
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index = dissect.transact_time(buffer, index, packet, parent)
 
-  -- Security ID: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Unsigned Fixed Width Integer
@@ -2767,19 +2767,19 @@ dissect.bid_size = function(buffer, offset, packet, parent)
   return offset + size_of.bid_size
 end
 
--- Display: Auction BBO
+-- Display: Auction Bbo
 display.auction_bbo = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Auction BBO
+-- Dissect Fields: Auction Bbo
 dissect.auction_bbo_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index = dissect.transact_time(buffer, index, packet, parent)
 
-  -- Security ID: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Bid Px: 8 Byte Unsigned Fixed Width Integer
@@ -2803,7 +2803,7 @@ dissect.auction_bbo_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Auction BBO
+-- Dissect: Auction Bbo
 dissect.auction_bbo = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.auction_bbo then
@@ -2860,15 +2860,15 @@ dissect.leg_ratio_qty = function(buffer, offset, packet, parent)
   return offset + size_of.leg_ratio_qty
 end
 
--- Size: Leg Security ID
+-- Size: Leg Security Id
 size_of.leg_security_id = 8
 
--- Display: Leg Security ID
+-- Display: Leg Security Id
 display.leg_security_id = function(value)
-  return "Leg Security ID: "..value
+  return "Leg Security Id: "..value
 end
 
--- Dissect: Leg Security ID
+-- Dissect: Leg Security Id
 dissect.leg_security_id = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.leg_security_id)
   local value = range:le_int64()
@@ -2913,7 +2913,7 @@ dissect.instrmt_leg_grp_fields = function(buffer, offset, packet, parent)
   -- Pad4: 4 Byte
   index = dissect.pad4(buffer, index, packet, parent)
 
-  -- Leg Security ID: 8 Byte Signed Fixed Width Integer
+  -- Leg Security Id: 8 Byte Signed Fixed Width Integer
   index = dissect.leg_security_id(buffer, index, packet, parent)
 
   -- Leg Ratio Qty: 4 Byte Signed Fixed Width Integer
@@ -3071,7 +3071,7 @@ end
 dissect.add_complex_instrument_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security ID: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -3120,7 +3120,7 @@ size_of.payload = function(buffer, offset, code)
   if code == 13400 then
     return size_of.add_complex_instrument(buffer, offset)
   end
-  -- Size of Auction BBO
+  -- Size of Auction Bbo
   if code == 13500 then
     return 48
   end
@@ -3223,7 +3223,7 @@ dissect.payload_branches = function(buffer, offset, packet, parent, code)
   if code == 13400 then
     return dissect.add_complex_instrument(buffer, offset, packet, parent)
   end
-  -- Dissect Auction BBO
+  -- Dissect Auction Bbo
   if code == 13500 then
     return dissect.auction_bbo(buffer, offset, packet, parent)
   end
@@ -3354,15 +3354,15 @@ dissect.msg_seq_num = function(buffer, offset, packet, parent)
   return offset + size_of.msg_seq_num
 end
 
--- Size: Template ID
+-- Size: Template Id
 size_of.template_id = 2
 
--- Display: Template ID
+-- Display: Template Id
 display.template_id = function(value)
-  return "Template ID: "..value
+  return "Template Id: "..value
 end
 
--- Dissect: Template ID
+-- Dissect: Template Id
 dissect.template_id = function(buffer, offset, packet, parent)
   local length = 2
   local range = buffer(offset, length)
@@ -3406,7 +3406,7 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   -- Body Len: 2 Byte Unsigned Fixed Width Integer
   index = dissect.body_len(buffer, index, packet, parent)
 
-  -- Template ID: 2 Byte Unsigned Fixed Width Integer
+  -- Template Id: 2 Byte Unsigned Fixed Width Integer
   index = dissect.template_id(buffer, index, packet, parent)
 
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer

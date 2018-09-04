@@ -219,6 +219,7 @@ ice_mdf_impact_v1_24.fields.strategy_leg_definition = ProtoField.new("Strategy L
 ice_mdf_impact_v1_24.fields.strategy_symbol = ProtoField.new("Strategy Symbol", "ice.mdf.impact.v1.24.strategysymbol", ftypes.STRING)
 ice_mdf_impact_v1_24.fields.strike_price = ProtoField.new("Strike Price", "ice.mdf.impact.v1.24.strikeprice", ftypes.INT64)
 ice_mdf_impact_v1_24.fields.strip_id = ProtoField.new("Strip ID", "ice.mdf.impact.v1.24.stripid", ftypes.INT32)
+ice_mdf_impact_v1_24.fields.strip_info = ProtoField.new("Strip Info", "ice.mdf.impact.v1.24.stripinfo", ftypes.STRING)
 ice_mdf_impact_v1_24.fields.strip_info_message = ProtoField.new("Strip Info Message", "ice.mdf.impact.v1.24.stripinfomessage", ftypes.STRING)
 ice_mdf_impact_v1_24.fields.strip_name = ProtoField.new("Strip Name", "ice.mdf.impact.v1.24.stripname", ftypes.STRING)
 ice_mdf_impact_v1_24.fields.strip_type = ProtoField.new("Strip Type", "ice.mdf.impact.v1.24.striptype", ftypes.STRING)
@@ -3599,7 +3600,7 @@ dissect.mic_code = function(buffer, offset, packet, parent)
 end
 
 -- Size: Strip Name
-size_of.strip_name = 50
+size_of.strip_name = 39
 
 -- Display: Strip Name
 display.strip_name = function(value)
@@ -3920,7 +3921,7 @@ dissect.new_expiry_message_fields = function(buffer, offset, packet, parent)
   -- Strip ID: 4 Byte Signed Fixed Width Integer
   index = dissect.strip_id(buffer, index, packet, parent)
 
-  -- Strip Name: 50 Byte Ascii String
+  -- Strip Name: 39 Byte Ascii String
   index = dissect.strip_name(buffer, index, packet, parent)
 
   -- Settle Price Denominator: 1 Byte Ascii String
@@ -3975,7 +3976,7 @@ end
 dissect.new_expiry_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.new_expiry_message then
-    local range = buffer(offset, 513)
+    local range = buffer(offset, 502)
     local display = display.new_expiry_message(buffer, packet, parent)
     parent = parent:add(ice_mdf_impact_v1_24.fields.new_expiry_message, range, display)
   end
@@ -4278,6 +4279,25 @@ dissect.interval_price_limit_notification_message = function(buffer, offset, pac
   return dissect.interval_price_limit_notification_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Strip Info
+size_of.strip_info = 50
+
+-- Display: Strip Info
+display.strip_info = function(value)
+  return "Strip Info: "..value
+end
+
+-- Dissect: Strip Info
+dissect.strip_info = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.strip_info)
+  local value = range:string()
+  local display = display.strip_info(value, buffer, offset, packet, parent)
+
+  parent:add(ice_mdf_impact_v1_24.fields.strip_info, range, value, display)
+
+  return offset + size_of.strip_info
+end
+
 -- Size: End Day
 size_of.end_day = 2
 
@@ -4463,8 +4483,8 @@ dissect.strip_info_message_fields = function(buffer, offset, packet, parent)
   -- End Day: 2 Byte Signed Fixed Width Integer
   index = dissect.end_day(buffer, index, packet, parent)
 
-  -- Strip Name: 50 Byte Ascii String
-  index = dissect.strip_name(buffer, index, packet, parent)
+  -- Strip Info: 50 Byte Ascii String
+  index = dissect.strip_info(buffer, index, packet, parent)
 
   -- Strip ID: 4 Byte Signed Fixed Width Integer
   index = dissect.strip_id(buffer, index, packet, parent)
@@ -5992,7 +6012,7 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of New Expiry Message
   if code == "R" then
-    return 513
+    return 502
   end
   -- Size of Special Field Message
   if code == "b" then

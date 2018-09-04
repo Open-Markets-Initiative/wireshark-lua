@@ -24,19 +24,19 @@ nasdaq_psx_bbo_itch_v2_1.fields.authenticity = ProtoField.new("Authenticity", "n
 nasdaq_psx_bbo_itch_v2_1.fields.breached_level = ProtoField.new("Breached Level", "nasdaq.psx.bbo.itch.v2.1.breachedlevel", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.count = ProtoField.new("Count", "nasdaq.psx.bbo.itch.v2.1.count", ftypes.UINT16)
 nasdaq_psx_bbo_itch_v2_1.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.psx.bbo.itch.v2.1.currenttradingstate", ftypes.STRING)
-nasdaq_psx_bbo_itch_v2_1.fields.etp_flag = ProtoField.new("ETP Flag", "nasdaq.psx.bbo.itch.v2.1.etpflag", ftypes.STRING)
-nasdaq_psx_bbo_itch_v2_1.fields.etp_leverage_factor = ProtoField.new("ETP Leverage Factor", "nasdaq.psx.bbo.itch.v2.1.etpleveragefactor", ftypes.UINT32)
+nasdaq_psx_bbo_itch_v2_1.fields.et_p_flag = ProtoField.new("Et P Flag", "nasdaq.psx.bbo.itch.v2.1.etpflag", ftypes.STRING)
+nasdaq_psx_bbo_itch_v2_1.fields.et_p_leverage_factor = ProtoField.new("Et P Leverage Factor", "nasdaq.psx.bbo.itch.v2.1.etpleveragefactor", ftypes.UINT32)
 nasdaq_psx_bbo_itch_v2_1.fields.event_code = ProtoField.new("Event Code", "nasdaq.psx.bbo.itch.v2.1.eventcode", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.psx.bbo.itch.v2.1.financialstatusindicator", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.inverse_indicator = ProtoField.new("Inverse Indicator", "nasdaq.psx.bbo.itch.v2.1.inverseindicator", ftypes.STRING)
-nasdaq_psx_bbo_itch_v2_1.fields.ipo_flag = ProtoField.new("IPO Flag", "nasdaq.psx.bbo.itch.v2.1.ipoflag", ftypes.STRING)
+nasdaq_psx_bbo_itch_v2_1.fields.ip_o_flag = ProtoField.new("Ip O Flag", "nasdaq.psx.bbo.itch.v2.1.ipoflag", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.issue_classification = ProtoField.new("Issue Classification", "nasdaq.psx.bbo.itch.v2.1.issueclassification", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.issue_sub_type = ProtoField.new("Issue Sub Type", "nasdaq.psx.bbo.itch.v2.1.issuesubtype", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.length = ProtoField.new("Length", "nasdaq.psx.bbo.itch.v2.1.length", ftypes.UINT16)
-nasdaq_psx_bbo_itch_v2_1.fields.level_1 = ProtoField.new("Level 1", "nasdaq.psx.bbo.itch.v2.1.level1", ftypes.INT64)
-nasdaq_psx_bbo_itch_v2_1.fields.level_2 = ProtoField.new("Level 2", "nasdaq.psx.bbo.itch.v2.1.level2", ftypes.INT64)
-nasdaq_psx_bbo_itch_v2_1.fields.level_3 = ProtoField.new("Level 3", "nasdaq.psx.bbo.itch.v2.1.level3", ftypes.INT64)
-nasdaq_psx_bbo_itch_v2_1.fields.luld_reference_price_tier = ProtoField.new("LULD Reference Price Tier", "nasdaq.psx.bbo.itch.v2.1.luldreferencepricetier", ftypes.STRING)
+nasdaq_psx_bbo_itch_v2_1.fields.level1 = ProtoField.new("Level1", "nasdaq.psx.bbo.itch.v2.1.level1", ftypes.INT64)
+nasdaq_psx_bbo_itch_v2_1.fields.level2 = ProtoField.new("Level2", "nasdaq.psx.bbo.itch.v2.1.level2", ftypes.INT64)
+nasdaq_psx_bbo_itch_v2_1.fields.level3 = ProtoField.new("Level3", "nasdaq.psx.bbo.itch.v2.1.level3", ftypes.INT64)
+nasdaq_psx_bbo_itch_v2_1.fields.lul_d_reference_price_tier = ProtoField.new("Lul D Reference Price Tier", "nasdaq.psx.bbo.itch.v2.1.luldreferencepricetier", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.market_category = ProtoField.new("Market Category", "nasdaq.psx.bbo.itch.v2.1.marketcategory", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.market_code = ProtoField.new("Market Code", "nasdaq.psx.bbo.itch.v2.1.marketcode", ftypes.INT8, {[1]="Yes",[0]="No"})
 nasdaq_psx_bbo_itch_v2_1.fields.message = ProtoField.new("Message", "nasdaq.psx.bbo.itch.v2.1.message", ftypes.STRING)
@@ -45,20 +45,20 @@ nasdaq_psx_bbo_itch_v2_1.fields.message_type = ProtoField.new("Message Type", "n
 nasdaq_psx_bbo_itch_v2_1.fields.mwcb_decline_level_message = ProtoField.new("MWCB Decline Level Message", "nasdaq.psx.bbo.itch.v2.1.mwcbdeclinelevelmessage", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.mwcb_status_message = ProtoField.new("MWCB Status Message", "nasdaq.psx.bbo.itch.v2.1.mwcbstatusmessage", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.nasdaq_best_bid = ProtoField.new("Nasdaq Best Bid", "nasdaq.psx.bbo.itch.v2.1.nasdaqbestbid", ftypes.INT32)
+nasdaq_psx_bbo_itch_v2_1.fields.next_shares_symbol = ProtoField.new("Next Shares Symbol", "nasdaq.psx.bbo.itch.v2.1.nextsharessymbol", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.nextshares_quotation_message = ProtoField.new("NextShares Quotation Message", "nasdaq.psx.bbo.itch.v2.1.nextsharesquotationmessage", ftypes.STRING)
-nasdaq_psx_bbo_itch_v2_1.fields.nextshares_symbol = ProtoField.new("NextShares Symbol", "nasdaq.psx.bbo.itch.v2.1.nextsharessymbol", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.operational_halt_action = ProtoField.new("Operational Halt Action", "nasdaq.psx.bbo.itch.v2.1.operationalhaltaction", ftypes.INT8, {[1]="Yes",[0]="No"})
 nasdaq_psx_bbo_itch_v2_1.fields.operational_halt_message = ProtoField.new("Operational Halt Message", "nasdaq.psx.bbo.itch.v2.1.operationalhaltmessage", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.packet = ProtoField.new("Packet", "nasdaq.psx.bbo.itch.v2.1.packet", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psx.bbo.itch.v2.1.packetheader", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.payload = ProtoField.new("Payload", "nasdaq.psx.bbo.itch.v2.1.payload", ftypes.STRING)
-nasdaq_psx_bbo_itch_v2_1.fields.psx_best_bid_price = ProtoField.new("PSX Best Bid Price", "nasdaq.psx.bbo.itch.v2.1.psxbestbidprice", ftypes.INT32)
-nasdaq_psx_bbo_itch_v2_1.fields.psx_best_bid_size = ProtoField.new("PSX Best Bid Size", "nasdaq.psx.bbo.itch.v2.1.psxbestbidsize", ftypes.UINT32)
-nasdaq_psx_bbo_itch_v2_1.fields.psx_best_offer_price = ProtoField.new("PSX Best Offer Price", "nasdaq.psx.bbo.itch.v2.1.psxbestofferprice", ftypes.INT32)
-nasdaq_psx_bbo_itch_v2_1.fields.psx_best_offer_size = ProtoField.new("PSX Best Offer Size", "nasdaq.psx.bbo.itch.v2.1.psxbestoffersize", ftypes.UINT32)
+nasdaq_psx_bbo_itch_v2_1.fields.ps_x_best_bid_price = ProtoField.new("Ps X Best Bid Price", "nasdaq.psx.bbo.itch.v2.1.psxbestbidprice", ftypes.INT32)
+nasdaq_psx_bbo_itch_v2_1.fields.ps_x_best_bid_size = ProtoField.new("Ps X Best Bid Size", "nasdaq.psx.bbo.itch.v2.1.psxbestbidsize", ftypes.UINT32)
+nasdaq_psx_bbo_itch_v2_1.fields.ps_x_best_offer_price = ProtoField.new("Ps X Best Offer Price", "nasdaq.psx.bbo.itch.v2.1.psxbestofferprice", ftypes.INT32)
+nasdaq_psx_bbo_itch_v2_1.fields.ps_x_best_offer_size = ProtoField.new("Ps X Best Offer Size", "nasdaq.psx.bbo.itch.v2.1.psxbestoffersize", ftypes.UINT32)
 nasdaq_psx_bbo_itch_v2_1.fields.quotation_message = ProtoField.new("Quotation Message", "nasdaq.psx.bbo.itch.v2.1.quotationmessage", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.reason = ProtoField.new("Reason", "nasdaq.psx.bbo.itch.v2.1.reason", ftypes.STRING)
-nasdaq_psx_bbo_itch_v2_1.fields.reg_sho_action = ProtoField.new("Reg SHO Action", "nasdaq.psx.bbo.itch.v2.1.regshoaction", ftypes.STRING)
+nasdaq_psx_bbo_itch_v2_1.fields.reg_sh_o_action = ProtoField.new("Reg Sh O Action", "nasdaq.psx.bbo.itch.v2.1.regshoaction", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.reg_sho_short_sale_price_test_restricted_indicator_message = ProtoField.new("Reg SHO Short Sale Price Test Restricted Indicator Message", "nasdaq.psx.bbo.itch.v2.1.regshoshortsalepricetestrestrictedindicatormessage", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.psx.bbo.itch.v2.1.roundlotsize", ftypes.UINT32)
 nasdaq_psx_bbo_itch_v2_1.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.psx.bbo.itch.v2.1.roundlotsonly", ftypes.STRING)
@@ -207,25 +207,25 @@ size_of.security_class = 1
 -- Display: Security Class
 display.security_class = function(value)
   if value == "Q" then
-    return "Security Class: NasdaqListed Issue (Q)"
+    return "Security Class: Nasdaq Listed Issue (Q)"
   end
   if value == "N" then
-    return "Security Class: NYSE (N)"
+    return "Security Class: Nyse (N)"
   end
   if value == "A" then
-    return "Security Class: NYSE MKT (A)"
+    return "Security Class: Nys E Mkt (A)"
   end
   if value == "P" then
-    return "Security Class: NYSE Arca (P)"
+    return "Security Class: Nys E Arca (P)"
   end
   if value == "Z" then
-    return "Security Class: BATS (Z)"
+    return "Security Class: Bats (Z)"
   end
   if value == "V" then
-    return "Security Class: IEXG (V)"
+    return "Security Class: Iexg (V)"
   end
   if value == " " then
-    return "Security Class: NA (<whitespace>)"
+    return "Security Class: Na (<whitespace>)"
   end
 
   return "Security Class: Unknown("..value..")"
@@ -242,23 +242,23 @@ dissect.security_class = function(buffer, offset, packet, parent)
   return offset + size_of.security_class
 end
 
--- Size: NextShares Symbol
-size_of.nextshares_symbol = 8
+-- Size: Next Shares Symbol
+size_of.next_shares_symbol = 8
 
--- Display: NextShares Symbol
-display.nextshares_symbol = function(value)
-  return "NextShares Symbol: "..value
+-- Display: Next Shares Symbol
+display.next_shares_symbol = function(value)
+  return "Next Shares Symbol: "..value
 end
 
--- Dissect: NextShares Symbol
-dissect.nextshares_symbol = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.nextshares_symbol)
+-- Dissect: Next Shares Symbol
+dissect.next_shares_symbol = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.next_shares_symbol)
   local value = range:string()
-  local display = display.nextshares_symbol(value, buffer, offset, packet, parent)
+  local display = display.next_shares_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.nextshares_symbol, range, value, display)
+  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.next_shares_symbol, range, value, display)
 
-  return offset + size_of.nextshares_symbol
+  return offset + size_of.next_shares_symbol
 end
 
 -- Size: Timestamp
@@ -314,8 +314,8 @@ dissect.nextshares_quotation_message_fields = function(buffer, offset, packet, p
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
   index = dissect.timestamp(buffer, index, packet, parent)
 
-  -- NextShares Symbol: 8 Byte Ascii String
-  index = dissect.nextshares_symbol(buffer, index, packet, parent)
+  -- Next Shares Symbol: 8 Byte Ascii String
+  index = dissect.next_shares_symbol(buffer, index, packet, parent)
 
   -- Security Class: 1 Byte Ascii String Enum with 7 values
   index = dissect.security_class(buffer, index, packet, parent)
@@ -338,80 +338,80 @@ dissect.nextshares_quotation_message = function(buffer, offset, packet, parent)
   return dissect.nextshares_quotation_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: PSX Best Offer Size
-size_of.psx_best_offer_size = 4
+-- Size: Ps X Best Offer Size
+size_of.ps_x_best_offer_size = 4
 
--- Display: PSX Best Offer Size
-display.psx_best_offer_size = function(value)
-  return "PSX Best Offer Size: "..value
+-- Display: Ps X Best Offer Size
+display.ps_x_best_offer_size = function(value)
+  return "Ps X Best Offer Size: "..value
 end
 
--- Dissect: PSX Best Offer Size
-dissect.psx_best_offer_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.psx_best_offer_size)
+-- Dissect: Ps X Best Offer Size
+dissect.ps_x_best_offer_size = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.ps_x_best_offer_size)
   local value = range:uint()
-  local display = display.psx_best_offer_size(value, buffer, offset, packet, parent)
+  local display = display.ps_x_best_offer_size(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.psx_best_offer_size, range, value, display)
+  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.ps_x_best_offer_size, range, value, display)
 
-  return offset + size_of.psx_best_offer_size
+  return offset + size_of.ps_x_best_offer_size
 end
 
--- Size: PSX Best Offer Price
-size_of.psx_best_offer_price = 4
+-- Size: Ps X Best Offer Price
+size_of.ps_x_best_offer_price = 4
 
--- Display: PSX Best Offer Price
-display.psx_best_offer_price = function(value)
-  return "PSX Best Offer Price: "..value
+-- Display: Ps X Best Offer Price
+display.ps_x_best_offer_price = function(value)
+  return "Ps X Best Offer Price: "..value
 end
 
--- Dissect: PSX Best Offer Price
-dissect.psx_best_offer_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.psx_best_offer_price)
+-- Dissect: Ps X Best Offer Price
+dissect.ps_x_best_offer_price = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.ps_x_best_offer_price)
   local value = range:int()
-  local display = display.psx_best_offer_price(value, buffer, offset, packet, parent)
+  local display = display.ps_x_best_offer_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.psx_best_offer_price, range, value, display)
+  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.ps_x_best_offer_price, range, value, display)
 
-  return offset + size_of.psx_best_offer_price
+  return offset + size_of.ps_x_best_offer_price
 end
 
--- Size: PSX Best Bid Size
-size_of.psx_best_bid_size = 4
+-- Size: Ps X Best Bid Size
+size_of.ps_x_best_bid_size = 4
 
--- Display: PSX Best Bid Size
-display.psx_best_bid_size = function(value)
-  return "PSX Best Bid Size: "..value
+-- Display: Ps X Best Bid Size
+display.ps_x_best_bid_size = function(value)
+  return "Ps X Best Bid Size: "..value
 end
 
--- Dissect: PSX Best Bid Size
-dissect.psx_best_bid_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.psx_best_bid_size)
+-- Dissect: Ps X Best Bid Size
+dissect.ps_x_best_bid_size = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.ps_x_best_bid_size)
   local value = range:uint()
-  local display = display.psx_best_bid_size(value, buffer, offset, packet, parent)
+  local display = display.ps_x_best_bid_size(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.psx_best_bid_size, range, value, display)
+  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.ps_x_best_bid_size, range, value, display)
 
-  return offset + size_of.psx_best_bid_size
+  return offset + size_of.ps_x_best_bid_size
 end
 
--- Size: PSX Best Bid Price
-size_of.psx_best_bid_price = 4
+-- Size: Ps X Best Bid Price
+size_of.ps_x_best_bid_price = 4
 
--- Display: PSX Best Bid Price
-display.psx_best_bid_price = function(value)
-  return "PSX Best Bid Price: "..value
+-- Display: Ps X Best Bid Price
+display.ps_x_best_bid_price = function(value)
+  return "Ps X Best Bid Price: "..value
 end
 
--- Dissect: PSX Best Bid Price
-dissect.psx_best_bid_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.psx_best_bid_price)
+-- Dissect: Ps X Best Bid Price
+dissect.ps_x_best_bid_price = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.ps_x_best_bid_price)
   local value = range:int()
-  local display = display.psx_best_bid_price(value, buffer, offset, packet, parent)
+  local display = display.ps_x_best_bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.psx_best_bid_price, range, value, display)
+  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.ps_x_best_bid_price, range, value, display)
 
-  return offset + size_of.psx_best_bid_price
+  return offset + size_of.ps_x_best_bid_price
 end
 
 -- Size: Stock
@@ -454,17 +454,17 @@ dissect.quotation_message_fields = function(buffer, offset, packet, parent)
   -- Security Class: 1 Byte Ascii String Enum with 7 values
   index = dissect.security_class(buffer, index, packet, parent)
 
-  -- PSX Best Bid Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.psx_best_bid_price(buffer, index, packet, parent)
+  -- Ps X Best Bid Price: 4 Byte Signed Fixed Width Integer
+  index = dissect.ps_x_best_bid_price(buffer, index, packet, parent)
 
-  -- PSX Best Bid Size: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.psx_best_bid_size(buffer, index, packet, parent)
+  -- Ps X Best Bid Size: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.ps_x_best_bid_size(buffer, index, packet, parent)
 
-  -- PSX Best Offer Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.psx_best_offer_price(buffer, index, packet, parent)
+  -- Ps X Best Offer Price: 4 Byte Signed Fixed Width Integer
+  index = dissect.ps_x_best_offer_price(buffer, index, packet, parent)
 
-  -- PSX Best Offer Size: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.psx_best_offer_size(buffer, index, packet, parent)
+  -- Ps X Best Offer Size: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.ps_x_best_offer_size(buffer, index, packet, parent)
 
   return index
 end
@@ -516,10 +516,10 @@ display.market_code = function(value)
     return "Market Code: Nasdaq (Q)"
   end
   if value == B then
-    return "Market Code: BX (B)"
+    return "Market Code: Bx (B)"
   end
   if value == X then
-    return "Market Code: PSX (X)"
+    return "Market Code: Psx (X)"
   end
 
   return "Market Code: Unknown("..value..")"
@@ -581,13 +581,13 @@ size_of.breached_level = 1
 -- Display: Breached Level
 display.breached_level = function(value)
   if value == "1" then
-    return "Breached Level: Level 1 (1)"
+    return "Breached Level: Level1 (1)"
   end
   if value == "2" then
-    return "Breached Level: Level 2 (2)"
+    return "Breached Level: Level2 (2)"
   end
   if value == "3" then
-    return "Breached Level: Level 3 (3)"
+    return "Breached Level: Level3 (3)"
   end
 
   return "Breached Level: Unknown("..value..")"
@@ -637,61 +637,61 @@ dissect.mwcb_status_message = function(buffer, offset, packet, parent)
   return dissect.mwcb_status_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Level 3
-size_of.level_3 = 8
+-- Size: Level3
+size_of.level3 = 8
 
--- Display: Level 3
-display.level_3 = function(value)
-  return "Level 3: "..value
+-- Display: Level3
+display.level3 = function(value)
+  return "Level3: "..value
 end
 
--- Dissect: Level 3
-dissect.level_3 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.level_3)
+-- Dissect: Level3
+dissect.level3 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.level3)
   local value = range:int64()
-  local display = display.level_3(value, buffer, offset, packet, parent)
+  local display = display.level3(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.level_3, range, value, display)
+  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.level3, range, value, display)
 
-  return offset + size_of.level_3
+  return offset + size_of.level3
 end
 
--- Size: Level 2
-size_of.level_2 = 8
+-- Size: Level2
+size_of.level2 = 8
 
--- Display: Level 2
-display.level_2 = function(value)
-  return "Level 2: "..value
+-- Display: Level2
+display.level2 = function(value)
+  return "Level2: "..value
 end
 
--- Dissect: Level 2
-dissect.level_2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.level_2)
+-- Dissect: Level2
+dissect.level2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.level2)
   local value = range:int64()
-  local display = display.level_2(value, buffer, offset, packet, parent)
+  local display = display.level2(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.level_2, range, value, display)
+  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.level2, range, value, display)
 
-  return offset + size_of.level_2
+  return offset + size_of.level2
 end
 
--- Size: Level 1
-size_of.level_1 = 8
+-- Size: Level1
+size_of.level1 = 8
 
--- Display: Level 1
-display.level_1 = function(value)
-  return "Level 1: "..value
+-- Display: Level1
+display.level1 = function(value)
+  return "Level1: "..value
 end
 
--- Dissect: Level 1
-dissect.level_1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.level_1)
+-- Dissect: Level1
+dissect.level1 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.level1)
   local value = range:int64()
-  local display = display.level_1(value, buffer, offset, packet, parent)
+  local display = display.level1(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.level_1, range, value, display)
+  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.level1, range, value, display)
 
-  return offset + size_of.level_1
+  return offset + size_of.level1
 end
 
 -- Display: MWCB Decline Level Message
@@ -709,14 +709,14 @@ dissect.mwcb_decline_level_message_fields = function(buffer, offset, packet, par
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
   index = dissect.timestamp(buffer, index, packet, parent)
 
-  -- Level 1: 8 Byte Signed Fixed Width Integer
-  index = dissect.level_1(buffer, index, packet, parent)
+  -- Level1: 8 Byte Signed Fixed Width Integer
+  index = dissect.level1(buffer, index, packet, parent)
 
-  -- Level 2: 8 Byte Signed Fixed Width Integer
-  index = dissect.level_2(buffer, index, packet, parent)
+  -- Level2: 8 Byte Signed Fixed Width Integer
+  index = dissect.level2(buffer, index, packet, parent)
 
-  -- Level 3: 8 Byte Signed Fixed Width Integer
-  index = dissect.level_3(buffer, index, packet, parent)
+  -- Level3: 8 Byte Signed Fixed Width Integer
+  index = dissect.level3(buffer, index, packet, parent)
 
   return index
 end
@@ -733,33 +733,33 @@ dissect.mwcb_decline_level_message = function(buffer, offset, packet, parent)
   return dissect.mwcb_decline_level_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Reg SHO Action
-size_of.reg_sho_action = 1
+-- Size: Reg Sh O Action
+size_of.reg_sh_o_action = 1
 
--- Display: Reg SHO Action
-display.reg_sho_action = function(value)
+-- Display: Reg Sh O Action
+display.reg_sh_o_action = function(value)
   if value == "0" then
-    return "Reg SHO Action: No price test (0)"
+    return "Reg Sh O Action: No Price Test (0)"
   end
   if value == "1" then
-    return "Reg SHO Action: Reg SHO Short Sale Price Test Restriction (1)"
+    return "Reg Sh O Action: Reg Sh O Short Sale Price Test Restriction (1)"
   end
   if value == "2" then
-    return "Reg SHO Action: Test Restriction remains (2)"
+    return "Reg Sh O Action: Test Restriction Remains (2)"
   end
 
-  return "Reg SHO Action: Unknown("..value..")"
+  return "Reg Sh O Action: Unknown("..value..")"
 end
 
--- Dissect: Reg SHO Action
-dissect.reg_sho_action = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reg_sho_action)
+-- Dissect: Reg Sh O Action
+dissect.reg_sh_o_action = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.reg_sh_o_action)
   local value = range:string()
-  local display = display.reg_sho_action(value, buffer, offset, packet, parent)
+  local display = display.reg_sh_o_action(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.reg_sho_action, range, value, display)
+  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.reg_sh_o_action, range, value, display)
 
-  return offset + size_of.reg_sho_action
+  return offset + size_of.reg_sh_o_action
 end
 
 -- Display: Reg SHO Short Sale Price Test Restricted Indicator Message
@@ -780,8 +780,8 @@ dissect.reg_sho_short_sale_price_test_restricted_indicator_message_fields = func
   -- Stock: 8 Byte Ascii String
   index = dissect.stock(buffer, index, packet, parent)
 
-  -- Reg SHO Action: 1 Byte Ascii String Enum with 3 values
-  index = dissect.reg_sho_action(buffer, index, packet, parent)
+  -- Reg Sh O Action: 1 Byte Ascii String Enum with 3 values
+  index = dissect.reg_sh_o_action(buffer, index, packet, parent)
 
   return index
 end
@@ -829,7 +829,7 @@ display.current_trading_state = function(value)
     return "Current Trading State: Paused (P)"
   end
   if value == "Q" then
-    return "Current Trading State: Quotation only period (Q)"
+    return "Current Trading State: Quotation Only Period (Q)"
   end
   if value == "T" then
     return "Current Trading State: Trading (T)"
@@ -897,10 +897,10 @@ size_of.inverse_indicator = 1
 -- Display: Inverse Indicator
 display.inverse_indicator = function(value)
   if value == "Y" then
-    return "Inverse Indicator: Inverse ETP (Y)"
+    return "Inverse Indicator: Inverse Etp (Y)"
   end
   if value == "N" then
-    return "Inverse Indicator: Not Inverse ETP (N)"
+    return "Inverse Indicator: Not Inverse Etp (N)"
   end
 
   return "Inverse Indicator: Unknown("..value..")"
@@ -917,110 +917,110 @@ dissect.inverse_indicator = function(buffer, offset, packet, parent)
   return offset + size_of.inverse_indicator
 end
 
--- Size: ETP Leverage Factor
-size_of.etp_leverage_factor = 4
+-- Size: Et P Leverage Factor
+size_of.et_p_leverage_factor = 4
 
--- Display: ETP Leverage Factor
-display.etp_leverage_factor = function(value)
-  return "ETP Leverage Factor: "..value
+-- Display: Et P Leverage Factor
+display.et_p_leverage_factor = function(value)
+  return "Et P Leverage Factor: "..value
 end
 
--- Dissect: ETP Leverage Factor
-dissect.etp_leverage_factor = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.etp_leverage_factor)
+-- Dissect: Et P Leverage Factor
+dissect.et_p_leverage_factor = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.et_p_leverage_factor)
   local value = range:uint()
-  local display = display.etp_leverage_factor(value, buffer, offset, packet, parent)
+  local display = display.et_p_leverage_factor(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.etp_leverage_factor, range, value, display)
+  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.et_p_leverage_factor, range, value, display)
 
-  return offset + size_of.etp_leverage_factor
+  return offset + size_of.et_p_leverage_factor
 end
 
--- Size: ETP Flag
-size_of.etp_flag = 1
+-- Size: Et P Flag
+size_of.et_p_flag = 1
 
--- Display: ETP Flag
-display.etp_flag = function(value)
+-- Display: Et P Flag
+display.et_p_flag = function(value)
   if value == "Y" then
-    return "ETP Flag: ETP (Y)"
+    return "Et P Flag: Etp (Y)"
   end
   if value == "N" then
-    return "ETP Flag: Not ETP (N)"
+    return "Et P Flag: Not Etp (N)"
   end
   if value == " " then
-    return "ETP Flag: NA (<whitespace>)"
+    return "Et P Flag: Na (<whitespace>)"
   end
 
-  return "ETP Flag: Unknown("..value..")"
+  return "Et P Flag: Unknown("..value..")"
 end
 
--- Dissect: ETP Flag
-dissect.etp_flag = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.etp_flag)
+-- Dissect: Et P Flag
+dissect.et_p_flag = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.et_p_flag)
   local value = range:string()
-  local display = display.etp_flag(value, buffer, offset, packet, parent)
+  local display = display.et_p_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.etp_flag, range, value, display)
+  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.et_p_flag, range, value, display)
 
-  return offset + size_of.etp_flag
+  return offset + size_of.et_p_flag
 end
 
--- Size: LULD Reference Price Tier
-size_of.luld_reference_price_tier = 1
+-- Size: Lul D Reference Price Tier
+size_of.lul_d_reference_price_tier = 1
 
--- Display: LULD Reference Price Tier
-display.luld_reference_price_tier = function(value)
+-- Display: Lul D Reference Price Tier
+display.lul_d_reference_price_tier = function(value)
   if value == "1" then
-    return "LULD Reference Price Tier: Tier 1 (1)"
+    return "Lul D Reference Price Tier: Tier1 (1)"
   end
   if value == "2" then
-    return "LULD Reference Price Tier: Tier 2 (2)"
+    return "Lul D Reference Price Tier: Tier2 (2)"
   end
   if value == " " then
-    return "LULD Reference Price Tier: NA (<whitespace>)"
+    return "Lul D Reference Price Tier: Na (<whitespace>)"
   end
 
-  return "LULD Reference Price Tier: Unknown("..value..")"
+  return "Lul D Reference Price Tier: Unknown("..value..")"
 end
 
--- Dissect: LULD Reference Price Tier
-dissect.luld_reference_price_tier = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.luld_reference_price_tier)
+-- Dissect: Lul D Reference Price Tier
+dissect.lul_d_reference_price_tier = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.lul_d_reference_price_tier)
   local value = range:string()
-  local display = display.luld_reference_price_tier(value, buffer, offset, packet, parent)
+  local display = display.lul_d_reference_price_tier(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.luld_reference_price_tier, range, value, display)
+  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.lul_d_reference_price_tier, range, value, display)
 
-  return offset + size_of.luld_reference_price_tier
+  return offset + size_of.lul_d_reference_price_tier
 end
 
--- Size: IPO Flag
-size_of.ipo_flag = 1
+-- Size: Ip O Flag
+size_of.ip_o_flag = 1
 
--- Display: IPO Flag
-display.ipo_flag = function(value)
+-- Display: Ip O Flag
+display.ip_o_flag = function(value)
   if value == "Y" then
-    return "IPO Flag: NASDAQ listed instrument (Y)"
+    return "Ip O Flag: Nasda Q Listed Instrument (Y)"
   end
   if value == "N" then
-    return "IPO Flag: NASDAQ listed instrument (N)"
+    return "Ip O Flag: Nasda Q Listed Instrument (N)"
   end
   if value == " " then
-    return "IPO Flag: NA (<whitespace>)"
+    return "Ip O Flag: Na (<whitespace>)"
   end
 
-  return "IPO Flag: Unknown("..value..")"
+  return "Ip O Flag: Unknown("..value..")"
 end
 
--- Dissect: IPO Flag
-dissect.ipo_flag = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ipo_flag)
+-- Dissect: Ip O Flag
+dissect.ip_o_flag = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.ip_o_flag)
   local value = range:string()
-  local display = display.ipo_flag(value, buffer, offset, packet, parent)
+  local display = display.ip_o_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.ipo_flag, range, value, display)
+  parent:add(nasdaq_psx_bbo_itch_v2_1.fields.ip_o_flag, range, value, display)
 
-  return offset + size_of.ipo_flag
+  return offset + size_of.ip_o_flag
 end
 
 -- Size: Short Sale Threshold Indicator
@@ -1029,13 +1029,13 @@ size_of.short_sale_threshold_indicator = 1
 -- Display: Short Sale Threshold Indicator
 display.short_sale_threshold_indicator = function(value)
   if value == "Y" then
-    return "Short Sale Threshold Indicator: restricted (Y)"
+    return "Short Sale Threshold Indicator: Restricted (Y)"
   end
   if value == "N" then
-    return "Short Sale Threshold Indicator: not restricted (N)"
+    return "Short Sale Threshold Indicator: Not Restricted (N)"
   end
   if value == " " then
-    return "Short Sale Threshold Indicator: NA (<whitespace>)"
+    return "Short Sale Threshold Indicator: Na (<whitespace>)"
   end
 
   return "Short Sale Threshold Indicator: Unknown("..value..")"
@@ -1058,7 +1058,7 @@ size_of.authenticity = 1
 -- Display: Authenticity
 display.authenticity = function(value)
   if value == "P" then
-    return "Authenticity: LiveProduction (P)"
+    return "Authenticity: Live Production (P)"
   end
   if value == "T" then
     return "Authenticity: Test (T)"
@@ -1125,7 +1125,7 @@ display.round_lots_only = function(value)
     return "Round Lots Only: Round Lots Only (Y)"
   end
   if value == "N" then
-    return "Round Lots Only: OddMixed Allowed (N)"
+    return "Round Lots Only: Odd Mixed Allowed (N)"
   end
 
   return "Round Lots Only: Unknown("..value..")"
@@ -1179,25 +1179,25 @@ display.financial_status_indicator = function(value)
     return "Financial Status Indicator: Suspended (S)"
   end
   if value == "G" then
-    return "Financial Status Indicator: Deficient and Bankrupt (G)"
+    return "Financial Status Indicator: Deficient And Bankrupt (G)"
   end
   if value == "H" then
-    return "Financial Status Indicator: Deficient and Delinquent (H)"
+    return "Financial Status Indicator: Deficient And Delinquent (H)"
   end
   if value == "J" then
-    return "Financial Status Indicator: Delinquent and Bankrupt (J)"
+    return "Financial Status Indicator: Delinquent And Bankrupt (J)"
   end
   if value == "K" then
-    return "Financial Status Indicator: Deficient Delinquent and Bankrupt (K)"
+    return "Financial Status Indicator: Deficient Delinquent And Bankrupt (K)"
   end
   if value == "C" then
-    return "Financial Status Indicator: Creations and Redemptions Suspended (C)"
+    return "Financial Status Indicator: Creations And Redemptions Suspended (C)"
   end
   if value == "N" then
     return "Financial Status Indicator: Normal (N)"
   end
   if value == " " then
-    return "Financial Status Indicator: NA (<whitespace>)"
+    return "Financial Status Indicator: Na (<whitespace>)"
   end
 
   return "Financial Status Indicator: Unknown("..value..")"
@@ -1220,31 +1220,31 @@ size_of.market_category = 1
 -- Display: Market Category
 display.market_category = function(value)
   if value == "Q" then
-    return "Market Category: NASDAQ Global Select Market (Q)"
+    return "Market Category: Nasda Q Global Select Market (Q)"
   end
   if value == "G" then
-    return "Market Category: NASDAQ Global Market (G)"
+    return "Market Category: Nasda Q Global Market (G)"
   end
   if value == "S" then
-    return "Market Category: NASDAQ Capital Market (S)"
+    return "Market Category: Nasda Q Capital Market (S)"
   end
   if value == "N" then
-    return "Market Category: NYSE (N)"
+    return "Market Category: Nyse (N)"
   end
   if value == "A" then
-    return "Market Category: NYSE Amex (A)"
+    return "Market Category: Nys E Amex (A)"
   end
   if value == "P" then
-    return "Market Category: NYSE Arca (P)"
+    return "Market Category: Nys E Arca (P)"
   end
   if value == "Z" then
-    return "Market Category: BATS BZX (Z)"
+    return "Market Category: Bat S Bzx (Z)"
   end
   if value == "V" then
     return "Market Category: Investors Exchange (V)"
   end
   if value == " " then
-    return "Market Category: NA (<whitespace>)"
+    return "Market Category: Na (<whitespace>)"
   end
 
   return "Market Category: Unknown("..value..")"
@@ -1303,17 +1303,17 @@ dissect.stock_directory_message_fields = function(buffer, offset, packet, parent
   -- Short Sale Threshold Indicator: 1 Byte Ascii String Enum with 3 values
   index = dissect.short_sale_threshold_indicator(buffer, index, packet, parent)
 
-  -- IPO Flag: 1 Byte Ascii String Enum with 3 values
-  index = dissect.ipo_flag(buffer, index, packet, parent)
+  -- Ip O Flag: 1 Byte Ascii String Enum with 3 values
+  index = dissect.ip_o_flag(buffer, index, packet, parent)
 
-  -- LULD Reference Price Tier: 1 Byte Ascii String Enum with 3 values
-  index = dissect.luld_reference_price_tier(buffer, index, packet, parent)
+  -- Lul D Reference Price Tier: 1 Byte Ascii String Enum with 3 values
+  index = dissect.lul_d_reference_price_tier(buffer, index, packet, parent)
 
-  -- ETP Flag: 1 Byte Ascii String Enum with 3 values
-  index = dissect.etp_flag(buffer, index, packet, parent)
+  -- Et P Flag: 1 Byte Ascii String Enum with 3 values
+  index = dissect.et_p_flag(buffer, index, packet, parent)
 
-  -- ETP Leverage Factor: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.etp_leverage_factor(buffer, index, packet, parent)
+  -- Et P Leverage Factor: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.et_p_leverage_factor(buffer, index, packet, parent)
 
   -- Inverse Indicator: 1 Byte Ascii String Enum with 2 values
   index = dissect.inverse_indicator(buffer, index, packet, parent)
@@ -1339,22 +1339,22 @@ size_of.event_code = 1
 -- Display: Event Code
 display.event_code = function(value)
   if value == "O" then
-    return "Event Code: Start of Transmissions (O)"
+    return "Event Code: Start Of Transmissions (O)"
   end
   if value == "S" then
-    return "Event Code: Start of System hours (S)"
+    return "Event Code: Start Of System Hours (S)"
   end
   if value == "Q" then
-    return "Event Code: Start of Market hours (Q)"
+    return "Event Code: Start Of Market Hours (Q)"
   end
   if value == "M" then
-    return "Event Code: End of Market hours (M)"
+    return "Event Code: End Of Market Hours (M)"
   end
   if value == "E" then
-    return "Event Code: End of System hours (E)"
+    return "Event Code: End Of System Hours (E)"
   end
   if value == "C" then
-    return "Event Code: End of Messages (C)"
+    return "Event Code: End Of Messages (C)"
   end
 
   return "Event Code: Unknown("..value..")"

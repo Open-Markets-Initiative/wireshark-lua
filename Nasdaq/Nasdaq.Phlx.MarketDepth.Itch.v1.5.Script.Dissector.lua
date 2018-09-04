@@ -28,7 +28,7 @@ nasdaq_phlx_marketdepth_itch_v1_5.fields.ask = ProtoField.new("Ask", "nasdaq.phl
 nasdaq_phlx_marketdepth_itch_v1_5.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.phlx.marketdepth.itch.v1.5.askprice", ftypes.UINT16)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.ask_reference_number_delta = ProtoField.new("Ask Reference Number Delta", "nasdaq.phlx.marketdepth.itch.v1.5.askreferencenumberdelta", ftypes.UINT32)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.ask_size = ProtoField.new("Ask Size", "nasdaq.phlx.marketdepth.itch.v1.5.asksize", ftypes.UINT16)
-nasdaq_phlx_marketdepth_itch_v1_5.fields.auction_id = ProtoField.new("Auction ID", "nasdaq.phlx.marketdepth.itch.v1.5.auctionid", ftypes.UINT32)
+nasdaq_phlx_marketdepth_itch_v1_5.fields.auction_id = ProtoField.new("Auction Id", "nasdaq.phlx.marketdepth.itch.v1.5.auctionid", ftypes.UINT32)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "nasdaq.phlx.marketdepth.itch.v1.5.auctionnotificationmessage", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.auction_type = ProtoField.new("Auction Type", "nasdaq.phlx.marketdepth.itch.v1.5.auctiontype", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.base_reference_message = ProtoField.new("Base Reference Message", "nasdaq.phlx.marketdepth.itch.v1.5.basereferencemessage", ftypes.STRING)
@@ -65,14 +65,14 @@ nasdaq_phlx_marketdepth_itch_v1_5.fields.message_type = ProtoField.new("Message 
 nasdaq_phlx_marketdepth_itch_v1_5.fields.mpv = ProtoField.new("Mpv", "nasdaq.phlx.marketdepth.itch.v1.5.mpv", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.new_reference_number_delta = ProtoField.new("New Reference Number Delta", "nasdaq.phlx.marketdepth.itch.v1.5.newreferencenumberdelta", ftypes.UINT32)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.non_auction_options_trade_message = ProtoField.new("Non Auction Options Trade Message", "nasdaq.phlx.marketdepth.itch.v1.5.nonauctionoptionstrademessage", ftypes.STRING)
-nasdaq_phlx_marketdepth_itch_v1_5.fields.number_of_reference_number_deltas = ProtoField.new("Number of Reference Number Deltas", "nasdaq.phlx.marketdepth.itch.v1.5.numberofreferencenumberdeltas", ftypes.UINT16)
+nasdaq_phlx_marketdepth_itch_v1_5.fields.number_of_reference_number_deltas = ProtoField.new("Number Of Reference Number Deltas", "nasdaq.phlx.marketdepth.itch.v1.5.numberofreferencenumberdeltas", ftypes.UINT16)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.open_state = ProtoField.new("Open State", "nasdaq.phlx.marketdepth.itch.v1.5.openstate", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.option_directory_message = ProtoField.new("Option Directory Message", "nasdaq.phlx.marketdepth.itch.v1.5.optiondirectorymessage", ftypes.STRING)
-nasdaq_phlx_marketdepth_itch_v1_5.fields.option_id = ProtoField.new("Option ID", "nasdaq.phlx.marketdepth.itch.v1.5.optionid", ftypes.UINT32)
+nasdaq_phlx_marketdepth_itch_v1_5.fields.option_id = ProtoField.new("Option Id", "nasdaq.phlx.marketdepth.itch.v1.5.optionid", ftypes.UINT32)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.option_type = ProtoField.new("Option Type", "nasdaq.phlx.marketdepth.itch.v1.5.optiontype", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.options_closing_type = ProtoField.new("Options Closing Type", "nasdaq.phlx.marketdepth.itch.v1.5.optionsclosingtype", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.options_cross_trade_message = ProtoField.new("Options Cross Trade Message", "nasdaq.phlx.marketdepth.itch.v1.5.optionscrosstrademessage", ftypes.STRING)
-nasdaq_phlx_marketdepth_itch_v1_5.fields.order_id = ProtoField.new("Order ID", "nasdaq.phlx.marketdepth.itch.v1.5.orderid", ftypes.UINT32)
+nasdaq_phlx_marketdepth_itch_v1_5.fields.order_id = ProtoField.new("Order Id", "nasdaq.phlx.marketdepth.itch.v1.5.orderid", ftypes.UINT32)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.order_reference_number_delta = ProtoField.new("Order Reference Number Delta", "nasdaq.phlx.marketdepth.itch.v1.5.orderreferencenumberdelta", ftypes.UINT32)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.order_replace_message_short_form = ProtoField.new("Order Replace Message Short Form", "nasdaq.phlx.marketdepth.itch.v1.5.orderreplacemessageshortform", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.original_ask_reference_number_delta = ProtoField.new("Original Ask Reference Number Delta", "nasdaq.phlx.marketdepth.itch.v1.5.originalaskreferencenumberdelta", ftypes.UINT32)
@@ -366,7 +366,7 @@ display.customer_indicator = function(value)
     return "Customer Indicator: Professional (P)"
   end
   if value == "B" then
-    return "Customer Indicator: NonPHLX (B)"
+    return "Customer Indicator: Non Phlx (B)"
   end
 
   return "Customer Indicator: Unknown("..value..")"
@@ -421,15 +421,15 @@ dissect.imbalance_price = function(buffer, offset, packet, parent)
   return offset + size_of.imbalance_price
 end
 
--- Size: Option ID
+-- Size: Option Id
 size_of.option_id = 4
 
--- Display: Option ID
+-- Display: Option Id
 display.option_id = function(value)
-  return "Option ID: "..value
+  return "Option Id: "..value
 end
 
--- Dissect: Option ID
+-- Dissect: Option Id
 dissect.option_id = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.option_id)
   local value = range:uint()
@@ -446,10 +446,10 @@ size_of.imbalance_direction = 1
 -- Display: Imbalance Direction
 display.imbalance_direction = function(value)
   if value == "B" then
-    return "Imbalance Direction: buy (B)"
+    return "Imbalance Direction: Buy (B)"
   end
   if value == "S" then
-    return "Imbalance Direction: sell (S)"
+    return "Imbalance Direction: Sell (S)"
   end
 
   return "Imbalance Direction: Unknown("..value..")"
@@ -514,15 +514,15 @@ dissect.auction_type = function(buffer, offset, packet, parent)
   return offset + size_of.auction_type
 end
 
--- Size: Auction ID
+-- Size: Auction Id
 size_of.auction_id = 4
 
--- Display: Auction ID
+-- Display: Auction Id
 display.auction_id = function(value)
-  return "Auction ID: "..value
+  return "Auction Id: "..value
 end
 
--- Dissect: Auction ID
+-- Dissect: Auction Id
 dissect.auction_id = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.auction_id)
   local value = range:uint()
@@ -564,7 +564,7 @@ dissect.auction_notification_message_fields = function(buffer, offset, packet, p
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
   index = dissect.timestamp(buffer, index, packet, parent)
 
-  -- Auction ID: 4 Byte Unsigned Fixed Width Integer
+  -- Auction Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.auction_id(buffer, index, packet, parent)
 
   -- Auction Type: 1 Byte Ascii String Enum with 3 values
@@ -576,7 +576,7 @@ dissect.auction_notification_message_fields = function(buffer, offset, packet, p
   -- Imbalance Direction: 1 Byte Ascii String Enum with 2 values
   index = dissect.imbalance_direction(buffer, index, packet, parent)
 
-  -- Option ID: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.option_id(buffer, index, packet, parent)
 
   -- Imbalance Price: 4 Byte Unsigned Fixed Width Integer
@@ -721,7 +721,7 @@ size_of.cross_type = 1
 -- Display: Cross Type
 display.cross_type = function(value)
   if value == "O" then
-    return "Cross Type: OpeningReopening (O)"
+    return "Cross Type: Opening Reopening (O)"
   end
 
   return "Cross Type: Unknown("..value..")"
@@ -750,7 +750,7 @@ dissect.options_cross_trade_message_fields = function(buffer, offset, packet, pa
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
   index = dissect.timestamp(buffer, index, packet, parent)
 
-  -- Option ID: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.option_id(buffer, index, packet, parent)
 
   -- Cross Number: 4 Byte Unsigned Fixed Width Integer
@@ -789,13 +789,13 @@ size_of.trade_indicator = 1
 -- Display: Trade Indicator
 display.trade_indicator = function(value)
   if value == "O" then
-    return "Trade Indicator: Non displayable (O)"
+    return "Trade Indicator: Non Displayable (O)"
   end
   if value == "C" then
     return "Trade Indicator: Complex (C)"
   end
   if value == "P" then
-    return "Trade Indicator: PIXL (P)"
+    return "Trade Indicator: Pixl (P)"
   end
 
   return "Trade Indicator: Unknown("..value..")"
@@ -827,7 +827,7 @@ dissect.non_auction_options_trade_message_fields = function(buffer, offset, pack
   -- Trade Indicator: 1 Byte Ascii String Enum with 3 values
   index = dissect.trade_indicator(buffer, index, packet, parent)
 
-  -- Option ID: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.option_id(buffer, index, packet, parent)
 
   -- Cross Number: 4 Byte Unsigned Fixed Width Integer
@@ -873,15 +873,15 @@ dissect.cancelled_reference_number_delta = function(buffer, offset, packet, pare
   return offset + size_of.cancelled_reference_number_delta
 end
 
--- Size: Number of Reference Number Deltas
+-- Size: Number Of Reference Number Deltas
 size_of.number_of_reference_number_deltas = 2
 
--- Display: Number of Reference Number Deltas
+-- Display: Number Of Reference Number Deltas
 display.number_of_reference_number_deltas = function(value)
-  return "Number of Reference Number Deltas: "..value
+  return "Number Of Reference Number Deltas: "..value
 end
 
--- Dissect: Number of Reference Number Deltas
+-- Dissect: Number Of Reference Number Deltas
 dissect.number_of_reference_number_deltas = function(buffer, offset, packet, parent)
   local length = 2
   local range = buffer(offset, length)
@@ -918,7 +918,7 @@ dissect.block_delete_message_fields = function(buffer, offset, packet, parent)
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
   index = dissect.timestamp(buffer, index, packet, parent)
 
-  -- Number of Reference Number Deltas: 2 Byte Unsigned Fixed Width Integer
+  -- Number Of Reference Number Deltas: 2 Byte Unsigned Fixed Width Integer
   index = dissect.number_of_reference_number_deltas(buffer, index, packet, parent)
 
   -- Cancelled Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
@@ -1274,16 +1274,16 @@ size_of.change_reason = 1
 -- Display: Change Reason
 display.change_reason = function(value)
   if value == "U" then
-    return "Change Reason: USER (U)"
+    return "Change Reason: User (U)"
   end
   if value == "R" then
-    return "Change Reason: REPRICE (R)"
+    return "Change Reason: Reprice (R)"
   end
   if value == "S" then
-    return "Change Reason: SUSPEND (S)"
+    return "Change Reason: Suspend (S)"
   end
   if value == "E" then
-    return "Change Reason: EXHAUSTED (E)"
+    return "Change Reason: Exhausted (E)"
   end
 
   return "Change Reason: Unknown("..value..")"
@@ -1388,15 +1388,15 @@ dissect.single_side_delete_message = function(buffer, offset, packet, parent)
   return dissect.single_side_delete_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Order ID
+-- Size: Order Id
 size_of.order_id = 4
 
--- Display: Order ID
+-- Display: Order Id
 display.order_id = function(value)
-  return "Order ID: "..value
+  return "Order Id: "..value
 end
 
--- Dissect: Order ID
+-- Dissect: Order Id
 dissect.order_id = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.order_id)
   local value = range:uint()
@@ -1469,7 +1469,7 @@ dissect.single_side_replace_long_form_message_fields = function(buffer, offset, 
   -- Volume: 2 Byte Unsigned Fixed Width Integer
   index = dissect.volume(buffer, index, packet, parent)
 
-  -- Order ID: 4 Byte Unsigned Fixed Width Integer
+  -- Order Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.order_id(buffer, index, packet, parent)
 
   return index
@@ -1511,7 +1511,7 @@ dissect.order_replace_message_short_form_fields = function(buffer, offset, packe
   -- Volume: 2 Byte Unsigned Fixed Width Integer
   index = dissect.volume(buffer, index, packet, parent)
 
-  -- Order ID: 4 Byte Unsigned Fixed Width Integer
+  -- Order Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.order_id(buffer, index, packet, parent)
 
   return index
@@ -1665,10 +1665,10 @@ size_of.printable = 1
 -- Display: Printable
 display.printable = function(value)
   if value == "N" then
-    return "Printable: nonprintable (N)"
+    return "Printable: Nonprintable (N)"
   end
   if value == "Y" then
-    return "Printable: printable (Y)"
+    return "Printable: Printable (Y)"
   end
 
   return "Printable: Unknown("..value..")"
@@ -1806,7 +1806,7 @@ dissect.add_quote_message_long_form_fields = function(buffer, offset, packet, pa
   -- Ask Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
   index = dissect.ask_reference_number_delta(buffer, index, packet, parent)
 
-  -- Option ID: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.option_id(buffer, index, packet, parent)
 
   -- Bid: 4 Byte Unsigned Fixed Width Integer
@@ -1854,7 +1854,7 @@ dissect.add_quote_message_short_form_fields = function(buffer, offset, packet, p
   -- Ask Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
   index = dissect.ask_reference_number_delta(buffer, index, packet, parent)
 
-  -- Option ID: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.option_id(buffer, index, packet, parent)
 
   -- Bid Price: 2 Byte Unsigned Fixed Width Integer
@@ -1959,7 +1959,7 @@ dissect.add_order_message_long_form_fields = function(buffer, offset, packet, pa
   -- Market Side: 1 Byte Ascii String Enum with 6 values
   index = dissect.market_side(buffer, index, packet, parent)
 
-  -- Option ID: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.option_id(buffer, index, packet, parent)
 
   -- Price: 2 Byte Unsigned Fixed Width Integer
@@ -1968,7 +1968,7 @@ dissect.add_order_message_long_form_fields = function(buffer, offset, packet, pa
   -- Volume: 2 Byte Unsigned Fixed Width Integer
   index = dissect.volume(buffer, index, packet, parent)
 
-  -- Order ID: 4 Byte Unsigned Fixed Width Integer
+  -- Order Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.order_id(buffer, index, packet, parent)
 
   return index
@@ -2004,7 +2004,7 @@ dissect.add_order_message_short_form_fields = function(buffer, offset, packet, p
   -- Market Side: 1 Byte Ascii String Enum with 6 values
   index = dissect.market_side(buffer, index, packet, parent)
 
-  -- Option ID: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.option_id(buffer, index, packet, parent)
 
   -- Price: 2 Byte Unsigned Fixed Width Integer
@@ -2013,7 +2013,7 @@ dissect.add_order_message_short_form_fields = function(buffer, offset, packet, p
   -- Volume: 2 Byte Unsigned Fixed Width Integer
   index = dissect.volume(buffer, index, packet, parent)
 
-  -- Order ID: 4 Byte Unsigned Fixed Width Integer
+  -- Order Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.order_id(buffer, index, packet, parent)
 
   return index
@@ -2069,7 +2069,7 @@ dissect.security_open_message_fields = function(buffer, offset, packet, parent)
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
   index = dissect.timestamp(buffer, index, packet, parent)
 
-  -- Option ID: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.option_id(buffer, index, packet, parent)
 
   -- Open State: 1 Byte Ascii String Enum with 2 values
@@ -2134,7 +2134,7 @@ dissect.trading_action_message_fields = function(buffer, offset, packet, parent)
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
   index = dissect.timestamp(buffer, index, packet, parent)
 
-  -- Option ID: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.option_id(buffer, index, packet, parent)
 
   -- Current Trading State: 1 Byte Ascii String Enum with 4 values
@@ -2190,10 +2190,10 @@ size_of.tradable = 1
 -- Display: Tradable
 display.tradable = function(value)
   if value == "Y" then
-    return "Tradable: tradable (Y)"
+    return "Tradable: Tradable (Y)"
   end
   if value == "N" then
-    return "Tradable: not tradable (N)"
+    return "Tradable: Not Tradable (N)"
   end
 
   return "Tradable: Unknown("..value..")"
@@ -2222,7 +2222,7 @@ display.options_closing_type = function(value)
     return "Options Closing Type: Late (L)"
   end
   if value == "W" then
-    return "Options Closing Type: WCO Early Closing (W)"
+    return "Options Closing Type: Wc O Early Closing (W)"
   end
 
   return "Options Closing Type: Unknown("..value..")"
@@ -2410,7 +2410,7 @@ dissect.option_directory_message_fields = function(buffer, offset, packet, paren
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
   index = dissect.timestamp(buffer, index, packet, parent)
 
-  -- Option ID: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.option_id(buffer, index, packet, parent)
 
   -- Security Symbol: 6 Byte Ascii String
