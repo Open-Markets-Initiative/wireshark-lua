@@ -1440,7 +1440,7 @@ size_of.min_lot_size = 4
 -- Display: Min Lot Size
 display.min_lot_size = function(value)
   local factor = 10000
-  return "Min Lot Size: "..value:tonumber()/factor
+  return "Min Lot Size: "..value/factor
 end
 
 -- Dissect: Min Lot Size
@@ -4802,7 +4802,7 @@ size_of.leg_option_delta = 4
 -- Display: Leg Option Delta
 display.leg_option_delta = function(value)
   local factor = 10000
-  return "Leg Option Delta: "..value:tonumber()/factor
+  return "Leg Option Delta: "..value/factor
 end
 
 -- Dissect: Leg Option Delta
@@ -6022,7 +6022,7 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 17 values
   index = dissect.template_id(buffer, index, packet, parent)
 
-  -- Schema Id: 2 Byte Unsigned Fixed Width Integer
+  -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
   index = dissect.schema_id(buffer, index, packet, parent)
 
   -- Version: 2 Byte Unsigned Fixed Width Integer Static
@@ -6208,6 +6208,15 @@ verify.cme_mdp3_sbe_v5_1_packet_size = function(buffer)
   return true
 end
 
+-- Verify Schema Id Field
+verify.schema_id = function(buffer)
+  if 1 == buffer(18, 2):le_uint() then
+    return true
+  end
+
+  return false
+end
+
 -- Verify Version Field
 verify.version = function(buffer)
   if 5 == buffer(20, 2):le_uint() then
@@ -6221,6 +6230,9 @@ end
 local function cme_mdp3_sbe_v5_1_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not verify.cme_mdp3_sbe_v5_1_packet_size(buffer) then return false end
+
+  -- Verify Schema Id
+  if not verify.schema_id(buffer) then return false end
 
   -- Verify Version
   if not verify.version(buffer) then return false end
