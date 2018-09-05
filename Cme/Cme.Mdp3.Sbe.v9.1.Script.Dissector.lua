@@ -7981,7 +7981,7 @@ end
 
 -- Verify Version Field
 verify.version = function(buffer)
-  if 8 == buffer(20, 2):le_uint() then
+  if 9 == buffer(20, 2):le_uint() then
     return true
   end
 
