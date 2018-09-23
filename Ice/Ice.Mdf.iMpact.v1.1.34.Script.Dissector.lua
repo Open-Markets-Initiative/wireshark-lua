@@ -85,6 +85,7 @@ ice_mdf_impact_v1_1_34.fields.hedge_strategy_code = ProtoField.new("Hedge Strate
 ice_mdf_impact_v1_1_34.fields.high = ProtoField.new("High", "ice.mdf.impact.v1.1.34.high", ftypes.INT64)
 ice_mdf_impact_v1_1_34.fields.hub_alias = ProtoField.new("Hub Alias", "ice.mdf.impact.v1.1.34.hubalias", ftypes.STRING)
 ice_mdf_impact_v1_1_34.fields.hub_id = ProtoField.new("Hub ID", "ice.mdf.impact.v1.1.34.hubid", ftypes.INT32)
+ice_mdf_impact_v1_1_34.fields.iba_currency = ProtoField.new("Iba Currency", "ice.mdf.impact.v1.1.34.ibacurrency", ftypes.STRING)
 ice_mdf_impact_v1_1_34.fields.implied_order_count = ProtoField.new("Implied Order Count", "ice.mdf.impact.v1.1.34.impliedordercount", ftypes.INT16)
 ice_mdf_impact_v1_1_34.fields.implied_quantity = ProtoField.new("Implied Quantity", "ice.mdf.impact.v1.1.34.impliedquantity", ftypes.INT32)
 ice_mdf_impact_v1_1_34.fields.increment_premium_price = ProtoField.new("Increment Premium Price", "ice.mdf.impact.v1.1.34.incrementpremiumprice", ftypes.INT32)
@@ -2035,9 +2036,6 @@ dissect.new_options_market_definition_message_fields = function(buffer, offset, 
   -- Unit Of Measure: 30 Byte Ascii String
   index = dissect.unit_of_measure(buffer, index, packet, parent)
 
-  -- Unit Of Measure: 30 Byte Ascii String
-  index = dissect.unit_of_measure(buffer, index, packet, parent)
-
   -- MIFID Regulated Market: 1 Byte Ascii String Enum with 2 values
   index = dissect.mifid_regulated_market(buffer, index, packet, parent)
 
@@ -2060,7 +2058,7 @@ end
 dissect.new_options_market_definition_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.new_options_market_definition_message then
-    local range = buffer(offset, 359)
+    local range = buffer(offset, 329)
     local display = display.new_options_market_definition_message(buffer, packet, parent)
     parent = parent:add(ice_mdf_impact_v1_1_34.fields.new_options_market_definition_message, range, display)
   end
@@ -3217,6 +3215,25 @@ dissect.price_in_gram = function(buffer, offset, packet, parent)
   return offset + size_of.price_in_gram
 end
 
+-- Size: Iba Currency
+size_of.iba_currency = 3
+
+-- Display: Iba Currency
+display.iba_currency = function(value)
+  return "Iba Currency: "..value
+end
+
+-- Dissect: Iba Currency
+dissect.iba_currency = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.iba_currency)
+  local value = range:string()
+  local display = display.iba_currency(value, buffer, offset, packet, parent)
+
+  parent:add(ice_mdf_impact_v1_1_34.fields.iba_currency, range, value, display)
+
+  return offset + size_of.iba_currency
+end
+
 -- Display: Fixing Indicative Price Message  Message
 display.fixing_indicative_price_message__message = function(buffer, offset, size, packet, parent)
   return ""
@@ -3229,8 +3246,8 @@ dissect.fixing_indicative_price_message__message_fields = function(buffer, offse
   -- Market ID: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
-  -- Currency: 20 Byte Ascii String
-  index = dissect.currency(buffer, index, packet, parent)
+  -- Iba Currency: 3 Byte Ascii String
+  index = dissect.iba_currency(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
   index = dissect.price(buffer, index, packet, parent)
@@ -3251,7 +3268,7 @@ end
 dissect.fixing_indicative_price_message__message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.fixing_indicative_price_message__message then
-    local range = buffer(offset, 42)
+    local range = buffer(offset, 25)
     local display = display.fixing_indicative_price_message__message(buffer, packet, parent)
     parent = parent:add(ice_mdf_impact_v1_1_34.fields.fixing_indicative_price_message__message, range, display)
   end
@@ -3609,15 +3626,6 @@ dissect.fixing_transition_message_fields = function(buffer, offset, packet, pare
   -- Date Time: 8 Byte Signed Fixed Width Integer
   index = dissect.date_time(buffer, index, packet, parent)
 
-  -- Auction End Time: 8 Byte Signed Fixed Width Integer
-  index = dissect.auction_end_time(buffer, index, packet, parent)
-
-  -- Threshold  Imbalance  Qty: 4 Byte Signed Fixed Width Integer
-  index = dissect.threshold__imbalance__qty(buffer, index, packet, parent)
-
-  -- Date Time: 8 Byte Signed Fixed Width Integer
-  index = dissect.date_time(buffer, index, packet, parent)
-
   return index
 end
 
@@ -3625,7 +3633,7 @@ end
 dissect.fixing_transition_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.fixing_transition_message then
-    local range = buffer(offset, 45)
+    local range = buffer(offset, 25)
     local display = display.fixing_transition_message(buffer, packet, parent)
     parent = parent:add(ice_mdf_impact_v1_1_34.fields.fixing_transition_message, range, display)
   end
@@ -7078,7 +7086,7 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Fixing Transition Message
   if code == "3" then
-    return 45
+    return 25
   end
   -- Size of Fixing Lockdown Message
   if code == "4" then
@@ -7086,7 +7094,7 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Fixing Indicative Price Message  Message
   if code == "0" then
-    return 42
+    return 25
   end
   -- Size of Transaction End Marker For Empty Last Bundle Message
   if code == "e" then
@@ -7114,7 +7122,7 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of New Options Market Definition Message
   if code == "l" then
-    return 359
+    return 329
   end
   -- Size of RFQ Message
   if code == "k" then
