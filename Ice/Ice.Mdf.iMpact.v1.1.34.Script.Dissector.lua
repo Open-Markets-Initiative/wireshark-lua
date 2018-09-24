@@ -3712,6 +3712,25 @@ dissect.message_bundle_marker = function(buffer, offset, packet, parent)
   return dissect.message_bundle_marker_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Sequence Within Millis
+size_of.sequence_within_millis = 4
+
+-- Display: Sequence Within Millis
+display.sequence_within_millis = function(value)
+  return "Sequence Within Millis: "..value
+end
+
+-- Dissect: Sequence Within Millis
+dissect.sequence_within_millis = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.sequence_within_millis)
+  local value = range:int()
+  local display = display.sequence_within_millis(value, buffer, offset, packet, parent)
+
+  parent:add(ice_mdf_impact_v1_1_34.fields.sequence_within_millis, range, value, display)
+
+  return offset + size_of.sequence_within_millis
+end
+
 -- Size: Order ID
 size_of.order_id = 8
 
@@ -3746,6 +3765,12 @@ dissect.delete_order_message_fields = function(buffer, offset, packet, parent)
   -- Order ID: 8 Byte Signed Fixed Width Integer
   index = dissect.order_id(buffer, index, packet, parent)
 
+  -- Date Time: 8 Byte Signed Fixed Width Integer
+  index = dissect.date_time(buffer, index, packet, parent)
+
+  -- Sequence Within Millis: 4 Byte Signed Fixed Width Integer
+  index = dissect.sequence_within_millis(buffer, index, packet, parent)
+
   return index
 end
 
@@ -3753,7 +3778,7 @@ end
 dissect.delete_order_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.delete_order_message then
-    local range = buffer(offset, 12)
+    local range = buffer(offset, 24)
     local display = display.delete_order_message(buffer, packet, parent)
     parent = parent:add(ice_mdf_impact_v1_1_34.fields.delete_order_message, range, display)
   end
@@ -3778,25 +3803,6 @@ dissect.modification_timestamp = function(buffer, offset, packet, parent)
   parent:add(ice_mdf_impact_v1_1_34.fields.modification_timestamp, range, value, display)
 
   return offset + size_of.modification_timestamp
-end
-
--- Size: Sequence Within Millis
-size_of.sequence_within_millis = 4
-
--- Display: Sequence Within Millis
-display.sequence_within_millis = function(value)
-  return "Sequence Within Millis: "..value
-end
-
--- Dissect: Sequence Within Millis
-dissect.sequence_within_millis = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.sequence_within_millis)
-  local value = range:int()
-  local display = display.sequence_within_millis(value, buffer, offset, packet, parent)
-
-  parent:add(ice_mdf_impact_v1_1_34.fields.sequence_within_millis, range, value, display)
-
-  return offset + size_of.sequence_within_millis
 end
 
 -- Size: Extra Flags
@@ -7078,7 +7084,7 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Delete Order Message
   if code == "F" then
-    return 12
+    return 24
   end
   -- Size of Message Bundle Marker
   if code == "T" then
