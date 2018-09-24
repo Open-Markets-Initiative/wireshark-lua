@@ -218,9 +218,6 @@ ice_mdf_impact_v1_1_33.fields.reserved2_bytes = ProtoField.new("Reserved2 Bytes"
 ice_mdf_impact_v1_1_33.fields.rfq_message = ProtoField.new("RFQ Message", "ice.mdf.impact.v1.1.33.rfqmessage", ftypes.STRING)
 ice_mdf_impact_v1_1_33.fields.rfq_system_id = ProtoField.new("RFQ System ID", "ice.mdf.impact.v1.1.33.rfqsystemid", ftypes.INT64)
 ice_mdf_impact_v1_1_33.fields.round = ProtoField.new("Round", "ice.mdf.impact.v1.1.33.round", ftypes.INT16)
-ice_mdf_impact_v1_1_33.fields.screen_last_trade_day = ProtoField.new("Screen Last Trade Day", "ice.mdf.impact.v1.1.33.screenlasttradeday", ftypes.INT16)
-ice_mdf_impact_v1_1_33.fields.screen_last_trade_month = ProtoField.new("Screen Last Trade Month", "ice.mdf.impact.v1.1.33.screenlasttrademonth", ftypes.INT16)
-ice_mdf_impact_v1_1_33.fields.screen_last_trade_year = ProtoField.new("Screen Last Trade Year", "ice.mdf.impact.v1.1.33.screenlasttradeyear", ftypes.INT16)
 ice_mdf_impact_v1_1_33.fields.security_sub_type = ProtoField.new("Security Sub Type", "ice.mdf.impact.v1.1.33.securitysubtype", ftypes.INT16)
 ice_mdf_impact_v1_1_33.fields.sequence = ProtoField.new("Sequence", "ice.mdf.impact.v1.1.33.sequence", ftypes.UINT32)
 ice_mdf_impact_v1_1_33.fields.sequence_within_millis = ProtoField.new("Sequence Within Millis", "ice.mdf.impact.v1.1.33.sequencewithinmillis", ftypes.INT32)
@@ -1177,63 +1174,6 @@ dissect.rfq_message = function(buffer, offset, packet, parent)
   return dissect.rfq_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Screen Last Trade Day
-size_of.screen_last_trade_day = 2
-
--- Display: Screen Last Trade Day
-display.screen_last_trade_day = function(value)
-  return "Screen Last Trade Day: "..value
-end
-
--- Dissect: Screen Last Trade Day
-dissect.screen_last_trade_day = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.screen_last_trade_day)
-  local value = range:int()
-  local display = display.screen_last_trade_day(value, buffer, offset, packet, parent)
-
-  parent:add(ice_mdf_impact_v1_1_33.fields.screen_last_trade_day, range, value, display)
-
-  return offset + size_of.screen_last_trade_day
-end
-
--- Size: Screen Last Trade Month
-size_of.screen_last_trade_month = 2
-
--- Display: Screen Last Trade Month
-display.screen_last_trade_month = function(value)
-  return "Screen Last Trade Month: "..value
-end
-
--- Dissect: Screen Last Trade Month
-dissect.screen_last_trade_month = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.screen_last_trade_month)
-  local value = range:int()
-  local display = display.screen_last_trade_month(value, buffer, offset, packet, parent)
-
-  parent:add(ice_mdf_impact_v1_1_33.fields.screen_last_trade_month, range, value, display)
-
-  return offset + size_of.screen_last_trade_month
-end
-
--- Size: Screen Last Trade Year
-size_of.screen_last_trade_year = 2
-
--- Display: Screen Last Trade Year
-display.screen_last_trade_year = function(value)
-  return "Screen Last Trade Year: "..value
-end
-
--- Dissect: Screen Last Trade Year
-dissect.screen_last_trade_year = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.screen_last_trade_year)
-  local value = range:int()
-  local display = display.screen_last_trade_year(value, buffer, offset, packet, parent)
-
-  parent:add(ice_mdf_impact_v1_1_33.fields.screen_last_trade_year, range, value, display)
-
-  return offset + size_of.screen_last_trade_year
-end
-
 -- Size: MIFID Regulated Market
 size_of.mifid_regulated_market = 1
 
@@ -2004,15 +1944,6 @@ dissect.new_options_market_definition_message_fields = function(buffer, offset, 
   -- MIFID Regulated Market: 1 Byte Ascii String Enum with 2 values
   index = dissect.mifid_regulated_market(buffer, index, packet, parent)
 
-  -- Screen Last Trade Year: 2 Byte Signed Fixed Width Integer
-  index = dissect.screen_last_trade_year(buffer, index, packet, parent)
-
-  -- Screen Last Trade Month: 2 Byte Signed Fixed Width Integer
-  index = dissect.screen_last_trade_month(buffer, index, packet, parent)
-
-  -- Screen Last Trade Day: 2 Byte Signed Fixed Width Integer
-  index = dissect.screen_last_trade_day(buffer, index, packet, parent)
-
   return index
 end
 
@@ -2020,7 +1951,7 @@ end
 dissect.new_options_market_definition_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.new_options_market_definition_message then
-    local range = buffer(offset, 328)
+    local range = buffer(offset, 322)
     local display = display.new_options_market_definition_message(buffer, packet, parent)
     parent = parent:add(ice_mdf_impact_v1_1_33.fields.new_options_market_definition_message, range, display)
   end
@@ -4565,15 +4496,6 @@ dissect.new_expiry_message_fields = function(buffer, offset, packet, parent)
   -- MIFID Regulated Market: 1 Byte Ascii String Enum with 2 values
   index = dissect.mifid_regulated_market(buffer, index, packet, parent)
 
-  -- Screen Last Trade Year: 2 Byte Signed Fixed Width Integer
-  index = dissect.screen_last_trade_year(buffer, index, packet, parent)
-
-  -- Screen Last Trade Month: 2 Byte Signed Fixed Width Integer
-  index = dissect.screen_last_trade_month(buffer, index, packet, parent)
-
-  -- Screen Last Trade Day: 2 Byte Signed Fixed Width Integer
-  index = dissect.screen_last_trade_day(buffer, index, packet, parent)
-
   return index
 end
 
@@ -4581,7 +4503,7 @@ end
 dissect.new_expiry_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.new_expiry_message then
-    local range = buffer(offset, 509)
+    local range = buffer(offset, 503)
     local display = display.new_expiry_message(buffer, packet, parent)
     parent = parent:add(ice_mdf_impact_v1_1_33.fields.new_expiry_message, range, display)
   end
@@ -6979,7 +6901,7 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of New Expiry Message
   if code == "R" then
-    return 509
+    return 503
   end
   -- Size of Special Field Message
   if code == "b" then
@@ -7035,7 +6957,7 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of New Options Market Definition Message
   if code == "l" then
-    return 328
+    return 322
   end
   -- Size of RFQ Message
   if code == "k" then
