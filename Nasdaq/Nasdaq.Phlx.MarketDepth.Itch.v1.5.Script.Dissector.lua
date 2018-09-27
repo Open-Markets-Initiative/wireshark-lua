@@ -2222,7 +2222,7 @@ display.options_closing_type = function(value)
     return "Options Closing Type: Late (L)"
   end
   if value == "W" then
-    return "Options Closing Type: Wc O Early Closing (W)"
+    return "Options Closing Type: Wco Early Closing (W)"
   end
 
   return "Options Closing Type: Unknown("..value..")"

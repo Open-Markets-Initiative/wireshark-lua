@@ -27,13 +27,13 @@ nyse_bqt_xdp_v2_1_a.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse
 nyse_bqt_xdp_v2_1_a.fields.bid_price = ProtoField.new("Bid Price", "nyse.bqt.xdp.v2.1.a.bidprice", ftypes.UINT32)
 nyse_bqt_xdp_v2_1_a.fields.bid_quote_condition = ProtoField.new("Bid Quote Condition", "nyse.bqt.xdp.v2.1.a.bidquotecondition", ftypes.STRING)
 nyse_bqt_xdp_v2_1_a.fields.bid_volume = ProtoField.new("Bid Volume", "nyse.bqt.xdp.v2.1.a.bidvolume", ftypes.UINT32)
-nyse_bqt_xdp_v2_1_a.fields.bqt_message = ProtoField.new("BQT Message", "nyse.bqt.xdp.v2.1.a.bqtmessage", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.bqt_message = ProtoField.new("Bqt Message", "nyse.bqt.xdp.v2.1.a.bqtmessage", ftypes.STRING)
 nyse_bqt_xdp_v2_1_a.fields.channel_id = ProtoField.new("Channel Id", "nyse.bqt.xdp.v2.1.a.channelid", ftypes.UINT8)
 nyse_bqt_xdp_v2_1_a.fields.close_price = ProtoField.new("Close Price", "nyse.bqt.xdp.v2.1.a.closeprice", ftypes.STRING)
 nyse_bqt_xdp_v2_1_a.fields.closing_price = ProtoField.new("Closing Price", "nyse.bqt.xdp.v2.1.a.closingprice", ftypes.UINT32)
 nyse_bqt_xdp_v2_1_a.fields.complete = ProtoField.new("Complete", "nyse.bqt.xdp.v2.1.a.complete", ftypes.UINT8)
 nyse_bqt_xdp_v2_1_a.fields.consolidated_security_status_message = ProtoField.new("Consolidated Security Status Message", "nyse.bqt.xdp.v2.1.a.consolidatedsecuritystatusmessage", ftypes.STRING)
-nyse_bqt_xdp_v2_1_a.fields.consolidated_single_sided_quote_message = ProtoField.new("Consolidated Single-Sided Quote Message", "nyse.bqt.xdp.v2.1.a.consolidatedsinglesidedquotemessage", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.consolidated_single_sided_quote_message = ProtoField.new("Consolidated Single Sided Quote Message", "nyse.bqt.xdp.v2.1.a.consolidatedsinglesidedquotemessage", ftypes.STRING)
 nyse_bqt_xdp_v2_1_a.fields.consolidated_stock_summary_message = ProtoField.new("Consolidated Stock Summary Message", "nyse.bqt.xdp.v2.1.a.consolidatedstocksummarymessage", ftypes.STRING)
 nyse_bqt_xdp_v2_1_a.fields.consolidated_symbol_clear_message = ProtoField.new("Consolidated Symbol Clear Message", "nyse.bqt.xdp.v2.1.a.consolidatedsymbolclearmessage", ftypes.STRING)
 nyse_bqt_xdp_v2_1_a.fields.consolidated_trade_cancel_message = ProtoField.new("Consolidated Trade Cancel Message", "nyse.bqt.xdp.v2.1.a.consolidatedtradecancelmessage", ftypes.STRING)
@@ -53,11 +53,11 @@ nyse_bqt_xdp_v2_1_a.fields.last_symbol_seq_num = ProtoField.new("Last Symbol Seq
 nyse_bqt_xdp_v2_1_a.fields.lot_size = ProtoField.new("Lot Size", "nyse.bqt.xdp.v2.1.a.lotsize", ftypes.UINT16)
 nyse_bqt_xdp_v2_1_a.fields.low_price = ProtoField.new("Low Price", "nyse.bqt.xdp.v2.1.a.lowprice", ftypes.UINT32)
 nyse_bqt_xdp_v2_1_a.fields.market_id = ProtoField.new("Market Id", "nyse.bqt.xdp.v2.1.a.marketid", ftypes.UINT16)
-nyse_bqt_xdp_v2_1_a.fields.market_id_of_best_ask = ProtoField.new("Market ID Of Best Ask", "nyse.bqt.xdp.v2.1.a.marketidofbestask", ftypes.UINT16)
-nyse_bqt_xdp_v2_1_a.fields.market_id_of_best_bid = ProtoField.new("Market ID Of Best Bid", "nyse.bqt.xdp.v2.1.a.marketidofbestbid", ftypes.UINT16)
-nyse_bqt_xdp_v2_1_a.fields.market_id_of_high_price = ProtoField.new("Market ID Of High Price", "nyse.bqt.xdp.v2.1.a.marketidofhighprice", ftypes.UINT16)
-nyse_bqt_xdp_v2_1_a.fields.market_id_of_low_price = ProtoField.new("Market ID Of Low Price", "nyse.bqt.xdp.v2.1.a.marketidoflowprice", ftypes.UINT16)
-nyse_bqt_xdp_v2_1_a.fields.market_id_of_open_price = ProtoField.new("Market ID Of Open Price", "nyse.bqt.xdp.v2.1.a.marketidofopenprice", ftypes.UINT16)
+nyse_bqt_xdp_v2_1_a.fields.market_id_of_best_ask = ProtoField.new("Market Id Of Best Ask", "nyse.bqt.xdp.v2.1.a.marketidofbestask", ftypes.UINT16)
+nyse_bqt_xdp_v2_1_a.fields.market_id_of_best_bid = ProtoField.new("Market Id Of Best Bid", "nyse.bqt.xdp.v2.1.a.marketidofbestbid", ftypes.UINT16)
+nyse_bqt_xdp_v2_1_a.fields.market_id_of_high_price = ProtoField.new("Market Id Of High Price", "nyse.bqt.xdp.v2.1.a.marketidofhighprice", ftypes.UINT16)
+nyse_bqt_xdp_v2_1_a.fields.market_id_of_low_price = ProtoField.new("Market Id Of Low Price", "nyse.bqt.xdp.v2.1.a.marketidoflowprice", ftypes.UINT16)
+nyse_bqt_xdp_v2_1_a.fields.market_id_of_open_price = ProtoField.new("Market Id Of Open Price", "nyse.bqt.xdp.v2.1.a.marketidofopenprice", ftypes.UINT16)
 nyse_bqt_xdp_v2_1_a.fields.market_id_of_the_close = ProtoField.new("Market ID of the Close", "nyse.bqt.xdp.v2.1.a.marketidoftheclose", ftypes.UINT16)
 nyse_bqt_xdp_v2_1_a.fields.market_state = ProtoField.new("Market State", "nyse.bqt.xdp.v2.1.a.marketstate", ftypes.STRING)
 nyse_bqt_xdp_v2_1_a.fields.message = ProtoField.new("Message", "nyse.bqt.xdp.v2.1.a.message", ftypes.STRING)
@@ -82,10 +82,10 @@ nyse_bqt_xdp_v2_1_a.fields.payload = ProtoField.new("Payload", "nyse.bqt.xdp.v2.
 nyse_bqt_xdp_v2_1_a.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.bqt.xdp.v2.1.a.prevcloseprice", ftypes.UINT32)
 nyse_bqt_xdp_v2_1_a.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.bqt.xdp.v2.1.a.prevclosevolume", ftypes.UINT32)
 nyse_bqt_xdp_v2_1_a.fields.price = ProtoField.new("Price", "nyse.bqt.xdp.v2.1.a.price", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.price_1 = ProtoField.new("Price 1", "nyse.bqt.xdp.v2.1.a.price1", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.price_2 = ProtoField.new("Price 2", "nyse.bqt.xdp.v2.1.a.price2", ftypes.UINT32)
 nyse_bqt_xdp_v2_1_a.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.bqt.xdp.v2.1.a.priceresolution", ftypes.UINT8)
 nyse_bqt_xdp_v2_1_a.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.bqt.xdp.v2.1.a.pricescalecode", ftypes.UINT8)
-nyse_bqt_xdp_v2_1_a.fields.price1 = ProtoField.new("Price1", "nyse.bqt.xdp.v2.1.a.price1", ftypes.UINT32)
-nyse_bqt_xdp_v2_1_a.fields.price2 = ProtoField.new("Price2", "nyse.bqt.xdp.v2.1.a.price2", ftypes.UINT32)
 nyse_bqt_xdp_v2_1_a.fields.product_id = ProtoField.new("Product Id", "nyse.bqt.xdp.v2.1.a.productid", ftypes.UINT8)
 nyse_bqt_xdp_v2_1_a.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.bqt.xdp.v2.1.a.quotecondition", ftypes.STRING)
 nyse_bqt_xdp_v2_1_a.fields.reason = ProtoField.new("Reason", "nyse.bqt.xdp.v2.1.a.reason", ftypes.UINT8)
@@ -94,8 +94,8 @@ nyse_bqt_xdp_v2_1_a.fields.refresh_request_message = ProtoField.new("Refresh Req
 nyse_bqt_xdp_v2_1_a.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.bqt.xdp.v2.1.a.requestresponsemessage", ftypes.STRING)
 nyse_bqt_xdp_v2_1_a.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.bqt.xdp.v2.1.a.requestseqnum", ftypes.UINT32)
 nyse_bqt_xdp_v2_1_a.fields.reserved = ProtoField.new("Reserved", "nyse.bqt.xdp.v2.1.a.reserved", ftypes.UINT8, nil, base.DEC, "0xF8")
-nyse_bqt_xdp_v2_1_a.fields.reserved1 = ProtoField.new("Reserved1", "nyse.bqt.xdp.v2.1.a.reserved1", ftypes.BYTES)
-nyse_bqt_xdp_v2_1_a.fields.reserved2 = ProtoField.new("Reserved2", "nyse.bqt.xdp.v2.1.a.reserved2", ftypes.BYTES)
+nyse_bqt_xdp_v2_1_a.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.bqt.xdp.v2.1.a.reserved1", ftypes.BYTES)
+nyse_bqt_xdp_v2_1_a.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.bqt.xdp.v2.1.a.reserved2", ftypes.BYTES)
 nyse_bqt_xdp_v2_1_a.fields.retail_pricing_indicator = ProtoField.new("Retail Pricing Indicator", "nyse.bqt.xdp.v2.1.a.retailpricingindicator", ftypes.UINT8)
 nyse_bqt_xdp_v2_1_a.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.bqt.xdp.v2.1.a.retransmissionrequestmessage", ftypes.STRING)
 nyse_bqt_xdp_v2_1_a.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.bqt.xdp.v2.1.a.retransmitmethod", ftypes.UINT8)
@@ -110,9 +110,9 @@ nyse_bqt_xdp_v2_1_a.fields.side = ProtoField.new("Side", "nyse.bqt.xdp.v2.1.a.si
 nyse_bqt_xdp_v2_1_a.fields.source_id = ProtoField.new("Source Id", "nyse.bqt.xdp.v2.1.a.sourceid", ftypes.STRING)
 nyse_bqt_xdp_v2_1_a.fields.source_time = ProtoField.new("Source Time", "nyse.bqt.xdp.v2.1.a.sourcetime", ftypes.UINT32)
 nyse_bqt_xdp_v2_1_a.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.bqt.xdp.v2.1.a.sourcetimens", ftypes.UINT32)
-nyse_bqt_xdp_v2_1_a.fields.ss_r_state = ProtoField.new("Ss R State", "nyse.bqt.xdp.v2.1.a.ssrstate", ftypes.STRING)
-nyse_bqt_xdp_v2_1_a.fields.ss_r_triggering_exchange_id = ProtoField.new("Ss R Triggering Exchange Id", "nyse.bqt.xdp.v2.1.a.ssrtriggeringexchangeid", ftypes.STRING)
-nyse_bqt_xdp_v2_1_a.fields.ss_r_triggering_volume = ProtoField.new("Ss R Triggering Volume", "nyse.bqt.xdp.v2.1.a.ssrtriggeringvolume", ftypes.UINT32)
+nyse_bqt_xdp_v2_1_a.fields.ssr_state = ProtoField.new("Ssr State", "nyse.bqt.xdp.v2.1.a.ssrstate", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.bqt.xdp.v2.1.a.ssrtriggeringexchangeid", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.ssr_triggering_volume = ProtoField.new("Ssr Triggering Volume", "nyse.bqt.xdp.v2.1.a.ssrtriggeringvolume", ftypes.UINT32)
 nyse_bqt_xdp_v2_1_a.fields.status = ProtoField.new("Status", "nyse.bqt.xdp.v2.1.a.status", ftypes.STRING)
 nyse_bqt_xdp_v2_1_a.fields.symbol = ProtoField.new("Symbol", "nyse.bqt.xdp.v2.1.a.symbol", ftypes.STRING)
 nyse_bqt_xdp_v2_1_a.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.bqt.xdp.v2.1.a.symbolindex", ftypes.UINT32)
@@ -125,10 +125,10 @@ nyse_bqt_xdp_v2_1_a.fields.time = ProtoField.new("Time", "nyse.bqt.xdp.v2.1.a.ti
 nyse_bqt_xdp_v2_1_a.fields.timestamp = ProtoField.new("Timestamp", "nyse.bqt.xdp.v2.1.a.timestamp", ftypes.UINT32)
 nyse_bqt_xdp_v2_1_a.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.bqt.xdp.v2.1.a.totalrefreshpkts", ftypes.UINT16)
 nyse_bqt_xdp_v2_1_a.fields.total_volume = ProtoField.new("Total Volume", "nyse.bqt.xdp.v2.1.a.totalvolume", ftypes.UINT32)
-nyse_bqt_xdp_v2_1_a.fields.trade_condition1 = ProtoField.new("Trade Condition1", "nyse.bqt.xdp.v2.1.a.tradecondition1", ftypes.STRING)
-nyse_bqt_xdp_v2_1_a.fields.trade_condition2 = ProtoField.new("Trade Condition2", "nyse.bqt.xdp.v2.1.a.tradecondition2", ftypes.STRING)
-nyse_bqt_xdp_v2_1_a.fields.trade_condition3 = ProtoField.new("Trade Condition3", "nyse.bqt.xdp.v2.1.a.tradecondition3", ftypes.STRING)
-nyse_bqt_xdp_v2_1_a.fields.trade_condition4 = ProtoField.new("Trade Condition4", "nyse.bqt.xdp.v2.1.a.tradecondition4", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.trade_condition_1 = ProtoField.new("Trade Condition 1", "nyse.bqt.xdp.v2.1.a.tradecondition1", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.trade_condition_2 = ProtoField.new("Trade Condition 2", "nyse.bqt.xdp.v2.1.a.tradecondition2", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.trade_condition_3 = ProtoField.new("Trade Condition 3", "nyse.bqt.xdp.v2.1.a.tradecondition3", ftypes.STRING)
+nyse_bqt_xdp_v2_1_a.fields.trade_condition_4 = ProtoField.new("Trade Condition 4", "nyse.bqt.xdp.v2.1.a.tradecondition4", ftypes.STRING)
 nyse_bqt_xdp_v2_1_a.fields.trade_id = ProtoField.new("Trade Id", "nyse.bqt.xdp.v2.1.a.tradeid", ftypes.UINT32)
 nyse_bqt_xdp_v2_1_a.fields.trade_session = ProtoField.new("Trade Session", "nyse.bqt.xdp.v2.1.a.tradesession", ftypes.STRING)
 nyse_bqt_xdp_v2_1_a.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.bqt.xdp.v2.1.a.unitoftrade", ftypes.UINT16)
@@ -167,10 +167,10 @@ show.trade_session = true
 show.payload = false
 
 -- Register Nyse Bqt Xdp 2.1.a Show Options
-nyse_bqt_xdp_v2_1_a.prefs.show_bqt_message = Pref.bool("Show BQT Message", show.bqt_message, "Parse and add BQT Message to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_bqt_message = Pref.bool("Show Bqt Message", show.bqt_message, "Parse and add Bqt Message to protocol tree")
 nyse_bqt_xdp_v2_1_a.prefs.show_close_price = Pref.bool("Show Close Price", show.close_price, "Parse and add Close Price to protocol tree")
 nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_security_status_message = Pref.bool("Show Consolidated Security Status Message", show.consolidated_security_status_message, "Parse and add Consolidated Security Status Message to protocol tree")
-nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_single_sided_quote_message = Pref.bool("Show Consolidated Single-Sided Quote Message", show.consolidated_single_sided_quote_message, "Parse and add Consolidated Single-Sided Quote Message to protocol tree")
+nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_single_sided_quote_message = Pref.bool("Show Consolidated Single Sided Quote Message", show.consolidated_single_sided_quote_message, "Parse and add Consolidated Single Sided Quote Message to protocol tree")
 nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_stock_summary_message = Pref.bool("Show Consolidated Stock Summary Message", show.consolidated_stock_summary_message, "Parse and add Consolidated Stock Summary Message to protocol tree")
 nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_symbol_clear_message = Pref.bool("Show Consolidated Symbol Clear Message", show.consolidated_symbol_clear_message, "Parse and add Consolidated Symbol Clear Message to protocol tree")
 nyse_bqt_xdp_v2_1_a.prefs.show_consolidated_trade_cancel_message = Pref.bool("Show Consolidated Trade Cancel Message", show.consolidated_trade_cancel_message, "Parse and add Consolidated Trade Cancel Message to protocol tree")
@@ -497,16 +497,16 @@ size_of.market_id_of_the_close = 2
 -- Display: Market ID of the Close
 display.market_id_of_the_close = function(value)
   if value == 0 then
-    return "Market ID of the Close: Nys E Group Bqt (0)"
+    return "Market ID of the Close: Nyse Group Bqt (0)"
   end
   if value == 1 then
     return "Market ID of the Close: Nyse (1)"
   end
   if value == 3 then
-    return "Market ID of the Close: Nys E Arca (3)"
+    return "Market ID of the Close: Nyse Arca (3)"
   end
   if value == 9 then
-    return "Market ID of the Close: Nys E American (9)"
+    return "Market ID of the Close: Nyse American (9)"
   end
 
   return "Market ID of the Close: Unknown("..value..")"
@@ -573,28 +573,28 @@ dissect.number_of_close_prices = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Market ID Of Open Price
+-- Size: Market Id Of Open Price
 size_of.market_id_of_open_price = 2
 
--- Display: Market ID Of Open Price
+-- Display: Market Id Of Open Price
 display.market_id_of_open_price = function(value)
   if value == 0 then
-    return "Market ID Of Open Price: Nys E Group Bqt (0)"
+    return "Market Id Of Open Price: Nyse Group Bqt (0)"
   end
   if value == 1 then
-    return "Market ID Of Open Price: Nyse (1)"
+    return "Market Id Of Open Price: Nyse (1)"
   end
   if value == 3 then
-    return "Market ID Of Open Price: Nys E Arca (3)"
+    return "Market Id Of Open Price: Nyse Arca (3)"
   end
   if value == 9 then
-    return "Market ID Of Open Price: Nys E American (9)"
+    return "Market Id Of Open Price: Nyse American (9)"
   end
 
-  return "Market ID Of Open Price: Unknown("..value..")"
+  return "Market Id Of Open Price: Unknown("..value..")"
 end
 
--- Dissect: Market ID Of Open Price
+-- Dissect: Market Id Of Open Price
 dissect.market_id_of_open_price = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.market_id_of_open_price)
   local value = range:le_uint()
@@ -605,28 +605,28 @@ dissect.market_id_of_open_price = function(buffer, offset, packet, parent)
   return offset + size_of.market_id_of_open_price
 end
 
--- Size: Market ID Of Low Price
+-- Size: Market Id Of Low Price
 size_of.market_id_of_low_price = 2
 
--- Display: Market ID Of Low Price
+-- Display: Market Id Of Low Price
 display.market_id_of_low_price = function(value)
   if value == 0 then
-    return "Market ID Of Low Price: Nys E Group Bqt (0)"
+    return "Market Id Of Low Price: Nyse Group Bqt (0)"
   end
   if value == 1 then
-    return "Market ID Of Low Price: Nyse (1)"
+    return "Market Id Of Low Price: Nyse (1)"
   end
   if value == 3 then
-    return "Market ID Of Low Price: Nys E Arca (3)"
+    return "Market Id Of Low Price: Nyse Arca (3)"
   end
   if value == 9 then
-    return "Market ID Of Low Price: Nys E American (9)"
+    return "Market Id Of Low Price: Nyse American (9)"
   end
 
-  return "Market ID Of Low Price: Unknown("..value..")"
+  return "Market Id Of Low Price: Unknown("..value..")"
 end
 
--- Dissect: Market ID Of Low Price
+-- Dissect: Market Id Of Low Price
 dissect.market_id_of_low_price = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.market_id_of_low_price)
   local value = range:le_uint()
@@ -637,28 +637,28 @@ dissect.market_id_of_low_price = function(buffer, offset, packet, parent)
   return offset + size_of.market_id_of_low_price
 end
 
--- Size: Market ID Of High Price
+-- Size: Market Id Of High Price
 size_of.market_id_of_high_price = 2
 
--- Display: Market ID Of High Price
+-- Display: Market Id Of High Price
 display.market_id_of_high_price = function(value)
   if value == 0 then
-    return "Market ID Of High Price: Nys E Group Bqt (0)"
+    return "Market Id Of High Price: Nyse Group Bqt (0)"
   end
   if value == 1 then
-    return "Market ID Of High Price: Nyse (1)"
+    return "Market Id Of High Price: Nyse (1)"
   end
   if value == 3 then
-    return "Market ID Of High Price: Nys E Arca (3)"
+    return "Market Id Of High Price: Nyse Arca (3)"
   end
   if value == 9 then
-    return "Market ID Of High Price: Nys E American (9)"
+    return "Market Id Of High Price: Nyse American (9)"
   end
 
-  return "Market ID Of High Price: Unknown("..value..")"
+  return "Market Id Of High Price: Unknown("..value..")"
 end
 
--- Dissect: Market ID Of High Price
+-- Dissect: Market Id Of High Price
 dissect.market_id_of_high_price = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.market_id_of_high_price)
   local value = range:le_uint()
@@ -807,13 +807,13 @@ dissect.consolidated_stock_summary_message_fields = function(buffer, offset, pac
   -- Total Volume: 4 Byte Unsigned Fixed Width Integer
   index = dissect.total_volume(buffer, index, packet, parent)
 
-  -- Market ID Of High Price: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Market Id Of High Price: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
   index = dissect.market_id_of_high_price(buffer, index, packet, parent)
 
-  -- Market ID Of Low Price: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Market Id Of Low Price: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
   index = dissect.market_id_of_low_price(buffer, index, packet, parent)
 
-  -- Market ID Of Open Price: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Market Id Of Open Price: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
   index = dissect.market_id_of_open_price(buffer, index, packet, parent)
 
   -- Number Of Close Prices: 1 Byte Unsigned Fixed Width Integer
@@ -847,31 +847,31 @@ size_of.market_id = 2
 -- Display: Market Id
 display.market_id = function(value)
   if value == 0 then
-    return "Market Id: Nys E Group Bqt (0)"
+    return "Market Id: Nyse Group Bqt (0)"
   end
   if value == 1 then
     return "Market Id: Nyse (1)"
   end
   if value == 3 then
-    return "Market Id: Nys E Arca (3)"
+    return "Market Id: Nyse Arca (3)"
   end
   if value == 4 then
-    return "Market Id: Nys E Arca Options (4)"
+    return "Market Id: Nyse Arca Options (4)"
   end
   if value == 5 then
-    return "Market Id: Nys E Bonds (5)"
+    return "Market Id: Nyse Bonds (5)"
   end
   if value == 6 then
     return "Market Id: Global Otc (6)"
   end
   if value == 8 then
-    return "Market Id: Nys E Amex Options (8)"
+    return "Market Id: Nyse Amex Options (8)"
   end
   if value == 9 then
-    return "Market Id: Nys E American (9)"
+    return "Market Id: Nyse American (9)"
   end
   if value == 10 then
-    return "Market Id: Nys E National (10)"
+    return "Market Id: Nyse National (10)"
   end
 
   return "Market Id: Unknown("..value..")"
@@ -888,168 +888,168 @@ dissect.market_id = function(buffer, offset, packet, parent)
   return offset + size_of.market_id
 end
 
--- Size: Trade Condition4
-size_of.trade_condition4 = 1
+-- Size: Trade Condition 4
+size_of.trade_condition_4 = 1
 
--- Display: Trade Condition4
-display.trade_condition4 = function(value)
+-- Display: Trade Condition 4
+display.trade_condition_4 = function(value)
   if value == " " then
-    return "Trade Condition4: Na (<whitespace>)"
+    return "Trade Condition 4: Na (<whitespace>)"
   end
-  if value == "@" then
-    return "Trade Condition4: Regular Sale (@)"
+  if value == " " then
+    return "Trade Condition 4: Regular Sale (<whitespace>)"
   end
   if value == "B" then
-    return "Trade Condition4: Average Price Trade (B)"
+    return "Trade Condition 4: Average Price Trade (B)"
   end
   if value == "E" then
-    return "Trade Condition4: Automatic Execution (E)"
+    return "Trade Condition 4: Automatic Execution (E)"
   end
   if value == "H" then
-    return "Trade Condition4: Price Variation Trade (H)"
+    return "Trade Condition 4: Price Variation Trade (H)"
   end
   if value == "I" then
-    return "Trade Condition4: Odd Lot Trade (I)"
+    return "Trade Condition 4: Odd Lot Trade (I)"
   end
   if value == "K" then
-    return "Trade Condition4: Rule127 Nys E Only Or Rule155 Nys E American Only (K)"
+    return "Trade Condition 4: Rule127 Nyse Only Or Rule155 Nyse American Only (K)"
   end
   if value == "M" then
-    return "Trade Condition4: Official Closing Price (M)"
+    return "Trade Condition 4: Official Closing Price (M)"
   end
   if value == "P" then
-    return "Trade Condition4: Prior Reference Price (P)"
+    return "Trade Condition 4: Prior Reference Price (P)"
   end
   if value == "Q" then
-    return "Trade Condition4: Official Open Price (Q)"
+    return "Trade Condition 4: Official Open Price (Q)"
   end
   if value == "V" then
-    return "Trade Condition4: Stock Option Trade (V)"
+    return "Trade Condition 4: Stock Option Trade (V)"
   end
   if value == "X" then
-    return "Trade Condition4: Cross Trade (X)"
+    return "Trade Condition 4: Cross Trade (X)"
   end
 
-  return "Trade Condition4: Unknown("..value..")"
+  return "Trade Condition 4: Unknown("..value..")"
 end
 
--- Dissect: Trade Condition4
-dissect.trade_condition4 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trade_condition4)
+-- Dissect: Trade Condition 4
+dissect.trade_condition_4 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.trade_condition_4)
   local value = range:string()
-  local display = display.trade_condition4(value, buffer, offset, packet, parent)
+  local display = display.trade_condition_4(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_v2_1_a.fields.trade_condition4, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.trade_condition_4, range, value, display)
 
-  return offset + size_of.trade_condition4
+  return offset + size_of.trade_condition_4
 end
 
--- Size: Trade Condition3
-size_of.trade_condition3 = 1
+-- Size: Trade Condition 3
+size_of.trade_condition_3 = 1
 
--- Display: Trade Condition3
-display.trade_condition3 = function(value)
+-- Display: Trade Condition 3
+display.trade_condition_3 = function(value)
   if value == " " then
-    return "Trade Condition3: Na (<whitespace>)"
+    return "Trade Condition 3: Na (<whitespace>)"
   end
   if value == "L" then
-    return "Trade Condition3: Sold Last (L)"
+    return "Trade Condition 3: Sold Last (L)"
   end
   if value == "T" then
-    return "Trade Condition3: Extended Hours Trade (T)"
+    return "Trade Condition 3: Extended Hours Trade (T)"
   end
   if value == "U" then
-    return "Trade Condition3: Extended Hours Sold Out Of Sequence (U)"
+    return "Trade Condition 3: Extended Hours Sold Out Of Sequence (U)"
   end
   if value == "Z" then
-    return "Trade Condition3: Sold (Z)"
+    return "Trade Condition 3: Sold (Z)"
   end
 
-  return "Trade Condition3: Unknown("..value..")"
+  return "Trade Condition 3: Unknown("..value..")"
 end
 
--- Dissect: Trade Condition3
-dissect.trade_condition3 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trade_condition3)
+-- Dissect: Trade Condition 3
+dissect.trade_condition_3 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.trade_condition_3)
   local value = range:string()
-  local display = display.trade_condition3(value, buffer, offset, packet, parent)
+  local display = display.trade_condition_3(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_v2_1_a.fields.trade_condition3, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.trade_condition_3, range, value, display)
 
-  return offset + size_of.trade_condition3
+  return offset + size_of.trade_condition_3
 end
 
--- Size: Trade Condition2
-size_of.trade_condition2 = 1
+-- Size: Trade Condition 2
+size_of.trade_condition_2 = 1
 
--- Display: Trade Condition2
-display.trade_condition2 = function(value)
+-- Display: Trade Condition 2
+display.trade_condition_2 = function(value)
   if value == " " then
-    return "Trade Condition2: Na (<whitespace>)"
+    return "Trade Condition 2: Na (<whitespace>)"
   end
   if value == "F" then
-    return "Trade Condition2: Intermarket Sweep Order (F)"
+    return "Trade Condition 2: Intermarket Sweep Order (F)"
   end
   if value == "O" then
-    return "Trade Condition2: Market Center Opening Trade (O)"
+    return "Trade Condition 2: Market Center Opening Trade (O)"
   end
   if value == "4" then
-    return "Trade Condition2: Derivatively Priced (4)"
+    return "Trade Condition 2: Derivatively Priced (4)"
   end
   if value == "5" then
-    return "Trade Condition2: Market Center Reopening Trade (5)"
+    return "Trade Condition 2: Market Center Reopening Trade (5)"
   end
   if value == "6" then
-    return "Trade Condition2: Market Center Closing Trade (6)"
+    return "Trade Condition 2: Market Center Closing Trade (6)"
   end
   if value == "9" then
-    return "Trade Condition2: Corrected Last Sale Price (9)"
+    return "Trade Condition 2: Corrected Last Sale Price (9)"
   end
 
-  return "Trade Condition2: Unknown("..value..")"
+  return "Trade Condition 2: Unknown("..value..")"
 end
 
--- Dissect: Trade Condition2
-dissect.trade_condition2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trade_condition2)
+-- Dissect: Trade Condition 2
+dissect.trade_condition_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.trade_condition_2)
   local value = range:string()
-  local display = display.trade_condition2(value, buffer, offset, packet, parent)
+  local display = display.trade_condition_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_v2_1_a.fields.trade_condition2, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.trade_condition_2, range, value, display)
 
-  return offset + size_of.trade_condition2
+  return offset + size_of.trade_condition_2
 end
 
--- Size: Trade Condition1
-size_of.trade_condition1 = 1
+-- Size: Trade Condition 1
+size_of.trade_condition_1 = 1
 
--- Display: Trade Condition1
-display.trade_condition1 = function(value)
-  if value == "@" then
-    return "Trade Condition1: Regular Sale (@)"
+-- Display: Trade Condition 1
+display.trade_condition_1 = function(value)
+  if value == " " then
+    return "Trade Condition 1: Regular Sale (<whitespace>)"
   end
   if value == "C" then
-    return "Trade Condition1: Cash (C)"
+    return "Trade Condition 1: Cash (C)"
   end
   if value == "N" then
-    return "Trade Condition1: Next Day Trade (N)"
+    return "Trade Condition 1: Next Day Trade (N)"
   end
   if value == "R" then
-    return "Trade Condition1: Seller (R)"
+    return "Trade Condition 1: Seller (R)"
   end
 
-  return "Trade Condition1: Unknown("..value..")"
+  return "Trade Condition 1: Unknown("..value..")"
 end
 
--- Dissect: Trade Condition1
-dissect.trade_condition1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trade_condition1)
+-- Dissect: Trade Condition 1
+dissect.trade_condition_1 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.trade_condition_1)
   local value = range:string()
-  local display = display.trade_condition1(value, buffer, offset, packet, parent)
+  local display = display.trade_condition_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_v2_1_a.fields.trade_condition1, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.trade_condition_1, range, value, display)
 
-  return offset + size_of.trade_condition1
+  return offset + size_of.trade_condition_1
 end
 
 -- Size: Volume
@@ -1161,17 +1161,17 @@ dissect.consolidated_trade_correction_message_fields = function(buffer, offset, 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
   index = dissect.volume(buffer, index, packet, parent)
 
-  -- Trade Condition1: 1 Byte Ascii String Enum with 4 values
-  index = dissect.trade_condition1(buffer, index, packet, parent)
+  -- Trade Condition 1: 1 Byte Ascii String Enum with 4 values
+  index = dissect.trade_condition_1(buffer, index, packet, parent)
 
-  -- Trade Condition2: 1 Byte Ascii String Enum with 7 values
-  index = dissect.trade_condition2(buffer, index, packet, parent)
+  -- Trade Condition 2: 1 Byte Ascii String Enum with 7 values
+  index = dissect.trade_condition_2(buffer, index, packet, parent)
 
-  -- Trade Condition3: 1 Byte Ascii String Enum with 5 values
-  index = dissect.trade_condition3(buffer, index, packet, parent)
+  -- Trade Condition 3: 1 Byte Ascii String Enum with 5 values
+  index = dissect.trade_condition_3(buffer, index, packet, parent)
 
-  -- Trade Condition4: 1 Byte Ascii String Enum with 12 values
-  index = dissect.trade_condition4(buffer, index, packet, parent)
+  -- Trade Condition 4: 1 Byte Ascii String Enum with 12 values
+  index = dissect.trade_condition_4(buffer, index, packet, parent)
 
   -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
   index = dissect.market_id(buffer, index, packet, parent)
@@ -1282,17 +1282,17 @@ dissect.consolidated_trade_message_fields = function(buffer, offset, packet, par
   -- Volume: 4 Byte Unsigned Fixed Width Integer
   index = dissect.volume(buffer, index, packet, parent)
 
-  -- Trade Condition1: 1 Byte Ascii String Enum with 4 values
-  index = dissect.trade_condition1(buffer, index, packet, parent)
+  -- Trade Condition 1: 1 Byte Ascii String Enum with 4 values
+  index = dissect.trade_condition_1(buffer, index, packet, parent)
 
-  -- Trade Condition2: 1 Byte Ascii String Enum with 7 values
-  index = dissect.trade_condition2(buffer, index, packet, parent)
+  -- Trade Condition 2: 1 Byte Ascii String Enum with 7 values
+  index = dissect.trade_condition_2(buffer, index, packet, parent)
 
-  -- Trade Condition3: 1 Byte Ascii String Enum with 5 values
-  index = dissect.trade_condition3(buffer, index, packet, parent)
+  -- Trade Condition 3: 1 Byte Ascii String Enum with 5 values
+  index = dissect.trade_condition_3(buffer, index, packet, parent)
 
-  -- Trade Condition4: 1 Byte Ascii String Enum with 12 values
-  index = dissect.trade_condition4(buffer, index, packet, parent)
+  -- Trade Condition 4: 1 Byte Ascii String Enum with 12 values
+  index = dissect.trade_condition_4(buffer, index, packet, parent)
 
   -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
   index = dissect.market_id(buffer, index, packet, parent)
@@ -1405,12 +1405,12 @@ dissect.side = function(buffer, offset, packet, parent)
   return offset + size_of.side
 end
 
--- Display: Consolidated Single-Sided Quote Message
+-- Display: Consolidated Single Sided Quote Message
 display.consolidated_single_sided_quote_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Consolidated Single-Sided Quote Message
+-- Dissect Fields: Consolidated Single Sided Quote Message
 dissect.consolidated_single_sided_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1441,7 +1441,7 @@ dissect.consolidated_single_sided_quote_message_fields = function(buffer, offset
   return index
 end
 
--- Dissect: Consolidated Single-Sided Quote Message
+-- Dissect: Consolidated Single Sided Quote Message
 dissect.consolidated_single_sided_quote_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.consolidated_single_sided_quote_message then
@@ -1453,28 +1453,28 @@ dissect.consolidated_single_sided_quote_message = function(buffer, offset, packe
   return dissect.consolidated_single_sided_quote_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Market ID Of Best Bid
+-- Size: Market Id Of Best Bid
 size_of.market_id_of_best_bid = 2
 
--- Display: Market ID Of Best Bid
+-- Display: Market Id Of Best Bid
 display.market_id_of_best_bid = function(value)
   if value == 0 then
-    return "Market ID Of Best Bid: Nys E Group Bqt (0)"
+    return "Market Id Of Best Bid: Nyse Group Bqt (0)"
   end
   if value == 1 then
-    return "Market ID Of Best Bid: Nyse (1)"
+    return "Market Id Of Best Bid: Nyse (1)"
   end
   if value == 3 then
-    return "Market ID Of Best Bid: Nys E Arca (3)"
+    return "Market Id Of Best Bid: Nyse Arca (3)"
   end
   if value == 9 then
-    return "Market ID Of Best Bid: Nys E American (9)"
+    return "Market Id Of Best Bid: Nyse American (9)"
   end
 
-  return "Market ID Of Best Bid: Unknown("..value..")"
+  return "Market Id Of Best Bid: Unknown("..value..")"
 end
 
--- Dissect: Market ID Of Best Bid
+-- Dissect: Market Id Of Best Bid
 dissect.market_id_of_best_bid = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.market_id_of_best_bid)
   local value = range:le_uint()
@@ -1485,28 +1485,28 @@ dissect.market_id_of_best_bid = function(buffer, offset, packet, parent)
   return offset + size_of.market_id_of_best_bid
 end
 
--- Size: Market ID Of Best Ask
+-- Size: Market Id Of Best Ask
 size_of.market_id_of_best_ask = 2
 
--- Display: Market ID Of Best Ask
+-- Display: Market Id Of Best Ask
 display.market_id_of_best_ask = function(value)
   if value == 0 then
-    return "Market ID Of Best Ask: Nys E Group Bqt (0)"
+    return "Market Id Of Best Ask: Nyse Group Bqt (0)"
   end
   if value == 1 then
-    return "Market ID Of Best Ask: Nyse (1)"
+    return "Market Id Of Best Ask: Nyse (1)"
   end
   if value == 3 then
-    return "Market ID Of Best Ask: Nys E Arca (3)"
+    return "Market Id Of Best Ask: Nyse Arca (3)"
   end
   if value == 9 then
-    return "Market ID Of Best Ask: Nys E American (9)"
+    return "Market Id Of Best Ask: Nyse American (9)"
   end
 
-  return "Market ID Of Best Ask: Unknown("..value..")"
+  return "Market Id Of Best Ask: Unknown("..value..")"
 end
 
--- Dissect: Market ID Of Best Ask
+-- Dissect: Market Id Of Best Ask
 dissect.market_id_of_best_ask = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.market_id_of_best_ask)
   local value = range:le_uint()
@@ -1689,12 +1689,12 @@ dissect.ask_price = function(buffer, offset, packet, parent)
   return offset + size_of.ask_price
 end
 
--- Display: BQT Message
+-- Display: Bqt Message
 display.bqt_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: BQT Message
+-- Dissect Fields: Bqt Message
 dissect.bqt_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1725,16 +1725,16 @@ dissect.bqt_message_fields = function(buffer, offset, packet, parent)
   -- Retail Pricing Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index = dissect.retail_pricing_indicator(buffer, index, packet, parent)
 
-  -- Market ID Of Best Ask: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Market Id Of Best Ask: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
   index = dissect.market_id_of_best_ask(buffer, index, packet, parent)
 
-  -- Market ID Of Best Bid: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Market Id Of Best Bid: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
   index = dissect.market_id_of_best_bid(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: BQT Message
+-- Dissect: Bqt Message
 dissect.bqt_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.bqt_message then
@@ -1922,30 +1922,30 @@ dissect.market_state = function(buffer, offset, packet, parent)
   return offset + size_of.market_state
 end
 
--- Size: Ss R State
-size_of.ss_r_state = 1
+-- Size: Ssr State
+size_of.ssr_state = 1
 
--- Display: Ss R State
-display.ss_r_state = function(value)
-  if value == "~" then
-    return "Ss R State: No Short Sale Restriction In Effect (~)"
+-- Display: Ssr State
+display.ssr_state = function(value)
+  if value == "" then
+    return "Ssr State: No Short Sale Restriction In Effect (<whitespace>)"
   end
   if value == "E" then
-    return "Ss R State: Short Sale Restriction In Effect (E)"
+    return "Ssr State: Short Sale Restriction In Effect (E)"
   end
 
-  return "Ss R State: Unknown("..value..")"
+  return "Ssr State: Unknown("..value..")"
 end
 
--- Dissect: Ss R State
-dissect.ss_r_state = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ss_r_state)
+-- Dissect: Ssr State
+dissect.ssr_state = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.ssr_state)
   local value = range:string()
-  local display = display.ss_r_state(value, buffer, offset, packet, parent)
+  local display = display.ssr_state(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_v2_1_a.fields.ss_r_state, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.ssr_state, range, value, display)
 
-  return offset + size_of.ss_r_state
+  return offset + size_of.ssr_state
 end
 
 -- Size: Time
@@ -1967,154 +1967,154 @@ dissect.time = function(buffer, offset, packet, parent)
   return offset + size_of.time
 end
 
--- Size: Ss R Triggering Volume
-size_of.ss_r_triggering_volume = 4
+-- Size: Ssr Triggering Volume
+size_of.ssr_triggering_volume = 4
 
--- Display: Ss R Triggering Volume
-display.ss_r_triggering_volume = function(value)
-  return "Ss R Triggering Volume: "..value
+-- Display: Ssr Triggering Volume
+display.ssr_triggering_volume = function(value)
+  return "Ssr Triggering Volume: "..value
 end
 
--- Dissect: Ss R Triggering Volume
-dissect.ss_r_triggering_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ss_r_triggering_volume)
+-- Dissect: Ssr Triggering Volume
+dissect.ssr_triggering_volume = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.ssr_triggering_volume)
   local value = range:le_uint()
-  local display = display.ss_r_triggering_volume(value, buffer, offset, packet, parent)
+  local display = display.ssr_triggering_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_v2_1_a.fields.ss_r_triggering_volume, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.ssr_triggering_volume, range, value, display)
 
-  return offset + size_of.ss_r_triggering_volume
+  return offset + size_of.ssr_triggering_volume
 end
 
--- Size: Ss R Triggering Exchange Id
-size_of.ss_r_triggering_exchange_id = 1
+-- Size: Ssr Triggering Exchange Id
+size_of.ssr_triggering_exchange_id = 1
 
--- Display: Ss R Triggering Exchange Id
-display.ss_r_triggering_exchange_id = function(value)
+-- Display: Ssr Triggering Exchange Id
+display.ssr_triggering_exchange_id = function(value)
   if value == "A" then
-    return "Ss R Triggering Exchange Id: Nys E American (A)"
+    return "Ssr Triggering Exchange Id: Nyse American (A)"
   end
   if value == "B" then
-    return "Ss R Triggering Exchange Id: Nasda Q Om X Bx (B)"
+    return "Ssr Triggering Exchange Id: Nasdaq Omx Bx (B)"
   end
   if value == "C" then
-    return "Ss R Triggering Exchange Id: Nys E National (C)"
+    return "Ssr Triggering Exchange Id: Nyse National (C)"
   end
   if value == "D" then
-    return "Ss R Triggering Exchange Id: Finra (D)"
+    return "Ssr Triggering Exchange Id: Finra (D)"
   end
   if value == "I" then
-    return "Ss R Triggering Exchange Id: Ise (I)"
+    return "Ssr Triggering Exchange Id: Ise (I)"
   end
   if value == "J" then
-    return "Ss R Triggering Exchange Id: Edga (J)"
+    return "Ssr Triggering Exchange Id: Edga (J)"
   end
   if value == "K" then
-    return "Ss R Triggering Exchange Id: Edgx (K)"
+    return "Ssr Triggering Exchange Id: Edgx (K)"
   end
   if value == "M" then
-    return "Ss R Triggering Exchange Id: Chx (M)"
+    return "Ssr Triggering Exchange Id: Chx (M)"
   end
   if value == "N" then
-    return "Ss R Triggering Exchange Id: Nyse (N)"
+    return "Ssr Triggering Exchange Id: Nyse (N)"
   end
   if value == "P" then
-    return "Ss R Triggering Exchange Id: Nys E Arca (P)"
+    return "Ssr Triggering Exchange Id: Nyse Arca (P)"
   end
   if value == "Q" then
-    return "Ss R Triggering Exchange Id: Nasdaq (Q)"
+    return "Ssr Triggering Exchange Id: Nasdaq (Q)"
   end
   if value == "S" then
-    return "Ss R Triggering Exchange Id: Cts (S)"
+    return "Ssr Triggering Exchange Id: Cts (S)"
   end
   if value == "T" then
-    return "Ss R Triggering Exchange Id: Nasda Q Omx (T)"
+    return "Ssr Triggering Exchange Id: Nasdaq Omx (T)"
   end
   if value == "V" then
-    return "Ss R Triggering Exchange Id: Iex (V)"
+    return "Ssr Triggering Exchange Id: Iex (V)"
   end
   if value == "W" then
-    return "Ss R Triggering Exchange Id: Cbsx (W)"
+    return "Ssr Triggering Exchange Id: Cbsx (W)"
   end
   if value == "X" then
-    return "Ss R Triggering Exchange Id: Nasda Q Om X Psx (X)"
+    return "Ssr Triggering Exchange Id: Nasdaq Omx Psx (X)"
   end
   if value == "Y" then
-    return "Ss R Triggering Exchange Id: Bat SY (Y)"
+    return "Ssr Triggering Exchange Id: Bats Y (Y)"
   end
   if value == "Z" then
-    return "Ss R Triggering Exchange Id: Bats (Z)"
+    return "Ssr Triggering Exchange Id: Bats (Z)"
   end
 
-  return "Ss R Triggering Exchange Id: Unknown("..value..")"
+  return "Ssr Triggering Exchange Id: Unknown("..value..")"
 end
 
--- Dissect: Ss R Triggering Exchange Id
-dissect.ss_r_triggering_exchange_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ss_r_triggering_exchange_id)
+-- Dissect: Ssr Triggering Exchange Id
+dissect.ssr_triggering_exchange_id = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.ssr_triggering_exchange_id)
   local value = range:string()
-  local display = display.ss_r_triggering_exchange_id(value, buffer, offset, packet, parent)
+  local display = display.ssr_triggering_exchange_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_v2_1_a.fields.ss_r_triggering_exchange_id, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.ssr_triggering_exchange_id, range, value, display)
 
-  return offset + size_of.ss_r_triggering_exchange_id
+  return offset + size_of.ssr_triggering_exchange_id
 end
 
--- Size: Price2
-size_of.price2 = 4
+-- Size: Price 2
+size_of.price_2 = 4
 
--- Display: Price2
-display.price2 = function(value)
-  return "Price2: "..value
+-- Display: Price 2
+display.price_2 = function(value)
+  return "Price 2: "..value
 end
 
--- Dissect: Price2
-dissect.price2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price2)
+-- Dissect: Price 2
+dissect.price_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.price_2)
   local value = range:le_uint()
-  local display = display.price2(value, buffer, offset, packet, parent)
+  local display = display.price_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_v2_1_a.fields.price2, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.price_2, range, value, display)
 
-  return offset + size_of.price2
+  return offset + size_of.price_2
 end
 
--- Size: Price1
-size_of.price1 = 4
+-- Size: Price 1
+size_of.price_1 = 4
 
--- Display: Price1
-display.price1 = function(value)
-  return "Price1: "..value
+-- Display: Price 1
+display.price_1 = function(value)
+  return "Price 1: "..value
 end
 
--- Dissect: Price1
-dissect.price1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price1)
+-- Dissect: Price 1
+dissect.price_1 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.price_1)
   local value = range:le_uint()
-  local display = display.price1(value, buffer, offset, packet, parent)
+  local display = display.price_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_v2_1_a.fields.price1, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.price_1, range, value, display)
 
-  return offset + size_of.price1
+  return offset + size_of.price_1
 end
 
--- Size: Reserved2
-size_of.reserved2 = 2
+-- Size: Reserved 2
+size_of.reserved_2 = 2
 
--- Display: Reserved2
-display.reserved2 = function(value)
-  return "Reserved2: "..value
+-- Display: Reserved 2
+display.reserved_2 = function(value)
+  return "Reserved 2: "..value
 end
 
--- Dissect: Reserved2
-dissect.reserved2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved2)
+-- Dissect: Reserved 2
+dissect.reserved_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.reserved_2)
   local value = range:bytes():tohex(false, " ")
-  local display = display.reserved2(value, buffer, offset, packet, parent)
+  local display = display.reserved_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_v2_1_a.fields.reserved2, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.reserved_2, range, value, display)
 
-  return offset + size_of.reserved2
+  return offset + size_of.reserved_2
 end
 
 -- Size: Halt Condition
@@ -2122,8 +2122,8 @@ size_of.halt_condition = 1
 
 -- Display: Halt Condition
 display.halt_condition = function(value)
-  if value == "~" then
-    return "Halt Condition: Security Not Delayedhalted (~)"
+  if value == "" then
+    return "Halt Condition: Security Not Delayedhalted (<whitespace>)"
   end
   if value == " " then
     return "Halt Condition: Not Applicable (<whitespace>)"
@@ -2147,13 +2147,13 @@ display.halt_condition = function(value)
     return "Halt Condition: No Open No Resume (Z)"
   end
   if value == "1" then
-    return "Halt Condition: Market Wide Circuit Breaker Halt Level1 (1)"
+    return "Halt Condition: Market Wide Circuit Breaker Halt Level 1 (1)"
   end
   if value == "2" then
-    return "Halt Condition: Market Wide Circuit Breaker Halt Level2 (2)"
+    return "Halt Condition: Market Wide Circuit Breaker Halt Level 2 (2)"
   end
   if value == "3" then
-    return "Halt Condition: Market Wide Circuit Breaker Halt Level3 (3)"
+    return "Halt Condition: Market Wide Circuit Breaker Halt Level 3 (3)"
   end
 
   return "Halt Condition: Unknown("..value..")"
@@ -2188,10 +2188,10 @@ display.security_status = function(value)
     return "Security Status: No Openno Resume (6)"
   end
   if value == "A" then
-    return "Security Status: Short Sale Restriction Activated Day1 (A)"
+    return "Security Status: Short Sale Restriction Activated Day 1 (A)"
   end
   if value == "C" then
-    return "Security Status: Short Sale Restriction Continued Day2 (C)"
+    return "Security Status: Short Sale Restriction Continued Day 2 (C)"
   end
   if value == "D" then
     return "Security Status: Short Sale Restriction Deactivated (D)"
@@ -2206,7 +2206,7 @@ display.security_status = function(value)
     return "Security Status: Core Session (O)"
   end
   if value == "L" then
-    return "Security Status: Late Session Non Nys E Only (L)"
+    return "Security Status: Late Session Non Nyse Only (L)"
   end
   if value == "X" then
     return "Security Status: Closed (X)"
@@ -2268,26 +2268,26 @@ dissect.consolidated_security_status_message_fields = function(buffer, offset, p
   -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
   index = dissect.market_id(buffer, index, packet, parent)
 
-  -- Reserved2: 2 Byte
-  index = dissect.reserved2(buffer, index, packet, parent)
+  -- Reserved 2: 2 Byte
+  index = dissect.reserved_2(buffer, index, packet, parent)
 
-  -- Price1: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.price1(buffer, index, packet, parent)
+  -- Price 1: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.price_1(buffer, index, packet, parent)
 
-  -- Price2: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.price2(buffer, index, packet, parent)
+  -- Price 2: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.price_2(buffer, index, packet, parent)
 
-  -- Ss R Triggering Exchange Id: 1 Byte Ascii String Enum with 18 values
-  index = dissect.ss_r_triggering_exchange_id(buffer, index, packet, parent)
+  -- Ssr Triggering Exchange Id: 1 Byte Ascii String Enum with 18 values
+  index = dissect.ssr_triggering_exchange_id(buffer, index, packet, parent)
 
-  -- Ss R Triggering Volume: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.ss_r_triggering_volume(buffer, index, packet, parent)
+  -- Ssr Triggering Volume: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.ssr_triggering_volume(buffer, index, packet, parent)
 
   -- Time: 4 Byte Unsigned Fixed Width Integer
   index = dissect.time(buffer, index, packet, parent)
 
-  -- Ss R State: 1 Byte Ascii String Enum with 2 values
-  index = dissect.ss_r_state(buffer, index, packet, parent)
+  -- Ssr State: 1 Byte Ascii String Enum with 2 values
+  index = dissect.ssr_state(buffer, index, packet, parent)
 
   -- Market State: 1 Byte Ascii String Enum with 5 values
   index = dissect.market_state(buffer, index, packet, parent)
@@ -3028,7 +3028,7 @@ display.security_type = function(value)
     return "Security Type: Adr (A)"
   end
   if value == "C" then
-    return "Security Type: Commo N Stock (C)"
+    return "Security Type: Common Stock (C)"
   end
   if value == "D" then
     return "Security Type: Debentures (D)"
@@ -3040,28 +3040,28 @@ display.security_type = function(value)
     return "Security Type: Foreign (F)"
   end
   if value == "H" then
-    return "Security Type: US Depositar Y Shares (H)"
+    return "Security Type: Us Depositary Shares (H)"
   end
   if value == "I" then
     return "Security Type: Units (I)"
   end
   if value == "L" then
-    return "Security Type: Inde X Linke D Notes (L)"
+    return "Security Type: Index Linked Notes (L)"
   end
   if value == "M" then
-    return "Security Type: Miscliqui D Trust (M)"
+    return "Security Type: Miscliquid Trust (M)"
   end
   if value == "O" then
-    return "Security Type: Ordinar Y Shares (O)"
+    return "Security Type: Ordinary Shares (O)"
   end
   if value == "P" then
-    return "Security Type: Preferre D Stock (P)"
+    return "Security Type: Preferred Stock (P)"
   end
   if value == "R" then
     return "Security Type: Rights (R)"
   end
   if value == "S" then
-    return "Security Type: Share SOF Beneficiar Y Interest (S)"
+    return "Security Type: Shares Of Beneficiary Interest (S)"
   end
   if value == "T" then
     return "Security Type: Test (T)"
@@ -3112,7 +3112,7 @@ size_of.exchange_code = 1
 -- Display: Exchange Code
 display.exchange_code = function(value)
   if value == "A" then
-    return "Exchange Code: Nys E American (A)"
+    return "Exchange Code: Nyse American (A)"
   end
   if value == "B" then
     return "Exchange Code: Global Otc (B)"
@@ -3121,7 +3121,7 @@ display.exchange_code = function(value)
     return "Exchange Code: Nyse (N)"
   end
   if value == "P" then
-    return "Exchange Code: Nys E Arca (P)"
+    return "Exchange Code: Nyse Arca (P)"
   end
   if value == "Q" then
     return "Exchange Code: Nasdaq (Q)"
@@ -3169,23 +3169,23 @@ dissect.system_id = function(buffer, offset, packet, parent)
   return offset + size_of.system_id
 end
 
--- Size: Reserved1
-size_of.reserved1 = 1
+-- Size: Reserved 1
+size_of.reserved_1 = 1
 
--- Display: Reserved1
-display.reserved1 = function(value)
-  return "Reserved1: "..value
+-- Display: Reserved 1
+display.reserved_1 = function(value)
+  return "Reserved 1: "..value
 end
 
--- Dissect: Reserved1
-dissect.reserved1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved1)
+-- Dissect: Reserved 1
+dissect.reserved_1 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.reserved_1)
   local value = range:bytes():tohex(false, " ")
-  local display = display.reserved1(value, buffer, offset, packet, parent)
+  local display = display.reserved_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_bqt_xdp_v2_1_a.fields.reserved1, range, value, display)
+  parent:add(nyse_bqt_xdp_v2_1_a.fields.reserved_1, range, value, display)
 
-  return offset + size_of.reserved1
+  return offset + size_of.reserved_1
 end
 
 -- Size: Symbol
@@ -3222,8 +3222,8 @@ dissect.symbol_index_mapping_message_fields = function(buffer, offset, packet, p
   -- Symbol: 11 Byte Ascii String
   index = dissect.symbol(buffer, index, packet, parent)
 
-  -- Reserved1: 1 Byte
-  index = dissect.reserved1(buffer, index, packet, parent)
+  -- Reserved 1: 1 Byte
+  index = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
   index = dissect.market_id(buffer, index, packet, parent)
@@ -3261,8 +3261,8 @@ dissect.symbol_index_mapping_message_fields = function(buffer, offset, packet, p
   -- Unit Of Trade: 2 Byte Unsigned Fixed Width Integer
   index = dissect.unit_of_trade(buffer, index, packet, parent)
 
-  -- Reserved2: 2 Byte
-  index = dissect.reserved2(buffer, index, packet, parent)
+  -- Reserved 2: 2 Byte
+  index = dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
@@ -3365,11 +3365,11 @@ size_of.payload = function(buffer, offset, code)
   if code == 35 then
     return 12
   end
-  -- Size of BQT Message
+  -- Size of Bqt Message
   if code == 142 then
     return 31
   end
-  -- Size of Consolidated Single-Sided Quote Message
+  -- Size of Consolidated Single Sided Quote Message
   if code == 143 then
     return 21
   end
@@ -3452,11 +3452,11 @@ dissect.payload_branches = function(buffer, offset, packet, parent, code)
   if code == 35 then
     return dissect.refresh_header_message(buffer, offset, packet, parent)
   end
-  -- Dissect BQT Message
+  -- Dissect Bqt Message
   if code == 142 then
     return dissect.bqt_message(buffer, offset, packet, parent)
   end
-  -- Dissect Consolidated Single-Sided Quote Message
+  -- Dissect Consolidated Single Sided Quote Message
   if code == 143 then
     return dissect.consolidated_single_sided_quote_message(buffer, offset, packet, parent)
   end
@@ -3546,10 +3546,10 @@ display.message_type = function(value)
     return "Message Type: Refresh Header Message (35)"
   end
   if value == 142 then
-    return "Message Type: BQT Message (142)"
+    return "Message Type: Bqt Message (142)"
   end
   if value == 143 then
-    return "Message Type: Consolidated Single-Sided Quote Message (143)"
+    return "Message Type: Consolidated Single Sided Quote Message (143)"
   end
   if value == 220 then
     return "Message Type: Consolidated Trade Message (220)"

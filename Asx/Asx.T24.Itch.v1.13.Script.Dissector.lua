@@ -23,9 +23,9 @@ local verify = {}
 asx_t24_itch_v1_13.fields.activated = ProtoField.new("Activated", "asx.t24.itch.v1.13.activated", ftypes.STRING)
 asx_t24_itch_v1_13.fields.ad_hoc_text_message = ProtoField.new("Ad Hoc Text Message", "asx.t24.itch.v1.13.adhoctextmessage", ftypes.STRING)
 asx_t24_itch_v1_13.fields.anomalous_order_threshold_publish = ProtoField.new("Anomalous Order Threshold Publish", "asx.t24.itch.v1.13.anomalousorderthresholdpublish", ftypes.STRING)
-asx_t24_itch_v1_13.fields.ao_t_lower_price = ProtoField.new("Ao T Lower Price", "asx.t24.itch.v1.13.aotlowerprice", ftypes.INT32)
-asx_t24_itch_v1_13.fields.ao_t_price = ProtoField.new("Ao T Price", "asx.t24.itch.v1.13.aotprice", ftypes.INT32)
-asx_t24_itch_v1_13.fields.ao_t_upper_price = ProtoField.new("Ao T Upper Price", "asx.t24.itch.v1.13.aotupperprice", ftypes.INT32)
+asx_t24_itch_v1_13.fields.aot_lower_price = ProtoField.new("Aot Lower Price", "asx.t24.itch.v1.13.aotlowerprice", ftypes.INT32)
+asx_t24_itch_v1_13.fields.aot_price = ProtoField.new("Aot Price", "asx.t24.itch.v1.13.aotprice", ftypes.INT32)
+asx_t24_itch_v1_13.fields.aot_upper_price = ProtoField.new("Aot Upper Price", "asx.t24.itch.v1.13.aotupperprice", ftypes.INT32)
 asx_t24_itch_v1_13.fields.best_ask_price = ProtoField.new("Best Ask Price", "asx.t24.itch.v1.13.bestaskprice", ftypes.INT32)
 asx_t24_itch_v1_13.fields.best_ask_quantity = ProtoField.new("Best Ask Quantity", "asx.t24.itch.v1.13.bestaskquantity", ftypes.UINT32)
 asx_t24_itch_v1_13.fields.best_bid_price = ProtoField.new("Best Bid Price", "asx.t24.itch.v1.13.bestbidprice", ftypes.INT32)
@@ -35,12 +35,12 @@ asx_t24_itch_v1_13.fields.buyer_order_number = ProtoField.new("Buyer Order Numbe
 asx_t24_itch_v1_13.fields.buyer_quantity_remaining = ProtoField.new("Buyer Quantity Remaining", "asx.t24.itch.v1.13.buyerquantityremaining", ftypes.UINT32)
 asx_t24_itch_v1_13.fields.buying_order_number = ProtoField.new("Buying Order Number", "asx.t24.itch.v1.13.buyingordernumber", ftypes.UINT64)
 asx_t24_itch_v1_13.fields.contract_number = ProtoField.new("Contract Number", "asx.t24.itch.v1.13.contractnumber", ftypes.UINT32)
-asx_t24_itch_v1_13.fields.contract_number_leg1 = ProtoField.new("Contract Number Leg1", "asx.t24.itch.v1.13.contractnumberleg1", ftypes.UINT32)
-asx_t24_itch_v1_13.fields.contract_number_leg2 = ProtoField.new("Contract Number Leg2", "asx.t24.itch.v1.13.contractnumberleg2", ftypes.UINT32)
-asx_t24_itch_v1_13.fields.contract_number_leg3 = ProtoField.new("Contract Number Leg3", "asx.t24.itch.v1.13.contractnumberleg3", ftypes.UINT32)
-asx_t24_itch_v1_13.fields.contract_number_leg4 = ProtoField.new("Contract Number Leg4", "asx.t24.itch.v1.13.contractnumberleg4", ftypes.UINT32)
-asx_t24_itch_v1_13.fields.contract_number_leg5 = ProtoField.new("Contract Number Leg5", "asx.t24.itch.v1.13.contractnumberleg5", ftypes.UINT32)
-asx_t24_itch_v1_13.fields.contract_number_leg6 = ProtoField.new("Contract Number Leg6", "asx.t24.itch.v1.13.contractnumberleg6", ftypes.UINT32)
+asx_t24_itch_v1_13.fields.contract_number_leg_1 = ProtoField.new("Contract Number Leg 1", "asx.t24.itch.v1.13.contractnumberleg1", ftypes.UINT32)
+asx_t24_itch_v1_13.fields.contract_number_leg_2 = ProtoField.new("Contract Number Leg 2", "asx.t24.itch.v1.13.contractnumberleg2", ftypes.UINT32)
+asx_t24_itch_v1_13.fields.contract_number_leg_3 = ProtoField.new("Contract Number Leg 3", "asx.t24.itch.v1.13.contractnumberleg3", ftypes.UINT32)
+asx_t24_itch_v1_13.fields.contract_number_leg_4 = ProtoField.new("Contract Number Leg 4", "asx.t24.itch.v1.13.contractnumberleg4", ftypes.UINT32)
+asx_t24_itch_v1_13.fields.contract_number_leg_5 = ProtoField.new("Contract Number Leg 5", "asx.t24.itch.v1.13.contractnumberleg5", ftypes.UINT32)
+asx_t24_itch_v1_13.fields.contract_number_leg_6 = ProtoField.new("Contract Number Leg 6", "asx.t24.itch.v1.13.contractnumberleg6", ftypes.UINT32)
 asx_t24_itch_v1_13.fields.contract_type = ProtoField.new("Contract Type", "asx.t24.itch.v1.13.contracttype", ftypes.STRING)
 asx_t24_itch_v1_13.fields.count = ProtoField.new("Count", "asx.t24.itch.v1.13.count", ftypes.UINT16)
 asx_t24_itch_v1_13.fields.coupon_rate = ProtoField.new("Coupon Rate", "asx.t24.itch.v1.13.couponrate", ftypes.UINT16)
@@ -55,9 +55,9 @@ asx_t24_itch_v1_13.fields.custom_market_quantity_remaining = ProtoField.new("Cus
 asx_t24_itch_v1_13.fields.custom_market_trade = ProtoField.new("Custom Market Trade", "asx.t24.itch.v1.13.custommarkettrade", ftypes.STRING)
 asx_t24_itch_v1_13.fields.equilibrium_price = ProtoField.new("Equilibrium Price", "asx.t24.itch.v1.13.equilibriumprice", ftypes.INT32)
 asx_t24_itch_v1_13.fields.equilibrium_price_auction_info = ProtoField.new("Equilibrium Price Auction Info", "asx.t24.itch.v1.13.equilibriumpriceauctioninfo", ftypes.STRING)
-asx_t24_itch_v1_13.fields.et_r_lower_price = ProtoField.new("Et R Lower Price", "asx.t24.itch.v1.13.etrlowerprice", ftypes.INT32)
-asx_t24_itch_v1_13.fields.et_r_price = ProtoField.new("Et R Price", "asx.t24.itch.v1.13.etrprice", ftypes.INT32)
-asx_t24_itch_v1_13.fields.et_r_upper_price = ProtoField.new("Et R Upper Price", "asx.t24.itch.v1.13.etrupperprice", ftypes.INT32)
+asx_t24_itch_v1_13.fields.etr_lower_price = ProtoField.new("Etr Lower Price", "asx.t24.itch.v1.13.etrlowerprice", ftypes.INT32)
+asx_t24_itch_v1_13.fields.etr_price = ProtoField.new("Etr Price", "asx.t24.itch.v1.13.etrprice", ftypes.INT32)
+asx_t24_itch_v1_13.fields.etr_upper_price = ProtoField.new("Etr Upper Price", "asx.t24.itch.v1.13.etrupperprice", ftypes.INT32)
 asx_t24_itch_v1_13.fields.event_code = ProtoField.new("Event Code", "asx.t24.itch.v1.13.eventcode", ftypes.STRING)
 asx_t24_itch_v1_13.fields.exchange = ProtoField.new("Exchange", "asx.t24.itch.v1.13.exchange", ftypes.STRING)
 asx_t24_itch_v1_13.fields.executed_quantity = ProtoField.new("Executed Quantity", "asx.t24.itch.v1.13.executedquantity", ftypes.UINT32)
@@ -111,12 +111,12 @@ asx_t24_itch_v1_13.fields.payments_per_year = ProtoField.new("Payments Per Year"
 asx_t24_itch_v1_13.fields.price = ProtoField.new("Price", "asx.t24.itch.v1.13.price", ftypes.INT32)
 asx_t24_itch_v1_13.fields.price_decimal_position = ProtoField.new("Price Decimal Position", "asx.t24.itch.v1.13.pricedecimalposition", ftypes.UINT8)
 asx_t24_itch_v1_13.fields.price_fractional_denominator = ProtoField.new("Price Fractional Denominator", "asx.t24.itch.v1.13.pricefractionaldenominator", ftypes.UINT32)
-asx_t24_itch_v1_13.fields.price_leg1 = ProtoField.new("Price Leg1", "asx.t24.itch.v1.13.priceleg1", ftypes.INT32)
-asx_t24_itch_v1_13.fields.price_leg2 = ProtoField.new("Price Leg2", "asx.t24.itch.v1.13.priceleg2", ftypes.INT32)
-asx_t24_itch_v1_13.fields.price_leg3 = ProtoField.new("Price Leg3", "asx.t24.itch.v1.13.priceleg3", ftypes.INT32)
-asx_t24_itch_v1_13.fields.price_leg4 = ProtoField.new("Price Leg4", "asx.t24.itch.v1.13.priceleg4", ftypes.INT32)
-asx_t24_itch_v1_13.fields.price_leg5 = ProtoField.new("Price Leg5", "asx.t24.itch.v1.13.priceleg5", ftypes.INT32)
-asx_t24_itch_v1_13.fields.price_leg6 = ProtoField.new("Price Leg6", "asx.t24.itch.v1.13.priceleg6", ftypes.INT32)
+asx_t24_itch_v1_13.fields.price_leg_1 = ProtoField.new("Price Leg 1", "asx.t24.itch.v1.13.priceleg1", ftypes.INT32)
+asx_t24_itch_v1_13.fields.price_leg_2 = ProtoField.new("Price Leg 2", "asx.t24.itch.v1.13.priceleg2", ftypes.INT32)
+asx_t24_itch_v1_13.fields.price_leg_3 = ProtoField.new("Price Leg 3", "asx.t24.itch.v1.13.priceleg3", ftypes.INT32)
+asx_t24_itch_v1_13.fields.price_leg_4 = ProtoField.new("Price Leg 4", "asx.t24.itch.v1.13.priceleg4", ftypes.INT32)
+asx_t24_itch_v1_13.fields.price_leg_5 = ProtoField.new("Price Leg 5", "asx.t24.itch.v1.13.priceleg5", ftypes.INT32)
+asx_t24_itch_v1_13.fields.price_leg_6 = ProtoField.new("Price Leg 6", "asx.t24.itch.v1.13.priceleg6", ftypes.INT32)
 asx_t24_itch_v1_13.fields.price_minimum_tick = ProtoField.new("Price Minimum Tick", "asx.t24.itch.v1.13.priceminimumtick", ftypes.UINT16)
 asx_t24_itch_v1_13.fields.primary_ratio = ProtoField.new("Primary Ratio", "asx.t24.itch.v1.13.primaryratio", ftypes.UINT8)
 asx_t24_itch_v1_13.fields.printable = ProtoField.new("Printable", "asx.t24.itch.v1.13.printable", ftypes.STRING)
@@ -124,12 +124,12 @@ asx_t24_itch_v1_13.fields.prior_day_settlement = ProtoField.new("Prior Day Settl
 asx_t24_itch_v1_13.fields.protocol_version = ProtoField.new("Protocol Version", "asx.t24.itch.v1.13.protocolversion", ftypes.STRING)
 asx_t24_itch_v1_13.fields.quantity = ProtoField.new("Quantity", "asx.t24.itch.v1.13.quantity", ftypes.UINT32)
 asx_t24_itch_v1_13.fields.quantity_remaining = ProtoField.new("Quantity Remaining", "asx.t24.itch.v1.13.quantityremaining", ftypes.UINT32)
-asx_t24_itch_v1_13.fields.ratio_leg1 = ProtoField.new("Ratio Leg1", "asx.t24.itch.v1.13.ratioleg1", ftypes.UINT16)
-asx_t24_itch_v1_13.fields.ratio_leg2 = ProtoField.new("Ratio Leg2", "asx.t24.itch.v1.13.ratioleg2", ftypes.UINT16)
-asx_t24_itch_v1_13.fields.ratio_leg3 = ProtoField.new("Ratio Leg3", "asx.t24.itch.v1.13.ratioleg3", ftypes.UINT16)
-asx_t24_itch_v1_13.fields.ratio_leg4 = ProtoField.new("Ratio Leg4", "asx.t24.itch.v1.13.ratioleg4", ftypes.UINT16)
-asx_t24_itch_v1_13.fields.ratio_leg5 = ProtoField.new("Ratio Leg5", "asx.t24.itch.v1.13.ratioleg5", ftypes.UINT16)
-asx_t24_itch_v1_13.fields.ratio_leg6 = ProtoField.new("Ratio Leg6", "asx.t24.itch.v1.13.ratioleg6", ftypes.UINT16)
+asx_t24_itch_v1_13.fields.ratio_leg_1 = ProtoField.new("Ratio Leg 1", "asx.t24.itch.v1.13.ratioleg1", ftypes.UINT16)
+asx_t24_itch_v1_13.fields.ratio_leg_2 = ProtoField.new("Ratio Leg 2", "asx.t24.itch.v1.13.ratioleg2", ftypes.UINT16)
+asx_t24_itch_v1_13.fields.ratio_leg_3 = ProtoField.new("Ratio Leg 3", "asx.t24.itch.v1.13.ratioleg3", ftypes.UINT16)
+asx_t24_itch_v1_13.fields.ratio_leg_4 = ProtoField.new("Ratio Leg 4", "asx.t24.itch.v1.13.ratioleg4", ftypes.UINT16)
+asx_t24_itch_v1_13.fields.ratio_leg_5 = ProtoField.new("Ratio Leg 5", "asx.t24.itch.v1.13.ratioleg5", ftypes.UINT16)
+asx_t24_itch_v1_13.fields.ratio_leg_6 = ProtoField.new("Ratio Leg 6", "asx.t24.itch.v1.13.ratioleg6", ftypes.UINT16)
 asx_t24_itch_v1_13.fields.request_for_quote = ProtoField.new("Request for Quote", "asx.t24.itch.v1.13.requestforquote", ftypes.STRING)
 asx_t24_itch_v1_13.fields.reserved = ProtoField.new("Reserved", "asx.t24.itch.v1.13.reserved", ftypes.UINT8, nil, base.DEC, "0xC0")
 asx_t24_itch_v1_13.fields.second = ProtoField.new("Second", "asx.t24.itch.v1.13.second", ftypes.UINT32)
@@ -145,12 +145,12 @@ asx_t24_itch_v1_13.fields.session_year = ProtoField.new("Session Year", "asx.t24
 asx_t24_itch_v1_13.fields.settlement_price = ProtoField.new("Settlement Price", "asx.t24.itch.v1.13.settlementprice", ftypes.INT32)
 asx_t24_itch_v1_13.fields.settlement_type = ProtoField.new("Settlement Type", "asx.t24.itch.v1.13.settlementtype", ftypes.STRING)
 asx_t24_itch_v1_13.fields.side = ProtoField.new("Side", "asx.t24.itch.v1.13.side", ftypes.STRING)
-asx_t24_itch_v1_13.fields.side_leg1 = ProtoField.new("Side Leg1", "asx.t24.itch.v1.13.sideleg1", ftypes.STRING)
-asx_t24_itch_v1_13.fields.side_leg2 = ProtoField.new("Side Leg2", "asx.t24.itch.v1.13.sideleg2", ftypes.STRING)
-asx_t24_itch_v1_13.fields.side_leg3 = ProtoField.new("Side Leg3", "asx.t24.itch.v1.13.sideleg3", ftypes.STRING)
-asx_t24_itch_v1_13.fields.side_leg4 = ProtoField.new("Side Leg4", "asx.t24.itch.v1.13.sideleg4", ftypes.STRING)
-asx_t24_itch_v1_13.fields.side_leg5 = ProtoField.new("Side Leg5", "asx.t24.itch.v1.13.sideleg5", ftypes.STRING)
-asx_t24_itch_v1_13.fields.side_leg6 = ProtoField.new("Side Leg6", "asx.t24.itch.v1.13.sideleg6", ftypes.STRING)
+asx_t24_itch_v1_13.fields.side_leg_1 = ProtoField.new("Side Leg 1", "asx.t24.itch.v1.13.sideleg1", ftypes.STRING)
+asx_t24_itch_v1_13.fields.side_leg_2 = ProtoField.new("Side Leg 2", "asx.t24.itch.v1.13.sideleg2", ftypes.STRING)
+asx_t24_itch_v1_13.fields.side_leg_3 = ProtoField.new("Side Leg 3", "asx.t24.itch.v1.13.sideleg3", ftypes.STRING)
+asx_t24_itch_v1_13.fields.side_leg_4 = ProtoField.new("Side Leg 4", "asx.t24.itch.v1.13.sideleg4", ftypes.STRING)
+asx_t24_itch_v1_13.fields.side_leg_5 = ProtoField.new("Side Leg 5", "asx.t24.itch.v1.13.sideleg5", ftypes.STRING)
+asx_t24_itch_v1_13.fields.side_leg_6 = ProtoField.new("Side Leg 6", "asx.t24.itch.v1.13.sideleg6", ftypes.STRING)
 asx_t24_itch_v1_13.fields.side_of_buyer = ProtoField.new("Side Of Buyer", "asx.t24.itch.v1.13.sideofbuyer", ftypes.STRING)
 asx_t24_itch_v1_13.fields.side_of_seller = ProtoField.new("Side Of Seller", "asx.t24.itch.v1.13.sideofseller", ftypes.STRING)
 asx_t24_itch_v1_13.fields.source_id = ProtoField.new("Source Id", "asx.t24.itch.v1.13.sourceid", ftypes.STRING)
@@ -179,7 +179,7 @@ asx_t24_itch_v1_13.fields.traded_contract_number = ProtoField.new("Traded Contra
 asx_t24_itch_v1_13.fields.trading_service = ProtoField.new("Trading Service", "asx.t24.itch.v1.13.tradingservice", ftypes.STRING)
 asx_t24_itch_v1_13.fields.trading_status = ProtoField.new("Trading Status", "asx.t24.itch.v1.13.tradingstatus", ftypes.STRING)
 asx_t24_itch_v1_13.fields.underlying_contract_number = ProtoField.new("Underlying Contract Number", "asx.t24.itch.v1.13.underlyingcontractnumber", ftypes.UINT32)
-asx_t24_itch_v1_13.fields.vo_i_trade_date = ProtoField.new("Vo I Trade Date", "asx.t24.itch.v1.13.voitradedate", ftypes.UINT16)
+asx_t24_itch_v1_13.fields.voi_trade_date = ProtoField.new("Voi Trade Date", "asx.t24.itch.v1.13.voitradedate", ftypes.UINT16)
 asx_t24_itch_v1_13.fields.volatility = ProtoField.new("Volatility", "asx.t24.itch.v1.13.volatility", ftypes.UINT32)
 asx_t24_itch_v1_13.fields.volume_and_open_interest = ProtoField.new("Volume and Open Interest", "asx.t24.itch.v1.13.volumeandopeninterest", ftypes.STRING)
 
@@ -430,23 +430,23 @@ end
 -- Dissect Asx T24 Itch 1.13
 -----------------------------------------------------------------------
 
--- Size: Vo I Trade Date
-size_of.vo_i_trade_date = 2
+-- Size: Voi Trade Date
+size_of.voi_trade_date = 2
 
--- Display: Vo I Trade Date
-display.vo_i_trade_date = function(value)
-  return "Vo I Trade Date: "..value
+-- Display: Voi Trade Date
+display.voi_trade_date = function(value)
+  return "Voi Trade Date: "..value
 end
 
--- Dissect: Vo I Trade Date
-dissect.vo_i_trade_date = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.vo_i_trade_date)
+-- Dissect: Voi Trade Date
+dissect.voi_trade_date = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.voi_trade_date)
   local value = range:uint()
-  local display = display.vo_i_trade_date(value, buffer, offset, packet, parent)
+  local display = display.voi_trade_date(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.vo_i_trade_date, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.voi_trade_date, range, value, display)
 
-  return offset + size_of.vo_i_trade_date
+  return offset + size_of.voi_trade_date
 end
 
 -- Size: Open Interest
@@ -568,8 +568,8 @@ dissect.volume_and_open_interest_fields = function(buffer, offset, packet, paren
   -- Open Interest: 4 Byte Unsigned Fixed Width Integer
   index = dissect.open_interest(buffer, index, packet, parent)
 
-  -- Vo I Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.vo_i_trade_date(buffer, index, packet, parent)
+  -- Voi Trade Date: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.voi_trade_date(buffer, index, packet, parent)
 
   return index
 end
@@ -586,118 +586,118 @@ dissect.volume_and_open_interest = function(buffer, offset, packet, parent)
   return dissect.volume_and_open_interest_fields(buffer, offset, packet, parent)
 end
 
--- Size: Et R Lower Price
-size_of.et_r_lower_price = 4
+-- Size: Etr Lower Price
+size_of.etr_lower_price = 4
 
--- Display: Et R Lower Price
-display.et_r_lower_price = function(value)
-  return "Et R Lower Price: "..value
+-- Display: Etr Lower Price
+display.etr_lower_price = function(value)
+  return "Etr Lower Price: "..value
 end
 
--- Dissect: Et R Lower Price
-dissect.et_r_lower_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.et_r_lower_price)
+-- Dissect: Etr Lower Price
+dissect.etr_lower_price = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.etr_lower_price)
   local value = range:int()
-  local display = display.et_r_lower_price(value, buffer, offset, packet, parent)
+  local display = display.etr_lower_price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.et_r_lower_price, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.etr_lower_price, range, value, display)
 
-  return offset + size_of.et_r_lower_price
+  return offset + size_of.etr_lower_price
 end
 
--- Size: Et R Upper Price
-size_of.et_r_upper_price = 4
+-- Size: Etr Upper Price
+size_of.etr_upper_price = 4
 
--- Display: Et R Upper Price
-display.et_r_upper_price = function(value)
-  return "Et R Upper Price: "..value
+-- Display: Etr Upper Price
+display.etr_upper_price = function(value)
+  return "Etr Upper Price: "..value
 end
 
--- Dissect: Et R Upper Price
-dissect.et_r_upper_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.et_r_upper_price)
+-- Dissect: Etr Upper Price
+dissect.etr_upper_price = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.etr_upper_price)
   local value = range:int()
-  local display = display.et_r_upper_price(value, buffer, offset, packet, parent)
+  local display = display.etr_upper_price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.et_r_upper_price, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.etr_upper_price, range, value, display)
 
-  return offset + size_of.et_r_upper_price
+  return offset + size_of.etr_upper_price
 end
 
--- Size: Et R Price
-size_of.et_r_price = 4
+-- Size: Etr Price
+size_of.etr_price = 4
 
--- Display: Et R Price
-display.et_r_price = function(value)
-  return "Et R Price: "..value
+-- Display: Etr Price
+display.etr_price = function(value)
+  return "Etr Price: "..value
 end
 
--- Dissect: Et R Price
-dissect.et_r_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.et_r_price)
+-- Dissect: Etr Price
+dissect.etr_price = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.etr_price)
   local value = range:int()
-  local display = display.et_r_price(value, buffer, offset, packet, parent)
+  local display = display.etr_price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.et_r_price, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.etr_price, range, value, display)
 
-  return offset + size_of.et_r_price
+  return offset + size_of.etr_price
 end
 
--- Size: Ao T Lower Price
-size_of.ao_t_lower_price = 4
+-- Size: Aot Lower Price
+size_of.aot_lower_price = 4
 
--- Display: Ao T Lower Price
-display.ao_t_lower_price = function(value)
-  return "Ao T Lower Price: "..value
+-- Display: Aot Lower Price
+display.aot_lower_price = function(value)
+  return "Aot Lower Price: "..value
 end
 
--- Dissect: Ao T Lower Price
-dissect.ao_t_lower_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ao_t_lower_price)
+-- Dissect: Aot Lower Price
+dissect.aot_lower_price = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.aot_lower_price)
   local value = range:int()
-  local display = display.ao_t_lower_price(value, buffer, offset, packet, parent)
+  local display = display.aot_lower_price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.ao_t_lower_price, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.aot_lower_price, range, value, display)
 
-  return offset + size_of.ao_t_lower_price
+  return offset + size_of.aot_lower_price
 end
 
--- Size: Ao T Upper Price
-size_of.ao_t_upper_price = 4
+-- Size: Aot Upper Price
+size_of.aot_upper_price = 4
 
--- Display: Ao T Upper Price
-display.ao_t_upper_price = function(value)
-  return "Ao T Upper Price: "..value
+-- Display: Aot Upper Price
+display.aot_upper_price = function(value)
+  return "Aot Upper Price: "..value
 end
 
--- Dissect: Ao T Upper Price
-dissect.ao_t_upper_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ao_t_upper_price)
+-- Dissect: Aot Upper Price
+dissect.aot_upper_price = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.aot_upper_price)
   local value = range:int()
-  local display = display.ao_t_upper_price(value, buffer, offset, packet, parent)
+  local display = display.aot_upper_price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.ao_t_upper_price, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.aot_upper_price, range, value, display)
 
-  return offset + size_of.ao_t_upper_price
+  return offset + size_of.aot_upper_price
 end
 
--- Size: Ao T Price
-size_of.ao_t_price = 4
+-- Size: Aot Price
+size_of.aot_price = 4
 
--- Display: Ao T Price
-display.ao_t_price = function(value)
-  return "Ao T Price: "..value
+-- Display: Aot Price
+display.aot_price = function(value)
+  return "Aot Price: "..value
 end
 
--- Dissect: Ao T Price
-dissect.ao_t_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ao_t_price)
+-- Dissect: Aot Price
+dissect.aot_price = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.aot_price)
   local value = range:int()
-  local display = display.ao_t_price(value, buffer, offset, packet, parent)
+  local display = display.aot_price(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.ao_t_price, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.aot_price, range, value, display)
 
-  return offset + size_of.ao_t_price
+  return offset + size_of.aot_price
 end
 
 -- Display: Anomalous Order Threshold Publish
@@ -718,23 +718,23 @@ dissect.anomalous_order_threshold_publish_fields = function(buffer, offset, pack
   -- Contract Number: 4 Byte Unsigned Fixed Width Integer
   index = dissect.contract_number(buffer, index, packet, parent)
 
-  -- Ao T Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.ao_t_price(buffer, index, packet, parent)
+  -- Aot Price: 4 Byte Signed Fixed Width Integer
+  index = dissect.aot_price(buffer, index, packet, parent)
 
-  -- Ao T Upper Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.ao_t_upper_price(buffer, index, packet, parent)
+  -- Aot Upper Price: 4 Byte Signed Fixed Width Integer
+  index = dissect.aot_upper_price(buffer, index, packet, parent)
 
-  -- Ao T Lower Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.ao_t_lower_price(buffer, index, packet, parent)
+  -- Aot Lower Price: 4 Byte Signed Fixed Width Integer
+  index = dissect.aot_lower_price(buffer, index, packet, parent)
 
-  -- Et R Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.et_r_price(buffer, index, packet, parent)
+  -- Etr Price: 4 Byte Signed Fixed Width Integer
+  index = dissect.etr_price(buffer, index, packet, parent)
 
-  -- Et R Upper Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.et_r_upper_price(buffer, index, packet, parent)
+  -- Etr Upper Price: 4 Byte Signed Fixed Width Integer
+  index = dissect.etr_upper_price(buffer, index, packet, parent)
 
-  -- Et R Lower Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.et_r_lower_price(buffer, index, packet, parent)
+  -- Etr Lower Price: 4 Byte Signed Fixed Width Integer
+  index = dissect.etr_lower_price(buffer, index, packet, parent)
 
   return index
 end
@@ -2401,460 +2401,460 @@ dissect.custom_market_order_replaced = function(buffer, offset, packet, parent)
   return dissect.custom_market_order_replaced_fields(buffer, offset, packet, parent)
 end
 
--- Size: Price Leg6
-size_of.price_leg6 = 4
+-- Size: Price Leg 6
+size_of.price_leg_6 = 4
 
--- Display: Price Leg6
-display.price_leg6 = function(value)
-  return "Price Leg6: "..value
+-- Display: Price Leg 6
+display.price_leg_6 = function(value)
+  return "Price Leg 6: "..value
 end
 
--- Dissect: Price Leg6
-dissect.price_leg6 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price_leg6)
+-- Dissect: Price Leg 6
+dissect.price_leg_6 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.price_leg_6)
   local value = range:int()
-  local display = display.price_leg6(value, buffer, offset, packet, parent)
+  local display = display.price_leg_6(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.price_leg6, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.price_leg_6, range, value, display)
 
-  return offset + size_of.price_leg6
+  return offset + size_of.price_leg_6
 end
 
--- Size: Ratio Leg6
-size_of.ratio_leg6 = 2
+-- Size: Ratio Leg 6
+size_of.ratio_leg_6 = 2
 
--- Display: Ratio Leg6
-display.ratio_leg6 = function(value)
-  return "Ratio Leg6: "..value
+-- Display: Ratio Leg 6
+display.ratio_leg_6 = function(value)
+  return "Ratio Leg 6: "..value
 end
 
--- Dissect: Ratio Leg6
-dissect.ratio_leg6 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ratio_leg6)
+-- Dissect: Ratio Leg 6
+dissect.ratio_leg_6 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.ratio_leg_6)
   local value = range:uint()
-  local display = display.ratio_leg6(value, buffer, offset, packet, parent)
+  local display = display.ratio_leg_6(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.ratio_leg6, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.ratio_leg_6, range, value, display)
 
-  return offset + size_of.ratio_leg6
+  return offset + size_of.ratio_leg_6
 end
 
--- Size: Side Leg6
-size_of.side_leg6 = 1
+-- Size: Side Leg 6
+size_of.side_leg_6 = 1
 
--- Display: Side Leg6
-display.side_leg6 = function(value)
-  return "Side Leg6: "..value
+-- Display: Side Leg 6
+display.side_leg_6 = function(value)
+  return "Side Leg 6: "..value
 end
 
--- Dissect: Side Leg6
-dissect.side_leg6 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.side_leg6)
+-- Dissect: Side Leg 6
+dissect.side_leg_6 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.side_leg_6)
   local value = range:string()
-  local display = display.side_leg6(value, buffer, offset, packet, parent)
+  local display = display.side_leg_6(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.side_leg6, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.side_leg_6, range, value, display)
 
-  return offset + size_of.side_leg6
+  return offset + size_of.side_leg_6
 end
 
--- Size: Contract Number Leg6
-size_of.contract_number_leg6 = 4
+-- Size: Contract Number Leg 6
+size_of.contract_number_leg_6 = 4
 
--- Display: Contract Number Leg6
-display.contract_number_leg6 = function(value)
-  return "Contract Number Leg6: "..value
+-- Display: Contract Number Leg 6
+display.contract_number_leg_6 = function(value)
+  return "Contract Number Leg 6: "..value
 end
 
--- Dissect: Contract Number Leg6
-dissect.contract_number_leg6 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.contract_number_leg6)
+-- Dissect: Contract Number Leg 6
+dissect.contract_number_leg_6 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.contract_number_leg_6)
   local value = range:uint()
-  local display = display.contract_number_leg6(value, buffer, offset, packet, parent)
+  local display = display.contract_number_leg_6(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.contract_number_leg6, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.contract_number_leg_6, range, value, display)
 
-  return offset + size_of.contract_number_leg6
+  return offset + size_of.contract_number_leg_6
 end
 
--- Size: Price Leg5
-size_of.price_leg5 = 4
+-- Size: Price Leg 5
+size_of.price_leg_5 = 4
 
--- Display: Price Leg5
-display.price_leg5 = function(value)
-  return "Price Leg5: "..value
+-- Display: Price Leg 5
+display.price_leg_5 = function(value)
+  return "Price Leg 5: "..value
 end
 
--- Dissect: Price Leg5
-dissect.price_leg5 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price_leg5)
+-- Dissect: Price Leg 5
+dissect.price_leg_5 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.price_leg_5)
   local value = range:int()
-  local display = display.price_leg5(value, buffer, offset, packet, parent)
+  local display = display.price_leg_5(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.price_leg5, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.price_leg_5, range, value, display)
 
-  return offset + size_of.price_leg5
+  return offset + size_of.price_leg_5
 end
 
--- Size: Ratio Leg5
-size_of.ratio_leg5 = 2
+-- Size: Ratio Leg 5
+size_of.ratio_leg_5 = 2
 
--- Display: Ratio Leg5
-display.ratio_leg5 = function(value)
-  return "Ratio Leg5: "..value
+-- Display: Ratio Leg 5
+display.ratio_leg_5 = function(value)
+  return "Ratio Leg 5: "..value
 end
 
--- Dissect: Ratio Leg5
-dissect.ratio_leg5 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ratio_leg5)
+-- Dissect: Ratio Leg 5
+dissect.ratio_leg_5 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.ratio_leg_5)
   local value = range:uint()
-  local display = display.ratio_leg5(value, buffer, offset, packet, parent)
+  local display = display.ratio_leg_5(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.ratio_leg5, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.ratio_leg_5, range, value, display)
 
-  return offset + size_of.ratio_leg5
+  return offset + size_of.ratio_leg_5
 end
 
--- Size: Side Leg5
-size_of.side_leg5 = 1
+-- Size: Side Leg 5
+size_of.side_leg_5 = 1
 
--- Display: Side Leg5
-display.side_leg5 = function(value)
-  return "Side Leg5: "..value
+-- Display: Side Leg 5
+display.side_leg_5 = function(value)
+  return "Side Leg 5: "..value
 end
 
--- Dissect: Side Leg5
-dissect.side_leg5 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.side_leg5)
+-- Dissect: Side Leg 5
+dissect.side_leg_5 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.side_leg_5)
   local value = range:string()
-  local display = display.side_leg5(value, buffer, offset, packet, parent)
+  local display = display.side_leg_5(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.side_leg5, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.side_leg_5, range, value, display)
 
-  return offset + size_of.side_leg5
+  return offset + size_of.side_leg_5
 end
 
--- Size: Contract Number Leg5
-size_of.contract_number_leg5 = 4
+-- Size: Contract Number Leg 5
+size_of.contract_number_leg_5 = 4
 
--- Display: Contract Number Leg5
-display.contract_number_leg5 = function(value)
-  return "Contract Number Leg5: "..value
+-- Display: Contract Number Leg 5
+display.contract_number_leg_5 = function(value)
+  return "Contract Number Leg 5: "..value
 end
 
--- Dissect: Contract Number Leg5
-dissect.contract_number_leg5 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.contract_number_leg5)
+-- Dissect: Contract Number Leg 5
+dissect.contract_number_leg_5 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.contract_number_leg_5)
   local value = range:uint()
-  local display = display.contract_number_leg5(value, buffer, offset, packet, parent)
+  local display = display.contract_number_leg_5(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.contract_number_leg5, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.contract_number_leg_5, range, value, display)
 
-  return offset + size_of.contract_number_leg5
+  return offset + size_of.contract_number_leg_5
 end
 
--- Size: Price Leg4
-size_of.price_leg4 = 4
+-- Size: Price Leg 4
+size_of.price_leg_4 = 4
 
--- Display: Price Leg4
-display.price_leg4 = function(value)
-  return "Price Leg4: "..value
+-- Display: Price Leg 4
+display.price_leg_4 = function(value)
+  return "Price Leg 4: "..value
 end
 
--- Dissect: Price Leg4
-dissect.price_leg4 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price_leg4)
+-- Dissect: Price Leg 4
+dissect.price_leg_4 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.price_leg_4)
   local value = range:int()
-  local display = display.price_leg4(value, buffer, offset, packet, parent)
+  local display = display.price_leg_4(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.price_leg4, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.price_leg_4, range, value, display)
 
-  return offset + size_of.price_leg4
+  return offset + size_of.price_leg_4
 end
 
--- Size: Ratio Leg4
-size_of.ratio_leg4 = 2
+-- Size: Ratio Leg 4
+size_of.ratio_leg_4 = 2
 
--- Display: Ratio Leg4
-display.ratio_leg4 = function(value)
-  return "Ratio Leg4: "..value
+-- Display: Ratio Leg 4
+display.ratio_leg_4 = function(value)
+  return "Ratio Leg 4: "..value
 end
 
--- Dissect: Ratio Leg4
-dissect.ratio_leg4 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ratio_leg4)
+-- Dissect: Ratio Leg 4
+dissect.ratio_leg_4 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.ratio_leg_4)
   local value = range:uint()
-  local display = display.ratio_leg4(value, buffer, offset, packet, parent)
+  local display = display.ratio_leg_4(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.ratio_leg4, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.ratio_leg_4, range, value, display)
 
-  return offset + size_of.ratio_leg4
+  return offset + size_of.ratio_leg_4
 end
 
--- Size: Side Leg4
-size_of.side_leg4 = 1
+-- Size: Side Leg 4
+size_of.side_leg_4 = 1
 
--- Display: Side Leg4
-display.side_leg4 = function(value)
-  return "Side Leg4: "..value
+-- Display: Side Leg 4
+display.side_leg_4 = function(value)
+  return "Side Leg 4: "..value
 end
 
--- Dissect: Side Leg4
-dissect.side_leg4 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.side_leg4)
+-- Dissect: Side Leg 4
+dissect.side_leg_4 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.side_leg_4)
   local value = range:string()
-  local display = display.side_leg4(value, buffer, offset, packet, parent)
+  local display = display.side_leg_4(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.side_leg4, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.side_leg_4, range, value, display)
 
-  return offset + size_of.side_leg4
+  return offset + size_of.side_leg_4
 end
 
--- Size: Contract Number Leg4
-size_of.contract_number_leg4 = 4
+-- Size: Contract Number Leg 4
+size_of.contract_number_leg_4 = 4
 
--- Display: Contract Number Leg4
-display.contract_number_leg4 = function(value)
-  return "Contract Number Leg4: "..value
+-- Display: Contract Number Leg 4
+display.contract_number_leg_4 = function(value)
+  return "Contract Number Leg 4: "..value
 end
 
--- Dissect: Contract Number Leg4
-dissect.contract_number_leg4 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.contract_number_leg4)
+-- Dissect: Contract Number Leg 4
+dissect.contract_number_leg_4 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.contract_number_leg_4)
   local value = range:uint()
-  local display = display.contract_number_leg4(value, buffer, offset, packet, parent)
+  local display = display.contract_number_leg_4(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.contract_number_leg4, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.contract_number_leg_4, range, value, display)
 
-  return offset + size_of.contract_number_leg4
+  return offset + size_of.contract_number_leg_4
 end
 
--- Size: Price Leg3
-size_of.price_leg3 = 4
+-- Size: Price Leg 3
+size_of.price_leg_3 = 4
 
--- Display: Price Leg3
-display.price_leg3 = function(value)
-  return "Price Leg3: "..value
+-- Display: Price Leg 3
+display.price_leg_3 = function(value)
+  return "Price Leg 3: "..value
 end
 
--- Dissect: Price Leg3
-dissect.price_leg3 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price_leg3)
+-- Dissect: Price Leg 3
+dissect.price_leg_3 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.price_leg_3)
   local value = range:int()
-  local display = display.price_leg3(value, buffer, offset, packet, parent)
+  local display = display.price_leg_3(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.price_leg3, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.price_leg_3, range, value, display)
 
-  return offset + size_of.price_leg3
+  return offset + size_of.price_leg_3
 end
 
--- Size: Ratio Leg3
-size_of.ratio_leg3 = 2
+-- Size: Ratio Leg 3
+size_of.ratio_leg_3 = 2
 
--- Display: Ratio Leg3
-display.ratio_leg3 = function(value)
-  return "Ratio Leg3: "..value
+-- Display: Ratio Leg 3
+display.ratio_leg_3 = function(value)
+  return "Ratio Leg 3: "..value
 end
 
--- Dissect: Ratio Leg3
-dissect.ratio_leg3 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ratio_leg3)
+-- Dissect: Ratio Leg 3
+dissect.ratio_leg_3 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.ratio_leg_3)
   local value = range:uint()
-  local display = display.ratio_leg3(value, buffer, offset, packet, parent)
+  local display = display.ratio_leg_3(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.ratio_leg3, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.ratio_leg_3, range, value, display)
 
-  return offset + size_of.ratio_leg3
+  return offset + size_of.ratio_leg_3
 end
 
--- Size: Side Leg3
-size_of.side_leg3 = 1
+-- Size: Side Leg 3
+size_of.side_leg_3 = 1
 
--- Display: Side Leg3
-display.side_leg3 = function(value)
-  return "Side Leg3: "..value
+-- Display: Side Leg 3
+display.side_leg_3 = function(value)
+  return "Side Leg 3: "..value
 end
 
--- Dissect: Side Leg3
-dissect.side_leg3 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.side_leg3)
+-- Dissect: Side Leg 3
+dissect.side_leg_3 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.side_leg_3)
   local value = range:string()
-  local display = display.side_leg3(value, buffer, offset, packet, parent)
+  local display = display.side_leg_3(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.side_leg3, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.side_leg_3, range, value, display)
 
-  return offset + size_of.side_leg3
+  return offset + size_of.side_leg_3
 end
 
--- Size: Contract Number Leg3
-size_of.contract_number_leg3 = 4
+-- Size: Contract Number Leg 3
+size_of.contract_number_leg_3 = 4
 
--- Display: Contract Number Leg3
-display.contract_number_leg3 = function(value)
-  return "Contract Number Leg3: "..value
+-- Display: Contract Number Leg 3
+display.contract_number_leg_3 = function(value)
+  return "Contract Number Leg 3: "..value
 end
 
--- Dissect: Contract Number Leg3
-dissect.contract_number_leg3 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.contract_number_leg3)
+-- Dissect: Contract Number Leg 3
+dissect.contract_number_leg_3 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.contract_number_leg_3)
   local value = range:uint()
-  local display = display.contract_number_leg3(value, buffer, offset, packet, parent)
+  local display = display.contract_number_leg_3(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.contract_number_leg3, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.contract_number_leg_3, range, value, display)
 
-  return offset + size_of.contract_number_leg3
+  return offset + size_of.contract_number_leg_3
 end
 
--- Size: Price Leg2
-size_of.price_leg2 = 4
+-- Size: Price Leg 2
+size_of.price_leg_2 = 4
 
--- Display: Price Leg2
-display.price_leg2 = function(value)
-  return "Price Leg2: "..value
+-- Display: Price Leg 2
+display.price_leg_2 = function(value)
+  return "Price Leg 2: "..value
 end
 
--- Dissect: Price Leg2
-dissect.price_leg2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price_leg2)
+-- Dissect: Price Leg 2
+dissect.price_leg_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.price_leg_2)
   local value = range:int()
-  local display = display.price_leg2(value, buffer, offset, packet, parent)
+  local display = display.price_leg_2(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.price_leg2, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.price_leg_2, range, value, display)
 
-  return offset + size_of.price_leg2
+  return offset + size_of.price_leg_2
 end
 
--- Size: Ratio Leg2
-size_of.ratio_leg2 = 2
+-- Size: Ratio Leg 2
+size_of.ratio_leg_2 = 2
 
--- Display: Ratio Leg2
-display.ratio_leg2 = function(value)
-  return "Ratio Leg2: "..value
+-- Display: Ratio Leg 2
+display.ratio_leg_2 = function(value)
+  return "Ratio Leg 2: "..value
 end
 
--- Dissect: Ratio Leg2
-dissect.ratio_leg2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ratio_leg2)
+-- Dissect: Ratio Leg 2
+dissect.ratio_leg_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.ratio_leg_2)
   local value = range:uint()
-  local display = display.ratio_leg2(value, buffer, offset, packet, parent)
+  local display = display.ratio_leg_2(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.ratio_leg2, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.ratio_leg_2, range, value, display)
 
-  return offset + size_of.ratio_leg2
+  return offset + size_of.ratio_leg_2
 end
 
--- Size: Side Leg2
-size_of.side_leg2 = 1
+-- Size: Side Leg 2
+size_of.side_leg_2 = 1
 
--- Display: Side Leg2
-display.side_leg2 = function(value)
-  return "Side Leg2: "..value
+-- Display: Side Leg 2
+display.side_leg_2 = function(value)
+  return "Side Leg 2: "..value
 end
 
--- Dissect: Side Leg2
-dissect.side_leg2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.side_leg2)
+-- Dissect: Side Leg 2
+dissect.side_leg_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.side_leg_2)
   local value = range:string()
-  local display = display.side_leg2(value, buffer, offset, packet, parent)
+  local display = display.side_leg_2(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.side_leg2, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.side_leg_2, range, value, display)
 
-  return offset + size_of.side_leg2
+  return offset + size_of.side_leg_2
 end
 
--- Size: Contract Number Leg2
-size_of.contract_number_leg2 = 4
+-- Size: Contract Number Leg 2
+size_of.contract_number_leg_2 = 4
 
--- Display: Contract Number Leg2
-display.contract_number_leg2 = function(value)
-  return "Contract Number Leg2: "..value
+-- Display: Contract Number Leg 2
+display.contract_number_leg_2 = function(value)
+  return "Contract Number Leg 2: "..value
 end
 
--- Dissect: Contract Number Leg2
-dissect.contract_number_leg2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.contract_number_leg2)
+-- Dissect: Contract Number Leg 2
+dissect.contract_number_leg_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.contract_number_leg_2)
   local value = range:uint()
-  local display = display.contract_number_leg2(value, buffer, offset, packet, parent)
+  local display = display.contract_number_leg_2(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.contract_number_leg2, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.contract_number_leg_2, range, value, display)
 
-  return offset + size_of.contract_number_leg2
+  return offset + size_of.contract_number_leg_2
 end
 
--- Size: Price Leg1
-size_of.price_leg1 = 4
+-- Size: Price Leg 1
+size_of.price_leg_1 = 4
 
--- Display: Price Leg1
-display.price_leg1 = function(value)
-  return "Price Leg1: "..value
+-- Display: Price Leg 1
+display.price_leg_1 = function(value)
+  return "Price Leg 1: "..value
 end
 
--- Dissect: Price Leg1
-dissect.price_leg1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price_leg1)
+-- Dissect: Price Leg 1
+dissect.price_leg_1 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.price_leg_1)
   local value = range:int()
-  local display = display.price_leg1(value, buffer, offset, packet, parent)
+  local display = display.price_leg_1(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.price_leg1, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.price_leg_1, range, value, display)
 
-  return offset + size_of.price_leg1
+  return offset + size_of.price_leg_1
 end
 
--- Size: Ratio Leg1
-size_of.ratio_leg1 = 2
+-- Size: Ratio Leg 1
+size_of.ratio_leg_1 = 2
 
--- Display: Ratio Leg1
-display.ratio_leg1 = function(value)
-  return "Ratio Leg1: "..value
+-- Display: Ratio Leg 1
+display.ratio_leg_1 = function(value)
+  return "Ratio Leg 1: "..value
 end
 
--- Dissect: Ratio Leg1
-dissect.ratio_leg1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ratio_leg1)
+-- Dissect: Ratio Leg 1
+dissect.ratio_leg_1 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.ratio_leg_1)
   local value = range:uint()
-  local display = display.ratio_leg1(value, buffer, offset, packet, parent)
+  local display = display.ratio_leg_1(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.ratio_leg1, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.ratio_leg_1, range, value, display)
 
-  return offset + size_of.ratio_leg1
+  return offset + size_of.ratio_leg_1
 end
 
--- Size: Side Leg1
-size_of.side_leg1 = 1
+-- Size: Side Leg 1
+size_of.side_leg_1 = 1
 
--- Display: Side Leg1
-display.side_leg1 = function(value)
-  return "Side Leg1: "..value
+-- Display: Side Leg 1
+display.side_leg_1 = function(value)
+  return "Side Leg 1: "..value
 end
 
--- Dissect: Side Leg1
-dissect.side_leg1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.side_leg1)
+-- Dissect: Side Leg 1
+dissect.side_leg_1 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.side_leg_1)
   local value = range:string()
-  local display = display.side_leg1(value, buffer, offset, packet, parent)
+  local display = display.side_leg_1(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.side_leg1, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.side_leg_1, range, value, display)
 
-  return offset + size_of.side_leg1
+  return offset + size_of.side_leg_1
 end
 
--- Size: Contract Number Leg1
-size_of.contract_number_leg1 = 4
+-- Size: Contract Number Leg 1
+size_of.contract_number_leg_1 = 4
 
--- Display: Contract Number Leg1
-display.contract_number_leg1 = function(value)
-  return "Contract Number Leg1: "..value
+-- Display: Contract Number Leg 1
+display.contract_number_leg_1 = function(value)
+  return "Contract Number Leg 1: "..value
 end
 
--- Dissect: Contract Number Leg1
-dissect.contract_number_leg1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.contract_number_leg1)
+-- Dissect: Contract Number Leg 1
+dissect.contract_number_leg_1 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.contract_number_leg_1)
   local value = range:uint()
-  local display = display.contract_number_leg1(value, buffer, offset, packet, parent)
+  local display = display.contract_number_leg_1(value, buffer, offset, packet, parent)
 
-  parent:add(asx_t24_itch_v1_13.fields.contract_number_leg1, range, value, display)
+  parent:add(asx_t24_itch_v1_13.fields.contract_number_leg_1, range, value, display)
 
-  return offset + size_of.contract_number_leg1
+  return offset + size_of.contract_number_leg_1
 end
 
 -- Size: Legs
@@ -2903,77 +2903,77 @@ dissect.custom_market_order_added_fields = function(buffer, offset, packet, pare
   -- Legs: 1 Byte Unsigned Fixed Width Integer
   index = dissect.legs(buffer, index, packet, parent)
 
-  -- Contract Number Leg1: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number_leg1(buffer, index, packet, parent)
+  -- Contract Number Leg 1: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.contract_number_leg_1(buffer, index, packet, parent)
 
-  -- Side Leg1: 1 Byte Ascii String
-  index = dissect.side_leg1(buffer, index, packet, parent)
+  -- Side Leg 1: 1 Byte Ascii String
+  index = dissect.side_leg_1(buffer, index, packet, parent)
 
-  -- Ratio Leg1: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.ratio_leg1(buffer, index, packet, parent)
+  -- Ratio Leg 1: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.ratio_leg_1(buffer, index, packet, parent)
 
-  -- Price Leg1: 4 Byte Signed Fixed Width Integer
-  index = dissect.price_leg1(buffer, index, packet, parent)
+  -- Price Leg 1: 4 Byte Signed Fixed Width Integer
+  index = dissect.price_leg_1(buffer, index, packet, parent)
 
-  -- Contract Number Leg2: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number_leg2(buffer, index, packet, parent)
+  -- Contract Number Leg 2: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.contract_number_leg_2(buffer, index, packet, parent)
 
-  -- Side Leg2: 1 Byte Ascii String
-  index = dissect.side_leg2(buffer, index, packet, parent)
+  -- Side Leg 2: 1 Byte Ascii String
+  index = dissect.side_leg_2(buffer, index, packet, parent)
 
-  -- Ratio Leg2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.ratio_leg2(buffer, index, packet, parent)
+  -- Ratio Leg 2: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.ratio_leg_2(buffer, index, packet, parent)
 
-  -- Price Leg2: 4 Byte Signed Fixed Width Integer
-  index = dissect.price_leg2(buffer, index, packet, parent)
+  -- Price Leg 2: 4 Byte Signed Fixed Width Integer
+  index = dissect.price_leg_2(buffer, index, packet, parent)
 
-  -- Contract Number Leg3: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number_leg3(buffer, index, packet, parent)
+  -- Contract Number Leg 3: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.contract_number_leg_3(buffer, index, packet, parent)
 
-  -- Side Leg3: 1 Byte Ascii String
-  index = dissect.side_leg3(buffer, index, packet, parent)
+  -- Side Leg 3: 1 Byte Ascii String
+  index = dissect.side_leg_3(buffer, index, packet, parent)
 
-  -- Ratio Leg3: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.ratio_leg3(buffer, index, packet, parent)
+  -- Ratio Leg 3: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.ratio_leg_3(buffer, index, packet, parent)
 
-  -- Price Leg3: 4 Byte Signed Fixed Width Integer
-  index = dissect.price_leg3(buffer, index, packet, parent)
+  -- Price Leg 3: 4 Byte Signed Fixed Width Integer
+  index = dissect.price_leg_3(buffer, index, packet, parent)
 
-  -- Contract Number Leg4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number_leg4(buffer, index, packet, parent)
+  -- Contract Number Leg 4: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.contract_number_leg_4(buffer, index, packet, parent)
 
-  -- Side Leg4: 1 Byte Ascii String
-  index = dissect.side_leg4(buffer, index, packet, parent)
+  -- Side Leg 4: 1 Byte Ascii String
+  index = dissect.side_leg_4(buffer, index, packet, parent)
 
-  -- Ratio Leg4: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.ratio_leg4(buffer, index, packet, parent)
+  -- Ratio Leg 4: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.ratio_leg_4(buffer, index, packet, parent)
 
-  -- Price Leg4: 4 Byte Signed Fixed Width Integer
-  index = dissect.price_leg4(buffer, index, packet, parent)
+  -- Price Leg 4: 4 Byte Signed Fixed Width Integer
+  index = dissect.price_leg_4(buffer, index, packet, parent)
 
-  -- Contract Number Leg5: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number_leg5(buffer, index, packet, parent)
+  -- Contract Number Leg 5: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.contract_number_leg_5(buffer, index, packet, parent)
 
-  -- Side Leg5: 1 Byte Ascii String
-  index = dissect.side_leg5(buffer, index, packet, parent)
+  -- Side Leg 5: 1 Byte Ascii String
+  index = dissect.side_leg_5(buffer, index, packet, parent)
 
-  -- Ratio Leg5: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.ratio_leg5(buffer, index, packet, parent)
+  -- Ratio Leg 5: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.ratio_leg_5(buffer, index, packet, parent)
 
-  -- Price Leg5: 4 Byte Signed Fixed Width Integer
-  index = dissect.price_leg5(buffer, index, packet, parent)
+  -- Price Leg 5: 4 Byte Signed Fixed Width Integer
+  index = dissect.price_leg_5(buffer, index, packet, parent)
 
-  -- Contract Number Leg6: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number_leg6(buffer, index, packet, parent)
+  -- Contract Number Leg 6: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.contract_number_leg_6(buffer, index, packet, parent)
 
-  -- Side Leg6: 1 Byte Ascii String
-  index = dissect.side_leg6(buffer, index, packet, parent)
+  -- Side Leg 6: 1 Byte Ascii String
+  index = dissect.side_leg_6(buffer, index, packet, parent)
 
-  -- Ratio Leg6: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.ratio_leg6(buffer, index, packet, parent)
+  -- Ratio Leg 6: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.ratio_leg_6(buffer, index, packet, parent)
 
-  -- Price Leg6: 4 Byte Signed Fixed Width Integer
-  index = dissect.price_leg6(buffer, index, packet, parent)
+  -- Price Leg 6: 4 Byte Signed Fixed Width Integer
+  index = dissect.price_leg_6(buffer, index, packet, parent)
 
   return index
 end

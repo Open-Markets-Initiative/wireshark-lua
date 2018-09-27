@@ -36,16 +36,13 @@ miax_tom_mach_v1_9.fields.expected_event_time_nano_seconds_part = ProtoField.new
 miax_tom_mach_v1_9.fields.expiration_date = ProtoField.new("Expiration Date", "miax.tom.mach.v1.9.expirationdate", ftypes.STRING)
 miax_tom_mach_v1_9.fields.liquidity_acceptance_increment_indicator = ProtoField.new("Liquidity Acceptance Increment Indicator", "miax.tom.mach.v1.9.liquidityacceptanceincrementindicator", ftypes.STRING)
 miax_tom_mach_v1_9.fields.long_term_option = ProtoField.new("Long Term Option", "miax.tom.mach.v1.9.longtermoption", ftypes.STRING)
-miax_tom_mach_v1_9.fields.mbb_o_price = ProtoField.new("Mbb O Price", "miax.tom.mach.v1.9.mbboprice", ftypes.UINT16)
-miax_tom_mach_v1_9.fields.mbb_o_priority_customer_size = ProtoField.new("Mbb O Priority Customer Size", "miax.tom.mach.v1.9.mbboprioritycustomersize", ftypes.UINT16)
-miax_tom_mach_v1_9.fields.mbb_o_size = ProtoField.new("Mbb O Size", "miax.tom.mach.v1.9.mbbosize", ftypes.UINT16)
 miax_tom_mach_v1_9.fields.mbbo_condition = ProtoField.new("Mbbo Condition", "miax.tom.mach.v1.9.mbbocondition", ftypes.STRING)
 miax_tom_mach_v1_9.fields.mbbo_price = ProtoField.new("Mbbo Price", "miax.tom.mach.v1.9.mbboprice", ftypes.UINT16)
 miax_tom_mach_v1_9.fields.mbbo_priority_customer_size = ProtoField.new("Mbbo Priority Customer Size", "miax.tom.mach.v1.9.mbboprioritycustomersize", ftypes.UINT16)
 miax_tom_mach_v1_9.fields.mbbo_size = ProtoField.new("Mbbo Size", "miax.tom.mach.v1.9.mbbosize", ftypes.UINT16)
 miax_tom_mach_v1_9.fields.message = ProtoField.new("Message", "miax.tom.mach.v1.9.message", ftypes.STRING)
 miax_tom_mach_v1_9.fields.message_type = ProtoField.new("Message Type", "miax.tom.mach.v1.9.messagetype", ftypes.STRING)
-miax_tom_mach_v1_9.fields.mia_x_bb_o_posting_increment_indicator = ProtoField.new("Mia X Bb O Posting Increment Indicator", "miax.tom.mach.v1.9.miaxbbopostingincrementindicator", ftypes.STRING)
+miax_tom_mach_v1_9.fields.miax_bbo_posting_increment_indicator = ProtoField.new("Miax Bbo Posting Increment Indicator", "miax.tom.mach.v1.9.miaxbbopostingincrementindicator", ftypes.STRING)
 miax_tom_mach_v1_9.fields.notification_time = ProtoField.new("Notification Time", "miax.tom.mach.v1.9.notificationtime", ftypes.UINT32)
 miax_tom_mach_v1_9.fields.offer_condition = ProtoField.new("Offer Condition", "miax.tom.mach.v1.9.offercondition", ftypes.STRING)
 miax_tom_mach_v1_9.fields.offer_price = ProtoField.new("Offer Price", "miax.tom.mach.v1.9.offerprice", ftypes.UINT16)
@@ -961,147 +958,6 @@ dissect.mbbo_condition = function(buffer, offset, packet, parent)
   return offset + size_of.mbbo_condition
 end
 
--- Size: Mbb O Priority Customer Size
-size_of.mbb_o_priority_customer_size = 2
-
--- Display: Mbb O Priority Customer Size
-display.mbb_o_priority_customer_size = function(value)
-  return "Mbb O Priority Customer Size: "..value
-end
-
--- Dissect: Mbb O Priority Customer Size
-dissect.mbb_o_priority_customer_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.mbb_o_priority_customer_size)
-  local value = range:le_uint()
-  local display = display.mbb_o_priority_customer_size(value, buffer, offset, packet, parent)
-
-  parent:add(miax_tom_mach_v1_9.fields.mbb_o_priority_customer_size, range, value, display)
-
-  return offset + size_of.mbb_o_priority_customer_size
-end
-
--- Size: Mbb O Size
-size_of.mbb_o_size = 2
-
--- Display: Mbb O Size
-display.mbb_o_size = function(value)
-  return "Mbb O Size: "..value
-end
-
--- Dissect: Mbb O Size
-dissect.mbb_o_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.mbb_o_size)
-  local value = range:le_uint()
-  local display = display.mbb_o_size(value, buffer, offset, packet, parent)
-
-  parent:add(miax_tom_mach_v1_9.fields.mbb_o_size, range, value, display)
-
-  return offset + size_of.mbb_o_size
-end
-
--- Size: Mbb O Price
-size_of.mbb_o_price = 2
-
--- Display: Mbb O Price
-display.mbb_o_price = function(value)
-  return "Mbb O Price: "..value
-end
-
--- Dissect: Mbb O Price
-dissect.mbb_o_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.mbb_o_price)
-  local value = range:le_uint()
-  local display = display.mbb_o_price(value, buffer, offset, packet, parent)
-
-  parent:add(miax_tom_mach_v1_9.fields.mbb_o_price, range, value, display)
-
-  return offset + size_of.mbb_o_price
-end
-
--- Display: Wide Top of Market Offer Message
-display.wide_top_of_market_offer_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Wide Top of Market Offer Message
-dissect.wide_top_of_market_offer_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
-
-  -- Product Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.product_id(buffer, index, packet, parent)
-
-  -- Mbb O Price: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.mbb_o_price(buffer, index, packet, parent)
-
-  -- Mbb O Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.mbb_o_size(buffer, index, packet, parent)
-
-  -- Mbb O Priority Customer Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.mbb_o_priority_customer_size(buffer, index, packet, parent)
-
-  -- Mbbo Condition: 1 Byte Ascii String Enum with 4 values
-  index = dissect.mbbo_condition(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Wide Top of Market Offer Message
-dissect.wide_top_of_market_offer_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.wide_top_of_market_offer_message then
-    local range = buffer(offset, 15)
-    local display = display.wide_top_of_market_offer_message(buffer, packet, parent)
-    parent = parent:add(miax_tom_mach_v1_9.fields.wide_top_of_market_offer_message, range, display)
-  end
-
-  return dissect.wide_top_of_market_offer_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Wide Top of Market Bid Message
-display.wide_top_of_market_bid_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Wide Top of Market Bid Message
-dissect.wide_top_of_market_bid_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
-
-  -- Product Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.product_id(buffer, index, packet, parent)
-
-  -- Mbb O Price: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.mbb_o_price(buffer, index, packet, parent)
-
-  -- Mbb O Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.mbb_o_size(buffer, index, packet, parent)
-
-  -- Mbb O Priority Customer Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.mbb_o_priority_customer_size(buffer, index, packet, parent)
-
-  -- Mbbo Condition: 1 Byte Ascii String Enum with 4 values
-  index = dissect.mbbo_condition(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Wide Top of Market Bid Message
-dissect.wide_top_of_market_bid_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.wide_top_of_market_bid_message then
-    local range = buffer(offset, 15)
-    local display = display.wide_top_of_market_bid_message(buffer, packet, parent)
-    parent = parent:add(miax_tom_mach_v1_9.fields.wide_top_of_market_bid_message, range, display)
-  end
-
-  return dissect.wide_top_of_market_bid_message_fields(buffer, offset, packet, parent)
-end
-
 -- Size: Mbbo Priority Customer Size
 size_of.mbbo_priority_customer_size = 2
 
@@ -1157,6 +1013,90 @@ dissect.mbbo_price = function(buffer, offset, packet, parent)
   parent:add(miax_tom_mach_v1_9.fields.mbbo_price, range, value, display)
 
   return offset + size_of.mbbo_price
+end
+
+-- Display: Wide Top of Market Offer Message
+display.wide_top_of_market_offer_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Wide Top of Market Offer Message
+dissect.wide_top_of_market_offer_message_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.timestamp(buffer, index, packet, parent)
+
+  -- Product Id: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.product_id(buffer, index, packet, parent)
+
+  -- Mbbo Price: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.mbbo_price(buffer, index, packet, parent)
+
+  -- Mbbo Size: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.mbbo_size(buffer, index, packet, parent)
+
+  -- Mbbo Priority Customer Size: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.mbbo_priority_customer_size(buffer, index, packet, parent)
+
+  -- Mbbo Condition: 1 Byte Ascii String Enum with 4 values
+  index = dissect.mbbo_condition(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Wide Top of Market Offer Message
+dissect.wide_top_of_market_offer_message = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.wide_top_of_market_offer_message then
+    local range = buffer(offset, 15)
+    local display = display.wide_top_of_market_offer_message(buffer, packet, parent)
+    parent = parent:add(miax_tom_mach_v1_9.fields.wide_top_of_market_offer_message, range, display)
+  end
+
+  return dissect.wide_top_of_market_offer_message_fields(buffer, offset, packet, parent)
+end
+
+-- Display: Wide Top of Market Bid Message
+display.wide_top_of_market_bid_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Wide Top of Market Bid Message
+dissect.wide_top_of_market_bid_message_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.timestamp(buffer, index, packet, parent)
+
+  -- Product Id: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.product_id(buffer, index, packet, parent)
+
+  -- Mbbo Price: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.mbbo_price(buffer, index, packet, parent)
+
+  -- Mbbo Size: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.mbbo_size(buffer, index, packet, parent)
+
+  -- Mbbo Priority Customer Size: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.mbbo_priority_customer_size(buffer, index, packet, parent)
+
+  -- Mbbo Condition: 1 Byte Ascii String Enum with 4 values
+  index = dissect.mbbo_condition(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Wide Top of Market Bid Message
+dissect.wide_top_of_market_bid_message = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.wide_top_of_market_bid_message then
+    local range = buffer(offset, 15)
+    local display = display.wide_top_of_market_bid_message(buffer, packet, parent)
+    parent = parent:add(miax_tom_mach_v1_9.fields.wide_top_of_market_bid_message, range, display)
+  end
+
+  return dissect.wide_top_of_market_bid_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Top of Market Offer Compact Message
@@ -1512,33 +1452,33 @@ dissect.liquidity_acceptance_increment_indicator = function(buffer, offset, pack
   return offset + size_of.liquidity_acceptance_increment_indicator
 end
 
--- Size: Mia X Bb O Posting Increment Indicator
-size_of.mia_x_bb_o_posting_increment_indicator = 1
+-- Size: Miax Bbo Posting Increment Indicator
+size_of.miax_bbo_posting_increment_indicator = 1
 
--- Display: Mia X Bb O Posting Increment Indicator
-display.mia_x_bb_o_posting_increment_indicator = function(value)
+-- Display: Miax Bbo Posting Increment Indicator
+display.miax_bbo_posting_increment_indicator = function(value)
   if value == "P" then
-    return "Mia X Bb O Posting Increment Indicator: Penny (P)"
+    return "Miax Bbo Posting Increment Indicator: Penny (P)"
   end
   if value == "N" then
-    return "Mia X Bb O Posting Increment Indicator: Nickel (N)"
+    return "Miax Bbo Posting Increment Indicator: Nickel (N)"
   end
   if value == "D" then
-    return "Mia X Bb O Posting Increment Indicator: Dime (D)"
+    return "Miax Bbo Posting Increment Indicator: Dime (D)"
   end
 
-  return "Mia X Bb O Posting Increment Indicator: Unknown("..value..")"
+  return "Miax Bbo Posting Increment Indicator: Unknown("..value..")"
 end
 
--- Dissect: Mia X Bb O Posting Increment Indicator
-dissect.mia_x_bb_o_posting_increment_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.mia_x_bb_o_posting_increment_indicator)
+-- Dissect: Miax Bbo Posting Increment Indicator
+dissect.miax_bbo_posting_increment_indicator = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.miax_bbo_posting_increment_indicator)
   local value = range:string()
-  local display = display.mia_x_bb_o_posting_increment_indicator(value, buffer, offset, packet, parent)
+  local display = display.miax_bbo_posting_increment_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(miax_tom_mach_v1_9.fields.mia_x_bb_o_posting_increment_indicator, range, value, display)
+  parent:add(miax_tom_mach_v1_9.fields.miax_bbo_posting_increment_indicator, range, value, display)
 
-  return offset + size_of.mia_x_bb_o_posting_increment_indicator
+  return offset + size_of.miax_bbo_posting_increment_indicator
 end
 
 -- Size: Active On Miax
@@ -1776,8 +1716,8 @@ dissect.series_update_fields = function(buffer, offset, packet, parent)
   -- Active On Miax: 1 Byte Ascii String
   index = dissect.active_on_miax(buffer, index, packet, parent)
 
-  -- Mia X Bb O Posting Increment Indicator: 1 Byte Ascii String Enum with 3 values
-  index = dissect.mia_x_bb_o_posting_increment_indicator(buffer, index, packet, parent)
+  -- Miax Bbo Posting Increment Indicator: 1 Byte Ascii String Enum with 3 values
+  index = dissect.miax_bbo_posting_increment_indicator(buffer, index, packet, parent)
 
   -- Liquidity Acceptance Increment Indicator: 1 Byte Ascii String Enum with 3 values
   index = dissect.liquidity_acceptance_increment_indicator(buffer, index, packet, parent)

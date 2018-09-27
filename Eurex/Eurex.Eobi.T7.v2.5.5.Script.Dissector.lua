@@ -75,13 +75,14 @@ eurex_eobi_t7_v2_5_5.fields.packet_header = ProtoField.new("Packet Header", "eur
 eurex_eobi_t7_v2_5_5.fields.packet_id = ProtoField.new("Packet Id", "eurex.eobi.t7.v2.5.5.packetid", ftypes.UINT16)
 eurex_eobi_t7_v2_5_5.fields.packet_info = ProtoField.new("Packet Info", "eurex.eobi.t7.v2.5.5.packetinfo", ftypes.STRING)
 eurex_eobi_t7_v2_5_5.fields.packet_seq_num = ProtoField.new("Packet Seq Num", "eurex.eobi.t7.v2.5.5.packetseqnum", ftypes.UINT32)
-eurex_eobi_t7_v2_5_5.fields.pad1 = ProtoField.new("Pad1", "eurex.eobi.t7.v2.5.5.pad1", ftypes.BYTES)
-eurex_eobi_t7_v2_5_5.fields.pad2 = ProtoField.new("Pad2", "eurex.eobi.t7.v2.5.5.pad2", ftypes.BYTES)
-eurex_eobi_t7_v2_5_5.fields.pad3 = ProtoField.new("Pad3", "eurex.eobi.t7.v2.5.5.pad3", ftypes.BYTES)
-eurex_eobi_t7_v2_5_5.fields.pad4 = ProtoField.new("Pad4", "eurex.eobi.t7.v2.5.5.pad4", ftypes.BYTES)
+eurex_eobi_t7_v2_5_5.fields.pad_1 = ProtoField.new("Pad 1", "eurex.eobi.t7.v2.5.5.pad1", ftypes.BYTES)
+eurex_eobi_t7_v2_5_5.fields.pad_2 = ProtoField.new("Pad 2", "eurex.eobi.t7.v2.5.5.pad2", ftypes.BYTES)
+eurex_eobi_t7_v2_5_5.fields.pad_3 = ProtoField.new("Pad 3", "eurex.eobi.t7.v2.5.5.pad3", ftypes.BYTES)
+eurex_eobi_t7_v2_5_5.fields.pad_4 = ProtoField.new("Pad 4", "eurex.eobi.t7.v2.5.5.pad4", ftypes.BYTES)
+eurex_eobi_t7_v2_5_5.fields.pad_5 = ProtoField.new("Pad 5", "eurex.eobi.t7.v2.5.5.pad5", ftypes.BYTES)
+eurex_eobi_t7_v2_5_5.fields.pad_6 = ProtoField.new("Pad 6", "eurex.eobi.t7.v2.5.5.pad6", ftypes.BYTES)
+eurex_eobi_t7_v2_5_5.fields.pad_7 = ProtoField.new("Pad 7", "eurex.eobi.t7.v2.5.5.pad7", ftypes.BYTES)
 eurex_eobi_t7_v2_5_5.fields.pad5 = ProtoField.new("Pad5", "eurex.eobi.t7.v2.5.5.pad5", ftypes.BYTES)
-eurex_eobi_t7_v2_5_5.fields.pad6 = ProtoField.new("Pad6", "eurex.eobi.t7.v2.5.5.pad6", ftypes.BYTES)
-eurex_eobi_t7_v2_5_5.fields.pad7 = ProtoField.new("Pad7", "eurex.eobi.t7.v2.5.5.pad7", ftypes.BYTES)
 eurex_eobi_t7_v2_5_5.fields.partial_order_execution = ProtoField.new("Partial Order Execution", "eurex.eobi.t7.v2.5.5.partialorderexecution", ftypes.STRING)
 eurex_eobi_t7_v2_5_5.fields.partition_id = ProtoField.new("Partition ID", "eurex.eobi.t7.v2.5.5.partitionid", ftypes.UINT8)
 eurex_eobi_t7_v2_5_5.fields.payload = ProtoField.new("Payload", "eurex.eobi.t7.v2.5.5.payload", ftypes.STRING)
@@ -333,23 +334,23 @@ end
 -- Dissect Eurex Eobi T7 2.5.5
 -----------------------------------------------------------------------
 
--- Size: Pad3
-size_of.pad3 = 3
+-- Size: Pad 3
+size_of.pad_3 = 3
 
--- Display: Pad3
-display.pad3 = function(value)
-  return "Pad3: "..value
+-- Display: Pad 3
+display.pad_3 = function(value)
+  return "Pad 3: "..value
 end
 
--- Dissect: Pad3
-dissect.pad3 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.pad3)
+-- Dissect: Pad 3
+dissect.pad_3 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.pad_3)
   local value = range:bytes():tohex(false, " ")
-  local display = display.pad3(value, buffer, offset, packet, parent)
+  local display = display.pad_3(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_eobi_t7_v2_5_5.fields.pad3, range, value, display)
+  parent:add(eurex_eobi_t7_v2_5_5.fields.pad_3, range, value, display)
 
-  return offset + size_of.pad3
+  return offset + size_of.pad_3
 end
 
 -- Size: Md Entry Type
@@ -462,8 +463,8 @@ dissect.md_trade_entry_grp_fields = function(buffer, offset, packet, parent)
   -- Md Entry Type: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index = dissect.md_entry_type(buffer, index, packet, parent)
 
-  -- Pad3: 3 Byte
-  index = dissect.pad3(buffer, index, packet, parent)
+  -- Pad 3: 3 Byte
+  index = dissect.pad_3(buffer, index, packet, parent)
 
   return index
 end
@@ -480,23 +481,23 @@ dissect.md_trade_entry_grp = function(buffer, offset, packet, parent)
   return dissect.md_trade_entry_grp_fields(buffer, offset, packet, parent)
 end
 
--- Size: Pad7
-size_of.pad7 = 7
+-- Size: Pad 7
+size_of.pad_7 = 7
 
--- Display: Pad7
-display.pad7 = function(value)
-  return "Pad7: "..value
+-- Display: Pad 7
+display.pad_7 = function(value)
+  return "Pad 7: "..value
 end
 
--- Dissect: Pad7
-dissect.pad7 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.pad7)
+-- Dissect: Pad 7
+dissect.pad_7 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.pad_7)
   local value = range:bytes():tohex(false, " ")
-  local display = display.pad7(value, buffer, offset, packet, parent)
+  local display = display.pad_7(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_eobi_t7_v2_5_5.fields.pad7, range, value, display)
+  parent:add(eurex_eobi_t7_v2_5_5.fields.pad_7, range, value, display)
 
-  return offset + size_of.pad7
+  return offset + size_of.pad_7
 end
 
 -- Size: No Md Entries
@@ -677,8 +678,8 @@ dissect.trade_reversal_fields = function(buffer, offset, packet, parent)
   -- No Md Entries: 1 Byte Unsigned Fixed Width Integer
   index = dissect.no_md_entries(buffer, index, packet, parent)
 
-  -- Pad7: 7 Byte
-  index = dissect.pad7(buffer, index, packet, parent)
+  -- Pad 7: 7 Byte
+  index = dissect.pad_7(buffer, index, packet, parent)
 
   -- Md Trade Entry Grp: Struct of 4 fields
   local md_trade_entry_grp_count = buffer(index - 8, 1):le_uint()
@@ -702,23 +703,23 @@ dissect.trade_reversal = function(buffer, offset, packet, parent)
   return dissect.trade_reversal_fields(buffer, offset, packet, parent)
 end
 
--- Size: Pad6
-size_of.pad6 = 6
+-- Size: Pad 6
+size_of.pad_6 = 6
 
--- Display: Pad6
-display.pad6 = function(value)
-  return "Pad6: "..value
+-- Display: Pad 6
+display.pad_6 = function(value)
+  return "Pad 6: "..value
 end
 
--- Dissect: Pad6
-dissect.pad6 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.pad6)
+-- Dissect: Pad 6
+dissect.pad_6 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.pad_6)
   local value = range:bytes():tohex(false, " ")
-  local display = display.pad6(value, buffer, offset, packet, parent)
+  local display = display.pad_6(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_eobi_t7_v2_5_5.fields.pad6, range, value, display)
+  parent:add(eurex_eobi_t7_v2_5_5.fields.pad_6, range, value, display)
 
-  return offset + size_of.pad6
+  return offset + size_of.pad_6
 end
 
 -- Size: Match Sub Type
@@ -812,8 +813,8 @@ dissect.trade_report_fields = function(buffer, offset, packet, parent)
   -- Match Sub Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index = dissect.match_sub_type(buffer, index, packet, parent)
 
-  -- Pad6: 6 Byte
-  index = dissect.pad6(buffer, index, packet, parent)
+  -- Pad 6: 6 Byte
+  index = dissect.pad_6(buffer, index, packet, parent)
 
   return index
 end
@@ -1008,8 +1009,8 @@ dissect.order_details_fields = function(buffer, offset, packet, parent)
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index = dissect.side(buffer, index, packet, parent)
 
-  -- Pad3: 3 Byte
-  index = dissect.pad3(buffer, index, packet, parent)
+  -- Pad 3: 3 Byte
+  index = dissect.pad_3(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
   index = dissect.price(buffer, index, packet, parent)
@@ -1074,8 +1075,8 @@ dissect.quote_request_fields = function(buffer, offset, packet, parent)
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index = dissect.side(buffer, index, packet, parent)
 
-  -- Pad3: 3 Byte
-  index = dissect.pad3(buffer, index, packet, parent)
+  -- Pad 3: 3 Byte
+  index = dissect.pad_3(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index = dissect.transact_time(buffer, index, packet, parent)
@@ -1275,23 +1276,23 @@ dissect.product_summary = function(buffer, offset, packet, parent)
   return dissect.product_summary_fields(buffer, offset, packet, parent)
 end
 
--- Size: Pad4
-size_of.pad4 = 4
+-- Size: Pad 4
+size_of.pad_4 = 4
 
--- Display: Pad4
-display.pad4 = function(value)
-  return "Pad4: "..value
+-- Display: Pad 4
+display.pad_4 = function(value)
+  return "Pad 4: "..value
 end
 
--- Dissect: Pad4
-dissect.pad4 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.pad4)
+-- Dissect: Pad 4
+dissect.pad_4 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.pad_4)
   local value = range:bytes():tohex(false, " ")
-  local display = display.pad4(value, buffer, offset, packet, parent)
+  local display = display.pad_4(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_eobi_t7_v2_5_5.fields.pad4, range, value, display)
+  parent:add(eurex_eobi_t7_v2_5_5.fields.pad_4, range, value, display)
 
-  return offset + size_of.pad4
+  return offset + size_of.pad_4
 end
 
 -- Display: Product State Change
@@ -1315,8 +1316,8 @@ dissect.product_state_change_fields = function(buffer, offset, packet, parent)
   -- Fast Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index = dissect.fast_market_indicator(buffer, index, packet, parent)
 
-  -- Pad4: 4 Byte
-  index = dissect.pad4(buffer, index, packet, parent)
+  -- Pad 4: 4 Byte
+  index = dissect.pad_4(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index = dissect.transact_time(buffer, index, packet, parent)
@@ -1348,8 +1349,8 @@ dissect.partial_order_execution_fields = function(buffer, offset, packet, parent
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index = dissect.side(buffer, index, packet, parent)
 
-  -- Pad7: 7 Byte
-  index = dissect.pad7(buffer, index, packet, parent)
+  -- Pad 7: 7 Byte
+  index = dissect.pad_7(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
   index = dissect.price(buffer, index, packet, parent)
@@ -1706,8 +1707,8 @@ dissect.order_modify_same_prio_fields = function(buffer, offset, packet, parent)
   -- Prev Display Qty: 4 Byte Signed Fixed Width Integer
   index = dissect.prev_display_qty(buffer, index, packet, parent)
 
-  -- Pad4: 4 Byte
-  index = dissect.pad4(buffer, index, packet, parent)
+  -- Pad 4: 4 Byte
+  index = dissect.pad_4(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
   index = dissect.security_id(buffer, index, packet, parent)
@@ -1790,8 +1791,8 @@ dissect.order_modify_fields = function(buffer, offset, packet, parent)
   -- Prev Display Qty: 4 Byte Signed Fixed Width Integer
   index = dissect.prev_display_qty(buffer, index, packet, parent)
 
-  -- Pad4: 4 Byte
-  index = dissect.pad4(buffer, index, packet, parent)
+  -- Pad 4: 4 Byte
+  index = dissect.pad_4(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
   index = dissect.security_id(buffer, index, packet, parent)
@@ -1931,8 +1932,8 @@ dissect.md_instrument_entry_grp_fields = function(buffer, offset, packet, parent
   -- Md Entry Type: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index = dissect.md_entry_type(buffer, index, packet, parent)
 
-  -- Pad3: 3 Byte
-  index = dissect.pad3(buffer, index, packet, parent)
+  -- Pad 3: 3 Byte
+  index = dissect.pad_3(buffer, index, packet, parent)
 
   return index
 end
@@ -1949,23 +1950,23 @@ dissect.md_instrument_entry_grp = function(buffer, offset, packet, parent)
   return dissect.md_instrument_entry_grp_fields(buffer, offset, packet, parent)
 end
 
--- Size: Pad2
-size_of.pad2 = 2
+-- Size: Pad 2
+size_of.pad_2 = 2
 
--- Display: Pad2
-display.pad2 = function(value)
-  return "Pad2: "..value
+-- Display: Pad 2
+display.pad_2 = function(value)
+  return "Pad 2: "..value
 end
 
--- Dissect: Pad2
-dissect.pad2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.pad2)
+-- Dissect: Pad 2
+dissect.pad_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.pad_2)
   local value = range:bytes():tohex(false, " ")
-  local display = display.pad2(value, buffer, offset, packet, parent)
+  local display = display.pad_2(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_eobi_t7_v2_5_5.fields.pad2, range, value, display)
+  parent:add(eurex_eobi_t7_v2_5_5.fields.pad_2, range, value, display)
 
-  return offset + size_of.pad2
+  return offset + size_of.pad_2
 end
 
 -- Size: Security Trading Status
@@ -2140,8 +2141,8 @@ dissect.instrument_summary_fields = function(buffer, offset, packet, parent)
   -- No Md Entries: 1 Byte Unsigned Fixed Width Integer
   index = dissect.no_md_entries(buffer, index, packet, parent)
 
-  -- Pad2: 2 Byte
-  index = dissect.pad2(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index = dissect.pad_2(buffer, index, packet, parent)
 
   -- Md Instrument Entry Grp: Struct of 4 fields
   local md_instrument_entry_grp_count = buffer(index - 3, 1):le_uint()
@@ -2165,6 +2166,25 @@ dissect.instrument_summary = function(buffer, offset, packet, parent)
   return dissect.instrument_summary_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Pad 5
+size_of.pad_5 = 5
+
+-- Display: Pad 5
+display.pad_5 = function(value)
+  return "Pad 5: "..value
+end
+
+-- Dissect: Pad 5
+dissect.pad_5 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.pad_5)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.pad_5(value, buffer, offset, packet, parent)
+
+  parent:add(eurex_eobi_t7_v2_5_5.fields.pad_5, range, value, display)
+
+  return offset + size_of.pad_5
+end
+
 -- Display: Instrument State Change
 display.instrument_state_change = function(buffer, offset, size, packet, parent)
   return ""
@@ -2186,8 +2206,8 @@ dissect.instrument_state_change_fields = function(buffer, offset, packet, parent
   -- Fast Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index = dissect.fast_market_indicator(buffer, index, packet, parent)
 
-  -- Pad5: 5 Byte
-  index = dissect.pad5(buffer, index, packet, parent)
+  -- Pad 5: 5 Byte
+  index = dissect.pad_5(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index = dissect.transact_time(buffer, index, packet, parent)
@@ -2219,8 +2239,8 @@ dissect.heartbeat_fields = function(buffer, offset, packet, parent)
   -- Last Msg Seq Num Processed: 4 Byte Unsigned Fixed Width Integer
   index = dissect.last_msg_seq_num_processed(buffer, index, packet, parent)
 
-  -- Pad4: 4 Byte
-  index = dissect.pad4(buffer, index, packet, parent)
+  -- Pad 4: 4 Byte
+  index = dissect.pad_4(buffer, index, packet, parent)
 
   return index
 end
@@ -2249,8 +2269,8 @@ dissect.full_order_execution_fields = function(buffer, offset, packet, parent)
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index = dissect.side(buffer, index, packet, parent)
 
-  -- Pad7: 7 Byte
-  index = dissect.pad7(buffer, index, packet, parent)
+  -- Pad 7: 7 Byte
+  index = dissect.pad_7(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
   index = dissect.price(buffer, index, packet, parent)
@@ -2440,8 +2460,8 @@ dissect.execution_summary_fields = function(buffer, offset, packet, parent)
   -- Trade Condition: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
   index = dissect.trade_condition(buffer, index, packet, parent)
 
-  -- Pad2: 2 Byte
-  index = dissect.pad2(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index = dissect.pad_2(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Unsigned Fixed Width Integer
   index = dissect.last_px(buffer, index, packet, parent)
@@ -2449,8 +2469,8 @@ dissect.execution_summary_fields = function(buffer, offset, packet, parent)
   -- Resting Hidden Qty: 4 Byte Signed Fixed Width Integer
   index = dissect.resting_hidden_qty(buffer, index, packet, parent)
 
-  -- Pad4: 4 Byte
-  index = dissect.pad4(buffer, index, packet, parent)
+  -- Pad 4: 4 Byte
+  index = dissect.pad_4(buffer, index, packet, parent)
 
   return index
 end
@@ -2482,8 +2502,8 @@ dissect.cross_request_fields = function(buffer, offset, packet, parent)
   -- Last Qty: 4 Byte Signed Fixed Width Integer
   index = dissect.last_qty(buffer, index, packet, parent)
 
-  -- Pad4: 4 Byte
-  index = dissect.pad4(buffer, index, packet, parent)
+  -- Pad 4: 4 Byte
+  index = dissect.pad_4(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index = dissect.transact_time(buffer, index, packet, parent)
@@ -2667,8 +2687,8 @@ dissect.instrmt_leg_grp_fields = function(buffer, offset, packet, parent)
   -- Leg Symbol: 4 Byte Signed Fixed Width Integer
   index = dissect.leg_symbol(buffer, index, packet, parent)
 
-  -- Pad4: 4 Byte
-  index = dissect.pad4(buffer, index, packet, parent)
+  -- Pad 4: 4 Byte
+  index = dissect.pad_4(buffer, index, packet, parent)
 
   -- Leg Security Id: 8 Byte Signed Fixed Width Integer
   index = dissect.leg_security_id(buffer, index, packet, parent)
@@ -2679,8 +2699,8 @@ dissect.instrmt_leg_grp_fields = function(buffer, offset, packet, parent)
   -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index = dissect.leg_side(buffer, index, packet, parent)
 
-  -- Pad3: 3 Byte
-  index = dissect.pad3(buffer, index, packet, parent)
+  -- Pad 3: 3 Byte
+  index = dissect.pad_3(buffer, index, packet, parent)
 
   return index
 end
@@ -2697,23 +2717,23 @@ dissect.instrmt_leg_grp = function(buffer, offset, packet, parent)
   return dissect.instrmt_leg_grp_fields(buffer, offset, packet, parent)
 end
 
--- Size: Pad1
-size_of.pad1 = 1
+-- Size: Pad 1
+size_of.pad_1 = 1
 
--- Display: Pad1
-display.pad1 = function(value)
-  return "Pad1: "..value
+-- Display: Pad 1
+display.pad_1 = function(value)
+  return "Pad 1: "..value
 end
 
--- Dissect: Pad1
-dissect.pad1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.pad1)
+-- Dissect: Pad 1
+dissect.pad_1 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.pad_1)
   local value = range:bytes():tohex(false, " ")
-  local display = display.pad1(value, buffer, offset, packet, parent)
+  local display = display.pad_1(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_eobi_t7_v2_5_5.fields.pad1, range, value, display)
+  parent:add(eurex_eobi_t7_v2_5_5.fields.pad_1, range, value, display)
 
-  return offset + size_of.pad1
+  return offset + size_of.pad_1
 end
 
 -- Size: No Legs
@@ -2856,8 +2876,8 @@ dissect.add_complex_instrument_fields = function(buffer, offset, packet, parent)
   -- No Legs: 1 Byte Unsigned Fixed Width Integer
   index = dissect.no_legs(buffer, index, packet, parent)
 
-  -- Pad1: 1 Byte
-  index = dissect.pad1(buffer, index, packet, parent)
+  -- Pad 1: 1 Byte
+  index = dissect.pad_1(buffer, index, packet, parent)
 
   -- Instrmt Leg Grp: Struct of 6 fields
   local instrmt_leg_grp_count = buffer(index - 2, 1):le_uint()

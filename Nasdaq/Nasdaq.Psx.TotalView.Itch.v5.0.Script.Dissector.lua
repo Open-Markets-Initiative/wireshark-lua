@@ -36,8 +36,8 @@ nasdaq_psx_totalview_itch_v5_0.fields.cross_shares = ProtoField.new("Cross Share
 nasdaq_psx_totalview_itch_v5_0.fields.cross_trade_message = ProtoField.new("Cross Trade Message", "nasdaq.psx.totalview.itch.v5.0.crosstrademessage", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.psx.totalview.itch.v5.0.crosstype", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.current_reference_price = ProtoField.new("Current Reference Price", "nasdaq.psx.totalview.itch.v5.0.currentreferenceprice", ftypes.INT32)
-nasdaq_psx_totalview_itch_v5_0.fields.et_p_flag = ProtoField.new("Et P Flag", "nasdaq.psx.totalview.itch.v5.0.etpflag", ftypes.STRING)
-nasdaq_psx_totalview_itch_v5_0.fields.et_p_leverage_factor = ProtoField.new("Et P Leverage Factor", "nasdaq.psx.totalview.itch.v5.0.etpleveragefactor", ftypes.UINT32)
+nasdaq_psx_totalview_itch_v5_0.fields.etp_flag = ProtoField.new("Etp Flag", "nasdaq.psx.totalview.itch.v5.0.etpflag", ftypes.STRING)
+nasdaq_psx_totalview_itch_v5_0.fields.etp_leverage_factor = ProtoField.new("Etp Leverage Factor", "nasdaq.psx.totalview.itch.v5.0.etpleveragefactor", ftypes.UINT32)
 nasdaq_psx_totalview_itch_v5_0.fields.event_code = ProtoField.new("Event Code", "nasdaq.psx.totalview.itch.v5.0.eventcode", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.executed_shares = ProtoField.new("Executed Shares", "nasdaq.psx.totalview.itch.v5.0.executedshares", ftypes.UINT32)
 nasdaq_psx_totalview_itch_v5_0.fields.execution_price = ProtoField.new("Execution Price", "nasdaq.psx.totalview.itch.v5.0.executionprice", ftypes.INT32)
@@ -46,17 +46,17 @@ nasdaq_psx_totalview_itch_v5_0.fields.financial_status_indicator = ProtoField.ne
 nasdaq_psx_totalview_itch_v5_0.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "nasdaq.psx.totalview.itch.v5.0.imbalancedirection", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.imbalance_shares = ProtoField.new("Imbalance Shares", "nasdaq.psx.totalview.itch.v5.0.imbalanceshares", ftypes.UINT64)
 nasdaq_psx_totalview_itch_v5_0.fields.inverse_indicator = ProtoField.new("Inverse Indicator", "nasdaq.psx.totalview.itch.v5.0.inverseindicator", ftypes.STRING)
-nasdaq_psx_totalview_itch_v5_0.fields.ip_o_flag = ProtoField.new("Ip O Flag", "nasdaq.psx.totalview.itch.v5.0.ipoflag", ftypes.STRING)
+nasdaq_psx_totalview_itch_v5_0.fields.ipo_flag = ProtoField.new("Ipo Flag", "nasdaq.psx.totalview.itch.v5.0.ipoflag", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.issue_classification = ProtoField.new("Issue Classification", "nasdaq.psx.totalview.itch.v5.0.issueclassification", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.issue_sub_type = ProtoField.new("Issue Sub Type", "nasdaq.psx.totalview.itch.v5.0.issuesubtype", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.length = ProtoField.new("Length", "nasdaq.psx.totalview.itch.v5.0.length", ftypes.UINT16)
-nasdaq_psx_totalview_itch_v5_0.fields.level1 = ProtoField.new("Level1", "nasdaq.psx.totalview.itch.v5.0.level1", ftypes.INT64)
-nasdaq_psx_totalview_itch_v5_0.fields.level2 = ProtoField.new("Level2", "nasdaq.psx.totalview.itch.v5.0.level2", ftypes.INT64)
-nasdaq_psx_totalview_itch_v5_0.fields.level3 = ProtoField.new("Level3", "nasdaq.psx.totalview.itch.v5.0.level3", ftypes.INT64)
+nasdaq_psx_totalview_itch_v5_0.fields.level_1 = ProtoField.new("Level 1", "nasdaq.psx.totalview.itch.v5.0.level1", ftypes.INT64)
+nasdaq_psx_totalview_itch_v5_0.fields.level_2 = ProtoField.new("Level 2", "nasdaq.psx.totalview.itch.v5.0.level2", ftypes.INT64)
+nasdaq_psx_totalview_itch_v5_0.fields.level_3 = ProtoField.new("Level 3", "nasdaq.psx.totalview.itch.v5.0.level3", ftypes.INT64)
 nasdaq_psx_totalview_itch_v5_0.fields.locate_code = ProtoField.new("Locate Code", "nasdaq.psx.totalview.itch.v5.0.locatecode", ftypes.UINT16)
 nasdaq_psx_totalview_itch_v5_0.fields.lower_auction_collar_price = ProtoField.new("Lower Auction Collar Price", "nasdaq.psx.totalview.itch.v5.0.lowerauctioncollarprice", ftypes.INT32)
-nasdaq_psx_totalview_itch_v5_0.fields.lul_d_reference_price_tier = ProtoField.new("Lul D Reference Price Tier", "nasdaq.psx.totalview.itch.v5.0.luldreferencepricetier", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.luld_auction_collar_message = ProtoField.new("LULD Auction Collar Message", "nasdaq.psx.totalview.itch.v5.0.luldauctioncollarmessage", ftypes.STRING)
+nasdaq_psx_totalview_itch_v5_0.fields.luld_reference_price_tier = ProtoField.new("Luld Reference Price Tier", "nasdaq.psx.totalview.itch.v5.0.luldreferencepricetier", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.market_category = ProtoField.new("Market Category", "nasdaq.psx.totalview.itch.v5.0.marketcategory", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.market_code = ProtoField.new("Market Code", "nasdaq.psx.totalview.itch.v5.0.marketcode", ftypes.INT8, {[1]="Yes",[0]="No"})
 nasdaq_psx_totalview_itch_v5_0.fields.market_maker_mode = ProtoField.new("Market Maker Mode", "nasdaq.psx.totalview.itch.v5.0.marketmakermode", ftypes.STRING)
@@ -90,7 +90,7 @@ nasdaq_psx_totalview_itch_v5_0.fields.price_variation_indicator = ProtoField.new
 nasdaq_psx_totalview_itch_v5_0.fields.primary_market_maker = ProtoField.new("Primary Market Maker", "nasdaq.psx.totalview.itch.v5.0.primarymarketmaker", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.printable = ProtoField.new("Printable", "nasdaq.psx.totalview.itch.v5.0.printable", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.reason = ProtoField.new("Reason", "nasdaq.psx.totalview.itch.v5.0.reason", ftypes.STRING)
-nasdaq_psx_totalview_itch_v5_0.fields.reg_sh_o_action = ProtoField.new("Reg Sh O Action", "nasdaq.psx.totalview.itch.v5.0.regshoaction", ftypes.STRING)
+nasdaq_psx_totalview_itch_v5_0.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.psx.totalview.itch.v5.0.regshoaction", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.reg_sho_short_sale_price_test_restricted_indicator_message = ProtoField.new("Reg SHO Short Sale Price Test Restricted Indicator Message", "nasdaq.psx.totalview.itch.v5.0.regshoshortsalepricetestrestrictedindicatormessage", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.reserved = ProtoField.new("Reserved", "nasdaq.psx.totalview.itch.v5.0.reserved", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.psx.totalview.itch.v5.0.roundlotsize", ftypes.UINT32)
@@ -291,43 +291,43 @@ size_of.price_variation_indicator = 1
 -- Display: Price Variation Indicator
 display.price_variation_indicator = function(value)
   if value == "L" then
-    return "Price Variation Indicator: Less Than1% (L)"
+    return "Price Variation Indicator: Less Than 1 (L)"
   end
   if value == "1" then
-    return "Price Variation Indicator: 1 To1.99% (1)"
+    return "Price Variation Indicator: 1 To 199 (1)"
   end
   if value == "2" then
-    return "Price Variation Indicator: 2 To2.99% (2)"
+    return "Price Variation Indicator: 2 To 299 (2)"
   end
   if value == "3" then
-    return "Price Variation Indicator: 3 To3.99% (3)"
+    return "Price Variation Indicator: 3 To 399 (3)"
   end
   if value == "4" then
-    return "Price Variation Indicator: 4 To4.99% (4)"
+    return "Price Variation Indicator: 4 To 499 (4)"
   end
   if value == "5" then
-    return "Price Variation Indicator: 5 To5.99% (5)"
+    return "Price Variation Indicator: 5 To 599 (5)"
   end
   if value == "6" then
-    return "Price Variation Indicator: 6 To6.99% (6)"
+    return "Price Variation Indicator: 6 To 699 (6)"
   end
   if value == "7" then
-    return "Price Variation Indicator: 7 To7.99% (7)"
+    return "Price Variation Indicator: 7 To 799 (7)"
   end
   if value == "8" then
-    return "Price Variation Indicator: 8 To8.99% (8)"
+    return "Price Variation Indicator: 8 To 899 (8)"
   end
   if value == "9" then
-    return "Price Variation Indicator: 9 To9.99% (9)"
+    return "Price Variation Indicator: 9 To 999 (9)"
   end
   if value == "A" then
-    return "Price Variation Indicator: 10 To19.99% (A)"
+    return "Price Variation Indicator: 10 To 1999 (A)"
   end
   if value == "B" then
-    return "Price Variation Indicator: 20 To29.99% (B)"
+    return "Price Variation Indicator: 20 To 2999 (B)"
   end
   if value == "C" then
-    return "Price Variation Indicator: 30% Or Greater (C)"
+    return "Price Variation Indicator: 30 Or Greater (C)"
   end
   if value == " " then
     return "Price Variation Indicator: No Calculation (<whitespace>)"
@@ -1593,13 +1593,13 @@ size_of.breached_level = 1
 -- Display: Breached Level
 display.breached_level = function(value)
   if value == "1" then
-    return "Breached Level: Level1 (1)"
+    return "Breached Level: Level 1 (1)"
   end
   if value == "2" then
-    return "Breached Level: Level2 (2)"
+    return "Breached Level: Level 2 (2)"
   end
   if value == "3" then
-    return "Breached Level: Level3 (3)"
+    return "Breached Level: Level 3 (3)"
   end
 
   return "Breached Level: Unknown("..value..")"
@@ -1652,61 +1652,61 @@ dissect.mwcb_status_level_message = function(buffer, offset, packet, parent)
   return dissect.mwcb_status_level_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Level3
-size_of.level3 = 8
+-- Size: Level 3
+size_of.level_3 = 8
 
--- Display: Level3
-display.level3 = function(value)
-  return "Level3: "..value
+-- Display: Level 3
+display.level_3 = function(value)
+  return "Level 3: "..value
 end
 
--- Dissect: Level3
-dissect.level3 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.level3)
+-- Dissect: Level 3
+dissect.level_3 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.level_3)
   local value = range:int64()
-  local display = display.level3(value, buffer, offset, packet, parent)
+  local display = display.level_3(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psx_totalview_itch_v5_0.fields.level3, range, value, display)
+  parent:add(nasdaq_psx_totalview_itch_v5_0.fields.level_3, range, value, display)
 
-  return offset + size_of.level3
+  return offset + size_of.level_3
 end
 
--- Size: Level2
-size_of.level2 = 8
+-- Size: Level 2
+size_of.level_2 = 8
 
--- Display: Level2
-display.level2 = function(value)
-  return "Level2: "..value
+-- Display: Level 2
+display.level_2 = function(value)
+  return "Level 2: "..value
 end
 
--- Dissect: Level2
-dissect.level2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.level2)
+-- Dissect: Level 2
+dissect.level_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.level_2)
   local value = range:int64()
-  local display = display.level2(value, buffer, offset, packet, parent)
+  local display = display.level_2(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psx_totalview_itch_v5_0.fields.level2, range, value, display)
+  parent:add(nasdaq_psx_totalview_itch_v5_0.fields.level_2, range, value, display)
 
-  return offset + size_of.level2
+  return offset + size_of.level_2
 end
 
--- Size: Level1
-size_of.level1 = 8
+-- Size: Level 1
+size_of.level_1 = 8
 
--- Display: Level1
-display.level1 = function(value)
-  return "Level1: "..value
+-- Display: Level 1
+display.level_1 = function(value)
+  return "Level 1: "..value
 end
 
--- Dissect: Level1
-dissect.level1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.level1)
+-- Dissect: Level 1
+dissect.level_1 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.level_1)
   local value = range:int64()
-  local display = display.level1(value, buffer, offset, packet, parent)
+  local display = display.level_1(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psx_totalview_itch_v5_0.fields.level1, range, value, display)
+  parent:add(nasdaq_psx_totalview_itch_v5_0.fields.level_1, range, value, display)
 
-  return offset + size_of.level1
+  return offset + size_of.level_1
 end
 
 -- Display: MWCB Decline Level Message
@@ -1727,14 +1727,14 @@ dissect.mwcb_decline_level_message_fields = function(buffer, offset, packet, par
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
   index = dissect.timestamp(buffer, index, packet, parent)
 
-  -- Level1: 8 Byte Signed Fixed Width Integer
-  index = dissect.level1(buffer, index, packet, parent)
+  -- Level 1: 8 Byte Signed Fixed Width Integer
+  index = dissect.level_1(buffer, index, packet, parent)
 
-  -- Level2: 8 Byte Signed Fixed Width Integer
-  index = dissect.level2(buffer, index, packet, parent)
+  -- Level 2: 8 Byte Signed Fixed Width Integer
+  index = dissect.level_2(buffer, index, packet, parent)
 
-  -- Level3: 8 Byte Signed Fixed Width Integer
-  index = dissect.level3(buffer, index, packet, parent)
+  -- Level 3: 8 Byte Signed Fixed Width Integer
+  index = dissect.level_3(buffer, index, packet, parent)
 
   return index
 end
@@ -1914,33 +1914,33 @@ dissect.market_participant_position_message = function(buffer, offset, packet, p
   return dissect.market_participant_position_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Reg Sh O Action
-size_of.reg_sh_o_action = 1
+-- Size: Reg Sho Action
+size_of.reg_sho_action = 1
 
--- Display: Reg Sh O Action
-display.reg_sh_o_action = function(value)
+-- Display: Reg Sho Action
+display.reg_sho_action = function(value)
   if value == "0" then
-    return "Reg Sh O Action: No Price Test (0)"
+    return "Reg Sho Action: No Price Test (0)"
   end
   if value == "1" then
-    return "Reg Sh O Action: Reg Sh O Short Sale Price Test Restriction (1)"
+    return "Reg Sho Action: Reg Sho Short Sale Price Test Restriction (1)"
   end
   if value == "2" then
-    return "Reg Sh O Action: Test Restriction Remains (2)"
+    return "Reg Sho Action: Test Restriction Remains (2)"
   end
 
-  return "Reg Sh O Action: Unknown("..value..")"
+  return "Reg Sho Action: Unknown("..value..")"
 end
 
--- Dissect: Reg Sh O Action
-dissect.reg_sh_o_action = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reg_sh_o_action)
+-- Dissect: Reg Sho Action
+dissect.reg_sho_action = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.reg_sho_action)
   local value = range:string()
-  local display = display.reg_sh_o_action(value, buffer, offset, packet, parent)
+  local display = display.reg_sho_action(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psx_totalview_itch_v5_0.fields.reg_sh_o_action, range, value, display)
+  parent:add(nasdaq_psx_totalview_itch_v5_0.fields.reg_sho_action, range, value, display)
 
-  return offset + size_of.reg_sh_o_action
+  return offset + size_of.reg_sho_action
 end
 
 -- Size: Locate Code
@@ -1983,8 +1983,8 @@ dissect.reg_sho_short_sale_price_test_restricted_indicator_message_fields = func
   -- Stock: 8 Byte Ascii String
   index = dissect.stock(buffer, index, packet, parent)
 
-  -- Reg Sh O Action: 1 Byte Ascii String Enum with 3 values
-  index = dissect.reg_sh_o_action(buffer, index, packet, parent)
+  -- Reg Sho Action: 1 Byte Ascii String Enum with 3 values
+  index = dissect.reg_sho_action(buffer, index, packet, parent)
 
   return index
 end
@@ -2142,110 +2142,110 @@ dissect.inverse_indicator = function(buffer, offset, packet, parent)
   return offset + size_of.inverse_indicator
 end
 
--- Size: Et P Leverage Factor
-size_of.et_p_leverage_factor = 4
+-- Size: Etp Leverage Factor
+size_of.etp_leverage_factor = 4
 
--- Display: Et P Leverage Factor
-display.et_p_leverage_factor = function(value)
-  return "Et P Leverage Factor: "..value
+-- Display: Etp Leverage Factor
+display.etp_leverage_factor = function(value)
+  return "Etp Leverage Factor: "..value
 end
 
--- Dissect: Et P Leverage Factor
-dissect.et_p_leverage_factor = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.et_p_leverage_factor)
+-- Dissect: Etp Leverage Factor
+dissect.etp_leverage_factor = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.etp_leverage_factor)
   local value = range:uint()
-  local display = display.et_p_leverage_factor(value, buffer, offset, packet, parent)
+  local display = display.etp_leverage_factor(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psx_totalview_itch_v5_0.fields.et_p_leverage_factor, range, value, display)
+  parent:add(nasdaq_psx_totalview_itch_v5_0.fields.etp_leverage_factor, range, value, display)
 
-  return offset + size_of.et_p_leverage_factor
+  return offset + size_of.etp_leverage_factor
 end
 
--- Size: Et P Flag
-size_of.et_p_flag = 1
+-- Size: Etp Flag
+size_of.etp_flag = 1
 
--- Display: Et P Flag
-display.et_p_flag = function(value)
+-- Display: Etp Flag
+display.etp_flag = function(value)
   if value == "Y" then
-    return "Et P Flag: Etp (Y)"
+    return "Etp Flag: Etp (Y)"
   end
   if value == "N" then
-    return "Et P Flag: Not Etp (N)"
+    return "Etp Flag: Not Etp (N)"
   end
   if value == " " then
-    return "Et P Flag: Na (<whitespace>)"
+    return "Etp Flag: Na (<whitespace>)"
   end
 
-  return "Et P Flag: Unknown("..value..")"
+  return "Etp Flag: Unknown("..value..")"
 end
 
--- Dissect: Et P Flag
-dissect.et_p_flag = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.et_p_flag)
+-- Dissect: Etp Flag
+dissect.etp_flag = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.etp_flag)
   local value = range:string()
-  local display = display.et_p_flag(value, buffer, offset, packet, parent)
+  local display = display.etp_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psx_totalview_itch_v5_0.fields.et_p_flag, range, value, display)
+  parent:add(nasdaq_psx_totalview_itch_v5_0.fields.etp_flag, range, value, display)
 
-  return offset + size_of.et_p_flag
+  return offset + size_of.etp_flag
 end
 
--- Size: Lul D Reference Price Tier
-size_of.lul_d_reference_price_tier = 1
+-- Size: Luld Reference Price Tier
+size_of.luld_reference_price_tier = 1
 
--- Display: Lul D Reference Price Tier
-display.lul_d_reference_price_tier = function(value)
+-- Display: Luld Reference Price Tier
+display.luld_reference_price_tier = function(value)
   if value == "1" then
-    return "Lul D Reference Price Tier: Tier1 (1)"
+    return "Luld Reference Price Tier: Tier 1 (1)"
   end
   if value == "2" then
-    return "Lul D Reference Price Tier: Tier2 (2)"
+    return "Luld Reference Price Tier: Tier 2 (2)"
   end
   if value == " " then
-    return "Lul D Reference Price Tier: Na (<whitespace>)"
+    return "Luld Reference Price Tier: Na (<whitespace>)"
   end
 
-  return "Lul D Reference Price Tier: Unknown("..value..")"
+  return "Luld Reference Price Tier: Unknown("..value..")"
 end
 
--- Dissect: Lul D Reference Price Tier
-dissect.lul_d_reference_price_tier = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.lul_d_reference_price_tier)
+-- Dissect: Luld Reference Price Tier
+dissect.luld_reference_price_tier = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.luld_reference_price_tier)
   local value = range:string()
-  local display = display.lul_d_reference_price_tier(value, buffer, offset, packet, parent)
+  local display = display.luld_reference_price_tier(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psx_totalview_itch_v5_0.fields.lul_d_reference_price_tier, range, value, display)
+  parent:add(nasdaq_psx_totalview_itch_v5_0.fields.luld_reference_price_tier, range, value, display)
 
-  return offset + size_of.lul_d_reference_price_tier
+  return offset + size_of.luld_reference_price_tier
 end
 
--- Size: Ip O Flag
-size_of.ip_o_flag = 1
+-- Size: Ipo Flag
+size_of.ipo_flag = 1
 
--- Display: Ip O Flag
-display.ip_o_flag = function(value)
+-- Display: Ipo Flag
+display.ipo_flag = function(value)
   if value == "Y" then
-    return "Ip O Flag: Nasda Q Listed Instrument (Y)"
+    return "Ipo Flag: Nasdaq Listed Instrument (Y)"
   end
   if value == "N" then
-    return "Ip O Flag: Nasda Q Listed Instrument (N)"
+    return "Ipo Flag: Nasdaq Listed Instrument (N)"
   end
   if value == " " then
-    return "Ip O Flag: Na (<whitespace>)"
+    return "Ipo Flag: Na (<whitespace>)"
   end
 
-  return "Ip O Flag: Unknown("..value..")"
+  return "Ipo Flag: Unknown("..value..")"
 end
 
--- Dissect: Ip O Flag
-dissect.ip_o_flag = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ip_o_flag)
+-- Dissect: Ipo Flag
+dissect.ipo_flag = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.ipo_flag)
   local value = range:string()
-  local display = display.ip_o_flag(value, buffer, offset, packet, parent)
+  local display = display.ipo_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psx_totalview_itch_v5_0.fields.ip_o_flag, range, value, display)
+  parent:add(nasdaq_psx_totalview_itch_v5_0.fields.ipo_flag, range, value, display)
 
-  return offset + size_of.ip_o_flag
+  return offset + size_of.ipo_flag
 end
 
 -- Size: Short Sale Threshold Indicator
@@ -2347,10 +2347,10 @@ size_of.round_lots_only = 1
 -- Display: Round Lots Only
 display.round_lots_only = function(value)
   if value == "Y" then
-    return "Round Lots Only: Nasda Q Psx (Y)"
+    return "Round Lots Only: Nasdaq Psx (Y)"
   end
   if value == "N" then
-    return "Round Lots Only: Nasda Q Psx (N)"
+    return "Round Lots Only: Nasdaq Psx (N)"
   end
 
   return "Round Lots Only: Unknown("..value..")"
@@ -2445,25 +2445,25 @@ size_of.market_category = 1
 -- Display: Market Category
 display.market_category = function(value)
   if value == "Q" then
-    return "Market Category: Nasda Q Global Select Market (Q)"
+    return "Market Category: Nasdaq Global Select Market (Q)"
   end
   if value == "G" then
-    return "Market Category: Nasda Q Global Market (G)"
+    return "Market Category: Nasdaq Global Market (G)"
   end
   if value == "S" then
-    return "Market Category: Nasda Q Capital Market (S)"
+    return "Market Category: Nasdaq Capital Market (S)"
   end
   if value == "N" then
     return "Market Category: Nyse (N)"
   end
   if value == "A" then
-    return "Market Category: Nys E Mkt (A)"
+    return "Market Category: Nyse Mkt (A)"
   end
   if value == "P" then
-    return "Market Category: Nys E Arca (P)"
+    return "Market Category: Nyse Arca (P)"
   end
   if value == "Z" then
-    return "Market Category: Bat SZ (Z)"
+    return "Market Category: Bats Z (Z)"
   end
   if value == "V" then
     return "Market Category: Investors Exchange (V)"
@@ -2531,17 +2531,17 @@ dissect.stock_directory_message_fields = function(buffer, offset, packet, parent
   -- Short Sale Threshold Indicator: 1 Byte Ascii String Enum with 3 values
   index = dissect.short_sale_threshold_indicator(buffer, index, packet, parent)
 
-  -- Ip O Flag: 1 Byte Ascii String Enum with 3 values
-  index = dissect.ip_o_flag(buffer, index, packet, parent)
+  -- Ipo Flag: 1 Byte Ascii String Enum with 3 values
+  index = dissect.ipo_flag(buffer, index, packet, parent)
 
-  -- Lul D Reference Price Tier: 1 Byte Ascii String Enum with 3 values
-  index = dissect.lul_d_reference_price_tier(buffer, index, packet, parent)
+  -- Luld Reference Price Tier: 1 Byte Ascii String Enum with 3 values
+  index = dissect.luld_reference_price_tier(buffer, index, packet, parent)
 
-  -- Et P Flag: 1 Byte Ascii String Enum with 3 values
-  index = dissect.et_p_flag(buffer, index, packet, parent)
+  -- Etp Flag: 1 Byte Ascii String Enum with 3 values
+  index = dissect.etp_flag(buffer, index, packet, parent)
 
-  -- Et P Leverage Factor: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.et_p_leverage_factor(buffer, index, packet, parent)
+  -- Etp Leverage Factor: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.etp_leverage_factor(buffer, index, packet, parent)
 
   -- Inverse Indicator: 1 Byte Ascii String Enum with 2 values
   index = dissect.inverse_indicator(buffer, index, packet, parent)

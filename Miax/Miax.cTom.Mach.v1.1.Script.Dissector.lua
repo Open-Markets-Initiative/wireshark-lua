@@ -23,8 +23,8 @@ local verify = {}
 miax_ctom_mach_v1_1.fields.active_on_miax = ProtoField.new("Active On Miax", "miax.ctom.mach.v1.1.activeonmiax", ftypes.STRING)
 miax_ctom_mach_v1_1.fields.application_message = ProtoField.new("Application Message", "miax.ctom.mach.v1.1.applicationmessage", ftypes.STRING)
 miax_ctom_mach_v1_1.fields.bid_condition = ProtoField.new("Bid Condition", "miax.ctom.mach.v1.1.bidcondition", ftypes.STRING)
-miax_ctom_mach_v1_1.fields.bid_reserved2 = ProtoField.new("Bid Reserved2", "miax.ctom.mach.v1.1.bidreserved2", ftypes.BYTES)
-miax_ctom_mach_v1_1.fields.bid_reserved4 = ProtoField.new("Bid Reserved4", "miax.ctom.mach.v1.1.bidreserved4", ftypes.BYTES)
+miax_ctom_mach_v1_1.fields.bid_reserved_2 = ProtoField.new("Bid Reserved 2", "miax.ctom.mach.v1.1.bidreserved2", ftypes.BYTES)
+miax_ctom_mach_v1_1.fields.bid_reserved_4 = ProtoField.new("Bid Reserved 4", "miax.ctom.mach.v1.1.bidreserved4", ftypes.BYTES)
 miax_ctom_mach_v1_1.fields.call_or_put = ProtoField.new("Call Or Put", "miax.ctom.mach.v1.1.callorput", ftypes.STRING)
 miax_ctom_mach_v1_1.fields.closing_time = ProtoField.new("Closing Time", "miax.ctom.mach.v1.1.closingtime", ftypes.STRING)
 miax_ctom_mach_v1_1.fields.compact_bid_price = ProtoField.new("Compact Bid Price", "miax.ctom.mach.v1.1.compactbidprice", ftypes.INT16)
@@ -48,13 +48,13 @@ miax_ctom_mach_v1_1.fields.liquidity_acceptance_increment_indicator = ProtoField
 miax_ctom_mach_v1_1.fields.long_term_option = ProtoField.new("Long Term Option", "miax.ctom.mach.v1.1.longtermoption", ftypes.STRING)
 miax_ctom_mach_v1_1.fields.message = ProtoField.new("Message", "miax.ctom.mach.v1.1.message", ftypes.STRING)
 miax_ctom_mach_v1_1.fields.message_type = ProtoField.new("Message Type", "miax.ctom.mach.v1.1.messagetype", ftypes.STRING)
-miax_ctom_mach_v1_1.fields.mia_x_bb_o_posting_increment_indicator = ProtoField.new("Mia X Bb O Posting Increment Indicator", "miax.ctom.mach.v1.1.miaxbbopostingincrementindicator", ftypes.STRING)
+miax_ctom_mach_v1_1.fields.miax_bbo_posting_increment_indicator = ProtoField.new("Miax Bbo Posting Increment Indicator", "miax.ctom.mach.v1.1.miaxbbopostingincrementindicator", ftypes.STRING)
 miax_ctom_mach_v1_1.fields.net_price = ProtoField.new("Net Price", "miax.ctom.mach.v1.1.netprice", ftypes.INT64)
 miax_ctom_mach_v1_1.fields.notification_time = ProtoField.new("Notification Time", "miax.ctom.mach.v1.1.notificationtime", ftypes.UINT32)
 miax_ctom_mach_v1_1.fields.number_of_legs = ProtoField.new("Number Of Legs", "miax.ctom.mach.v1.1.numberoflegs", ftypes.UINT8)
 miax_ctom_mach_v1_1.fields.offer_condition = ProtoField.new("Offer Condition", "miax.ctom.mach.v1.1.offercondition", ftypes.STRING)
-miax_ctom_mach_v1_1.fields.offer_reserved2 = ProtoField.new("Offer Reserved2", "miax.ctom.mach.v1.1.offerreserved2", ftypes.BYTES)
-miax_ctom_mach_v1_1.fields.offer_reserved4 = ProtoField.new("Offer Reserved4", "miax.ctom.mach.v1.1.offerreserved4", ftypes.BYTES)
+miax_ctom_mach_v1_1.fields.offer_reserved_2 = ProtoField.new("Offer Reserved 2", "miax.ctom.mach.v1.1.offerreserved2", ftypes.BYTES)
+miax_ctom_mach_v1_1.fields.offer_reserved_4 = ProtoField.new("Offer Reserved 4", "miax.ctom.mach.v1.1.offerreserved4", ftypes.BYTES)
 miax_ctom_mach_v1_1.fields.opening_time = ProtoField.new("Opening Time", "miax.ctom.mach.v1.1.openingtime", ftypes.STRING)
 miax_ctom_mach_v1_1.fields.opening_underlying_market_code = ProtoField.new("Opening Underlying Market Code", "miax.ctom.mach.v1.1.openingunderlyingmarketcode", ftypes.STRING)
 miax_ctom_mach_v1_1.fields.packet = ProtoField.new("Packet", "miax.ctom.mach.v1.1.packet", ftypes.STRING)
@@ -64,11 +64,12 @@ miax_ctom_mach_v1_1.fields.payload = ProtoField.new("Payload", "miax.ctom.mach.v
 miax_ctom_mach_v1_1.fields.priority_quote_width = ProtoField.new("Priority Quote Width", "miax.ctom.mach.v1.1.priorityquotewidth", ftypes.UINT32)
 miax_ctom_mach_v1_1.fields.product_add_update_time = ProtoField.new("Product Add Update Time", "miax.ctom.mach.v1.1.productaddupdatetime", ftypes.UINT32)
 miax_ctom_mach_v1_1.fields.product_id = ProtoField.new("Product Id", "miax.ctom.mach.v1.1.productid", ftypes.UINT32)
-miax_ctom_mach_v1_1.fields.reserved1 = ProtoField.new("Reserved1", "miax.ctom.mach.v1.1.reserved1", ftypes.BYTES)
-miax_ctom_mach_v1_1.fields.reserved10 = ProtoField.new("Reserved10", "miax.ctom.mach.v1.1.reserved10", ftypes.BYTES)
-miax_ctom_mach_v1_1.fields.reserved16 = ProtoField.new("Reserved16", "miax.ctom.mach.v1.1.reserved16", ftypes.BYTES)
-miax_ctom_mach_v1_1.fields.reserved2 = ProtoField.new("Reserved2", "miax.ctom.mach.v1.1.reserved2", ftypes.BYTES)
-miax_ctom_mach_v1_1.fields.reserved4 = ProtoField.new("Reserved4", "miax.ctom.mach.v1.1.reserved4", ftypes.BYTES)
+miax_ctom_mach_v1_1.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.ctom.mach.v1.1.reserved1", ftypes.BYTES)
+miax_ctom_mach_v1_1.fields.reserved_10 = ProtoField.new("Reserved 10", "miax.ctom.mach.v1.1.reserved10", ftypes.BYTES)
+miax_ctom_mach_v1_1.fields.reserved_16 = ProtoField.new("Reserved 16", "miax.ctom.mach.v1.1.reserved16", ftypes.BYTES)
+miax_ctom_mach_v1_1.fields.reserved_2 = ProtoField.new("Reserved 2", "miax.ctom.mach.v1.1.reserved2", ftypes.BYTES)
+miax_ctom_mach_v1_1.fields.reserved_4 = ProtoField.new("Reserved 4", "miax.ctom.mach.v1.1.reserved4", ftypes.BYTES)
+miax_ctom_mach_v1_1.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.ctom.mach.v1.1.reserved8", ftypes.BYTES)
 miax_ctom_mach_v1_1.fields.reserved8 = ProtoField.new("Reserved8", "miax.ctom.mach.v1.1.reserved8", ftypes.BYTES)
 miax_ctom_mach_v1_1.fields.restricted_option = ProtoField.new("Restricted Option", "miax.ctom.mach.v1.1.restrictedoption", ftypes.STRING)
 miax_ctom_mach_v1_1.fields.seconds_part = ProtoField.new("Seconds Part", "miax.ctom.mach.v1.1.secondspart", ftypes.UINT32)
@@ -410,23 +411,23 @@ dissect.underlying_trading_status_message = function(buffer, offset, packet, par
   return dissect.underlying_trading_status_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Reserved16
-size_of.reserved16 = 16
+-- Size: Reserved 16
+size_of.reserved_16 = 16
 
--- Display: Reserved16
-display.reserved16 = function(value)
-  return "Reserved16: "..value
+-- Display: Reserved 16
+display.reserved_16 = function(value)
+  return "Reserved 16: "..value
 end
 
--- Dissect: Reserved16
-dissect.reserved16 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved16)
+-- Dissect: Reserved 16
+dissect.reserved_16 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.reserved_16)
   local value = range:bytes():tohex(false, " ")
-  local display = display.reserved16(value, buffer, offset, packet, parent)
+  local display = display.reserved_16(value, buffer, offset, packet, parent)
 
-  parent:add(miax_ctom_mach_v1_1.fields.reserved16, range, value, display)
+  parent:add(miax_ctom_mach_v1_1.fields.reserved_16, range, value, display)
 
-  return offset + size_of.reserved16
+  return offset + size_of.reserved_16
 end
 
 -- Size: Trade Condition
@@ -558,8 +559,8 @@ dissect.strategy_trade_message_fields = function(buffer, offset, packet, parent)
   -- Trade Condition: 1 Byte Ascii String Enum with 2 values
   index = dissect.trade_condition(buffer, index, packet, parent)
 
-  -- Reserved16: 16 Byte
-  index = dissect.reserved16(buffer, index, packet, parent)
+  -- Reserved 16: 16 Byte
+  index = dissect.reserved_16(buffer, index, packet, parent)
 
   return index
 end
@@ -617,23 +618,23 @@ dissect.offer_condition = function(buffer, offset, packet, parent)
   return offset + size_of.offer_condition
 end
 
--- Size: Offer Reserved4
-size_of.offer_reserved4 = 4
+-- Size: Offer Reserved 4
+size_of.offer_reserved_4 = 4
 
--- Display: Offer Reserved4
-display.offer_reserved4 = function(value)
-  return "Offer Reserved4: "..value
+-- Display: Offer Reserved 4
+display.offer_reserved_4 = function(value)
+  return "Offer Reserved 4: "..value
 end
 
--- Dissect: Offer Reserved4
-dissect.offer_reserved4 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.offer_reserved4)
+-- Dissect: Offer Reserved 4
+dissect.offer_reserved_4 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.offer_reserved_4)
   local value = range:bytes():tohex(false, " ")
-  local display = display.offer_reserved4(value, buffer, offset, packet, parent)
+  local display = display.offer_reserved_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_ctom_mach_v1_1.fields.offer_reserved4, range, value, display)
+  parent:add(miax_ctom_mach_v1_1.fields.offer_reserved_4, range, value, display)
 
-  return offset + size_of.offer_reserved4
+  return offset + size_of.offer_reserved_4
 end
 
 -- Size: Wide Offer Size
@@ -715,23 +716,23 @@ dissect.bid_condition = function(buffer, offset, packet, parent)
   return offset + size_of.bid_condition
 end
 
--- Size: Bid Reserved4
-size_of.bid_reserved4 = 4
+-- Size: Bid Reserved 4
+size_of.bid_reserved_4 = 4
 
--- Display: Bid Reserved4
-display.bid_reserved4 = function(value)
-  return "Bid Reserved4: "..value
+-- Display: Bid Reserved 4
+display.bid_reserved_4 = function(value)
+  return "Bid Reserved 4: "..value
 end
 
--- Dissect: Bid Reserved4
-dissect.bid_reserved4 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.bid_reserved4)
+-- Dissect: Bid Reserved 4
+dissect.bid_reserved_4 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.bid_reserved_4)
   local value = range:bytes():tohex(false, " ")
-  local display = display.bid_reserved4(value, buffer, offset, packet, parent)
+  local display = display.bid_reserved_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_ctom_mach_v1_1.fields.bid_reserved4, range, value, display)
+  parent:add(miax_ctom_mach_v1_1.fields.bid_reserved_4, range, value, display)
 
-  return offset + size_of.bid_reserved4
+  return offset + size_of.bid_reserved_4
 end
 
 -- Size: Wide Bid Size
@@ -793,8 +794,8 @@ dissect.wide_complex_double_sided_top_of_market_message_fields = function(buffer
   -- Wide Bid Size: 4 Byte Unsigned Fixed Width Integer
   index = dissect.wide_bid_size(buffer, index, packet, parent)
 
-  -- Bid Reserved4: 4 Byte
-  index = dissect.bid_reserved4(buffer, index, packet, parent)
+  -- Bid Reserved 4: 4 Byte
+  index = dissect.bid_reserved_4(buffer, index, packet, parent)
 
   -- Bid Condition: 1 Byte Ascii String Enum with 7 values
   index = dissect.bid_condition(buffer, index, packet, parent)
@@ -805,8 +806,8 @@ dissect.wide_complex_double_sided_top_of_market_message_fields = function(buffer
   -- Wide Offer Size: 4 Byte Unsigned Fixed Width Integer
   index = dissect.wide_offer_size(buffer, index, packet, parent)
 
-  -- Offer Reserved4: 4 Byte
-  index = dissect.offer_reserved4(buffer, index, packet, parent)
+  -- Offer Reserved 4: 4 Byte
+  index = dissect.offer_reserved_4(buffer, index, packet, parent)
 
   -- Offer Condition: 1 Byte Ascii String Enum with 7 values
   index = dissect.offer_condition(buffer, index, packet, parent)
@@ -826,23 +827,23 @@ dissect.wide_complex_double_sided_top_of_market_message = function(buffer, offse
   return dissect.wide_complex_double_sided_top_of_market_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Offer Reserved2
-size_of.offer_reserved2 = 2
+-- Size: Offer Reserved 2
+size_of.offer_reserved_2 = 2
 
--- Display: Offer Reserved2
-display.offer_reserved2 = function(value)
-  return "Offer Reserved2: "..value
+-- Display: Offer Reserved 2
+display.offer_reserved_2 = function(value)
+  return "Offer Reserved 2: "..value
 end
 
--- Dissect: Offer Reserved2
-dissect.offer_reserved2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.offer_reserved2)
+-- Dissect: Offer Reserved 2
+dissect.offer_reserved_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.offer_reserved_2)
   local value = range:bytes():tohex(false, " ")
-  local display = display.offer_reserved2(value, buffer, offset, packet, parent)
+  local display = display.offer_reserved_2(value, buffer, offset, packet, parent)
 
-  parent:add(miax_ctom_mach_v1_1.fields.offer_reserved2, range, value, display)
+  parent:add(miax_ctom_mach_v1_1.fields.offer_reserved_2, range, value, display)
 
-  return offset + size_of.offer_reserved2
+  return offset + size_of.offer_reserved_2
 end
 
 -- Size: Compact Offer Size
@@ -883,23 +884,23 @@ dissect.compact_offer_price = function(buffer, offset, packet, parent)
   return offset + size_of.compact_offer_price
 end
 
--- Size: Bid Reserved2
-size_of.bid_reserved2 = 2
+-- Size: Bid Reserved 2
+size_of.bid_reserved_2 = 2
 
--- Display: Bid Reserved2
-display.bid_reserved2 = function(value)
-  return "Bid Reserved2: "..value
+-- Display: Bid Reserved 2
+display.bid_reserved_2 = function(value)
+  return "Bid Reserved 2: "..value
 end
 
--- Dissect: Bid Reserved2
-dissect.bid_reserved2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.bid_reserved2)
+-- Dissect: Bid Reserved 2
+dissect.bid_reserved_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.bid_reserved_2)
   local value = range:bytes():tohex(false, " ")
-  local display = display.bid_reserved2(value, buffer, offset, packet, parent)
+  local display = display.bid_reserved_2(value, buffer, offset, packet, parent)
 
-  parent:add(miax_ctom_mach_v1_1.fields.bid_reserved2, range, value, display)
+  parent:add(miax_ctom_mach_v1_1.fields.bid_reserved_2, range, value, display)
 
-  return offset + size_of.bid_reserved2
+  return offset + size_of.bid_reserved_2
 end
 
 -- Size: Compact Bid Size
@@ -961,8 +962,8 @@ dissect.complex_double_sided_top_of_market_compact_message_fields = function(buf
   -- Compact Bid Size: 2 Byte Unsigned Fixed Width Integer
   index = dissect.compact_bid_size(buffer, index, packet, parent)
 
-  -- Bid Reserved2: 2 Byte
-  index = dissect.bid_reserved2(buffer, index, packet, parent)
+  -- Bid Reserved 2: 2 Byte
+  index = dissect.bid_reserved_2(buffer, index, packet, parent)
 
   -- Bid Condition: 1 Byte Ascii String Enum with 7 values
   index = dissect.bid_condition(buffer, index, packet, parent)
@@ -973,8 +974,8 @@ dissect.complex_double_sided_top_of_market_compact_message_fields = function(buf
   -- Compact Offer Size: 2 Byte Unsigned Fixed Width Integer
   index = dissect.compact_offer_size(buffer, index, packet, parent)
 
-  -- Offer Reserved2: 2 Byte
-  index = dissect.offer_reserved2(buffer, index, packet, parent)
+  -- Offer Reserved 2: 2 Byte
+  index = dissect.offer_reserved_2(buffer, index, packet, parent)
 
   -- Offer Condition: 1 Byte Ascii String Enum with 7 values
   index = dissect.offer_condition(buffer, index, packet, parent)
@@ -1023,23 +1024,23 @@ dissect.top_of_market_quote_condition = function(buffer, offset, packet, parent)
   return offset + size_of.top_of_market_quote_condition
 end
 
--- Size: Reserved4
-size_of.reserved4 = 4
+-- Size: Reserved 4
+size_of.reserved_4 = 4
 
--- Display: Reserved4
-display.reserved4 = function(value)
-  return "Reserved4: "..value
+-- Display: Reserved 4
+display.reserved_4 = function(value)
+  return "Reserved 4: "..value
 end
 
--- Dissect: Reserved4
-dissect.reserved4 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved4)
+-- Dissect: Reserved 4
+dissect.reserved_4 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.reserved_4)
   local value = range:bytes():tohex(false, " ")
-  local display = display.reserved4(value, buffer, offset, packet, parent)
+  local display = display.reserved_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_ctom_mach_v1_1.fields.reserved4, range, value, display)
+  parent:add(miax_ctom_mach_v1_1.fields.reserved_4, range, value, display)
 
-  return offset + size_of.reserved4
+  return offset + size_of.reserved_4
 end
 
 -- Size: Wide Size
@@ -1101,8 +1102,8 @@ dissect.wide_complex_top_of_market_offer_message_fields = function(buffer, offse
   -- Wide Size: 4 Byte Unsigned Fixed Width Integer
   index = dissect.wide_size(buffer, index, packet, parent)
 
-  -- Reserved4: 4 Byte
-  index = dissect.reserved4(buffer, index, packet, parent)
+  -- Reserved 4: 4 Byte
+  index = dissect.reserved_4(buffer, index, packet, parent)
 
   -- Top Of Market Quote Condition: 1 Byte Ascii String Enum with 3 values
   index = dissect.top_of_market_quote_condition(buffer, index, packet, parent)
@@ -1143,8 +1144,8 @@ dissect.wide_complex_top_of_market_bid_message_fields = function(buffer, offset,
   -- Wide Size: 4 Byte Unsigned Fixed Width Integer
   index = dissect.wide_size(buffer, index, packet, parent)
 
-  -- Reserved4: 4 Byte
-  index = dissect.reserved4(buffer, index, packet, parent)
+  -- Reserved 4: 4 Byte
+  index = dissect.reserved_4(buffer, index, packet, parent)
 
   -- Top Of Market Quote Condition: 1 Byte Ascii String Enum with 3 values
   index = dissect.top_of_market_quote_condition(buffer, index, packet, parent)
@@ -1164,23 +1165,23 @@ dissect.wide_complex_top_of_market_bid_message = function(buffer, offset, packet
   return dissect.wide_complex_top_of_market_bid_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Reserved2
-size_of.reserved2 = 2
+-- Size: Reserved 2
+size_of.reserved_2 = 2
 
--- Display: Reserved2
-display.reserved2 = function(value)
-  return "Reserved2: "..value
+-- Display: Reserved 2
+display.reserved_2 = function(value)
+  return "Reserved 2: "..value
 end
 
--- Dissect: Reserved2
-dissect.reserved2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved2)
+-- Dissect: Reserved 2
+dissect.reserved_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.reserved_2)
   local value = range:bytes():tohex(false, " ")
-  local display = display.reserved2(value, buffer, offset, packet, parent)
+  local display = display.reserved_2(value, buffer, offset, packet, parent)
 
-  parent:add(miax_ctom_mach_v1_1.fields.reserved2, range, value, display)
+  parent:add(miax_ctom_mach_v1_1.fields.reserved_2, range, value, display)
 
-  return offset + size_of.reserved2
+  return offset + size_of.reserved_2
 end
 
 -- Size: Compact Size
@@ -1242,8 +1243,8 @@ dissect.complex_top_of_market_offer_compact_message_fields = function(buffer, of
   -- Compact Size: 2 Byte Unsigned Fixed Width Integer
   index = dissect.compact_size(buffer, index, packet, parent)
 
-  -- Reserved2: 2 Byte
-  index = dissect.reserved2(buffer, index, packet, parent)
+  -- Reserved 2: 2 Byte
+  index = dissect.reserved_2(buffer, index, packet, parent)
 
   -- Top Of Market Quote Condition: 1 Byte Ascii String Enum with 3 values
   index = dissect.top_of_market_quote_condition(buffer, index, packet, parent)
@@ -1284,8 +1285,8 @@ dissect.complex_top_of_market_bid_compact_message_fields = function(buffer, offs
   -- Compact Size: 2 Byte Unsigned Fixed Width Integer
   index = dissect.compact_size(buffer, index, packet, parent)
 
-  -- Reserved2: 2 Byte
-  index = dissect.reserved2(buffer, index, packet, parent)
+  -- Reserved 2: 2 Byte
+  index = dissect.reserved_2(buffer, index, packet, parent)
 
   -- Top Of Market Quote Condition: 1 Byte Ascii String Enum with 3 values
   index = dissect.top_of_market_quote_condition(buffer, index, packet, parent)
@@ -1568,23 +1569,23 @@ dissect.number_of_legs = function(buffer, offset, packet, parent)
   return offset + size_of.number_of_legs
 end
 
--- Size: Reserved10
-size_of.reserved10 = 10
+-- Size: Reserved 10
+size_of.reserved_10 = 10
 
--- Display: Reserved10
-display.reserved10 = function(value)
-  return "Reserved10: "..value
+-- Display: Reserved 10
+display.reserved_10 = function(value)
+  return "Reserved 10: "..value
 end
 
--- Dissect: Reserved10
-dissect.reserved10 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved10)
+-- Dissect: Reserved 10
+dissect.reserved_10 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.reserved_10)
   local value = range:bytes():tohex(false, " ")
-  local display = display.reserved10(value, buffer, offset, packet, parent)
+  local display = display.reserved_10(value, buffer, offset, packet, parent)
 
-  parent:add(miax_ctom_mach_v1_1.fields.reserved10, range, value, display)
+  parent:add(miax_ctom_mach_v1_1.fields.reserved_10, range, value, display)
 
-  return offset + size_of.reserved10
+  return offset + size_of.reserved_10
 end
 
 -- Size: Update Reason
@@ -1613,23 +1614,23 @@ dissect.update_reason = function(buffer, offset, packet, parent)
   return offset + size_of.update_reason
 end
 
--- Size: Reserved1
-size_of.reserved1 = 1
+-- Size: Reserved 1
+size_of.reserved_1 = 1
 
--- Display: Reserved1
-display.reserved1 = function(value)
-  return "Reserved1: "..value
+-- Display: Reserved 1
+display.reserved_1 = function(value)
+  return "Reserved 1: "..value
 end
 
--- Dissect: Reserved1
-dissect.reserved1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved1)
+-- Dissect: Reserved 1
+dissect.reserved_1 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.reserved_1)
   local value = range:bytes():tohex(false, " ")
-  local display = display.reserved1(value, buffer, offset, packet, parent)
+  local display = display.reserved_1(value, buffer, offset, packet, parent)
 
-  parent:add(miax_ctom_mach_v1_1.fields.reserved1, range, value, display)
+  parent:add(miax_ctom_mach_v1_1.fields.reserved_1, range, value, display)
 
-  return offset + size_of.reserved1
+  return offset + size_of.reserved_1
 end
 
 -- Size: Active On Miax
@@ -1698,14 +1699,14 @@ dissect.complex_strategy_definition_message_fields = function(buffer, offset, pa
   -- Active On Miax: 1 Byte Ascii String Enum with 2 values
   index = dissect.active_on_miax(buffer, index, packet, parent)
 
-  -- Reserved1: 1 Byte
-  index = dissect.reserved1(buffer, index, packet, parent)
+  -- Reserved 1: 1 Byte
+  index = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Update Reason: 1 Byte Ascii String Enum with 2 values
   index = dissect.update_reason(buffer, index, packet, parent)
 
-  -- Reserved10: 10 Byte
-  index = dissect.reserved10(buffer, index, packet, parent)
+  -- Reserved 10: 10 Byte
+  index = dissect.reserved_10(buffer, index, packet, parent)
 
   -- Number Of Legs: 1 Byte Unsigned Fixed Width Integer
   index = dissect.number_of_legs(buffer, index, packet, parent)
@@ -1726,6 +1727,25 @@ dissect.complex_strategy_definition_message = function(buffer, offset, packet, p
   end
 
   return dissect.complex_strategy_definition_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Reserved 8
+size_of.reserved_8 = 8
+
+-- Display: Reserved 8
+display.reserved_8 = function(value)
+  return "Reserved 8: "..value
+end
+
+-- Dissect: Reserved 8
+dissect.reserved_8 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.reserved_8)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.reserved_8(value, buffer, offset, packet, parent)
+
+  parent:add(miax_ctom_mach_v1_1.fields.reserved_8, range, value, display)
+
+  return offset + size_of.reserved_8
 end
 
 -- Size: Priority Quote Width
@@ -1847,33 +1867,33 @@ dissect.liquidity_acceptance_increment_indicator = function(buffer, offset, pack
   return offset + size_of.liquidity_acceptance_increment_indicator
 end
 
--- Size: Mia X Bb O Posting Increment Indicator
-size_of.mia_x_bb_o_posting_increment_indicator = 1
+-- Size: Miax Bbo Posting Increment Indicator
+size_of.miax_bbo_posting_increment_indicator = 1
 
--- Display: Mia X Bb O Posting Increment Indicator
-display.mia_x_bb_o_posting_increment_indicator = function(value)
+-- Display: Miax Bbo Posting Increment Indicator
+display.miax_bbo_posting_increment_indicator = function(value)
   if value == "P" then
-    return "Mia X Bb O Posting Increment Indicator: Penny (P)"
+    return "Miax Bbo Posting Increment Indicator: Penny (P)"
   end
   if value == "N" then
-    return "Mia X Bb O Posting Increment Indicator: Nickel (N)"
+    return "Miax Bbo Posting Increment Indicator: Nickel (N)"
   end
   if value == "D" then
-    return "Mia X Bb O Posting Increment Indicator: Dime (D)"
+    return "Miax Bbo Posting Increment Indicator: Dime (D)"
   end
 
-  return "Mia X Bb O Posting Increment Indicator: Unknown("..value..")"
+  return "Miax Bbo Posting Increment Indicator: Unknown("..value..")"
 end
 
--- Dissect: Mia X Bb O Posting Increment Indicator
-dissect.mia_x_bb_o_posting_increment_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.mia_x_bb_o_posting_increment_indicator)
+-- Dissect: Miax Bbo Posting Increment Indicator
+dissect.miax_bbo_posting_increment_indicator = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.miax_bbo_posting_increment_indicator)
   local value = range:string()
-  local display = display.mia_x_bb_o_posting_increment_indicator(value, buffer, offset, packet, parent)
+  local display = display.miax_bbo_posting_increment_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(miax_ctom_mach_v1_1.fields.mia_x_bb_o_posting_increment_indicator, range, value, display)
+  parent:add(miax_ctom_mach_v1_1.fields.miax_bbo_posting_increment_indicator, range, value, display)
 
-  return offset + size_of.mia_x_bb_o_posting_increment_indicator
+  return offset + size_of.miax_bbo_posting_increment_indicator
 end
 
 -- Size: Long Term Option
@@ -2113,8 +2133,8 @@ dissect.series_update_fields = function(buffer, offset, packet, parent)
   -- Active On Miax: 1 Byte Ascii String Enum with 2 values
   index = dissect.active_on_miax(buffer, index, packet, parent)
 
-  -- Mia X Bb O Posting Increment Indicator: 1 Byte Ascii String Enum with 3 values
-  index = dissect.mia_x_bb_o_posting_increment_indicator(buffer, index, packet, parent)
+  -- Miax Bbo Posting Increment Indicator: 1 Byte Ascii String Enum with 3 values
+  index = dissect.miax_bbo_posting_increment_indicator(buffer, index, packet, parent)
 
   -- Liquidity Acceptance Increment Indicator: 1 Byte Ascii String Enum with 3 values
   index = dissect.liquidity_acceptance_increment_indicator(buffer, index, packet, parent)
@@ -2125,8 +2145,8 @@ dissect.series_update_fields = function(buffer, offset, packet, parent)
   -- Priority Quote Width: 4 Byte Unsigned Fixed Width Integer
   index = dissect.priority_quote_width(buffer, index, packet, parent)
 
-  -- Reserved8: 8 Byte
-  index = dissect.reserved8(buffer, index, packet, parent)
+  -- Reserved 8: 8 Byte
+  index = dissect.reserved_8(buffer, index, packet, parent)
 
   return index
 end

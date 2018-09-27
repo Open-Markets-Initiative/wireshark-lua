@@ -53,10 +53,10 @@ nyse_arca_bbo_xdp_v2_4_c.fields.packet_size = ProtoField.new("Packet Size", "nys
 nyse_arca_bbo_xdp_v2_4_c.fields.payload = ProtoField.new("Payload", "nyse.arca.bbo.xdp.v2.4.c.payload", ftypes.STRING)
 nyse_arca_bbo_xdp_v2_4_c.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.arca.bbo.xdp.v2.4.c.prevcloseprice", ftypes.UINT32)
 nyse_arca_bbo_xdp_v2_4_c.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.arca.bbo.xdp.v2.4.c.prevclosevolume", ftypes.UINT32)
+nyse_arca_bbo_xdp_v2_4_c.fields.price_1 = ProtoField.new("Price 1", "nyse.arca.bbo.xdp.v2.4.c.price1", ftypes.UINT32)
+nyse_arca_bbo_xdp_v2_4_c.fields.price_2 = ProtoField.new("Price 2", "nyse.arca.bbo.xdp.v2.4.c.price2", ftypes.UINT32)
 nyse_arca_bbo_xdp_v2_4_c.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.arca.bbo.xdp.v2.4.c.priceresolution", ftypes.UINT8)
 nyse_arca_bbo_xdp_v2_4_c.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.arca.bbo.xdp.v2.4.c.pricescalecode", ftypes.UINT8)
-nyse_arca_bbo_xdp_v2_4_c.fields.price1 = ProtoField.new("Price1", "nyse.arca.bbo.xdp.v2.4.c.price1", ftypes.UINT32)
-nyse_arca_bbo_xdp_v2_4_c.fields.price2 = ProtoField.new("Price2", "nyse.arca.bbo.xdp.v2.4.c.price2", ftypes.UINT32)
 nyse_arca_bbo_xdp_v2_4_c.fields.product_id = ProtoField.new("Product Id", "nyse.arca.bbo.xdp.v2.4.c.productid", ftypes.UINT8)
 nyse_arca_bbo_xdp_v2_4_c.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.arca.bbo.xdp.v2.4.c.quotecondition", ftypes.STRING)
 nyse_arca_bbo_xdp_v2_4_c.fields.quote_message = ProtoField.new("Quote Message", "nyse.arca.bbo.xdp.v2.4.c.quotemessage", ftypes.STRING)
@@ -64,13 +64,13 @@ nyse_arca_bbo_xdp_v2_4_c.fields.refresh_header_message = ProtoField.new("Refresh
 nyse_arca_bbo_xdp_v2_4_c.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "nyse.arca.bbo.xdp.v2.4.c.refreshrequestmessage", ftypes.STRING)
 nyse_arca_bbo_xdp_v2_4_c.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.arca.bbo.xdp.v2.4.c.requestresponsemessage", ftypes.STRING)
 nyse_arca_bbo_xdp_v2_4_c.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.arca.bbo.xdp.v2.4.c.requestseqnum", ftypes.UINT32)
-nyse_arca_bbo_xdp_v2_4_c.fields.reserved1 = ProtoField.new("Reserved1", "nyse.arca.bbo.xdp.v2.4.c.reserved1", ftypes.BYTES)
-nyse_arca_bbo_xdp_v2_4_c.fields.reserved2 = ProtoField.new("Reserved2", "nyse.arca.bbo.xdp.v2.4.c.reserved2", ftypes.BYTES)
-nyse_arca_bbo_xdp_v2_4_c.fields.reserved4 = ProtoField.new("Reserved4", "nyse.arca.bbo.xdp.v2.4.c.reserved4", ftypes.BYTES)
+nyse_arca_bbo_xdp_v2_4_c.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.arca.bbo.xdp.v2.4.c.reserved1", ftypes.BYTES)
+nyse_arca_bbo_xdp_v2_4_c.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.arca.bbo.xdp.v2.4.c.reserved2", ftypes.BYTES)
+nyse_arca_bbo_xdp_v2_4_c.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.arca.bbo.xdp.v2.4.c.reserved4", ftypes.BYTES)
 nyse_arca_bbo_xdp_v2_4_c.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.arca.bbo.xdp.v2.4.c.retransmissionrequestmessage", ftypes.STRING)
 nyse_arca_bbo_xdp_v2_4_c.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.arca.bbo.xdp.v2.4.c.retransmitmethod", ftypes.UINT8)
 nyse_arca_bbo_xdp_v2_4_c.fields.round_lot = ProtoField.new("Round Lot", "nyse.arca.bbo.xdp.v2.4.c.roundlot", ftypes.STRING)
-nyse_arca_bbo_xdp_v2_4_c.fields.rp_i_indicator = ProtoField.new("Rp I Indicator", "nyse.arca.bbo.xdp.v2.4.c.rpiindicator", ftypes.STRING)
+nyse_arca_bbo_xdp_v2_4_c.fields.rpi_indicator = ProtoField.new("Rpi Indicator", "nyse.arca.bbo.xdp.v2.4.c.rpiindicator", ftypes.STRING)
 nyse_arca_bbo_xdp_v2_4_c.fields.security_status = ProtoField.new("Security Status", "nyse.arca.bbo.xdp.v2.4.c.securitystatus", ftypes.STRING)
 nyse_arca_bbo_xdp_v2_4_c.fields.security_status_message = ProtoField.new("Security Status Message", "nyse.arca.bbo.xdp.v2.4.c.securitystatusmessage", ftypes.STRING)
 nyse_arca_bbo_xdp_v2_4_c.fields.security_type = ProtoField.new("Security Type", "nyse.arca.bbo.xdp.v2.4.c.securitytype", ftypes.STRING)
@@ -81,9 +81,9 @@ nyse_arca_bbo_xdp_v2_4_c.fields.source_id = ProtoField.new("Source Id", "nyse.ar
 nyse_arca_bbo_xdp_v2_4_c.fields.source_time = ProtoField.new("Source Time", "nyse.arca.bbo.xdp.v2.4.c.sourcetime", ftypes.UINT32)
 nyse_arca_bbo_xdp_v2_4_c.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.arca.bbo.xdp.v2.4.c.sourcetimens", ftypes.UINT32)
 nyse_arca_bbo_xdp_v2_4_c.fields.source_time_reference_message = ProtoField.new("Source Time Reference Message", "nyse.arca.bbo.xdp.v2.4.c.sourcetimereferencemessage", ftypes.STRING)
-nyse_arca_bbo_xdp_v2_4_c.fields.ss_r_state = ProtoField.new("Ss R State", "nyse.arca.bbo.xdp.v2.4.c.ssrstate", ftypes.STRING)
-nyse_arca_bbo_xdp_v2_4_c.fields.ss_r_triggering_exchange_id = ProtoField.new("Ss R Triggering Exchange Id", "nyse.arca.bbo.xdp.v2.4.c.ssrtriggeringexchangeid", ftypes.STRING)
-nyse_arca_bbo_xdp_v2_4_c.fields.ss_r_triggering_volume = ProtoField.new("Ss R Triggering Volume", "nyse.arca.bbo.xdp.v2.4.c.ssrtriggeringvolume", ftypes.UINT32)
+nyse_arca_bbo_xdp_v2_4_c.fields.ssr_state = ProtoField.new("Ssr State", "nyse.arca.bbo.xdp.v2.4.c.ssrstate", ftypes.STRING)
+nyse_arca_bbo_xdp_v2_4_c.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.arca.bbo.xdp.v2.4.c.ssrtriggeringexchangeid", ftypes.STRING)
+nyse_arca_bbo_xdp_v2_4_c.fields.ssr_triggering_volume = ProtoField.new("Ssr Triggering Volume", "nyse.arca.bbo.xdp.v2.4.c.ssrtriggeringvolume", ftypes.UINT32)
 nyse_arca_bbo_xdp_v2_4_c.fields.status = ProtoField.new("Status", "nyse.arca.bbo.xdp.v2.4.c.status", ftypes.STRING)
 nyse_arca_bbo_xdp_v2_4_c.fields.symbol = ProtoField.new("Symbol", "nyse.arca.bbo.xdp.v2.4.c.symbol", ftypes.STRING)
 nyse_arca_bbo_xdp_v2_4_c.fields.symbol_clear_message = ProtoField.new("Symbol Clear Message", "nyse.arca.bbo.xdp.v2.4.c.symbolclearmessage", ftypes.STRING)
@@ -238,55 +238,55 @@ end
 -- Dissect Nyse Arca Bbo Xdp 2.4.c
 -----------------------------------------------------------------------
 
--- Size: Reserved4
-size_of.reserved4 = 4
+-- Size: Reserved 4
+size_of.reserved_4 = 4
 
--- Display: Reserved4
-display.reserved4 = function(value)
-  return "Reserved4: "..value
+-- Display: Reserved 4
+display.reserved_4 = function(value)
+  return "Reserved 4: "..value
 end
 
--- Dissect: Reserved4
-dissect.reserved4 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved4)
+-- Dissect: Reserved 4
+dissect.reserved_4 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.reserved_4)
   local value = range:bytes():tohex(false, " ")
-  local display = display.reserved4(value, buffer, offset, packet, parent)
+  local display = display.reserved_4(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_bbo_xdp_v2_4_c.fields.reserved4, range, value, display)
+  parent:add(nyse_arca_bbo_xdp_v2_4_c.fields.reserved_4, range, value, display)
 
-  return offset + size_of.reserved4
+  return offset + size_of.reserved_4
 end
 
--- Size: Rp I Indicator
-size_of.rp_i_indicator = 1
+-- Size: Rpi Indicator
+size_of.rpi_indicator = 1
 
--- Display: Rp I Indicator
-display.rp_i_indicator = function(value)
+-- Display: Rpi Indicator
+display.rpi_indicator = function(value)
   if value == " " then
-    return "Rp I Indicator: No Retail Interest (<whitespace>)"
+    return "Rpi Indicator: No Retail Interest (<whitespace>)"
   end
   if value == "A" then
-    return "Rp I Indicator: Retail Interest On Bid Side (A)"
+    return "Rpi Indicator: Retail Interest On Bid Side (A)"
   end
   if value == "B" then
-    return "Rp I Indicator: Retail Interest On Offer Side (B)"
+    return "Rpi Indicator: Retail Interest On Offer Side (B)"
   end
   if value == "C" then
-    return "Rp I Indicator: Retail Interest On The Bid And Offer Side (C)"
+    return "Rpi Indicator: Retail Interest On The Bid And Offer Side (C)"
   end
 
-  return "Rp I Indicator: Unknown("..value..")"
+  return "Rpi Indicator: Unknown("..value..")"
 end
 
--- Dissect: Rp I Indicator
-dissect.rp_i_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.rp_i_indicator)
+-- Dissect: Rpi Indicator
+dissect.rpi_indicator = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.rpi_indicator)
   local value = range:string()
-  local display = display.rp_i_indicator(value, buffer, offset, packet, parent)
+  local display = display.rpi_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_bbo_xdp_v2_4_c.fields.rp_i_indicator, range, value, display)
+  parent:add(nyse_arca_bbo_xdp_v2_4_c.fields.rpi_indicator, range, value, display)
 
-  return offset + size_of.rp_i_indicator
+  return offset + size_of.rpi_indicator
 end
 
 -- Size: Quote Condition
@@ -487,11 +487,11 @@ dissect.quote_message_fields = function(buffer, offset, packet, parent)
   -- Quote Condition: 1 Byte Ascii String Enum with 4 values
   index = dissect.quote_condition(buffer, index, packet, parent)
 
-  -- Rp I Indicator: 1 Byte Ascii String Enum with 4 values
-  index = dissect.rp_i_indicator(buffer, index, packet, parent)
+  -- Rpi Indicator: 1 Byte Ascii String Enum with 4 values
+  index = dissect.rpi_indicator(buffer, index, packet, parent)
 
-  -- Reserved4: 4 Byte
-  index = dissect.reserved4(buffer, index, packet, parent)
+  -- Reserved 4: 4 Byte
+  index = dissect.reserved_4(buffer, index, packet, parent)
 
   return index
 end
@@ -658,23 +658,23 @@ dissect.market_state = function(buffer, offset, packet, parent)
   return offset + size_of.market_state
 end
 
--- Size: Ss R State
-size_of.ss_r_state = 1
+-- Size: Ssr State
+size_of.ssr_state = 1
 
--- Display: Ss R State
-display.ss_r_state = function(value)
-  return "Ss R State: "..value
+-- Display: Ssr State
+display.ssr_state = function(value)
+  return "Ssr State: "..value
 end
 
--- Dissect: Ss R State
-dissect.ss_r_state = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ss_r_state)
+-- Dissect: Ssr State
+dissect.ssr_state = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.ssr_state)
   local value = range:string()
-  local display = display.ss_r_state(value, buffer, offset, packet, parent)
+  local display = display.ssr_state(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_bbo_xdp_v2_4_c.fields.ss_r_state, range, value, display)
+  parent:add(nyse_arca_bbo_xdp_v2_4_c.fields.ssr_state, range, value, display)
 
-  return offset + size_of.ss_r_state
+  return offset + size_of.ssr_state
 end
 
 -- Size: Time
@@ -696,135 +696,135 @@ dissect.time = function(buffer, offset, packet, parent)
   return offset + size_of.time
 end
 
--- Size: Ss R Triggering Volume
-size_of.ss_r_triggering_volume = 4
+-- Size: Ssr Triggering Volume
+size_of.ssr_triggering_volume = 4
 
--- Display: Ss R Triggering Volume
-display.ss_r_triggering_volume = function(value)
-  return "Ss R Triggering Volume: "..value
+-- Display: Ssr Triggering Volume
+display.ssr_triggering_volume = function(value)
+  return "Ssr Triggering Volume: "..value
 end
 
--- Dissect: Ss R Triggering Volume
-dissect.ss_r_triggering_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ss_r_triggering_volume)
+-- Dissect: Ssr Triggering Volume
+dissect.ssr_triggering_volume = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.ssr_triggering_volume)
   local value = range:le_uint()
-  local display = display.ss_r_triggering_volume(value, buffer, offset, packet, parent)
+  local display = display.ssr_triggering_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_bbo_xdp_v2_4_c.fields.ss_r_triggering_volume, range, value, display)
+  parent:add(nyse_arca_bbo_xdp_v2_4_c.fields.ssr_triggering_volume, range, value, display)
 
-  return offset + size_of.ss_r_triggering_volume
+  return offset + size_of.ssr_triggering_volume
 end
 
--- Size: Ss R Triggering Exchange Id
-size_of.ss_r_triggering_exchange_id = 1
+-- Size: Ssr Triggering Exchange Id
+size_of.ssr_triggering_exchange_id = 1
 
--- Display: Ss R Triggering Exchange Id
-display.ss_r_triggering_exchange_id = function(value)
+-- Display: Ssr Triggering Exchange Id
+display.ssr_triggering_exchange_id = function(value)
   if value == "A" then
-    return "Ss R Triggering Exchange Id: Nys E American (A)"
+    return "Ssr Triggering Exchange Id: Nyse American (A)"
   end
   if value == "B" then
-    return "Ss R Triggering Exchange Id: Nasda Q Om X Bx (B)"
+    return "Ssr Triggering Exchange Id: Nasdaq Omx Bx (B)"
   end
   if value == "C" then
-    return "Ss R Triggering Exchange Id: Nys E National (C)"
+    return "Ssr Triggering Exchange Id: Nyse National (C)"
   end
   if value == "D" then
-    return "Ss R Triggering Exchange Id: Finra (D)"
+    return "Ssr Triggering Exchange Id: Finra (D)"
   end
   if value == "I" then
-    return "Ss R Triggering Exchange Id: Ise (I)"
+    return "Ssr Triggering Exchange Id: Ise (I)"
   end
   if value == "J" then
-    return "Ss R Triggering Exchange Id: Edga (J)"
+    return "Ssr Triggering Exchange Id: Edga (J)"
   end
   if value == "K" then
-    return "Ss R Triggering Exchange Id: Edgx (K)"
+    return "Ssr Triggering Exchange Id: Edgx (K)"
   end
   if value == "M" then
-    return "Ss R Triggering Exchange Id: Chx (M)"
+    return "Ssr Triggering Exchange Id: Chx (M)"
   end
   if value == "N" then
-    return "Ss R Triggering Exchange Id: Nyse (N)"
+    return "Ssr Triggering Exchange Id: Nyse (N)"
   end
   if value == "P" then
-    return "Ss R Triggering Exchange Id: Nys E Arca (P)"
+    return "Ssr Triggering Exchange Id: Nyse Arca (P)"
   end
   if value == "Q" then
-    return "Ss R Triggering Exchange Id: Nasdaq (Q)"
+    return "Ssr Triggering Exchange Id: Nasdaq (Q)"
   end
   if value == "S" then
-    return "Ss R Triggering Exchange Id: Cts (S)"
+    return "Ssr Triggering Exchange Id: Cts (S)"
   end
   if value == "T" then
-    return "Ss R Triggering Exchange Id: Nasda Q Omx (T)"
+    return "Ssr Triggering Exchange Id: Nasdaq Omx (T)"
   end
   if value == "V" then
-    return "Ss R Triggering Exchange Id: Iex (V)"
+    return "Ssr Triggering Exchange Id: Iex (V)"
   end
   if value == "W" then
-    return "Ss R Triggering Exchange Id: Cbsx (W)"
+    return "Ssr Triggering Exchange Id: Cbsx (W)"
   end
   if value == "X" then
-    return "Ss R Triggering Exchange Id: Nasda Q Om X Psx (X)"
+    return "Ssr Triggering Exchange Id: Nasdaq Omx Psx (X)"
   end
   if value == "Y" then
-    return "Ss R Triggering Exchange Id: Bat SY (Y)"
+    return "Ssr Triggering Exchange Id: Bats Y (Y)"
   end
   if value == "Z" then
-    return "Ss R Triggering Exchange Id: Bats (Z)"
+    return "Ssr Triggering Exchange Id: Bats (Z)"
   end
 
-  return "Ss R Triggering Exchange Id: Unknown("..value..")"
+  return "Ssr Triggering Exchange Id: Unknown("..value..")"
 end
 
--- Dissect: Ss R Triggering Exchange Id
-dissect.ss_r_triggering_exchange_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ss_r_triggering_exchange_id)
+-- Dissect: Ssr Triggering Exchange Id
+dissect.ssr_triggering_exchange_id = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.ssr_triggering_exchange_id)
   local value = range:string()
-  local display = display.ss_r_triggering_exchange_id(value, buffer, offset, packet, parent)
+  local display = display.ssr_triggering_exchange_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_bbo_xdp_v2_4_c.fields.ss_r_triggering_exchange_id, range, value, display)
+  parent:add(nyse_arca_bbo_xdp_v2_4_c.fields.ssr_triggering_exchange_id, range, value, display)
 
-  return offset + size_of.ss_r_triggering_exchange_id
+  return offset + size_of.ssr_triggering_exchange_id
 end
 
--- Size: Price2
-size_of.price2 = 4
+-- Size: Price 2
+size_of.price_2 = 4
 
--- Display: Price2
-display.price2 = function(value)
-  return "Price2: "..value
+-- Display: Price 2
+display.price_2 = function(value)
+  return "Price 2: "..value
 end
 
--- Dissect: Price2
-dissect.price2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price2)
+-- Dissect: Price 2
+dissect.price_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.price_2)
   local value = range:le_uint()
-  local display = display.price2(value, buffer, offset, packet, parent)
+  local display = display.price_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_bbo_xdp_v2_4_c.fields.price2, range, value, display)
+  parent:add(nyse_arca_bbo_xdp_v2_4_c.fields.price_2, range, value, display)
 
-  return offset + size_of.price2
+  return offset + size_of.price_2
 end
 
--- Size: Price1
-size_of.price1 = 4
+-- Size: Price 1
+size_of.price_1 = 4
 
--- Display: Price1
-display.price1 = function(value)
-  return "Price1: "..value
+-- Display: Price 1
+display.price_1 = function(value)
+  return "Price 1: "..value
 end
 
--- Dissect: Price1
-dissect.price1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price1)
+-- Dissect: Price 1
+dissect.price_1 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.price_1)
   local value = range:le_uint()
-  local display = display.price1(value, buffer, offset, packet, parent)
+  local display = display.price_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_bbo_xdp_v2_4_c.fields.price1, range, value, display)
+  parent:add(nyse_arca_bbo_xdp_v2_4_c.fields.price_1, range, value, display)
 
-  return offset + size_of.price1
+  return offset + size_of.price_1
 end
 
 -- Size: Halt Condition
@@ -832,11 +832,11 @@ size_of.halt_condition = 1
 
 -- Display: Halt Condition
 display.halt_condition = function(value)
-  if value == "~" then
-    return "Halt Condition: Security Not Delayedhalted (~)"
+  if value == "" then
+    return "Halt Condition: Security Not Delayedhalted (<whitespace>)"
   end
   if value == " " then
-    return "Halt Condition: Not Delayedhalted Nys E Tape A Only (<whitespace>)"
+    return "Halt Condition: Not Delayedhalted Nyse Tape A Only (<whitespace>)"
   end
   if value == "D" then
     return "Halt Condition: News Dissemination (D)"
@@ -848,7 +848,7 @@ display.halt_condition = function(value)
     return "Halt Condition: News Pending (P)"
   end
   if value == "M" then
-    return "Halt Condition: Lul D Pause (M)"
+    return "Halt Condition: Luld Pause (M)"
   end
   if value == "S" then
     return "Halt Condition: Related Security Not Used (S)"
@@ -860,13 +860,13 @@ display.halt_condition = function(value)
     return "Halt Condition: No Open No Resume (Z)"
   end
   if value == "1" then
-    return "Halt Condition: Market Wide Circuit Breaker Halt Level1 (1)"
+    return "Halt Condition: Market Wide Circuit Breaker Halt Level 1 (1)"
   end
   if value == "2" then
-    return "Halt Condition: Market Wide Circuit Breaker Halt Level2 (2)"
+    return "Halt Condition: Market Wide Circuit Breaker Halt Level 2 (2)"
   end
   if value == "3" then
-    return "Halt Condition: Market Wide Circuit Breaker Halt Level3 (3)"
+    return "Halt Condition: Market Wide Circuit Breaker Halt Level 3 (3)"
   end
 
   return "Halt Condition: Unknown("..value..")"
@@ -901,10 +901,10 @@ display.security_status = function(value)
     return "Security Status: No Openno Resume (6)"
   end
   if value == "A" then
-    return "Security Status: Short Sale Restriction Activated Day1 (A)"
+    return "Security Status: Short Sale Restriction Activated Day 1 (A)"
   end
   if value == "C" then
-    return "Security Status: Short Sale Restriction Continued Day2 (C)"
+    return "Security Status: Short Sale Restriction Continued Day 2 (C)"
   end
   if value == "D" then
     return "Security Status: Short Sale Restriction Deactivated (D)"
@@ -919,7 +919,7 @@ display.security_status = function(value)
     return "Security Status: Core Session (O)"
   end
   if value == "L" then
-    return "Security Status: Late Session Non Nys E Only (L)"
+    return "Security Status: Late Session Non Nyse Only (L)"
   end
   if value == "X" then
     return "Security Status: Closed (X)"
@@ -997,26 +997,26 @@ dissect.security_status_message_fields = function(buffer, offset, packet, parent
   -- Halt Condition: 1 Byte Ascii String Enum with 12 values
   index = dissect.halt_condition(buffer, index, packet, parent)
 
-  -- Reserved4: 4 Byte
-  index = dissect.reserved4(buffer, index, packet, parent)
+  -- Reserved 4: 4 Byte
+  index = dissect.reserved_4(buffer, index, packet, parent)
 
-  -- Price1: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.price1(buffer, index, packet, parent)
+  -- Price 1: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.price_1(buffer, index, packet, parent)
 
-  -- Price2: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.price2(buffer, index, packet, parent)
+  -- Price 2: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.price_2(buffer, index, packet, parent)
 
-  -- Ss R Triggering Exchange Id: 1 Byte Ascii String Enum with 18 values
-  index = dissect.ss_r_triggering_exchange_id(buffer, index, packet, parent)
+  -- Ssr Triggering Exchange Id: 1 Byte Ascii String Enum with 18 values
+  index = dissect.ssr_triggering_exchange_id(buffer, index, packet, parent)
 
-  -- Ss R Triggering Volume: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.ss_r_triggering_volume(buffer, index, packet, parent)
+  -- Ssr Triggering Volume: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.ssr_triggering_volume(buffer, index, packet, parent)
 
   -- Time: 4 Byte Unsigned Fixed Width Integer
   index = dissect.time(buffer, index, packet, parent)
 
-  -- Ss R State: 1 Byte Ascii String
-  index = dissect.ss_r_state(buffer, index, packet, parent)
+  -- Ssr State: 1 Byte Ascii String
+  index = dissect.ssr_state(buffer, index, packet, parent)
 
   -- Market State: 1 Byte Ascii String
   index = dissect.market_state(buffer, index, packet, parent)
@@ -1530,23 +1530,23 @@ dissect.retransmission_request_message = function(buffer, offset, packet, parent
   return dissect.retransmission_request_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Reserved2
-size_of.reserved2 = 2
+-- Size: Reserved 2
+size_of.reserved_2 = 2
 
--- Display: Reserved2
-display.reserved2 = function(value)
-  return "Reserved2: "..value
+-- Display: Reserved 2
+display.reserved_2 = function(value)
+  return "Reserved 2: "..value
 end
 
--- Dissect: Reserved2
-dissect.reserved2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved2)
+-- Dissect: Reserved 2
+dissect.reserved_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.reserved_2)
   local value = range:bytes():tohex(false, " ")
-  local display = display.reserved2(value, buffer, offset, packet, parent)
+  local display = display.reserved_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_bbo_xdp_v2_4_c.fields.reserved2, range, value, display)
+  parent:add(nyse_arca_bbo_xdp_v2_4_c.fields.reserved_2, range, value, display)
 
-  return offset + size_of.reserved2
+  return offset + size_of.reserved_2
 end
 
 -- Size: Unit Of Trade
@@ -1691,7 +1691,7 @@ display.security_type = function(value)
     return "Security Type: Adr (A)"
   end
   if value == "C" then
-    return "Security Type: Commo N Stock (C)"
+    return "Security Type: Common Stock (C)"
   end
   if value == "D" then
     return "Security Type: Debentures (D)"
@@ -1703,28 +1703,28 @@ display.security_type = function(value)
     return "Security Type: Foreign (F)"
   end
   if value == "H" then
-    return "Security Type: US Depositar Y Shares (H)"
+    return "Security Type: Us Depositary Shares (H)"
   end
   if value == "I" then
     return "Security Type: Units (I)"
   end
   if value == "L" then
-    return "Security Type: Inde X Linke D Notes (L)"
+    return "Security Type: Index Linked Notes (L)"
   end
   if value == "M" then
-    return "Security Type: Miscliqui D Trust (M)"
+    return "Security Type: Miscliquid Trust (M)"
   end
   if value == "O" then
-    return "Security Type: Ordinar Y Shares (O)"
+    return "Security Type: Ordinary Shares (O)"
   end
   if value == "P" then
-    return "Security Type: Preferre D Stock (P)"
+    return "Security Type: Preferred Stock (P)"
   end
   if value == "R" then
     return "Security Type: Rights (R)"
   end
   if value == "S" then
-    return "Security Type: Share SOF Beneficiar Y Interest (S)"
+    return "Security Type: Shares Of Beneficiary Interest (S)"
   end
   if value == "T" then
     return "Security Type: Test (T)"
@@ -1775,16 +1775,16 @@ size_of.exchange_code = 1
 -- Display: Exchange Code
 display.exchange_code = function(value)
   if value == "A" then
-    return "Exchange Code: Nys E American (A)"
+    return "Exchange Code: Nyse American (A)"
   end
   if value == "C" then
-    return "Exchange Code: Nys E National (C)"
+    return "Exchange Code: Nyse National (C)"
   end
   if value == "N" then
     return "Exchange Code: Nyse (N)"
   end
   if value == "P" then
-    return "Exchange Code: Nys E Arca (P)"
+    return "Exchange Code: Nyse Arca (P)"
   end
   if value == "Q" then
     return "Exchange Code: Nasdaq (Q)"
@@ -1844,28 +1844,28 @@ size_of.market_id = 2
 -- Display: Market Id
 display.market_id = function(value)
   if value == 1 then
-    return "Market Id: Nys E Equities (1)"
+    return "Market Id: Nyse Equities (1)"
   end
   if value == 3 then
-    return "Market Id: Nys E Arca Equities (3)"
+    return "Market Id: Nyse Arca Equities (3)"
   end
   if value == 4 then
-    return "Market Id: Nys E Arca Options (4)"
+    return "Market Id: Nyse Arca Options (4)"
   end
   if value == 5 then
-    return "Market Id: Nys E Bonds (5)"
+    return "Market Id: Nyse Bonds (5)"
   end
   if value == 6 then
     return "Market Id: Global Otc (6)"
   end
   if value == 8 then
-    return "Market Id: Nys E Amex Options (8)"
+    return "Market Id: Nyse Amex Options (8)"
   end
   if value == 9 then
-    return "Market Id: Nys E American Equities (9)"
+    return "Market Id: Nyse American Equities (9)"
   end
   if value == 10 then
-    return "Market Id: Nys E National Options (10)"
+    return "Market Id: Nyse National Options (10)"
   end
 
   return "Market Id: Unknown("..value..")"
@@ -1882,23 +1882,23 @@ dissect.market_id = function(buffer, offset, packet, parent)
   return offset + size_of.market_id
 end
 
--- Size: Reserved1
-size_of.reserved1 = 1
+-- Size: Reserved 1
+size_of.reserved_1 = 1
 
--- Display: Reserved1
-display.reserved1 = function(value)
-  return "Reserved1: "..value
+-- Display: Reserved 1
+display.reserved_1 = function(value)
+  return "Reserved 1: "..value
 end
 
--- Dissect: Reserved1
-dissect.reserved1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved1)
+-- Dissect: Reserved 1
+dissect.reserved_1 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.reserved_1)
   local value = range:bytes():tohex(false, " ")
-  local display = display.reserved1(value, buffer, offset, packet, parent)
+  local display = display.reserved_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_bbo_xdp_v2_4_c.fields.reserved1, range, value, display)
+  parent:add(nyse_arca_bbo_xdp_v2_4_c.fields.reserved_1, range, value, display)
 
-  return offset + size_of.reserved1
+  return offset + size_of.reserved_1
 end
 
 -- Size: Symbol
@@ -1935,8 +1935,8 @@ dissect.symbol_index_mapping_message_fields = function(buffer, offset, packet, p
   -- Symbol: 11 Byte Ascii String
   index = dissect.symbol(buffer, index, packet, parent)
 
-  -- Reserved1: 1 Byte
-  index = dissect.reserved1(buffer, index, packet, parent)
+  -- Reserved 1: 1 Byte
+  index = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
   index = dissect.market_id(buffer, index, packet, parent)
@@ -1974,8 +1974,8 @@ dissect.symbol_index_mapping_message_fields = function(buffer, offset, packet, p
   -- Unit Of Trade: 2 Byte Unsigned Fixed Width Integer
   index = dissect.unit_of_trade(buffer, index, packet, parent)
 
-  -- Reserved2: 2 Byte
-  index = dissect.reserved2(buffer, index, packet, parent)
+  -- Reserved 2: 2 Byte
+  index = dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end

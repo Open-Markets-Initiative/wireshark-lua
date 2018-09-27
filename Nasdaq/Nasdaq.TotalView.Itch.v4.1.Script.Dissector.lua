@@ -352,40 +352,40 @@ display.price_variation_indicator = function(value)
     return "Price Variation Indicator: Less (L)"
   end
   if value == "1" then
-    return "Price Variation Indicator: 1 To1.99% (1)"
+    return "Price Variation Indicator: 1 To 199 (1)"
   end
   if value == "2" then
-    return "Price Variation Indicator: 2 To2.99% (2)"
+    return "Price Variation Indicator: 2 To 299 (2)"
   end
   if value == "3" then
-    return "Price Variation Indicator: 3 To3.99% (3)"
+    return "Price Variation Indicator: 3 To 399 (3)"
   end
   if value == "4" then
-    return "Price Variation Indicator: 4 To4.99% (4)"
+    return "Price Variation Indicator: 4 To 499 (4)"
   end
   if value == "5" then
-    return "Price Variation Indicator: 5 To5.99% (5)"
+    return "Price Variation Indicator: 5 To 599 (5)"
   end
   if value == "6" then
-    return "Price Variation Indicator: 6 To6.99% (6)"
+    return "Price Variation Indicator: 6 To 699 (6)"
   end
   if value == "7" then
-    return "Price Variation Indicator: 7 To7.99% (7)"
+    return "Price Variation Indicator: 7 To 799 (7)"
   end
   if value == "8" then
-    return "Price Variation Indicator: 8 To8.99% (8)"
+    return "Price Variation Indicator: 8 To 899 (8)"
   end
   if value == "9" then
-    return "Price Variation Indicator: 9 To9.99% (9)"
+    return "Price Variation Indicator: 9 To 999 (9)"
   end
   if value == "A" then
-    return "Price Variation Indicator: 10 To19.99% (A)"
+    return "Price Variation Indicator: 10 To 1999 (A)"
   end
   if value == "B" then
-    return "Price Variation Indicator: 20 To29.99% (B)"
+    return "Price Variation Indicator: 20 To 2999 (B)"
   end
   if value == "C" then
-    return "Price Variation Indicator: 30% Or Greater (C)"
+    return "Price Variation Indicator: 30 Or Greater (C)"
   end
   if value == " " then
     return "Price Variation Indicator: No Calculation (<whitespace>)"
@@ -417,10 +417,10 @@ display.cross_type = function(value)
     return "Cross Type: Closing (C)"
   end
   if value == "H" then
-    return "Cross Type: Cross For Ip O And Halted (H)"
+    return "Cross Type: Cross For Ipo And Halted (H)"
   end
   if value == "I" then
-    return "Cross Type: Nasda Q Cross Network (I)"
+    return "Cross Type: Nasdaq Cross Network (I)"
   end
 
   return "Cross Type: Unknown("..value..")"
@@ -1464,10 +1464,10 @@ display.reg_sho_action = function(value)
     return "Reg Sho Action: No Price (0)"
   end
   if value == "1" then
-    return "Reg Sho Action: Reg Sh O Short Sale Price Test Restriction (1)"
+    return "Reg Sho Action: Reg Sho Short Sale Price Test Restriction (1)"
   end
   if value == "2" then
-    return "Reg Sho Action: Reg Sh O Short Sale Price Test (2)"
+    return "Reg Sho Action: Reg Sho Short Sale Price Test (2)"
   end
 
   return "Reg Sho Action: Unknown("..value..")"
