@@ -212,6 +212,7 @@ ice_mdf_impact_v1_1_24.fields.special_field = ProtoField.new("Special Field", "i
 ice_mdf_impact_v1_1_24.fields.special_field_id = ProtoField.new("Special Field Id", "ice.mdf.impact.v1.1.24.specialfieldid", ftypes.UINT8)
 ice_mdf_impact_v1_1_24.fields.special_field_length = ProtoField.new("Special Field Length", "ice.mdf.impact.v1.1.24.specialfieldlength", ftypes.UINT16)
 ice_mdf_impact_v1_1_24.fields.special_field_message = ProtoField.new("Special Field Message", "ice.mdf.impact.v1.1.24.specialfieldmessage", ftypes.STRING)
+ice_mdf_impact_v1_1_24.fields.special_field_value = ProtoField.new("Special Field Value", "ice.mdf.impact.v1.1.24.specialfieldvalue", ftypes.BYTES)
 ice_mdf_impact_v1_1_24.fields.spot_market_trade_message = ProtoField.new("Spot Market Trade Message", "ice.mdf.impact.v1.1.24.spotmarkettrademessage", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.start_or_end = ProtoField.new("Start Or End", "ice.mdf.impact.v1.1.24.startorend", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.status = ProtoField.new("Status", "ice.mdf.impact.v1.1.24.status", ftypes.STRING)
@@ -3331,6 +3332,25 @@ dissect.market_snapshot_order_message = function(buffer, offset, packet, parent)
   return dissect.market_snapshot_order_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Special Field Value
+size_of.special_field_value = 0
+
+-- Display: Special Field Value
+display.special_field_value = function(value)
+  return "Special Field Value: "..value
+end
+
+-- Dissect: Special Field Value
+dissect.special_field_value = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.special_field_value)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.special_field_value(value, buffer, offset, packet, parent)
+
+  parent:add(ice_mdf_impact_v1_1_24.fields.special_field_value, range, value, display)
+
+  return offset + size_of.special_field_value
+end
+
 -- Size: Special Field Length
 size_of.special_field_length = 2
 
@@ -3383,6 +3403,9 @@ dissect.special_field_fields = function(buffer, offset, packet, parent)
 
   -- Special Field Length: 2 Byte Unsigned Fixed Width Integer
   index = dissect.special_field_length(buffer, index, packet, parent)
+
+  -- Special Field Value: 0 Byte
+  index = dissect.special_field_value(buffer, index, packet, parent)
 
   return index
 end
@@ -3444,7 +3467,7 @@ dissect.special_field_message_fields = function(buffer, offset, packet, parent)
   -- Number Of Special Fields: 1 Byte Signed Fixed Width Integer
   index = dissect.number_of_special_fields(buffer, index, packet, parent)
 
-  -- Special Field: Struct of 2 fields
+  -- Special Field: Struct of 3 fields
   local special_field_count = buffer(index - 1, 1):int()
   for i = 1, special_field_count do
     index = dissect.special_field(buffer, index, packet, parent)

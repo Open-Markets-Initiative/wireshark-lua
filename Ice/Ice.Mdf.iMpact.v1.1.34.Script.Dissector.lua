@@ -4014,23 +4014,20 @@ dissect.market_snapshot_order_message = function(buffer, offset, packet, parent)
   return dissect.market_snapshot_order_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Special Field Value
-size_of.special_field_value = 0
-
 -- Display: Special Field Value
 display.special_field_value = function(value)
   return "Special Field Value: "..value
 end
 
--- Dissect: Special Field Value
-dissect.special_field_value = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.special_field_value)
+-- Dissect runtime sized field: Special Field Value
+dissect.special_field_value = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = display.special_field_value(value, buffer, offset, packet, parent)
+  local display = display.special_field_value(value, buffer, offset, packet, parent, size)
 
   parent:add(ice_mdf_impact_v1_1_34.fields.special_field_value, range, value, display)
 
-  return offset + size_of.special_field_value
+  return offset + size
 end
 
 -- Size: Special Field Length
@@ -4043,13 +4040,14 @@ end
 
 -- Dissect: Special Field Length
 dissect.special_field_length = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.special_field_length)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.special_field_length(value, buffer, offset, packet, parent)
 
   parent:add(ice_mdf_impact_v1_1_34.fields.special_field_length, range, value, display)
 
-  return offset + size_of.special_field_length
+  return offset + length, value
 end
 
 -- Size: Special Field Id
@@ -4071,6 +4069,18 @@ dissect.special_field_id = function(buffer, offset, packet, parent)
   return offset + size_of.special_field_id
 end
 
+-- Calculate runtime size: Special Field
+size_of.special_field = function(buffer, offset)
+  local index = 0
+
+  index = index + 3
+
+  -- Parse runtime field size of: Special Field Value
+  index = index + buffer(offset + index - 2, 2):uint()
+
+  return index
+end
+
 -- Display: Special Field
 display.special_field = function(buffer, offset, size, packet, parent)
   return ""
@@ -4087,16 +4097,18 @@ dissect.special_field_fields = function(buffer, offset, packet, parent)
   index = dissect.special_field_length(buffer, index, packet, parent)
 
   -- Special Field Value: 0 Byte
-  index = dissect.special_field_value(buffer, index, packet, parent)
+  local length = buffer(index - 2, 2):uint()
+  index = dissect.special_field_value(buffer, index, packet, parent, length)
 
   return index
 end
 
 -- Dissect: Special Field
 dissect.special_field = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.special_field then
-    local range = buffer(offset, 3)
+    local length = size_of.special_field(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.special_field(buffer, packet, parent)
     parent = parent:add(ice_mdf_impact_v1_1_34.fields.special_field, range, display)
   end
@@ -4132,8 +4144,9 @@ size_of.special_field_message = function(buffer, offset)
 
   -- Calculate field size from count
   local special_field_count = buffer(offset + index - 1, 1):int()
-  index = index + special_field_count * 3
-
+  for i = 1, special_field_count do
+    index = index + size_of.special_field(buffer, offset + index)
+  end
   return index
 end
 
