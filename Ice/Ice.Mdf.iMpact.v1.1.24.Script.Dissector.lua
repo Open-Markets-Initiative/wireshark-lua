@@ -20,12 +20,12 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Ice Mdf iMpact 1.1.24 Fields
-ice_mdf_impact_v1_1_24.fields.add_or_modify_order_message = ProtoField.new("Add or Modify Order Message", "ice.mdf.impact.v1.1.24.addormodifyordermessage", ftypes.STRING)
+ice_mdf_impact_v1_1_24.fields.add_or_modify_order_message = ProtoField.new("Add Or Modify Order Message", "ice.mdf.impact.v1.1.24.addormodifyordermessage", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.add_price_level_message = ProtoField.new("Add Price Level Message", "ice.mdf.impact.v1.1.24.addpricelevelmessage", ftypes.STRING)
-ice_mdf_impact_v1_1_24.fields.agg__bid__qty = ProtoField.new("Agg  Bid  Qty", "ice.mdf.impact.v1.1.24.aggbidqty", ftypes.INT32)
-ice_mdf_impact_v1_1_24.fields.agg__offer__qty = ProtoField.new("Agg  Offer  Qty", "ice.mdf.impact.v1.1.24.aggofferqty", ftypes.INT32)
+ice_mdf_impact_v1_1_24.fields.agg_bid_qty = ProtoField.new("Agg Bid Qty", "ice.mdf.impact.v1.1.24.aggbidqty", ftypes.INT32)
+ice_mdf_impact_v1_1_24.fields.agg_offer_qty = ProtoField.new("Agg Offer Qty", "ice.mdf.impact.v1.1.24.aggofferqty", ftypes.INT32)
 ice_mdf_impact_v1_1_24.fields.aggressor_side = ProtoField.new("Aggressor Side", "ice.mdf.impact.v1.1.24.aggressorside", ftypes.STRING)
-ice_mdf_impact_v1_1_24.fields.auction__date = ProtoField.new("Auction  Date", "ice.mdf.impact.v1.1.24.auctiondate", ftypes.STRING)
+ice_mdf_impact_v1_1_24.fields.auction_date = ProtoField.new("Auction Date", "ice.mdf.impact.v1.1.24.auctiondate", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.auction_end_time = ProtoField.new("Auction End Time", "ice.mdf.impact.v1.1.24.auctionendtime", ftypes.INT64)
 ice_mdf_impact_v1_1_24.fields.begin_day = ProtoField.new("Begin Day", "ice.mdf.impact.v1.1.24.beginday", ftypes.INT16)
 ice_mdf_impact_v1_1_24.fields.begin_month = ProtoField.new("Begin Month", "ice.mdf.impact.v1.1.24.beginmonth", ftypes.INT16)
@@ -48,21 +48,21 @@ ice_mdf_impact_v1_1_24.fields.delivery_begin_date_time = ProtoField.new("Deliver
 ice_mdf_impact_v1_1_24.fields.delivery_end_date_time = ProtoField.new("Delivery End Date Time", "ice.mdf.impact.v1.1.24.deliveryenddatetime", ftypes.INT64)
 ice_mdf_impact_v1_1_24.fields.delta = ProtoField.new("Delta", "ice.mdf.impact.v1.1.24.delta", ftypes.INT64)
 ice_mdf_impact_v1_1_24.fields.description = ProtoField.new("Description", "ice.mdf.impact.v1.1.24.description", ftypes.STRING)
-ice_mdf_impact_v1_1_24.fields.efp_volume = ProtoField.new("EFP Volume", "ice.mdf.impact.v1.1.24.efpvolume", ftypes.INT32)
-ice_mdf_impact_v1_1_24.fields.efs_volume = ProtoField.new("EFS Volume", "ice.mdf.impact.v1.1.24.efsvolume", ftypes.INT32)
+ice_mdf_impact_v1_1_24.fields.efp_volume = ProtoField.new("Efp Volume", "ice.mdf.impact.v1.1.24.efpvolume", ftypes.INT32)
+ice_mdf_impact_v1_1_24.fields.efs_volume = ProtoField.new("Efs Volume", "ice.mdf.impact.v1.1.24.efsvolume", ftypes.INT32)
 ice_mdf_impact_v1_1_24.fields.end_day = ProtoField.new("End Day", "ice.mdf.impact.v1.1.24.endday", ftypes.INT16)
 ice_mdf_impact_v1_1_24.fields.end_month = ProtoField.new("End Month", "ice.mdf.impact.v1.1.24.endmonth", ftypes.INT16)
-ice_mdf_impact_v1_1_24.fields.end_of_day_market_summary_message = ProtoField.new("End of Day Market Summary Message", "ice.mdf.impact.v1.1.24.endofdaymarketsummarymessage", ftypes.STRING)
+ice_mdf_impact_v1_1_24.fields.end_of_day_market_summary_message = ProtoField.new("End Of Day Market Summary Message", "ice.mdf.impact.v1.1.24.endofdaymarketsummarymessage", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.end_year = ProtoField.new("End Year", "ice.mdf.impact.v1.1.24.endyear", ftypes.INT16)
-ice_mdf_impact_v1_1_24.fields.eur__price = ProtoField.new("EUR  Price", "ice.mdf.impact.v1.1.24.eurprice", ftypes.INT64)
+ice_mdf_impact_v1_1_24.fields.eur_price = ProtoField.new("Eur Price", "ice.mdf.impact.v1.1.24.eurprice", ftypes.INT64)
 ice_mdf_impact_v1_1_24.fields.event_type = ProtoField.new("Event Type", "ice.mdf.impact.v1.1.24.eventtype", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.extra_flags = ProtoField.new("Extra Flags", "ice.mdf.impact.v1.1.24.extraflags", ftypes.INT8, {[1]="Yes",[0]="No"})
 ice_mdf_impact_v1_1_24.fields.fixing_lockdown_message = ProtoField.new("Fixing Lockdown Message", "ice.mdf.impact.v1.1.24.fixinglockdownmessage", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.fixing_transition_message = ProtoField.new("Fixing Transition Message", "ice.mdf.impact.v1.1.24.fixingtransitionmessage", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.flex_allowed = ProtoField.new("Flex Allowed", "ice.mdf.impact.v1.1.24.flexallowed", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.futures_contract_symbol = ProtoField.new("Futures Contract Symbol", "ice.mdf.impact.v1.1.24.futurescontractsymbol", ftypes.STRING)
-ice_mdf_impact_v1_1_24.fields.gbp__price = ProtoField.new("GBP  Price", "ice.mdf.impact.v1.1.24.gbpprice", ftypes.INT64)
-ice_mdf_impact_v1_1_24.fields.gt_allowed = ProtoField.new("GT Allowed", "ice.mdf.impact.v1.1.24.gtallowed", ftypes.STRING)
+ice_mdf_impact_v1_1_24.fields.gbp_price = ProtoField.new("Gbp Price", "ice.mdf.impact.v1.1.24.gbpprice", ftypes.INT64)
+ice_mdf_impact_v1_1_24.fields.gt_allowed = ProtoField.new("Gt Allowed", "ice.mdf.impact.v1.1.24.gtallowed", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.guaranteed_cross_supported = ProtoField.new("Guaranteed Cross Supported", "ice.mdf.impact.v1.1.24.guaranteedcrosssupported", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.has_pre_open_volume = ProtoField.new("Has Pre Open Volume", "ice.mdf.impact.v1.1.24.haspreopenvolume", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.has_previous_day_settlement_price = ProtoField.new("Has Previous Day Settlement Price", "ice.mdf.impact.v1.1.24.haspreviousdaysettlementprice", ftypes.STRING)
@@ -70,14 +70,13 @@ ice_mdf_impact_v1_1_24.fields.hedge_body_length = ProtoField.new("Hedge Body Len
 ice_mdf_impact_v1_1_24.fields.hedge_definition = ProtoField.new("Hedge Definition", "ice.mdf.impact.v1.1.24.hedgedefinition", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.hedge_delta = ProtoField.new("Hedge Delta", "ice.mdf.impact.v1.1.24.hedgedelta", ftypes.UINT16)
 ice_mdf_impact_v1_1_24.fields.hedge_market_id = ProtoField.new("Hedge Market Id", "ice.mdf.impact.v1.1.24.hedgemarketid", ftypes.UINT32)
-ice_mdf_impact_v1_1_24.fields.hedge_market_id = ProtoField.new("Hedge Market ID", "ice.mdf.impact.v1.1.24.hedgemarketid", ftypes.UINT32)
 ice_mdf_impact_v1_1_24.fields.hedge_price = ProtoField.new("Hedge Price", "ice.mdf.impact.v1.1.24.hedgeprice", ftypes.UINT64)
 ice_mdf_impact_v1_1_24.fields.hedge_price_denominator = ProtoField.new("Hedge Price Denominator", "ice.mdf.impact.v1.1.24.hedgepricedenominator", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.hedge_security_type = ProtoField.new("Hedge Security Type", "ice.mdf.impact.v1.1.24.hedgesecuritytype", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.hedge_side = ProtoField.new("Hedge Side", "ice.mdf.impact.v1.1.24.hedgeside", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.high = ProtoField.new("High", "ice.mdf.impact.v1.1.24.high", ftypes.INT64)
 ice_mdf_impact_v1_1_24.fields.hub_alias = ProtoField.new("Hub Alias", "ice.mdf.impact.v1.1.24.hubalias", ftypes.STRING)
-ice_mdf_impact_v1_1_24.fields.hub_id = ProtoField.new("Hub ID", "ice.mdf.impact.v1.1.24.hubid", ftypes.INT32)
+ice_mdf_impact_v1_1_24.fields.hub_id = ProtoField.new("Hub Id", "ice.mdf.impact.v1.1.24.hubid", ftypes.INT32)
 ice_mdf_impact_v1_1_24.fields.implied_order_count = ProtoField.new("Implied Order Count", "ice.mdf.impact.v1.1.24.impliedordercount", ftypes.INT16)
 ice_mdf_impact_v1_1_24.fields.implied_quantity = ProtoField.new("Implied Quantity", "ice.mdf.impact.v1.1.24.impliedquantity", ftypes.INT32)
 ice_mdf_impact_v1_1_24.fields.increment_premium_price = ProtoField.new("Increment Premium Price", "ice.mdf.impact.v1.1.24.incrementpremiumprice", ftypes.INT32)
@@ -85,10 +84,10 @@ ice_mdf_impact_v1_1_24.fields.increment_price = ProtoField.new("Increment Price"
 ice_mdf_impact_v1_1_24.fields.increment_qty = ProtoField.new("Increment Qty", "ice.mdf.impact.v1.1.24.incrementqty", ftypes.INT32)
 ice_mdf_impact_v1_1_24.fields.interval_price_limit_notification_message = ProtoField.new("Interval Price Limit Notification Message", "ice.mdf.impact.v1.1.24.intervalpricelimitnotificationmessage", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.investigated_trade_message = ProtoField.new("Investigated Trade Message", "ice.mdf.impact.v1.1.24.investigatedtrademessage", ftypes.STRING)
-ice_mdf_impact_v1_1_24.fields.ipl_down = ProtoField.new("IPL Down", "ice.mdf.impact.v1.1.24.ipldown", ftypes.INT64)
-ice_mdf_impact_v1_1_24.fields.ipl_hold_duration = ProtoField.new("IPL Hold Duration", "ice.mdf.impact.v1.1.24.iplholdduration", ftypes.INT32)
-ice_mdf_impact_v1_1_24.fields.ipl_hold_type = ProtoField.new("IPL Hold Type", "ice.mdf.impact.v1.1.24.iplholdtype", ftypes.STRING)
-ice_mdf_impact_v1_1_24.fields.ipl_up = ProtoField.new("IPL Up", "ice.mdf.impact.v1.1.24.iplup", ftypes.INT64)
+ice_mdf_impact_v1_1_24.fields.ipl_down = ProtoField.new("Ipl Down", "ice.mdf.impact.v1.1.24.ipldown", ftypes.INT64)
+ice_mdf_impact_v1_1_24.fields.ipl_hold_duration = ProtoField.new("Ipl Hold Duration", "ice.mdf.impact.v1.1.24.iplholdduration", ftypes.INT32)
+ice_mdf_impact_v1_1_24.fields.ipl_hold_type = ProtoField.new("Ipl Hold Type", "ice.mdf.impact.v1.1.24.iplholdtype", ftypes.STRING)
+ice_mdf_impact_v1_1_24.fields.ipl_up = ProtoField.new("Ipl Up", "ice.mdf.impact.v1.1.24.iplup", ftypes.INT64)
 ice_mdf_impact_v1_1_24.fields.is_adjusted_trade = ProtoField.new("Is Adjusted Trade", "ice.mdf.impact.v1.1.24.isadjustedtrade", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.is_balanced = ProtoField.new("Is Balanced", "ice.mdf.impact.v1.1.24.isbalanced", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.is_block_only = ProtoField.new("Is Block Only", "ice.mdf.impact.v1.1.24.isblockonly", ftypes.STRING)
@@ -96,12 +95,12 @@ ice_mdf_impact_v1_1_24.fields.is_final = ProtoField.new("Is Final", "ice.mdf.imp
 ice_mdf_impact_v1_1_24.fields.is_implied = ProtoField.new("Is Implied", "ice.mdf.impact.v1.1.24.isimplied", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.is_implied_spread_at_market_open = ProtoField.new("Is Implied Spread At Market Open", "ice.mdf.impact.v1.1.24.isimpliedspreadatmarketopen", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.is_official = ProtoField.new("Is Official", "ice.mdf.impact.v1.1.24.isofficial", ftypes.STRING)
-ice_mdf_impact_v1_1_24.fields.is_rfq = ProtoField.new("Is RFQ", "ice.mdf.impact.v1.1.24.isrfq", ftypes.STRING)
+ice_mdf_impact_v1_1_24.fields.is_rfq = ProtoField.new("Is Rfq", "ice.mdf.impact.v1.1.24.isrfq", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.is_settle_price_official = ProtoField.new("Is Settle Price Official", "ice.mdf.impact.v1.1.24.issettlepriceofficial", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.is_system_priced_leg = ProtoField.new("Is System Priced Leg", "ice.mdf.impact.v1.1.24.issystempricedleg", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.is_up = ProtoField.new("Is Up", "ice.mdf.impact.v1.1.24.isup", ftypes.STRING)
-ice_mdf_impact_v1_1_24.fields.isin = ProtoField.new("ISIN", "ice.mdf.impact.v1.1.24.isin", ftypes.STRING)
-ice_mdf_impact_v1_1_24.fields.last_message_sequence_id = ProtoField.new("Last Message Sequence ID", "ice.mdf.impact.v1.1.24.lastmessagesequenceid", ftypes.INT32)
+ice_mdf_impact_v1_1_24.fields.isin = ProtoField.new("Isin", "ice.mdf.impact.v1.1.24.isin", ftypes.STRING)
+ice_mdf_impact_v1_1_24.fields.last_message_sequence_id = ProtoField.new("Last Message Sequence Id", "ice.mdf.impact.v1.1.24.lastmessagesequenceid", ftypes.INT32)
 ice_mdf_impact_v1_1_24.fields.last_trade_date_time = ProtoField.new("Last Trade Date Time", "ice.mdf.impact.v1.1.24.lasttradedatetime", ftypes.INT64)
 ice_mdf_impact_v1_1_24.fields.last_trade_price = ProtoField.new("Last Trade Price", "ice.mdf.impact.v1.1.24.lasttradeprice", ftypes.INT64)
 ice_mdf_impact_v1_1_24.fields.last_trade_quantity = ProtoField.new("Last Trade Quantity", "ice.mdf.impact.v1.1.24.lasttradequantity", ftypes.INT32)
@@ -117,14 +116,14 @@ ice_mdf_impact_v1_1_24.fields.low = ProtoField.new("Low", "ice.mdf.impact.v1.1.2
 ice_mdf_impact_v1_1_24.fields.marker_index_prices = ProtoField.new("Marker Index Prices", "ice.mdf.impact.v1.1.24.markerindexprices", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.market_desc = ProtoField.new("Market Desc", "ice.mdf.impact.v1.1.24.marketdesc", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.market_event_message = ProtoField.new("Market Event Message", "ice.mdf.impact.v1.1.24.marketeventmessage", ftypes.STRING)
-ice_mdf_impact_v1_1_24.fields.market_id = ProtoField.new("Market ID", "ice.mdf.impact.v1.1.24.marketid", ftypes.INT32)
+ice_mdf_impact_v1_1_24.fields.market_id = ProtoField.new("Market Id", "ice.mdf.impact.v1.1.24.marketid", ftypes.INT32)
 ice_mdf_impact_v1_1_24.fields.market_snapshot_message = ProtoField.new("Market Snapshot Message", "ice.mdf.impact.v1.1.24.marketsnapshotmessage", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.market_snapshot_order_message = ProtoField.new("Market Snapshot Order Message", "ice.mdf.impact.v1.1.24.marketsnapshotordermessage", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.market_snapshot_price_level_message = ProtoField.new("Market Snapshot Price Level Message", "ice.mdf.impact.v1.1.24.marketsnapshotpricelevelmessage", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.market_state_change_message = ProtoField.new("Market State Change Message", "ice.mdf.impact.v1.1.24.marketstatechangemessage", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.market_statistics_message = ProtoField.new("Market Statistics Message", "ice.mdf.impact.v1.1.24.marketstatisticsmessage", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.market_type = ProtoField.new("Market Type", "ice.mdf.impact.v1.1.24.markettype", ftypes.INT16)
-ice_mdf_impact_v1_1_24.fields.market_type_id = ProtoField.new("Market Type ID", "ice.mdf.impact.v1.1.24.markettypeid", ftypes.INT16)
+ice_mdf_impact_v1_1_24.fields.market_type_id = ProtoField.new("Market Type Id", "ice.mdf.impact.v1.1.24.markettypeid", ftypes.INT16)
 ice_mdf_impact_v1_1_24.fields.maturity_day = ProtoField.new("Maturity Day", "ice.mdf.impact.v1.1.24.maturityday", ftypes.INT16)
 ice_mdf_impact_v1_1_24.fields.maturity_month = ProtoField.new("Maturity Month", "ice.mdf.impact.v1.1.24.maturitymonth", ftypes.INT16)
 ice_mdf_impact_v1_1_24.fields.maturity_year = ProtoField.new("Maturity Year", "ice.mdf.impact.v1.1.24.maturityyear", ftypes.INT16)
@@ -135,7 +134,7 @@ ice_mdf_impact_v1_1_24.fields.message_bundle_marker = ProtoField.new("Message Bu
 ice_mdf_impact_v1_1_24.fields.message_header = ProtoField.new("Message Header", "ice.mdf.impact.v1.1.24.messageheader", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.message_timestamp = ProtoField.new("Message Timestamp", "ice.mdf.impact.v1.1.24.messagetimestamp", ftypes.INT64)
 ice_mdf_impact_v1_1_24.fields.message_type = ProtoField.new("Message Type", "ice.mdf.impact.v1.1.24.messagetype", ftypes.STRING)
-ice_mdf_impact_v1_1_24.fields.mic_code = ProtoField.new("MIC Code", "ice.mdf.impact.v1.1.24.miccode", ftypes.STRING)
+ice_mdf_impact_v1_1_24.fields.mic_code = ProtoField.new("Mic Code", "ice.mdf.impact.v1.1.24.miccode", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.min_options_price = ProtoField.new("Min Options Price", "ice.mdf.impact.v1.1.24.minoptionsprice", ftypes.INT64)
 ice_mdf_impact_v1_1_24.fields.min_price = ProtoField.new("Min Price", "ice.mdf.impact.v1.1.24.minprice", ftypes.INT64)
 ice_mdf_impact_v1_1_24.fields.min_qty = ProtoField.new("Min Qty", "ice.mdf.impact.v1.1.24.minqty", ftypes.INT32)
@@ -157,8 +156,8 @@ ice_mdf_impact_v1_1_24.fields.off_exchange_increment_qty = ProtoField.new("Off E
 ice_mdf_impact_v1_1_24.fields.off_exchange_increment_qty_denominator = ProtoField.new("Off Exchange Increment Qty Denominator", "ice.mdf.impact.v1.1.24.offexchangeincrementqtydenominator", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.off_market_trade_type = ProtoField.new("Off Market Trade Type", "ice.mdf.impact.v1.1.24.offmarkettradetype", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.old_off_market_trade_type = ProtoField.new("Old Off Market Trade Type", "ice.mdf.impact.v1.1.24.oldoffmarkettradetype", ftypes.STRING)
-ice_mdf_impact_v1_1_24.fields.old_strip_id = ProtoField.new("Old Strip ID", "ice.mdf.impact.v1.1.24.oldstripid", ftypes.INT16)
-ice_mdf_impact_v1_1_24.fields.old_style_options_trade_and_market_stats_message = ProtoField.new("Old Style Options Trade and Market Stats Message", "ice.mdf.impact.v1.1.24.oldstyleoptionstradeandmarketstatsmessage", ftypes.STRING)
+ice_mdf_impact_v1_1_24.fields.old_strip_id = ProtoField.new("Old Strip Id", "ice.mdf.impact.v1.1.24.oldstripid", ftypes.INT16)
+ice_mdf_impact_v1_1_24.fields.old_style_options_trade_and_market_stats_message = ProtoField.new("Old Style Options Trade And Market Stats Message", "ice.mdf.impact.v1.1.24.oldstyleoptionstradeandmarketstatsmessage", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.open_interest = ProtoField.new("Open Interest", "ice.mdf.impact.v1.1.24.openinterest", ftypes.INT32)
 ice_mdf_impact_v1_1_24.fields.open_interest_change = ProtoField.new("Open Interest Change", "ice.mdf.impact.v1.1.24.openinterestchange", ftypes.INT32)
 ice_mdf_impact_v1_1_24.fields.open_interest_date = ProtoField.new("Open Interest Date", "ice.mdf.impact.v1.1.24.openinterestdate", ftypes.STRING)
@@ -176,9 +175,9 @@ ice_mdf_impact_v1_1_24.fields.options_expiration_year = ProtoField.new("Options 
 ice_mdf_impact_v1_1_24.fields.options_style = ProtoField.new("Options Style", "ice.mdf.impact.v1.1.24.optionsstyle", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.order_count = ProtoField.new("Order Count", "ice.mdf.impact.v1.1.24.ordercount", ftypes.INT16)
 ice_mdf_impact_v1_1_24.fields.order_entry_date_time = ProtoField.new("Order Entry Date Time", "ice.mdf.impact.v1.1.24.orderentrydatetime", ftypes.INT64)
-ice_mdf_impact_v1_1_24.fields.order_id = ProtoField.new("Order ID", "ice.mdf.impact.v1.1.24.orderid", ftypes.INT64)
+ice_mdf_impact_v1_1_24.fields.order_id = ProtoField.new("Order Id", "ice.mdf.impact.v1.1.24.orderid", ftypes.INT64)
 ice_mdf_impact_v1_1_24.fields.order_price_denominator = ProtoField.new("Order Price Denominator", "ice.mdf.impact.v1.1.24.orderpricedenominator", ftypes.STRING)
-ice_mdf_impact_v1_1_24.fields.order_sequence_id = ProtoField.new("Order Sequence ID", "ice.mdf.impact.v1.1.24.ordersequenceid", ftypes.INT16)
+ice_mdf_impact_v1_1_24.fields.order_sequence_id = ProtoField.new("Order Sequence Id", "ice.mdf.impact.v1.1.24.ordersequenceid", ftypes.INT16)
 ice_mdf_impact_v1_1_24.fields.packet = ProtoField.new("Packet", "ice.mdf.impact.v1.1.24.packet", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.packet_header = ProtoField.new("Packet Header", "ice.mdf.impact.v1.1.24.packetheader", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.payload = ProtoField.new("Payload", "ice.mdf.impact.v1.1.24.payload", ftypes.STRING)
@@ -188,13 +187,13 @@ ice_mdf_impact_v1_1_24.fields.pre_open_volume = ProtoField.new("Pre Open Volume"
 ice_mdf_impact_v1_1_24.fields.previous_day_settlement_price = ProtoField.new("Previous Day Settlement Price", "ice.mdf.impact.v1.1.24.previousdaysettlementprice", ftypes.INT64)
 ice_mdf_impact_v1_1_24.fields.price = ProtoField.new("Price", "ice.mdf.impact.v1.1.24.price", ftypes.INT64)
 ice_mdf_impact_v1_1_24.fields.price_level_position = ProtoField.new("Price Level Position", "ice.mdf.impact.v1.1.24.pricelevelposition", ftypes.INT8, {[1]="Yes",[0]="No"})
-ice_mdf_impact_v1_1_24.fields.product_id = ProtoField.new("Product ID", "ice.mdf.impact.v1.1.24.productid", ftypes.INT32)
+ice_mdf_impact_v1_1_24.fields.product_id = ProtoField.new("Product Id", "ice.mdf.impact.v1.1.24.productid", ftypes.INT32)
 ice_mdf_impact_v1_1_24.fields.product_name = ProtoField.new("Product Name", "ice.mdf.impact.v1.1.24.productname", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.published_date_time = ProtoField.new("Published Date Time", "ice.mdf.impact.v1.1.24.publisheddatetime", ftypes.INT64)
 ice_mdf_impact_v1_1_24.fields.quantity = ProtoField.new("Quantity", "ice.mdf.impact.v1.1.24.quantity", ftypes.INT32)
-ice_mdf_impact_v1_1_24.fields.reserved_field1 = ProtoField.new("Reserved Field1", "ice.mdf.impact.v1.1.24.reservedfield1", ftypes.BYTES)
-ice_mdf_impact_v1_1_24.fields.rfq_message = ProtoField.new("RFQ Message", "ice.mdf.impact.v1.1.24.rfqmessage", ftypes.STRING)
-ice_mdf_impact_v1_1_24.fields.rfq_system_id = ProtoField.new("RFQ System ID", "ice.mdf.impact.v1.1.24.rfqsystemid", ftypes.INT64)
+ice_mdf_impact_v1_1_24.fields.reserved_field_1 = ProtoField.new("Reserved Field 1", "ice.mdf.impact.v1.1.24.reservedfield1", ftypes.BYTES)
+ice_mdf_impact_v1_1_24.fields.rfq_message = ProtoField.new("Rfq Message", "ice.mdf.impact.v1.1.24.rfqmessage", ftypes.STRING)
+ice_mdf_impact_v1_1_24.fields.rfq_system_id = ProtoField.new("Rfq System Id", "ice.mdf.impact.v1.1.24.rfqsystemid", ftypes.INT64)
 ice_mdf_impact_v1_1_24.fields.round = ProtoField.new("Round", "ice.mdf.impact.v1.1.24.round", ftypes.INT16)
 ice_mdf_impact_v1_1_24.fields.security_sub_type = ProtoField.new("Security Sub Type", "ice.mdf.impact.v1.1.24.securitysubtype", ftypes.INT16)
 ice_mdf_impact_v1_1_24.fields.sequence = ProtoField.new("Sequence", "ice.mdf.impact.v1.1.24.sequence", ftypes.UINT32)
@@ -219,7 +218,7 @@ ice_mdf_impact_v1_1_24.fields.status = ProtoField.new("Status", "ice.mdf.impact.
 ice_mdf_impact_v1_1_24.fields.strategy_leg_definition = ProtoField.new("Strategy Leg Definition", "ice.mdf.impact.v1.1.24.strategylegdefinition", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.strategy_symbol = ProtoField.new("Strategy Symbol", "ice.mdf.impact.v1.1.24.strategysymbol", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.strike_price = ProtoField.new("Strike Price", "ice.mdf.impact.v1.1.24.strikeprice", ftypes.INT64)
-ice_mdf_impact_v1_1_24.fields.strip_id = ProtoField.new("Strip ID", "ice.mdf.impact.v1.1.24.stripid", ftypes.INT32)
+ice_mdf_impact_v1_1_24.fields.strip_id = ProtoField.new("Strip Id", "ice.mdf.impact.v1.1.24.stripid", ftypes.INT32)
 ice_mdf_impact_v1_1_24.fields.strip_info = ProtoField.new("Strip Info", "ice.mdf.impact.v1.1.24.stripinfo", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.strip_info_message = ProtoField.new("Strip Info Message", "ice.mdf.impact.v1.1.24.stripinfomessage", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.strip_name = ProtoField.new("Strip Name", "ice.mdf.impact.v1.1.24.stripname", ftypes.STRING)
@@ -228,24 +227,24 @@ ice_mdf_impact_v1_1_24.fields.system_priced_leg_type = ProtoField.new("System Pr
 ice_mdf_impact_v1_1_24.fields.system_text_message = ProtoField.new("System Text Message", "ice.mdf.impact.v1.1.24.systemtextmessage", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.text_message = ProtoField.new("Text Message", "ice.mdf.impact.v1.1.24.textmessage", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.text_message_extra_fld = ProtoField.new("Text Message Extra Fld", "ice.mdf.impact.v1.1.24.textmessageextrafld", ftypes.STRING)
-ice_mdf_impact_v1_1_24.fields.threshold__imbalance__qty = ProtoField.new("Threshold  Imbalance  Qty", "ice.mdf.impact.v1.1.24.thresholdimbalanceqty", ftypes.INT32)
+ice_mdf_impact_v1_1_24.fields.threshold_imbalance_qty = ProtoField.new("Threshold Imbalance Qty", "ice.mdf.impact.v1.1.24.thresholdimbalanceqty", ftypes.INT32)
 ice_mdf_impact_v1_1_24.fields.tick_value = ProtoField.new("Tick Value", "ice.mdf.impact.v1.1.24.tickvalue", ftypes.INT64)
 ice_mdf_impact_v1_1_24.fields.time = ProtoField.new("Time", "ice.mdf.impact.v1.1.24.time", ftypes.INT64)
 ice_mdf_impact_v1_1_24.fields.timestamp = ProtoField.new("Timestamp", "ice.mdf.impact.v1.1.24.timestamp", ftypes.UINT64)
-ice_mdf_impact_v1_1_24.fields.trade_id = ProtoField.new("Trade ID", "ice.mdf.impact.v1.1.24.tradeid", ftypes.INT64)
+ice_mdf_impact_v1_1_24.fields.trade_id = ProtoField.new("Trade Id", "ice.mdf.impact.v1.1.24.tradeid", ftypes.INT64)
 ice_mdf_impact_v1_1_24.fields.trade_message = ProtoField.new("Trade Message", "ice.mdf.impact.v1.1.24.trademessage", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.trading_status = ProtoField.new("Trading Status", "ice.mdf.impact.v1.1.24.tradingstatus", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.transact_date_time = ProtoField.new("Transact Date Time", "ice.mdf.impact.v1.1.24.transactdatetime", ftypes.INT64)
-ice_mdf_impact_v1_1_24.fields.underlying_market_id = ProtoField.new("Underlying Market ID", "ice.mdf.impact.v1.1.24.underlyingmarketid", ftypes.INT32)
+ice_mdf_impact_v1_1_24.fields.underlying_market_id = ProtoField.new("Underlying Market Id", "ice.mdf.impact.v1.1.24.underlyingmarketid", ftypes.INT32)
 ice_mdf_impact_v1_1_24.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "ice.mdf.impact.v1.1.24.unitofmeasure", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.unit_qty_denominator = ProtoField.new("Unit Qty Denominator", "ice.mdf.impact.v1.1.24.unitqtydenominator", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.unit_quantity = ProtoField.new("Unit Quantity", "ice.mdf.impact.v1.1.24.unitquantity", ftypes.INT32)
-ice_mdf_impact_v1_1_24.fields.usd__price = ProtoField.new("USD  Price", "ice.mdf.impact.v1.1.24.usdprice", ftypes.INT64)
-ice_mdf_impact_v1_1_24.fields.valuation_date____applying_date = ProtoField.new("Valuation Date /  Applying Date", "ice.mdf.impact.v1.1.24.valuationdateapplyingdate", ftypes.STRING)
+ice_mdf_impact_v1_1_24.fields.usd_price = ProtoField.new("Usd Price", "ice.mdf.impact.v1.1.24.usdprice", ftypes.INT64)
+ice_mdf_impact_v1_1_24.fields.valuation_date_applying_date = ProtoField.new("Valuation Date Applying Date", "ice.mdf.impact.v1.1.24.valuationdateapplyingdate", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.valuation_date_time = ProtoField.new("Valuation Date Time", "ice.mdf.impact.v1.1.24.valuationdatetime", ftypes.INT64)
 ice_mdf_impact_v1_1_24.fields.volatility = ProtoField.new("Volatility", "ice.mdf.impact.v1.1.24.volatility", ftypes.INT64)
 ice_mdf_impact_v1_1_24.fields.volume = ProtoField.new("Volume", "ice.mdf.impact.v1.1.24.volume", ftypes.INT32)
-ice_mdf_impact_v1_1_24.fields.vwap = ProtoField.new("VWAP", "ice.mdf.impact.v1.1.24.vwap", ftypes.INT64)
+ice_mdf_impact_v1_1_24.fields.vwap = ProtoField.new("Vwap", "ice.mdf.impact.v1.1.24.vwap", ftypes.INT64)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -300,14 +299,14 @@ show.trade_message = true
 show.payload = false
 
 -- Register Ice Mdf iMpact 1.1.24 Show Options
-ice_mdf_impact_v1_1_24.prefs.show_add_or_modify_order_message = Pref.bool("Show Add or Modify Order Message", show.add_or_modify_order_message, "Parse and add Add or Modify Order Message to protocol tree")
+ice_mdf_impact_v1_1_24.prefs.show_add_or_modify_order_message = Pref.bool("Show Add Or Modify Order Message", show.add_or_modify_order_message, "Parse and add Add Or Modify Order Message to protocol tree")
 ice_mdf_impact_v1_1_24.prefs.show_add_price_level_message = Pref.bool("Show Add Price Level Message", show.add_price_level_message, "Parse and add Add Price Level Message to protocol tree")
 ice_mdf_impact_v1_1_24.prefs.show_cancelled_trade_message = Pref.bool("Show Cancelled Trade Message", show.cancelled_trade_message, "Parse and add Cancelled Trade Message to protocol tree")
 ice_mdf_impact_v1_1_24.prefs.show_change_price_level_message = Pref.bool("Show Change Price Level Message", show.change_price_level_message, "Parse and add Change Price Level Message to protocol tree")
 ice_mdf_impact_v1_1_24.prefs.show_close_price_message = Pref.bool("Show Close Price Message", show.close_price_message, "Parse and add Close Price Message to protocol tree")
 ice_mdf_impact_v1_1_24.prefs.show_delete_order_message = Pref.bool("Show Delete Order Message", show.delete_order_message, "Parse and add Delete Order Message to protocol tree")
 ice_mdf_impact_v1_1_24.prefs.show_delete_price_level_message = Pref.bool("Show Delete Price Level Message", show.delete_price_level_message, "Parse and add Delete Price Level Message to protocol tree")
-ice_mdf_impact_v1_1_24.prefs.show_end_of_day_market_summary_message = Pref.bool("Show End of Day Market Summary Message", show.end_of_day_market_summary_message, "Parse and add End of Day Market Summary Message to protocol tree")
+ice_mdf_impact_v1_1_24.prefs.show_end_of_day_market_summary_message = Pref.bool("Show End Of Day Market Summary Message", show.end_of_day_market_summary_message, "Parse and add End Of Day Market Summary Message to protocol tree")
 ice_mdf_impact_v1_1_24.prefs.show_fixing_lockdown_message = Pref.bool("Show Fixing Lockdown Message", show.fixing_lockdown_message, "Parse and add Fixing Lockdown Message to protocol tree")
 ice_mdf_impact_v1_1_24.prefs.show_fixing_transition_message = Pref.bool("Show Fixing Transition Message", show.fixing_transition_message, "Parse and add Fixing Transition Message to protocol tree")
 ice_mdf_impact_v1_1_24.prefs.show_hedge_definition = Pref.bool("Show Hedge Definition", show.hedge_definition, "Parse and add Hedge Definition to protocol tree")
@@ -328,7 +327,7 @@ ice_mdf_impact_v1_1_24.prefs.show_new_expiry_message = Pref.bool("Show New Expir
 ice_mdf_impact_v1_1_24.prefs.show_new_futures_strategy_definition_message = Pref.bool("Show New Futures Strategy Definition Message", show.new_futures_strategy_definition_message, "Parse and add New Futures Strategy Definition Message to protocol tree")
 ice_mdf_impact_v1_1_24.prefs.show_new_options_market_definition_message = Pref.bool("Show New Options Market Definition Message", show.new_options_market_definition_message, "Parse and add New Options Market Definition Message to protocol tree")
 ice_mdf_impact_v1_1_24.prefs.show_new_options_strategy_definition_message = Pref.bool("Show New Options Strategy Definition Message", show.new_options_strategy_definition_message, "Parse and add New Options Strategy Definition Message to protocol tree")
-ice_mdf_impact_v1_1_24.prefs.show_old_style_options_trade_and_market_stats_message = Pref.bool("Show Old Style Options Trade and Market Stats Message", show.old_style_options_trade_and_market_stats_message, "Parse and add Old Style Options Trade and Market Stats Message to protocol tree")
+ice_mdf_impact_v1_1_24.prefs.show_old_style_options_trade_and_market_stats_message = Pref.bool("Show Old Style Options Trade And Market Stats Message", show.old_style_options_trade_and_market_stats_message, "Parse and add Old Style Options Trade And Market Stats Message to protocol tree")
 ice_mdf_impact_v1_1_24.prefs.show_open_interest_message = Pref.bool("Show Open Interest Message", show.open_interest_message, "Parse and add Open Interest Message to protocol tree")
 ice_mdf_impact_v1_1_24.prefs.show_open_price_message = Pref.bool("Show Open Price Message", show.open_price_message, "Parse and add Open Price Message to protocol tree")
 ice_mdf_impact_v1_1_24.prefs.show_option_open_interest_message = Pref.bool("Show Option Open Interest Message", show.option_open_interest_message, "Parse and add Option Open Interest Message to protocol tree")
@@ -336,7 +335,7 @@ ice_mdf_impact_v1_1_24.prefs.show_option_settlement_price_message = Pref.bool("S
 ice_mdf_impact_v1_1_24.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 ice_mdf_impact_v1_1_24.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 ice_mdf_impact_v1_1_24.prefs.show_pre_open_price_indicator_message = Pref.bool("Show Pre Open Price Indicator Message", show.pre_open_price_indicator_message, "Parse and add Pre Open Price Indicator Message to protocol tree")
-ice_mdf_impact_v1_1_24.prefs.show_rfq_message = Pref.bool("Show RFQ Message", show.rfq_message, "Parse and add RFQ Message to protocol tree")
+ice_mdf_impact_v1_1_24.prefs.show_rfq_message = Pref.bool("Show Rfq Message", show.rfq_message, "Parse and add Rfq Message to protocol tree")
 ice_mdf_impact_v1_1_24.prefs.show_settlement_price_message = Pref.bool("Show Settlement Price Message", show.settlement_price_message, "Parse and add Settlement Price Message to protocol tree")
 ice_mdf_impact_v1_1_24.prefs.show_special_field = Pref.bool("Show Special Field", show.special_field, "Parse and add Special Field to protocol tree")
 ice_mdf_impact_v1_1_24.prefs.show_special_field_message = Pref.bool("Show Special Field Message", show.special_field_message, "Parse and add Special Field Message to protocol tree")
@@ -548,15 +547,15 @@ end
 -- Dissect Ice Mdf iMpact 1.1.24
 -----------------------------------------------------------------------
 
--- Size: VWAP
+-- Size: Vwap
 size_of.vwap = 8
 
--- Display: VWAP
+-- Display: Vwap
 display.vwap = function(value)
-  return "VWAP: "..value
+  return "Vwap: "..value
 end
 
--- Dissect: VWAP
+-- Dissect: Vwap
 dissect.vwap = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.vwap)
   local value = range:int64()
@@ -605,15 +604,15 @@ dissect.high = function(buffer, offset, packet, parent)
   return offset + size_of.high
 end
 
--- Size: EFP Volume
+-- Size: Efp Volume
 size_of.efp_volume = 4
 
--- Display: EFP Volume
+-- Display: Efp Volume
 display.efp_volume = function(value)
-  return "EFP Volume: "..value
+  return "Efp Volume: "..value
 end
 
--- Dissect: EFP Volume
+-- Dissect: Efp Volume
 dissect.efp_volume = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.efp_volume)
   local value = range:int()
@@ -624,15 +623,15 @@ dissect.efp_volume = function(buffer, offset, packet, parent)
   return offset + size_of.efp_volume
 end
 
--- Size: EFS Volume
+-- Size: Efs Volume
 size_of.efs_volume = 4
 
--- Display: EFS Volume
+-- Display: Efs Volume
 display.efs_volume = function(value)
-  return "EFS Volume: "..value
+  return "Efs Volume: "..value
 end
 
--- Dissect: EFS Volume
+-- Dissect: Efs Volume
 dissect.efs_volume = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.efs_volume)
   local value = range:int()
@@ -662,22 +661,22 @@ dissect.block_volume = function(buffer, offset, packet, parent)
   return offset + size_of.block_volume
 end
 
--- Display: Old Style Options Trade and Market Stats Message
+-- Display: Old Style Options Trade And Market Stats Message
 display.old_style_options_trade_and_market_stats_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Old Style Options Trade and Market Stats Message
+-- Dissect Fields: Old Style Options Trade And Market Stats Message
 dissect.old_style_options_trade_and_market_stats_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Block Volume: 4 Byte Signed Fixed Width Integer
   index = dissect.block_volume(buffer, index, packet, parent)
 
-  -- EFS Volume: 4 Byte Signed Fixed Width Integer
+  -- Efs Volume: 4 Byte Signed Fixed Width Integer
   index = dissect.efs_volume(buffer, index, packet, parent)
 
-  -- EFP Volume: 4 Byte Signed Fixed Width Integer
+  -- Efp Volume: 4 Byte Signed Fixed Width Integer
   index = dissect.efp_volume(buffer, index, packet, parent)
 
   -- High: 8 Byte Signed Fixed Width Integer
@@ -686,13 +685,13 @@ dissect.old_style_options_trade_and_market_stats_message_fields = function(buffe
   -- Low: 8 Byte Signed Fixed Width Integer
   index = dissect.low(buffer, index, packet, parent)
 
-  -- VWAP: 8 Byte Signed Fixed Width Integer
+  -- Vwap: 8 Byte Signed Fixed Width Integer
   index = dissect.vwap(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Old Style Options Trade and Market Stats Message
+-- Dissect: Old Style Options Trade And Market Stats Message
 dissect.old_style_options_trade_and_market_stats_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.old_style_options_trade_and_market_stats_message then
@@ -837,15 +836,15 @@ dissect.settlement_price_with_deal_price_precision = function(buffer, offset, pa
   return offset + size_of.settlement_price_with_deal_price_precision
 end
 
--- Size: Market ID
+-- Size: Market Id
 size_of.market_id = 4
 
--- Display: Market ID
+-- Display: Market Id
 display.market_id = function(value)
-  return "Market ID: "..value
+  return "Market Id: "..value
 end
 
--- Dissect: Market ID
+-- Dissect: Market Id
 dissect.market_id = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.market_id)
   local value = range:int()
@@ -865,7 +864,7 @@ end
 dissect.option_settlement_price_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
   -- Settlement Price With Deal Price Precision: 8 Byte Signed Fixed Width Integer
@@ -951,7 +950,7 @@ end
 dissect.option_open_interest_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
   -- Open Interest: 4 Byte Signed Fixed Width Integer
@@ -1016,15 +1015,15 @@ dissect.quantity = function(buffer, offset, packet, parent)
   return offset + size_of.quantity
 end
 
--- Size: Underlying Market ID
+-- Size: Underlying Market Id
 size_of.underlying_market_id = 4
 
--- Display: Underlying Market ID
+-- Display: Underlying Market Id
 display.underlying_market_id = function(value)
-  return "Underlying Market ID: "..value
+  return "Underlying Market Id: "..value
 end
 
--- Dissect: Underlying Market ID
+-- Dissect: Underlying Market Id
 dissect.underlying_market_id = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.underlying_market_id)
   local value = range:int()
@@ -1035,15 +1034,15 @@ dissect.underlying_market_id = function(buffer, offset, packet, parent)
   return offset + size_of.underlying_market_id
 end
 
--- Size: Market Type ID
+-- Size: Market Type Id
 size_of.market_type_id = 2
 
--- Display: Market Type ID
+-- Display: Market Type Id
 display.market_type_id = function(value)
-  return "Market Type ID: "..value
+  return "Market Type Id: "..value
 end
 
--- Dissect: Market Type ID
+-- Dissect: Market Type Id
 dissect.market_type_id = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.market_type_id)
   local value = range:int()
@@ -1054,15 +1053,15 @@ dissect.market_type_id = function(buffer, offset, packet, parent)
   return offset + size_of.market_type_id
 end
 
--- Size: RFQ System ID
+-- Size: Rfq System Id
 size_of.rfq_system_id = 8
 
--- Display: RFQ System ID
+-- Display: Rfq System Id
 display.rfq_system_id = function(value)
-  return "RFQ System ID: "..value
+  return "Rfq System Id: "..value
 end
 
--- Dissect: RFQ System ID
+-- Dissect: Rfq System Id
 dissect.rfq_system_id = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.rfq_system_id)
   local value = range:int64()
@@ -1092,28 +1091,28 @@ dissect.message_timestamp = function(buffer, offset, packet, parent)
   return offset + size_of.message_timestamp
 end
 
--- Display: RFQ Message
+-- Display: Rfq Message
 display.rfq_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: RFQ Message
+-- Dissect Fields: Rfq Message
 dissect.rfq_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
   -- Message Timestamp: 8 Byte Signed Fixed Width Integer
   index = dissect.message_timestamp(buffer, index, packet, parent)
 
-  -- RFQ System ID: 8 Byte Signed Fixed Width Integer
+  -- Rfq System Id: 8 Byte Signed Fixed Width Integer
   index = dissect.rfq_system_id(buffer, index, packet, parent)
 
-  -- Market Type ID: 2 Byte Signed Fixed Width Integer
+  -- Market Type Id: 2 Byte Signed Fixed Width Integer
   index = dissect.market_type_id(buffer, index, packet, parent)
 
-  -- Underlying Market ID: 4 Byte Signed Fixed Width Integer
+  -- Underlying Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.underlying_market_id(buffer, index, packet, parent)
 
   -- Quantity: 4 Byte Signed Fixed Width Integer
@@ -1125,7 +1124,7 @@ dissect.rfq_message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: RFQ Message
+-- Dissect: Rfq Message
 dissect.rfq_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.rfq_message then
@@ -1194,15 +1193,15 @@ dissect.cross_order_supported = function(buffer, offset, packet, parent)
   return offset + size_of.cross_order_supported
 end
 
--- Size: GT Allowed
+-- Size: Gt Allowed
 size_of.gt_allowed = 1
 
--- Display: GT Allowed
+-- Display: Gt Allowed
 display.gt_allowed = function(value)
-  return "GT Allowed: "..value
+  return "Gt Allowed: "..value
 end
 
--- Dissect: GT Allowed
+-- Dissect: Gt Allowed
 dissect.gt_allowed = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.gt_allowed)
   local value = range:string()
@@ -1327,15 +1326,15 @@ dissect.settle_price_denominator = function(buffer, offset, packet, parent)
   return offset + size_of.settle_price_denominator
 end
 
--- Size: Hedge Market ID
+-- Size: Hedge Market Id
 size_of.hedge_market_id = 4
 
--- Display: Hedge Market ID
+-- Display: Hedge Market Id
 display.hedge_market_id = function(value)
-  return "Hedge Market ID: "..value
+  return "Hedge Market Id: "..value
 end
 
--- Dissect: Hedge Market ID
+-- Dissect: Hedge Market Id
 dissect.hedge_market_id = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.hedge_market_id)
   local value = range:uint()
@@ -1735,10 +1734,10 @@ end
 dissect.new_options_market_definition_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
-  -- Underlying Market ID: 4 Byte Signed Fixed Width Integer
+  -- Underlying Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.underlying_market_id(buffer, index, packet, parent)
 
   -- Futures Contract Symbol: 70 Byte Ascii String
@@ -1801,7 +1800,7 @@ dissect.new_options_market_definition_message_fields = function(buffer, offset, 
   -- Options Expiration Type: 1 Byte Ascii String
   index = dissect.options_expiration_type(buffer, index, packet, parent)
 
-  -- Hedge Market ID: 4 Byte Unsigned Fixed Width Integer
+  -- Hedge Market Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.hedge_market_id(buffer, index, packet, parent)
 
   -- Settle Price Denominator: 1 Byte Ascii String
@@ -1822,7 +1821,7 @@ dissect.new_options_market_definition_message_fields = function(buffer, offset, 
   -- Is Block Only: 1 Byte Ascii String
   index = dissect.is_block_only(buffer, index, packet, parent)
 
-  -- GT Allowed: 1 Byte Ascii String
+  -- Gt Allowed: 1 Byte Ascii String
   index = dissect.gt_allowed(buffer, index, packet, parent)
 
   -- Cross Order Supported: 1 Byte Ascii String
@@ -1980,25 +1979,6 @@ dissect.hedge_security_type = function(buffer, offset, packet, parent)
   parent:add(ice_mdf_impact_v1_1_24.fields.hedge_security_type, range, value, display)
 
   return offset + size_of.hedge_security_type
-end
-
--- Size: Hedge Market Id
-size_of.hedge_market_id = 4
-
--- Display: Hedge Market Id
-display.hedge_market_id = function(value)
-  return "Hedge Market Id: "..value
-end
-
--- Dissect: Hedge Market Id
-dissect.hedge_market_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.hedge_market_id)
-  local value = range:uint()
-  local display = display.hedge_market_id(value, buffer, offset, packet, parent)
-
-  parent:add(ice_mdf_impact_v1_1_24.fields.hedge_market_id, range, value, display)
-
-  return offset + size_of.hedge_market_id
 end
 
 -- Size: Hedge Body Length
@@ -2305,10 +2285,10 @@ end
 dissect.new_options_strategy_definition_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
-  -- Underlying Market ID: 4 Byte Signed Fixed Width Integer
+  -- Underlying Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.underlying_market_id(buffer, index, packet, parent)
 
   -- Contract Symbol: 35 Byte Ascii String
@@ -2356,7 +2336,7 @@ dissect.new_options_strategy_definition_message_fields = function(buffer, offset
   -- Strategy Symbol: 18 Byte Ascii String
   index = dissect.strategy_symbol(buffer, index, packet, parent)
 
-  -- GT Allowed: 1 Byte Ascii String
+  -- Gt Allowed: 1 Byte Ascii String
   index = dissect.gt_allowed(buffer, index, packet, parent)
 
   return index
@@ -2403,7 +2383,7 @@ end
 dissect.delete_price_level_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String
@@ -2512,7 +2492,7 @@ end
 dissect.change_price_level_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String
@@ -2560,7 +2540,7 @@ end
 dissect.add_price_level_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String
@@ -2608,7 +2588,7 @@ end
 dissect.market_snapshot_price_level_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String
@@ -2647,42 +2627,42 @@ dissect.market_snapshot_price_level_message = function(buffer, offset, packet, p
   return dissect.market_snapshot_price_level_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: EUR  Price
-size_of.eur__price = 8
+-- Size: Eur Price
+size_of.eur_price = 8
 
--- Display: EUR  Price
-display.eur__price = function(value)
-  return "EUR  Price: "..value
+-- Display: Eur Price
+display.eur_price = function(value)
+  return "Eur Price: "..value
 end
 
--- Dissect: EUR  Price
-dissect.eur__price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.eur__price)
+-- Dissect: Eur Price
+dissect.eur_price = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.eur_price)
   local value = range:int64()
-  local display = display.eur__price(value, buffer, offset, packet, parent)
+  local display = display.eur_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_24.fields.eur__price, range, value, display)
+  parent:add(ice_mdf_impact_v1_1_24.fields.eur_price, range, value, display)
 
-  return offset + size_of.eur__price
+  return offset + size_of.eur_price
 end
 
--- Size: GBP  Price
-size_of.gbp__price = 8
+-- Size: Gbp Price
+size_of.gbp_price = 8
 
--- Display: GBP  Price
-display.gbp__price = function(value)
-  return "GBP  Price: "..value
+-- Display: Gbp Price
+display.gbp_price = function(value)
+  return "Gbp Price: "..value
 end
 
--- Dissect: GBP  Price
-dissect.gbp__price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.gbp__price)
+-- Dissect: Gbp Price
+dissect.gbp_price = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.gbp_price)
   local value = range:int64()
-  local display = display.gbp__price(value, buffer, offset, packet, parent)
+  local display = display.gbp_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_24.fields.gbp__price, range, value, display)
+  parent:add(ice_mdf_impact_v1_1_24.fields.gbp_price, range, value, display)
 
-  return offset + size_of.gbp__price
+  return offset + size_of.gbp_price
 end
 
 -- Size: Is Final
@@ -2723,61 +2703,61 @@ dissect.is_balanced = function(buffer, offset, packet, parent)
   return offset + size_of.is_balanced
 end
 
--- Size: USD  Price
-size_of.usd__price = 8
+-- Size: Usd Price
+size_of.usd_price = 8
 
--- Display: USD  Price
-display.usd__price = function(value)
-  return "USD  Price: "..value
+-- Display: Usd Price
+display.usd_price = function(value)
+  return "Usd Price: "..value
 end
 
--- Dissect: USD  Price
-dissect.usd__price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.usd__price)
+-- Dissect: Usd Price
+dissect.usd_price = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.usd_price)
   local value = range:int64()
-  local display = display.usd__price(value, buffer, offset, packet, parent)
+  local display = display.usd_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_24.fields.usd__price, range, value, display)
+  parent:add(ice_mdf_impact_v1_1_24.fields.usd_price, range, value, display)
 
-  return offset + size_of.usd__price
+  return offset + size_of.usd_price
 end
 
--- Size: Agg  Offer  Qty
-size_of.agg__offer__qty = 4
+-- Size: Agg Offer Qty
+size_of.agg_offer_qty = 4
 
--- Display: Agg  Offer  Qty
-display.agg__offer__qty = function(value)
-  return "Agg  Offer  Qty: "..value
+-- Display: Agg Offer Qty
+display.agg_offer_qty = function(value)
+  return "Agg Offer Qty: "..value
 end
 
--- Dissect: Agg  Offer  Qty
-dissect.agg__offer__qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.agg__offer__qty)
+-- Dissect: Agg Offer Qty
+dissect.agg_offer_qty = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.agg_offer_qty)
   local value = range:int()
-  local display = display.agg__offer__qty(value, buffer, offset, packet, parent)
+  local display = display.agg_offer_qty(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_24.fields.agg__offer__qty, range, value, display)
+  parent:add(ice_mdf_impact_v1_1_24.fields.agg_offer_qty, range, value, display)
 
-  return offset + size_of.agg__offer__qty
+  return offset + size_of.agg_offer_qty
 end
 
--- Size: Agg  Bid  Qty
-size_of.agg__bid__qty = 4
+-- Size: Agg Bid Qty
+size_of.agg_bid_qty = 4
 
--- Display: Agg  Bid  Qty
-display.agg__bid__qty = function(value)
-  return "Agg  Bid  Qty: "..value
+-- Display: Agg Bid Qty
+display.agg_bid_qty = function(value)
+  return "Agg Bid Qty: "..value
 end
 
--- Dissect: Agg  Bid  Qty
-dissect.agg__bid__qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.agg__bid__qty)
+-- Dissect: Agg Bid Qty
+dissect.agg_bid_qty = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.agg_bid_qty)
   local value = range:int()
-  local display = display.agg__bid__qty(value, buffer, offset, packet, parent)
+  local display = display.agg_bid_qty(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_24.fields.agg__bid__qty, range, value, display)
+  parent:add(ice_mdf_impact_v1_1_24.fields.agg_bid_qty, range, value, display)
 
-  return offset + size_of.agg__bid__qty
+  return offset + size_of.agg_bid_qty
 end
 
 -- Size: Round
@@ -2837,23 +2817,23 @@ dissect.time = function(buffer, offset, packet, parent)
   return offset + size_of.time
 end
 
--- Size: Auction  Date
-size_of.auction__date = 10
+-- Size: Auction Date
+size_of.auction_date = 10
 
--- Display: Auction  Date
-display.auction__date = function(value)
-  return "Auction  Date: "..value
+-- Display: Auction Date
+display.auction_date = function(value)
+  return "Auction Date: "..value
 end
 
--- Dissect: Auction  Date
-dissect.auction__date = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.auction__date)
+-- Dissect: Auction Date
+dissect.auction_date = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.auction_date)
   local value = range:string()
-  local display = display.auction__date(value, buffer, offset, packet, parent)
+  local display = display.auction_date(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_24.fields.auction__date, range, value, display)
+  parent:add(ice_mdf_impact_v1_1_24.fields.auction_date, range, value, display)
 
-  return offset + size_of.auction__date
+  return offset + size_of.auction_date
 end
 
 -- Display: Fixing Lockdown Message
@@ -2865,11 +2845,11 @@ end
 dissect.fixing_lockdown_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
-  -- Auction  Date: 10 Byte Ascii String
-  index = dissect.auction__date(buffer, index, packet, parent)
+  -- Auction Date: 10 Byte Ascii String
+  index = dissect.auction_date(buffer, index, packet, parent)
 
   -- Time: 8 Byte Signed Fixed Width Integer
   index = dissect.time(buffer, index, packet, parent)
@@ -2880,14 +2860,14 @@ dissect.fixing_lockdown_message_fields = function(buffer, offset, packet, parent
   -- Round: 2 Byte Signed Fixed Width Integer
   index = dissect.round(buffer, index, packet, parent)
 
-  -- Agg  Bid  Qty: 4 Byte Signed Fixed Width Integer
-  index = dissect.agg__bid__qty(buffer, index, packet, parent)
+  -- Agg Bid Qty: 4 Byte Signed Fixed Width Integer
+  index = dissect.agg_bid_qty(buffer, index, packet, parent)
 
-  -- Agg  Offer  Qty: 4 Byte Signed Fixed Width Integer
-  index = dissect.agg__offer__qty(buffer, index, packet, parent)
+  -- Agg Offer Qty: 4 Byte Signed Fixed Width Integer
+  index = dissect.agg_offer_qty(buffer, index, packet, parent)
 
-  -- USD  Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.usd__price(buffer, index, packet, parent)
+  -- Usd Price: 8 Byte Signed Fixed Width Integer
+  index = dissect.usd_price(buffer, index, packet, parent)
 
   -- Is Balanced: 1 Byte Ascii String
   index = dissect.is_balanced(buffer, index, packet, parent)
@@ -2895,11 +2875,11 @@ dissect.fixing_lockdown_message_fields = function(buffer, offset, packet, parent
   -- Is Final: 1 Byte Ascii String
   index = dissect.is_final(buffer, index, packet, parent)
 
-  -- GBP  Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.gbp__price(buffer, index, packet, parent)
+  -- Gbp Price: 8 Byte Signed Fixed Width Integer
+  index = dissect.gbp_price(buffer, index, packet, parent)
 
-  -- EUR  Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.eur__price(buffer, index, packet, parent)
+  -- Eur Price: 8 Byte Signed Fixed Width Integer
+  index = dissect.eur_price(buffer, index, packet, parent)
 
   return index
 end
@@ -2916,23 +2896,23 @@ dissect.fixing_lockdown_message = function(buffer, offset, packet, parent)
   return dissect.fixing_lockdown_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Threshold  Imbalance  Qty
-size_of.threshold__imbalance__qty = 4
+-- Size: Threshold Imbalance Qty
+size_of.threshold_imbalance_qty = 4
 
--- Display: Threshold  Imbalance  Qty
-display.threshold__imbalance__qty = function(value)
-  return "Threshold  Imbalance  Qty: "..value
+-- Display: Threshold Imbalance Qty
+display.threshold_imbalance_qty = function(value)
+  return "Threshold Imbalance Qty: "..value
 end
 
--- Dissect: Threshold  Imbalance  Qty
-dissect.threshold__imbalance__qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.threshold__imbalance__qty)
+-- Dissect: Threshold Imbalance Qty
+dissect.threshold_imbalance_qty = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.threshold_imbalance_qty)
   local value = range:int()
-  local display = display.threshold__imbalance__qty(value, buffer, offset, packet, parent)
+  local display = display.threshold_imbalance_qty(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_24.fields.threshold__imbalance__qty, range, value, display)
+  parent:add(ice_mdf_impact_v1_1_24.fields.threshold_imbalance_qty, range, value, display)
 
-  return offset + size_of.threshold__imbalance__qty
+  return offset + size_of.threshold_imbalance_qty
 end
 
 -- Size: Auction End Time
@@ -2982,7 +2962,7 @@ end
 dissect.fixing_transition_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
   -- Status: 1 Byte Ascii String
@@ -2991,8 +2971,8 @@ dissect.fixing_transition_message_fields = function(buffer, offset, packet, pare
   -- Auction End Time: 8 Byte Signed Fixed Width Integer
   index = dissect.auction_end_time(buffer, index, packet, parent)
 
-  -- Threshold  Imbalance  Qty: 4 Byte Signed Fixed Width Integer
-  index = dissect.threshold__imbalance__qty(buffer, index, packet, parent)
+  -- Threshold Imbalance Qty: 4 Byte Signed Fixed Width Integer
+  index = dissect.threshold_imbalance_qty(buffer, index, packet, parent)
 
   -- Date Time: 8 Byte Signed Fixed Width Integer
   index = dissect.date_time(buffer, index, packet, parent)
@@ -3058,15 +3038,15 @@ dissect.message_bundle_marker = function(buffer, offset, packet, parent)
   return dissect.message_bundle_marker_fields(buffer, offset, packet, parent)
 end
 
--- Size: Order ID
+-- Size: Order Id
 size_of.order_id = 8
 
--- Display: Order ID
+-- Display: Order Id
 display.order_id = function(value)
-  return "Order ID: "..value
+  return "Order Id: "..value
 end
 
--- Dissect: Order ID
+-- Dissect: Order Id
 dissect.order_id = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.order_id)
   local value = range:int64()
@@ -3086,10 +3066,10 @@ end
 dissect.delete_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
-  -- Order ID: 8 Byte Signed Fixed Width Integer
+  -- Order Id: 8 Byte Signed Fixed Width Integer
   index = dissect.order_id(buffer, index, packet, parent)
 
   return index
@@ -3164,15 +3144,15 @@ dissect.order_entry_date_time = function(buffer, offset, packet, parent)
   return offset + size_of.order_entry_date_time
 end
 
--- Size: Is RFQ
+-- Size: Is Rfq
 size_of.is_rfq = 1
 
--- Display: Is RFQ
+-- Display: Is Rfq
 display.is_rfq = function(value)
-  return "Is RFQ: "..value
+  return "Is Rfq: "..value
 end
 
--- Dissect: Is RFQ
+-- Dissect: Is Rfq
 dissect.is_rfq = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.is_rfq)
   local value = range:string()
@@ -3202,15 +3182,15 @@ dissect.is_implied = function(buffer, offset, packet, parent)
   return offset + size_of.is_implied
 end
 
--- Size: Order Sequence ID
+-- Size: Order Sequence Id
 size_of.order_sequence_id = 2
 
--- Display: Order Sequence ID
+-- Display: Order Sequence Id
 display.order_sequence_id = function(value)
-  return "Order Sequence ID: "..value
+  return "Order Sequence Id: "..value
 end
 
--- Dissect: Order Sequence ID
+-- Dissect: Order Sequence Id
 dissect.order_sequence_id = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.order_sequence_id)
   local value = range:int()
@@ -3221,22 +3201,22 @@ dissect.order_sequence_id = function(buffer, offset, packet, parent)
   return offset + size_of.order_sequence_id
 end
 
--- Display: Add or Modify Order Message
+-- Display: Add Or Modify Order Message
 display.add_or_modify_order_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Add or Modify Order Message
+-- Dissect Fields: Add Or Modify Order Message
 dissect.add_or_modify_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
-  -- Order ID: 8 Byte Signed Fixed Width Integer
+  -- Order Id: 8 Byte Signed Fixed Width Integer
   index = dissect.order_id(buffer, index, packet, parent)
 
-  -- Order Sequence ID: 2 Byte Signed Fixed Width Integer
+  -- Order Sequence Id: 2 Byte Signed Fixed Width Integer
   index = dissect.order_sequence_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String
@@ -3251,7 +3231,7 @@ dissect.add_or_modify_order_message_fields = function(buffer, offset, packet, pa
   -- Is Implied: 1 Byte Ascii String
   index = dissect.is_implied(buffer, index, packet, parent)
 
-  -- Is RFQ: 1 Byte Ascii String
+  -- Is Rfq: 1 Byte Ascii String
   index = dissect.is_rfq(buffer, index, packet, parent)
 
   -- Order Entry Date Time: 8 Byte Signed Fixed Width Integer
@@ -3266,7 +3246,7 @@ dissect.add_or_modify_order_message_fields = function(buffer, offset, packet, pa
   return index
 end
 
--- Dissect: Add or Modify Order Message
+-- Dissect: Add Or Modify Order Message
 dissect.add_or_modify_order_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.add_or_modify_order_message then
@@ -3287,13 +3267,13 @@ end
 dissect.market_snapshot_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
-  -- Order ID: 8 Byte Signed Fixed Width Integer
+  -- Order Id: 8 Byte Signed Fixed Width Integer
   index = dissect.order_id(buffer, index, packet, parent)
 
-  -- Order Sequence ID: 2 Byte Signed Fixed Width Integer
+  -- Order Sequence Id: 2 Byte Signed Fixed Width Integer
   index = dissect.order_sequence_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String
@@ -3308,7 +3288,7 @@ dissect.market_snapshot_order_message_fields = function(buffer, offset, packet, 
   -- Is Implied: 1 Byte Ascii String
   index = dissect.is_implied(buffer, index, packet, parent)
 
-  -- Is RFQ: 1 Byte Ascii String
+  -- Is Rfq: 1 Byte Ascii String
   index = dissect.is_rfq(buffer, index, packet, parent)
 
   -- Order Entry Date Time: 8 Byte Signed Fixed Width Integer
@@ -3332,23 +3312,20 @@ dissect.market_snapshot_order_message = function(buffer, offset, packet, parent)
   return dissect.market_snapshot_order_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Special Field Value
-size_of.special_field_value = 0
-
 -- Display: Special Field Value
 display.special_field_value = function(value)
   return "Special Field Value: "..value
 end
 
--- Dissect: Special Field Value
-dissect.special_field_value = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.special_field_value)
+-- Dissect runtime sized field: Special Field Value
+dissect.special_field_value = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = display.special_field_value(value, buffer, offset, packet, parent)
+  local display = display.special_field_value(value, buffer, offset, packet, parent, size)
 
   parent:add(ice_mdf_impact_v1_1_24.fields.special_field_value, range, value, display)
 
-  return offset + size_of.special_field_value
+  return offset + size
 end
 
 -- Size: Special Field Length
@@ -3361,13 +3338,14 @@ end
 
 -- Dissect: Special Field Length
 dissect.special_field_length = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.special_field_length)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.special_field_length(value, buffer, offset, packet, parent)
 
   parent:add(ice_mdf_impact_v1_1_24.fields.special_field_length, range, value, display)
 
-  return offset + size_of.special_field_length
+  return offset + length, value
 end
 
 -- Size: Special Field Id
@@ -3389,6 +3367,18 @@ dissect.special_field_id = function(buffer, offset, packet, parent)
   return offset + size_of.special_field_id
 end
 
+-- Calculate runtime size: Special Field
+size_of.special_field = function(buffer, offset)
+  local index = 0
+
+  index = index + 3
+
+  -- Parse runtime field size of: Special Field Value
+  index = index + buffer(offset + index - 2, 2):uint()
+
+  return index
+end
+
 -- Display: Special Field
 display.special_field = function(buffer, offset, size, packet, parent)
   return ""
@@ -3405,16 +3395,18 @@ dissect.special_field_fields = function(buffer, offset, packet, parent)
   index = dissect.special_field_length(buffer, index, packet, parent)
 
   -- Special Field Value: 0 Byte
-  index = dissect.special_field_value(buffer, index, packet, parent)
+  local length = buffer(index - 2, 2):uint()
+  index = dissect.special_field_value(buffer, index, packet, parent, length)
 
   return index
 end
 
 -- Dissect: Special Field
 dissect.special_field = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.special_field then
-    local range = buffer(offset, 3)
+    local length = size_of.special_field(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.special_field(buffer, packet, parent)
     parent = parent:add(ice_mdf_impact_v1_1_24.fields.special_field, range, display)
   end
@@ -3450,8 +3442,9 @@ size_of.special_field_message = function(buffer, offset)
 
   -- Calculate field size from count
   local special_field_count = buffer(offset + index - 1, 1):int()
-  index = index + special_field_count * 3
-
+  for i = 1, special_field_count do
+    index = index + size_of.special_field(buffer, offset + index)
+  end
   return index
 end
 
@@ -3508,15 +3501,15 @@ dissect.num_decimals_options_price = function(buffer, offset, packet, parent)
   return offset + size_of.num_decimals_options_price
 end
 
--- Size: ISIN
+-- Size: Isin
 size_of.isin = 12
 
--- Display: ISIN
+-- Display: Isin
 display.isin = function(value)
-  return "ISIN: "..value
+  return "Isin: "..value
 end
 
--- Dissect: ISIN
+-- Dissect: Isin
 dissect.isin = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.isin)
   local value = range:string()
@@ -3603,15 +3596,15 @@ dissect.off_exchange_increment_qty_denominator = function(buffer, offset, packet
   return offset + size_of.off_exchange_increment_qty_denominator
 end
 
--- Size: MIC Code
+-- Size: Mic Code
 size_of.mic_code = 4
 
--- Display: MIC Code
+-- Display: Mic Code
 display.mic_code = function(value)
-  return "MIC Code: "..value
+  return "Mic Code: "..value
 end
 
--- Dissect: MIC Code
+-- Dissect: Mic Code
 dissect.mic_code = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.mic_code)
   local value = range:string()
@@ -3641,15 +3634,15 @@ dissect.strip_name = function(buffer, offset, packet, parent)
   return offset + size_of.strip_name
 end
 
--- Size: Strip ID
+-- Size: Strip Id
 size_of.strip_id = 4
 
--- Display: Strip ID
+-- Display: Strip Id
 display.strip_id = function(value)
-  return "Strip ID: "..value
+  return "Strip Id: "..value
 end
 
--- Dissect: Strip ID
+-- Dissect: Strip Id
 dissect.strip_id = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.strip_id)
   local value = range:int()
@@ -3679,15 +3672,15 @@ dissect.hub_alias = function(buffer, offset, packet, parent)
   return offset + size_of.hub_alias
 end
 
--- Size: Hub ID
+-- Size: Hub Id
 size_of.hub_id = 4
 
--- Display: Hub ID
+-- Display: Hub Id
 display.hub_id = function(value)
-  return "Hub ID: "..value
+  return "Hub Id: "..value
 end
 
--- Dissect: Hub ID
+-- Dissect: Hub Id
 dissect.hub_id = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.hub_id)
   local value = range:int()
@@ -3717,15 +3710,15 @@ dissect.product_name = function(buffer, offset, packet, parent)
   return offset + size_of.product_name
 end
 
--- Size: Product ID
+-- Size: Product Id
 size_of.product_id = 4
 
--- Display: Product ID
+-- Display: Product Id
 display.product_id = function(value)
-  return "Product ID: "..value
+  return "Product Id: "..value
 end
 
--- Dissect: Product ID
+-- Dissect: Product Id
 dissect.product_id = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.product_id)
   local value = range:int()
@@ -3878,10 +3871,10 @@ end
 dissect.new_expiry_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
-  -- Market Type ID: 2 Byte Signed Fixed Width Integer
+  -- Market Type Id: 2 Byte Signed Fixed Width Integer
   index = dissect.market_type_id(buffer, index, packet, parent)
 
   -- Order Price Denominator: 1 Byte Ascii String
@@ -3929,19 +3922,19 @@ dissect.new_expiry_message_fields = function(buffer, offset, packet, parent)
   -- Max Price: 8 Byte Signed Fixed Width Integer
   index = dissect.max_price(buffer, index, packet, parent)
 
-  -- Product ID: 4 Byte Signed Fixed Width Integer
+  -- Product Id: 4 Byte Signed Fixed Width Integer
   index = dissect.product_id(buffer, index, packet, parent)
 
   -- Product Name: 62 Byte Ascii String
   index = dissect.product_name(buffer, index, packet, parent)
 
-  -- Hub ID: 4 Byte Signed Fixed Width Integer
+  -- Hub Id: 4 Byte Signed Fixed Width Integer
   index = dissect.hub_id(buffer, index, packet, parent)
 
   -- Hub Alias: 80 Byte Ascii String
   index = dissect.hub_alias(buffer, index, packet, parent)
 
-  -- Strip ID: 4 Byte Signed Fixed Width Integer
+  -- Strip Id: 4 Byte Signed Fixed Width Integer
   index = dissect.strip_id(buffer, index, packet, parent)
 
   -- Strip Name: 39 Byte Ascii String
@@ -3950,7 +3943,7 @@ dissect.new_expiry_message_fields = function(buffer, offset, packet, parent)
   -- Settle Price Denominator: 1 Byte Ascii String
   index = dissect.settle_price_denominator(buffer, index, packet, parent)
 
-  -- MIC Code: 4 Byte Ascii String
+  -- Mic Code: 4 Byte Ascii String
   index = dissect.mic_code(buffer, index, packet, parent)
 
   -- Unit Qty Denominator: 1 Byte Ascii String
@@ -3971,19 +3964,19 @@ dissect.new_expiry_message_fields = function(buffer, offset, packet, parent)
   -- Contract Symbol: 35 Byte Ascii String
   index = dissect.contract_symbol(buffer, index, packet, parent)
 
-  -- ISIN: 12 Byte Ascii String
+  -- Isin: 12 Byte Ascii String
   index = dissect.isin(buffer, index, packet, parent)
 
   -- Num Decimals Options Price: 1 Byte Ascii String
   index = dissect.num_decimals_options_price(buffer, index, packet, parent)
 
-  -- Hedge Market ID: 4 Byte Unsigned Fixed Width Integer
+  -- Hedge Market Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.hedge_market_id(buffer, index, packet, parent)
 
   -- Settlement Type: 1 Byte Ascii String
   index = dissect.settlement_type(buffer, index, packet, parent)
 
-  -- GT Allowed: 1 Byte Ascii String
+  -- Gt Allowed: 1 Byte Ascii String
   index = dissect.gt_allowed(buffer, index, packet, parent)
 
   -- Cross Order Supported: 1 Byte Ascii String
@@ -4085,7 +4078,7 @@ end
 dissect.new_futures_strategy_definition_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
   -- Futures Contract Symbol: 70 Byte Ascii String
@@ -4124,7 +4117,7 @@ dissect.new_futures_strategy_definition_message_fields = function(buffer, offset
   -- Strategy Symbol: 18 Byte Ascii String
   index = dissect.strategy_symbol(buffer, index, packet, parent)
 
-  -- GT Allowed: 1 Byte Ascii String
+  -- Gt Allowed: 1 Byte Ascii String
   index = dissect.gt_allowed(buffer, index, packet, parent)
 
   return index
@@ -4143,15 +4136,15 @@ dissect.new_futures_strategy_definition_message = function(buffer, offset, packe
   return dissect.new_futures_strategy_definition_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: IPL Down
+-- Size: Ipl Down
 size_of.ipl_down = 8
 
--- Display: IPL Down
+-- Display: Ipl Down
 display.ipl_down = function(value)
-  return "IPL Down: "..value
+  return "Ipl Down: "..value
 end
 
--- Dissect: IPL Down
+-- Dissect: Ipl Down
 dissect.ipl_down = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.ipl_down)
   local value = range:int64()
@@ -4162,15 +4155,15 @@ dissect.ipl_down = function(buffer, offset, packet, parent)
   return offset + size_of.ipl_down
 end
 
--- Size: IPL Up
+-- Size: Ipl Up
 size_of.ipl_up = 8
 
--- Display: IPL Up
+-- Display: Ipl Up
 display.ipl_up = function(value)
-  return "IPL Up: "..value
+  return "Ipl Up: "..value
 end
 
--- Dissect: IPL Up
+-- Dissect: Ipl Up
 dissect.ipl_up = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.ipl_up)
   local value = range:int64()
@@ -4181,15 +4174,15 @@ dissect.ipl_up = function(buffer, offset, packet, parent)
   return offset + size_of.ipl_up
 end
 
--- Size: IPL Hold Duration
+-- Size: Ipl Hold Duration
 size_of.ipl_hold_duration = 4
 
--- Display: IPL Hold Duration
+-- Display: Ipl Hold Duration
 display.ipl_hold_duration = function(value)
-  return "IPL Hold Duration: "..value
+  return "Ipl Hold Duration: "..value
 end
 
--- Dissect: IPL Hold Duration
+-- Dissect: Ipl Hold Duration
 dissect.ipl_hold_duration = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.ipl_hold_duration)
   local value = range:int()
@@ -4238,15 +4231,15 @@ dissect.notification_date_time = function(buffer, offset, packet, parent)
   return offset + size_of.notification_date_time
 end
 
--- Size: IPL Hold Type
+-- Size: Ipl Hold Type
 size_of.ipl_hold_type = 1
 
--- Display: IPL Hold Type
+-- Display: Ipl Hold Type
 display.ipl_hold_type = function(value)
-  return "IPL Hold Type: "..value
+  return "Ipl Hold Type: "..value
 end
 
--- Dissect: IPL Hold Type
+-- Dissect: Ipl Hold Type
 dissect.ipl_hold_type = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.ipl_hold_type)
   local value = range:string()
@@ -4266,10 +4259,10 @@ end
 dissect.interval_price_limit_notification_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
-  -- IPL Hold Type: 1 Byte Ascii String
+  -- Ipl Hold Type: 1 Byte Ascii String
   index = dissect.ipl_hold_type(buffer, index, packet, parent)
 
   -- Notification Date Time: 8 Byte Signed Fixed Width Integer
@@ -4278,13 +4271,13 @@ dissect.interval_price_limit_notification_message_fields = function(buffer, offs
   -- Is Up: 1 Byte Ascii String
   index = dissect.is_up(buffer, index, packet, parent)
 
-  -- IPL Hold Duration: 4 Byte Signed Fixed Width Integer
+  -- Ipl Hold Duration: 4 Byte Signed Fixed Width Integer
   index = dissect.ipl_hold_duration(buffer, index, packet, parent)
 
-  -- IPL Up: 8 Byte Signed Fixed Width Integer
+  -- Ipl Up: 8 Byte Signed Fixed Width Integer
   index = dissect.ipl_up(buffer, index, packet, parent)
 
-  -- IPL Down: 8 Byte Signed Fixed Width Integer
+  -- Ipl Down: 8 Byte Signed Fixed Width Integer
   index = dissect.ipl_down(buffer, index, packet, parent)
 
   return index
@@ -4454,15 +4447,15 @@ dissect.strip_type = function(buffer, offset, packet, parent)
   return offset + size_of.strip_type
 end
 
--- Size: Old Strip ID
+-- Size: Old Strip Id
 size_of.old_strip_id = 2
 
--- Display: Old Strip ID
+-- Display: Old Strip Id
 display.old_strip_id = function(value)
-  return "Old Strip ID: "..value
+  return "Old Strip Id: "..value
 end
 
--- Dissect: Old Strip ID
+-- Dissect: Old Strip Id
 dissect.old_strip_id = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.old_strip_id)
   local value = range:int()
@@ -4482,7 +4475,7 @@ end
 dissect.strip_info_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Old Strip ID: 2 Byte Signed Fixed Width Integer
+  -- Old Strip Id: 2 Byte Signed Fixed Width Integer
   index = dissect.old_strip_id(buffer, index, packet, parent)
 
   -- Strip Type: 20 Byte Ascii String
@@ -4509,7 +4502,7 @@ dissect.strip_info_message_fields = function(buffer, offset, packet, parent)
   -- Strip Info: 50 Byte Ascii String
   index = dissect.strip_info(buffer, index, packet, parent)
 
-  -- Strip ID: 4 Byte Signed Fixed Width Integer
+  -- Strip Id: 4 Byte Signed Fixed Width Integer
   index = dissect.strip_id(buffer, index, packet, parent)
 
   return index
@@ -4593,7 +4586,7 @@ end
 dissect.pre_open_price_indicator_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
   -- Pre Open Price: 8 Byte Signed Fixed Width Integer
@@ -4651,7 +4644,7 @@ end
 dissect.market_event_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
   -- Event Type: 1 Byte Ascii String
@@ -4713,16 +4706,16 @@ dissect.volume = function(buffer, offset, packet, parent)
   return offset + size_of.volume
 end
 
--- Display: End of Day Market Summary Message
+-- Display: End Of Day Market Summary Message
 display.end_of_day_market_summary_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: End of Day Market Summary Message
+-- Dissect Fields: End Of Day Market Summary Message
 dissect.end_of_day_market_summary_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Signed Fixed Width Integer
@@ -4731,10 +4724,10 @@ dissect.end_of_day_market_summary_message_fields = function(buffer, offset, pack
   -- Block Volume: 4 Byte Signed Fixed Width Integer
   index = dissect.block_volume(buffer, index, packet, parent)
 
-  -- EFS Volume: 4 Byte Signed Fixed Width Integer
+  -- Efs Volume: 4 Byte Signed Fixed Width Integer
   index = dissect.efs_volume(buffer, index, packet, parent)
 
-  -- EFP Volume: 4 Byte Signed Fixed Width Integer
+  -- Efp Volume: 4 Byte Signed Fixed Width Integer
   index = dissect.efp_volume(buffer, index, packet, parent)
 
   -- Opening Price: 8 Byte Signed Fixed Width Integer
@@ -4746,7 +4739,7 @@ dissect.end_of_day_market_summary_message_fields = function(buffer, offset, pack
   -- Low: 8 Byte Signed Fixed Width Integer
   index = dissect.low(buffer, index, packet, parent)
 
-  -- VWAP: 8 Byte Signed Fixed Width Integer
+  -- Vwap: 8 Byte Signed Fixed Width Integer
   index = dissect.vwap(buffer, index, packet, parent)
 
   -- Settlement Price With Deal Price Precision: 8 Byte Signed Fixed Width Integer
@@ -4764,7 +4757,7 @@ dissect.end_of_day_market_summary_message_fields = function(buffer, offset, pack
   return index
 end
 
--- Dissect: End of Day Market Summary Message
+-- Dissect: End Of Day Market Summary Message
 dissect.end_of_day_market_summary_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.end_of_day_market_summary_message then
@@ -4776,23 +4769,23 @@ dissect.end_of_day_market_summary_message = function(buffer, offset, packet, par
   return dissect.end_of_day_market_summary_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Valuation Date /  Applying Date
-size_of.valuation_date____applying_date = 10
+-- Size: Valuation Date Applying Date
+size_of.valuation_date_applying_date = 10
 
--- Display: Valuation Date /  Applying Date
-display.valuation_date____applying_date = function(value)
-  return "Valuation Date /  Applying Date: "..value
+-- Display: Valuation Date Applying Date
+display.valuation_date_applying_date = function(value)
+  return "Valuation Date Applying Date: "..value
 end
 
--- Dissect: Valuation Date /  Applying Date
-dissect.valuation_date____applying_date = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.valuation_date____applying_date)
+-- Dissect: Valuation Date Applying Date
+dissect.valuation_date_applying_date = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.valuation_date_applying_date)
   local value = range:string()
-  local display = display.valuation_date____applying_date(value, buffer, offset, packet, parent)
+  local display = display.valuation_date_applying_date(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_24.fields.valuation_date____applying_date, range, value, display)
+  parent:add(ice_mdf_impact_v1_1_24.fields.valuation_date_applying_date, range, value, display)
 
-  return offset + size_of.valuation_date____applying_date
+  return offset + size_of.valuation_date_applying_date
 end
 
 -- Size: Published Date Time
@@ -4842,7 +4835,7 @@ end
 dissect.marker_index_prices_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
@@ -4854,8 +4847,8 @@ dissect.marker_index_prices_fields = function(buffer, offset, packet, parent)
   -- Published Date Time: 8 Byte Signed Fixed Width Integer
   index = dissect.published_date_time(buffer, index, packet, parent)
 
-  -- Valuation Date /  Applying Date: 10 Byte Ascii String
-  index = dissect.valuation_date____applying_date(buffer, index, packet, parent)
+  -- Valuation Date Applying Date: 10 Byte Ascii String
+  index = dissect.valuation_date_applying_date(buffer, index, packet, parent)
 
   -- Status: 1 Byte Ascii String
   index = dissect.status(buffer, index, packet, parent)
@@ -4939,7 +4932,7 @@ end
 dissect.close_price_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
   -- Close Price: 8 Byte Signed Fixed Width Integer
@@ -4991,7 +4984,7 @@ end
 dissect.open_price_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
   -- Open Price: 8 Byte Signed Fixed Width Integer
@@ -5043,7 +5036,7 @@ end
 dissect.open_interest_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
   -- Open Interest: 4 Byte Signed Fixed Width Integer
@@ -5153,7 +5146,7 @@ end
 dissect.market_state_change_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
   -- Trading Status: 1 Byte Ascii String
@@ -5186,7 +5179,7 @@ end
 dissect.market_statistics_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Signed Fixed Width Integer
@@ -5195,10 +5188,10 @@ dissect.market_statistics_message_fields = function(buffer, offset, packet, pare
   -- Block Volume: 4 Byte Signed Fixed Width Integer
   index = dissect.block_volume(buffer, index, packet, parent)
 
-  -- EFS Volume: 4 Byte Signed Fixed Width Integer
+  -- Efs Volume: 4 Byte Signed Fixed Width Integer
   index = dissect.efs_volume(buffer, index, packet, parent)
 
-  -- EFP Volume: 4 Byte Signed Fixed Width Integer
+  -- Efp Volume: 4 Byte Signed Fixed Width Integer
   index = dissect.efp_volume(buffer, index, packet, parent)
 
   -- High: 8 Byte Signed Fixed Width Integer
@@ -5207,7 +5200,7 @@ dissect.market_statistics_message_fields = function(buffer, offset, packet, pare
   -- Low: 8 Byte Signed Fixed Width Integer
   index = dissect.low(buffer, index, packet, parent)
 
-  -- VWAP: 8 Byte Signed Fixed Width Integer
+  -- Vwap: 8 Byte Signed Fixed Width Integer
   index = dissect.vwap(buffer, index, packet, parent)
 
   -- Date Time: 8 Byte Signed Fixed Width Integer
@@ -5266,15 +5259,15 @@ dissect.old_off_market_trade_type = function(buffer, offset, packet, parent)
   return offset + size_of.old_off_market_trade_type
 end
 
--- Size: Trade ID
+-- Size: Trade Id
 size_of.trade_id = 8
 
--- Display: Trade ID
+-- Display: Trade Id
 display.trade_id = function(value)
-  return "Trade ID: "..value
+  return "Trade Id: "..value
 end
 
--- Dissect: Trade ID
+-- Dissect: Trade Id
 dissect.trade_id = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.trade_id)
   local value = range:int64()
@@ -5294,10 +5287,10 @@ end
 dissect.cancelled_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
-  -- Trade ID: 8 Byte Signed Fixed Width Integer
+  -- Trade Id: 8 Byte Signed Fixed Width Integer
   index = dissect.trade_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
@@ -5339,10 +5332,10 @@ end
 dissect.investigated_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
-  -- Trade ID: 8 Byte Signed Fixed Width Integer
+  -- Trade Id: 8 Byte Signed Fixed Width Integer
   index = dissect.trade_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
@@ -5463,10 +5456,10 @@ end
 dissect.spot_market_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
-  -- Trade ID: 8 Byte Signed Fixed Width Integer
+  -- Trade Id: 8 Byte Signed Fixed Width Integer
   index = dissect.trade_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
@@ -5590,10 +5583,10 @@ end
 dissect.trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
-  -- Trade ID: 8 Byte Signed Fixed Width Integer
+  -- Trade Id: 8 Byte Signed Fixed Width Integer
   index = dissect.trade_id(buffer, index, packet, parent)
 
   -- Is System Priced Leg: 1 Byte Ascii String
@@ -5704,34 +5697,34 @@ dissect.is_settle_price_official = function(buffer, offset, packet, parent)
   return offset + size_of.is_settle_price_official
 end
 
--- Size: Reserved Field1
-size_of.reserved_field1 = 2
+-- Size: Reserved Field 1
+size_of.reserved_field_1 = 2
 
--- Display: Reserved Field1
-display.reserved_field1 = function(value)
-  return "Reserved Field1: "..value
+-- Display: Reserved Field 1
+display.reserved_field_1 = function(value)
+  return "Reserved Field 1: "..value
 end
 
--- Dissect: Reserved Field1
-dissect.reserved_field1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved_field1)
+-- Dissect: Reserved Field 1
+dissect.reserved_field_1 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.reserved_field_1)
   local value = range:bytes():tohex(false, " ")
-  local display = display.reserved_field1(value, buffer, offset, packet, parent)
+  local display = display.reserved_field_1(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_24.fields.reserved_field1, range, value, display)
+  parent:add(ice_mdf_impact_v1_1_24.fields.reserved_field_1, range, value, display)
 
-  return offset + size_of.reserved_field1
+  return offset + size_of.reserved_field_1
 end
 
--- Size: Last Message Sequence ID
+-- Size: Last Message Sequence Id
 size_of.last_message_sequence_id = 4
 
--- Display: Last Message Sequence ID
+-- Display: Last Message Sequence Id
 display.last_message_sequence_id = function(value)
-  return "Last Message Sequence ID: "..value
+  return "Last Message Sequence Id: "..value
 end
 
--- Dissect: Last Message Sequence ID
+-- Dissect: Last Message Sequence Id
 dissect.last_message_sequence_id = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.last_message_sequence_id)
   local value = range:int()
@@ -5865,7 +5858,7 @@ end
 dissect.market_snapshot_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market ID: 4 Byte Signed Fixed Width Integer
+  -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
   -- Market Type: 2 Byte Signed Fixed Width Integer
@@ -5880,10 +5873,10 @@ dissect.market_snapshot_message_fields = function(buffer, offset, packet, parent
   -- Block Volume: 4 Byte Signed Fixed Width Integer
   index = dissect.block_volume(buffer, index, packet, parent)
 
-  -- EFS Volume: 4 Byte Signed Fixed Width Integer
+  -- Efs Volume: 4 Byte Signed Fixed Width Integer
   index = dissect.efs_volume(buffer, index, packet, parent)
 
-  -- EFP Volume: 4 Byte Signed Fixed Width Integer
+  -- Efp Volume: 4 Byte Signed Fixed Width Integer
   index = dissect.efp_volume(buffer, index, packet, parent)
 
   -- Open Interest: 4 Byte Signed Fixed Width Integer
@@ -5901,7 +5894,7 @@ dissect.market_snapshot_message_fields = function(buffer, offset, packet, parent
   -- Low: 8 Byte Signed Fixed Width Integer
   index = dissect.low(buffer, index, packet, parent)
 
-  -- VWAP: 8 Byte Signed Fixed Width Integer
+  -- Vwap: 8 Byte Signed Fixed Width Integer
   index = dissect.vwap(buffer, index, packet, parent)
 
   -- Num Of Book Entries: 4 Byte Signed Fixed Width Integer
@@ -5919,11 +5912,11 @@ dissect.market_snapshot_message_fields = function(buffer, offset, packet, parent
   -- Settle Price Date Time: 8 Byte Signed Fixed Width Integer
   index = dissect.settle_price_date_time(buffer, index, packet, parent)
 
-  -- Last Message Sequence ID: 4 Byte Signed Fixed Width Integer
+  -- Last Message Sequence Id: 4 Byte Signed Fixed Width Integer
   index = dissect.last_message_sequence_id(buffer, index, packet, parent)
 
-  -- Reserved Field1: 2 Byte
-  index = dissect.reserved_field1(buffer, index, packet, parent)
+  -- Reserved Field 1: 2 Byte
+  index = dissect.reserved_field_1(buffer, index, packet, parent)
 
   -- Open Interest Date: 10 Byte Ascii String
   index = dissect.open_interest_date(buffer, index, packet, parent)
@@ -6009,7 +6002,7 @@ size_of.payload = function(buffer, offset, code)
   if code == "z" then
     return 61
   end
-  -- Size of End of Day Market Summary Message
+  -- Size of End Of Day Market Summary Message
   if code == "u" then
     return 80
   end
@@ -6045,7 +6038,7 @@ size_of.payload = function(buffer, offset, code)
   if code == "D" then
     return 41
   end
-  -- Size of Add or Modify Order Message
+  -- Size of Add Or Modify Order Message
   if code == "E" then
     return 42
   end
@@ -6089,7 +6082,7 @@ size_of.payload = function(buffer, offset, code)
   if code == "l" then
     return 321
   end
-  -- Size of RFQ Message
+  -- Size of Rfq Message
   if code == "k" then
     return 31
   end
@@ -6101,7 +6094,7 @@ size_of.payload = function(buffer, offset, code)
   if code == "w" then
     return 53
   end
-  -- Size of Old Style Options Trade and Market Stats Message
+  -- Size of Old Style Options Trade And Market Stats Message
   if code == "W" then
     return 36
   end
@@ -6168,7 +6161,7 @@ dissect.payload_branches = function(buffer, offset, packet, parent, code)
   if code == "z" then
     return dissect.marker_index_prices(buffer, offset, packet, parent)
   end
-  -- Dissect End of Day Market Summary Message
+  -- Dissect End Of Day Market Summary Message
   if code == "u" then
     return dissect.end_of_day_market_summary_message(buffer, offset, packet, parent)
   end
@@ -6204,7 +6197,7 @@ dissect.payload_branches = function(buffer, offset, packet, parent, code)
   if code == "D" then
     return dissect.market_snapshot_order_message(buffer, offset, packet, parent)
   end
-  -- Dissect Add or Modify Order Message
+  -- Dissect Add Or Modify Order Message
   if code == "E" then
     return dissect.add_or_modify_order_message(buffer, offset, packet, parent)
   end
@@ -6248,7 +6241,7 @@ dissect.payload_branches = function(buffer, offset, packet, parent, code)
   if code == "l" then
     return dissect.new_options_market_definition_message(buffer, offset, packet, parent)
   end
-  -- Dissect RFQ Message
+  -- Dissect Rfq Message
   if code == "k" then
     return dissect.rfq_message(buffer, offset, packet, parent)
   end
@@ -6260,7 +6253,7 @@ dissect.payload_branches = function(buffer, offset, packet, parent, code)
   if code == "w" then
     return dissect.option_settlement_price_message(buffer, offset, packet, parent)
   end
-  -- Dissect Old Style Options Trade and Market Stats Message
+  -- Dissect Old Style Options Trade And Market Stats Message
   if code == "W" then
     return dissect.old_style_options_trade_and_market_stats_message(buffer, offset, packet, parent)
   end
@@ -6352,7 +6345,7 @@ display.message_type = function(value)
     return "Message Type: Marker Index Prices (z)"
   end
   if value == "u" then
-    return "Message Type: End of Day Market Summary Message (u)"
+    return "Message Type: End Of Day Market Summary Message (u)"
   end
   if value == "f" then
     return "Message Type: Market Event Message (f)"
@@ -6379,7 +6372,7 @@ display.message_type = function(value)
     return "Message Type: Market Snapshot Order Message (D)"
   end
   if value == "E" then
-    return "Message Type: Add or Modify Order Message (E)"
+    return "Message Type: Add Or Modify Order Message (E)"
   end
   if value == "F" then
     return "Message Type: Delete Order Message (F)"
@@ -6412,7 +6405,7 @@ display.message_type = function(value)
     return "Message Type: New Options Market Definition Message (l)"
   end
   if value == "k" then
-    return "Message Type: RFQ Message (k)"
+    return "Message Type: Rfq Message (k)"
   end
   if value == "v" then
     return "Message Type: Option Open Interest Message (v)"
@@ -6421,7 +6414,7 @@ display.message_type = function(value)
     return "Message Type: Option Settlement Price Message (w)"
   end
   if value == "W" then
-    return "Message Type: Old Style Options Trade and Market Stats Message (W)"
+    return "Message Type: Old Style Options Trade And Market Stats Message (W)"
   end
 
   return "Message Type: Unknown("..value..")"
