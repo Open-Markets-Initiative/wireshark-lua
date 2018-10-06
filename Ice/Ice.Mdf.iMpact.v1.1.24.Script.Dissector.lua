@@ -55,6 +55,7 @@ ice_mdf_impact_v1_1_24.fields.end_month = ProtoField.new("End Month", "ice.mdf.i
 ice_mdf_impact_v1_1_24.fields.end_of_day_market_summary_message = ProtoField.new("End Of Day Market Summary Message", "ice.mdf.impact.v1.1.24.endofdaymarketsummarymessage", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.end_year = ProtoField.new("End Year", "ice.mdf.impact.v1.1.24.endyear", ftypes.INT16)
 ice_mdf_impact_v1_1_24.fields.eur_price = ProtoField.new("Eur Price", "ice.mdf.impact.v1.1.24.eurprice", ftypes.INT64)
+ice_mdf_impact_v1_1_24.fields.event_code = ProtoField.new("Event Code", "ice.mdf.impact.v1.1.24.eventcode", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.event_type = ProtoField.new("Event Type", "ice.mdf.impact.v1.1.24.eventtype", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.extra_flags = ProtoField.new("Extra Flags", "ice.mdf.impact.v1.1.24.extraflags", ftypes.INT8, {[1]="Yes",[0]="No"})
 ice_mdf_impact_v1_1_24.fields.fixing_lockdown_message = ProtoField.new("Fixing Lockdown Message", "ice.mdf.impact.v1.1.24.fixinglockdownmessage", ftypes.STRING)
@@ -231,6 +232,7 @@ ice_mdf_impact_v1_1_24.fields.threshold_imbalance_qty = ProtoField.new("Threshol
 ice_mdf_impact_v1_1_24.fields.tick_value = ProtoField.new("Tick Value", "ice.mdf.impact.v1.1.24.tickvalue", ftypes.INT64)
 ice_mdf_impact_v1_1_24.fields.time = ProtoField.new("Time", "ice.mdf.impact.v1.1.24.time", ftypes.INT64)
 ice_mdf_impact_v1_1_24.fields.timestamp = ProtoField.new("Timestamp", "ice.mdf.impact.v1.1.24.timestamp", ftypes.UINT64)
+ice_mdf_impact_v1_1_24.fields.total_volume = ProtoField.new("Total Volume", "ice.mdf.impact.v1.1.24.totalvolume", ftypes.INT32)
 ice_mdf_impact_v1_1_24.fields.trade_id = ProtoField.new("Trade Id", "ice.mdf.impact.v1.1.24.tradeid", ftypes.INT64)
 ice_mdf_impact_v1_1_24.fields.trade_message = ProtoField.new("Trade Message", "ice.mdf.impact.v1.1.24.trademessage", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.trading_status = ProtoField.new("Trading Status", "ice.mdf.impact.v1.1.24.tradingstatus", ftypes.STRING)
@@ -661,6 +663,196 @@ dissect.block_volume = function(buffer, offset, packet, parent)
   return offset + size_of.block_volume
 end
 
+-- Size: Total Volume
+size_of.total_volume = 4
+
+-- Display: Total Volume
+display.total_volume = function(value)
+  return "Total Volume: "..value
+end
+
+-- Dissect: Total Volume
+dissect.total_volume = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.total_volume)
+  local value = range:int()
+  local display = display.total_volume(value, buffer, offset, packet, parent)
+
+  parent:add(ice_mdf_impact_v1_1_24.fields.total_volume, range, value, display)
+
+  return offset + size_of.total_volume
+end
+
+-- Size: Event Code
+size_of.event_code = 1
+
+-- Display: Event Code
+display.event_code = function(value)
+  return "Event Code: "..value
+end
+
+-- Dissect: Event Code
+dissect.event_code = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.event_code)
+  local value = range:string()
+  local display = display.event_code(value, buffer, offset, packet, parent)
+
+  parent:add(ice_mdf_impact_v1_1_24.fields.event_code, range, value, display)
+
+  return offset + size_of.event_code
+end
+
+-- Size: Strike Price
+size_of.strike_price = 8
+
+-- Display: Strike Price
+display.strike_price = function(value)
+  return "Strike Price: "..value
+end
+
+-- Dissect: Strike Price
+dissect.strike_price = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.strike_price)
+  local value = range:int64()
+  local display = display.strike_price(value, buffer, offset, packet, parent)
+
+  parent:add(ice_mdf_impact_v1_1_24.fields.strike_price, range, value, display)
+
+  return offset + size_of.strike_price
+end
+
+-- Size: Option Type
+size_of.option_type = 1
+
+-- Display: Option Type
+display.option_type = function(value)
+  return "Option Type: "..value
+end
+
+-- Dissect: Option Type
+dissect.option_type = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.option_type)
+  local value = range:string()
+  local display = display.option_type(value, buffer, offset, packet, parent)
+
+  parent:add(ice_mdf_impact_v1_1_24.fields.option_type, range, value, display)
+
+  return offset + size_of.option_type
+end
+
+-- Size: Transact Date Time
+size_of.transact_date_time = 8
+
+-- Display: Transact Date Time
+display.transact_date_time = function(value)
+  return "Transact Date Time: "..value
+end
+
+-- Dissect: Transact Date Time
+dissect.transact_date_time = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.transact_date_time)
+  local value = range:int64()
+  local display = display.transact_date_time(value, buffer, offset, packet, parent)
+
+  parent:add(ice_mdf_impact_v1_1_24.fields.transact_date_time, range, value, display)
+
+  return offset + size_of.transact_date_time
+end
+
+-- Size: Off Market Trade Type
+size_of.off_market_trade_type = 3
+
+-- Display: Off Market Trade Type
+display.off_market_trade_type = function(value)
+  return "Off Market Trade Type: "..value
+end
+
+-- Dissect: Off Market Trade Type
+dissect.off_market_trade_type = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.off_market_trade_type)
+  local value = range:string()
+  local display = display.off_market_trade_type(value, buffer, offset, packet, parent)
+
+  parent:add(ice_mdf_impact_v1_1_24.fields.off_market_trade_type, range, value, display)
+
+  return offset + size_of.off_market_trade_type
+end
+
+-- Size: Quantity
+size_of.quantity = 4
+
+-- Display: Quantity
+display.quantity = function(value)
+  return "Quantity: "..value
+end
+
+-- Dissect: Quantity
+dissect.quantity = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.quantity)
+  local value = range:int()
+  local display = display.quantity(value, buffer, offset, packet, parent)
+
+  parent:add(ice_mdf_impact_v1_1_24.fields.quantity, range, value, display)
+
+  return offset + size_of.quantity
+end
+
+-- Size: Price
+size_of.price = 8
+
+-- Display: Price
+display.price = function(value)
+  return "Price: "..value
+end
+
+-- Dissect: Price
+dissect.price = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.price)
+  local value = range:int64()
+  local display = display.price(value, buffer, offset, packet, parent)
+
+  parent:add(ice_mdf_impact_v1_1_24.fields.price, range, value, display)
+
+  return offset + size_of.price
+end
+
+-- Size: Trade Id
+size_of.trade_id = 8
+
+-- Display: Trade Id
+display.trade_id = function(value)
+  return "Trade Id: "..value
+end
+
+-- Dissect: Trade Id
+dissect.trade_id = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.trade_id)
+  local value = range:int64()
+  local display = display.trade_id(value, buffer, offset, packet, parent)
+
+  parent:add(ice_mdf_impact_v1_1_24.fields.trade_id, range, value, display)
+
+  return offset + size_of.trade_id
+end
+
+-- Size: Underlying Market Id
+size_of.underlying_market_id = 4
+
+-- Display: Underlying Market Id
+display.underlying_market_id = function(value)
+  return "Underlying Market Id: "..value
+end
+
+-- Dissect: Underlying Market Id
+dissect.underlying_market_id = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.underlying_market_id)
+  local value = range:int()
+  local display = display.underlying_market_id(value, buffer, offset, packet, parent)
+
+  parent:add(ice_mdf_impact_v1_1_24.fields.underlying_market_id, range, value, display)
+
+  return offset + size_of.underlying_market_id
+end
+
 -- Display: Old Style Options Trade And Market Stats Message
 display.old_style_options_trade_and_market_stats_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -669,6 +861,36 @@ end
 -- Dissect Fields: Old Style Options Trade And Market Stats Message
 dissect.old_style_options_trade_and_market_stats_message_fields = function(buffer, offset, packet, parent)
   local index = offset
+
+  -- Underlying Market Id: 4 Byte Signed Fixed Width Integer
+  index = dissect.underlying_market_id(buffer, index, packet, parent)
+
+  -- Trade Id: 8 Byte Signed Fixed Width Integer
+  index = dissect.trade_id(buffer, index, packet, parent)
+
+  -- Price: 8 Byte Signed Fixed Width Integer
+  index = dissect.price(buffer, index, packet, parent)
+
+  -- Quantity: 4 Byte Signed Fixed Width Integer
+  index = dissect.quantity(buffer, index, packet, parent)
+
+  -- Off Market Trade Type: 3 Byte Ascii String
+  index = dissect.off_market_trade_type(buffer, index, packet, parent)
+
+  -- Transact Date Time: 8 Byte Signed Fixed Width Integer
+  index = dissect.transact_date_time(buffer, index, packet, parent)
+
+  -- Option Type: 1 Byte Ascii String
+  index = dissect.option_type(buffer, index, packet, parent)
+
+  -- Strike Price: 8 Byte Signed Fixed Width Integer
+  index = dissect.strike_price(buffer, index, packet, parent)
+
+  -- Event Code: 1 Byte Ascii String
+  index = dissect.event_code(buffer, index, packet, parent)
+
+  -- Total Volume: 4 Byte Signed Fixed Width Integer
+  index = dissect.total_volume(buffer, index, packet, parent)
 
   -- Block Volume: 4 Byte Signed Fixed Width Integer
   index = dissect.block_volume(buffer, index, packet, parent)
@@ -695,7 +917,7 @@ end
 dissect.old_style_options_trade_and_market_stats_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.old_style_options_trade_and_market_stats_message then
-    local range = buffer(offset, 36)
+    local range = buffer(offset, 85)
     local display = display.old_style_options_trade_and_market_stats_message(buffer, packet, parent)
     parent = parent:add(ice_mdf_impact_v1_1_24.fields.old_style_options_trade_and_market_stats_message, range, display)
   end
@@ -994,44 +1216,6 @@ dissect.side = function(buffer, offset, packet, parent)
   parent:add(ice_mdf_impact_v1_1_24.fields.side, range, value, display)
 
   return offset + size_of.side
-end
-
--- Size: Quantity
-size_of.quantity = 4
-
--- Display: Quantity
-display.quantity = function(value)
-  return "Quantity: "..value
-end
-
--- Dissect: Quantity
-dissect.quantity = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.quantity)
-  local value = range:int()
-  local display = display.quantity(value, buffer, offset, packet, parent)
-
-  parent:add(ice_mdf_impact_v1_1_24.fields.quantity, range, value, display)
-
-  return offset + size_of.quantity
-end
-
--- Size: Underlying Market Id
-size_of.underlying_market_id = 4
-
--- Display: Underlying Market Id
-display.underlying_market_id = function(value)
-  return "Underlying Market Id: "..value
-end
-
--- Dissect: Underlying Market Id
-dissect.underlying_market_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.underlying_market_id)
-  local value = range:int()
-  local display = display.underlying_market_id(value, buffer, offset, packet, parent)
-
-  parent:add(ice_mdf_impact_v1_1_24.fields.underlying_market_id, range, value, display)
-
-  return offset + size_of.underlying_market_id
 end
 
 -- Size: Market Type Id
@@ -1571,44 +1755,6 @@ dissect.deal_price_denominator = function(buffer, offset, packet, parent)
   parent:add(ice_mdf_impact_v1_1_24.fields.deal_price_denominator, range, value, display)
 
   return offset + size_of.deal_price_denominator
-end
-
--- Size: Strike Price
-size_of.strike_price = 8
-
--- Display: Strike Price
-display.strike_price = function(value)
-  return "Strike Price: "..value
-end
-
--- Dissect: Strike Price
-dissect.strike_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.strike_price)
-  local value = range:int64()
-  local display = display.strike_price(value, buffer, offset, packet, parent)
-
-  parent:add(ice_mdf_impact_v1_1_24.fields.strike_price, range, value, display)
-
-  return offset + size_of.strike_price
-end
-
--- Size: Option Type
-size_of.option_type = 1
-
--- Display: Option Type
-display.option_type = function(value)
-  return "Option Type: "..value
-end
-
--- Dissect: Option Type
-dissect.option_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.option_type)
-  local value = range:string()
-  local display = display.option_type(value, buffer, offset, packet, parent)
-
-  parent:add(ice_mdf_impact_v1_1_24.fields.option_type, range, value, display)
-
-  return offset + size_of.option_type
 end
 
 -- Size: Market Desc
@@ -2462,25 +2608,6 @@ dissect.order_count = function(buffer, offset, packet, parent)
   parent:add(ice_mdf_impact_v1_1_24.fields.order_count, range, value, display)
 
   return offset + size_of.order_count
-end
-
--- Size: Price
-size_of.price = 8
-
--- Display: Price
-display.price = function(value)
-  return "Price: "..value
-end
-
--- Dissect: Price
-dissect.price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price)
-  local value = range:int64()
-  local display = display.price(value, buffer, offset, packet, parent)
-
-  parent:add(ice_mdf_impact_v1_1_24.fields.price, range, value, display)
-
-  return offset + size_of.price
 end
 
 -- Display: Change Price Level Message
@@ -4877,6 +5004,12 @@ end
 dissect.settlement_price_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
+  -- Market Id: 4 Byte Signed Fixed Width Integer
+  index = dissect.market_id(buffer, index, packet, parent)
+
+  -- Settlement Price With Deal Price Precision: 8 Byte Signed Fixed Width Integer
+  index = dissect.settlement_price_with_deal_price_precision(buffer, index, packet, parent)
+
   -- Date Time: 8 Byte Signed Fixed Width Integer
   index = dissect.date_time(buffer, index, packet, parent)
 
@@ -4896,7 +5029,7 @@ end
 dissect.settlement_price_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.settlement_price_message then
-    local range = buffer(offset, 25)
+    local range = buffer(offset, 37)
     local display = display.settlement_price_message(buffer, packet, parent)
     parent = parent:add(ice_mdf_impact_v1_1_24.fields.settlement_price_message, range, display)
   end
@@ -5221,25 +5354,6 @@ dissect.market_statistics_message = function(buffer, offset, packet, parent)
   return dissect.market_statistics_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Off Market Trade Type
-size_of.off_market_trade_type = 3
-
--- Display: Off Market Trade Type
-display.off_market_trade_type = function(value)
-  return "Off Market Trade Type: "..value
-end
-
--- Dissect: Off Market Trade Type
-dissect.off_market_trade_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.off_market_trade_type)
-  local value = range:string()
-  local display = display.off_market_trade_type(value, buffer, offset, packet, parent)
-
-  parent:add(ice_mdf_impact_v1_1_24.fields.off_market_trade_type, range, value, display)
-
-  return offset + size_of.off_market_trade_type
-end
-
 -- Size: Old Off Market Trade Type
 size_of.old_off_market_trade_type = 1
 
@@ -5257,25 +5371,6 @@ dissect.old_off_market_trade_type = function(buffer, offset, packet, parent)
   parent:add(ice_mdf_impact_v1_1_24.fields.old_off_market_trade_type, range, value, display)
 
   return offset + size_of.old_off_market_trade_type
-end
-
--- Size: Trade Id
-size_of.trade_id = 8
-
--- Display: Trade Id
-display.trade_id = function(value)
-  return "Trade Id: "..value
-end
-
--- Dissect: Trade Id
-dissect.trade_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trade_id)
-  local value = range:int64()
-  local display = display.trade_id(value, buffer, offset, packet, parent)
-
-  parent:add(ice_mdf_impact_v1_1_24.fields.trade_id, range, value, display)
-
-  return offset + size_of.trade_id
 end
 
 -- Display: Cancelled Trade Message
@@ -5426,25 +5521,6 @@ dissect.delivery_begin_date_time = function(buffer, offset, packet, parent)
   parent:add(ice_mdf_impact_v1_1_24.fields.delivery_begin_date_time, range, value, display)
 
   return offset + size_of.delivery_begin_date_time
-end
-
--- Size: Transact Date Time
-size_of.transact_date_time = 8
-
--- Display: Transact Date Time
-display.transact_date_time = function(value)
-  return "Transact Date Time: "..value
-end
-
--- Dissect: Transact Date Time
-dissect.transact_date_time = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.transact_date_time)
-  local value = range:int64()
-  local display = display.transact_date_time(value, buffer, offset, packet, parent)
-
-  parent:add(ice_mdf_impact_v1_1_24.fields.transact_date_time, range, value, display)
-
-  return offset + size_of.transact_date_time
 end
 
 -- Display: Spot Market Trade Message
@@ -5996,7 +6072,7 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Settlement Price Message
   if code == "O" then
-    return 25
+    return 37
   end
   -- Size of Marker Index Prices
   if code == "z" then
@@ -6096,7 +6172,7 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Old Style Options Trade And Market Stats Message
   if code == "W" then
-    return 36
+    return 85
   end
 
   return 0
