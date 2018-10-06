@@ -729,7 +729,17 @@ size_of.event_code = 1
 
 -- Display: Event Code
 display.event_code = function(value)
-  return "Event Code: "..value
+  if value == "0" then
+    return "Event Code: Normal Trade (0)"
+  end
+  if value == "1" then
+    return "Event Code: Cancelled Trade (1)"
+  end
+  if value == "2" then
+    return "Event Code: Adjusted Trade (2)"
+  end
+
+  return "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -767,7 +777,14 @@ size_of.option_type = 1
 
 -- Display: Option Type
 display.option_type = function(value)
-  return "Option Type: "..value
+  if value == "C" then
+    return "Option Type: Call (C)"
+  end
+  if value == "P" then
+    return "Option Type: Put (P)"
+  end
+
+  return "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -805,7 +822,38 @@ size_of.off_market_trade_type = 3
 
 -- Display: Off Market Trade Type
 display.off_market_trade_type = function(value)
-  return "Off Market Trade Type: "..value
+  if value == "" then
+    return "Off Market Trade Type: Regular (<whitespace>)"
+  end
+  if value == "K" then
+    return "Off Market Trade Type: Block (K)"
+  end
+  if value == "S" then
+    return "Off Market Trade Type: Efs (S)"
+  end
+  if value == "E" then
+    return "Off Market Trade Type: Efp (E)"
+  end
+  if value == "O" then
+    return "Off Market Trade Type: Efp Efs (O)"
+  end
+  if value == "Q" then
+    return "Off Market Trade Type: Eoo (Q)"
+  end
+  if value == "I" then
+    return "Off Market Trade Type: Efm (I)"
+  end
+  if value == "5" then
+    return "Off Market Trade Type: Guaranteed Cross (5)"
+  end
+  if value == "5" then
+    return "Off Market Trade Type: Basis (5)"
+  end
+  if value == "AA" then
+    return "Off Market Trade Type: Asset Allocation (AA)"
+  end
+
+  return "Off Market Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Off Market Trade Type
@@ -916,19 +964,19 @@ dissect.old_style_options_trade_and_market_stats_message_fields = function(buffe
   -- Quantity: 4 Byte Signed Fixed Width Integer
   index = dissect.quantity(buffer, index, packet, parent)
 
-  -- Off Market Trade Type: 3 Byte Ascii String
+  -- Off Market Trade Type: 3 Byte Ascii String Enum with 10 values
   index = dissect.off_market_trade_type(buffer, index, packet, parent)
 
   -- Transact Date Time: 8 Byte Signed Fixed Width Integer
   index = dissect.transact_date_time(buffer, index, packet, parent)
 
-  -- Option Type: 1 Byte Ascii String
+  -- Option Type: 1 Byte Ascii String Enum with 2 values
   index = dissect.option_type(buffer, index, packet, parent)
 
   -- Strike Price: 8 Byte Signed Fixed Width Integer
   index = dissect.strike_price(buffer, index, packet, parent)
 
-  -- Event Code: 1 Byte Ascii String
+  -- Event Code: 1 Byte Ascii String Enum with 3 values
   index = dissect.event_code(buffer, index, packet, parent)
 
   -- Total Volume: 4 Byte Signed Fixed Width Integer
@@ -1253,7 +1301,17 @@ size_of.side = 1
 
 -- Display: Side
 display.side = function(value)
-  return "Side: "..value
+  if value == "" then
+    return "Side: None (<whitespace>)"
+  end
+  if value == "1" then
+    return "Side: Bid (1)"
+  end
+  if value == "2" then
+    return "Side: Offer (2)"
+  end
+
+  return "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1351,7 +1409,7 @@ dissect.rfq_message_fields = function(buffer, offset, packet, parent)
   -- Quantity: 4 Byte Signed Fixed Width Integer
   index = dissect.quantity(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String
+  -- Side: 1 Byte Ascii String Enum with 3 values
   index = dissect.side(buffer, index, packet, parent)
 
   return index
@@ -1502,7 +1560,14 @@ size_of.guaranteed_cross_supported = 1
 
 -- Display: Guaranteed Cross Supported
 display.guaranteed_cross_supported = function(value)
-  return "Guaranteed Cross Supported: "..value
+  if value == "Y" then
+    return "Guaranteed Cross Supported: Yes (Y)"
+  end
+  if value == "N" then
+    return "Guaranteed Cross Supported: No (N)"
+  end
+
+  return "Guaranteed Cross Supported: Unknown("..value..")"
 end
 
 -- Dissect: Guaranteed Cross Supported
@@ -1720,7 +1785,14 @@ size_of.options_expiration_type = 1
 
 -- Display: Options Expiration Type
 display.options_expiration_type = function(value)
-  return "Options Expiration Type: "..value
+  if value == "M" then
+    return "Options Expiration Type: Monthly (M)"
+  end
+  if value == "D" then
+    return "Options Expiration Type: Daily (D)"
+  end
+
+  return "Options Expiration Type: Unknown("..value..")"
 end
 
 -- Dissect: Options Expiration Type
@@ -1739,7 +1811,23 @@ size_of.options_style = 1
 
 -- Display: Options Style
 display.options_style = function(value)
-  return "Options Style: "..value
+  if value == "A" then
+    return "Options Style: American (A)"
+  end
+  if value == "E" then
+    return "Options Style: European (E)"
+  end
+  if value == "0" then
+    return "Options Style: None (0)"
+  end
+  if value == "3" then
+    return "Options Style: Asian (3)"
+  end
+  if value == "4" then
+    return "Options Style: One Time (4)"
+  end
+
+  return "Options Style: Unknown("..value..")"
 end
 
 -- Dissect: Options Style
@@ -2106,7 +2194,7 @@ dissect.new_options_market_definition_message_fields = function(buffer, offset, 
   -- Market Desc: 120 Byte Ascii String
   index = dissect.market_desc(buffer, index, packet, parent)
 
-  -- Option Type: 1 Byte Ascii String
+  -- Option Type: 1 Byte Ascii String Enum with 2 values
   index = dissect.option_type(buffer, index, packet, parent)
 
   -- Strike Price: 8 Byte Signed Fixed Width Integer
@@ -2142,10 +2230,10 @@ dissect.new_options_market_definition_message_fields = function(buffer, offset, 
   -- Options Expiration Day: 2 Byte Signed Fixed Width Integer
   index = dissect.options_expiration_day(buffer, index, packet, parent)
 
-  -- Options Style: 1 Byte Ascii String
+  -- Options Style: 1 Byte Ascii String Enum with 5 values
   index = dissect.options_style(buffer, index, packet, parent)
 
-  -- Options Expiration Type: 1 Byte Ascii String
+  -- Options Expiration Type: 1 Byte Ascii String Enum with 2 values
   index = dissect.options_expiration_type(buffer, index, packet, parent)
 
   -- Hedge Market Id: 4 Byte Unsigned Fixed Width Integer
@@ -2175,7 +2263,7 @@ dissect.new_options_market_definition_message_fields = function(buffer, offset, 
   -- Cross Order Supported: 1 Byte Ascii String Enum with 2 values
   index = dissect.cross_order_supported(buffer, index, packet, parent)
 
-  -- Guaranteed Cross Supported: 1 Byte Ascii String
+  -- Guaranteed Cross Supported: 1 Byte Ascii String Enum with 2 values
   index = dissect.guaranteed_cross_supported(buffer, index, packet, parent)
 
   -- Unit Of Measure: 30 Byte Ascii String
@@ -2261,7 +2349,14 @@ size_of.test_market_indicator = 1
 
 -- Display: Test Market Indicator
 display.test_market_indicator = function(value)
-  return "Test Market Indicator: "..value
+  if value == "Y" then
+    return "Test Market Indicator: Yes (Y)"
+  end
+  if value == "N" then
+    return "Test Market Indicator: No (N)"
+  end
+
+  return "Test Market Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Test Market Indicator
@@ -2299,7 +2394,368 @@ size_of.security_sub_type = 2
 
 -- Display: Security Sub Type
 display.security_sub_type = function(value)
-  return "Security Sub Type: "..value
+  if value == 0 then
+    return "Security Sub Type: None (0)"
+  end
+  if value == 1 then
+    return "Security Sub Type: Call (1)"
+  end
+  if value == 2 then
+    return "Security Sub Type: Put (2)"
+  end
+  if value == 3 then
+    return "Security Sub Type: Futures Butterfly (3)"
+  end
+  if value == 4 then
+    return "Security Sub Type: Call Butterfly (4)"
+  end
+  if value == 5 then
+    return "Security Sub Type: Put Butterfly (5)"
+  end
+  if value == 6 then
+    return "Security Sub Type: Call Spread (6)"
+  end
+  if value == 7 then
+    return "Security Sub Type: Put Spread (7)"
+  end
+  if value == 9 then
+    return "Security Sub Type: Diagonal Call Spread (9)"
+  end
+  if value == 10 then
+    return "Security Sub Type: Diagonal Put Spread (10)"
+  end
+  if value == 11 then
+    return "Security Sub Type: Gut Strangle (11)"
+  end
+  if value == 12 then
+    return "Security Sub Type: 1X2 Call Spread To The 2 (12)"
+  end
+  if value == 13 then
+    return "Security Sub Type: 1X2 Put Spread To The 2 (13)"
+  end
+  if value == 14 then
+    return "Security Sub Type: Iron Butterfly (14)"
+  end
+  if value == 16 then
+    return "Security Sub Type: Strangle (16)"
+  end
+  if value == 17 then
+    return "Security Sub Type: Call Ladder Tree (17)"
+  end
+  if value == 18 then
+    return "Security Sub Type: Put Ladder Tree (18)"
+  end
+  if value == 19 then
+    return "Security Sub Type: Straddle Spread (19)"
+  end
+  if value == 21 then
+    return "Security Sub Type: Reversal Conversion To The Call (21)"
+  end
+  if value == 21 then
+    return "Security Sub Type: Reversal Conversion To The Put (21)"
+  end
+  if value == 22 then
+    return "Security Sub Type: Straddle (22)"
+  end
+  if value == 23 then
+    return "Security Sub Type: Futures Condor (23)"
+  end
+  if value == 24 then
+    return "Security Sub Type: Call Condor (24)"
+  end
+  if value == 25 then
+    return "Security Sub Type: Put Condor (25)"
+  end
+  if value == 26 then
+    return "Security Sub Type: Box (26)"
+  end
+  if value == 33 then
+    return "Security Sub Type: Synthetic Underlying (33)"
+  end
+  if value == 34 then
+    return "Security Sub Type: Call Spread Vs Put3 Way (34)"
+  end
+  if value == 35 then
+    return "Security Sub Type: Put Spread Vs Call3 Way (35)"
+  end
+  if value == 36 then
+    return "Security Sub Type: Straddle Vs Call3 Way (36)"
+  end
+  if value == 37 then
+    return "Security Sub Type: Straddle Vs Put3 Way (37)"
+  end
+  if value == 38 then
+    return "Security Sub Type: Call Calendar Spread (38)"
+  end
+  if value == 39 then
+    return "Security Sub Type: Put Calendar Spread (39)"
+  end
+  if value == 40 then
+    return "Security Sub Type: Iron Condor (40)"
+  end
+  if value == 41 then
+    return "Security Sub Type: Jelly Roll (41)"
+  end
+  if value == 42 then
+    return "Security Sub Type: Hedged1X2 Call Spread To The 2 (42)"
+  end
+  if value == 43 then
+    return "Security Sub Type: Hedged1X2 Put Spread To The 2 (43)"
+  end
+  if value == 44 then
+    return "Security Sub Type: Call Spread Versus Sell Put Hedge (44)"
+  end
+  if value == 45 then
+    return "Security Sub Type: Put Spread Versus Sell Call+ Hedge (45)"
+  end
+  if value == 46 then
+    return "Security Sub Type: Hedged Call Calendar (46)"
+  end
+  if value == 47 then
+    return "Security Sub Type: Hedged Put Calendar (47)"
+  end
+  if value == 48 then
+    return "Security Sub Type: Hedged Call Ladder Tree (48)"
+  end
+  if value == 49 then
+    return "Security Sub Type: Hedged Put Ladder Tree (49)"
+  end
+  if value == 50 then
+    return "Security Sub Type: Hedged Call Spread (50)"
+  end
+  if value == 51 then
+    return "Security Sub Type: Hedged Put Spread (51)"
+  end
+  if value == 53 then
+    return "Security Sub Type: Hedged Straddle (53)"
+  end
+  if value == 54 then
+    return "Security Sub Type: Hedged Strangle (54)"
+  end
+  if value == 55 then
+    return "Security Sub Type: Hedged Call (55)"
+  end
+  if value == 56 then
+    return "Security Sub Type: Hedged Put (56)"
+  end
+  if value == 58 then
+    return "Security Sub Type: Custom (58)"
+  end
+  if value == 59 then
+    return "Security Sub Type: Hedged Straddle Spread (59)"
+  end
+  if value == 60 then
+    return "Security Sub Type: Hedged Call Condor (60)"
+  end
+  if value == 61 then
+    return "Security Sub Type: Hedged Put Condor (61)"
+  end
+  if value == 63 then
+    return "Security Sub Type: Hedged Diagonal Call Spread (63)"
+  end
+  if value == 64 then
+    return "Security Sub Type: Hedged Diagonal Put Spread (64)"
+  end
+  if value == 65 then
+    return "Security Sub Type: Hedged Call Butterlfy (65)"
+  end
+  if value == 66 then
+    return "Security Sub Type: Hedged Put Butterlfy (66)"
+  end
+  if value == 67 then
+    return "Security Sub Type: Hedged Guts Strangle (67)"
+  end
+  if value == 68 then
+    return "Security Sub Type: Hedged Iron Condor (68)"
+  end
+  if value == 69 then
+    return "Security Sub Type: Hedged Iron Butterfly (69)"
+  end
+  if value == 70 then
+    return "Security Sub Type: Fence To The Call (70)"
+  end
+  if value == 71 then
+    return "Security Sub Type: Fence To The Put (71)"
+  end
+  if value == 72 then
+    return "Security Sub Type: Hedged Fence To The Call (72)"
+  end
+  if value == 73 then
+    return "Security Sub Type: Hedged Fence To The Put (73)"
+  end
+  if value == 74 then
+    return "Security Sub Type: 1X2 Call Spread To The 1 (74)"
+  end
+  if value == 75 then
+    return "Security Sub Type: 1X2 Put Spread To The 1 (75)"
+  end
+  if value == 76 then
+    return "Security Sub Type: Hedged1X2 Call Spread To The 1 (76)"
+  end
+  if value == 77 then
+    return "Security Sub Type: Hedged1X2 Put Spread To The 1 (77)"
+  end
+  if value == 88 then
+    return "Security Sub Type: Discount Spreads (88)"
+  end
+  if value == 89 then
+    return "Security Sub Type: Location Spreads (89)"
+  end
+  if value == 90 then
+    return "Security Sub Type: Platts Diff Spread (90)"
+  end
+  if value == 91 then
+    return "Security Sub Type: Platts Spread (91)"
+  end
+  if value == 92 then
+    return "Security Sub Type: Otc Gas Oil Crack (92)"
+  end
+  if value == 93 then
+    return "Security Sub Type: Balmo Over Month (93)"
+  end
+  if value == 94 then
+    return "Security Sub Type: Ratio Spread (94)"
+  end
+  if value == 95 then
+    return "Security Sub Type: Volumetric Spread (95)"
+  end
+  if value == 96 then
+    return "Security Sub Type: Heat Rate (96)"
+  end
+  if value == 97 then
+    return "Security Sub Type: Crack Spread (97)"
+  end
+  if value == 98 then
+    return "Security Sub Type: Combo Spread (98)"
+  end
+  if value == 99 then
+    return "Security Sub Type: Spread S (99)"
+  end
+  if value == 100 then
+    return "Security Sub Type: Packno Color (100)"
+  end
+  if value == 101 then
+    return "Security Sub Type: Pack White (101)"
+  end
+  if value == 102 then
+    return "Security Sub Type: Pack Red (102)"
+  end
+  if value == 103 then
+    return "Security Sub Type: Pack Green (103)"
+  end
+  if value == 104 then
+    return "Security Sub Type: Pack Blue (104)"
+  end
+  if value == 105 then
+    return "Security Sub Type: Pack Gold (105)"
+  end
+  if value == 106 then
+    return "Security Sub Type: Pack Purple (106)"
+  end
+  if value == 107 then
+    return "Security Sub Type: Pack Orange (107)"
+  end
+  if value == 108 then
+    return "Security Sub Type: Pack Pink (108)"
+  end
+  if value == 109 then
+    return "Security Sub Type: Pack Silver (109)"
+  end
+  if value == 110 then
+    return "Security Sub Type: Pack Copper (110)"
+  end
+  if value == 200 then
+    return "Security Sub Type: Bundle No Color (200)"
+  end
+  if value == 201 then
+    return "Security Sub Type: Bundle2 Yr (201)"
+  end
+  if value == 202 then
+    return "Security Sub Type: Bundle3 Yr (202)"
+  end
+  if value == 203 then
+    return "Security Sub Type: Bundle4 Yr (203)"
+  end
+  if value == 204 then
+    return "Security Sub Type: Bundle5 Yr (204)"
+  end
+  if value == 205 then
+    return "Security Sub Type: Bundle6 Yr (205)"
+  end
+  if value == 206 then
+    return "Security Sub Type: Bundle7 Yr (206)"
+  end
+  if value == 207 then
+    return "Security Sub Type: Bundle8 Yr (207)"
+  end
+  if value == 208 then
+    return "Security Sub Type: Bundle9 Yr (208)"
+  end
+  if value == 209 then
+    return "Security Sub Type: Bundle10 Yr (209)"
+  end
+  if value == 400 then
+    return "Security Sub Type: Balmo (400)"
+  end
+  if value == 410 then
+    return "Security Sub Type: Next Day (410)"
+  end
+  if value == 411 then
+    return "Security Sub Type: Cfd (411)"
+  end
+  if value == 412 then
+    return "Security Sub Type: Weekend (412)"
+  end
+  if value == 413 then
+    return "Security Sub Type: Single Day (413)"
+  end
+  if value == 414 then
+    return "Security Sub Type: Custom Daily (414)"
+  end
+  if value == 415 then
+    return "Security Sub Type: Hourly (415)"
+  end
+  if value == 416 then
+    return "Security Sub Type: Month (416)"
+  end
+  if value == 450 then
+    return "Security Sub Type: Balweek (450)"
+  end
+  if value == 500 then
+    return "Security Sub Type: Basket (500)"
+  end
+  if value == 550 then
+    return "Security Sub Type: Custom Monthly (550)"
+  end
+  if value == 600 then
+    return "Security Sub Type: Next Week (600)"
+  end
+  if value == 700 then
+    return "Security Sub Type: Period (700)"
+  end
+  if value == 711 then
+    return "Security Sub Type: Custom Daily Cfd (711)"
+  end
+  if value == 712 then
+    return "Security Sub Type: Custom Daily7X 8 (712)"
+  end
+  if value == 713 then
+    return "Security Sub Type: Custom Daily7X 16 (713)"
+  end
+  if value == 714 then
+    return "Security Sub Type: Custom Daily7X 6 (714)"
+  end
+  if value == 715 then
+    return "Security Sub Type: Custom Daily Off Peak X 16 (715)"
+  end
+  if value == 800 then
+    return "Security Sub Type: Quarter (800)"
+  end
+  if value == 900 then
+    return "Security Sub Type: Year (900)"
+  end
+
+  return "Security Sub Type: Unknown("..value..")"
 end
 
 -- Dissect: Security Sub Type
@@ -2394,7 +2850,17 @@ size_of.hedge_side = 1
 
 -- Display: Hedge Side
 display.hedge_side = function(value)
-  return "Hedge Side: "..value
+  if value == "" then
+    return "Hedge Side: None (<whitespace>)"
+  end
+  if value == "1" then
+    return "Hedge Side: Bid (1)"
+  end
+  if value == "2" then
+    return "Hedge Side: Offer (2)"
+  end
+
+  return "Hedge Side: Unknown("..value..")"
 end
 
 -- Dissect: Hedge Side
@@ -2464,7 +2930,7 @@ dissect.hedge_definition_fields = function(buffer, offset, packet, parent)
   -- Hedge Security Type: 1 Byte Ascii String
   index = dissect.hedge_security_type(buffer, index, packet, parent)
 
-  -- Hedge Side: 1 Byte Ascii String
+  -- Hedge Side: 1 Byte Ascii String Enum with 3 values
   index = dissect.hedge_side(buffer, index, packet, parent)
 
   -- Hedge Price: 8 Byte Unsigned Fixed Width Integer
@@ -2614,7 +3080,17 @@ size_of.leg_side = 1
 
 -- Display: Leg Side
 display.leg_side = function(value)
-  return "Leg Side: "..value
+  if value == "" then
+    return "Leg Side: None (<whitespace>)"
+  end
+  if value == "1" then
+    return "Leg Side: Bid (1)"
+  end
+  if value == "2" then
+    return "Leg Side: Offer (2)"
+  end
+
+  return "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
@@ -2725,7 +3201,7 @@ dissect.strategy_leg_definition_fields = function(buffer, offset, packet, parent
   -- Leg Ratio: 2 Byte Unsigned Fixed Width Integer
   index = dissect.leg_ratio(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Ascii String
+  -- Leg Side: 1 Byte Ascii String Enum with 3 values
   index = dissect.leg_side(buffer, index, packet, parent)
 
   -- Leg Strategy Code: 2 Byte Unsigned Fixed Width Integer
@@ -2886,7 +3362,7 @@ dissect.new_options_strategy_definition_message_fields = function(buffer, offset
     index = dissect.hedge_definition(buffer, index, packet, parent)
   end
 
-  -- Security Sub Type: 2 Byte Signed Fixed Width Integer
+  -- Security Sub Type: 2 Byte Signed Fixed Width Integer Enum with 120 values
   index = dissect.security_sub_type(buffer, index, packet, parent)
 
   -- Is Block Only: 1 Byte Ascii String Enum with 2 values
@@ -2910,7 +3386,7 @@ dissect.new_options_strategy_definition_message_fields = function(buffer, offset
   -- Unit Qty Denominator: 1 Byte Ascii String
   index = dissect.unit_qty_denominator(buffer, index, packet, parent)
 
-  -- Test Market Indicator: 1 Byte Ascii String
+  -- Test Market Indicator: 1 Byte Ascii String Enum with 2 values
   index = dissect.test_market_indicator(buffer, index, packet, parent)
 
   -- Contract Symbol Extra: 35 Byte Ascii String
@@ -2988,7 +3464,7 @@ dissect.delete_price_level_message_fields = function(buffer, offset, packet, par
   -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String
+  -- Side: 1 Byte Ascii String Enum with 3 values
   index = dissect.side(buffer, index, packet, parent)
 
   -- Price Level Position: 1 Byte Signed Fixed Width Integer
@@ -3081,7 +3557,7 @@ dissect.change_price_level_message_fields = function(buffer, offset, packet, par
   -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String
+  -- Side: 1 Byte Ascii String Enum with 3 values
   index = dissect.side(buffer, index, packet, parent)
 
   -- Price Level Position: 1 Byte Signed Fixed Width Integer
@@ -3132,7 +3608,7 @@ dissect.add_price_level_message_fields = function(buffer, offset, packet, parent
   -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String
+  -- Side: 1 Byte Ascii String Enum with 3 values
   index = dissect.side(buffer, index, packet, parent)
 
   -- Price Level Position: 1 Byte Signed Fixed Width Integer
@@ -3183,7 +3659,7 @@ dissect.market_snapshot_price_level_message_fields = function(buffer, offset, pa
   -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String
+  -- Side: 1 Byte Ascii String Enum with 3 values
   index = dissect.side(buffer, index, packet, parent)
 
   -- Price Level Position: 1 Byte Signed Fixed Width Integer
@@ -3426,7 +3902,14 @@ size_of.is_final = 1
 
 -- Display: Is Final
 display.is_final = function(value)
-  return "Is Final: "..value
+  if value == "Y" then
+    return "Is Final: Yes (Y)"
+  end
+  if value == "N" then
+    return "Is Final: No (N)"
+  end
+
+  return "Is Final: Unknown("..value..")"
 end
 
 -- Dissect: Is Final
@@ -3445,7 +3928,14 @@ size_of.is_balanced = 1
 
 -- Display: Is Balanced
 display.is_balanced = function(value)
-  return "Is Balanced: "..value
+  if value == "Y" then
+    return "Is Balanced: Yes (Y)"
+  end
+  if value == "N" then
+    return "Is Balanced: No (N)"
+  end
+
+  return "Is Balanced: Unknown("..value..")"
 end
 
 -- Dissect: Is Balanced
@@ -3625,10 +4115,10 @@ dissect.fixing_lockdown_message_fields = function(buffer, offset, packet, parent
   -- Usd Price: 8 Byte Signed Fixed Width Integer
   index = dissect.usd_price(buffer, index, packet, parent)
 
-  -- Is Balanced: 1 Byte Ascii String
+  -- Is Balanced: 1 Byte Ascii String Enum with 2 values
   index = dissect.is_balanced(buffer, index, packet, parent)
 
-  -- Is Final: 1 Byte Ascii String
+  -- Is Final: 1 Byte Ascii String Enum with 2 values
   index = dissect.is_final(buffer, index, packet, parent)
 
   -- Gbp Price: 8 Byte Signed Fixed Width Integer
@@ -3695,7 +4185,17 @@ size_of.status = 1
 
 -- Display: Status
 display.status = function(value)
-  return "Status: "..value
+  if value == "C" then
+    return "Status: Closed (C)"
+  end
+  if value == "P" then
+    return "Status: Preopen (P)"
+  end
+  if value == "L" then
+    return "Status: Lockdown (L)"
+  end
+
+  return "Status: Unknown("..value..")"
 end
 
 -- Dissect: Status
@@ -3721,7 +4221,7 @@ dissect.fixing_transition_message_fields = function(buffer, offset, packet, pare
   -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Ascii String
+  -- Status: 1 Byte Ascii String Enum with 3 values
   index = dissect.status(buffer, index, packet, parent)
 
   -- Auction End Time: 8 Byte Signed Fixed Width Integer
@@ -3772,7 +4272,14 @@ size_of.start_or_end = 1
 
 -- Display: Start Or End
 display.start_or_end = function(value)
-  return "Start Or End: "..value
+  if value == "S" then
+    return "Start Or End: Start (S)"
+  end
+  if value == "E" then
+    return "Start Or End: End (E)"
+  end
+
+  return "Start Or End: Unknown("..value..")"
 end
 
 -- Dissect: Start Or End
@@ -3795,7 +4302,7 @@ end
 dissect.message_bundle_marker_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Start Or End: 1 Byte Ascii String
+  -- Start Or End: 1 Byte Ascii String Enum with 2 values
   index = dissect.start_or_end(buffer, index, packet, parent)
 
   -- Trade Transaction Id: 8 Byte Signed Fixed Width Integer
@@ -4025,7 +4532,7 @@ dissect.add_or_modify_order_message_fields = function(buffer, offset, packet, pa
   -- Order Sequence Id: 2 Byte Signed Fixed Width Integer
   index = dissect.order_sequence_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String
+  -- Side: 1 Byte Ascii String Enum with 3 values
   index = dissect.side(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
@@ -4085,7 +4592,7 @@ dissect.market_snapshot_order_message_fields = function(buffer, offset, packet, 
   -- Order Sequence Id: 2 Byte Signed Fixed Width Integer
   index = dissect.order_sequence_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String
+  -- Side: 1 Byte Ascii String Enum with 3 values
   index = dissect.side(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
@@ -4984,7 +5491,7 @@ dissect.leg_definition_fields = function(buffer, offset, packet, parent)
   -- Leg Ratio: 2 Byte Unsigned Fixed Width Integer
   index = dissect.leg_ratio(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Ascii String
+  -- Leg Side: 1 Byte Ascii String Enum with 3 values
   index = dissect.leg_side(buffer, index, packet, parent)
 
   -- Leg Strategy Code: 2 Byte Unsigned Fixed Width Integer
@@ -5089,7 +5596,7 @@ dissect.new_futures_strategy_definition_message_fields = function(buffer, offset
     index = dissect.leg_definition(buffer, index, packet, parent)
   end
 
-  -- Security Sub Type: 2 Byte Signed Fixed Width Integer
+  -- Security Sub Type: 2 Byte Signed Fixed Width Integer Enum with 120 values
   index = dissect.security_sub_type(buffer, index, packet, parent)
 
   -- Is Block Only: 1 Byte Ascii String Enum with 2 values
@@ -5194,7 +5701,7 @@ dissect.new_futures_strategy_definition_message_fields = function(buffer, offset
   -- Underlying Isin: 12 Byte Ascii String
   index = dissect.underlying_isin(buffer, index, packet, parent)
 
-  -- Test Market Indicator: 1 Byte Ascii String
+  -- Test Market Indicator: 1 Byte Ascii String Enum with 2 values
   index = dissect.test_market_indicator(buffer, index, packet, parent)
 
   -- Leg Deal Suppressed: 1 Byte Ascii String Enum with 2 values
@@ -5950,7 +6457,7 @@ dissect.index_prices_message_fields = function(buffer, offset, packet, parent)
   -- Valuation Date: 10 Byte Ascii String
   index = dissect.valuation_date(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Ascii String
+  -- Status: 1 Byte Ascii String Enum with 3 values
   index = dissect.status(buffer, index, packet, parent)
 
   -- Quantity: 4 Byte Signed Fixed Width Integer
@@ -6376,7 +6883,7 @@ dissect.cancelled_trade_message_fields = function(buffer, offset, packet, parent
   -- Date Time: 8 Byte Signed Fixed Width Integer
   index = dissect.date_time(buffer, index, packet, parent)
 
-  -- Off Market Trade Type: 3 Byte Ascii String
+  -- Off Market Trade Type: 3 Byte Ascii String Enum with 10 values
   index = dissect.off_market_trade_type(buffer, index, packet, parent)
 
   return index
@@ -6450,7 +6957,7 @@ dissect.investigated_trade_message_fields = function(buffer, offset, packet, par
   -- Investigation Status: 1 Byte Ascii String Enum with 2 values
   index = dissect.investigation_status(buffer, index, packet, parent)
 
-  -- Off Market Trade Type: 3 Byte Ascii String
+  -- Off Market Trade Type: 3 Byte Ascii String Enum with 10 values
   index = dissect.off_market_trade_type(buffer, index, packet, parent)
 
   return index
@@ -6721,7 +7228,7 @@ dissect.trade_message_fields = function(buffer, offset, packet, parent)
   -- Extra Flags: 1 Byte Signed Fixed Width Integer
   index = dissect.extra_flags(buffer, index, packet, parent)
 
-  -- Off Market Trade Type: 3 Byte Ascii String
+  -- Off Market Trade Type: 3 Byte Ascii String Enum with 10 values
   index = dissect.off_market_trade_type(buffer, index, packet, parent)
 
   -- Sequence Within Millis: 4 Byte Signed Fixed Width Integer
