@@ -155,8 +155,8 @@ ice_mdf_impact_v1_1_24.fields.off_exchange_increment_option_price = ProtoField.n
 ice_mdf_impact_v1_1_24.fields.off_exchange_increment_price = ProtoField.new("Off Exchange Increment Price", "ice.mdf.impact.v1.1.24.offexchangeincrementprice", ftypes.INT32)
 ice_mdf_impact_v1_1_24.fields.off_exchange_increment_qty = ProtoField.new("Off Exchange Increment Qty", "ice.mdf.impact.v1.1.24.offexchangeincrementqty", ftypes.INT32)
 ice_mdf_impact_v1_1_24.fields.off_exchange_increment_qty_denominator = ProtoField.new("Off Exchange Increment Qty Denominator", "ice.mdf.impact.v1.1.24.offexchangeincrementqtydenominator", ftypes.STRING)
+ice_mdf_impact_v1_1_24.fields.off_market_trade_indicator = ProtoField.new("Off Market Trade Indicator", "ice.mdf.impact.v1.1.24.offmarkettradeindicator", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.off_market_trade_type = ProtoField.new("Off Market Trade Type", "ice.mdf.impact.v1.1.24.offmarkettradetype", ftypes.STRING)
-ice_mdf_impact_v1_1_24.fields.old_off_market_trade_type = ProtoField.new("Old Off Market Trade Type", "ice.mdf.impact.v1.1.24.oldoffmarkettradetype", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.old_strip_id = ProtoField.new("Old Strip Id", "ice.mdf.impact.v1.1.24.oldstripid", ftypes.INT16)
 ice_mdf_impact_v1_1_24.fields.old_style_options_trade_and_market_stats_message = ProtoField.new("Old Style Options Trade And Market Stats Message", "ice.mdf.impact.v1.1.24.oldstyleoptionstradeandmarketstatsmessage", ftypes.STRING)
 ice_mdf_impact_v1_1_24.fields.open_interest = ProtoField.new("Open Interest", "ice.mdf.impact.v1.1.24.openinterest", ftypes.INT32)
@@ -775,54 +775,51 @@ dissect.transact_date_time = function(buffer, offset, packet, parent)
   return offset + size_of.transact_date_time
 end
 
--- Size: Off Market Trade Type
-size_of.off_market_trade_type = 3
+-- Size: Off Market Trade Indicator
+size_of.off_market_trade_indicator = 1
 
--- Display: Off Market Trade Type
-display.off_market_trade_type = function(value)
+-- Display: Off Market Trade Indicator
+display.off_market_trade_indicator = function(value)
   if value == "" then
-    return "Off Market Trade Type: Regular (<whitespace>)"
+    return "Off Market Trade Indicator: Regular (<whitespace>)"
   end
   if value == "K" then
-    return "Off Market Trade Type: Block (K)"
+    return "Off Market Trade Indicator: Block (K)"
   end
   if value == "S" then
-    return "Off Market Trade Type: Efs (S)"
+    return "Off Market Trade Indicator: Efs (S)"
   end
   if value == "E" then
-    return "Off Market Trade Type: Efp (E)"
+    return "Off Market Trade Indicator: Efp (E)"
   end
   if value == "O" then
-    return "Off Market Trade Type: Efp Efs (O)"
+    return "Off Market Trade Indicator: Efp Efs (O)"
   end
   if value == "Q" then
-    return "Off Market Trade Type: Eoo (Q)"
+    return "Off Market Trade Indicator: Eoo (Q)"
   end
   if value == "I" then
-    return "Off Market Trade Type: Efm (I)"
+    return "Off Market Trade Indicator: Efm (I)"
   end
   if value == "5" then
-    return "Off Market Trade Type: Guaranteed Cross (5)"
+    return "Off Market Trade Indicator: Guaranteed Cross (5)"
   end
   if value == "5" then
-    return "Off Market Trade Type: Basis (5)"
-  end
-  if value == "AA" then
-    return "Off Market Trade Type: Asset Allocation (AA)"
+    return "Off Market Trade Indicator: Basis (5)"
   end
 
-  return "Off Market Trade Type: Unknown("..value..")"
+  return "Off Market Trade Indicator: Unknown("..value..")"
 end
 
--- Dissect: Off Market Trade Type
-dissect.off_market_trade_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.off_market_trade_type)
+-- Dissect: Off Market Trade Indicator
+dissect.off_market_trade_indicator = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.off_market_trade_indicator)
   local value = range:string()
-  local display = display.off_market_trade_type(value, buffer, offset, packet, parent)
+  local display = display.off_market_trade_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_24.fields.off_market_trade_type, range, value, display)
+  parent:add(ice_mdf_impact_v1_1_24.fields.off_market_trade_indicator, range, value, display)
 
-  return offset + size_of.off_market_trade_type
+  return offset + size_of.off_market_trade_indicator
 end
 
 -- Size: Quantity
@@ -922,8 +919,8 @@ dissect.old_style_options_trade_and_market_stats_message_fields = function(buffe
   -- Quantity: 4 Byte Signed Fixed Width Integer
   index = dissect.quantity(buffer, index, packet, parent)
 
-  -- Off Market Trade Type: 3 Byte Ascii String Enum with 10 values
-  index = dissect.off_market_trade_type(buffer, index, packet, parent)
+  -- Off Market Trade Indicator: 1 Byte Ascii String Enum with 9 values
+  index = dissect.off_market_trade_indicator(buffer, index, packet, parent)
 
   -- Transact Date Time: 8 Byte Signed Fixed Width Integer
   index = dissect.transact_date_time(buffer, index, packet, parent)
@@ -965,7 +962,7 @@ end
 dissect.old_style_options_trade_and_market_stats_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.old_style_options_trade_and_market_stats_message then
-    local range = buffer(offset, 85)
+    local range = buffer(offset, 83)
     local display = display.old_style_options_trade_and_market_stats_message(buffer, packet, parent)
     parent = parent:add(ice_mdf_impact_v1_1_24.fields.old_style_options_trade_and_market_stats_message, range, display)
   end
@@ -5925,23 +5922,54 @@ dissect.market_statistics_message = function(buffer, offset, packet, parent)
   return dissect.market_statistics_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Old Off Market Trade Type
-size_of.old_off_market_trade_type = 1
+-- Size: Off Market Trade Type
+size_of.off_market_trade_type = 3
 
--- Display: Old Off Market Trade Type
-display.old_off_market_trade_type = function(value)
-  return "Old Off Market Trade Type: "..value
+-- Display: Off Market Trade Type
+display.off_market_trade_type = function(value)
+  if value == "" then
+    return "Off Market Trade Type: Regular (<whitespace>)"
+  end
+  if value == "K" then
+    return "Off Market Trade Type: Block (K)"
+  end
+  if value == "S" then
+    return "Off Market Trade Type: Efs (S)"
+  end
+  if value == "E" then
+    return "Off Market Trade Type: Efp (E)"
+  end
+  if value == "O" then
+    return "Off Market Trade Type: Efp Efs (O)"
+  end
+  if value == "Q" then
+    return "Off Market Trade Type: Eoo (Q)"
+  end
+  if value == "I" then
+    return "Off Market Trade Type: Efm (I)"
+  end
+  if value == "5" then
+    return "Off Market Trade Type: Guaranteed Cross (5)"
+  end
+  if value == "5" then
+    return "Off Market Trade Type: Basis (5)"
+  end
+  if value == "AA" then
+    return "Off Market Trade Type: Asset Allocation (AA)"
+  end
+
+  return "Off Market Trade Type: Unknown("..value..")"
 end
 
--- Dissect: Old Off Market Trade Type
-dissect.old_off_market_trade_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.old_off_market_trade_type)
+-- Dissect: Off Market Trade Type
+dissect.off_market_trade_type = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.off_market_trade_type)
   local value = range:string()
-  local display = display.old_off_market_trade_type(value, buffer, offset, packet, parent)
+  local display = display.off_market_trade_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_24.fields.old_off_market_trade_type, range, value, display)
+  parent:add(ice_mdf_impact_v1_1_24.fields.off_market_trade_type, range, value, display)
 
-  return offset + size_of.old_off_market_trade_type
+  return offset + size_of.off_market_trade_type
 end
 
 -- Display: Cancelled Trade Message
@@ -5965,8 +5993,8 @@ dissect.cancelled_trade_message_fields = function(buffer, offset, packet, parent
   -- Quantity: 4 Byte Signed Fixed Width Integer
   index = dissect.quantity(buffer, index, packet, parent)
 
-  -- Old Off Market Trade Type: 1 Byte Ascii String
-  index = dissect.old_off_market_trade_type(buffer, index, packet, parent)
+  -- Off Market Trade Indicator: 1 Byte Ascii String Enum with 9 values
+  index = dissect.off_market_trade_indicator(buffer, index, packet, parent)
 
   -- Date Time: 8 Byte Signed Fixed Width Integer
   index = dissect.date_time(buffer, index, packet, parent)
@@ -6010,8 +6038,8 @@ dissect.investigated_trade_message_fields = function(buffer, offset, packet, par
   -- Quantity: 4 Byte Signed Fixed Width Integer
   index = dissect.quantity(buffer, index, packet, parent)
 
-  -- Old Off Market Trade Type: 1 Byte Ascii String
-  index = dissect.old_off_market_trade_type(buffer, index, packet, parent)
+  -- Off Market Trade Indicator: 1 Byte Ascii String Enum with 9 values
+  index = dissect.off_market_trade_indicator(buffer, index, packet, parent)
 
   -- Date Time: 8 Byte Signed Fixed Width Integer
   index = dissect.date_time(buffer, index, packet, parent)
@@ -6269,8 +6297,8 @@ dissect.trade_message_fields = function(buffer, offset, packet, parent)
   -- Quantity: 4 Byte Signed Fixed Width Integer
   index = dissect.quantity(buffer, index, packet, parent)
 
-  -- Old Off Market Trade Type: 1 Byte Ascii String
-  index = dissect.old_off_market_trade_type(buffer, index, packet, parent)
+  -- Off Market Trade Indicator: 1 Byte Ascii String Enum with 9 values
+  index = dissect.off_market_trade_indicator(buffer, index, packet, parent)
 
   -- Transact Date Time: 8 Byte Signed Fixed Width Integer
   index = dissect.transact_date_time(buffer, index, packet, parent)
@@ -6774,7 +6802,7 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Old Style Options Trade And Market Stats Message
   if code == "W" then
-    return 85
+    return 83
   end
 
   return 0
