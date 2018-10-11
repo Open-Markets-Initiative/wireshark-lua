@@ -1285,7 +1285,428 @@ size_of.market_type_id = 2
 
 -- Display: Market Type Id
 display.market_type_id = function(value)
-  return "Market Type Id: "..value
+  if value == 0 then
+    return "Market Type Id: Financial Gas (0)"
+  end
+  if value == 1 then
+    return "Market Type Id: Financial Power (1)"
+  end
+  if value == 2 then
+    return "Market Type Id: Oil (2)"
+  end
+  if value == 3 then
+    return "Market Type Id: Ipe Natural Gas Futures (3)"
+  end
+  if value == 4 then
+    return "Market Type Id: Ipe Gas Oil Futures (4)"
+  end
+  if value == 5 then
+    return "Market Type Id: Ipe Brent Futures (5)"
+  end
+  if value == 7 then
+    return "Market Type Id: Ipe Uk Electricity Futures Peak (7)"
+  end
+  if value == 8 then
+    return "Market Type Id: Ipe Uk Electricity Futures Base (8)"
+  end
+  if value == 9 then
+    return "Market Type Id: Ice Wti Crude Futures (9)"
+  end
+  if value == 10 then
+    return "Market Type Id: GC Newcastle Coal Futures (10)"
+  end
+  if value == 11 then
+    return "Market Type Id: Ice Brent Wti Futures Spread (11)"
+  end
+  if value == 12 then
+    return "Market Type Id: Ipeecx European Emissions (12)"
+  end
+  if value == 13 then
+    return "Market Type Id: Ice Heating Oil Futures (13)"
+  end
+  if value == 14 then
+    return "Market Type Id: Ice Heating Oil Wti Futures Crack (14)"
+  end
+  if value == 15 then
+    return "Market Type Id: Ice Nyh Rbob Gasoline Futures (15)"
+  end
+  if value == 16 then
+    return "Market Type Id: Ice Nyh Rbob Gasoline Wti Futures Crack (16)"
+  end
+  if value == 17 then
+    return "Market Type Id: Ice Rotterdam Coal Futures (17)"
+  end
+  if value == 18 then
+    return "Market Type Id: Ice Richards Bay Coal Futures (18)"
+  end
+  if value == 19 then
+    return "Market Type Id: Ice Rotterdam Richards Bay Coal Futures Spread (19)"
+  end
+  if value == 20 then
+    return "Market Type Id: Cocoa (20)"
+  end
+  if value == 21 then
+    return "Market Type Id: Coffee C (21)"
+  end
+  if value == 22 then
+    return "Market Type Id: Cotton No 2 (22)"
+  end
+  if value == 23 then
+    return "Market Type Id: Fcoj A (23)"
+  end
+  if value == 24 then
+    return "Market Type Id: Sugar No 11 (24)"
+  end
+  if value == 25 then
+    return "Market Type Id: Heat Rate Spread (25)"
+  end
+  if value == 26 then
+    return "Market Type Id: Us Dollar Index (26)"
+  end
+  if value == 36 then
+    return "Market Type Id: Canadian Oilseeds (36)"
+  end
+  if value == 38 then
+    return "Market Type Id: Ecx Cer Futures (38)"
+  end
+  if value == 39 then
+    return "Market Type Id: Foreign Exchange (39)"
+  end
+  if value == 40 then
+    return "Market Type Id: Financial Index Data (40)"
+  end
+  if value == 41 then
+    return "Market Type Id: Sugar No 16 (41)"
+  end
+  if value == 42 then
+    return "Market Type Id: Ecx Euacer Futures Spread (42)"
+  end
+  if value == 44 then
+    return "Market Type Id: Henry Hub (44)"
+  end
+  if value == 48 then
+    return "Market Type Id: Dutch Ttf Gas Futures (48)"
+  end
+  if value == 50 then
+    return "Market Type Id: German Natural Gas Futures (50)"
+  end
+  if value == 51 then
+    return "Market Type Id: European Gas Spreads (51)"
+  end
+  if value == 53 then
+    return "Market Type Id: Canadian Financial Gas (53)"
+  end
+  if value == 54 then
+    return "Market Type Id: Ngx Canadian Physical Crude (54)"
+  end
+  if value == 55 then
+    return "Market Type Id: Us Coal Futures (55)"
+  end
+  if value == 57 then
+    return "Market Type Id: Fob Indo Subbit Coal Futures (57)"
+  end
+  if value == 58 then
+    return "Market Type Id: Heating Oil Brent Futures Crack (58)"
+  end
+  if value == 59 then
+    return "Market Type Id: Nyh Rbob Gasoline Brent Futures Crack (59)"
+  end
+  if value == 60 then
+    return "Market Type Id: Wet Freight (60)"
+  end
+  if value == 61 then
+    return "Market Type Id: Dry Freight (61)"
+  end
+  if value == 62 then
+    return "Market Type Id: Ferrous Metals (62)"
+  end
+  if value == 63 then
+    return "Market Type Id: Platts Variable Oil (63)"
+  end
+  if value == 66 then
+    return "Market Type Id: Nyh Rbob Gasoline Heating Oil Spread (66)"
+  end
+  if value == 69 then
+    return "Market Type Id: Physical Environmental (69)"
+  end
+  if value == 70 then
+    return "Market Type Id: Heating Oil Ls Gasoil Futures Spread (70)"
+  end
+  if value == 71 then
+    return "Market Type Id: Ls Gasoil Brent Futures Crack (71)"
+  end
+  if value == 72 then
+    return "Market Type Id: Nyh Rbob Gasoline Ls Gasoil Futures Spread (72)"
+  end
+  if value == 84 then
+    return "Market Type Id: Ecx Euaa Futures (84)"
+  end
+  if value == 85 then
+    return "Market Type Id: Ecx Cereuaa Futures Spread (85)"
+  end
+  if value == 86 then
+    return "Market Type Id: Ecx Euaaeua Futures Spread (86)"
+  end
+  if value == 89 then
+    return "Market Type Id: Soybean (89)"
+  end
+  if value == 92 then
+    return "Market Type Id: Ecx Eua Eib Auction (92)"
+  end
+  if value == 93 then
+    return "Market Type Id: Financial Lng (93)"
+  end
+  if value == 95 then
+    return "Market Type Id: Eua Uk Auction (95)"
+  end
+  if value == 96 then
+    return "Market Type Id: Euaa Uk Auction (96)"
+  end
+  if value == 97 then
+    return "Market Type Id: Cfr South China Coal Futures (97)"
+  end
+  if value == 98 then
+    return "Market Type Id: Belgian Power Futures (98)"
+  end
+  if value == 99 then
+    return "Market Type Id: Dutch Power Futures (99)"
+  end
+  if value == 100 then
+    return "Market Type Id: GC Newcastle Fob Indo Subbit Coal Futures Spread (100)"
+  end
+  if value == 101 then
+    return "Market Type Id: Richards Bayg C Newcastle Coal Futures Spread (101)"
+  end
+  if value == 102 then
+    return "Market Type Id: Fcoj A Mini (102)"
+  end
+  if value == 104 then
+    return "Market Type Id: Cif Us (104)"
+  end
+  if value == 108 then
+    return "Market Type Id: D6 Rin (108)"
+  end
+  if value == 111 then
+    return "Market Type Id: European Power Spreads (111)"
+  end
+  if value == 112 then
+    return "Market Type Id: Taqa (112)"
+  end
+  if value == 113 then
+    return "Market Type Id: Belgian Ztp Gas Spot (113)"
+  end
+  if value == 114 then
+    return "Market Type Id: Dutch Ttf Gas Spot (114)"
+  end
+  if value == 115 then
+    return "Market Type Id: Dutch Ttf Gas Storage (115)"
+  end
+  if value == 116 then
+    return "Market Type Id: European Gas Spot Spreads (116)"
+  end
+  if value == 117 then
+    return "Market Type Id: Belgian Ztp Gas Futures (117)"
+  end
+  if value == 118 then
+    return "Market Type Id: Uk Ocm Gas Spot (118)"
+  end
+  if value == 119 then
+    return "Market Type Id: Belgian Gas Spreads (119)"
+  end
+  if value == 124 then
+    return "Market Type Id: Financial Olefins (124)"
+  end
+  if value == 125 then
+    return "Market Type Id: Financial Monomers (125)"
+  end
+  if value == 126 then
+    return "Market Type Id: Platts Variable Oil Urals (126)"
+  end
+  if value == 127 then
+    return "Market Type Id: Endex Spot Market Indices (127)"
+  end
+  if value == 131 then
+    return "Market Type Id: Interest Rate Futures (131)"
+  end
+  if value == 133 then
+    return "Market Type Id: Singapore Energy (133)"
+  end
+  if value == 134 then
+    return "Market Type Id: Singapore Financials (134)"
+  end
+  if value == 135 then
+    return "Market Type Id: Singapore Metals (135)"
+  end
+  if value == 136 then
+    return "Market Type Id: Italian Natural Gas Futures (136)"
+  end
+  if value == 137 then
+    return "Market Type Id: Italian Power Futures (137)"
+  end
+  if value == 139 then
+    return "Market Type Id: Credit Swap Data (139)"
+  end
+  if value == 140 then
+    return "Market Type Id: Gold Fixing (140)"
+  end
+  if value == 141 then
+    return "Market Type Id: North Sea Partials (141)"
+  end
+  if value == 142 then
+    return "Market Type Id: Eu Financial Power Spreads (142)"
+  end
+  if value == 143 then
+    return "Market Type Id: Eu Financial Power Futures (143)"
+  end
+  if value == 144 then
+    return "Market Type Id: Oil Cad (144)"
+  end
+  if value == 147 then
+    return "Market Type Id: Silver Fixing (147)"
+  end
+  if value == 149 then
+    return "Market Type Id: Uk Spark Spread (149)"
+  end
+  if value == 150 then
+    return "Market Type Id: Uk Ocm Physical Gas Spot (150)"
+  end
+  if value == 152 then
+    return "Market Type Id: Japan Domestic Waterborne (152)"
+  end
+  if value == 154 then
+    return "Market Type Id: Daily Metals (154)"
+  end
+  if value == 155 then
+    return "Market Type Id: Brix Energia Fin (155)"
+  end
+  if value == 156 then
+    return "Market Type Id: Japan Domestic Rack (156)"
+  end
+  if value == 157 then
+    return "Market Type Id: Financial Us Lng (157)"
+  end
+  if value == 160 then
+    return "Market Type Id: Ice Rotterdam Newcastle Coal Futures Spread (160)"
+  end
+  if value == 165 then
+    return "Market Type Id: Oil Americas (165)"
+  end
+  if value == 167 then
+    return "Market Type Id: Platts Petrochemical (167)"
+  end
+  if value == 168 then
+    return "Market Type Id: Permian Wti Futures (168)"
+  end
+  if value == 170 then
+    return "Market Type Id: Endex Equity Indices (170)"
+  end
+  if value == 171 then
+    return "Market Type Id: Endex Single Stock Options (171)"
+  end
+  if value == 172 then
+    return "Market Type Id: Ifus Ice Indices (172)"
+  end
+  if value == 173 then
+    return "Market Type Id: Platts Asia Bunker (173)"
+  end
+  if value == 177 then
+    return "Market Type Id: Sofr Futures (177)"
+  end
+  if value == 178 then
+    return "Market Type Id: Digital Asset Futures (178)"
+  end
+  if value == 179 then
+    return "Market Type Id: Permian Brent Futures Spread (179)"
+  end
+  if value == 180 then
+    return "Market Type Id: Permian Wti Futures Spread (180)"
+  end
+  if value == 200 then
+    return "Market Type Id: Liffe Sti Rs (200)"
+  end
+  if value == 202 then
+    return "Market Type Id: Liffe Bonds (202)"
+  end
+  if value == 203 then
+    return "Market Type Id: Liffe Swapnotes (203)"
+  end
+  if value == 205 then
+    return "Market Type Id: 1 (205)"
+  end
+  if value == 206 then
+    return "Market Type Id: Metals (206)"
+  end
+  if value == 207 then
+    return "Market Type Id: Ifus Equity Indices (207)"
+  end
+  if value == 208 then
+    return "Market Type Id: Gcf Repo (208)"
+  end
+  if value == 209 then
+    return "Market Type Id: Liffe Three Month Euro And Eonia (209)"
+  end
+  if value == 210 then
+    return "Market Type Id: Eurodollar (210)"
+  end
+  if value == 211 then
+    return "Market Type Id: Liffe Equity Derivatives Non Us Based (211)"
+  end
+  if value == 212 then
+    return "Market Type Id: Liffe Equity Derivatives Us Based (212)"
+  end
+  if value == 213 then
+    return "Market Type Id: Liffe Index Options (213)"
+  end
+  if value == 214 then
+    return "Market Type Id: Liffe Index Futures Us Restricted (214)"
+  end
+  if value == 215 then
+    return "Market Type Id: Liffe Index Futures Non Us Restricted (215)"
+  end
+  if value == 305 then
+    return "Market Type Id: Physical Gas (305)"
+  end
+  if value == 306 then
+    return "Market Type Id: Power (306)"
+  end
+  if value == 314 then
+    return "Market Type Id: Ngx Physical Gas (314)"
+  end
+  if value == 315 then
+    return "Market Type Id: Ngx Financial Power (315)"
+  end
+  if value == 316 then
+    return "Market Type Id: Ngx Financial Gas (316)"
+  end
+  if value == 317 then
+    return "Market Type Id: Financial Ngl (317)"
+  end
+  if value == 318 then
+    return "Market Type Id: Olefins Polymers (318)"
+  end
+  if value == 319 then
+    return "Market Type Id: Physical Ngl (319)"
+  end
+  if value == 320 then
+    return "Market Type Id: Physical Oil (320)"
+  end
+  if value == 600 then
+    return "Market Type Id: Test Ipe (600)"
+  end
+  if value == 601 then
+    return "Market Type Id: Test Nybot (601)"
+  end
+  if value == 602 then
+    return "Market Type Id: Test Ndex (602)"
+  end
+  if value == 603 then
+    return "Market Type Id: Test Liffeuk 1 (603)"
+  end
+  if value == 604 then
+    return "Market Type Id: Test Liffeuk 2 (604)"
+  end
+
+  return "Market Type Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Type Id
@@ -1355,7 +1776,7 @@ dissect.rfq_message_fields = function(buffer, offset, packet, parent)
   -- Rfq System Id: 8 Byte Signed Fixed Width Integer
   index = dissect.rfq_system_id(buffer, index, packet, parent)
 
-  -- Market Type Id: 2 Byte Signed Fixed Width Integer
+  -- Market Type Id: 2 Byte Signed Fixed Width Integer Enum with 140 values
   index = dissect.market_type_id(buffer, index, packet, parent)
 
   -- Underlying Market Id: 4 Byte Signed Fixed Width Integer
@@ -4549,7 +4970,7 @@ dissect.new_expiry_message_fields = function(buffer, offset, packet, parent)
   -- Market Id: 4 Byte Signed Fixed Width Integer
   index = dissect.market_id(buffer, index, packet, parent)
 
-  -- Market Type Id: 2 Byte Signed Fixed Width Integer
+  -- Market Type Id: 2 Byte Signed Fixed Width Integer Enum with 140 values
   index = dissect.market_type_id(buffer, index, packet, parent)
 
   -- Order Price Denominator: 1 Byte Ascii String
@@ -6363,7 +6784,14 @@ size_of.has_previous_day_settlement_price = 1
 
 -- Display: Has Previous Day Settlement Price
 display.has_previous_day_settlement_price = function(value)
-  return "Has Previous Day Settlement Price: "..value
+  if value == "N" then
+    return "Has Previous Day Settlement Price: No (N)"
+  end
+  if value == "Y" then
+    return "Has Previous Day Settlement Price: Yes (Y)"
+  end
+
+  return "Has Previous Day Settlement Price: Unknown("..value..")"
 end
 
 -- Dissect: Has Previous Day Settlement Price
@@ -6633,7 +7061,7 @@ dissect.market_snapshot_message_fields = function(buffer, offset, packet, parent
   -- Settlement Price: 8 Byte Signed Fixed Width Integer
   index = dissect.settlement_price(buffer, index, packet, parent)
 
-  -- Has Previous Day Settlement Price: 1 Byte Ascii String
+  -- Has Previous Day Settlement Price: 1 Byte Ascii String Enum with 2 values
   index = dissect.has_previous_day_settlement_price(buffer, index, packet, parent)
 
   -- Previous Day Settlement Price: 8 Byte Signed Fixed Width Integer
