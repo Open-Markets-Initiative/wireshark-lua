@@ -18,7 +18,7 @@ The standard path on a linux install:
 ```
 For configuration information: [Wireshark Configuration Files.](https://www.wireshark.org/docs/wsug_html_chunked/ChAppFilesConfigurationSection.html "Wireshark Files Configuration Documentation")
 
-Some packets contain enough information to programmatically determine the correct protocol specification and/or version at runtime.  *Many do not.*  If you add multiple dissectors to your plugins folder, wireshark will dissect each "conversation" based on the first matching protocol.
+Note: Some packets contain enough information to programmatically determine the correct protocol specification and/or version at runtime.  *Many do not.*  If you add multiple dissectors to your plugins folder, wireshark will dissect each "conversation" based on the first matching protocol.
 
 In these cases, manually set which dissector will be called using [Analyze | Decode As…](https://www.wireshark.org/docs/wsug_html_chunked/ChCustProtocolDissectionSection.html "Wireshark Protocol Selection Documentation")
 ## Protocols
@@ -59,7 +59,7 @@ In these cases, manually set which dissector will be called using [Analyze | Dec
 
 ## Development
 
-Updates are greatly appreciated; however, this entire repository is source generated...including the words you are reading right now. Code generation requires a slightly different workflow.  The recommended process is to post a dissector script with suggested edits and explanation.  If the changes are applicable to some or all protocols, we will update the model and regenerate.
+Updates are greatly appreciated; however, this entire repository is source generated...including the words you are reading right now. Code generation requires a different workflow.  The recommended process is to create an issue with suggested script edits and explanation.  If the changes are applicable to some or all protocols, we will update the model and regenerate.
 
 |Protocol Count | Generated Lines|
 |--- | ---|
@@ -77,7 +77,7 @@ Production captures are required for protocol verification.  If your organizatio
 
 The Open Markets Initiative (Omi) is a group of technologists dedicated to enhancing the stability of electronic financial markets using modern development methods.
 
-[Go to Omi Directory](https://github.com/Open-Markets-Initiative/Directory "Open Markets Initiative Repository Directory")
+Please check out our other projects: [Go to Omi Directory](https://github.com/Open-Markets-Initiative/Directory "Open Markets Initiative Repository Directory")
 
 ## Disclaimer
 
