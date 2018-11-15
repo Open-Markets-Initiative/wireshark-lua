@@ -1,4 +1,4 @@
-## Lua Wireshark Dissectors
+## Omi Lua Wireshark Dissectors
 
 Lua wireshark dissector scripts provide an easily customized cross platform dissection solution for viewing common binary exchange protocols. For more information on lua dissectors: [How Lua fits into Wireshark.](https://wiki.wireshark.org/Lua#How_Lua_fits_into_Wireshark "Wireshark's Lua Documentation")
 
@@ -16,17 +16,18 @@ The standard path on a linux install:
 ```
 //usr/share/wireshark/plugins
 ```
-For configuration information: [Wireshark Configuration Files.](https://www.wireshark.org/docs/wsug_html_chunked/ChAppFilesConfigurationSection.html "Wireshark Files Configuration Documentation")
+For configuration information: [Wireshark Configuration](https://www.wireshark.org/docs/wsug_html_chunked/ChAppFilesConfigurationSection.html "Wireshark Configuration Documentation")
 
-Note: Some packets contain enough information to programmatically determine the correct protocol specification and/or version at runtime.  *Many do not.*  If you add multiple dissectors to your plugins folder, wireshark will dissect each "conversation" based on the first matching protocol.
+Note: Some packets contain enough information to programmatically determine the correct protocol specification and/or version at runtime.  *Many do not.*  If you add multiple dissectors to your plugins folder, wireshark will dissect each "conversation" based on the first matching protocol.  In these cases, please manually select protocol dissector using Analyze | Decode As….
 
-In these cases, manually set which dissector will be called using [Analyze | Decode As…](https://www.wireshark.org/docs/wsug_html_chunked/ChCustProtocolDissectionSection.html "Wireshark Protocol Selection Documentation")
+For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.org/docs/wsug_html_chunked/ChCustProtocolDissectionSection.html "Wireshark Protocol Selection Documentation")
 ## Protocols
 
 |Organization | Data | Protocol | Version | Date | Size | Testing|
 |--- | --- | --- | --- | --- | --- | ---|
 |[Asx](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Asx "Australian Securities Exchange Dissectors") | T24 | Itch | [1.13](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Asx/Asx.T24.Itch.v1.13.Script.Dissector.lua "Australian Securities Exchange 1.13 Script Dissector") | 7/15/2014 | 5071 | Verified|
-|[Cboe Bats](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cboe "Chicago Board Options Exchange Dissectors") | DepthOfBook | Pitch | [2.39.4](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Bats.DepthOfBook.Pitch.v2.39.4.Script.Dissector.lua "Chicago Board Options Exchange 2.39.4 Script Dissector") | 8/21/2018 | 2670 | Untested|
+|[Cboe Bats](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cboe "Chicago Board Options Exchange Dissectors") | DepthOfBook | Pitch | [2.39.4](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Bats.DepthOfBook.Pitch.v2.39.4.Script.Dissector.lua "Chicago Board Options Exchange 2.39.4 Script Dissector") | 8/21/2018 | 2730 | Verified|
+|[Cboe Options](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cboe "Chicago Board Options Exchange Dissectors") | Sml2 | Csm | [1.0.4](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Options.Sml2.Csm.v1.0.4.Script.Dissector.lua "Chicago Board Options Exchange 1.0.4 Script Dissector") | 5/8/2018 | 2260 | Verified|
 |[Cme](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange Dissectors") | Mdp3 | Sbe | [9.1](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Mdp3.Sbe.v9.1.Script.Dissector.lua "Chicago Mercantile Exchange 9.1 Script Dissector") | 3/8/2018 | 8034 | Verified|
 |[Cme](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange Dissectors") | Mdp3 | Sbe | [8.1](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Mdp3.Sbe.v8.1.Script.Dissector.lua "Chicago Mercantile Exchange 8.1 Script Dissector") | 7/1/2016 | 7042 | Verified|
 |[Cme](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange Dissectors") | Mdp3 | Sbe | [6.1](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Mdp3.Sbe.v6.1.Script.Dissector.lua "Chicago Mercantile Exchange 6.1 Script Dissector") | 1/9/2016 | 6272 | Verified|
@@ -63,13 +64,13 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 |Protocol Count | Generated Lines|
 |--- | ---|
-|31 | 135,616|
+|32 | 137,936|
 
 Note: Our dissector model is still under rapid development.
 
 ## Testing
 
-Please report any dissection errors as issues.  Include a small note on the protocol and version, what you expect, a zipped minimal capture demonstrating the problem, and a link or pdf specification documenting the correct behavior. 
+Please report any dissection errors as issues.  Include a small note on the protocol and version, and a minimal capture demonstrating the problem. Also consider including a link or pdf specification documenting the correct behavior.
 
 Production captures are required for protocol verification.  If your organization has the rights to donate captures, and you wish to make the world a better place, please contact us.
 

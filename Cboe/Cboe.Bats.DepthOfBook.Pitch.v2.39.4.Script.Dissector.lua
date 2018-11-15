@@ -34,7 +34,8 @@ cboe_bats_depthofbook_pitch_v2_39_4.fields.auction_trade_message = ProtoField.ne
 cboe_bats_depthofbook_pitch_v2_39_4.fields.auction_type = ProtoField.new("Auction Type", "cboe.bats.depthofbook.pitch.v2.39.4.auctiontype", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.auction_update_message = ProtoField.new("Auction Update Message", "cboe.bats.depthofbook.pitch.v2.39.4.auctionupdatemessage", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.buy_shares = ProtoField.new("Buy Shares", "cboe.bats.depthofbook.pitch.v2.39.4.buyshares", ftypes.UINT32)
-cboe_bats_depthofbook_pitch_v2_39_4.fields.canceled_quantity = ProtoField.new("Canceled Quantity", "cboe.bats.depthofbook.pitch.v2.39.4.canceledquantity", ftypes.UINT32)
+cboe_bats_depthofbook_pitch_v2_39_4.fields.canceled_long_quantity = ProtoField.new("Canceled Long Quantity", "cboe.bats.depthofbook.pitch.v2.39.4.canceledlongquantity", ftypes.UINT32)
+cboe_bats_depthofbook_pitch_v2_39_4.fields.canceled_short_quantity = ProtoField.new("Canceled Short Quantity", "cboe.bats.depthofbook.pitch.v2.39.4.canceledshortquantity", ftypes.UINT16)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.contracts = ProtoField.new("Contracts", "cboe.bats.depthofbook.pitch.v2.39.4.contracts", ftypes.UINT32)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.count = ProtoField.new("Count", "cboe.bats.depthofbook.pitch.v2.39.4.count", ftypes.UINT8)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.bats.depthofbook.pitch.v2.39.4.customerindicator", ftypes.STRING)
@@ -42,10 +43,12 @@ cboe_bats_depthofbook_pitch_v2_39_4.fields.delete_order_message = ProtoField.new
 cboe_bats_depthofbook_pitch_v2_39_4.fields.end_of_session_message = ProtoField.new("End Of Session Message", "cboe.bats.depthofbook.pitch.v2.39.4.endofsessionmessage", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.bats.depthofbook.pitch.v2.39.4.executedquantity", ftypes.UINT32)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.execution_id = ProtoField.new("Execution Id", "cboe.bats.depthofbook.pitch.v2.39.4.executionid", ftypes.UINT64)
+cboe_bats_depthofbook_pitch_v2_39_4.fields.expanded_symbol = ProtoField.new("Expanded Symbol", "cboe.bats.depthofbook.pitch.v2.39.4.expandedsymbol", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.bats.depthofbook.pitch.v2.39.4.feedsymbol", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.bats.depthofbook.pitch.v2.39.4.indicativeprice", ftypes.UINT64)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.length = ProtoField.new("Length", "cboe.bats.depthofbook.pitch.v2.39.4.length", ftypes.UINT16)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.long_price = ProtoField.new("Long Price", "cboe.bats.depthofbook.pitch.v2.39.4.longprice", ftypes.UINT64)
+cboe_bats_depthofbook_pitch_v2_39_4.fields.long_quantity = ProtoField.new("Long Quantity", "cboe.bats.depthofbook.pitch.v2.39.4.longquantity", ftypes.UINT32)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.message = ProtoField.new("Message", "cboe.bats.depthofbook.pitch.v2.39.4.message", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.message_header = ProtoField.new("Message Header", "cboe.bats.depthofbook.pitch.v2.39.4.messageheader", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.message_length = ProtoField.new("Message Length", "cboe.bats.depthofbook.pitch.v2.39.4.messagelength", ftypes.UINT8)
@@ -61,7 +64,6 @@ cboe_bats_depthofbook_pitch_v2_39_4.fields.packet = ProtoField.new("Packet", "cb
 cboe_bats_depthofbook_pitch_v2_39_4.fields.packet_header = ProtoField.new("Packet Header", "cboe.bats.depthofbook.pitch.v2.39.4.packetheader", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.participant_id = ProtoField.new("Participant Id", "cboe.bats.depthofbook.pitch.v2.39.4.participantid", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.payload = ProtoField.new("Payload", "cboe.bats.depthofbook.pitch.v2.39.4.payload", ftypes.STRING)
-cboe_bats_depthofbook_pitch_v2_39_4.fields.quantity = ProtoField.new("Quantity", "cboe.bats.depthofbook.pitch.v2.39.4.quantity", ftypes.UINT32)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.reduce_size_long_message = ProtoField.new("Reduce Size Long Message", "cboe.bats.depthofbook.pitch.v2.39.4.reducesizelongmessage", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.reduce_size_short_message = ProtoField.new("Reduce Size Short Message", "cboe.bats.depthofbook.pitch.v2.39.4.reducesizeshortmessage", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.reference_price = ProtoField.new("Reference Price", "cboe.bats.depthofbook.pitch.v2.39.4.referenceprice", ftypes.UINT64)
@@ -75,6 +77,7 @@ cboe_bats_depthofbook_pitch_v2_39_4.fields.sell_shares = ProtoField.new("Sell Sh
 cboe_bats_depthofbook_pitch_v2_39_4.fields.sequence = ProtoField.new("Sequence", "cboe.bats.depthofbook.pitch.v2.39.4.sequence", ftypes.UINT32)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.shares = ProtoField.new("Shares", "cboe.bats.depthofbook.pitch.v2.39.4.shares", ftypes.UINT32)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.short_price = ProtoField.new("Short Price", "cboe.bats.depthofbook.pitch.v2.39.4.shortprice", ftypes.UINT16)
+cboe_bats_depthofbook_pitch_v2_39_4.fields.short_quantity = ProtoField.new("Short Quantity", "cboe.bats.depthofbook.pitch.v2.39.4.shortquantity", ftypes.UINT16)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.bats.depthofbook.pitch.v2.39.4.sideindicator", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.stock_symbol = ProtoField.new("Stock Symbol", "cboe.bats.depthofbook.pitch.v2.39.4.stocksymbol", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.symbol = ProtoField.new("Symbol", "cboe.bats.depthofbook.pitch.v2.39.4.symbol", ftypes.STRING)
@@ -330,23 +333,23 @@ dissect.retail_price_improvement = function(buffer, offset, packet, parent)
   return offset + size_of.retail_price_improvement
 end
 
--- Size: Symbol
-size_of.symbol = 6
+-- Size: Expanded Symbol
+size_of.expanded_symbol = 8
 
--- Display: Symbol
-display.symbol = function(value)
-  return "Symbol: "..value
+-- Display: Expanded Symbol
+display.expanded_symbol = function(value)
+  return "Expanded Symbol: "..value
 end
 
--- Dissect: Symbol
-dissect.symbol = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.symbol)
+-- Dissect: Expanded Symbol
+dissect.expanded_symbol = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.expanded_symbol)
   local value = range:string()
-  local display = display.symbol(value, buffer, offset, packet, parent)
+  local display = display.expanded_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.symbol, range, value, display)
+  parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.expanded_symbol, range, value, display)
 
-  return offset + size_of.symbol
+  return offset + size_of.expanded_symbol
 end
 
 -- Size: Time Offset
@@ -380,8 +383,8 @@ dissect.retail_price_improvement_message_fields = function(buffer, offset, packe
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
   index = dissect.time_offset(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
-  index = dissect.symbol(buffer, index, packet, parent)
+  -- Expanded Symbol: 8 Byte Ascii String
+  index = dissect.expanded_symbol(buffer, index, packet, parent)
 
   -- Retail Price Improvement: 1 Byte Ascii String Enum with 4 values
   index = dissect.retail_price_improvement(buffer, index, packet, parent)
@@ -393,7 +396,7 @@ end
 dissect.retail_price_improvement_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.retail_price_improvement_message then
-    local range = buffer(offset, 11)
+    local range = buffer(offset, 13)
     local display = display.retail_price_improvement_message(buffer, packet, parent)
     parent = parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.retail_price_improvement_message, range, display)
   end
@@ -675,6 +678,25 @@ dissect.auction_type = function(buffer, offset, packet, parent)
   parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.auction_type, range, value, display)
 
   return offset + size_of.auction_type
+end
+
+-- Size: Symbol
+size_of.symbol = 6
+
+-- Display: Symbol
+display.symbol = function(value)
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+dissect.symbol = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.symbol)
+  local value = range:string()
+  local display = display.symbol(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.symbol, range, value, display)
+
+  return offset + size_of.symbol
 end
 
 -- Display: Auction Notification Message
@@ -1062,8 +1084,8 @@ dissect.trading_status_message_fields = function(buffer, offset, packet, parent)
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
   index = dissect.time_offset(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
-  index = dissect.symbol(buffer, index, packet, parent)
+  -- Expanded Symbol: 8 Byte Ascii String
+  index = dissect.expanded_symbol(buffer, index, packet, parent)
 
   -- Trading Status: 1 Byte Ascii String Enum with 5 values
   index = dissect.trading_status(buffer, index, packet, parent)
@@ -1084,7 +1106,7 @@ end
 dissect.trading_status_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trading_status_message then
-    local range = buffer(offset, 14)
+    local range = buffer(offset, 16)
     local display = display.trading_status_message(buffer, packet, parent)
     parent = parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.trading_status_message, range, display)
   end
@@ -1272,23 +1294,23 @@ dissect.trade_condition = function(buffer, offset, packet, parent)
   return offset + size_of.trade_condition
 end
 
--- Size: Quantity
-size_of.quantity = 4
+-- Size: Long Quantity
+size_of.long_quantity = 4
 
--- Display: Quantity
-display.quantity = function(value)
-  return "Quantity: "..value
+-- Display: Long Quantity
+display.long_quantity = function(value)
+  return "Long Quantity: "..value
 end
 
--- Dissect: Quantity
-dissect.quantity = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.quantity)
+-- Dissect: Long Quantity
+dissect.long_quantity = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.long_quantity)
   local value = range:le_uint()
-  local display = display.quantity(value, buffer, offset, packet, parent)
+  local display = display.long_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.quantity, range, value, display)
+  parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.long_quantity, range, value, display)
 
-  return offset + size_of.quantity
+  return offset + size_of.long_quantity
 end
 
 -- Size: Order Id
@@ -1328,11 +1350,11 @@ dissect.trade_expanded_message_fields = function(buffer, offset, packet, parent)
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
   index = dissect.side_indicator(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.quantity(buffer, index, packet, parent)
+  -- Long Quantity: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.long_quantity(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
-  index = dissect.symbol(buffer, index, packet, parent)
+  -- Expanded Symbol: 8 Byte Ascii String
+  index = dissect.expanded_symbol(buffer, index, packet, parent)
 
   -- Long Price: 8 Byte Unsigned Fixed Width Integer
   index = dissect.long_price(buffer, index, packet, parent)
@@ -1350,7 +1372,7 @@ end
 dissect.trade_expanded_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_expanded_message then
-    local range = buffer(offset, 40)
+    local range = buffer(offset, 42)
     local display = display.trade_expanded_message(buffer, packet, parent)
     parent = parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.trade_expanded_message, range, display)
   end
@@ -1377,6 +1399,25 @@ dissect.short_price = function(buffer, offset, packet, parent)
   return offset + size_of.short_price
 end
 
+-- Size: Short Quantity
+size_of.short_quantity = 2
+
+-- Display: Short Quantity
+display.short_quantity = function(value)
+  return "Short Quantity: "..value
+end
+
+-- Dissect: Short Quantity
+dissect.short_quantity = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.short_quantity)
+  local value = range:le_uint()
+  local display = display.short_quantity(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.short_quantity, range, value, display)
+
+  return offset + size_of.short_quantity
+end
+
 -- Display: Trade Short Message
 display.trade_short_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1395,8 +1436,8 @@ dissect.trade_short_message_fields = function(buffer, offset, packet, parent)
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
   index = dissect.side_indicator(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.quantity(buffer, index, packet, parent)
+  -- Short Quantity: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.short_quantity(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
   index = dissect.symbol(buffer, index, packet, parent)
@@ -1417,7 +1458,7 @@ end
 dissect.trade_short_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_short_message then
-    local range = buffer(offset, 34)
+    local range = buffer(offset, 32)
     local display = display.trade_short_message(buffer, packet, parent)
     parent = parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.trade_short_message, range, display)
   end
@@ -1443,8 +1484,8 @@ dissect.trade_long_message_fields = function(buffer, offset, packet, parent)
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
   index = dissect.side_indicator(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.quantity(buffer, index, packet, parent)
+  -- Long Quantity: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.long_quantity(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
   index = dissect.symbol(buffer, index, packet, parent)
@@ -1537,8 +1578,8 @@ dissect.modify_order_short_message_fields = function(buffer, offset, packet, par
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index = dissect.order_id(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.quantity(buffer, index, packet, parent)
+  -- Short Quantity: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.short_quantity(buffer, index, packet, parent)
 
   -- Short Price: 2 Byte Unsigned Fixed Width Integer
   index = dissect.short_price(buffer, index, packet, parent)
@@ -1553,7 +1594,7 @@ end
 dissect.modify_order_short_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.modify_order_short_message then
-    local range = buffer(offset, 19)
+    local range = buffer(offset, 17)
     local display = display.modify_order_short_message(buffer, packet, parent)
     parent = parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.modify_order_short_message, range, display)
   end
@@ -1576,8 +1617,8 @@ dissect.modify_order_long_message_fields = function(buffer, offset, packet, pare
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index = dissect.order_id(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.quantity(buffer, index, packet, parent)
+  -- Long Quantity: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.long_quantity(buffer, index, packet, parent)
 
   -- Long Price: 8 Byte Unsigned Fixed Width Integer
   index = dissect.long_price(buffer, index, packet, parent)
@@ -1600,23 +1641,23 @@ dissect.modify_order_long_message = function(buffer, offset, packet, parent)
   return dissect.modify_order_long_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Canceled Quantity
-size_of.canceled_quantity = 4
+-- Size: Canceled Short Quantity
+size_of.canceled_short_quantity = 2
 
--- Display: Canceled Quantity
-display.canceled_quantity = function(value)
-  return "Canceled Quantity: "..value
+-- Display: Canceled Short Quantity
+display.canceled_short_quantity = function(value)
+  return "Canceled Short Quantity: "..value
 end
 
--- Dissect: Canceled Quantity
-dissect.canceled_quantity = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.canceled_quantity)
+-- Dissect: Canceled Short Quantity
+dissect.canceled_short_quantity = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.canceled_short_quantity)
   local value = range:le_uint()
-  local display = display.canceled_quantity(value, buffer, offset, packet, parent)
+  local display = display.canceled_short_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.canceled_quantity, range, value, display)
+  parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.canceled_short_quantity, range, value, display)
 
-  return offset + size_of.canceled_quantity
+  return offset + size_of.canceled_short_quantity
 end
 
 -- Display: Reduce Size Short Message
@@ -1634,8 +1675,8 @@ dissect.reduce_size_short_message_fields = function(buffer, offset, packet, pare
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index = dissect.order_id(buffer, index, packet, parent)
 
-  -- Canceled Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.canceled_quantity(buffer, index, packet, parent)
+  -- Canceled Short Quantity: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.canceled_short_quantity(buffer, index, packet, parent)
 
   return index
 end
@@ -1644,12 +1685,31 @@ end
 dissect.reduce_size_short_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.reduce_size_short_message then
-    local range = buffer(offset, 16)
+    local range = buffer(offset, 14)
     local display = display.reduce_size_short_message(buffer, packet, parent)
     parent = parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.reduce_size_short_message, range, display)
   end
 
   return dissect.reduce_size_short_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Canceled Long Quantity
+size_of.canceled_long_quantity = 4
+
+-- Display: Canceled Long Quantity
+display.canceled_long_quantity = function(value)
+  return "Canceled Long Quantity: "..value
+end
+
+-- Dissect: Canceled Long Quantity
+dissect.canceled_long_quantity = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.canceled_long_quantity)
+  local value = range:le_uint()
+  local display = display.canceled_long_quantity(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.canceled_long_quantity, range, value, display)
+
+  return offset + size_of.canceled_long_quantity
 end
 
 -- Display: Reduce Size Long Message
@@ -1667,8 +1727,8 @@ dissect.reduce_size_long_message_fields = function(buffer, offset, packet, paren
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index = dissect.order_id(buffer, index, packet, parent)
 
-  -- Canceled Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.canceled_quantity(buffer, index, packet, parent)
+  -- Canceled Long Quantity: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.canceled_long_quantity(buffer, index, packet, parent)
 
   return index
 end
@@ -1851,11 +1911,11 @@ dissect.add_order_expanded_message_fields = function(buffer, offset, packet, par
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
   index = dissect.side_indicator(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.quantity(buffer, index, packet, parent)
+  -- Long Quantity: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.long_quantity(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
-  index = dissect.symbol(buffer, index, packet, parent)
+  -- Expanded Symbol: 8 Byte Ascii String
+  index = dissect.expanded_symbol(buffer, index, packet, parent)
 
   -- Long Price: 8 Byte Unsigned Fixed Width Integer
   index = dissect.long_price(buffer, index, packet, parent)
@@ -1876,7 +1936,7 @@ end
 dissect.add_order_expanded_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.add_order_expanded_message then
-    local range = buffer(offset, 37)
+    local range = buffer(offset, 39)
     local display = display.add_order_expanded_message(buffer, packet, parent)
     parent = parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.add_order_expanded_message, range, display)
   end
@@ -1902,8 +1962,8 @@ dissect.add_order_short_message_fields = function(buffer, offset, packet, parent
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
   index = dissect.side_indicator(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.quantity(buffer, index, packet, parent)
+  -- Short Quantity: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.short_quantity(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
   index = dissect.symbol(buffer, index, packet, parent)
@@ -1921,7 +1981,7 @@ end
 dissect.add_order_short_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.add_order_short_message then
-    local range = buffer(offset, 26)
+    local range = buffer(offset, 24)
     local display = display.add_order_short_message(buffer, packet, parent)
     parent = parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.add_order_short_message, range, display)
   end
@@ -1947,8 +2007,8 @@ dissect.add_order_long_message_fields = function(buffer, offset, packet, parent)
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
   index = dissect.side_indicator(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.quantity(buffer, index, packet, parent)
+  -- Long Quantity: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.long_quantity(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
   index = dissect.symbol(buffer, index, packet, parent)
@@ -2063,11 +2123,11 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Add Order Short Message
   if code == 0x22 then
-    return 26
+    return 24
   end
   -- Size of Add Order Expanded Message
   if code == 0x2F then
-    return 37
+    return 39
   end
   -- Size of Order Executed Message
   if code == 0x23 then
@@ -2083,7 +2143,7 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Reduce Size Short Message
   if code == 0x26 then
-    return 16
+    return 14
   end
   -- Size of Modify Order Long Message
   if code == 0x27 then
@@ -2091,7 +2151,7 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Modify Order Short Message
   if code == 0x28 then
-    return 19
+    return 17
   end
   -- Size of Delete Order Message
   if code == 0x29 then
@@ -2103,11 +2163,11 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Trade Short Message
   if code == 0x2B then
-    return 34
+    return 32
   end
   -- Size of Trade Expanded Message
   if code == 0x30 then
-    return 40
+    return 42
   end
   -- Size of Trade Break Message
   if code == 0x2C then
@@ -2123,7 +2183,7 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Trading Status Message
   if code == 0x31 then
-    return 14
+    return 16
   end
   -- Size of Auction Update Message
   if code == 0x95 then
@@ -2147,7 +2207,7 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Retail Price Improvement Message
   if code == 0x98 then
-    return 11
+    return 13
   end
 
   return 0

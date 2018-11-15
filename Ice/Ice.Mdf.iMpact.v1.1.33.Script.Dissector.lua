@@ -4926,7 +4926,7 @@ size_of.special_field = function(buffer, offset)
 
   index = index + 3
 
-  -- Parse runtime field size of: Special Field Value
+  -- Parse runtime size of: Special Field Value
   index = index + buffer(offset + index - 2, 2):uint()
 
   return index
