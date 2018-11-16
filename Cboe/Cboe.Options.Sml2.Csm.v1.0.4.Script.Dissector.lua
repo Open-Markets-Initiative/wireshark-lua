@@ -31,6 +31,9 @@ cboe_options_sml2_csm_v1_0_4.fields.incremental_refresh_md_entry = ProtoField.ne
 cboe_options_sml2_csm_v1_0_4.fields.incremental_refresh_message = ProtoField.new("Incremental Refresh Message", "cboe.options.sml2.csm.v1.0.4.incrementalrefreshmessage", ftypes.STRING)
 cboe_options_sml2_csm_v1_0_4.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cboe.options.sml2.csm.v1.0.4.legratioqty", ftypes.UINT32)
 cboe_options_sml2_csm_v1_0_4.fields.leg_security_id = ProtoField.new("Leg Security Id", "cboe.options.sml2.csm.v1.0.4.legsecurityid", ftypes.UINT32)
+cboe_options_sml2_csm_v1_0_4.fields.leg_side = ProtoField.new("Leg Side", "cboe.options.sml2.csm.v1.0.4.legside", ftypes.STRING)
+cboe_options_sml2_csm_v1_0_4.fields.leg_side_length = ProtoField.new("Leg Side Length", "cboe.options.sml2.csm.v1.0.4.legsidelength", ftypes.UINT8)
+cboe_options_sml2_csm_v1_0_4.fields.leg_side_value = ProtoField.new("Leg Side Value", "cboe.options.sml2.csm.v1.0.4.legsidevalue", ftypes.STRING)
 cboe_options_sml2_csm_v1_0_4.fields.maturity_date = ProtoField.new("Maturity Date", "cboe.options.sml2.csm.v1.0.4.maturitydate", ftypes.UINT64)
 cboe_options_sml2_csm_v1_0_4.fields.max_strike_price = ProtoField.new("Max Strike Price", "cboe.options.sml2.csm.v1.0.4.maxstrikeprice", ftypes.BYTES)
 cboe_options_sml2_csm_v1_0_4.fields.md_entry_px = ProtoField.new("Md Entry Px", "cboe.options.sml2.csm.v1.0.4.mdentrypx", ftypes.BYTES)
@@ -95,6 +98,7 @@ cboe_options_sml2_csm_v1_0_4.fields.version = ProtoField.new("Version", "cboe.op
 show.currency_code = true
 show.incremental_refresh_md_entry = true
 show.incremental_refresh_message = true
+show.leg_side = true
 show.md_volume_entry = true
 show.message = true
 show.message_header = true
@@ -116,6 +120,7 @@ show.payload = false
 cboe_options_sml2_csm_v1_0_4.prefs.show_currency_code = Pref.bool("Show Currency Code", show.currency_code, "Parse and add Currency Code to protocol tree")
 cboe_options_sml2_csm_v1_0_4.prefs.show_incremental_refresh_md_entry = Pref.bool("Show Incremental Refresh Md Entry", show.incremental_refresh_md_entry, "Parse and add Incremental Refresh Md Entry to protocol tree")
 cboe_options_sml2_csm_v1_0_4.prefs.show_incremental_refresh_message = Pref.bool("Show Incremental Refresh Message", show.incremental_refresh_message, "Parse and add Incremental Refresh Message to protocol tree")
+cboe_options_sml2_csm_v1_0_4.prefs.show_leg_side = Pref.bool("Show Leg Side", show.leg_side, "Parse and add Leg Side to protocol tree")
 cboe_options_sml2_csm_v1_0_4.prefs.show_md_volume_entry = Pref.bool("Show Md Volume Entry", show.md_volume_entry, "Parse and add Md Volume Entry to protocol tree")
 cboe_options_sml2_csm_v1_0_4.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 cboe_options_sml2_csm_v1_0_4.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
@@ -148,6 +153,10 @@ function cboe_options_sml2_csm_v1_0_4.prefs_changed()
   end
   if show.incremental_refresh_message ~= cboe_options_sml2_csm_v1_0_4.prefs.show_incremental_refresh_message then
     show.incremental_refresh_message = cboe_options_sml2_csm_v1_0_4.prefs.show_incremental_refresh_message
+    changed = true
+  end
+  if show.leg_side ~= cboe_options_sml2_csm_v1_0_4.prefs.show_leg_side then
+    show.leg_side = cboe_options_sml2_csm_v1_0_4.prefs.show_leg_side
     changed = true
   end
   if show.md_volume_entry ~= cboe_options_sml2_csm_v1_0_4.prefs.show_md_volume_entry then
@@ -852,6 +861,86 @@ dissect.snapshot_full_refresh_message = function(buffer, offset, packet, parent)
   return dissect.snapshot_full_refresh_message_fields(buffer, offset, packet, parent)
 end
 
+-- Display: Leg Side Value
+display.leg_side_value = function(value)
+  return "Leg Side Value: "..value
+end
+
+-- Dissect runtime sized field: Leg Side Value
+dissect.leg_side_value = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:string()
+  local display = display.leg_side_value(value, buffer, offset, packet, parent, size)
+
+  parent:add(cboe_options_sml2_csm_v1_0_4.fields.leg_side_value, range, value, display)
+
+  return offset + size
+end
+
+-- Size: Leg Side Length
+size_of.leg_side_length = 1
+
+-- Display: Leg Side Length
+display.leg_side_length = function(value)
+  return "Leg Side Length: "..value
+end
+
+-- Dissect: Leg Side Length
+dissect.leg_side_length = function(buffer, offset, packet, parent)
+  local length = 1
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = display.leg_side_length(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_options_sml2_csm_v1_0_4.fields.leg_side_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate runtime size: Leg Side
+size_of.leg_side = function(buffer, offset)
+  local index = 0
+
+  index = index + 1
+
+  -- Parse runtime size of: Leg Side Value
+  index = index + buffer(offset + index - 1, 1):uint()
+
+  return index
+end
+
+-- Display: Leg Side
+display.leg_side = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Leg Side
+dissect.leg_side_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Leg Side Length: 1 Byte Unsigned Fixed Width Integer
+  index = dissect.leg_side_length(buffer, index, packet, parent)
+
+  -- Leg Side Value: 0 Byte Ascii String
+  local length = buffer(index - 1, 1):uint()
+  index = dissect.leg_side_value(buffer, index, packet, parent, length)
+
+  return index
+end
+
+-- Dissect: Leg Side
+dissect.leg_side = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.leg_side then
+    local length = size_of.leg_side(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.leg_side(buffer, packet, parent)
+    parent = parent:add(cboe_options_sml2_csm_v1_0_4.fields.leg_side, range, display)
+  end
+
+  return dissect.leg_side_fields(buffer, offset, packet, parent)
+end
+
 -- Size: Leg Security Id
 size_of.leg_security_id = 4
 
@@ -890,6 +979,17 @@ dissect.leg_ratio_qty = function(buffer, offset, packet, parent)
   return offset + size_of.leg_ratio_qty
 end
 
+-- Calculate runtime size: Security Definition Leg
+size_of.security_definition_leg = function(buffer, offset)
+  local index = 0
+
+  index = index + 8
+
+  index = index + size_of.leg_side(buffer, offset + index)
+
+  return index
+end
+
 -- Display: Security Definition Leg
 display.security_definition_leg = function(buffer, offset, size, packet, parent)
   return ""
@@ -905,7 +1005,7 @@ dissect.security_definition_leg_fields = function(buffer, offset, packet, parent
   -- Leg Security Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.leg_security_id(buffer, index, packet, parent)
 
-  -- Leg Side
+  -- Leg Side: Struct of 2 fields
   index = dissect.leg_side(buffer, index, packet, parent)
 
   return index
@@ -913,9 +1013,10 @@ end
 
 -- Dissect: Security Definition Leg
 dissect.security_definition_leg = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.security_definition_leg then
-    local range = buffer(offset, 8)
+    local length = size_of.security_definition_leg(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.security_definition_leg(buffer, packet, parent)
     parent = parent:add(cboe_options_sml2_csm_v1_0_4.fields.security_definition_leg, range, display)
   end
@@ -1666,8 +1767,9 @@ size_of.security_definition_message = function(buffer, offset)
 
   -- Calculate field size from count
   local security_definition_leg_count = buffer(offset + index - 1, 1):uint()
-  index = index + security_definition_leg_count * 8
-
+  for i = 1, security_definition_leg_count do
+    index = index + size_of.security_definition_leg(buffer, offset + index)
+  end
   return index
 end
 
