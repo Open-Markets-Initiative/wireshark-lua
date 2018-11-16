@@ -23,7 +23,7 @@ local verify = {}
 cboe_options_sml2_csm_v1_0_4.fields.class_key = ProtoField.new("Class Key", "cboe.options.sml2.csm.v1.0.4.classkey", ftypes.UINT32)
 cboe_options_sml2_csm_v1_0_4.fields.contract_size = ProtoField.new("Contract Size", "cboe.options.sml2.csm.v1.0.4.contractsize", ftypes.UINT32)
 cboe_options_sml2_csm_v1_0_4.fields.currency_code = ProtoField.new("Currency Code", "cboe.options.sml2.csm.v1.0.4.currencycode", ftypes.STRING)
-cboe_options_sml2_csm_v1_0_4.fields.currency_code_length = ProtoField.new("Currency Code Length", "cboe.options.sml2.csm.v1.0.4.currencycodelength", ftypes.STRING)
+cboe_options_sml2_csm_v1_0_4.fields.currency_code_length = ProtoField.new("Currency Code Length", "cboe.options.sml2.csm.v1.0.4.currencycodelength", ftypes.UINT8)
 cboe_options_sml2_csm_v1_0_4.fields.currency_code_value = ProtoField.new("Currency Code Value", "cboe.options.sml2.csm.v1.0.4.currencycodevalue", ftypes.STRING)
 cboe_options_sml2_csm_v1_0_4.fields.exercise_style = ProtoField.new("Exercise Style", "cboe.options.sml2.csm.v1.0.4.exercisestyle", ftypes.UINT8)
 cboe_options_sml2_csm_v1_0_4.fields.first_msg_seq_num = ProtoField.new("first Msg Seq Num", "cboe.options.sml2.csm.v1.0.4.firstmsgseqnum", ftypes.UINT32)
@@ -31,7 +31,6 @@ cboe_options_sml2_csm_v1_0_4.fields.incremental_refresh_md_entry = ProtoField.ne
 cboe_options_sml2_csm_v1_0_4.fields.incremental_refresh_message = ProtoField.new("Incremental Refresh Message", "cboe.options.sml2.csm.v1.0.4.incrementalrefreshmessage", ftypes.STRING)
 cboe_options_sml2_csm_v1_0_4.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cboe.options.sml2.csm.v1.0.4.legratioqty", ftypes.UINT32)
 cboe_options_sml2_csm_v1_0_4.fields.leg_security_id = ProtoField.new("Leg Security Id", "cboe.options.sml2.csm.v1.0.4.legsecurityid", ftypes.UINT32)
-cboe_options_sml2_csm_v1_0_4.fields.leg_side = ProtoField.new("Leg Side", "cboe.options.sml2.csm.v1.0.4.legside", ftypes.STRING)
 cboe_options_sml2_csm_v1_0_4.fields.maturity_date = ProtoField.new("Maturity Date", "cboe.options.sml2.csm.v1.0.4.maturitydate", ftypes.UINT64)
 cboe_options_sml2_csm_v1_0_4.fields.max_strike_price = ProtoField.new("Max Strike Price", "cboe.options.sml2.csm.v1.0.4.maxstrikeprice", ftypes.BYTES)
 cboe_options_sml2_csm_v1_0_4.fields.md_entry_px = ProtoField.new("Md Entry Px", "cboe.options.sml2.csm.v1.0.4.mdentrypx", ftypes.BYTES)
@@ -67,24 +66,24 @@ cboe_options_sml2_csm_v1_0_4.fields.security_id = ProtoField.new("Security Id", 
 cboe_options_sml2_csm_v1_0_4.fields.security_status_message = ProtoField.new("Security Status Message", "cboe.options.sml2.csm.v1.0.4.securitystatusmessage", ftypes.STRING)
 cboe_options_sml2_csm_v1_0_4.fields.security_trading_status = ProtoField.new("Security Trading Status", "cboe.options.sml2.csm.v1.0.4.securitytradingstatus", ftypes.UINT8)
 cboe_options_sml2_csm_v1_0_4.fields.security_type = ProtoField.new("Security Type", "cboe.options.sml2.csm.v1.0.4.securitytype", ftypes.STRING)
-cboe_options_sml2_csm_v1_0_4.fields.security_type_length = ProtoField.new("Security Type Length", "cboe.options.sml2.csm.v1.0.4.securitytypelength", ftypes.STRING)
+cboe_options_sml2_csm_v1_0_4.fields.security_type_length = ProtoField.new("Security Type Length", "cboe.options.sml2.csm.v1.0.4.securitytypelength", ftypes.UINT8)
 cboe_options_sml2_csm_v1_0_4.fields.security_type_value = ProtoField.new("Security Type Value", "cboe.options.sml2.csm.v1.0.4.securitytypevalue", ftypes.STRING)
 cboe_options_sml2_csm_v1_0_4.fields.sending_time = ProtoField.new("Sending Time", "cboe.options.sml2.csm.v1.0.4.sendingtime", ftypes.UINT64)
 cboe_options_sml2_csm_v1_0_4.fields.snapshot_full_refresh_md_entry = ProtoField.new("Snapshot Full Refresh Md Entry", "cboe.options.sml2.csm.v1.0.4.snapshotfullrefreshmdentry", ftypes.STRING)
 cboe_options_sml2_csm_v1_0_4.fields.snapshot_full_refresh_message = ProtoField.new("Snapshot Full Refresh Message", "cboe.options.sml2.csm.v1.0.4.snapshotfullrefreshmessage", ftypes.STRING)
 cboe_options_sml2_csm_v1_0_4.fields.strike_price = ProtoField.new("Strike Price", "cboe.options.sml2.csm.v1.0.4.strikeprice", ftypes.BYTES)
 cboe_options_sml2_csm_v1_0_4.fields.symbol = ProtoField.new("Symbol", "cboe.options.sml2.csm.v1.0.4.symbol", ftypes.STRING)
-cboe_options_sml2_csm_v1_0_4.fields.symbol_length = ProtoField.new("Symbol Length", "cboe.options.sml2.csm.v1.0.4.symbollength", ftypes.STRING)
+cboe_options_sml2_csm_v1_0_4.fields.symbol_length = ProtoField.new("Symbol Length", "cboe.options.sml2.csm.v1.0.4.symbollength", ftypes.UINT8)
 cboe_options_sml2_csm_v1_0_4.fields.symbol_value = ProtoField.new("Symbol Value", "cboe.options.sml2.csm.v1.0.4.symbolvalue", ftypes.STRING)
 cboe_options_sml2_csm_v1_0_4.fields.target_location_id = ProtoField.new("Target Location Id", "cboe.options.sml2.csm.v1.0.4.targetlocationid", ftypes.STRING)
-cboe_options_sml2_csm_v1_0_4.fields.target_location_id_length = ProtoField.new("Target Location Id Length", "cboe.options.sml2.csm.v1.0.4.targetlocationidlength", ftypes.STRING)
+cboe_options_sml2_csm_v1_0_4.fields.target_location_id_length = ProtoField.new("Target Location Id Length", "cboe.options.sml2.csm.v1.0.4.targetlocationidlength", ftypes.UINT8)
 cboe_options_sml2_csm_v1_0_4.fields.target_location_id_value = ProtoField.new("Target Location Id Value", "cboe.options.sml2.csm.v1.0.4.targetlocationidvalue", ftypes.STRING)
 cboe_options_sml2_csm_v1_0_4.fields.template_id = ProtoField.new("Template Id", "cboe.options.sml2.csm.v1.0.4.templateid", ftypes.UINT8)
 cboe_options_sml2_csm_v1_0_4.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "cboe.options.sml2.csm.v1.0.4.underlyingsymbol", ftypes.STRING)
-cboe_options_sml2_csm_v1_0_4.fields.underlying_symbol_length = ProtoField.new("Underlying Symbol Length", "cboe.options.sml2.csm.v1.0.4.underlyingsymbollength", ftypes.STRING)
+cboe_options_sml2_csm_v1_0_4.fields.underlying_symbol_length = ProtoField.new("Underlying Symbol Length", "cboe.options.sml2.csm.v1.0.4.underlyingsymbollength", ftypes.UINT8)
 cboe_options_sml2_csm_v1_0_4.fields.underlying_symbol_value = ProtoField.new("Underlying Symbol Value", "cboe.options.sml2.csm.v1.0.4.underlyingsymbolvalue", ftypes.STRING)
 cboe_options_sml2_csm_v1_0_4.fields.underlying_type = ProtoField.new("Underlying Type", "cboe.options.sml2.csm.v1.0.4.underlyingtype", ftypes.STRING)
-cboe_options_sml2_csm_v1_0_4.fields.underlying_type_length = ProtoField.new("Underlying Type Length", "cboe.options.sml2.csm.v1.0.4.underlyingtypelength", ftypes.STRING)
+cboe_options_sml2_csm_v1_0_4.fields.underlying_type_length = ProtoField.new("Underlying Type Length", "cboe.options.sml2.csm.v1.0.4.underlyingtypelength", ftypes.UINT8)
 cboe_options_sml2_csm_v1_0_4.fields.underlying_type_value = ProtoField.new("Underlying Type Value", "cboe.options.sml2.csm.v1.0.4.underlyingtypevalue", ftypes.STRING)
 cboe_options_sml2_csm_v1_0_4.fields.version = ProtoField.new("Version", "cboe.options.sml2.csm.v1.0.4.version", ftypes.UINT8)
 
@@ -853,32 +852,6 @@ dissect.snapshot_full_refresh_message = function(buffer, offset, packet, parent)
   return dissect.snapshot_full_refresh_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Leg Side
-size_of.leg_side = 0
-
--- Display: Leg Side
-display.leg_side = function(value)
-  if value == "B" then
-    return "Leg Side: Buy Bid (B)"
-  end
-  if value == "S" then
-    return "Leg Side: Sell Ask (S)"
-  end
-
-  return "Leg Side: Unknown("..value..")"
-end
-
--- Dissect: Leg Side
-dissect.leg_side = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_side)
-  local value = range:string()
-  local display = display.leg_side(value, buffer, offset, packet, parent)
-
-  parent:add(cboe_options_sml2_csm_v1_0_4.fields.leg_side, range, value, display)
-
-  return offset + size_of.leg_side
-end
-
 -- Size: Leg Security Id
 size_of.leg_security_id = 4
 
@@ -932,7 +905,7 @@ dissect.security_definition_leg_fields = function(buffer, offset, packet, parent
   -- Leg Security Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.leg_security_id(buffer, index, packet, parent)
 
-  -- Leg Side: 0 Byte Ascii String Enum with 2 values
+  -- Leg Side
   index = dissect.leg_side(buffer, index, packet, parent)
 
   return index
@@ -997,7 +970,7 @@ end
 dissect.underlying_type_length = function(buffer, offset, packet, parent)
   local length = 1
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:uint()
   local display = display.underlying_type_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_sml2_csm_v1_0_4.fields.underlying_type_length, range, value, display)
@@ -1012,7 +985,7 @@ size_of.underlying_type = function(buffer, offset)
   index = index + 1
 
   -- Parse runtime size of: Underlying Type Value
-  index = index + buffer(offset + index - 1, 1):string()
+  index = index + buffer(offset + index - 1, 1):uint()
 
   return index
 end
@@ -1026,11 +999,11 @@ end
 dissect.underlying_type_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Underlying Type Length: 1 Byte Ascii String
+  -- Underlying Type Length: 1 Byte Unsigned Fixed Width Integer
   index = dissect.underlying_type_length(buffer, index, packet, parent)
 
   -- Underlying Type Value: 0 Byte Ascii String
-  local length = buffer(index - 1, 1):string()
+  local length = buffer(index - 1, 1):uint()
   index = dissect.underlying_type_value(buffer, index, packet, parent, length)
 
   return index
@@ -1077,7 +1050,7 @@ end
 dissect.underlying_symbol_length = function(buffer, offset, packet, parent)
   local length = 1
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:uint()
   local display = display.underlying_symbol_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_sml2_csm_v1_0_4.fields.underlying_symbol_length, range, value, display)
@@ -1092,7 +1065,7 @@ size_of.underlying_symbol = function(buffer, offset)
   index = index + 1
 
   -- Parse runtime size of: Underlying Symbol Value
-  index = index + buffer(offset + index - 1, 1):string()
+  index = index + buffer(offset + index - 1, 1):uint()
 
   return index
 end
@@ -1106,11 +1079,11 @@ end
 dissect.underlying_symbol_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Underlying Symbol Length: 1 Byte Ascii String
+  -- Underlying Symbol Length: 1 Byte Unsigned Fixed Width Integer
   index = dissect.underlying_symbol_length(buffer, index, packet, parent)
 
   -- Underlying Symbol Value: 0 Byte Ascii String
-  local length = buffer(index - 1, 1):string()
+  local length = buffer(index - 1, 1):uint()
   index = dissect.underlying_symbol_value(buffer, index, packet, parent, length)
 
   return index
@@ -1157,7 +1130,7 @@ end
 dissect.currency_code_length = function(buffer, offset, packet, parent)
   local length = 1
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:uint()
   local display = display.currency_code_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_sml2_csm_v1_0_4.fields.currency_code_length, range, value, display)
@@ -1172,7 +1145,7 @@ size_of.currency_code = function(buffer, offset)
   index = index + 1
 
   -- Parse runtime size of: Currency Code Value
-  index = index + buffer(offset + index - 1, 1):string()
+  index = index + buffer(offset + index - 1, 1):uint()
 
   return index
 end
@@ -1186,11 +1159,11 @@ end
 dissect.currency_code_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Currency Code Length: 1 Byte Ascii String
+  -- Currency Code Length: 1 Byte Unsigned Fixed Width Integer
   index = dissect.currency_code_length(buffer, index, packet, parent)
 
   -- Currency Code Value: 0 Byte Ascii String
-  local length = buffer(index - 1, 1):string()
+  local length = buffer(index - 1, 1):uint()
   index = dissect.currency_code_value(buffer, index, packet, parent, length)
 
   return index
@@ -1422,7 +1395,7 @@ end
 dissect.target_location_id_length = function(buffer, offset, packet, parent)
   local length = 1
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:uint()
   local display = display.target_location_id_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_sml2_csm_v1_0_4.fields.target_location_id_length, range, value, display)
@@ -1437,7 +1410,7 @@ size_of.target_location_id = function(buffer, offset)
   index = index + 1
 
   -- Parse runtime size of: Target Location Id Value
-  index = index + buffer(offset + index - 1, 1):string()
+  index = index + buffer(offset + index - 1, 1):uint()
 
   return index
 end
@@ -1451,11 +1424,11 @@ end
 dissect.target_location_id_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Target Location Id Length: 1 Byte Ascii String
+  -- Target Location Id Length: 1 Byte Unsigned Fixed Width Integer
   index = dissect.target_location_id_length(buffer, index, packet, parent)
 
   -- Target Location Id Value: 0 Byte Ascii String
-  local length = buffer(index - 1, 1):string()
+  local length = buffer(index - 1, 1):uint()
   index = dissect.target_location_id_value(buffer, index, packet, parent, length)
 
   return index
@@ -1502,7 +1475,7 @@ end
 dissect.symbol_length = function(buffer, offset, packet, parent)
   local length = 1
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:uint()
   local display = display.symbol_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_sml2_csm_v1_0_4.fields.symbol_length, range, value, display)
@@ -1517,7 +1490,7 @@ size_of.symbol = function(buffer, offset)
   index = index + 1
 
   -- Parse runtime size of: Symbol Value
-  index = index + buffer(offset + index - 1, 1):string()
+  index = index + buffer(offset + index - 1, 1):uint()
 
   return index
 end
@@ -1531,11 +1504,11 @@ end
 dissect.symbol_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Length: 1 Byte Ascii String
+  -- Symbol Length: 1 Byte Unsigned Fixed Width Integer
   index = dissect.symbol_length(buffer, index, packet, parent)
 
   -- Symbol Value: 0 Byte Ascii String
-  local length = buffer(index - 1, 1):string()
+  local length = buffer(index - 1, 1):uint()
   index = dissect.symbol_value(buffer, index, packet, parent, length)
 
   return index
@@ -1617,7 +1590,7 @@ end
 dissect.security_type_length = function(buffer, offset, packet, parent)
   local length = 1
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:uint()
   local display = display.security_type_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_sml2_csm_v1_0_4.fields.security_type_length, range, value, display)
@@ -1632,7 +1605,7 @@ size_of.security_type = function(buffer, offset)
   index = index + 1
 
   -- Parse runtime size of: Security Type Value
-  index = index + buffer(offset + index - 1, 1):string()
+  index = index + buffer(offset + index - 1, 1):uint()
 
   return index
 end
@@ -1646,11 +1619,11 @@ end
 dissect.security_type_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Type Length: 1 Byte Ascii String
+  -- Security Type Length: 1 Byte Unsigned Fixed Width Integer
   index = dissect.security_type_length(buffer, index, packet, parent)
 
   -- Security Type Value: 0 Byte Ascii String
-  local length = buffer(index - 1, 1):string()
+  local length = buffer(index - 1, 1):uint()
   index = dissect.security_type_value(buffer, index, packet, parent, length)
 
   return index
