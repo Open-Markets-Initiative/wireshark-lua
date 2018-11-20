@@ -35,8 +35,12 @@ cboe_options_sml2_csm_v1_0_4.fields.leg_side = ProtoField.new("Leg Side", "cboe.
 cboe_options_sml2_csm_v1_0_4.fields.leg_side_length = ProtoField.new("Leg Side Length", "cboe.options.sml2.csm.v1.0.4.legsidelength", ftypes.UINT8)
 cboe_options_sml2_csm_v1_0_4.fields.leg_side_value = ProtoField.new("Leg Side Value", "cboe.options.sml2.csm.v1.0.4.legsidevalue", ftypes.STRING)
 cboe_options_sml2_csm_v1_0_4.fields.maturity_date = ProtoField.new("Maturity Date", "cboe.options.sml2.csm.v1.0.4.maturitydate", ftypes.UINT64)
-cboe_options_sml2_csm_v1_0_4.fields.max_strike_price = ProtoField.new("Max Strike Price", "cboe.options.sml2.csm.v1.0.4.maxstrikeprice", ftypes.BYTES)
-cboe_options_sml2_csm_v1_0_4.fields.md_entry_px = ProtoField.new("Md Entry Px", "cboe.options.sml2.csm.v1.0.4.mdentrypx", ftypes.BYTES)
+cboe_options_sml2_csm_v1_0_4.fields.max_strike_price = ProtoField.new("Max Strike Price", "cboe.options.sml2.csm.v1.0.4.maxstrikeprice", ftypes.STRING)
+cboe_options_sml2_csm_v1_0_4.fields.max_strike_price_exponent = ProtoField.new("Max Strike Price Exponent", "cboe.options.sml2.csm.v1.0.4.maxstrikepriceexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
+cboe_options_sml2_csm_v1_0_4.fields.max_strike_price_mantissa = ProtoField.new("Max Strike Price Mantissa", "cboe.options.sml2.csm.v1.0.4.maxstrikepricemantissa", ftypes.INT32)
+cboe_options_sml2_csm_v1_0_4.fields.md_entry_px = ProtoField.new("Md Entry Px", "cboe.options.sml2.csm.v1.0.4.mdentrypx", ftypes.STRING)
+cboe_options_sml2_csm_v1_0_4.fields.md_entry_px_exponent = ProtoField.new("Md Entry Px Exponent", "cboe.options.sml2.csm.v1.0.4.mdentrypxexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
+cboe_options_sml2_csm_v1_0_4.fields.md_entry_px_mantissa = ProtoField.new("Md Entry Px Mantissa", "cboe.options.sml2.csm.v1.0.4.mdentrypxmantissa", ftypes.INT32)
 cboe_options_sml2_csm_v1_0_4.fields.md_entry_size = ProtoField.new("Md Entry Size", "cboe.options.sml2.csm.v1.0.4.mdentrysize", ftypes.UINT32)
 cboe_options_sml2_csm_v1_0_4.fields.md_entry_type = ProtoField.new("Md Entry Type", "cboe.options.sml2.csm.v1.0.4.mdentrytype", ftypes.STRING)
 cboe_options_sml2_csm_v1_0_4.fields.md_price_level = ProtoField.new("Md Price Level", "cboe.options.sml2.csm.v1.0.4.mdpricelevel", ftypes.UINT8)
@@ -49,15 +53,23 @@ cboe_options_sml2_csm_v1_0_4.fields.message_header = ProtoField.new("Message Hea
 cboe_options_sml2_csm_v1_0_4.fields.message_length = ProtoField.new("Message Length", "cboe.options.sml2.csm.v1.0.4.messagelength", ftypes.UINT16)
 cboe_options_sml2_csm_v1_0_4.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cboe.options.sml2.csm.v1.0.4.messagesequencenumber", ftypes.UINT32)
 cboe_options_sml2_csm_v1_0_4.fields.message_type = ProtoField.new("Message Type", "cboe.options.sml2.csm.v1.0.4.messagetype", ftypes.STRING)
-cboe_options_sml2_csm_v1_0_4.fields.minimum_above_premium_fraction = ProtoField.new("Minimum Above Premium Fraction", "cboe.options.sml2.csm.v1.0.4.minimumabovepremiumfraction", ftypes.BYTES)
-cboe_options_sml2_csm_v1_0_4.fields.minimum_below_premium_fraction = ProtoField.new("Minimum Below Premium Fraction", "cboe.options.sml2.csm.v1.0.4.minimumbelowpremiumfraction", ftypes.BYTES)
-cboe_options_sml2_csm_v1_0_4.fields.minimum_strike_price_fraction = ProtoField.new("Minimum Strike Price Fraction", "cboe.options.sml2.csm.v1.0.4.minimumstrikepricefraction", ftypes.BYTES)
+cboe_options_sml2_csm_v1_0_4.fields.minimum_above_premium_fraction = ProtoField.new("Minimum Above Premium Fraction", "cboe.options.sml2.csm.v1.0.4.minimumabovepremiumfraction", ftypes.STRING)
+cboe_options_sml2_csm_v1_0_4.fields.minimum_above_premium_fraction_exponent = ProtoField.new("Minimum Above Premium Fraction Exponent", "cboe.options.sml2.csm.v1.0.4.minimumabovepremiumfractionexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
+cboe_options_sml2_csm_v1_0_4.fields.minimum_above_premium_fraction_mantissa = ProtoField.new("Minimum Above Premium Fraction Mantissa", "cboe.options.sml2.csm.v1.0.4.minimumabovepremiumfractionmantissa", ftypes.INT32)
+cboe_options_sml2_csm_v1_0_4.fields.minimum_below_premium_fraction = ProtoField.new("Minimum Below Premium Fraction", "cboe.options.sml2.csm.v1.0.4.minimumbelowpremiumfraction", ftypes.STRING)
+cboe_options_sml2_csm_v1_0_4.fields.minimum_below_premium_fraction_exponent = ProtoField.new("Minimum Below Premium Fraction Exponent", "cboe.options.sml2.csm.v1.0.4.minimumbelowpremiumfractionexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
+cboe_options_sml2_csm_v1_0_4.fields.minimum_below_premium_fraction_mantissa = ProtoField.new("Minimum Below Premium Fraction Mantissa", "cboe.options.sml2.csm.v1.0.4.minimumbelowpremiumfractionmantissa", ftypes.INT32)
+cboe_options_sml2_csm_v1_0_4.fields.minimum_strike_price_fraction = ProtoField.new("Minimum Strike Price Fraction", "cboe.options.sml2.csm.v1.0.4.minimumstrikepricefraction", ftypes.STRING)
+cboe_options_sml2_csm_v1_0_4.fields.minimum_strike_price_fraction_exponent = ProtoField.new("Minimum Strike Price Fraction Exponent", "cboe.options.sml2.csm.v1.0.4.minimumstrikepricefractionexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
+cboe_options_sml2_csm_v1_0_4.fields.minimum_strike_price_fraction_mantissa = ProtoField.new("Minimum Strike Price Fraction Mantissa", "cboe.options.sml2.csm.v1.0.4.minimumstrikepricefractionmantissa", ftypes.INT32)
 cboe_options_sml2_csm_v1_0_4.fields.no_legs = ProtoField.new("No Legs", "cboe.options.sml2.csm.v1.0.4.nolegs", ftypes.UINT8)
 cboe_options_sml2_csm_v1_0_4.fields.packet = ProtoField.new("Packet", "cboe.options.sml2.csm.v1.0.4.packet", ftypes.STRING)
 cboe_options_sml2_csm_v1_0_4.fields.packet_header = ProtoField.new("Packet Header", "cboe.options.sml2.csm.v1.0.4.packetheader", ftypes.STRING)
 cboe_options_sml2_csm_v1_0_4.fields.packet_length = ProtoField.new("Packet Length", "cboe.options.sml2.csm.v1.0.4.packetlength", ftypes.UINT16)
 cboe_options_sml2_csm_v1_0_4.fields.payload = ProtoField.new("Payload", "cboe.options.sml2.csm.v1.0.4.payload", ftypes.STRING)
-cboe_options_sml2_csm_v1_0_4.fields.premium_break_point = ProtoField.new("Premium Break Point", "cboe.options.sml2.csm.v1.0.4.premiumbreakpoint", ftypes.BYTES)
+cboe_options_sml2_csm_v1_0_4.fields.premium_break_point = ProtoField.new("Premium Break Point", "cboe.options.sml2.csm.v1.0.4.premiumbreakpoint", ftypes.STRING)
+cboe_options_sml2_csm_v1_0_4.fields.premium_break_point_exponent = ProtoField.new("Premium Break Point Exponent", "cboe.options.sml2.csm.v1.0.4.premiumbreakpointexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
+cboe_options_sml2_csm_v1_0_4.fields.premium_break_point_mantissa = ProtoField.new("Premium Break Point Mantissa", "cboe.options.sml2.csm.v1.0.4.premiumbreakpointmantissa", ftypes.INT32)
 cboe_options_sml2_csm_v1_0_4.fields.price_type = ProtoField.new("Price Type", "cboe.options.sml2.csm.v1.0.4.pricetype", ftypes.UINT8)
 cboe_options_sml2_csm_v1_0_4.fields.put_or_call = ProtoField.new("Put Or Call", "cboe.options.sml2.csm.v1.0.4.putorcall", ftypes.UINT8)
 cboe_options_sml2_csm_v1_0_4.fields.refresh_indicator = ProtoField.new("Refresh Indicator", "cboe.options.sml2.csm.v1.0.4.refreshindicator", ftypes.STRING)
@@ -74,7 +86,9 @@ cboe_options_sml2_csm_v1_0_4.fields.security_type_value = ProtoField.new("Securi
 cboe_options_sml2_csm_v1_0_4.fields.sending_time = ProtoField.new("Sending Time", "cboe.options.sml2.csm.v1.0.4.sendingtime", ftypes.UINT64)
 cboe_options_sml2_csm_v1_0_4.fields.snapshot_full_refresh_md_entry = ProtoField.new("Snapshot Full Refresh Md Entry", "cboe.options.sml2.csm.v1.0.4.snapshotfullrefreshmdentry", ftypes.STRING)
 cboe_options_sml2_csm_v1_0_4.fields.snapshot_full_refresh_message = ProtoField.new("Snapshot Full Refresh Message", "cboe.options.sml2.csm.v1.0.4.snapshotfullrefreshmessage", ftypes.STRING)
-cboe_options_sml2_csm_v1_0_4.fields.strike_price = ProtoField.new("Strike Price", "cboe.options.sml2.csm.v1.0.4.strikeprice", ftypes.BYTES)
+cboe_options_sml2_csm_v1_0_4.fields.strike_price = ProtoField.new("Strike Price", "cboe.options.sml2.csm.v1.0.4.strikeprice", ftypes.STRING)
+cboe_options_sml2_csm_v1_0_4.fields.strike_price_exponent = ProtoField.new("Strike Price Exponent", "cboe.options.sml2.csm.v1.0.4.strikepriceexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
+cboe_options_sml2_csm_v1_0_4.fields.strike_price_mantissa = ProtoField.new("Strike Price Mantissa", "cboe.options.sml2.csm.v1.0.4.strikepricemantissa", ftypes.INT32)
 cboe_options_sml2_csm_v1_0_4.fields.symbol = ProtoField.new("Symbol", "cboe.options.sml2.csm.v1.0.4.symbol", ftypes.STRING)
 cboe_options_sml2_csm_v1_0_4.fields.symbol_length = ProtoField.new("Symbol Length", "cboe.options.sml2.csm.v1.0.4.symbollength", ftypes.UINT8)
 cboe_options_sml2_csm_v1_0_4.fields.symbol_value = ProtoField.new("Symbol Value", "cboe.options.sml2.csm.v1.0.4.symbolvalue", ftypes.STRING)
@@ -99,17 +113,24 @@ show.currency_code = true
 show.incremental_refresh_md_entry = true
 show.incremental_refresh_message = true
 show.leg_side = true
+show.max_strike_price = true
+show.md_entry_px = true
 show.md_volume_entry = true
 show.message = true
 show.message_header = true
+show.minimum_above_premium_fraction = true
+show.minimum_below_premium_fraction = true
+show.minimum_strike_price_fraction = true
 show.packet = true
 show.packet_header = true
+show.premium_break_point = true
 show.security_definition_leg = true
 show.security_definition_message = true
 show.security_status_message = true
 show.security_type = true
 show.snapshot_full_refresh_md_entry = true
 show.snapshot_full_refresh_message = true
+show.strike_price = true
 show.symbol = true
 show.target_location_id = true
 show.underlying_symbol = true
@@ -121,17 +142,24 @@ cboe_options_sml2_csm_v1_0_4.prefs.show_currency_code = Pref.bool("Show Currency
 cboe_options_sml2_csm_v1_0_4.prefs.show_incremental_refresh_md_entry = Pref.bool("Show Incremental Refresh Md Entry", show.incremental_refresh_md_entry, "Parse and add Incremental Refresh Md Entry to protocol tree")
 cboe_options_sml2_csm_v1_0_4.prefs.show_incremental_refresh_message = Pref.bool("Show Incremental Refresh Message", show.incremental_refresh_message, "Parse and add Incremental Refresh Message to protocol tree")
 cboe_options_sml2_csm_v1_0_4.prefs.show_leg_side = Pref.bool("Show Leg Side", show.leg_side, "Parse and add Leg Side to protocol tree")
+cboe_options_sml2_csm_v1_0_4.prefs.show_max_strike_price = Pref.bool("Show Max Strike Price", show.max_strike_price, "Parse and add Max Strike Price to protocol tree")
+cboe_options_sml2_csm_v1_0_4.prefs.show_md_entry_px = Pref.bool("Show Md Entry Px", show.md_entry_px, "Parse and add Md Entry Px to protocol tree")
 cboe_options_sml2_csm_v1_0_4.prefs.show_md_volume_entry = Pref.bool("Show Md Volume Entry", show.md_volume_entry, "Parse and add Md Volume Entry to protocol tree")
 cboe_options_sml2_csm_v1_0_4.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 cboe_options_sml2_csm_v1_0_4.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+cboe_options_sml2_csm_v1_0_4.prefs.show_minimum_above_premium_fraction = Pref.bool("Show Minimum Above Premium Fraction", show.minimum_above_premium_fraction, "Parse and add Minimum Above Premium Fraction to protocol tree")
+cboe_options_sml2_csm_v1_0_4.prefs.show_minimum_below_premium_fraction = Pref.bool("Show Minimum Below Premium Fraction", show.minimum_below_premium_fraction, "Parse and add Minimum Below Premium Fraction to protocol tree")
+cboe_options_sml2_csm_v1_0_4.prefs.show_minimum_strike_price_fraction = Pref.bool("Show Minimum Strike Price Fraction", show.minimum_strike_price_fraction, "Parse and add Minimum Strike Price Fraction to protocol tree")
 cboe_options_sml2_csm_v1_0_4.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 cboe_options_sml2_csm_v1_0_4.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+cboe_options_sml2_csm_v1_0_4.prefs.show_premium_break_point = Pref.bool("Show Premium Break Point", show.premium_break_point, "Parse and add Premium Break Point to protocol tree")
 cboe_options_sml2_csm_v1_0_4.prefs.show_security_definition_leg = Pref.bool("Show Security Definition Leg", show.security_definition_leg, "Parse and add Security Definition Leg to protocol tree")
 cboe_options_sml2_csm_v1_0_4.prefs.show_security_definition_message = Pref.bool("Show Security Definition Message", show.security_definition_message, "Parse and add Security Definition Message to protocol tree")
 cboe_options_sml2_csm_v1_0_4.prefs.show_security_status_message = Pref.bool("Show Security Status Message", show.security_status_message, "Parse and add Security Status Message to protocol tree")
 cboe_options_sml2_csm_v1_0_4.prefs.show_security_type = Pref.bool("Show Security Type", show.security_type, "Parse and add Security Type to protocol tree")
 cboe_options_sml2_csm_v1_0_4.prefs.show_snapshot_full_refresh_md_entry = Pref.bool("Show Snapshot Full Refresh Md Entry", show.snapshot_full_refresh_md_entry, "Parse and add Snapshot Full Refresh Md Entry to protocol tree")
 cboe_options_sml2_csm_v1_0_4.prefs.show_snapshot_full_refresh_message = Pref.bool("Show Snapshot Full Refresh Message", show.snapshot_full_refresh_message, "Parse and add Snapshot Full Refresh Message to protocol tree")
+cboe_options_sml2_csm_v1_0_4.prefs.show_strike_price = Pref.bool("Show Strike Price", show.strike_price, "Parse and add Strike Price to protocol tree")
 cboe_options_sml2_csm_v1_0_4.prefs.show_symbol = Pref.bool("Show Symbol", show.symbol, "Parse and add Symbol to protocol tree")
 cboe_options_sml2_csm_v1_0_4.prefs.show_target_location_id = Pref.bool("Show Target Location Id", show.target_location_id, "Parse and add Target Location Id to protocol tree")
 cboe_options_sml2_csm_v1_0_4.prefs.show_underlying_symbol = Pref.bool("Show Underlying Symbol", show.underlying_symbol, "Parse and add Underlying Symbol to protocol tree")
@@ -159,6 +187,14 @@ function cboe_options_sml2_csm_v1_0_4.prefs_changed()
     show.leg_side = cboe_options_sml2_csm_v1_0_4.prefs.show_leg_side
     changed = true
   end
+  if show.max_strike_price ~= cboe_options_sml2_csm_v1_0_4.prefs.show_max_strike_price then
+    show.max_strike_price = cboe_options_sml2_csm_v1_0_4.prefs.show_max_strike_price
+    changed = true
+  end
+  if show.md_entry_px ~= cboe_options_sml2_csm_v1_0_4.prefs.show_md_entry_px then
+    show.md_entry_px = cboe_options_sml2_csm_v1_0_4.prefs.show_md_entry_px
+    changed = true
+  end
   if show.md_volume_entry ~= cboe_options_sml2_csm_v1_0_4.prefs.show_md_volume_entry then
     show.md_volume_entry = cboe_options_sml2_csm_v1_0_4.prefs.show_md_volume_entry
     changed = true
@@ -171,12 +207,28 @@ function cboe_options_sml2_csm_v1_0_4.prefs_changed()
     show.message_header = cboe_options_sml2_csm_v1_0_4.prefs.show_message_header
     changed = true
   end
+  if show.minimum_above_premium_fraction ~= cboe_options_sml2_csm_v1_0_4.prefs.show_minimum_above_premium_fraction then
+    show.minimum_above_premium_fraction = cboe_options_sml2_csm_v1_0_4.prefs.show_minimum_above_premium_fraction
+    changed = true
+  end
+  if show.minimum_below_premium_fraction ~= cboe_options_sml2_csm_v1_0_4.prefs.show_minimum_below_premium_fraction then
+    show.minimum_below_premium_fraction = cboe_options_sml2_csm_v1_0_4.prefs.show_minimum_below_premium_fraction
+    changed = true
+  end
+  if show.minimum_strike_price_fraction ~= cboe_options_sml2_csm_v1_0_4.prefs.show_minimum_strike_price_fraction then
+    show.minimum_strike_price_fraction = cboe_options_sml2_csm_v1_0_4.prefs.show_minimum_strike_price_fraction
+    changed = true
+  end
   if show.packet ~= cboe_options_sml2_csm_v1_0_4.prefs.show_packet then
     show.packet = cboe_options_sml2_csm_v1_0_4.prefs.show_packet
     changed = true
   end
   if show.packet_header ~= cboe_options_sml2_csm_v1_0_4.prefs.show_packet_header then
     show.packet_header = cboe_options_sml2_csm_v1_0_4.prefs.show_packet_header
+    changed = true
+  end
+  if show.premium_break_point ~= cboe_options_sml2_csm_v1_0_4.prefs.show_premium_break_point then
+    show.premium_break_point = cboe_options_sml2_csm_v1_0_4.prefs.show_premium_break_point
     changed = true
   end
   if show.security_definition_leg ~= cboe_options_sml2_csm_v1_0_4.prefs.show_security_definition_leg then
@@ -201,6 +253,10 @@ function cboe_options_sml2_csm_v1_0_4.prefs_changed()
   end
   if show.snapshot_full_refresh_message ~= cboe_options_sml2_csm_v1_0_4.prefs.show_snapshot_full_refresh_message then
     show.snapshot_full_refresh_message = cboe_options_sml2_csm_v1_0_4.prefs.show_snapshot_full_refresh_message
+    changed = true
+  end
+  if show.strike_price ~= cboe_options_sml2_csm_v1_0_4.prefs.show_strike_price then
+    show.strike_price = cboe_options_sml2_csm_v1_0_4.prefs.show_strike_price
     changed = true
   end
   if show.symbol ~= cboe_options_sml2_csm_v1_0_4.prefs.show_symbol then
@@ -476,23 +532,72 @@ dissect.no_legs = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Md Entry Px
-size_of.md_entry_px = 5
+-- Size: Md Entry Px Mantissa
+size_of.md_entry_px_mantissa = 4
+
+-- Display: Md Entry Px Mantissa
+display.md_entry_px_mantissa = function(value)
+  return "Md Entry Px Mantissa: "..value
+end
+
+-- Dissect: Md Entry Px Mantissa
+dissect.md_entry_px_mantissa = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.md_entry_px_mantissa)
+  local value = range:int()
+  local display = display.md_entry_px_mantissa(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_options_sml2_csm_v1_0_4.fields.md_entry_px_mantissa, range, value, display)
+
+  return offset + size_of.md_entry_px_mantissa
+end
+
+-- Size: Md Entry Px Exponent
+size_of.md_entry_px_exponent = 1
+
+-- Display: Md Entry Px Exponent
+display.md_entry_px_exponent = function(value)
+  return "Md Entry Px Exponent: "..value
+end
+
+-- Dissect: Md Entry Px Exponent
+dissect.md_entry_px_exponent = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.md_entry_px_exponent)
+  local value = range:int()
+  local display = display.md_entry_px_exponent(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_options_sml2_csm_v1_0_4.fields.md_entry_px_exponent, range, value, display)
+
+  return offset + size_of.md_entry_px_exponent
+end
 
 -- Display: Md Entry Px
-display.md_entry_px = function(value)
-  return "Md Entry Px: "..value
+display.md_entry_px = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Md Entry Px
+dissect.md_entry_px_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Md Entry Px Exponent: 1 Byte Signed Fixed Width Integer
+  index = dissect.md_entry_px_exponent(buffer, index, packet, parent)
+
+  -- Md Entry Px Mantissa: 4 Byte Signed Fixed Width Integer
+  index = dissect.md_entry_px_mantissa(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Md Entry Px
 dissect.md_entry_px = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.md_entry_px)
-  local value = range:bytes():tohex(false, " ")
-  local display = display.md_entry_px(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.md_entry_px then
+    local range = buffer(offset, 5)
+    local display = display.md_entry_px(buffer, packet, parent)
+    parent = parent:add(cboe_options_sml2_csm_v1_0_4.fields.md_entry_px, range, display)
+  end
 
-  parent:add(cboe_options_sml2_csm_v1_0_4.fields.md_entry_px, range, value, display)
-
-  return offset + size_of.md_entry_px
+  return dissect.md_entry_px_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Md Price Level
@@ -603,7 +708,7 @@ dissect.incremental_refresh_md_entry_fields = function(buffer, offset, packet, p
   -- Md Price Level: 1 Byte Unsigned Fixed Width Integer
   index = dissect.md_price_level(buffer, index, packet, parent)
 
-  -- Md Entry Px: 5 Byte Unsigned Fixed Width Integer
+  -- Md Entry Px: Struct of 2 fields
   index = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- No Legs: 1 Byte Unsigned Fixed Width Integer
@@ -741,7 +846,7 @@ dissect.snapshot_full_refresh_md_entry_fields = function(buffer, offset, packet,
   -- Md Price Level: 1 Byte Unsigned Fixed Width Integer
   index = dissect.md_price_level(buffer, index, packet, parent)
 
-  -- Md Entry Px: 5 Byte Unsigned Fixed Width Integer
+  -- Md Entry Px: Struct of 2 fields
   index = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- No Legs: 1 Byte Unsigned Fixed Width Integer
@@ -1309,99 +1414,344 @@ dissect.exercise_style = function(buffer, offset, packet, parent)
   return offset + size_of.exercise_style
 end
 
--- Size: Minimum Below Premium Fraction
-size_of.minimum_below_premium_fraction = 5
+-- Size: Minimum Below Premium Fraction Mantissa
+size_of.minimum_below_premium_fraction_mantissa = 4
+
+-- Display: Minimum Below Premium Fraction Mantissa
+display.minimum_below_premium_fraction_mantissa = function(value)
+  return "Minimum Below Premium Fraction Mantissa: "..value
+end
+
+-- Dissect: Minimum Below Premium Fraction Mantissa
+dissect.minimum_below_premium_fraction_mantissa = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.minimum_below_premium_fraction_mantissa)
+  local value = range:int()
+  local display = display.minimum_below_premium_fraction_mantissa(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_options_sml2_csm_v1_0_4.fields.minimum_below_premium_fraction_mantissa, range, value, display)
+
+  return offset + size_of.minimum_below_premium_fraction_mantissa
+end
+
+-- Size: Minimum Below Premium Fraction Exponent
+size_of.minimum_below_premium_fraction_exponent = 1
+
+-- Display: Minimum Below Premium Fraction Exponent
+display.minimum_below_premium_fraction_exponent = function(value)
+  return "Minimum Below Premium Fraction Exponent: "..value
+end
+
+-- Dissect: Minimum Below Premium Fraction Exponent
+dissect.minimum_below_premium_fraction_exponent = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.minimum_below_premium_fraction_exponent)
+  local value = range:int()
+  local display = display.minimum_below_premium_fraction_exponent(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_options_sml2_csm_v1_0_4.fields.minimum_below_premium_fraction_exponent, range, value, display)
+
+  return offset + size_of.minimum_below_premium_fraction_exponent
+end
 
 -- Display: Minimum Below Premium Fraction
-display.minimum_below_premium_fraction = function(value)
-  return "Minimum Below Premium Fraction: "..value
+display.minimum_below_premium_fraction = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Minimum Below Premium Fraction
+dissect.minimum_below_premium_fraction_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Minimum Below Premium Fraction Exponent: 1 Byte Signed Fixed Width Integer
+  index = dissect.minimum_below_premium_fraction_exponent(buffer, index, packet, parent)
+
+  -- Minimum Below Premium Fraction Mantissa: 4 Byte Signed Fixed Width Integer
+  index = dissect.minimum_below_premium_fraction_mantissa(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Minimum Below Premium Fraction
 dissect.minimum_below_premium_fraction = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.minimum_below_premium_fraction)
-  local value = range:bytes():tohex(false, " ")
-  local display = display.minimum_below_premium_fraction(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.minimum_below_premium_fraction then
+    local range = buffer(offset, 5)
+    local display = display.minimum_below_premium_fraction(buffer, packet, parent)
+    parent = parent:add(cboe_options_sml2_csm_v1_0_4.fields.minimum_below_premium_fraction, range, display)
+  end
 
-  parent:add(cboe_options_sml2_csm_v1_0_4.fields.minimum_below_premium_fraction, range, value, display)
-
-  return offset + size_of.minimum_below_premium_fraction
+  return dissect.minimum_below_premium_fraction_fields(buffer, offset, packet, parent)
 end
 
--- Size: Minimum Above Premium Fraction
-size_of.minimum_above_premium_fraction = 5
+-- Size: Minimum Above Premium Fraction Mantissa
+size_of.minimum_above_premium_fraction_mantissa = 4
+
+-- Display: Minimum Above Premium Fraction Mantissa
+display.minimum_above_premium_fraction_mantissa = function(value)
+  return "Minimum Above Premium Fraction Mantissa: "..value
+end
+
+-- Dissect: Minimum Above Premium Fraction Mantissa
+dissect.minimum_above_premium_fraction_mantissa = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.minimum_above_premium_fraction_mantissa)
+  local value = range:int()
+  local display = display.minimum_above_premium_fraction_mantissa(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_options_sml2_csm_v1_0_4.fields.minimum_above_premium_fraction_mantissa, range, value, display)
+
+  return offset + size_of.minimum_above_premium_fraction_mantissa
+end
+
+-- Size: Minimum Above Premium Fraction Exponent
+size_of.minimum_above_premium_fraction_exponent = 1
+
+-- Display: Minimum Above Premium Fraction Exponent
+display.minimum_above_premium_fraction_exponent = function(value)
+  return "Minimum Above Premium Fraction Exponent: "..value
+end
+
+-- Dissect: Minimum Above Premium Fraction Exponent
+dissect.minimum_above_premium_fraction_exponent = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.minimum_above_premium_fraction_exponent)
+  local value = range:int()
+  local display = display.minimum_above_premium_fraction_exponent(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_options_sml2_csm_v1_0_4.fields.minimum_above_premium_fraction_exponent, range, value, display)
+
+  return offset + size_of.minimum_above_premium_fraction_exponent
+end
 
 -- Display: Minimum Above Premium Fraction
-display.minimum_above_premium_fraction = function(value)
-  return "Minimum Above Premium Fraction: "..value
+display.minimum_above_premium_fraction = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Minimum Above Premium Fraction
+dissect.minimum_above_premium_fraction_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Minimum Above Premium Fraction Exponent: 1 Byte Signed Fixed Width Integer
+  index = dissect.minimum_above_premium_fraction_exponent(buffer, index, packet, parent)
+
+  -- Minimum Above Premium Fraction Mantissa: 4 Byte Signed Fixed Width Integer
+  index = dissect.minimum_above_premium_fraction_mantissa(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Minimum Above Premium Fraction
 dissect.minimum_above_premium_fraction = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.minimum_above_premium_fraction)
-  local value = range:bytes():tohex(false, " ")
-  local display = display.minimum_above_premium_fraction(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.minimum_above_premium_fraction then
+    local range = buffer(offset, 5)
+    local display = display.minimum_above_premium_fraction(buffer, packet, parent)
+    parent = parent:add(cboe_options_sml2_csm_v1_0_4.fields.minimum_above_premium_fraction, range, display)
+  end
 
-  parent:add(cboe_options_sml2_csm_v1_0_4.fields.minimum_above_premium_fraction, range, value, display)
-
-  return offset + size_of.minimum_above_premium_fraction
+  return dissect.minimum_above_premium_fraction_fields(buffer, offset, packet, parent)
 end
 
--- Size: Premium Break Point
-size_of.premium_break_point = 5
+-- Size: Premium Break Point Mantissa
+size_of.premium_break_point_mantissa = 4
+
+-- Display: Premium Break Point Mantissa
+display.premium_break_point_mantissa = function(value)
+  return "Premium Break Point Mantissa: "..value
+end
+
+-- Dissect: Premium Break Point Mantissa
+dissect.premium_break_point_mantissa = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.premium_break_point_mantissa)
+  local value = range:int()
+  local display = display.premium_break_point_mantissa(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_options_sml2_csm_v1_0_4.fields.premium_break_point_mantissa, range, value, display)
+
+  return offset + size_of.premium_break_point_mantissa
+end
+
+-- Size: Premium Break Point Exponent
+size_of.premium_break_point_exponent = 1
+
+-- Display: Premium Break Point Exponent
+display.premium_break_point_exponent = function(value)
+  return "Premium Break Point Exponent: "..value
+end
+
+-- Dissect: Premium Break Point Exponent
+dissect.premium_break_point_exponent = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.premium_break_point_exponent)
+  local value = range:int()
+  local display = display.premium_break_point_exponent(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_options_sml2_csm_v1_0_4.fields.premium_break_point_exponent, range, value, display)
+
+  return offset + size_of.premium_break_point_exponent
+end
 
 -- Display: Premium Break Point
-display.premium_break_point = function(value)
-  return "Premium Break Point: "..value
+display.premium_break_point = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Premium Break Point
+dissect.premium_break_point_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Premium Break Point Exponent: 1 Byte Signed Fixed Width Integer
+  index = dissect.premium_break_point_exponent(buffer, index, packet, parent)
+
+  -- Premium Break Point Mantissa: 4 Byte Signed Fixed Width Integer
+  index = dissect.premium_break_point_mantissa(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Premium Break Point
 dissect.premium_break_point = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.premium_break_point)
-  local value = range:bytes():tohex(false, " ")
-  local display = display.premium_break_point(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.premium_break_point then
+    local range = buffer(offset, 5)
+    local display = display.premium_break_point(buffer, packet, parent)
+    parent = parent:add(cboe_options_sml2_csm_v1_0_4.fields.premium_break_point, range, display)
+  end
 
-  parent:add(cboe_options_sml2_csm_v1_0_4.fields.premium_break_point, range, value, display)
-
-  return offset + size_of.premium_break_point
+  return dissect.premium_break_point_fields(buffer, offset, packet, parent)
 end
 
--- Size: Max Strike Price
-size_of.max_strike_price = 5
+-- Size: Max Strike Price Mantissa
+size_of.max_strike_price_mantissa = 4
+
+-- Display: Max Strike Price Mantissa
+display.max_strike_price_mantissa = function(value)
+  return "Max Strike Price Mantissa: "..value
+end
+
+-- Dissect: Max Strike Price Mantissa
+dissect.max_strike_price_mantissa = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.max_strike_price_mantissa)
+  local value = range:int()
+  local display = display.max_strike_price_mantissa(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_options_sml2_csm_v1_0_4.fields.max_strike_price_mantissa, range, value, display)
+
+  return offset + size_of.max_strike_price_mantissa
+end
+
+-- Size: Max Strike Price Exponent
+size_of.max_strike_price_exponent = 1
+
+-- Display: Max Strike Price Exponent
+display.max_strike_price_exponent = function(value)
+  return "Max Strike Price Exponent: "..value
+end
+
+-- Dissect: Max Strike Price Exponent
+dissect.max_strike_price_exponent = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.max_strike_price_exponent)
+  local value = range:int()
+  local display = display.max_strike_price_exponent(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_options_sml2_csm_v1_0_4.fields.max_strike_price_exponent, range, value, display)
+
+  return offset + size_of.max_strike_price_exponent
+end
 
 -- Display: Max Strike Price
-display.max_strike_price = function(value)
-  return "Max Strike Price: "..value
+display.max_strike_price = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Max Strike Price
+dissect.max_strike_price_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Max Strike Price Exponent: 1 Byte Signed Fixed Width Integer
+  index = dissect.max_strike_price_exponent(buffer, index, packet, parent)
+
+  -- Max Strike Price Mantissa: 4 Byte Signed Fixed Width Integer
+  index = dissect.max_strike_price_mantissa(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Max Strike Price
 dissect.max_strike_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.max_strike_price)
-  local value = range:bytes():tohex(false, " ")
-  local display = display.max_strike_price(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.max_strike_price then
+    local range = buffer(offset, 5)
+    local display = display.max_strike_price(buffer, packet, parent)
+    parent = parent:add(cboe_options_sml2_csm_v1_0_4.fields.max_strike_price, range, display)
+  end
 
-  parent:add(cboe_options_sml2_csm_v1_0_4.fields.max_strike_price, range, value, display)
-
-  return offset + size_of.max_strike_price
+  return dissect.max_strike_price_fields(buffer, offset, packet, parent)
 end
 
--- Size: Minimum Strike Price Fraction
-size_of.minimum_strike_price_fraction = 5
+-- Size: Minimum Strike Price Fraction Mantissa
+size_of.minimum_strike_price_fraction_mantissa = 4
+
+-- Display: Minimum Strike Price Fraction Mantissa
+display.minimum_strike_price_fraction_mantissa = function(value)
+  return "Minimum Strike Price Fraction Mantissa: "..value
+end
+
+-- Dissect: Minimum Strike Price Fraction Mantissa
+dissect.minimum_strike_price_fraction_mantissa = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.minimum_strike_price_fraction_mantissa)
+  local value = range:int()
+  local display = display.minimum_strike_price_fraction_mantissa(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_options_sml2_csm_v1_0_4.fields.minimum_strike_price_fraction_mantissa, range, value, display)
+
+  return offset + size_of.minimum_strike_price_fraction_mantissa
+end
+
+-- Size: Minimum Strike Price Fraction Exponent
+size_of.minimum_strike_price_fraction_exponent = 1
+
+-- Display: Minimum Strike Price Fraction Exponent
+display.minimum_strike_price_fraction_exponent = function(value)
+  return "Minimum Strike Price Fraction Exponent: "..value
+end
+
+-- Dissect: Minimum Strike Price Fraction Exponent
+dissect.minimum_strike_price_fraction_exponent = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.minimum_strike_price_fraction_exponent)
+  local value = range:int()
+  local display = display.minimum_strike_price_fraction_exponent(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_options_sml2_csm_v1_0_4.fields.minimum_strike_price_fraction_exponent, range, value, display)
+
+  return offset + size_of.minimum_strike_price_fraction_exponent
+end
 
 -- Display: Minimum Strike Price Fraction
-display.minimum_strike_price_fraction = function(value)
-  return "Minimum Strike Price Fraction: "..value
+display.minimum_strike_price_fraction = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Minimum Strike Price Fraction
+dissect.minimum_strike_price_fraction_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Minimum Strike Price Fraction Exponent: 1 Byte Signed Fixed Width Integer
+  index = dissect.minimum_strike_price_fraction_exponent(buffer, index, packet, parent)
+
+  -- Minimum Strike Price Fraction Mantissa: 4 Byte Signed Fixed Width Integer
+  index = dissect.minimum_strike_price_fraction_mantissa(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Minimum Strike Price Fraction
 dissect.minimum_strike_price_fraction = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.minimum_strike_price_fraction)
-  local value = range:bytes():tohex(false, " ")
-  local display = display.minimum_strike_price_fraction(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.minimum_strike_price_fraction then
+    local range = buffer(offset, 5)
+    local display = display.minimum_strike_price_fraction(buffer, packet, parent)
+    parent = parent:add(cboe_options_sml2_csm_v1_0_4.fields.minimum_strike_price_fraction, range, display)
+  end
 
-  parent:add(cboe_options_sml2_csm_v1_0_4.fields.minimum_strike_price_fraction, range, value, display)
-
-  return offset + size_of.minimum_strike_price_fraction
+  return dissect.minimum_strike_price_fraction_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Put Or Call
@@ -1430,23 +1780,72 @@ dissect.put_or_call = function(buffer, offset, packet, parent)
   return offset + size_of.put_or_call
 end
 
--- Size: Strike Price
-size_of.strike_price = 5
+-- Size: Strike Price Mantissa
+size_of.strike_price_mantissa = 4
+
+-- Display: Strike Price Mantissa
+display.strike_price_mantissa = function(value)
+  return "Strike Price Mantissa: "..value
+end
+
+-- Dissect: Strike Price Mantissa
+dissect.strike_price_mantissa = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.strike_price_mantissa)
+  local value = range:int()
+  local display = display.strike_price_mantissa(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_options_sml2_csm_v1_0_4.fields.strike_price_mantissa, range, value, display)
+
+  return offset + size_of.strike_price_mantissa
+end
+
+-- Size: Strike Price Exponent
+size_of.strike_price_exponent = 1
+
+-- Display: Strike Price Exponent
+display.strike_price_exponent = function(value)
+  return "Strike Price Exponent: "..value
+end
+
+-- Dissect: Strike Price Exponent
+dissect.strike_price_exponent = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.strike_price_exponent)
+  local value = range:int()
+  local display = display.strike_price_exponent(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_options_sml2_csm_v1_0_4.fields.strike_price_exponent, range, value, display)
+
+  return offset + size_of.strike_price_exponent
+end
 
 -- Display: Strike Price
-display.strike_price = function(value)
-  return "Strike Price: "..value
+display.strike_price = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Strike Price
+dissect.strike_price_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Strike Price Exponent: 1 Byte Signed Fixed Width Integer
+  index = dissect.strike_price_exponent(buffer, index, packet, parent)
+
+  -- Strike Price Mantissa: 4 Byte Signed Fixed Width Integer
+  index = dissect.strike_price_mantissa(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Strike Price
 dissect.strike_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.strike_price)
-  local value = range:bytes():tohex(false, " ")
-  local display = display.strike_price(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.strike_price then
+    local range = buffer(offset, 5)
+    local display = display.strike_price(buffer, packet, parent)
+    parent = parent:add(cboe_options_sml2_csm_v1_0_4.fields.strike_price, range, display)
+  end
 
-  parent:add(cboe_options_sml2_csm_v1_0_4.fields.strike_price, range, value, display)
-
-  return offset + size_of.strike_price
+  return dissect.strike_price_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Maturity Date
@@ -1806,25 +2205,25 @@ dissect.security_definition_message_fields = function(buffer, offset, packet, pa
   -- Price Type: 1 Byte Unsigned Fixed Width Integer
   index = dissect.price_type(buffer, index, packet, parent)
 
-  -- Strike Price: 5 Byte Unsigned Fixed Width Integer
+  -- Strike Price: Struct of 2 fields
   index = dissect.strike_price(buffer, index, packet, parent)
 
   -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index = dissect.put_or_call(buffer, index, packet, parent)
 
-  -- Minimum Strike Price Fraction: 5 Byte Unsigned Fixed Width Integer
+  -- Minimum Strike Price Fraction: Struct of 2 fields
   index = dissect.minimum_strike_price_fraction(buffer, index, packet, parent)
 
-  -- Max Strike Price: 5 Byte Unsigned Fixed Width Integer
+  -- Max Strike Price: Struct of 2 fields
   index = dissect.max_strike_price(buffer, index, packet, parent)
 
-  -- Premium Break Point: 5 Byte Unsigned Fixed Width Integer
+  -- Premium Break Point: Struct of 2 fields
   index = dissect.premium_break_point(buffer, index, packet, parent)
 
-  -- Minimum Above Premium Fraction: 5 Byte Unsigned Fixed Width Integer
+  -- Minimum Above Premium Fraction: Struct of 2 fields
   index = dissect.minimum_above_premium_fraction(buffer, index, packet, parent)
 
-  -- Minimum Below Premium Fraction: 5 Byte Unsigned Fixed Width Integer
+  -- Minimum Below Premium Fraction: Struct of 2 fields
   index = dissect.minimum_below_premium_fraction(buffer, index, packet, parent)
 
   -- Exercise Style: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
