@@ -27,6 +27,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 |--- | --- | --- | --- | --- | --- | ---|
 |[Asx](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Asx "Australian Securities Exchange Dissectors") | T24 | Itch | [1.13](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Asx/Asx.T24.Itch.v1.13.Script.Dissector.lua "Australian Securities Exchange 1.13 Script Dissector") | 7/15/2014 | 5071 | Verified|
 |[Cboe Bats](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cboe "Chicago Board Options Exchange Dissectors") | DepthOfBook | Pitch | [2.39.4](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Bats.DepthOfBook.Pitch.v2.39.4.Script.Dissector.lua "Chicago Board Options Exchange 2.39.4 Script Dissector") | 8/21/2018 | 2730 | Verified|
+|[Cboe Options](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cboe "Chicago Board Options Exchange Dissectors") | Smdf | Csm | [1.4.2](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Options.Smdf.Csm.v1.4.2.Script.Dissector.lua "Chicago Board Options Exchange 1.4.2 Script Dissector") | 5/8/2018 | 3760 | Verified|
 |[Cboe Options](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cboe "Chicago Board Options Exchange Dissectors") | Sml2 | Csm | [1.0.4](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Options.Sml2.Csm.v1.0.4.Script.Dissector.lua "Chicago Board Options Exchange 1.0.4 Script Dissector") | 5/8/2018 | 2734 | Verified|
 |[Cme](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange Dissectors") | Mdp3 | Sbe | [9.1](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Mdp3.Sbe.v9.1.Script.Dissector.lua "Chicago Mercantile Exchange 9.1 Script Dissector") | 3/8/2018 | 8034 | Verified|
 |[Cme](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange Dissectors") | Mdp3 | Sbe | [8.1](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Mdp3.Sbe.v8.1.Script.Dissector.lua "Chicago Mercantile Exchange 8.1 Script Dissector") | 7/1/2016 | 7042 | Verified|
@@ -64,7 +65,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 |Protocol Count | Generated Lines|
 |--- | ---|
-|32 | 138,410|
+|33 | 142,170|
 
 Note: Our dissector model is still under rapid development.
 
