@@ -40,7 +40,7 @@ cboe_bats_depthofbook_pitch_v2_39_4.fields.contracts = ProtoField.new("Contracts
 cboe_bats_depthofbook_pitch_v2_39_4.fields.count = ProtoField.new("Count", "cboe.bats.depthofbook.pitch.v2.39.4.count", ftypes.UINT8)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.bats.depthofbook.pitch.v2.39.4.customerindicator", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.delete_order_message = ProtoField.new("Delete Order Message", "cboe.bats.depthofbook.pitch.v2.39.4.deleteordermessage", ftypes.STRING)
-cboe_bats_depthofbook_pitch_v2_39_4.fields.display = ProtoField.new("Display", "cboe.bats.depthofbook.pitch.v2.39.4.display", ftypes.UINT8, nil, base.DEC, "0x80")
+cboe_bats_depthofbook_pitch_v2_39_4.fields.display = ProtoField.new("Display", "cboe.bats.depthofbook.pitch.v2.39.4.display", ftypes.UINT8, nil, base.DEC, "0x01")
 cboe_bats_depthofbook_pitch_v2_39_4.fields.end_of_session_message = ProtoField.new("End Of Session Message", "cboe.bats.depthofbook.pitch.v2.39.4.endofsessionmessage", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.bats.depthofbook.pitch.v2.39.4.executedquantity", ftypes.UINT32)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.execution_id = ProtoField.new("Execution Id", "cboe.bats.depthofbook.pitch.v2.39.4.executionid", ftypes.UINT64)
@@ -50,7 +50,7 @@ cboe_bats_depthofbook_pitch_v2_39_4.fields.indicative_price = ProtoField.new("In
 cboe_bats_depthofbook_pitch_v2_39_4.fields.length = ProtoField.new("Length", "cboe.bats.depthofbook.pitch.v2.39.4.length", ftypes.UINT16)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.long_price = ProtoField.new("Long Price", "cboe.bats.depthofbook.pitch.v2.39.4.longprice", ftypes.UINT64)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.long_quantity = ProtoField.new("Long Quantity", "cboe.bats.depthofbook.pitch.v2.39.4.longquantity", ftypes.UINT32)
-cboe_bats_depthofbook_pitch_v2_39_4.fields.maintain_priority = ProtoField.new("Maintain Priority", "cboe.bats.depthofbook.pitch.v2.39.4.maintainpriority", ftypes.UINT8, nil, base.DEC, "0x40")
+cboe_bats_depthofbook_pitch_v2_39_4.fields.maintain_priority = ProtoField.new("Maintain Priority", "cboe.bats.depthofbook.pitch.v2.39.4.maintainpriority", ftypes.UINT8, nil, base.DEC, "0x02")
 cboe_bats_depthofbook_pitch_v2_39_4.fields.message = ProtoField.new("Message", "cboe.bats.depthofbook.pitch.v2.39.4.message", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.message_header = ProtoField.new("Message Header", "cboe.bats.depthofbook.pitch.v2.39.4.messageheader", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.message_length = ProtoField.new("Message Length", "cboe.bats.depthofbook.pitch.v2.39.4.messagelength", ftypes.UINT8)
@@ -73,8 +73,8 @@ cboe_bats_depthofbook_pitch_v2_39_4.fields.reg_sho_action = ProtoField.new("Reg 
 cboe_bats_depthofbook_pitch_v2_39_4.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "cboe.bats.depthofbook.pitch.v2.39.4.remainingquantity", ftypes.UINT32)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.bats.depthofbook.pitch.v2.39.4.reserved1", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.bats.depthofbook.pitch.v2.39.4.reserved2", ftypes.STRING)
-cboe_bats_depthofbook_pitch_v2_39_4.fields.reserved_6 = ProtoField.new("Reserved 6", "cboe.bats.depthofbook.pitch.v2.39.4.reserved6", ftypes.UINT8, nil, base.DEC, "0x3F")
-cboe_bats_depthofbook_pitch_v2_39_4.fields.reserved_7 = ProtoField.new("Reserved 7", "cboe.bats.depthofbook.pitch.v2.39.4.reserved7", ftypes.UINT8, nil, base.DEC, "0x7F")
+cboe_bats_depthofbook_pitch_v2_39_4.fields.reserved_6 = ProtoField.new("Reserved 6", "cboe.bats.depthofbook.pitch.v2.39.4.reserved6", ftypes.UINT8, nil, base.DEC, "0xFC")
+cboe_bats_depthofbook_pitch_v2_39_4.fields.reserved_7 = ProtoField.new("Reserved 7", "cboe.bats.depthofbook.pitch.v2.39.4.reserved7", ftypes.UINT8, nil, base.DEC, "0xFE")
 cboe_bats_depthofbook_pitch_v2_39_4.fields.retail_price_improvement = ProtoField.new("Retail Price Improvement", "cboe.bats.depthofbook.pitch.v2.39.4.retailpriceimprovement", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.retail_price_improvement_message = ProtoField.new("Retail Price Improvement Message", "cboe.bats.depthofbook.pitch.v2.39.4.retailpriceimprovementmessage", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.sell_shares = ProtoField.new("Sell Shares", "cboe.bats.depthofbook.pitch.v2.39.4.sellshares", ftypes.UINT32)
@@ -1564,13 +1564,13 @@ end
 display.modify_flags = function(buffer, packet, parent)
   local display = ""
 
-  -- Is Display flag set?
-  if buffer:bitfield(0) > 0 then
-    display = display.."Display|"
-  end
   -- Is Maintain Priority flag set?
-  if buffer:bitfield(1) > 0 then
+  if buffer:bitfield(6) > 0 then
     display = display.."Maintain Priority|"
+  end
+  -- Is Display flag set?
+  if buffer:bitfield(7) > 0 then
+    display = display.."Display|"
   end
 
   return display:sub(1, -2)
@@ -1579,14 +1579,14 @@ end
 -- Dissect Bit Fields: Modify Flags
 dissect.modify_flags_bits = function(buffer, offset, packet, parent)
 
-  -- Display: 1 Bit Enum with 2 values
-  parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.display, buffer(offset, 1))
+  -- Reserved 6: 6 Bit
+  parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.reserved_6, buffer(offset, 1))
 
   -- Maintain Priority: 1 Bit Enum with 2 values
   parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.maintain_priority, buffer(offset, 1))
 
-  -- Reserved 6: 6 Bit
-  parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.reserved_6, buffer(offset, 1))
+  -- Display: 1 Bit Enum with 2 values
+  parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.display, buffer(offset, 1))
 end
 
 -- Dissect: Modify Flags
@@ -1912,7 +1912,7 @@ display.add_flags = function(buffer, packet, parent)
   local display = ""
 
   -- Is Display flag set?
-  if buffer:bitfield(0) > 0 then
+  if buffer:bitfield(7) > 0 then
     display = display.."Display|"
   end
 
@@ -1922,11 +1922,11 @@ end
 -- Dissect Bit Fields: Add Flags
 dissect.add_flags_bits = function(buffer, offset, packet, parent)
 
-  -- Display: 1 Bit Enum with 2 values
-  parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.display, buffer(offset, 1))
-
   -- Reserved 7: 7 Bit
   parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.reserved_7, buffer(offset, 1))
+
+  -- Display: 1 Bit Enum with 2 values
+  parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.display, buffer(offset, 1))
 end
 
 -- Dissect: Add Flags
