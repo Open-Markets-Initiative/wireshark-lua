@@ -20,7 +20,7 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Cboe Bats DepthOfBook Pitch 2.39.4 Fields
-cboe_bats_depthofbook_pitch_v2_39_4.fields.add_flags = ProtoField.new("Add Flags", "cboe.bats.depthofbook.pitch.v2.39.4.addflags", ftypes.INT8, {[1]="Yes",[0]="No"})
+cboe_bats_depthofbook_pitch_v2_39_4.fields.add_flags = ProtoField.new("Add Flags", "cboe.bats.depthofbook.pitch.v2.39.4.addflags", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.bats.depthofbook.pitch.v2.39.4.addorderexpandedmessage", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.bats.depthofbook.pitch.v2.39.4.addorderlongmessage", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.add_order_short_message = ProtoField.new("Add Order Short Message", "cboe.bats.depthofbook.pitch.v2.39.4.addordershortmessage", ftypes.STRING)
@@ -40,6 +40,7 @@ cboe_bats_depthofbook_pitch_v2_39_4.fields.contracts = ProtoField.new("Contracts
 cboe_bats_depthofbook_pitch_v2_39_4.fields.count = ProtoField.new("Count", "cboe.bats.depthofbook.pitch.v2.39.4.count", ftypes.UINT8)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.bats.depthofbook.pitch.v2.39.4.customerindicator", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.delete_order_message = ProtoField.new("Delete Order Message", "cboe.bats.depthofbook.pitch.v2.39.4.deleteordermessage", ftypes.STRING)
+cboe_bats_depthofbook_pitch_v2_39_4.fields.display = ProtoField.new("Display", "cboe.bats.depthofbook.pitch.v2.39.4.display", ftypes.UINT8, nil, base.DEC, "0x80")
 cboe_bats_depthofbook_pitch_v2_39_4.fields.end_of_session_message = ProtoField.new("End Of Session Message", "cboe.bats.depthofbook.pitch.v2.39.4.endofsessionmessage", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.bats.depthofbook.pitch.v2.39.4.executedquantity", ftypes.UINT32)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.execution_id = ProtoField.new("Execution Id", "cboe.bats.depthofbook.pitch.v2.39.4.executionid", ftypes.UINT64)
@@ -49,11 +50,12 @@ cboe_bats_depthofbook_pitch_v2_39_4.fields.indicative_price = ProtoField.new("In
 cboe_bats_depthofbook_pitch_v2_39_4.fields.length = ProtoField.new("Length", "cboe.bats.depthofbook.pitch.v2.39.4.length", ftypes.UINT16)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.long_price = ProtoField.new("Long Price", "cboe.bats.depthofbook.pitch.v2.39.4.longprice", ftypes.UINT64)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.long_quantity = ProtoField.new("Long Quantity", "cboe.bats.depthofbook.pitch.v2.39.4.longquantity", ftypes.UINT32)
+cboe_bats_depthofbook_pitch_v2_39_4.fields.maintain_priority = ProtoField.new("Maintain Priority", "cboe.bats.depthofbook.pitch.v2.39.4.maintainpriority", ftypes.UINT8, nil, base.DEC, "0x40")
 cboe_bats_depthofbook_pitch_v2_39_4.fields.message = ProtoField.new("Message", "cboe.bats.depthofbook.pitch.v2.39.4.message", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.message_header = ProtoField.new("Message Header", "cboe.bats.depthofbook.pitch.v2.39.4.messageheader", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.message_length = ProtoField.new("Message Length", "cboe.bats.depthofbook.pitch.v2.39.4.messagelength", ftypes.UINT8)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.message_type = ProtoField.new("Message Type", "cboe.bats.depthofbook.pitch.v2.39.4.messagetype", ftypes.UINT8)
-cboe_bats_depthofbook_pitch_v2_39_4.fields.modify_flags = ProtoField.new("Modify Flags", "cboe.bats.depthofbook.pitch.v2.39.4.modifyflags", ftypes.INT8, {[1]="Yes",[0]="No"})
+cboe_bats_depthofbook_pitch_v2_39_4.fields.modify_flags = ProtoField.new("Modify Flags", "cboe.bats.depthofbook.pitch.v2.39.4.modifyflags", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.modify_order_long_message = ProtoField.new("Modify Order Long Message", "cboe.bats.depthofbook.pitch.v2.39.4.modifyorderlongmessage", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.modify_order_short_message = ProtoField.new("Modify Order Short Message", "cboe.bats.depthofbook.pitch.v2.39.4.modifyordershortmessage", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.order_executed_at_price_size_message = ProtoField.new("Order Executed At Price Size Message", "cboe.bats.depthofbook.pitch.v2.39.4.orderexecutedatpricesizemessage", ftypes.STRING)
@@ -71,6 +73,8 @@ cboe_bats_depthofbook_pitch_v2_39_4.fields.reg_sho_action = ProtoField.new("Reg 
 cboe_bats_depthofbook_pitch_v2_39_4.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "cboe.bats.depthofbook.pitch.v2.39.4.remainingquantity", ftypes.UINT32)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.bats.depthofbook.pitch.v2.39.4.reserved1", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.bats.depthofbook.pitch.v2.39.4.reserved2", ftypes.STRING)
+cboe_bats_depthofbook_pitch_v2_39_4.fields.reserved_6 = ProtoField.new("Reserved 6", "cboe.bats.depthofbook.pitch.v2.39.4.reserved6", ftypes.UINT8, nil, base.DEC, "0x3F")
+cboe_bats_depthofbook_pitch_v2_39_4.fields.reserved_7 = ProtoField.new("Reserved 7", "cboe.bats.depthofbook.pitch.v2.39.4.reserved7", ftypes.UINT8, nil, base.DEC, "0x7F")
 cboe_bats_depthofbook_pitch_v2_39_4.fields.retail_price_improvement = ProtoField.new("Retail Price Improvement", "cboe.bats.depthofbook.pitch.v2.39.4.retailpriceimprovement", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.retail_price_improvement_message = ProtoField.new("Retail Price Improvement Message", "cboe.bats.depthofbook.pitch.v2.39.4.retailpriceimprovementmessage", ftypes.STRING)
 cboe_bats_depthofbook_pitch_v2_39_4.fields.sell_shares = ProtoField.new("Sell Shares", "cboe.bats.depthofbook.pitch.v2.39.4.sellshares", ftypes.UINT32)
@@ -101,6 +105,7 @@ cboe_bats_depthofbook_pitch_v2_39_4.fields.unit_clear_message = ProtoField.new("
 -----------------------------------------------------------------------
 
 -- Cboe Bats DepthOfBook Pitch 2.39.4 Element Dissection Options
+show.add_flags = true
 show.add_order_expanded_message = true
 show.add_order_long_message = true
 show.add_order_short_message = true
@@ -113,6 +118,7 @@ show.delete_order_message = true
 show.end_of_session_message = true
 show.message = true
 show.message_header = true
+show.modify_flags = true
 show.modify_order_long_message = true
 show.modify_order_short_message = true
 show.order_executed_at_price_size_message = true
@@ -133,6 +139,7 @@ show.unit_clear_message = true
 show.payload = false
 
 -- Register Cboe Bats DepthOfBook Pitch 2.39.4 Show Options
+cboe_bats_depthofbook_pitch_v2_39_4.prefs.show_add_flags = Pref.bool("Show Add Flags", show.add_flags, "Parse and add Add Flags to protocol tree")
 cboe_bats_depthofbook_pitch_v2_39_4.prefs.show_add_order_expanded_message = Pref.bool("Show Add Order Expanded Message", show.add_order_expanded_message, "Parse and add Add Order Expanded Message to protocol tree")
 cboe_bats_depthofbook_pitch_v2_39_4.prefs.show_add_order_long_message = Pref.bool("Show Add Order Long Message", show.add_order_long_message, "Parse and add Add Order Long Message to protocol tree")
 cboe_bats_depthofbook_pitch_v2_39_4.prefs.show_add_order_short_message = Pref.bool("Show Add Order Short Message", show.add_order_short_message, "Parse and add Add Order Short Message to protocol tree")
@@ -145,6 +152,7 @@ cboe_bats_depthofbook_pitch_v2_39_4.prefs.show_delete_order_message = Pref.bool(
 cboe_bats_depthofbook_pitch_v2_39_4.prefs.show_end_of_session_message = Pref.bool("Show End Of Session Message", show.end_of_session_message, "Parse and add End Of Session Message to protocol tree")
 cboe_bats_depthofbook_pitch_v2_39_4.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 cboe_bats_depthofbook_pitch_v2_39_4.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+cboe_bats_depthofbook_pitch_v2_39_4.prefs.show_modify_flags = Pref.bool("Show Modify Flags", show.modify_flags, "Parse and add Modify Flags to protocol tree")
 cboe_bats_depthofbook_pitch_v2_39_4.prefs.show_modify_order_long_message = Pref.bool("Show Modify Order Long Message", show.modify_order_long_message, "Parse and add Modify Order Long Message to protocol tree")
 cboe_bats_depthofbook_pitch_v2_39_4.prefs.show_modify_order_short_message = Pref.bool("Show Modify Order Short Message", show.modify_order_short_message, "Parse and add Modify Order Short Message to protocol tree")
 cboe_bats_depthofbook_pitch_v2_39_4.prefs.show_order_executed_at_price_size_message = Pref.bool("Show Order Executed At Price Size Message", show.order_executed_at_price_size_message, "Parse and add Order Executed At Price Size Message to protocol tree")
@@ -169,6 +177,10 @@ function cboe_bats_depthofbook_pitch_v2_39_4.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
+  if show.add_flags ~= cboe_bats_depthofbook_pitch_v2_39_4.prefs.show_add_flags then
+    show.add_flags = cboe_bats_depthofbook_pitch_v2_39_4.prefs.show_add_flags
+    changed = true
+  end
   if show.add_order_expanded_message ~= cboe_bats_depthofbook_pitch_v2_39_4.prefs.show_add_order_expanded_message then
     show.add_order_expanded_message = cboe_bats_depthofbook_pitch_v2_39_4.prefs.show_add_order_expanded_message
     changed = true
@@ -215,6 +227,10 @@ function cboe_bats_depthofbook_pitch_v2_39_4.prefs_changed()
   end
   if show.message_header ~= cboe_bats_depthofbook_pitch_v2_39_4.prefs.show_message_header then
     show.message_header = cboe_bats_depthofbook_pitch_v2_39_4.prefs.show_message_header
+    changed = true
+  end
+  if show.modify_flags ~= cboe_bats_depthofbook_pitch_v2_39_4.prefs.show_modify_flags then
+    show.modify_flags = cboe_bats_depthofbook_pitch_v2_39_4.prefs.show_modify_flags
     changed = true
   end
   if show.modify_order_long_message ~= cboe_bats_depthofbook_pitch_v2_39_4.prefs.show_modify_order_long_message then
@@ -1544,23 +1560,47 @@ dissect.delete_order_message = function(buffer, offset, packet, parent)
   return dissect.delete_order_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Modify Flags
-size_of.modify_flags = 1
-
 -- Display: Modify Flags
-display.modify_flags = function(value)
-  return "Modify Flags: "..value
+display.modify_flags = function(buffer, packet, parent)
+  local display = ""
+
+  -- Is Display flag set?
+  if buffer:bitfield(0) > 0 then
+    display = display.."Display|"
+  end
+  -- Is Maintain Priority flag set?
+  if buffer:bitfield(1) > 0 then
+    display = display.."Maintain Priority|"
+  end
+
+  return display:sub(1, -2)
+end
+
+-- Dissect Bit Fields: Modify Flags
+dissect.modify_flags_bits = function(buffer, offset, packet, parent)
+
+  -- Display: 1 Bit Enum with 2 values
+  parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.display, buffer(offset, 1))
+
+  -- Maintain Priority: 1 Bit Enum with 2 values
+  parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.maintain_priority, buffer(offset, 1))
+
+  -- Reserved 6: 6 Bit
+  parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.reserved_6, buffer(offset, 1))
 end
 
 -- Dissect: Modify Flags
 dissect.modify_flags = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.modify_flags)
-  local value = range:le_int()
-  local display = display.modify_flags(value, buffer, offset, packet, parent)
+  local size = 1
+  local range = buffer(offset, size)
+  local display = display.modify_flags(range, packet, parent)
+  local element = parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.modify_flags, range, display)
 
-  parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.modify_flags, range, value, display)
+  if show.modify_flags then
+    dissect.modify_flags_bits(buffer, offset, packet, element)
+  end
 
-  return offset + size_of.modify_flags
+  return offset + 1
 end
 
 -- Display: Modify Order Short Message
@@ -1584,7 +1624,7 @@ dissect.modify_order_short_message_fields = function(buffer, offset, packet, par
   -- Short Price: 2 Byte Unsigned Fixed Width Integer
   index = dissect.short_price(buffer, index, packet, parent)
 
-  -- Modify Flags: 1 Byte Signed Fixed Width Integer
+  -- Modify Flags: Struct of 3 fields
   index = dissect.modify_flags(buffer, index, packet, parent)
 
   return index
@@ -1623,7 +1663,7 @@ dissect.modify_order_long_message_fields = function(buffer, offset, packet, pare
   -- Long Price: 8 Byte Unsigned Fixed Width Integer
   index = dissect.long_price(buffer, index, packet, parent)
 
-  -- Modify Flags: 1 Byte Signed Fixed Width Integer
+  -- Modify Flags: Struct of 3 fields
   index = dissect.modify_flags(buffer, index, packet, parent)
 
   return index
@@ -1867,30 +1907,40 @@ dissect.order_executed_message = function(buffer, offset, packet, parent)
   return dissect.order_executed_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Add Flags
-size_of.add_flags = 1
-
 -- Display: Add Flags
-display.add_flags = function(value)
-  if value == 0 then
-    return "Add Flags: Not Aggregated (0)"
-  end
-  if value == 1 then
-    return "Add Flags: Aggregated (1)"
+display.add_flags = function(buffer, packet, parent)
+  local display = ""
+
+  -- Is Display flag set?
+  if buffer:bitfield(0) > 0 then
+    display = display.."Display|"
   end
 
-  return "Add Flags: Unknown("..value..")"
+  return display:sub(1, -2)
+end
+
+-- Dissect Bit Fields: Add Flags
+dissect.add_flags_bits = function(buffer, offset, packet, parent)
+
+  -- Display: 1 Bit Enum with 2 values
+  parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.display, buffer(offset, 1))
+
+  -- Reserved 7: 7 Bit
+  parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.reserved_7, buffer(offset, 1))
 end
 
 -- Dissect: Add Flags
 dissect.add_flags = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.add_flags)
-  local value = range:le_int()
-  local display = display.add_flags(value, buffer, offset, packet, parent)
+  local size = 1
+  local range = buffer(offset, size)
+  local display = display.add_flags(range, packet, parent)
+  local element = parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.add_flags, range, display)
 
-  parent:add(cboe_bats_depthofbook_pitch_v2_39_4.fields.add_flags, range, value, display)
+  if show.add_flags then
+    dissect.add_flags_bits(buffer, offset, packet, element)
+  end
 
-  return offset + size_of.add_flags
+  return offset + 1
 end
 
 -- Display: Add Order Expanded Message
@@ -1920,7 +1970,7 @@ dissect.add_order_expanded_message_fields = function(buffer, offset, packet, par
   -- Long Price: 8 Byte Unsigned Fixed Width Integer
   index = dissect.long_price(buffer, index, packet, parent)
 
-  -- Add Flags: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  -- Add Flags: Struct of 2 fields
   index = dissect.add_flags(buffer, index, packet, parent)
 
   -- Participant Id: 4 Byte Ascii String
@@ -1971,7 +2021,7 @@ dissect.add_order_short_message_fields = function(buffer, offset, packet, parent
   -- Short Price: 2 Byte Unsigned Fixed Width Integer
   index = dissect.short_price(buffer, index, packet, parent)
 
-  -- Add Flags: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  -- Add Flags: Struct of 2 fields
   index = dissect.add_flags(buffer, index, packet, parent)
 
   return index
@@ -2016,7 +2066,7 @@ dissect.add_order_long_message_fields = function(buffer, offset, packet, parent)
   -- Long Price: 8 Byte Unsigned Fixed Width Integer
   index = dissect.long_price(buffer, index, packet, parent)
 
-  -- Add Flags: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  -- Add Flags: Struct of 2 fields
   index = dissect.add_flags(buffer, index, packet, parent)
 
   return index
