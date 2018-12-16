@@ -896,8 +896,8 @@ display.trade_condition_4 = function(value)
   if value == " " then
     return "Trade Condition 4: Na (<whitespace>)"
   end
-  if value == " " then
-    return "Trade Condition 4: Regular Sale (<whitespace>)"
+  if value == "@" then
+    return "Trade Condition 4: Regular Sale (@)"
   end
   if value == "B" then
     return "Trade Condition 4: Average Price Trade (B)"
@@ -1025,8 +1025,8 @@ size_of.trade_condition_1 = 1
 
 -- Display: Trade Condition 1
 display.trade_condition_1 = function(value)
-  if value == " " then
-    return "Trade Condition 1: Regular Sale (<whitespace>)"
+  if value == "@" then
+    return "Trade Condition 1: Regular Sale (@)"
   end
   if value == "C" then
     return "Trade Condition 1: Cash (C)"
@@ -1927,8 +1927,8 @@ size_of.ssr_state = 1
 
 -- Display: Ssr State
 display.ssr_state = function(value)
-  if value == "" then
-    return "Ssr State: No Short Sale Restriction In Effect (<whitespace>)"
+  if value == "~" then
+    return "Ssr State: No Short Sale Restriction In Effect (~)"
   end
   if value == "E" then
     return "Ssr State: Short Sale Restriction In Effect (E)"
@@ -2122,8 +2122,8 @@ size_of.halt_condition = 1
 
 -- Display: Halt Condition
 display.halt_condition = function(value)
-  if value == "" then
-    return "Halt Condition: Security Not Delayedhalted (<whitespace>)"
+  if value == "~" then
+    return "Halt Condition: Security Not Delayedhalted (~)"
   end
   if value == " " then
     return "Halt Condition: Not Applicable (<whitespace>)"

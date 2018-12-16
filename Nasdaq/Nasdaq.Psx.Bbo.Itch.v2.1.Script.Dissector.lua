@@ -42,11 +42,11 @@ nasdaq_psx_bbo_itch_v2_1.fields.market_code = ProtoField.new("Market Code", "nas
 nasdaq_psx_bbo_itch_v2_1.fields.message = ProtoField.new("Message", "nasdaq.psx.bbo.itch.v2.1.message", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.psx.bbo.itch.v2.1.messageheader", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.message_type = ProtoField.new("Message Type", "nasdaq.psx.bbo.itch.v2.1.messagetype", ftypes.STRING)
-nasdaq_psx_bbo_itch_v2_1.fields.mwcb_decline_level_message = ProtoField.new("MWCB Decline Level Message", "nasdaq.psx.bbo.itch.v2.1.mwcbdeclinelevelmessage", ftypes.STRING)
-nasdaq_psx_bbo_itch_v2_1.fields.mwcb_status_message = ProtoField.new("MWCB Status Message", "nasdaq.psx.bbo.itch.v2.1.mwcbstatusmessage", ftypes.STRING)
+nasdaq_psx_bbo_itch_v2_1.fields.mwcb_decline_level_message = ProtoField.new("Mwcb Decline Level Message", "nasdaq.psx.bbo.itch.v2.1.mwcbdeclinelevelmessage", ftypes.STRING)
+nasdaq_psx_bbo_itch_v2_1.fields.mwcb_status_message = ProtoField.new("Mwcb Status Message", "nasdaq.psx.bbo.itch.v2.1.mwcbstatusmessage", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.nasdaq_best_bid = ProtoField.new("Nasdaq Best Bid", "nasdaq.psx.bbo.itch.v2.1.nasdaqbestbid", ftypes.INT32)
+nasdaq_psx_bbo_itch_v2_1.fields.next_shares_quotation_message = ProtoField.new("Next Shares Quotation Message", "nasdaq.psx.bbo.itch.v2.1.nextsharesquotationmessage", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.next_shares_symbol = ProtoField.new("Next Shares Symbol", "nasdaq.psx.bbo.itch.v2.1.nextsharessymbol", ftypes.STRING)
-nasdaq_psx_bbo_itch_v2_1.fields.nextshares_quotation_message = ProtoField.new("NextShares Quotation Message", "nasdaq.psx.bbo.itch.v2.1.nextsharesquotationmessage", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.operational_halt_action = ProtoField.new("Operational Halt Action", "nasdaq.psx.bbo.itch.v2.1.operationalhaltaction", ftypes.INT8, {[1]="Yes",[0]="No"})
 nasdaq_psx_bbo_itch_v2_1.fields.operational_halt_message = ProtoField.new("Operational Halt Message", "nasdaq.psx.bbo.itch.v2.1.operationalhaltmessage", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.packet = ProtoField.new("Packet", "nasdaq.psx.bbo.itch.v2.1.packet", ftypes.STRING)
@@ -59,7 +59,7 @@ nasdaq_psx_bbo_itch_v2_1.fields.psx_best_offer_size = ProtoField.new("Psx Best O
 nasdaq_psx_bbo_itch_v2_1.fields.quotation_message = ProtoField.new("Quotation Message", "nasdaq.psx.bbo.itch.v2.1.quotationmessage", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.reason = ProtoField.new("Reason", "nasdaq.psx.bbo.itch.v2.1.reason", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.psx.bbo.itch.v2.1.regshoaction", ftypes.STRING)
-nasdaq_psx_bbo_itch_v2_1.fields.reg_sho_short_sale_price_test_restricted_indicator_message = ProtoField.new("Reg SHO Short Sale Price Test Restricted Indicator Message", "nasdaq.psx.bbo.itch.v2.1.regshoshortsalepricetestrestrictedindicatormessage", ftypes.STRING)
+nasdaq_psx_bbo_itch_v2_1.fields.reg_sho_short_sale_price_test_restricted_indicator_message = ProtoField.new("Reg Sho Short Sale Price Test Restricted Indicator Message", "nasdaq.psx.bbo.itch.v2.1.regshoshortsalepricetestrestrictedindicatormessage", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.psx.bbo.itch.v2.1.roundlotsize", ftypes.UINT32)
 nasdaq_psx_bbo_itch_v2_1.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.psx.bbo.itch.v2.1.roundlotsonly", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.security_class = ProtoField.new("Security Class", "nasdaq.psx.bbo.itch.v2.1.securityclass", ftypes.STRING)
@@ -82,7 +82,7 @@ show.message = true
 show.message_header = true
 show.mwcb_decline_level_message = true
 show.mwcb_status_message = true
-show.nextshares_quotation_message = true
+show.next_shares_quotation_message = true
 show.operational_halt_message = true
 show.packet = true
 show.packet_header = true
@@ -96,14 +96,14 @@ show.payload = false
 -- Register Nasdaq Psx Bbo Itch 2.1 Show Options
 nasdaq_psx_bbo_itch_v2_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 nasdaq_psx_bbo_itch_v2_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-nasdaq_psx_bbo_itch_v2_1.prefs.show_mwcb_decline_level_message = Pref.bool("Show MWCB Decline Level Message", show.mwcb_decline_level_message, "Parse and add MWCB Decline Level Message to protocol tree")
-nasdaq_psx_bbo_itch_v2_1.prefs.show_mwcb_status_message = Pref.bool("Show MWCB Status Message", show.mwcb_status_message, "Parse and add MWCB Status Message to protocol tree")
-nasdaq_psx_bbo_itch_v2_1.prefs.show_nextshares_quotation_message = Pref.bool("Show NextShares Quotation Message", show.nextshares_quotation_message, "Parse and add NextShares Quotation Message to protocol tree")
+nasdaq_psx_bbo_itch_v2_1.prefs.show_mwcb_decline_level_message = Pref.bool("Show Mwcb Decline Level Message", show.mwcb_decline_level_message, "Parse and add Mwcb Decline Level Message to protocol tree")
+nasdaq_psx_bbo_itch_v2_1.prefs.show_mwcb_status_message = Pref.bool("Show Mwcb Status Message", show.mwcb_status_message, "Parse and add Mwcb Status Message to protocol tree")
+nasdaq_psx_bbo_itch_v2_1.prefs.show_next_shares_quotation_message = Pref.bool("Show Next Shares Quotation Message", show.next_shares_quotation_message, "Parse and add Next Shares Quotation Message to protocol tree")
 nasdaq_psx_bbo_itch_v2_1.prefs.show_operational_halt_message = Pref.bool("Show Operational Halt Message", show.operational_halt_message, "Parse and add Operational Halt Message to protocol tree")
 nasdaq_psx_bbo_itch_v2_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 nasdaq_psx_bbo_itch_v2_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 nasdaq_psx_bbo_itch_v2_1.prefs.show_quotation_message = Pref.bool("Show Quotation Message", show.quotation_message, "Parse and add Quotation Message to protocol tree")
-nasdaq_psx_bbo_itch_v2_1.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message = Pref.bool("Show Reg SHO Short Sale Price Test Restricted Indicator Message", show.reg_sho_short_sale_price_test_restricted_indicator_message, "Parse and add Reg SHO Short Sale Price Test Restricted Indicator Message to protocol tree")
+nasdaq_psx_bbo_itch_v2_1.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message = Pref.bool("Show Reg Sho Short Sale Price Test Restricted Indicator Message", show.reg_sho_short_sale_price_test_restricted_indicator_message, "Parse and add Reg Sho Short Sale Price Test Restricted Indicator Message to protocol tree")
 nasdaq_psx_bbo_itch_v2_1.prefs.show_stock_directory_message = Pref.bool("Show Stock Directory Message", show.stock_directory_message, "Parse and add Stock Directory Message to protocol tree")
 nasdaq_psx_bbo_itch_v2_1.prefs.show_stock_trading_action_message = Pref.bool("Show Stock Trading Action Message", show.stock_trading_action_message, "Parse and add Stock Trading Action Message to protocol tree")
 nasdaq_psx_bbo_itch_v2_1.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
@@ -130,8 +130,8 @@ function nasdaq_psx_bbo_itch_v2_1.prefs_changed()
     show.mwcb_status_message = nasdaq_psx_bbo_itch_v2_1.prefs.show_mwcb_status_message
     changed = true
   end
-  if show.nextshares_quotation_message ~= nasdaq_psx_bbo_itch_v2_1.prefs.show_nextshares_quotation_message then
-    show.nextshares_quotation_message = nasdaq_psx_bbo_itch_v2_1.prefs.show_nextshares_quotation_message
+  if show.next_shares_quotation_message ~= nasdaq_psx_bbo_itch_v2_1.prefs.show_next_shares_quotation_message then
+    show.next_shares_quotation_message = nasdaq_psx_bbo_itch_v2_1.prefs.show_next_shares_quotation_message
     changed = true
   end
   if show.operational_halt_message ~= nasdaq_psx_bbo_itch_v2_1.prefs.show_operational_halt_message then
@@ -299,13 +299,13 @@ dissect.tracking_number = function(buffer, offset, packet, parent)
   return offset + size_of.tracking_number
 end
 
--- Display: NextShares Quotation Message
-display.nextshares_quotation_message = function(buffer, offset, size, packet, parent)
+-- Display: Next Shares Quotation Message
+display.next_shares_quotation_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: NextShares Quotation Message
-dissect.nextshares_quotation_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Next Shares Quotation Message
+dissect.next_shares_quotation_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
@@ -326,16 +326,16 @@ dissect.nextshares_quotation_message_fields = function(buffer, offset, packet, p
   return index
 end
 
--- Dissect: NextShares Quotation Message
-dissect.nextshares_quotation_message = function(buffer, offset, packet, parent)
+-- Dissect: Next Shares Quotation Message
+dissect.next_shares_quotation_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.nextshares_quotation_message then
+  if show.next_shares_quotation_message then
     local range = buffer(offset, 21)
-    local display = display.nextshares_quotation_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_psx_bbo_itch_v2_1.fields.nextshares_quotation_message, range, display)
+    local display = display.next_shares_quotation_message(buffer, packet, parent)
+    parent = parent:add(nasdaq_psx_bbo_itch_v2_1.fields.next_shares_quotation_message, range, display)
   end
 
-  return dissect.nextshares_quotation_message_fields(buffer, offset, packet, parent)
+  return dissect.next_shares_quotation_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Psx Best Offer Size
@@ -604,12 +604,12 @@ dissect.breached_level = function(buffer, offset, packet, parent)
   return offset + size_of.breached_level
 end
 
--- Display: MWCB Status Message
+-- Display: Mwcb Status Message
 display.mwcb_status_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: MWCB Status Message
+-- Dissect Fields: Mwcb Status Message
 dissect.mwcb_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -625,7 +625,7 @@ dissect.mwcb_status_message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: MWCB Status Message
+-- Dissect: Mwcb Status Message
 dissect.mwcb_status_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.mwcb_status_message then
@@ -694,12 +694,12 @@ dissect.level_1 = function(buffer, offset, packet, parent)
   return offset + size_of.level_1
 end
 
--- Display: MWCB Decline Level Message
+-- Display: Mwcb Decline Level Message
 display.mwcb_decline_level_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: MWCB Decline Level Message
+-- Dissect Fields: Mwcb Decline Level Message
 dissect.mwcb_decline_level_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -721,7 +721,7 @@ dissect.mwcb_decline_level_message_fields = function(buffer, offset, packet, par
   return index
 end
 
--- Dissect: MWCB Decline Level Message
+-- Dissect: Mwcb Decline Level Message
 dissect.mwcb_decline_level_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.mwcb_decline_level_message then
@@ -762,12 +762,12 @@ dissect.reg_sho_action = function(buffer, offset, packet, parent)
   return offset + size_of.reg_sho_action
 end
 
--- Display: Reg SHO Short Sale Price Test Restricted Indicator Message
+-- Display: Reg Sho Short Sale Price Test Restricted Indicator Message
 display.reg_sho_short_sale_price_test_restricted_indicator_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Reg SHO Short Sale Price Test Restricted Indicator Message
+-- Dissect Fields: Reg Sho Short Sale Price Test Restricted Indicator Message
 dissect.reg_sho_short_sale_price_test_restricted_indicator_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -786,7 +786,7 @@ dissect.reg_sho_short_sale_price_test_restricted_indicator_message_fields = func
   return index
 end
 
--- Dissect: Reg SHO Short Sale Price Test Restricted Indicator Message
+-- Dissect: Reg Sho Short Sale Price Test Restricted Indicator Message
 dissect.reg_sho_short_sale_price_test_restricted_indicator_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.reg_sho_short_sale_price_test_restricted_indicator_message then
@@ -1418,15 +1418,15 @@ size_of.payload = function(buffer, offset, code)
   if code == "H" then
     return 22
   end
-  -- Size of Reg SHO Short Sale Price Test Restricted Indicator Message
+  -- Size of Reg Sho Short Sale Price Test Restricted Indicator Message
   if code == "Y" then
     return 17
   end
-  -- Size of MWCB Decline Level Message
+  -- Size of Mwcb Decline Level Message
   if code == "V" then
     return 32
   end
-  -- Size of MWCB Status Message
+  -- Size of Mwcb Status Message
   if code == "W" then
     return 9
   end
@@ -1438,7 +1438,7 @@ size_of.payload = function(buffer, offset, code)
   if code == "Q" then
     return 33
   end
-  -- Size of NextShares Quotation Message
+  -- Size of Next Shares Quotation Message
   if code == "A" then
     return 21
   end
@@ -1465,15 +1465,15 @@ dissect.payload_branches = function(buffer, offset, packet, parent, code)
   if code == "H" then
     return dissect.stock_trading_action_message(buffer, offset, packet, parent)
   end
-  -- Dissect Reg SHO Short Sale Price Test Restricted Indicator Message
+  -- Dissect Reg Sho Short Sale Price Test Restricted Indicator Message
   if code == "Y" then
     return dissect.reg_sho_short_sale_price_test_restricted_indicator_message(buffer, offset, packet, parent)
   end
-  -- Dissect MWCB Decline Level Message
+  -- Dissect Mwcb Decline Level Message
   if code == "V" then
     return dissect.mwcb_decline_level_message(buffer, offset, packet, parent)
   end
-  -- Dissect MWCB Status Message
+  -- Dissect Mwcb Status Message
   if code == "W" then
     return dissect.mwcb_status_message(buffer, offset, packet, parent)
   end
@@ -1485,9 +1485,9 @@ dissect.payload_branches = function(buffer, offset, packet, parent, code)
   if code == "Q" then
     return dissect.quotation_message(buffer, offset, packet, parent)
   end
-  -- Dissect NextShares Quotation Message
+  -- Dissect Next Shares Quotation Message
   if code == "A" then
-    return dissect.nextshares_quotation_message(buffer, offset, packet, parent)
+    return dissect.next_shares_quotation_message(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1528,13 +1528,13 @@ display.message_type = function(value)
     return "Message Type: Stock Trading Action Message (H)"
   end
   if value == "Y" then
-    return "Message Type: Reg SHO Short Sale Price Test Restricted Indicator Message (Y)"
+    return "Message Type: Reg Sho Short Sale Price Test Restricted Indicator Message (Y)"
   end
   if value == "V" then
-    return "Message Type: MWCB Decline Level Message (V)"
+    return "Message Type: Mwcb Decline Level Message (V)"
   end
   if value == "W" then
-    return "Message Type: MWCB Status Message (W)"
+    return "Message Type: Mwcb Status Message (W)"
   end
   if value == "h" then
     return "Message Type: Operational Halt Message (h)"
@@ -1543,7 +1543,7 @@ display.message_type = function(value)
     return "Message Type: Quotation Message (Q)"
   end
   if value == "A" then
-    return "Message Type: NextShares Quotation Message (A)"
+    return "Message Type: Next Shares Quotation Message (A)"
   end
 
   return "Message Type: Unknown("..value..")"

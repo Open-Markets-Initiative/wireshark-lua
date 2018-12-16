@@ -27,7 +27,7 @@ nasdaq_phlx_marketdepth_itch_v1_5.fields.add_quote_message_short_form = ProtoFie
 nasdaq_phlx_marketdepth_itch_v1_5.fields.ask = ProtoField.new("Ask", "nasdaq.phlx.marketdepth.itch.v1.5.ask", ftypes.UINT32)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.phlx.marketdepth.itch.v1.5.askprice", ftypes.UINT16)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.ask_reference_number_delta = ProtoField.new("Ask Reference Number Delta", "nasdaq.phlx.marketdepth.itch.v1.5.askreferencenumberdelta", ftypes.UINT32)
-nasdaq_phlx_marketdepth_itch_v1_5.fields.ask_size = ProtoField.new("Ask Size", "nasdaq.phlx.marketdepth.itch.v1.5.asksize", ftypes.UINT16)
+nasdaq_phlx_marketdepth_itch_v1_5.fields.ask_size = ProtoField.new("Ask Size", "nasdaq.phlx.marketdepth.itch.v1.5.asksize", ftypes.UINT32)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.auction_id = ProtoField.new("Auction Id", "nasdaq.phlx.marketdepth.itch.v1.5.auctionid", ftypes.UINT32)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "nasdaq.phlx.marketdepth.itch.v1.5.auctionnotificationmessage", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.auction_type = ProtoField.new("Auction Type", "nasdaq.phlx.marketdepth.itch.v1.5.auctiontype", ftypes.STRING)
@@ -36,7 +36,7 @@ nasdaq_phlx_marketdepth_itch_v1_5.fields.base_reference_number = ProtoField.new(
 nasdaq_phlx_marketdepth_itch_v1_5.fields.bid = ProtoField.new("Bid", "nasdaq.phlx.marketdepth.itch.v1.5.bid", ftypes.UINT32)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.bid_price = ProtoField.new("Bid Price", "nasdaq.phlx.marketdepth.itch.v1.5.bidprice", ftypes.UINT16)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.bid_reference_number_delta = ProtoField.new("Bid Reference Number Delta", "nasdaq.phlx.marketdepth.itch.v1.5.bidreferencenumberdelta", ftypes.UINT32)
-nasdaq_phlx_marketdepth_itch_v1_5.fields.bid_size = ProtoField.new("Bid Size", "nasdaq.phlx.marketdepth.itch.v1.5.bidsize", ftypes.UINT16)
+nasdaq_phlx_marketdepth_itch_v1_5.fields.bid_size = ProtoField.new("Bid Size", "nasdaq.phlx.marketdepth.itch.v1.5.bidsize", ftypes.UINT32)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.block_delete_message = ProtoField.new("Block Delete Message", "nasdaq.phlx.marketdepth.itch.v1.5.blockdeletemessage", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.broken_trade_order_execution_message = ProtoField.new("Broken Trade Order Execution Message", "nasdaq.phlx.marketdepth.itch.v1.5.brokentradeorderexecutionmessage", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.cancelled_contracts = ProtoField.new("Cancelled Contracts", "nasdaq.phlx.marketdepth.itch.v1.5.cancelledcontracts", ftypes.UINT32)
@@ -82,7 +82,7 @@ nasdaq_phlx_marketdepth_itch_v1_5.fields.packet = ProtoField.new("Packet", "nasd
 nasdaq_phlx_marketdepth_itch_v1_5.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlx.marketdepth.itch.v1.5.packetheader", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.paired_contracts = ProtoField.new("Paired Contracts", "nasdaq.phlx.marketdepth.itch.v1.5.pairedcontracts", ftypes.UINT32)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.payload = ProtoField.new("Payload", "nasdaq.phlx.marketdepth.itch.v1.5.payload", ftypes.STRING)
-nasdaq_phlx_marketdepth_itch_v1_5.fields.price = ProtoField.new("Price", "nasdaq.phlx.marketdepth.itch.v1.5.price", ftypes.UINT16)
+nasdaq_phlx_marketdepth_itch_v1_5.fields.price = ProtoField.new("Price", "nasdaq.phlx.marketdepth.itch.v1.5.price", ftypes.UINT32)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.printable = ProtoField.new("Printable", "nasdaq.phlx.marketdepth.itch.v1.5.printable", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.quote_delete_message = ProtoField.new("Quote Delete Message", "nasdaq.phlx.marketdepth.itch.v1.5.quotedeletemessage", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.quote_replace_long_form_message = ProtoField.new("Quote Replace Long Form Message", "nasdaq.phlx.marketdepth.itch.v1.5.quotereplacelongformmessage", ftypes.STRING)
@@ -95,10 +95,14 @@ nasdaq_phlx_marketdepth_itch_v1_5.fields.security_open_message = ProtoField.new(
 nasdaq_phlx_marketdepth_itch_v1_5.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.phlx.marketdepth.itch.v1.5.securitysymbol", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.sequence = ProtoField.new("Sequence", "nasdaq.phlx.marketdepth.itch.v1.5.sequence", ftypes.UINT64)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.session = ProtoField.new("Session", "nasdaq.phlx.marketdepth.itch.v1.5.session", ftypes.STRING)
+nasdaq_phlx_marketdepth_itch_v1_5.fields.short_ask_size = ProtoField.new("Short Ask Size", "nasdaq.phlx.marketdepth.itch.v1.5.shortasksize", ftypes.UINT16)
+nasdaq_phlx_marketdepth_itch_v1_5.fields.short_bid_size = ProtoField.new("Short Bid Size", "nasdaq.phlx.marketdepth.itch.v1.5.shortbidsize", ftypes.UINT16)
+nasdaq_phlx_marketdepth_itch_v1_5.fields.short_price = ProtoField.new("Short Price", "nasdaq.phlx.marketdepth.itch.v1.5.shortprice", ftypes.UINT16)
+nasdaq_phlx_marketdepth_itch_v1_5.fields.short_volume = ProtoField.new("Short Volume", "nasdaq.phlx.marketdepth.itch.v1.5.shortvolume", ftypes.UINT16)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.single_side_cancel_message = ProtoField.new("Single Side Cancel Message", "nasdaq.phlx.marketdepth.itch.v1.5.singlesidecancelmessage", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.single_side_delete_message = ProtoField.new("Single Side Delete Message", "nasdaq.phlx.marketdepth.itch.v1.5.singlesidedeletemessage", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.single_side_executed_message = ProtoField.new("Single Side Executed Message", "nasdaq.phlx.marketdepth.itch.v1.5.singlesideexecutedmessage", ftypes.STRING)
-nasdaq_phlx_marketdepth_itch_v1_5.fields.single_side_executed_with_price_message = ProtoField.new("Single Side Executed with Price Message", "nasdaq.phlx.marketdepth.itch.v1.5.singlesideexecutedwithpricemessage", ftypes.STRING)
+nasdaq_phlx_marketdepth_itch_v1_5.fields.single_side_executed_with_price_message = ProtoField.new("Single Side Executed With Price Message", "nasdaq.phlx.marketdepth.itch.v1.5.singlesideexecutedwithpricemessage", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.single_side_replace_long_form_message = ProtoField.new("Single Side Replace Long Form Message", "nasdaq.phlx.marketdepth.itch.v1.5.singlesidereplacelongformmessage", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.single_side_replace_message_long_form = ProtoField.new("Single Side Replace Message Long Form", "nasdaq.phlx.marketdepth.itch.v1.5.singlesidereplacemessagelongform", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.single_side_replace_message_short_form = ProtoField.new("Single Side Replace Message Short Form", "nasdaq.phlx.marketdepth.itch.v1.5.singlesidereplacemessageshortform", ftypes.STRING)
@@ -110,7 +114,7 @@ nasdaq_phlx_marketdepth_itch_v1_5.fields.tradable = ProtoField.new("Tradable", "
 nasdaq_phlx_marketdepth_itch_v1_5.fields.trade_indicator = ProtoField.new("Trade Indicator", "nasdaq.phlx.marketdepth.itch.v1.5.tradeindicator", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.phlx.marketdepth.itch.v1.5.tradingactionmessage", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.phlx.marketdepth.itch.v1.5.underlyingsymbol", ftypes.STRING)
-nasdaq_phlx_marketdepth_itch_v1_5.fields.volume = ProtoField.new("Volume", "nasdaq.phlx.marketdepth.itch.v1.5.volume", ftypes.UINT16)
+nasdaq_phlx_marketdepth_itch_v1_5.fields.volume = ProtoField.new("Volume", "nasdaq.phlx.marketdepth.itch.v1.5.volume", ftypes.UINT32)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -175,7 +179,7 @@ nasdaq_phlx_marketdepth_itch_v1_5.prefs.show_security_open_message = Pref.bool("
 nasdaq_phlx_marketdepth_itch_v1_5.prefs.show_single_side_cancel_message = Pref.bool("Show Single Side Cancel Message", show.single_side_cancel_message, "Parse and add Single Side Cancel Message to protocol tree")
 nasdaq_phlx_marketdepth_itch_v1_5.prefs.show_single_side_delete_message = Pref.bool("Show Single Side Delete Message", show.single_side_delete_message, "Parse and add Single Side Delete Message to protocol tree")
 nasdaq_phlx_marketdepth_itch_v1_5.prefs.show_single_side_executed_message = Pref.bool("Show Single Side Executed Message", show.single_side_executed_message, "Parse and add Single Side Executed Message to protocol tree")
-nasdaq_phlx_marketdepth_itch_v1_5.prefs.show_single_side_executed_with_price_message = Pref.bool("Show Single Side Executed with Price Message", show.single_side_executed_with_price_message, "Parse and add Single Side Executed with Price Message to protocol tree")
+nasdaq_phlx_marketdepth_itch_v1_5.prefs.show_single_side_executed_with_price_message = Pref.bool("Show Single Side Executed With Price Message", show.single_side_executed_with_price_message, "Parse and add Single Side Executed With Price Message to protocol tree")
 nasdaq_phlx_marketdepth_itch_v1_5.prefs.show_single_side_replace_long_form_message = Pref.bool("Show Single Side Replace Long Form Message", show.single_side_replace_long_form_message, "Parse and add Single Side Replace Long Form Message to protocol tree")
 nasdaq_phlx_marketdepth_itch_v1_5.prefs.show_single_side_replace_message_long_form = Pref.bool("Show Single Side Replace Message Long Form", show.single_side_replace_message_long_form, "Parse and add Single Side Replace Message Long Form to protocol tree")
 nasdaq_phlx_marketdepth_itch_v1_5.prefs.show_single_side_replace_message_short_form = Pref.bool("Show Single Side Replace Message Short Form", show.single_side_replace_message_short_form, "Parse and add Single Side Replace Message Short Form to protocol tree")
@@ -678,7 +682,7 @@ dissect.broken_trade_order_execution_message = function(buffer, offset, packet, 
 end
 
 -- Size: Volume
-size_of.volume = 2
+size_of.volume = 4
 
 -- Display: Volume
 display.volume = function(value)
@@ -697,7 +701,7 @@ dissect.volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Price
-size_of.price = 2
+size_of.price = 4
 
 -- Display: Price
 display.price = function(value)
@@ -762,10 +766,10 @@ dissect.options_cross_trade_message_fields = function(buffer, offset, packet, pa
   -- Cross Type: 1 Byte Ascii String Enum with 1 values
   index = dissect.cross_type(buffer, index, packet, parent)
 
-  -- Price: 2 Byte Unsigned Fixed Width Integer
+  -- Price: 4 Byte Unsigned Fixed Width Integer
   index = dissect.price(buffer, index, packet, parent)
 
-  -- Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Volume: 4 Byte Unsigned Fixed Width Integer
   index = dissect.volume(buffer, index, packet, parent)
 
   return index
@@ -775,7 +779,7 @@ end
 dissect.options_cross_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.options_cross_trade_message then
-    local range = buffer(offset, 21)
+    local range = buffer(offset, 25)
     local display = display.options_cross_trade_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_marketdepth_itch_v1_5.fields.options_cross_trade_message, range, display)
   end
@@ -836,10 +840,10 @@ dissect.non_auction_options_trade_message_fields = function(buffer, offset, pack
   -- Match Number: 4 Byte Unsigned Fixed Width Integer
   index = dissect.match_number(buffer, index, packet, parent)
 
-  -- Price: 2 Byte Unsigned Fixed Width Integer
+  -- Price: 4 Byte Unsigned Fixed Width Integer
   index = dissect.price(buffer, index, packet, parent)
 
-  -- Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Volume: 4 Byte Unsigned Fixed Width Integer
   index = dissect.volume(buffer, index, packet, parent)
 
   return index
@@ -849,7 +853,7 @@ end
 dissect.non_auction_options_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.non_auction_options_trade_message then
-    local range = buffer(offset, 21)
+    local range = buffer(offset, 25)
     local display = display.non_auction_options_trade_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_marketdepth_itch_v1_5.fields.non_auction_options_trade_message, range, display)
   end
@@ -1015,7 +1019,7 @@ dissect.quote_delete_message = function(buffer, offset, packet, parent)
 end
 
 -- Size: Ask Size
-size_of.ask_size = 2
+size_of.ask_size = 4
 
 -- Display: Ask Size
 display.ask_size = function(value)
@@ -1053,7 +1057,7 @@ dissect.ask = function(buffer, offset, packet, parent)
 end
 
 -- Size: Bid Size
-size_of.bid_size = 2
+size_of.bid_size = 4
 
 -- Display: Bid Size
 display.bid_size = function(value)
@@ -1155,13 +1159,13 @@ dissect.quote_replace_long_form_message_fields = function(buffer, offset, packet
   -- Bid: 4 Byte Unsigned Fixed Width Integer
   index = dissect.bid(buffer, index, packet, parent)
 
-  -- Bid Size: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Size: 4 Byte Unsigned Fixed Width Integer
   index = dissect.bid_size(buffer, index, packet, parent)
 
   -- Ask: 4 Byte Unsigned Fixed Width Integer
   index = dissect.ask(buffer, index, packet, parent)
 
-  -- Ask Size: 2 Byte Unsigned Fixed Width Integer
+  -- Ask Size: 4 Byte Unsigned Fixed Width Integer
   index = dissect.ask_size(buffer, index, packet, parent)
 
   return index
@@ -1171,12 +1175,31 @@ end
 dissect.quote_replace_long_form_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.quote_replace_long_form_message then
-    local range = buffer(offset, 32)
+    local range = buffer(offset, 36)
     local display = display.quote_replace_long_form_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_marketdepth_itch_v1_5.fields.quote_replace_long_form_message, range, display)
   end
 
   return dissect.quote_replace_long_form_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Short Ask Size
+size_of.short_ask_size = 2
+
+-- Display: Short Ask Size
+display.short_ask_size = function(value)
+  return "Short Ask Size: "..value
+end
+
+-- Dissect: Short Ask Size
+dissect.short_ask_size = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.short_ask_size)
+  local value = range:uint()
+  local display = display.short_ask_size(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_phlx_marketdepth_itch_v1_5.fields.short_ask_size, range, value, display)
+
+  return offset + size_of.short_ask_size
 end
 
 -- Size: Ask Price
@@ -1196,6 +1219,25 @@ dissect.ask_price = function(buffer, offset, packet, parent)
   parent:add(nasdaq_phlx_marketdepth_itch_v1_5.fields.ask_price, range, value, display)
 
   return offset + size_of.ask_price
+end
+
+-- Size: Short Bid Size
+size_of.short_bid_size = 2
+
+-- Display: Short Bid Size
+display.short_bid_size = function(value)
+  return "Short Bid Size: "..value
+end
+
+-- Dissect: Short Bid Size
+dissect.short_bid_size = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.short_bid_size)
+  local value = range:uint()
+  local display = display.short_bid_size(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_phlx_marketdepth_itch_v1_5.fields.short_bid_size, range, value, display)
+
+  return offset + size_of.short_bid_size
 end
 
 -- Size: Bid Price
@@ -1244,14 +1286,14 @@ dissect.quote_replace_short_form_message_fields = function(buffer, offset, packe
   -- Bid Price: 2 Byte Unsigned Fixed Width Integer
   index = dissect.bid_price(buffer, index, packet, parent)
 
-  -- Bid Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size(buffer, index, packet, parent)
+  -- Short Bid Size: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.short_bid_size(buffer, index, packet, parent)
 
   -- Ask Price: 2 Byte Unsigned Fixed Width Integer
   index = dissect.ask_price(buffer, index, packet, parent)
 
-  -- Ask Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.ask_size(buffer, index, packet, parent)
+  -- Short Ask Size: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.short_ask_size(buffer, index, packet, parent)
 
   return index
 end
@@ -1337,10 +1379,10 @@ dissect.single_side_update_message_fields = function(buffer, offset, packet, par
   -- Change Reason: 1 Byte Ascii String Enum with 4 values
   index = dissect.change_reason(buffer, index, packet, parent)
 
-  -- Price: 2 Byte Unsigned Fixed Width Integer
+  -- Price: 4 Byte Unsigned Fixed Width Integer
   index = dissect.price(buffer, index, packet, parent)
 
-  -- Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Volume: 4 Byte Unsigned Fixed Width Integer
   index = dissect.volume(buffer, index, packet, parent)
 
   return index
@@ -1350,7 +1392,7 @@ end
 dissect.single_side_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.single_side_update_message then
-    local range = buffer(offset, 13)
+    local range = buffer(offset, 17)
     local display = display.single_side_update_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_marketdepth_itch_v1_5.fields.single_side_update_message, range, display)
   end
@@ -1463,10 +1505,10 @@ dissect.single_side_replace_long_form_message_fields = function(buffer, offset, 
   -- New Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
   index = dissect.new_reference_number_delta(buffer, index, packet, parent)
 
-  -- Price: 2 Byte Unsigned Fixed Width Integer
+  -- Price: 4 Byte Unsigned Fixed Width Integer
   index = dissect.price(buffer, index, packet, parent)
 
-  -- Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Volume: 4 Byte Unsigned Fixed Width Integer
   index = dissect.volume(buffer, index, packet, parent)
 
   -- Order Id: 4 Byte Unsigned Fixed Width Integer
@@ -1479,12 +1521,50 @@ end
 dissect.single_side_replace_long_form_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.single_side_replace_long_form_message then
-    local range = buffer(offset, 20)
+    local range = buffer(offset, 24)
     local display = display.single_side_replace_long_form_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_marketdepth_itch_v1_5.fields.single_side_replace_long_form_message, range, display)
   end
 
   return dissect.single_side_replace_long_form_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Short Volume
+size_of.short_volume = 2
+
+-- Display: Short Volume
+display.short_volume = function(value)
+  return "Short Volume: "..value
+end
+
+-- Dissect: Short Volume
+dissect.short_volume = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.short_volume)
+  local value = range:uint()
+  local display = display.short_volume(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_phlx_marketdepth_itch_v1_5.fields.short_volume, range, value, display)
+
+  return offset + size_of.short_volume
+end
+
+-- Size: Short Price
+size_of.short_price = 2
+
+-- Display: Short Price
+display.short_price = function(value)
+  return "Short Price: "..value
+end
+
+-- Dissect: Short Price
+dissect.short_price = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.short_price)
+  local value = range:uint()
+  local display = display.short_price(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_phlx_marketdepth_itch_v1_5.fields.short_price, range, value, display)
+
+  return offset + size_of.short_price
 end
 
 -- Display: Order Replace Message Short Form
@@ -1505,11 +1585,11 @@ dissect.order_replace_message_short_form_fields = function(buffer, offset, packe
   -- New Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
   index = dissect.new_reference_number_delta(buffer, index, packet, parent)
 
-  -- Price: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  -- Short Price: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.short_price(buffer, index, packet, parent)
 
-  -- Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.volume(buffer, index, packet, parent)
+  -- Short Volume: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.short_volume(buffer, index, packet, parent)
 
   -- Order Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.order_id(buffer, index, packet, parent)
@@ -1547,10 +1627,10 @@ dissect.single_side_replace_message_long_form_fields = function(buffer, offset, 
   -- New Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
   index = dissect.new_reference_number_delta(buffer, index, packet, parent)
 
-  -- Price: 2 Byte Unsigned Fixed Width Integer
+  -- Price: 4 Byte Unsigned Fixed Width Integer
   index = dissect.price(buffer, index, packet, parent)
 
-  -- Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Volume: 4 Byte Unsigned Fixed Width Integer
   index = dissect.volume(buffer, index, packet, parent)
 
   return index
@@ -1560,7 +1640,7 @@ end
 dissect.single_side_replace_message_long_form = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.single_side_replace_message_long_form then
-    local range = buffer(offset, 16)
+    local range = buffer(offset, 20)
     local display = display.single_side_replace_message_long_form(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_marketdepth_itch_v1_5.fields.single_side_replace_message_long_form, range, display)
   end
@@ -1586,11 +1666,11 @@ dissect.single_side_replace_message_short_form_fields = function(buffer, offset,
   -- New Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
   index = dissect.new_reference_number_delta(buffer, index, packet, parent)
 
-  -- Price: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  -- Short Price: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.short_price(buffer, index, packet, parent)
 
-  -- Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.volume(buffer, index, packet, parent)
+  -- Short Volume: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.short_volume(buffer, index, packet, parent)
 
   return index
 end
@@ -1685,12 +1765,12 @@ dissect.printable = function(buffer, offset, packet, parent)
   return offset + size_of.printable
 end
 
--- Display: Single Side Executed with Price Message
+-- Display: Single Side Executed With Price Message
 display.single_side_executed_with_price_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Single Side Executed with Price Message
+-- Dissect Fields: Single Side Executed With Price Message
 dissect.single_side_executed_with_price_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1709,20 +1789,20 @@ dissect.single_side_executed_with_price_message_fields = function(buffer, offset
   -- Printable: 1 Byte Ascii String Enum with 2 values
   index = dissect.printable(buffer, index, packet, parent)
 
-  -- Price: 2 Byte Unsigned Fixed Width Integer
+  -- Price: 4 Byte Unsigned Fixed Width Integer
   index = dissect.price(buffer, index, packet, parent)
 
-  -- Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Volume: 4 Byte Unsigned Fixed Width Integer
   index = dissect.volume(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Single Side Executed with Price Message
+-- Dissect: Single Side Executed With Price Message
 dissect.single_side_executed_with_price_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.single_side_executed_with_price_message then
-    local range = buffer(offset, 21)
+    local range = buffer(offset, 25)
     local display = display.single_side_executed_with_price_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_marketdepth_itch_v1_5.fields.single_side_executed_with_price_message, range, display)
   end
@@ -1812,13 +1892,13 @@ dissect.add_quote_message_long_form_fields = function(buffer, offset, packet, pa
   -- Bid: 4 Byte Unsigned Fixed Width Integer
   index = dissect.bid(buffer, index, packet, parent)
 
-  -- Bid Size: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Size: 4 Byte Unsigned Fixed Width Integer
   index = dissect.bid_size(buffer, index, packet, parent)
 
   -- Ask: 4 Byte Unsigned Fixed Width Integer
   index = dissect.ask(buffer, index, packet, parent)
 
-  -- Ask Size: 2 Byte Unsigned Fixed Width Integer
+  -- Ask Size: 4 Byte Unsigned Fixed Width Integer
   index = dissect.ask_size(buffer, index, packet, parent)
 
   return index
@@ -1828,7 +1908,7 @@ end
 dissect.add_quote_message_long_form = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.add_quote_message_long_form then
-    local range = buffer(offset, 28)
+    local range = buffer(offset, 32)
     local display = display.add_quote_message_long_form(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_marketdepth_itch_v1_5.fields.add_quote_message_long_form, range, display)
   end
@@ -1860,14 +1940,14 @@ dissect.add_quote_message_short_form_fields = function(buffer, offset, packet, p
   -- Bid Price: 2 Byte Unsigned Fixed Width Integer
   index = dissect.bid_price(buffer, index, packet, parent)
 
-  -- Bid Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size(buffer, index, packet, parent)
+  -- Short Bid Size: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.short_bid_size(buffer, index, packet, parent)
 
   -- Ask Price: 2 Byte Unsigned Fixed Width Integer
   index = dissect.ask_price(buffer, index, packet, parent)
 
-  -- Ask Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.ask_size(buffer, index, packet, parent)
+  -- Short Ask Size: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.short_ask_size(buffer, index, packet, parent)
 
   return index
 end
@@ -1962,10 +2042,10 @@ dissect.add_order_message_long_form_fields = function(buffer, offset, packet, pa
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.option_id(buffer, index, packet, parent)
 
-  -- Price: 2 Byte Unsigned Fixed Width Integer
+  -- Price: 4 Byte Unsigned Fixed Width Integer
   index = dissect.price(buffer, index, packet, parent)
 
-  -- Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Volume: 4 Byte Unsigned Fixed Width Integer
   index = dissect.volume(buffer, index, packet, parent)
 
   -- Order Id: 4 Byte Unsigned Fixed Width Integer
@@ -1978,7 +2058,7 @@ end
 dissect.add_order_message_long_form = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.add_order_message_long_form then
-    local range = buffer(offset, 21)
+    local range = buffer(offset, 25)
     local display = display.add_order_message_long_form(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_marketdepth_itch_v1_5.fields.add_order_message_long_form, range, display)
   end
@@ -2007,11 +2087,11 @@ dissect.add_order_message_short_form_fields = function(buffer, offset, packet, p
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.option_id(buffer, index, packet, parent)
 
-  -- Price: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  -- Short Price: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.short_price(buffer, index, packet, parent)
 
-  -- Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.volume(buffer, index, packet, parent)
+  -- Short Volume: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.short_volume(buffer, index, packet, parent)
 
   -- Order Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.order_id(buffer, index, packet, parent)
@@ -2637,7 +2717,7 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Add Order Message Long Form
   if code == "A" then
-    return 21
+    return 25
   end
   -- Size of Add Quote Message Short Form
   if code == "j" then
@@ -2645,15 +2725,15 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Add Quote Message Long Form
   if code == "J" then
-    return 28
+    return 32
   end
   -- Size of Single Side Executed Message
   if code == "E" then
     return 20
   end
-  -- Size of Single Side Executed with Price Message
+  -- Size of Single Side Executed With Price Message
   if code == "C" then
-    return 21
+    return 25
   end
   -- Size of Single Side Cancel Message
   if code == "X" then
@@ -2665,7 +2745,7 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Single Side Replace Message Long Form
   if code == "U" then
-    return 16
+    return 20
   end
   -- Size of Order Replace Message Short Form
   if code == "v" then
@@ -2673,7 +2753,7 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Single Side Replace Long Form Message
   if code == "V" then
-    return 20
+    return 24
   end
   -- Size of Single Side Delete Message
   if code == "D" then
@@ -2681,7 +2761,7 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Single Side Update Message
   if code == "G" then
-    return 13
+    return 17
   end
   -- Size of Quote Replace Short Form Message
   if code == "k" then
@@ -2689,7 +2769,7 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Quote Replace Long Form Message
   if code == "K" then
-    return 32
+    return 36
   end
   -- Size of Quote Delete Message
   if code == "Y" then
@@ -2701,11 +2781,11 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Non Auction Options Trade Message
   if code == "P" then
-    return 21
+    return 25
   end
   -- Size of Options Cross Trade Message
   if code == "Q" then
-    return 21
+    return 25
   end
   -- Size of Broken Trade Order Execution Message
   if code == "B" then
@@ -2770,7 +2850,7 @@ dissect.payload_branches = function(buffer, offset, packet, parent, code)
   if code == "E" then
     return dissect.single_side_executed_message(buffer, offset, packet, parent)
   end
-  -- Dissect Single Side Executed with Price Message
+  -- Dissect Single Side Executed With Price Message
   if code == "C" then
     return dissect.single_side_executed_with_price_message(buffer, offset, packet, parent)
   end
@@ -2897,7 +2977,7 @@ display.message_type = function(value)
     return "Message Type: Single Side Executed Message (E)"
   end
   if value == "C" then
-    return "Message Type: Single Side Executed with Price Message (C)"
+    return "Message Type: Single Side Executed With Price Message (C)"
   end
   if value == "X" then
     return "Message Type: Single Side Cancel Message (X)"

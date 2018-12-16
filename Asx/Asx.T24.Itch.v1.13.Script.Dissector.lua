@@ -21,7 +21,7 @@ local verify = {}
 
 -- Asx T24 Itch 1.13 Fields
 asx_t24_itch_v1_13.fields.activated = ProtoField.new("Activated", "asx.t24.itch.v1.13.activated", ftypes.STRING)
-asx_t24_itch_v1_13.fields.ad_hoc_text_message = ProtoField.new("Ad Hoc Text Message", "asx.t24.itch.v1.13.adhoctextmessage", ftypes.STRING)
+asx_t24_itch_v1_13.fields.ad_hoc_text = ProtoField.new("Ad Hoc Text", "asx.t24.itch.v1.13.adhoctext", ftypes.STRING)
 asx_t24_itch_v1_13.fields.anomalous_order_threshold_publish = ProtoField.new("Anomalous Order Threshold Publish", "asx.t24.itch.v1.13.anomalousorderthresholdpublish", ftypes.STRING)
 asx_t24_itch_v1_13.fields.aot_lower_price = ProtoField.new("Aot Lower Price", "asx.t24.itch.v1.13.aotlowerprice", ftypes.INT32)
 asx_t24_itch_v1_13.fields.aot_price = ProtoField.new("Aot Price", "asx.t24.itch.v1.13.aotprice", ftypes.INT32)
@@ -89,8 +89,8 @@ asx_t24_itch_v1_13.fields.maturity_value = ProtoField.new("Maturity Value", "asx
 asx_t24_itch_v1_13.fields.message = ProtoField.new("Message", "asx.t24.itch.v1.13.message", ftypes.STRING)
 asx_t24_itch_v1_13.fields.message_header = ProtoField.new("Message Header", "asx.t24.itch.v1.13.messageheader", ftypes.STRING)
 asx_t24_itch_v1_13.fields.message_type = ProtoField.new("Message Type", "asx.t24.itch.v1.13.messagetype", ftypes.STRING)
+asx_t24_itch_v1_13.fields.open_high_low_last_trade_adjustment = ProtoField.new("Open High Low Last Trade Adjustment", "asx.t24.itch.v1.13.openhighlowlasttradeadjustment", ftypes.STRING)
 asx_t24_itch_v1_13.fields.open_interest = ProtoField.new("Open Interest", "asx.t24.itch.v1.13.openinterest", ftypes.UINT32)
-asx_t24_itch_v1_13.fields.open__high__low__last_trade_adjustment = ProtoField.new("Open, High, Low, Last Trade Adjustment", "asx.t24.itch.v1.13.openhighlowlasttradeadjustment", ftypes.STRING)
 asx_t24_itch_v1_13.fields.opening_trade = ProtoField.new("Opening Trade", "asx.t24.itch.v1.13.openingtrade", ftypes.INT32)
 asx_t24_itch_v1_13.fields.opening_trade_price = ProtoField.new("Opening Trade Price", "asx.t24.itch.v1.13.openingtradeprice", ftypes.UINT8, nil, base.DEC, "0x01")
 asx_t24_itch_v1_13.fields.option_symbol_directory = ProtoField.new("Option Symbol Directory", "asx.t24.itch.v1.13.optionsymboldirectory", ftypes.STRING)
@@ -100,7 +100,7 @@ asx_t24_itch_v1_13.fields.order_book_priority = ProtoField.new("Order Book Prior
 asx_t24_itch_v1_13.fields.order_book_state = ProtoField.new("Order Book State", "asx.t24.itch.v1.13.orderbookstate", ftypes.STRING)
 asx_t24_itch_v1_13.fields.order_deleted = ProtoField.new("Order Deleted", "asx.t24.itch.v1.13.orderdeleted", ftypes.STRING)
 asx_t24_itch_v1_13.fields.order_executed = ProtoField.new("Order Executed", "asx.t24.itch.v1.13.orderexecuted", ftypes.STRING)
-asx_t24_itch_v1_13.fields.order_executed_with_price = ProtoField.new("Order Executed with Price", "asx.t24.itch.v1.13.orderexecutedwithprice", ftypes.STRING)
+asx_t24_itch_v1_13.fields.order_executed_with_price = ProtoField.new("Order Executed With Price", "asx.t24.itch.v1.13.orderexecutedwithprice", ftypes.STRING)
 asx_t24_itch_v1_13.fields.order_number = ProtoField.new("Order Number", "asx.t24.itch.v1.13.ordernumber", ftypes.UINT64)
 asx_t24_itch_v1_13.fields.order_replaced = ProtoField.new("Order Replaced", "asx.t24.itch.v1.13.orderreplaced", ftypes.STRING)
 asx_t24_itch_v1_13.fields.order_volume_cancelled = ProtoField.new("Order Volume Cancelled", "asx.t24.itch.v1.13.ordervolumecancelled", ftypes.STRING)
@@ -130,7 +130,7 @@ asx_t24_itch_v1_13.fields.ratio_leg_3 = ProtoField.new("Ratio Leg 3", "asx.t24.i
 asx_t24_itch_v1_13.fields.ratio_leg_4 = ProtoField.new("Ratio Leg 4", "asx.t24.itch.v1.13.ratioleg4", ftypes.UINT16)
 asx_t24_itch_v1_13.fields.ratio_leg_5 = ProtoField.new("Ratio Leg 5", "asx.t24.itch.v1.13.ratioleg5", ftypes.UINT16)
 asx_t24_itch_v1_13.fields.ratio_leg_6 = ProtoField.new("Ratio Leg 6", "asx.t24.itch.v1.13.ratioleg6", ftypes.UINT16)
-asx_t24_itch_v1_13.fields.request_for_quote = ProtoField.new("Request for Quote", "asx.t24.itch.v1.13.requestforquote", ftypes.STRING)
+asx_t24_itch_v1_13.fields.request_for_quote = ProtoField.new("Request For Quote", "asx.t24.itch.v1.13.requestforquote", ftypes.STRING)
 asx_t24_itch_v1_13.fields.reserved = ProtoField.new("Reserved", "asx.t24.itch.v1.13.reserved", ftypes.UINT8, nil, base.DEC, "0xC0")
 asx_t24_itch_v1_13.fields.second = ProtoField.new("Second", "asx.t24.itch.v1.13.second", ftypes.UINT32)
 asx_t24_itch_v1_13.fields.second_leg_contract_number = ProtoField.new("Second Leg Contract Number", "asx.t24.itch.v1.13.secondlegcontractnumber", ftypes.UINT32)
@@ -181,14 +181,14 @@ asx_t24_itch_v1_13.fields.trading_status = ProtoField.new("Trading Status", "asx
 asx_t24_itch_v1_13.fields.underlying_contract_number = ProtoField.new("Underlying Contract Number", "asx.t24.itch.v1.13.underlyingcontractnumber", ftypes.UINT32)
 asx_t24_itch_v1_13.fields.voi_trade_date = ProtoField.new("Voi Trade Date", "asx.t24.itch.v1.13.voitradedate", ftypes.UINT16)
 asx_t24_itch_v1_13.fields.volatility = ProtoField.new("Volatility", "asx.t24.itch.v1.13.volatility", ftypes.UINT32)
-asx_t24_itch_v1_13.fields.volume_and_open_interest = ProtoField.new("Volume and Open Interest", "asx.t24.itch.v1.13.volumeandopeninterest", ftypes.STRING)
+asx_t24_itch_v1_13.fields.volume_and_open_interest = ProtoField.new("Volume And Open Interest", "asx.t24.itch.v1.13.volumeandopeninterest", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
 -- Asx T24 Itch 1.13 Element Dissection Options
-show.ad_hoc_text_message = true
+show.ad_hoc_text = true
 show.anomalous_order_threshold_publish = true
 show.custom_market_executed = true
 show.custom_market_order_added = true
@@ -204,7 +204,7 @@ show.market_settlement = true
 show.market_updates = true
 show.message = true
 show.message_header = true
-show.open__high__low__last_trade_adjustment = true
+show.open_high_low_last_trade_adjustment = true
 show.option_symbol_directory = true
 show.order_added = true
 show.order_book_state = true
@@ -227,7 +227,7 @@ show.volume_and_open_interest = true
 show.payload = false
 
 -- Register Asx T24 Itch 1.13 Show Options
-asx_t24_itch_v1_13.prefs.show_ad_hoc_text_message = Pref.bool("Show Ad Hoc Text Message", show.ad_hoc_text_message, "Parse and add Ad Hoc Text Message to protocol tree")
+asx_t24_itch_v1_13.prefs.show_ad_hoc_text = Pref.bool("Show Ad Hoc Text", show.ad_hoc_text, "Parse and add Ad Hoc Text to protocol tree")
 asx_t24_itch_v1_13.prefs.show_anomalous_order_threshold_publish = Pref.bool("Show Anomalous Order Threshold Publish", show.anomalous_order_threshold_publish, "Parse and add Anomalous Order Threshold Publish to protocol tree")
 asx_t24_itch_v1_13.prefs.show_custom_market_executed = Pref.bool("Show Custom Market Executed", show.custom_market_executed, "Parse and add Custom Market Executed to protocol tree")
 asx_t24_itch_v1_13.prefs.show_custom_market_order_added = Pref.bool("Show Custom Market Order Added", show.custom_market_order_added, "Parse and add Custom Market Order Added to protocol tree")
@@ -243,18 +243,18 @@ asx_t24_itch_v1_13.prefs.show_market_settlement = Pref.bool("Show Market Settlem
 asx_t24_itch_v1_13.prefs.show_market_updates = Pref.bool("Show Market Updates", show.market_updates, "Parse and add Market Updates to protocol tree")
 asx_t24_itch_v1_13.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 asx_t24_itch_v1_13.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-asx_t24_itch_v1_13.prefs.show_open__high__low__last_trade_adjustment = Pref.bool("Show Open, High, Low, Last Trade Adjustment", show.open__high__low__last_trade_adjustment, "Parse and add Open, High, Low, Last Trade Adjustment to protocol tree")
+asx_t24_itch_v1_13.prefs.show_open_high_low_last_trade_adjustment = Pref.bool("Show Open High Low Last Trade Adjustment", show.open_high_low_last_trade_adjustment, "Parse and add Open High Low Last Trade Adjustment to protocol tree")
 asx_t24_itch_v1_13.prefs.show_option_symbol_directory = Pref.bool("Show Option Symbol Directory", show.option_symbol_directory, "Parse and add Option Symbol Directory to protocol tree")
 asx_t24_itch_v1_13.prefs.show_order_added = Pref.bool("Show Order Added", show.order_added, "Parse and add Order Added to protocol tree")
 asx_t24_itch_v1_13.prefs.show_order_book_state = Pref.bool("Show Order Book State", show.order_book_state, "Parse and add Order Book State to protocol tree")
 asx_t24_itch_v1_13.prefs.show_order_deleted = Pref.bool("Show Order Deleted", show.order_deleted, "Parse and add Order Deleted to protocol tree")
 asx_t24_itch_v1_13.prefs.show_order_executed = Pref.bool("Show Order Executed", show.order_executed, "Parse and add Order Executed to protocol tree")
-asx_t24_itch_v1_13.prefs.show_order_executed_with_price = Pref.bool("Show Order Executed with Price", show.order_executed_with_price, "Parse and add Order Executed with Price to protocol tree")
+asx_t24_itch_v1_13.prefs.show_order_executed_with_price = Pref.bool("Show Order Executed With Price", show.order_executed_with_price, "Parse and add Order Executed With Price to protocol tree")
 asx_t24_itch_v1_13.prefs.show_order_replaced = Pref.bool("Show Order Replaced", show.order_replaced, "Parse and add Order Replaced to protocol tree")
 asx_t24_itch_v1_13.prefs.show_order_volume_cancelled = Pref.bool("Show Order Volume Cancelled", show.order_volume_cancelled, "Parse and add Order Volume Cancelled to protocol tree")
 asx_t24_itch_v1_13.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 asx_t24_itch_v1_13.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-asx_t24_itch_v1_13.prefs.show_request_for_quote = Pref.bool("Show Request for Quote", show.request_for_quote, "Parse and add Request for Quote to protocol tree")
+asx_t24_itch_v1_13.prefs.show_request_for_quote = Pref.bool("Show Request For Quote", show.request_for_quote, "Parse and add Request For Quote to protocol tree")
 asx_t24_itch_v1_13.prefs.show_session = Pref.bool("Show Session", show.session, "Parse and add Session to protocol tree")
 asx_t24_itch_v1_13.prefs.show_spread_executed = Pref.bool("Show Spread Executed", show.spread_executed, "Parse and add Spread Executed to protocol tree")
 asx_t24_itch_v1_13.prefs.show_spread_symbol_directory = Pref.bool("Show Spread Symbol Directory", show.spread_symbol_directory, "Parse and add Spread Symbol Directory to protocol tree")
@@ -262,7 +262,7 @@ asx_t24_itch_v1_13.prefs.show_system_event = Pref.bool("Show System Event", show
 asx_t24_itch_v1_13.prefs.show_time_message = Pref.bool("Show Time Message", show.time_message, "Parse and add Time Message to protocol tree")
 asx_t24_itch_v1_13.prefs.show_trade_cancellation = Pref.bool("Show Trade Cancellation", show.trade_cancellation, "Parse and add Trade Cancellation to protocol tree")
 asx_t24_itch_v1_13.prefs.show_trade_spread_execution_chain = Pref.bool("Show Trade Spread Execution Chain", show.trade_spread_execution_chain, "Parse and add Trade Spread Execution Chain to protocol tree")
-asx_t24_itch_v1_13.prefs.show_volume_and_open_interest = Pref.bool("Show Volume and Open Interest", show.volume_and_open_interest, "Parse and add Volume and Open Interest to protocol tree")
+asx_t24_itch_v1_13.prefs.show_volume_and_open_interest = Pref.bool("Show Volume And Open Interest", show.volume_and_open_interest, "Parse and add Volume And Open Interest to protocol tree")
 asx_t24_itch_v1_13.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
@@ -270,8 +270,8 @@ function asx_t24_itch_v1_13.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.ad_hoc_text_message ~= asx_t24_itch_v1_13.prefs.show_ad_hoc_text_message then
-    show.ad_hoc_text_message = asx_t24_itch_v1_13.prefs.show_ad_hoc_text_message
+  if show.ad_hoc_text ~= asx_t24_itch_v1_13.prefs.show_ad_hoc_text then
+    show.ad_hoc_text = asx_t24_itch_v1_13.prefs.show_ad_hoc_text
     changed = true
   end
   if show.anomalous_order_threshold_publish ~= asx_t24_itch_v1_13.prefs.show_anomalous_order_threshold_publish then
@@ -334,8 +334,8 @@ function asx_t24_itch_v1_13.prefs_changed()
     show.message_header = asx_t24_itch_v1_13.prefs.show_message_header
     changed = true
   end
-  if show.open__high__low__last_trade_adjustment ~= asx_t24_itch_v1_13.prefs.show_open__high__low__last_trade_adjustment then
-    show.open__high__low__last_trade_adjustment = asx_t24_itch_v1_13.prefs.show_open__high__low__last_trade_adjustment
+  if show.open_high_low_last_trade_adjustment ~= asx_t24_itch_v1_13.prefs.show_open_high_low_last_trade_adjustment then
+    show.open_high_low_last_trade_adjustment = asx_t24_itch_v1_13.prefs.show_open_high_low_last_trade_adjustment
     changed = true
   end
   if show.option_symbol_directory ~= asx_t24_itch_v1_13.prefs.show_option_symbol_directory then
@@ -544,12 +544,12 @@ dissect.timestamp = function(buffer, offset, packet, parent)
   return offset + size_of.timestamp
 end
 
--- Display: Volume and Open Interest
+-- Display: Volume And Open Interest
 display.volume_and_open_interest = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Volume and Open Interest
+-- Dissect Fields: Volume And Open Interest
 dissect.volume_and_open_interest_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -574,7 +574,7 @@ dissect.volume_and_open_interest_fields = function(buffer, offset, packet, paren
   return index
 end
 
--- Dissect: Volume and Open Interest
+-- Dissect: Volume And Open Interest
 dissect.volume_and_open_interest = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.volume_and_open_interest then
@@ -789,12 +789,12 @@ dissect.price = function(buffer, offset, packet, parent)
   return offset + size_of.price
 end
 
--- Display: Request for Quote
+-- Display: Request For Quote
 display.request_for_quote = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Request for Quote
+-- Dissect Fields: Request For Quote
 dissect.request_for_quote_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -816,7 +816,7 @@ dissect.request_for_quote_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Request for Quote
+-- Dissect: Request For Quote
 dissect.request_for_quote = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.request_for_quote then
@@ -866,13 +866,13 @@ dissect.source_id = function(buffer, offset, packet, parent)
   return offset + size_of.source_id
 end
 
--- Display: Ad Hoc Text Message
-display.ad_hoc_text_message = function(buffer, offset, size, packet, parent)
+-- Display: Ad Hoc Text
+display.ad_hoc_text = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Ad Hoc Text Message
-dissect.ad_hoc_text_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Ad Hoc Text
+dissect.ad_hoc_text_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
@@ -890,16 +890,16 @@ dissect.ad_hoc_text_message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Ad Hoc Text Message
-dissect.ad_hoc_text_message = function(buffer, offset, packet, parent)
+-- Dissect: Ad Hoc Text
+dissect.ad_hoc_text = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.ad_hoc_text_message then
+  if show.ad_hoc_text then
     local range = buffer(offset, 112)
-    local display = display.ad_hoc_text_message(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_v1_13.fields.ad_hoc_text_message, range, display)
+    local display = display.ad_hoc_text(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_v1_13.fields.ad_hoc_text, range, display)
   end
 
-  return dissect.ad_hoc_text_message_fields(buffer, offset, packet, parent)
+  return dissect.ad_hoc_text_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Settlement Type
@@ -1205,13 +1205,13 @@ dissect.opening_trade = function(buffer, offset, packet, parent)
   return offset + size_of.opening_trade
 end
 
--- Display: Open, High, Low, Last Trade Adjustment
-display.open__high__low__last_trade_adjustment = function(buffer, offset, size, packet, parent)
+-- Display: Open High Low Last Trade Adjustment
+display.open_high_low_last_trade_adjustment = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Open, High, Low, Last Trade Adjustment
-dissect.open__high__low__last_trade_adjustment_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Open High Low Last Trade Adjustment
+dissect.open_high_low_last_trade_adjustment_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
@@ -1250,16 +1250,16 @@ dissect.open__high__low__last_trade_adjustment_fields = function(buffer, offset,
   return index
 end
 
--- Dissect: Open, High, Low, Last Trade Adjustment
-dissect.open__high__low__last_trade_adjustment = function(buffer, offset, packet, parent)
+-- Dissect: Open High Low Last Trade Adjustment
+dissect.open_high_low_last_trade_adjustment = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.open__high__low__last_trade_adjustment then
+  if show.open_high_low_last_trade_adjustment then
     local range = buffer(offset, 39)
-    local display = display.open__high__low__last_trade_adjustment(buffer, packet, parent)
-    parent = parent:add(asx_t24_itch_v1_13.fields.open__high__low__last_trade_adjustment, range, display)
+    local display = display.open_high_low_last_trade_adjustment(buffer, packet, parent)
+    parent = parent:add(asx_t24_itch_v1_13.fields.open_high_low_last_trade_adjustment, range, display)
   end
 
-  return dissect.open__high__low__last_trade_adjustment_fields(buffer, offset, packet, parent)
+  return dissect.open_high_low_last_trade_adjustment_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Best Ask Quantity
@@ -1462,11 +1462,11 @@ size_of.printable = 1
 
 -- Display: Printable
 display.printable = function(value)
-  if value == "N" then
-    return "Printable: Non Printable (N)"
-  end
   if value == "Y" then
-    return "Printable: Printable (Y)"
+    return "Printable: Yes (Y)"
+  end
+  if value == "N" then
+    return "Printable: No (N)"
   end
 
   return "Printable: Unknown("..value..")"
@@ -1702,11 +1702,11 @@ size_of.side = 1
 
 -- Display: Side
 display.side = function(value)
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
   if value == "S" then
     return "Side: Sell (S)"
+  end
+  if value == "B" then
+    return "Side: Buy (B)"
   end
 
   return "Side: Unknown("..value..")"
@@ -2199,12 +2199,12 @@ dissect.buying_order_number = function(buffer, offset, packet, parent)
   return offset + size_of.buying_order_number
 end
 
--- Display: Order Executed with Price
+-- Display: Order Executed With Price
 display.order_executed_with_price = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Order Executed with Price
+-- Dissect Fields: Order Executed With Price
 dissect.order_executed_with_price_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2244,7 +2244,7 @@ dissect.order_executed_with_price_fields = function(buffer, offset, packet, pare
   return index
 end
 
--- Dissect: Order Executed with Price
+-- Dissect: Order Executed With Price
 dissect.order_executed_with_price = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_executed_with_price then
@@ -3403,10 +3403,10 @@ size_of.activated = 1
 -- Display: Activated
 display.activated = function(value)
   if value == "Y" then
-    return "Activated: Active (Y)"
+    return "Activated: Yes (Y)"
   end
   if value == "N" then
-    return "Activated: Inactive (N)"
+    return "Activated: No (N)"
   end
 
   return "Activated: Unknown("..value..")"
@@ -4392,7 +4392,7 @@ size_of.payload = function(buffer, offset, code)
   if code == "E" then
     return 36
   end
-  -- Size of Order Executed with Price
+  -- Size of Order Executed With Price
   if code == "C" then
     return 47
   end
@@ -4420,7 +4420,7 @@ size_of.payload = function(buffer, offset, code)
   if code == "Z" then
     return 30
   end
-  -- Size of Open, High, Low, Last Trade Adjustment
+  -- Size of Open High Low Last Trade Adjustment
   if code == "t" then
     return 39
   end
@@ -4428,11 +4428,11 @@ size_of.payload = function(buffer, offset, code)
   if code == "Y" then
     return 19
   end
-  -- Size of Ad Hoc Text Message
+  -- Size of Ad Hoc Text
   if code == "x" then
     return 112
   end
-  -- Size of Request for Quote
+  -- Size of Request For Quote
   if code == "q" then
     return 18
   end
@@ -4440,7 +4440,7 @@ size_of.payload = function(buffer, offset, code)
   if code == "W" then
     return 34
   end
-  -- Size of Volume and Open Interest
+  -- Size of Volume And Open Interest
   if code == "V" then
     return 20
   end
@@ -4523,7 +4523,7 @@ dissect.payload_branches = function(buffer, offset, packet, parent, code)
   if code == "E" then
     return dissect.order_executed(buffer, offset, packet, parent)
   end
-  -- Dissect Order Executed with Price
+  -- Dissect Order Executed With Price
   if code == "C" then
     return dissect.order_executed_with_price(buffer, offset, packet, parent)
   end
@@ -4551,19 +4551,19 @@ dissect.payload_branches = function(buffer, offset, packet, parent, code)
   if code == "Z" then
     return dissect.equilibrium_price_auction_info(buffer, offset, packet, parent)
   end
-  -- Dissect Open, High, Low, Last Trade Adjustment
+  -- Dissect Open High Low Last Trade Adjustment
   if code == "t" then
-    return dissect.open__high__low__last_trade_adjustment(buffer, offset, packet, parent)
+    return dissect.open_high_low_last_trade_adjustment(buffer, offset, packet, parent)
   end
   -- Dissect Market Settlement
   if code == "Y" then
     return dissect.market_settlement(buffer, offset, packet, parent)
   end
-  -- Dissect Ad Hoc Text Message
+  -- Dissect Ad Hoc Text
   if code == "x" then
-    return dissect.ad_hoc_text_message(buffer, offset, packet, parent)
+    return dissect.ad_hoc_text(buffer, offset, packet, parent)
   end
-  -- Dissect Request for Quote
+  -- Dissect Request For Quote
   if code == "q" then
     return dissect.request_for_quote(buffer, offset, packet, parent)
   end
@@ -4571,7 +4571,7 @@ dissect.payload_branches = function(buffer, offset, packet, parent, code)
   if code == "W" then
     return dissect.anomalous_order_threshold_publish(buffer, offset, packet, parent)
   end
-  -- Dissect Volume and Open Interest
+  -- Dissect Volume And Open Interest
   if code == "V" then
     return dissect.volume_and_open_interest(buffer, offset, packet, parent)
   end
@@ -4656,7 +4656,7 @@ display.message_type = function(value)
     return "Message Type: Order Executed (E)"
   end
   if value == "C" then
-    return "Message Type: Order Executed with Price (C)"
+    return "Message Type: Order Executed With Price (C)"
   end
   if value == "e" then
     return "Message Type: Spread Executed (e)"
@@ -4677,22 +4677,22 @@ display.message_type = function(value)
     return "Message Type: Equilibrium Price Auction Info (Z)"
   end
   if value == "t" then
-    return "Message Type: Open, High, Low, Last Trade Adjustment (t)"
+    return "Message Type: Open High Low Last Trade Adjustment (t)"
   end
   if value == "Y" then
     return "Message Type: Market Settlement (Y)"
   end
   if value == "x" then
-    return "Message Type: Ad Hoc Text Message (x)"
+    return "Message Type: Ad Hoc Text (x)"
   end
   if value == "q" then
-    return "Message Type: Request for Quote (q)"
+    return "Message Type: Request For Quote (q)"
   end
   if value == "W" then
     return "Message Type: Anomalous Order Threshold Publish (W)"
   end
   if value == "V" then
-    return "Message Type: Volume and Open Interest (V)"
+    return "Message Type: Volume And Open Interest (V)"
   end
 
   return "Message Type: Unknown("..value..")"

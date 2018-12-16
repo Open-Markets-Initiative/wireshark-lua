@@ -20,8 +20,8 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq Psx TotalView Itch 5.0 Fields
-nasdaq_psx_totalview_itch_v5_0.fields.add_order___no_mpid_attribution_message = ProtoField.new("Add Order – No MPID Attribution Message", "nasdaq.psx.totalview.itch.v5.0.addordernompidattributionmessage", ftypes.STRING)
-nasdaq_psx_totalview_itch_v5_0.fields.add_order_with_mpid_attribution_message = ProtoField.new("Add Order with MPID Attribution Message", "nasdaq.psx.totalview.itch.v5.0.addorderwithmpidattributionmessage", ftypes.STRING)
+nasdaq_psx_totalview_itch_v5_0.fields.add_order_no_mpid_attribution_message = ProtoField.new("Add Order No Mpid Attribution Message", "nasdaq.psx.totalview.itch.v5.0.addordernompidattributionmessage", ftypes.STRING)
+nasdaq_psx_totalview_itch_v5_0.fields.add_order_with_mpid_attribution_message = ProtoField.new("Add Order With Mpid Attribution Message", "nasdaq.psx.totalview.itch.v5.0.addorderwithmpidattributionmessage", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.attribution = ProtoField.new("Attribution", "nasdaq.psx.totalview.itch.v5.0.attribution", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.auction_collar_extension = ProtoField.new("Auction Collar Extension", "nasdaq.psx.totalview.itch.v5.0.auctioncollarextension", ftypes.UINT32)
 nasdaq_psx_totalview_itch_v5_0.fields.auction_collar_reference_price = ProtoField.new("Auction Collar Reference Price", "nasdaq.psx.totalview.itch.v5.0.auctioncollarreferenceprice", ftypes.INT32)
@@ -55,7 +55,7 @@ nasdaq_psx_totalview_itch_v5_0.fields.level_2 = ProtoField.new("Level 2", "nasda
 nasdaq_psx_totalview_itch_v5_0.fields.level_3 = ProtoField.new("Level 3", "nasdaq.psx.totalview.itch.v5.0.level3", ftypes.INT64)
 nasdaq_psx_totalview_itch_v5_0.fields.locate_code = ProtoField.new("Locate Code", "nasdaq.psx.totalview.itch.v5.0.locatecode", ftypes.UINT16)
 nasdaq_psx_totalview_itch_v5_0.fields.lower_auction_collar_price = ProtoField.new("Lower Auction Collar Price", "nasdaq.psx.totalview.itch.v5.0.lowerauctioncollarprice", ftypes.INT32)
-nasdaq_psx_totalview_itch_v5_0.fields.luld_auction_collar_message = ProtoField.new("LULD Auction Collar Message", "nasdaq.psx.totalview.itch.v5.0.luldauctioncollarmessage", ftypes.STRING)
+nasdaq_psx_totalview_itch_v5_0.fields.luld_auction_collar_message = ProtoField.new("Luld Auction Collar Message", "nasdaq.psx.totalview.itch.v5.0.luldauctioncollarmessage", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.luld_reference_price_tier = ProtoField.new("Luld Reference Price Tier", "nasdaq.psx.totalview.itch.v5.0.luldreferencepricetier", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.market_category = ProtoField.new("Market Category", "nasdaq.psx.totalview.itch.v5.0.marketcategory", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.market_code = ProtoField.new("Market Code", "nasdaq.psx.totalview.itch.v5.0.marketcode", ftypes.INT8, {[1]="Yes",[0]="No"})
@@ -67,8 +67,8 @@ nasdaq_psx_totalview_itch_v5_0.fields.message = ProtoField.new("Message", "nasda
 nasdaq_psx_totalview_itch_v5_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.psx.totalview.itch.v5.0.messageheader", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.message_type = ProtoField.new("Message Type", "nasdaq.psx.totalview.itch.v5.0.messagetype", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.mpid = ProtoField.new("Mpid", "nasdaq.psx.totalview.itch.v5.0.mpid", ftypes.STRING)
-nasdaq_psx_totalview_itch_v5_0.fields.mwcb_decline_level_message = ProtoField.new("MWCB Decline Level Message", "nasdaq.psx.totalview.itch.v5.0.mwcbdeclinelevelmessage", ftypes.STRING)
-nasdaq_psx_totalview_itch_v5_0.fields.mwcb_status_level_message = ProtoField.new("MWCB Status Level Message", "nasdaq.psx.totalview.itch.v5.0.mwcbstatuslevelmessage", ftypes.STRING)
+nasdaq_psx_totalview_itch_v5_0.fields.mwcb_decline_level_message = ProtoField.new("Mwcb Decline Level Message", "nasdaq.psx.totalview.itch.v5.0.mwcbdeclinelevelmessage", ftypes.STRING)
+nasdaq_psx_totalview_itch_v5_0.fields.mwcb_status_level_message = ProtoField.new("Mwcb Status Level Message", "nasdaq.psx.totalview.itch.v5.0.mwcbstatuslevelmessage", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.near_price = ProtoField.new("Near Price", "nasdaq.psx.totalview.itch.v5.0.nearprice", ftypes.INT32)
 nasdaq_psx_totalview_itch_v5_0.fields.net_order_imbalance_indicator_message = ProtoField.new("Net Order Imbalance Indicator Message", "nasdaq.psx.totalview.itch.v5.0.netorderimbalanceindicatormessage", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.new_order_reference_number = ProtoField.new("New Order Reference Number", "nasdaq.psx.totalview.itch.v5.0.neworderreferencenumber", ftypes.UINT64)
@@ -91,7 +91,7 @@ nasdaq_psx_totalview_itch_v5_0.fields.primary_market_maker = ProtoField.new("Pri
 nasdaq_psx_totalview_itch_v5_0.fields.printable = ProtoField.new("Printable", "nasdaq.psx.totalview.itch.v5.0.printable", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.reason = ProtoField.new("Reason", "nasdaq.psx.totalview.itch.v5.0.reason", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.psx.totalview.itch.v5.0.regshoaction", ftypes.STRING)
-nasdaq_psx_totalview_itch_v5_0.fields.reg_sho_short_sale_price_test_restricted_indicator_message = ProtoField.new("Reg SHO Short Sale Price Test Restricted Indicator Message", "nasdaq.psx.totalview.itch.v5.0.regshoshortsalepricetestrestrictedindicatormessage", ftypes.STRING)
+nasdaq_psx_totalview_itch_v5_0.fields.reg_sho_short_sale_price_test_restricted_indicator_message = ProtoField.new("Reg Sho Short Sale Price Test Restricted Indicator Message", "nasdaq.psx.totalview.itch.v5.0.regshoshortsalepricetestrestrictedindicatormessage", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.reserved = ProtoField.new("Reserved", "nasdaq.psx.totalview.itch.v5.0.reserved", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.psx.totalview.itch.v5.0.roundlotsize", ftypes.UINT32)
 nasdaq_psx_totalview_itch_v5_0.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.psx.totalview.itch.v5.0.roundlotsonly", ftypes.STRING)
@@ -106,7 +106,7 @@ nasdaq_psx_totalview_itch_v5_0.fields.stock_trading_action_message = ProtoField.
 nasdaq_psx_totalview_itch_v5_0.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.psx.totalview.itch.v5.0.systemeventmessage", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.psx.totalview.itch.v5.0.timestamp", ftypes.BYTES)
 nasdaq_psx_totalview_itch_v5_0.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.psx.totalview.itch.v5.0.trackingnumber", ftypes.UINT16)
-nasdaq_psx_totalview_itch_v5_0.fields.trade_message__non_cross_ = ProtoField.new("Trade Message (Non-Cross)", "nasdaq.psx.totalview.itch.v5.0.trademessagenoncross", ftypes.STRING)
+nasdaq_psx_totalview_itch_v5_0.fields.trade_message_non_cross = ProtoField.new("Trade Message Non Cross", "nasdaq.psx.totalview.itch.v5.0.trademessagenoncross", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.trading_state = ProtoField.new("Trading State", "nasdaq.psx.totalview.itch.v5.0.tradingstate", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.upper_auction_collar_price = ProtoField.new("Upper Auction Collar Price", "nasdaq.psx.totalview.itch.v5.0.upperauctioncollarprice", ftypes.INT32)
 
@@ -115,7 +115,7 @@ nasdaq_psx_totalview_itch_v5_0.fields.upper_auction_collar_price = ProtoField.ne
 -----------------------------------------------------------------------
 
 -- Nasdaq Psx TotalView Itch 5.0 Element Dissection Options
-show.add_order___no_mpid_attribution_message = true
+show.add_order_no_mpid_attribution_message = true
 show.add_order_with_mpid_attribution_message = true
 show.broken_trade_message = true
 show.cross_trade_message = true
@@ -138,20 +138,20 @@ show.reg_sho_short_sale_price_test_restricted_indicator_message = true
 show.stock_directory_message = true
 show.stock_trading_action_message = true
 show.system_event_message = true
-show.trade_message__non_cross_ = true
+show.trade_message_non_cross = true
 show.payload = false
 
 -- Register Nasdaq Psx TotalView Itch 5.0 Show Options
-nasdaq_psx_totalview_itch_v5_0.prefs.show_add_order___no_mpid_attribution_message = Pref.bool("Show Add Order – No MPID Attribution Message", show.add_order___no_mpid_attribution_message, "Parse and add Add Order – No MPID Attribution Message to protocol tree")
-nasdaq_psx_totalview_itch_v5_0.prefs.show_add_order_with_mpid_attribution_message = Pref.bool("Show Add Order with MPID Attribution Message", show.add_order_with_mpid_attribution_message, "Parse and add Add Order with MPID Attribution Message to protocol tree")
+nasdaq_psx_totalview_itch_v5_0.prefs.show_add_order_no_mpid_attribution_message = Pref.bool("Show Add Order No Mpid Attribution Message", show.add_order_no_mpid_attribution_message, "Parse and add Add Order No Mpid Attribution Message to protocol tree")
+nasdaq_psx_totalview_itch_v5_0.prefs.show_add_order_with_mpid_attribution_message = Pref.bool("Show Add Order With Mpid Attribution Message", show.add_order_with_mpid_attribution_message, "Parse and add Add Order With Mpid Attribution Message to protocol tree")
 nasdaq_psx_totalview_itch_v5_0.prefs.show_broken_trade_message = Pref.bool("Show Broken Trade Message", show.broken_trade_message, "Parse and add Broken Trade Message to protocol tree")
 nasdaq_psx_totalview_itch_v5_0.prefs.show_cross_trade_message = Pref.bool("Show Cross Trade Message", show.cross_trade_message, "Parse and add Cross Trade Message to protocol tree")
-nasdaq_psx_totalview_itch_v5_0.prefs.show_luld_auction_collar_message = Pref.bool("Show LULD Auction Collar Message", show.luld_auction_collar_message, "Parse and add LULD Auction Collar Message to protocol tree")
+nasdaq_psx_totalview_itch_v5_0.prefs.show_luld_auction_collar_message = Pref.bool("Show Luld Auction Collar Message", show.luld_auction_collar_message, "Parse and add Luld Auction Collar Message to protocol tree")
 nasdaq_psx_totalview_itch_v5_0.prefs.show_market_participant_position_message = Pref.bool("Show Market Participant Position Message", show.market_participant_position_message, "Parse and add Market Participant Position Message to protocol tree")
 nasdaq_psx_totalview_itch_v5_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 nasdaq_psx_totalview_itch_v5_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-nasdaq_psx_totalview_itch_v5_0.prefs.show_mwcb_decline_level_message = Pref.bool("Show MWCB Decline Level Message", show.mwcb_decline_level_message, "Parse and add MWCB Decline Level Message to protocol tree")
-nasdaq_psx_totalview_itch_v5_0.prefs.show_mwcb_status_level_message = Pref.bool("Show MWCB Status Level Message", show.mwcb_status_level_message, "Parse and add MWCB Status Level Message to protocol tree")
+nasdaq_psx_totalview_itch_v5_0.prefs.show_mwcb_decline_level_message = Pref.bool("Show Mwcb Decline Level Message", show.mwcb_decline_level_message, "Parse and add Mwcb Decline Level Message to protocol tree")
+nasdaq_psx_totalview_itch_v5_0.prefs.show_mwcb_status_level_message = Pref.bool("Show Mwcb Status Level Message", show.mwcb_status_level_message, "Parse and add Mwcb Status Level Message to protocol tree")
 nasdaq_psx_totalview_itch_v5_0.prefs.show_net_order_imbalance_indicator_message = Pref.bool("Show Net Order Imbalance Indicator Message", show.net_order_imbalance_indicator_message, "Parse and add Net Order Imbalance Indicator Message to protocol tree")
 nasdaq_psx_totalview_itch_v5_0.prefs.show_operational_halt_message = Pref.bool("Show Operational Halt Message", show.operational_halt_message, "Parse and add Operational Halt Message to protocol tree")
 nasdaq_psx_totalview_itch_v5_0.prefs.show_order_cancel_message = Pref.bool("Show Order Cancel Message", show.order_cancel_message, "Parse and add Order Cancel Message to protocol tree")
@@ -161,11 +161,11 @@ nasdaq_psx_totalview_itch_v5_0.prefs.show_order_executed_with_price_message = Pr
 nasdaq_psx_totalview_itch_v5_0.prefs.show_order_replace_message = Pref.bool("Show Order Replace Message", show.order_replace_message, "Parse and add Order Replace Message to protocol tree")
 nasdaq_psx_totalview_itch_v5_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 nasdaq_psx_totalview_itch_v5_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-nasdaq_psx_totalview_itch_v5_0.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message = Pref.bool("Show Reg SHO Short Sale Price Test Restricted Indicator Message", show.reg_sho_short_sale_price_test_restricted_indicator_message, "Parse and add Reg SHO Short Sale Price Test Restricted Indicator Message to protocol tree")
+nasdaq_psx_totalview_itch_v5_0.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message = Pref.bool("Show Reg Sho Short Sale Price Test Restricted Indicator Message", show.reg_sho_short_sale_price_test_restricted_indicator_message, "Parse and add Reg Sho Short Sale Price Test Restricted Indicator Message to protocol tree")
 nasdaq_psx_totalview_itch_v5_0.prefs.show_stock_directory_message = Pref.bool("Show Stock Directory Message", show.stock_directory_message, "Parse and add Stock Directory Message to protocol tree")
 nasdaq_psx_totalview_itch_v5_0.prefs.show_stock_trading_action_message = Pref.bool("Show Stock Trading Action Message", show.stock_trading_action_message, "Parse and add Stock Trading Action Message to protocol tree")
 nasdaq_psx_totalview_itch_v5_0.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-nasdaq_psx_totalview_itch_v5_0.prefs.show_trade_message__non_cross_ = Pref.bool("Show Trade Message (Non-Cross)", show.trade_message__non_cross_, "Parse and add Trade Message (Non-Cross) to protocol tree")
+nasdaq_psx_totalview_itch_v5_0.prefs.show_trade_message_non_cross = Pref.bool("Show Trade Message Non Cross", show.trade_message_non_cross, "Parse and add Trade Message Non Cross to protocol tree")
 nasdaq_psx_totalview_itch_v5_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
@@ -173,8 +173,8 @@ function nasdaq_psx_totalview_itch_v5_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_order___no_mpid_attribution_message ~= nasdaq_psx_totalview_itch_v5_0.prefs.show_add_order___no_mpid_attribution_message then
-    show.add_order___no_mpid_attribution_message = nasdaq_psx_totalview_itch_v5_0.prefs.show_add_order___no_mpid_attribution_message
+  if show.add_order_no_mpid_attribution_message ~= nasdaq_psx_totalview_itch_v5_0.prefs.show_add_order_no_mpid_attribution_message then
+    show.add_order_no_mpid_attribution_message = nasdaq_psx_totalview_itch_v5_0.prefs.show_add_order_no_mpid_attribution_message
     changed = true
   end
   if show.add_order_with_mpid_attribution_message ~= nasdaq_psx_totalview_itch_v5_0.prefs.show_add_order_with_mpid_attribution_message then
@@ -265,8 +265,8 @@ function nasdaq_psx_totalview_itch_v5_0.prefs_changed()
     show.system_event_message = nasdaq_psx_totalview_itch_v5_0.prefs.show_system_event_message
     changed = true
   end
-  if show.trade_message__non_cross_ ~= nasdaq_psx_totalview_itch_v5_0.prefs.show_trade_message__non_cross_ then
-    show.trade_message__non_cross_ = nasdaq_psx_totalview_itch_v5_0.prefs.show_trade_message__non_cross_
+  if show.trade_message_non_cross ~= nasdaq_psx_totalview_itch_v5_0.prefs.show_trade_message_non_cross then
+    show.trade_message_non_cross = nasdaq_psx_totalview_itch_v5_0.prefs.show_trade_message_non_cross
     changed = true
   end
   if show.payload ~= nasdaq_psx_totalview_itch_v5_0.prefs.show_payload then
@@ -866,13 +866,13 @@ dissect.order_reference_number = function(buffer, offset, packet, parent)
   return offset + size_of.order_reference_number
 end
 
--- Display: Trade Message (Non-Cross)
-display.trade_message__non_cross_ = function(buffer, offset, size, packet, parent)
+-- Display: Trade Message Non Cross
+display.trade_message_non_cross = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Trade Message (Non-Cross)
-dissect.trade_message__non_cross__fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Trade Message Non Cross
+dissect.trade_message_non_cross_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
@@ -905,16 +905,16 @@ dissect.trade_message__non_cross__fields = function(buffer, offset, packet, pare
   return index
 end
 
--- Dissect: Trade Message (Non-Cross)
-dissect.trade_message__non_cross_ = function(buffer, offset, packet, parent)
+-- Dissect: Trade Message Non Cross
+dissect.trade_message_non_cross = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.trade_message__non_cross_ then
+  if show.trade_message_non_cross then
     local range = buffer(offset, 43)
-    local display = display.trade_message__non_cross_(buffer, packet, parent)
-    parent = parent:add(nasdaq_psx_totalview_itch_v5_0.fields.trade_message__non_cross_, range, display)
+    local display = display.trade_message_non_cross(buffer, packet, parent)
+    parent = parent:add(nasdaq_psx_totalview_itch_v5_0.fields.trade_message_non_cross, range, display)
   end
 
-  return dissect.trade_message__non_cross__fields(buffer, offset, packet, parent)
+  return dissect.trade_message_non_cross_fields(buffer, offset, packet, parent)
 end
 
 -- Size: New Order Reference Number
@@ -1267,12 +1267,12 @@ dissect.attribution = function(buffer, offset, packet, parent)
   return offset + size_of.attribution
 end
 
--- Display: Add Order with MPID Attribution Message
+-- Display: Add Order With Mpid Attribution Message
 display.add_order_with_mpid_attribution_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Add Order with MPID Attribution Message
+-- Dissect Fields: Add Order With Mpid Attribution Message
 dissect.add_order_with_mpid_attribution_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1306,7 +1306,7 @@ dissect.add_order_with_mpid_attribution_message_fields = function(buffer, offset
   return index
 end
 
--- Dissect: Add Order with MPID Attribution Message
+-- Dissect: Add Order With Mpid Attribution Message
 dissect.add_order_with_mpid_attribution_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.add_order_with_mpid_attribution_message then
@@ -1318,13 +1318,13 @@ dissect.add_order_with_mpid_attribution_message = function(buffer, offset, packe
   return dissect.add_order_with_mpid_attribution_message_fields(buffer, offset, packet, parent)
 end
 
--- Display: Add Order – No MPID Attribution Message
-display.add_order___no_mpid_attribution_message = function(buffer, offset, size, packet, parent)
+-- Display: Add Order No Mpid Attribution Message
+display.add_order_no_mpid_attribution_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Add Order – No MPID Attribution Message
-dissect.add_order___no_mpid_attribution_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Add Order No Mpid Attribution Message
+dissect.add_order_no_mpid_attribution_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
@@ -1354,16 +1354,16 @@ dissect.add_order___no_mpid_attribution_message_fields = function(buffer, offset
   return index
 end
 
--- Dissect: Add Order – No MPID Attribution Message
-dissect.add_order___no_mpid_attribution_message = function(buffer, offset, packet, parent)
+-- Dissect: Add Order No Mpid Attribution Message
+dissect.add_order_no_mpid_attribution_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.add_order___no_mpid_attribution_message then
+  if show.add_order_no_mpid_attribution_message then
     local range = buffer(offset, 35)
-    local display = display.add_order___no_mpid_attribution_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_psx_totalview_itch_v5_0.fields.add_order___no_mpid_attribution_message, range, display)
+    local display = display.add_order_no_mpid_attribution_message(buffer, packet, parent)
+    parent = parent:add(nasdaq_psx_totalview_itch_v5_0.fields.add_order_no_mpid_attribution_message, range, display)
   end
 
-  return dissect.add_order___no_mpid_attribution_message_fields(buffer, offset, packet, parent)
+  return dissect.add_order_no_mpid_attribution_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Operational Halt Action
@@ -1539,12 +1539,12 @@ dissect.auction_collar_reference_price = function(buffer, offset, packet, parent
   return offset + size_of.auction_collar_reference_price
 end
 
--- Display: LULD Auction Collar Message
+-- Display: Luld Auction Collar Message
 display.luld_auction_collar_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: LULD Auction Collar Message
+-- Dissect Fields: Luld Auction Collar Message
 dissect.luld_auction_collar_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1575,7 +1575,7 @@ dissect.luld_auction_collar_message_fields = function(buffer, offset, packet, pa
   return index
 end
 
--- Dissect: LULD Auction Collar Message
+-- Dissect: Luld Auction Collar Message
 dissect.luld_auction_collar_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.luld_auction_collar_message then
@@ -1616,12 +1616,12 @@ dissect.breached_level = function(buffer, offset, packet, parent)
   return offset + size_of.breached_level
 end
 
--- Display: MWCB Status Level Message
+-- Display: Mwcb Status Level Message
 display.mwcb_status_level_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: MWCB Status Level Message
+-- Dissect Fields: Mwcb Status Level Message
 dissect.mwcb_status_level_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1640,7 +1640,7 @@ dissect.mwcb_status_level_message_fields = function(buffer, offset, packet, pare
   return index
 end
 
--- Dissect: MWCB Status Level Message
+-- Dissect: Mwcb Status Level Message
 dissect.mwcb_status_level_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.mwcb_status_level_message then
@@ -1709,12 +1709,12 @@ dissect.level_1 = function(buffer, offset, packet, parent)
   return offset + size_of.level_1
 end
 
--- Display: MWCB Decline Level Message
+-- Display: Mwcb Decline Level Message
 display.mwcb_decline_level_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: MWCB Decline Level Message
+-- Dissect Fields: Mwcb Decline Level Message
 dissect.mwcb_decline_level_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1739,7 +1739,7 @@ dissect.mwcb_decline_level_message_fields = function(buffer, offset, packet, par
   return index
 end
 
--- Dissect: MWCB Decline Level Message
+-- Dissect: Mwcb Decline Level Message
 dissect.mwcb_decline_level_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.mwcb_decline_level_message then
@@ -1962,12 +1962,12 @@ dissect.locate_code = function(buffer, offset, packet, parent)
   return offset + size_of.locate_code
 end
 
--- Display: Reg SHO Short Sale Price Test Restricted Indicator Message
+-- Display: Reg Sho Short Sale Price Test Restricted Indicator Message
 display.reg_sho_short_sale_price_test_restricted_indicator_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Reg SHO Short Sale Price Test Restricted Indicator Message
+-- Dissect Fields: Reg Sho Short Sale Price Test Restricted Indicator Message
 dissect.reg_sho_short_sale_price_test_restricted_indicator_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1989,7 +1989,7 @@ dissect.reg_sho_short_sale_price_test_restricted_indicator_message_fields = func
   return index
 end
 
--- Dissect: Reg SHO Short Sale Price Test Restricted Indicator Message
+-- Dissect: Reg Sho Short Sale Price Test Restricted Indicator Message
 dissect.reg_sho_short_sale_price_test_restricted_indicator_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.reg_sho_short_sale_price_test_restricted_indicator_message then
@@ -2649,7 +2649,7 @@ size_of.payload = function(buffer, offset, code)
   if code == "H" then
     return 24
   end
-  -- Size of Reg SHO Short Sale Price Test Restricted Indicator Message
+  -- Size of Reg Sho Short Sale Price Test Restricted Indicator Message
   if code == "Y" then
     return 19
   end
@@ -2657,15 +2657,15 @@ size_of.payload = function(buffer, offset, code)
   if code == "L" then
     return 25
   end
-  -- Size of MWCB Decline Level Message
+  -- Size of Mwcb Decline Level Message
   if code == "V" then
     return 34
   end
-  -- Size of MWCB Status Level Message
+  -- Size of Mwcb Status Level Message
   if code == "W" then
     return 11
   end
-  -- Size of LULD Auction Collar Message
+  -- Size of Luld Auction Collar Message
   if code == "J" then
     return 34
   end
@@ -2673,11 +2673,11 @@ size_of.payload = function(buffer, offset, code)
   if code == "h" then
     return 20
   end
-  -- Size of Add Order – No MPID Attribution Message
+  -- Size of Add Order No Mpid Attribution Message
   if code == "A" then
     return 35
   end
-  -- Size of Add Order with MPID Attribution Message
+  -- Size of Add Order With Mpid Attribution Message
   if code == "F" then
     return 39
   end
@@ -2701,7 +2701,7 @@ size_of.payload = function(buffer, offset, code)
   if code == "U" then
     return 34
   end
-  -- Size of Trade Message (Non-Cross)
+  -- Size of Trade Message Non Cross
   if code == "P" then
     return 43
   end
@@ -2740,7 +2740,7 @@ dissect.payload_branches = function(buffer, offset, packet, parent, code)
   if code == "H" then
     return dissect.stock_trading_action_message(buffer, offset, packet, parent)
   end
-  -- Dissect Reg SHO Short Sale Price Test Restricted Indicator Message
+  -- Dissect Reg Sho Short Sale Price Test Restricted Indicator Message
   if code == "Y" then
     return dissect.reg_sho_short_sale_price_test_restricted_indicator_message(buffer, offset, packet, parent)
   end
@@ -2748,15 +2748,15 @@ dissect.payload_branches = function(buffer, offset, packet, parent, code)
   if code == "L" then
     return dissect.market_participant_position_message(buffer, offset, packet, parent)
   end
-  -- Dissect MWCB Decline Level Message
+  -- Dissect Mwcb Decline Level Message
   if code == "V" then
     return dissect.mwcb_decline_level_message(buffer, offset, packet, parent)
   end
-  -- Dissect MWCB Status Level Message
+  -- Dissect Mwcb Status Level Message
   if code == "W" then
     return dissect.mwcb_status_level_message(buffer, offset, packet, parent)
   end
-  -- Dissect LULD Auction Collar Message
+  -- Dissect Luld Auction Collar Message
   if code == "J" then
     return dissect.luld_auction_collar_message(buffer, offset, packet, parent)
   end
@@ -2764,11 +2764,11 @@ dissect.payload_branches = function(buffer, offset, packet, parent, code)
   if code == "h" then
     return dissect.operational_halt_message(buffer, offset, packet, parent)
   end
-  -- Dissect Add Order – No MPID Attribution Message
+  -- Dissect Add Order No Mpid Attribution Message
   if code == "A" then
-    return dissect.add_order___no_mpid_attribution_message(buffer, offset, packet, parent)
+    return dissect.add_order_no_mpid_attribution_message(buffer, offset, packet, parent)
   end
-  -- Dissect Add Order with MPID Attribution Message
+  -- Dissect Add Order With Mpid Attribution Message
   if code == "F" then
     return dissect.add_order_with_mpid_attribution_message(buffer, offset, packet, parent)
   end
@@ -2792,9 +2792,9 @@ dissect.payload_branches = function(buffer, offset, packet, parent, code)
   if code == "U" then
     return dissect.order_replace_message(buffer, offset, packet, parent)
   end
-  -- Dissect Trade Message (Non-Cross)
+  -- Dissect Trade Message Non Cross
   if code == "P" then
-    return dissect.trade_message__non_cross_(buffer, offset, packet, parent)
+    return dissect.trade_message_non_cross(buffer, offset, packet, parent)
   end
   -- Dissect Cross Trade Message
   if code == "Q" then
@@ -2847,28 +2847,28 @@ display.message_type = function(value)
     return "Message Type: Stock Trading Action Message (H)"
   end
   if value == "Y" then
-    return "Message Type: Reg SHO Short Sale Price Test Restricted Indicator Message (Y)"
+    return "Message Type: Reg Sho Short Sale Price Test Restricted Indicator Message (Y)"
   end
   if value == "L" then
     return "Message Type: Market Participant Position Message (L)"
   end
   if value == "V" then
-    return "Message Type: MWCB Decline Level Message (V)"
+    return "Message Type: Mwcb Decline Level Message (V)"
   end
   if value == "W" then
-    return "Message Type: MWCB Status Level Message (W)"
+    return "Message Type: Mwcb Status Level Message (W)"
   end
   if value == "J" then
-    return "Message Type: LULD Auction Collar Message (J)"
+    return "Message Type: Luld Auction Collar Message (J)"
   end
   if value == "h" then
     return "Message Type: Operational Halt Message (h)"
   end
   if value == "A" then
-    return "Message Type: Add Order – No MPID Attribution Message (A)"
+    return "Message Type: Add Order No Mpid Attribution Message (A)"
   end
   if value == "F" then
-    return "Message Type: Add Order with MPID Attribution Message (F)"
+    return "Message Type: Add Order With Mpid Attribution Message (F)"
   end
   if value == "E" then
     return "Message Type: Order Executed Message (E)"
@@ -2886,7 +2886,7 @@ display.message_type = function(value)
     return "Message Type: Order Replace Message (U)"
   end
   if value == "P" then
-    return "Message Type: Trade Message (Non-Cross) (P)"
+    return "Message Type: Trade Message Non Cross (P)"
   end
   if value == "Q" then
     return "Message Type: Cross Trade Message (Q)"

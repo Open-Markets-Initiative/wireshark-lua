@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Cboe Options Smdf Csm 1.4.2 Protocol
-local cboe_options_smdf_csm_v1_4_2 = Proto("Cboe.Options.Smdf.Csm.v1.4.2.Lua", "Cboe Options Smdf Csm 1.4.2")
+-- Cboe Options MarketDataFeed Csm 1.4.2 Protocol
+local cboe_options_marketdatafeed_csm_v1_4_2 = Proto("Cboe.Options.MarketDataFeed.Csm.v1.4.2.Lua", "Cboe Options MarketDataFeed Csm 1.4.2")
 
 -- Component Tables
 local show = {}
@@ -19,123 +19,123 @@ local verify = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe Options Smdf Csm 1.4.2 Fields
-cboe_options_smdf_csm_v1_4_2.fields.appl_seq_num = ProtoField.new("Appl Seq Num", "cboe.options.smdf.csm.v1.4.2.applseqnum", ftypes.UINT32)
-cboe_options_smdf_csm_v1_4_2.fields.class_key = ProtoField.new("Class Key", "cboe.options.smdf.csm.v1.4.2.classkey", ftypes.UINT32)
-cboe_options_smdf_csm_v1_4_2.fields.contract_size = ProtoField.new("Contract Size", "cboe.options.smdf.csm.v1.4.2.contractsize", ftypes.UINT32)
-cboe_options_smdf_csm_v1_4_2.fields.currency_code = ProtoField.new("Currency Code", "cboe.options.smdf.csm.v1.4.2.currencycode", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.currency_code_length = ProtoField.new("Currency Code Length", "cboe.options.smdf.csm.v1.4.2.currencycodelength", ftypes.UINT8)
-cboe_options_smdf_csm_v1_4_2.fields.currency_code_text = ProtoField.new("Currency Code Text", "cboe.options.smdf.csm.v1.4.2.currencycodetext", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.current_market_update_message = ProtoField.new("Current Market Update Message", "cboe.options.smdf.csm.v1.4.2.currentmarketupdatemessage", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.eop = ProtoField.new("Eop", "cboe.options.smdf.csm.v1.4.2.eop", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.eop_exponent = ProtoField.new("Eop Exponent", "cboe.options.smdf.csm.v1.4.2.eopexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
-cboe_options_smdf_csm_v1_4_2.fields.eop_mantissa = ProtoField.new("Eop Mantissa", "cboe.options.smdf.csm.v1.4.2.eopmantissa", ftypes.INT32)
-cboe_options_smdf_csm_v1_4_2.fields.eop_type = ProtoField.new("Eop Type", "cboe.options.smdf.csm.v1.4.2.eoptype", ftypes.UINT8)
-cboe_options_smdf_csm_v1_4_2.fields.eos = ProtoField.new("Eos", "cboe.options.smdf.csm.v1.4.2.eos", ftypes.UINT32)
-cboe_options_smdf_csm_v1_4_2.fields.exercise_style = ProtoField.new("Exercise Style", "cboe.options.smdf.csm.v1.4.2.exercisestyle", ftypes.UINT8)
-cboe_options_smdf_csm_v1_4_2.fields.expected_opening_price_and_size_message = ProtoField.new("Expected Opening Price And Size Message", "cboe.options.smdf.csm.v1.4.2.expectedopeningpriceandsizemessage", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.first_msg_seq_num = ProtoField.new("first Msg Seq Num", "cboe.options.smdf.csm.v1.4.2.firstmsgseqnum", ftypes.UINT32)
-cboe_options_smdf_csm_v1_4_2.fields.index_value_md_entry = ProtoField.new("Index Value Md Entry", "cboe.options.smdf.csm.v1.4.2.indexvaluemdentry", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.index_value_message = ProtoField.new("Index Value Message", "cboe.options.smdf.csm.v1.4.2.indexvaluemessage", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cboe.options.smdf.csm.v1.4.2.legratioqty", ftypes.UINT32)
-cboe_options_smdf_csm_v1_4_2.fields.leg_security_id = ProtoField.new("Leg Security Id", "cboe.options.smdf.csm.v1.4.2.legsecurityid", ftypes.UINT32)
-cboe_options_smdf_csm_v1_4_2.fields.leg_side = ProtoField.new("Leg Side", "cboe.options.smdf.csm.v1.4.2.legside", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.leg_side_length = ProtoField.new("Leg Side Length", "cboe.options.smdf.csm.v1.4.2.legsidelength", ftypes.UINT8)
-cboe_options_smdf_csm_v1_4_2.fields.leg_side_text = ProtoField.new("Leg Side Text", "cboe.options.smdf.csm.v1.4.2.legsidetext", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.legal_market = ProtoField.new("Legal Market", "cboe.options.smdf.csm.v1.4.2.legalmarket", ftypes.UINT8)
-cboe_options_smdf_csm_v1_4_2.fields.market_data_control_message = ProtoField.new("Market Data Control Message", "cboe.options.smdf.csm.v1.4.2.marketdatacontrolmessage", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.market_data_refresh_message = ProtoField.new("Market Data Refresh Message", "cboe.options.smdf.csm.v1.4.2.marketdatarefreshmessage", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.maturity_date = ProtoField.new("Maturity Date", "cboe.options.smdf.csm.v1.4.2.maturitydate", ftypes.UINT64)
-cboe_options_smdf_csm_v1_4_2.fields.max_strike_price = ProtoField.new("Max Strike Price", "cboe.options.smdf.csm.v1.4.2.maxstrikeprice", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.max_strike_price_exponent = ProtoField.new("Max Strike Price Exponent", "cboe.options.smdf.csm.v1.4.2.maxstrikepriceexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
-cboe_options_smdf_csm_v1_4_2.fields.max_strike_price_mantissa = ProtoField.new("Max Strike Price Mantissa", "cboe.options.smdf.csm.v1.4.2.maxstrikepricemantissa", ftypes.INT32)
-cboe_options_smdf_csm_v1_4_2.fields.md_control_type = ProtoField.new("Md Control Type", "cboe.options.smdf.csm.v1.4.2.mdcontroltype", ftypes.UINT8)
-cboe_options_smdf_csm_v1_4_2.fields.md_entry = ProtoField.new("Md Entry", "cboe.options.smdf.csm.v1.4.2.mdentry", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.md_entry_px = ProtoField.new("Md Entry Px", "cboe.options.smdf.csm.v1.4.2.mdentrypx", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.md_entry_px_exponent = ProtoField.new("Md Entry Px Exponent", "cboe.options.smdf.csm.v1.4.2.mdentrypxexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
-cboe_options_smdf_csm_v1_4_2.fields.md_entry_px_mantissa = ProtoField.new("Md Entry Px Mantissa", "cboe.options.smdf.csm.v1.4.2.mdentrypxmantissa", ftypes.INT32)
-cboe_options_smdf_csm_v1_4_2.fields.md_entry_size = ProtoField.new("Md Entry Size", "cboe.options.smdf.csm.v1.4.2.mdentrysize", ftypes.UINT32)
-cboe_options_smdf_csm_v1_4_2.fields.md_entry_type = ProtoField.new("Md Entry Type", "cboe.options.smdf.csm.v1.4.2.mdentrytype", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.md_volume_type = ProtoField.new("Md Volume Type", "cboe.options.smdf.csm.v1.4.2.mdvolumetype", ftypes.UINT8)
-cboe_options_smdf_csm_v1_4_2.fields.message = ProtoField.new("Message", "cboe.options.smdf.csm.v1.4.2.message", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.message_count = ProtoField.new("Message Count", "cboe.options.smdf.csm.v1.4.2.messagecount", ftypes.UINT8)
-cboe_options_smdf_csm_v1_4_2.fields.message_header = ProtoField.new("Message Header", "cboe.options.smdf.csm.v1.4.2.messageheader", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.message_length = ProtoField.new("Message Length", "cboe.options.smdf.csm.v1.4.2.messagelength", ftypes.UINT16)
-cboe_options_smdf_csm_v1_4_2.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cboe.options.smdf.csm.v1.4.2.messagesequencenumber", ftypes.UINT32)
-cboe_options_smdf_csm_v1_4_2.fields.message_type = ProtoField.new("Message Type", "cboe.options.smdf.csm.v1.4.2.messagetype", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.minimum_above_premium_fraction = ProtoField.new("Minimum Above Premium Fraction", "cboe.options.smdf.csm.v1.4.2.minimumabovepremiumfraction", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.minimum_above_premium_fraction_exponent = ProtoField.new("Minimum Above Premium Fraction Exponent", "cboe.options.smdf.csm.v1.4.2.minimumabovepremiumfractionexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
-cboe_options_smdf_csm_v1_4_2.fields.minimum_above_premium_fraction_mantissa = ProtoField.new("Minimum Above Premium Fraction Mantissa", "cboe.options.smdf.csm.v1.4.2.minimumabovepremiumfractionmantissa", ftypes.INT32)
-cboe_options_smdf_csm_v1_4_2.fields.minimum_below_premium_fraction = ProtoField.new("Minimum Below Premium Fraction", "cboe.options.smdf.csm.v1.4.2.minimumbelowpremiumfraction", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.minimum_below_premium_fraction_exponent = ProtoField.new("Minimum Below Premium Fraction Exponent", "cboe.options.smdf.csm.v1.4.2.minimumbelowpremiumfractionexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
-cboe_options_smdf_csm_v1_4_2.fields.minimum_below_premium_fraction_mantissa = ProtoField.new("Minimum Below Premium Fraction Mantissa", "cboe.options.smdf.csm.v1.4.2.minimumbelowpremiumfractionmantissa", ftypes.INT32)
-cboe_options_smdf_csm_v1_4_2.fields.minimum_strike_price_fraction = ProtoField.new("Minimum Strike Price Fraction", "cboe.options.smdf.csm.v1.4.2.minimumstrikepricefraction", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.minimum_strike_price_fraction_exponent = ProtoField.new("Minimum Strike Price Fraction Exponent", "cboe.options.smdf.csm.v1.4.2.minimumstrikepricefractionexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
-cboe_options_smdf_csm_v1_4_2.fields.minimum_strike_price_fraction_mantissa = ProtoField.new("Minimum Strike Price Fraction Mantissa", "cboe.options.smdf.csm.v1.4.2.minimumstrikepricefractionmantissa", ftypes.INT32)
-cboe_options_smdf_csm_v1_4_2.fields.net_chg_prev_day = ProtoField.new("Net Chg Prev Day", "cboe.options.smdf.csm.v1.4.2.netchgprevday", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.net_chg_prev_day_exponent = ProtoField.new("Net Chg Prev Day Exponent", "cboe.options.smdf.csm.v1.4.2.netchgprevdayexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
-cboe_options_smdf_csm_v1_4_2.fields.net_chg_prev_day_mantissa = ProtoField.new("Net Chg Prev Day Mantissa", "cboe.options.smdf.csm.v1.4.2.netchgprevdaymantissa", ftypes.INT32)
-cboe_options_smdf_csm_v1_4_2.fields.no_legs = ProtoField.new("No Legs", "cboe.options.smdf.csm.v1.4.2.nolegs", ftypes.UINT8)
-cboe_options_smdf_csm_v1_4_2.fields.open_interest = ProtoField.new("Open Interest", "cboe.options.smdf.csm.v1.4.2.openinterest", ftypes.UINT32)
-cboe_options_smdf_csm_v1_4_2.fields.packet = ProtoField.new("Packet", "cboe.options.smdf.csm.v1.4.2.packet", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.packet_header = ProtoField.new("Packet Header", "cboe.options.smdf.csm.v1.4.2.packetheader", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.packet_length = ProtoField.new("Packet Length", "cboe.options.smdf.csm.v1.4.2.packetlength", ftypes.UINT16)
-cboe_options_smdf_csm_v1_4_2.fields.payload = ProtoField.new("Payload", "cboe.options.smdf.csm.v1.4.2.payload", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.premium_break_point = ProtoField.new("Premium Break Point", "cboe.options.smdf.csm.v1.4.2.premiumbreakpoint", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.premium_break_point_exponent = ProtoField.new("Premium Break Point Exponent", "cboe.options.smdf.csm.v1.4.2.premiumbreakpointexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
-cboe_options_smdf_csm_v1_4_2.fields.premium_break_point_mantissa = ProtoField.new("Premium Break Point Mantissa", "cboe.options.smdf.csm.v1.4.2.premiumbreakpointmantissa", ftypes.INT32)
-cboe_options_smdf_csm_v1_4_2.fields.prev_close_px = ProtoField.new("Prev Close Px", "cboe.options.smdf.csm.v1.4.2.prevclosepx", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.prev_close_px_exponent = ProtoField.new("Prev Close Px Exponent", "cboe.options.smdf.csm.v1.4.2.prevclosepxexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
-cboe_options_smdf_csm_v1_4_2.fields.prev_close_px_mantissa = ProtoField.new("Prev Close Px Mantissa", "cboe.options.smdf.csm.v1.4.2.prevclosepxmantissa", ftypes.INT32)
-cboe_options_smdf_csm_v1_4_2.fields.price_type = ProtoField.new("Price Type", "cboe.options.smdf.csm.v1.4.2.pricetype", ftypes.UINT8)
-cboe_options_smdf_csm_v1_4_2.fields.put_or_call = ProtoField.new("Put Or Call", "cboe.options.smdf.csm.v1.4.2.putorcall", ftypes.UINT8)
-cboe_options_smdf_csm_v1_4_2.fields.recap_update_md_entry = ProtoField.new("Recap Update Md Entry", "cboe.options.smdf.csm.v1.4.2.recapupdatemdentry", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.recap_update_message = ProtoField.new("Recap Update Message", "cboe.options.smdf.csm.v1.4.2.recapupdatemessage", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.security_definition_leg = ProtoField.new("Security Definition Leg", "cboe.options.smdf.csm.v1.4.2.securitydefinitionleg", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.security_definition_message = ProtoField.new("Security Definition Message", "cboe.options.smdf.csm.v1.4.2.securitydefinitionmessage", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.security_exchange = ProtoField.new("Security Exchange", "cboe.options.smdf.csm.v1.4.2.securityexchange", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.security_id = ProtoField.new("Security Id", "cboe.options.smdf.csm.v1.4.2.securityid", ftypes.UINT32)
-cboe_options_smdf_csm_v1_4_2.fields.security_trading_status = ProtoField.new("Security Trading Status", "cboe.options.smdf.csm.v1.4.2.securitytradingstatus", ftypes.UINT8)
-cboe_options_smdf_csm_v1_4_2.fields.security_type = ProtoField.new("Security Type", "cboe.options.smdf.csm.v1.4.2.securitytype", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.security_type_length = ProtoField.new("Security Type Length", "cboe.options.smdf.csm.v1.4.2.securitytypelength", ftypes.UINT8)
-cboe_options_smdf_csm_v1_4_2.fields.security_type_text = ProtoField.new("Security Type Text", "cboe.options.smdf.csm.v1.4.2.securitytypetext", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.sending_time = ProtoField.new("Sending Time", "cboe.options.smdf.csm.v1.4.2.sendingtime", ftypes.UINT64)
-cboe_options_smdf_csm_v1_4_2.fields.settlement_value_md_entry = ProtoField.new("Settlement Value Md Entry", "cboe.options.smdf.csm.v1.4.2.settlementvaluemdentry", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.settlement_value_message = ProtoField.new("Settlement Value Message", "cboe.options.smdf.csm.v1.4.2.settlementvaluemessage", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.strike_price = ProtoField.new("Strike Price", "cboe.options.smdf.csm.v1.4.2.strikeprice", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.strike_price_exponent = ProtoField.new("Strike Price Exponent", "cboe.options.smdf.csm.v1.4.2.strikepriceexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
-cboe_options_smdf_csm_v1_4_2.fields.strike_price_mantissa = ProtoField.new("Strike Price Mantissa", "cboe.options.smdf.csm.v1.4.2.strikepricemantissa", ftypes.INT32)
-cboe_options_smdf_csm_v1_4_2.fields.summary_md_entry = ProtoField.new("Summary Md Entry", "cboe.options.smdf.csm.v1.4.2.summarymdentry", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.summary_message = ProtoField.new("Summary Message", "cboe.options.smdf.csm.v1.4.2.summarymessage", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.symbol = ProtoField.new("Symbol", "cboe.options.smdf.csm.v1.4.2.symbol", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.symbol_length = ProtoField.new("Symbol Length", "cboe.options.smdf.csm.v1.4.2.symbollength", ftypes.UINT8)
-cboe_options_smdf_csm_v1_4_2.fields.symbol_text = ProtoField.new("Symbol Text", "cboe.options.smdf.csm.v1.4.2.symboltext", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.target_location_id = ProtoField.new("Target Location Id", "cboe.options.smdf.csm.v1.4.2.targetlocationid", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.target_location_id_length = ProtoField.new("Target Location Id Length", "cboe.options.smdf.csm.v1.4.2.targetlocationidlength", ftypes.UINT8)
-cboe_options_smdf_csm_v1_4_2.fields.target_location_id_text = ProtoField.new("Target Location Id Text", "cboe.options.smdf.csm.v1.4.2.targetlocationidtext", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.template_id = ProtoField.new("Template Id", "cboe.options.smdf.csm.v1.4.2.templateid", ftypes.UINT8)
-cboe_options_smdf_csm_v1_4_2.fields.ticker_md_entry = ProtoField.new("Ticker Md Entry", "cboe.options.smdf.csm.v1.4.2.tickermdentry", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.ticker_message = ProtoField.new("Ticker Message", "cboe.options.smdf.csm.v1.4.2.tickermessage", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.trade_condition = ProtoField.new("Trade Condition", "cboe.options.smdf.csm.v1.4.2.tradecondition", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.trade_condition_length = ProtoField.new("Trade Condition Length", "cboe.options.smdf.csm.v1.4.2.tradeconditionlength", ftypes.UINT8)
-cboe_options_smdf_csm_v1_4_2.fields.trade_condition_text = ProtoField.new("Trade Condition Text", "cboe.options.smdf.csm.v1.4.2.tradeconditiontext", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.trade_volume = ProtoField.new("Trade Volume", "cboe.options.smdf.csm.v1.4.2.tradevolume", ftypes.UINT32)
-cboe_options_smdf_csm_v1_4_2.fields.underlying_px = ProtoField.new("Underlying Px", "cboe.options.smdf.csm.v1.4.2.underlyingpx", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.underlying_px_exponent = ProtoField.new("Underlying Px Exponent", "cboe.options.smdf.csm.v1.4.2.underlyingpxexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
-cboe_options_smdf_csm_v1_4_2.fields.underlying_px_mantissa = ProtoField.new("Underlying Px Mantissa", "cboe.options.smdf.csm.v1.4.2.underlyingpxmantissa", ftypes.INT32)
-cboe_options_smdf_csm_v1_4_2.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "cboe.options.smdf.csm.v1.4.2.underlyingsymbol", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.underlying_symbol_length = ProtoField.new("Underlying Symbol Length", "cboe.options.smdf.csm.v1.4.2.underlyingsymbollength", ftypes.UINT8)
-cboe_options_smdf_csm_v1_4_2.fields.underlying_symbol_text = ProtoField.new("Underlying Symbol Text", "cboe.options.smdf.csm.v1.4.2.underlyingsymboltext", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.underlying_type = ProtoField.new("Underlying Type", "cboe.options.smdf.csm.v1.4.2.underlyingtype", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.underlying_type_length = ProtoField.new("Underlying Type Length", "cboe.options.smdf.csm.v1.4.2.underlyingtypelength", ftypes.UINT8)
-cboe_options_smdf_csm_v1_4_2.fields.underlying_type_text = ProtoField.new("Underlying Type Text", "cboe.options.smdf.csm.v1.4.2.underlyingtypetext", ftypes.STRING)
-cboe_options_smdf_csm_v1_4_2.fields.version = ProtoField.new("Version", "cboe.options.smdf.csm.v1.4.2.version", ftypes.UINT8)
+-- Cboe Options MarketDataFeed Csm 1.4.2 Fields
+cboe_options_marketdatafeed_csm_v1_4_2.fields.appl_seq_num = ProtoField.new("Appl Seq Num", "cboe.options.marketdatafeed.csm.v1.4.2.applseqnum", ftypes.UINT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.class_key = ProtoField.new("Class Key", "cboe.options.marketdatafeed.csm.v1.4.2.classkey", ftypes.UINT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.contract_size = ProtoField.new("Contract Size", "cboe.options.marketdatafeed.csm.v1.4.2.contractsize", ftypes.UINT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.currency_code = ProtoField.new("Currency Code", "cboe.options.marketdatafeed.csm.v1.4.2.currencycode", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.currency_code_length = ProtoField.new("Currency Code Length", "cboe.options.marketdatafeed.csm.v1.4.2.currencycodelength", ftypes.UINT8)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.currency_code_text = ProtoField.new("Currency Code Text", "cboe.options.marketdatafeed.csm.v1.4.2.currencycodetext", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.current_market_update_message = ProtoField.new("Current Market Update Message", "cboe.options.marketdatafeed.csm.v1.4.2.currentmarketupdatemessage", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.eop = ProtoField.new("Eop", "cboe.options.marketdatafeed.csm.v1.4.2.eop", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.eop_exponent = ProtoField.new("Eop Exponent", "cboe.options.marketdatafeed.csm.v1.4.2.eopexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
+cboe_options_marketdatafeed_csm_v1_4_2.fields.eop_mantissa = ProtoField.new("Eop Mantissa", "cboe.options.marketdatafeed.csm.v1.4.2.eopmantissa", ftypes.INT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.eop_type = ProtoField.new("Eop Type", "cboe.options.marketdatafeed.csm.v1.4.2.eoptype", ftypes.UINT8)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.eos = ProtoField.new("Eos", "cboe.options.marketdatafeed.csm.v1.4.2.eos", ftypes.UINT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.exercise_style = ProtoField.new("Exercise Style", "cboe.options.marketdatafeed.csm.v1.4.2.exercisestyle", ftypes.UINT8)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.expected_opening_price_and_size_message = ProtoField.new("Expected Opening Price And Size Message", "cboe.options.marketdatafeed.csm.v1.4.2.expectedopeningpriceandsizemessage", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.first_msg_seq_num = ProtoField.new("first Msg Seq Num", "cboe.options.marketdatafeed.csm.v1.4.2.firstmsgseqnum", ftypes.UINT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.index_value_md_entry = ProtoField.new("Index Value Md Entry", "cboe.options.marketdatafeed.csm.v1.4.2.indexvaluemdentry", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.index_value_message = ProtoField.new("Index Value Message", "cboe.options.marketdatafeed.csm.v1.4.2.indexvaluemessage", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cboe.options.marketdatafeed.csm.v1.4.2.legratioqty", ftypes.UINT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.leg_security_id = ProtoField.new("Leg Security Id", "cboe.options.marketdatafeed.csm.v1.4.2.legsecurityid", ftypes.UINT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.leg_side = ProtoField.new("Leg Side", "cboe.options.marketdatafeed.csm.v1.4.2.legside", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.leg_side_length = ProtoField.new("Leg Side Length", "cboe.options.marketdatafeed.csm.v1.4.2.legsidelength", ftypes.UINT8)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.leg_side_text = ProtoField.new("Leg Side Text", "cboe.options.marketdatafeed.csm.v1.4.2.legsidetext", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.legal_market = ProtoField.new("Legal Market", "cboe.options.marketdatafeed.csm.v1.4.2.legalmarket", ftypes.UINT8)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.market_data_control_message = ProtoField.new("Market Data Control Message", "cboe.options.marketdatafeed.csm.v1.4.2.marketdatacontrolmessage", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.market_data_refresh_message = ProtoField.new("Market Data Refresh Message", "cboe.options.marketdatafeed.csm.v1.4.2.marketdatarefreshmessage", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.maturity_date = ProtoField.new("Maturity Date", "cboe.options.marketdatafeed.csm.v1.4.2.maturitydate", ftypes.UINT64)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.max_strike_price = ProtoField.new("Max Strike Price", "cboe.options.marketdatafeed.csm.v1.4.2.maxstrikeprice", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.max_strike_price_exponent = ProtoField.new("Max Strike Price Exponent", "cboe.options.marketdatafeed.csm.v1.4.2.maxstrikepriceexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
+cboe_options_marketdatafeed_csm_v1_4_2.fields.max_strike_price_mantissa = ProtoField.new("Max Strike Price Mantissa", "cboe.options.marketdatafeed.csm.v1.4.2.maxstrikepricemantissa", ftypes.INT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.md_control_type = ProtoField.new("Md Control Type", "cboe.options.marketdatafeed.csm.v1.4.2.mdcontroltype", ftypes.UINT8)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.md_entry = ProtoField.new("Md Entry", "cboe.options.marketdatafeed.csm.v1.4.2.mdentry", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.md_entry_px = ProtoField.new("Md Entry Px", "cboe.options.marketdatafeed.csm.v1.4.2.mdentrypx", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.md_entry_px_exponent = ProtoField.new("Md Entry Px Exponent", "cboe.options.marketdatafeed.csm.v1.4.2.mdentrypxexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
+cboe_options_marketdatafeed_csm_v1_4_2.fields.md_entry_px_mantissa = ProtoField.new("Md Entry Px Mantissa", "cboe.options.marketdatafeed.csm.v1.4.2.mdentrypxmantissa", ftypes.INT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.md_entry_size = ProtoField.new("Md Entry Size", "cboe.options.marketdatafeed.csm.v1.4.2.mdentrysize", ftypes.UINT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.md_entry_type = ProtoField.new("Md Entry Type", "cboe.options.marketdatafeed.csm.v1.4.2.mdentrytype", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.md_volume_type = ProtoField.new("Md Volume Type", "cboe.options.marketdatafeed.csm.v1.4.2.mdvolumetype", ftypes.UINT8)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.message = ProtoField.new("Message", "cboe.options.marketdatafeed.csm.v1.4.2.message", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.message_count = ProtoField.new("Message Count", "cboe.options.marketdatafeed.csm.v1.4.2.messagecount", ftypes.UINT8)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.message_header = ProtoField.new("Message Header", "cboe.options.marketdatafeed.csm.v1.4.2.messageheader", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.message_length = ProtoField.new("Message Length", "cboe.options.marketdatafeed.csm.v1.4.2.messagelength", ftypes.UINT16)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cboe.options.marketdatafeed.csm.v1.4.2.messagesequencenumber", ftypes.UINT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.message_type = ProtoField.new("Message Type", "cboe.options.marketdatafeed.csm.v1.4.2.messagetype", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_above_premium_fraction = ProtoField.new("Minimum Above Premium Fraction", "cboe.options.marketdatafeed.csm.v1.4.2.minimumabovepremiumfraction", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_above_premium_fraction_exponent = ProtoField.new("Minimum Above Premium Fraction Exponent", "cboe.options.marketdatafeed.csm.v1.4.2.minimumabovepremiumfractionexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
+cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_above_premium_fraction_mantissa = ProtoField.new("Minimum Above Premium Fraction Mantissa", "cboe.options.marketdatafeed.csm.v1.4.2.minimumabovepremiumfractionmantissa", ftypes.INT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_below_premium_fraction = ProtoField.new("Minimum Below Premium Fraction", "cboe.options.marketdatafeed.csm.v1.4.2.minimumbelowpremiumfraction", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_below_premium_fraction_exponent = ProtoField.new("Minimum Below Premium Fraction Exponent", "cboe.options.marketdatafeed.csm.v1.4.2.minimumbelowpremiumfractionexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
+cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_below_premium_fraction_mantissa = ProtoField.new("Minimum Below Premium Fraction Mantissa", "cboe.options.marketdatafeed.csm.v1.4.2.minimumbelowpremiumfractionmantissa", ftypes.INT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_strike_price_fraction = ProtoField.new("Minimum Strike Price Fraction", "cboe.options.marketdatafeed.csm.v1.4.2.minimumstrikepricefraction", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_strike_price_fraction_exponent = ProtoField.new("Minimum Strike Price Fraction Exponent", "cboe.options.marketdatafeed.csm.v1.4.2.minimumstrikepricefractionexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
+cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_strike_price_fraction_mantissa = ProtoField.new("Minimum Strike Price Fraction Mantissa", "cboe.options.marketdatafeed.csm.v1.4.2.minimumstrikepricefractionmantissa", ftypes.INT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.net_chg_prev_day = ProtoField.new("Net Chg Prev Day", "cboe.options.marketdatafeed.csm.v1.4.2.netchgprevday", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.net_chg_prev_day_exponent = ProtoField.new("Net Chg Prev Day Exponent", "cboe.options.marketdatafeed.csm.v1.4.2.netchgprevdayexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
+cboe_options_marketdatafeed_csm_v1_4_2.fields.net_chg_prev_day_mantissa = ProtoField.new("Net Chg Prev Day Mantissa", "cboe.options.marketdatafeed.csm.v1.4.2.netchgprevdaymantissa", ftypes.INT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.no_legs = ProtoField.new("No Legs", "cboe.options.marketdatafeed.csm.v1.4.2.nolegs", ftypes.UINT8)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.open_interest = ProtoField.new("Open Interest", "cboe.options.marketdatafeed.csm.v1.4.2.openinterest", ftypes.UINT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.packet = ProtoField.new("Packet", "cboe.options.marketdatafeed.csm.v1.4.2.packet", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.packet_header = ProtoField.new("Packet Header", "cboe.options.marketdatafeed.csm.v1.4.2.packetheader", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.packet_length = ProtoField.new("Packet Length", "cboe.options.marketdatafeed.csm.v1.4.2.packetlength", ftypes.UINT16)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.payload = ProtoField.new("Payload", "cboe.options.marketdatafeed.csm.v1.4.2.payload", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.premium_break_point = ProtoField.new("Premium Break Point", "cboe.options.marketdatafeed.csm.v1.4.2.premiumbreakpoint", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.premium_break_point_exponent = ProtoField.new("Premium Break Point Exponent", "cboe.options.marketdatafeed.csm.v1.4.2.premiumbreakpointexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
+cboe_options_marketdatafeed_csm_v1_4_2.fields.premium_break_point_mantissa = ProtoField.new("Premium Break Point Mantissa", "cboe.options.marketdatafeed.csm.v1.4.2.premiumbreakpointmantissa", ftypes.INT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.prev_close_px = ProtoField.new("Prev Close Px", "cboe.options.marketdatafeed.csm.v1.4.2.prevclosepx", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.prev_close_px_exponent = ProtoField.new("Prev Close Px Exponent", "cboe.options.marketdatafeed.csm.v1.4.2.prevclosepxexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
+cboe_options_marketdatafeed_csm_v1_4_2.fields.prev_close_px_mantissa = ProtoField.new("Prev Close Px Mantissa", "cboe.options.marketdatafeed.csm.v1.4.2.prevclosepxmantissa", ftypes.INT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.price_type = ProtoField.new("Price Type", "cboe.options.marketdatafeed.csm.v1.4.2.pricetype", ftypes.UINT8)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.put_or_call = ProtoField.new("Put Or Call", "cboe.options.marketdatafeed.csm.v1.4.2.putorcall", ftypes.UINT8)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.recap_update_md_entry = ProtoField.new("Recap Update Md Entry", "cboe.options.marketdatafeed.csm.v1.4.2.recapupdatemdentry", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.recap_update_message = ProtoField.new("Recap Update Message", "cboe.options.marketdatafeed.csm.v1.4.2.recapupdatemessage", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.security_definition_leg = ProtoField.new("Security Definition Leg", "cboe.options.marketdatafeed.csm.v1.4.2.securitydefinitionleg", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.security_definition_message = ProtoField.new("Security Definition Message", "cboe.options.marketdatafeed.csm.v1.4.2.securitydefinitionmessage", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.security_exchange = ProtoField.new("Security Exchange", "cboe.options.marketdatafeed.csm.v1.4.2.securityexchange", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.security_id = ProtoField.new("Security Id", "cboe.options.marketdatafeed.csm.v1.4.2.securityid", ftypes.UINT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.security_trading_status = ProtoField.new("Security Trading Status", "cboe.options.marketdatafeed.csm.v1.4.2.securitytradingstatus", ftypes.UINT8)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.security_type = ProtoField.new("Security Type", "cboe.options.marketdatafeed.csm.v1.4.2.securitytype", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.security_type_length = ProtoField.new("Security Type Length", "cboe.options.marketdatafeed.csm.v1.4.2.securitytypelength", ftypes.UINT8)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.security_type_text = ProtoField.new("Security Type Text", "cboe.options.marketdatafeed.csm.v1.4.2.securitytypetext", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.sending_time = ProtoField.new("Sending Time", "cboe.options.marketdatafeed.csm.v1.4.2.sendingtime", ftypes.UINT64)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.settlement_value_md_entry = ProtoField.new("Settlement Value Md Entry", "cboe.options.marketdatafeed.csm.v1.4.2.settlementvaluemdentry", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.settlement_value_message = ProtoField.new("Settlement Value Message", "cboe.options.marketdatafeed.csm.v1.4.2.settlementvaluemessage", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.strike_price = ProtoField.new("Strike Price", "cboe.options.marketdatafeed.csm.v1.4.2.strikeprice", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.strike_price_exponent = ProtoField.new("Strike Price Exponent", "cboe.options.marketdatafeed.csm.v1.4.2.strikepriceexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
+cboe_options_marketdatafeed_csm_v1_4_2.fields.strike_price_mantissa = ProtoField.new("Strike Price Mantissa", "cboe.options.marketdatafeed.csm.v1.4.2.strikepricemantissa", ftypes.INT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.summary_md_entry = ProtoField.new("Summary Md Entry", "cboe.options.marketdatafeed.csm.v1.4.2.summarymdentry", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.summary_message = ProtoField.new("Summary Message", "cboe.options.marketdatafeed.csm.v1.4.2.summarymessage", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.symbol = ProtoField.new("Symbol", "cboe.options.marketdatafeed.csm.v1.4.2.symbol", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.symbol_length = ProtoField.new("Symbol Length", "cboe.options.marketdatafeed.csm.v1.4.2.symbollength", ftypes.UINT8)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.symbol_text = ProtoField.new("Symbol Text", "cboe.options.marketdatafeed.csm.v1.4.2.symboltext", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.target_location_id = ProtoField.new("Target Location Id", "cboe.options.marketdatafeed.csm.v1.4.2.targetlocationid", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.target_location_id_length = ProtoField.new("Target Location Id Length", "cboe.options.marketdatafeed.csm.v1.4.2.targetlocationidlength", ftypes.UINT8)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.target_location_id_text = ProtoField.new("Target Location Id Text", "cboe.options.marketdatafeed.csm.v1.4.2.targetlocationidtext", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.template_id = ProtoField.new("Template Id", "cboe.options.marketdatafeed.csm.v1.4.2.templateid", ftypes.UINT8)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.ticker_md_entry = ProtoField.new("Ticker Md Entry", "cboe.options.marketdatafeed.csm.v1.4.2.tickermdentry", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.ticker_message = ProtoField.new("Ticker Message", "cboe.options.marketdatafeed.csm.v1.4.2.tickermessage", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.trade_condition = ProtoField.new("Trade Condition", "cboe.options.marketdatafeed.csm.v1.4.2.tradecondition", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.trade_condition_length = ProtoField.new("Trade Condition Length", "cboe.options.marketdatafeed.csm.v1.4.2.tradeconditionlength", ftypes.UINT8)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.trade_condition_text = ProtoField.new("Trade Condition Text", "cboe.options.marketdatafeed.csm.v1.4.2.tradeconditiontext", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.trade_volume = ProtoField.new("Trade Volume", "cboe.options.marketdatafeed.csm.v1.4.2.tradevolume", ftypes.UINT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_px = ProtoField.new("Underlying Px", "cboe.options.marketdatafeed.csm.v1.4.2.underlyingpx", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_px_exponent = ProtoField.new("Underlying Px Exponent", "cboe.options.marketdatafeed.csm.v1.4.2.underlyingpxexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
+cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_px_mantissa = ProtoField.new("Underlying Px Mantissa", "cboe.options.marketdatafeed.csm.v1.4.2.underlyingpxmantissa", ftypes.INT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "cboe.options.marketdatafeed.csm.v1.4.2.underlyingsymbol", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_symbol_length = ProtoField.new("Underlying Symbol Length", "cboe.options.marketdatafeed.csm.v1.4.2.underlyingsymbollength", ftypes.UINT8)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_symbol_text = ProtoField.new("Underlying Symbol Text", "cboe.options.marketdatafeed.csm.v1.4.2.underlyingsymboltext", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_type = ProtoField.new("Underlying Type", "cboe.options.marketdatafeed.csm.v1.4.2.underlyingtype", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_type_length = ProtoField.new("Underlying Type Length", "cboe.options.marketdatafeed.csm.v1.4.2.underlyingtypelength", ftypes.UINT8)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_type_text = ProtoField.new("Underlying Type Text", "cboe.options.marketdatafeed.csm.v1.4.2.underlyingtypetext", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.version = ProtoField.new("Version", "cboe.options.marketdatafeed.csm.v1.4.2.version", ftypes.UINT8)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Cboe Options Smdf Csm 1.4.2 Element Dissection Options
+-- Cboe Options MarketDataFeed Csm 1.4.2 Element Dissection Options
 show.currency_code = true
 show.current_market_update_message = true
 show.eop = true
@@ -178,216 +178,216 @@ show.underlying_symbol = true
 show.underlying_type = true
 show.payload = false
 
--- Register Cboe Options Smdf Csm 1.4.2 Show Options
-cboe_options_smdf_csm_v1_4_2.prefs.show_currency_code = Pref.bool("Show Currency Code", show.currency_code, "Parse and add Currency Code to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_current_market_update_message = Pref.bool("Show Current Market Update Message", show.current_market_update_message, "Parse and add Current Market Update Message to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_eop = Pref.bool("Show Eop", show.eop, "Parse and add Eop to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_expected_opening_price_and_size_message = Pref.bool("Show Expected Opening Price And Size Message", show.expected_opening_price_and_size_message, "Parse and add Expected Opening Price And Size Message to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_index_value_md_entry = Pref.bool("Show Index Value Md Entry", show.index_value_md_entry, "Parse and add Index Value Md Entry to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_index_value_message = Pref.bool("Show Index Value Message", show.index_value_message, "Parse and add Index Value Message to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_leg_side = Pref.bool("Show Leg Side", show.leg_side, "Parse and add Leg Side to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_market_data_control_message = Pref.bool("Show Market Data Control Message", show.market_data_control_message, "Parse and add Market Data Control Message to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_market_data_refresh_message = Pref.bool("Show Market Data Refresh Message", show.market_data_refresh_message, "Parse and add Market Data Refresh Message to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_max_strike_price = Pref.bool("Show Max Strike Price", show.max_strike_price, "Parse and add Max Strike Price to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_md_entry = Pref.bool("Show Md Entry", show.md_entry, "Parse and add Md Entry to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_md_entry_px = Pref.bool("Show Md Entry Px", show.md_entry_px, "Parse and add Md Entry Px to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_minimum_above_premium_fraction = Pref.bool("Show Minimum Above Premium Fraction", show.minimum_above_premium_fraction, "Parse and add Minimum Above Premium Fraction to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_minimum_below_premium_fraction = Pref.bool("Show Minimum Below Premium Fraction", show.minimum_below_premium_fraction, "Parse and add Minimum Below Premium Fraction to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_minimum_strike_price_fraction = Pref.bool("Show Minimum Strike Price Fraction", show.minimum_strike_price_fraction, "Parse and add Minimum Strike Price Fraction to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_net_chg_prev_day = Pref.bool("Show Net Chg Prev Day", show.net_chg_prev_day, "Parse and add Net Chg Prev Day to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_premium_break_point = Pref.bool("Show Premium Break Point", show.premium_break_point, "Parse and add Premium Break Point to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_prev_close_px = Pref.bool("Show Prev Close Px", show.prev_close_px, "Parse and add Prev Close Px to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_recap_update_md_entry = Pref.bool("Show Recap Update Md Entry", show.recap_update_md_entry, "Parse and add Recap Update Md Entry to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_recap_update_message = Pref.bool("Show Recap Update Message", show.recap_update_message, "Parse and add Recap Update Message to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_security_definition_leg = Pref.bool("Show Security Definition Leg", show.security_definition_leg, "Parse and add Security Definition Leg to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_security_definition_message = Pref.bool("Show Security Definition Message", show.security_definition_message, "Parse and add Security Definition Message to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_security_type = Pref.bool("Show Security Type", show.security_type, "Parse and add Security Type to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_settlement_value_md_entry = Pref.bool("Show Settlement Value Md Entry", show.settlement_value_md_entry, "Parse and add Settlement Value Md Entry to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_settlement_value_message = Pref.bool("Show Settlement Value Message", show.settlement_value_message, "Parse and add Settlement Value Message to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_strike_price = Pref.bool("Show Strike Price", show.strike_price, "Parse and add Strike Price to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_summary_md_entry = Pref.bool("Show Summary Md Entry", show.summary_md_entry, "Parse and add Summary Md Entry to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_summary_message = Pref.bool("Show Summary Message", show.summary_message, "Parse and add Summary Message to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_symbol = Pref.bool("Show Symbol", show.symbol, "Parse and add Symbol to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_target_location_id = Pref.bool("Show Target Location Id", show.target_location_id, "Parse and add Target Location Id to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_ticker_md_entry = Pref.bool("Show Ticker Md Entry", show.ticker_md_entry, "Parse and add Ticker Md Entry to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_ticker_message = Pref.bool("Show Ticker Message", show.ticker_message, "Parse and add Ticker Message to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_trade_condition = Pref.bool("Show Trade Condition", show.trade_condition, "Parse and add Trade Condition to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_underlying_px = Pref.bool("Show Underlying Px", show.underlying_px, "Parse and add Underlying Px to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_underlying_symbol = Pref.bool("Show Underlying Symbol", show.underlying_symbol, "Parse and add Underlying Symbol to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_underlying_type = Pref.bool("Show Underlying Type", show.underlying_type, "Parse and add Underlying Type to protocol tree")
-cboe_options_smdf_csm_v1_4_2.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+-- Register Cboe Options MarketDataFeed Csm 1.4.2 Show Options
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_currency_code = Pref.bool("Show Currency Code", show.currency_code, "Parse and add Currency Code to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_current_market_update_message = Pref.bool("Show Current Market Update Message", show.current_market_update_message, "Parse and add Current Market Update Message to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_eop = Pref.bool("Show Eop", show.eop, "Parse and add Eop to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_expected_opening_price_and_size_message = Pref.bool("Show Expected Opening Price And Size Message", show.expected_opening_price_and_size_message, "Parse and add Expected Opening Price And Size Message to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_index_value_md_entry = Pref.bool("Show Index Value Md Entry", show.index_value_md_entry, "Parse and add Index Value Md Entry to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_index_value_message = Pref.bool("Show Index Value Message", show.index_value_message, "Parse and add Index Value Message to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_leg_side = Pref.bool("Show Leg Side", show.leg_side, "Parse and add Leg Side to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_market_data_control_message = Pref.bool("Show Market Data Control Message", show.market_data_control_message, "Parse and add Market Data Control Message to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_market_data_refresh_message = Pref.bool("Show Market Data Refresh Message", show.market_data_refresh_message, "Parse and add Market Data Refresh Message to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_max_strike_price = Pref.bool("Show Max Strike Price", show.max_strike_price, "Parse and add Max Strike Price to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_md_entry = Pref.bool("Show Md Entry", show.md_entry, "Parse and add Md Entry to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_md_entry_px = Pref.bool("Show Md Entry Px", show.md_entry_px, "Parse and add Md Entry Px to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_minimum_above_premium_fraction = Pref.bool("Show Minimum Above Premium Fraction", show.minimum_above_premium_fraction, "Parse and add Minimum Above Premium Fraction to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_minimum_below_premium_fraction = Pref.bool("Show Minimum Below Premium Fraction", show.minimum_below_premium_fraction, "Parse and add Minimum Below Premium Fraction to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_minimum_strike_price_fraction = Pref.bool("Show Minimum Strike Price Fraction", show.minimum_strike_price_fraction, "Parse and add Minimum Strike Price Fraction to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_net_chg_prev_day = Pref.bool("Show Net Chg Prev Day", show.net_chg_prev_day, "Parse and add Net Chg Prev Day to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_premium_break_point = Pref.bool("Show Premium Break Point", show.premium_break_point, "Parse and add Premium Break Point to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_prev_close_px = Pref.bool("Show Prev Close Px", show.prev_close_px, "Parse and add Prev Close Px to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_recap_update_md_entry = Pref.bool("Show Recap Update Md Entry", show.recap_update_md_entry, "Parse and add Recap Update Md Entry to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_recap_update_message = Pref.bool("Show Recap Update Message", show.recap_update_message, "Parse and add Recap Update Message to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_security_definition_leg = Pref.bool("Show Security Definition Leg", show.security_definition_leg, "Parse and add Security Definition Leg to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_security_definition_message = Pref.bool("Show Security Definition Message", show.security_definition_message, "Parse and add Security Definition Message to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_security_type = Pref.bool("Show Security Type", show.security_type, "Parse and add Security Type to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_settlement_value_md_entry = Pref.bool("Show Settlement Value Md Entry", show.settlement_value_md_entry, "Parse and add Settlement Value Md Entry to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_settlement_value_message = Pref.bool("Show Settlement Value Message", show.settlement_value_message, "Parse and add Settlement Value Message to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_strike_price = Pref.bool("Show Strike Price", show.strike_price, "Parse and add Strike Price to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_summary_md_entry = Pref.bool("Show Summary Md Entry", show.summary_md_entry, "Parse and add Summary Md Entry to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_summary_message = Pref.bool("Show Summary Message", show.summary_message, "Parse and add Summary Message to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_symbol = Pref.bool("Show Symbol", show.symbol, "Parse and add Symbol to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_target_location_id = Pref.bool("Show Target Location Id", show.target_location_id, "Parse and add Target Location Id to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_ticker_md_entry = Pref.bool("Show Ticker Md Entry", show.ticker_md_entry, "Parse and add Ticker Md Entry to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_ticker_message = Pref.bool("Show Ticker Message", show.ticker_message, "Parse and add Ticker Message to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_trade_condition = Pref.bool("Show Trade Condition", show.trade_condition, "Parse and add Trade Condition to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_underlying_px = Pref.bool("Show Underlying Px", show.underlying_px, "Parse and add Underlying Px to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_underlying_symbol = Pref.bool("Show Underlying Symbol", show.underlying_symbol, "Parse and add Underlying Symbol to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_underlying_type = Pref.bool("Show Underlying Type", show.underlying_type, "Parse and add Underlying Type to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function cboe_options_smdf_csm_v1_4_2.prefs_changed()
+function cboe_options_marketdatafeed_csm_v1_4_2.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.currency_code ~= cboe_options_smdf_csm_v1_4_2.prefs.show_currency_code then
-    show.currency_code = cboe_options_smdf_csm_v1_4_2.prefs.show_currency_code
+  if show.currency_code ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_currency_code then
+    show.currency_code = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_currency_code
     changed = true
   end
-  if show.current_market_update_message ~= cboe_options_smdf_csm_v1_4_2.prefs.show_current_market_update_message then
-    show.current_market_update_message = cboe_options_smdf_csm_v1_4_2.prefs.show_current_market_update_message
+  if show.current_market_update_message ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_current_market_update_message then
+    show.current_market_update_message = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_current_market_update_message
     changed = true
   end
-  if show.eop ~= cboe_options_smdf_csm_v1_4_2.prefs.show_eop then
-    show.eop = cboe_options_smdf_csm_v1_4_2.prefs.show_eop
+  if show.eop ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_eop then
+    show.eop = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_eop
     changed = true
   end
-  if show.expected_opening_price_and_size_message ~= cboe_options_smdf_csm_v1_4_2.prefs.show_expected_opening_price_and_size_message then
-    show.expected_opening_price_and_size_message = cboe_options_smdf_csm_v1_4_2.prefs.show_expected_opening_price_and_size_message
+  if show.expected_opening_price_and_size_message ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_expected_opening_price_and_size_message then
+    show.expected_opening_price_and_size_message = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_expected_opening_price_and_size_message
     changed = true
   end
-  if show.index_value_md_entry ~= cboe_options_smdf_csm_v1_4_2.prefs.show_index_value_md_entry then
-    show.index_value_md_entry = cboe_options_smdf_csm_v1_4_2.prefs.show_index_value_md_entry
+  if show.index_value_md_entry ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_index_value_md_entry then
+    show.index_value_md_entry = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_index_value_md_entry
     changed = true
   end
-  if show.index_value_message ~= cboe_options_smdf_csm_v1_4_2.prefs.show_index_value_message then
-    show.index_value_message = cboe_options_smdf_csm_v1_4_2.prefs.show_index_value_message
+  if show.index_value_message ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_index_value_message then
+    show.index_value_message = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_index_value_message
     changed = true
   end
-  if show.leg_side ~= cboe_options_smdf_csm_v1_4_2.prefs.show_leg_side then
-    show.leg_side = cboe_options_smdf_csm_v1_4_2.prefs.show_leg_side
+  if show.leg_side ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_leg_side then
+    show.leg_side = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_leg_side
     changed = true
   end
-  if show.market_data_control_message ~= cboe_options_smdf_csm_v1_4_2.prefs.show_market_data_control_message then
-    show.market_data_control_message = cboe_options_smdf_csm_v1_4_2.prefs.show_market_data_control_message
+  if show.market_data_control_message ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_market_data_control_message then
+    show.market_data_control_message = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_market_data_control_message
     changed = true
   end
-  if show.market_data_refresh_message ~= cboe_options_smdf_csm_v1_4_2.prefs.show_market_data_refresh_message then
-    show.market_data_refresh_message = cboe_options_smdf_csm_v1_4_2.prefs.show_market_data_refresh_message
+  if show.market_data_refresh_message ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_market_data_refresh_message then
+    show.market_data_refresh_message = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_market_data_refresh_message
     changed = true
   end
-  if show.max_strike_price ~= cboe_options_smdf_csm_v1_4_2.prefs.show_max_strike_price then
-    show.max_strike_price = cboe_options_smdf_csm_v1_4_2.prefs.show_max_strike_price
+  if show.max_strike_price ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_max_strike_price then
+    show.max_strike_price = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_max_strike_price
     changed = true
   end
-  if show.md_entry ~= cboe_options_smdf_csm_v1_4_2.prefs.show_md_entry then
-    show.md_entry = cboe_options_smdf_csm_v1_4_2.prefs.show_md_entry
+  if show.md_entry ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_md_entry then
+    show.md_entry = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_md_entry
     changed = true
   end
-  if show.md_entry_px ~= cboe_options_smdf_csm_v1_4_2.prefs.show_md_entry_px then
-    show.md_entry_px = cboe_options_smdf_csm_v1_4_2.prefs.show_md_entry_px
+  if show.md_entry_px ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_md_entry_px then
+    show.md_entry_px = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_md_entry_px
     changed = true
   end
-  if show.message ~= cboe_options_smdf_csm_v1_4_2.prefs.show_message then
-    show.message = cboe_options_smdf_csm_v1_4_2.prefs.show_message
+  if show.message ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_message then
+    show.message = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_message
     changed = true
   end
-  if show.message_header ~= cboe_options_smdf_csm_v1_4_2.prefs.show_message_header then
-    show.message_header = cboe_options_smdf_csm_v1_4_2.prefs.show_message_header
+  if show.message_header ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_message_header then
+    show.message_header = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_message_header
     changed = true
   end
-  if show.minimum_above_premium_fraction ~= cboe_options_smdf_csm_v1_4_2.prefs.show_minimum_above_premium_fraction then
-    show.minimum_above_premium_fraction = cboe_options_smdf_csm_v1_4_2.prefs.show_minimum_above_premium_fraction
+  if show.minimum_above_premium_fraction ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_minimum_above_premium_fraction then
+    show.minimum_above_premium_fraction = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_minimum_above_premium_fraction
     changed = true
   end
-  if show.minimum_below_premium_fraction ~= cboe_options_smdf_csm_v1_4_2.prefs.show_minimum_below_premium_fraction then
-    show.minimum_below_premium_fraction = cboe_options_smdf_csm_v1_4_2.prefs.show_minimum_below_premium_fraction
+  if show.minimum_below_premium_fraction ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_minimum_below_premium_fraction then
+    show.minimum_below_premium_fraction = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_minimum_below_premium_fraction
     changed = true
   end
-  if show.minimum_strike_price_fraction ~= cboe_options_smdf_csm_v1_4_2.prefs.show_minimum_strike_price_fraction then
-    show.minimum_strike_price_fraction = cboe_options_smdf_csm_v1_4_2.prefs.show_minimum_strike_price_fraction
+  if show.minimum_strike_price_fraction ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_minimum_strike_price_fraction then
+    show.minimum_strike_price_fraction = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_minimum_strike_price_fraction
     changed = true
   end
-  if show.net_chg_prev_day ~= cboe_options_smdf_csm_v1_4_2.prefs.show_net_chg_prev_day then
-    show.net_chg_prev_day = cboe_options_smdf_csm_v1_4_2.prefs.show_net_chg_prev_day
+  if show.net_chg_prev_day ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_net_chg_prev_day then
+    show.net_chg_prev_day = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_net_chg_prev_day
     changed = true
   end
-  if show.packet ~= cboe_options_smdf_csm_v1_4_2.prefs.show_packet then
-    show.packet = cboe_options_smdf_csm_v1_4_2.prefs.show_packet
+  if show.packet ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_packet then
+    show.packet = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= cboe_options_smdf_csm_v1_4_2.prefs.show_packet_header then
-    show.packet_header = cboe_options_smdf_csm_v1_4_2.prefs.show_packet_header
+  if show.packet_header ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_packet_header then
+    show.packet_header = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_packet_header
     changed = true
   end
-  if show.premium_break_point ~= cboe_options_smdf_csm_v1_4_2.prefs.show_premium_break_point then
-    show.premium_break_point = cboe_options_smdf_csm_v1_4_2.prefs.show_premium_break_point
+  if show.premium_break_point ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_premium_break_point then
+    show.premium_break_point = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_premium_break_point
     changed = true
   end
-  if show.prev_close_px ~= cboe_options_smdf_csm_v1_4_2.prefs.show_prev_close_px then
-    show.prev_close_px = cboe_options_smdf_csm_v1_4_2.prefs.show_prev_close_px
+  if show.prev_close_px ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_prev_close_px then
+    show.prev_close_px = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_prev_close_px
     changed = true
   end
-  if show.recap_update_md_entry ~= cboe_options_smdf_csm_v1_4_2.prefs.show_recap_update_md_entry then
-    show.recap_update_md_entry = cboe_options_smdf_csm_v1_4_2.prefs.show_recap_update_md_entry
+  if show.recap_update_md_entry ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_recap_update_md_entry then
+    show.recap_update_md_entry = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_recap_update_md_entry
     changed = true
   end
-  if show.recap_update_message ~= cboe_options_smdf_csm_v1_4_2.prefs.show_recap_update_message then
-    show.recap_update_message = cboe_options_smdf_csm_v1_4_2.prefs.show_recap_update_message
+  if show.recap_update_message ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_recap_update_message then
+    show.recap_update_message = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_recap_update_message
     changed = true
   end
-  if show.security_definition_leg ~= cboe_options_smdf_csm_v1_4_2.prefs.show_security_definition_leg then
-    show.security_definition_leg = cboe_options_smdf_csm_v1_4_2.prefs.show_security_definition_leg
+  if show.security_definition_leg ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_security_definition_leg then
+    show.security_definition_leg = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_security_definition_leg
     changed = true
   end
-  if show.security_definition_message ~= cboe_options_smdf_csm_v1_4_2.prefs.show_security_definition_message then
-    show.security_definition_message = cboe_options_smdf_csm_v1_4_2.prefs.show_security_definition_message
+  if show.security_definition_message ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_security_definition_message then
+    show.security_definition_message = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_security_definition_message
     changed = true
   end
-  if show.security_type ~= cboe_options_smdf_csm_v1_4_2.prefs.show_security_type then
-    show.security_type = cboe_options_smdf_csm_v1_4_2.prefs.show_security_type
+  if show.security_type ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_security_type then
+    show.security_type = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_security_type
     changed = true
   end
-  if show.settlement_value_md_entry ~= cboe_options_smdf_csm_v1_4_2.prefs.show_settlement_value_md_entry then
-    show.settlement_value_md_entry = cboe_options_smdf_csm_v1_4_2.prefs.show_settlement_value_md_entry
+  if show.settlement_value_md_entry ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_settlement_value_md_entry then
+    show.settlement_value_md_entry = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_settlement_value_md_entry
     changed = true
   end
-  if show.settlement_value_message ~= cboe_options_smdf_csm_v1_4_2.prefs.show_settlement_value_message then
-    show.settlement_value_message = cboe_options_smdf_csm_v1_4_2.prefs.show_settlement_value_message
+  if show.settlement_value_message ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_settlement_value_message then
+    show.settlement_value_message = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_settlement_value_message
     changed = true
   end
-  if show.strike_price ~= cboe_options_smdf_csm_v1_4_2.prefs.show_strike_price then
-    show.strike_price = cboe_options_smdf_csm_v1_4_2.prefs.show_strike_price
+  if show.strike_price ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_strike_price then
+    show.strike_price = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_strike_price
     changed = true
   end
-  if show.summary_md_entry ~= cboe_options_smdf_csm_v1_4_2.prefs.show_summary_md_entry then
-    show.summary_md_entry = cboe_options_smdf_csm_v1_4_2.prefs.show_summary_md_entry
+  if show.summary_md_entry ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_summary_md_entry then
+    show.summary_md_entry = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_summary_md_entry
     changed = true
   end
-  if show.summary_message ~= cboe_options_smdf_csm_v1_4_2.prefs.show_summary_message then
-    show.summary_message = cboe_options_smdf_csm_v1_4_2.prefs.show_summary_message
+  if show.summary_message ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_summary_message then
+    show.summary_message = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_summary_message
     changed = true
   end
-  if show.symbol ~= cboe_options_smdf_csm_v1_4_2.prefs.show_symbol then
-    show.symbol = cboe_options_smdf_csm_v1_4_2.prefs.show_symbol
+  if show.symbol ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_symbol then
+    show.symbol = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_symbol
     changed = true
   end
-  if show.target_location_id ~= cboe_options_smdf_csm_v1_4_2.prefs.show_target_location_id then
-    show.target_location_id = cboe_options_smdf_csm_v1_4_2.prefs.show_target_location_id
+  if show.target_location_id ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_target_location_id then
+    show.target_location_id = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_target_location_id
     changed = true
   end
-  if show.ticker_md_entry ~= cboe_options_smdf_csm_v1_4_2.prefs.show_ticker_md_entry then
-    show.ticker_md_entry = cboe_options_smdf_csm_v1_4_2.prefs.show_ticker_md_entry
+  if show.ticker_md_entry ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_ticker_md_entry then
+    show.ticker_md_entry = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_ticker_md_entry
     changed = true
   end
-  if show.ticker_message ~= cboe_options_smdf_csm_v1_4_2.prefs.show_ticker_message then
-    show.ticker_message = cboe_options_smdf_csm_v1_4_2.prefs.show_ticker_message
+  if show.ticker_message ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_ticker_message then
+    show.ticker_message = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_ticker_message
     changed = true
   end
-  if show.trade_condition ~= cboe_options_smdf_csm_v1_4_2.prefs.show_trade_condition then
-    show.trade_condition = cboe_options_smdf_csm_v1_4_2.prefs.show_trade_condition
+  if show.trade_condition ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_trade_condition then
+    show.trade_condition = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_trade_condition
     changed = true
   end
-  if show.underlying_px ~= cboe_options_smdf_csm_v1_4_2.prefs.show_underlying_px then
-    show.underlying_px = cboe_options_smdf_csm_v1_4_2.prefs.show_underlying_px
+  if show.underlying_px ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_underlying_px then
+    show.underlying_px = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_underlying_px
     changed = true
   end
-  if show.underlying_symbol ~= cboe_options_smdf_csm_v1_4_2.prefs.show_underlying_symbol then
-    show.underlying_symbol = cboe_options_smdf_csm_v1_4_2.prefs.show_underlying_symbol
+  if show.underlying_symbol ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_underlying_symbol then
+    show.underlying_symbol = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_underlying_symbol
     changed = true
   end
-  if show.underlying_type ~= cboe_options_smdf_csm_v1_4_2.prefs.show_underlying_type then
-    show.underlying_type = cboe_options_smdf_csm_v1_4_2.prefs.show_underlying_type
+  if show.underlying_type ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_underlying_type then
+    show.underlying_type = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_underlying_type
     changed = true
   end
-  if show.payload ~= cboe_options_smdf_csm_v1_4_2.prefs.show_payload then
-    show.payload = cboe_options_smdf_csm_v1_4_2.prefs.show_payload
+  if show.payload ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_payload then
+    show.payload = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_payload
     changed = true
   end
 
@@ -399,7 +399,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Cboe Options Smdf Csm 1.4.2
+-- Dissect Cboe Options MarketDataFeed Csm 1.4.2
 -----------------------------------------------------------------------
 
 -- Size: Md Control Type
@@ -429,7 +429,7 @@ dissect.md_control_type = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.md_control_type(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.md_control_type, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.md_control_type, range, value, display)
 
   return offset + size_of.md_control_type
 end
@@ -455,7 +455,7 @@ dissect.market_data_control_message = function(buffer, offset, packet, parent)
   if show.market_data_control_message then
     local range = buffer(offset, 1)
     local display = display.market_data_control_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.market_data_control_message, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.market_data_control_message, range, display)
   end
 
   return dissect.market_data_control_message_fields(buffer, offset, packet, parent)
@@ -475,7 +475,7 @@ dissect.md_entry_px_mantissa = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.md_entry_px_mantissa(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.md_entry_px_mantissa, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.md_entry_px_mantissa, range, value, display)
 
   return offset + size_of.md_entry_px_mantissa
 end
@@ -494,7 +494,7 @@ dissect.md_entry_px_exponent = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.md_entry_px_exponent(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.md_entry_px_exponent, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.md_entry_px_exponent, range, value, display)
 
   return offset + size_of.md_entry_px_exponent
 end
@@ -523,7 +523,7 @@ dissect.md_entry_px = function(buffer, offset, packet, parent)
   if show.md_entry_px then
     local range = buffer(offset, 5)
     local display = display.md_entry_px(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.md_entry_px, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.md_entry_px, range, display)
   end
 
   return dissect.md_entry_px_fields(buffer, offset, packet, parent)
@@ -568,7 +568,7 @@ dissect.md_entry_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.md_entry_type(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.md_entry_type, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.md_entry_type, range, value, display)
 
   return offset + size_of.md_entry_type
 end
@@ -597,7 +597,7 @@ dissect.summary_md_entry = function(buffer, offset, packet, parent)
   if show.summary_md_entry then
     local range = buffer(offset, 6)
     local display = display.summary_md_entry(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.summary_md_entry, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.summary_md_entry, range, display)
   end
 
   return dissect.summary_md_entry_fields(buffer, offset, packet, parent)
@@ -618,7 +618,7 @@ dissect.no_legs = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.no_legs(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.no_legs, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.no_legs, range, value, display)
 
   return offset + length, value
 end
@@ -637,7 +637,7 @@ dissect.underlying_px_mantissa = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.underlying_px_mantissa(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.underlying_px_mantissa, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_px_mantissa, range, value, display)
 
   return offset + size_of.underlying_px_mantissa
 end
@@ -656,7 +656,7 @@ dissect.underlying_px_exponent = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.underlying_px_exponent(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.underlying_px_exponent, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_px_exponent, range, value, display)
 
   return offset + size_of.underlying_px_exponent
 end
@@ -685,7 +685,7 @@ dissect.underlying_px = function(buffer, offset, packet, parent)
   if show.underlying_px then
     local range = buffer(offset, 5)
     local display = display.underlying_px(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.underlying_px, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_px, range, display)
   end
 
   return dissect.underlying_px_fields(buffer, offset, packet, parent)
@@ -705,7 +705,7 @@ dissect.net_chg_prev_day_mantissa = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.net_chg_prev_day_mantissa(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.net_chg_prev_day_mantissa, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.net_chg_prev_day_mantissa, range, value, display)
 
   return offset + size_of.net_chg_prev_day_mantissa
 end
@@ -724,7 +724,7 @@ dissect.net_chg_prev_day_exponent = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.net_chg_prev_day_exponent(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.net_chg_prev_day_exponent, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.net_chg_prev_day_exponent, range, value, display)
 
   return offset + size_of.net_chg_prev_day_exponent
 end
@@ -753,7 +753,7 @@ dissect.net_chg_prev_day = function(buffer, offset, packet, parent)
   if show.net_chg_prev_day then
     local range = buffer(offset, 5)
     local display = display.net_chg_prev_day(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.net_chg_prev_day, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.net_chg_prev_day, range, display)
   end
 
   return dissect.net_chg_prev_day_fields(buffer, offset, packet, parent)
@@ -773,7 +773,7 @@ dissect.open_interest = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.open_interest(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.open_interest, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.open_interest, range, value, display)
 
   return offset + size_of.open_interest
 end
@@ -792,7 +792,7 @@ dissect.trade_volume = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.trade_volume(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.trade_volume, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.trade_volume, range, value, display)
 
   return offset + size_of.trade_volume
 end
@@ -811,7 +811,7 @@ dissect.price_type = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.price_type(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.price_type, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.price_type, range, value, display)
 
   return offset + size_of.price_type
 end
@@ -830,7 +830,7 @@ dissect.security_id = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.security_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.security_id, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.security_id, range, value, display)
 
   return offset + size_of.security_id
 end
@@ -849,7 +849,7 @@ dissect.class_key = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.class_key(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.class_key, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.class_key, range, value, display)
 
   return offset + size_of.class_key
 end
@@ -916,7 +916,7 @@ dissect.summary_message = function(buffer, offset, packet, parent)
     local length = size_of.summary_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.summary_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.summary_message, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.summary_message, range, display)
   end
 
   return dissect.summary_message_fields(buffer, offset, packet, parent)
@@ -946,7 +946,7 @@ dissect.settlement_value_md_entry = function(buffer, offset, packet, parent)
   if show.settlement_value_md_entry then
     local range = buffer(offset, 6)
     local display = display.settlement_value_md_entry(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.settlement_value_md_entry, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.settlement_value_md_entry, range, display)
   end
 
   return dissect.settlement_value_md_entry_fields(buffer, offset, packet, parent)
@@ -1002,7 +1002,7 @@ dissect.settlement_value_message = function(buffer, offset, packet, parent)
     local length = size_of.settlement_value_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.settlement_value_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.settlement_value_message, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.settlement_value_message, range, display)
   end
 
   return dissect.settlement_value_message_fields(buffer, offset, packet, parent)
@@ -1032,7 +1032,7 @@ dissect.index_value_md_entry = function(buffer, offset, packet, parent)
   if show.index_value_md_entry then
     local range = buffer(offset, 6)
     local display = display.index_value_md_entry(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.index_value_md_entry, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.index_value_md_entry, range, display)
   end
 
   return dissect.index_value_md_entry_fields(buffer, offset, packet, parent)
@@ -1049,7 +1049,7 @@ dissect.symbol_text = function(buffer, offset, packet, parent, size)
   local value = range:string()
   local display = display.symbol_text(value, buffer, offset, packet, parent, size)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.symbol_text, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.symbol_text, range, value, display)
 
   return offset + size
 end
@@ -1069,7 +1069,7 @@ dissect.symbol_length = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.symbol_length(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.symbol_length, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.symbol_length, range, value, display)
 
   return offset + length, value
 end
@@ -1112,7 +1112,7 @@ dissect.symbol = function(buffer, offset, packet, parent)
     local length = size_of.symbol(buffer, offset)
     local range = buffer(offset, length)
     local display = display.symbol(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.symbol, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.symbol, range, display)
   end
 
   return dissect.symbol_fields(buffer, offset, packet, parent)
@@ -1164,7 +1164,7 @@ dissect.index_value_message = function(buffer, offset, packet, parent)
     local length = size_of.index_value_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.index_value_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.index_value_message, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.index_value_message, range, display)
   end
 
   return dissect.index_value_message_fields(buffer, offset, packet, parent)
@@ -1191,7 +1191,7 @@ dissect.legal_market = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.legal_market(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.legal_market, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.legal_market, range, value, display)
 
   return offset + size_of.legal_market
 end
@@ -1244,7 +1244,7 @@ dissect.eop_type = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.eop_type(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.eop_type, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.eop_type, range, value, display)
 
   return offset + size_of.eop_type
 end
@@ -1263,7 +1263,7 @@ dissect.eos = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.eos(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.eos, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.eos, range, value, display)
 
   return offset + size_of.eos
 end
@@ -1282,7 +1282,7 @@ dissect.eop_mantissa = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.eop_mantissa(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.eop_mantissa, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.eop_mantissa, range, value, display)
 
   return offset + size_of.eop_mantissa
 end
@@ -1301,7 +1301,7 @@ dissect.eop_exponent = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.eop_exponent(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.eop_exponent, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.eop_exponent, range, value, display)
 
   return offset + size_of.eop_exponent
 end
@@ -1330,7 +1330,7 @@ dissect.eop = function(buffer, offset, packet, parent)
   if show.eop then
     local range = buffer(offset, 5)
     local display = display.eop(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.eop, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.eop, range, display)
   end
 
   return dissect.eop_fields(buffer, offset, packet, parent)
@@ -1372,7 +1372,7 @@ dissect.expected_opening_price_and_size_message = function(buffer, offset, packe
   if show.expected_opening_price_and_size_message then
     local range = buffer(offset, 19)
     local display = display.expected_opening_price_and_size_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.expected_opening_price_and_size_message, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.expected_opening_price_and_size_message, range, display)
   end
 
   return dissect.expected_opening_price_and_size_message_fields(buffer, offset, packet, parent)
@@ -1389,7 +1389,7 @@ dissect.trade_condition_text = function(buffer, offset, packet, parent, size)
   local value = range:string()
   local display = display.trade_condition_text(value, buffer, offset, packet, parent, size)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.trade_condition_text, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.trade_condition_text, range, value, display)
 
   return offset + size
 end
@@ -1409,7 +1409,7 @@ dissect.trade_condition_length = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.trade_condition_length(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.trade_condition_length, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.trade_condition_length, range, value, display)
 
   return offset + length, value
 end
@@ -1452,7 +1452,7 @@ dissect.trade_condition = function(buffer, offset, packet, parent)
     local length = size_of.trade_condition(buffer, offset)
     local range = buffer(offset, length)
     local display = display.trade_condition(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.trade_condition, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.trade_condition, range, display)
   end
 
   return dissect.trade_condition_fields(buffer, offset, packet, parent)
@@ -1472,7 +1472,7 @@ dissect.md_entry_size = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.md_entry_size(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.md_entry_size, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.md_entry_size, range, value, display)
 
   return offset + size_of.md_entry_size
 end
@@ -1519,7 +1519,7 @@ dissect.ticker_md_entry = function(buffer, offset, packet, parent)
     local length = size_of.ticker_md_entry(buffer, offset)
     local range = buffer(offset, length)
     local display = display.ticker_md_entry(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.ticker_md_entry, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.ticker_md_entry, range, display)
   end
 
   return dissect.ticker_md_entry_fields(buffer, offset, packet, parent)
@@ -1576,7 +1576,7 @@ dissect.ticker_message = function(buffer, offset, packet, parent)
     local length = size_of.ticker_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.ticker_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.ticker_message, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.ticker_message, range, display)
   end
 
   return dissect.ticker_message_fields(buffer, offset, packet, parent)
@@ -1609,7 +1609,7 @@ dissect.recap_update_md_entry = function(buffer, offset, packet, parent)
   if show.recap_update_md_entry then
     local range = buffer(offset, 10)
     local display = display.recap_update_md_entry(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.recap_update_md_entry, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.recap_update_md_entry, range, display)
   end
 
   return dissect.recap_update_md_entry_fields(buffer, offset, packet, parent)
@@ -1629,7 +1629,7 @@ dissect.prev_close_px_mantissa = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.prev_close_px_mantissa(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.prev_close_px_mantissa, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.prev_close_px_mantissa, range, value, display)
 
   return offset + size_of.prev_close_px_mantissa
 end
@@ -1648,7 +1648,7 @@ dissect.prev_close_px_exponent = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.prev_close_px_exponent(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.prev_close_px_exponent, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.prev_close_px_exponent, range, value, display)
 
   return offset + size_of.prev_close_px_exponent
 end
@@ -1677,7 +1677,7 @@ dissect.prev_close_px = function(buffer, offset, packet, parent)
   if show.prev_close_px then
     local range = buffer(offset, 5)
     local display = display.prev_close_px(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.prev_close_px, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.prev_close_px, range, display)
   end
 
   return dissect.prev_close_px_fields(buffer, offset, packet, parent)
@@ -1739,7 +1739,7 @@ dissect.recap_update_message = function(buffer, offset, packet, parent)
     local length = size_of.recap_update_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.recap_update_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.recap_update_message, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.recap_update_message, range, display)
   end
 
   return dissect.recap_update_message_fields(buffer, offset, packet, parent)
@@ -1772,7 +1772,7 @@ dissect.md_volume_type = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.md_volume_type(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.md_volume_type, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.md_volume_type, range, value, display)
 
   return offset + size_of.md_volume_type
 end
@@ -1807,7 +1807,7 @@ dissect.md_entry = function(buffer, offset, packet, parent)
   if show.md_entry then
     local range = buffer(offset, 11)
     local display = display.md_entry(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.md_entry, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.md_entry, range, display)
   end
 
   return dissect.md_entry_fields(buffer, offset, packet, parent)
@@ -1855,7 +1855,7 @@ dissect.security_trading_status = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.security_trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.security_trading_status, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.security_trading_status, range, value, display)
 
   return offset + size_of.security_trading_status
 end
@@ -1913,7 +1913,7 @@ dissect.current_market_update_message = function(buffer, offset, packet, parent)
     local length = size_of.current_market_update_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.current_market_update_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.current_market_update_message, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.current_market_update_message, range, display)
   end
 
   return dissect.current_market_update_message_fields(buffer, offset, packet, parent)
@@ -1933,7 +1933,7 @@ dissect.appl_seq_num = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.appl_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.appl_seq_num, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.appl_seq_num, range, value, display)
 
   return offset + size_of.appl_seq_num
 end
@@ -2000,7 +2000,7 @@ dissect.market_data_refresh_message = function(buffer, offset, packet, parent)
     local length = size_of.market_data_refresh_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.market_data_refresh_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.market_data_refresh_message, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.market_data_refresh_message, range, display)
   end
 
   return dissect.market_data_refresh_message_fields(buffer, offset, packet, parent)
@@ -2017,7 +2017,7 @@ dissect.leg_side_text = function(buffer, offset, packet, parent, size)
   local value = range:string()
   local display = display.leg_side_text(value, buffer, offset, packet, parent, size)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.leg_side_text, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.leg_side_text, range, value, display)
 
   return offset + size
 end
@@ -2037,7 +2037,7 @@ dissect.leg_side_length = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.leg_side_length(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.leg_side_length, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.leg_side_length, range, value, display)
 
   return offset + length, value
 end
@@ -2080,7 +2080,7 @@ dissect.leg_side = function(buffer, offset, packet, parent)
     local length = size_of.leg_side(buffer, offset)
     local range = buffer(offset, length)
     local display = display.leg_side(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.leg_side, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.leg_side, range, display)
   end
 
   return dissect.leg_side_fields(buffer, offset, packet, parent)
@@ -2100,7 +2100,7 @@ dissect.leg_security_id = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.leg_security_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.leg_security_id, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.leg_security_id, range, value, display)
 
   return offset + size_of.leg_security_id
 end
@@ -2119,7 +2119,7 @@ dissect.leg_ratio_qty = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.leg_ratio_qty(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.leg_ratio_qty, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.leg_ratio_qty, range, value, display)
 
   return offset + size_of.leg_ratio_qty
 end
@@ -2163,7 +2163,7 @@ dissect.security_definition_leg = function(buffer, offset, packet, parent)
     local length = size_of.security_definition_leg(buffer, offset)
     local range = buffer(offset, length)
     local display = display.security_definition_leg(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.security_definition_leg, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.security_definition_leg, range, display)
   end
 
   return dissect.security_definition_leg_fields(buffer, offset, packet, parent)
@@ -2183,7 +2183,7 @@ dissect.contract_size = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.contract_size(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.contract_size, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.contract_size, range, value, display)
 
   return offset + size_of.contract_size
 end
@@ -2199,7 +2199,7 @@ dissect.underlying_type_text = function(buffer, offset, packet, parent, size)
   local value = range:string()
   local display = display.underlying_type_text(value, buffer, offset, packet, parent, size)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.underlying_type_text, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_type_text, range, value, display)
 
   return offset + size
 end
@@ -2219,7 +2219,7 @@ dissect.underlying_type_length = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.underlying_type_length(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.underlying_type_length, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_type_length, range, value, display)
 
   return offset + length, value
 end
@@ -2262,7 +2262,7 @@ dissect.underlying_type = function(buffer, offset, packet, parent)
     local length = size_of.underlying_type(buffer, offset)
     local range = buffer(offset, length)
     local display = display.underlying_type(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.underlying_type, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_type, range, display)
   end
 
   return dissect.underlying_type_fields(buffer, offset, packet, parent)
@@ -2279,7 +2279,7 @@ dissect.underlying_symbol_text = function(buffer, offset, packet, parent, size)
   local value = range:string()
   local display = display.underlying_symbol_text(value, buffer, offset, packet, parent, size)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.underlying_symbol_text, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_symbol_text, range, value, display)
 
   return offset + size
 end
@@ -2299,7 +2299,7 @@ dissect.underlying_symbol_length = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.underlying_symbol_length(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.underlying_symbol_length, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_symbol_length, range, value, display)
 
   return offset + length, value
 end
@@ -2342,7 +2342,7 @@ dissect.underlying_symbol = function(buffer, offset, packet, parent)
     local length = size_of.underlying_symbol(buffer, offset)
     local range = buffer(offset, length)
     local display = display.underlying_symbol(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.underlying_symbol, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_symbol, range, display)
   end
 
   return dissect.underlying_symbol_fields(buffer, offset, packet, parent)
@@ -2359,7 +2359,7 @@ dissect.currency_code_text = function(buffer, offset, packet, parent, size)
   local value = range:string()
   local display = display.currency_code_text(value, buffer, offset, packet, parent, size)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.currency_code_text, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.currency_code_text, range, value, display)
 
   return offset + size
 end
@@ -2379,7 +2379,7 @@ dissect.currency_code_length = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.currency_code_length(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.currency_code_length, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.currency_code_length, range, value, display)
 
   return offset + length, value
 end
@@ -2422,7 +2422,7 @@ dissect.currency_code = function(buffer, offset, packet, parent)
     local length = size_of.currency_code(buffer, offset)
     local range = buffer(offset, length)
     local display = display.currency_code(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.currency_code, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.currency_code, range, display)
   end
 
   return dissect.currency_code_fields(buffer, offset, packet, parent)
@@ -2449,7 +2449,7 @@ dissect.exercise_style = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.exercise_style(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.exercise_style, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.exercise_style, range, value, display)
 
   return offset + size_of.exercise_style
 end
@@ -2468,7 +2468,7 @@ dissect.minimum_below_premium_fraction_mantissa = function(buffer, offset, packe
   local value = range:int()
   local display = display.minimum_below_premium_fraction_mantissa(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.minimum_below_premium_fraction_mantissa, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_below_premium_fraction_mantissa, range, value, display)
 
   return offset + size_of.minimum_below_premium_fraction_mantissa
 end
@@ -2487,7 +2487,7 @@ dissect.minimum_below_premium_fraction_exponent = function(buffer, offset, packe
   local value = range:int()
   local display = display.minimum_below_premium_fraction_exponent(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.minimum_below_premium_fraction_exponent, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_below_premium_fraction_exponent, range, value, display)
 
   return offset + size_of.minimum_below_premium_fraction_exponent
 end
@@ -2516,7 +2516,7 @@ dissect.minimum_below_premium_fraction = function(buffer, offset, packet, parent
   if show.minimum_below_premium_fraction then
     local range = buffer(offset, 5)
     local display = display.minimum_below_premium_fraction(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.minimum_below_premium_fraction, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_below_premium_fraction, range, display)
   end
 
   return dissect.minimum_below_premium_fraction_fields(buffer, offset, packet, parent)
@@ -2536,7 +2536,7 @@ dissect.minimum_above_premium_fraction_mantissa = function(buffer, offset, packe
   local value = range:int()
   local display = display.minimum_above_premium_fraction_mantissa(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.minimum_above_premium_fraction_mantissa, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_above_premium_fraction_mantissa, range, value, display)
 
   return offset + size_of.minimum_above_premium_fraction_mantissa
 end
@@ -2555,7 +2555,7 @@ dissect.minimum_above_premium_fraction_exponent = function(buffer, offset, packe
   local value = range:int()
   local display = display.minimum_above_premium_fraction_exponent(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.minimum_above_premium_fraction_exponent, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_above_premium_fraction_exponent, range, value, display)
 
   return offset + size_of.minimum_above_premium_fraction_exponent
 end
@@ -2584,7 +2584,7 @@ dissect.minimum_above_premium_fraction = function(buffer, offset, packet, parent
   if show.minimum_above_premium_fraction then
     local range = buffer(offset, 5)
     local display = display.minimum_above_premium_fraction(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.minimum_above_premium_fraction, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_above_premium_fraction, range, display)
   end
 
   return dissect.minimum_above_premium_fraction_fields(buffer, offset, packet, parent)
@@ -2604,7 +2604,7 @@ dissect.premium_break_point_mantissa = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.premium_break_point_mantissa(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.premium_break_point_mantissa, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.premium_break_point_mantissa, range, value, display)
 
   return offset + size_of.premium_break_point_mantissa
 end
@@ -2623,7 +2623,7 @@ dissect.premium_break_point_exponent = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.premium_break_point_exponent(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.premium_break_point_exponent, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.premium_break_point_exponent, range, value, display)
 
   return offset + size_of.premium_break_point_exponent
 end
@@ -2652,7 +2652,7 @@ dissect.premium_break_point = function(buffer, offset, packet, parent)
   if show.premium_break_point then
     local range = buffer(offset, 5)
     local display = display.premium_break_point(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.premium_break_point, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.premium_break_point, range, display)
   end
 
   return dissect.premium_break_point_fields(buffer, offset, packet, parent)
@@ -2672,7 +2672,7 @@ dissect.max_strike_price_mantissa = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.max_strike_price_mantissa(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.max_strike_price_mantissa, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.max_strike_price_mantissa, range, value, display)
 
   return offset + size_of.max_strike_price_mantissa
 end
@@ -2691,7 +2691,7 @@ dissect.max_strike_price_exponent = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.max_strike_price_exponent(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.max_strike_price_exponent, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.max_strike_price_exponent, range, value, display)
 
   return offset + size_of.max_strike_price_exponent
 end
@@ -2720,7 +2720,7 @@ dissect.max_strike_price = function(buffer, offset, packet, parent)
   if show.max_strike_price then
     local range = buffer(offset, 5)
     local display = display.max_strike_price(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.max_strike_price, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.max_strike_price, range, display)
   end
 
   return dissect.max_strike_price_fields(buffer, offset, packet, parent)
@@ -2740,7 +2740,7 @@ dissect.minimum_strike_price_fraction_mantissa = function(buffer, offset, packet
   local value = range:int()
   local display = display.minimum_strike_price_fraction_mantissa(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.minimum_strike_price_fraction_mantissa, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_strike_price_fraction_mantissa, range, value, display)
 
   return offset + size_of.minimum_strike_price_fraction_mantissa
 end
@@ -2759,7 +2759,7 @@ dissect.minimum_strike_price_fraction_exponent = function(buffer, offset, packet
   local value = range:int()
   local display = display.minimum_strike_price_fraction_exponent(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.minimum_strike_price_fraction_exponent, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_strike_price_fraction_exponent, range, value, display)
 
   return offset + size_of.minimum_strike_price_fraction_exponent
 end
@@ -2788,7 +2788,7 @@ dissect.minimum_strike_price_fraction = function(buffer, offset, packet, parent)
   if show.minimum_strike_price_fraction then
     local range = buffer(offset, 5)
     local display = display.minimum_strike_price_fraction(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.minimum_strike_price_fraction, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_strike_price_fraction, range, display)
   end
 
   return dissect.minimum_strike_price_fraction_fields(buffer, offset, packet, parent)
@@ -2815,7 +2815,7 @@ dissect.put_or_call = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.put_or_call(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.put_or_call, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.put_or_call, range, value, display)
 
   return offset + size_of.put_or_call
 end
@@ -2834,7 +2834,7 @@ dissect.strike_price_mantissa = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.strike_price_mantissa(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.strike_price_mantissa, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.strike_price_mantissa, range, value, display)
 
   return offset + size_of.strike_price_mantissa
 end
@@ -2853,7 +2853,7 @@ dissect.strike_price_exponent = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.strike_price_exponent(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.strike_price_exponent, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.strike_price_exponent, range, value, display)
 
   return offset + size_of.strike_price_exponent
 end
@@ -2882,7 +2882,7 @@ dissect.strike_price = function(buffer, offset, packet, parent)
   if show.strike_price then
     local range = buffer(offset, 5)
     local display = display.strike_price(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.strike_price, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.strike_price, range, display)
   end
 
   return dissect.strike_price_fields(buffer, offset, packet, parent)
@@ -2902,7 +2902,7 @@ dissect.maturity_date = function(buffer, offset, packet, parent)
   local value = range:uint64()
   local display = display.maturity_date(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.maturity_date, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.maturity_date, range, value, display)
 
   return offset + size_of.maturity_date
 end
@@ -2918,7 +2918,7 @@ dissect.target_location_id_text = function(buffer, offset, packet, parent, size)
   local value = range:string()
   local display = display.target_location_id_text(value, buffer, offset, packet, parent, size)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.target_location_id_text, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.target_location_id_text, range, value, display)
 
   return offset + size
 end
@@ -2938,7 +2938,7 @@ dissect.target_location_id_length = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.target_location_id_length(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.target_location_id_length, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.target_location_id_length, range, value, display)
 
   return offset + length, value
 end
@@ -2981,7 +2981,7 @@ dissect.target_location_id = function(buffer, offset, packet, parent)
     local length = size_of.target_location_id(buffer, offset)
     local range = buffer(offset, length)
     local display = display.target_location_id(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.target_location_id, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.target_location_id, range, display)
   end
 
   return dissect.target_location_id_fields(buffer, offset, packet, parent)
@@ -3017,7 +3017,7 @@ dissect.security_exchange = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_exchange(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.security_exchange, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.security_exchange, range, value, display)
 
   return offset + size_of.security_exchange
 end
@@ -3033,7 +3033,7 @@ dissect.security_type_text = function(buffer, offset, packet, parent, size)
   local value = range:string()
   local display = display.security_type_text(value, buffer, offset, packet, parent, size)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.security_type_text, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.security_type_text, range, value, display)
 
   return offset + size
 end
@@ -3053,7 +3053,7 @@ dissect.security_type_length = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.security_type_length(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.security_type_length, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.security_type_length, range, value, display)
 
   return offset + length, value
 end
@@ -3096,7 +3096,7 @@ dissect.security_type = function(buffer, offset, packet, parent)
     local length = size_of.security_type(buffer, offset)
     local range = buffer(offset, length)
     local display = display.security_type(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.security_type, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.security_type, range, display)
   end
 
   return dissect.security_type_fields(buffer, offset, packet, parent)
@@ -3220,7 +3220,7 @@ dissect.security_definition_message = function(buffer, offset, packet, parent)
     local length = size_of.security_definition_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.security_definition_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.security_definition_message, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.security_definition_message, range, display)
   end
 
   return dissect.security_definition_message_fields(buffer, offset, packet, parent)
@@ -3345,7 +3345,7 @@ dissect.payload = function(buffer, offset, packet, parent, code)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.payload(buffer, packet, parent)
-  local element = parent:add(cboe_options_smdf_csm_v1_4_2.fields.payload, range, display)
+  local element = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.payload, range, display)
 
   return dissect.payload_branches(buffer, offset, packet, parent, code)
 end
@@ -3364,7 +3364,7 @@ dissect.message_sequence_number = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.message_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.message_sequence_number, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.message_sequence_number, range, value, display)
 
   return offset + size_of.message_sequence_number
 end
@@ -3383,7 +3383,7 @@ dissect.message_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.message_type, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.message_type, range, value, display)
 
   return offset + size_of.message_type
 end
@@ -3437,7 +3437,7 @@ dissect.template_id = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.template_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.template_id, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.template_id, range, value, display)
 
   return offset + length, value
 end
@@ -3456,7 +3456,7 @@ dissect.message_length = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.message_length, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.message_length, range, value, display)
 
   return offset + size_of.message_length
 end
@@ -3491,7 +3491,7 @@ dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     local range = buffer(offset, 8)
     local display = display.message_header(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.message_header, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.message_header, range, display)
   end
 
   return dissect.message_header_fields(buffer, offset, packet, parent)
@@ -3537,7 +3537,7 @@ dissect.message = function(buffer, offset, packet, parent)
     local length = size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.message(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.message, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.message, range, display)
   end
 
   return dissect.message_fields(buffer, offset, packet, parent)
@@ -3557,7 +3557,7 @@ dissect.first_msg_seq_num = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.first_msg_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.first_msg_seq_num, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.first_msg_seq_num, range, value, display)
 
   return offset + size_of.first_msg_seq_num
 end
@@ -3577,7 +3577,7 @@ dissect.message_count = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.message_count, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -3596,7 +3596,7 @@ dissect.sending_time = function(buffer, offset, packet, parent)
   local value = range:uint64()
   local display = display.sending_time(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.sending_time, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.sending_time, range, value, display)
 
   return offset + size_of.sending_time
 end
@@ -3615,7 +3615,7 @@ dissect.packet_length = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.packet_length(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.packet_length, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.packet_length, range, value, display)
 
   return offset + size_of.packet_length
 end
@@ -3634,7 +3634,7 @@ dissect.version = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.version(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_smdf_csm_v1_4_2.fields.version, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.version, range, value, display)
 
   return offset + size_of.version
 end
@@ -3672,7 +3672,7 @@ dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     local range = buffer(offset, 16)
     local display = display.packet_header(buffer, packet, parent)
-    parent = parent:add(cboe_options_smdf_csm_v1_4_2.fields.packet_header, range, display)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.packet_header, range, display)
   end
 
   return dissect.packet_header_fields(buffer, offset, packet, parent)
@@ -3700,23 +3700,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function cboe_options_smdf_csm_v1_4_2.init()
+function cboe_options_marketdatafeed_csm_v1_4_2.init()
 end
 
--- Dissector for Cboe Options Smdf Csm 1.4.2
-function cboe_options_smdf_csm_v1_4_2.dissector(buffer, packet, parent)
+-- Dissector for Cboe Options MarketDataFeed Csm 1.4.2
+function cboe_options_marketdatafeed_csm_v1_4_2.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = cboe_options_smdf_csm_v1_4_2.name
+  packet.cols.protocol = cboe_options_marketdatafeed_csm_v1_4_2.name
 
   -- Dissect protocol
-  local protocol = parent:add(cboe_options_smdf_csm_v1_4_2, buffer(), cboe_options_smdf_csm_v1_4_2.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(cboe_options_marketdatafeed_csm_v1_4_2, buffer(), cboe_options_marketdatafeed_csm_v1_4_2.description, "("..buffer:len().." Bytes)")
   local protocol_size = dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, cboe_options_smdf_csm_v1_4_2)
+udp_table:add(65333, cboe_options_marketdatafeed_csm_v1_4_2)
 
 
 -----------------------------------------------------------------------
@@ -3724,25 +3724,25 @@ udp_table:add(65333, cboe_options_smdf_csm_v1_4_2)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.cboe_options_smdf_csm_v1_4_2_packet_size = function(buffer)
+verify.cboe_options_marketdatafeed_csm_v1_4_2_packet_size = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Cboe Options Smdf Csm 1.4.2
-local function cboe_options_smdf_csm_v1_4_2_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Cboe Options MarketDataFeed Csm 1.4.2
+local function cboe_options_marketdatafeed_csm_v1_4_2_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.cboe_options_smdf_csm_v1_4_2_packet_size(buffer) then return false end
+  if not verify.cboe_options_marketdatafeed_csm_v1_4_2_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = cboe_options_smdf_csm_v1_4_2
-  cboe_options_smdf_csm_v1_4_2.dissector(buffer, packet, parent)
+  packet.conversation = cboe_options_marketdatafeed_csm_v1_4_2
+  cboe_options_marketdatafeed_csm_v1_4_2.dissector(buffer, packet, parent)
 
   return true
 end
 
--- Register Cboe Options Smdf Csm 1.4.2 Heuristic
-cboe_options_smdf_csm_v1_4_2:register_heuristic("udp", cboe_options_smdf_csm_v1_4_2_heuristic)
+-- Register Cboe Options MarketDataFeed Csm 1.4.2 Heuristic
+cboe_options_marketdatafeed_csm_v1_4_2:register_heuristic("udp", cboe_options_marketdatafeed_csm_v1_4_2_heuristic)
 
 -----------------------------------------------------------------------
 -- This script was generated by the open markets initiative

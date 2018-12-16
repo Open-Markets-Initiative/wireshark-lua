@@ -21,7 +21,7 @@ local verify = {}
 
 -- Nasdaq TotalView Itch 4.1 Fields
 nasdaq_totalview_itch_v4_1.fields.add_order_message = ProtoField.new("Add Order Message", "nasdaq.totalview.itch.v4.1.addordermessage", ftypes.STRING)
-nasdaq_totalview_itch_v4_1.fields.add_order_with_mpid_message = ProtoField.new("Add Order with Mpid Message", "nasdaq.totalview.itch.v4.1.addorderwithmpidmessage", ftypes.STRING)
+nasdaq_totalview_itch_v4_1.fields.add_order_with_mpid_message = ProtoField.new("Add Order With Mpid Message", "nasdaq.totalview.itch.v4.1.addorderwithmpidmessage", ftypes.STRING)
 nasdaq_totalview_itch_v4_1.fields.attribution = ProtoField.new("Attribution", "nasdaq.totalview.itch.v4.1.attribution", ftypes.STRING)
 nasdaq_totalview_itch_v4_1.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "nasdaq.totalview.itch.v4.1.brokentrademessage", ftypes.STRING)
 nasdaq_totalview_itch_v4_1.fields.canceled_shares = ProtoField.new("Canceled Shares", "nasdaq.totalview.itch.v4.1.canceledshares", ftypes.UINT32)
@@ -113,7 +113,7 @@ show.payload = false
 
 -- Register Nasdaq TotalView Itch 4.1 Show Options
 nasdaq_totalview_itch_v4_1.prefs.show_add_order_message = Pref.bool("Show Add Order Message", show.add_order_message, "Parse and add Add Order Message to protocol tree")
-nasdaq_totalview_itch_v4_1.prefs.show_add_order_with_mpid_message = Pref.bool("Show Add Order with Mpid Message", show.add_order_with_mpid_message, "Parse and add Add Order with Mpid Message to protocol tree")
+nasdaq_totalview_itch_v4_1.prefs.show_add_order_with_mpid_message = Pref.bool("Show Add Order With Mpid Message", show.add_order_with_mpid_message, "Parse and add Add Order With Mpid Message to protocol tree")
 nasdaq_totalview_itch_v4_1.prefs.show_broken_trade_message = Pref.bool("Show Broken Trade Message", show.broken_trade_message, "Parse and add Broken Trade Message to protocol tree")
 nasdaq_totalview_itch_v4_1.prefs.show_cross_trade_message = Pref.bool("Show Cross Trade Message", show.cross_trade_message, "Parse and add Cross Trade Message to protocol tree")
 nasdaq_totalview_itch_v4_1.prefs.show_market_participant_position_message = Pref.bool("Show Market Participant Position Message", show.market_participant_position_message, "Parse and add Market Participant Position Message to protocol tree")
@@ -1214,12 +1214,12 @@ dissect.attribution = function(buffer, offset, packet, parent)
   return offset + size_of.attribution
 end
 
--- Display: Add Order with Mpid Message
+-- Display: Add Order With Mpid Message
 display.add_order_with_mpid_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Add Order with Mpid Message
+-- Dissect Fields: Add Order With Mpid Message
 dissect.add_order_with_mpid_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1247,7 +1247,7 @@ dissect.add_order_with_mpid_message_fields = function(buffer, offset, packet, pa
   return index
 end
 
--- Dissect: Add Order with Mpid Message
+-- Dissect: Add Order With Mpid Message
 dissect.add_order_with_mpid_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.add_order_with_mpid_message then
@@ -1787,7 +1787,7 @@ size_of.payload = function(buffer, offset, code)
   if code == "A" then
     return 29
   end
-  -- Size of Add Order with Mpid Message
+  -- Size of Add Order With Mpid Message
   if code == "F" then
     return 33
   end
@@ -1866,7 +1866,7 @@ dissect.payload_branches = function(buffer, offset, packet, parent, code)
   if code == "A" then
     return dissect.add_order_message(buffer, offset, packet, parent)
   end
-  -- Dissect Add Order with Mpid Message
+  -- Dissect Add Order With Mpid Message
   if code == "F" then
     return dissect.add_order_with_mpid_message(buffer, offset, packet, parent)
   end
@@ -1958,7 +1958,7 @@ display.message_type = function(value)
     return "Message Type: Add Order Message (A)"
   end
   if value == "F" then
-    return "Message Type: Add Order with Mpid Message (F)"
+    return "Message Type: Add Order With Mpid Message (F)"
   end
   if value == "E" then
     return "Message Type: Order Executed Message (E)"
