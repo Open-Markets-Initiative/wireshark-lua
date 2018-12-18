@@ -20,106 +20,101 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Nyse Options DeepFeed Xdp 1.3.a Fields
+nyse_options_deepfeed_xdp_v1_3_a.fields.ask_customer_volume = ProtoField.new("Ask Customer Volume", "nyse.options.deepfeed.xdp.v1.3.a.askcustomervolume", ftypes.UINT16)
+nyse_options_deepfeed_xdp_v1_3_a.fields.ask_price = ProtoField.new("Ask Price", "nyse.options.deepfeed.xdp.v1.3.a.askprice", ftypes.INT32)
+nyse_options_deepfeed_xdp_v1_3_a.fields.ask_volume = ProtoField.new("Ask Volume", "nyse.options.deepfeed.xdp.v1.3.a.askvolume", ftypes.UINT16)
+nyse_options_deepfeed_xdp_v1_3_a.fields.bid_customer_volume = ProtoField.new("Bid Customer Volume", "nyse.options.deepfeed.xdp.v1.3.a.bidcustomervolume", ftypes.UINT16)
+nyse_options_deepfeed_xdp_v1_3_a.fields.bid_price = ProtoField.new("Bid Price", "nyse.options.deepfeed.xdp.v1.3.a.bidprice", ftypes.INT32)
+nyse_options_deepfeed_xdp_v1_3_a.fields.bid_volume = ProtoField.new("Bid Volume", "nyse.options.deepfeed.xdp.v1.3.a.bidvolume", ftypes.UINT16)
 nyse_options_deepfeed_xdp_v1_3_a.fields.channel_id = ProtoField.new("Channel Id", "nyse.options.deepfeed.xdp.v1.3.a.channelid", ftypes.UINT8)
-nyse_options_deepfeed_xdp_v1_3_a.fields.contract_multiplier = ProtoField.new("Contract Multiplier", "nyse.options.deepfeed.xdp.v1.3.a.contractmultiplier", ftypes.UINT16)
+nyse_options_deepfeed_xdp_v1_3_a.fields.complex_crossing_rfq_message = ProtoField.new("Complex Crossing Rfq Message", "nyse.options.deepfeed.xdp.v1.3.a.complexcrossingrfqmessage", ftypes.STRING)
+nyse_options_deepfeed_xdp_v1_3_a.fields.complex_cube_rfq_message = ProtoField.new("Complex Cube Rfq Message", "nyse.options.deepfeed.xdp.v1.3.a.complexcuberfqmessage", ftypes.STRING)
+nyse_options_deepfeed_xdp_v1_3_a.fields.complex_index = ProtoField.new("Complex Index", "nyse.options.deepfeed.xdp.v1.3.a.complexindex", ftypes.UINT32)
+nyse_options_deepfeed_xdp_v1_3_a.fields.complex_quote_message = ProtoField.new("Complex Quote Message", "nyse.options.deepfeed.xdp.v1.3.a.complexquotemessage", ftypes.STRING)
+nyse_options_deepfeed_xdp_v1_3_a.fields.complex_status_message = ProtoField.new("Complex Status Message", "nyse.options.deepfeed.xdp.v1.3.a.complexstatusmessage", ftypes.STRING)
+nyse_options_deepfeed_xdp_v1_3_a.fields.complex_symbol = ProtoField.new("Complex Symbol", "nyse.options.deepfeed.xdp.v1.3.a.complexsymbol", ftypes.STRING)
+nyse_options_deepfeed_xdp_v1_3_a.fields.complex_symbol_definition_message = ProtoField.new("Complex Symbol Definition Message", "nyse.options.deepfeed.xdp.v1.3.a.complexsymboldefinitionmessage", ftypes.STRING)
+nyse_options_deepfeed_xdp_v1_3_a.fields.complex_trade_message = ProtoField.new("Complex Trade Message", "nyse.options.deepfeed.xdp.v1.3.a.complextrademessage", ftypes.STRING)
 nyse_options_deepfeed_xdp_v1_3_a.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.options.deepfeed.xdp.v1.3.a.deliveryflag", ftypes.UINT8)
-nyse_options_deepfeed_xdp_v1_3_a.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.options.deepfeed.xdp.v1.3.a.exchangecode", ftypes.STRING)
-nyse_options_deepfeed_xdp_v1_3_a.fields.first_level_customer_volume = ProtoField.new("First Level Customer Volume", "nyse.options.deepfeed.xdp.v1.3.a.firstlevelcustomervolume", ftypes.UINT16)
-nyse_options_deepfeed_xdp_v1_3_a.fields.first_level_price = ProtoField.new("First Level Price", "nyse.options.deepfeed.xdp.v1.3.a.firstlevelprice", ftypes.INT32)
-nyse_options_deepfeed_xdp_v1_3_a.fields.first_level_volume = ProtoField.new("First Level Volume", "nyse.options.deepfeed.xdp.v1.3.a.firstlevelvolume", ftypes.UINT16)
-nyse_options_deepfeed_xdp_v1_3_a.fields.first_volume = ProtoField.new("First Volume", "nyse.options.deepfeed.xdp.v1.3.a.firstvolume", ftypes.UINT16)
-nyse_options_deepfeed_xdp_v1_3_a.fields.group_id = ProtoField.new("Group Id", "nyse.options.deepfeed.xdp.v1.3.a.groupid", ftypes.UINT32)
 nyse_options_deepfeed_xdp_v1_3_a.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.options.deepfeed.xdp.v1.3.a.haltcondition", ftypes.STRING)
+nyse_options_deepfeed_xdp_v1_3_a.fields.leg_definition = ProtoField.new("Leg Definition", "nyse.options.deepfeed.xdp.v1.3.a.legdefinition", ftypes.STRING)
+nyse_options_deepfeed_xdp_v1_3_a.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "nyse.options.deepfeed.xdp.v1.3.a.legratioqty", ftypes.UINT16)
+nyse_options_deepfeed_xdp_v1_3_a.fields.leg_security_type = ProtoField.new("Leg Security Type", "nyse.options.deepfeed.xdp.v1.3.a.legsecuritytype", ftypes.STRING)
 nyse_options_deepfeed_xdp_v1_3_a.fields.market_id = ProtoField.new("Market Id", "nyse.options.deepfeed.xdp.v1.3.a.marketid", ftypes.UINT16)
-nyse_options_deepfeed_xdp_v1_3_a.fields.maturity_date = ProtoField.new("Maturity Date", "nyse.options.deepfeed.xdp.v1.3.a.maturitydate", ftypes.STRING)
 nyse_options_deepfeed_xdp_v1_3_a.fields.message = ProtoField.new("Message", "nyse.options.deepfeed.xdp.v1.3.a.message", ftypes.STRING)
 nyse_options_deepfeed_xdp_v1_3_a.fields.message_count = ProtoField.new("Message Count", "nyse.options.deepfeed.xdp.v1.3.a.messagecount", ftypes.UINT8)
 nyse_options_deepfeed_xdp_v1_3_a.fields.message_header = ProtoField.new("Message Header", "nyse.options.deepfeed.xdp.v1.3.a.messageheader", ftypes.STRING)
 nyse_options_deepfeed_xdp_v1_3_a.fields.message_size = ProtoField.new("Message Size", "nyse.options.deepfeed.xdp.v1.3.a.messagesize", ftypes.UINT16)
 nyse_options_deepfeed_xdp_v1_3_a.fields.message_type = ProtoField.new("Message Type", "nyse.options.deepfeed.xdp.v1.3.a.messagetype", ftypes.UINT16)
 nyse_options_deepfeed_xdp_v1_3_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.options.deepfeed.xdp.v1.3.a.nanoseconds", ftypes.UINT32)
-nyse_options_deepfeed_xdp_v1_3_a.fields.option_symbol_root = ProtoField.new("Option Symbol Root", "nyse.options.deepfeed.xdp.v1.3.a.optionsymbolroot", ftypes.STRING)
-nyse_options_deepfeed_xdp_v1_3_a.fields.outright_market_depth_buy_message = ProtoField.new("Outright Market Depth Buy Message", "nyse.options.deepfeed.xdp.v1.3.a.outrightmarketdepthbuymessage", ftypes.STRING)
-nyse_options_deepfeed_xdp_v1_3_a.fields.outright_market_depth_sell_message = ProtoField.new("Outright Market Depth Sell Message", "nyse.options.deepfeed.xdp.v1.3.a.outrightmarketdepthsellmessage", ftypes.STRING)
-nyse_options_deepfeed_xdp_v1_3_a.fields.outright_series_status_message = ProtoField.new("Outright Series Status Message", "nyse.options.deepfeed.xdp.v1.3.a.outrightseriesstatusmessage", ftypes.STRING)
+nyse_options_deepfeed_xdp_v1_3_a.fields.no_of_legs = ProtoField.new("No Of Legs", "nyse.options.deepfeed.xdp.v1.3.a.nooflegs", ftypes.UINT16)
 nyse_options_deepfeed_xdp_v1_3_a.fields.packet = ProtoField.new("Packet", "nyse.options.deepfeed.xdp.v1.3.a.packet", ftypes.STRING)
 nyse_options_deepfeed_xdp_v1_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.options.deepfeed.xdp.v1.3.a.packetheader", ftypes.STRING)
 nyse_options_deepfeed_xdp_v1_3_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.options.deepfeed.xdp.v1.3.a.packetsize", ftypes.UINT16)
 nyse_options_deepfeed_xdp_v1_3_a.fields.payload = ProtoField.new("Payload", "nyse.options.deepfeed.xdp.v1.3.a.payload", ftypes.STRING)
-nyse_options_deepfeed_xdp_v1_3_a.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.options.deepfeed.xdp.v1.3.a.priceresolution", ftypes.UINT8)
-nyse_options_deepfeed_xdp_v1_3_a.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.options.deepfeed.xdp.v1.3.a.pricescalecode", ftypes.UINT8)
+nyse_options_deepfeed_xdp_v1_3_a.fields.price = ProtoField.new("Price", "nyse.options.deepfeed.xdp.v1.3.a.price", ftypes.INT32)
 nyse_options_deepfeed_xdp_v1_3_a.fields.product_id = ProtoField.new("Product Id", "nyse.options.deepfeed.xdp.v1.3.a.productid", ftypes.UINT8)
-nyse_options_deepfeed_xdp_v1_3_a.fields.put_or_call = ProtoField.new("Put Or Call", "nyse.options.deepfeed.xdp.v1.3.a.putorcall", ftypes.UINT8)
 nyse_options_deepfeed_xdp_v1_3_a.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.options.deepfeed.xdp.v1.3.a.quotecondition", ftypes.STRING)
-nyse_options_deepfeed_xdp_v1_3_a.fields.refresh_outright_market_depth_buy_message = ProtoField.new("Refresh Outright Market Depth Buy Message", "nyse.options.deepfeed.xdp.v1.3.a.refreshoutrightmarketdepthbuymessage", ftypes.STRING)
-nyse_options_deepfeed_xdp_v1_3_a.fields.refresh_outright_market_depth_sell_message = ProtoField.new("Refresh Outright Market Depth Sell Message", "nyse.options.deepfeed.xdp.v1.3.a.refreshoutrightmarketdepthsellmessage", ftypes.STRING)
+nyse_options_deepfeed_xdp_v1_3_a.fields.refresh_complex_quote_message = ProtoField.new("Refresh Complex Quote Message", "nyse.options.deepfeed.xdp.v1.3.a.refreshcomplexquotemessage", ftypes.STRING)
+nyse_options_deepfeed_xdp_v1_3_a.fields.refresh_complex_trade_message = ProtoField.new("Refresh Complex Trade Message", "nyse.options.deepfeed.xdp.v1.3.a.refreshcomplextrademessage", ftypes.STRING)
 nyse_options_deepfeed_xdp_v1_3_a.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.options.deepfeed.xdp.v1.3.a.reserved1", ftypes.BYTES)
 nyse_options_deepfeed_xdp_v1_3_a.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.options.deepfeed.xdp.v1.3.a.reserved2", ftypes.BYTES)
-nyse_options_deepfeed_xdp_v1_3_a.fields.second_level_customer_volume = ProtoField.new("Second Level Customer Volume", "nyse.options.deepfeed.xdp.v1.3.a.secondlevelcustomervolume", ftypes.UINT16)
-nyse_options_deepfeed_xdp_v1_3_a.fields.second_level_price = ProtoField.new("Second Level Price", "nyse.options.deepfeed.xdp.v1.3.a.secondlevelprice", ftypes.INT32)
-nyse_options_deepfeed_xdp_v1_3_a.fields.second_level_volume = ProtoField.new("Second Level Volume", "nyse.options.deepfeed.xdp.v1.3.a.secondlevelvolume", ftypes.UINT16)
-nyse_options_deepfeed_xdp_v1_3_a.fields.second_volume = ProtoField.new("Second Volume", "nyse.options.deepfeed.xdp.v1.3.a.secondvolume", ftypes.UINT16)
 nyse_options_deepfeed_xdp_v1_3_a.fields.security_status = ProtoField.new("Security Status", "nyse.options.deepfeed.xdp.v1.3.a.securitystatus", ftypes.STRING)
-nyse_options_deepfeed_xdp_v1_3_a.fields.security_type = ProtoField.new("Security Type", "nyse.options.deepfeed.xdp.v1.3.a.securitytype", ftypes.STRING)
 nyse_options_deepfeed_xdp_v1_3_a.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.options.deepfeed.xdp.v1.3.a.sequencenumber", ftypes.UINT32)
 nyse_options_deepfeed_xdp_v1_3_a.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.options.deepfeed.xdp.v1.3.a.sequencenumberresetmessage", ftypes.STRING)
-nyse_options_deepfeed_xdp_v1_3_a.fields.series_index = ProtoField.new("Series Index", "nyse.options.deepfeed.xdp.v1.3.a.seriesindex", ftypes.UINT32)
-nyse_options_deepfeed_xdp_v1_3_a.fields.series_index_mapping_message = ProtoField.new("Series Index Mapping Message", "nyse.options.deepfeed.xdp.v1.3.a.seriesindexmappingmessage", ftypes.STRING)
+nyse_options_deepfeed_xdp_v1_3_a.fields.side = ProtoField.new("Side", "nyse.options.deepfeed.xdp.v1.3.a.side", ftypes.STRING)
 nyse_options_deepfeed_xdp_v1_3_a.fields.source_ns = ProtoField.new("Source Ns", "nyse.options.deepfeed.xdp.v1.3.a.sourcens", ftypes.UINT32)
 nyse_options_deepfeed_xdp_v1_3_a.fields.source_time = ProtoField.new("Source Time", "nyse.options.deepfeed.xdp.v1.3.a.sourcetime", ftypes.UINT32)
 nyse_options_deepfeed_xdp_v1_3_a.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.options.deepfeed.xdp.v1.3.a.sourcetimens", ftypes.UINT32)
 nyse_options_deepfeed_xdp_v1_3_a.fields.stream_id = ProtoField.new("Stream Id", "nyse.options.deepfeed.xdp.v1.3.a.streamid", ftypes.UINT16)
 nyse_options_deepfeed_xdp_v1_3_a.fields.stream_id_message = ProtoField.new("Stream Id Message", "nyse.options.deepfeed.xdp.v1.3.a.streamidmessage", ftypes.STRING)
-nyse_options_deepfeed_xdp_v1_3_a.fields.strike_price = ProtoField.new("Strike Price", "nyse.options.deepfeed.xdp.v1.3.a.strikeprice", ftypes.STRING)
+nyse_options_deepfeed_xdp_v1_3_a.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.options.deepfeed.xdp.v1.3.a.symbolindex", ftypes.UINT32)
 nyse_options_deepfeed_xdp_v1_3_a.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.options.deepfeed.xdp.v1.3.a.symbolseqnum", ftypes.UINT32)
 nyse_options_deepfeed_xdp_v1_3_a.fields.system_id = ProtoField.new("System Id", "nyse.options.deepfeed.xdp.v1.3.a.systemid", ftypes.UINT8)
-nyse_options_deepfeed_xdp_v1_3_a.fields.third_level_customer_volume = ProtoField.new("Third Level Customer Volume", "nyse.options.deepfeed.xdp.v1.3.a.thirdlevelcustomervolume", ftypes.UINT16)
-nyse_options_deepfeed_xdp_v1_3_a.fields.third_level_price = ProtoField.new("Third Level Price", "nyse.options.deepfeed.xdp.v1.3.a.thirdlevelprice", ftypes.INT32)
-nyse_options_deepfeed_xdp_v1_3_a.fields.third_level_volume = ProtoField.new("Third Level Volume", "nyse.options.deepfeed.xdp.v1.3.a.thirdlevelvolume", ftypes.UINT16)
-nyse_options_deepfeed_xdp_v1_3_a.fields.third_volume = ProtoField.new("Third Volume", "nyse.options.deepfeed.xdp.v1.3.a.thirdvolume", ftypes.UINT16)
 nyse_options_deepfeed_xdp_v1_3_a.fields.timestamp = ProtoField.new("Timestamp", "nyse.options.deepfeed.xdp.v1.3.a.timestamp", ftypes.UINT32)
-nyse_options_deepfeed_xdp_v1_3_a.fields.underlying_index = ProtoField.new("Underlying Index", "nyse.options.deepfeed.xdp.v1.3.a.underlyingindex", ftypes.UINT32)
-nyse_options_deepfeed_xdp_v1_3_a.fields.underlying_index_mapping_message = ProtoField.new("Underlying Index Mapping Message", "nyse.options.deepfeed.xdp.v1.3.a.underlyingindexmappingmessage", ftypes.STRING)
-nyse_options_deepfeed_xdp_v1_3_a.fields.underlying_seq_num = ProtoField.new("Underlying Seq Num", "nyse.options.deepfeed.xdp.v1.3.a.underlyingseqnum", ftypes.UINT32)
-nyse_options_deepfeed_xdp_v1_3_a.fields.underlying_status_message = ProtoField.new("Underlying Status Message", "nyse.options.deepfeed.xdp.v1.3.a.underlyingstatusmessage", ftypes.STRING)
-nyse_options_deepfeed_xdp_v1_3_a.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nyse.options.deepfeed.xdp.v1.3.a.underlyingsymbol", ftypes.STRING)
+nyse_options_deepfeed_xdp_v1_3_a.fields.trade_cond_1 = ProtoField.new("Trade Cond 1", "nyse.options.deepfeed.xdp.v1.3.a.tradecond1", ftypes.STRING)
+nyse_options_deepfeed_xdp_v1_3_a.fields.trade_cond_2 = ProtoField.new("Trade Cond 2", "nyse.options.deepfeed.xdp.v1.3.a.tradecond2", ftypes.STRING)
+nyse_options_deepfeed_xdp_v1_3_a.fields.trade_id = ProtoField.new("Trade Id", "nyse.options.deepfeed.xdp.v1.3.a.tradeid", ftypes.UINT32)
+nyse_options_deepfeed_xdp_v1_3_a.fields.volume = ProtoField.new("Volume", "nyse.options.deepfeed.xdp.v1.3.a.volume", ftypes.UINT32)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
 -- Nyse Options DeepFeed Xdp 1.3.a Element Dissection Options
+show.complex_crossing_rfq_message = true
+show.complex_cube_rfq_message = true
+show.complex_quote_message = true
+show.complex_status_message = true
+show.complex_symbol_definition_message = true
+show.complex_trade_message = true
+show.leg_definition = true
 show.message = true
 show.message_header = true
-show.outright_market_depth_buy_message = true
-show.outright_market_depth_sell_message = true
-show.outright_series_status_message = true
 show.packet = true
 show.packet_header = true
-show.refresh_outright_market_depth_buy_message = true
-show.refresh_outright_market_depth_sell_message = true
+show.refresh_complex_quote_message = true
+show.refresh_complex_trade_message = true
 show.sequence_number_reset_message = true
-show.series_index_mapping_message = true
 show.stream_id_message = true
-show.underlying_index_mapping_message = true
-show.underlying_status_message = true
 show.payload = false
 
 -- Register Nyse Options DeepFeed Xdp 1.3.a Show Options
+nyse_options_deepfeed_xdp_v1_3_a.prefs.show_complex_crossing_rfq_message = Pref.bool("Show Complex Crossing Rfq Message", show.complex_crossing_rfq_message, "Parse and add Complex Crossing Rfq Message to protocol tree")
+nyse_options_deepfeed_xdp_v1_3_a.prefs.show_complex_cube_rfq_message = Pref.bool("Show Complex Cube Rfq Message", show.complex_cube_rfq_message, "Parse and add Complex Cube Rfq Message to protocol tree")
+nyse_options_deepfeed_xdp_v1_3_a.prefs.show_complex_quote_message = Pref.bool("Show Complex Quote Message", show.complex_quote_message, "Parse and add Complex Quote Message to protocol tree")
+nyse_options_deepfeed_xdp_v1_3_a.prefs.show_complex_status_message = Pref.bool("Show Complex Status Message", show.complex_status_message, "Parse and add Complex Status Message to protocol tree")
+nyse_options_deepfeed_xdp_v1_3_a.prefs.show_complex_symbol_definition_message = Pref.bool("Show Complex Symbol Definition Message", show.complex_symbol_definition_message, "Parse and add Complex Symbol Definition Message to protocol tree")
+nyse_options_deepfeed_xdp_v1_3_a.prefs.show_complex_trade_message = Pref.bool("Show Complex Trade Message", show.complex_trade_message, "Parse and add Complex Trade Message to protocol tree")
+nyse_options_deepfeed_xdp_v1_3_a.prefs.show_leg_definition = Pref.bool("Show Leg Definition", show.leg_definition, "Parse and add Leg Definition to protocol tree")
 nyse_options_deepfeed_xdp_v1_3_a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 nyse_options_deepfeed_xdp_v1_3_a.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-nyse_options_deepfeed_xdp_v1_3_a.prefs.show_outright_market_depth_buy_message = Pref.bool("Show Outright Market Depth Buy Message", show.outright_market_depth_buy_message, "Parse and add Outright Market Depth Buy Message to protocol tree")
-nyse_options_deepfeed_xdp_v1_3_a.prefs.show_outright_market_depth_sell_message = Pref.bool("Show Outright Market Depth Sell Message", show.outright_market_depth_sell_message, "Parse and add Outright Market Depth Sell Message to protocol tree")
-nyse_options_deepfeed_xdp_v1_3_a.prefs.show_outright_series_status_message = Pref.bool("Show Outright Series Status Message", show.outright_series_status_message, "Parse and add Outright Series Status Message to protocol tree")
 nyse_options_deepfeed_xdp_v1_3_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 nyse_options_deepfeed_xdp_v1_3_a.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-nyse_options_deepfeed_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_buy_message = Pref.bool("Show Refresh Outright Market Depth Buy Message", show.refresh_outright_market_depth_buy_message, "Parse and add Refresh Outright Market Depth Buy Message to protocol tree")
-nyse_options_deepfeed_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_sell_message = Pref.bool("Show Refresh Outright Market Depth Sell Message", show.refresh_outright_market_depth_sell_message, "Parse and add Refresh Outright Market Depth Sell Message to protocol tree")
+nyse_options_deepfeed_xdp_v1_3_a.prefs.show_refresh_complex_quote_message = Pref.bool("Show Refresh Complex Quote Message", show.refresh_complex_quote_message, "Parse and add Refresh Complex Quote Message to protocol tree")
+nyse_options_deepfeed_xdp_v1_3_a.prefs.show_refresh_complex_trade_message = Pref.bool("Show Refresh Complex Trade Message", show.refresh_complex_trade_message, "Parse and add Refresh Complex Trade Message to protocol tree")
 nyse_options_deepfeed_xdp_v1_3_a.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
-nyse_options_deepfeed_xdp_v1_3_a.prefs.show_series_index_mapping_message = Pref.bool("Show Series Index Mapping Message", show.series_index_mapping_message, "Parse and add Series Index Mapping Message to protocol tree")
 nyse_options_deepfeed_xdp_v1_3_a.prefs.show_stream_id_message = Pref.bool("Show Stream Id Message", show.stream_id_message, "Parse and add Stream Id Message to protocol tree")
-nyse_options_deepfeed_xdp_v1_3_a.prefs.show_underlying_index_mapping_message = Pref.bool("Show Underlying Index Mapping Message", show.underlying_index_mapping_message, "Parse and add Underlying Index Mapping Message to protocol tree")
-nyse_options_deepfeed_xdp_v1_3_a.prefs.show_underlying_status_message = Pref.bool("Show Underlying Status Message", show.underlying_status_message, "Parse and add Underlying Status Message to protocol tree")
 nyse_options_deepfeed_xdp_v1_3_a.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
@@ -127,24 +122,40 @@ function nyse_options_deepfeed_xdp_v1_3_a.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
+  if show.complex_crossing_rfq_message ~= nyse_options_deepfeed_xdp_v1_3_a.prefs.show_complex_crossing_rfq_message then
+    show.complex_crossing_rfq_message = nyse_options_deepfeed_xdp_v1_3_a.prefs.show_complex_crossing_rfq_message
+    changed = true
+  end
+  if show.complex_cube_rfq_message ~= nyse_options_deepfeed_xdp_v1_3_a.prefs.show_complex_cube_rfq_message then
+    show.complex_cube_rfq_message = nyse_options_deepfeed_xdp_v1_3_a.prefs.show_complex_cube_rfq_message
+    changed = true
+  end
+  if show.complex_quote_message ~= nyse_options_deepfeed_xdp_v1_3_a.prefs.show_complex_quote_message then
+    show.complex_quote_message = nyse_options_deepfeed_xdp_v1_3_a.prefs.show_complex_quote_message
+    changed = true
+  end
+  if show.complex_status_message ~= nyse_options_deepfeed_xdp_v1_3_a.prefs.show_complex_status_message then
+    show.complex_status_message = nyse_options_deepfeed_xdp_v1_3_a.prefs.show_complex_status_message
+    changed = true
+  end
+  if show.complex_symbol_definition_message ~= nyse_options_deepfeed_xdp_v1_3_a.prefs.show_complex_symbol_definition_message then
+    show.complex_symbol_definition_message = nyse_options_deepfeed_xdp_v1_3_a.prefs.show_complex_symbol_definition_message
+    changed = true
+  end
+  if show.complex_trade_message ~= nyse_options_deepfeed_xdp_v1_3_a.prefs.show_complex_trade_message then
+    show.complex_trade_message = nyse_options_deepfeed_xdp_v1_3_a.prefs.show_complex_trade_message
+    changed = true
+  end
+  if show.leg_definition ~= nyse_options_deepfeed_xdp_v1_3_a.prefs.show_leg_definition then
+    show.leg_definition = nyse_options_deepfeed_xdp_v1_3_a.prefs.show_leg_definition
+    changed = true
+  end
   if show.message ~= nyse_options_deepfeed_xdp_v1_3_a.prefs.show_message then
     show.message = nyse_options_deepfeed_xdp_v1_3_a.prefs.show_message
     changed = true
   end
   if show.message_header ~= nyse_options_deepfeed_xdp_v1_3_a.prefs.show_message_header then
     show.message_header = nyse_options_deepfeed_xdp_v1_3_a.prefs.show_message_header
-    changed = true
-  end
-  if show.outright_market_depth_buy_message ~= nyse_options_deepfeed_xdp_v1_3_a.prefs.show_outright_market_depth_buy_message then
-    show.outright_market_depth_buy_message = nyse_options_deepfeed_xdp_v1_3_a.prefs.show_outright_market_depth_buy_message
-    changed = true
-  end
-  if show.outright_market_depth_sell_message ~= nyse_options_deepfeed_xdp_v1_3_a.prefs.show_outright_market_depth_sell_message then
-    show.outright_market_depth_sell_message = nyse_options_deepfeed_xdp_v1_3_a.prefs.show_outright_market_depth_sell_message
-    changed = true
-  end
-  if show.outright_series_status_message ~= nyse_options_deepfeed_xdp_v1_3_a.prefs.show_outright_series_status_message then
-    show.outright_series_status_message = nyse_options_deepfeed_xdp_v1_3_a.prefs.show_outright_series_status_message
     changed = true
   end
   if show.packet ~= nyse_options_deepfeed_xdp_v1_3_a.prefs.show_packet then
@@ -155,32 +166,20 @@ function nyse_options_deepfeed_xdp_v1_3_a.prefs_changed()
     show.packet_header = nyse_options_deepfeed_xdp_v1_3_a.prefs.show_packet_header
     changed = true
   end
-  if show.refresh_outright_market_depth_buy_message ~= nyse_options_deepfeed_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_buy_message then
-    show.refresh_outright_market_depth_buy_message = nyse_options_deepfeed_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_buy_message
+  if show.refresh_complex_quote_message ~= nyse_options_deepfeed_xdp_v1_3_a.prefs.show_refresh_complex_quote_message then
+    show.refresh_complex_quote_message = nyse_options_deepfeed_xdp_v1_3_a.prefs.show_refresh_complex_quote_message
     changed = true
   end
-  if show.refresh_outright_market_depth_sell_message ~= nyse_options_deepfeed_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_sell_message then
-    show.refresh_outright_market_depth_sell_message = nyse_options_deepfeed_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_sell_message
+  if show.refresh_complex_trade_message ~= nyse_options_deepfeed_xdp_v1_3_a.prefs.show_refresh_complex_trade_message then
+    show.refresh_complex_trade_message = nyse_options_deepfeed_xdp_v1_3_a.prefs.show_refresh_complex_trade_message
     changed = true
   end
   if show.sequence_number_reset_message ~= nyse_options_deepfeed_xdp_v1_3_a.prefs.show_sequence_number_reset_message then
     show.sequence_number_reset_message = nyse_options_deepfeed_xdp_v1_3_a.prefs.show_sequence_number_reset_message
     changed = true
   end
-  if show.series_index_mapping_message ~= nyse_options_deepfeed_xdp_v1_3_a.prefs.show_series_index_mapping_message then
-    show.series_index_mapping_message = nyse_options_deepfeed_xdp_v1_3_a.prefs.show_series_index_mapping_message
-    changed = true
-  end
   if show.stream_id_message ~= nyse_options_deepfeed_xdp_v1_3_a.prefs.show_stream_id_message then
     show.stream_id_message = nyse_options_deepfeed_xdp_v1_3_a.prefs.show_stream_id_message
-    changed = true
-  end
-  if show.underlying_index_mapping_message ~= nyse_options_deepfeed_xdp_v1_3_a.prefs.show_underlying_index_mapping_message then
-    show.underlying_index_mapping_message = nyse_options_deepfeed_xdp_v1_3_a.prefs.show_underlying_index_mapping_message
-    changed = true
-  end
-  if show.underlying_status_message ~= nyse_options_deepfeed_xdp_v1_3_a.prefs.show_underlying_status_message then
-    show.underlying_status_message = nyse_options_deepfeed_xdp_v1_3_a.prefs.show_underlying_status_message
     changed = true
   end
   if show.payload ~= nyse_options_deepfeed_xdp_v1_3_a.prefs.show_payload then
@@ -379,182 +378,149 @@ dissect.stream_id_message = function(buffer, offset, packet, parent)
   return dissect.stream_id_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Group Id
-size_of.group_id = 4
+-- Size: Leg Security Type
+size_of.leg_security_type = 1
 
--- Display: Group Id
-display.group_id = function(value)
-  return "Group Id: "..value
-end
-
--- Dissect: Group Id
-dissect.group_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.group_id)
-  local value = range:le_uint()
-  local display = display.group_id(value, buffer, offset, packet, parent)
-
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.group_id, range, value, display)
-
-  return offset + size_of.group_id
-end
-
--- Size: Option Symbol Root
-size_of.option_symbol_root = 5
-
--- Display: Option Symbol Root
-display.option_symbol_root = function(value)
-  return "Option Symbol Root: "..value
-end
-
--- Dissect: Option Symbol Root
-dissect.option_symbol_root = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.option_symbol_root)
-  local value = range:string()
-  local display = display.option_symbol_root(value, buffer, offset, packet, parent)
-
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.option_symbol_root, range, value, display)
-
-  return offset + size_of.option_symbol_root
-end
-
--- Size: Underlying Symbol
-size_of.underlying_symbol = 11
-
--- Display: Underlying Symbol
-display.underlying_symbol = function(value)
-  return "Underlying Symbol: "..value
-end
-
--- Dissect: Underlying Symbol
-dissect.underlying_symbol = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.underlying_symbol)
-  local value = range:string()
-  local display = display.underlying_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.underlying_symbol, range, value, display)
-
-  return offset + size_of.underlying_symbol
-end
-
--- Size: Price Scale Code
-size_of.price_scale_code = 1
-
--- Display: Price Scale Code
-display.price_scale_code = function(value)
-  return "Price Scale Code: "..value
-end
-
--- Dissect: Price Scale Code
-dissect.price_scale_code = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price_scale_code)
-  local value = range:le_uint()
-  local display = display.price_scale_code(value, buffer, offset, packet, parent)
-
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.price_scale_code, range, value, display)
-
-  return offset + size_of.price_scale_code
-end
-
--- Size: Strike Price
-size_of.strike_price = 10
-
--- Display: Strike Price
-display.strike_price = function(value)
-  return "Strike Price: "..value
-end
-
--- Dissect: Strike Price
-dissect.strike_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.strike_price)
-  local value = range:string()
-  local display = display.strike_price(value, buffer, offset, packet, parent)
-
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.strike_price, range, value, display)
-
-  return offset + size_of.strike_price
-end
-
--- Size: Put Or Call
-size_of.put_or_call = 1
-
--- Display: Put Or Call
-display.put_or_call = function(value)
-  if value == 0 then
-    return "Put Or Call: Put (0)"
+-- Display: Leg Security Type
+display.leg_security_type = function(value)
+  if value == "O" then
+    return "Leg Security Type: Options Series Leg (O)"
   end
-  if value == 1 then
-    return "Put Or Call: Call (1)"
+  if value == "E" then
+    return "Leg Security Type: Equity Stock Leg (E)"
   end
 
-  return "Put Or Call: Unknown("..value..")"
+  return "Leg Security Type: Unknown("..value..")"
 end
 
--- Dissect: Put Or Call
-dissect.put_or_call = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.put_or_call)
-  local value = range:le_uint()
-  local display = display.put_or_call(value, buffer, offset, packet, parent)
-
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.put_or_call, range, value, display)
-
-  return offset + size_of.put_or_call
-end
-
--- Size: Maturity Date
-size_of.maturity_date = 6
-
--- Display: Maturity Date
-display.maturity_date = function(value)
-  return "Maturity Date: "..value
-end
-
--- Dissect: Maturity Date
-dissect.maturity_date = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.maturity_date)
+-- Dissect: Leg Security Type
+dissect.leg_security_type = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.leg_security_type)
   local value = range:string()
-  local display = display.maturity_date(value, buffer, offset, packet, parent)
+  local display = display.leg_security_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.maturity_date, range, value, display)
+  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.leg_security_type, range, value, display)
 
-  return offset + size_of.maturity_date
+  return offset + size_of.leg_security_type
 end
 
--- Size: Contract Multiplier
-size_of.contract_multiplier = 2
+-- Size: Side
+size_of.side = 1
 
--- Display: Contract Multiplier
-display.contract_multiplier = function(value)
-  return "Contract Multiplier: "..value
+-- Display: Side
+display.side = function(value)
+  if value == "B" then
+    return "Side: Buy (B)"
+  end
+  if value == "S" then
+    return "Side: Sell (S)"
+  end
+
+  return "Side: Unknown("..value..")"
 end
 
--- Dissect: Contract Multiplier
-dissect.contract_multiplier = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.contract_multiplier)
+-- Dissect: Side
+dissect.side = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.side)
+  local value = range:string()
+  local display = display.side(value, buffer, offset, packet, parent)
+
+  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.side, range, value, display)
+
+  return offset + size_of.side
+end
+
+-- Size: Leg Ratio Qty
+size_of.leg_ratio_qty = 2
+
+-- Display: Leg Ratio Qty
+display.leg_ratio_qty = function(value)
+  return "Leg Ratio Qty: "..value
+end
+
+-- Dissect: Leg Ratio Qty
+dissect.leg_ratio_qty = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.leg_ratio_qty)
   local value = range:le_uint()
-  local display = display.contract_multiplier(value, buffer, offset, packet, parent)
+  local display = display.leg_ratio_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.contract_multiplier, range, value, display)
+  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.leg_ratio_qty, range, value, display)
 
-  return offset + size_of.contract_multiplier
+  return offset + size_of.leg_ratio_qty
 end
 
--- Size: Underlying Index
-size_of.underlying_index = 4
+-- Size: Symbol Index
+size_of.symbol_index = 4
 
--- Display: Underlying Index
-display.underlying_index = function(value)
-  return "Underlying Index: "..value
+-- Display: Symbol Index
+display.symbol_index = function(value)
+  return "Symbol Index: "..value
 end
 
--- Dissect: Underlying Index
-dissect.underlying_index = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.underlying_index)
+-- Dissect: Symbol Index
+dissect.symbol_index = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.symbol_index)
   local value = range:le_uint()
-  local display = display.underlying_index(value, buffer, offset, packet, parent)
+  local display = display.symbol_index(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.underlying_index, range, value, display)
+  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.symbol_index, range, value, display)
 
-  return offset + size_of.underlying_index
+  return offset + size_of.symbol_index
+end
+
+-- Display: Leg Definition
+display.leg_definition = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Leg Definition
+dissect.leg_definition_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.symbol_index(buffer, index, packet, parent)
+
+  -- Leg Ratio Qty: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.leg_ratio_qty(buffer, index, packet, parent)
+
+  -- Side: 1 Byte Ascii String Enum with 2 values
+  index = dissect.side(buffer, index, packet, parent)
+
+  -- Leg Security Type: 1 Byte Ascii String Enum with 2 values
+  index = dissect.leg_security_type(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Leg Definition
+dissect.leg_definition = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.leg_definition then
+    local range = buffer(offset, 8)
+    local display = display.leg_definition(buffer, packet, parent)
+    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.leg_definition, range, display)
+  end
+
+  return dissect.leg_definition_fields(buffer, offset, packet, parent)
+end
+
+-- Size: No Of Legs
+size_of.no_of_legs = 2
+
+-- Display: No Of Legs
+display.no_of_legs = function(value)
+  return "No Of Legs: "..value
+end
+
+-- Dissect: No Of Legs
+dissect.no_of_legs = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.no_of_legs)
+  local value = range:le_uint()
+  local display = display.no_of_legs(value, buffer, offset, packet, parent)
+
+  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.no_of_legs, range, value, display)
+
+  return offset + size_of.no_of_legs
 end
 
 -- Size: Reserved 1
@@ -642,42 +608,61 @@ dissect.market_id = function(buffer, offset, packet, parent)
   return offset + size_of.market_id
 end
 
--- Size: Series Index
-size_of.series_index = 4
+-- Size: Complex Symbol
+size_of.complex_symbol = 21
 
--- Display: Series Index
-display.series_index = function(value)
-  return "Series Index: "..value
+-- Display: Complex Symbol
+display.complex_symbol = function(value)
+  return "Complex Symbol: "..value
 end
 
--- Dissect: Series Index
-dissect.series_index = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.series_index)
+-- Dissect: Complex Symbol
+dissect.complex_symbol = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.complex_symbol)
+  local value = range:string()
+  local display = display.complex_symbol(value, buffer, offset, packet, parent)
+
+  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.complex_symbol, range, value, display)
+
+  return offset + size_of.complex_symbol
+end
+
+-- Size: Complex Index
+size_of.complex_index = 4
+
+-- Display: Complex Index
+display.complex_index = function(value)
+  return "Complex Index: "..value
+end
+
+-- Dissect: Complex Index
+dissect.complex_index = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.complex_index)
   local value = range:le_uint()
-  local display = display.series_index(value, buffer, offset, packet, parent)
+  local display = display.complex_index(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.series_index, range, value, display)
+  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.complex_index, range, value, display)
 
-  return offset + size_of.series_index
+  return offset + size_of.complex_index
 end
 
--- Display: Series Index Mapping Message
-display.series_index_mapping_message = function(buffer, offset, size, packet, parent)
+-- Display: Complex Symbol Definition Message
+display.complex_symbol_definition_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Series Index Mapping Message
-dissect.series_index_mapping_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Complex Symbol Definition Message
+dissect.complex_symbol_definition_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.series_index(buffer, index, packet, parent)
+  -- Complex Index: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.complex_index(buffer, index, packet, parent)
+
+  -- Complex Symbol: 21 Byte Ascii String
+  index = dissect.complex_symbol(buffer, index, packet, parent)
 
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
   index = dissect.channel_id(buffer, index, packet, parent)
-
-  -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
   index = dissect.market_id(buffer, index, packet, parent)
@@ -691,292 +676,216 @@ dissect.series_index_mapping_message_fields = function(buffer, offset, packet, p
   -- Stream Id: 2 Byte Unsigned Fixed Width Integer
   index = dissect.stream_id(buffer, index, packet, parent)
 
-  -- Underlying Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.underlying_index(buffer, index, packet, parent)
+  -- No Of Legs: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.no_of_legs(buffer, index, packet, parent)
 
-  -- Contract Multiplier: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_multiplier(buffer, index, packet, parent)
+  -- Reserved 2: 2 Byte
+  index = dissect.reserved_2(buffer, index, packet, parent)
 
-  -- Maturity Date: 6 Byte Ascii String
-  index = dissect.maturity_date(buffer, index, packet, parent)
-
-  -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.put_or_call(buffer, index, packet, parent)
-
-  -- Strike Price: 10 Byte Ascii String
-  index = dissect.strike_price(buffer, index, packet, parent)
-
-  -- Price Scale Code: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.price_scale_code(buffer, index, packet, parent)
-
-  -- Underlying Symbol: 11 Byte Ascii String
-  index = dissect.underlying_symbol(buffer, index, packet, parent)
-
-  -- Option Symbol Root: 5 Byte Ascii String
-  index = dissect.option_symbol_root(buffer, index, packet, parent)
-
-  -- Group Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.group_id(buffer, index, packet, parent)
+  -- Leg Definition: Struct of 4 fields
+  index = dissect.leg_definition(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Series Index Mapping Message
-dissect.series_index_mapping_message = function(buffer, offset, packet, parent)
+-- Dissect: Complex Symbol Definition Message
+dissect.complex_symbol_definition_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.series_index_mapping_message then
-    local range = buffer(offset, 56)
-    local display = display.series_index_mapping_message(buffer, packet, parent)
-    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.series_index_mapping_message, range, display)
+  if show.complex_symbol_definition_message then
+    local range = buffer(offset, 44)
+    local display = display.complex_symbol_definition_message(buffer, packet, parent)
+    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.complex_symbol_definition_message, range, display)
   end
 
-  return dissect.series_index_mapping_message_fields(buffer, offset, packet, parent)
+  return dissect.complex_symbol_definition_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Price Resolution
-size_of.price_resolution = 1
+-- Size: Trade Cond 2
+size_of.trade_cond_2 = 1
 
--- Display: Price Resolution
-display.price_resolution = function(value)
-  if value == 0 then
-    return "Price Resolution: All Penny (0)"
+-- Display: Trade Cond 2
+display.trade_cond_2 = function(value)
+  if value == "P" then
+    return "Trade Cond 2: Complex Trade With Equity (P)"
   end
-  if value == 1 then
-    return "Price Resolution: Penny Nickel (1)"
-  end
-  if value == 5 then
-    return "Price Resolution: Nickel Dime (5)"
+  if value == "L" then
+    return "Trade Cond 2: Complex Trade (L)"
   end
 
-  return "Price Resolution: Unknown("..value..")"
+  return "Trade Cond 2: Unknown("..value..")"
 end
 
--- Dissect: Price Resolution
-dissect.price_resolution = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price_resolution)
-  local value = range:le_uint()
-  local display = display.price_resolution(value, buffer, offset, packet, parent)
+-- Dissect: Trade Cond 2
+dissect.trade_cond_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.trade_cond_2)
+  local value = range:string()
+  local display = display.trade_cond_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.price_resolution, range, value, display)
+  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.trade_cond_2, range, value, display)
 
-  return offset + size_of.price_resolution
+  return offset + size_of.trade_cond_2
 end
 
--- Size: Security Type
-size_of.security_type = 1
+-- Size: Trade Cond 1
+size_of.trade_cond_1 = 1
 
--- Display: Security Type
-display.security_type = function(value)
-  if value == "A" then
-    return "Security Type: Adr (A)"
-  end
-  if value == "C" then
-    return "Security Type: Common Stock (C)"
-  end
-  if value == "D" then
-    return "Security Type: Debentures (D)"
-  end
-  if value == "E" then
-    return "Security Type: Etf (E)"
-  end
-  if value == "F" then
-    return "Security Type: Foreign (F)"
-  end
-  if value == "H" then
-    return "Security Type: American Depository Shares (H)"
+-- Display: Trade Cond 1
+display.trade_cond_1 = function(value)
+  if value == " " then
+    return "Trade Cond 1: Regular Trade (<whitespace>)"
   end
   if value == "I" then
-    return "Security Type: Units (I)"
-  end
-  if value == "M" then
-    return "Security Type: Miscliquid Trust (M)"
-  end
-  if value == "O" then
-    return "Security Type: Ordinary Shares (O)"
-  end
-  if value == "P" then
-    return "Security Type: Preferred Stock (P)"
+    return "Trade Cond 1: Late Report (I)"
   end
   if value == "R" then
-    return "Security Type: Rights (R)"
+    return "Trade Cond 1: Floor Trade (R)"
   end
   if value == "S" then
-    return "Security Type: Shares Of Beneficiary Interest (S)"
-  end
-  if value == "T" then
-    return "Security Type: Test (T)"
-  end
-  if value == "U" then
-    return "Security Type: Units (U)"
-  end
-  if value == "W" then
-    return "Security Type: Warrant (W)"
-  end
-  if value == "X" then
-    return "Security Type: Index (X)"
+    return "Trade Cond 1: So Sweep Trade (S)"
   end
 
-  return "Security Type: Unknown("..value..")"
+  return "Trade Cond 1: Unknown("..value..")"
 end
 
--- Dissect: Security Type
-dissect.security_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_type)
+-- Dissect: Trade Cond 1
+dissect.trade_cond_1 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.trade_cond_1)
   local value = range:string()
-  local display = display.security_type(value, buffer, offset, packet, parent)
+  local display = display.trade_cond_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.security_type, range, value, display)
+  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.trade_cond_1, range, value, display)
 
-  return offset + size_of.security_type
+  return offset + size_of.trade_cond_1
 end
 
--- Size: Exchange Code
-size_of.exchange_code = 1
+-- Size: Volume
+size_of.volume = 4
 
--- Display: Exchange Code
-display.exchange_code = function(value)
-  if value == "N" then
-    return "Exchange Code: Nyse (N)"
-  end
-  if value == "P" then
-    return "Exchange Code: Nyse Arca (P)"
-  end
-  if value == "Q" then
-    return "Exchange Code: Nasdaq (Q)"
-  end
-  if value == "A" then
-    return "Exchange Code: Nyse Mkt (A)"
-  end
-  if value == "1" then
-    return "Exchange Code: Global Otc (1)"
-  end
-  if value == "2" then
-    return "Exchange Code: Arca Local Nontapeb Index (2)"
-  end
-
-  return "Exchange Code: Unknown("..value..")"
+-- Display: Volume
+display.volume = function(value)
+  return "Volume: "..value
 end
 
--- Dissect: Exchange Code
-dissect.exchange_code = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.exchange_code)
-  local value = range:string()
-  local display = display.exchange_code(value, buffer, offset, packet, parent)
+-- Dissect: Volume
+dissect.volume = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.volume)
+  local value = range:le_uint()
+  local display = display.volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.exchange_code, range, value, display)
+  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.volume, range, value, display)
 
-  return offset + size_of.exchange_code
+  return offset + size_of.volume
 end
 
--- Display: Underlying Index Mapping Message
-display.underlying_index_mapping_message = function(buffer, offset, size, packet, parent)
+-- Size: Price
+size_of.price = 4
+
+-- Display: Price
+display.price = function(value)
+  return "Price: "..value
+end
+
+-- Dissect: Price
+dissect.price = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.price)
+  local value = range:le_int()
+  local display = display.price(value, buffer, offset, packet, parent)
+
+  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.price, range, value, display)
+
+  return offset + size_of.price
+end
+
+-- Size: Trade Id
+size_of.trade_id = 4
+
+-- Display: Trade Id
+display.trade_id = function(value)
+  return "Trade Id: "..value
+end
+
+-- Dissect: Trade Id
+dissect.trade_id = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.trade_id)
+  local value = range:le_uint()
+  local display = display.trade_id(value, buffer, offset, packet, parent)
+
+  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.trade_id, range, value, display)
+
+  return offset + size_of.trade_id
+end
+
+-- Size: Symbol Seq Num
+size_of.symbol_seq_num = 4
+
+-- Display: Symbol Seq Num
+display.symbol_seq_num = function(value)
+  return "Symbol Seq Num: "..value
+end
+
+-- Dissect: Symbol Seq Num
+dissect.symbol_seq_num = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.symbol_seq_num)
+  local value = range:le_uint()
+  local display = display.symbol_seq_num(value, buffer, offset, packet, parent)
+
+  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.symbol_seq_num, range, value, display)
+
+  return offset + size_of.symbol_seq_num
+end
+
+-- Display: Refresh Complex Trade Message
+display.refresh_complex_trade_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Underlying Index Mapping Message
-dissect.underlying_index_mapping_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Refresh Complex Trade Message
+dissect.refresh_complex_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Underlying Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.underlying_index(buffer, index, packet, parent)
+  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.source_time(buffer, index, packet, parent)
 
-  -- Underlying Symbol: 11 Byte Ascii String
-  index = dissect.underlying_symbol(buffer, index, packet, parent)
+  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.source_time_ns(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.channel_id(buffer, index, packet, parent)
+  -- Complex Index: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.complex_index(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
-  index = dissect.market_id(buffer, index, packet, parent)
+  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.symbol_seq_num(buffer, index, packet, parent)
 
-  -- System Id: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.system_id(buffer, index, packet, parent)
+  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.trade_id(buffer, index, packet, parent)
 
-  -- Exchange Code: 1 Byte Ascii String Enum with 6 values
-  index = dissect.exchange_code(buffer, index, packet, parent)
+  -- Price: 4 Byte Signed Fixed Width Integer
+  index = dissect.price(buffer, index, packet, parent)
 
-  -- Price Scale Code: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.price_scale_code(buffer, index, packet, parent)
+  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.volume(buffer, index, packet, parent)
 
-  -- Security Type: 1 Byte Ascii String Enum with 16 values
-  index = dissect.security_type(buffer, index, packet, parent)
+  -- Trade Cond 1: 1 Byte Ascii String Enum with 4 values
+  index = dissect.trade_cond_1(buffer, index, packet, parent)
 
-  -- Price Resolution: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index = dissect.price_resolution(buffer, index, packet, parent)
+  -- Trade Cond 2: 1 Byte Ascii String Enum with 2 values
+  index = dissect.trade_cond_2(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  -- Reserved 2: 2 Byte
+  index = dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Underlying Index Mapping Message
-dissect.underlying_index_mapping_message = function(buffer, offset, packet, parent)
+-- Dissect: Refresh Complex Trade Message
+dissect.refresh_complex_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.underlying_index_mapping_message then
-    local range = buffer(offset, 24)
-    local display = display.underlying_index_mapping_message(buffer, packet, parent)
-    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.underlying_index_mapping_message, range, display)
+  if show.refresh_complex_trade_message then
+    local range = buffer(offset, 32)
+    local display = display.refresh_complex_trade_message(buffer, packet, parent)
+    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.refresh_complex_trade_message, range, display)
   end
 
-  return dissect.underlying_index_mapping_message_fields(buffer, offset, packet, parent)
-end
-
--- Size: Third Level Customer Volume
-size_of.third_level_customer_volume = 2
-
--- Display: Third Level Customer Volume
-display.third_level_customer_volume = function(value)
-  return "Third Level Customer Volume: "..value
-end
-
--- Dissect: Third Level Customer Volume
-dissect.third_level_customer_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.third_level_customer_volume)
-  local value = range:le_uint()
-  local display = display.third_level_customer_volume(value, buffer, offset, packet, parent)
-
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.third_level_customer_volume, range, value, display)
-
-  return offset + size_of.third_level_customer_volume
-end
-
--- Size: Second Level Customer Volume
-size_of.second_level_customer_volume = 2
-
--- Display: Second Level Customer Volume
-display.second_level_customer_volume = function(value)
-  return "Second Level Customer Volume: "..value
-end
-
--- Dissect: Second Level Customer Volume
-dissect.second_level_customer_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.second_level_customer_volume)
-  local value = range:le_uint()
-  local display = display.second_level_customer_volume(value, buffer, offset, packet, parent)
-
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.second_level_customer_volume, range, value, display)
-
-  return offset + size_of.second_level_customer_volume
-end
-
--- Size: First Level Customer Volume
-size_of.first_level_customer_volume = 2
-
--- Display: First Level Customer Volume
-display.first_level_customer_volume = function(value)
-  return "First Level Customer Volume: "..value
-end
-
--- Dissect: First Level Customer Volume
-dissect.first_level_customer_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.first_level_customer_volume)
-  local value = range:le_uint()
-  local display = display.first_level_customer_volume(value, buffer, offset, packet, parent)
-
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.first_level_customer_volume, range, value, display)
-
-  return offset + size_of.first_level_customer_volume
+  return dissect.refresh_complex_trade_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Quote Condition
@@ -1014,146 +923,127 @@ dissect.quote_condition = function(buffer, offset, packet, parent)
   return offset + size_of.quote_condition
 end
 
--- Size: Third Volume
-size_of.third_volume = 2
+-- Size: Bid Customer Volume
+size_of.bid_customer_volume = 2
 
--- Display: Third Volume
-display.third_volume = function(value)
-  return "Third Volume: "..value
+-- Display: Bid Customer Volume
+display.bid_customer_volume = function(value)
+  return "Bid Customer Volume: "..value
 end
 
--- Dissect: Third Volume
-dissect.third_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.third_volume)
+-- Dissect: Bid Customer Volume
+dissect.bid_customer_volume = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.bid_customer_volume)
   local value = range:le_uint()
-  local display = display.third_volume(value, buffer, offset, packet, parent)
+  local display = display.bid_customer_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.third_volume, range, value, display)
+  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.bid_customer_volume, range, value, display)
 
-  return offset + size_of.third_volume
+  return offset + size_of.bid_customer_volume
 end
 
--- Size: Second Volume
-size_of.second_volume = 2
+-- Size: Ask Customer Volume
+size_of.ask_customer_volume = 2
 
--- Display: Second Volume
-display.second_volume = function(value)
-  return "Second Volume: "..value
+-- Display: Ask Customer Volume
+display.ask_customer_volume = function(value)
+  return "Ask Customer Volume: "..value
 end
 
--- Dissect: Second Volume
-dissect.second_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.second_volume)
+-- Dissect: Ask Customer Volume
+dissect.ask_customer_volume = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.ask_customer_volume)
   local value = range:le_uint()
-  local display = display.second_volume(value, buffer, offset, packet, parent)
+  local display = display.ask_customer_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.second_volume, range, value, display)
+  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.ask_customer_volume, range, value, display)
 
-  return offset + size_of.second_volume
+  return offset + size_of.ask_customer_volume
 end
 
--- Size: First Volume
-size_of.first_volume = 2
+-- Size: Bid Volume
+size_of.bid_volume = 2
 
--- Display: First Volume
-display.first_volume = function(value)
-  return "First Volume: "..value
+-- Display: Bid Volume
+display.bid_volume = function(value)
+  return "Bid Volume: "..value
 end
 
--- Dissect: First Volume
-dissect.first_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.first_volume)
+-- Dissect: Bid Volume
+dissect.bid_volume = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.bid_volume)
   local value = range:le_uint()
-  local display = display.first_volume(value, buffer, offset, packet, parent)
+  local display = display.bid_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.first_volume, range, value, display)
+  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.bid_volume, range, value, display)
 
-  return offset + size_of.first_volume
+  return offset + size_of.bid_volume
 end
 
--- Size: Third Level Price
-size_of.third_level_price = 4
+-- Size: Ask Volume
+size_of.ask_volume = 2
 
--- Display: Third Level Price
-display.third_level_price = function(value)
-  return "Third Level Price: "..value
+-- Display: Ask Volume
+display.ask_volume = function(value)
+  return "Ask Volume: "..value
 end
 
--- Dissect: Third Level Price
-dissect.third_level_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.third_level_price)
+-- Dissect: Ask Volume
+dissect.ask_volume = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.ask_volume)
+  local value = range:le_uint()
+  local display = display.ask_volume(value, buffer, offset, packet, parent)
+
+  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.ask_volume, range, value, display)
+
+  return offset + size_of.ask_volume
+end
+
+-- Size: Bid Price
+size_of.bid_price = 4
+
+-- Display: Bid Price
+display.bid_price = function(value)
+  return "Bid Price: "..value
+end
+
+-- Dissect: Bid Price
+dissect.bid_price = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.bid_price)
   local value = range:le_int()
-  local display = display.third_level_price(value, buffer, offset, packet, parent)
+  local display = display.bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.third_level_price, range, value, display)
+  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.bid_price, range, value, display)
 
-  return offset + size_of.third_level_price
+  return offset + size_of.bid_price
 end
 
--- Size: Second Level Price
-size_of.second_level_price = 4
+-- Size: Ask Price
+size_of.ask_price = 4
 
--- Display: Second Level Price
-display.second_level_price = function(value)
-  return "Second Level Price: "..value
+-- Display: Ask Price
+display.ask_price = function(value)
+  return "Ask Price: "..value
 end
 
--- Dissect: Second Level Price
-dissect.second_level_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.second_level_price)
+-- Dissect: Ask Price
+dissect.ask_price = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.ask_price)
   local value = range:le_int()
-  local display = display.second_level_price(value, buffer, offset, packet, parent)
+  local display = display.ask_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.second_level_price, range, value, display)
+  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.ask_price, range, value, display)
 
-  return offset + size_of.second_level_price
+  return offset + size_of.ask_price
 end
 
--- Size: First Level Price
-size_of.first_level_price = 4
-
--- Display: First Level Price
-display.first_level_price = function(value)
-  return "First Level Price: "..value
-end
-
--- Dissect: First Level Price
-dissect.first_level_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.first_level_price)
-  local value = range:le_int()
-  local display = display.first_level_price(value, buffer, offset, packet, parent)
-
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.first_level_price, range, value, display)
-
-  return offset + size_of.first_level_price
-end
-
--- Size: Symbol Seq Num
-size_of.symbol_seq_num = 4
-
--- Display: Symbol Seq Num
-display.symbol_seq_num = function(value)
-  return "Symbol Seq Num: "..value
-end
-
--- Dissect: Symbol Seq Num
-dissect.symbol_seq_num = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.symbol_seq_num)
-  local value = range:le_uint()
-  local display = display.symbol_seq_num(value, buffer, offset, packet, parent)
-
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.symbol_seq_num, range, value, display)
-
-  return offset + size_of.symbol_seq_num
-end
-
--- Display: Refresh Outright Market Depth Sell Message
-display.refresh_outright_market_depth_sell_message = function(buffer, offset, size, packet, parent)
+-- Display: Refresh Complex Quote Message
+display.refresh_complex_quote_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Refresh Outright Market Depth Sell Message
-dissect.refresh_outright_market_depth_sell_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Refresh Complex Quote Message
+dissect.refresh_complex_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
@@ -1162,29 +1052,29 @@ dissect.refresh_outright_market_depth_sell_message_fields = function(buffer, off
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
   index = dissect.source_time_ns(buffer, index, packet, parent)
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.series_index(buffer, index, packet, parent)
+  -- Complex Index: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.complex_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
   index = dissect.symbol_seq_num(buffer, index, packet, parent)
 
-  -- First Level Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.first_level_price(buffer, index, packet, parent)
+  -- Ask Price: 4 Byte Signed Fixed Width Integer
+  index = dissect.ask_price(buffer, index, packet, parent)
 
-  -- Second Level Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.second_level_price(buffer, index, packet, parent)
+  -- Bid Price: 4 Byte Signed Fixed Width Integer
+  index = dissect.bid_price(buffer, index, packet, parent)
 
-  -- Third Level Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.third_level_price(buffer, index, packet, parent)
+  -- Ask Volume: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.ask_volume(buffer, index, packet, parent)
 
-  -- First Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.first_volume(buffer, index, packet, parent)
+  -- Bid Volume: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.bid_volume(buffer, index, packet, parent)
 
-  -- Second Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.second_volume(buffer, index, packet, parent)
+  -- Ask Customer Volume: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.ask_customer_volume(buffer, index, packet, parent)
 
-  -- Third Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.third_volume(buffer, index, packet, parent)
+  -- Bid Customer Volume: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.bid_customer_volume(buffer, index, packet, parent)
 
   -- Quote Condition: 1 Byte Ascii String Enum with 5 values
   index = dissect.quote_condition(buffer, index, packet, parent)
@@ -1192,122 +1082,22 @@ dissect.refresh_outright_market_depth_sell_message_fields = function(buffer, off
   -- Reserved 1: 1 Byte
   index = dissect.reserved_1(buffer, index, packet, parent)
 
-  -- First Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.first_level_customer_volume(buffer, index, packet, parent)
-
-  -- Second Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.second_level_customer_volume(buffer, index, packet, parent)
-
-  -- Third Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.third_level_customer_volume(buffer, index, packet, parent)
-
   -- Reserved 2: 2 Byte
   index = dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Refresh Outright Market Depth Sell Message
-dissect.refresh_outright_market_depth_sell_message = function(buffer, offset, packet, parent)
+-- Dissect: Refresh Complex Quote Message
+dissect.refresh_complex_quote_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.refresh_outright_market_depth_sell_message then
-    local range = buffer(offset, 44)
-    local display = display.refresh_outright_market_depth_sell_message(buffer, packet, parent)
-    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.refresh_outright_market_depth_sell_message, range, display)
+  if show.refresh_complex_quote_message then
+    local range = buffer(offset, 36)
+    local display = display.refresh_complex_quote_message(buffer, packet, parent)
+    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.refresh_complex_quote_message, range, display)
   end
 
-  return dissect.refresh_outright_market_depth_sell_message_fields(buffer, offset, packet, parent)
-end
-
--- Size: Source Ns
-size_of.source_ns = 4
-
--- Display: Source Ns
-display.source_ns = function(value)
-  return "Source Ns: "..value
-end
-
--- Dissect: Source Ns
-dissect.source_ns = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.source_ns)
-  local value = range:le_uint()
-  local display = display.source_ns(value, buffer, offset, packet, parent)
-
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.source_ns, range, value, display)
-
-  return offset + size_of.source_ns
-end
-
--- Display: Refresh Outright Market Depth Buy Message
-display.refresh_outright_market_depth_buy_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Refresh Outright Market Depth Buy Message
-dissect.refresh_outright_market_depth_buy_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time(buffer, index, packet, parent)
-
-  -- Source Ns: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_ns(buffer, index, packet, parent)
-
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.series_index(buffer, index, packet, parent)
-
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.symbol_seq_num(buffer, index, packet, parent)
-
-  -- First Level Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.first_level_price(buffer, index, packet, parent)
-
-  -- Second Level Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.second_level_price(buffer, index, packet, parent)
-
-  -- Third Level Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.third_level_price(buffer, index, packet, parent)
-
-  -- First Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.first_volume(buffer, index, packet, parent)
-
-  -- Second Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.second_volume(buffer, index, packet, parent)
-
-  -- Third Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.third_volume(buffer, index, packet, parent)
-
-  -- Quote Condition: 1 Byte Ascii String Enum with 5 values
-  index = dissect.quote_condition(buffer, index, packet, parent)
-
-  -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
-
-  -- First Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.first_level_customer_volume(buffer, index, packet, parent)
-
-  -- Second Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.second_level_customer_volume(buffer, index, packet, parent)
-
-  -- Third Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.third_level_customer_volume(buffer, index, packet, parent)
-
-  -- Reserved 2: 2 Byte
-  index = dissect.reserved_2(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Refresh Outright Market Depth Buy Message
-dissect.refresh_outright_market_depth_buy_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.refresh_outright_market_depth_buy_message then
-    local range = buffer(offset, 44)
-    local display = display.refresh_outright_market_depth_buy_message(buffer, packet, parent)
-    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.refresh_outright_market_depth_buy_message, range, display)
-  end
-
-  return dissect.refresh_outright_market_depth_buy_message_fields(buffer, offset, packet, parent)
+  return dissect.refresh_complex_quote_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Halt Condition
@@ -1373,13 +1163,13 @@ dissect.security_status = function(buffer, offset, packet, parent)
   return offset + size_of.security_status
 end
 
--- Display: Outright Series Status Message
-display.outright_series_status_message = function(buffer, offset, size, packet, parent)
+-- Display: Complex Status Message
+display.complex_status_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Outright Series Status Message
-dissect.outright_series_status_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Complex Status Message
+dissect.complex_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
@@ -1388,8 +1178,8 @@ dissect.outright_series_status_message_fields = function(buffer, offset, packet,
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
   index = dissect.source_time_ns(buffer, index, packet, parent)
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.series_index(buffer, index, packet, parent)
+  -- Complex Index: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.complex_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
   index = dissect.symbol_seq_num(buffer, index, packet, parent)
@@ -1406,44 +1196,140 @@ dissect.outright_series_status_message_fields = function(buffer, offset, packet,
   return index
 end
 
--- Dissect: Outright Series Status Message
-dissect.outright_series_status_message = function(buffer, offset, packet, parent)
+-- Dissect: Complex Status Message
+dissect.complex_status_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.outright_series_status_message then
+  if show.complex_status_message then
     local range = buffer(offset, 20)
-    local display = display.outright_series_status_message(buffer, packet, parent)
-    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.outright_series_status_message, range, display)
+    local display = display.complex_status_message(buffer, packet, parent)
+    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.complex_status_message, range, display)
   end
 
-  return dissect.outright_series_status_message_fields(buffer, offset, packet, parent)
+  return dissect.complex_status_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Underlying Seq Num
-size_of.underlying_seq_num = 4
+-- Size: Source Ns
+size_of.source_ns = 4
 
--- Display: Underlying Seq Num
-display.underlying_seq_num = function(value)
-  return "Underlying Seq Num: "..value
+-- Display: Source Ns
+display.source_ns = function(value)
+  return "Source Ns: "..value
 end
 
--- Dissect: Underlying Seq Num
-dissect.underlying_seq_num = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.underlying_seq_num)
+-- Dissect: Source Ns
+dissect.source_ns = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.source_ns)
   local value = range:le_uint()
-  local display = display.underlying_seq_num(value, buffer, offset, packet, parent)
+  local display = display.source_ns(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.underlying_seq_num, range, value, display)
+  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.source_ns, range, value, display)
 
-  return offset + size_of.underlying_seq_num
+  return offset + size_of.source_ns
 end
 
--- Display: Underlying Status Message
-display.underlying_status_message = function(buffer, offset, size, packet, parent)
+-- Display: Complex Cube Rfq Message
+display.complex_cube_rfq_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Underlying Status Message
-dissect.underlying_status_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Complex Cube Rfq Message
+dissect.complex_cube_rfq_message_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.source_time(buffer, index, packet, parent)
+
+  -- Source Ns: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.source_ns(buffer, index, packet, parent)
+
+  -- Complex Index: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.complex_index(buffer, index, packet, parent)
+
+  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.symbol_seq_num(buffer, index, packet, parent)
+
+  -- Side: 1 Byte Ascii String Enum with 2 values
+  index = dissect.side(buffer, index, packet, parent)
+
+  -- Reserved 1: 1 Byte
+  index = dissect.reserved_1(buffer, index, packet, parent)
+
+  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.volume(buffer, index, packet, parent)
+
+  -- Price: 4 Byte Signed Fixed Width Integer
+  index = dissect.price(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Complex Cube Rfq Message
+dissect.complex_cube_rfq_message = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.complex_cube_rfq_message then
+    local range = buffer(offset, 26)
+    local display = display.complex_cube_rfq_message(buffer, packet, parent)
+    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.complex_cube_rfq_message, range, display)
+  end
+
+  return dissect.complex_cube_rfq_message_fields(buffer, offset, packet, parent)
+end
+
+-- Display: Complex Crossing Rfq Message
+display.complex_crossing_rfq_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Complex Crossing Rfq Message
+dissect.complex_crossing_rfq_message_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.source_time(buffer, index, packet, parent)
+
+  -- Source Ns: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.source_ns(buffer, index, packet, parent)
+
+  -- Complex Index: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.complex_index(buffer, index, packet, parent)
+
+  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.symbol_seq_num(buffer, index, packet, parent)
+
+  -- Side: 1 Byte Ascii String Enum with 2 values
+  index = dissect.side(buffer, index, packet, parent)
+
+  -- Reserved 1: 1 Byte
+  index = dissect.reserved_1(buffer, index, packet, parent)
+
+  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.volume(buffer, index, packet, parent)
+
+  -- Price: 4 Byte Signed Fixed Width Integer
+  index = dissect.price(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Complex Crossing Rfq Message
+dissect.complex_crossing_rfq_message = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.complex_crossing_rfq_message then
+    local range = buffer(offset, 26)
+    local display = display.complex_crossing_rfq_message(buffer, packet, parent)
+    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.complex_crossing_rfq_message, range, display)
+  end
+
+  return dissect.complex_crossing_rfq_message_fields(buffer, offset, packet, parent)
+end
+
+-- Display: Complex Trade Message
+display.complex_trade_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Complex Trade Message
+dissect.complex_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
@@ -1452,17 +1338,26 @@ dissect.underlying_status_message_fields = function(buffer, offset, packet, pare
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
   index = dissect.source_time_ns(buffer, index, packet, parent)
 
-  -- Underlying Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.underlying_index(buffer, index, packet, parent)
+  -- Complex Index: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.complex_index(buffer, index, packet, parent)
 
-  -- Underlying Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.underlying_seq_num(buffer, index, packet, parent)
+  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.symbol_seq_num(buffer, index, packet, parent)
 
-  -- Security Status: 1 Byte Ascii String Enum with 8 values
-  index = dissect.security_status(buffer, index, packet, parent)
+  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.trade_id(buffer, index, packet, parent)
 
-  -- Halt Condition: 1 Byte Ascii String
-  index = dissect.halt_condition(buffer, index, packet, parent)
+  -- Price: 4 Byte Signed Fixed Width Integer
+  index = dissect.price(buffer, index, packet, parent)
+
+  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.volume(buffer, index, packet, parent)
+
+  -- Trade Cond 1: 1 Byte Ascii String Enum with 4 values
+  index = dissect.trade_cond_1(buffer, index, packet, parent)
+
+  -- Trade Cond 2: 1 Byte Ascii String Enum with 2 values
+  index = dissect.trade_cond_2(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
   index = dissect.reserved_2(buffer, index, packet, parent)
@@ -1470,56 +1365,56 @@ dissect.underlying_status_message_fields = function(buffer, offset, packet, pare
   return index
 end
 
--- Dissect: Underlying Status Message
-dissect.underlying_status_message = function(buffer, offset, packet, parent)
+-- Dissect: Complex Trade Message
+dissect.complex_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.underlying_status_message then
-    local range = buffer(offset, 20)
-    local display = display.underlying_status_message(buffer, packet, parent)
-    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.underlying_status_message, range, display)
+  if show.complex_trade_message then
+    local range = buffer(offset, 32)
+    local display = display.complex_trade_message(buffer, packet, parent)
+    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.complex_trade_message, range, display)
   end
 
-  return dissect.underlying_status_message_fields(buffer, offset, packet, parent)
+  return dissect.complex_trade_message_fields(buffer, offset, packet, parent)
 end
 
--- Display: Outright Market Depth Sell Message
-display.outright_market_depth_sell_message = function(buffer, offset, size, packet, parent)
+-- Display: Complex Quote Message
+display.complex_quote_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Outright Market Depth Sell Message
-dissect.outright_market_depth_sell_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Complex Quote Message
+dissect.complex_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
   index = dissect.source_time(buffer, index, packet, parent)
 
-  -- Source Ns: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_ns(buffer, index, packet, parent)
+  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.source_time_ns(buffer, index, packet, parent)
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.series_index(buffer, index, packet, parent)
+  -- Complex Index: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.complex_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
   index = dissect.symbol_seq_num(buffer, index, packet, parent)
 
-  -- First Level Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.first_level_price(buffer, index, packet, parent)
+  -- Ask Price: 4 Byte Signed Fixed Width Integer
+  index = dissect.ask_price(buffer, index, packet, parent)
 
-  -- Second Level Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.second_level_price(buffer, index, packet, parent)
+  -- Bid Price: 4 Byte Signed Fixed Width Integer
+  index = dissect.bid_price(buffer, index, packet, parent)
 
-  -- Third Level Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.third_level_price(buffer, index, packet, parent)
+  -- Ask Volume: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.ask_volume(buffer, index, packet, parent)
 
-  -- First Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.first_volume(buffer, index, packet, parent)
+  -- Bid Volume: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.bid_volume(buffer, index, packet, parent)
 
-  -- Second Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.second_volume(buffer, index, packet, parent)
+  -- Ask Customer Volume: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.ask_customer_volume(buffer, index, packet, parent)
 
-  -- Third Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.third_volume(buffer, index, packet, parent)
+  -- Bid Customer Volume: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.bid_customer_volume(buffer, index, packet, parent)
 
   -- Quote Condition: 1 Byte Ascii String Enum with 5 values
   index = dissect.quote_condition(buffer, index, packet, parent)
@@ -1527,195 +1422,57 @@ dissect.outright_market_depth_sell_message_fields = function(buffer, offset, pac
   -- Reserved 1: 1 Byte
   index = dissect.reserved_1(buffer, index, packet, parent)
 
-  -- First Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.first_level_customer_volume(buffer, index, packet, parent)
-
-  -- Second Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.second_level_customer_volume(buffer, index, packet, parent)
-
-  -- Third Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.third_level_customer_volume(buffer, index, packet, parent)
-
   -- Reserved 2: 2 Byte
   index = dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Outright Market Depth Sell Message
-dissect.outright_market_depth_sell_message = function(buffer, offset, packet, parent)
+-- Dissect: Complex Quote Message
+dissect.complex_quote_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.outright_market_depth_sell_message then
-    local range = buffer(offset, 44)
-    local display = display.outright_market_depth_sell_message(buffer, packet, parent)
-    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.outright_market_depth_sell_message, range, display)
+  if show.complex_quote_message then
+    local range = buffer(offset, 36)
+    local display = display.complex_quote_message(buffer, packet, parent)
+    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.complex_quote_message, range, display)
   end
 
-  return dissect.outright_market_depth_sell_message_fields(buffer, offset, packet, parent)
-end
-
--- Size: Third Level Volume
-size_of.third_level_volume = 2
-
--- Display: Third Level Volume
-display.third_level_volume = function(value)
-  return "Third Level Volume: "..value
-end
-
--- Dissect: Third Level Volume
-dissect.third_level_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.third_level_volume)
-  local value = range:le_uint()
-  local display = display.third_level_volume(value, buffer, offset, packet, parent)
-
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.third_level_volume, range, value, display)
-
-  return offset + size_of.third_level_volume
-end
-
--- Size: Second Level Volume
-size_of.second_level_volume = 2
-
--- Display: Second Level Volume
-display.second_level_volume = function(value)
-  return "Second Level Volume: "..value
-end
-
--- Dissect: Second Level Volume
-dissect.second_level_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.second_level_volume)
-  local value = range:le_uint()
-  local display = display.second_level_volume(value, buffer, offset, packet, parent)
-
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.second_level_volume, range, value, display)
-
-  return offset + size_of.second_level_volume
-end
-
--- Size: First Level Volume
-size_of.first_level_volume = 2
-
--- Display: First Level Volume
-display.first_level_volume = function(value)
-  return "First Level Volume: "..value
-end
-
--- Dissect: First Level Volume
-dissect.first_level_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.first_level_volume)
-  local value = range:le_uint()
-  local display = display.first_level_volume(value, buffer, offset, packet, parent)
-
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.first_level_volume, range, value, display)
-
-  return offset + size_of.first_level_volume
-end
-
--- Display: Outright Market Depth Buy Message
-display.outright_market_depth_buy_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Outright Market Depth Buy Message
-dissect.outright_market_depth_buy_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time(buffer, index, packet, parent)
-
-  -- Source Ns: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_ns(buffer, index, packet, parent)
-
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.series_index(buffer, index, packet, parent)
-
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.symbol_seq_num(buffer, index, packet, parent)
-
-  -- First Level Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.first_level_price(buffer, index, packet, parent)
-
-  -- Second Level Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.second_level_price(buffer, index, packet, parent)
-
-  -- Third Level Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.third_level_price(buffer, index, packet, parent)
-
-  -- First Level Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.first_level_volume(buffer, index, packet, parent)
-
-  -- Second Level Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.second_level_volume(buffer, index, packet, parent)
-
-  -- Third Level Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.third_level_volume(buffer, index, packet, parent)
-
-  -- Quote Condition: 1 Byte Ascii String Enum with 5 values
-  index = dissect.quote_condition(buffer, index, packet, parent)
-
-  -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
-
-  -- First Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.first_level_customer_volume(buffer, index, packet, parent)
-
-  -- Second Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.second_level_customer_volume(buffer, index, packet, parent)
-
-  -- Third Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.third_level_customer_volume(buffer, index, packet, parent)
-
-  -- Reserved 2: 2 Byte
-  index = dissect.reserved_2(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Outright Market Depth Buy Message
-dissect.outright_market_depth_buy_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.outright_market_depth_buy_message then
-    local range = buffer(offset, 44)
-    local display = display.outright_market_depth_buy_message(buffer, packet, parent)
-    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.outright_market_depth_buy_message, range, display)
-  end
-
-  return dissect.outright_market_depth_buy_message_fields(buffer, offset, packet, parent)
+  return dissect.complex_quote_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
 size_of.payload = function(buffer, offset, code)
-  -- Size of Outright Market Depth Buy Message
-  if code == 403 then
-    return 44
+  -- Size of Complex Quote Message
+  if code == 423 then
+    return 36
   end
-  -- Size of Outright Market Depth Sell Message
-  if code == 405 then
-    return 44
+  -- Size of Complex Trade Message
+  if code == 425 then
+    return 32
   end
-  -- Size of Underlying Status Message
-  if code == 419 then
+  -- Size of Complex Crossing Rfq Message
+  if code == 429 then
+    return 26
+  end
+  -- Size of Complex Cube Rfq Message
+  if code == 472 then
+    return 26
+  end
+  -- Size of Complex Status Message
+  if code == 433 then
     return 20
   end
-  -- Size of Outright Series Status Message
-  if code == 421 then
-    return 20
+  -- Size of Refresh Complex Quote Message
+  if code == 511 then
+    return 36
   end
-  -- Size of Refresh Outright Market Depth Buy Message
-  if code == 503 then
+  -- Size of Refresh Complex Trade Message
+  if code == 513 then
+    return 32
+  end
+  -- Size of Complex Symbol Definition Message
+  if code == 439 then
     return 44
-  end
-  -- Size of Refresh Outright Market Depth Sell Message
-  if code == 505 then
-    return 44
-  end
-  -- Size of Underlying Index Mapping Message
-  if code == 435 then
-    return 24
-  end
-  -- Size of Series Index Mapping Message
-  if code == 437 then
-    return 56
   end
   -- Size of Stream Id Message
   if code == 455 then
@@ -1736,37 +1493,37 @@ end
 
 -- Dissect Branches:
 dissect.payload_branches = function(buffer, offset, packet, parent, code)
-  -- Dissect Outright Market Depth Buy Message
-  if code == 403 then
-    return dissect.outright_market_depth_buy_message(buffer, offset, packet, parent)
+  -- Dissect Complex Quote Message
+  if code == 423 then
+    return dissect.complex_quote_message(buffer, offset, packet, parent)
   end
-  -- Dissect Outright Market Depth Sell Message
-  if code == 405 then
-    return dissect.outright_market_depth_sell_message(buffer, offset, packet, parent)
+  -- Dissect Complex Trade Message
+  if code == 425 then
+    return dissect.complex_trade_message(buffer, offset, packet, parent)
   end
-  -- Dissect Underlying Status Message
-  if code == 419 then
-    return dissect.underlying_status_message(buffer, offset, packet, parent)
+  -- Dissect Complex Crossing Rfq Message
+  if code == 429 then
+    return dissect.complex_crossing_rfq_message(buffer, offset, packet, parent)
   end
-  -- Dissect Outright Series Status Message
-  if code == 421 then
-    return dissect.outright_series_status_message(buffer, offset, packet, parent)
+  -- Dissect Complex Cube Rfq Message
+  if code == 472 then
+    return dissect.complex_cube_rfq_message(buffer, offset, packet, parent)
   end
-  -- Dissect Refresh Outright Market Depth Buy Message
-  if code == 503 then
-    return dissect.refresh_outright_market_depth_buy_message(buffer, offset, packet, parent)
+  -- Dissect Complex Status Message
+  if code == 433 then
+    return dissect.complex_status_message(buffer, offset, packet, parent)
   end
-  -- Dissect Refresh Outright Market Depth Sell Message
-  if code == 505 then
-    return dissect.refresh_outright_market_depth_sell_message(buffer, offset, packet, parent)
+  -- Dissect Refresh Complex Quote Message
+  if code == 511 then
+    return dissect.refresh_complex_quote_message(buffer, offset, packet, parent)
   end
-  -- Dissect Underlying Index Mapping Message
-  if code == 435 then
-    return dissect.underlying_index_mapping_message(buffer, offset, packet, parent)
+  -- Dissect Refresh Complex Trade Message
+  if code == 513 then
+    return dissect.refresh_complex_trade_message(buffer, offset, packet, parent)
   end
-  -- Dissect Series Index Mapping Message
-  if code == 437 then
-    return dissect.series_index_mapping_message(buffer, offset, packet, parent)
+  -- Dissect Complex Symbol Definition Message
+  if code == 439 then
+    return dissect.complex_symbol_definition_message(buffer, offset, packet, parent)
   end
   -- Dissect Stream Id Message
   if code == 455 then
@@ -1805,29 +1562,29 @@ size_of.message_type = 2
 
 -- Display: Message Type
 display.message_type = function(value)
-  if value == 403 then
-    return "Message Type: Outright Market Depth Buy Message (403)"
+  if value == 423 then
+    return "Message Type: Complex Quote Message (423)"
   end
-  if value == 405 then
-    return "Message Type: Outright Market Depth Sell Message (405)"
+  if value == 425 then
+    return "Message Type: Complex Trade Message (425)"
   end
-  if value == 419 then
-    return "Message Type: Underlying Status Message (419)"
+  if value == 429 then
+    return "Message Type: Complex Crossing Rfq Message (429)"
   end
-  if value == 421 then
-    return "Message Type: Outright Series Status Message (421)"
+  if value == 472 then
+    return "Message Type: Complex Cube Rfq Message (472)"
   end
-  if value == 503 then
-    return "Message Type: Refresh Outright Market Depth Buy Message (503)"
+  if value == 433 then
+    return "Message Type: Complex Status Message (433)"
   end
-  if value == 505 then
-    return "Message Type: Refresh Outright Market Depth Sell Message (505)"
+  if value == 511 then
+    return "Message Type: Refresh Complex Quote Message (511)"
   end
-  if value == 435 then
-    return "Message Type: Underlying Index Mapping Message (435)"
+  if value == 513 then
+    return "Message Type: Refresh Complex Trade Message (513)"
   end
-  if value == 437 then
-    return "Message Type: Series Index Mapping Message (437)"
+  if value == 439 then
+    return "Message Type: Complex Symbol Definition Message (439)"
   end
   if value == 455 then
     return "Message Type: Stream Id Message (455)"
