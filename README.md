@@ -58,7 +58,8 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 |[Nyse](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nyse "New York Stock Exchange Dissectors") | IntegratedFeed | Xdp | [2.1.g](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nyse/Nyse.IntegratedFeed.Xdp.v2.1.g.Script.Dissector.lua "New York Stock Exchange 2.1.g Script Dissector") | 1/29/2018 | 4139 | Verified|
 |[Nyse Arca](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nyse "New York Stock Exchange Dissectors") | Bbo | Xdp | [2.4.c](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nyse/Nyse.Arca.Bbo.Xdp.v2.4.c.Script.Dissector.lua "New York Stock Exchange 2.4.c Script Dissector") | 7/13/2016 | 2660 | Verified|
 |[Nyse Client](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nyse "New York Stock Exchange Dissectors") | Bbo | Xdp | [2.4.g](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nyse/Nyse.Client.Bbo.Xdp.v2.4.g.Script.Dissector.lua "New York Stock Exchange 2.4.g Script Dissector") | 1/29/2018 | 2657 | Verified|
-|[Nyse Options](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nyse "New York Stock Exchange Dissectors") | TopFeed | Xdp | [1.3.a](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nyse/Nyse.Options.TopFeed.Xdp.v1.3.a.Script.Dissector.lua "New York Stock Exchange 1.3.a Script Dissector") | 2/28/2018 | 4339 | Unverified|
+|[Nyse Options](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nyse "New York Stock Exchange Dissectors") | DeepFeed | Xdp | [1.3.a](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nyse/Nyse.Options.DeepFeed.Xdp.v1.3.a.Script.Dissector.lua "New York Stock Exchange 1.3.a Script Dissector") | 2/28/2018 | 2219 | Unverified|
+|[Nyse Options](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nyse "New York Stock Exchange Dissectors") | TopFeed | Xdp | [1.3.a](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nyse/Nyse.Options.TopFeed.Xdp.v1.3.a.Script.Dissector.lua "New York Stock Exchange 1.3.a Script Dissector") | 2/28/2018 | 3070 | Unverified|
 
 ## Development
 
@@ -66,7 +67,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 |Protocol Count | Generated Lines|
 |--- | ---|
-|34 | 146,639|
+|35 | 147,589|
 
 Note: Our dissector model is still under rapid development.
 
