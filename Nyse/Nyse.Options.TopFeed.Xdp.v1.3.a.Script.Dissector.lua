@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Nyse Arca Options Xdp 1.3.a Protocol
-local nyse_arca_options_xdp_v1_3_a = Proto("Nyse.Arca.Options.Xdp.v1.3.a.Lua", "Nyse Arca Options Xdp 1.3.a")
+-- Nyse Options TopFeed Xdp 1.3.a Protocol
+local nyse_options_topfeed_xdp_v1_3_a = Proto("Nyse.Options.TopFeed.Xdp.v1.3.a.Lua", "Nyse Options TopFeed Xdp 1.3.a")
 
 -- Component Tables
 local show = {}
@@ -19,129 +19,129 @@ local verify = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nyse Arca Options Xdp 1.3.a Fields
-nyse_arca_options_xdp_v1_3_a.fields.ask_customer_volume = ProtoField.new("Ask Customer Volume", "nyse.arca.options.xdp.v1.3.a.askcustomervolume", ftypes.UINT16)
-nyse_arca_options_xdp_v1_3_a.fields.ask_price = ProtoField.new("Ask Price", "nyse.arca.options.xdp.v1.3.a.askprice", ftypes.INT32)
-nyse_arca_options_xdp_v1_3_a.fields.ask_volume = ProtoField.new("Ask Volume", "nyse.arca.options.xdp.v1.3.a.askvolume", ftypes.UINT16)
-nyse_arca_options_xdp_v1_3_a.fields.auction_type = ProtoField.new("Auction Type", "nyse.arca.options.xdp.v1.3.a.auctiontype", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.bid_customer_volume = ProtoField.new("Bid Customer Volume", "nyse.arca.options.xdp.v1.3.a.bidcustomervolume", ftypes.UINT16)
-nyse_arca_options_xdp_v1_3_a.fields.bid_price = ProtoField.new("Bid Price", "nyse.arca.options.xdp.v1.3.a.bidprice", ftypes.INT32)
-nyse_arca_options_xdp_v1_3_a.fields.bid_volume = ProtoField.new("Bid Volume", "nyse.arca.options.xdp.v1.3.a.bidvolume", ftypes.UINT16)
-nyse_arca_options_xdp_v1_3_a.fields.capacity = ProtoField.new("Capacity", "nyse.arca.options.xdp.v1.3.a.capacity", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.channel_id = ProtoField.new("Channel Id", "nyse.arca.options.xdp.v1.3.a.channelid", ftypes.UINT8)
-nyse_arca_options_xdp_v1_3_a.fields.close = ProtoField.new("Close", "nyse.arca.options.xdp.v1.3.a.close", ftypes.INT32)
-nyse_arca_options_xdp_v1_3_a.fields.complex_crossing_rfq_message = ProtoField.new("Complex Crossing Rfq Message", "nyse.arca.options.xdp.v1.3.a.complexcrossingrfqmessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.complex_cube_rfq_message = ProtoField.new("Complex Cube Rfq Message", "nyse.arca.options.xdp.v1.3.a.complexcuberfqmessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.complex_index = ProtoField.new("Complex Index", "nyse.arca.options.xdp.v1.3.a.complexindex", ftypes.UINT32)
-nyse_arca_options_xdp_v1_3_a.fields.complex_quote_message = ProtoField.new("Complex Quote Message", "nyse.arca.options.xdp.v1.3.a.complexquotemessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.complex_status_message = ProtoField.new("Complex Status Message", "nyse.arca.options.xdp.v1.3.a.complexstatusmessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.complex_symbol = ProtoField.new("Complex Symbol", "nyse.arca.options.xdp.v1.3.a.complexsymbol", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.complex_symbol_definition_message = ProtoField.new("Complex Symbol Definition Message", "nyse.arca.options.xdp.v1.3.a.complexsymboldefinitionmessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.complex_trade_message = ProtoField.new("Complex Trade Message", "nyse.arca.options.xdp.v1.3.a.complextrademessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.contract_multiplier = ProtoField.new("Contract Multiplier", "nyse.arca.options.xdp.v1.3.a.contractmultiplier", ftypes.UINT16)
-nyse_arca_options_xdp_v1_3_a.fields.contracts = ProtoField.new("Contracts", "nyse.arca.options.xdp.v1.3.a.contracts", ftypes.UINT16)
-nyse_arca_options_xdp_v1_3_a.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.arca.options.xdp.v1.3.a.deliveryflag", ftypes.UINT8)
-nyse_arca_options_xdp_v1_3_a.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.arca.options.xdp.v1.3.a.exchangecode", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.first_level_customer_volume = ProtoField.new("First Level Customer Volume", "nyse.arca.options.xdp.v1.3.a.firstlevelcustomervolume", ftypes.UINT16)
-nyse_arca_options_xdp_v1_3_a.fields.first_level_price = ProtoField.new("First Level Price", "nyse.arca.options.xdp.v1.3.a.firstlevelprice", ftypes.INT32)
-nyse_arca_options_xdp_v1_3_a.fields.first_level_volume = ProtoField.new("First Level Volume", "nyse.arca.options.xdp.v1.3.a.firstlevelvolume", ftypes.UINT16)
-nyse_arca_options_xdp_v1_3_a.fields.first_volume = ProtoField.new("First Volume", "nyse.arca.options.xdp.v1.3.a.firstvolume", ftypes.UINT16)
-nyse_arca_options_xdp_v1_3_a.fields.group_id = ProtoField.new("Group Id", "nyse.arca.options.xdp.v1.3.a.groupid", ftypes.UINT32)
-nyse_arca_options_xdp_v1_3_a.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.arca.options.xdp.v1.3.a.haltcondition", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.high_price = ProtoField.new("High Price", "nyse.arca.options.xdp.v1.3.a.highprice", ftypes.INT32)
-nyse_arca_options_xdp_v1_3_a.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.arca.options.xdp.v1.3.a.imbalanceside", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.leg_definition = ProtoField.new("Leg Definition", "nyse.arca.options.xdp.v1.3.a.legdefinition", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "nyse.arca.options.xdp.v1.3.a.legratioqty", ftypes.UINT16)
-nyse_arca_options_xdp_v1_3_a.fields.leg_security_type = ProtoField.new("Leg Security Type", "nyse.arca.options.xdp.v1.3.a.legsecuritytype", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.low_price = ProtoField.new("Low Price", "nyse.arca.options.xdp.v1.3.a.lowprice", ftypes.INT32)
-nyse_arca_options_xdp_v1_3_a.fields.market_id = ProtoField.new("Market Id", "nyse.arca.options.xdp.v1.3.a.marketid", ftypes.UINT16)
-nyse_arca_options_xdp_v1_3_a.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.arca.options.xdp.v1.3.a.marketimbalanceqty", ftypes.UINT16)
-nyse_arca_options_xdp_v1_3_a.fields.market_imbalance_side = ProtoField.new("Market Imbalance Side", "nyse.arca.options.xdp.v1.3.a.marketimbalanceside", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.maturity_date = ProtoField.new("Maturity Date", "nyse.arca.options.xdp.v1.3.a.maturitydate", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.message = ProtoField.new("Message", "nyse.arca.options.xdp.v1.3.a.message", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.message_count = ProtoField.new("Message Count", "nyse.arca.options.xdp.v1.3.a.messagecount", ftypes.UINT8)
-nyse_arca_options_xdp_v1_3_a.fields.message_header = ProtoField.new("Message Header", "nyse.arca.options.xdp.v1.3.a.messageheader", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.message_size = ProtoField.new("Message Size", "nyse.arca.options.xdp.v1.3.a.messagesize", ftypes.UINT16)
-nyse_arca_options_xdp_v1_3_a.fields.message_type = ProtoField.new("Message Type", "nyse.arca.options.xdp.v1.3.a.messagetype", ftypes.UINT16)
-nyse_arca_options_xdp_v1_3_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.arca.options.xdp.v1.3.a.nanoseconds", ftypes.UINT32)
-nyse_arca_options_xdp_v1_3_a.fields.no_of_legs = ProtoField.new("No Of Legs", "nyse.arca.options.xdp.v1.3.a.nooflegs", ftypes.UINT16)
-nyse_arca_options_xdp_v1_3_a.fields.open = ProtoField.new("Open", "nyse.arca.options.xdp.v1.3.a.open", ftypes.INT32)
-nyse_arca_options_xdp_v1_3_a.fields.option_symbol_root = ProtoField.new("Option Symbol Root", "nyse.arca.options.xdp.v1.3.a.optionsymbolroot", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.original_trade_id = ProtoField.new("Original Trade Id", "nyse.arca.options.xdp.v1.3.a.originaltradeid", ftypes.UINT32)
-nyse_arca_options_xdp_v1_3_a.fields.outright_bold_rfq_message = ProtoField.new("Outright Bold Rfq Message", "nyse.arca.options.xdp.v1.3.a.outrightboldrfqmessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.outright_crossing_rfq_message = ProtoField.new("Outright Crossing Rfq Message", "nyse.arca.options.xdp.v1.3.a.outrightcrossingrfqmessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.outright_imbalance_message = ProtoField.new("Outright Imbalance Message", "nyse.arca.options.xdp.v1.3.a.outrightimbalancemessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.outright_market_depth_buy_message = ProtoField.new("Outright Market Depth Buy Message", "nyse.arca.options.xdp.v1.3.a.outrightmarketdepthbuymessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.outright_market_depth_sell_message = ProtoField.new("Outright Market Depth Sell Message", "nyse.arca.options.xdp.v1.3.a.outrightmarketdepthsellmessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.outright_quote_message = ProtoField.new("Outright Quote Message", "nyse.arca.options.xdp.v1.3.a.outrightquotemessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.outright_series_status_message = ProtoField.new("Outright Series Status Message", "nyse.arca.options.xdp.v1.3.a.outrightseriesstatusmessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.outright_summary_message = ProtoField.new("Outright Summary Message", "nyse.arca.options.xdp.v1.3.a.outrightsummarymessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.outright_trade_cancel_message = ProtoField.new("Outright Trade Cancel Message", "nyse.arca.options.xdp.v1.3.a.outrighttradecancelmessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.outright_trade_correction_message = ProtoField.new("Outright Trade Correction Message", "nyse.arca.options.xdp.v1.3.a.outrighttradecorrectionmessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.outright_trade_message = ProtoField.new("Outright Trade Message", "nyse.arca.options.xdp.v1.3.a.outrighttrademessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.packet = ProtoField.new("Packet", "nyse.arca.options.xdp.v1.3.a.packet", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.arca.options.xdp.v1.3.a.packetheader", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.arca.options.xdp.v1.3.a.packetsize", ftypes.UINT16)
-nyse_arca_options_xdp_v1_3_a.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.arca.options.xdp.v1.3.a.pairedqty", ftypes.UINT16)
-nyse_arca_options_xdp_v1_3_a.fields.participant = ProtoField.new("Participant", "nyse.arca.options.xdp.v1.3.a.participant", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.payload = ProtoField.new("Payload", "nyse.arca.options.xdp.v1.3.a.payload", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.price = ProtoField.new("Price", "nyse.arca.options.xdp.v1.3.a.price", ftypes.INT32)
-nyse_arca_options_xdp_v1_3_a.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.arca.options.xdp.v1.3.a.priceresolution", ftypes.UINT8)
-nyse_arca_options_xdp_v1_3_a.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.arca.options.xdp.v1.3.a.pricescalecode", ftypes.UINT8)
-nyse_arca_options_xdp_v1_3_a.fields.put_or_call = ProtoField.new("Put Or Call", "nyse.arca.options.xdp.v1.3.a.putorcall", ftypes.UINT8)
-nyse_arca_options_xdp_v1_3_a.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.arca.options.xdp.v1.3.a.quotecondition", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.reference_price = ProtoField.new("Reference Price", "nyse.arca.options.xdp.v1.3.a.referenceprice", ftypes.INT32)
-nyse_arca_options_xdp_v1_3_a.fields.refresh_complex_quote_message = ProtoField.new("Refresh Complex Quote Message", "nyse.arca.options.xdp.v1.3.a.refreshcomplexquotemessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.refresh_complex_trade_message = ProtoField.new("Refresh Complex Trade Message", "nyse.arca.options.xdp.v1.3.a.refreshcomplextrademessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.refresh_outright_imbalance_message = ProtoField.new("Refresh Outright Imbalance Message", "nyse.arca.options.xdp.v1.3.a.refreshoutrightimbalancemessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.refresh_outright_market_depth_buy_message = ProtoField.new("Refresh Outright Market Depth Buy Message", "nyse.arca.options.xdp.v1.3.a.refreshoutrightmarketdepthbuymessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.refresh_outright_market_depth_sell_message = ProtoField.new("Refresh Outright Market Depth Sell Message", "nyse.arca.options.xdp.v1.3.a.refreshoutrightmarketdepthsellmessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.refresh_outright_quote_message = ProtoField.new("Refresh Outright Quote Message", "nyse.arca.options.xdp.v1.3.a.refreshoutrightquotemessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.refresh_outright_trade_message = ProtoField.new("Refresh Outright Trade Message", "nyse.arca.options.xdp.v1.3.a.refreshoutrighttrademessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.arca.options.xdp.v1.3.a.reserved1", ftypes.BYTES)
-nyse_arca_options_xdp_v1_3_a.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.arca.options.xdp.v1.3.a.reserved2", ftypes.BYTES)
-nyse_arca_options_xdp_v1_3_a.fields.reserved_3 = ProtoField.new("Reserved 3", "nyse.arca.options.xdp.v1.3.a.reserved3", ftypes.BYTES)
-nyse_arca_options_xdp_v1_3_a.fields.second_level_customer_volume = ProtoField.new("Second Level Customer Volume", "nyse.arca.options.xdp.v1.3.a.secondlevelcustomervolume", ftypes.UINT16)
-nyse_arca_options_xdp_v1_3_a.fields.second_level_price = ProtoField.new("Second Level Price", "nyse.arca.options.xdp.v1.3.a.secondlevelprice", ftypes.INT32)
-nyse_arca_options_xdp_v1_3_a.fields.second_level_volume = ProtoField.new("Second Level Volume", "nyse.arca.options.xdp.v1.3.a.secondlevelvolume", ftypes.UINT16)
-nyse_arca_options_xdp_v1_3_a.fields.second_volume = ProtoField.new("Second Volume", "nyse.arca.options.xdp.v1.3.a.secondvolume", ftypes.UINT16)
-nyse_arca_options_xdp_v1_3_a.fields.security_status = ProtoField.new("Security Status", "nyse.arca.options.xdp.v1.3.a.securitystatus", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.security_type = ProtoField.new("Security Type", "nyse.arca.options.xdp.v1.3.a.securitytype", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.arca.options.xdp.v1.3.a.sequencenumber", ftypes.UINT32)
-nyse_arca_options_xdp_v1_3_a.fields.series_index = ProtoField.new("Series Index", "nyse.arca.options.xdp.v1.3.a.seriesindex", ftypes.UINT32)
-nyse_arca_options_xdp_v1_3_a.fields.series_index_mapping_message = ProtoField.new("Series Index Mapping Message", "nyse.arca.options.xdp.v1.3.a.seriesindexmappingmessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.side = ProtoField.new("Side", "nyse.arca.options.xdp.v1.3.a.side", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.source_ns = ProtoField.new("Source Ns", "nyse.arca.options.xdp.v1.3.a.sourcens", ftypes.UINT32)
-nyse_arca_options_xdp_v1_3_a.fields.source_time = ProtoField.new("Source Time", "nyse.arca.options.xdp.v1.3.a.sourcetime", ftypes.UINT32)
-nyse_arca_options_xdp_v1_3_a.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.arca.options.xdp.v1.3.a.sourcetimens", ftypes.UINT32)
-nyse_arca_options_xdp_v1_3_a.fields.stream_id = ProtoField.new("Stream Id", "nyse.arca.options.xdp.v1.3.a.streamid", ftypes.UINT16)
-nyse_arca_options_xdp_v1_3_a.fields.stream_id_message = ProtoField.new("Stream Id Message", "nyse.arca.options.xdp.v1.3.a.streamidmessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.strike_price = ProtoField.new("Strike Price", "nyse.arca.options.xdp.v1.3.a.strikeprice", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.arca.options.xdp.v1.3.a.symbolindex", ftypes.UINT32)
-nyse_arca_options_xdp_v1_3_a.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.arca.options.xdp.v1.3.a.symbolseqnum", ftypes.UINT32)
-nyse_arca_options_xdp_v1_3_a.fields.system_id = ProtoField.new("System Id", "nyse.arca.options.xdp.v1.3.a.systemid", ftypes.UINT8)
-nyse_arca_options_xdp_v1_3_a.fields.third_level_customer_volume = ProtoField.new("Third Level Customer Volume", "nyse.arca.options.xdp.v1.3.a.thirdlevelcustomervolume", ftypes.UINT16)
-nyse_arca_options_xdp_v1_3_a.fields.third_level_price = ProtoField.new("Third Level Price", "nyse.arca.options.xdp.v1.3.a.thirdlevelprice", ftypes.INT32)
-nyse_arca_options_xdp_v1_3_a.fields.third_level_volume = ProtoField.new("Third Level Volume", "nyse.arca.options.xdp.v1.3.a.thirdlevelvolume", ftypes.UINT16)
-nyse_arca_options_xdp_v1_3_a.fields.third_volume = ProtoField.new("Third Volume", "nyse.arca.options.xdp.v1.3.a.thirdvolume", ftypes.UINT16)
-nyse_arca_options_xdp_v1_3_a.fields.timestamp = ProtoField.new("Timestamp", "nyse.arca.options.xdp.v1.3.a.timestamp", ftypes.UINT32)
-nyse_arca_options_xdp_v1_3_a.fields.total_imbalance_qty = ProtoField.new("Total Imbalance Qty", "nyse.arca.options.xdp.v1.3.a.totalimbalanceqty", ftypes.UINT16)
-nyse_arca_options_xdp_v1_3_a.fields.total_volume = ProtoField.new("Total Volume", "nyse.arca.options.xdp.v1.3.a.totalvolume", ftypes.UINT32)
-nyse_arca_options_xdp_v1_3_a.fields.trade_cond_1 = ProtoField.new("Trade Cond 1", "nyse.arca.options.xdp.v1.3.a.tradecond1", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.trade_cond_2 = ProtoField.new("Trade Cond 2", "nyse.arca.options.xdp.v1.3.a.tradecond2", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.trade_id = ProtoField.new("Trade Id", "nyse.arca.options.xdp.v1.3.a.tradeid", ftypes.UINT32)
-nyse_arca_options_xdp_v1_3_a.fields.underlying_index = ProtoField.new("Underlying Index", "nyse.arca.options.xdp.v1.3.a.underlyingindex", ftypes.UINT32)
-nyse_arca_options_xdp_v1_3_a.fields.underlying_index_mapping_message = ProtoField.new("Underlying Index Mapping Message", "nyse.arca.options.xdp.v1.3.a.underlyingindexmappingmessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.underlying_seq_num = ProtoField.new("Underlying Seq Num", "nyse.arca.options.xdp.v1.3.a.underlyingseqnum", ftypes.UINT32)
-nyse_arca_options_xdp_v1_3_a.fields.underlying_status_message = ProtoField.new("Underlying Status Message", "nyse.arca.options.xdp.v1.3.a.underlyingstatusmessage", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nyse.arca.options.xdp.v1.3.a.underlyingsymbol", ftypes.STRING)
-nyse_arca_options_xdp_v1_3_a.fields.volume = ProtoField.new("Volume", "nyse.arca.options.xdp.v1.3.a.volume", ftypes.UINT32)
+-- Nyse Options TopFeed Xdp 1.3.a Fields
+nyse_options_topfeed_xdp_v1_3_a.fields.ask_customer_volume = ProtoField.new("Ask Customer Volume", "nyse.options.topfeed.xdp.v1.3.a.askcustomervolume", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.ask_price = ProtoField.new("Ask Price", "nyse.options.topfeed.xdp.v1.3.a.askprice", ftypes.INT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.ask_volume = ProtoField.new("Ask Volume", "nyse.options.topfeed.xdp.v1.3.a.askvolume", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.auction_type = ProtoField.new("Auction Type", "nyse.options.topfeed.xdp.v1.3.a.auctiontype", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.bid_customer_volume = ProtoField.new("Bid Customer Volume", "nyse.options.topfeed.xdp.v1.3.a.bidcustomervolume", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.bid_price = ProtoField.new("Bid Price", "nyse.options.topfeed.xdp.v1.3.a.bidprice", ftypes.INT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.bid_volume = ProtoField.new("Bid Volume", "nyse.options.topfeed.xdp.v1.3.a.bidvolume", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.capacity = ProtoField.new("Capacity", "nyse.options.topfeed.xdp.v1.3.a.capacity", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.channel_id = ProtoField.new("Channel Id", "nyse.options.topfeed.xdp.v1.3.a.channelid", ftypes.UINT8)
+nyse_options_topfeed_xdp_v1_3_a.fields.close = ProtoField.new("Close", "nyse.options.topfeed.xdp.v1.3.a.close", ftypes.INT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.complex_crossing_rfq_message = ProtoField.new("Complex Crossing Rfq Message", "nyse.options.topfeed.xdp.v1.3.a.complexcrossingrfqmessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.complex_cube_rfq_message = ProtoField.new("Complex Cube Rfq Message", "nyse.options.topfeed.xdp.v1.3.a.complexcuberfqmessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.complex_index = ProtoField.new("Complex Index", "nyse.options.topfeed.xdp.v1.3.a.complexindex", ftypes.UINT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.complex_quote_message = ProtoField.new("Complex Quote Message", "nyse.options.topfeed.xdp.v1.3.a.complexquotemessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.complex_status_message = ProtoField.new("Complex Status Message", "nyse.options.topfeed.xdp.v1.3.a.complexstatusmessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.complex_symbol = ProtoField.new("Complex Symbol", "nyse.options.topfeed.xdp.v1.3.a.complexsymbol", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.complex_symbol_definition_message = ProtoField.new("Complex Symbol Definition Message", "nyse.options.topfeed.xdp.v1.3.a.complexsymboldefinitionmessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.complex_trade_message = ProtoField.new("Complex Trade Message", "nyse.options.topfeed.xdp.v1.3.a.complextrademessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.contract_multiplier = ProtoField.new("Contract Multiplier", "nyse.options.topfeed.xdp.v1.3.a.contractmultiplier", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.contracts = ProtoField.new("Contracts", "nyse.options.topfeed.xdp.v1.3.a.contracts", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.options.topfeed.xdp.v1.3.a.deliveryflag", ftypes.UINT8)
+nyse_options_topfeed_xdp_v1_3_a.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.options.topfeed.xdp.v1.3.a.exchangecode", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.first_level_customer_volume = ProtoField.new("First Level Customer Volume", "nyse.options.topfeed.xdp.v1.3.a.firstlevelcustomervolume", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.first_level_price = ProtoField.new("First Level Price", "nyse.options.topfeed.xdp.v1.3.a.firstlevelprice", ftypes.INT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.first_level_volume = ProtoField.new("First Level Volume", "nyse.options.topfeed.xdp.v1.3.a.firstlevelvolume", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.first_volume = ProtoField.new("First Volume", "nyse.options.topfeed.xdp.v1.3.a.firstvolume", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.group_id = ProtoField.new("Group Id", "nyse.options.topfeed.xdp.v1.3.a.groupid", ftypes.UINT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.options.topfeed.xdp.v1.3.a.haltcondition", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.high_price = ProtoField.new("High Price", "nyse.options.topfeed.xdp.v1.3.a.highprice", ftypes.INT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.options.topfeed.xdp.v1.3.a.imbalanceside", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.leg_definition = ProtoField.new("Leg Definition", "nyse.options.topfeed.xdp.v1.3.a.legdefinition", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "nyse.options.topfeed.xdp.v1.3.a.legratioqty", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.leg_security_type = ProtoField.new("Leg Security Type", "nyse.options.topfeed.xdp.v1.3.a.legsecuritytype", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.low_price = ProtoField.new("Low Price", "nyse.options.topfeed.xdp.v1.3.a.lowprice", ftypes.INT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.market_id = ProtoField.new("Market Id", "nyse.options.topfeed.xdp.v1.3.a.marketid", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.options.topfeed.xdp.v1.3.a.marketimbalanceqty", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.market_imbalance_side = ProtoField.new("Market Imbalance Side", "nyse.options.topfeed.xdp.v1.3.a.marketimbalanceside", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.maturity_date = ProtoField.new("Maturity Date", "nyse.options.topfeed.xdp.v1.3.a.maturitydate", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.message = ProtoField.new("Message", "nyse.options.topfeed.xdp.v1.3.a.message", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.message_count = ProtoField.new("Message Count", "nyse.options.topfeed.xdp.v1.3.a.messagecount", ftypes.UINT8)
+nyse_options_topfeed_xdp_v1_3_a.fields.message_header = ProtoField.new("Message Header", "nyse.options.topfeed.xdp.v1.3.a.messageheader", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.message_size = ProtoField.new("Message Size", "nyse.options.topfeed.xdp.v1.3.a.messagesize", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.message_type = ProtoField.new("Message Type", "nyse.options.topfeed.xdp.v1.3.a.messagetype", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.options.topfeed.xdp.v1.3.a.nanoseconds", ftypes.UINT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.no_of_legs = ProtoField.new("No Of Legs", "nyse.options.topfeed.xdp.v1.3.a.nooflegs", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.open = ProtoField.new("Open", "nyse.options.topfeed.xdp.v1.3.a.open", ftypes.INT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.option_symbol_root = ProtoField.new("Option Symbol Root", "nyse.options.topfeed.xdp.v1.3.a.optionsymbolroot", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.original_trade_id = ProtoField.new("Original Trade Id", "nyse.options.topfeed.xdp.v1.3.a.originaltradeid", ftypes.UINT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.outright_bold_rfq_message = ProtoField.new("Outright Bold Rfq Message", "nyse.options.topfeed.xdp.v1.3.a.outrightboldrfqmessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.outright_crossing_rfq_message = ProtoField.new("Outright Crossing Rfq Message", "nyse.options.topfeed.xdp.v1.3.a.outrightcrossingrfqmessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.outright_imbalance_message = ProtoField.new("Outright Imbalance Message", "nyse.options.topfeed.xdp.v1.3.a.outrightimbalancemessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.outright_market_depth_buy_message = ProtoField.new("Outright Market Depth Buy Message", "nyse.options.topfeed.xdp.v1.3.a.outrightmarketdepthbuymessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.outright_market_depth_sell_message = ProtoField.new("Outright Market Depth Sell Message", "nyse.options.topfeed.xdp.v1.3.a.outrightmarketdepthsellmessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.outright_quote_message = ProtoField.new("Outright Quote Message", "nyse.options.topfeed.xdp.v1.3.a.outrightquotemessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.outright_series_status_message = ProtoField.new("Outright Series Status Message", "nyse.options.topfeed.xdp.v1.3.a.outrightseriesstatusmessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.outright_summary_message = ProtoField.new("Outright Summary Message", "nyse.options.topfeed.xdp.v1.3.a.outrightsummarymessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.outright_trade_cancel_message = ProtoField.new("Outright Trade Cancel Message", "nyse.options.topfeed.xdp.v1.3.a.outrighttradecancelmessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.outright_trade_correction_message = ProtoField.new("Outright Trade Correction Message", "nyse.options.topfeed.xdp.v1.3.a.outrighttradecorrectionmessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.outright_trade_message = ProtoField.new("Outright Trade Message", "nyse.options.topfeed.xdp.v1.3.a.outrighttrademessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.packet = ProtoField.new("Packet", "nyse.options.topfeed.xdp.v1.3.a.packet", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.options.topfeed.xdp.v1.3.a.packetheader", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.options.topfeed.xdp.v1.3.a.packetsize", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.options.topfeed.xdp.v1.3.a.pairedqty", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.participant = ProtoField.new("Participant", "nyse.options.topfeed.xdp.v1.3.a.participant", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.payload = ProtoField.new("Payload", "nyse.options.topfeed.xdp.v1.3.a.payload", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.price = ProtoField.new("Price", "nyse.options.topfeed.xdp.v1.3.a.price", ftypes.INT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.options.topfeed.xdp.v1.3.a.priceresolution", ftypes.UINT8)
+nyse_options_topfeed_xdp_v1_3_a.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.options.topfeed.xdp.v1.3.a.pricescalecode", ftypes.UINT8)
+nyse_options_topfeed_xdp_v1_3_a.fields.put_or_call = ProtoField.new("Put Or Call", "nyse.options.topfeed.xdp.v1.3.a.putorcall", ftypes.UINT8)
+nyse_options_topfeed_xdp_v1_3_a.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.options.topfeed.xdp.v1.3.a.quotecondition", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.reference_price = ProtoField.new("Reference Price", "nyse.options.topfeed.xdp.v1.3.a.referenceprice", ftypes.INT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.refresh_complex_quote_message = ProtoField.new("Refresh Complex Quote Message", "nyse.options.topfeed.xdp.v1.3.a.refreshcomplexquotemessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.refresh_complex_trade_message = ProtoField.new("Refresh Complex Trade Message", "nyse.options.topfeed.xdp.v1.3.a.refreshcomplextrademessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.refresh_outright_imbalance_message = ProtoField.new("Refresh Outright Imbalance Message", "nyse.options.topfeed.xdp.v1.3.a.refreshoutrightimbalancemessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.refresh_outright_market_depth_buy_message = ProtoField.new("Refresh Outright Market Depth Buy Message", "nyse.options.topfeed.xdp.v1.3.a.refreshoutrightmarketdepthbuymessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.refresh_outright_market_depth_sell_message = ProtoField.new("Refresh Outright Market Depth Sell Message", "nyse.options.topfeed.xdp.v1.3.a.refreshoutrightmarketdepthsellmessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.refresh_outright_quote_message = ProtoField.new("Refresh Outright Quote Message", "nyse.options.topfeed.xdp.v1.3.a.refreshoutrightquotemessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.refresh_outright_trade_message = ProtoField.new("Refresh Outright Trade Message", "nyse.options.topfeed.xdp.v1.3.a.refreshoutrighttrademessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.options.topfeed.xdp.v1.3.a.reserved1", ftypes.BYTES)
+nyse_options_topfeed_xdp_v1_3_a.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.options.topfeed.xdp.v1.3.a.reserved2", ftypes.BYTES)
+nyse_options_topfeed_xdp_v1_3_a.fields.reserved_3 = ProtoField.new("Reserved 3", "nyse.options.topfeed.xdp.v1.3.a.reserved3", ftypes.BYTES)
+nyse_options_topfeed_xdp_v1_3_a.fields.second_level_customer_volume = ProtoField.new("Second Level Customer Volume", "nyse.options.topfeed.xdp.v1.3.a.secondlevelcustomervolume", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.second_level_price = ProtoField.new("Second Level Price", "nyse.options.topfeed.xdp.v1.3.a.secondlevelprice", ftypes.INT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.second_level_volume = ProtoField.new("Second Level Volume", "nyse.options.topfeed.xdp.v1.3.a.secondlevelvolume", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.second_volume = ProtoField.new("Second Volume", "nyse.options.topfeed.xdp.v1.3.a.secondvolume", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.security_status = ProtoField.new("Security Status", "nyse.options.topfeed.xdp.v1.3.a.securitystatus", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.security_type = ProtoField.new("Security Type", "nyse.options.topfeed.xdp.v1.3.a.securitytype", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.options.topfeed.xdp.v1.3.a.sequencenumber", ftypes.UINT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.series_index = ProtoField.new("Series Index", "nyse.options.topfeed.xdp.v1.3.a.seriesindex", ftypes.UINT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.series_index_mapping_message = ProtoField.new("Series Index Mapping Message", "nyse.options.topfeed.xdp.v1.3.a.seriesindexmappingmessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.side = ProtoField.new("Side", "nyse.options.topfeed.xdp.v1.3.a.side", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.source_ns = ProtoField.new("Source Ns", "nyse.options.topfeed.xdp.v1.3.a.sourcens", ftypes.UINT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.source_time = ProtoField.new("Source Time", "nyse.options.topfeed.xdp.v1.3.a.sourcetime", ftypes.UINT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.options.topfeed.xdp.v1.3.a.sourcetimens", ftypes.UINT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.stream_id = ProtoField.new("Stream Id", "nyse.options.topfeed.xdp.v1.3.a.streamid", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.stream_id_message = ProtoField.new("Stream Id Message", "nyse.options.topfeed.xdp.v1.3.a.streamidmessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.strike_price = ProtoField.new("Strike Price", "nyse.options.topfeed.xdp.v1.3.a.strikeprice", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.options.topfeed.xdp.v1.3.a.symbolindex", ftypes.UINT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.options.topfeed.xdp.v1.3.a.symbolseqnum", ftypes.UINT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.system_id = ProtoField.new("System Id", "nyse.options.topfeed.xdp.v1.3.a.systemid", ftypes.UINT8)
+nyse_options_topfeed_xdp_v1_3_a.fields.third_level_customer_volume = ProtoField.new("Third Level Customer Volume", "nyse.options.topfeed.xdp.v1.3.a.thirdlevelcustomervolume", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.third_level_price = ProtoField.new("Third Level Price", "nyse.options.topfeed.xdp.v1.3.a.thirdlevelprice", ftypes.INT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.third_level_volume = ProtoField.new("Third Level Volume", "nyse.options.topfeed.xdp.v1.3.a.thirdlevelvolume", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.third_volume = ProtoField.new("Third Volume", "nyse.options.topfeed.xdp.v1.3.a.thirdvolume", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.timestamp = ProtoField.new("Timestamp", "nyse.options.topfeed.xdp.v1.3.a.timestamp", ftypes.UINT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.total_imbalance_qty = ProtoField.new("Total Imbalance Qty", "nyse.options.topfeed.xdp.v1.3.a.totalimbalanceqty", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.total_volume = ProtoField.new("Total Volume", "nyse.options.topfeed.xdp.v1.3.a.totalvolume", ftypes.UINT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.trade_cond_1 = ProtoField.new("Trade Cond 1", "nyse.options.topfeed.xdp.v1.3.a.tradecond1", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.trade_cond_2 = ProtoField.new("Trade Cond 2", "nyse.options.topfeed.xdp.v1.3.a.tradecond2", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.trade_id = ProtoField.new("Trade Id", "nyse.options.topfeed.xdp.v1.3.a.tradeid", ftypes.UINT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.underlying_index = ProtoField.new("Underlying Index", "nyse.options.topfeed.xdp.v1.3.a.underlyingindex", ftypes.UINT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.underlying_index_mapping_message = ProtoField.new("Underlying Index Mapping Message", "nyse.options.topfeed.xdp.v1.3.a.underlyingindexmappingmessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.underlying_seq_num = ProtoField.new("Underlying Seq Num", "nyse.options.topfeed.xdp.v1.3.a.underlyingseqnum", ftypes.UINT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.underlying_status_message = ProtoField.new("Underlying Status Message", "nyse.options.topfeed.xdp.v1.3.a.underlyingstatusmessage", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nyse.options.topfeed.xdp.v1.3.a.underlyingsymbol", ftypes.STRING)
+nyse_options_topfeed_xdp_v1_3_a.fields.volume = ProtoField.new("Volume", "nyse.options.topfeed.xdp.v1.3.a.volume", ftypes.UINT32)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Nyse Arca Options Xdp 1.3.a Element Dissection Options
+-- Nyse Options TopFeed Xdp 1.3.a Element Dissection Options
 show.complex_crossing_rfq_message = true
 show.complex_cube_rfq_message = true
 show.complex_quote_message = true
@@ -177,181 +177,181 @@ show.underlying_index_mapping_message = true
 show.underlying_status_message = true
 show.payload = false
 
--- Register Nyse Arca Options Xdp 1.3.a Show Options
-nyse_arca_options_xdp_v1_3_a.prefs.show_complex_crossing_rfq_message = Pref.bool("Show Complex Crossing Rfq Message", show.complex_crossing_rfq_message, "Parse and add Complex Crossing Rfq Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_complex_cube_rfq_message = Pref.bool("Show Complex Cube Rfq Message", show.complex_cube_rfq_message, "Parse and add Complex Cube Rfq Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_complex_quote_message = Pref.bool("Show Complex Quote Message", show.complex_quote_message, "Parse and add Complex Quote Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_complex_status_message = Pref.bool("Show Complex Status Message", show.complex_status_message, "Parse and add Complex Status Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_complex_symbol_definition_message = Pref.bool("Show Complex Symbol Definition Message", show.complex_symbol_definition_message, "Parse and add Complex Symbol Definition Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_complex_trade_message = Pref.bool("Show Complex Trade Message", show.complex_trade_message, "Parse and add Complex Trade Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_leg_definition = Pref.bool("Show Leg Definition", show.leg_definition, "Parse and add Leg Definition to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_outright_bold_rfq_message = Pref.bool("Show Outright Bold Rfq Message", show.outright_bold_rfq_message, "Parse and add Outright Bold Rfq Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_outright_crossing_rfq_message = Pref.bool("Show Outright Crossing Rfq Message", show.outright_crossing_rfq_message, "Parse and add Outright Crossing Rfq Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_outright_imbalance_message = Pref.bool("Show Outright Imbalance Message", show.outright_imbalance_message, "Parse and add Outright Imbalance Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_outright_market_depth_buy_message = Pref.bool("Show Outright Market Depth Buy Message", show.outright_market_depth_buy_message, "Parse and add Outright Market Depth Buy Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_outright_market_depth_sell_message = Pref.bool("Show Outright Market Depth Sell Message", show.outright_market_depth_sell_message, "Parse and add Outright Market Depth Sell Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_outright_quote_message = Pref.bool("Show Outright Quote Message", show.outright_quote_message, "Parse and add Outright Quote Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_outright_series_status_message = Pref.bool("Show Outright Series Status Message", show.outright_series_status_message, "Parse and add Outright Series Status Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_outright_summary_message = Pref.bool("Show Outright Summary Message", show.outright_summary_message, "Parse and add Outright Summary Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_outright_trade_cancel_message = Pref.bool("Show Outright Trade Cancel Message", show.outright_trade_cancel_message, "Parse and add Outright Trade Cancel Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_outright_trade_correction_message = Pref.bool("Show Outright Trade Correction Message", show.outright_trade_correction_message, "Parse and add Outright Trade Correction Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_outright_trade_message = Pref.bool("Show Outright Trade Message", show.outright_trade_message, "Parse and add Outright Trade Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_refresh_complex_quote_message = Pref.bool("Show Refresh Complex Quote Message", show.refresh_complex_quote_message, "Parse and add Refresh Complex Quote Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_refresh_complex_trade_message = Pref.bool("Show Refresh Complex Trade Message", show.refresh_complex_trade_message, "Parse and add Refresh Complex Trade Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_refresh_outright_imbalance_message = Pref.bool("Show Refresh Outright Imbalance Message", show.refresh_outright_imbalance_message, "Parse and add Refresh Outright Imbalance Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_buy_message = Pref.bool("Show Refresh Outright Market Depth Buy Message", show.refresh_outright_market_depth_buy_message, "Parse and add Refresh Outright Market Depth Buy Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_sell_message = Pref.bool("Show Refresh Outright Market Depth Sell Message", show.refresh_outright_market_depth_sell_message, "Parse and add Refresh Outright Market Depth Sell Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_refresh_outright_quote_message = Pref.bool("Show Refresh Outright Quote Message", show.refresh_outright_quote_message, "Parse and add Refresh Outright Quote Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_refresh_outright_trade_message = Pref.bool("Show Refresh Outright Trade Message", show.refresh_outright_trade_message, "Parse and add Refresh Outright Trade Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_series_index_mapping_message = Pref.bool("Show Series Index Mapping Message", show.series_index_mapping_message, "Parse and add Series Index Mapping Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_stream_id_message = Pref.bool("Show Stream Id Message", show.stream_id_message, "Parse and add Stream Id Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_underlying_index_mapping_message = Pref.bool("Show Underlying Index Mapping Message", show.underlying_index_mapping_message, "Parse and add Underlying Index Mapping Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_underlying_status_message = Pref.bool("Show Underlying Status Message", show.underlying_status_message, "Parse and add Underlying Status Message to protocol tree")
-nyse_arca_options_xdp_v1_3_a.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+-- Register Nyse Options TopFeed Xdp 1.3.a Show Options
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_complex_crossing_rfq_message = Pref.bool("Show Complex Crossing Rfq Message", show.complex_crossing_rfq_message, "Parse and add Complex Crossing Rfq Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_complex_cube_rfq_message = Pref.bool("Show Complex Cube Rfq Message", show.complex_cube_rfq_message, "Parse and add Complex Cube Rfq Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_complex_quote_message = Pref.bool("Show Complex Quote Message", show.complex_quote_message, "Parse and add Complex Quote Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_complex_status_message = Pref.bool("Show Complex Status Message", show.complex_status_message, "Parse and add Complex Status Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_complex_symbol_definition_message = Pref.bool("Show Complex Symbol Definition Message", show.complex_symbol_definition_message, "Parse and add Complex Symbol Definition Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_complex_trade_message = Pref.bool("Show Complex Trade Message", show.complex_trade_message, "Parse and add Complex Trade Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_leg_definition = Pref.bool("Show Leg Definition", show.leg_definition, "Parse and add Leg Definition to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_bold_rfq_message = Pref.bool("Show Outright Bold Rfq Message", show.outright_bold_rfq_message, "Parse and add Outright Bold Rfq Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_crossing_rfq_message = Pref.bool("Show Outright Crossing Rfq Message", show.outright_crossing_rfq_message, "Parse and add Outright Crossing Rfq Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_imbalance_message = Pref.bool("Show Outright Imbalance Message", show.outright_imbalance_message, "Parse and add Outright Imbalance Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_market_depth_buy_message = Pref.bool("Show Outright Market Depth Buy Message", show.outright_market_depth_buy_message, "Parse and add Outright Market Depth Buy Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_market_depth_sell_message = Pref.bool("Show Outright Market Depth Sell Message", show.outright_market_depth_sell_message, "Parse and add Outright Market Depth Sell Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_quote_message = Pref.bool("Show Outright Quote Message", show.outright_quote_message, "Parse and add Outright Quote Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_series_status_message = Pref.bool("Show Outright Series Status Message", show.outright_series_status_message, "Parse and add Outright Series Status Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_summary_message = Pref.bool("Show Outright Summary Message", show.outright_summary_message, "Parse and add Outright Summary Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_trade_cancel_message = Pref.bool("Show Outright Trade Cancel Message", show.outright_trade_cancel_message, "Parse and add Outright Trade Cancel Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_trade_correction_message = Pref.bool("Show Outright Trade Correction Message", show.outright_trade_correction_message, "Parse and add Outright Trade Correction Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_trade_message = Pref.bool("Show Outright Trade Message", show.outright_trade_message, "Parse and add Outright Trade Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_refresh_complex_quote_message = Pref.bool("Show Refresh Complex Quote Message", show.refresh_complex_quote_message, "Parse and add Refresh Complex Quote Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_refresh_complex_trade_message = Pref.bool("Show Refresh Complex Trade Message", show.refresh_complex_trade_message, "Parse and add Refresh Complex Trade Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_refresh_outright_imbalance_message = Pref.bool("Show Refresh Outright Imbalance Message", show.refresh_outright_imbalance_message, "Parse and add Refresh Outright Imbalance Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_buy_message = Pref.bool("Show Refresh Outright Market Depth Buy Message", show.refresh_outright_market_depth_buy_message, "Parse and add Refresh Outright Market Depth Buy Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_sell_message = Pref.bool("Show Refresh Outright Market Depth Sell Message", show.refresh_outright_market_depth_sell_message, "Parse and add Refresh Outright Market Depth Sell Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_refresh_outright_quote_message = Pref.bool("Show Refresh Outright Quote Message", show.refresh_outright_quote_message, "Parse and add Refresh Outright Quote Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_refresh_outright_trade_message = Pref.bool("Show Refresh Outright Trade Message", show.refresh_outright_trade_message, "Parse and add Refresh Outright Trade Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_series_index_mapping_message = Pref.bool("Show Series Index Mapping Message", show.series_index_mapping_message, "Parse and add Series Index Mapping Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_stream_id_message = Pref.bool("Show Stream Id Message", show.stream_id_message, "Parse and add Stream Id Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_underlying_index_mapping_message = Pref.bool("Show Underlying Index Mapping Message", show.underlying_index_mapping_message, "Parse and add Underlying Index Mapping Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_underlying_status_message = Pref.bool("Show Underlying Status Message", show.underlying_status_message, "Parse and add Underlying Status Message to protocol tree")
+nyse_options_topfeed_xdp_v1_3_a.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function nyse_arca_options_xdp_v1_3_a.prefs_changed()
+function nyse_options_topfeed_xdp_v1_3_a.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.complex_crossing_rfq_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_complex_crossing_rfq_message then
-    show.complex_crossing_rfq_message = nyse_arca_options_xdp_v1_3_a.prefs.show_complex_crossing_rfq_message
+  if show.complex_crossing_rfq_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_complex_crossing_rfq_message then
+    show.complex_crossing_rfq_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_complex_crossing_rfq_message
     changed = true
   end
-  if show.complex_cube_rfq_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_complex_cube_rfq_message then
-    show.complex_cube_rfq_message = nyse_arca_options_xdp_v1_3_a.prefs.show_complex_cube_rfq_message
+  if show.complex_cube_rfq_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_complex_cube_rfq_message then
+    show.complex_cube_rfq_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_complex_cube_rfq_message
     changed = true
   end
-  if show.complex_quote_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_complex_quote_message then
-    show.complex_quote_message = nyse_arca_options_xdp_v1_3_a.prefs.show_complex_quote_message
+  if show.complex_quote_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_complex_quote_message then
+    show.complex_quote_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_complex_quote_message
     changed = true
   end
-  if show.complex_status_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_complex_status_message then
-    show.complex_status_message = nyse_arca_options_xdp_v1_3_a.prefs.show_complex_status_message
+  if show.complex_status_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_complex_status_message then
+    show.complex_status_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_complex_status_message
     changed = true
   end
-  if show.complex_symbol_definition_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_complex_symbol_definition_message then
-    show.complex_symbol_definition_message = nyse_arca_options_xdp_v1_3_a.prefs.show_complex_symbol_definition_message
+  if show.complex_symbol_definition_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_complex_symbol_definition_message then
+    show.complex_symbol_definition_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_complex_symbol_definition_message
     changed = true
   end
-  if show.complex_trade_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_complex_trade_message then
-    show.complex_trade_message = nyse_arca_options_xdp_v1_3_a.prefs.show_complex_trade_message
+  if show.complex_trade_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_complex_trade_message then
+    show.complex_trade_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_complex_trade_message
     changed = true
   end
-  if show.leg_definition ~= nyse_arca_options_xdp_v1_3_a.prefs.show_leg_definition then
-    show.leg_definition = nyse_arca_options_xdp_v1_3_a.prefs.show_leg_definition
+  if show.leg_definition ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_leg_definition then
+    show.leg_definition = nyse_options_topfeed_xdp_v1_3_a.prefs.show_leg_definition
     changed = true
   end
-  if show.message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_message then
-    show.message = nyse_arca_options_xdp_v1_3_a.prefs.show_message
+  if show.message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_message then
+    show.message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_message
     changed = true
   end
-  if show.message_header ~= nyse_arca_options_xdp_v1_3_a.prefs.show_message_header then
-    show.message_header = nyse_arca_options_xdp_v1_3_a.prefs.show_message_header
+  if show.message_header ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_message_header then
+    show.message_header = nyse_options_topfeed_xdp_v1_3_a.prefs.show_message_header
     changed = true
   end
-  if show.outright_bold_rfq_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_outright_bold_rfq_message then
-    show.outright_bold_rfq_message = nyse_arca_options_xdp_v1_3_a.prefs.show_outright_bold_rfq_message
+  if show.outright_bold_rfq_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_bold_rfq_message then
+    show.outright_bold_rfq_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_bold_rfq_message
     changed = true
   end
-  if show.outright_crossing_rfq_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_outright_crossing_rfq_message then
-    show.outright_crossing_rfq_message = nyse_arca_options_xdp_v1_3_a.prefs.show_outright_crossing_rfq_message
+  if show.outright_crossing_rfq_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_crossing_rfq_message then
+    show.outright_crossing_rfq_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_crossing_rfq_message
     changed = true
   end
-  if show.outright_imbalance_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_outright_imbalance_message then
-    show.outright_imbalance_message = nyse_arca_options_xdp_v1_3_a.prefs.show_outright_imbalance_message
+  if show.outright_imbalance_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_imbalance_message then
+    show.outright_imbalance_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_imbalance_message
     changed = true
   end
-  if show.outright_market_depth_buy_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_outright_market_depth_buy_message then
-    show.outright_market_depth_buy_message = nyse_arca_options_xdp_v1_3_a.prefs.show_outright_market_depth_buy_message
+  if show.outright_market_depth_buy_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_market_depth_buy_message then
+    show.outright_market_depth_buy_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_market_depth_buy_message
     changed = true
   end
-  if show.outright_market_depth_sell_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_outright_market_depth_sell_message then
-    show.outright_market_depth_sell_message = nyse_arca_options_xdp_v1_3_a.prefs.show_outright_market_depth_sell_message
+  if show.outright_market_depth_sell_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_market_depth_sell_message then
+    show.outright_market_depth_sell_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_market_depth_sell_message
     changed = true
   end
-  if show.outright_quote_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_outright_quote_message then
-    show.outright_quote_message = nyse_arca_options_xdp_v1_3_a.prefs.show_outright_quote_message
+  if show.outright_quote_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_quote_message then
+    show.outright_quote_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_quote_message
     changed = true
   end
-  if show.outright_series_status_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_outright_series_status_message then
-    show.outright_series_status_message = nyse_arca_options_xdp_v1_3_a.prefs.show_outright_series_status_message
+  if show.outright_series_status_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_series_status_message then
+    show.outright_series_status_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_series_status_message
     changed = true
   end
-  if show.outright_summary_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_outright_summary_message then
-    show.outright_summary_message = nyse_arca_options_xdp_v1_3_a.prefs.show_outright_summary_message
+  if show.outright_summary_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_summary_message then
+    show.outright_summary_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_summary_message
     changed = true
   end
-  if show.outright_trade_cancel_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_outright_trade_cancel_message then
-    show.outright_trade_cancel_message = nyse_arca_options_xdp_v1_3_a.prefs.show_outright_trade_cancel_message
+  if show.outright_trade_cancel_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_trade_cancel_message then
+    show.outright_trade_cancel_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_trade_cancel_message
     changed = true
   end
-  if show.outright_trade_correction_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_outright_trade_correction_message then
-    show.outright_trade_correction_message = nyse_arca_options_xdp_v1_3_a.prefs.show_outright_trade_correction_message
+  if show.outright_trade_correction_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_trade_correction_message then
+    show.outright_trade_correction_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_trade_correction_message
     changed = true
   end
-  if show.outright_trade_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_outright_trade_message then
-    show.outright_trade_message = nyse_arca_options_xdp_v1_3_a.prefs.show_outright_trade_message
+  if show.outright_trade_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_trade_message then
+    show.outright_trade_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_outright_trade_message
     changed = true
   end
-  if show.packet ~= nyse_arca_options_xdp_v1_3_a.prefs.show_packet then
-    show.packet = nyse_arca_options_xdp_v1_3_a.prefs.show_packet
+  if show.packet ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_packet then
+    show.packet = nyse_options_topfeed_xdp_v1_3_a.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= nyse_arca_options_xdp_v1_3_a.prefs.show_packet_header then
-    show.packet_header = nyse_arca_options_xdp_v1_3_a.prefs.show_packet_header
+  if show.packet_header ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_packet_header then
+    show.packet_header = nyse_options_topfeed_xdp_v1_3_a.prefs.show_packet_header
     changed = true
   end
-  if show.refresh_complex_quote_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_refresh_complex_quote_message then
-    show.refresh_complex_quote_message = nyse_arca_options_xdp_v1_3_a.prefs.show_refresh_complex_quote_message
+  if show.refresh_complex_quote_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_refresh_complex_quote_message then
+    show.refresh_complex_quote_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_refresh_complex_quote_message
     changed = true
   end
-  if show.refresh_complex_trade_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_refresh_complex_trade_message then
-    show.refresh_complex_trade_message = nyse_arca_options_xdp_v1_3_a.prefs.show_refresh_complex_trade_message
+  if show.refresh_complex_trade_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_refresh_complex_trade_message then
+    show.refresh_complex_trade_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_refresh_complex_trade_message
     changed = true
   end
-  if show.refresh_outright_imbalance_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_refresh_outright_imbalance_message then
-    show.refresh_outright_imbalance_message = nyse_arca_options_xdp_v1_3_a.prefs.show_refresh_outright_imbalance_message
+  if show.refresh_outright_imbalance_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_refresh_outright_imbalance_message then
+    show.refresh_outright_imbalance_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_refresh_outright_imbalance_message
     changed = true
   end
-  if show.refresh_outright_market_depth_buy_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_buy_message then
-    show.refresh_outright_market_depth_buy_message = nyse_arca_options_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_buy_message
+  if show.refresh_outright_market_depth_buy_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_buy_message then
+    show.refresh_outright_market_depth_buy_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_buy_message
     changed = true
   end
-  if show.refresh_outright_market_depth_sell_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_sell_message then
-    show.refresh_outright_market_depth_sell_message = nyse_arca_options_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_sell_message
+  if show.refresh_outright_market_depth_sell_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_sell_message then
+    show.refresh_outright_market_depth_sell_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_sell_message
     changed = true
   end
-  if show.refresh_outright_quote_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_refresh_outright_quote_message then
-    show.refresh_outright_quote_message = nyse_arca_options_xdp_v1_3_a.prefs.show_refresh_outright_quote_message
+  if show.refresh_outright_quote_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_refresh_outright_quote_message then
+    show.refresh_outright_quote_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_refresh_outright_quote_message
     changed = true
   end
-  if show.refresh_outright_trade_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_refresh_outright_trade_message then
-    show.refresh_outright_trade_message = nyse_arca_options_xdp_v1_3_a.prefs.show_refresh_outright_trade_message
+  if show.refresh_outright_trade_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_refresh_outright_trade_message then
+    show.refresh_outright_trade_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_refresh_outright_trade_message
     changed = true
   end
-  if show.series_index_mapping_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_series_index_mapping_message then
-    show.series_index_mapping_message = nyse_arca_options_xdp_v1_3_a.prefs.show_series_index_mapping_message
+  if show.series_index_mapping_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_series_index_mapping_message then
+    show.series_index_mapping_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_series_index_mapping_message
     changed = true
   end
-  if show.stream_id_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_stream_id_message then
-    show.stream_id_message = nyse_arca_options_xdp_v1_3_a.prefs.show_stream_id_message
+  if show.stream_id_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_stream_id_message then
+    show.stream_id_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_stream_id_message
     changed = true
   end
-  if show.underlying_index_mapping_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_underlying_index_mapping_message then
-    show.underlying_index_mapping_message = nyse_arca_options_xdp_v1_3_a.prefs.show_underlying_index_mapping_message
+  if show.underlying_index_mapping_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_underlying_index_mapping_message then
+    show.underlying_index_mapping_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_underlying_index_mapping_message
     changed = true
   end
-  if show.underlying_status_message ~= nyse_arca_options_xdp_v1_3_a.prefs.show_underlying_status_message then
-    show.underlying_status_message = nyse_arca_options_xdp_v1_3_a.prefs.show_underlying_status_message
+  if show.underlying_status_message ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_underlying_status_message then
+    show.underlying_status_message = nyse_options_topfeed_xdp_v1_3_a.prefs.show_underlying_status_message
     changed = true
   end
-  if show.payload ~= nyse_arca_options_xdp_v1_3_a.prefs.show_payload then
-    show.payload = nyse_arca_options_xdp_v1_3_a.prefs.show_payload
+  if show.payload ~= nyse_options_topfeed_xdp_v1_3_a.prefs.show_payload then
+    show.payload = nyse_options_topfeed_xdp_v1_3_a.prefs.show_payload
     changed = true
   end
 
@@ -363,7 +363,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Nyse Arca Options Xdp 1.3.a
+-- Dissect Nyse Options TopFeed Xdp 1.3.a
 -----------------------------------------------------------------------
 
 -- Size: Reserved 2
@@ -380,7 +380,7 @@ dissect.reserved_2 = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.reserved_2, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.reserved_2, range, value, display)
 
   return offset + size_of.reserved_2
 end
@@ -399,7 +399,7 @@ dissect.stream_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.stream_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.stream_id, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.stream_id, range, value, display)
 
   return offset + size_of.stream_id
 end
@@ -428,7 +428,7 @@ dissect.stream_id_message = function(buffer, offset, packet, parent)
   if show.stream_id_message then
     local range = buffer(offset, 4)
     local display = display.stream_id_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.stream_id_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.stream_id_message, range, display)
   end
 
   return dissect.stream_id_message_fields(buffer, offset, packet, parent)
@@ -455,7 +455,7 @@ dissect.leg_security_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.leg_security_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.leg_security_type, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.leg_security_type, range, value, display)
 
   return offset + size_of.leg_security_type
 end
@@ -481,7 +481,7 @@ dissect.side = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.side(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.side, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.side, range, value, display)
 
   return offset + size_of.side
 end
@@ -500,7 +500,7 @@ dissect.leg_ratio_qty = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.leg_ratio_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.leg_ratio_qty, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.leg_ratio_qty, range, value, display)
 
   return offset + size_of.leg_ratio_qty
 end
@@ -519,7 +519,7 @@ dissect.symbol_index = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.symbol_index(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.symbol_index, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.symbol_index, range, value, display)
 
   return offset + size_of.symbol_index
 end
@@ -554,7 +554,7 @@ dissect.leg_definition = function(buffer, offset, packet, parent)
   if show.leg_definition then
     local range = buffer(offset, 8)
     local display = display.leg_definition(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.leg_definition, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.leg_definition, range, display)
   end
 
   return dissect.leg_definition_fields(buffer, offset, packet, parent)
@@ -574,7 +574,7 @@ dissect.no_of_legs = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.no_of_legs(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.no_of_legs, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.no_of_legs, range, value, display)
 
   return offset + size_of.no_of_legs
 end
@@ -593,7 +593,7 @@ dissect.reserved_1 = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.reserved_1, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.reserved_1, range, value, display)
 
   return offset + size_of.reserved_1
 end
@@ -612,7 +612,7 @@ dissect.system_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.system_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.system_id, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.system_id, range, value, display)
 
   return offset + size_of.system_id
 end
@@ -659,7 +659,7 @@ dissect.market_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.market_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.market_id, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.market_id, range, value, display)
 
   return offset + size_of.market_id
 end
@@ -678,7 +678,7 @@ dissect.channel_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.channel_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.channel_id, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.channel_id, range, value, display)
 
   return offset + size_of.channel_id
 end
@@ -697,7 +697,7 @@ dissect.complex_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.complex_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.complex_symbol, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.complex_symbol, range, value, display)
 
   return offset + size_of.complex_symbol
 end
@@ -716,7 +716,7 @@ dissect.complex_index = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.complex_index(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.complex_index, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.complex_index, range, value, display)
 
   return offset + size_of.complex_index
 end
@@ -769,7 +769,7 @@ dissect.complex_symbol_definition_message = function(buffer, offset, packet, par
   if show.complex_symbol_definition_message then
     local range = buffer(offset, 44)
     local display = display.complex_symbol_definition_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.complex_symbol_definition_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.complex_symbol_definition_message, range, display)
   end
 
   return dissect.complex_symbol_definition_message_fields(buffer, offset, packet, parent)
@@ -789,7 +789,7 @@ dissect.group_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.group_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.group_id, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.group_id, range, value, display)
 
   return offset + size_of.group_id
 end
@@ -808,7 +808,7 @@ dissect.option_symbol_root = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.option_symbol_root(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.option_symbol_root, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.option_symbol_root, range, value, display)
 
   return offset + size_of.option_symbol_root
 end
@@ -827,7 +827,7 @@ dissect.underlying_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.underlying_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.underlying_symbol, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.underlying_symbol, range, value, display)
 
   return offset + size_of.underlying_symbol
 end
@@ -846,7 +846,7 @@ dissect.price_scale_code = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.price_scale_code(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.price_scale_code, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.price_scale_code, range, value, display)
 
   return offset + size_of.price_scale_code
 end
@@ -865,7 +865,7 @@ dissect.strike_price = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.strike_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.strike_price, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.strike_price, range, value, display)
 
   return offset + size_of.strike_price
 end
@@ -891,7 +891,7 @@ dissect.put_or_call = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.put_or_call(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.put_or_call, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.put_or_call, range, value, display)
 
   return offset + size_of.put_or_call
 end
@@ -910,7 +910,7 @@ dissect.maturity_date = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.maturity_date(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.maturity_date, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.maturity_date, range, value, display)
 
   return offset + size_of.maturity_date
 end
@@ -929,7 +929,7 @@ dissect.contract_multiplier = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.contract_multiplier(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.contract_multiplier, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.contract_multiplier, range, value, display)
 
   return offset + size_of.contract_multiplier
 end
@@ -948,7 +948,7 @@ dissect.underlying_index = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.underlying_index(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.underlying_index, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.underlying_index, range, value, display)
 
   return offset + size_of.underlying_index
 end
@@ -967,7 +967,7 @@ dissect.series_index = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.series_index(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.series_index, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.series_index, range, value, display)
 
   return offset + size_of.series_index
 end
@@ -1038,7 +1038,7 @@ dissect.series_index_mapping_message = function(buffer, offset, packet, parent)
   if show.series_index_mapping_message then
     local range = buffer(offset, 56)
     local display = display.series_index_mapping_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.series_index_mapping_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.series_index_mapping_message, range, display)
   end
 
   return dissect.series_index_mapping_message_fields(buffer, offset, packet, parent)
@@ -1068,7 +1068,7 @@ dissect.price_resolution = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.price_resolution(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.price_resolution, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.price_resolution, range, value, display)
 
   return offset + size_of.price_resolution
 end
@@ -1136,7 +1136,7 @@ dissect.security_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.security_type, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.security_type, range, value, display)
 
   return offset + size_of.security_type
 end
@@ -1174,7 +1174,7 @@ dissect.exchange_code = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.exchange_code(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.exchange_code, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.exchange_code, range, value, display)
 
   return offset + size_of.exchange_code
 end
@@ -1227,7 +1227,7 @@ dissect.underlying_index_mapping_message = function(buffer, offset, packet, pare
   if show.underlying_index_mapping_message then
     local range = buffer(offset, 24)
     local display = display.underlying_index_mapping_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.underlying_index_mapping_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.underlying_index_mapping_message, range, display)
   end
 
   return dissect.underlying_index_mapping_message_fields(buffer, offset, packet, parent)
@@ -1254,7 +1254,7 @@ dissect.trade_cond_2 = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trade_cond_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.trade_cond_2, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.trade_cond_2, range, value, display)
 
   return offset + size_of.trade_cond_2
 end
@@ -1286,7 +1286,7 @@ dissect.trade_cond_1 = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trade_cond_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.trade_cond_1, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.trade_cond_1, range, value, display)
 
   return offset + size_of.trade_cond_1
 end
@@ -1305,7 +1305,7 @@ dissect.volume = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.volume, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.volume, range, value, display)
 
   return offset + size_of.volume
 end
@@ -1324,7 +1324,7 @@ dissect.price = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.price, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.price, range, value, display)
 
   return offset + size_of.price
 end
@@ -1343,7 +1343,7 @@ dissect.trade_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.trade_id, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.trade_id, range, value, display)
 
   return offset + size_of.trade_id
 end
@@ -1362,7 +1362,7 @@ dissect.symbol_seq_num = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.symbol_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.symbol_seq_num, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.symbol_seq_num, range, value, display)
 
   return offset + size_of.symbol_seq_num
 end
@@ -1381,7 +1381,7 @@ dissect.source_time_ns = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.source_time_ns(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.source_time_ns, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.source_time_ns, range, value, display)
 
   return offset + size_of.source_time_ns
 end
@@ -1400,7 +1400,7 @@ dissect.source_time = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.source_time(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.source_time, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.source_time, range, value, display)
 
   return offset + size_of.source_time
 end
@@ -1453,7 +1453,7 @@ dissect.refresh_complex_trade_message = function(buffer, offset, packet, parent)
   if show.refresh_complex_trade_message then
     local range = buffer(offset, 32)
     local display = display.refresh_complex_trade_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.refresh_complex_trade_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.refresh_complex_trade_message, range, display)
   end
 
   return dissect.refresh_complex_trade_message_fields(buffer, offset, packet, parent)
@@ -1489,7 +1489,7 @@ dissect.quote_condition = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.quote_condition(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.quote_condition, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.quote_condition, range, value, display)
 
   return offset + size_of.quote_condition
 end
@@ -1508,7 +1508,7 @@ dissect.bid_customer_volume = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.bid_customer_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.bid_customer_volume, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.bid_customer_volume, range, value, display)
 
   return offset + size_of.bid_customer_volume
 end
@@ -1527,7 +1527,7 @@ dissect.ask_customer_volume = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.ask_customer_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.ask_customer_volume, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.ask_customer_volume, range, value, display)
 
   return offset + size_of.ask_customer_volume
 end
@@ -1546,7 +1546,7 @@ dissect.bid_volume = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.bid_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.bid_volume, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.bid_volume, range, value, display)
 
   return offset + size_of.bid_volume
 end
@@ -1565,7 +1565,7 @@ dissect.ask_volume = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.ask_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.ask_volume, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.ask_volume, range, value, display)
 
   return offset + size_of.ask_volume
 end
@@ -1584,7 +1584,7 @@ dissect.bid_price = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.bid_price, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.bid_price, range, value, display)
 
   return offset + size_of.bid_price
 end
@@ -1603,7 +1603,7 @@ dissect.ask_price = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.ask_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.ask_price, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.ask_price, range, value, display)
 
   return offset + size_of.ask_price
 end
@@ -1665,7 +1665,7 @@ dissect.refresh_complex_quote_message = function(buffer, offset, packet, parent)
   if show.refresh_complex_quote_message then
     local range = buffer(offset, 36)
     local display = display.refresh_complex_quote_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.refresh_complex_quote_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.refresh_complex_quote_message, range, display)
   end
 
   return dissect.refresh_complex_quote_message_fields(buffer, offset, packet, parent)
@@ -1685,7 +1685,7 @@ dissect.halt_condition = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.halt_condition(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.halt_condition, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.halt_condition, range, value, display)
 
   return offset + size_of.halt_condition
 end
@@ -1729,7 +1729,7 @@ dissect.security_status = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.security_status, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.security_status, range, value, display)
 
   return offset + size_of.security_status
 end
@@ -1773,7 +1773,7 @@ dissect.complex_status_message = function(buffer, offset, packet, parent)
   if show.complex_status_message then
     local range = buffer(offset, 20)
     local display = display.complex_status_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.complex_status_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.complex_status_message, range, display)
   end
 
   return dissect.complex_status_message_fields(buffer, offset, packet, parent)
@@ -1793,7 +1793,7 @@ dissect.source_ns = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.source_ns(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.source_ns, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.source_ns, range, value, display)
 
   return offset + size_of.source_ns
 end
@@ -1840,7 +1840,7 @@ dissect.complex_cube_rfq_message = function(buffer, offset, packet, parent)
   if show.complex_cube_rfq_message then
     local range = buffer(offset, 26)
     local display = display.complex_cube_rfq_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.complex_cube_rfq_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.complex_cube_rfq_message, range, display)
   end
 
   return dissect.complex_cube_rfq_message_fields(buffer, offset, packet, parent)
@@ -1888,7 +1888,7 @@ dissect.complex_crossing_rfq_message = function(buffer, offset, packet, parent)
   if show.complex_crossing_rfq_message then
     local range = buffer(offset, 26)
     local display = display.complex_crossing_rfq_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.complex_crossing_rfq_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.complex_crossing_rfq_message, range, display)
   end
 
   return dissect.complex_crossing_rfq_message_fields(buffer, offset, packet, parent)
@@ -1942,7 +1942,7 @@ dissect.complex_trade_message = function(buffer, offset, packet, parent)
   if show.complex_trade_message then
     local range = buffer(offset, 32)
     local display = display.complex_trade_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.complex_trade_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.complex_trade_message, range, display)
   end
 
   return dissect.complex_trade_message_fields(buffer, offset, packet, parent)
@@ -2005,7 +2005,7 @@ dissect.complex_quote_message = function(buffer, offset, packet, parent)
   if show.complex_quote_message then
     local range = buffer(offset, 36)
     local display = display.complex_quote_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.complex_quote_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.complex_quote_message, range, display)
   end
 
   return dissect.complex_quote_message_fields(buffer, offset, packet, parent)
@@ -2025,7 +2025,7 @@ dissect.third_level_customer_volume = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.third_level_customer_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.third_level_customer_volume, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.third_level_customer_volume, range, value, display)
 
   return offset + size_of.third_level_customer_volume
 end
@@ -2044,7 +2044,7 @@ dissect.second_level_customer_volume = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.second_level_customer_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.second_level_customer_volume, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.second_level_customer_volume, range, value, display)
 
   return offset + size_of.second_level_customer_volume
 end
@@ -2063,7 +2063,7 @@ dissect.first_level_customer_volume = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.first_level_customer_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.first_level_customer_volume, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.first_level_customer_volume, range, value, display)
 
   return offset + size_of.first_level_customer_volume
 end
@@ -2082,7 +2082,7 @@ dissect.third_volume = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.third_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.third_volume, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.third_volume, range, value, display)
 
   return offset + size_of.third_volume
 end
@@ -2101,7 +2101,7 @@ dissect.second_volume = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.second_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.second_volume, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.second_volume, range, value, display)
 
   return offset + size_of.second_volume
 end
@@ -2120,7 +2120,7 @@ dissect.first_volume = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.first_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.first_volume, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.first_volume, range, value, display)
 
   return offset + size_of.first_volume
 end
@@ -2139,7 +2139,7 @@ dissect.third_level_price = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.third_level_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.third_level_price, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.third_level_price, range, value, display)
 
   return offset + size_of.third_level_price
 end
@@ -2158,7 +2158,7 @@ dissect.second_level_price = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.second_level_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.second_level_price, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.second_level_price, range, value, display)
 
   return offset + size_of.second_level_price
 end
@@ -2177,7 +2177,7 @@ dissect.first_level_price = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.first_level_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.first_level_price, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.first_level_price, range, value, display)
 
   return offset + size_of.first_level_price
 end
@@ -2248,7 +2248,7 @@ dissect.refresh_outright_market_depth_sell_message = function(buffer, offset, pa
   if show.refresh_outright_market_depth_sell_message then
     local range = buffer(offset, 44)
     local display = display.refresh_outright_market_depth_sell_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.refresh_outright_market_depth_sell_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.refresh_outright_market_depth_sell_message, range, display)
   end
 
   return dissect.refresh_outright_market_depth_sell_message_fields(buffer, offset, packet, parent)
@@ -2320,7 +2320,7 @@ dissect.refresh_outright_market_depth_buy_message = function(buffer, offset, pac
   if show.refresh_outright_market_depth_buy_message then
     local range = buffer(offset, 44)
     local display = display.refresh_outright_market_depth_buy_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.refresh_outright_market_depth_buy_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.refresh_outright_market_depth_buy_message, range, display)
   end
 
   return dissect.refresh_outright_market_depth_buy_message_fields(buffer, offset, packet, parent)
@@ -2392,7 +2392,7 @@ dissect.outright_market_depth_sell_message = function(buffer, offset, packet, pa
   if show.outright_market_depth_sell_message then
     local range = buffer(offset, 44)
     local display = display.outright_market_depth_sell_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.outright_market_depth_sell_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_market_depth_sell_message, range, display)
   end
 
   return dissect.outright_market_depth_sell_message_fields(buffer, offset, packet, parent)
@@ -2412,7 +2412,7 @@ dissect.third_level_volume = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.third_level_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.third_level_volume, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.third_level_volume, range, value, display)
 
   return offset + size_of.third_level_volume
 end
@@ -2431,7 +2431,7 @@ dissect.second_level_volume = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.second_level_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.second_level_volume, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.second_level_volume, range, value, display)
 
   return offset + size_of.second_level_volume
 end
@@ -2450,7 +2450,7 @@ dissect.first_level_volume = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.first_level_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.first_level_volume, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.first_level_volume, range, value, display)
 
   return offset + size_of.first_level_volume
 end
@@ -2521,7 +2521,7 @@ dissect.outright_market_depth_buy_message = function(buffer, offset, packet, par
   if show.outright_market_depth_buy_message then
     local range = buffer(offset, 44)
     local display = display.outright_market_depth_buy_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.outright_market_depth_buy_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_market_depth_buy_message, range, display)
   end
 
   return dissect.outright_market_depth_buy_message_fields(buffer, offset, packet, parent)
@@ -2541,7 +2541,7 @@ dissect.reserved_3 = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved_3(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.reserved_3, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.reserved_3, range, value, display)
 
   return offset + size_of.reserved_3
 end
@@ -2570,7 +2570,7 @@ dissect.market_imbalance_side = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.market_imbalance_side(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.market_imbalance_side, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.market_imbalance_side, range, value, display)
 
   return offset + size_of.market_imbalance_side
 end
@@ -2599,7 +2599,7 @@ dissect.imbalance_side = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.imbalance_side(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.imbalance_side, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.imbalance_side, range, value, display)
 
   return offset + size_of.imbalance_side
 end
@@ -2625,7 +2625,7 @@ dissect.auction_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.auction_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.auction_type, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.auction_type, range, value, display)
 
   return offset + size_of.auction_type
 end
@@ -2644,7 +2644,7 @@ dissect.market_imbalance_qty = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.market_imbalance_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.market_imbalance_qty, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.market_imbalance_qty, range, value, display)
 
   return offset + size_of.market_imbalance_qty
 end
@@ -2663,7 +2663,7 @@ dissect.total_imbalance_qty = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.total_imbalance_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.total_imbalance_qty, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.total_imbalance_qty, range, value, display)
 
   return offset + size_of.total_imbalance_qty
 end
@@ -2682,7 +2682,7 @@ dissect.paired_qty = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.paired_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.paired_qty, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.paired_qty, range, value, display)
 
   return offset + size_of.paired_qty
 end
@@ -2701,7 +2701,7 @@ dissect.reference_price = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.reference_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.reference_price, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.reference_price, range, value, display)
 
   return offset + size_of.reference_price
 end
@@ -2760,7 +2760,7 @@ dissect.refresh_outright_imbalance_message = function(buffer, offset, packet, pa
   if show.refresh_outright_imbalance_message then
     local range = buffer(offset, 32)
     local display = display.refresh_outright_imbalance_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.refresh_outright_imbalance_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.refresh_outright_imbalance_message, range, display)
   end
 
   return dissect.refresh_outright_imbalance_message_fields(buffer, offset, packet, parent)
@@ -2814,7 +2814,7 @@ dissect.refresh_outright_trade_message = function(buffer, offset, packet, parent
   if show.refresh_outright_trade_message then
     local range = buffer(offset, 32)
     local display = display.refresh_outright_trade_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.refresh_outright_trade_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.refresh_outright_trade_message, range, display)
   end
 
   return dissect.refresh_outright_trade_message_fields(buffer, offset, packet, parent)
@@ -2877,7 +2877,7 @@ dissect.refresh_outright_quote_message = function(buffer, offset, packet, parent
   if show.refresh_outright_quote_message then
     local range = buffer(offset, 36)
     local display = display.refresh_outright_quote_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.refresh_outright_quote_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.refresh_outright_quote_message, range, display)
   end
 
   return dissect.refresh_outright_quote_message_fields(buffer, offset, packet, parent)
@@ -2922,7 +2922,7 @@ dissect.outright_series_status_message = function(buffer, offset, packet, parent
   if show.outright_series_status_message then
     local range = buffer(offset, 20)
     local display = display.outright_series_status_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.outright_series_status_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_series_status_message, range, display)
   end
 
   return dissect.outright_series_status_message_fields(buffer, offset, packet, parent)
@@ -2942,7 +2942,7 @@ dissect.underlying_seq_num = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.underlying_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.underlying_seq_num, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.underlying_seq_num, range, value, display)
 
   return offset + size_of.underlying_seq_num
 end
@@ -2986,7 +2986,7 @@ dissect.underlying_status_message = function(buffer, offset, packet, parent)
   if show.underlying_status_message then
     local range = buffer(offset, 20)
     local display = display.underlying_status_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.underlying_status_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.underlying_status_message, range, display)
   end
 
   return dissect.underlying_status_message_fields(buffer, offset, packet, parent)
@@ -3006,7 +3006,7 @@ dissect.total_volume = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.total_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.total_volume, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.total_volume, range, value, display)
 
   return offset + size_of.total_volume
 end
@@ -3025,7 +3025,7 @@ dissect.close = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.close(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.close, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.close, range, value, display)
 
   return offset + size_of.close
 end
@@ -3044,7 +3044,7 @@ dissect.open = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.open(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.open, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.open, range, value, display)
 
   return offset + size_of.open
 end
@@ -3063,7 +3063,7 @@ dissect.low_price = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.low_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.low_price, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.low_price, range, value, display)
 
   return offset + size_of.low_price
 end
@@ -3082,7 +3082,7 @@ dissect.high_price = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.high_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.high_price, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.high_price, range, value, display)
 
   return offset + size_of.high_price
 end
@@ -3132,7 +3132,7 @@ dissect.outright_summary_message = function(buffer, offset, packet, parent)
   if show.outright_summary_message then
     local range = buffer(offset, 36)
     local display = display.outright_summary_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.outright_summary_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_summary_message, range, display)
   end
 
   return dissect.outright_summary_message_fields(buffer, offset, packet, parent)
@@ -3152,7 +3152,7 @@ dissect.participant = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.participant(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.participant, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.participant, range, value, display)
 
   return offset + size_of.participant
 end
@@ -3171,7 +3171,7 @@ dissect.contracts = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.contracts(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.contracts, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.contracts, range, value, display)
 
   return offset + size_of.contracts
 end
@@ -3209,7 +3209,7 @@ dissect.capacity = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.capacity(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.capacity, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.capacity, range, value, display)
 
   return offset + size_of.capacity
 end
@@ -3259,7 +3259,7 @@ dissect.outright_bold_rfq_message = function(buffer, offset, packet, parent)
   if show.outright_bold_rfq_message then
     local range = buffer(offset, 28)
     local display = display.outright_bold_rfq_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.outright_bold_rfq_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_bold_rfq_message, range, display)
   end
 
   return dissect.outright_bold_rfq_message_fields(buffer, offset, packet, parent)
@@ -3307,7 +3307,7 @@ dissect.outright_crossing_rfq_message = function(buffer, offset, packet, parent)
   if show.outright_crossing_rfq_message then
     local range = buffer(offset, 26)
     local display = display.outright_crossing_rfq_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.outright_crossing_rfq_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_crossing_rfq_message, range, display)
   end
 
   return dissect.outright_crossing_rfq_message_fields(buffer, offset, packet, parent)
@@ -3367,7 +3367,7 @@ dissect.outright_imbalance_message = function(buffer, offset, packet, parent)
   if show.outright_imbalance_message then
     local range = buffer(offset, 32)
     local display = display.outright_imbalance_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.outright_imbalance_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_imbalance_message, range, display)
   end
 
   return dissect.outright_imbalance_message_fields(buffer, offset, packet, parent)
@@ -3387,7 +3387,7 @@ dissect.original_trade_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.original_trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.original_trade_id, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.original_trade_id, range, value, display)
 
   return offset + size_of.original_trade_id
 end
@@ -3443,7 +3443,7 @@ dissect.outright_trade_correction_message = function(buffer, offset, packet, par
   if show.outright_trade_correction_message then
     local range = buffer(offset, 36)
     local display = display.outright_trade_correction_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.outright_trade_correction_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_trade_correction_message, range, display)
   end
 
   return dissect.outright_trade_correction_message_fields(buffer, offset, packet, parent)
@@ -3482,7 +3482,7 @@ dissect.outright_trade_cancel_message = function(buffer, offset, packet, parent)
   if show.outright_trade_cancel_message then
     local range = buffer(offset, 20)
     local display = display.outright_trade_cancel_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.outright_trade_cancel_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_trade_cancel_message, range, display)
   end
 
   return dissect.outright_trade_cancel_message_fields(buffer, offset, packet, parent)
@@ -3536,7 +3536,7 @@ dissect.outright_trade_message = function(buffer, offset, packet, parent)
   if show.outright_trade_message then
     local range = buffer(offset, 32)
     local display = display.outright_trade_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.outright_trade_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_trade_message, range, display)
   end
 
   return dissect.outright_trade_message_fields(buffer, offset, packet, parent)
@@ -3599,7 +3599,7 @@ dissect.outright_quote_message = function(buffer, offset, packet, parent)
   if show.outright_quote_message then
     local range = buffer(offset, 36)
     local display = display.outright_quote_message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.outright_quote_message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_quote_message, range, display)
   end
 
   return dissect.outright_quote_message_fields(buffer, offset, packet, parent)
@@ -3861,7 +3861,7 @@ dissect.payload = function(buffer, offset, packet, parent, code)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.payload(buffer, packet, parent)
-  local element = parent:add(nyse_arca_options_xdp_v1_3_a.fields.payload, range, display)
+  local element = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.payload, range, display)
 
   return dissect.payload_branches(buffer, offset, packet, parent, code)
 end
@@ -3966,7 +3966,7 @@ dissect.message_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.message_type, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -3985,7 +3985,7 @@ dissect.message_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.message_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.message_size, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.message_size, range, value, display)
 
   return offset + size_of.message_size
 end
@@ -4014,7 +4014,7 @@ dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     local range = buffer(offset, 4)
     local display = display.message_header(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.message_header, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.message_header, range, display)
   end
 
   return dissect.message_header_fields(buffer, offset, packet, parent)
@@ -4060,7 +4060,7 @@ dissect.message = function(buffer, offset, packet, parent)
     local length = size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.message(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.message, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.message, range, display)
   end
 
   return dissect.message_fields(buffer, offset, packet, parent)
@@ -4080,7 +4080,7 @@ dissect.nanoseconds = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.nanoseconds(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.nanoseconds, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.nanoseconds, range, value, display)
 
   return offset + size_of.nanoseconds
 end
@@ -4099,7 +4099,7 @@ dissect.timestamp = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.timestamp, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.timestamp, range, value, display)
 
   return offset + size_of.timestamp
 end
@@ -4118,7 +4118,7 @@ dissect.sequence_number = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.sequence_number, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.sequence_number, range, value, display)
 
   return offset + size_of.sequence_number
 end
@@ -4138,7 +4138,7 @@ dissect.message_count = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.message_count, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -4191,7 +4191,7 @@ dissect.delivery_flag = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.delivery_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.delivery_flag, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.delivery_flag, range, value, display)
 
   return offset + size_of.delivery_flag
 end
@@ -4210,7 +4210,7 @@ dissect.packet_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.packet_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_arca_options_xdp_v1_3_a.fields.packet_size, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.packet_size, range, value, display)
 
   return offset + size_of.packet_size
 end
@@ -4251,7 +4251,7 @@ dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     local range = buffer(offset, 16)
     local display = display.packet_header(buffer, packet, parent)
-    parent = parent:add(nyse_arca_options_xdp_v1_3_a.fields.packet_header, range, display)
+    parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.packet_header, range, display)
   end
 
   return dissect.packet_header_fields(buffer, offset, packet, parent)
@@ -4279,23 +4279,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function nyse_arca_options_xdp_v1_3_a.init()
+function nyse_options_topfeed_xdp_v1_3_a.init()
 end
 
--- Dissector for Nyse Arca Options Xdp 1.3.a
-function nyse_arca_options_xdp_v1_3_a.dissector(buffer, packet, parent)
+-- Dissector for Nyse Options TopFeed Xdp 1.3.a
+function nyse_options_topfeed_xdp_v1_3_a.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = nyse_arca_options_xdp_v1_3_a.name
+  packet.cols.protocol = nyse_options_topfeed_xdp_v1_3_a.name
 
   -- Dissect protocol
-  local protocol = parent:add(nyse_arca_options_xdp_v1_3_a, buffer(), nyse_arca_options_xdp_v1_3_a.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(nyse_options_topfeed_xdp_v1_3_a, buffer(), nyse_options_topfeed_xdp_v1_3_a.description, "("..buffer:len().." Bytes)")
   local protocol_size = dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, nyse_arca_options_xdp_v1_3_a)
+udp_table:add(65333, nyse_options_topfeed_xdp_v1_3_a)
 
 
 -----------------------------------------------------------------------
@@ -4303,25 +4303,25 @@ udp_table:add(65333, nyse_arca_options_xdp_v1_3_a)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.nyse_arca_options_xdp_v1_3_a_packet_size = function(buffer)
+verify.nyse_options_topfeed_xdp_v1_3_a_packet_size = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Nyse Arca Options Xdp 1.3.a
-local function nyse_arca_options_xdp_v1_3_a_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Nyse Options TopFeed Xdp 1.3.a
+local function nyse_options_topfeed_xdp_v1_3_a_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.nyse_arca_options_xdp_v1_3_a_packet_size(buffer) then return false end
+  if not verify.nyse_options_topfeed_xdp_v1_3_a_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = nyse_arca_options_xdp_v1_3_a
-  nyse_arca_options_xdp_v1_3_a.dissector(buffer, packet, parent)
+  packet.conversation = nyse_options_topfeed_xdp_v1_3_a
+  nyse_options_topfeed_xdp_v1_3_a.dissector(buffer, packet, parent)
 
   return true
 end
 
--- Register Nyse Arca Options Xdp 1.3.a Heuristic
-nyse_arca_options_xdp_v1_3_a:register_heuristic("udp", nyse_arca_options_xdp_v1_3_a_heuristic)
+-- Register Nyse Options TopFeed Xdp 1.3.a Heuristic
+nyse_options_topfeed_xdp_v1_3_a:register_heuristic("udp", nyse_options_topfeed_xdp_v1_3_a_heuristic)
 
 -----------------------------------------------------------------------
 -- This script was generated by the open markets initiative
