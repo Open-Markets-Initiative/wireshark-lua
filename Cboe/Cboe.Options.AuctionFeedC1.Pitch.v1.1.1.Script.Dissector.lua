@@ -45,6 +45,7 @@ cboe_options_auctionfeedc1_pitch_v1_1_1.fields.message_length = ProtoField.new("
 cboe_options_auctionfeedc1_pitch_v1_1_1.fields.message_type = ProtoField.new("Message Type", "cboe.options.auctionfeedc1.pitch.v1.1.1.messagetype", ftypes.UINT8)
 cboe_options_auctionfeedc1_pitch_v1_1_1.fields.multiplier = ProtoField.new("Multiplier", "cboe.options.auctionfeedc1.pitch.v1.1.1.multiplier", ftypes.UINT32)
 cboe_options_auctionfeedc1_pitch_v1_1_1.fields.opening_condition = ProtoField.new("Opening Condition", "cboe.options.auctionfeedc1.pitch.v1.1.1.openingcondition", ftypes.STRING)
+cboe_options_auctionfeedc1_pitch_v1_1_1.fields.opening_type = ProtoField.new("Opening Type", "cboe.options.auctionfeedc1.pitch.v1.1.1.openingtype", ftypes.STRING)
 cboe_options_auctionfeedc1_pitch_v1_1_1.fields.osi_symbol = ProtoField.new("Osi Symbol", "cboe.options.auctionfeedc1.pitch.v1.1.1.osisymbol", ftypes.STRING)
 cboe_options_auctionfeedc1_pitch_v1_1_1.fields.packet = ProtoField.new("Packet", "cboe.options.auctionfeedc1.pitch.v1.1.1.packet", ftypes.STRING)
 cboe_options_auctionfeedc1_pitch_v1_1_1.fields.packet_header = ProtoField.new("Packet Header", "cboe.options.auctionfeedc1.pitch.v1.1.1.packetheader", ftypes.STRING)
@@ -254,7 +255,14 @@ size_of.symbol_condition = 1
 
 -- Display: Symbol Condition
 display.symbol_condition = function(value)
-  return "Symbol Condition: "..value
+  if value == "N" then
+    return "Symbol Condition: Normal (N)"
+  end
+  if value == "C" then
+    return "Symbol Condition: Closing Only (C)"
+  end
+
+  return "Symbol Condition: Unknown("..value..")"
 end
 
 -- Dissect: Symbol Condition
@@ -321,7 +329,7 @@ dissect.symbol_mapping_message_fields = function(buffer, offset, packet, parent)
   -- Osi Symbol: 21 Byte Ascii String
   index = dissect.osi_symbol(buffer, index, packet, parent)
 
-  -- Symbol Condition: 1 Byte Ascii String
+  -- Symbol Condition: 1 Byte Ascii String Enum with 2 values
   index = dissect.symbol_condition(buffer, index, packet, parent)
 
   -- Underlying: 8 Byte Ascii String
@@ -366,7 +374,14 @@ size_of.width_type = 1
 
 -- Display: Width Type
 display.width_type = function(value)
-  return "Width Type: "..value
+  if value == "R" then
+    return "Width Type: Regular (R)"
+  end
+  if value == "V" then
+    return "Width Type: Volatility (V)"
+  end
+
+  return "Width Type: Unknown("..value..")"
 end
 
 -- Dissect: Width Type
@@ -414,7 +429,7 @@ dissect.width_update_message_fields = function(buffer, offset, packet, parent)
   -- Underlying: 8 Byte Ascii String
   index = dissect.underlying(buffer, index, packet, parent)
 
-  -- Width Type: 1 Byte Ascii String
+  -- Width Type: 1 Byte Ascii String Enum with 2 values
   index = dissect.width_type(buffer, index, packet, parent)
 
   -- Multiplier: 4 Byte Unsigned Fixed Width Integer
@@ -473,23 +488,36 @@ dissect.price = function(buffer, offset, packet, parent)
   return offset + size_of.price
 end
 
--- Size: Auction Type
-size_of.auction_type = 1
+-- Size: Opening Type
+size_of.opening_type = 1
 
--- Display: Auction Type
-display.auction_type = function(value)
-  return "Auction Type: "..value
+-- Display: Opening Type
+display.opening_type = function(value)
+  if value == "G" then
+    return "Opening Type: Gth Opening (G)"
+  end
+  if value == "O" then
+    return "Opening Type: Rth Opening (O)"
+  end
+  if value == "H" then
+    return "Opening Type: Halt Reopening (H)"
+  end
+  if value == "V" then
+    return "Opening Type: Volatility Opening (V)"
+  end
+
+  return "Opening Type: Unknown("..value..")"
 end
 
--- Dissect: Auction Type
-dissect.auction_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.auction_type)
+-- Dissect: Opening Type
+dissect.opening_type = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.opening_type)
   local value = range:string()
-  local display = display.auction_type(value, buffer, offset, packet, parent)
+  local display = display.opening_type(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_auctionfeedc1_pitch_v1_1_1.fields.auction_type, range, value, display)
+  parent:add(cboe_options_auctionfeedc1_pitch_v1_1_1.fields.opening_type, range, value, display)
 
-  return offset + size_of.auction_type
+  return offset + size_of.opening_type
 end
 
 -- Size: Symbol
@@ -526,8 +554,8 @@ dissect.auction_summary_message_fields = function(buffer, offset, packet, parent
   -- Symbol: 6 Byte Ascii String
   index = dissect.symbol(buffer, index, packet, parent)
 
-  -- Auction Type: 1 Byte Ascii String
-  index = dissect.auction_type(buffer, index, packet, parent)
+  -- Opening Type: 1 Byte Ascii String Enum with 4 values
+  index = dissect.opening_type(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
   index = dissect.price(buffer, index, packet, parent)
@@ -679,8 +707,8 @@ dissect.auction_update_message_fields = function(buffer, offset, packet, parent)
   -- Symbol: 6 Byte Ascii String
   index = dissect.symbol(buffer, index, packet, parent)
 
-  -- Auction Type: 1 Byte Ascii String
-  index = dissect.auction_type(buffer, index, packet, parent)
+  -- Opening Type: 1 Byte Ascii String Enum with 4 values
+  index = dissect.opening_type(buffer, index, packet, parent)
 
   -- Reference Price: 8 Byte Unsigned Fixed Width Integer
   index = dissect.reference_price(buffer, index, packet, parent)
@@ -930,10 +958,10 @@ size_of.side = 1
 -- Display: Side
 display.side = function(value)
   if value == "B" then
-    return "Side: Buy Order (B)"
+    return "Side: Buy (B)"
   end
   if value == "S" then
-    return "Side: Sell Order (S)"
+    return "Side: Sell (S)"
   end
 
   return "Side: Unknown("..value..")"
@@ -948,6 +976,38 @@ dissect.side = function(buffer, offset, packet, parent)
   parent:add(cboe_options_auctionfeedc1_pitch_v1_1_1.fields.side, range, value, display)
 
   return offset + size_of.side
+end
+
+-- Size: Auction Type
+size_of.auction_type = 1
+
+-- Display: Auction Type
+display.auction_type = function(value)
+  if value == "B" then
+    return "Auction Type: Auction Instruction Mechanism (B)"
+  end
+  if value == "S" then
+    return "Auction Type: Solicitation Auction Mechanism (S)"
+  end
+  if value == "T" then
+    return "Auction Type: Step Up Mechanism (T)"
+  end
+  if value == "A" then
+    return "Auction Type: All Or None (A)"
+  end
+
+  return "Auction Type: Unknown("..value..")"
+end
+
+-- Dissect: Auction Type
+dissect.auction_type = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.auction_type)
+  local value = range:string()
+  local display = display.auction_type(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_options_auctionfeedc1_pitch_v1_1_1.fields.auction_type, range, value, display)
+
+  return offset + size_of.auction_type
 end
 
 -- Display: Auction Notification Message
@@ -968,7 +1028,7 @@ dissect.auction_notification_message_fields = function(buffer, offset, packet, p
   -- Auction Id: 8 Byte Unsigned Fixed Width Integer
   index = dissect.auction_id(buffer, index, packet, parent)
 
-  -- Auction Type: 1 Byte Ascii String
+  -- Auction Type: 1 Byte Ascii String Enum with 4 values
   index = dissect.auction_type(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
