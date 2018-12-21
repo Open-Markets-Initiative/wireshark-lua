@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Nasdaq TotalView Itch 5.0 Protocol
-local nasdaq_totalview_itch_v5_0 = Proto("Nasdaq.TotalView.Itch.v5.0.Lua", "Nasdaq TotalView Itch 5.0")
+-- Nasdaq Equities TotalView Itch 5.0 Protocol
+local nasdaq_equities_totalview_itch_v5_0 = Proto("Nasdaq.Equities.TotalView.Itch.v5.0.Lua", "Nasdaq Equities TotalView Itch 5.0")
 
 -- Component Tables
 local show = {}
@@ -19,105 +19,105 @@ local verify = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq TotalView Itch 5.0 Fields
-nasdaq_totalview_itch_v5_0.fields.add_order_no_mpid_attribution_message = ProtoField.new("Add Order No Mpid Attribution Message", "nasdaq.totalview.itch.v5.0.addordernompidattributionmessage", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.add_order_with_mpid_attribution_message = ProtoField.new("Add Order With Mpid Attribution Message", "nasdaq.totalview.itch.v5.0.addorderwithmpidattributionmessage", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.attribution = ProtoField.new("Attribution", "nasdaq.totalview.itch.v5.0.attribution", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.auction_collar_extension = ProtoField.new("Auction Collar Extension", "nasdaq.totalview.itch.v5.0.auctioncollarextension", ftypes.UINT32)
-nasdaq_totalview_itch_v5_0.fields.auction_collar_reference_price = ProtoField.new("Auction Collar Reference Price", "nasdaq.totalview.itch.v5.0.auctioncollarreferenceprice", ftypes.INT32)
-nasdaq_totalview_itch_v5_0.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.totalview.itch.v5.0.authenticity", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.breached_level = ProtoField.new("Breached Level", "nasdaq.totalview.itch.v5.0.breachedlevel", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "nasdaq.totalview.itch.v5.0.brokentrademessage", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "nasdaq.totalview.itch.v5.0.buysellindicator", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.canceled_shares = ProtoField.new("Canceled Shares", "nasdaq.totalview.itch.v5.0.canceledshares", ftypes.UINT32)
-nasdaq_totalview_itch_v5_0.fields.count = ProtoField.new("Count", "nasdaq.totalview.itch.v5.0.count", ftypes.UINT16)
-nasdaq_totalview_itch_v5_0.fields.cross_price = ProtoField.new("Cross Price", "nasdaq.totalview.itch.v5.0.crossprice", ftypes.INT32)
-nasdaq_totalview_itch_v5_0.fields.cross_shares = ProtoField.new("Cross Shares", "nasdaq.totalview.itch.v5.0.crossshares", ftypes.UINT64)
-nasdaq_totalview_itch_v5_0.fields.cross_trade_message = ProtoField.new("Cross Trade Message", "nasdaq.totalview.itch.v5.0.crosstrademessage", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.totalview.itch.v5.0.crosstype", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.current_reference_price = ProtoField.new("Current Reference Price", "nasdaq.totalview.itch.v5.0.currentreferenceprice", ftypes.INT32)
-nasdaq_totalview_itch_v5_0.fields.etp_flag = ProtoField.new("Etp Flag", "nasdaq.totalview.itch.v5.0.etpflag", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.etp_leverage_factor = ProtoField.new("Etp Leverage Factor", "nasdaq.totalview.itch.v5.0.etpleveragefactor", ftypes.UINT32)
-nasdaq_totalview_itch_v5_0.fields.event_code = ProtoField.new("Event Code", "nasdaq.totalview.itch.v5.0.eventcode", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.executed_shares = ProtoField.new("Executed Shares", "nasdaq.totalview.itch.v5.0.executedshares", ftypes.UINT32)
-nasdaq_totalview_itch_v5_0.fields.execution_price = ProtoField.new("Execution Price", "nasdaq.totalview.itch.v5.0.executionprice", ftypes.INT32)
-nasdaq_totalview_itch_v5_0.fields.far_price = ProtoField.new("Far Price", "nasdaq.totalview.itch.v5.0.farprice", ftypes.INT32)
-nasdaq_totalview_itch_v5_0.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.totalview.itch.v5.0.financialstatusindicator", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "nasdaq.totalview.itch.v5.0.imbalancedirection", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.imbalance_shares = ProtoField.new("Imbalance Shares", "nasdaq.totalview.itch.v5.0.imbalanceshares", ftypes.UINT64)
-nasdaq_totalview_itch_v5_0.fields.interest_flag = ProtoField.new("Interest Flag", "nasdaq.totalview.itch.v5.0.interestflag", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.inverse_indicator = ProtoField.new("Inverse Indicator", "nasdaq.totalview.itch.v5.0.inverseindicator", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.ipo_flag = ProtoField.new("Ipo Flag", "nasdaq.totalview.itch.v5.0.ipoflag", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.ipo_price = ProtoField.new("Ipo Price", "nasdaq.totalview.itch.v5.0.ipoprice", ftypes.INT32)
-nasdaq_totalview_itch_v5_0.fields.ipo_quotation_release_qualifier = ProtoField.new("Ipo Quotation Release Qualifier", "nasdaq.totalview.itch.v5.0.ipoquotationreleasequalifier", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.ipo_quotation_release_time = ProtoField.new("Ipo Quotation Release Time", "nasdaq.totalview.itch.v5.0.ipoquotationreleasetime", ftypes.UINT32)
-nasdaq_totalview_itch_v5_0.fields.ipo_quoting_period_update = ProtoField.new("Ipo Quoting Period Update", "nasdaq.totalview.itch.v5.0.ipoquotingperiodupdate", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.issue_classification = ProtoField.new("Issue Classification", "nasdaq.totalview.itch.v5.0.issueclassification", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.issue_sub_type = ProtoField.new("Issue Sub Type", "nasdaq.totalview.itch.v5.0.issuesubtype", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.length = ProtoField.new("Length", "nasdaq.totalview.itch.v5.0.length", ftypes.UINT16)
-nasdaq_totalview_itch_v5_0.fields.level_1 = ProtoField.new("Level 1", "nasdaq.totalview.itch.v5.0.level1", ftypes.INT64)
-nasdaq_totalview_itch_v5_0.fields.level_2 = ProtoField.new("Level 2", "nasdaq.totalview.itch.v5.0.level2", ftypes.INT64)
-nasdaq_totalview_itch_v5_0.fields.level_3 = ProtoField.new("Level 3", "nasdaq.totalview.itch.v5.0.level3", ftypes.INT64)
-nasdaq_totalview_itch_v5_0.fields.locate_code = ProtoField.new("Locate Code", "nasdaq.totalview.itch.v5.0.locatecode", ftypes.UINT16)
-nasdaq_totalview_itch_v5_0.fields.lower_auction_collar_price = ProtoField.new("Lower Auction Collar Price", "nasdaq.totalview.itch.v5.0.lowerauctioncollarprice", ftypes.INT32)
-nasdaq_totalview_itch_v5_0.fields.luld_auction_collar_message = ProtoField.new("Luld Auction Collar Message", "nasdaq.totalview.itch.v5.0.luldauctioncollarmessage", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.luld_reference_price_tier = ProtoField.new("Luld Reference Price Tier", "nasdaq.totalview.itch.v5.0.luldreferencepricetier", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.market_category = ProtoField.new("Market Category", "nasdaq.totalview.itch.v5.0.marketcategory", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.market_maker_mode = ProtoField.new("Market Maker Mode", "nasdaq.totalview.itch.v5.0.marketmakermode", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.market_participant_position_message = ProtoField.new("Market Participant Position Message", "nasdaq.totalview.itch.v5.0.marketparticipantpositionmessage", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.market_participant_state = ProtoField.new("Market Participant State", "nasdaq.totalview.itch.v5.0.marketparticipantstate", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.match_number = ProtoField.new("Match Number", "nasdaq.totalview.itch.v5.0.matchnumber", ftypes.UINT64)
-nasdaq_totalview_itch_v5_0.fields.message = ProtoField.new("Message", "nasdaq.totalview.itch.v5.0.message", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.totalview.itch.v5.0.messageheader", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.message_type = ProtoField.new("Message Type", "nasdaq.totalview.itch.v5.0.messagetype", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.mpid = ProtoField.new("Mpid", "nasdaq.totalview.itch.v5.0.mpid", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.mwcb_decline_level_message = ProtoField.new("Mwcb Decline Level Message", "nasdaq.totalview.itch.v5.0.mwcbdeclinelevelmessage", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.mwcb_status_level_message = ProtoField.new("Mwcb Status Level Message", "nasdaq.totalview.itch.v5.0.mwcbstatuslevelmessage", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.near_price = ProtoField.new("Near Price", "nasdaq.totalview.itch.v5.0.nearprice", ftypes.INT32)
-nasdaq_totalview_itch_v5_0.fields.net_order_imbalance_indicator_message = ProtoField.new("Net Order Imbalance Indicator Message", "nasdaq.totalview.itch.v5.0.netorderimbalanceindicatormessage", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.new_order_reference_number = ProtoField.new("New Order Reference Number", "nasdaq.totalview.itch.v5.0.neworderreferencenumber", ftypes.UINT64)
-nasdaq_totalview_itch_v5_0.fields.non_cross_trade_message = ProtoField.new("Non Cross Trade Message", "nasdaq.totalview.itch.v5.0.noncrosstrademessage", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.order_cancel_message = ProtoField.new("Order Cancel Message", "nasdaq.totalview.itch.v5.0.ordercancelmessage", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.order_delete_message = ProtoField.new("Order Delete Message", "nasdaq.totalview.itch.v5.0.orderdeletemessage", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.order_executed_message = ProtoField.new("Order Executed Message", "nasdaq.totalview.itch.v5.0.orderexecutedmessage", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.order_executed_with_price_message = ProtoField.new("Order Executed With Price Message", "nasdaq.totalview.itch.v5.0.orderexecutedwithpricemessage", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.totalview.itch.v5.0.orderreferencenumber", ftypes.UINT64)
-nasdaq_totalview_itch_v5_0.fields.order_replace_message = ProtoField.new("Order Replace Message", "nasdaq.totalview.itch.v5.0.orderreplacemessage", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.original_order_reference_number = ProtoField.new("Original Order Reference Number", "nasdaq.totalview.itch.v5.0.originalorderreferencenumber", ftypes.UINT64)
-nasdaq_totalview_itch_v5_0.fields.packet = ProtoField.new("Packet", "nasdaq.totalview.itch.v5.0.packet", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.totalview.itch.v5.0.packetheader", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.paired_shares = ProtoField.new("Paired Shares", "nasdaq.totalview.itch.v5.0.pairedshares", ftypes.UINT64)
-nasdaq_totalview_itch_v5_0.fields.payload = ProtoField.new("Payload", "nasdaq.totalview.itch.v5.0.payload", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.price = ProtoField.new("Price", "nasdaq.totalview.itch.v5.0.price", ftypes.INT32)
-nasdaq_totalview_itch_v5_0.fields.price_variation_indicator = ProtoField.new("Price Variation Indicator", "nasdaq.totalview.itch.v5.0.pricevariationindicator", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.primary_market_maker = ProtoField.new("Primary Market Maker", "nasdaq.totalview.itch.v5.0.primarymarketmaker", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.printable = ProtoField.new("Printable", "nasdaq.totalview.itch.v5.0.printable", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.reason = ProtoField.new("Reason", "nasdaq.totalview.itch.v5.0.reason", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.totalview.itch.v5.0.regshoaction", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.reg_sho_short_sale_price_test_restricted_indicator_message = ProtoField.new("Reg Sho Short Sale Price Test Restricted Indicator Message", "nasdaq.totalview.itch.v5.0.regshoshortsalepricetestrestrictedindicatormessage", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.reserved = ProtoField.new("Reserved", "nasdaq.totalview.itch.v5.0.reserved", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.retail_interest_message = ProtoField.new("Retail Interest Message", "nasdaq.totalview.itch.v5.0.retailinterestmessage", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.totalview.itch.v5.0.roundlotsize", ftypes.UINT32)
-nasdaq_totalview_itch_v5_0.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.totalview.itch.v5.0.roundlotsonly", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.sequence = ProtoField.new("Sequence", "nasdaq.totalview.itch.v5.0.sequence", ftypes.UINT64)
-nasdaq_totalview_itch_v5_0.fields.session = ProtoField.new("Session", "nasdaq.totalview.itch.v5.0.session", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.shares = ProtoField.new("Shares", "nasdaq.totalview.itch.v5.0.shares", ftypes.UINT32)
-nasdaq_totalview_itch_v5_0.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.totalview.itch.v5.0.shortsalethresholdindicator", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.stock = ProtoField.new("Stock", "nasdaq.totalview.itch.v5.0.stock", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.stock_directory_message = ProtoField.new("Stock Directory Message", "nasdaq.totalview.itch.v5.0.stockdirectorymessage", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.stock_locate = ProtoField.new("Stock Locate", "nasdaq.totalview.itch.v5.0.stocklocate", ftypes.UINT16)
-nasdaq_totalview_itch_v5_0.fields.stock_trading_action_message = ProtoField.new("Stock Trading Action Message", "nasdaq.totalview.itch.v5.0.stocktradingactionmessage", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.totalview.itch.v5.0.systemeventmessage", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.totalview.itch.v5.0.timestamp", ftypes.BYTES)
-nasdaq_totalview_itch_v5_0.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.totalview.itch.v5.0.trackingnumber", ftypes.UINT16)
-nasdaq_totalview_itch_v5_0.fields.trading_state = ProtoField.new("Trading State", "nasdaq.totalview.itch.v5.0.tradingstate", ftypes.STRING)
-nasdaq_totalview_itch_v5_0.fields.upper_auction_collar_price = ProtoField.new("Upper Auction Collar Price", "nasdaq.totalview.itch.v5.0.upperauctioncollarprice", ftypes.INT32)
+-- Nasdaq Equities TotalView Itch 5.0 Fields
+nasdaq_equities_totalview_itch_v5_0.fields.add_order_no_mpid_attribution_message = ProtoField.new("Add Order No Mpid Attribution Message", "nasdaq.equities.totalview.itch.v5.0.addordernompidattributionmessage", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.add_order_with_mpid_attribution_message = ProtoField.new("Add Order With Mpid Attribution Message", "nasdaq.equities.totalview.itch.v5.0.addorderwithmpidattributionmessage", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.attribution = ProtoField.new("Attribution", "nasdaq.equities.totalview.itch.v5.0.attribution", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.auction_collar_extension = ProtoField.new("Auction Collar Extension", "nasdaq.equities.totalview.itch.v5.0.auctioncollarextension", ftypes.UINT32)
+nasdaq_equities_totalview_itch_v5_0.fields.auction_collar_reference_price = ProtoField.new("Auction Collar Reference Price", "nasdaq.equities.totalview.itch.v5.0.auctioncollarreferenceprice", ftypes.INT32)
+nasdaq_equities_totalview_itch_v5_0.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.equities.totalview.itch.v5.0.authenticity", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.breached_level = ProtoField.new("Breached Level", "nasdaq.equities.totalview.itch.v5.0.breachedlevel", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "nasdaq.equities.totalview.itch.v5.0.brokentrademessage", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "nasdaq.equities.totalview.itch.v5.0.buysellindicator", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.canceled_shares = ProtoField.new("Canceled Shares", "nasdaq.equities.totalview.itch.v5.0.canceledshares", ftypes.UINT32)
+nasdaq_equities_totalview_itch_v5_0.fields.count = ProtoField.new("Count", "nasdaq.equities.totalview.itch.v5.0.count", ftypes.UINT16)
+nasdaq_equities_totalview_itch_v5_0.fields.cross_price = ProtoField.new("Cross Price", "nasdaq.equities.totalview.itch.v5.0.crossprice", ftypes.INT32)
+nasdaq_equities_totalview_itch_v5_0.fields.cross_shares = ProtoField.new("Cross Shares", "nasdaq.equities.totalview.itch.v5.0.crossshares", ftypes.UINT64)
+nasdaq_equities_totalview_itch_v5_0.fields.cross_trade_message = ProtoField.new("Cross Trade Message", "nasdaq.equities.totalview.itch.v5.0.crosstrademessage", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.equities.totalview.itch.v5.0.crosstype", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.current_reference_price = ProtoField.new("Current Reference Price", "nasdaq.equities.totalview.itch.v5.0.currentreferenceprice", ftypes.INT32)
+nasdaq_equities_totalview_itch_v5_0.fields.etp_flag = ProtoField.new("Etp Flag", "nasdaq.equities.totalview.itch.v5.0.etpflag", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.etp_leverage_factor = ProtoField.new("Etp Leverage Factor", "nasdaq.equities.totalview.itch.v5.0.etpleveragefactor", ftypes.UINT32)
+nasdaq_equities_totalview_itch_v5_0.fields.event_code = ProtoField.new("Event Code", "nasdaq.equities.totalview.itch.v5.0.eventcode", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.executed_shares = ProtoField.new("Executed Shares", "nasdaq.equities.totalview.itch.v5.0.executedshares", ftypes.UINT32)
+nasdaq_equities_totalview_itch_v5_0.fields.execution_price = ProtoField.new("Execution Price", "nasdaq.equities.totalview.itch.v5.0.executionprice", ftypes.INT32)
+nasdaq_equities_totalview_itch_v5_0.fields.far_price = ProtoField.new("Far Price", "nasdaq.equities.totalview.itch.v5.0.farprice", ftypes.INT32)
+nasdaq_equities_totalview_itch_v5_0.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.equities.totalview.itch.v5.0.financialstatusindicator", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "nasdaq.equities.totalview.itch.v5.0.imbalancedirection", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.imbalance_shares = ProtoField.new("Imbalance Shares", "nasdaq.equities.totalview.itch.v5.0.imbalanceshares", ftypes.UINT64)
+nasdaq_equities_totalview_itch_v5_0.fields.interest_flag = ProtoField.new("Interest Flag", "nasdaq.equities.totalview.itch.v5.0.interestflag", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.inverse_indicator = ProtoField.new("Inverse Indicator", "nasdaq.equities.totalview.itch.v5.0.inverseindicator", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.ipo_flag = ProtoField.new("Ipo Flag", "nasdaq.equities.totalview.itch.v5.0.ipoflag", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.ipo_price = ProtoField.new("Ipo Price", "nasdaq.equities.totalview.itch.v5.0.ipoprice", ftypes.INT32)
+nasdaq_equities_totalview_itch_v5_0.fields.ipo_quotation_release_qualifier = ProtoField.new("Ipo Quotation Release Qualifier", "nasdaq.equities.totalview.itch.v5.0.ipoquotationreleasequalifier", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.ipo_quotation_release_time = ProtoField.new("Ipo Quotation Release Time", "nasdaq.equities.totalview.itch.v5.0.ipoquotationreleasetime", ftypes.UINT32)
+nasdaq_equities_totalview_itch_v5_0.fields.ipo_quoting_period_update = ProtoField.new("Ipo Quoting Period Update", "nasdaq.equities.totalview.itch.v5.0.ipoquotingperiodupdate", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.issue_classification = ProtoField.new("Issue Classification", "nasdaq.equities.totalview.itch.v5.0.issueclassification", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.issue_sub_type = ProtoField.new("Issue Sub Type", "nasdaq.equities.totalview.itch.v5.0.issuesubtype", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.length = ProtoField.new("Length", "nasdaq.equities.totalview.itch.v5.0.length", ftypes.UINT16)
+nasdaq_equities_totalview_itch_v5_0.fields.level_1 = ProtoField.new("Level 1", "nasdaq.equities.totalview.itch.v5.0.level1", ftypes.INT64)
+nasdaq_equities_totalview_itch_v5_0.fields.level_2 = ProtoField.new("Level 2", "nasdaq.equities.totalview.itch.v5.0.level2", ftypes.INT64)
+nasdaq_equities_totalview_itch_v5_0.fields.level_3 = ProtoField.new("Level 3", "nasdaq.equities.totalview.itch.v5.0.level3", ftypes.INT64)
+nasdaq_equities_totalview_itch_v5_0.fields.locate_code = ProtoField.new("Locate Code", "nasdaq.equities.totalview.itch.v5.0.locatecode", ftypes.UINT16)
+nasdaq_equities_totalview_itch_v5_0.fields.lower_auction_collar_price = ProtoField.new("Lower Auction Collar Price", "nasdaq.equities.totalview.itch.v5.0.lowerauctioncollarprice", ftypes.INT32)
+nasdaq_equities_totalview_itch_v5_0.fields.luld_auction_collar_message = ProtoField.new("Luld Auction Collar Message", "nasdaq.equities.totalview.itch.v5.0.luldauctioncollarmessage", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.luld_reference_price_tier = ProtoField.new("Luld Reference Price Tier", "nasdaq.equities.totalview.itch.v5.0.luldreferencepricetier", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.market_category = ProtoField.new("Market Category", "nasdaq.equities.totalview.itch.v5.0.marketcategory", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.market_maker_mode = ProtoField.new("Market Maker Mode", "nasdaq.equities.totalview.itch.v5.0.marketmakermode", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.market_participant_position_message = ProtoField.new("Market Participant Position Message", "nasdaq.equities.totalview.itch.v5.0.marketparticipantpositionmessage", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.market_participant_state = ProtoField.new("Market Participant State", "nasdaq.equities.totalview.itch.v5.0.marketparticipantstate", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.match_number = ProtoField.new("Match Number", "nasdaq.equities.totalview.itch.v5.0.matchnumber", ftypes.UINT64)
+nasdaq_equities_totalview_itch_v5_0.fields.message = ProtoField.new("Message", "nasdaq.equities.totalview.itch.v5.0.message", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.equities.totalview.itch.v5.0.messageheader", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.message_type = ProtoField.new("Message Type", "nasdaq.equities.totalview.itch.v5.0.messagetype", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.mpid = ProtoField.new("Mpid", "nasdaq.equities.totalview.itch.v5.0.mpid", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.mwcb_decline_level_message = ProtoField.new("Mwcb Decline Level Message", "nasdaq.equities.totalview.itch.v5.0.mwcbdeclinelevelmessage", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.mwcb_status_level_message = ProtoField.new("Mwcb Status Level Message", "nasdaq.equities.totalview.itch.v5.0.mwcbstatuslevelmessage", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.near_price = ProtoField.new("Near Price", "nasdaq.equities.totalview.itch.v5.0.nearprice", ftypes.INT32)
+nasdaq_equities_totalview_itch_v5_0.fields.net_order_imbalance_indicator_message = ProtoField.new("Net Order Imbalance Indicator Message", "nasdaq.equities.totalview.itch.v5.0.netorderimbalanceindicatormessage", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.new_order_reference_number = ProtoField.new("New Order Reference Number", "nasdaq.equities.totalview.itch.v5.0.neworderreferencenumber", ftypes.UINT64)
+nasdaq_equities_totalview_itch_v5_0.fields.non_cross_trade_message = ProtoField.new("Non Cross Trade Message", "nasdaq.equities.totalview.itch.v5.0.noncrosstrademessage", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.order_cancel_message = ProtoField.new("Order Cancel Message", "nasdaq.equities.totalview.itch.v5.0.ordercancelmessage", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.order_delete_message = ProtoField.new("Order Delete Message", "nasdaq.equities.totalview.itch.v5.0.orderdeletemessage", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.order_executed_message = ProtoField.new("Order Executed Message", "nasdaq.equities.totalview.itch.v5.0.orderexecutedmessage", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.order_executed_with_price_message = ProtoField.new("Order Executed With Price Message", "nasdaq.equities.totalview.itch.v5.0.orderexecutedwithpricemessage", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.equities.totalview.itch.v5.0.orderreferencenumber", ftypes.UINT64)
+nasdaq_equities_totalview_itch_v5_0.fields.order_replace_message = ProtoField.new("Order Replace Message", "nasdaq.equities.totalview.itch.v5.0.orderreplacemessage", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.original_order_reference_number = ProtoField.new("Original Order Reference Number", "nasdaq.equities.totalview.itch.v5.0.originalorderreferencenumber", ftypes.UINT64)
+nasdaq_equities_totalview_itch_v5_0.fields.packet = ProtoField.new("Packet", "nasdaq.equities.totalview.itch.v5.0.packet", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.equities.totalview.itch.v5.0.packetheader", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.paired_shares = ProtoField.new("Paired Shares", "nasdaq.equities.totalview.itch.v5.0.pairedshares", ftypes.UINT64)
+nasdaq_equities_totalview_itch_v5_0.fields.payload = ProtoField.new("Payload", "nasdaq.equities.totalview.itch.v5.0.payload", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.price = ProtoField.new("Price", "nasdaq.equities.totalview.itch.v5.0.price", ftypes.INT32)
+nasdaq_equities_totalview_itch_v5_0.fields.price_variation_indicator = ProtoField.new("Price Variation Indicator", "nasdaq.equities.totalview.itch.v5.0.pricevariationindicator", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.primary_market_maker = ProtoField.new("Primary Market Maker", "nasdaq.equities.totalview.itch.v5.0.primarymarketmaker", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.printable = ProtoField.new("Printable", "nasdaq.equities.totalview.itch.v5.0.printable", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.reason = ProtoField.new("Reason", "nasdaq.equities.totalview.itch.v5.0.reason", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.equities.totalview.itch.v5.0.regshoaction", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.reg_sho_short_sale_price_test_restricted_indicator_message = ProtoField.new("Reg Sho Short Sale Price Test Restricted Indicator Message", "nasdaq.equities.totalview.itch.v5.0.regshoshortsalepricetestrestrictedindicatormessage", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.reserved = ProtoField.new("Reserved", "nasdaq.equities.totalview.itch.v5.0.reserved", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.retail_interest_message = ProtoField.new("Retail Interest Message", "nasdaq.equities.totalview.itch.v5.0.retailinterestmessage", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.equities.totalview.itch.v5.0.roundlotsize", ftypes.UINT32)
+nasdaq_equities_totalview_itch_v5_0.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.equities.totalview.itch.v5.0.roundlotsonly", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.sequence = ProtoField.new("Sequence", "nasdaq.equities.totalview.itch.v5.0.sequence", ftypes.UINT64)
+nasdaq_equities_totalview_itch_v5_0.fields.session = ProtoField.new("Session", "nasdaq.equities.totalview.itch.v5.0.session", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.shares = ProtoField.new("Shares", "nasdaq.equities.totalview.itch.v5.0.shares", ftypes.UINT32)
+nasdaq_equities_totalview_itch_v5_0.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.equities.totalview.itch.v5.0.shortsalethresholdindicator", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.stock = ProtoField.new("Stock", "nasdaq.equities.totalview.itch.v5.0.stock", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.stock_directory_message = ProtoField.new("Stock Directory Message", "nasdaq.equities.totalview.itch.v5.0.stockdirectorymessage", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.stock_locate = ProtoField.new("Stock Locate", "nasdaq.equities.totalview.itch.v5.0.stocklocate", ftypes.UINT16)
+nasdaq_equities_totalview_itch_v5_0.fields.stock_trading_action_message = ProtoField.new("Stock Trading Action Message", "nasdaq.equities.totalview.itch.v5.0.stocktradingactionmessage", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.equities.totalview.itch.v5.0.systemeventmessage", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.equities.totalview.itch.v5.0.timestamp", ftypes.BYTES)
+nasdaq_equities_totalview_itch_v5_0.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.equities.totalview.itch.v5.0.trackingnumber", ftypes.UINT16)
+nasdaq_equities_totalview_itch_v5_0.fields.trading_state = ProtoField.new("Trading State", "nasdaq.equities.totalview.itch.v5.0.tradingstate", ftypes.STRING)
+nasdaq_equities_totalview_itch_v5_0.fields.upper_auction_collar_price = ProtoField.new("Upper Auction Collar Price", "nasdaq.equities.totalview.itch.v5.0.upperauctioncollarprice", ftypes.INT32)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Nasdaq TotalView Itch 5.0 Element Dissection Options
+-- Nasdaq Equities TotalView Itch 5.0 Element Dissection Options
 show.add_order_no_mpid_attribution_message = true
 show.add_order_with_mpid_attribution_message = true
 show.broken_trade_message = true
@@ -145,141 +145,141 @@ show.stock_trading_action_message = true
 show.system_event_message = true
 show.payload = false
 
--- Register Nasdaq TotalView Itch 5.0 Show Options
-nasdaq_totalview_itch_v5_0.prefs.show_add_order_no_mpid_attribution_message = Pref.bool("Show Add Order No Mpid Attribution Message", show.add_order_no_mpid_attribution_message, "Parse and add Add Order No Mpid Attribution Message to protocol tree")
-nasdaq_totalview_itch_v5_0.prefs.show_add_order_with_mpid_attribution_message = Pref.bool("Show Add Order With Mpid Attribution Message", show.add_order_with_mpid_attribution_message, "Parse and add Add Order With Mpid Attribution Message to protocol tree")
-nasdaq_totalview_itch_v5_0.prefs.show_broken_trade_message = Pref.bool("Show Broken Trade Message", show.broken_trade_message, "Parse and add Broken Trade Message to protocol tree")
-nasdaq_totalview_itch_v5_0.prefs.show_cross_trade_message = Pref.bool("Show Cross Trade Message", show.cross_trade_message, "Parse and add Cross Trade Message to protocol tree")
-nasdaq_totalview_itch_v5_0.prefs.show_ipo_quoting_period_update = Pref.bool("Show Ipo Quoting Period Update", show.ipo_quoting_period_update, "Parse and add Ipo Quoting Period Update to protocol tree")
-nasdaq_totalview_itch_v5_0.prefs.show_luld_auction_collar_message = Pref.bool("Show Luld Auction Collar Message", show.luld_auction_collar_message, "Parse and add Luld Auction Collar Message to protocol tree")
-nasdaq_totalview_itch_v5_0.prefs.show_market_participant_position_message = Pref.bool("Show Market Participant Position Message", show.market_participant_position_message, "Parse and add Market Participant Position Message to protocol tree")
-nasdaq_totalview_itch_v5_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-nasdaq_totalview_itch_v5_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-nasdaq_totalview_itch_v5_0.prefs.show_mwcb_decline_level_message = Pref.bool("Show Mwcb Decline Level Message", show.mwcb_decline_level_message, "Parse and add Mwcb Decline Level Message to protocol tree")
-nasdaq_totalview_itch_v5_0.prefs.show_mwcb_status_level_message = Pref.bool("Show Mwcb Status Level Message", show.mwcb_status_level_message, "Parse and add Mwcb Status Level Message to protocol tree")
-nasdaq_totalview_itch_v5_0.prefs.show_net_order_imbalance_indicator_message = Pref.bool("Show Net Order Imbalance Indicator Message", show.net_order_imbalance_indicator_message, "Parse and add Net Order Imbalance Indicator Message to protocol tree")
-nasdaq_totalview_itch_v5_0.prefs.show_non_cross_trade_message = Pref.bool("Show Non Cross Trade Message", show.non_cross_trade_message, "Parse and add Non Cross Trade Message to protocol tree")
-nasdaq_totalview_itch_v5_0.prefs.show_order_cancel_message = Pref.bool("Show Order Cancel Message", show.order_cancel_message, "Parse and add Order Cancel Message to protocol tree")
-nasdaq_totalview_itch_v5_0.prefs.show_order_delete_message = Pref.bool("Show Order Delete Message", show.order_delete_message, "Parse and add Order Delete Message to protocol tree")
-nasdaq_totalview_itch_v5_0.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
-nasdaq_totalview_itch_v5_0.prefs.show_order_executed_with_price_message = Pref.bool("Show Order Executed With Price Message", show.order_executed_with_price_message, "Parse and add Order Executed With Price Message to protocol tree")
-nasdaq_totalview_itch_v5_0.prefs.show_order_replace_message = Pref.bool("Show Order Replace Message", show.order_replace_message, "Parse and add Order Replace Message to protocol tree")
-nasdaq_totalview_itch_v5_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-nasdaq_totalview_itch_v5_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-nasdaq_totalview_itch_v5_0.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message = Pref.bool("Show Reg Sho Short Sale Price Test Restricted Indicator Message", show.reg_sho_short_sale_price_test_restricted_indicator_message, "Parse and add Reg Sho Short Sale Price Test Restricted Indicator Message to protocol tree")
-nasdaq_totalview_itch_v5_0.prefs.show_retail_interest_message = Pref.bool("Show Retail Interest Message", show.retail_interest_message, "Parse and add Retail Interest Message to protocol tree")
-nasdaq_totalview_itch_v5_0.prefs.show_stock_directory_message = Pref.bool("Show Stock Directory Message", show.stock_directory_message, "Parse and add Stock Directory Message to protocol tree")
-nasdaq_totalview_itch_v5_0.prefs.show_stock_trading_action_message = Pref.bool("Show Stock Trading Action Message", show.stock_trading_action_message, "Parse and add Stock Trading Action Message to protocol tree")
-nasdaq_totalview_itch_v5_0.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-nasdaq_totalview_itch_v5_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+-- Register Nasdaq Equities TotalView Itch 5.0 Show Options
+nasdaq_equities_totalview_itch_v5_0.prefs.show_add_order_no_mpid_attribution_message = Pref.bool("Show Add Order No Mpid Attribution Message", show.add_order_no_mpid_attribution_message, "Parse and add Add Order No Mpid Attribution Message to protocol tree")
+nasdaq_equities_totalview_itch_v5_0.prefs.show_add_order_with_mpid_attribution_message = Pref.bool("Show Add Order With Mpid Attribution Message", show.add_order_with_mpid_attribution_message, "Parse and add Add Order With Mpid Attribution Message to protocol tree")
+nasdaq_equities_totalview_itch_v5_0.prefs.show_broken_trade_message = Pref.bool("Show Broken Trade Message", show.broken_trade_message, "Parse and add Broken Trade Message to protocol tree")
+nasdaq_equities_totalview_itch_v5_0.prefs.show_cross_trade_message = Pref.bool("Show Cross Trade Message", show.cross_trade_message, "Parse and add Cross Trade Message to protocol tree")
+nasdaq_equities_totalview_itch_v5_0.prefs.show_ipo_quoting_period_update = Pref.bool("Show Ipo Quoting Period Update", show.ipo_quoting_period_update, "Parse and add Ipo Quoting Period Update to protocol tree")
+nasdaq_equities_totalview_itch_v5_0.prefs.show_luld_auction_collar_message = Pref.bool("Show Luld Auction Collar Message", show.luld_auction_collar_message, "Parse and add Luld Auction Collar Message to protocol tree")
+nasdaq_equities_totalview_itch_v5_0.prefs.show_market_participant_position_message = Pref.bool("Show Market Participant Position Message", show.market_participant_position_message, "Parse and add Market Participant Position Message to protocol tree")
+nasdaq_equities_totalview_itch_v5_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+nasdaq_equities_totalview_itch_v5_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+nasdaq_equities_totalview_itch_v5_0.prefs.show_mwcb_decline_level_message = Pref.bool("Show Mwcb Decline Level Message", show.mwcb_decline_level_message, "Parse and add Mwcb Decline Level Message to protocol tree")
+nasdaq_equities_totalview_itch_v5_0.prefs.show_mwcb_status_level_message = Pref.bool("Show Mwcb Status Level Message", show.mwcb_status_level_message, "Parse and add Mwcb Status Level Message to protocol tree")
+nasdaq_equities_totalview_itch_v5_0.prefs.show_net_order_imbalance_indicator_message = Pref.bool("Show Net Order Imbalance Indicator Message", show.net_order_imbalance_indicator_message, "Parse and add Net Order Imbalance Indicator Message to protocol tree")
+nasdaq_equities_totalview_itch_v5_0.prefs.show_non_cross_trade_message = Pref.bool("Show Non Cross Trade Message", show.non_cross_trade_message, "Parse and add Non Cross Trade Message to protocol tree")
+nasdaq_equities_totalview_itch_v5_0.prefs.show_order_cancel_message = Pref.bool("Show Order Cancel Message", show.order_cancel_message, "Parse and add Order Cancel Message to protocol tree")
+nasdaq_equities_totalview_itch_v5_0.prefs.show_order_delete_message = Pref.bool("Show Order Delete Message", show.order_delete_message, "Parse and add Order Delete Message to protocol tree")
+nasdaq_equities_totalview_itch_v5_0.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
+nasdaq_equities_totalview_itch_v5_0.prefs.show_order_executed_with_price_message = Pref.bool("Show Order Executed With Price Message", show.order_executed_with_price_message, "Parse and add Order Executed With Price Message to protocol tree")
+nasdaq_equities_totalview_itch_v5_0.prefs.show_order_replace_message = Pref.bool("Show Order Replace Message", show.order_replace_message, "Parse and add Order Replace Message to protocol tree")
+nasdaq_equities_totalview_itch_v5_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+nasdaq_equities_totalview_itch_v5_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+nasdaq_equities_totalview_itch_v5_0.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message = Pref.bool("Show Reg Sho Short Sale Price Test Restricted Indicator Message", show.reg_sho_short_sale_price_test_restricted_indicator_message, "Parse and add Reg Sho Short Sale Price Test Restricted Indicator Message to protocol tree")
+nasdaq_equities_totalview_itch_v5_0.prefs.show_retail_interest_message = Pref.bool("Show Retail Interest Message", show.retail_interest_message, "Parse and add Retail Interest Message to protocol tree")
+nasdaq_equities_totalview_itch_v5_0.prefs.show_stock_directory_message = Pref.bool("Show Stock Directory Message", show.stock_directory_message, "Parse and add Stock Directory Message to protocol tree")
+nasdaq_equities_totalview_itch_v5_0.prefs.show_stock_trading_action_message = Pref.bool("Show Stock Trading Action Message", show.stock_trading_action_message, "Parse and add Stock Trading Action Message to protocol tree")
+nasdaq_equities_totalview_itch_v5_0.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
+nasdaq_equities_totalview_itch_v5_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function nasdaq_totalview_itch_v5_0.prefs_changed()
+function nasdaq_equities_totalview_itch_v5_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_order_no_mpid_attribution_message ~= nasdaq_totalview_itch_v5_0.prefs.show_add_order_no_mpid_attribution_message then
-    show.add_order_no_mpid_attribution_message = nasdaq_totalview_itch_v5_0.prefs.show_add_order_no_mpid_attribution_message
+  if show.add_order_no_mpid_attribution_message ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_add_order_no_mpid_attribution_message then
+    show.add_order_no_mpid_attribution_message = nasdaq_equities_totalview_itch_v5_0.prefs.show_add_order_no_mpid_attribution_message
     changed = true
   end
-  if show.add_order_with_mpid_attribution_message ~= nasdaq_totalview_itch_v5_0.prefs.show_add_order_with_mpid_attribution_message then
-    show.add_order_with_mpid_attribution_message = nasdaq_totalview_itch_v5_0.prefs.show_add_order_with_mpid_attribution_message
+  if show.add_order_with_mpid_attribution_message ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_add_order_with_mpid_attribution_message then
+    show.add_order_with_mpid_attribution_message = nasdaq_equities_totalview_itch_v5_0.prefs.show_add_order_with_mpid_attribution_message
     changed = true
   end
-  if show.broken_trade_message ~= nasdaq_totalview_itch_v5_0.prefs.show_broken_trade_message then
-    show.broken_trade_message = nasdaq_totalview_itch_v5_0.prefs.show_broken_trade_message
+  if show.broken_trade_message ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_broken_trade_message then
+    show.broken_trade_message = nasdaq_equities_totalview_itch_v5_0.prefs.show_broken_trade_message
     changed = true
   end
-  if show.cross_trade_message ~= nasdaq_totalview_itch_v5_0.prefs.show_cross_trade_message then
-    show.cross_trade_message = nasdaq_totalview_itch_v5_0.prefs.show_cross_trade_message
+  if show.cross_trade_message ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_cross_trade_message then
+    show.cross_trade_message = nasdaq_equities_totalview_itch_v5_0.prefs.show_cross_trade_message
     changed = true
   end
-  if show.ipo_quoting_period_update ~= nasdaq_totalview_itch_v5_0.prefs.show_ipo_quoting_period_update then
-    show.ipo_quoting_period_update = nasdaq_totalview_itch_v5_0.prefs.show_ipo_quoting_period_update
+  if show.ipo_quoting_period_update ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_ipo_quoting_period_update then
+    show.ipo_quoting_period_update = nasdaq_equities_totalview_itch_v5_0.prefs.show_ipo_quoting_period_update
     changed = true
   end
-  if show.luld_auction_collar_message ~= nasdaq_totalview_itch_v5_0.prefs.show_luld_auction_collar_message then
-    show.luld_auction_collar_message = nasdaq_totalview_itch_v5_0.prefs.show_luld_auction_collar_message
+  if show.luld_auction_collar_message ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_luld_auction_collar_message then
+    show.luld_auction_collar_message = nasdaq_equities_totalview_itch_v5_0.prefs.show_luld_auction_collar_message
     changed = true
   end
-  if show.market_participant_position_message ~= nasdaq_totalview_itch_v5_0.prefs.show_market_participant_position_message then
-    show.market_participant_position_message = nasdaq_totalview_itch_v5_0.prefs.show_market_participant_position_message
+  if show.market_participant_position_message ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_market_participant_position_message then
+    show.market_participant_position_message = nasdaq_equities_totalview_itch_v5_0.prefs.show_market_participant_position_message
     changed = true
   end
-  if show.message ~= nasdaq_totalview_itch_v5_0.prefs.show_message then
-    show.message = nasdaq_totalview_itch_v5_0.prefs.show_message
+  if show.message ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_message then
+    show.message = nasdaq_equities_totalview_itch_v5_0.prefs.show_message
     changed = true
   end
-  if show.message_header ~= nasdaq_totalview_itch_v5_0.prefs.show_message_header then
-    show.message_header = nasdaq_totalview_itch_v5_0.prefs.show_message_header
+  if show.message_header ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_message_header then
+    show.message_header = nasdaq_equities_totalview_itch_v5_0.prefs.show_message_header
     changed = true
   end
-  if show.mwcb_decline_level_message ~= nasdaq_totalview_itch_v5_0.prefs.show_mwcb_decline_level_message then
-    show.mwcb_decline_level_message = nasdaq_totalview_itch_v5_0.prefs.show_mwcb_decline_level_message
+  if show.mwcb_decline_level_message ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_mwcb_decline_level_message then
+    show.mwcb_decline_level_message = nasdaq_equities_totalview_itch_v5_0.prefs.show_mwcb_decline_level_message
     changed = true
   end
-  if show.mwcb_status_level_message ~= nasdaq_totalview_itch_v5_0.prefs.show_mwcb_status_level_message then
-    show.mwcb_status_level_message = nasdaq_totalview_itch_v5_0.prefs.show_mwcb_status_level_message
+  if show.mwcb_status_level_message ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_mwcb_status_level_message then
+    show.mwcb_status_level_message = nasdaq_equities_totalview_itch_v5_0.prefs.show_mwcb_status_level_message
     changed = true
   end
-  if show.net_order_imbalance_indicator_message ~= nasdaq_totalview_itch_v5_0.prefs.show_net_order_imbalance_indicator_message then
-    show.net_order_imbalance_indicator_message = nasdaq_totalview_itch_v5_0.prefs.show_net_order_imbalance_indicator_message
+  if show.net_order_imbalance_indicator_message ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_net_order_imbalance_indicator_message then
+    show.net_order_imbalance_indicator_message = nasdaq_equities_totalview_itch_v5_0.prefs.show_net_order_imbalance_indicator_message
     changed = true
   end
-  if show.non_cross_trade_message ~= nasdaq_totalview_itch_v5_0.prefs.show_non_cross_trade_message then
-    show.non_cross_trade_message = nasdaq_totalview_itch_v5_0.prefs.show_non_cross_trade_message
+  if show.non_cross_trade_message ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_non_cross_trade_message then
+    show.non_cross_trade_message = nasdaq_equities_totalview_itch_v5_0.prefs.show_non_cross_trade_message
     changed = true
   end
-  if show.order_cancel_message ~= nasdaq_totalview_itch_v5_0.prefs.show_order_cancel_message then
-    show.order_cancel_message = nasdaq_totalview_itch_v5_0.prefs.show_order_cancel_message
+  if show.order_cancel_message ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_order_cancel_message then
+    show.order_cancel_message = nasdaq_equities_totalview_itch_v5_0.prefs.show_order_cancel_message
     changed = true
   end
-  if show.order_delete_message ~= nasdaq_totalview_itch_v5_0.prefs.show_order_delete_message then
-    show.order_delete_message = nasdaq_totalview_itch_v5_0.prefs.show_order_delete_message
+  if show.order_delete_message ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_order_delete_message then
+    show.order_delete_message = nasdaq_equities_totalview_itch_v5_0.prefs.show_order_delete_message
     changed = true
   end
-  if show.order_executed_message ~= nasdaq_totalview_itch_v5_0.prefs.show_order_executed_message then
-    show.order_executed_message = nasdaq_totalview_itch_v5_0.prefs.show_order_executed_message
+  if show.order_executed_message ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_order_executed_message then
+    show.order_executed_message = nasdaq_equities_totalview_itch_v5_0.prefs.show_order_executed_message
     changed = true
   end
-  if show.order_executed_with_price_message ~= nasdaq_totalview_itch_v5_0.prefs.show_order_executed_with_price_message then
-    show.order_executed_with_price_message = nasdaq_totalview_itch_v5_0.prefs.show_order_executed_with_price_message
+  if show.order_executed_with_price_message ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_order_executed_with_price_message then
+    show.order_executed_with_price_message = nasdaq_equities_totalview_itch_v5_0.prefs.show_order_executed_with_price_message
     changed = true
   end
-  if show.order_replace_message ~= nasdaq_totalview_itch_v5_0.prefs.show_order_replace_message then
-    show.order_replace_message = nasdaq_totalview_itch_v5_0.prefs.show_order_replace_message
+  if show.order_replace_message ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_order_replace_message then
+    show.order_replace_message = nasdaq_equities_totalview_itch_v5_0.prefs.show_order_replace_message
     changed = true
   end
-  if show.packet ~= nasdaq_totalview_itch_v5_0.prefs.show_packet then
-    show.packet = nasdaq_totalview_itch_v5_0.prefs.show_packet
+  if show.packet ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_packet then
+    show.packet = nasdaq_equities_totalview_itch_v5_0.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= nasdaq_totalview_itch_v5_0.prefs.show_packet_header then
-    show.packet_header = nasdaq_totalview_itch_v5_0.prefs.show_packet_header
+  if show.packet_header ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_packet_header then
+    show.packet_header = nasdaq_equities_totalview_itch_v5_0.prefs.show_packet_header
     changed = true
   end
-  if show.reg_sho_short_sale_price_test_restricted_indicator_message ~= nasdaq_totalview_itch_v5_0.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message then
-    show.reg_sho_short_sale_price_test_restricted_indicator_message = nasdaq_totalview_itch_v5_0.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message
+  if show.reg_sho_short_sale_price_test_restricted_indicator_message ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message then
+    show.reg_sho_short_sale_price_test_restricted_indicator_message = nasdaq_equities_totalview_itch_v5_0.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message
     changed = true
   end
-  if show.retail_interest_message ~= nasdaq_totalview_itch_v5_0.prefs.show_retail_interest_message then
-    show.retail_interest_message = nasdaq_totalview_itch_v5_0.prefs.show_retail_interest_message
+  if show.retail_interest_message ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_retail_interest_message then
+    show.retail_interest_message = nasdaq_equities_totalview_itch_v5_0.prefs.show_retail_interest_message
     changed = true
   end
-  if show.stock_directory_message ~= nasdaq_totalview_itch_v5_0.prefs.show_stock_directory_message then
-    show.stock_directory_message = nasdaq_totalview_itch_v5_0.prefs.show_stock_directory_message
+  if show.stock_directory_message ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_stock_directory_message then
+    show.stock_directory_message = nasdaq_equities_totalview_itch_v5_0.prefs.show_stock_directory_message
     changed = true
   end
-  if show.stock_trading_action_message ~= nasdaq_totalview_itch_v5_0.prefs.show_stock_trading_action_message then
-    show.stock_trading_action_message = nasdaq_totalview_itch_v5_0.prefs.show_stock_trading_action_message
+  if show.stock_trading_action_message ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_stock_trading_action_message then
+    show.stock_trading_action_message = nasdaq_equities_totalview_itch_v5_0.prefs.show_stock_trading_action_message
     changed = true
   end
-  if show.system_event_message ~= nasdaq_totalview_itch_v5_0.prefs.show_system_event_message then
-    show.system_event_message = nasdaq_totalview_itch_v5_0.prefs.show_system_event_message
+  if show.system_event_message ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_system_event_message then
+    show.system_event_message = nasdaq_equities_totalview_itch_v5_0.prefs.show_system_event_message
     changed = true
   end
-  if show.payload ~= nasdaq_totalview_itch_v5_0.prefs.show_payload then
-    show.payload = nasdaq_totalview_itch_v5_0.prefs.show_payload
+  if show.payload ~= nasdaq_equities_totalview_itch_v5_0.prefs.show_payload then
+    show.payload = nasdaq_equities_totalview_itch_v5_0.prefs.show_payload
     changed = true
   end
 
@@ -291,7 +291,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Nasdaq TotalView Itch 5.0
+-- Dissect Nasdaq Equities TotalView Itch 5.0
 -----------------------------------------------------------------------
 
 -- Size: Interest Flag
@@ -321,7 +321,7 @@ dissect.interest_flag = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.interest_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.interest_flag, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.interest_flag, range, value, display)
 
   return offset + size_of.interest_flag
 end
@@ -340,7 +340,7 @@ dissect.stock = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.stock(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.stock, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.stock, range, value, display)
 
   return offset + size_of.stock
 end
@@ -359,7 +359,7 @@ dissect.timestamp = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.timestamp, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.timestamp, range, value, display)
 
   return offset + size_of.timestamp
 end
@@ -378,7 +378,7 @@ dissect.tracking_number = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.tracking_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.tracking_number, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.tracking_number, range, value, display)
 
   return offset + size_of.tracking_number
 end
@@ -397,7 +397,7 @@ dissect.stock_locate = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.stock_locate(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.stock_locate, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.stock_locate, range, value, display)
 
   return offset + size_of.stock_locate
 end
@@ -435,7 +435,7 @@ dissect.retail_interest_message = function(buffer, offset, packet, parent)
   if show.retail_interest_message then
     local range = buffer(offset, 19)
     local display = display.retail_interest_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_v5_0.fields.retail_interest_message, range, display)
+    parent = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.retail_interest_message, range, display)
   end
 
   return dissect.retail_interest_message_fields(buffer, offset, packet, parent)
@@ -498,7 +498,7 @@ dissect.price_variation_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.price_variation_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.price_variation_indicator, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.price_variation_indicator, range, value, display)
 
   return offset + size_of.price_variation_indicator
 end
@@ -530,7 +530,7 @@ dissect.cross_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.cross_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.cross_type, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.cross_type, range, value, display)
 
   return offset + size_of.cross_type
 end
@@ -549,7 +549,7 @@ dissect.current_reference_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.current_reference_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.current_reference_price, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.current_reference_price, range, value, display)
 
   return offset + size_of.current_reference_price
 end
@@ -568,7 +568,7 @@ dissect.near_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.near_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.near_price, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.near_price, range, value, display)
 
   return offset + size_of.near_price
 end
@@ -587,7 +587,7 @@ dissect.far_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.far_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.far_price, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.far_price, range, value, display)
 
   return offset + size_of.far_price
 end
@@ -619,7 +619,7 @@ dissect.imbalance_direction = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.imbalance_direction(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.imbalance_direction, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.imbalance_direction, range, value, display)
 
   return offset + size_of.imbalance_direction
 end
@@ -638,7 +638,7 @@ dissect.imbalance_shares = function(buffer, offset, packet, parent)
   local value = range:uint64()
   local display = display.imbalance_shares(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.imbalance_shares, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.imbalance_shares, range, value, display)
 
   return offset + size_of.imbalance_shares
 end
@@ -657,7 +657,7 @@ dissect.paired_shares = function(buffer, offset, packet, parent)
   local value = range:uint64()
   local display = display.paired_shares(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.paired_shares, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.paired_shares, range, value, display)
 
   return offset + size_of.paired_shares
 end
@@ -716,7 +716,7 @@ dissect.net_order_imbalance_indicator_message = function(buffer, offset, packet,
   if show.net_order_imbalance_indicator_message then
     local range = buffer(offset, 49)
     local display = display.net_order_imbalance_indicator_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_v5_0.fields.net_order_imbalance_indicator_message, range, display)
+    parent = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.net_order_imbalance_indicator_message, range, display)
   end
 
   return dissect.net_order_imbalance_indicator_message_fields(buffer, offset, packet, parent)
@@ -736,7 +736,7 @@ dissect.match_number = function(buffer, offset, packet, parent)
   local value = range:uint64()
   local display = display.match_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.match_number, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.match_number, range, value, display)
 
   return offset + size_of.match_number
 end
@@ -771,7 +771,7 @@ dissect.broken_trade_message = function(buffer, offset, packet, parent)
   if show.broken_trade_message then
     local range = buffer(offset, 18)
     local display = display.broken_trade_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_v5_0.fields.broken_trade_message, range, display)
+    parent = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.broken_trade_message, range, display)
   end
 
   return dissect.broken_trade_message_fields(buffer, offset, packet, parent)
@@ -791,7 +791,7 @@ dissect.cross_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.cross_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.cross_price, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.cross_price, range, value, display)
 
   return offset + size_of.cross_price
 end
@@ -810,7 +810,7 @@ dissect.cross_shares = function(buffer, offset, packet, parent)
   local value = range:uint64()
   local display = display.cross_shares(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.cross_shares, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.cross_shares, range, value, display)
 
   return offset + size_of.cross_shares
 end
@@ -857,7 +857,7 @@ dissect.cross_trade_message = function(buffer, offset, packet, parent)
   if show.cross_trade_message then
     local range = buffer(offset, 39)
     local display = display.cross_trade_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_v5_0.fields.cross_trade_message, range, display)
+    parent = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.cross_trade_message, range, display)
   end
 
   return dissect.cross_trade_message_fields(buffer, offset, packet, parent)
@@ -877,7 +877,7 @@ dissect.price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.price, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.price, range, value, display)
 
   return offset + size_of.price
 end
@@ -896,7 +896,7 @@ dissect.shares = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.shares(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.shares, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.shares, range, value, display)
 
   return offset + size_of.shares
 end
@@ -922,7 +922,7 @@ dissect.buy_sell_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.buy_sell_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.buy_sell_indicator, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.buy_sell_indicator, range, value, display)
 
   return offset + size_of.buy_sell_indicator
 end
@@ -941,7 +941,7 @@ dissect.order_reference_number = function(buffer, offset, packet, parent)
   local value = range:uint64()
   local display = display.order_reference_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.order_reference_number, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.order_reference_number, range, value, display)
 
   return offset + size_of.order_reference_number
 end
@@ -991,7 +991,7 @@ dissect.non_cross_trade_message = function(buffer, offset, packet, parent)
   if show.non_cross_trade_message then
     local range = buffer(offset, 43)
     local display = display.non_cross_trade_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_v5_0.fields.non_cross_trade_message, range, display)
+    parent = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.non_cross_trade_message, range, display)
   end
 
   return dissect.non_cross_trade_message_fields(buffer, offset, packet, parent)
@@ -1011,7 +1011,7 @@ dissect.new_order_reference_number = function(buffer, offset, packet, parent)
   local value = range:uint64()
   local display = display.new_order_reference_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.new_order_reference_number, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.new_order_reference_number, range, value, display)
 
   return offset + size_of.new_order_reference_number
 end
@@ -1030,7 +1030,7 @@ dissect.original_order_reference_number = function(buffer, offset, packet, paren
   local value = range:uint64()
   local display = display.original_order_reference_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.original_order_reference_number, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.original_order_reference_number, range, value, display)
 
   return offset + size_of.original_order_reference_number
 end
@@ -1074,7 +1074,7 @@ dissect.order_replace_message = function(buffer, offset, packet, parent)
   if show.order_replace_message then
     local range = buffer(offset, 34)
     local display = display.order_replace_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_v5_0.fields.order_replace_message, range, display)
+    parent = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.order_replace_message, range, display)
   end
 
   return dissect.order_replace_message_fields(buffer, offset, packet, parent)
@@ -1110,7 +1110,7 @@ dissect.order_delete_message = function(buffer, offset, packet, parent)
   if show.order_delete_message then
     local range = buffer(offset, 18)
     local display = display.order_delete_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_v5_0.fields.order_delete_message, range, display)
+    parent = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.order_delete_message, range, display)
   end
 
   return dissect.order_delete_message_fields(buffer, offset, packet, parent)
@@ -1130,7 +1130,7 @@ dissect.canceled_shares = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.canceled_shares(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.canceled_shares, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.canceled_shares, range, value, display)
 
   return offset + size_of.canceled_shares
 end
@@ -1168,7 +1168,7 @@ dissect.order_cancel_message = function(buffer, offset, packet, parent)
   if show.order_cancel_message then
     local range = buffer(offset, 22)
     local display = display.order_cancel_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_v5_0.fields.order_cancel_message, range, display)
+    parent = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.order_cancel_message, range, display)
   end
 
   return dissect.order_cancel_message_fields(buffer, offset, packet, parent)
@@ -1188,7 +1188,7 @@ dissect.execution_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.execution_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.execution_price, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.execution_price, range, value, display)
 
   return offset + size_of.execution_price
 end
@@ -1214,7 +1214,7 @@ dissect.printable = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.printable(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.printable, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.printable, range, value, display)
 
   return offset + size_of.printable
 end
@@ -1233,7 +1233,7 @@ dissect.executed_shares = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.executed_shares(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.executed_shares, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.executed_shares, range, value, display)
 
   return offset + size_of.executed_shares
 end
@@ -1280,7 +1280,7 @@ dissect.order_executed_with_price_message = function(buffer, offset, packet, par
   if show.order_executed_with_price_message then
     local range = buffer(offset, 35)
     local display = display.order_executed_with_price_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_v5_0.fields.order_executed_with_price_message, range, display)
+    parent = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.order_executed_with_price_message, range, display)
   end
 
   return dissect.order_executed_with_price_message_fields(buffer, offset, packet, parent)
@@ -1322,7 +1322,7 @@ dissect.order_executed_message = function(buffer, offset, packet, parent)
   if show.order_executed_message then
     local range = buffer(offset, 30)
     local display = display.order_executed_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_v5_0.fields.order_executed_message, range, display)
+    parent = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.order_executed_message, range, display)
   end
 
   return dissect.order_executed_message_fields(buffer, offset, packet, parent)
@@ -1342,7 +1342,7 @@ dissect.attribution = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.attribution(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.attribution, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.attribution, range, value, display)
 
   return offset + size_of.attribution
 end
@@ -1392,7 +1392,7 @@ dissect.add_order_with_mpid_attribution_message = function(buffer, offset, packe
   if show.add_order_with_mpid_attribution_message then
     local range = buffer(offset, 39)
     local display = display.add_order_with_mpid_attribution_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_v5_0.fields.add_order_with_mpid_attribution_message, range, display)
+    parent = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.add_order_with_mpid_attribution_message, range, display)
   end
 
   return dissect.add_order_with_mpid_attribution_message_fields(buffer, offset, packet, parent)
@@ -1412,7 +1412,7 @@ dissect.auction_collar_extension = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.auction_collar_extension(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.auction_collar_extension, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.auction_collar_extension, range, value, display)
 
   return offset + size_of.auction_collar_extension
 end
@@ -1431,7 +1431,7 @@ dissect.lower_auction_collar_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.lower_auction_collar_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.lower_auction_collar_price, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.lower_auction_collar_price, range, value, display)
 
   return offset + size_of.lower_auction_collar_price
 end
@@ -1450,7 +1450,7 @@ dissect.upper_auction_collar_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.upper_auction_collar_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.upper_auction_collar_price, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.upper_auction_collar_price, range, value, display)
 
   return offset + size_of.upper_auction_collar_price
 end
@@ -1469,7 +1469,7 @@ dissect.auction_collar_reference_price = function(buffer, offset, packet, parent
   local value = range:int()
   local display = display.auction_collar_reference_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.auction_collar_reference_price, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.auction_collar_reference_price, range, value, display)
 
   return offset + size_of.auction_collar_reference_price
 end
@@ -1516,7 +1516,7 @@ dissect.luld_auction_collar_message = function(buffer, offset, packet, parent)
   if show.luld_auction_collar_message then
     local range = buffer(offset, 34)
     local display = display.luld_auction_collar_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_v5_0.fields.luld_auction_collar_message, range, display)
+    parent = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.luld_auction_collar_message, range, display)
   end
 
   return dissect.luld_auction_collar_message_fields(buffer, offset, packet, parent)
@@ -1564,7 +1564,7 @@ dissect.add_order_no_mpid_attribution_message = function(buffer, offset, packet,
   if show.add_order_no_mpid_attribution_message then
     local range = buffer(offset, 35)
     local display = display.add_order_no_mpid_attribution_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_v5_0.fields.add_order_no_mpid_attribution_message, range, display)
+    parent = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.add_order_no_mpid_attribution_message, range, display)
   end
 
   return dissect.add_order_no_mpid_attribution_message_fields(buffer, offset, packet, parent)
@@ -1584,7 +1584,7 @@ dissect.ipo_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.ipo_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.ipo_price, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.ipo_price, range, value, display)
 
   return offset + size_of.ipo_price
 end
@@ -1610,7 +1610,7 @@ dissect.ipo_quotation_release_qualifier = function(buffer, offset, packet, paren
   local value = range:string()
   local display = display.ipo_quotation_release_qualifier(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.ipo_quotation_release_qualifier, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.ipo_quotation_release_qualifier, range, value, display)
 
   return offset + size_of.ipo_quotation_release_qualifier
 end
@@ -1629,7 +1629,7 @@ dissect.ipo_quotation_release_time = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.ipo_quotation_release_time(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.ipo_quotation_release_time, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.ipo_quotation_release_time, range, value, display)
 
   return offset + size_of.ipo_quotation_release_time
 end
@@ -1673,7 +1673,7 @@ dissect.ipo_quoting_period_update = function(buffer, offset, packet, parent)
   if show.ipo_quoting_period_update then
     local range = buffer(offset, 27)
     local display = display.ipo_quoting_period_update(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_v5_0.fields.ipo_quoting_period_update, range, display)
+    parent = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.ipo_quoting_period_update, range, display)
   end
 
   return dissect.ipo_quoting_period_update_fields(buffer, offset, packet, parent)
@@ -1703,7 +1703,7 @@ dissect.breached_level = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.breached_level(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.breached_level, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.breached_level, range, value, display)
 
   return offset + size_of.breached_level
 end
@@ -1738,7 +1738,7 @@ dissect.mwcb_status_level_message = function(buffer, offset, packet, parent)
   if show.mwcb_status_level_message then
     local range = buffer(offset, 11)
     local display = display.mwcb_status_level_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_v5_0.fields.mwcb_status_level_message, range, display)
+    parent = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.mwcb_status_level_message, range, display)
   end
 
   return dissect.mwcb_status_level_message_fields(buffer, offset, packet, parent)
@@ -1758,7 +1758,7 @@ dissect.level_3 = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.level_3(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.level_3, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.level_3, range, value, display)
 
   return offset + size_of.level_3
 end
@@ -1777,7 +1777,7 @@ dissect.level_2 = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.level_2(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.level_2, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.level_2, range, value, display)
 
   return offset + size_of.level_2
 end
@@ -1796,7 +1796,7 @@ dissect.level_1 = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.level_1(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.level_1, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.level_1, range, value, display)
 
   return offset + size_of.level_1
 end
@@ -1837,7 +1837,7 @@ dissect.mwcb_decline_level_message = function(buffer, offset, packet, parent)
   if show.mwcb_decline_level_message then
     local range = buffer(offset, 34)
     local display = display.mwcb_decline_level_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_v5_0.fields.mwcb_decline_level_message, range, display)
+    parent = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.mwcb_decline_level_message, range, display)
   end
 
   return dissect.mwcb_decline_level_message_fields(buffer, offset, packet, parent)
@@ -1873,7 +1873,7 @@ dissect.market_participant_state = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.market_participant_state(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.market_participant_state, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.market_participant_state, range, value, display)
 
   return offset + size_of.market_participant_state
 end
@@ -1908,7 +1908,7 @@ dissect.market_maker_mode = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.market_maker_mode(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.market_maker_mode, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.market_maker_mode, range, value, display)
 
   return offset + size_of.market_maker_mode
 end
@@ -1934,7 +1934,7 @@ dissect.primary_market_maker = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.primary_market_maker(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.primary_market_maker, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.primary_market_maker, range, value, display)
 
   return offset + size_of.primary_market_maker
 end
@@ -1953,7 +1953,7 @@ dissect.mpid = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.mpid(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.mpid, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.mpid, range, value, display)
 
   return offset + size_of.mpid
 end
@@ -2000,7 +2000,7 @@ dissect.market_participant_position_message = function(buffer, offset, packet, p
   if show.market_participant_position_message then
     local range = buffer(offset, 25)
     local display = display.market_participant_position_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_v5_0.fields.market_participant_position_message, range, display)
+    parent = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.market_participant_position_message, range, display)
   end
 
   return dissect.market_participant_position_message_fields(buffer, offset, packet, parent)
@@ -2030,7 +2030,7 @@ dissect.reg_sho_action = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.reg_sho_action(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.reg_sho_action, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.reg_sho_action, range, value, display)
 
   return offset + size_of.reg_sho_action
 end
@@ -2049,7 +2049,7 @@ dissect.locate_code = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.locate_code(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.locate_code, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.locate_code, range, value, display)
 
   return offset + size_of.locate_code
 end
@@ -2087,7 +2087,7 @@ dissect.reg_sho_short_sale_price_test_restricted_indicator_message = function(bu
   if show.reg_sho_short_sale_price_test_restricted_indicator_message then
     local range = buffer(offset, 19)
     local display = display.reg_sho_short_sale_price_test_restricted_indicator_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_v5_0.fields.reg_sho_short_sale_price_test_restricted_indicator_message, range, display)
+    parent = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.reg_sho_short_sale_price_test_restricted_indicator_message, range, display)
   end
 
   return dissect.reg_sho_short_sale_price_test_restricted_indicator_message_fields(buffer, offset, packet, parent)
@@ -2107,7 +2107,7 @@ dissect.reason = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.reason(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.reason, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.reason, range, value, display)
 
   return offset + size_of.reason
 end
@@ -2126,7 +2126,7 @@ dissect.reserved = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.reserved(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.reserved, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.reserved, range, value, display)
 
   return offset + size_of.reserved
 end
@@ -2158,7 +2158,7 @@ dissect.trading_state = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trading_state(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.trading_state, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.trading_state, range, value, display)
 
   return offset + size_of.trading_state
 end
@@ -2202,7 +2202,7 @@ dissect.stock_trading_action_message = function(buffer, offset, packet, parent)
   if show.stock_trading_action_message then
     local range = buffer(offset, 24)
     local display = display.stock_trading_action_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_v5_0.fields.stock_trading_action_message, range, display)
+    parent = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.stock_trading_action_message, range, display)
   end
 
   return dissect.stock_trading_action_message_fields(buffer, offset, packet, parent)
@@ -2229,7 +2229,7 @@ dissect.inverse_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.inverse_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.inverse_indicator, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.inverse_indicator, range, value, display)
 
   return offset + size_of.inverse_indicator
 end
@@ -2248,7 +2248,7 @@ dissect.etp_leverage_factor = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.etp_leverage_factor(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.etp_leverage_factor, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.etp_leverage_factor, range, value, display)
 
   return offset + size_of.etp_leverage_factor
 end
@@ -2277,7 +2277,7 @@ dissect.etp_flag = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.etp_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.etp_flag, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.etp_flag, range, value, display)
 
   return offset + size_of.etp_flag
 end
@@ -2306,7 +2306,7 @@ dissect.luld_reference_price_tier = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.luld_reference_price_tier(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.luld_reference_price_tier, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.luld_reference_price_tier, range, value, display)
 
   return offset + size_of.luld_reference_price_tier
 end
@@ -2335,7 +2335,7 @@ dissect.ipo_flag = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.ipo_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.ipo_flag, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.ipo_flag, range, value, display)
 
   return offset + size_of.ipo_flag
 end
@@ -2364,7 +2364,7 @@ dissect.short_sale_threshold_indicator = function(buffer, offset, packet, parent
   local value = range:string()
   local display = display.short_sale_threshold_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.short_sale_threshold_indicator, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.short_sale_threshold_indicator, range, value, display)
 
   return offset + size_of.short_sale_threshold_indicator
 end
@@ -2390,7 +2390,7 @@ dissect.authenticity = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.authenticity(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.authenticity, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.authenticity, range, value, display)
 
   return offset + size_of.authenticity
 end
@@ -2587,7 +2587,7 @@ dissect.issue_sub_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.issue_sub_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.issue_sub_type, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.issue_sub_type, range, value, display)
 
   return offset + size_of.issue_sub_type
 end
@@ -2655,7 +2655,7 @@ dissect.issue_classification = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.issue_classification(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.issue_classification, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.issue_classification, range, value, display)
 
   return offset + size_of.issue_classification
 end
@@ -2681,7 +2681,7 @@ dissect.round_lots_only = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.round_lots_only(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.round_lots_only, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.round_lots_only, range, value, display)
 
   return offset + size_of.round_lots_only
 end
@@ -2700,7 +2700,7 @@ dissect.round_lot_size = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.round_lot_size(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.round_lot_size, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.round_lot_size, range, value, display)
 
   return offset + size_of.round_lot_size
 end
@@ -2753,7 +2753,7 @@ dissect.financial_status_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.financial_status_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.financial_status_indicator, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.financial_status_indicator, range, value, display)
 
   return offset + size_of.financial_status_indicator
 end
@@ -2800,7 +2800,7 @@ dissect.market_category = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.market_category(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.market_category, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.market_category, range, value, display)
 
   return offset + size_of.market_category
 end
@@ -2874,7 +2874,7 @@ dissect.stock_directory_message = function(buffer, offset, packet, parent)
   if show.stock_directory_message then
     local range = buffer(offset, 38)
     local display = display.stock_directory_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_v5_0.fields.stock_directory_message, range, display)
+    parent = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.stock_directory_message, range, display)
   end
 
   return dissect.stock_directory_message_fields(buffer, offset, packet, parent)
@@ -2913,7 +2913,7 @@ dissect.event_code = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.event_code(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.event_code, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.event_code, range, value, display)
 
   return offset + size_of.event_code
 end
@@ -2948,7 +2948,7 @@ dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     local range = buffer(offset, 11)
     local display = display.system_event_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_v5_0.fields.system_event_message, range, display)
+    parent = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.system_event_message, range, display)
   end
 
   return dissect.system_event_message_fields(buffer, offset, packet, parent)
@@ -3154,7 +3154,7 @@ dissect.payload = function(buffer, offset, packet, parent, code)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.payload(buffer, packet, parent)
-  local element = parent:add(nasdaq_totalview_itch_v5_0.fields.payload, range, display)
+  local element = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.payload, range, display)
 
   return dissect.payload_branches(buffer, offset, packet, parent, code)
 end
@@ -3238,7 +3238,7 @@ dissect.message_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.message_type, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -3257,7 +3257,7 @@ dissect.length = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.length(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.length, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.length, range, value, display)
 
   return offset + size_of.length
 end
@@ -3286,7 +3286,7 @@ dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     local range = buffer(offset, 3)
     local display = display.message_header(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_v5_0.fields.message_header, range, display)
+    parent = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.message_header, range, display)
   end
 
   return dissect.message_header_fields(buffer, offset, packet, parent)
@@ -3332,7 +3332,7 @@ dissect.message = function(buffer, offset, packet, parent)
     local length = size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.message(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_v5_0.fields.message, range, display)
+    parent = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.message, range, display)
   end
 
   return dissect.message_fields(buffer, offset, packet, parent)
@@ -3353,7 +3353,7 @@ dissect.count = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.count(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.count, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.count, range, value, display)
 
   return offset + length, value
 end
@@ -3372,7 +3372,7 @@ dissect.sequence = function(buffer, offset, packet, parent)
   local value = range:uint64()
   local display = display.sequence(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.sequence, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.sequence, range, value, display)
 
   return offset + size_of.sequence
 end
@@ -3391,7 +3391,7 @@ dissect.session = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.session(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_totalview_itch_v5_0.fields.session, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.session, range, value, display)
 
   return offset + size_of.session
 end
@@ -3423,7 +3423,7 @@ dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     local range = buffer(offset, 20)
     local display = display.packet_header(buffer, packet, parent)
-    parent = parent:add(nasdaq_totalview_itch_v5_0.fields.packet_header, range, display)
+    parent = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.packet_header, range, display)
   end
 
   return dissect.packet_header_fields(buffer, offset, packet, parent)
@@ -3451,23 +3451,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function nasdaq_totalview_itch_v5_0.init()
+function nasdaq_equities_totalview_itch_v5_0.init()
 end
 
--- Dissector for Nasdaq TotalView Itch 5.0
-function nasdaq_totalview_itch_v5_0.dissector(buffer, packet, parent)
+-- Dissector for Nasdaq Equities TotalView Itch 5.0
+function nasdaq_equities_totalview_itch_v5_0.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = nasdaq_totalview_itch_v5_0.name
+  packet.cols.protocol = nasdaq_equities_totalview_itch_v5_0.name
 
   -- Dissect protocol
-  local protocol = parent:add(nasdaq_totalview_itch_v5_0, buffer(), nasdaq_totalview_itch_v5_0.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(nasdaq_equities_totalview_itch_v5_0, buffer(), nasdaq_equities_totalview_itch_v5_0.description, "("..buffer:len().." Bytes)")
   local protocol_size = dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, nasdaq_totalview_itch_v5_0)
+udp_table:add(65333, nasdaq_equities_totalview_itch_v5_0)
 
 
 -----------------------------------------------------------------------
@@ -3475,25 +3475,25 @@ udp_table:add(65333, nasdaq_totalview_itch_v5_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.nasdaq_totalview_itch_v5_0_packet_size = function(buffer)
+verify.nasdaq_equities_totalview_itch_v5_0_packet_size = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Nasdaq TotalView Itch 5.0
-local function nasdaq_totalview_itch_v5_0_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Nasdaq Equities TotalView Itch 5.0
+local function nasdaq_equities_totalview_itch_v5_0_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.nasdaq_totalview_itch_v5_0_packet_size(buffer) then return false end
+  if not verify.nasdaq_equities_totalview_itch_v5_0_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = nasdaq_totalview_itch_v5_0
-  nasdaq_totalview_itch_v5_0.dissector(buffer, packet, parent)
+  packet.conversation = nasdaq_equities_totalview_itch_v5_0
+  nasdaq_equities_totalview_itch_v5_0.dissector(buffer, packet, parent)
 
   return true
 end
 
--- Register Nasdaq TotalView Itch 5.0 Heuristic
-nasdaq_totalview_itch_v5_0:register_heuristic("udp", nasdaq_totalview_itch_v5_0_heuristic)
+-- Register Nasdaq Equities TotalView Itch 5.0 Heuristic
+nasdaq_equities_totalview_itch_v5_0:register_heuristic("udp", nasdaq_equities_totalview_itch_v5_0_heuristic)
 
 -----------------------------------------------------------------------
 -- This script was generated by the open markets initiative
