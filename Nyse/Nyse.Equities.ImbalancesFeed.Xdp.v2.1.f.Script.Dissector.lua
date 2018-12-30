@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Nyse ImbalancesFeed Xdp 2.1.f Protocol
-local nyse_imbalancesfeed_xdp_v2_1_f = Proto("Nyse.ImbalancesFeed.Xdp.v2.1.f.Lua", "Nyse ImbalancesFeed Xdp 2.1.f")
+-- Nyse Equities ImbalancesFeed Xdp 2.1.f Protocol
+local nyse_equities_imbalancesfeed_xdp_v2_1_f = Proto("Nyse.Equities.ImbalancesFeed.Xdp.v2.1.f.Lua", "Nyse Equities ImbalancesFeed Xdp 2.1.f")
 
 -- Component Tables
 local show = {}
@@ -19,97 +19,97 @@ local verify = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nyse ImbalancesFeed Xdp 2.1.f Fields
-nyse_imbalancesfeed_xdp_v2_1_f.fields.auction_status = ProtoField.new("Auction Status", "nyse.imbalancesfeed.xdp.v2.1.f.auctionstatus", ftypes.UINT8)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.auction_time = ProtoField.new("Auction Time", "nyse.imbalancesfeed.xdp.v2.1.f.auctiontime", ftypes.UINT16)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.auction_type = ProtoField.new("Auction Type", "nyse.imbalancesfeed.xdp.v2.1.f.auctiontype", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse.imbalancesfeed.xdp.v2.1.f.beginseqnum", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.channel_id = ProtoField.new("Channel Id", "nyse.imbalancesfeed.xdp.v2.1.f.channelid", ftypes.UINT8)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.closing_only_clearing_price = ProtoField.new("Closing Only Clearing Price", "nyse.imbalancesfeed.xdp.v2.1.f.closingonlyclearingprice", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.continuous_book_clearing_price = ProtoField.new("Continuous Book Clearing Price", "nyse.imbalancesfeed.xdp.v2.1.f.continuousbookclearingprice", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.current_refresh_pkt = ProtoField.new("Current Refresh Pkt", "nyse.imbalancesfeed.xdp.v2.1.f.currentrefreshpkt", ftypes.UINT16)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.imbalancesfeed.xdp.v2.1.f.deliveryflag", ftypes.UINT8)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.end_seq_num = ProtoField.new("End Seq Num", "nyse.imbalancesfeed.xdp.v2.1.f.endseqnum", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.imbalancesfeed.xdp.v2.1.f.exchangecode", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.freeze_status = ProtoField.new("Freeze Status", "nyse.imbalancesfeed.xdp.v2.1.f.freezestatus", ftypes.UINT8)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.imbalancesfeed.xdp.v2.1.f.haltcondition", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.imbalancesfeed.xdp.v2.1.f.heartbeatresponsemessage", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.imbalance_message = ProtoField.new("Imbalance Message", "nyse.imbalancesfeed.xdp.v2.1.f.imbalancemessage", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.imbalancesfeed.xdp.v2.1.f.imbalanceside", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.indicative_match_price = ProtoField.new("Indicative Match Price", "nyse.imbalancesfeed.xdp.v2.1.f.indicativematchprice", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.last_seq_num = ProtoField.new("Last Seq Num", "nyse.imbalancesfeed.xdp.v2.1.f.lastseqnum", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.last_symbol_seq_num = ProtoField.new("Last Symbol Seq Num", "nyse.imbalancesfeed.xdp.v2.1.f.lastsymbolseqnum", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.lot_size = ProtoField.new("Lot Size", "nyse.imbalancesfeed.xdp.v2.1.f.lotsize", ftypes.UINT16)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.lower_collar = ProtoField.new("Lower Collar", "nyse.imbalancesfeed.xdp.v2.1.f.lowercollar", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.market_id = ProtoField.new("Market Id", "nyse.imbalancesfeed.xdp.v2.1.f.marketid", ftypes.UINT16)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.imbalancesfeed.xdp.v2.1.f.marketimbalanceqty", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.market_state = ProtoField.new("Market State", "nyse.imbalancesfeed.xdp.v2.1.f.marketstate", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.message = ProtoField.new("Message", "nyse.imbalancesfeed.xdp.v2.1.f.message", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.message_count = ProtoField.new("Message Count", "nyse.imbalancesfeed.xdp.v2.1.f.messagecount", ftypes.UINT8)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.message_header = ProtoField.new("Message Header", "nyse.imbalancesfeed.xdp.v2.1.f.messageheader", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.message_size = ProtoField.new("Message Size", "nyse.imbalancesfeed.xdp.v2.1.f.messagesize", ftypes.UINT16)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.message_type = ProtoField.new("Message Type", "nyse.imbalancesfeed.xdp.v2.1.f.messagetype", ftypes.UINT16)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.imbalancesfeed.xdp.v2.1.f.messageunavailablemessage", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.mpv = ProtoField.new("Mpv", "nyse.imbalancesfeed.xdp.v2.1.f.mpv", ftypes.UINT16)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.imbalancesfeed.xdp.v2.1.f.nanoseconds", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.imbalancesfeed.xdp.v2.1.f.nextsourceseqnum", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.num_extensions = ProtoField.new("Num Extensions", "nyse.imbalancesfeed.xdp.v2.1.f.numextensions", ftypes.UINT8)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.packet = ProtoField.new("Packet", "nyse.imbalancesfeed.xdp.v2.1.f.packet", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.packet_header = ProtoField.new("Packet Header", "nyse.imbalancesfeed.xdp.v2.1.f.packetheader", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.packet_size = ProtoField.new("Packet Size", "nyse.imbalancesfeed.xdp.v2.1.f.packetsize", ftypes.UINT16)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.imbalancesfeed.xdp.v2.1.f.pairedqty", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.payload = ProtoField.new("Payload", "nyse.imbalancesfeed.xdp.v2.1.f.payload", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.imbalancesfeed.xdp.v2.1.f.prevcloseprice", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.imbalancesfeed.xdp.v2.1.f.prevclosevolume", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.price_1 = ProtoField.new("Price 1", "nyse.imbalancesfeed.xdp.v2.1.f.price1", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.price_2 = ProtoField.new("Price 2", "nyse.imbalancesfeed.xdp.v2.1.f.price2", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.imbalancesfeed.xdp.v2.1.f.priceresolution", ftypes.UINT8)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.imbalancesfeed.xdp.v2.1.f.pricescalecode", ftypes.UINT8)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.product_id = ProtoField.new("Product Id", "nyse.imbalancesfeed.xdp.v2.1.f.productid", ftypes.UINT8)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.reference_price = ProtoField.new("Reference Price", "nyse.imbalancesfeed.xdp.v2.1.f.referenceprice", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.refresh_header_message = ProtoField.new("Refresh Header Message", "nyse.imbalancesfeed.xdp.v2.1.f.refreshheadermessage", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "nyse.imbalancesfeed.xdp.v2.1.f.refreshrequestmessage", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.imbalancesfeed.xdp.v2.1.f.requestresponsemessage", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.imbalancesfeed.xdp.v2.1.f.requestseqnum", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.imbalancesfeed.xdp.v2.1.f.reserved1", ftypes.BYTES)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.imbalancesfeed.xdp.v2.1.f.reserved2", ftypes.BYTES)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.imbalancesfeed.xdp.v2.1.f.reserved4", ftypes.BYTES)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.imbalancesfeed.xdp.v2.1.f.retransmissionrequestmessage", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.imbalancesfeed.xdp.v2.1.f.retransmitmethod", ftypes.UINT8)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.round_lot = ProtoField.new("Round Lot", "nyse.imbalancesfeed.xdp.v2.1.f.roundlot", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.security_status = ProtoField.new("Security Status", "nyse.imbalancesfeed.xdp.v2.1.f.securitystatus", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.security_status_message = ProtoField.new("Security Status Message", "nyse.imbalancesfeed.xdp.v2.1.f.securitystatusmessage", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.security_type = ProtoField.new("Security Type", "nyse.imbalancesfeed.xdp.v2.1.f.securitytype", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.imbalancesfeed.xdp.v2.1.f.sequencenumber", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.imbalancesfeed.xdp.v2.1.f.sequencenumberresetmessage", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.session_state = ProtoField.new("Session State", "nyse.imbalancesfeed.xdp.v2.1.f.sessionstate", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.source_id = ProtoField.new("Source Id", "nyse.imbalancesfeed.xdp.v2.1.f.sourceid", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.source_time = ProtoField.new("Source Time", "nyse.imbalancesfeed.xdp.v2.1.f.sourcetime", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.imbalancesfeed.xdp.v2.1.f.sourcetimens", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.imbalancesfeed.xdp.v2.1.f.ssrfilingprice", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.ssr_state = ProtoField.new("Ssr State", "nyse.imbalancesfeed.xdp.v2.1.f.ssrstate", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.imbalancesfeed.xdp.v2.1.f.ssrtriggeringexchangeid", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.ssr_triggering_volume = ProtoField.new("Ssr Triggering Volume", "nyse.imbalancesfeed.xdp.v2.1.f.ssrtriggeringvolume", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.status = ProtoField.new("Status", "nyse.imbalancesfeed.xdp.v2.1.f.status", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.symbol = ProtoField.new("Symbol", "nyse.imbalancesfeed.xdp.v2.1.f.symbol", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.symbol_clear_message = ProtoField.new("Symbol Clear Message", "nyse.imbalancesfeed.xdp.v2.1.f.symbolclearmessage", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.imbalancesfeed.xdp.v2.1.f.symbolindex", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.imbalancesfeed.xdp.v2.1.f.symbolindexmappingmessage", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.imbalancesfeed.xdp.v2.1.f.symbolindexmappingrequestmessage", ftypes.STRING)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.imbalancesfeed.xdp.v2.1.f.symbolseqnum", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.system_id = ProtoField.new("System Id", "nyse.imbalancesfeed.xdp.v2.1.f.systemid", ftypes.UINT8)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.time = ProtoField.new("Time", "nyse.imbalancesfeed.xdp.v2.1.f.time", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.timestamp = ProtoField.new("Timestamp", "nyse.imbalancesfeed.xdp.v2.1.f.timestamp", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.total_imbalance_qty = ProtoField.new("Total Imbalance Qty", "nyse.imbalancesfeed.xdp.v2.1.f.totalimbalanceqty", ftypes.UINT32)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.imbalancesfeed.xdp.v2.1.f.totalrefreshpkts", ftypes.UINT16)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.imbalancesfeed.xdp.v2.1.f.unitoftrade", ftypes.UINT16)
-nyse_imbalancesfeed_xdp_v2_1_f.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.imbalancesfeed.xdp.v2.1.f.uppercollar", ftypes.UINT32)
+-- Nyse Equities ImbalancesFeed Xdp 2.1.f Fields
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.auction_status = ProtoField.new("Auction Status", "nyse.equities.imbalancesfeed.xdp.v2.1.f.auctionstatus", ftypes.UINT8)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.auction_time = ProtoField.new("Auction Time", "nyse.equities.imbalancesfeed.xdp.v2.1.f.auctiontime", ftypes.UINT16)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.auction_type = ProtoField.new("Auction Type", "nyse.equities.imbalancesfeed.xdp.v2.1.f.auctiontype", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse.equities.imbalancesfeed.xdp.v2.1.f.beginseqnum", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.channel_id = ProtoField.new("Channel Id", "nyse.equities.imbalancesfeed.xdp.v2.1.f.channelid", ftypes.UINT8)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.closing_only_clearing_price = ProtoField.new("Closing Only Clearing Price", "nyse.equities.imbalancesfeed.xdp.v2.1.f.closingonlyclearingprice", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.continuous_book_clearing_price = ProtoField.new("Continuous Book Clearing Price", "nyse.equities.imbalancesfeed.xdp.v2.1.f.continuousbookclearingprice", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.current_refresh_pkt = ProtoField.new("Current Refresh Pkt", "nyse.equities.imbalancesfeed.xdp.v2.1.f.currentrefreshpkt", ftypes.UINT16)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.equities.imbalancesfeed.xdp.v2.1.f.deliveryflag", ftypes.UINT8)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.end_seq_num = ProtoField.new("End Seq Num", "nyse.equities.imbalancesfeed.xdp.v2.1.f.endseqnum", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.equities.imbalancesfeed.xdp.v2.1.f.exchangecode", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.freeze_status = ProtoField.new("Freeze Status", "nyse.equities.imbalancesfeed.xdp.v2.1.f.freezestatus", ftypes.UINT8)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.equities.imbalancesfeed.xdp.v2.1.f.haltcondition", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.equities.imbalancesfeed.xdp.v2.1.f.heartbeatresponsemessage", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.imbalance_message = ProtoField.new("Imbalance Message", "nyse.equities.imbalancesfeed.xdp.v2.1.f.imbalancemessage", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.equities.imbalancesfeed.xdp.v2.1.f.imbalanceside", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.indicative_match_price = ProtoField.new("Indicative Match Price", "nyse.equities.imbalancesfeed.xdp.v2.1.f.indicativematchprice", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.last_seq_num = ProtoField.new("Last Seq Num", "nyse.equities.imbalancesfeed.xdp.v2.1.f.lastseqnum", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.last_symbol_seq_num = ProtoField.new("Last Symbol Seq Num", "nyse.equities.imbalancesfeed.xdp.v2.1.f.lastsymbolseqnum", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.lot_size = ProtoField.new("Lot Size", "nyse.equities.imbalancesfeed.xdp.v2.1.f.lotsize", ftypes.UINT16)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.lower_collar = ProtoField.new("Lower Collar", "nyse.equities.imbalancesfeed.xdp.v2.1.f.lowercollar", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.market_id = ProtoField.new("Market Id", "nyse.equities.imbalancesfeed.xdp.v2.1.f.marketid", ftypes.UINT16)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.equities.imbalancesfeed.xdp.v2.1.f.marketimbalanceqty", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.market_state = ProtoField.new("Market State", "nyse.equities.imbalancesfeed.xdp.v2.1.f.marketstate", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.message = ProtoField.new("Message", "nyse.equities.imbalancesfeed.xdp.v2.1.f.message", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.message_count = ProtoField.new("Message Count", "nyse.equities.imbalancesfeed.xdp.v2.1.f.messagecount", ftypes.UINT8)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.message_header = ProtoField.new("Message Header", "nyse.equities.imbalancesfeed.xdp.v2.1.f.messageheader", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.message_size = ProtoField.new("Message Size", "nyse.equities.imbalancesfeed.xdp.v2.1.f.messagesize", ftypes.UINT16)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.message_type = ProtoField.new("Message Type", "nyse.equities.imbalancesfeed.xdp.v2.1.f.messagetype", ftypes.UINT16)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.equities.imbalancesfeed.xdp.v2.1.f.messageunavailablemessage", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.mpv = ProtoField.new("Mpv", "nyse.equities.imbalancesfeed.xdp.v2.1.f.mpv", ftypes.UINT16)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.equities.imbalancesfeed.xdp.v2.1.f.nanoseconds", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.equities.imbalancesfeed.xdp.v2.1.f.nextsourceseqnum", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.num_extensions = ProtoField.new("Num Extensions", "nyse.equities.imbalancesfeed.xdp.v2.1.f.numextensions", ftypes.UINT8)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.packet = ProtoField.new("Packet", "nyse.equities.imbalancesfeed.xdp.v2.1.f.packet", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.packet_header = ProtoField.new("Packet Header", "nyse.equities.imbalancesfeed.xdp.v2.1.f.packetheader", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.packet_size = ProtoField.new("Packet Size", "nyse.equities.imbalancesfeed.xdp.v2.1.f.packetsize", ftypes.UINT16)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.equities.imbalancesfeed.xdp.v2.1.f.pairedqty", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.payload = ProtoField.new("Payload", "nyse.equities.imbalancesfeed.xdp.v2.1.f.payload", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.equities.imbalancesfeed.xdp.v2.1.f.prevcloseprice", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.equities.imbalancesfeed.xdp.v2.1.f.prevclosevolume", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.price_1 = ProtoField.new("Price 1", "nyse.equities.imbalancesfeed.xdp.v2.1.f.price1", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.price_2 = ProtoField.new("Price 2", "nyse.equities.imbalancesfeed.xdp.v2.1.f.price2", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.equities.imbalancesfeed.xdp.v2.1.f.priceresolution", ftypes.UINT8)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.equities.imbalancesfeed.xdp.v2.1.f.pricescalecode", ftypes.UINT8)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.product_id = ProtoField.new("Product Id", "nyse.equities.imbalancesfeed.xdp.v2.1.f.productid", ftypes.UINT8)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.reference_price = ProtoField.new("Reference Price", "nyse.equities.imbalancesfeed.xdp.v2.1.f.referenceprice", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.refresh_header_message = ProtoField.new("Refresh Header Message", "nyse.equities.imbalancesfeed.xdp.v2.1.f.refreshheadermessage", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "nyse.equities.imbalancesfeed.xdp.v2.1.f.refreshrequestmessage", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.equities.imbalancesfeed.xdp.v2.1.f.requestresponsemessage", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.equities.imbalancesfeed.xdp.v2.1.f.requestseqnum", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.equities.imbalancesfeed.xdp.v2.1.f.reserved1", ftypes.BYTES)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.equities.imbalancesfeed.xdp.v2.1.f.reserved2", ftypes.BYTES)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.equities.imbalancesfeed.xdp.v2.1.f.reserved4", ftypes.BYTES)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.equities.imbalancesfeed.xdp.v2.1.f.retransmissionrequestmessage", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.equities.imbalancesfeed.xdp.v2.1.f.retransmitmethod", ftypes.UINT8)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.round_lot = ProtoField.new("Round Lot", "nyse.equities.imbalancesfeed.xdp.v2.1.f.roundlot", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.security_status = ProtoField.new("Security Status", "nyse.equities.imbalancesfeed.xdp.v2.1.f.securitystatus", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.security_status_message = ProtoField.new("Security Status Message", "nyse.equities.imbalancesfeed.xdp.v2.1.f.securitystatusmessage", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.security_type = ProtoField.new("Security Type", "nyse.equities.imbalancesfeed.xdp.v2.1.f.securitytype", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.equities.imbalancesfeed.xdp.v2.1.f.sequencenumber", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.equities.imbalancesfeed.xdp.v2.1.f.sequencenumberresetmessage", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.session_state = ProtoField.new("Session State", "nyse.equities.imbalancesfeed.xdp.v2.1.f.sessionstate", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.source_id = ProtoField.new("Source Id", "nyse.equities.imbalancesfeed.xdp.v2.1.f.sourceid", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.source_time = ProtoField.new("Source Time", "nyse.equities.imbalancesfeed.xdp.v2.1.f.sourcetime", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.equities.imbalancesfeed.xdp.v2.1.f.sourcetimens", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.equities.imbalancesfeed.xdp.v2.1.f.ssrfilingprice", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.ssr_state = ProtoField.new("Ssr State", "nyse.equities.imbalancesfeed.xdp.v2.1.f.ssrstate", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.equities.imbalancesfeed.xdp.v2.1.f.ssrtriggeringexchangeid", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.ssr_triggering_volume = ProtoField.new("Ssr Triggering Volume", "nyse.equities.imbalancesfeed.xdp.v2.1.f.ssrtriggeringvolume", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.status = ProtoField.new("Status", "nyse.equities.imbalancesfeed.xdp.v2.1.f.status", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.symbol = ProtoField.new("Symbol", "nyse.equities.imbalancesfeed.xdp.v2.1.f.symbol", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.symbol_clear_message = ProtoField.new("Symbol Clear Message", "nyse.equities.imbalancesfeed.xdp.v2.1.f.symbolclearmessage", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.equities.imbalancesfeed.xdp.v2.1.f.symbolindex", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.equities.imbalancesfeed.xdp.v2.1.f.symbolindexmappingmessage", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.equities.imbalancesfeed.xdp.v2.1.f.symbolindexmappingrequestmessage", ftypes.STRING)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.equities.imbalancesfeed.xdp.v2.1.f.symbolseqnum", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.system_id = ProtoField.new("System Id", "nyse.equities.imbalancesfeed.xdp.v2.1.f.systemid", ftypes.UINT8)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.time = ProtoField.new("Time", "nyse.equities.imbalancesfeed.xdp.v2.1.f.time", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.timestamp = ProtoField.new("Timestamp", "nyse.equities.imbalancesfeed.xdp.v2.1.f.timestamp", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.total_imbalance_qty = ProtoField.new("Total Imbalance Qty", "nyse.equities.imbalancesfeed.xdp.v2.1.f.totalimbalanceqty", ftypes.UINT32)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.equities.imbalancesfeed.xdp.v2.1.f.totalrefreshpkts", ftypes.UINT16)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.equities.imbalancesfeed.xdp.v2.1.f.unitoftrade", ftypes.UINT16)
+nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.equities.imbalancesfeed.xdp.v2.1.f.uppercollar", ftypes.UINT32)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Nyse ImbalancesFeed Xdp 2.1.f Element Dissection Options
+-- Nyse Equities ImbalancesFeed Xdp 2.1.f Element Dissection Options
 show.heartbeat_response_message = true
 show.imbalance_message = true
 show.message = true
@@ -128,96 +128,96 @@ show.symbol_index_mapping_message = true
 show.symbol_index_mapping_request_message = true
 show.payload = false
 
--- Register Nyse ImbalancesFeed Xdp 2.1.f Show Options
-nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_heartbeat_response_message = Pref.bool("Show Heartbeat Response Message", show.heartbeat_response_message, "Parse and add Heartbeat Response Message to protocol tree")
-nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_imbalance_message = Pref.bool("Show Imbalance Message", show.imbalance_message, "Parse and add Imbalance Message to protocol tree")
-nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_message_unavailable_message = Pref.bool("Show Message Unavailable Message", show.message_unavailable_message, "Parse and add Message Unavailable Message to protocol tree")
-nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_refresh_header_message = Pref.bool("Show Refresh Header Message", show.refresh_header_message, "Parse and add Refresh Header Message to protocol tree")
-nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_refresh_request_message = Pref.bool("Show Refresh Request Message", show.refresh_request_message, "Parse and add Refresh Request Message to protocol tree")
-nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_request_response_message = Pref.bool("Show Request Response Message", show.request_response_message, "Parse and add Request Response Message to protocol tree")
-nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_retransmission_request_message = Pref.bool("Show Retransmission Request Message", show.retransmission_request_message, "Parse and add Retransmission Request Message to protocol tree")
-nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_security_status_message = Pref.bool("Show Security Status Message", show.security_status_message, "Parse and add Security Status Message to protocol tree")
-nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
-nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_symbol_clear_message = Pref.bool("Show Symbol Clear Message", show.symbol_clear_message, "Parse and add Symbol Clear Message to protocol tree")
-nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_symbol_index_mapping_message = Pref.bool("Show Symbol Index Mapping Message", show.symbol_index_mapping_message, "Parse and add Symbol Index Mapping Message to protocol tree")
-nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_symbol_index_mapping_request_message = Pref.bool("Show Symbol Index Mapping Request Message", show.symbol_index_mapping_request_message, "Parse and add Symbol Index Mapping Request Message to protocol tree")
-nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+-- Register Nyse Equities ImbalancesFeed Xdp 2.1.f Show Options
+nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_heartbeat_response_message = Pref.bool("Show Heartbeat Response Message", show.heartbeat_response_message, "Parse and add Heartbeat Response Message to protocol tree")
+nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_imbalance_message = Pref.bool("Show Imbalance Message", show.imbalance_message, "Parse and add Imbalance Message to protocol tree")
+nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_message_unavailable_message = Pref.bool("Show Message Unavailable Message", show.message_unavailable_message, "Parse and add Message Unavailable Message to protocol tree")
+nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_refresh_header_message = Pref.bool("Show Refresh Header Message", show.refresh_header_message, "Parse and add Refresh Header Message to protocol tree")
+nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_refresh_request_message = Pref.bool("Show Refresh Request Message", show.refresh_request_message, "Parse and add Refresh Request Message to protocol tree")
+nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_request_response_message = Pref.bool("Show Request Response Message", show.request_response_message, "Parse and add Request Response Message to protocol tree")
+nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_retransmission_request_message = Pref.bool("Show Retransmission Request Message", show.retransmission_request_message, "Parse and add Retransmission Request Message to protocol tree")
+nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_security_status_message = Pref.bool("Show Security Status Message", show.security_status_message, "Parse and add Security Status Message to protocol tree")
+nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
+nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_symbol_clear_message = Pref.bool("Show Symbol Clear Message", show.symbol_clear_message, "Parse and add Symbol Clear Message to protocol tree")
+nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_symbol_index_mapping_message = Pref.bool("Show Symbol Index Mapping Message", show.symbol_index_mapping_message, "Parse and add Symbol Index Mapping Message to protocol tree")
+nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_symbol_index_mapping_request_message = Pref.bool("Show Symbol Index Mapping Request Message", show.symbol_index_mapping_request_message, "Parse and add Symbol Index Mapping Request Message to protocol tree")
+nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function nyse_imbalancesfeed_xdp_v2_1_f.prefs_changed()
+function nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.heartbeat_response_message ~= nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_heartbeat_response_message then
-    show.heartbeat_response_message = nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_heartbeat_response_message
+  if show.heartbeat_response_message ~= nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_heartbeat_response_message then
+    show.heartbeat_response_message = nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_heartbeat_response_message
     changed = true
   end
-  if show.imbalance_message ~= nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_imbalance_message then
-    show.imbalance_message = nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_imbalance_message
+  if show.imbalance_message ~= nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_imbalance_message then
+    show.imbalance_message = nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_imbalance_message
     changed = true
   end
-  if show.message ~= nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_message then
-    show.message = nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_message
+  if show.message ~= nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_message then
+    show.message = nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_message
     changed = true
   end
-  if show.message_header ~= nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_message_header then
-    show.message_header = nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_message_header
+  if show.message_header ~= nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_message_header then
+    show.message_header = nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_message_header
     changed = true
   end
-  if show.message_unavailable_message ~= nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_message_unavailable_message then
-    show.message_unavailable_message = nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_message_unavailable_message
+  if show.message_unavailable_message ~= nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_message_unavailable_message then
+    show.message_unavailable_message = nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_message_unavailable_message
     changed = true
   end
-  if show.packet ~= nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_packet then
-    show.packet = nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_packet
+  if show.packet ~= nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_packet then
+    show.packet = nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_packet_header then
-    show.packet_header = nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_packet_header
+  if show.packet_header ~= nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_packet_header then
+    show.packet_header = nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_packet_header
     changed = true
   end
-  if show.refresh_header_message ~= nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_refresh_header_message then
-    show.refresh_header_message = nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_refresh_header_message
+  if show.refresh_header_message ~= nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_refresh_header_message then
+    show.refresh_header_message = nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_refresh_header_message
     changed = true
   end
-  if show.refresh_request_message ~= nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_refresh_request_message then
-    show.refresh_request_message = nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_refresh_request_message
+  if show.refresh_request_message ~= nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_refresh_request_message then
+    show.refresh_request_message = nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_refresh_request_message
     changed = true
   end
-  if show.request_response_message ~= nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_request_response_message then
-    show.request_response_message = nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_request_response_message
+  if show.request_response_message ~= nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_request_response_message then
+    show.request_response_message = nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_request_response_message
     changed = true
   end
-  if show.retransmission_request_message ~= nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_retransmission_request_message then
-    show.retransmission_request_message = nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_retransmission_request_message
+  if show.retransmission_request_message ~= nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_retransmission_request_message then
+    show.retransmission_request_message = nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_retransmission_request_message
     changed = true
   end
-  if show.security_status_message ~= nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_security_status_message then
-    show.security_status_message = nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_security_status_message
+  if show.security_status_message ~= nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_security_status_message then
+    show.security_status_message = nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_security_status_message
     changed = true
   end
-  if show.sequence_number_reset_message ~= nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_sequence_number_reset_message then
-    show.sequence_number_reset_message = nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_sequence_number_reset_message
+  if show.sequence_number_reset_message ~= nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_sequence_number_reset_message then
+    show.sequence_number_reset_message = nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_sequence_number_reset_message
     changed = true
   end
-  if show.symbol_clear_message ~= nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_symbol_clear_message then
-    show.symbol_clear_message = nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_symbol_clear_message
+  if show.symbol_clear_message ~= nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_symbol_clear_message then
+    show.symbol_clear_message = nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_symbol_clear_message
     changed = true
   end
-  if show.symbol_index_mapping_message ~= nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_symbol_index_mapping_message then
-    show.symbol_index_mapping_message = nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_symbol_index_mapping_message
+  if show.symbol_index_mapping_message ~= nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_symbol_index_mapping_message then
+    show.symbol_index_mapping_message = nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_symbol_index_mapping_message
     changed = true
   end
-  if show.symbol_index_mapping_request_message ~= nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_symbol_index_mapping_request_message then
-    show.symbol_index_mapping_request_message = nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_symbol_index_mapping_request_message
+  if show.symbol_index_mapping_request_message ~= nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_symbol_index_mapping_request_message then
+    show.symbol_index_mapping_request_message = nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_symbol_index_mapping_request_message
     changed = true
   end
-  if show.payload ~= nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_payload then
-    show.payload = nyse_imbalancesfeed_xdp_v2_1_f.prefs.show_payload
+  if show.payload ~= nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_payload then
+    show.payload = nyse_equities_imbalancesfeed_xdp_v2_1_f.prefs.show_payload
     changed = true
   end
 
@@ -229,7 +229,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Nyse ImbalancesFeed Xdp 2.1.f
+-- Dissect Nyse Equities ImbalancesFeed Xdp 2.1.f
 -----------------------------------------------------------------------
 
 -- Size: Num Extensions
@@ -246,7 +246,7 @@ dissect.num_extensions = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.num_extensions(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.num_extensions, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.num_extensions, range, value, display)
 
   return offset + size_of.num_extensions
 end
@@ -272,7 +272,7 @@ dissect.freeze_status = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.freeze_status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.freeze_status, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.freeze_status, range, value, display)
 
   return offset + size_of.freeze_status
 end
@@ -304,7 +304,7 @@ dissect.auction_status = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.auction_status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.auction_status, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.auction_status, range, value, display)
 
   return offset + size_of.auction_status
 end
@@ -323,7 +323,7 @@ dissect.lower_collar = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.lower_collar(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.lower_collar, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.lower_collar, range, value, display)
 
   return offset + size_of.lower_collar
 end
@@ -342,7 +342,7 @@ dissect.upper_collar = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.upper_collar(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.upper_collar, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.upper_collar, range, value, display)
 
   return offset + size_of.upper_collar
 end
@@ -361,7 +361,7 @@ dissect.indicative_match_price = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.indicative_match_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.indicative_match_price, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.indicative_match_price, range, value, display)
 
   return offset + size_of.indicative_match_price
 end
@@ -380,7 +380,7 @@ dissect.ssr_filing_price = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.ssr_filing_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.ssr_filing_price, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.ssr_filing_price, range, value, display)
 
   return offset + size_of.ssr_filing_price
 end
@@ -399,7 +399,7 @@ dissect.closing_only_clearing_price = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.closing_only_clearing_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.closing_only_clearing_price, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.closing_only_clearing_price, range, value, display)
 
   return offset + size_of.closing_only_clearing_price
 end
@@ -418,7 +418,7 @@ dissect.continuous_book_clearing_price = function(buffer, offset, packet, parent
   local value = range:le_uint()
   local display = display.continuous_book_clearing_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.continuous_book_clearing_price, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.continuous_book_clearing_price, range, value, display)
 
   return offset + size_of.continuous_book_clearing_price
 end
@@ -447,7 +447,7 @@ dissect.imbalance_side = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.imbalance_side(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.imbalance_side, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.imbalance_side, range, value, display)
 
   return offset + size_of.imbalance_side
 end
@@ -482,7 +482,7 @@ dissect.auction_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.auction_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.auction_type, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.auction_type, range, value, display)
 
   return offset + size_of.auction_type
 end
@@ -501,7 +501,7 @@ dissect.auction_time = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.auction_time(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.auction_time, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.auction_time, range, value, display)
 
   return offset + size_of.auction_time
 end
@@ -520,7 +520,7 @@ dissect.market_imbalance_qty = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.market_imbalance_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.market_imbalance_qty, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.market_imbalance_qty, range, value, display)
 
   return offset + size_of.market_imbalance_qty
 end
@@ -539,7 +539,7 @@ dissect.total_imbalance_qty = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.total_imbalance_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.total_imbalance_qty, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.total_imbalance_qty, range, value, display)
 
   return offset + size_of.total_imbalance_qty
 end
@@ -558,7 +558,7 @@ dissect.paired_qty = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.paired_qty(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.paired_qty, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.paired_qty, range, value, display)
 
   return offset + size_of.paired_qty
 end
@@ -577,7 +577,7 @@ dissect.reference_price = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.reference_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.reference_price, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.reference_price, range, value, display)
 
   return offset + size_of.reference_price
 end
@@ -596,7 +596,7 @@ dissect.symbol_seq_num = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.symbol_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.symbol_seq_num, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.symbol_seq_num, range, value, display)
 
   return offset + size_of.symbol_seq_num
 end
@@ -615,7 +615,7 @@ dissect.symbol_index = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.symbol_index(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.symbol_index, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.symbol_index, range, value, display)
 
   return offset + size_of.symbol_index
 end
@@ -634,7 +634,7 @@ dissect.source_time_ns = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.source_time_ns(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.source_time_ns, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.source_time_ns, range, value, display)
 
   return offset + size_of.source_time_ns
 end
@@ -653,7 +653,7 @@ dissect.source_time = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.source_time(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.source_time, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.source_time, range, value, display)
 
   return offset + size_of.source_time
 end
@@ -736,7 +736,7 @@ dissect.imbalance_message = function(buffer, offset, packet, parent)
   if show.imbalance_message then
     local range = buffer(offset, 63)
     local display = display.imbalance_message(buffer, packet, parent)
-    parent = parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.imbalance_message, range, display)
+    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.imbalance_message, range, display)
   end
 
   return dissect.imbalance_message_fields(buffer, offset, packet, parent)
@@ -756,7 +756,7 @@ dissect.last_symbol_seq_num = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.last_symbol_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.last_symbol_seq_num, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.last_symbol_seq_num, range, value, display)
 
   return offset + size_of.last_symbol_seq_num
 end
@@ -775,7 +775,7 @@ dissect.last_seq_num = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.last_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.last_seq_num, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.last_seq_num, range, value, display)
 
   return offset + size_of.last_seq_num
 end
@@ -794,7 +794,7 @@ dissect.total_refresh_pkts = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.total_refresh_pkts(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.total_refresh_pkts, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.total_refresh_pkts, range, value, display)
 
   return offset + size_of.total_refresh_pkts
 end
@@ -813,7 +813,7 @@ dissect.current_refresh_pkt = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.current_refresh_pkt(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.current_refresh_pkt, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.current_refresh_pkt, range, value, display)
 
   return offset + size_of.current_refresh_pkt
 end
@@ -848,7 +848,7 @@ dissect.refresh_header_message = function(buffer, offset, packet, parent)
   if show.refresh_header_message then
     local range = buffer(offset, 12)
     local display = display.refresh_header_message(buffer, packet, parent)
-    parent = parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.refresh_header_message, range, display)
+    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.refresh_header_message, range, display)
   end
 
   return dissect.refresh_header_message_fields(buffer, offset, packet, parent)
@@ -868,7 +868,7 @@ dissect.session_state = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.session_state(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.session_state, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.session_state, range, value, display)
 
   return offset + size_of.session_state
 end
@@ -887,7 +887,7 @@ dissect.market_state = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.market_state(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.market_state, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.market_state, range, value, display)
 
   return offset + size_of.market_state
 end
@@ -906,7 +906,7 @@ dissect.ssr_state = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.ssr_state(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.ssr_state, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.ssr_state, range, value, display)
 
   return offset + size_of.ssr_state
 end
@@ -925,7 +925,7 @@ dissect.time = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.time(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.time, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.time, range, value, display)
 
   return offset + size_of.time
 end
@@ -944,7 +944,7 @@ dissect.ssr_triggering_volume = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.ssr_triggering_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.ssr_triggering_volume, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.ssr_triggering_volume, range, value, display)
 
   return offset + size_of.ssr_triggering_volume
 end
@@ -963,7 +963,7 @@ dissect.ssr_triggering_exchange_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.ssr_triggering_exchange_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.ssr_triggering_exchange_id, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.ssr_triggering_exchange_id, range, value, display)
 
   return offset + size_of.ssr_triggering_exchange_id
 end
@@ -982,7 +982,7 @@ dissect.price_2 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.price_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.price_2, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.price_2, range, value, display)
 
   return offset + size_of.price_2
 end
@@ -1001,7 +1001,7 @@ dissect.price_1 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.price_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.price_1, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.price_1, range, value, display)
 
   return offset + size_of.price_1
 end
@@ -1020,7 +1020,7 @@ dissect.reserved_4 = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved_4(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.reserved_4, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.reserved_4, range, value, display)
 
   return offset + size_of.reserved_4
 end
@@ -1039,7 +1039,7 @@ dissect.halt_condition = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.halt_condition(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.halt_condition, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.halt_condition, range, value, display)
 
   return offset + size_of.halt_condition
 end
@@ -1058,7 +1058,7 @@ dissect.security_status = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.security_status, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.security_status, range, value, display)
 
   return offset + size_of.security_status
 end
@@ -1126,7 +1126,7 @@ dissect.security_status_message = function(buffer, offset, packet, parent)
   if show.security_status_message then
     local range = buffer(offset, 42)
     local display = display.security_status_message(buffer, packet, parent)
-    parent = parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.security_status_message, range, display)
+    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.security_status_message, range, display)
   end
 
   return dissect.security_status_message_fields(buffer, offset, packet, parent)
@@ -1146,7 +1146,7 @@ dissect.next_source_seq_num = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.next_source_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.next_source_seq_num, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.next_source_seq_num, range, value, display)
 
   return offset + size_of.next_source_seq_num
 end
@@ -1181,7 +1181,7 @@ dissect.symbol_clear_message = function(buffer, offset, packet, parent)
   if show.symbol_clear_message then
     local range = buffer(offset, 16)
     local display = display.symbol_clear_message(buffer, packet, parent)
-    parent = parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.symbol_clear_message, range, display)
+    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.symbol_clear_message, range, display)
   end
 
   return dissect.symbol_clear_message_fields(buffer, offset, packet, parent)
@@ -1201,7 +1201,7 @@ dissect.channel_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.channel_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.channel_id, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.channel_id, range, value, display)
 
   return offset + size_of.channel_id
 end
@@ -1220,7 +1220,7 @@ dissect.product_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.product_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.product_id, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.product_id, range, value, display)
 
   return offset + size_of.product_id
 end
@@ -1239,7 +1239,7 @@ dissect.end_seq_num = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.end_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.end_seq_num, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.end_seq_num, range, value, display)
 
   return offset + size_of.end_seq_num
 end
@@ -1258,7 +1258,7 @@ dissect.begin_seq_num = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.begin_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.begin_seq_num, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.begin_seq_num, range, value, display)
 
   return offset + size_of.begin_seq_num
 end
@@ -1293,7 +1293,7 @@ dissect.message_unavailable_message = function(buffer, offset, packet, parent)
   if show.message_unavailable_message then
     local range = buffer(offset, 10)
     local display = display.message_unavailable_message(buffer, packet, parent)
-    parent = parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.message_unavailable_message, range, display)
+    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.message_unavailable_message, range, display)
   end
 
   return dissect.message_unavailable_message_fields(buffer, offset, packet, parent)
@@ -1313,7 +1313,7 @@ dissect.source_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.source_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.source_id, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.source_id, range, value, display)
 
   return offset + size_of.source_id
 end
@@ -1348,7 +1348,7 @@ dissect.refresh_request_message = function(buffer, offset, packet, parent)
   if show.refresh_request_message then
     local range = buffer(offset, 16)
     local display = display.refresh_request_message(buffer, packet, parent)
-    parent = parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.refresh_request_message, range, display)
+    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.refresh_request_message, range, display)
   end
 
   return dissect.refresh_request_message_fields(buffer, offset, packet, parent)
@@ -1368,7 +1368,7 @@ dissect.retransmit_method = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.retransmit_method(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.retransmit_method, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.retransmit_method, range, value, display)
 
   return offset + size_of.retransmit_method
 end
@@ -1406,7 +1406,7 @@ dissect.symbol_index_mapping_request_message = function(buffer, offset, packet, 
   if show.symbol_index_mapping_request_message then
     local range = buffer(offset, 17)
     local display = display.symbol_index_mapping_request_message(buffer, packet, parent)
-    parent = parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.symbol_index_mapping_request_message, range, display)
+    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.symbol_index_mapping_request_message, range, display)
   end
 
   return dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, parent)
@@ -1433,7 +1433,7 @@ dissect.heartbeat_response_message = function(buffer, offset, packet, parent)
   if show.heartbeat_response_message then
     local range = buffer(offset, 10)
     local display = display.heartbeat_response_message(buffer, packet, parent)
-    parent = parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.heartbeat_response_message, range, display)
+    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.heartbeat_response_message, range, display)
   end
 
   return dissect.heartbeat_response_message_fields(buffer, offset, packet, parent)
@@ -1453,7 +1453,7 @@ dissect.status = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.status(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.status, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.status, range, value, display)
 
   return offset + size_of.status
 end
@@ -1472,7 +1472,7 @@ dissect.request_seq_num = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.request_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.request_seq_num, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.request_seq_num, range, value, display)
 
   return offset + size_of.request_seq_num
 end
@@ -1516,7 +1516,7 @@ dissect.request_response_message = function(buffer, offset, packet, parent)
   if show.request_response_message then
     local range = buffer(offset, 25)
     local display = display.request_response_message(buffer, packet, parent)
-    parent = parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.request_response_message, range, display)
+    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.request_response_message, range, display)
   end
 
   return dissect.request_response_message_fields(buffer, offset, packet, parent)
@@ -1555,7 +1555,7 @@ dissect.retransmission_request_message = function(buffer, offset, packet, parent
   if show.retransmission_request_message then
     local range = buffer(offset, 20)
     local display = display.retransmission_request_message(buffer, packet, parent)
-    parent = parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.retransmission_request_message, range, display)
+    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.retransmission_request_message, range, display)
   end
 
   return dissect.retransmission_request_message_fields(buffer, offset, packet, parent)
@@ -1575,7 +1575,7 @@ dissect.reserved_2 = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved_2(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.reserved_2, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.reserved_2, range, value, display)
 
   return offset + size_of.reserved_2
 end
@@ -1594,7 +1594,7 @@ dissect.unit_of_trade = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.unit_of_trade(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.unit_of_trade, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.unit_of_trade, range, value, display)
 
   return offset + size_of.unit_of_trade
 end
@@ -1613,7 +1613,7 @@ dissect.mpv = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.mpv(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.mpv, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.mpv, range, value, display)
 
   return offset + size_of.mpv
 end
@@ -1632,7 +1632,7 @@ dissect.round_lot = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.round_lot(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.round_lot, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.round_lot, range, value, display)
 
   return offset + size_of.round_lot
 end
@@ -1651,7 +1651,7 @@ dissect.price_resolution = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.price_resolution(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.price_resolution, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.price_resolution, range, value, display)
 
   return offset + size_of.price_resolution
 end
@@ -1670,7 +1670,7 @@ dissect.prev_close_volume = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.prev_close_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.prev_close_volume, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.prev_close_volume, range, value, display)
 
   return offset + size_of.prev_close_volume
 end
@@ -1689,7 +1689,7 @@ dissect.prev_close_price = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.prev_close_price(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.prev_close_price, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.prev_close_price, range, value, display)
 
   return offset + size_of.prev_close_price
 end
@@ -1708,7 +1708,7 @@ dissect.lot_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.lot_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.lot_size, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.lot_size, range, value, display)
 
   return offset + size_of.lot_size
 end
@@ -1727,7 +1727,7 @@ dissect.security_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.security_type, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.security_type, range, value, display)
 
   return offset + size_of.security_type
 end
@@ -1746,7 +1746,7 @@ dissect.price_scale_code = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.price_scale_code(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.price_scale_code, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.price_scale_code, range, value, display)
 
   return offset + size_of.price_scale_code
 end
@@ -1765,7 +1765,7 @@ dissect.exchange_code = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.exchange_code(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.exchange_code, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.exchange_code, range, value, display)
 
   return offset + size_of.exchange_code
 end
@@ -1784,7 +1784,7 @@ dissect.system_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.system_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.system_id, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.system_id, range, value, display)
 
   return offset + size_of.system_id
 end
@@ -1803,7 +1803,7 @@ dissect.market_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.market_id(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.market_id, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.market_id, range, value, display)
 
   return offset + size_of.market_id
 end
@@ -1822,7 +1822,7 @@ dissect.reserved_1 = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.reserved_1, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.reserved_1, range, value, display)
 
   return offset + size_of.reserved_1
 end
@@ -1841,7 +1841,7 @@ dissect.symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.symbol, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.symbol, range, value, display)
 
   return offset + size_of.symbol
 end
@@ -1912,7 +1912,7 @@ dissect.symbol_index_mapping_message = function(buffer, offset, packet, parent)
   if show.symbol_index_mapping_message then
     local range = buffer(offset, 40)
     local display = display.symbol_index_mapping_message(buffer, packet, parent)
-    parent = parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.symbol_index_mapping_message, range, display)
+    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.symbol_index_mapping_message, range, display)
   end
 
   return dissect.symbol_index_mapping_message_fields(buffer, offset, packet, parent)
@@ -1948,7 +1948,7 @@ dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   if show.sequence_number_reset_message then
     local range = buffer(offset, 10)
     local display = display.sequence_number_reset_message(buffer, packet, parent)
-    parent = parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.sequence_number_reset_message, range, display)
+    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.sequence_number_reset_message, range, display)
   end
 
   return dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
@@ -2082,7 +2082,7 @@ dissect.payload = function(buffer, offset, packet, parent, code)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.payload(buffer, packet, parent)
-  local element = parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.payload, range, display)
+  local element = parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.payload, range, display)
 
   return dissect.payload_branches(buffer, offset, packet, parent, code)
 end
@@ -2139,7 +2139,7 @@ dissect.message_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.message_type, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -2158,7 +2158,7 @@ dissect.message_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.message_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.message_size, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.message_size, range, value, display)
 
   return offset + size_of.message_size
 end
@@ -2187,7 +2187,7 @@ dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     local range = buffer(offset, 4)
     local display = display.message_header(buffer, packet, parent)
-    parent = parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.message_header, range, display)
+    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.message_header, range, display)
   end
 
   return dissect.message_header_fields(buffer, offset, packet, parent)
@@ -2233,7 +2233,7 @@ dissect.message = function(buffer, offset, packet, parent)
     local length = size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.message(buffer, packet, parent)
-    parent = parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.message, range, display)
+    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.message, range, display)
   end
 
   return dissect.message_fields(buffer, offset, packet, parent)
@@ -2253,7 +2253,7 @@ dissect.nanoseconds = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.nanoseconds(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.nanoseconds, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.nanoseconds, range, value, display)
 
   return offset + size_of.nanoseconds
 end
@@ -2272,7 +2272,7 @@ dissect.timestamp = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.timestamp, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.timestamp, range, value, display)
 
   return offset + size_of.timestamp
 end
@@ -2291,7 +2291,7 @@ dissect.sequence_number = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.sequence_number, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.sequence_number, range, value, display)
 
   return offset + size_of.sequence_number
 end
@@ -2311,7 +2311,7 @@ dissect.message_count = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.message_count, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -2364,7 +2364,7 @@ dissect.delivery_flag = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.delivery_flag(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.delivery_flag, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.delivery_flag, range, value, display)
 
   return offset + size_of.delivery_flag
 end
@@ -2383,7 +2383,7 @@ dissect.packet_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.packet_size(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.packet_size, range, value, display)
+  parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.packet_size, range, value, display)
 
   return offset + size_of.packet_size
 end
@@ -2424,7 +2424,7 @@ dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     local range = buffer(offset, 16)
     local display = display.packet_header(buffer, packet, parent)
-    parent = parent:add(nyse_imbalancesfeed_xdp_v2_1_f.fields.packet_header, range, display)
+    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.packet_header, range, display)
   end
 
   return dissect.packet_header_fields(buffer, offset, packet, parent)
@@ -2452,23 +2452,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function nyse_imbalancesfeed_xdp_v2_1_f.init()
+function nyse_equities_imbalancesfeed_xdp_v2_1_f.init()
 end
 
--- Dissector for Nyse ImbalancesFeed Xdp 2.1.f
-function nyse_imbalancesfeed_xdp_v2_1_f.dissector(buffer, packet, parent)
+-- Dissector for Nyse Equities ImbalancesFeed Xdp 2.1.f
+function nyse_equities_imbalancesfeed_xdp_v2_1_f.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = nyse_imbalancesfeed_xdp_v2_1_f.name
+  packet.cols.protocol = nyse_equities_imbalancesfeed_xdp_v2_1_f.name
 
   -- Dissect protocol
-  local protocol = parent:add(nyse_imbalancesfeed_xdp_v2_1_f, buffer(), nyse_imbalancesfeed_xdp_v2_1_f.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f, buffer(), nyse_equities_imbalancesfeed_xdp_v2_1_f.description, "("..buffer:len().." Bytes)")
   local protocol_size = dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, nyse_imbalancesfeed_xdp_v2_1_f)
+udp_table:add(65333, nyse_equities_imbalancesfeed_xdp_v2_1_f)
 
 
 -----------------------------------------------------------------------
@@ -2476,25 +2476,25 @@ udp_table:add(65333, nyse_imbalancesfeed_xdp_v2_1_f)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.nyse_imbalancesfeed_xdp_v2_1_f_packet_size = function(buffer)
+verify.nyse_equities_imbalancesfeed_xdp_v2_1_f_packet_size = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Nyse ImbalancesFeed Xdp 2.1.f
-local function nyse_imbalancesfeed_xdp_v2_1_f_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Nyse Equities ImbalancesFeed Xdp 2.1.f
+local function nyse_equities_imbalancesfeed_xdp_v2_1_f_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.nyse_imbalancesfeed_xdp_v2_1_f_packet_size(buffer) then return false end
+  if not verify.nyse_equities_imbalancesfeed_xdp_v2_1_f_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = nyse_imbalancesfeed_xdp_v2_1_f
-  nyse_imbalancesfeed_xdp_v2_1_f.dissector(buffer, packet, parent)
+  packet.conversation = nyse_equities_imbalancesfeed_xdp_v2_1_f
+  nyse_equities_imbalancesfeed_xdp_v2_1_f.dissector(buffer, packet, parent)
 
   return true
 end
 
--- Register Nyse ImbalancesFeed Xdp 2.1.f Heuristic
-nyse_imbalancesfeed_xdp_v2_1_f:register_heuristic("udp", nyse_imbalancesfeed_xdp_v2_1_f_heuristic)
+-- Register Nyse Equities ImbalancesFeed Xdp 2.1.f Heuristic
+nyse_equities_imbalancesfeed_xdp_v2_1_f:register_heuristic("udp", nyse_equities_imbalancesfeed_xdp_v2_1_f_heuristic)
 
 -----------------------------------------------------------------------
 -- This script was generated by the open markets initiative
