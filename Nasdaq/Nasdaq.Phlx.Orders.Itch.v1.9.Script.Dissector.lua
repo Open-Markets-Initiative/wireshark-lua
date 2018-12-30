@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Nasdaq Phlx PhlxOrders Itch 1.9 Protocol
-local nasdaq_phlx_phlxorders_itch_v1_9 = Proto("Nasdaq.Phlx.PhlxOrders.Itch.v1.9.Lua", "Nasdaq Phlx PhlxOrders Itch 1.9")
+-- Nasdaq Phlx Orders Itch 1.9 Protocol
+local nasdaq_phlx_orders_itch_v1_9 = Proto("Nasdaq.Phlx.Orders.Itch.v1.9.Lua", "Nasdaq Phlx Orders Itch 1.9")
 
 -- Component Tables
 local show = {}
@@ -19,80 +19,80 @@ local verify = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq Phlx PhlxOrders Itch 1.9 Fields
-nasdaq_phlx_phlxorders_itch_v1_9.fields.action = ProtoField.new("Action", "nasdaq.phlx.phlxorders.itch.v1.9.action", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.all_or_none = ProtoField.new("All Or None", "nasdaq.phlx.phlxorders.itch.v1.9.allornone", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.auction_id = ProtoField.new("Auction Id", "nasdaq.phlx.phlxorders.itch.v1.9.auctionid", ftypes.UINT32)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "nasdaq.phlx.phlxorders.itch.v1.9.auctionnotificationmessage", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.auction_side = ProtoField.new("Auction Side", "nasdaq.phlx.phlxorders.itch.v1.9.auctionside", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.auction_type = ProtoField.new("Auction Type", "nasdaq.phlx.phlxorders.itch.v1.9.auctiontype", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.complex_auction_notification_message = ProtoField.new("Complex Auction Notification Message", "nasdaq.phlx.phlxorders.itch.v1.9.complexauctionnotificationmessage", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.complex_order_leg = ProtoField.new("Complex Order Leg", "nasdaq.phlx.phlxorders.itch.v1.9.complexorderleg", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.complex_order_message = ProtoField.new("Complex Order Message", "nasdaq.phlx.phlxorders.itch.v1.9.complexordermessage", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.complex_order_strategy_leg = ProtoField.new("Complex Order Strategy Leg", "nasdaq.phlx.phlxorders.itch.v1.9.complexorderstrategyleg", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.complex_order_strategy_message = ProtoField.new("Complex Order Strategy Message", "nasdaq.phlx.phlxorders.itch.v1.9.complexorderstrategymessage", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.complex_trading_action_message = ProtoField.new("Complex Trading Action Message", "nasdaq.phlx.phlxorders.itch.v1.9.complextradingactionmessage", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.count = ProtoField.new("Count", "nasdaq.phlx.phlxorders.itch.v1.9.count", ftypes.UINT16)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.phlx.phlxorders.itch.v1.9.currenttradingstate", ftypes.UINT8)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.customer_firm_indicator = ProtoField.new("Customer Firm Indicator", "nasdaq.phlx.phlxorders.itch.v1.9.customerfirmindicator", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.day = ProtoField.new("Day", "nasdaq.phlx.phlxorders.itch.v1.9.day", ftypes.UINT16, nil, base.DEC, "0x001F")
-nasdaq_phlx_phlxorders_itch_v1_9.fields.debit_or_credit = ProtoField.new("Debit Or Credit", "nasdaq.phlx.phlxorders.itch.v1.9.debitorcredit", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.event_code = ProtoField.new("Event Code", "nasdaq.phlx.phlxorders.itch.v1.9.eventcode", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.executable_order_volume = ProtoField.new("Executable Order Volume", "nasdaq.phlx.phlxorders.itch.v1.9.executableordervolume", ftypes.UINT32)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.expiration_year_month_and_day = ProtoField.new("Expiration Year Month And Day", "nasdaq.phlx.phlxorders.itch.v1.9.expirationyearmonthandday", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.phlx.phlxorders.itch.v1.9.explicitstrikeprice", ftypes.UINT32)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nasdaq.phlx.phlxorders.itch.v1.9.imbalancevolume", ftypes.UINT32)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.leg_open_close_indicator = ProtoField.new("Leg Open Close Indicator", "nasdaq.phlx.phlxorders.itch.v1.9.legopencloseindicator", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.leg_ratio = ProtoField.new("Leg Ratio", "nasdaq.phlx.phlxorders.itch.v1.9.legratio", ftypes.UINT32)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.length = ProtoField.new("Length", "nasdaq.phlx.phlxorders.itch.v1.9.length", ftypes.UINT16)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.limit_price = ProtoField.new("Limit Price", "nasdaq.phlx.phlxorders.itch.v1.9.limitprice", ftypes.UINT32)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.market_qualifier = ProtoField.new("Market Qualifier", "nasdaq.phlx.phlxorders.itch.v1.9.marketqualifier", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.matched_volume = ProtoField.new("Matched Volume", "nasdaq.phlx.phlxorders.itch.v1.9.matchedvolume", ftypes.UINT32)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.message = ProtoField.new("Message", "nasdaq.phlx.phlxorders.itch.v1.9.message", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.message_header = ProtoField.new("Message Header", "nasdaq.phlx.phlxorders.itch.v1.9.messageheader", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.message_type = ProtoField.new("Message Type", "nasdaq.phlx.phlxorders.itch.v1.9.messagetype", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.month = ProtoField.new("Month", "nasdaq.phlx.phlxorders.itch.v1.9.month", ftypes.UINT16, nil, base.DEC, "0x01E0")
-nasdaq_phlx_phlxorders_itch_v1_9.fields.nanoseconds = ProtoField.new("Nanoseconds", "nasdaq.phlx.phlxorders.itch.v1.9.nanoseconds", ftypes.UINT32)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.number_of_legs = ProtoField.new("Number Of Legs", "nasdaq.phlx.phlxorders.itch.v1.9.numberoflegs", ftypes.UINT8)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.open_close_indicator = ProtoField.new("Open Close Indicator", "nasdaq.phlx.phlxorders.itch.v1.9.opencloseindicator", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.open_state = ProtoField.new("Open State", "nasdaq.phlx.phlxorders.itch.v1.9.openstate", ftypes.UINT8)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.option_closing_type = ProtoField.new("Option Closing Type", "nasdaq.phlx.phlxorders.itch.v1.9.optionclosingtype", ftypes.UINT8)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.option_id = ProtoField.new("Option Id", "nasdaq.phlx.phlxorders.itch.v1.9.optionid", ftypes.UINT32)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.option_type = ProtoField.new("Option Type", "nasdaq.phlx.phlxorders.itch.v1.9.optiontype", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.options_directory_message = ProtoField.new("Options Directory Message", "nasdaq.phlx.phlxorders.itch.v1.9.optionsdirectorymessage", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.order_id = ProtoField.new("Order Id", "nasdaq.phlx.phlxorders.itch.v1.9.orderid", ftypes.UINT32)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.order_status = ProtoField.new("Order Status", "nasdaq.phlx.phlxorders.itch.v1.9.orderstatus", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.order_type = ProtoField.new("Order Type", "nasdaq.phlx.phlxorders.itch.v1.9.ordertype", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.original_order_volume = ProtoField.new("Original Order Volume", "nasdaq.phlx.phlxorders.itch.v1.9.originalordervolume", ftypes.UINT32)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.packet = ProtoField.new("Packet", "nasdaq.phlx.phlxorders.itch.v1.9.packet", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlx.phlxorders.itch.v1.9.packetheader", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.payload = ProtoField.new("Payload", "nasdaq.phlx.phlxorders.itch.v1.9.payload", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.phlx_tradable = ProtoField.new("Phlx Tradable", "nasdaq.phlx.phlxorders.itch.v1.9.phlxtradable", ftypes.UINT8)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.price = ProtoField.new("Price", "nasdaq.phlx.phlxorders.itch.v1.9.price", ftypes.UINT32)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.reserved = ProtoField.new("Reserved", "nasdaq.phlx.phlxorders.itch.v1.9.reserved", ftypes.UINT32)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.seconds = ProtoField.new("Seconds", "nasdaq.phlx.phlxorders.itch.v1.9.seconds", ftypes.UINT32)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.security_open_closed_message = ProtoField.new("Security Open Closed Message", "nasdaq.phlx.phlxorders.itch.v1.9.securityopenclosedmessage", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.phlx.phlxorders.itch.v1.9.securitysymbol", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.security_trading_action_message = ProtoField.new("Security Trading Action Message", "nasdaq.phlx.phlxorders.itch.v1.9.securitytradingactionmessage", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.sequence = ProtoField.new("Sequence", "nasdaq.phlx.phlxorders.itch.v1.9.sequence", ftypes.UINT64)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.session = ProtoField.new("Session", "nasdaq.phlx.phlxorders.itch.v1.9.session", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.side = ProtoField.new("Side", "nasdaq.phlx.phlxorders.itch.v1.9.side", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.simple_order_message = ProtoField.new("Simple Order Message", "nasdaq.phlx.phlxorders.itch.v1.9.simpleordermessage", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.source = ProtoField.new("Source", "nasdaq.phlx.phlxorders.itch.v1.9.source", ftypes.UINT8)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.strategy_id = ProtoField.new("Strategy Id", "nasdaq.phlx.phlxorders.itch.v1.9.strategyid", ftypes.UINT32)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.strategy_open_closed_message = ProtoField.new("Strategy Open Closed Message", "nasdaq.phlx.phlxorders.itch.v1.9.strategyopenclosedmessage", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.phlx.phlxorders.itch.v1.9.systemeventmessage", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.time_in_force = ProtoField.new("Time In Force", "nasdaq.phlx.phlxorders.itch.v1.9.timeinforce", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.phlx.phlxorders.itch.v1.9.underlyingsymbol", ftypes.STRING)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.version = ProtoField.new("Version", "nasdaq.phlx.phlxorders.itch.v1.9.version", ftypes.UINT8)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.volume = ProtoField.new("Volume", "nasdaq.phlx.phlxorders.itch.v1.9.volume", ftypes.UINT32)
-nasdaq_phlx_phlxorders_itch_v1_9.fields.year = ProtoField.new("Year", "nasdaq.phlx.phlxorders.itch.v1.9.year", ftypes.UINT16, nil, base.DEC, "0xFE00")
+-- Nasdaq Phlx Orders Itch 1.9 Fields
+nasdaq_phlx_orders_itch_v1_9.fields.action = ProtoField.new("Action", "nasdaq.phlx.orders.itch.v1.9.action", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.all_or_none = ProtoField.new("All Or None", "nasdaq.phlx.orders.itch.v1.9.allornone", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.auction_id = ProtoField.new("Auction Id", "nasdaq.phlx.orders.itch.v1.9.auctionid", ftypes.UINT32)
+nasdaq_phlx_orders_itch_v1_9.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "nasdaq.phlx.orders.itch.v1.9.auctionnotificationmessage", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.auction_side = ProtoField.new("Auction Side", "nasdaq.phlx.orders.itch.v1.9.auctionside", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.auction_type = ProtoField.new("Auction Type", "nasdaq.phlx.orders.itch.v1.9.auctiontype", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.complex_auction_notification_message = ProtoField.new("Complex Auction Notification Message", "nasdaq.phlx.orders.itch.v1.9.complexauctionnotificationmessage", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.complex_order_leg = ProtoField.new("Complex Order Leg", "nasdaq.phlx.orders.itch.v1.9.complexorderleg", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.complex_order_message = ProtoField.new("Complex Order Message", "nasdaq.phlx.orders.itch.v1.9.complexordermessage", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.complex_order_strategy_leg = ProtoField.new("Complex Order Strategy Leg", "nasdaq.phlx.orders.itch.v1.9.complexorderstrategyleg", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.complex_order_strategy_message = ProtoField.new("Complex Order Strategy Message", "nasdaq.phlx.orders.itch.v1.9.complexorderstrategymessage", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.complex_trading_action_message = ProtoField.new("Complex Trading Action Message", "nasdaq.phlx.orders.itch.v1.9.complextradingactionmessage", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.count = ProtoField.new("Count", "nasdaq.phlx.orders.itch.v1.9.count", ftypes.UINT16)
+nasdaq_phlx_orders_itch_v1_9.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.phlx.orders.itch.v1.9.currenttradingstate", ftypes.UINT8)
+nasdaq_phlx_orders_itch_v1_9.fields.customer_firm_indicator = ProtoField.new("Customer Firm Indicator", "nasdaq.phlx.orders.itch.v1.9.customerfirmindicator", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.day = ProtoField.new("Day", "nasdaq.phlx.orders.itch.v1.9.day", ftypes.UINT16, nil, base.DEC, "0x001F")
+nasdaq_phlx_orders_itch_v1_9.fields.debit_or_credit = ProtoField.new("Debit Or Credit", "nasdaq.phlx.orders.itch.v1.9.debitorcredit", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.event_code = ProtoField.new("Event Code", "nasdaq.phlx.orders.itch.v1.9.eventcode", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.executable_order_volume = ProtoField.new("Executable Order Volume", "nasdaq.phlx.orders.itch.v1.9.executableordervolume", ftypes.UINT32)
+nasdaq_phlx_orders_itch_v1_9.fields.expiration_year_month_and_day = ProtoField.new("Expiration Year Month And Day", "nasdaq.phlx.orders.itch.v1.9.expirationyearmonthandday", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.phlx.orders.itch.v1.9.explicitstrikeprice", ftypes.UINT32)
+nasdaq_phlx_orders_itch_v1_9.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nasdaq.phlx.orders.itch.v1.9.imbalancevolume", ftypes.UINT32)
+nasdaq_phlx_orders_itch_v1_9.fields.leg_open_close_indicator = ProtoField.new("Leg Open Close Indicator", "nasdaq.phlx.orders.itch.v1.9.legopencloseindicator", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.leg_ratio = ProtoField.new("Leg Ratio", "nasdaq.phlx.orders.itch.v1.9.legratio", ftypes.UINT32)
+nasdaq_phlx_orders_itch_v1_9.fields.length = ProtoField.new("Length", "nasdaq.phlx.orders.itch.v1.9.length", ftypes.UINT16)
+nasdaq_phlx_orders_itch_v1_9.fields.limit_price = ProtoField.new("Limit Price", "nasdaq.phlx.orders.itch.v1.9.limitprice", ftypes.UINT32)
+nasdaq_phlx_orders_itch_v1_9.fields.market_qualifier = ProtoField.new("Market Qualifier", "nasdaq.phlx.orders.itch.v1.9.marketqualifier", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.matched_volume = ProtoField.new("Matched Volume", "nasdaq.phlx.orders.itch.v1.9.matchedvolume", ftypes.UINT32)
+nasdaq_phlx_orders_itch_v1_9.fields.message = ProtoField.new("Message", "nasdaq.phlx.orders.itch.v1.9.message", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.message_header = ProtoField.new("Message Header", "nasdaq.phlx.orders.itch.v1.9.messageheader", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.message_type = ProtoField.new("Message Type", "nasdaq.phlx.orders.itch.v1.9.messagetype", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.month = ProtoField.new("Month", "nasdaq.phlx.orders.itch.v1.9.month", ftypes.UINT16, nil, base.DEC, "0x01E0")
+nasdaq_phlx_orders_itch_v1_9.fields.nanoseconds = ProtoField.new("Nanoseconds", "nasdaq.phlx.orders.itch.v1.9.nanoseconds", ftypes.UINT32)
+nasdaq_phlx_orders_itch_v1_9.fields.number_of_legs = ProtoField.new("Number Of Legs", "nasdaq.phlx.orders.itch.v1.9.numberoflegs", ftypes.UINT8)
+nasdaq_phlx_orders_itch_v1_9.fields.open_close_indicator = ProtoField.new("Open Close Indicator", "nasdaq.phlx.orders.itch.v1.9.opencloseindicator", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.open_state = ProtoField.new("Open State", "nasdaq.phlx.orders.itch.v1.9.openstate", ftypes.UINT8)
+nasdaq_phlx_orders_itch_v1_9.fields.option_closing_type = ProtoField.new("Option Closing Type", "nasdaq.phlx.orders.itch.v1.9.optionclosingtype", ftypes.UINT8)
+nasdaq_phlx_orders_itch_v1_9.fields.option_id = ProtoField.new("Option Id", "nasdaq.phlx.orders.itch.v1.9.optionid", ftypes.UINT32)
+nasdaq_phlx_orders_itch_v1_9.fields.option_type = ProtoField.new("Option Type", "nasdaq.phlx.orders.itch.v1.9.optiontype", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.options_directory_message = ProtoField.new("Options Directory Message", "nasdaq.phlx.orders.itch.v1.9.optionsdirectorymessage", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.order_id = ProtoField.new("Order Id", "nasdaq.phlx.orders.itch.v1.9.orderid", ftypes.UINT32)
+nasdaq_phlx_orders_itch_v1_9.fields.order_status = ProtoField.new("Order Status", "nasdaq.phlx.orders.itch.v1.9.orderstatus", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.order_type = ProtoField.new("Order Type", "nasdaq.phlx.orders.itch.v1.9.ordertype", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.original_order_volume = ProtoField.new("Original Order Volume", "nasdaq.phlx.orders.itch.v1.9.originalordervolume", ftypes.UINT32)
+nasdaq_phlx_orders_itch_v1_9.fields.packet = ProtoField.new("Packet", "nasdaq.phlx.orders.itch.v1.9.packet", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlx.orders.itch.v1.9.packetheader", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.payload = ProtoField.new("Payload", "nasdaq.phlx.orders.itch.v1.9.payload", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.phlx_tradable = ProtoField.new("Phlx Tradable", "nasdaq.phlx.orders.itch.v1.9.phlxtradable", ftypes.UINT8)
+nasdaq_phlx_orders_itch_v1_9.fields.price = ProtoField.new("Price", "nasdaq.phlx.orders.itch.v1.9.price", ftypes.UINT32)
+nasdaq_phlx_orders_itch_v1_9.fields.reserved = ProtoField.new("Reserved", "nasdaq.phlx.orders.itch.v1.9.reserved", ftypes.UINT32)
+nasdaq_phlx_orders_itch_v1_9.fields.seconds = ProtoField.new("Seconds", "nasdaq.phlx.orders.itch.v1.9.seconds", ftypes.UINT32)
+nasdaq_phlx_orders_itch_v1_9.fields.security_open_closed_message = ProtoField.new("Security Open Closed Message", "nasdaq.phlx.orders.itch.v1.9.securityopenclosedmessage", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.phlx.orders.itch.v1.9.securitysymbol", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.security_trading_action_message = ProtoField.new("Security Trading Action Message", "nasdaq.phlx.orders.itch.v1.9.securitytradingactionmessage", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.sequence = ProtoField.new("Sequence", "nasdaq.phlx.orders.itch.v1.9.sequence", ftypes.UINT64)
+nasdaq_phlx_orders_itch_v1_9.fields.session = ProtoField.new("Session", "nasdaq.phlx.orders.itch.v1.9.session", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.side = ProtoField.new("Side", "nasdaq.phlx.orders.itch.v1.9.side", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.simple_order_message = ProtoField.new("Simple Order Message", "nasdaq.phlx.orders.itch.v1.9.simpleordermessage", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.source = ProtoField.new("Source", "nasdaq.phlx.orders.itch.v1.9.source", ftypes.UINT8)
+nasdaq_phlx_orders_itch_v1_9.fields.strategy_id = ProtoField.new("Strategy Id", "nasdaq.phlx.orders.itch.v1.9.strategyid", ftypes.UINT32)
+nasdaq_phlx_orders_itch_v1_9.fields.strategy_open_closed_message = ProtoField.new("Strategy Open Closed Message", "nasdaq.phlx.orders.itch.v1.9.strategyopenclosedmessage", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.phlx.orders.itch.v1.9.systemeventmessage", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.time_in_force = ProtoField.new("Time In Force", "nasdaq.phlx.orders.itch.v1.9.timeinforce", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.phlx.orders.itch.v1.9.underlyingsymbol", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.version = ProtoField.new("Version", "nasdaq.phlx.orders.itch.v1.9.version", ftypes.UINT8)
+nasdaq_phlx_orders_itch_v1_9.fields.volume = ProtoField.new("Volume", "nasdaq.phlx.orders.itch.v1.9.volume", ftypes.UINT32)
+nasdaq_phlx_orders_itch_v1_9.fields.year = ProtoField.new("Year", "nasdaq.phlx.orders.itch.v1.9.year", ftypes.UINT16, nil, base.DEC, "0xFE00")
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Nasdaq Phlx PhlxOrders Itch 1.9 Element Dissection Options
+-- Nasdaq Phlx Orders Itch 1.9 Element Dissection Options
 show.auction_notification_message = true
 show.complex_auction_notification_message = true
 show.complex_order_leg = true
@@ -113,106 +113,106 @@ show.strategy_open_closed_message = true
 show.system_event_message = true
 show.payload = false
 
--- Register Nasdaq Phlx PhlxOrders Itch 1.9 Show Options
-nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_auction_notification_message = Pref.bool("Show Auction Notification Message", show.auction_notification_message, "Parse and add Auction Notification Message to protocol tree")
-nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_complex_auction_notification_message = Pref.bool("Show Complex Auction Notification Message", show.complex_auction_notification_message, "Parse and add Complex Auction Notification Message to protocol tree")
-nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_complex_order_leg = Pref.bool("Show Complex Order Leg", show.complex_order_leg, "Parse and add Complex Order Leg to protocol tree")
-nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_complex_order_message = Pref.bool("Show Complex Order Message", show.complex_order_message, "Parse and add Complex Order Message to protocol tree")
-nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_complex_order_strategy_leg = Pref.bool("Show Complex Order Strategy Leg", show.complex_order_strategy_leg, "Parse and add Complex Order Strategy Leg to protocol tree")
-nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_complex_order_strategy_message = Pref.bool("Show Complex Order Strategy Message", show.complex_order_strategy_message, "Parse and add Complex Order Strategy Message to protocol tree")
-nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_complex_trading_action_message = Pref.bool("Show Complex Trading Action Message", show.complex_trading_action_message, "Parse and add Complex Trading Action Message to protocol tree")
-nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_expiration_year_month_and_day = Pref.bool("Show Expiration Year Month And Day", show.expiration_year_month_and_day, "Parse and add Expiration Year Month And Day to protocol tree")
-nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_options_directory_message = Pref.bool("Show Options Directory Message", show.options_directory_message, "Parse and add Options Directory Message to protocol tree")
-nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_security_open_closed_message = Pref.bool("Show Security Open Closed Message", show.security_open_closed_message, "Parse and add Security Open Closed Message to protocol tree")
-nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_security_trading_action_message = Pref.bool("Show Security Trading Action Message", show.security_trading_action_message, "Parse and add Security Trading Action Message to protocol tree")
-nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_simple_order_message = Pref.bool("Show Simple Order Message", show.simple_order_message, "Parse and add Simple Order Message to protocol tree")
-nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_strategy_open_closed_message = Pref.bool("Show Strategy Open Closed Message", show.strategy_open_closed_message, "Parse and add Strategy Open Closed Message to protocol tree")
-nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+-- Register Nasdaq Phlx Orders Itch 1.9 Show Options
+nasdaq_phlx_orders_itch_v1_9.prefs.show_auction_notification_message = Pref.bool("Show Auction Notification Message", show.auction_notification_message, "Parse and add Auction Notification Message to protocol tree")
+nasdaq_phlx_orders_itch_v1_9.prefs.show_complex_auction_notification_message = Pref.bool("Show Complex Auction Notification Message", show.complex_auction_notification_message, "Parse and add Complex Auction Notification Message to protocol tree")
+nasdaq_phlx_orders_itch_v1_9.prefs.show_complex_order_leg = Pref.bool("Show Complex Order Leg", show.complex_order_leg, "Parse and add Complex Order Leg to protocol tree")
+nasdaq_phlx_orders_itch_v1_9.prefs.show_complex_order_message = Pref.bool("Show Complex Order Message", show.complex_order_message, "Parse and add Complex Order Message to protocol tree")
+nasdaq_phlx_orders_itch_v1_9.prefs.show_complex_order_strategy_leg = Pref.bool("Show Complex Order Strategy Leg", show.complex_order_strategy_leg, "Parse and add Complex Order Strategy Leg to protocol tree")
+nasdaq_phlx_orders_itch_v1_9.prefs.show_complex_order_strategy_message = Pref.bool("Show Complex Order Strategy Message", show.complex_order_strategy_message, "Parse and add Complex Order Strategy Message to protocol tree")
+nasdaq_phlx_orders_itch_v1_9.prefs.show_complex_trading_action_message = Pref.bool("Show Complex Trading Action Message", show.complex_trading_action_message, "Parse and add Complex Trading Action Message to protocol tree")
+nasdaq_phlx_orders_itch_v1_9.prefs.show_expiration_year_month_and_day = Pref.bool("Show Expiration Year Month And Day", show.expiration_year_month_and_day, "Parse and add Expiration Year Month And Day to protocol tree")
+nasdaq_phlx_orders_itch_v1_9.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+nasdaq_phlx_orders_itch_v1_9.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+nasdaq_phlx_orders_itch_v1_9.prefs.show_options_directory_message = Pref.bool("Show Options Directory Message", show.options_directory_message, "Parse and add Options Directory Message to protocol tree")
+nasdaq_phlx_orders_itch_v1_9.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+nasdaq_phlx_orders_itch_v1_9.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+nasdaq_phlx_orders_itch_v1_9.prefs.show_security_open_closed_message = Pref.bool("Show Security Open Closed Message", show.security_open_closed_message, "Parse and add Security Open Closed Message to protocol tree")
+nasdaq_phlx_orders_itch_v1_9.prefs.show_security_trading_action_message = Pref.bool("Show Security Trading Action Message", show.security_trading_action_message, "Parse and add Security Trading Action Message to protocol tree")
+nasdaq_phlx_orders_itch_v1_9.prefs.show_simple_order_message = Pref.bool("Show Simple Order Message", show.simple_order_message, "Parse and add Simple Order Message to protocol tree")
+nasdaq_phlx_orders_itch_v1_9.prefs.show_strategy_open_closed_message = Pref.bool("Show Strategy Open Closed Message", show.strategy_open_closed_message, "Parse and add Strategy Open Closed Message to protocol tree")
+nasdaq_phlx_orders_itch_v1_9.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
+nasdaq_phlx_orders_itch_v1_9.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function nasdaq_phlx_phlxorders_itch_v1_9.prefs_changed()
+function nasdaq_phlx_orders_itch_v1_9.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.auction_notification_message ~= nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_auction_notification_message then
-    show.auction_notification_message = nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_auction_notification_message
+  if show.auction_notification_message ~= nasdaq_phlx_orders_itch_v1_9.prefs.show_auction_notification_message then
+    show.auction_notification_message = nasdaq_phlx_orders_itch_v1_9.prefs.show_auction_notification_message
     changed = true
   end
-  if show.complex_auction_notification_message ~= nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_complex_auction_notification_message then
-    show.complex_auction_notification_message = nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_complex_auction_notification_message
+  if show.complex_auction_notification_message ~= nasdaq_phlx_orders_itch_v1_9.prefs.show_complex_auction_notification_message then
+    show.complex_auction_notification_message = nasdaq_phlx_orders_itch_v1_9.prefs.show_complex_auction_notification_message
     changed = true
   end
-  if show.complex_order_leg ~= nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_complex_order_leg then
-    show.complex_order_leg = nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_complex_order_leg
+  if show.complex_order_leg ~= nasdaq_phlx_orders_itch_v1_9.prefs.show_complex_order_leg then
+    show.complex_order_leg = nasdaq_phlx_orders_itch_v1_9.prefs.show_complex_order_leg
     changed = true
   end
-  if show.complex_order_message ~= nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_complex_order_message then
-    show.complex_order_message = nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_complex_order_message
+  if show.complex_order_message ~= nasdaq_phlx_orders_itch_v1_9.prefs.show_complex_order_message then
+    show.complex_order_message = nasdaq_phlx_orders_itch_v1_9.prefs.show_complex_order_message
     changed = true
   end
-  if show.complex_order_strategy_leg ~= nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_complex_order_strategy_leg then
-    show.complex_order_strategy_leg = nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_complex_order_strategy_leg
+  if show.complex_order_strategy_leg ~= nasdaq_phlx_orders_itch_v1_9.prefs.show_complex_order_strategy_leg then
+    show.complex_order_strategy_leg = nasdaq_phlx_orders_itch_v1_9.prefs.show_complex_order_strategy_leg
     changed = true
   end
-  if show.complex_order_strategy_message ~= nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_complex_order_strategy_message then
-    show.complex_order_strategy_message = nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_complex_order_strategy_message
+  if show.complex_order_strategy_message ~= nasdaq_phlx_orders_itch_v1_9.prefs.show_complex_order_strategy_message then
+    show.complex_order_strategy_message = nasdaq_phlx_orders_itch_v1_9.prefs.show_complex_order_strategy_message
     changed = true
   end
-  if show.complex_trading_action_message ~= nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_complex_trading_action_message then
-    show.complex_trading_action_message = nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_complex_trading_action_message
+  if show.complex_trading_action_message ~= nasdaq_phlx_orders_itch_v1_9.prefs.show_complex_trading_action_message then
+    show.complex_trading_action_message = nasdaq_phlx_orders_itch_v1_9.prefs.show_complex_trading_action_message
     changed = true
   end
-  if show.expiration_year_month_and_day ~= nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_expiration_year_month_and_day then
-    show.expiration_year_month_and_day = nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_expiration_year_month_and_day
+  if show.expiration_year_month_and_day ~= nasdaq_phlx_orders_itch_v1_9.prefs.show_expiration_year_month_and_day then
+    show.expiration_year_month_and_day = nasdaq_phlx_orders_itch_v1_9.prefs.show_expiration_year_month_and_day
     changed = true
   end
-  if show.message ~= nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_message then
-    show.message = nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_message
+  if show.message ~= nasdaq_phlx_orders_itch_v1_9.prefs.show_message then
+    show.message = nasdaq_phlx_orders_itch_v1_9.prefs.show_message
     changed = true
   end
-  if show.message_header ~= nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_message_header then
-    show.message_header = nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_message_header
+  if show.message_header ~= nasdaq_phlx_orders_itch_v1_9.prefs.show_message_header then
+    show.message_header = nasdaq_phlx_orders_itch_v1_9.prefs.show_message_header
     changed = true
   end
-  if show.options_directory_message ~= nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_options_directory_message then
-    show.options_directory_message = nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_options_directory_message
+  if show.options_directory_message ~= nasdaq_phlx_orders_itch_v1_9.prefs.show_options_directory_message then
+    show.options_directory_message = nasdaq_phlx_orders_itch_v1_9.prefs.show_options_directory_message
     changed = true
   end
-  if show.packet ~= nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_packet then
-    show.packet = nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_packet
+  if show.packet ~= nasdaq_phlx_orders_itch_v1_9.prefs.show_packet then
+    show.packet = nasdaq_phlx_orders_itch_v1_9.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_packet_header then
-    show.packet_header = nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_packet_header
+  if show.packet_header ~= nasdaq_phlx_orders_itch_v1_9.prefs.show_packet_header then
+    show.packet_header = nasdaq_phlx_orders_itch_v1_9.prefs.show_packet_header
     changed = true
   end
-  if show.security_open_closed_message ~= nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_security_open_closed_message then
-    show.security_open_closed_message = nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_security_open_closed_message
+  if show.security_open_closed_message ~= nasdaq_phlx_orders_itch_v1_9.prefs.show_security_open_closed_message then
+    show.security_open_closed_message = nasdaq_phlx_orders_itch_v1_9.prefs.show_security_open_closed_message
     changed = true
   end
-  if show.security_trading_action_message ~= nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_security_trading_action_message then
-    show.security_trading_action_message = nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_security_trading_action_message
+  if show.security_trading_action_message ~= nasdaq_phlx_orders_itch_v1_9.prefs.show_security_trading_action_message then
+    show.security_trading_action_message = nasdaq_phlx_orders_itch_v1_9.prefs.show_security_trading_action_message
     changed = true
   end
-  if show.simple_order_message ~= nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_simple_order_message then
-    show.simple_order_message = nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_simple_order_message
+  if show.simple_order_message ~= nasdaq_phlx_orders_itch_v1_9.prefs.show_simple_order_message then
+    show.simple_order_message = nasdaq_phlx_orders_itch_v1_9.prefs.show_simple_order_message
     changed = true
   end
-  if show.strategy_open_closed_message ~= nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_strategy_open_closed_message then
-    show.strategy_open_closed_message = nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_strategy_open_closed_message
+  if show.strategy_open_closed_message ~= nasdaq_phlx_orders_itch_v1_9.prefs.show_strategy_open_closed_message then
+    show.strategy_open_closed_message = nasdaq_phlx_orders_itch_v1_9.prefs.show_strategy_open_closed_message
     changed = true
   end
-  if show.system_event_message ~= nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_system_event_message then
-    show.system_event_message = nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_system_event_message
+  if show.system_event_message ~= nasdaq_phlx_orders_itch_v1_9.prefs.show_system_event_message then
+    show.system_event_message = nasdaq_phlx_orders_itch_v1_9.prefs.show_system_event_message
     changed = true
   end
-  if show.payload ~= nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_payload then
-    show.payload = nasdaq_phlx_phlxorders_itch_v1_9.prefs.show_payload
+  if show.payload ~= nasdaq_phlx_orders_itch_v1_9.prefs.show_payload then
+    show.payload = nasdaq_phlx_orders_itch_v1_9.prefs.show_payload
     changed = true
   end
 
@@ -224,7 +224,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Nasdaq Phlx PhlxOrders Itch 1.9
+-- Dissect Nasdaq Phlx Orders Itch 1.9
 -----------------------------------------------------------------------
 
 -- Size: Volume
@@ -241,7 +241,7 @@ dissect.volume = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.volume(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.volume, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.volume, range, value, display)
 
   return offset + size_of.volume
 end
@@ -273,7 +273,7 @@ dissect.debit_or_credit = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.debit_or_credit(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.debit_or_credit, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.debit_or_credit, range, value, display)
 
   return offset + size_of.debit_or_credit
 end
@@ -302,7 +302,7 @@ dissect.auction_side = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.auction_side(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.auction_side, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.auction_side, range, value, display)
 
   return offset + size_of.auction_side
 end
@@ -321,7 +321,7 @@ dissect.price = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.price, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.price, range, value, display)
 
   return offset + size_of.price
 end
@@ -359,7 +359,7 @@ dissect.auction_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.auction_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.auction_type, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.auction_type, range, value, display)
 
   return offset + size_of.auction_type
 end
@@ -378,7 +378,7 @@ dissect.auction_id = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.auction_id(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.auction_id, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.auction_id, range, value, display)
 
   return offset + size_of.auction_id
 end
@@ -397,7 +397,7 @@ dissect.strategy_id = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.strategy_id(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.strategy_id, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.strategy_id, range, value, display)
 
   return offset + size_of.strategy_id
 end
@@ -416,7 +416,7 @@ dissect.nanoseconds = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.nanoseconds(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.nanoseconds, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.nanoseconds, range, value, display)
 
   return offset + size_of.nanoseconds
 end
@@ -435,7 +435,7 @@ dissect.seconds = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.seconds(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.seconds, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.seconds, range, value, display)
 
   return offset + size_of.seconds
 end
@@ -485,7 +485,7 @@ dissect.complex_auction_notification_message = function(buffer, offset, packet, 
   if show.complex_auction_notification_message then
     local range = buffer(offset, 27)
     local display = display.complex_auction_notification_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.complex_auction_notification_message, range, display)
+    parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.complex_auction_notification_message, range, display)
   end
 
   return dissect.complex_auction_notification_message_fields(buffer, offset, packet, parent)
@@ -505,7 +505,7 @@ dissect.reserved = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.reserved(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.reserved, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.reserved, range, value, display)
 
   return offset + size_of.reserved
 end
@@ -524,7 +524,7 @@ dissect.imbalance_volume = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.imbalance_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.imbalance_volume, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.imbalance_volume, range, value, display)
 
   return offset + size_of.imbalance_volume
 end
@@ -543,7 +543,7 @@ dissect.matched_volume = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.matched_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.matched_volume, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.matched_volume, range, value, display)
 
   return offset + size_of.matched_volume
 end
@@ -572,7 +572,7 @@ dissect.option_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.option_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.option_type, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.option_type, range, value, display)
 
   return offset + size_of.option_type
 end
@@ -591,7 +591,7 @@ dissect.explicit_strike_price = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.explicit_strike_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.explicit_strike_price, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.explicit_strike_price, range, value, display)
 
   return offset + size_of.explicit_strike_price
 end
@@ -608,13 +608,13 @@ end
 dissect.expiration_year_month_and_day_bits = function(buffer, offset, packet, parent)
 
   -- Year: 7 Bit
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.year, buffer(offset, 2))
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.year, buffer(offset, 2))
 
   -- Month: 4 Bit
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.month, buffer(offset, 2))
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.month, buffer(offset, 2))
 
   -- Day: 5 Bit
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.day, buffer(offset, 2))
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.day, buffer(offset, 2))
 end
 
 -- Dissect: Expiration Year Month And Day
@@ -622,7 +622,7 @@ dissect.expiration_year_month_and_day = function(buffer, offset, packet, parent)
   local size = 2
   local range = buffer(offset, size)
   local display = display.expiration_year_month_and_day(range, packet, parent)
-  local element = parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.expiration_year_month_and_day, range, display)
+  local element = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.expiration_year_month_and_day, range, display)
 
   if show.expiration_year_month_and_day then
     dissect.expiration_year_month_and_day_bits(buffer, offset, packet, element)
@@ -645,7 +645,7 @@ dissect.security_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.security_symbol, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.security_symbol, range, value, display)
 
   return offset + size_of.security_symbol
 end
@@ -664,7 +664,7 @@ dissect.option_id = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.option_id(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.option_id, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.option_id, range, value, display)
 
   return offset + size_of.option_id
 end
@@ -729,7 +729,7 @@ dissect.auction_notification_message = function(buffer, offset, packet, parent)
   if show.auction_notification_message then
     local range = buffer(offset, 46)
     local display = display.auction_notification_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.auction_notification_message, range, display)
+    parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.auction_notification_message, range, display)
   end
 
   return dissect.auction_notification_message_fields(buffer, offset, packet, parent)
@@ -749,7 +749,7 @@ dissect.leg_ratio = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.leg_ratio(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.leg_ratio, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.leg_ratio, range, value, display)
 
   return offset + size_of.leg_ratio
 end
@@ -778,7 +778,7 @@ dissect.side = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.side(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.side, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.side, range, value, display)
 
   return offset + size_of.side
 end
@@ -807,7 +807,7 @@ dissect.leg_open_close_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.leg_open_close_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.leg_open_close_indicator, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.leg_open_close_indicator, range, value, display)
 
   return offset + size_of.leg_open_close_indicator
 end
@@ -854,7 +854,7 @@ dissect.complex_order_leg = function(buffer, offset, packet, parent)
   if show.complex_order_leg then
     local range = buffer(offset, 22)
     local display = display.complex_order_leg(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.complex_order_leg, range, display)
+    parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.complex_order_leg, range, display)
   end
 
   return dissect.complex_order_leg_fields(buffer, offset, packet, parent)
@@ -875,7 +875,7 @@ dissect.number_of_legs = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.number_of_legs(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.number_of_legs, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.number_of_legs, range, value, display)
 
   return offset + length, value
 end
@@ -894,7 +894,7 @@ dissect.underlying_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.underlying_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.underlying_symbol, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.underlying_symbol, range, value, display)
 
   return offset + size_of.underlying_symbol
 end
@@ -932,7 +932,7 @@ dissect.customer_firm_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.customer_firm_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.customer_firm_indicator, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.customer_firm_indicator, range, value, display)
 
   return offset + size_of.customer_firm_indicator
 end
@@ -961,7 +961,7 @@ dissect.time_in_force = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.time_in_force(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.time_in_force, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.time_in_force, range, value, display)
 
   return offset + size_of.time_in_force
 end
@@ -987,7 +987,7 @@ dissect.all_or_none = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.all_or_none(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.all_or_none, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.all_or_none, range, value, display)
 
   return offset + size_of.all_or_none
 end
@@ -1006,7 +1006,7 @@ dissect.limit_price = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.limit_price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.limit_price, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.limit_price, range, value, display)
 
   return offset + size_of.limit_price
 end
@@ -1035,7 +1035,7 @@ dissect.order_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.order_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.order_type, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.order_type, range, value, display)
 
   return offset + size_of.order_type
 end
@@ -1067,7 +1067,7 @@ dissect.order_status = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.order_status(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.order_status, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.order_status, range, value, display)
 
   return offset + size_of.order_status
 end
@@ -1086,7 +1086,7 @@ dissect.executable_order_volume = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.executable_order_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.executable_order_volume, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.executable_order_volume, range, value, display)
 
   return offset + size_of.executable_order_volume
 end
@@ -1105,7 +1105,7 @@ dissect.original_order_volume = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.original_order_volume(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.original_order_volume, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.original_order_volume, range, value, display)
 
   return offset + size_of.original_order_volume
 end
@@ -1124,7 +1124,7 @@ dissect.order_id = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.order_id, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.order_id, range, value, display)
 
   return offset + size_of.order_id
 end
@@ -1215,7 +1215,7 @@ dissect.complex_order_message = function(buffer, offset, packet, parent)
     local length = size_of.complex_order_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.complex_order_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.complex_order_message, range, display)
+    parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.complex_order_message, range, display)
   end
 
   return dissect.complex_order_message_fields(buffer, offset, packet, parent)
@@ -1245,7 +1245,7 @@ dissect.open_close_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.open_close_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.open_close_indicator, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.open_close_indicator, range, value, display)
 
   return offset + size_of.open_close_indicator
 end
@@ -1274,7 +1274,7 @@ dissect.market_qualifier = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.market_qualifier(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.market_qualifier, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.market_qualifier, range, value, display)
 
   return offset + size_of.market_qualifier
 end
@@ -1354,7 +1354,7 @@ dissect.simple_order_message = function(buffer, offset, packet, parent)
   if show.simple_order_message then
     local range = buffer(offset, 48)
     local display = display.simple_order_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.simple_order_message, range, display)
+    parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.simple_order_message, range, display)
   end
 
   return dissect.simple_order_message_fields(buffer, offset, packet, parent)
@@ -1381,7 +1381,7 @@ dissect.open_state = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.open_state(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.open_state, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.open_state, range, value, display)
 
   return offset + size_of.open_state
 end
@@ -1416,7 +1416,7 @@ dissect.strategy_open_closed_message = function(buffer, offset, packet, parent)
   if show.strategy_open_closed_message then
     local range = buffer(offset, 13)
     local display = display.strategy_open_closed_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.strategy_open_closed_message, range, display)
+    parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.strategy_open_closed_message, range, display)
   end
 
   return dissect.strategy_open_closed_message_fields(buffer, offset, packet, parent)
@@ -1464,7 +1464,7 @@ dissect.security_open_closed_message = function(buffer, offset, packet, parent)
   if show.security_open_closed_message then
     local range = buffer(offset, 25)
     local display = display.security_open_closed_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.security_open_closed_message, range, display)
+    parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.security_open_closed_message, range, display)
   end
 
   return dissect.security_open_closed_message_fields(buffer, offset, packet, parent)
@@ -1491,7 +1491,7 @@ dissect.current_trading_state = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.current_trading_state(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.current_trading_state, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.current_trading_state, range, value, display)
 
   return offset + size_of.current_trading_state
 end
@@ -1526,7 +1526,7 @@ dissect.complex_trading_action_message = function(buffer, offset, packet, parent
   if show.complex_trading_action_message then
     local range = buffer(offset, 13)
     local display = display.complex_trading_action_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.complex_trading_action_message, range, display)
+    parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.complex_trading_action_message, range, display)
   end
 
   return dissect.complex_trading_action_message_fields(buffer, offset, packet, parent)
@@ -1574,7 +1574,7 @@ dissect.security_trading_action_message = function(buffer, offset, packet, paren
   if show.security_trading_action_message then
     local range = buffer(offset, 25)
     local display = display.security_trading_action_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.security_trading_action_message, range, display)
+    parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.security_trading_action_message, range, display)
   end
 
   return dissect.security_trading_action_message_fields(buffer, offset, packet, parent)
@@ -1619,7 +1619,7 @@ dissect.complex_order_strategy_leg = function(buffer, offset, packet, parent)
   if show.complex_order_strategy_leg then
     local range = buffer(offset, 21)
     local display = display.complex_order_strategy_leg(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.complex_order_strategy_leg, range, display)
+    parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.complex_order_strategy_leg, range, display)
   end
 
   return dissect.complex_order_strategy_leg_fields(buffer, offset, packet, parent)
@@ -1646,7 +1646,7 @@ dissect.action = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.action(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.action, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.action, range, value, display)
 
   return offset + size_of.action
 end
@@ -1665,7 +1665,7 @@ dissect.source = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.source(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.source, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.source, range, value, display)
 
   return offset + size_of.source
 end
@@ -1729,7 +1729,7 @@ dissect.complex_order_strategy_message = function(buffer, offset, packet, parent
     local length = size_of.complex_order_strategy_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.complex_order_strategy_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.complex_order_strategy_message, range, display)
+    parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.complex_order_strategy_message, range, display)
   end
 
   return dissect.complex_order_strategy_message_fields(buffer, offset, packet, parent)
@@ -1756,7 +1756,7 @@ dissect.phlx_tradable = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.phlx_tradable(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.phlx_tradable, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.phlx_tradable, range, value, display)
 
   return offset + size_of.phlx_tradable
 end
@@ -1785,7 +1785,7 @@ dissect.option_closing_type = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.option_closing_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.option_closing_type, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.option_closing_type, range, value, display)
 
   return offset + size_of.option_closing_type
 end
@@ -1841,7 +1841,7 @@ dissect.options_directory_message = function(buffer, offset, packet, parent)
   if show.options_directory_message then
     local range = buffer(offset, 40)
     local display = display.options_directory_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.options_directory_message, range, display)
+    parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.options_directory_message, range, display)
   end
 
   return dissect.options_directory_message_fields(buffer, offset, packet, parent)
@@ -1861,7 +1861,7 @@ dissect.version = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.version(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.version, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.version, range, value, display)
 
   return offset + size_of.version
 end
@@ -1905,7 +1905,7 @@ dissect.event_code = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.event_code(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.event_code, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.event_code, range, value, display)
 
   return offset + size_of.event_code
 end
@@ -1940,7 +1940,7 @@ dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     local range = buffer(offset, 10)
     local display = display.system_event_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.system_event_message, range, display)
+    parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.system_event_message, range, display)
   end
 
   return dissect.system_event_message_fields(buffer, offset, packet, parent)
@@ -2066,7 +2066,7 @@ dissect.payload = function(buffer, offset, packet, parent, code)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.payload(buffer, packet, parent)
-  local element = parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.payload, range, display)
+  local element = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.payload, range, display)
 
   return dissect.payload_branches(buffer, offset, packet, parent, code)
 end
@@ -2120,7 +2120,7 @@ dissect.message_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.message_type, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -2139,7 +2139,7 @@ dissect.length = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.length(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.length, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.length, range, value, display)
 
   return offset + size_of.length
 end
@@ -2168,7 +2168,7 @@ dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     local range = buffer(offset, 3)
     local display = display.message_header(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.message_header, range, display)
+    parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.message_header, range, display)
   end
 
   return dissect.message_header_fields(buffer, offset, packet, parent)
@@ -2214,7 +2214,7 @@ dissect.message = function(buffer, offset, packet, parent)
     local length = size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.message, range, display)
+    parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.message, range, display)
   end
 
   return dissect.message_fields(buffer, offset, packet, parent)
@@ -2235,7 +2235,7 @@ dissect.count = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.count(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.count, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.count, range, value, display)
 
   return offset + length, value
 end
@@ -2254,7 +2254,7 @@ dissect.sequence = function(buffer, offset, packet, parent)
   local value = range:uint64()
   local display = display.sequence(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.sequence, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.sequence, range, value, display)
 
   return offset + size_of.sequence
 end
@@ -2273,7 +2273,7 @@ dissect.session = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.session(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.session, range, value, display)
+  parent:add(nasdaq_phlx_orders_itch_v1_9.fields.session, range, value, display)
 
   return offset + size_of.session
 end
@@ -2305,7 +2305,7 @@ dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     local range = buffer(offset, 20)
     local display = display.packet_header(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlx_phlxorders_itch_v1_9.fields.packet_header, range, display)
+    parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.packet_header, range, display)
   end
 
   return dissect.packet_header_fields(buffer, offset, packet, parent)
@@ -2333,23 +2333,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function nasdaq_phlx_phlxorders_itch_v1_9.init()
+function nasdaq_phlx_orders_itch_v1_9.init()
 end
 
--- Dissector for Nasdaq Phlx PhlxOrders Itch 1.9
-function nasdaq_phlx_phlxorders_itch_v1_9.dissector(buffer, packet, parent)
+-- Dissector for Nasdaq Phlx Orders Itch 1.9
+function nasdaq_phlx_orders_itch_v1_9.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = nasdaq_phlx_phlxorders_itch_v1_9.name
+  packet.cols.protocol = nasdaq_phlx_orders_itch_v1_9.name
 
   -- Dissect protocol
-  local protocol = parent:add(nasdaq_phlx_phlxorders_itch_v1_9, buffer(), nasdaq_phlx_phlxorders_itch_v1_9.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(nasdaq_phlx_orders_itch_v1_9, buffer(), nasdaq_phlx_orders_itch_v1_9.description, "("..buffer:len().." Bytes)")
   local protocol_size = dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, nasdaq_phlx_phlxorders_itch_v1_9)
+udp_table:add(65333, nasdaq_phlx_orders_itch_v1_9)
 
 
 -----------------------------------------------------------------------
@@ -2357,25 +2357,25 @@ udp_table:add(65333, nasdaq_phlx_phlxorders_itch_v1_9)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.nasdaq_phlx_phlxorders_itch_v1_9_packet_size = function(buffer)
+verify.nasdaq_phlx_orders_itch_v1_9_packet_size = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Nasdaq Phlx PhlxOrders Itch 1.9
-local function nasdaq_phlx_phlxorders_itch_v1_9_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Nasdaq Phlx Orders Itch 1.9
+local function nasdaq_phlx_orders_itch_v1_9_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.nasdaq_phlx_phlxorders_itch_v1_9_packet_size(buffer) then return false end
+  if not verify.nasdaq_phlx_orders_itch_v1_9_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = nasdaq_phlx_phlxorders_itch_v1_9
-  nasdaq_phlx_phlxorders_itch_v1_9.dissector(buffer, packet, parent)
+  packet.conversation = nasdaq_phlx_orders_itch_v1_9
+  nasdaq_phlx_orders_itch_v1_9.dissector(buffer, packet, parent)
 
   return true
 end
 
--- Register Nasdaq Phlx PhlxOrders Itch 1.9 Heuristic
-nasdaq_phlx_phlxorders_itch_v1_9:register_heuristic("udp", nasdaq_phlx_phlxorders_itch_v1_9_heuristic)
+-- Register Nasdaq Phlx Orders Itch 1.9 Heuristic
+nasdaq_phlx_orders_itch_v1_9:register_heuristic("udp", nasdaq_phlx_orders_itch_v1_9_heuristic)
 
 -----------------------------------------------------------------------
 -- This script was generated by the open markets initiative
