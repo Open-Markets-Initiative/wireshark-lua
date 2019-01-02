@@ -40,8 +40,6 @@ cboe_options_marketdatafeed_csm_v1_4_2.fields.index_value_message = ProtoField.n
 cboe_options_marketdatafeed_csm_v1_4_2.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cboe.options.marketdatafeed.csm.v1.4.2.legratioqty", ftypes.UINT32)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.leg_security_id = ProtoField.new("Leg Security Id", "cboe.options.marketdatafeed.csm.v1.4.2.legsecurityid", ftypes.UINT32)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.leg_side = ProtoField.new("Leg Side", "cboe.options.marketdatafeed.csm.v1.4.2.legside", ftypes.STRING)
-cboe_options_marketdatafeed_csm_v1_4_2.fields.leg_side_length = ProtoField.new("Leg Side Length", "cboe.options.marketdatafeed.csm.v1.4.2.legsidelength", ftypes.UINT8)
-cboe_options_marketdatafeed_csm_v1_4_2.fields.leg_side_text = ProtoField.new("Leg Side Text", "cboe.options.marketdatafeed.csm.v1.4.2.legsidetext", ftypes.STRING)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.legal_market = ProtoField.new("Legal Market", "cboe.options.marketdatafeed.csm.v1.4.2.legalmarket", ftypes.UINT8)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.market_data_control_message = ProtoField.new("Market Data Control Message", "cboe.options.marketdatafeed.csm.v1.4.2.marketdatacontrolmessage", ftypes.STRING)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.market_data_refresh_message = ProtoField.new("Market Data Refresh Message", "cboe.options.marketdatafeed.csm.v1.4.2.marketdatarefreshmessage", ftypes.STRING)
@@ -142,7 +140,6 @@ show.eop = true
 show.expected_opening_price_and_size_message = true
 show.index_value_md_entry = true
 show.index_value_message = true
-show.leg_side = true
 show.market_data_control_message = true
 show.market_data_refresh_message = true
 show.max_strike_price = true
@@ -185,7 +182,6 @@ cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_eop = Pref.bool("Show Eop", sh
 cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_expected_opening_price_and_size_message = Pref.bool("Show Expected Opening Price And Size Message", show.expected_opening_price_and_size_message, "Parse and add Expected Opening Price And Size Message to protocol tree")
 cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_index_value_md_entry = Pref.bool("Show Index Value Md Entry", show.index_value_md_entry, "Parse and add Index Value Md Entry to protocol tree")
 cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_index_value_message = Pref.bool("Show Index Value Message", show.index_value_message, "Parse and add Index Value Message to protocol tree")
-cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_leg_side = Pref.bool("Show Leg Side", show.leg_side, "Parse and add Leg Side to protocol tree")
 cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_market_data_control_message = Pref.bool("Show Market Data Control Message", show.market_data_control_message, "Parse and add Market Data Control Message to protocol tree")
 cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_market_data_refresh_message = Pref.bool("Show Market Data Refresh Message", show.market_data_refresh_message, "Parse and add Market Data Refresh Message to protocol tree")
 cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_max_strike_price = Pref.bool("Show Max Strike Price", show.max_strike_price, "Parse and add Max Strike Price to protocol tree")
@@ -248,10 +244,6 @@ function cboe_options_marketdatafeed_csm_v1_4_2.prefs_changed()
   end
   if show.index_value_message ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_index_value_message then
     show.index_value_message = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_index_value_message
-    changed = true
-  end
-  if show.leg_side ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_leg_side then
-    show.leg_side = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_leg_side
     changed = true
   end
   if show.market_data_control_message ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_market_data_control_message then
@@ -2006,84 +1998,30 @@ dissect.market_data_refresh_message = function(buffer, offset, packet, parent)
   return dissect.market_data_refresh_message_fields(buffer, offset, packet, parent)
 end
 
--- Display: Leg Side Text
-display.leg_side_text = function(value)
-  return "Leg Side Text: "..value
-end
-
--- Dissect runtime sized field: Leg Side Text
-dissect.leg_side_text = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
-  local value = range:string()
-  local display = display.leg_side_text(value, buffer, offset, packet, parent, size)
-
-  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.leg_side_text, range, value, display)
-
-  return offset + size
-end
-
--- Size: Leg Side Length
-size_of.leg_side_length = 1
-
--- Display: Leg Side Length
-display.leg_side_length = function(value)
-  return "Leg Side Length: "..value
-end
-
--- Dissect: Leg Side Length
-dissect.leg_side_length = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = display.leg_side_length(value, buffer, offset, packet, parent)
-
-  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.leg_side_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Calculate runtime size: Leg Side
-size_of.leg_side = function(buffer, offset)
-  local index = 0
-
-  index = index + 1
-
-  -- Parse runtime size of: Leg Side Text
-  index = index + buffer(offset + index - 1, 1):uint()
-
-  return index
-end
+-- Size: Leg Side
+size_of.leg_side = 1
 
 -- Display: Leg Side
-display.leg_side = function(buffer, offset, size, packet, parent)
-  return ""
-end
+display.leg_side = function(value)
+  if value == "B" then
+    return "Leg Side: Buy Bid (B)"
+  end
+  if value == "S" then
+    return "Leg Side: Sell Ask (S)"
+  end
 
--- Dissect Fields: Leg Side
-dissect.leg_side_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Leg Side Length: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.leg_side_length(buffer, index, packet, parent)
-
-  -- Leg Side Text: 0 Byte Ascii String
-  local length = buffer(index - 1, 1):uint()
-  index = dissect.leg_side_text(buffer, index, packet, parent, length)
-
-  return index
+  return "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
 dissect.leg_side = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
-  if show.leg_side then
-    local length = size_of.leg_side(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.leg_side(buffer, packet, parent)
-    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.leg_side, range, display)
-  end
+  local range = buffer(offset, size_of.leg_side)
+  local value = range:string()
+  local display = display.leg_side(value, buffer, offset, packet, parent)
 
-  return dissect.leg_side_fields(buffer, offset, packet, parent)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.leg_side, range, value, display)
+
+  return offset + size_of.leg_side
 end
 
 -- Size: Leg Security Id
@@ -2124,17 +2062,6 @@ dissect.leg_ratio_qty = function(buffer, offset, packet, parent)
   return offset + size_of.leg_ratio_qty
 end
 
--- Calculate runtime size: Security Definition Leg
-size_of.security_definition_leg = function(buffer, offset)
-  local index = 0
-
-  index = index + 8
-
-  index = index + size_of.leg_side(buffer, offset + index)
-
-  return index
-end
-
 -- Display: Security Definition Leg
 display.security_definition_leg = function(buffer, offset, size, packet, parent)
   return ""
@@ -2150,7 +2077,7 @@ dissect.security_definition_leg_fields = function(buffer, offset, packet, parent
   -- Leg Security Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.leg_security_id(buffer, index, packet, parent)
 
-  -- Leg Side: Struct of 2 fields
+  -- Leg Side: 1 Byte Ascii String Enum with 2 values
   index = dissect.leg_side(buffer, index, packet, parent)
 
   return index
@@ -2158,10 +2085,9 @@ end
 
 -- Dissect: Security Definition Leg
 dissect.security_definition_leg = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  -- Optionally add struct element to protocol tree
   if show.security_definition_leg then
-    local length = size_of.security_definition_leg(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, 9)
     local display = display.security_definition_leg(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.security_definition_leg, range, display)
   end
@@ -3126,9 +3052,8 @@ size_of.security_definition_message = function(buffer, offset)
 
   -- Calculate field size from count
   local security_definition_leg_count = buffer(offset + index - 1, 1):uint()
-  for i = 1, security_definition_leg_count do
-    index = index + size_of.security_definition_leg(buffer, offset + index)
-  end
+  index = index + security_definition_leg_count * 9
+
   return index
 end
 
