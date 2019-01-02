@@ -73,6 +73,7 @@ cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_strike_price_fraction_mant
 cboe_options_marketdatafeed_csm_v1_4_2.fields.net_chg_prev_day = ProtoField.new("Net Chg Prev Day", "cboe.options.marketdatafeed.csm.v1.4.2.netchgprevday", ftypes.STRING)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.net_chg_prev_day_exponent = ProtoField.new("Net Chg Prev Day Exponent", "cboe.options.marketdatafeed.csm.v1.4.2.netchgprevdayexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
 cboe_options_marketdatafeed_csm_v1_4_2.fields.net_chg_prev_day_mantissa = ProtoField.new("Net Chg Prev Day Mantissa", "cboe.options.marketdatafeed.csm.v1.4.2.netchgprevdaymantissa", ftypes.INT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.no_entries = ProtoField.new("No Entries", "cboe.options.marketdatafeed.csm.v1.4.2.noentries", ftypes.UINT8)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.no_legs = ProtoField.new("No Legs", "cboe.options.marketdatafeed.csm.v1.4.2.nolegs", ftypes.UINT8)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.open_interest = ProtoField.new("Open Interest", "cboe.options.marketdatafeed.csm.v1.4.2.openinterest", ftypes.UINT32)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.packet = ProtoField.new("Packet", "cboe.options.marketdatafeed.csm.v1.4.2.packet", ftypes.STRING)
@@ -595,22 +596,22 @@ dissect.summary_md_entry = function(buffer, offset, packet, parent)
   return dissect.summary_md_entry_fields(buffer, offset, packet, parent)
 end
 
--- Size: No Legs
-size_of.no_legs = 1
+-- Size: No Entries
+size_of.no_entries = 1
 
--- Display: No Legs
-display.no_legs = function(value)
-  return "No Legs: "..value
+-- Display: No Entries
+display.no_entries = function(value)
+  return "No Entries: "..value
 end
 
--- Dissect: No Legs
-dissect.no_legs = function(buffer, offset, packet, parent)
+-- Dissect: No Entries
+dissect.no_entries = function(buffer, offset, packet, parent)
   local length = 1
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.no_legs(value, buffer, offset, packet, parent)
+  local display = display.no_entries(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.no_legs, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.no_entries, range, value, display)
 
   return offset + length, value
 end
@@ -889,8 +890,8 @@ dissect.summary_message_fields = function(buffer, offset, packet, parent)
   -- Underlying Px: Struct of 2 fields
   index = dissect.underlying_px(buffer, index, packet, parent)
 
-  -- No Legs: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.no_legs(buffer, index, packet, parent)
+  -- No Entries: 1 Byte Unsigned Fixed Width Integer
+  index = dissect.no_entries(buffer, index, packet, parent)
 
   -- Summary Md Entry: Struct of 2 fields
   local summary_md_entry_count = buffer(index - 1, 1):uint()
@@ -975,8 +976,8 @@ dissect.settlement_value_message_fields = function(buffer, offset, packet, paren
   -- Price Type: 1 Byte Unsigned Fixed Width Integer
   index = dissect.price_type(buffer, index, packet, parent)
 
-  -- No Legs: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.no_legs(buffer, index, packet, parent)
+  -- No Entries: 1 Byte Unsigned Fixed Width Integer
+  index = dissect.no_entries(buffer, index, packet, parent)
 
   -- Settlement Value Md Entry: Struct of 2 fields
   local settlement_value_md_entry_count = buffer(index - 1, 1):uint()
@@ -1137,8 +1138,8 @@ dissect.index_value_message_fields = function(buffer, offset, packet, parent)
   -- Symbol: Struct of 2 fields
   index = dissect.symbol(buffer, index, packet, parent)
 
-  -- No Legs: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.no_legs(buffer, index, packet, parent)
+  -- No Entries: 1 Byte Unsigned Fixed Width Integer
+  index = dissect.no_entries(buffer, index, packet, parent)
 
   -- Index Value Md Entry: Struct of 2 fields
   local index_value_md_entry_count = buffer(index - 1, 1):uint()
@@ -1549,8 +1550,8 @@ dissect.ticker_message_fields = function(buffer, offset, packet, parent)
   -- Price Type: 1 Byte Unsigned Fixed Width Integer
   index = dissect.price_type(buffer, index, packet, parent)
 
-  -- No Legs: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.no_legs(buffer, index, packet, parent)
+  -- No Entries: 1 Byte Unsigned Fixed Width Integer
+  index = dissect.no_entries(buffer, index, packet, parent)
 
   -- Ticker Md Entry: Struct of 4 fields
   local ticker_md_entry_count = buffer(index - 1, 1):uint()
@@ -1712,8 +1713,8 @@ dissect.recap_update_message_fields = function(buffer, offset, packet, parent)
   -- Trade Volume: 4 Byte Unsigned Fixed Width Integer
   index = dissect.trade_volume(buffer, index, packet, parent)
 
-  -- No Legs: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.no_legs(buffer, index, packet, parent)
+  -- No Entries: 1 Byte Unsigned Fixed Width Integer
+  index = dissect.no_entries(buffer, index, packet, parent)
 
   -- Recap Update Md Entry: Struct of 3 fields
   local recap_update_md_entry_count = buffer(index - 1, 1):uint()
@@ -1886,8 +1887,8 @@ dissect.current_market_update_message_fields = function(buffer, offset, packet, 
   -- Price Type: 1 Byte Unsigned Fixed Width Integer
   index = dissect.price_type(buffer, index, packet, parent)
 
-  -- No Legs: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.no_legs(buffer, index, packet, parent)
+  -- No Entries: 1 Byte Unsigned Fixed Width Integer
+  index = dissect.no_entries(buffer, index, packet, parent)
 
   -- Md Entry: Struct of 4 fields
   local md_entry_count = buffer(index - 1, 1):uint()
@@ -1973,8 +1974,8 @@ dissect.market_data_refresh_message_fields = function(buffer, offset, packet, pa
   -- Trade Volume: 4 Byte Unsigned Fixed Width Integer
   index = dissect.trade_volume(buffer, index, packet, parent)
 
-  -- No Legs: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.no_legs(buffer, index, packet, parent)
+  -- No Entries: 1 Byte Unsigned Fixed Width Integer
+  index = dissect.no_entries(buffer, index, packet, parent)
 
   -- Md Entry: Struct of 4 fields
   local md_entry_count = buffer(index - 1, 1):uint()
@@ -2093,6 +2094,26 @@ dissect.security_definition_leg = function(buffer, offset, packet, parent)
   end
 
   return dissect.security_definition_leg_fields(buffer, offset, packet, parent)
+end
+
+-- Size: No Legs
+size_of.no_legs = 1
+
+-- Display: No Legs
+display.no_legs = function(value)
+  return "No Legs: "..value
+end
+
+-- Dissect: No Legs
+dissect.no_legs = function(buffer, offset, packet, parent)
+  local length = 1
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = display.no_legs(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.no_legs, range, value, display)
+
+  return offset + length, value
 end
 
 -- Size: Contract Size

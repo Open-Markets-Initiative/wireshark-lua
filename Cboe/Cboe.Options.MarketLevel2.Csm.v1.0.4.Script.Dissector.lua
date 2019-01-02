@@ -60,6 +60,7 @@ cboe_options_marketlevel2_csm_v1_0_4.fields.minimum_below_premium_fraction_manti
 cboe_options_marketlevel2_csm_v1_0_4.fields.minimum_strike_price_fraction = ProtoField.new("Minimum Strike Price Fraction", "cboe.options.marketlevel2.csm.v1.0.4.minimumstrikepricefraction", ftypes.STRING)
 cboe_options_marketlevel2_csm_v1_0_4.fields.minimum_strike_price_fraction_exponent = ProtoField.new("Minimum Strike Price Fraction Exponent", "cboe.options.marketlevel2.csm.v1.0.4.minimumstrikepricefractionexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
 cboe_options_marketlevel2_csm_v1_0_4.fields.minimum_strike_price_fraction_mantissa = ProtoField.new("Minimum Strike Price Fraction Mantissa", "cboe.options.marketlevel2.csm.v1.0.4.minimumstrikepricefractionmantissa", ftypes.INT32)
+cboe_options_marketlevel2_csm_v1_0_4.fields.no_entries = ProtoField.new("No Entries", "cboe.options.marketlevel2.csm.v1.0.4.noentries", ftypes.UINT8)
 cboe_options_marketlevel2_csm_v1_0_4.fields.no_legs = ProtoField.new("No Legs", "cboe.options.marketlevel2.csm.v1.0.4.nolegs", ftypes.UINT8)
 cboe_options_marketlevel2_csm_v1_0_4.fields.packet = ProtoField.new("Packet", "cboe.options.marketlevel2.csm.v1.0.4.packet", ftypes.STRING)
 cboe_options_marketlevel2_csm_v1_0_4.fields.packet_header = ProtoField.new("Packet Header", "cboe.options.marketlevel2.csm.v1.0.4.packetheader", ftypes.STRING)
@@ -514,14 +515,13 @@ end
 
 -- Dissect: No Legs
 dissect.no_legs = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.no_legs)
   local value = range:uint()
   local display = display.no_legs(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketlevel2_csm_v1_0_4.fields.no_legs, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.no_legs
 end
 
 -- Size: Md Entry Px Mantissa
@@ -676,7 +676,7 @@ size_of.incremental_refresh_md_entry = function(buffer, offset)
   index = index + 9
 
   -- Calculate field size from count
-  local md_volume_entry_count = buffer(offset + index - 1, 1):uint()
+  local md_volume_entry_count = buffer(offset + index - 10, 1):uint()
   index = index + md_volume_entry_count * 5
 
   return index
@@ -707,7 +707,7 @@ dissect.incremental_refresh_md_entry_fields = function(buffer, offset, packet, p
   index = dissect.no_legs(buffer, index, packet, parent)
 
   -- Md Volume Entry: Struct of 2 fields
-  local md_volume_entry_count = buffer(index - 1, 1):uint()
+  local md_volume_entry_count = buffer(index - 10, 1):uint()
   for i = 1, md_volume_entry_count do
     index = dissect.md_volume_entry(buffer, index, packet, parent)
   end
@@ -726,6 +726,26 @@ dissect.incremental_refresh_md_entry = function(buffer, offset, packet, parent)
   end
 
   return dissect.incremental_refresh_md_entry_fields(buffer, offset, packet, parent)
+end
+
+-- Size: No Entries
+size_of.no_entries = 1
+
+-- Display: No Entries
+display.no_entries = function(value)
+  return "No Entries: "..value
+end
+
+-- Dissect: No Entries
+dissect.no_entries = function(buffer, offset, packet, parent)
+  local length = 1
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = display.no_entries(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_options_marketlevel2_csm_v1_0_4.fields.no_entries, range, value, display)
+
+  return offset + length, value
 end
 
 -- Size: Price Type
@@ -785,8 +805,8 @@ dissect.incremental_refresh_message_fields = function(buffer, offset, packet, pa
   -- Price Type: 1 Byte Unsigned Fixed Width Integer
   index = dissect.price_type(buffer, index, packet, parent)
 
-  -- No Legs: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.no_legs(buffer, index, packet, parent)
+  -- No Entries: 1 Byte Unsigned Fixed Width Integer
+  index = dissect.no_entries(buffer, index, packet, parent)
 
   -- Incremental Refresh Md Entry: Struct of 6 fields
   local incremental_refresh_md_entry_count = buffer(index - 1, 1):uint()
@@ -817,7 +837,7 @@ size_of.snapshot_full_refresh_md_entry = function(buffer, offset)
   index = index + 8
 
   -- Calculate field size from count
-  local md_volume_entry_count = buffer(offset + index - 1, 1):uint()
+  local md_volume_entry_count = buffer(offset + index - 9, 1):uint()
   index = index + md_volume_entry_count * 5
 
   return index
@@ -845,7 +865,7 @@ dissect.snapshot_full_refresh_md_entry_fields = function(buffer, offset, packet,
   index = dissect.no_legs(buffer, index, packet, parent)
 
   -- Md Volume Entry: Struct of 2 fields
-  local md_volume_entry_count = buffer(index - 1, 1):uint()
+  local md_volume_entry_count = buffer(index - 9, 1):uint()
   for i = 1, md_volume_entry_count do
     index = dissect.md_volume_entry(buffer, index, packet, parent)
   end
@@ -933,8 +953,8 @@ dissect.snapshot_full_refresh_message_fields = function(buffer, offset, packet, 
   -- Refresh Indicator: 1 Byte Ascii String Enum with 2 values
   index = dissect.refresh_indicator(buffer, index, packet, parent)
 
-  -- No Legs: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.no_legs(buffer, index, packet, parent)
+  -- No Entries: 1 Byte Unsigned Fixed Width Integer
+  index = dissect.no_entries(buffer, index, packet, parent)
 
   -- Snapshot Full Refresh Md Entry: Struct of 5 fields
   local snapshot_full_refresh_md_entry_count = buffer(index - 1, 1):uint()
