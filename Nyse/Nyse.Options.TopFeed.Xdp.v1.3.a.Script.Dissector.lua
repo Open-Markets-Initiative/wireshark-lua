@@ -80,6 +80,8 @@ nyse_options_topfeed_xdp_v1_3_a.fields.refresh_outright_trade_message = ProtoFie
 nyse_options_topfeed_xdp_v1_3_a.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.options.topfeed.xdp.v1.3.a.reserved1", ftypes.BYTES)
 nyse_options_topfeed_xdp_v1_3_a.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.options.topfeed.xdp.v1.3.a.reserved2", ftypes.BYTES)
 nyse_options_topfeed_xdp_v1_3_a.fields.reserved_3 = ProtoField.new("Reserved 3", "nyse.options.topfeed.xdp.v1.3.a.reserved3", ftypes.BYTES)
+nyse_options_topfeed_xdp_v1_3_a.fields.reserved_a_1 = ProtoField.new("Reserved A 1", "nyse.options.topfeed.xdp.v1.3.a.reserveda1", ftypes.BYTES)
+nyse_options_topfeed_xdp_v1_3_a.fields.reserved_b_1 = ProtoField.new("Reserved B 1", "nyse.options.topfeed.xdp.v1.3.a.reservedb1", ftypes.BYTES)
 nyse_options_topfeed_xdp_v1_3_a.fields.security_status = ProtoField.new("Security Status", "nyse.options.topfeed.xdp.v1.3.a.securitystatus", ftypes.STRING)
 nyse_options_topfeed_xdp_v1_3_a.fields.security_type = ProtoField.new("Security Type", "nyse.options.topfeed.xdp.v1.3.a.securitytype", ftypes.STRING)
 nyse_options_topfeed_xdp_v1_3_a.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.options.topfeed.xdp.v1.3.a.sequencenumber", ftypes.UINT32)
@@ -106,7 +108,8 @@ nyse_options_topfeed_xdp_v1_3_a.fields.underlying_index_mapping_message = ProtoF
 nyse_options_topfeed_xdp_v1_3_a.fields.underlying_seq_num = ProtoField.new("Underlying Seq Num", "nyse.options.topfeed.xdp.v1.3.a.underlyingseqnum", ftypes.UINT32)
 nyse_options_topfeed_xdp_v1_3_a.fields.underlying_status_message = ProtoField.new("Underlying Status Message", "nyse.options.topfeed.xdp.v1.3.a.underlyingstatusmessage", ftypes.STRING)
 nyse_options_topfeed_xdp_v1_3_a.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nyse.options.topfeed.xdp.v1.3.a.underlyingsymbol", ftypes.STRING)
-nyse_options_topfeed_xdp_v1_3_a.fields.volume = ProtoField.new("Volume", "nyse.options.topfeed.xdp.v1.3.a.volume", ftypes.UINT32)
+nyse_options_topfeed_xdp_v1_3_a.fields.volume_2 = ProtoField.new("Volume 2", "nyse.options.topfeed.xdp.v1.3.a.volume2", ftypes.UINT16)
+nyse_options_topfeed_xdp_v1_3_a.fields.volume_4 = ProtoField.new("Volume 4", "nyse.options.topfeed.xdp.v1.3.a.volume4", ftypes.UINT32)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -623,23 +626,23 @@ dissect.underlying_index = function(buffer, offset, packet, parent)
   return offset + size_of.underlying_index
 end
 
--- Size: Reserved 1
-size_of.reserved_1 = 1
+-- Size: Reserved B 1
+size_of.reserved_b_1 = 1
 
--- Display: Reserved 1
-display.reserved_1 = function(value)
-  return "Reserved 1: "..value
+-- Display: Reserved B 1
+display.reserved_b_1 = function(value)
+  return "Reserved B 1: "..value
 end
 
--- Dissect: Reserved 1
-dissect.reserved_1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved_1)
+-- Dissect: Reserved B 1
+dissect.reserved_b_1 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.reserved_b_1)
   local value = range:bytes():tohex(false, " ")
-  local display = display.reserved_1(value, buffer, offset, packet, parent)
+  local display = display.reserved_b_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.reserved_1, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.reserved_b_1, range, value, display)
 
-  return offset + size_of.reserved_1
+  return offset + size_of.reserved_b_1
 end
 
 -- Size: System Id
@@ -708,6 +711,25 @@ dissect.market_id = function(buffer, offset, packet, parent)
   return offset + size_of.market_id
 end
 
+-- Size: Reserved A 1
+size_of.reserved_a_1 = 1
+
+-- Display: Reserved A 1
+display.reserved_a_1 = function(value)
+  return "Reserved A 1: "..value
+end
+
+-- Dissect: Reserved A 1
+dissect.reserved_a_1 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.reserved_a_1)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.reserved_a_1(value, buffer, offset, packet, parent)
+
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.reserved_a_1, range, value, display)
+
+  return offset + size_of.reserved_a_1
+end
+
 -- Size: Series Index
 size_of.series_index = 4
 
@@ -742,8 +764,8 @@ dissect.series_index_mapping_message_fields = function(buffer, offset, packet, p
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
   index = dissect.channel_id(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  -- Reserved A 1: 1 Byte
+  index = dissect.reserved_a_1(buffer, index, packet, parent)
 
   -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
   index = dissect.market_id(buffer, index, packet, parent)
@@ -751,8 +773,8 @@ dissect.series_index_mapping_message_fields = function(buffer, offset, packet, p
   -- System Id: 1 Byte Unsigned Fixed Width Integer
   index = dissect.system_id(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  -- Reserved B 1: 1 Byte
+  index = dissect.reserved_b_1(buffer, index, packet, parent)
 
   -- Stream Id: 2 Byte Unsigned Fixed Width Integer
   index = dissect.stream_id(buffer, index, packet, parent)
@@ -797,6 +819,25 @@ dissect.series_index_mapping_message = function(buffer, offset, packet, parent)
   end
 
   return dissect.series_index_mapping_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Reserved 1
+size_of.reserved_1 = 1
+
+-- Display: Reserved 1
+display.reserved_1 = function(value)
+  return "Reserved 1: "..value
+end
+
+-- Dissect: Reserved 1
+dissect.reserved_1 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.reserved_1)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.reserved_1(value, buffer, offset, packet, parent)
+
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.reserved_1, range, value, display)
+
+  return offset + size_of.reserved_1
 end
 
 -- Size: Price Resolution
@@ -1304,23 +1345,23 @@ dissect.trade_cond_1 = function(buffer, offset, packet, parent)
   return offset + size_of.trade_cond_1
 end
 
--- Size: Volume
-size_of.volume = 4
+-- Size: Volume 4
+size_of.volume_4 = 4
 
--- Display: Volume
-display.volume = function(value)
-  return "Volume: "..value
+-- Display: Volume 4
+display.volume_4 = function(value)
+  return "Volume 4: "..value
 end
 
--- Dissect: Volume
-dissect.volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.volume)
+-- Dissect: Volume 4
+dissect.volume_4 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.volume_4)
   local value = range:le_uint()
-  local display = display.volume(value, buffer, offset, packet, parent)
+  local display = display.volume_4(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.volume, range, value, display)
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.volume_4, range, value, display)
 
-  return offset + size_of.volume
+  return offset + size_of.volume_4
 end
 
 -- Size: Price
@@ -1388,8 +1429,8 @@ dissect.refresh_outright_trade_message_fields = function(buffer, offset, packet,
   -- Price: 4 Byte Signed Fixed Width Integer
   index = dissect.price(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.volume(buffer, index, packet, parent)
+  -- Volume 4: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.volume_4(buffer, index, packet, parent)
 
   -- Trade Cond 1: 1 Byte Ascii String Enum with 4 values
   index = dissect.trade_cond_1(buffer, index, packet, parent)
@@ -2117,6 +2158,25 @@ dissect.outright_bold_rfq_message = function(buffer, offset, packet, parent)
   return dissect.outright_bold_rfq_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Volume 2
+size_of.volume_2 = 2
+
+-- Display: Volume 2
+display.volume_2 = function(value)
+  return "Volume 2: "..value
+end
+
+-- Dissect: Volume 2
+dissect.volume_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.volume_2)
+  local value = range:le_uint()
+  local display = display.volume_2(value, buffer, offset, packet, parent)
+
+  parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.volume_2, range, value, display)
+
+  return offset + size_of.volume_2
+end
+
 -- Display: Outright Crossing Rfq Message
 display.outright_crossing_rfq_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -2144,8 +2204,8 @@ dissect.outright_crossing_rfq_message_fields = function(buffer, offset, packet, 
   -- Reserved 1: 1 Byte
   index = dissect.reserved_1(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.volume(buffer, index, packet, parent)
+  -- Volume 2: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.volume_2(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
   index = dissect.price(buffer, index, packet, parent)
@@ -2157,7 +2217,7 @@ end
 dissect.outright_crossing_rfq_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.outright_crossing_rfq_message then
-    local range = buffer(offset, 26)
+    local range = buffer(offset, 24)
     local display = display.outright_crossing_rfq_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_crossing_rfq_message, range, display)
   end
@@ -2274,8 +2334,8 @@ dissect.outright_trade_correction_message_fields = function(buffer, offset, pack
   -- Price: 4 Byte Signed Fixed Width Integer
   index = dissect.price(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.volume(buffer, index, packet, parent)
+  -- Volume 4: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.volume_4(buffer, index, packet, parent)
 
   -- Trade Cond 1: 1 Byte Ascii String Enum with 4 values
   index = dissect.trade_cond_1(buffer, index, packet, parent)
@@ -2367,8 +2427,8 @@ dissect.outright_trade_message_fields = function(buffer, offset, packet, parent)
   -- Price: 4 Byte Signed Fixed Width Integer
   index = dissect.price(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.volume(buffer, index, packet, parent)
+  -- Volume 4: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.volume_4(buffer, index, packet, parent)
 
   -- Trade Cond 1: 1 Byte Ascii String Enum with 4 values
   index = dissect.trade_cond_1(buffer, index, packet, parent)
@@ -2481,7 +2541,7 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Outright Crossing Rfq Message
   if code == 415 then
-    return 26
+    return 24
   end
   -- Size of Outright Bold Rfq Message
   if code == 471 then

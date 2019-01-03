@@ -55,6 +55,8 @@ nyse_options_deepfeed_xdp_v1_3_a.fields.refresh_outright_market_depth_buy_messag
 nyse_options_deepfeed_xdp_v1_3_a.fields.refresh_outright_market_depth_sell_message = ProtoField.new("Refresh Outright Market Depth Sell Message", "nyse.options.deepfeed.xdp.v1.3.a.refreshoutrightmarketdepthsellmessage", ftypes.STRING)
 nyse_options_deepfeed_xdp_v1_3_a.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.options.deepfeed.xdp.v1.3.a.reserved1", ftypes.BYTES)
 nyse_options_deepfeed_xdp_v1_3_a.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.options.deepfeed.xdp.v1.3.a.reserved2", ftypes.BYTES)
+nyse_options_deepfeed_xdp_v1_3_a.fields.reserved_a_1 = ProtoField.new("Reserved A 1", "nyse.options.deepfeed.xdp.v1.3.a.reserveda1", ftypes.BYTES)
+nyse_options_deepfeed_xdp_v1_3_a.fields.reserved_b_1 = ProtoField.new("Reserved B 1", "nyse.options.deepfeed.xdp.v1.3.a.reservedb1", ftypes.BYTES)
 nyse_options_deepfeed_xdp_v1_3_a.fields.second_level_customer_volume = ProtoField.new("Second Level Customer Volume", "nyse.options.deepfeed.xdp.v1.3.a.secondlevelcustomervolume", ftypes.UINT16)
 nyse_options_deepfeed_xdp_v1_3_a.fields.second_level_price = ProtoField.new("Second Level Price", "nyse.options.deepfeed.xdp.v1.3.a.secondlevelprice", ftypes.INT32)
 nyse_options_deepfeed_xdp_v1_3_a.fields.second_level_volume = ProtoField.new("Second Level Volume", "nyse.options.deepfeed.xdp.v1.3.a.secondlevelvolume", ftypes.UINT16)
@@ -557,23 +559,23 @@ dissect.underlying_index = function(buffer, offset, packet, parent)
   return offset + size_of.underlying_index
 end
 
--- Size: Reserved 1
-size_of.reserved_1 = 1
+-- Size: Reserved B 1
+size_of.reserved_b_1 = 1
 
--- Display: Reserved 1
-display.reserved_1 = function(value)
-  return "Reserved 1: "..value
+-- Display: Reserved B 1
+display.reserved_b_1 = function(value)
+  return "Reserved B 1: "..value
 end
 
--- Dissect: Reserved 1
-dissect.reserved_1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved_1)
+-- Dissect: Reserved B 1
+dissect.reserved_b_1 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.reserved_b_1)
   local value = range:bytes():tohex(false, " ")
-  local display = display.reserved_1(value, buffer, offset, packet, parent)
+  local display = display.reserved_b_1(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.reserved_1, range, value, display)
+  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.reserved_b_1, range, value, display)
 
-  return offset + size_of.reserved_1
+  return offset + size_of.reserved_b_1
 end
 
 -- Size: System Id
@@ -642,6 +644,25 @@ dissect.market_id = function(buffer, offset, packet, parent)
   return offset + size_of.market_id
 end
 
+-- Size: Reserved A 1
+size_of.reserved_a_1 = 1
+
+-- Display: Reserved A 1
+display.reserved_a_1 = function(value)
+  return "Reserved A 1: "..value
+end
+
+-- Dissect: Reserved A 1
+dissect.reserved_a_1 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.reserved_a_1)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.reserved_a_1(value, buffer, offset, packet, parent)
+
+  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.reserved_a_1, range, value, display)
+
+  return offset + size_of.reserved_a_1
+end
+
 -- Size: Series Index
 size_of.series_index = 4
 
@@ -676,8 +697,8 @@ dissect.series_index_mapping_message_fields = function(buffer, offset, packet, p
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
   index = dissect.channel_id(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  -- Reserved A 1: 1 Byte
+  index = dissect.reserved_a_1(buffer, index, packet, parent)
 
   -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
   index = dissect.market_id(buffer, index, packet, parent)
@@ -685,8 +706,8 @@ dissect.series_index_mapping_message_fields = function(buffer, offset, packet, p
   -- System Id: 1 Byte Unsigned Fixed Width Integer
   index = dissect.system_id(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  -- Reserved B 1: 1 Byte
+  index = dissect.reserved_b_1(buffer, index, packet, parent)
 
   -- Stream Id: 2 Byte Unsigned Fixed Width Integer
   index = dissect.stream_id(buffer, index, packet, parent)
@@ -731,6 +752,25 @@ dissect.series_index_mapping_message = function(buffer, offset, packet, parent)
   end
 
   return dissect.series_index_mapping_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Reserved 1
+size_of.reserved_1 = 1
+
+-- Display: Reserved 1
+display.reserved_1 = function(value)
+  return "Reserved 1: "..value
+end
+
+-- Dissect: Reserved 1
+dissect.reserved_1 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.reserved_1)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.reserved_1(value, buffer, offset, packet, parent)
+
+  parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.reserved_1, range, value, display)
+
+  return offset + size_of.reserved_1
 end
 
 -- Size: Price Resolution

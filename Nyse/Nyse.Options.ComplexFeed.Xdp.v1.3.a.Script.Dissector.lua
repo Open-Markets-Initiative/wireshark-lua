@@ -75,7 +75,8 @@ nyse_options_complexfeed_xdp_v1_3_a.fields.timestamp = ProtoField.new("Timestamp
 nyse_options_complexfeed_xdp_v1_3_a.fields.trade_cond_1 = ProtoField.new("Trade Cond 1", "nyse.options.complexfeed.xdp.v1.3.a.tradecond1", ftypes.STRING)
 nyse_options_complexfeed_xdp_v1_3_a.fields.trade_cond_2 = ProtoField.new("Trade Cond 2", "nyse.options.complexfeed.xdp.v1.3.a.tradecond2", ftypes.STRING)
 nyse_options_complexfeed_xdp_v1_3_a.fields.trade_id = ProtoField.new("Trade Id", "nyse.options.complexfeed.xdp.v1.3.a.tradeid", ftypes.UINT32)
-nyse_options_complexfeed_xdp_v1_3_a.fields.volume = ProtoField.new("Volume", "nyse.options.complexfeed.xdp.v1.3.a.volume", ftypes.UINT32)
+nyse_options_complexfeed_xdp_v1_3_a.fields.volume_2 = ProtoField.new("Volume 2", "nyse.options.complexfeed.xdp.v1.3.a.volume2", ftypes.UINT16)
+nyse_options_complexfeed_xdp_v1_3_a.fields.volume_4 = ProtoField.new("Volume 4", "nyse.options.complexfeed.xdp.v1.3.a.volume4", ftypes.UINT32)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -758,23 +759,23 @@ dissect.trade_cond_1 = function(buffer, offset, packet, parent)
   return offset + size_of.trade_cond_1
 end
 
--- Size: Volume
-size_of.volume = 4
+-- Size: Volume 4
+size_of.volume_4 = 4
 
--- Display: Volume
-display.volume = function(value)
-  return "Volume: "..value
+-- Display: Volume 4
+display.volume_4 = function(value)
+  return "Volume 4: "..value
 end
 
--- Dissect: Volume
-dissect.volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.volume)
+-- Dissect: Volume 4
+dissect.volume_4 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.volume_4)
   local value = range:le_uint()
-  local display = display.volume(value, buffer, offset, packet, parent)
+  local display = display.volume_4(value, buffer, offset, packet, parent)
 
-  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.volume, range, value, display)
+  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.volume_4, range, value, display)
 
-  return offset + size_of.volume
+  return offset + size_of.volume_4
 end
 
 -- Size: Price
@@ -861,8 +862,8 @@ dissect.refresh_complex_trade_message_fields = function(buffer, offset, packet, 
   -- Price: 4 Byte Signed Fixed Width Integer
   index = dissect.price(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.volume(buffer, index, packet, parent)
+  -- Volume 4: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.volume_4(buffer, index, packet, parent)
 
   -- Trade Cond 1: 1 Byte Ascii String Enum with 4 values
   index = dissect.trade_cond_1(buffer, index, packet, parent)
@@ -1208,6 +1209,25 @@ dissect.complex_status_message = function(buffer, offset, packet, parent)
   return dissect.complex_status_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Volume 2
+size_of.volume_2 = 2
+
+-- Display: Volume 2
+display.volume_2 = function(value)
+  return "Volume 2: "..value
+end
+
+-- Dissect: Volume 2
+dissect.volume_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.volume_2)
+  local value = range:le_uint()
+  local display = display.volume_2(value, buffer, offset, packet, parent)
+
+  parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.volume_2, range, value, display)
+
+  return offset + size_of.volume_2
+end
+
 -- Size: Source Ns
 size_of.source_ns = 4
 
@@ -1254,8 +1274,8 @@ dissect.complex_cube_rfq_message_fields = function(buffer, offset, packet, paren
   -- Reserved 1: 1 Byte
   index = dissect.reserved_1(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.volume(buffer, index, packet, parent)
+  -- Volume 2: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.volume_2(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
   index = dissect.price(buffer, index, packet, parent)
@@ -1267,7 +1287,7 @@ end
 dissect.complex_cube_rfq_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.complex_cube_rfq_message then
-    local range = buffer(offset, 26)
+    local range = buffer(offset, 24)
     local display = display.complex_cube_rfq_message(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_cube_rfq_message, range, display)
   end
@@ -1302,8 +1322,8 @@ dissect.complex_crossing_rfq_message_fields = function(buffer, offset, packet, p
   -- Reserved 1: 1 Byte
   index = dissect.reserved_1(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.volume(buffer, index, packet, parent)
+  -- Volume 2: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.volume_2(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
   index = dissect.price(buffer, index, packet, parent)
@@ -1315,7 +1335,7 @@ end
 dissect.complex_crossing_rfq_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.complex_crossing_rfq_message then
-    local range = buffer(offset, 26)
+    local range = buffer(offset, 24)
     local display = display.complex_crossing_rfq_message(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_crossing_rfq_message, range, display)
   end
@@ -1350,8 +1370,8 @@ dissect.complex_trade_message_fields = function(buffer, offset, packet, parent)
   -- Price: 4 Byte Signed Fixed Width Integer
   index = dissect.price(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.volume(buffer, index, packet, parent)
+  -- Volume 4: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.volume_4(buffer, index, packet, parent)
 
   -- Trade Cond 1: 1 Byte Ascii String Enum with 4 values
   index = dissect.trade_cond_1(buffer, index, packet, parent)
@@ -1452,11 +1472,11 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Complex Crossing Rfq Message
   if code == 429 then
-    return 26
+    return 24
   end
   -- Size of Complex Cube Rfq Message
   if code == 472 then
-    return 26
+    return 24
   end
   -- Size of Complex Status Message
   if code == 433 then

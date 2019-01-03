@@ -57,7 +57,8 @@ cboe_options_c1_auctionfeed_pitch_v1_1_1.fields.reference_price = ProtoField.new
 cboe_options_c1_auctionfeed_pitch_v1_1_1.fields.sell_contracts = ProtoField.new("Sell Contracts", "cboe.options.c1.auctionfeed.pitch.v1.1.1.sellcontracts", ftypes.UINT32)
 cboe_options_c1_auctionfeed_pitch_v1_1_1.fields.sequence = ProtoField.new("Sequence", "cboe.options.c1.auctionfeed.pitch.v1.1.1.sequence", ftypes.UINT32)
 cboe_options_c1_auctionfeed_pitch_v1_1_1.fields.side = ProtoField.new("Side", "cboe.options.c1.auctionfeed.pitch.v1.1.1.side", ftypes.STRING)
-cboe_options_c1_auctionfeed_pitch_v1_1_1.fields.symbol = ProtoField.new("Symbol", "cboe.options.c1.auctionfeed.pitch.v1.1.1.symbol", ftypes.STRING)
+cboe_options_c1_auctionfeed_pitch_v1_1_1.fields.symbol_6 = ProtoField.new("Symbol 6", "cboe.options.c1.auctionfeed.pitch.v1.1.1.symbol6", ftypes.STRING)
+cboe_options_c1_auctionfeed_pitch_v1_1_1.fields.symbol_8 = ProtoField.new("Symbol 8", "cboe.options.c1.auctionfeed.pitch.v1.1.1.symbol8", ftypes.STRING)
 cboe_options_c1_auctionfeed_pitch_v1_1_1.fields.symbol_condition = ProtoField.new("Symbol Condition", "cboe.options.c1.auctionfeed.pitch.v1.1.1.symbolcondition", ftypes.STRING)
 cboe_options_c1_auctionfeed_pitch_v1_1_1.fields.symbol_mapping_message = ProtoField.new("Symbol Mapping Message", "cboe.options.c1.auctionfeed.pitch.v1.1.1.symbolmappingmessage", ftypes.STRING)
 cboe_options_c1_auctionfeed_pitch_v1_1_1.fields.time = ProtoField.new("Time", "cboe.options.c1.auctionfeed.pitch.v1.1.1.time", ftypes.UINT32)
@@ -520,23 +521,23 @@ dissect.opening_type = function(buffer, offset, packet, parent)
   return offset + size_of.opening_type
 end
 
--- Size: Symbol
-size_of.symbol = 6
+-- Size: Symbol 8
+size_of.symbol_8 = 8
 
--- Display: Symbol
-display.symbol = function(value)
-  return "Symbol: "..value
+-- Display: Symbol 8
+display.symbol_8 = function(value)
+  return "Symbol 8: "..value
 end
 
--- Dissect: Symbol
-dissect.symbol = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.symbol)
+-- Dissect: Symbol 8
+dissect.symbol_8 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.symbol_8)
   local value = range:string()
-  local display = display.symbol(value, buffer, offset, packet, parent)
+  local display = display.symbol_8(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_c1_auctionfeed_pitch_v1_1_1.fields.symbol, range, value, display)
+  parent:add(cboe_options_c1_auctionfeed_pitch_v1_1_1.fields.symbol_8, range, value, display)
 
-  return offset + size_of.symbol
+  return offset + size_of.symbol_8
 end
 
 -- Display: Auction Summary Message
@@ -551,8 +552,8 @@ dissect.auction_summary_message_fields = function(buffer, offset, packet, parent
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
   index = dissect.time_offset(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
-  index = dissect.symbol(buffer, index, packet, parent)
+  -- Symbol 8: 8 Byte Ascii String
+  index = dissect.symbol_8(buffer, index, packet, parent)
 
   -- Opening Type: 1 Byte Ascii String Enum with 4 values
   index = dissect.opening_type(buffer, index, packet, parent)
@@ -570,7 +571,7 @@ end
 dissect.auction_summary_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.auction_summary_message then
-    local range = buffer(offset, 23)
+    local range = buffer(offset, 25)
     local display = display.auction_summary_message(buffer, packet, parent)
     parent = parent:add(cboe_options_c1_auctionfeed_pitch_v1_1_1.fields.auction_summary_message, range, display)
   end
@@ -704,8 +705,8 @@ dissect.auction_update_message_fields = function(buffer, offset, packet, parent)
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
   index = dissect.time_offset(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
-  index = dissect.symbol(buffer, index, packet, parent)
+  -- Symbol 8: 8 Byte Ascii String
+  index = dissect.symbol_8(buffer, index, packet, parent)
 
   -- Opening Type: 1 Byte Ascii String Enum with 4 values
   index = dissect.opening_type(buffer, index, packet, parent)
@@ -735,7 +736,7 @@ end
 dissect.auction_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.auction_update_message then
-    local range = buffer(offset, 44)
+    local range = buffer(offset, 46)
     local display = display.auction_update_message(buffer, packet, parent)
     parent = parent:add(cboe_options_c1_auctionfeed_pitch_v1_1_1.fields.auction_update_message, range, display)
   end
@@ -1010,6 +1011,25 @@ dissect.auction_type = function(buffer, offset, packet, parent)
   return offset + size_of.auction_type
 end
 
+-- Size: Symbol 6
+size_of.symbol_6 = 6
+
+-- Display: Symbol 6
+display.symbol_6 = function(value)
+  return "Symbol 6: "..value
+end
+
+-- Dissect: Symbol 6
+dissect.symbol_6 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.symbol_6)
+  local value = range:string()
+  local display = display.symbol_6(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_options_c1_auctionfeed_pitch_v1_1_1.fields.symbol_6, range, value, display)
+
+  return offset + size_of.symbol_6
+end
+
 -- Display: Auction Notification Message
 display.auction_notification_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1022,8 +1042,8 @@ dissect.auction_notification_message_fields = function(buffer, offset, packet, p
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
   index = dissect.time_offset(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
-  index = dissect.symbol(buffer, index, packet, parent)
+  -- Symbol 6: 6 Byte Ascii String
+  index = dissect.symbol_6(buffer, index, packet, parent)
 
   -- Auction Id: 8 Byte Unsigned Fixed Width Integer
   index = dissect.auction_id(buffer, index, packet, parent)
@@ -1164,11 +1184,11 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Auction Update Message
   if code == 0xD1 then
-    return 44
+    return 46
   end
   -- Size of Auction Summary Message
   if code == 0x96 then
-    return 23
+    return 25
   end
   -- Size of Width Update Message
   if code == 0xD2 then

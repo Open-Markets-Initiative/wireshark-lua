@@ -23,9 +23,12 @@ local verify = {}
 miax_options_tom_mach_v1_9.fields.active_on_miax = ProtoField.new("Active On Miax", "miax.options.tom.mach.v1.9.activeonmiax", ftypes.STRING)
 miax_options_tom_mach_v1_9.fields.application_message = ProtoField.new("Application Message", "miax.options.tom.mach.v1.9.applicationmessage", ftypes.STRING)
 miax_options_tom_mach_v1_9.fields.bid_condition = ProtoField.new("Bid Condition", "miax.options.tom.mach.v1.9.bidcondition", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.bid_price = ProtoField.new("Bid Price", "miax.options.tom.mach.v1.9.bidprice", ftypes.UINT16)
-miax_options_tom_mach_v1_9.fields.bid_priority_customer_size = ProtoField.new("Bid Priority Customer Size", "miax.options.tom.mach.v1.9.bidprioritycustomersize", ftypes.UINT16)
-miax_options_tom_mach_v1_9.fields.bid_size = ProtoField.new("Bid Size", "miax.options.tom.mach.v1.9.bidsize", ftypes.UINT16)
+miax_options_tom_mach_v1_9.fields.bid_price_2 = ProtoField.new("Bid Price 2", "miax.options.tom.mach.v1.9.bidprice2", ftypes.UINT16)
+miax_options_tom_mach_v1_9.fields.bid_price_4 = ProtoField.new("Bid Price 4", "miax.options.tom.mach.v1.9.bidprice4", ftypes.UINT32)
+miax_options_tom_mach_v1_9.fields.bid_priority_customer_size_2 = ProtoField.new("Bid Priority Customer Size 2", "miax.options.tom.mach.v1.9.bidprioritycustomersize2", ftypes.UINT16)
+miax_options_tom_mach_v1_9.fields.bid_priority_customer_size_4 = ProtoField.new("Bid Priority Customer Size 4", "miax.options.tom.mach.v1.9.bidprioritycustomersize4", ftypes.UINT32)
+miax_options_tom_mach_v1_9.fields.bid_size_2 = ProtoField.new("Bid Size 2", "miax.options.tom.mach.v1.9.bidsize2", ftypes.UINT16)
+miax_options_tom_mach_v1_9.fields.bid_size_4 = ProtoField.new("Bid Size 4", "miax.options.tom.mach.v1.9.bidsize4", ftypes.UINT32)
 miax_options_tom_mach_v1_9.fields.call_or_put = ProtoField.new("Call Or Put", "miax.options.tom.mach.v1.9.callorput", ftypes.STRING)
 miax_options_tom_mach_v1_9.fields.closing_time = ProtoField.new("Closing Time", "miax.options.tom.mach.v1.9.closingtime", ftypes.STRING)
 miax_options_tom_mach_v1_9.fields.correction_number = ProtoField.new("Correction Number", "miax.options.tom.mach.v1.9.correctionnumber", ftypes.UINT8)
@@ -37,17 +40,23 @@ miax_options_tom_mach_v1_9.fields.expiration_date = ProtoField.new("Expiration D
 miax_options_tom_mach_v1_9.fields.liquidity_acceptance_increment_indicator = ProtoField.new("Liquidity Acceptance Increment Indicator", "miax.options.tom.mach.v1.9.liquidityacceptanceincrementindicator", ftypes.STRING)
 miax_options_tom_mach_v1_9.fields.long_term_option = ProtoField.new("Long Term Option", "miax.options.tom.mach.v1.9.longtermoption", ftypes.STRING)
 miax_options_tom_mach_v1_9.fields.mbbo_condition = ProtoField.new("Mbbo Condition", "miax.options.tom.mach.v1.9.mbbocondition", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.mbbo_price = ProtoField.new("Mbbo Price", "miax.options.tom.mach.v1.9.mbboprice", ftypes.UINT16)
-miax_options_tom_mach_v1_9.fields.mbbo_priority_customer_size = ProtoField.new("Mbbo Priority Customer Size", "miax.options.tom.mach.v1.9.mbboprioritycustomersize", ftypes.UINT16)
-miax_options_tom_mach_v1_9.fields.mbbo_size = ProtoField.new("Mbbo Size", "miax.options.tom.mach.v1.9.mbbosize", ftypes.UINT16)
+miax_options_tom_mach_v1_9.fields.mbbo_price_2 = ProtoField.new("Mbbo Price 2", "miax.options.tom.mach.v1.9.mbboprice2", ftypes.UINT16)
+miax_options_tom_mach_v1_9.fields.mbbo_price_4 = ProtoField.new("Mbbo Price 4", "miax.options.tom.mach.v1.9.mbboprice4", ftypes.UINT32)
+miax_options_tom_mach_v1_9.fields.mbbo_priority_customer_size_2 = ProtoField.new("Mbbo Priority Customer Size 2", "miax.options.tom.mach.v1.9.mbboprioritycustomersize2", ftypes.UINT16)
+miax_options_tom_mach_v1_9.fields.mbbo_priority_customer_size_4 = ProtoField.new("Mbbo Priority Customer Size 4", "miax.options.tom.mach.v1.9.mbboprioritycustomersize4", ftypes.UINT32)
+miax_options_tom_mach_v1_9.fields.mbbo_size_2 = ProtoField.new("Mbbo Size 2", "miax.options.tom.mach.v1.9.mbbosize2", ftypes.UINT16)
+miax_options_tom_mach_v1_9.fields.mbbo_size_4 = ProtoField.new("Mbbo Size 4", "miax.options.tom.mach.v1.9.mbbosize4", ftypes.UINT32)
 miax_options_tom_mach_v1_9.fields.message = ProtoField.new("Message", "miax.options.tom.mach.v1.9.message", ftypes.STRING)
 miax_options_tom_mach_v1_9.fields.message_type = ProtoField.new("Message Type", "miax.options.tom.mach.v1.9.messagetype", ftypes.STRING)
 miax_options_tom_mach_v1_9.fields.miax_bbo_posting_increment_indicator = ProtoField.new("Miax Bbo Posting Increment Indicator", "miax.options.tom.mach.v1.9.miaxbbopostingincrementindicator", ftypes.STRING)
 miax_options_tom_mach_v1_9.fields.notification_time = ProtoField.new("Notification Time", "miax.options.tom.mach.v1.9.notificationtime", ftypes.UINT32)
 miax_options_tom_mach_v1_9.fields.offer_condition = ProtoField.new("Offer Condition", "miax.options.tom.mach.v1.9.offercondition", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.offer_price = ProtoField.new("Offer Price", "miax.options.tom.mach.v1.9.offerprice", ftypes.UINT16)
-miax_options_tom_mach_v1_9.fields.offer_priority_customer_size = ProtoField.new("Offer Priority Customer Size", "miax.options.tom.mach.v1.9.offerprioritycustomersize", ftypes.UINT16)
-miax_options_tom_mach_v1_9.fields.offer_size = ProtoField.new("Offer Size", "miax.options.tom.mach.v1.9.offersize", ftypes.UINT16)
+miax_options_tom_mach_v1_9.fields.offer_price_2 = ProtoField.new("Offer Price 2", "miax.options.tom.mach.v1.9.offerprice2", ftypes.UINT16)
+miax_options_tom_mach_v1_9.fields.offer_price_4 = ProtoField.new("Offer Price 4", "miax.options.tom.mach.v1.9.offerprice4", ftypes.UINT32)
+miax_options_tom_mach_v1_9.fields.offer_priority_customer_size_2 = ProtoField.new("Offer Priority Customer Size 2", "miax.options.tom.mach.v1.9.offerprioritycustomersize2", ftypes.UINT16)
+miax_options_tom_mach_v1_9.fields.offer_priority_customer_size_4 = ProtoField.new("Offer Priority Customer Size 4", "miax.options.tom.mach.v1.9.offerprioritycustomersize4", ftypes.UINT32)
+miax_options_tom_mach_v1_9.fields.offer_size_2 = ProtoField.new("Offer Size 2", "miax.options.tom.mach.v1.9.offersize2", ftypes.UINT16)
+miax_options_tom_mach_v1_9.fields.offer_size_4 = ProtoField.new("Offer Size 4", "miax.options.tom.mach.v1.9.offersize4", ftypes.UINT32)
 miax_options_tom_mach_v1_9.fields.opening_time = ProtoField.new("Opening Time", "miax.options.tom.mach.v1.9.openingtime", ftypes.STRING)
 miax_options_tom_mach_v1_9.fields.opening_underlying_market_code = ProtoField.new("Opening Underlying Market Code", "miax.options.tom.mach.v1.9.openingunderlyingmarketcode", ftypes.STRING)
 miax_options_tom_mach_v1_9.fields.packet = ProtoField.new("Packet", "miax.options.tom.mach.v1.9.packet", ftypes.STRING)
@@ -672,61 +681,61 @@ dissect.offer_condition = function(buffer, offset, packet, parent)
   return offset + size_of.offer_condition
 end
 
--- Size: Offer Priority Customer Size
-size_of.offer_priority_customer_size = 2
+-- Size: Offer Priority Customer Size 4
+size_of.offer_priority_customer_size_4 = 4
 
--- Display: Offer Priority Customer Size
-display.offer_priority_customer_size = function(value)
-  return "Offer Priority Customer Size: "..value
+-- Display: Offer Priority Customer Size 4
+display.offer_priority_customer_size_4 = function(value)
+  return "Offer Priority Customer Size 4: "..value
 end
 
--- Dissect: Offer Priority Customer Size
-dissect.offer_priority_customer_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.offer_priority_customer_size)
+-- Dissect: Offer Priority Customer Size 4
+dissect.offer_priority_customer_size_4 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.offer_priority_customer_size_4)
   local value = range:le_uint()
-  local display = display.offer_priority_customer_size(value, buffer, offset, packet, parent)
+  local display = display.offer_priority_customer_size_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.offer_priority_customer_size, range, value, display)
+  parent:add(miax_options_tom_mach_v1_9.fields.offer_priority_customer_size_4, range, value, display)
 
-  return offset + size_of.offer_priority_customer_size
+  return offset + size_of.offer_priority_customer_size_4
 end
 
--- Size: Offer Size
-size_of.offer_size = 2
+-- Size: Offer Size 4
+size_of.offer_size_4 = 4
 
--- Display: Offer Size
-display.offer_size = function(value)
-  return "Offer Size: "..value
+-- Display: Offer Size 4
+display.offer_size_4 = function(value)
+  return "Offer Size 4: "..value
 end
 
--- Dissect: Offer Size
-dissect.offer_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.offer_size)
+-- Dissect: Offer Size 4
+dissect.offer_size_4 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.offer_size_4)
   local value = range:le_uint()
-  local display = display.offer_size(value, buffer, offset, packet, parent)
+  local display = display.offer_size_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.offer_size, range, value, display)
+  parent:add(miax_options_tom_mach_v1_9.fields.offer_size_4, range, value, display)
 
-  return offset + size_of.offer_size
+  return offset + size_of.offer_size_4
 end
 
--- Size: Offer Price
-size_of.offer_price = 2
+-- Size: Offer Price 4
+size_of.offer_price_4 = 4
 
--- Display: Offer Price
-display.offer_price = function(value)
-  return "Offer Price: "..value
+-- Display: Offer Price 4
+display.offer_price_4 = function(value)
+  return "Offer Price 4: "..value
 end
 
--- Dissect: Offer Price
-dissect.offer_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.offer_price)
+-- Dissect: Offer Price 4
+dissect.offer_price_4 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.offer_price_4)
   local value = range:le_uint()
-  local display = display.offer_price(value, buffer, offset, packet, parent)
+  local display = display.offer_price_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.offer_price, range, value, display)
+  parent:add(miax_options_tom_mach_v1_9.fields.offer_price_4, range, value, display)
 
-  return offset + size_of.offer_price
+  return offset + size_of.offer_price_4
 end
 
 -- Size: Bid Condition
@@ -761,61 +770,61 @@ dissect.bid_condition = function(buffer, offset, packet, parent)
   return offset + size_of.bid_condition
 end
 
--- Size: Bid Priority Customer Size
-size_of.bid_priority_customer_size = 2
+-- Size: Bid Priority Customer Size 4
+size_of.bid_priority_customer_size_4 = 4
 
--- Display: Bid Priority Customer Size
-display.bid_priority_customer_size = function(value)
-  return "Bid Priority Customer Size: "..value
+-- Display: Bid Priority Customer Size 4
+display.bid_priority_customer_size_4 = function(value)
+  return "Bid Priority Customer Size 4: "..value
 end
 
--- Dissect: Bid Priority Customer Size
-dissect.bid_priority_customer_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.bid_priority_customer_size)
+-- Dissect: Bid Priority Customer Size 4
+dissect.bid_priority_customer_size_4 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.bid_priority_customer_size_4)
   local value = range:le_uint()
-  local display = display.bid_priority_customer_size(value, buffer, offset, packet, parent)
+  local display = display.bid_priority_customer_size_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.bid_priority_customer_size, range, value, display)
+  parent:add(miax_options_tom_mach_v1_9.fields.bid_priority_customer_size_4, range, value, display)
 
-  return offset + size_of.bid_priority_customer_size
+  return offset + size_of.bid_priority_customer_size_4
 end
 
--- Size: Bid Size
-size_of.bid_size = 2
+-- Size: Bid Size 4
+size_of.bid_size_4 = 4
 
--- Display: Bid Size
-display.bid_size = function(value)
-  return "Bid Size: "..value
+-- Display: Bid Size 4
+display.bid_size_4 = function(value)
+  return "Bid Size 4: "..value
 end
 
--- Dissect: Bid Size
-dissect.bid_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.bid_size)
+-- Dissect: Bid Size 4
+dissect.bid_size_4 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.bid_size_4)
   local value = range:le_uint()
-  local display = display.bid_size(value, buffer, offset, packet, parent)
+  local display = display.bid_size_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.bid_size, range, value, display)
+  parent:add(miax_options_tom_mach_v1_9.fields.bid_size_4, range, value, display)
 
-  return offset + size_of.bid_size
+  return offset + size_of.bid_size_4
 end
 
--- Size: Bid Price
-size_of.bid_price = 2
+-- Size: Bid Price 4
+size_of.bid_price_4 = 4
 
--- Display: Bid Price
-display.bid_price = function(value)
-  return "Bid Price: "..value
+-- Display: Bid Price 4
+display.bid_price_4 = function(value)
+  return "Bid Price 4: "..value
 end
 
--- Dissect: Bid Price
-dissect.bid_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.bid_price)
+-- Dissect: Bid Price 4
+dissect.bid_price_4 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.bid_price_4)
   local value = range:le_uint()
-  local display = display.bid_price(value, buffer, offset, packet, parent)
+  local display = display.bid_price_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.bid_price, range, value, display)
+  parent:add(miax_options_tom_mach_v1_9.fields.bid_price_4, range, value, display)
 
-  return offset + size_of.bid_price
+  return offset + size_of.bid_price_4
 end
 
 -- Display: Wide Double Sided Top of Market Message
@@ -833,26 +842,26 @@ dissect.wide_double_sided_top_of_market_message_fields = function(buffer, offset
   -- Product Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.product_id(buffer, index, packet, parent)
 
-  -- Bid Price: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_price(buffer, index, packet, parent)
+  -- Bid Price 4: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.bid_price_4(buffer, index, packet, parent)
 
-  -- Bid Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size(buffer, index, packet, parent)
+  -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.bid_size_4(buffer, index, packet, parent)
 
-  -- Bid Priority Customer Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_priority_customer_size(buffer, index, packet, parent)
+  -- Bid Priority Customer Size 4: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.bid_priority_customer_size_4(buffer, index, packet, parent)
 
   -- Bid Condition: 1 Byte Ascii String Enum with 4 values
   index = dissect.bid_condition(buffer, index, packet, parent)
 
-  -- Offer Price: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_price(buffer, index, packet, parent)
+  -- Offer Price 4: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.offer_price_4(buffer, index, packet, parent)
 
-  -- Offer Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size(buffer, index, packet, parent)
+  -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.offer_size_4(buffer, index, packet, parent)
 
-  -- Offer Priority Customer Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_priority_customer_size(buffer, index, packet, parent)
+  -- Offer Priority Customer Size 4: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.offer_priority_customer_size_4(buffer, index, packet, parent)
 
   -- Offer Condition: 1 Byte Ascii String Enum with 4 values
   index = dissect.offer_condition(buffer, index, packet, parent)
@@ -864,12 +873,126 @@ end
 dissect.wide_double_sided_top_of_market_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.wide_double_sided_top_of_market_message then
-    local range = buffer(offset, 22)
+    local range = buffer(offset, 34)
     local display = display.wide_double_sided_top_of_market_message(buffer, packet, parent)
     parent = parent:add(miax_options_tom_mach_v1_9.fields.wide_double_sided_top_of_market_message, range, display)
   end
 
   return dissect.wide_double_sided_top_of_market_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Offer Priority Customer Size 2
+size_of.offer_priority_customer_size_2 = 2
+
+-- Display: Offer Priority Customer Size 2
+display.offer_priority_customer_size_2 = function(value)
+  return "Offer Priority Customer Size 2: "..value
+end
+
+-- Dissect: Offer Priority Customer Size 2
+dissect.offer_priority_customer_size_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.offer_priority_customer_size_2)
+  local value = range:le_uint()
+  local display = display.offer_priority_customer_size_2(value, buffer, offset, packet, parent)
+
+  parent:add(miax_options_tom_mach_v1_9.fields.offer_priority_customer_size_2, range, value, display)
+
+  return offset + size_of.offer_priority_customer_size_2
+end
+
+-- Size: Offer Size 2
+size_of.offer_size_2 = 2
+
+-- Display: Offer Size 2
+display.offer_size_2 = function(value)
+  return "Offer Size 2: "..value
+end
+
+-- Dissect: Offer Size 2
+dissect.offer_size_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.offer_size_2)
+  local value = range:le_uint()
+  local display = display.offer_size_2(value, buffer, offset, packet, parent)
+
+  parent:add(miax_options_tom_mach_v1_9.fields.offer_size_2, range, value, display)
+
+  return offset + size_of.offer_size_2
+end
+
+-- Size: Offer Price 2
+size_of.offer_price_2 = 2
+
+-- Display: Offer Price 2
+display.offer_price_2 = function(value)
+  return "Offer Price 2: "..value
+end
+
+-- Dissect: Offer Price 2
+dissect.offer_price_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.offer_price_2)
+  local value = range:le_uint()
+  local display = display.offer_price_2(value, buffer, offset, packet, parent)
+
+  parent:add(miax_options_tom_mach_v1_9.fields.offer_price_2, range, value, display)
+
+  return offset + size_of.offer_price_2
+end
+
+-- Size: Bid Priority Customer Size 2
+size_of.bid_priority_customer_size_2 = 2
+
+-- Display: Bid Priority Customer Size 2
+display.bid_priority_customer_size_2 = function(value)
+  return "Bid Priority Customer Size 2: "..value
+end
+
+-- Dissect: Bid Priority Customer Size 2
+dissect.bid_priority_customer_size_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.bid_priority_customer_size_2)
+  local value = range:le_uint()
+  local display = display.bid_priority_customer_size_2(value, buffer, offset, packet, parent)
+
+  parent:add(miax_options_tom_mach_v1_9.fields.bid_priority_customer_size_2, range, value, display)
+
+  return offset + size_of.bid_priority_customer_size_2
+end
+
+-- Size: Bid Size 2
+size_of.bid_size_2 = 2
+
+-- Display: Bid Size 2
+display.bid_size_2 = function(value)
+  return "Bid Size 2: "..value
+end
+
+-- Dissect: Bid Size 2
+dissect.bid_size_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.bid_size_2)
+  local value = range:le_uint()
+  local display = display.bid_size_2(value, buffer, offset, packet, parent)
+
+  parent:add(miax_options_tom_mach_v1_9.fields.bid_size_2, range, value, display)
+
+  return offset + size_of.bid_size_2
+end
+
+-- Size: Bid Price 2
+size_of.bid_price_2 = 2
+
+-- Display: Bid Price 2
+display.bid_price_2 = function(value)
+  return "Bid Price 2: "..value
+end
+
+-- Dissect: Bid Price 2
+dissect.bid_price_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.bid_price_2)
+  local value = range:le_uint()
+  local display = display.bid_price_2(value, buffer, offset, packet, parent)
+
+  parent:add(miax_options_tom_mach_v1_9.fields.bid_price_2, range, value, display)
+
+  return offset + size_of.bid_price_2
 end
 
 -- Display: Double-Sided Top of Market Compact Message
@@ -887,26 +1010,26 @@ dissect.double_sided_top_of_market_compact_message_fields = function(buffer, off
   -- Product Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.product_id(buffer, index, packet, parent)
 
-  -- Bid Price: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_price(buffer, index, packet, parent)
+  -- Bid Price 2: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.bid_price_2(buffer, index, packet, parent)
 
-  -- Bid Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size(buffer, index, packet, parent)
+  -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.bid_size_2(buffer, index, packet, parent)
 
-  -- Bid Priority Customer Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_priority_customer_size(buffer, index, packet, parent)
+  -- Bid Priority Customer Size 2: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.bid_priority_customer_size_2(buffer, index, packet, parent)
 
   -- Bid Condition: 1 Byte Ascii String Enum with 4 values
   index = dissect.bid_condition(buffer, index, packet, parent)
 
-  -- Offer Price: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_price(buffer, index, packet, parent)
+  -- Offer Price 2: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.offer_price_2(buffer, index, packet, parent)
 
-  -- Offer Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size(buffer, index, packet, parent)
+  -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.offer_size_2(buffer, index, packet, parent)
 
-  -- Offer Priority Customer Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_priority_customer_size(buffer, index, packet, parent)
+  -- Offer Priority Customer Size 2: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.offer_priority_customer_size_2(buffer, index, packet, parent)
 
   -- Offer Condition: 1 Byte Ascii String Enum with 4 values
   index = dissect.offer_condition(buffer, index, packet, parent)
@@ -958,61 +1081,61 @@ dissect.mbbo_condition = function(buffer, offset, packet, parent)
   return offset + size_of.mbbo_condition
 end
 
--- Size: Mbbo Priority Customer Size
-size_of.mbbo_priority_customer_size = 2
+-- Size: Mbbo Priority Customer Size 4
+size_of.mbbo_priority_customer_size_4 = 4
 
--- Display: Mbbo Priority Customer Size
-display.mbbo_priority_customer_size = function(value)
-  return "Mbbo Priority Customer Size: "..value
+-- Display: Mbbo Priority Customer Size 4
+display.mbbo_priority_customer_size_4 = function(value)
+  return "Mbbo Priority Customer Size 4: "..value
 end
 
--- Dissect: Mbbo Priority Customer Size
-dissect.mbbo_priority_customer_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.mbbo_priority_customer_size)
+-- Dissect: Mbbo Priority Customer Size 4
+dissect.mbbo_priority_customer_size_4 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.mbbo_priority_customer_size_4)
   local value = range:le_uint()
-  local display = display.mbbo_priority_customer_size(value, buffer, offset, packet, parent)
+  local display = display.mbbo_priority_customer_size_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.mbbo_priority_customer_size, range, value, display)
+  parent:add(miax_options_tom_mach_v1_9.fields.mbbo_priority_customer_size_4, range, value, display)
 
-  return offset + size_of.mbbo_priority_customer_size
+  return offset + size_of.mbbo_priority_customer_size_4
 end
 
--- Size: Mbbo Size
-size_of.mbbo_size = 2
+-- Size: Mbbo Size 4
+size_of.mbbo_size_4 = 4
 
--- Display: Mbbo Size
-display.mbbo_size = function(value)
-  return "Mbbo Size: "..value
+-- Display: Mbbo Size 4
+display.mbbo_size_4 = function(value)
+  return "Mbbo Size 4: "..value
 end
 
--- Dissect: Mbbo Size
-dissect.mbbo_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.mbbo_size)
+-- Dissect: Mbbo Size 4
+dissect.mbbo_size_4 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.mbbo_size_4)
   local value = range:le_uint()
-  local display = display.mbbo_size(value, buffer, offset, packet, parent)
+  local display = display.mbbo_size_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.mbbo_size, range, value, display)
+  parent:add(miax_options_tom_mach_v1_9.fields.mbbo_size_4, range, value, display)
 
-  return offset + size_of.mbbo_size
+  return offset + size_of.mbbo_size_4
 end
 
--- Size: Mbbo Price
-size_of.mbbo_price = 2
+-- Size: Mbbo Price 4
+size_of.mbbo_price_4 = 4
 
--- Display: Mbbo Price
-display.mbbo_price = function(value)
-  return "Mbbo Price: "..value
+-- Display: Mbbo Price 4
+display.mbbo_price_4 = function(value)
+  return "Mbbo Price 4: "..value
 end
 
--- Dissect: Mbbo Price
-dissect.mbbo_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.mbbo_price)
+-- Dissect: Mbbo Price 4
+dissect.mbbo_price_4 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.mbbo_price_4)
   local value = range:le_uint()
-  local display = display.mbbo_price(value, buffer, offset, packet, parent)
+  local display = display.mbbo_price_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.mbbo_price, range, value, display)
+  parent:add(miax_options_tom_mach_v1_9.fields.mbbo_price_4, range, value, display)
 
-  return offset + size_of.mbbo_price
+  return offset + size_of.mbbo_price_4
 end
 
 -- Display: Wide Top of Market Offer Message
@@ -1030,14 +1153,14 @@ dissect.wide_top_of_market_offer_message_fields = function(buffer, offset, packe
   -- Product Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.product_id(buffer, index, packet, parent)
 
-  -- Mbbo Price: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.mbbo_price(buffer, index, packet, parent)
+  -- Mbbo Price 4: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.mbbo_price_4(buffer, index, packet, parent)
 
-  -- Mbbo Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.mbbo_size(buffer, index, packet, parent)
+  -- Mbbo Size 4: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.mbbo_size_4(buffer, index, packet, parent)
 
-  -- Mbbo Priority Customer Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.mbbo_priority_customer_size(buffer, index, packet, parent)
+  -- Mbbo Priority Customer Size 4: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.mbbo_priority_customer_size_4(buffer, index, packet, parent)
 
   -- Mbbo Condition: 1 Byte Ascii String Enum with 4 values
   index = dissect.mbbo_condition(buffer, index, packet, parent)
@@ -1049,7 +1172,7 @@ end
 dissect.wide_top_of_market_offer_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.wide_top_of_market_offer_message then
-    local range = buffer(offset, 15)
+    local range = buffer(offset, 21)
     local display = display.wide_top_of_market_offer_message(buffer, packet, parent)
     parent = parent:add(miax_options_tom_mach_v1_9.fields.wide_top_of_market_offer_message, range, display)
   end
@@ -1072,14 +1195,14 @@ dissect.wide_top_of_market_bid_message_fields = function(buffer, offset, packet,
   -- Product Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.product_id(buffer, index, packet, parent)
 
-  -- Mbbo Price: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.mbbo_price(buffer, index, packet, parent)
+  -- Mbbo Price 4: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.mbbo_price_4(buffer, index, packet, parent)
 
-  -- Mbbo Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.mbbo_size(buffer, index, packet, parent)
+  -- Mbbo Size 4: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.mbbo_size_4(buffer, index, packet, parent)
 
-  -- Mbbo Priority Customer Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.mbbo_priority_customer_size(buffer, index, packet, parent)
+  -- Mbbo Priority Customer Size 4: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.mbbo_priority_customer_size_4(buffer, index, packet, parent)
 
   -- Mbbo Condition: 1 Byte Ascii String Enum with 4 values
   index = dissect.mbbo_condition(buffer, index, packet, parent)
@@ -1091,12 +1214,69 @@ end
 dissect.wide_top_of_market_bid_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.wide_top_of_market_bid_message then
-    local range = buffer(offset, 15)
+    local range = buffer(offset, 21)
     local display = display.wide_top_of_market_bid_message(buffer, packet, parent)
     parent = parent:add(miax_options_tom_mach_v1_9.fields.wide_top_of_market_bid_message, range, display)
   end
 
   return dissect.wide_top_of_market_bid_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Mbbo Priority Customer Size 2
+size_of.mbbo_priority_customer_size_2 = 2
+
+-- Display: Mbbo Priority Customer Size 2
+display.mbbo_priority_customer_size_2 = function(value)
+  return "Mbbo Priority Customer Size 2: "..value
+end
+
+-- Dissect: Mbbo Priority Customer Size 2
+dissect.mbbo_priority_customer_size_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.mbbo_priority_customer_size_2)
+  local value = range:le_uint()
+  local display = display.mbbo_priority_customer_size_2(value, buffer, offset, packet, parent)
+
+  parent:add(miax_options_tom_mach_v1_9.fields.mbbo_priority_customer_size_2, range, value, display)
+
+  return offset + size_of.mbbo_priority_customer_size_2
+end
+
+-- Size: Mbbo Size 2
+size_of.mbbo_size_2 = 2
+
+-- Display: Mbbo Size 2
+display.mbbo_size_2 = function(value)
+  return "Mbbo Size 2: "..value
+end
+
+-- Dissect: Mbbo Size 2
+dissect.mbbo_size_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.mbbo_size_2)
+  local value = range:le_uint()
+  local display = display.mbbo_size_2(value, buffer, offset, packet, parent)
+
+  parent:add(miax_options_tom_mach_v1_9.fields.mbbo_size_2, range, value, display)
+
+  return offset + size_of.mbbo_size_2
+end
+
+-- Size: Mbbo Price 2
+size_of.mbbo_price_2 = 2
+
+-- Display: Mbbo Price 2
+display.mbbo_price_2 = function(value)
+  return "Mbbo Price 2: "..value
+end
+
+-- Dissect: Mbbo Price 2
+dissect.mbbo_price_2 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.mbbo_price_2)
+  local value = range:le_uint()
+  local display = display.mbbo_price_2(value, buffer, offset, packet, parent)
+
+  parent:add(miax_options_tom_mach_v1_9.fields.mbbo_price_2, range, value, display)
+
+  return offset + size_of.mbbo_price_2
 end
 
 -- Display: Top of Market Offer Compact Message
@@ -1114,14 +1294,14 @@ dissect.top_of_market_offer_compact_message_fields = function(buffer, offset, pa
   -- Product Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.product_id(buffer, index, packet, parent)
 
-  -- Mbbo Price: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.mbbo_price(buffer, index, packet, parent)
+  -- Mbbo Price 2: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.mbbo_price_2(buffer, index, packet, parent)
 
-  -- Mbbo Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.mbbo_size(buffer, index, packet, parent)
+  -- Mbbo Size 2: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.mbbo_size_2(buffer, index, packet, parent)
 
-  -- Mbbo Priority Customer Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.mbbo_priority_customer_size(buffer, index, packet, parent)
+  -- Mbbo Priority Customer Size 2: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.mbbo_priority_customer_size_2(buffer, index, packet, parent)
 
   -- Mbbo Condition: 1 Byte Ascii String Enum with 4 values
   index = dissect.mbbo_condition(buffer, index, packet, parent)
@@ -1156,14 +1336,14 @@ dissect.top_of_market_bid_compact_message_fields = function(buffer, offset, pack
   -- Product Id: 4 Byte Unsigned Fixed Width Integer
   index = dissect.product_id(buffer, index, packet, parent)
 
-  -- Mbbo Price: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.mbbo_price(buffer, index, packet, parent)
+  -- Mbbo Price 2: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.mbbo_price_2(buffer, index, packet, parent)
 
-  -- Mbbo Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.mbbo_size(buffer, index, packet, parent)
+  -- Mbbo Size 2: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.mbbo_size_2(buffer, index, packet, parent)
 
-  -- Mbbo Priority Customer Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.mbbo_priority_customer_size(buffer, index, packet, parent)
+  -- Mbbo Priority Customer Size 2: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.mbbo_priority_customer_size_2(buffer, index, packet, parent)
 
   -- Mbbo Condition: 1 Byte Ascii String Enum with 4 values
   index = dissect.mbbo_condition(buffer, index, packet, parent)
@@ -1797,11 +1977,11 @@ size_of.data = function(buffer, offset, code)
   end
   -- Size of Wide Top of Market Bid Message
   if code == "W" then
-    return 15
+    return 21
   end
   -- Size of Wide Top of Market Offer Message
   if code == "A" then
-    return 15
+    return 21
   end
   -- Size of Double-Sided Top of Market Compact Message
   if code == "d" then
@@ -1809,7 +1989,7 @@ size_of.data = function(buffer, offset, code)
   end
   -- Size of Wide Double Sided Top of Market Message
   if code == "D" then
-    return 22
+    return 34
   end
   -- Size of Trade Message
   if code == "T" then
