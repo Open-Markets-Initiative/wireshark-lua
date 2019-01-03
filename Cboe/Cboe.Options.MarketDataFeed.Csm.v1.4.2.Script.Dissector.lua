@@ -26,6 +26,7 @@ cboe_options_marketdatafeed_csm_v1_4_2.fields.contract_size = ProtoField.new("Co
 cboe_options_marketdatafeed_csm_v1_4_2.fields.currency_code = ProtoField.new("Currency Code", "cboe.options.marketdatafeed.csm.v1.4.2.currencycode", ftypes.STRING)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.currency_code_length = ProtoField.new("Currency Code Length", "cboe.options.marketdatafeed.csm.v1.4.2.currencycodelength", ftypes.UINT8)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.currency_code_text = ProtoField.new("Currency Code Text", "cboe.options.marketdatafeed.csm.v1.4.2.currencycodetext", ftypes.STRING)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.current_market_refresh_message = ProtoField.new("Current Market Refresh Message", "cboe.options.marketdatafeed.csm.v1.4.2.currentmarketrefreshmessage", ftypes.STRING)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.current_market_update_message = ProtoField.new("Current Market Update Message", "cboe.options.marketdatafeed.csm.v1.4.2.currentmarketupdatemessage", ftypes.STRING)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.eop = ProtoField.new("Eop", "cboe.options.marketdatafeed.csm.v1.4.2.eop", ftypes.STRING)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.eop_exponent = ProtoField.new("Eop Exponent", "cboe.options.marketdatafeed.csm.v1.4.2.eopexponent", ftypes.INT8, {[1]="Yes",[0]="No"})
@@ -136,6 +137,7 @@ cboe_options_marketdatafeed_csm_v1_4_2.fields.version = ProtoField.new("Version"
 
 -- Cboe Options MarketDataFeed Csm 1.4.2 Element Dissection Options
 show.currency_code = true
+show.current_market_refresh_message = true
 show.current_market_update_message = true
 show.eop = true
 show.expected_opening_price_and_size_message = true
@@ -178,6 +180,7 @@ show.payload = false
 
 -- Register Cboe Options MarketDataFeed Csm 1.4.2 Show Options
 cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_currency_code = Pref.bool("Show Currency Code", show.currency_code, "Parse and add Currency Code to protocol tree")
+cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_current_market_refresh_message = Pref.bool("Show Current Market Refresh Message", show.current_market_refresh_message, "Parse and add Current Market Refresh Message to protocol tree")
 cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_current_market_update_message = Pref.bool("Show Current Market Update Message", show.current_market_update_message, "Parse and add Current Market Update Message to protocol tree")
 cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_eop = Pref.bool("Show Eop", show.eop, "Parse and add Eop to protocol tree")
 cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_expected_opening_price_and_size_message = Pref.bool("Show Expected Opening Price And Size Message", show.expected_opening_price_and_size_message, "Parse and add Expected Opening Price And Size Message to protocol tree")
@@ -225,6 +228,10 @@ function cboe_options_marketdatafeed_csm_v1_4_2.prefs_changed()
   -- Check if show options have changed
   if show.currency_code ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_currency_code then
     show.currency_code = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_currency_code
+    changed = true
+  end
+  if show.current_market_refresh_message ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_current_market_refresh_message then
+    show.current_market_refresh_message = cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_current_market_refresh_message
     changed = true
   end
   if show.current_market_update_message ~= cboe_options_marketdatafeed_csm_v1_4_2.prefs.show_current_market_update_message then
@@ -1999,6 +2006,68 @@ dissect.market_data_refresh_message = function(buffer, offset, packet, parent)
   return dissect.market_data_refresh_message_fields(buffer, offset, packet, parent)
 end
 
+-- Calculate runtime size: Current Market Refresh Message
+size_of.current_market_refresh_message = function(buffer, offset)
+  local index = 0
+
+  index = index + 15
+
+  -- Calculate field size from count
+  local md_entry_count = buffer(offset + index - 1, 1):uint()
+  index = index + md_entry_count * 11
+
+  return index
+end
+
+-- Display: Current Market Refresh Message
+display.current_market_refresh_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Current Market Refresh Message
+dissect.current_market_refresh_message_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Class Key: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.class_key(buffer, index, packet, parent)
+
+  -- Security Id: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.security_id(buffer, index, packet, parent)
+
+  -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  index = dissect.security_trading_status(buffer, index, packet, parent)
+
+  -- Price Type: 1 Byte Unsigned Fixed Width Integer
+  index = dissect.price_type(buffer, index, packet, parent)
+
+  -- Appl Seq Num: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.appl_seq_num(buffer, index, packet, parent)
+
+  -- No Entries: 1 Byte Unsigned Fixed Width Integer
+  index = dissect.no_entries(buffer, index, packet, parent)
+
+  -- Md Entry: Struct of 4 fields
+  local md_entry_count = buffer(index - 1, 1):uint()
+  for i = 1, md_entry_count do
+    index = dissect.md_entry(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
+-- Dissect: Current Market Refresh Message
+dissect.current_market_refresh_message = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.current_market_refresh_message then
+    local length = size_of.current_market_refresh_message(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.current_market_refresh_message(buffer, packet, parent)
+    parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.current_market_refresh_message, range, display)
+  end
+
+  return dissect.current_market_refresh_message_fields(buffer, offset, packet, parent)
+end
+
 -- Size: Leg Side
 size_of.leg_side = 1
 
@@ -3178,6 +3247,10 @@ size_of.payload = function(buffer, offset, code)
   if code == 13 then
     return size_of.security_definition_message(buffer, offset)
   end
+  -- Size of Current Market Refresh Message
+  if code == 11 then
+    return size_of.current_market_refresh_message(buffer, offset)
+  end
   -- Size of Market Data Refresh Message
   if code == 20 then
     return size_of.market_data_refresh_message(buffer, offset)
@@ -3232,6 +3305,10 @@ dissect.payload_branches = function(buffer, offset, packet, parent, code)
   -- Dissect Security Definition Message
   if code == 13 then
     return dissect.security_definition_message(buffer, offset, packet, parent)
+  end
+  -- Dissect Current Market Refresh Message
+  if code == 11 then
+    return dissect.current_market_refresh_message(buffer, offset, packet, parent)
   end
   -- Dissect Market Data Refresh Message
   if code == 20 then
@@ -3342,6 +3419,9 @@ display.template_id = function(value)
   if value == 13 then
     return "Template Id: Security Definition Message (13)"
   end
+  if value == 11 then
+    return "Template Id: Current Market Refresh Message (11)"
+  end
   if value == 20 then
     return "Template Id: Market Data Refresh Message (20)"
   end
@@ -3419,7 +3499,7 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
   index = dissect.message_length(buffer, index, packet, parent)
 
-  -- Template Id: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  -- Template Id: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
   index = dissect.template_id(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String
@@ -3469,7 +3549,7 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   -- Message Header: Struct of 4 fields
   index = dissect.message_header(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 11 branches
+  -- Payload: Runtime Type with 12 branches
   local code = buffer(index - 6, 1):uint()
   index = dissect.payload(buffer, index, packet, parent, code)
 

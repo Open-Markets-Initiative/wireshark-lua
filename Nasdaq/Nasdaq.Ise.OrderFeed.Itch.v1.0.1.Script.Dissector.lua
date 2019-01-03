@@ -62,6 +62,8 @@ nasdaq_ise_orderfeed_itch_v1_0_1.fields.packet_header = ProtoField.new("Packet H
 nasdaq_ise_orderfeed_itch_v1_0_1.fields.paired_contracts = ProtoField.new("Paired Contracts", "nasdaq.ise.orderfeed.itch.v1.0.1.pairedcontracts", ftypes.UINT32)
 nasdaq_ise_orderfeed_itch_v1_0_1.fields.payload = ProtoField.new("Payload", "nasdaq.ise.orderfeed.itch.v1.0.1.payload", ftypes.STRING)
 nasdaq_ise_orderfeed_itch_v1_0_1.fields.price = ProtoField.new("Price", "nasdaq.ise.orderfeed.itch.v1.0.1.price", ftypes.UINT32)
+nasdaq_ise_orderfeed_itch_v1_0_1.fields.response_price = ProtoField.new("Response Price", "nasdaq.ise.orderfeed.itch.v1.0.1.responseprice", ftypes.UINT32)
+nasdaq_ise_orderfeed_itch_v1_0_1.fields.response_size = ProtoField.new("Response Size", "nasdaq.ise.orderfeed.itch.v1.0.1.responsesize", ftypes.UINT32)
 nasdaq_ise_orderfeed_itch_v1_0_1.fields.security_open_closed_message = ProtoField.new("Security Open Closed Message", "nasdaq.ise.orderfeed.itch.v1.0.1.securityopenclosedmessage", ftypes.STRING)
 nasdaq_ise_orderfeed_itch_v1_0_1.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.ise.orderfeed.itch.v1.0.1.securitysymbol", ftypes.STRING)
 nasdaq_ise_orderfeed_itch_v1_0_1.fields.sequence = ProtoField.new("Sequence", "nasdaq.ise.orderfeed.itch.v1.0.1.sequence", ftypes.UINT64)
@@ -182,6 +184,44 @@ end
 -- Dissect Nasdaq Ise OrderFeed Itch 1.0.1
 -----------------------------------------------------------------------
 
+-- Size: Response Size
+size_of.response_size = 4
+
+-- Display: Response Size
+display.response_size = function(value)
+  return "Response Size: "..value
+end
+
+-- Dissect: Response Size
+dissect.response_size = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.response_size)
+  local value = range:uint()
+  local display = display.response_size(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_ise_orderfeed_itch_v1_0_1.fields.response_size, range, value, display)
+
+  return offset + size_of.response_size
+end
+
+-- Size: Response Price
+size_of.response_price = 4
+
+-- Display: Response Price
+display.response_price = function(value)
+  return "Response Price: "..value
+end
+
+-- Dissect: Response Price
+dissect.response_price = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.response_price)
+  local value = range:uint()
+  local display = display.response_price(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_ise_orderfeed_itch_v1_0_1.fields.response_price, range, value, display)
+
+  return offset + size_of.response_price
+end
+
 -- Display: Auction Response
 display.auction_response = function(buffer, offset, size, packet, parent)
   return ""
@@ -191,10 +231,10 @@ end
 dissect.auction_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Response Price
+  -- Response Price: 4 Byte Unsigned Fixed Width Integer
   index = dissect.response_price(buffer, index, packet, parent)
 
-  -- Response Size
+  -- Response Size: 4 Byte Unsigned Fixed Width Integer
   index = dissect.response_size(buffer, index, packet, parent)
 
   return index
@@ -204,7 +244,7 @@ end
 dissect.auction_response = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.auction_response then
-    local range = buffer(offset, 0)
+    local range = buffer(offset, 8)
     local display = display.auction_response(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_orderfeed_itch_v1_0_1.fields.auction_response, range, display)
   end
@@ -549,7 +589,7 @@ size_of.auction_message = function(buffer, offset)
 
   -- Calculate field size from count
   local auction_response_count = buffer(offset + index - 1, 1):uint()
-  index = index + auction_response_count * 0
+  index = index + auction_response_count * 8
 
   return index
 end
