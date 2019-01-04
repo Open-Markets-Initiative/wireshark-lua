@@ -35,13 +35,23 @@ nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.current_trading_state = ProtoField.
 nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.current_year = ProtoField.new("Current Year", "nasdaq.ise.ordercombofeed.itch.v1.0.1.currentyear", ftypes.UINT16)
 nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.event_code = ProtoField.new("Event Code", "nasdaq.ise.ordercombofeed.itch.v1.0.1.eventcode", ftypes.STRING)
 nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.exec_flag = ProtoField.new("Exec Flag", "nasdaq.ise.ordercombofeed.itch.v1.0.1.execflag", ftypes.STRING)
+nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.expiration_day = ProtoField.new("Expiration Day", "nasdaq.ise.ordercombofeed.itch.v1.0.1.expirationday", ftypes.UINT8)
+nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.ise.ordercombofeed.itch.v1.0.1.expirationmonth", ftypes.UINT8)
+nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.ise.ordercombofeed.itch.v1.0.1.expirationyear", ftypes.UINT8)
+nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.ise.ordercombofeed.itch.v1.0.1.explicitstrikeprice", ftypes.UINT64)
 nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.giveup = ProtoField.new("Giveup", "nasdaq.ise.ordercombofeed.itch.v1.0.1.giveup", ftypes.STRING)
+nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.leg_id = ProtoField.new("Leg Id", "nasdaq.ise.ordercombofeed.itch.v1.0.1.legid", ftypes.UINT8)
+nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.leg_information = ProtoField.new("Leg Information", "nasdaq.ise.ordercombofeed.itch.v1.0.1.leginformation", ftypes.STRING)
+nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.leg_ratio = ProtoField.new("Leg Ratio", "nasdaq.ise.ordercombofeed.itch.v1.0.1.legratio", ftypes.UINT32)
 nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.length = ProtoField.new("Length", "nasdaq.ise.ordercombofeed.itch.v1.0.1.length", ftypes.UINT16)
 nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.message = ProtoField.new("Message", "nasdaq.ise.ordercombofeed.itch.v1.0.1.message", ftypes.STRING)
 nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.ise.ordercombofeed.itch.v1.0.1.messageheader", ftypes.STRING)
 nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.message_type = ProtoField.new("Message Type", "nasdaq.ise.ordercombofeed.itch.v1.0.1.messagetype", ftypes.STRING)
 nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.number_of_legs = ProtoField.new("Number Of Legs", "nasdaq.ise.ordercombofeed.itch.v1.0.1.numberoflegs", ftypes.UINT8)
+nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.number_of_responses = ProtoField.new("Number Of Responses", "nasdaq.ise.ordercombofeed.itch.v1.0.1.numberofresponses", ftypes.UINT8)
 nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.open_state = ProtoField.new("Open State", "nasdaq.ise.ordercombofeed.itch.v1.0.1.openstate", ftypes.STRING)
+nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.option_id = ProtoField.new("Option Id", "nasdaq.ise.ordercombofeed.itch.v1.0.1.optionid", ftypes.UINT32)
+nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.option_type = ProtoField.new("Option Type", "nasdaq.ise.ordercombofeed.itch.v1.0.1.optiontype", ftypes.STRING)
 nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.order_capacity = ProtoField.new("Order Capacity", "nasdaq.ise.ordercombofeed.itch.v1.0.1.ordercapacity", ftypes.STRING)
 nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.order_type = ProtoField.new("Order Type", "nasdaq.ise.ordercombofeed.itch.v1.0.1.ordertype", ftypes.STRING)
 nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.owner_id = ProtoField.new("Owner Id", "nasdaq.ise.ordercombofeed.itch.v1.0.1.ownerid", ftypes.STRING)
@@ -52,6 +62,7 @@ nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.price = ProtoField.new("Price", "na
 nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.response_price = ProtoField.new("Response Price", "nasdaq.ise.ordercombofeed.itch.v1.0.1.responseprice", ftypes.UINT32)
 nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.response_size = ProtoField.new("Response Size", "nasdaq.ise.ordercombofeed.itch.v1.0.1.responsesize", ftypes.UINT32)
 nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.scope = ProtoField.new("Scope", "nasdaq.ise.ordercombofeed.itch.v1.0.1.scope", ftypes.STRING)
+nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.ise.ordercombofeed.itch.v1.0.1.securitysymbol", ftypes.STRING)
 nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.sequence = ProtoField.new("Sequence", "nasdaq.ise.ordercombofeed.itch.v1.0.1.sequence", ftypes.UINT64)
 nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.session = ProtoField.new("Session", "nasdaq.ise.ordercombofeed.itch.v1.0.1.session", ftypes.STRING)
 nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.side = ProtoField.new("Side", "nasdaq.ise.ordercombofeed.itch.v1.0.1.side", ftypes.STRING)
@@ -76,6 +87,7 @@ show.auction_response = true
 show.complex_strategy_auction_message = true
 show.complex_strategy_directory_message = true
 show.complex_strategy_order_on_book_message = true
+show.leg_information = true
 show.message = true
 show.message_header = true
 show.packet = true
@@ -90,6 +102,7 @@ nasdaq_ise_ordercombofeed_itch_v1_0_1.prefs.show_auction_response = Pref.bool("S
 nasdaq_ise_ordercombofeed_itch_v1_0_1.prefs.show_complex_strategy_auction_message = Pref.bool("Show Complex Strategy Auction Message", show.complex_strategy_auction_message, "Parse and add Complex Strategy Auction Message to protocol tree")
 nasdaq_ise_ordercombofeed_itch_v1_0_1.prefs.show_complex_strategy_directory_message = Pref.bool("Show Complex Strategy Directory Message", show.complex_strategy_directory_message, "Parse and add Complex Strategy Directory Message to protocol tree")
 nasdaq_ise_ordercombofeed_itch_v1_0_1.prefs.show_complex_strategy_order_on_book_message = Pref.bool("Show Complex Strategy Order On Book Message", show.complex_strategy_order_on_book_message, "Parse and add Complex Strategy Order On Book Message to protocol tree")
+nasdaq_ise_ordercombofeed_itch_v1_0_1.prefs.show_leg_information = Pref.bool("Show Leg Information", show.leg_information, "Parse and add Leg Information to protocol tree")
 nasdaq_ise_ordercombofeed_itch_v1_0_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 nasdaq_ise_ordercombofeed_itch_v1_0_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 nasdaq_ise_ordercombofeed_itch_v1_0_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
@@ -118,6 +131,10 @@ function nasdaq_ise_ordercombofeed_itch_v1_0_1.prefs_changed()
   end
   if show.complex_strategy_order_on_book_message ~= nasdaq_ise_ordercombofeed_itch_v1_0_1.prefs.show_complex_strategy_order_on_book_message then
     show.complex_strategy_order_on_book_message = nasdaq_ise_ordercombofeed_itch_v1_0_1.prefs.show_complex_strategy_order_on_book_message
+    changed = true
+  end
+  if show.leg_information ~= nasdaq_ise_ordercombofeed_itch_v1_0_1.prefs.show_leg_information then
+    show.leg_information = nasdaq_ise_ordercombofeed_itch_v1_0_1.prefs.show_leg_information
     changed = true
   end
   if show.message ~= nasdaq_ise_ordercombofeed_itch_v1_0_1.prefs.show_message then
@@ -232,22 +249,22 @@ dissect.auction_response = function(buffer, offset, packet, parent)
   return dissect.auction_response_fields(buffer, offset, packet, parent)
 end
 
--- Size: Number Of Legs
-size_of.number_of_legs = 1
+-- Size: Number Of Responses
+size_of.number_of_responses = 1
 
--- Display: Number Of Legs
-display.number_of_legs = function(value)
-  return "Number Of Legs: "..value
+-- Display: Number Of Responses
+display.number_of_responses = function(value)
+  return "Number Of Responses: "..value
 end
 
--- Dissect: Number Of Legs
-dissect.number_of_legs = function(buffer, offset, packet, parent)
+-- Dissect: Number Of Responses
+dissect.number_of_responses = function(buffer, offset, packet, parent)
   local length = 1
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.number_of_legs(value, buffer, offset, packet, parent)
+  local display = display.number_of_responses(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.number_of_legs, range, value, display)
+  parent:add(nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.number_of_responses, range, value, display)
 
   return offset + length, value
 end
@@ -257,17 +274,17 @@ size_of.auction_type = 1
 
 -- Display: Auction Type
 display.auction_type = function(value)
-  if value == "‘E’" then
-    return "Auction Type: Exposure (‘E’)"
+  if value == "E" then
+    return "Auction Type: Exposure (E)"
   end
-  if value == "‘C’" then
-    return "Auction Type: Facilitation (‘C’)"
+  if value == "C" then
+    return "Auction Type: Facilitation (C)"
   end
-  if value == "‘S’" then
-    return "Auction Type: Solicitation (‘S’)"
+  if value == "S" then
+    return "Auction Type: Solicitation (S)"
   end
-  if value == "‘P’" then
-    return "Auction Type: Pim (‘P’)"
+  if value == "P" then
+    return "Auction Type: Pim (P)"
   end
 
   return "Auction Type: Unknown("..value..")"
@@ -401,29 +418,29 @@ size_of.order_capacity = 1
 
 -- Display: Order Capacity
 display.order_capacity = function(value)
-  if value == "‘C’" then
-    return "Order Capacity: Customer (‘C’)"
+  if value == "C" then
+    return "Order Capacity: Customer (C)"
   end
-  if value == "‘D’" then
-    return "Order Capacity: Customer Professional (‘D’)"
+  if value == "D" then
+    return "Order Capacity: Customer Professional (D)"
   end
-  if value == "‘F’" then
-    return "Order Capacity: Firm (‘F’)"
+  if value == "F" then
+    return "Order Capacity: Firm (F)"
   end
-  if value == "‘B’" then
-    return "Order Capacity: Broker Dealer Customer (‘B’)"
+  if value == "B" then
+    return "Order Capacity: Broker Dealer Customer (B)"
   end
-  if value == "‘K’" then
-    return "Order Capacity: Broker Dealer Firm (‘K’)"
+  if value == "K" then
+    return "Order Capacity: Broker Dealer Firm (K)"
   end
-  if value == "‘E’" then
-    return "Order Capacity: Proprietary (‘E’)"
+  if value == "E" then
+    return "Order Capacity: Proprietary (E)"
   end
-  if value == "‘N’" then
-    return "Order Capacity: Away Market Maker (‘N’)"
+  if value == "N" then
+    return "Order Capacity: Away Market Maker (N)"
   end
-  if value == "‘M’" then
-    return "Order Capacity: Market Maker (‘M’)"
+  if value == "M" then
+    return "Order Capacity: Market Maker (M)"
   end
 
   return "Order Capacity: Unknown("..value..")"
@@ -445,11 +462,11 @@ size_of.exec_flag = 1
 
 -- Display: Exec Flag
 display.exec_flag = function(value)
-  if value == "‘N’" then
-    return "Exec Flag: None (‘N’)"
+  if value == "N" then
+    return "Exec Flag: None (N)"
   end
-  if value == "‘A’" then
-    return "Exec Flag: Aon (‘A’)"
+  if value == "A" then
+    return "Exec Flag: Aon (A)"
   end
 
   return "Exec Flag: Unknown("..value..")"
@@ -683,8 +700,8 @@ dissect.complex_strategy_auction_message_fields = function(buffer, offset, packe
   -- Auction Type: 1 Byte Ascii String Enum with 4 values
   index = dissect.auction_type(buffer, index, packet, parent)
 
-  -- Number Of Legs: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.number_of_legs(buffer, index, packet, parent)
+  -- Number Of Responses: 1 Byte Unsigned Fixed Width Integer
+  index = dissect.number_of_responses(buffer, index, packet, parent)
 
   -- Auction Response: Struct of 2 fields
   local auction_response_count = buffer(index - 1, 1):uint()
@@ -886,6 +903,261 @@ dissect.strategy_trading_action_message = function(buffer, offset, packet, paren
   return dissect.strategy_trading_action_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Leg Ratio
+size_of.leg_ratio = 4
+
+-- Display: Leg Ratio
+display.leg_ratio = function(value)
+  return "Leg Ratio: "..value
+end
+
+-- Dissect: Leg Ratio
+dissect.leg_ratio = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.leg_ratio)
+  local value = range:uint()
+  local display = display.leg_ratio(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.leg_ratio, range, value, display)
+
+  return offset + size_of.leg_ratio
+end
+
+-- Size: Option Type
+size_of.option_type = 1
+
+-- Display: Option Type
+display.option_type = function(value)
+  if value == "C" then
+    return "Option Type: Call (C)"
+  end
+  if value == "P" then
+    return "Option Type: Put (P)"
+  end
+  if value == " " then
+    return "Option Type: Stock (<whitespace>)"
+  end
+
+  return "Option Type: Unknown("..value..")"
+end
+
+-- Dissect: Option Type
+dissect.option_type = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.option_type)
+  local value = range:string()
+  local display = display.option_type(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.option_type, range, value, display)
+
+  return offset + size_of.option_type
+end
+
+-- Size: Explicit Strike Price
+size_of.explicit_strike_price = 8
+
+-- Display: Explicit Strike Price
+display.explicit_strike_price = function(value)
+  return "Explicit Strike Price: "..value
+end
+
+-- Dissect: Explicit Strike Price
+dissect.explicit_strike_price = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.explicit_strike_price)
+  local value = range:uint64()
+  local display = display.explicit_strike_price(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.explicit_strike_price, range, value, display)
+
+  return offset + size_of.explicit_strike_price
+end
+
+-- Size: Expiration Day
+size_of.expiration_day = 1
+
+-- Display: Expiration Day
+display.expiration_day = function(value)
+  return "Expiration Day: "..value
+end
+
+-- Dissect: Expiration Day
+dissect.expiration_day = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.expiration_day)
+  local value = range:uint()
+  local display = display.expiration_day(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.expiration_day, range, value, display)
+
+  return offset + size_of.expiration_day
+end
+
+-- Size: Expiration Month
+size_of.expiration_month = 1
+
+-- Display: Expiration Month
+display.expiration_month = function(value)
+  return "Expiration Month: "..value
+end
+
+-- Dissect: Expiration Month
+dissect.expiration_month = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.expiration_month)
+  local value = range:uint()
+  local display = display.expiration_month(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.expiration_month, range, value, display)
+
+  return offset + size_of.expiration_month
+end
+
+-- Size: Expiration Year
+size_of.expiration_year = 1
+
+-- Display: Expiration Year
+display.expiration_year = function(value)
+  return "Expiration Year: "..value
+end
+
+-- Dissect: Expiration Year
+dissect.expiration_year = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.expiration_year)
+  local value = range:uint()
+  local display = display.expiration_year(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.expiration_year, range, value, display)
+
+  return offset + size_of.expiration_year
+end
+
+-- Size: Leg Id
+size_of.leg_id = 1
+
+-- Display: Leg Id
+display.leg_id = function(value)
+  return "Leg Id: "..value
+end
+
+-- Dissect: Leg Id
+dissect.leg_id = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.leg_id)
+  local value = range:uint()
+  local display = display.leg_id(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.leg_id, range, value, display)
+
+  return offset + size_of.leg_id
+end
+
+-- Size: Security Symbol
+size_of.security_symbol = 6
+
+-- Display: Security Symbol
+display.security_symbol = function(value)
+  return "Security Symbol: "..value
+end
+
+-- Dissect: Security Symbol
+dissect.security_symbol = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.security_symbol)
+  local value = range:string()
+  local display = display.security_symbol(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.security_symbol, range, value, display)
+
+  return offset + size_of.security_symbol
+end
+
+-- Size: Option Id
+size_of.option_id = 4
+
+-- Display: Option Id
+display.option_id = function(value)
+  return "Option Id: "..value
+end
+
+-- Dissect: Option Id
+dissect.option_id = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.option_id)
+  local value = range:uint()
+  local display = display.option_id(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.option_id, range, value, display)
+
+  return offset + size_of.option_id
+end
+
+-- Display: Leg Information
+display.leg_information = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Leg Information
+dissect.leg_information_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.option_id(buffer, index, packet, parent)
+
+  -- Security Symbol: 6 Byte Ascii String
+  index = dissect.security_symbol(buffer, index, packet, parent)
+
+  -- Leg Id: 1 Byte Unsigned Fixed Width Integer
+  index = dissect.leg_id(buffer, index, packet, parent)
+
+  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
+  index = dissect.expiration_year(buffer, index, packet, parent)
+
+  -- Expiration Month: 1 Byte Unsigned Fixed Width Integer
+  index = dissect.expiration_month(buffer, index, packet, parent)
+
+  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
+  index = dissect.expiration_day(buffer, index, packet, parent)
+
+  -- Explicit Strike Price: 8 Byte Unsigned Fixed Width Integer
+  index = dissect.explicit_strike_price(buffer, index, packet, parent)
+
+  -- Option Type: 1 Byte Ascii String Enum with 3 values
+  index = dissect.option_type(buffer, index, packet, parent)
+
+  -- Side: 1 Byte Ascii String Enum with 3 values
+  index = dissect.side(buffer, index, packet, parent)
+
+  -- Leg Ratio: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.leg_ratio(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Leg Information
+dissect.leg_information = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.leg_information then
+    local range = buffer(offset, 28)
+    local display = display.leg_information(buffer, packet, parent)
+    parent = parent:add(nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.leg_information, range, display)
+  end
+
+  return dissect.leg_information_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Number Of Legs
+size_of.number_of_legs = 1
+
+-- Display: Number Of Legs
+display.number_of_legs = function(value)
+  return "Number Of Legs: "..value
+end
+
+-- Dissect: Number Of Legs
+dissect.number_of_legs = function(buffer, offset, packet, parent)
+  local length = 1
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = display.number_of_legs(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.number_of_legs, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Underlying Symbol
 size_of.underlying_symbol = 13
 
@@ -971,6 +1243,19 @@ dissect.strategy_type = function(buffer, offset, packet, parent)
   return offset + size_of.strategy_type
 end
 
+-- Calculate runtime size: Complex Strategy Directory Message
+size_of.complex_strategy_directory_message = function(buffer, offset)
+  local index = 0
+
+  index = index + 26
+
+  -- Calculate field size from count
+  local leg_information_count = buffer(offset + index - 1, 1):uint()
+  index = index + leg_information_count * 28
+
+  return index
+end
+
 -- Display: Complex Strategy Directory Message
 display.complex_strategy_directory_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -998,17 +1283,21 @@ dissect.complex_strategy_directory_message_fields = function(buffer, offset, pac
   -- Number Of Legs: 1 Byte Unsigned Fixed Width Integer
   index = dissect.number_of_legs(buffer, index, packet, parent)
 
-  -- Leg Information
-  index = dissect.leg_information(buffer, index, packet, parent)
+  -- Leg Information: Struct of 10 fields
+  local leg_information_count = buffer(index - 1, 1):uint()
+  for i = 1, leg_information_count do
+    index = dissect.leg_information(buffer, index, packet, parent)
+  end
 
   return index
 end
 
 -- Dissect: Complex Strategy Directory Message
 dissect.complex_strategy_directory_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.complex_strategy_directory_message then
-    local range = buffer(offset, 26)
+    local length = size_of.complex_strategy_directory_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.complex_strategy_directory_message(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_ordercombofeed_itch_v1_0_1.fields.complex_strategy_directory_message, range, display)
   end
@@ -1117,28 +1406,28 @@ size_of.event_code = 1
 -- Display: Event Code
 display.event_code = function(value)
   if value == "O" then
-    return "Event Code: Start Of Messages This Is Always The First Message Sent In Any Trading Day (O)"
+    return "Event Code: Start Of Messages (O)"
   end
   if value == "S" then
-    return "Event Code: Start Of System Hours This Message Indicates That The Options System Is Open And Ready To Start Accepting Orders (S)"
+    return "Event Code: Start Of System Hours (S)"
   end
   if value == "Q" then
-    return "Event Code: Start Of Opening Process This Message Is Intended To Indicate That The Options System Has Started Its Opening Auction Process (Q)"
+    return "Event Code: Start Of Opening Process (Q)"
   end
   if value == "N" then
-    return "Event Code: Start Of Normal Hours Closing Process This Message Is Intended To Indicate That The Options System Will No Longer Generate New Executions For Options That Trade During Normal Hours (N)"
+    return "Event Code: Start Of Normal Hours Closing Process (N)"
   end
   if value == "L" then
-    return "Event Code: Start Of Late Hours Closing Process This Message Is Intended To Indicate That The Options System Will No Longer Generate New Executions For Options That Trade During Extended Hours (L)"
+    return "Event Code: Start Of Late Hours Closing Process (L)"
   end
   if value == "E" then
-    return "Event Code: End Of System Hours This Message Indicates That The Options System Is Now Closed (E)"
+    return "Event Code: End Of System Hours (E)"
   end
   if value == "C" then
-    return "Event Code: End Of Messages This Is Always The Last Message Sent In Any Trading Day (C)"
+    return "Event Code: End Of Messages (C)"
   end
   if value == "W" then
-    return "Event Code: End Of Wco Early Closing This Message Is Intended To Indicate That The Exchange Will No Longer Accept Any New Orders Or Changes To Existing Orders On Last Trading Date Of Wco Options (W)"
+    return "Event Code: End Of Wco Early Closing (W)"
   end
 
   return "Event Code: Unknown("..value..")"
@@ -1208,7 +1497,7 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Complex Strategy Directory Message
   if code == "R" then
-    return 26
+    return size_of.complex_strategy_directory_message(buffer, offset)
   end
   -- Size of Strategy Trading Action Message
   if code == "H" then

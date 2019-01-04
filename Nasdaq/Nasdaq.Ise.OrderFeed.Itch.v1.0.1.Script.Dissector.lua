@@ -46,7 +46,7 @@ nasdaq_ise_orderfeed_itch_v1_0_1.fields.message = ProtoField.new("Message", "nas
 nasdaq_ise_orderfeed_itch_v1_0_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.ise.orderfeed.itch.v1.0.1.messageheader", ftypes.STRING)
 nasdaq_ise_orderfeed_itch_v1_0_1.fields.message_type = ProtoField.new("Message Type", "nasdaq.ise.orderfeed.itch.v1.0.1.messagetype", ftypes.STRING)
 nasdaq_ise_orderfeed_itch_v1_0_1.fields.mpv = ProtoField.new("Mpv", "nasdaq.ise.orderfeed.itch.v1.0.1.mpv", ftypes.STRING)
-nasdaq_ise_orderfeed_itch_v1_0_1.fields.number_of_legs = ProtoField.new("Number Of Legs", "nasdaq.ise.orderfeed.itch.v1.0.1.numberoflegs", ftypes.UINT8)
+nasdaq_ise_orderfeed_itch_v1_0_1.fields.number_of_responses = ProtoField.new("Number Of Responses", "nasdaq.ise.orderfeed.itch.v1.0.1.numberofresponses", ftypes.UINT8)
 nasdaq_ise_orderfeed_itch_v1_0_1.fields.open_state = ProtoField.new("Open State", "nasdaq.ise.orderfeed.itch.v1.0.1.openstate", ftypes.STRING)
 nasdaq_ise_orderfeed_itch_v1_0_1.fields.opening_imbalance_message = ProtoField.new("Opening Imbalance Message", "nasdaq.ise.orderfeed.itch.v1.0.1.openingimbalancemessage", ftypes.STRING)
 nasdaq_ise_orderfeed_itch_v1_0_1.fields.option_closing_type = ProtoField.new("Option Closing Type", "nasdaq.ise.orderfeed.itch.v1.0.1.optionclosingtype", ftypes.STRING)
@@ -252,22 +252,22 @@ dissect.auction_response = function(buffer, offset, packet, parent)
   return dissect.auction_response_fields(buffer, offset, packet, parent)
 end
 
--- Size: Number Of Legs
-size_of.number_of_legs = 1
+-- Size: Number Of Responses
+size_of.number_of_responses = 1
 
--- Display: Number Of Legs
-display.number_of_legs = function(value)
-  return "Number Of Legs: "..value
+-- Display: Number Of Responses
+display.number_of_responses = function(value)
+  return "Number Of Responses: "..value
 end
 
--- Dissect: Number Of Legs
-dissect.number_of_legs = function(buffer, offset, packet, parent)
+-- Dissect: Number Of Responses
+dissect.number_of_responses = function(buffer, offset, packet, parent)
   local length = 1
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.number_of_legs(value, buffer, offset, packet, parent)
+  local display = display.number_of_responses(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_ise_orderfeed_itch_v1_0_1.fields.number_of_legs, range, value, display)
+  parent:add(nasdaq_ise_orderfeed_itch_v1_0_1.fields.number_of_responses, range, value, display)
 
   return offset + length, value
 end
@@ -363,29 +363,29 @@ size_of.order_capacity = 1
 
 -- Display: Order Capacity
 display.order_capacity = function(value)
-  if value == "‘C’" then
-    return "Order Capacity: Customer (‘C’)"
+  if value == "C" then
+    return "Order Capacity: Customer (C)"
   end
-  if value == "‘D’" then
-    return "Order Capacity: Customer Professional (‘D’)"
+  if value == "D" then
+    return "Order Capacity: Customer Professional (D)"
   end
-  if value == "‘F’" then
-    return "Order Capacity: Firm (‘F’)"
+  if value == "F" then
+    return "Order Capacity: Firm (F)"
   end
-  if value == "‘B’" then
-    return "Order Capacity: Broker Dealer Customer (‘B’)"
+  if value == "B" then
+    return "Order Capacity: Broker Dealer Customer (B)"
   end
-  if value == "‘K’" then
-    return "Order Capacity: Broker Dealer Firm (‘K’)"
+  if value == "K" then
+    return "Order Capacity: Broker Dealer Firm (K)"
   end
-  if value == "‘E’" then
-    return "Order Capacity: Proprietary (‘E’)"
+  if value == "E" then
+    return "Order Capacity: Proprietary (E)"
   end
-  if value == "‘N’" then
-    return "Order Capacity: Away Market Maker (‘N’)"
+  if value == "N" then
+    return "Order Capacity: Away Market Maker (N)"
   end
-  if value == "‘M’" then
-    return "Order Capacity: Market Maker (‘M’)"
+  if value == "M" then
+    return "Order Capacity: Market Maker (M)"
   end
 
   return "Order Capacity: Unknown("..value..")"
@@ -407,14 +407,14 @@ size_of.exec_flag = 1
 
 -- Display: Exec Flag
 display.exec_flag = function(value)
-  if value == "‘N’" then
-    return "Exec Flag: None (‘N’)"
+  if value == "N" then
+    return "Exec Flag: None (N)"
   end
-  if value == "‘A’" then
-    return "Exec Flag: Aon (‘A’)"
+  if value == "A" then
+    return "Exec Flag: Aon (A)"
   end
-  if value == "‘ ’" then
-    return "Exec Flag: Hidden (‘ ’)"
+  if value == " " then
+    return "Exec Flag: Hidden (<whitespace>)"
   end
 
   return "Exec Flag: Unknown("..value..")"
@@ -642,8 +642,8 @@ dissect.auction_message_fields = function(buffer, offset, packet, parent)
   -- Auction Event: 1 Byte Ascii String Enum with 3 values
   index = dissect.auction_event(buffer, index, packet, parent)
 
-  -- Number Of Legs: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.number_of_legs(buffer, index, packet, parent)
+  -- Number Of Responses: 1 Byte Unsigned Fixed Width Integer
+  index = dissect.number_of_responses(buffer, index, packet, parent)
 
   -- Auction Response: Struct of 2 fields
   local auction_response_count = buffer(index - 1, 1):uint()
@@ -1457,28 +1457,28 @@ size_of.event_code = 1
 -- Display: Event Code
 display.event_code = function(value)
   if value == "O" then
-    return "Event Code: Start Of Messages This Is Always The First Message Sent In Any Trading Day (O)"
+    return "Event Code: Start Of Messages (O)"
   end
   if value == "S" then
-    return "Event Code: Start Of System Hours This Message Indicates That The Options System Is Open And Ready To Start Accepting Orders (S)"
+    return "Event Code: Start Of System Hours (S)"
   end
   if value == "Q" then
-    return "Event Code: Start Of Opening Process This Message Is Intended To Indicate That The Options System Has Started Its Opening Auction Process (Q)"
+    return "Event Code: Start Of Opening Process (Q)"
   end
   if value == "N" then
-    return "Event Code: Start Of Normal Hours Closing Process This Message Is Intended To Indicate That The Options System Will No Longer Generate New Executions For Options That Trade During Normal Hours (N)"
+    return "Event Code: Start Of Normal Hours Closing Process (N)"
   end
   if value == "L" then
-    return "Event Code: Start Of Late Hours Closing Process This Message Is Intended To Indicate That The Options System Will No Longer Generate New Executions For Options That Trade During Extended Hours (L)"
+    return "Event Code: Start Of Late Hours Closing Process (L)"
   end
   if value == "E" then
-    return "Event Code: End Of System Hours This Message Indicates That The Options System Is Now Closed (E)"
+    return "Event Code: End Of System Hours (E)"
   end
   if value == "C" then
-    return "Event Code: End Of Messages This Is Always The Last Message Sent In Any Trading Day (C)"
+    return "Event Code: End Of Messages (C)"
   end
   if value == "W" then
-    return "Event Code: End Of Wco Early Closing This Message Is Intended To Indicate That The Exchange Will No Longer Accept Any New Orders Or Changes To Existing Orders On Last Trading Date Of Wco Options (W)"
+    return "Event Code: End Of Wco Early Closing (W)"
   end
 
   return "Event Code: Unknown("..value..")"
