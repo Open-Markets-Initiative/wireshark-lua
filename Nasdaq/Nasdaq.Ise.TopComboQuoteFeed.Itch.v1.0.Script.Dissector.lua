@@ -86,7 +86,7 @@ nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.strategy_trading_action_message = 
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.strategy_type = ProtoField.new("Strategy Type", "nasdaq.ise.topcomboquotefeed.itch.v1.0.strategytype", ftypes.STRING)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.subversion = ProtoField.new("Subversion", "nasdaq.ise.topcomboquotefeed.itch.v1.0.subversion", ftypes.UINT8)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.ise.topcomboquotefeed.itch.v1.0.systemeventmessage", ftypes.STRING)
-nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.ise.topcomboquotefeed.itch.v1.0.timestamp", ftypes.BYTES)
+nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.ise.topcomboquotefeed.itch.v1.0.timestamp", ftypes.UINT64)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.trade_condition = ProtoField.new("Trade Condition", "nasdaq.ise.topcomboquotefeed.itch.v1.0.tradecondition", ftypes.STRING)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.ise.topcomboquotefeed.itch.v1.0.underlyingsymbol", ftypes.STRING)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.version = ProtoField.new("Version", "nasdaq.ise.topcomboquotefeed.itch.v1.0.version", ftypes.UINT8)
@@ -364,7 +364,7 @@ end
 -- Dissect: Timestamp
 dissect.timestamp = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.timestamp)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:uint64()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.timestamp, range, value, display)

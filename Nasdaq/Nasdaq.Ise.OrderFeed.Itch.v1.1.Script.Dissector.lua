@@ -74,7 +74,7 @@ nasdaq_ise_orderfeed_itch_v1_1.fields.source = ProtoField.new("Source", "nasdaq.
 nasdaq_ise_orderfeed_itch_v1_1.fields.strike_price = ProtoField.new("Strike Price", "nasdaq.ise.orderfeed.itch.v1.1.strikeprice", ftypes.UINT64)
 nasdaq_ise_orderfeed_itch_v1_1.fields.subversion = ProtoField.new("Subversion", "nasdaq.ise.orderfeed.itch.v1.1.subversion", ftypes.UINT8)
 nasdaq_ise_orderfeed_itch_v1_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.ise.orderfeed.itch.v1.1.systemeventmessage", ftypes.STRING)
-nasdaq_ise_orderfeed_itch_v1_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.ise.orderfeed.itch.v1.1.timestamp", ftypes.BYTES)
+nasdaq_ise_orderfeed_itch_v1_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.ise.orderfeed.itch.v1.1.timestamp", ftypes.UINT64)
 nasdaq_ise_orderfeed_itch_v1_1.fields.tradable = ProtoField.new("Tradable", "nasdaq.ise.orderfeed.itch.v1.1.tradable", ftypes.STRING)
 nasdaq_ise_orderfeed_itch_v1_1.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.ise.orderfeed.itch.v1.1.tradingactionmessage", ftypes.STRING)
 nasdaq_ise_orderfeed_itch_v1_1.fields.trading_type = ProtoField.new("Trading Type", "nasdaq.ise.orderfeed.itch.v1.1.tradingtype", ftypes.STRING)
@@ -573,7 +573,7 @@ end
 -- Dissect: Timestamp
 dissect.timestamp = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.timestamp)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:uint64()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_orderfeed_itch_v1_1.fields.timestamp, range, value, display)

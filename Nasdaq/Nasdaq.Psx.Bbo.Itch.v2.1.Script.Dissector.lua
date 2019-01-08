@@ -70,7 +70,7 @@ nasdaq_psx_bbo_itch_v2_1.fields.stock = ProtoField.new("Stock", "nasdaq.psx.bbo.
 nasdaq_psx_bbo_itch_v2_1.fields.stock_directory_message = ProtoField.new("Stock Directory Message", "nasdaq.psx.bbo.itch.v2.1.stockdirectorymessage", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.stock_trading_action_message = ProtoField.new("Stock Trading Action Message", "nasdaq.psx.bbo.itch.v2.1.stocktradingactionmessage", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.psx.bbo.itch.v2.1.systemeventmessage", ftypes.STRING)
-nasdaq_psx_bbo_itch_v2_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.psx.bbo.itch.v2.1.timestamp", ftypes.BYTES)
+nasdaq_psx_bbo_itch_v2_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.psx.bbo.itch.v2.1.timestamp", ftypes.UINT64)
 nasdaq_psx_bbo_itch_v2_1.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.psx.bbo.itch.v2.1.trackingnumber", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -272,7 +272,7 @@ end
 -- Dissect: Timestamp
 dissect.timestamp = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.timestamp)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:uint64()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_bbo_itch_v2_1.fields.timestamp, range, value, display)

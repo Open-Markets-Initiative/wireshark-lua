@@ -108,7 +108,7 @@ nasdaq_equities_totalview_itch_v5_0.fields.stock_directory_message = ProtoField.
 nasdaq_equities_totalview_itch_v5_0.fields.stock_locate = ProtoField.new("Stock Locate", "nasdaq.equities.totalview.itch.v5.0.stocklocate", ftypes.UINT16)
 nasdaq_equities_totalview_itch_v5_0.fields.stock_trading_action_message = ProtoField.new("Stock Trading Action Message", "nasdaq.equities.totalview.itch.v5.0.stocktradingactionmessage", ftypes.STRING)
 nasdaq_equities_totalview_itch_v5_0.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.equities.totalview.itch.v5.0.systemeventmessage", ftypes.STRING)
-nasdaq_equities_totalview_itch_v5_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.equities.totalview.itch.v5.0.timestamp", ftypes.BYTES)
+nasdaq_equities_totalview_itch_v5_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.equities.totalview.itch.v5.0.timestamp", ftypes.UINT64)
 nasdaq_equities_totalview_itch_v5_0.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.equities.totalview.itch.v5.0.trackingnumber", ftypes.UINT16)
 nasdaq_equities_totalview_itch_v5_0.fields.trading_state = ProtoField.new("Trading State", "nasdaq.equities.totalview.itch.v5.0.tradingstate", ftypes.STRING)
 nasdaq_equities_totalview_itch_v5_0.fields.upper_auction_collar_price = ProtoField.new("Upper Auction Collar Price", "nasdaq.equities.totalview.itch.v5.0.upperauctioncollarprice", ftypes.INT32)
@@ -356,7 +356,7 @@ end
 -- Dissect: Timestamp
 dissect.timestamp = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.timestamp)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:uint64()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.timestamp, range, value, display)
