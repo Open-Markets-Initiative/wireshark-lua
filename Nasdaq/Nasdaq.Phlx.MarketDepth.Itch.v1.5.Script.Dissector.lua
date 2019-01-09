@@ -88,7 +88,7 @@ nasdaq_phlx_marketdepth_itch_v1_5.fields.quote_delete_message = ProtoField.new("
 nasdaq_phlx_marketdepth_itch_v1_5.fields.quote_replace_long_form_message = ProtoField.new("Quote Replace Long Form Message", "nasdaq.phlx.marketdepth.itch.v1.5.quotereplacelongformmessage", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.quote_replace_short_form_message = ProtoField.new("Quote Replace Short Form Message", "nasdaq.phlx.marketdepth.itch.v1.5.quotereplaceshortformmessage", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.reference_number_delta = ProtoField.new("Reference Number Delta", "nasdaq.phlx.marketdepth.itch.v1.5.referencenumberdelta", ftypes.UINT32)
-nasdaq_phlx_marketdepth_itch_v1_5.fields.reserved = ProtoField.new("Reserved", "nasdaq.phlx.marketdepth.itch.v1.5.reserved", ftypes.BYTES)
+nasdaq_phlx_marketdepth_itch_v1_5.fields.reserved = ProtoField.new("Reserved", "nasdaq.phlx.marketdepth.itch.v1.5.reserved", ftypes.UINT32)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.second = ProtoField.new("Second", "nasdaq.phlx.marketdepth.itch.v1.5.second", ftypes.UINT32)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.seconds_message = ProtoField.new("Seconds Message", "nasdaq.phlx.marketdepth.itch.v1.5.secondsmessage", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.security_open_message = ProtoField.new("Security Open Message", "nasdaq.phlx.marketdepth.itch.v1.5.securityopenmessage", ftypes.STRING)
@@ -344,7 +344,7 @@ end
 -- Dissect: Reserved
 dissect.reserved = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.reserved)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:uint()
   local display = display.reserved(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_marketdepth_itch_v1_5.fields.reserved, range, value, display)

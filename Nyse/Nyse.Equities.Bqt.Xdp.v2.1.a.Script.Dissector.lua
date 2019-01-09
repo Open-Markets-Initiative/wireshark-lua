@@ -130,7 +130,7 @@ nyse_equities_bqt_xdp_v2_1_a.fields.trade_condition_2 = ProtoField.new("Trade Co
 nyse_equities_bqt_xdp_v2_1_a.fields.trade_condition_3 = ProtoField.new("Trade Condition 3", "nyse.equities.bqt.xdp.v2.1.a.tradecondition3", ftypes.STRING)
 nyse_equities_bqt_xdp_v2_1_a.fields.trade_condition_4 = ProtoField.new("Trade Condition 4", "nyse.equities.bqt.xdp.v2.1.a.tradecondition4", ftypes.STRING)
 nyse_equities_bqt_xdp_v2_1_a.fields.trade_id = ProtoField.new("Trade Id", "nyse.equities.bqt.xdp.v2.1.a.tradeid", ftypes.UINT32)
-nyse_equities_bqt_xdp_v2_1_a.fields.trade_session = ProtoField.new("Trade Session", "nyse.equities.bqt.xdp.v2.1.a.tradesession", ftypes.STRING)
+nyse_equities_bqt_xdp_v2_1_a.fields.trade_session = ProtoField.new("Trade Session", "nyse.equities.bqt.xdp.v2.1.a.tradesession", ftypes.UINT8)
 nyse_equities_bqt_xdp_v2_1_a.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.equities.bqt.xdp.v2.1.a.unitoftrade", ftypes.UINT16)
 nyse_equities_bqt_xdp_v2_1_a.fields.volume = ProtoField.new("Volume", "nyse.equities.bqt.xdp.v2.1.a.volume", ftypes.UINT32)
 
