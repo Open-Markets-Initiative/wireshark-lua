@@ -598,10 +598,7 @@ end
 
 -- Display: Expiration Year Month And Day
 display.expiration_year_month_and_day = function(buffer, packet, parent)
-  local display = ""
-
-
-  return display:sub(1, -2)
+  return ""
 end
 
 -- Dissect Bit Fields: Expiration Year Month And Day
