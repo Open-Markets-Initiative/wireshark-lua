@@ -480,7 +480,7 @@ display.side = function(value)
   if value == "A" then
     return "Side: Offer Ask (A)"
   end
-  if value == "" then
+  if value == " " then
     return "Side: Hidden (<whitespace>)"
   end
 

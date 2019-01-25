@@ -1425,28 +1425,28 @@ size_of.event_code = 1
 -- Display: Event Code
 display.event_code = function(value)
   if value == O then
-    return "Event Code: Start Of Messages This Is Always The First Message Sent In Any Trading Day (O)"
+    return "Event Code: Start Of Messages (O)"
   end
   if value == S then
-    return "Event Code: Start Of System Hours This Message Indicates That Phlx Is Open And Ready To Start Accepting Orders (S)"
+    return "Event Code: Start Of System Hours (S)"
   end
   if value == Q then
-    return "Event Code: Start Of Opening Process This Message Is Intended To Indicate That Phlx Has Started Its Opening Process (Q)"
+    return "Event Code: Start Of Opening Process (Q)"
   end
   if value == N then
-    return "Event Code: End Of Normal Hours Processing This Message Is Intended To Indicate That Phlx Will No Longer Accept Any New Orders Or Changes To Existing Orders For Options That Trade During Normal Hours (N)"
+    return "Event Code: Start Of Normal Hours Closing Process (N)"
   end
   if value == L then
-    return "Event Code: End Of Late Hours Processing This Message Is Intended To Indicate That Phlx Will No Longer Accept Any New Orders Or Changes To Existing Orders For Options That Trade During Extended Hours (L)"
+    return "Event Code: Start Of Late Hours Closing Process (L)"
   end
   if value == E then
-    return "Event Code: End Of System Hours This Message Indicates That The Phlx Options System Is Now Closed (E)"
+    return "Event Code: End Of System Hours (E)"
   end
   if value == C then
-    return "Event Code: End Of Messages This Is Always The Last Message Sent In Any Trading Day (C)"
+    return "Event Code: End Of Messages (C)"
   end
   if value == W then
-    return "Event Code: End Of Wco Early Closing This Message Is Intended To Indicate That The Exchange Will No Longer Accept Any New Orders Or Changes To Existing Orders On Last Trading Date Of Wco Options (W)"
+    return "Event Code: End Of Wco Early Closing (W)"
   end
 
   return "Event Code: Unknown("..value..")"

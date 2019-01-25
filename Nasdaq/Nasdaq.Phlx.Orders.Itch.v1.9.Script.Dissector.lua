@@ -74,7 +74,7 @@ nasdaq_phlx_orders_itch_v1_9.fields.seconds = ProtoField.new("Seconds", "nasdaq.
 nasdaq_phlx_orders_itch_v1_9.fields.security_open_closed_message = ProtoField.new("Security Open Closed Message", "nasdaq.phlx.orders.itch.v1.9.securityopenclosedmessage", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.phlx.orders.itch.v1.9.securitysymbol", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.security_trading_action_message = ProtoField.new("Security Trading Action Message", "nasdaq.phlx.orders.itch.v1.9.securitytradingactionmessage", ftypes.STRING)
-nasdaq_phlx_orders_itch_v1_9.fields.sequence = ProtoField.new("Sequence", "nasdaq.phlx.orders.itch.v1.9.sequence", ftypes.UINT64)
+nasdaq_phlx_orders_itch_v1_9.fields.sequence = ProtoField.new("Sequence", "nasdaq.phlx.orders.itch.v1.9.sequence", ftypes.UINT32)
 nasdaq_phlx_orders_itch_v1_9.fields.session = ProtoField.new("Session", "nasdaq.phlx.orders.itch.v1.9.session", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.side = ProtoField.new("Side", "nasdaq.phlx.orders.itch.v1.9.side", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.simple_order_message = ProtoField.new("Simple Order Message", "nasdaq.phlx.orders.itch.v1.9.simpleordermessage", ftypes.STRING)
@@ -1872,28 +1872,28 @@ size_of.event_code = 1
 -- Display: Event Code
 display.event_code = function(value)
   if value == "O" then
-    return "Event Code: Start Of Messages This Is Always The First Message Sent In Any Trading Day (O)"
+    return "Event Code: Start Of Messages (O)"
   end
   if value == "S" then
-    return "Event Code: Start Of System Hours This Message Indicates That Phlx Is Open And Ready To Start Accepting Orders (S)"
+    return "Event Code: Start Of System Hours (S)"
   end
   if value == "Q" then
-    return "Event Code: Start Of Opening Process This Message Is Intended To Indicate That Phlx Has Started Its Opening Process (Q)"
+    return "Event Code: Start Of Opening Process (Q)"
   end
   if value == "N" then
-    return "Event Code: End Of Normal Hours Processing This Message Is Intended To Indicate That Phlx Will No Longer Accept Any New Orders Or Changes To Existing Orders For Options That Trade During Normal Hours (N)"
+    return "Event Code: Start Of Normal Hours Closing Process (N)"
   end
   if value == "L" then
-    return "Event Code: End Of Late Hours Processing This Message Is Intended To Indicate That Phlx Will No Longer Accept Any New Orders Or Changes To Existing Orders For Options That Trade During Extended Hours (L)"
+    return "Event Code: Start Of Late Hours Closing Process (L)"
   end
   if value == "E" then
-    return "Event Code: End Of System Hours This Message Indicates That The Phlx Options System Is Now Closed (E)"
+    return "Event Code: End Of System Hours (E)"
   end
   if value == "C" then
-    return "Event Code: End Of Messages This Is Always The Last Message Sent In Any Trading Day (C)"
+    return "Event Code: End Of Messages (C)"
   end
   if value == "W" then
-    return "Event Code: End Of Wco Early Closing This Message Is Intended To Indicate That The Exchange Will No Longer Accept Any New Orders Or Changes To Existing Orders On Last Trading Date Of Wco Options (W)"
+    return "Event Code: End Of Wco Early Closing (W)"
   end
 
   return "Event Code: Unknown("..value..")"
@@ -2232,7 +2232,7 @@ end
 dissect.count = function(buffer, offset, packet, parent)
   local length = 2
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:le_uint()
   local display = display.count(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.count, range, value, display)
@@ -2241,7 +2241,7 @@ dissect.count = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sequence
-size_of.sequence = 8
+size_of.sequence = 4
 
 -- Display: Sequence
 display.sequence = function(value)
@@ -2251,7 +2251,7 @@ end
 -- Dissect: Sequence
 dissect.sequence = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.sequence)
-  local value = range:uint64()
+  local value = range:uint()
   local display = display.sequence(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.sequence, range, value, display)
@@ -2290,7 +2290,7 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   -- Session: 10 Byte Ascii String
   index = dissect.session(buffer, index, packet, parent)
 
-  -- Sequence: 8 Byte Unsigned Fixed Width Integer
+  -- Sequence: 4 Byte Unsigned Fixed Width Integer
   index = dissect.sequence(buffer, index, packet, parent)
 
   -- Count: 2 Byte Unsigned Fixed Width Integer
@@ -2303,7 +2303,7 @@ end
 dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local range = buffer(offset, 20)
+    local range = buffer(offset, 16)
     local display = display.packet_header(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.packet_header, range, display)
   end

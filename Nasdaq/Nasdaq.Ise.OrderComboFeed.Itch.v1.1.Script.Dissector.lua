@@ -527,12 +527,12 @@ size_of.side = 1
 -- Display: Side
 display.side = function(value)
   if value == "B" then
-    return "Side: Leg Is On Buy Side (B)"
+    return "Side: Bid (B)"
   end
-  if value == "S" then
-    return "Side: Leg Is On Sell Side (S)"
+  if value == "A" then
+    return "Side: Offer Ask (A)"
   end
-  if value == "" then
+  if value == " " then
     return "Side: Hidden (<whitespace>)"
   end
 

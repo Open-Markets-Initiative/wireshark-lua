@@ -69,6 +69,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 |[Nyse](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nyse "New York Stock Exchange Dissectors") | Options | ComplexFeed | Xdp | [1.3.a](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nyse/Nyse.Options.ComplexFeed.Xdp.v1.3.a.Script.Dissector.lua "New York Stock Exchange 1.3.a Script Dissector") | 2/28/2018 | 1996 | Tested|
 |[Nyse](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nyse "New York Stock Exchange Dissectors") | Options | DeepFeed | Xdp | [1.3.a](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nyse/Nyse.Options.DeepFeed.Xdp.v1.3.a.Script.Dissector.lua "New York Stock Exchange 1.3.a Script Dissector") | 2/28/2018 | 2259 | Unverified|
 |[Nyse](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nyse "New York Stock Exchange Dissectors") | Options | TopFeed | Xdp | [1.3.a](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nyse/Nyse.Options.TopFeed.Xdp.v1.3.a.Script.Dissector.lua "New York Stock Exchange 1.3.a Script Dissector") | 2/28/2018 | 3130 | Tested|
+|[Opra](https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Opra "Options Reporting Dissectors") |  | Recipient | Obdi | [2.9](https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Opra/Opra.Recipient.Obdi.v2.9.Script.Dissector.lua "Options Reporting 2.9 Script Dissector") | 10/24/2018 | 5636 | Untested|
 
 ## Development
 
@@ -76,7 +77,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 |Protocol Count | Generated Lines|
 |--- | ---|
-|44 | 165,757|
+|45 | 171,393|
 
 Note: Our dissector model is still under rapid development.
 
