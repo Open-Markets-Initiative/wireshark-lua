@@ -39,7 +39,7 @@ nasdaq_phlx_orders_itch_v1_9.fields.day = ProtoField.new("Day", "nasdaq.phlx.ord
 nasdaq_phlx_orders_itch_v1_9.fields.debit_or_credit = ProtoField.new("Debit Or Credit", "nasdaq.phlx.orders.itch.v1.9.debitorcredit", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.event_code = ProtoField.new("Event Code", "nasdaq.phlx.orders.itch.v1.9.eventcode", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.executable_order_volume = ProtoField.new("Executable Order Volume", "nasdaq.phlx.orders.itch.v1.9.executableordervolume", ftypes.UINT32)
-nasdaq_phlx_orders_itch_v1_9.fields.expiration_year_month_and_day = ProtoField.new("Expiration Year Month And Day", "nasdaq.phlx.orders.itch.v1.9.expirationyearmonthandday", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.expiration = ProtoField.new("Expiration", "nasdaq.phlx.orders.itch.v1.9.expiration", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.phlx.orders.itch.v1.9.explicitstrikeprice", ftypes.UINT32)
 nasdaq_phlx_orders_itch_v1_9.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nasdaq.phlx.orders.itch.v1.9.imbalancevolume", ftypes.UINT32)
 nasdaq_phlx_orders_itch_v1_9.fields.leg_open_close_indicator = ProtoField.new("Leg Open Close Indicator", "nasdaq.phlx.orders.itch.v1.9.legopencloseindicator", ftypes.STRING)
@@ -100,7 +100,7 @@ show.complex_order_message = true
 show.complex_order_strategy_leg = true
 show.complex_order_strategy_message = true
 show.complex_trading_action_message = true
-show.expiration_year_month_and_day = true
+show.expiration = true
 show.message = true
 show.message_header = true
 show.options_directory_message = true
@@ -121,7 +121,7 @@ nasdaq_phlx_orders_itch_v1_9.prefs.show_complex_order_message = Pref.bool("Show 
 nasdaq_phlx_orders_itch_v1_9.prefs.show_complex_order_strategy_leg = Pref.bool("Show Complex Order Strategy Leg", show.complex_order_strategy_leg, "Parse and add Complex Order Strategy Leg to protocol tree")
 nasdaq_phlx_orders_itch_v1_9.prefs.show_complex_order_strategy_message = Pref.bool("Show Complex Order Strategy Message", show.complex_order_strategy_message, "Parse and add Complex Order Strategy Message to protocol tree")
 nasdaq_phlx_orders_itch_v1_9.prefs.show_complex_trading_action_message = Pref.bool("Show Complex Trading Action Message", show.complex_trading_action_message, "Parse and add Complex Trading Action Message to protocol tree")
-nasdaq_phlx_orders_itch_v1_9.prefs.show_expiration_year_month_and_day = Pref.bool("Show Expiration Year Month And Day", show.expiration_year_month_and_day, "Parse and add Expiration Year Month And Day to protocol tree")
+nasdaq_phlx_orders_itch_v1_9.prefs.show_expiration = Pref.bool("Show Expiration", show.expiration, "Parse and add Expiration to protocol tree")
 nasdaq_phlx_orders_itch_v1_9.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 nasdaq_phlx_orders_itch_v1_9.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 nasdaq_phlx_orders_itch_v1_9.prefs.show_options_directory_message = Pref.bool("Show Options Directory Message", show.options_directory_message, "Parse and add Options Directory Message to protocol tree")
@@ -167,8 +167,8 @@ function nasdaq_phlx_orders_itch_v1_9.prefs_changed()
     show.complex_trading_action_message = nasdaq_phlx_orders_itch_v1_9.prefs.show_complex_trading_action_message
     changed = true
   end
-  if show.expiration_year_month_and_day ~= nasdaq_phlx_orders_itch_v1_9.prefs.show_expiration_year_month_and_day then
-    show.expiration_year_month_and_day = nasdaq_phlx_orders_itch_v1_9.prefs.show_expiration_year_month_and_day
+  if show.expiration ~= nasdaq_phlx_orders_itch_v1_9.prefs.show_expiration then
+    show.expiration = nasdaq_phlx_orders_itch_v1_9.prefs.show_expiration
     changed = true
   end
   if show.message ~= nasdaq_phlx_orders_itch_v1_9.prefs.show_message then
@@ -596,13 +596,16 @@ dissect.explicit_strike_price = function(buffer, offset, packet, parent)
   return offset + size_of.explicit_strike_price
 end
 
--- Display: Expiration Year Month And Day
-display.expiration_year_month_and_day = function(buffer, packet, parent)
-  return ""
+-- Display: Expiration
+display.expiration = function(buffer, packet, parent)
+  local display = ""
+
+
+  return display:sub(1, -2)
 end
 
--- Dissect Bit Fields: Expiration Year Month And Day
-dissect.expiration_year_month_and_day_bits = function(buffer, offset, packet, parent)
+-- Dissect Bit Fields: Expiration
+dissect.expiration_bits = function(buffer, offset, packet, parent)
 
   -- Year: 7 Bit
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.year, buffer(offset, 2))
@@ -614,15 +617,15 @@ dissect.expiration_year_month_and_day_bits = function(buffer, offset, packet, pa
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.day, buffer(offset, 2))
 end
 
--- Dissect: Expiration Year Month And Day
-dissect.expiration_year_month_and_day = function(buffer, offset, packet, parent)
+-- Dissect: Expiration
+dissect.expiration = function(buffer, offset, packet, parent)
   local size = 2
   local range = buffer(offset, size)
-  local display = display.expiration_year_month_and_day(range, packet, parent)
-  local element = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.expiration_year_month_and_day, range, display)
+  local display = display.expiration(range, packet, parent)
+  local element = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.expiration, range, display)
 
-  if show.expiration_year_month_and_day then
-    dissect.expiration_year_month_and_day_bits(buffer, offset, packet, element)
+  if show.expiration then
+    dissect.expiration_bits(buffer, offset, packet, element)
   end
 
   return offset + 2
@@ -687,8 +690,8 @@ dissect.auction_notification_message_fields = function(buffer, offset, packet, p
   -- Security Symbol: 5 Byte Ascii String
   index = dissect.security_symbol(buffer, index, packet, parent)
 
-  -- Expiration Year Month And Day: 2 Byte Unsigned Fixed Width Integer: Struct of 3 fields
-  index = dissect.expiration_year_month_and_day(buffer, index, packet, parent)
+  -- Expiration: Struct of 3 fields
+  index = dissect.expiration(buffer, index, packet, parent)
 
   -- Explicit Strike Price: 4 Byte Unsigned Fixed Width Integer
   index = dissect.explicit_strike_price(buffer, index, packet, parent)
@@ -827,8 +830,8 @@ dissect.complex_order_leg_fields = function(buffer, offset, packet, parent)
   -- Security Symbol: 5 Byte Ascii String
   index = dissect.security_symbol(buffer, index, packet, parent)
 
-  -- Expiration Year Month And Day: 2 Byte Unsigned Fixed Width Integer: Struct of 3 fields
-  index = dissect.expiration_year_month_and_day(buffer, index, packet, parent)
+  -- Expiration: Struct of 3 fields
+  index = dissect.expiration(buffer, index, packet, parent)
 
   -- Explicit Strike Price: 4 Byte Unsigned Fixed Width Integer
   index = dissect.explicit_strike_price(buffer, index, packet, parent)
@@ -1297,8 +1300,8 @@ dissect.simple_order_message_fields = function(buffer, offset, packet, parent)
   -- Security Symbol: 5 Byte Ascii String
   index = dissect.security_symbol(buffer, index, packet, parent)
 
-  -- Expiration Year Month And Day: 2 Byte Unsigned Fixed Width Integer: Struct of 3 fields
-  index = dissect.expiration_year_month_and_day(buffer, index, packet, parent)
+  -- Expiration: Struct of 3 fields
+  index = dissect.expiration(buffer, index, packet, parent)
 
   -- Explicit Strike Price: 4 Byte Unsigned Fixed Width Integer
   index = dissect.explicit_strike_price(buffer, index, packet, parent)
@@ -1440,8 +1443,8 @@ dissect.security_open_closed_message_fields = function(buffer, offset, packet, p
   -- Security Symbol: 5 Byte Ascii String
   index = dissect.security_symbol(buffer, index, packet, parent)
 
-  -- Expiration Year Month And Day: 2 Byte Unsigned Fixed Width Integer: Struct of 3 fields
-  index = dissect.expiration_year_month_and_day(buffer, index, packet, parent)
+  -- Expiration: Struct of 3 fields
+  index = dissect.expiration(buffer, index, packet, parent)
 
   -- Explicit Strike Price: 4 Byte Unsigned Fixed Width Integer
   index = dissect.explicit_strike_price(buffer, index, packet, parent)
@@ -1550,8 +1553,8 @@ dissect.security_trading_action_message_fields = function(buffer, offset, packet
   -- Security Symbol: 5 Byte Ascii String
   index = dissect.security_symbol(buffer, index, packet, parent)
 
-  -- Expiration Year Month And Day: 2 Byte Unsigned Fixed Width Integer: Struct of 3 fields
-  index = dissect.expiration_year_month_and_day(buffer, index, packet, parent)
+  -- Expiration: Struct of 3 fields
+  index = dissect.expiration(buffer, index, packet, parent)
 
   -- Explicit Strike Price: 4 Byte Unsigned Fixed Width Integer
   index = dissect.explicit_strike_price(buffer, index, packet, parent)
@@ -1592,8 +1595,8 @@ dissect.complex_order_strategy_leg_fields = function(buffer, offset, packet, par
   -- Security Symbol: 5 Byte Ascii String
   index = dissect.security_symbol(buffer, index, packet, parent)
 
-  -- Expiration Year Month And Day: 2 Byte Unsigned Fixed Width Integer: Struct of 3 fields
-  index = dissect.expiration_year_month_and_day(buffer, index, packet, parent)
+  -- Expiration: Struct of 3 fields
+  index = dissect.expiration(buffer, index, packet, parent)
 
   -- Explicit Strike Price: 4 Byte Unsigned Fixed Width Integer
   index = dissect.explicit_strike_price(buffer, index, packet, parent)
@@ -1808,8 +1811,8 @@ dissect.options_directory_message_fields = function(buffer, offset, packet, pare
   -- Security Symbol: 5 Byte Ascii String
   index = dissect.security_symbol(buffer, index, packet, parent)
 
-  -- Expiration Year Month And Day: 2 Byte Unsigned Fixed Width Integer: Struct of 3 fields
-  index = dissect.expiration_year_month_and_day(buffer, index, packet, parent)
+  -- Expiration: Struct of 3 fields
+  index = dissect.expiration(buffer, index, packet, parent)
 
   -- Explicit Strike Price: 4 Byte Unsigned Fixed Width Integer
   index = dissect.explicit_strike_price(buffer, index, packet, parent)
