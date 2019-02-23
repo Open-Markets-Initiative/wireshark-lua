@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Ice Mdf iMpact 1.1.34 Protocol
-local ice_mdf_impact_v1_1_34 = Proto("Ice.Mdf.iMpact.v1.1.34.Lua", "Ice Mdf iMpact 1.1.34")
+-- Ice Futures Mdf iMpact 1.1.34 Protocol
+local ice_futures_mdf_impact_v1_1_34 = Proto("Ice.Futures.Mdf.iMpact.v1.1.34.Lua", "Ice Futures Mdf iMpact 1.1.34")
 
 -- Component Tables
 local show = {}
@@ -19,271 +19,271 @@ local verify = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Ice Mdf iMpact 1.1.34 Fields
-ice_mdf_impact_v1_1_34.fields.add_or_modify_order_message = ProtoField.new("Add Or Modify Order Message", "ice.mdf.impact.v1.1.34.addormodifyordermessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.add_price_level_message = ProtoField.new("Add Price Level Message", "ice.mdf.impact.v1.1.34.addpricelevelmessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.agg_bid_qty = ProtoField.new("Agg Bid Qty", "ice.mdf.impact.v1.1.34.aggbidqty", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.agg_offer_qty = ProtoField.new("Agg Offer Qty", "ice.mdf.impact.v1.1.34.aggofferqty", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.aggressor_side = ProtoField.new("Aggressor Side", "ice.mdf.impact.v1.1.34.aggressorside", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.allow_options = ProtoField.new("Allow Options", "ice.mdf.impact.v1.1.34.allowoptions", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.allows_implied = ProtoField.new("Allows Implied", "ice.mdf.impact.v1.1.34.allowsimplied", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.auction_date = ProtoField.new("Auction Date", "ice.mdf.impact.v1.1.34.auctiondate", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.auction_end_time = ProtoField.new("Auction End Time", "ice.mdf.impact.v1.1.34.auctionendtime", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.begin_day = ProtoField.new("Begin Day", "ice.mdf.impact.v1.1.34.beginday", ftypes.INT16)
-ice_mdf_impact_v1_1_34.fields.begin_month = ProtoField.new("Begin Month", "ice.mdf.impact.v1.1.34.beginmonth", ftypes.INT16)
-ice_mdf_impact_v1_1_34.fields.begin_year = ProtoField.new("Begin Year", "ice.mdf.impact.v1.1.34.beginyear", ftypes.INT16)
-ice_mdf_impact_v1_1_34.fields.block_volume = ProtoField.new("Block Volume", "ice.mdf.impact.v1.1.34.blockvolume", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.cancelled_trade_message = ProtoField.new("Cancelled Trade Message", "ice.mdf.impact.v1.1.34.cancelledtrademessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.change_price_level_message = ProtoField.new("Change Price Level Message", "ice.mdf.impact.v1.1.34.changepricelevelmessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.cleared_alias = ProtoField.new("Cleared Alias", "ice.mdf.impact.v1.1.34.clearedalias", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.close_price = ProtoField.new("Close Price", "ice.mdf.impact.v1.1.34.closeprice", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.close_price_message = ProtoField.new("Close Price Message", "ice.mdf.impact.v1.1.34.closepricemessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.contract_symbol = ProtoField.new("Contract Symbol", "ice.mdf.impact.v1.1.34.contractsymbol", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.contract_symbol_extra = ProtoField.new("Contract Symbol Extra", "ice.mdf.impact.v1.1.34.contractsymbolextra", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.count = ProtoField.new("Count", "ice.mdf.impact.v1.1.34.count", ftypes.UINT16)
-ice_mdf_impact_v1_1_34.fields.cross_order_supported = ProtoField.new("Cross Order Supported", "ice.mdf.impact.v1.1.34.crossordersupported", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.currency = ProtoField.new("Currency", "ice.mdf.impact.v1.1.34.currency", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.date_time = ProtoField.new("Date Time", "ice.mdf.impact.v1.1.34.datetime", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.deal_price_denominator = ProtoField.new("Deal Price Denominator", "ice.mdf.impact.v1.1.34.dealpricedenominator", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.delete_order_message = ProtoField.new("Delete Order Message", "ice.mdf.impact.v1.1.34.deleteordermessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.delete_price_level_message = ProtoField.new("Delete Price Level Message", "ice.mdf.impact.v1.1.34.deletepricelevelmessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.delivery_begin_date_time = ProtoField.new("Delivery Begin Date Time", "ice.mdf.impact.v1.1.34.deliverybegindatetime", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.delivery_end_date_time = ProtoField.new("Delivery End Date Time", "ice.mdf.impact.v1.1.34.deliveryenddatetime", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.delta = ProtoField.new("Delta", "ice.mdf.impact.v1.1.34.delta", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.description = ProtoField.new("Description", "ice.mdf.impact.v1.1.34.description", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.efp_volume = ProtoField.new("Efp Volume", "ice.mdf.impact.v1.1.34.efpvolume", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.efs_volume = ProtoField.new("Efs Volume", "ice.mdf.impact.v1.1.34.efsvolume", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.end_day = ProtoField.new("End Day", "ice.mdf.impact.v1.1.34.endday", ftypes.INT16)
-ice_mdf_impact_v1_1_34.fields.end_month = ProtoField.new("End Month", "ice.mdf.impact.v1.1.34.endmonth", ftypes.INT16)
-ice_mdf_impact_v1_1_34.fields.end_of_day_market_summary_message = ProtoField.new("End Of Day Market Summary Message", "ice.mdf.impact.v1.1.34.endofdaymarketsummarymessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.end_year = ProtoField.new("End Year", "ice.mdf.impact.v1.1.34.endyear", ftypes.INT16)
-ice_mdf_impact_v1_1_34.fields.eur_price = ProtoField.new("Eur Price", "ice.mdf.impact.v1.1.34.eurprice", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.event_code = ProtoField.new("Event Code", "ice.mdf.impact.v1.1.34.eventcode", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.event_type = ProtoField.new("Event Type", "ice.mdf.impact.v1.1.34.eventtype", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.exchange_silo = ProtoField.new("Exchange Silo", "ice.mdf.impact.v1.1.34.exchangesilo", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.extra_flags = ProtoField.new("Extra Flags", "ice.mdf.impact.v1.1.34.extraflags", ftypes.INT8)
-ice_mdf_impact_v1_1_34.fields.ff_market_trade_indicator = ProtoField.new("Ff Market Trade Indicator", "ice.mdf.impact.v1.1.34.ffmarkettradeindicator", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.fixing_indicative_price_message_message = ProtoField.new("Fixing Indicative Price Message Message", "ice.mdf.impact.v1.1.34.fixingindicativepricemessagemessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.fixing_lockdown_message = ProtoField.new("Fixing Lockdown Message", "ice.mdf.impact.v1.1.34.fixinglockdownmessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.fixing_transition_message = ProtoField.new("Fixing Transition Message", "ice.mdf.impact.v1.1.34.fixingtransitionmessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.flex_allowed = ProtoField.new("Flex Allowed", "ice.mdf.impact.v1.1.34.flexallowed", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.futures_contract_symbol = ProtoField.new("Futures Contract Symbol", "ice.mdf.impact.v1.1.34.futurescontractsymbol", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.gbp_price = ProtoField.new("Gbp Price", "ice.mdf.impact.v1.1.34.gbpprice", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.gt_allowed = ProtoField.new("Gt Allowed", "ice.mdf.impact.v1.1.34.gtallowed", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.guaranteed_cross_supported = ProtoField.new("Guaranteed Cross Supported", "ice.mdf.impact.v1.1.34.guaranteedcrosssupported", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.has_pre_open_volume = ProtoField.new("Has Pre Open Volume", "ice.mdf.impact.v1.1.34.haspreopenvolume", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.has_previous_day_settlement_price = ProtoField.new("Has Previous Day Settlement Price", "ice.mdf.impact.v1.1.34.haspreviousdaysettlementprice", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.hedge_body_length = ProtoField.new("Hedge Body Length", "ice.mdf.impact.v1.1.34.hedgebodylength", ftypes.UINT8)
-ice_mdf_impact_v1_1_34.fields.hedge_definition = ProtoField.new("Hedge Definition", "ice.mdf.impact.v1.1.34.hedgedefinition", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.hedge_delta = ProtoField.new("Hedge Delta", "ice.mdf.impact.v1.1.34.hedgedelta", ftypes.UINT16)
-ice_mdf_impact_v1_1_34.fields.hedge_market_id = ProtoField.new("Hedge Market Id", "ice.mdf.impact.v1.1.34.hedgemarketid", ftypes.UINT32)
-ice_mdf_impact_v1_1_34.fields.hedge_only = ProtoField.new("Hedge Only", "ice.mdf.impact.v1.1.34.hedgeonly", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.hedge_price = ProtoField.new("Hedge Price", "ice.mdf.impact.v1.1.34.hedgeprice", ftypes.UINT64)
-ice_mdf_impact_v1_1_34.fields.hedge_price_denominator = ProtoField.new("Hedge Price Denominator", "ice.mdf.impact.v1.1.34.hedgepricedenominator", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.hedge_security_type = ProtoField.new("Hedge Security Type", "ice.mdf.impact.v1.1.34.hedgesecuritytype", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.hedge_side = ProtoField.new("Hedge Side", "ice.mdf.impact.v1.1.34.hedgeside", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.hedge_strategy_code = ProtoField.new("Hedge Strategy Code", "ice.mdf.impact.v1.1.34.hedgestrategycode", ftypes.UINT16)
-ice_mdf_impact_v1_1_34.fields.high = ProtoField.new("High", "ice.mdf.impact.v1.1.34.high", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.hub_alias = ProtoField.new("Hub Alias", "ice.mdf.impact.v1.1.34.hubalias", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.hub_id = ProtoField.new("Hub Id", "ice.mdf.impact.v1.1.34.hubid", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.iba_currency = ProtoField.new("Iba Currency", "ice.mdf.impact.v1.1.34.ibacurrency", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.implied_order_count = ProtoField.new("Implied Order Count", "ice.mdf.impact.v1.1.34.impliedordercount", ftypes.INT16)
-ice_mdf_impact_v1_1_34.fields.implied_quantity = ProtoField.new("Implied Quantity", "ice.mdf.impact.v1.1.34.impliedquantity", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.increment_premium_price = ProtoField.new("Increment Premium Price", "ice.mdf.impact.v1.1.34.incrementpremiumprice", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.increment_price = ProtoField.new("Increment Price", "ice.mdf.impact.v1.1.34.incrementprice", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.increment_qty = ProtoField.new("Increment Qty", "ice.mdf.impact.v1.1.34.incrementqty", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.index_prices_message = ProtoField.new("Index Prices Message", "ice.mdf.impact.v1.1.34.indexpricesmessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.interval_price_limit_notification_message = ProtoField.new("Interval Price Limit Notification Message", "ice.mdf.impact.v1.1.34.intervalpricelimitnotificationmessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.investigated_trade_message = ProtoField.new("Investigated Trade Message", "ice.mdf.impact.v1.1.34.investigatedtrademessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.investigation_status = ProtoField.new("Investigation Status", "ice.mdf.impact.v1.1.34.investigationstatus", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.ipl_down = ProtoField.new("Ipl Down", "ice.mdf.impact.v1.1.34.ipldown", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.ipl_hold_duration = ProtoField.new("Ipl Hold Duration", "ice.mdf.impact.v1.1.34.iplholdduration", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.ipl_hold_type = ProtoField.new("Ipl Hold Type", "ice.mdf.impact.v1.1.34.iplholdtype", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.ipl_up = ProtoField.new("Ipl Up", "ice.mdf.impact.v1.1.34.iplup", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.is_adjusted_trade = ProtoField.new("Is Adjusted Trade", "ice.mdf.impact.v1.1.34.isadjustedtrade", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.is_balanced = ProtoField.new("Is Balanced", "ice.mdf.impact.v1.1.34.isbalanced", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.is_block_only = ProtoField.new("Is Block Only", "ice.mdf.impact.v1.1.34.isblockonly", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.is_final = ProtoField.new("Is Final", "ice.mdf.impact.v1.1.34.isfinal", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.is_implied = ProtoField.new("Is Implied", "ice.mdf.impact.v1.1.34.isimplied", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.is_implied_spread_at_market_open = ProtoField.new("Is Implied Spread At Market Open", "ice.mdf.impact.v1.1.34.isimpliedspreadatmarketopen", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.is_official = ProtoField.new("Is Official", "ice.mdf.impact.v1.1.34.isofficial", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.is_rfq = ProtoField.new("Is Rfq", "ice.mdf.impact.v1.1.34.isrfq", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.is_settle_price_official = ProtoField.new("Is Settle Price Official", "ice.mdf.impact.v1.1.34.issettlepriceofficial", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.is_system_priced_leg = ProtoField.new("Is System Priced Leg", "ice.mdf.impact.v1.1.34.issystempricedleg", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.is_tradable = ProtoField.new("Is Tradable", "ice.mdf.impact.v1.1.34.istradable", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.is_transaction_end = ProtoField.new("Is Transaction End", "ice.mdf.impact.v1.1.34.istransactionend", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.is_up = ProtoField.new("Is Up", "ice.mdf.impact.v1.1.34.isup", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.isin = ProtoField.new("Isin", "ice.mdf.impact.v1.1.34.isin", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.last_message_sequence_id = ProtoField.new("Last Message Sequence Id", "ice.mdf.impact.v1.1.34.lastmessagesequenceid", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.last_trade_date_time = ProtoField.new("Last Trade Date Time", "ice.mdf.impact.v1.1.34.lasttradedatetime", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.last_trade_price = ProtoField.new("Last Trade Price", "ice.mdf.impact.v1.1.34.lasttradeprice", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.last_trade_quantity = ProtoField.new("Last Trade Quantity", "ice.mdf.impact.v1.1.34.lasttradequantity", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.leg_body_length = ProtoField.new("Leg Body Length", "ice.mdf.impact.v1.1.34.legbodylength", ftypes.UINT8)
-ice_mdf_impact_v1_1_34.fields.leg_deal_suppressed = ProtoField.new("Leg Deal Suppressed", "ice.mdf.impact.v1.1.34.legdealsuppressed", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.leg_definition = ProtoField.new("Leg Definition", "ice.mdf.impact.v1.1.34.legdefinition", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.leg_market_id = ProtoField.new("Leg Market Id", "ice.mdf.impact.v1.1.34.legmarketid", ftypes.UINT32)
-ice_mdf_impact_v1_1_34.fields.leg_ratio = ProtoField.new("Leg Ratio", "ice.mdf.impact.v1.1.34.legratio", ftypes.UINT16)
-ice_mdf_impact_v1_1_34.fields.leg_ratio_price_denominator = ProtoField.new("Leg Ratio Price Denominator", "ice.mdf.impact.v1.1.34.legratiopricedenominator", ftypes.UINT32)
-ice_mdf_impact_v1_1_34.fields.leg_ratio_price_numerator = ProtoField.new("Leg Ratio Price Numerator", "ice.mdf.impact.v1.1.34.legratiopricenumerator", ftypes.UINT32)
-ice_mdf_impact_v1_1_34.fields.leg_ratio_qty_denominator = ProtoField.new("Leg Ratio Qty Denominator", "ice.mdf.impact.v1.1.34.legratioqtydenominator", ftypes.UINT32)
-ice_mdf_impact_v1_1_34.fields.leg_ratio_qty_numerator = ProtoField.new("Leg Ratio Qty Numerator", "ice.mdf.impact.v1.1.34.legratioqtynumerator", ftypes.UINT32)
-ice_mdf_impact_v1_1_34.fields.leg_side = ProtoField.new("Leg Side", "ice.mdf.impact.v1.1.34.legside", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.leg_strategy_code = ProtoField.new("Leg Strategy Code", "ice.mdf.impact.v1.1.34.legstrategycode", ftypes.UINT16)
-ice_mdf_impact_v1_1_34.fields.leg_underlying_market_id = ProtoField.new("Leg Underlying Market Id", "ice.mdf.impact.v1.1.34.legunderlyingmarketid", ftypes.UINT32)
-ice_mdf_impact_v1_1_34.fields.length = ProtoField.new("Length", "ice.mdf.impact.v1.1.34.length", ftypes.UINT16)
-ice_mdf_impact_v1_1_34.fields.lot_size = ProtoField.new("Lot Size", "ice.mdf.impact.v1.1.34.lotsize", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.low = ProtoField.new("Low", "ice.mdf.impact.v1.1.34.low", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.market_desc = ProtoField.new("Market Desc", "ice.mdf.impact.v1.1.34.marketdesc", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.market_event_message = ProtoField.new("Market Event Message", "ice.mdf.impact.v1.1.34.marketeventmessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.market_id = ProtoField.new("Market Id", "ice.mdf.impact.v1.1.34.marketid", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.market_snapshot_message = ProtoField.new("Market Snapshot Message", "ice.mdf.impact.v1.1.34.marketsnapshotmessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.market_snapshot_order_message = ProtoField.new("Market Snapshot Order Message", "ice.mdf.impact.v1.1.34.marketsnapshotordermessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.market_snapshot_price_level_message = ProtoField.new("Market Snapshot Price Level Message", "ice.mdf.impact.v1.1.34.marketsnapshotpricelevelmessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.market_state_change_message = ProtoField.new("Market State Change Message", "ice.mdf.impact.v1.1.34.marketstatechangemessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.market_statistics_message = ProtoField.new("Market Statistics Message", "ice.mdf.impact.v1.1.34.marketstatisticsmessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.market_type = ProtoField.new("Market Type", "ice.mdf.impact.v1.1.34.markettype", ftypes.INT16)
-ice_mdf_impact_v1_1_34.fields.market_type_id = ProtoField.new("Market Type Id", "ice.mdf.impact.v1.1.34.markettypeid", ftypes.INT16)
-ice_mdf_impact_v1_1_34.fields.maturity_day = ProtoField.new("Maturity Day", "ice.mdf.impact.v1.1.34.maturityday", ftypes.INT16)
-ice_mdf_impact_v1_1_34.fields.maturity_month = ProtoField.new("Maturity Month", "ice.mdf.impact.v1.1.34.maturitymonth", ftypes.INT16)
-ice_mdf_impact_v1_1_34.fields.maturity_year = ProtoField.new("Maturity Year", "ice.mdf.impact.v1.1.34.maturityyear", ftypes.INT16)
-ice_mdf_impact_v1_1_34.fields.max_options_price = ProtoField.new("Max Options Price", "ice.mdf.impact.v1.1.34.maxoptionsprice", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.max_price = ProtoField.new("Max Price", "ice.mdf.impact.v1.1.34.maxprice", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.message = ProtoField.new("Message", "ice.mdf.impact.v1.1.34.message", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.message_bundle_marker = ProtoField.new("Message Bundle Marker", "ice.mdf.impact.v1.1.34.messagebundlemarker", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.message_header = ProtoField.new("Message Header", "ice.mdf.impact.v1.1.34.messageheader", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.message_timestamp = ProtoField.new("Message Timestamp", "ice.mdf.impact.v1.1.34.messagetimestamp", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.message_type = ProtoField.new("Message Type", "ice.mdf.impact.v1.1.34.messagetype", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.mic_code = ProtoField.new("Mic Code", "ice.mdf.impact.v1.1.34.miccode", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.mifid_regulated_market = ProtoField.new("Mifid Regulated Market", "ice.mdf.impact.v1.1.34.mifidregulatedmarket", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.min_options_price = ProtoField.new("Min Options Price", "ice.mdf.impact.v1.1.34.minoptionsprice", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.min_price = ProtoField.new("Min Price", "ice.mdf.impact.v1.1.34.minprice", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.min_qty = ProtoField.new("Min Qty", "ice.mdf.impact.v1.1.34.minqty", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.modification_timestamp = ProtoField.new("Modification Timestamp", "ice.mdf.impact.v1.1.34.modificationtimestamp", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.new_expiry_message = ProtoField.new("New Expiry Message", "ice.mdf.impact.v1.1.34.newexpirymessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.new_futures_strategy_definition_message = ProtoField.new("New Futures Strategy Definition Message", "ice.mdf.impact.v1.1.34.newfuturesstrategydefinitionmessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.new_options_market_definition_message = ProtoField.new("New Options Market Definition Message", "ice.mdf.impact.v1.1.34.newoptionsmarketdefinitionmessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.new_options_strategy_definition_message = ProtoField.new("New Options Strategy Definition Message", "ice.mdf.impact.v1.1.34.newoptionsstrategydefinitionmessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.notification_date_time = ProtoField.new("Notification Date Time", "ice.mdf.impact.v1.1.34.notificationdatetime", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.num_decimals_options_price = ProtoField.new("Num Decimals Options Price", "ice.mdf.impact.v1.1.34.numdecimalsoptionsprice", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.num_decimals_price = ProtoField.new("Num Decimals Price", "ice.mdf.impact.v1.1.34.numdecimalsprice", ftypes.INT8)
-ice_mdf_impact_v1_1_34.fields.num_decimals_price_in_gram = ProtoField.new("Num Decimals Price In Gram", "ice.mdf.impact.v1.1.34.numdecimalspriceingram", ftypes.INT8)
-ice_mdf_impact_v1_1_34.fields.num_decimals_strike_price = ProtoField.new("Num Decimals Strike Price", "ice.mdf.impact.v1.1.34.numdecimalsstrikeprice", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.num_of_book_entries = ProtoField.new("Num Of Book Entries", "ice.mdf.impact.v1.1.34.numofbookentries", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.number_of_hedge_definitions = ProtoField.new("Number Of Hedge Definitions", "ice.mdf.impact.v1.1.34.numberofhedgedefinitions", ftypes.INT8)
-ice_mdf_impact_v1_1_34.fields.number_of_leg_definitions = ProtoField.new("Number Of Leg Definitions", "ice.mdf.impact.v1.1.34.numberoflegdefinitions", ftypes.INT8)
-ice_mdf_impact_v1_1_34.fields.number_of_special_fields = ProtoField.new("Number Of Special Fields", "ice.mdf.impact.v1.1.34.numberofspecialfields", ftypes.INT8)
-ice_mdf_impact_v1_1_34.fields.number_of_strategy_leg_definitions = ProtoField.new("Number Of Strategy Leg Definitions", "ice.mdf.impact.v1.1.34.numberofstrategylegdefinitions", ftypes.INT8)
-ice_mdf_impact_v1_1_34.fields.off_exchange_increment_option_price = ProtoField.new("Off Exchange Increment Option Price", "ice.mdf.impact.v1.1.34.offexchangeincrementoptionprice", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.off_exchange_increment_price = ProtoField.new("Off Exchange Increment Price", "ice.mdf.impact.v1.1.34.offexchangeincrementprice", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.off_exchange_increment_qty = ProtoField.new("Off Exchange Increment Qty", "ice.mdf.impact.v1.1.34.offexchangeincrementqty", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.off_exchange_increment_qty_denominator = ProtoField.new("Off Exchange Increment Qty Denominator", "ice.mdf.impact.v1.1.34.offexchangeincrementqtydenominator", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.off_market_trade_indicator = ProtoField.new("Off Market Trade Indicator", "ice.mdf.impact.v1.1.34.offmarkettradeindicator", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.off_market_trade_type = ProtoField.new("Off Market Trade Type", "ice.mdf.impact.v1.1.34.offmarkettradetype", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.old_strip_id = ProtoField.new("Old Strip Id", "ice.mdf.impact.v1.1.34.oldstripid", ftypes.INT16)
-ice_mdf_impact_v1_1_34.fields.old_style_options_trade_and_market_stats_message = ProtoField.new("Old Style Options Trade And Market Stats Message", "ice.mdf.impact.v1.1.34.oldstyleoptionstradeandmarketstatsmessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.open_interest = ProtoField.new("Open Interest", "ice.mdf.impact.v1.1.34.openinterest", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.open_interest_change = ProtoField.new("Open Interest Change", "ice.mdf.impact.v1.1.34.openinterestchange", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.open_interest_date = ProtoField.new("Open Interest Date", "ice.mdf.impact.v1.1.34.openinterestdate", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.open_interest_message = ProtoField.new("Open Interest Message", "ice.mdf.impact.v1.1.34.openinterestmessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.open_price = ProtoField.new("Open Price", "ice.mdf.impact.v1.1.34.openprice", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.open_price_message = ProtoField.new("Open Price Message", "ice.mdf.impact.v1.1.34.openpricemessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.opening_price = ProtoField.new("Opening Price", "ice.mdf.impact.v1.1.34.openingprice", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.option_open_interest_message = ProtoField.new("Option Open Interest Message", "ice.mdf.impact.v1.1.34.optionopeninterestmessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.option_settlement_price_message = ProtoField.new("Option Settlement Price Message", "ice.mdf.impact.v1.1.34.optionsettlementpricemessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.option_type = ProtoField.new("Option Type", "ice.mdf.impact.v1.1.34.optiontype", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.options_expiration_day = ProtoField.new("Options Expiration Day", "ice.mdf.impact.v1.1.34.optionsexpirationday", ftypes.INT16)
-ice_mdf_impact_v1_1_34.fields.options_expiration_month = ProtoField.new("Options Expiration Month", "ice.mdf.impact.v1.1.34.optionsexpirationmonth", ftypes.INT16)
-ice_mdf_impact_v1_1_34.fields.options_expiration_type = ProtoField.new("Options Expiration Type", "ice.mdf.impact.v1.1.34.optionsexpirationtype", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.options_expiration_year = ProtoField.new("Options Expiration Year", "ice.mdf.impact.v1.1.34.optionsexpirationyear", ftypes.INT16)
-ice_mdf_impact_v1_1_34.fields.options_style = ProtoField.new("Options Style", "ice.mdf.impact.v1.1.34.optionsstyle", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.order_count = ProtoField.new("Order Count", "ice.mdf.impact.v1.1.34.ordercount", ftypes.INT16)
-ice_mdf_impact_v1_1_34.fields.order_entry_date_time = ProtoField.new("Order Entry Date Time", "ice.mdf.impact.v1.1.34.orderentrydatetime", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.order_id = ProtoField.new("Order Id", "ice.mdf.impact.v1.1.34.orderid", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.order_price_denominator = ProtoField.new("Order Price Denominator", "ice.mdf.impact.v1.1.34.orderpricedenominator", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.order_sequence_id = ProtoField.new("Order Sequence Id", "ice.mdf.impact.v1.1.34.ordersequenceid", ftypes.INT16)
-ice_mdf_impact_v1_1_34.fields.packet = ProtoField.new("Packet", "ice.mdf.impact.v1.1.34.packet", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.packet_header = ProtoField.new("Packet Header", "ice.mdf.impact.v1.1.34.packetheader", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.payload = ProtoField.new("Payload", "ice.mdf.impact.v1.1.34.payload", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.pre_open_price = ProtoField.new("Pre Open Price", "ice.mdf.impact.v1.1.34.preopenprice", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.pre_open_price_indicator_message = ProtoField.new("Pre Open Price Indicator Message", "ice.mdf.impact.v1.1.34.preopenpriceindicatormessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.pre_open_volume = ProtoField.new("Pre Open Volume", "ice.mdf.impact.v1.1.34.preopenvolume", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.previous_day_settlement_price = ProtoField.new("Previous Day Settlement Price", "ice.mdf.impact.v1.1.34.previousdaysettlementprice", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.price = ProtoField.new("Price", "ice.mdf.impact.v1.1.34.price", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.price_in_gram = ProtoField.new("Price In Gram", "ice.mdf.impact.v1.1.34.priceingram", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.price_level_position = ProtoField.new("Price Level Position", "ice.mdf.impact.v1.1.34.pricelevelposition", ftypes.INT8)
-ice_mdf_impact_v1_1_34.fields.product_id = ProtoField.new("Product Id", "ice.mdf.impact.v1.1.34.productid", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.product_name = ProtoField.new("Product Name", "ice.mdf.impact.v1.1.34.productname", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.published_date_time = ProtoField.new("Published Date Time", "ice.mdf.impact.v1.1.34.publisheddatetime", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.quantity = ProtoField.new("Quantity", "ice.mdf.impact.v1.1.34.quantity", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.reserved_bytes_4 = ProtoField.new("Reserved Bytes 4", "ice.mdf.impact.v1.1.34.reservedbytes4", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.reserved2_bytes = ProtoField.new("Reserved2 Bytes", "ice.mdf.impact.v1.1.34.reserved2bytes", ftypes.BYTES)
-ice_mdf_impact_v1_1_34.fields.rfq_message = ProtoField.new("Rfq Message", "ice.mdf.impact.v1.1.34.rfqmessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.rfq_system_id = ProtoField.new("Rfq System Id", "ice.mdf.impact.v1.1.34.rfqsystemid", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.round = ProtoField.new("Round", "ice.mdf.impact.v1.1.34.round", ftypes.INT16)
-ice_mdf_impact_v1_1_34.fields.screen_last_trade_day = ProtoField.new("Screen Last Trade Day", "ice.mdf.impact.v1.1.34.screenlasttradeday", ftypes.INT16)
-ice_mdf_impact_v1_1_34.fields.screen_last_trade_month = ProtoField.new("Screen Last Trade Month", "ice.mdf.impact.v1.1.34.screenlasttrademonth", ftypes.INT16)
-ice_mdf_impact_v1_1_34.fields.screen_last_trade_year = ProtoField.new("Screen Last Trade Year", "ice.mdf.impact.v1.1.34.screenlasttradeyear", ftypes.INT16)
-ice_mdf_impact_v1_1_34.fields.security_sub_type = ProtoField.new("Security Sub Type", "ice.mdf.impact.v1.1.34.securitysubtype", ftypes.INT16)
-ice_mdf_impact_v1_1_34.fields.sequence = ProtoField.new("Sequence", "ice.mdf.impact.v1.1.34.sequence", ftypes.UINT32)
-ice_mdf_impact_v1_1_34.fields.sequence_within_millis = ProtoField.new("Sequence Within Millis", "ice.mdf.impact.v1.1.34.sequencewithinmillis", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.session = ProtoField.new("Session", "ice.mdf.impact.v1.1.34.session", ftypes.UINT16)
-ice_mdf_impact_v1_1_34.fields.settle_price_date_time = ProtoField.new("Settle Price Date Time", "ice.mdf.impact.v1.1.34.settlepricedatetime", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.settle_price_denominator = ProtoField.new("Settle Price Denominator", "ice.mdf.impact.v1.1.34.settlepricedenominator", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.settlement_price = ProtoField.new("Settlement Price", "ice.mdf.impact.v1.1.34.settlementprice", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.settlement_price_message = ProtoField.new("Settlement Price Message", "ice.mdf.impact.v1.1.34.settlementpricemessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.settlement_price_with_deal_price_precision = ProtoField.new("Settlement Price With Deal Price Precision", "ice.mdf.impact.v1.1.34.settlementpricewithdealpriceprecision", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.settlement_type = ProtoField.new("Settlement Type", "ice.mdf.impact.v1.1.34.settlementtype", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.short_name = ProtoField.new("Short Name", "ice.mdf.impact.v1.1.34.shortname", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.side = ProtoField.new("Side", "ice.mdf.impact.v1.1.34.side", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.special_field = ProtoField.new("Special Field", "ice.mdf.impact.v1.1.34.specialfield", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.special_field_id = ProtoField.new("Special Field Id", "ice.mdf.impact.v1.1.34.specialfieldid", ftypes.UINT8)
-ice_mdf_impact_v1_1_34.fields.special_field_length = ProtoField.new("Special Field Length", "ice.mdf.impact.v1.1.34.specialfieldlength", ftypes.UINT16)
-ice_mdf_impact_v1_1_34.fields.special_field_message = ProtoField.new("Special Field Message", "ice.mdf.impact.v1.1.34.specialfieldmessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.special_field_value = ProtoField.new("Special Field Value", "ice.mdf.impact.v1.1.34.specialfieldvalue", ftypes.BYTES)
-ice_mdf_impact_v1_1_34.fields.spot_market_trade_message = ProtoField.new("Spot Market Trade Message", "ice.mdf.impact.v1.1.34.spotmarkettrademessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.start_or_end = ProtoField.new("Start Or End", "ice.mdf.impact.v1.1.34.startorend", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.status = ProtoField.new("Status", "ice.mdf.impact.v1.1.34.status", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.strategy_leg_definition = ProtoField.new("Strategy Leg Definition", "ice.mdf.impact.v1.1.34.strategylegdefinition", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.strategy_symbol = ProtoField.new("Strategy Symbol", "ice.mdf.impact.v1.1.34.strategysymbol", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.strike_price = ProtoField.new("Strike Price", "ice.mdf.impact.v1.1.34.strikeprice", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.strip_id = ProtoField.new("Strip Id", "ice.mdf.impact.v1.1.34.stripid", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.strip_info = ProtoField.new("Strip Info", "ice.mdf.impact.v1.1.34.stripinfo", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.strip_info_message = ProtoField.new("Strip Info Message", "ice.mdf.impact.v1.1.34.stripinfomessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.strip_name = ProtoField.new("Strip Name", "ice.mdf.impact.v1.1.34.stripname", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.strip_type = ProtoField.new("Strip Type", "ice.mdf.impact.v1.1.34.striptype", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.system_priced_leg_type = ProtoField.new("System Priced Leg Type", "ice.mdf.impact.v1.1.34.systempricedlegtype", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.system_text_message = ProtoField.new("System Text Message", "ice.mdf.impact.v1.1.34.systemtextmessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.test_market_indicator = ProtoField.new("Test Market Indicator", "ice.mdf.impact.v1.1.34.testmarketindicator", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.text_message = ProtoField.new("Text Message", "ice.mdf.impact.v1.1.34.textmessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.text_message_extra_fld = ProtoField.new("Text Message Extra Fld", "ice.mdf.impact.v1.1.34.textmessageextrafld", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.threshold_imbalance_qty = ProtoField.new("Threshold Imbalance Qty", "ice.mdf.impact.v1.1.34.thresholdimbalanceqty", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.tick_value = ProtoField.new("Tick Value", "ice.mdf.impact.v1.1.34.tickvalue", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.time = ProtoField.new("Time", "ice.mdf.impact.v1.1.34.time", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.timestamp = ProtoField.new("Timestamp", "ice.mdf.impact.v1.1.34.timestamp", ftypes.UINT64)
-ice_mdf_impact_v1_1_34.fields.total_volume = ProtoField.new("Total Volume", "ice.mdf.impact.v1.1.34.totalvolume", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.trade_id = ProtoField.new("Trade Id", "ice.mdf.impact.v1.1.34.tradeid", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.trade_message = ProtoField.new("Trade Message", "ice.mdf.impact.v1.1.34.trademessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.trade_transaction_id = ProtoField.new("Trade Transaction Id", "ice.mdf.impact.v1.1.34.tradetransactionid", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.trading_status = ProtoField.new("Trading Status", "ice.mdf.impact.v1.1.34.tradingstatus", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.transact_date_time = ProtoField.new("Transact Date Time", "ice.mdf.impact.v1.1.34.transactdatetime", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.transaction_end_marker_for_empty_last_bundle_message = ProtoField.new("Transaction End Marker For Empty Last Bundle Message", "ice.mdf.impact.v1.1.34.transactionendmarkerforemptylastbundlemessage", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.underlying_isin = ProtoField.new("Underlying Isin", "ice.mdf.impact.v1.1.34.underlyingisin", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.underlying_market_id = ProtoField.new("Underlying Market Id", "ice.mdf.impact.v1.1.34.underlyingmarketid", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "ice.mdf.impact.v1.1.34.unitofmeasure", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.unit_qty_denominator = ProtoField.new("Unit Qty Denominator", "ice.mdf.impact.v1.1.34.unitqtydenominator", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.unit_quantity = ProtoField.new("Unit Quantity", "ice.mdf.impact.v1.1.34.unitquantity", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.usd_price = ProtoField.new("Usd Price", "ice.mdf.impact.v1.1.34.usdprice", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.valuation_date = ProtoField.new("Valuation Date", "ice.mdf.impact.v1.1.34.valuationdate", ftypes.STRING)
-ice_mdf_impact_v1_1_34.fields.valuation_date_time = ProtoField.new("Valuation Date Time", "ice.mdf.impact.v1.1.34.valuationdatetime", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.volatility = ProtoField.new("Volatility", "ice.mdf.impact.v1.1.34.volatility", ftypes.INT64)
-ice_mdf_impact_v1_1_34.fields.volume = ProtoField.new("Volume", "ice.mdf.impact.v1.1.34.volume", ftypes.INT32)
-ice_mdf_impact_v1_1_34.fields.vwap = ProtoField.new("Vwap", "ice.mdf.impact.v1.1.34.vwap", ftypes.INT64)
+-- Ice Futures Mdf iMpact 1.1.34 Fields
+ice_futures_mdf_impact_v1_1_34.fields.add_or_modify_order_message = ProtoField.new("Add Or Modify Order Message", "ice.futures.mdf.impact.v1.1.34.addormodifyordermessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.add_price_level_message = ProtoField.new("Add Price Level Message", "ice.futures.mdf.impact.v1.1.34.addpricelevelmessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.agg_bid_qty = ProtoField.new("Agg Bid Qty", "ice.futures.mdf.impact.v1.1.34.aggbidqty", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.agg_offer_qty = ProtoField.new("Agg Offer Qty", "ice.futures.mdf.impact.v1.1.34.aggofferqty", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.aggressor_side = ProtoField.new("Aggressor Side", "ice.futures.mdf.impact.v1.1.34.aggressorside", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.allow_options = ProtoField.new("Allow Options", "ice.futures.mdf.impact.v1.1.34.allowoptions", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.allows_implied = ProtoField.new("Allows Implied", "ice.futures.mdf.impact.v1.1.34.allowsimplied", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.auction_date = ProtoField.new("Auction Date", "ice.futures.mdf.impact.v1.1.34.auctiondate", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.auction_end_time = ProtoField.new("Auction End Time", "ice.futures.mdf.impact.v1.1.34.auctionendtime", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.begin_day = ProtoField.new("Begin Day", "ice.futures.mdf.impact.v1.1.34.beginday", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_34.fields.begin_month = ProtoField.new("Begin Month", "ice.futures.mdf.impact.v1.1.34.beginmonth", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_34.fields.begin_year = ProtoField.new("Begin Year", "ice.futures.mdf.impact.v1.1.34.beginyear", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_34.fields.block_volume = ProtoField.new("Block Volume", "ice.futures.mdf.impact.v1.1.34.blockvolume", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.cancelled_trade_message = ProtoField.new("Cancelled Trade Message", "ice.futures.mdf.impact.v1.1.34.cancelledtrademessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.change_price_level_message = ProtoField.new("Change Price Level Message", "ice.futures.mdf.impact.v1.1.34.changepricelevelmessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.cleared_alias = ProtoField.new("Cleared Alias", "ice.futures.mdf.impact.v1.1.34.clearedalias", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.close_price = ProtoField.new("Close Price", "ice.futures.mdf.impact.v1.1.34.closeprice", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.close_price_message = ProtoField.new("Close Price Message", "ice.futures.mdf.impact.v1.1.34.closepricemessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.contract_symbol = ProtoField.new("Contract Symbol", "ice.futures.mdf.impact.v1.1.34.contractsymbol", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.contract_symbol_extra = ProtoField.new("Contract Symbol Extra", "ice.futures.mdf.impact.v1.1.34.contractsymbolextra", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.count = ProtoField.new("Count", "ice.futures.mdf.impact.v1.1.34.count", ftypes.UINT16)
+ice_futures_mdf_impact_v1_1_34.fields.cross_order_supported = ProtoField.new("Cross Order Supported", "ice.futures.mdf.impact.v1.1.34.crossordersupported", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.currency = ProtoField.new("Currency", "ice.futures.mdf.impact.v1.1.34.currency", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.date_time = ProtoField.new("Date Time", "ice.futures.mdf.impact.v1.1.34.datetime", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.deal_price_denominator = ProtoField.new("Deal Price Denominator", "ice.futures.mdf.impact.v1.1.34.dealpricedenominator", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.delete_order_message = ProtoField.new("Delete Order Message", "ice.futures.mdf.impact.v1.1.34.deleteordermessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.delete_price_level_message = ProtoField.new("Delete Price Level Message", "ice.futures.mdf.impact.v1.1.34.deletepricelevelmessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.delivery_begin_date_time = ProtoField.new("Delivery Begin Date Time", "ice.futures.mdf.impact.v1.1.34.deliverybegindatetime", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.delivery_end_date_time = ProtoField.new("Delivery End Date Time", "ice.futures.mdf.impact.v1.1.34.deliveryenddatetime", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.delta = ProtoField.new("Delta", "ice.futures.mdf.impact.v1.1.34.delta", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.description = ProtoField.new("Description", "ice.futures.mdf.impact.v1.1.34.description", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.efp_volume = ProtoField.new("Efp Volume", "ice.futures.mdf.impact.v1.1.34.efpvolume", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.efs_volume = ProtoField.new("Efs Volume", "ice.futures.mdf.impact.v1.1.34.efsvolume", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.end_day = ProtoField.new("End Day", "ice.futures.mdf.impact.v1.1.34.endday", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_34.fields.end_month = ProtoField.new("End Month", "ice.futures.mdf.impact.v1.1.34.endmonth", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_34.fields.end_of_day_market_summary_message = ProtoField.new("End Of Day Market Summary Message", "ice.futures.mdf.impact.v1.1.34.endofdaymarketsummarymessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.end_year = ProtoField.new("End Year", "ice.futures.mdf.impact.v1.1.34.endyear", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_34.fields.eur_price = ProtoField.new("Eur Price", "ice.futures.mdf.impact.v1.1.34.eurprice", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.event_code = ProtoField.new("Event Code", "ice.futures.mdf.impact.v1.1.34.eventcode", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.event_type = ProtoField.new("Event Type", "ice.futures.mdf.impact.v1.1.34.eventtype", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.exchange_silo = ProtoField.new("Exchange Silo", "ice.futures.mdf.impact.v1.1.34.exchangesilo", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.extra_flags = ProtoField.new("Extra Flags", "ice.futures.mdf.impact.v1.1.34.extraflags", ftypes.INT8)
+ice_futures_mdf_impact_v1_1_34.fields.ff_market_trade_indicator = ProtoField.new("Ff Market Trade Indicator", "ice.futures.mdf.impact.v1.1.34.ffmarkettradeindicator", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.fixing_indicative_price_message_message = ProtoField.new("Fixing Indicative Price Message Message", "ice.futures.mdf.impact.v1.1.34.fixingindicativepricemessagemessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.fixing_lockdown_message = ProtoField.new("Fixing Lockdown Message", "ice.futures.mdf.impact.v1.1.34.fixinglockdownmessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.fixing_transition_message = ProtoField.new("Fixing Transition Message", "ice.futures.mdf.impact.v1.1.34.fixingtransitionmessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.flex_allowed = ProtoField.new("Flex Allowed", "ice.futures.mdf.impact.v1.1.34.flexallowed", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.futures_contract_symbol = ProtoField.new("Futures Contract Symbol", "ice.futures.mdf.impact.v1.1.34.futurescontractsymbol", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.gbp_price = ProtoField.new("Gbp Price", "ice.futures.mdf.impact.v1.1.34.gbpprice", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.gt_allowed = ProtoField.new("Gt Allowed", "ice.futures.mdf.impact.v1.1.34.gtallowed", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.guaranteed_cross_supported = ProtoField.new("Guaranteed Cross Supported", "ice.futures.mdf.impact.v1.1.34.guaranteedcrosssupported", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.has_pre_open_volume = ProtoField.new("Has Pre Open Volume", "ice.futures.mdf.impact.v1.1.34.haspreopenvolume", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.has_previous_day_settlement_price = ProtoField.new("Has Previous Day Settlement Price", "ice.futures.mdf.impact.v1.1.34.haspreviousdaysettlementprice", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.hedge_body_length = ProtoField.new("Hedge Body Length", "ice.futures.mdf.impact.v1.1.34.hedgebodylength", ftypes.UINT8)
+ice_futures_mdf_impact_v1_1_34.fields.hedge_definition = ProtoField.new("Hedge Definition", "ice.futures.mdf.impact.v1.1.34.hedgedefinition", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.hedge_delta = ProtoField.new("Hedge Delta", "ice.futures.mdf.impact.v1.1.34.hedgedelta", ftypes.UINT16)
+ice_futures_mdf_impact_v1_1_34.fields.hedge_market_id = ProtoField.new("Hedge Market Id", "ice.futures.mdf.impact.v1.1.34.hedgemarketid", ftypes.UINT32)
+ice_futures_mdf_impact_v1_1_34.fields.hedge_only = ProtoField.new("Hedge Only", "ice.futures.mdf.impact.v1.1.34.hedgeonly", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.hedge_price = ProtoField.new("Hedge Price", "ice.futures.mdf.impact.v1.1.34.hedgeprice", ftypes.UINT64)
+ice_futures_mdf_impact_v1_1_34.fields.hedge_price_denominator = ProtoField.new("Hedge Price Denominator", "ice.futures.mdf.impact.v1.1.34.hedgepricedenominator", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.hedge_security_type = ProtoField.new("Hedge Security Type", "ice.futures.mdf.impact.v1.1.34.hedgesecuritytype", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.hedge_side = ProtoField.new("Hedge Side", "ice.futures.mdf.impact.v1.1.34.hedgeside", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.hedge_strategy_code = ProtoField.new("Hedge Strategy Code", "ice.futures.mdf.impact.v1.1.34.hedgestrategycode", ftypes.UINT16)
+ice_futures_mdf_impact_v1_1_34.fields.high = ProtoField.new("High", "ice.futures.mdf.impact.v1.1.34.high", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.hub_alias = ProtoField.new("Hub Alias", "ice.futures.mdf.impact.v1.1.34.hubalias", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.hub_id = ProtoField.new("Hub Id", "ice.futures.mdf.impact.v1.1.34.hubid", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.iba_currency = ProtoField.new("Iba Currency", "ice.futures.mdf.impact.v1.1.34.ibacurrency", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.implied_order_count = ProtoField.new("Implied Order Count", "ice.futures.mdf.impact.v1.1.34.impliedordercount", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_34.fields.implied_quantity = ProtoField.new("Implied Quantity", "ice.futures.mdf.impact.v1.1.34.impliedquantity", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.increment_premium_price = ProtoField.new("Increment Premium Price", "ice.futures.mdf.impact.v1.1.34.incrementpremiumprice", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.increment_price = ProtoField.new("Increment Price", "ice.futures.mdf.impact.v1.1.34.incrementprice", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.increment_qty = ProtoField.new("Increment Qty", "ice.futures.mdf.impact.v1.1.34.incrementqty", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.index_prices_message = ProtoField.new("Index Prices Message", "ice.futures.mdf.impact.v1.1.34.indexpricesmessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.interval_price_limit_notification_message = ProtoField.new("Interval Price Limit Notification Message", "ice.futures.mdf.impact.v1.1.34.intervalpricelimitnotificationmessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.investigated_trade_message = ProtoField.new("Investigated Trade Message", "ice.futures.mdf.impact.v1.1.34.investigatedtrademessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.investigation_status = ProtoField.new("Investigation Status", "ice.futures.mdf.impact.v1.1.34.investigationstatus", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.ipl_down = ProtoField.new("Ipl Down", "ice.futures.mdf.impact.v1.1.34.ipldown", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.ipl_hold_duration = ProtoField.new("Ipl Hold Duration", "ice.futures.mdf.impact.v1.1.34.iplholdduration", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.ipl_hold_type = ProtoField.new("Ipl Hold Type", "ice.futures.mdf.impact.v1.1.34.iplholdtype", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.ipl_up = ProtoField.new("Ipl Up", "ice.futures.mdf.impact.v1.1.34.iplup", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.is_adjusted_trade = ProtoField.new("Is Adjusted Trade", "ice.futures.mdf.impact.v1.1.34.isadjustedtrade", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.is_balanced = ProtoField.new("Is Balanced", "ice.futures.mdf.impact.v1.1.34.isbalanced", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.is_block_only = ProtoField.new("Is Block Only", "ice.futures.mdf.impact.v1.1.34.isblockonly", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.is_final = ProtoField.new("Is Final", "ice.futures.mdf.impact.v1.1.34.isfinal", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.is_implied = ProtoField.new("Is Implied", "ice.futures.mdf.impact.v1.1.34.isimplied", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.is_implied_spread_at_market_open = ProtoField.new("Is Implied Spread At Market Open", "ice.futures.mdf.impact.v1.1.34.isimpliedspreadatmarketopen", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.is_official = ProtoField.new("Is Official", "ice.futures.mdf.impact.v1.1.34.isofficial", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.is_rfq = ProtoField.new("Is Rfq", "ice.futures.mdf.impact.v1.1.34.isrfq", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.is_settle_price_official = ProtoField.new("Is Settle Price Official", "ice.futures.mdf.impact.v1.1.34.issettlepriceofficial", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.is_system_priced_leg = ProtoField.new("Is System Priced Leg", "ice.futures.mdf.impact.v1.1.34.issystempricedleg", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.is_tradable = ProtoField.new("Is Tradable", "ice.futures.mdf.impact.v1.1.34.istradable", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.is_transaction_end = ProtoField.new("Is Transaction End", "ice.futures.mdf.impact.v1.1.34.istransactionend", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.is_up = ProtoField.new("Is Up", "ice.futures.mdf.impact.v1.1.34.isup", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.isin = ProtoField.new("Isin", "ice.futures.mdf.impact.v1.1.34.isin", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.last_message_sequence_id = ProtoField.new("Last Message Sequence Id", "ice.futures.mdf.impact.v1.1.34.lastmessagesequenceid", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.last_trade_date_time = ProtoField.new("Last Trade Date Time", "ice.futures.mdf.impact.v1.1.34.lasttradedatetime", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.last_trade_price = ProtoField.new("Last Trade Price", "ice.futures.mdf.impact.v1.1.34.lasttradeprice", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.last_trade_quantity = ProtoField.new("Last Trade Quantity", "ice.futures.mdf.impact.v1.1.34.lasttradequantity", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.leg_body_length = ProtoField.new("Leg Body Length", "ice.futures.mdf.impact.v1.1.34.legbodylength", ftypes.UINT8)
+ice_futures_mdf_impact_v1_1_34.fields.leg_deal_suppressed = ProtoField.new("Leg Deal Suppressed", "ice.futures.mdf.impact.v1.1.34.legdealsuppressed", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.leg_definition = ProtoField.new("Leg Definition", "ice.futures.mdf.impact.v1.1.34.legdefinition", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.leg_market_id = ProtoField.new("Leg Market Id", "ice.futures.mdf.impact.v1.1.34.legmarketid", ftypes.UINT32)
+ice_futures_mdf_impact_v1_1_34.fields.leg_ratio = ProtoField.new("Leg Ratio", "ice.futures.mdf.impact.v1.1.34.legratio", ftypes.UINT16)
+ice_futures_mdf_impact_v1_1_34.fields.leg_ratio_price_denominator = ProtoField.new("Leg Ratio Price Denominator", "ice.futures.mdf.impact.v1.1.34.legratiopricedenominator", ftypes.UINT32)
+ice_futures_mdf_impact_v1_1_34.fields.leg_ratio_price_numerator = ProtoField.new("Leg Ratio Price Numerator", "ice.futures.mdf.impact.v1.1.34.legratiopricenumerator", ftypes.UINT32)
+ice_futures_mdf_impact_v1_1_34.fields.leg_ratio_qty_denominator = ProtoField.new("Leg Ratio Qty Denominator", "ice.futures.mdf.impact.v1.1.34.legratioqtydenominator", ftypes.UINT32)
+ice_futures_mdf_impact_v1_1_34.fields.leg_ratio_qty_numerator = ProtoField.new("Leg Ratio Qty Numerator", "ice.futures.mdf.impact.v1.1.34.legratioqtynumerator", ftypes.UINT32)
+ice_futures_mdf_impact_v1_1_34.fields.leg_side = ProtoField.new("Leg Side", "ice.futures.mdf.impact.v1.1.34.legside", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.leg_strategy_code = ProtoField.new("Leg Strategy Code", "ice.futures.mdf.impact.v1.1.34.legstrategycode", ftypes.UINT16)
+ice_futures_mdf_impact_v1_1_34.fields.leg_underlying_market_id = ProtoField.new("Leg Underlying Market Id", "ice.futures.mdf.impact.v1.1.34.legunderlyingmarketid", ftypes.UINT32)
+ice_futures_mdf_impact_v1_1_34.fields.length = ProtoField.new("Length", "ice.futures.mdf.impact.v1.1.34.length", ftypes.UINT16)
+ice_futures_mdf_impact_v1_1_34.fields.lot_size = ProtoField.new("Lot Size", "ice.futures.mdf.impact.v1.1.34.lotsize", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.low = ProtoField.new("Low", "ice.futures.mdf.impact.v1.1.34.low", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.market_desc = ProtoField.new("Market Desc", "ice.futures.mdf.impact.v1.1.34.marketdesc", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.market_event_message = ProtoField.new("Market Event Message", "ice.futures.mdf.impact.v1.1.34.marketeventmessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.market_id = ProtoField.new("Market Id", "ice.futures.mdf.impact.v1.1.34.marketid", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.market_snapshot_message = ProtoField.new("Market Snapshot Message", "ice.futures.mdf.impact.v1.1.34.marketsnapshotmessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.market_snapshot_order_message = ProtoField.new("Market Snapshot Order Message", "ice.futures.mdf.impact.v1.1.34.marketsnapshotordermessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.market_snapshot_price_level_message = ProtoField.new("Market Snapshot Price Level Message", "ice.futures.mdf.impact.v1.1.34.marketsnapshotpricelevelmessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.market_state_change_message = ProtoField.new("Market State Change Message", "ice.futures.mdf.impact.v1.1.34.marketstatechangemessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.market_statistics_message = ProtoField.new("Market Statistics Message", "ice.futures.mdf.impact.v1.1.34.marketstatisticsmessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.market_type = ProtoField.new("Market Type", "ice.futures.mdf.impact.v1.1.34.markettype", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_34.fields.market_type_id = ProtoField.new("Market Type Id", "ice.futures.mdf.impact.v1.1.34.markettypeid", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_34.fields.maturity_day = ProtoField.new("Maturity Day", "ice.futures.mdf.impact.v1.1.34.maturityday", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_34.fields.maturity_month = ProtoField.new("Maturity Month", "ice.futures.mdf.impact.v1.1.34.maturitymonth", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_34.fields.maturity_year = ProtoField.new("Maturity Year", "ice.futures.mdf.impact.v1.1.34.maturityyear", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_34.fields.max_options_price = ProtoField.new("Max Options Price", "ice.futures.mdf.impact.v1.1.34.maxoptionsprice", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.max_price = ProtoField.new("Max Price", "ice.futures.mdf.impact.v1.1.34.maxprice", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.message = ProtoField.new("Message", "ice.futures.mdf.impact.v1.1.34.message", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.message_bundle_marker = ProtoField.new("Message Bundle Marker", "ice.futures.mdf.impact.v1.1.34.messagebundlemarker", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.message_header = ProtoField.new("Message Header", "ice.futures.mdf.impact.v1.1.34.messageheader", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.message_timestamp = ProtoField.new("Message Timestamp", "ice.futures.mdf.impact.v1.1.34.messagetimestamp", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.message_type = ProtoField.new("Message Type", "ice.futures.mdf.impact.v1.1.34.messagetype", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.mic_code = ProtoField.new("Mic Code", "ice.futures.mdf.impact.v1.1.34.miccode", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.mifid_regulated_market = ProtoField.new("Mifid Regulated Market", "ice.futures.mdf.impact.v1.1.34.mifidregulatedmarket", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.min_options_price = ProtoField.new("Min Options Price", "ice.futures.mdf.impact.v1.1.34.minoptionsprice", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.min_price = ProtoField.new("Min Price", "ice.futures.mdf.impact.v1.1.34.minprice", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.min_qty = ProtoField.new("Min Qty", "ice.futures.mdf.impact.v1.1.34.minqty", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.modification_timestamp = ProtoField.new("Modification Timestamp", "ice.futures.mdf.impact.v1.1.34.modificationtimestamp", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.new_expiry_message = ProtoField.new("New Expiry Message", "ice.futures.mdf.impact.v1.1.34.newexpirymessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.new_futures_strategy_definition_message = ProtoField.new("New Futures Strategy Definition Message", "ice.futures.mdf.impact.v1.1.34.newfuturesstrategydefinitionmessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.new_options_market_definition_message = ProtoField.new("New Options Market Definition Message", "ice.futures.mdf.impact.v1.1.34.newoptionsmarketdefinitionmessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.new_options_strategy_definition_message = ProtoField.new("New Options Strategy Definition Message", "ice.futures.mdf.impact.v1.1.34.newoptionsstrategydefinitionmessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.notification_date_time = ProtoField.new("Notification Date Time", "ice.futures.mdf.impact.v1.1.34.notificationdatetime", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.num_decimals_options_price = ProtoField.new("Num Decimals Options Price", "ice.futures.mdf.impact.v1.1.34.numdecimalsoptionsprice", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.num_decimals_price = ProtoField.new("Num Decimals Price", "ice.futures.mdf.impact.v1.1.34.numdecimalsprice", ftypes.INT8)
+ice_futures_mdf_impact_v1_1_34.fields.num_decimals_price_in_gram = ProtoField.new("Num Decimals Price In Gram", "ice.futures.mdf.impact.v1.1.34.numdecimalspriceingram", ftypes.INT8)
+ice_futures_mdf_impact_v1_1_34.fields.num_decimals_strike_price = ProtoField.new("Num Decimals Strike Price", "ice.futures.mdf.impact.v1.1.34.numdecimalsstrikeprice", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.num_of_book_entries = ProtoField.new("Num Of Book Entries", "ice.futures.mdf.impact.v1.1.34.numofbookentries", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.number_of_hedge_definitions = ProtoField.new("Number Of Hedge Definitions", "ice.futures.mdf.impact.v1.1.34.numberofhedgedefinitions", ftypes.INT8)
+ice_futures_mdf_impact_v1_1_34.fields.number_of_leg_definitions = ProtoField.new("Number Of Leg Definitions", "ice.futures.mdf.impact.v1.1.34.numberoflegdefinitions", ftypes.INT8)
+ice_futures_mdf_impact_v1_1_34.fields.number_of_special_fields = ProtoField.new("Number Of Special Fields", "ice.futures.mdf.impact.v1.1.34.numberofspecialfields", ftypes.INT8)
+ice_futures_mdf_impact_v1_1_34.fields.number_of_strategy_leg_definitions = ProtoField.new("Number Of Strategy Leg Definitions", "ice.futures.mdf.impact.v1.1.34.numberofstrategylegdefinitions", ftypes.INT8)
+ice_futures_mdf_impact_v1_1_34.fields.off_exchange_increment_option_price = ProtoField.new("Off Exchange Increment Option Price", "ice.futures.mdf.impact.v1.1.34.offexchangeincrementoptionprice", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.off_exchange_increment_price = ProtoField.new("Off Exchange Increment Price", "ice.futures.mdf.impact.v1.1.34.offexchangeincrementprice", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.off_exchange_increment_qty = ProtoField.new("Off Exchange Increment Qty", "ice.futures.mdf.impact.v1.1.34.offexchangeincrementqty", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.off_exchange_increment_qty_denominator = ProtoField.new("Off Exchange Increment Qty Denominator", "ice.futures.mdf.impact.v1.1.34.offexchangeincrementqtydenominator", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.off_market_trade_indicator = ProtoField.new("Off Market Trade Indicator", "ice.futures.mdf.impact.v1.1.34.offmarkettradeindicator", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.off_market_trade_type = ProtoField.new("Off Market Trade Type", "ice.futures.mdf.impact.v1.1.34.offmarkettradetype", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.old_strip_id = ProtoField.new("Old Strip Id", "ice.futures.mdf.impact.v1.1.34.oldstripid", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_34.fields.old_style_options_trade_and_market_stats_message = ProtoField.new("Old Style Options Trade And Market Stats Message", "ice.futures.mdf.impact.v1.1.34.oldstyleoptionstradeandmarketstatsmessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.open_interest = ProtoField.new("Open Interest", "ice.futures.mdf.impact.v1.1.34.openinterest", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.open_interest_change = ProtoField.new("Open Interest Change", "ice.futures.mdf.impact.v1.1.34.openinterestchange", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.open_interest_date = ProtoField.new("Open Interest Date", "ice.futures.mdf.impact.v1.1.34.openinterestdate", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.open_interest_message = ProtoField.new("Open Interest Message", "ice.futures.mdf.impact.v1.1.34.openinterestmessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.open_price = ProtoField.new("Open Price", "ice.futures.mdf.impact.v1.1.34.openprice", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.open_price_message = ProtoField.new("Open Price Message", "ice.futures.mdf.impact.v1.1.34.openpricemessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.opening_price = ProtoField.new("Opening Price", "ice.futures.mdf.impact.v1.1.34.openingprice", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.option_open_interest_message = ProtoField.new("Option Open Interest Message", "ice.futures.mdf.impact.v1.1.34.optionopeninterestmessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.option_settlement_price_message = ProtoField.new("Option Settlement Price Message", "ice.futures.mdf.impact.v1.1.34.optionsettlementpricemessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.option_type = ProtoField.new("Option Type", "ice.futures.mdf.impact.v1.1.34.optiontype", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.options_expiration_day = ProtoField.new("Options Expiration Day", "ice.futures.mdf.impact.v1.1.34.optionsexpirationday", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_34.fields.options_expiration_month = ProtoField.new("Options Expiration Month", "ice.futures.mdf.impact.v1.1.34.optionsexpirationmonth", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_34.fields.options_expiration_type = ProtoField.new("Options Expiration Type", "ice.futures.mdf.impact.v1.1.34.optionsexpirationtype", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.options_expiration_year = ProtoField.new("Options Expiration Year", "ice.futures.mdf.impact.v1.1.34.optionsexpirationyear", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_34.fields.options_style = ProtoField.new("Options Style", "ice.futures.mdf.impact.v1.1.34.optionsstyle", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.order_count = ProtoField.new("Order Count", "ice.futures.mdf.impact.v1.1.34.ordercount", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_34.fields.order_entry_date_time = ProtoField.new("Order Entry Date Time", "ice.futures.mdf.impact.v1.1.34.orderentrydatetime", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.order_id = ProtoField.new("Order Id", "ice.futures.mdf.impact.v1.1.34.orderid", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.order_price_denominator = ProtoField.new("Order Price Denominator", "ice.futures.mdf.impact.v1.1.34.orderpricedenominator", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.order_sequence_id = ProtoField.new("Order Sequence Id", "ice.futures.mdf.impact.v1.1.34.ordersequenceid", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_34.fields.packet = ProtoField.new("Packet", "ice.futures.mdf.impact.v1.1.34.packet", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.packet_header = ProtoField.new("Packet Header", "ice.futures.mdf.impact.v1.1.34.packetheader", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.payload = ProtoField.new("Payload", "ice.futures.mdf.impact.v1.1.34.payload", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.pre_open_price = ProtoField.new("Pre Open Price", "ice.futures.mdf.impact.v1.1.34.preopenprice", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.pre_open_price_indicator_message = ProtoField.new("Pre Open Price Indicator Message", "ice.futures.mdf.impact.v1.1.34.preopenpriceindicatormessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.pre_open_volume = ProtoField.new("Pre Open Volume", "ice.futures.mdf.impact.v1.1.34.preopenvolume", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.previous_day_settlement_price = ProtoField.new("Previous Day Settlement Price", "ice.futures.mdf.impact.v1.1.34.previousdaysettlementprice", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.price = ProtoField.new("Price", "ice.futures.mdf.impact.v1.1.34.price", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.price_in_gram = ProtoField.new("Price In Gram", "ice.futures.mdf.impact.v1.1.34.priceingram", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.price_level_position = ProtoField.new("Price Level Position", "ice.futures.mdf.impact.v1.1.34.pricelevelposition", ftypes.INT8)
+ice_futures_mdf_impact_v1_1_34.fields.product_id = ProtoField.new("Product Id", "ice.futures.mdf.impact.v1.1.34.productid", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.product_name = ProtoField.new("Product Name", "ice.futures.mdf.impact.v1.1.34.productname", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.published_date_time = ProtoField.new("Published Date Time", "ice.futures.mdf.impact.v1.1.34.publisheddatetime", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.quantity = ProtoField.new("Quantity", "ice.futures.mdf.impact.v1.1.34.quantity", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.reserved_bytes_4 = ProtoField.new("Reserved Bytes 4", "ice.futures.mdf.impact.v1.1.34.reservedbytes4", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.reserved2_bytes = ProtoField.new("Reserved2 Bytes", "ice.futures.mdf.impact.v1.1.34.reserved2bytes", ftypes.BYTES)
+ice_futures_mdf_impact_v1_1_34.fields.rfq_message = ProtoField.new("Rfq Message", "ice.futures.mdf.impact.v1.1.34.rfqmessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.rfq_system_id = ProtoField.new("Rfq System Id", "ice.futures.mdf.impact.v1.1.34.rfqsystemid", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.round = ProtoField.new("Round", "ice.futures.mdf.impact.v1.1.34.round", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_34.fields.screen_last_trade_day = ProtoField.new("Screen Last Trade Day", "ice.futures.mdf.impact.v1.1.34.screenlasttradeday", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_34.fields.screen_last_trade_month = ProtoField.new("Screen Last Trade Month", "ice.futures.mdf.impact.v1.1.34.screenlasttrademonth", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_34.fields.screen_last_trade_year = ProtoField.new("Screen Last Trade Year", "ice.futures.mdf.impact.v1.1.34.screenlasttradeyear", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_34.fields.security_sub_type = ProtoField.new("Security Sub Type", "ice.futures.mdf.impact.v1.1.34.securitysubtype", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_34.fields.sequence = ProtoField.new("Sequence", "ice.futures.mdf.impact.v1.1.34.sequence", ftypes.UINT32)
+ice_futures_mdf_impact_v1_1_34.fields.sequence_within_millis = ProtoField.new("Sequence Within Millis", "ice.futures.mdf.impact.v1.1.34.sequencewithinmillis", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.session = ProtoField.new("Session", "ice.futures.mdf.impact.v1.1.34.session", ftypes.UINT16)
+ice_futures_mdf_impact_v1_1_34.fields.settle_price_date_time = ProtoField.new("Settle Price Date Time", "ice.futures.mdf.impact.v1.1.34.settlepricedatetime", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.settle_price_denominator = ProtoField.new("Settle Price Denominator", "ice.futures.mdf.impact.v1.1.34.settlepricedenominator", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.settlement_price = ProtoField.new("Settlement Price", "ice.futures.mdf.impact.v1.1.34.settlementprice", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.settlement_price_message = ProtoField.new("Settlement Price Message", "ice.futures.mdf.impact.v1.1.34.settlementpricemessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.settlement_price_with_deal_price_precision = ProtoField.new("Settlement Price With Deal Price Precision", "ice.futures.mdf.impact.v1.1.34.settlementpricewithdealpriceprecision", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.settlement_type = ProtoField.new("Settlement Type", "ice.futures.mdf.impact.v1.1.34.settlementtype", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.short_name = ProtoField.new("Short Name", "ice.futures.mdf.impact.v1.1.34.shortname", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.side = ProtoField.new("Side", "ice.futures.mdf.impact.v1.1.34.side", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.special_field = ProtoField.new("Special Field", "ice.futures.mdf.impact.v1.1.34.specialfield", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.special_field_id = ProtoField.new("Special Field Id", "ice.futures.mdf.impact.v1.1.34.specialfieldid", ftypes.UINT8)
+ice_futures_mdf_impact_v1_1_34.fields.special_field_length = ProtoField.new("Special Field Length", "ice.futures.mdf.impact.v1.1.34.specialfieldlength", ftypes.UINT16)
+ice_futures_mdf_impact_v1_1_34.fields.special_field_message = ProtoField.new("Special Field Message", "ice.futures.mdf.impact.v1.1.34.specialfieldmessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.special_field_value = ProtoField.new("Special Field Value", "ice.futures.mdf.impact.v1.1.34.specialfieldvalue", ftypes.BYTES)
+ice_futures_mdf_impact_v1_1_34.fields.spot_market_trade_message = ProtoField.new("Spot Market Trade Message", "ice.futures.mdf.impact.v1.1.34.spotmarkettrademessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.start_or_end = ProtoField.new("Start Or End", "ice.futures.mdf.impact.v1.1.34.startorend", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.status = ProtoField.new("Status", "ice.futures.mdf.impact.v1.1.34.status", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.strategy_leg_definition = ProtoField.new("Strategy Leg Definition", "ice.futures.mdf.impact.v1.1.34.strategylegdefinition", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.strategy_symbol = ProtoField.new("Strategy Symbol", "ice.futures.mdf.impact.v1.1.34.strategysymbol", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.strike_price = ProtoField.new("Strike Price", "ice.futures.mdf.impact.v1.1.34.strikeprice", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.strip_id = ProtoField.new("Strip Id", "ice.futures.mdf.impact.v1.1.34.stripid", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.strip_info = ProtoField.new("Strip Info", "ice.futures.mdf.impact.v1.1.34.stripinfo", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.strip_info_message = ProtoField.new("Strip Info Message", "ice.futures.mdf.impact.v1.1.34.stripinfomessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.strip_name = ProtoField.new("Strip Name", "ice.futures.mdf.impact.v1.1.34.stripname", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.strip_type = ProtoField.new("Strip Type", "ice.futures.mdf.impact.v1.1.34.striptype", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.system_priced_leg_type = ProtoField.new("System Priced Leg Type", "ice.futures.mdf.impact.v1.1.34.systempricedlegtype", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.system_text_message = ProtoField.new("System Text Message", "ice.futures.mdf.impact.v1.1.34.systemtextmessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.test_market_indicator = ProtoField.new("Test Market Indicator", "ice.futures.mdf.impact.v1.1.34.testmarketindicator", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.text_message = ProtoField.new("Text Message", "ice.futures.mdf.impact.v1.1.34.textmessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.text_message_extra_fld = ProtoField.new("Text Message Extra Fld", "ice.futures.mdf.impact.v1.1.34.textmessageextrafld", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.threshold_imbalance_qty = ProtoField.new("Threshold Imbalance Qty", "ice.futures.mdf.impact.v1.1.34.thresholdimbalanceqty", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.tick_value = ProtoField.new("Tick Value", "ice.futures.mdf.impact.v1.1.34.tickvalue", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.time = ProtoField.new("Time", "ice.futures.mdf.impact.v1.1.34.time", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.timestamp = ProtoField.new("Timestamp", "ice.futures.mdf.impact.v1.1.34.timestamp", ftypes.UINT64)
+ice_futures_mdf_impact_v1_1_34.fields.total_volume = ProtoField.new("Total Volume", "ice.futures.mdf.impact.v1.1.34.totalvolume", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.trade_id = ProtoField.new("Trade Id", "ice.futures.mdf.impact.v1.1.34.tradeid", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.trade_message = ProtoField.new("Trade Message", "ice.futures.mdf.impact.v1.1.34.trademessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.trade_transaction_id = ProtoField.new("Trade Transaction Id", "ice.futures.mdf.impact.v1.1.34.tradetransactionid", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.trading_status = ProtoField.new("Trading Status", "ice.futures.mdf.impact.v1.1.34.tradingstatus", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.transact_date_time = ProtoField.new("Transact Date Time", "ice.futures.mdf.impact.v1.1.34.transactdatetime", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.transaction_end_marker_for_empty_last_bundle_message = ProtoField.new("Transaction End Marker For Empty Last Bundle Message", "ice.futures.mdf.impact.v1.1.34.transactionendmarkerforemptylastbundlemessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.underlying_isin = ProtoField.new("Underlying Isin", "ice.futures.mdf.impact.v1.1.34.underlyingisin", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.underlying_market_id = ProtoField.new("Underlying Market Id", "ice.futures.mdf.impact.v1.1.34.underlyingmarketid", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "ice.futures.mdf.impact.v1.1.34.unitofmeasure", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.unit_qty_denominator = ProtoField.new("Unit Qty Denominator", "ice.futures.mdf.impact.v1.1.34.unitqtydenominator", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.unit_quantity = ProtoField.new("Unit Quantity", "ice.futures.mdf.impact.v1.1.34.unitquantity", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.usd_price = ProtoField.new("Usd Price", "ice.futures.mdf.impact.v1.1.34.usdprice", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.valuation_date = ProtoField.new("Valuation Date", "ice.futures.mdf.impact.v1.1.34.valuationdate", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.valuation_date_time = ProtoField.new("Valuation Date Time", "ice.futures.mdf.impact.v1.1.34.valuationdatetime", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.volatility = ProtoField.new("Volatility", "ice.futures.mdf.impact.v1.1.34.volatility", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_34.fields.volume = ProtoField.new("Volume", "ice.futures.mdf.impact.v1.1.34.volume", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.vwap = ProtoField.new("Vwap", "ice.futures.mdf.impact.v1.1.34.vwap", ftypes.INT64)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Ice Mdf iMpact 1.1.34 Element Dissection Options
+-- Ice Futures Mdf iMpact 1.1.34 Element Dissection Options
 show.add_or_modify_order_message = true
 show.add_price_level_message = true
 show.cancelled_trade_message = true
@@ -333,251 +333,251 @@ show.trade_message = true
 show.transaction_end_marker_for_empty_last_bundle_message = true
 show.payload = false
 
--- Register Ice Mdf iMpact 1.1.34 Show Options
-ice_mdf_impact_v1_1_34.prefs.show_add_or_modify_order_message = Pref.bool("Show Add Or Modify Order Message", show.add_or_modify_order_message, "Parse and add Add Or Modify Order Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_add_price_level_message = Pref.bool("Show Add Price Level Message", show.add_price_level_message, "Parse and add Add Price Level Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_cancelled_trade_message = Pref.bool("Show Cancelled Trade Message", show.cancelled_trade_message, "Parse and add Cancelled Trade Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_change_price_level_message = Pref.bool("Show Change Price Level Message", show.change_price_level_message, "Parse and add Change Price Level Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_close_price_message = Pref.bool("Show Close Price Message", show.close_price_message, "Parse and add Close Price Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_delete_order_message = Pref.bool("Show Delete Order Message", show.delete_order_message, "Parse and add Delete Order Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_delete_price_level_message = Pref.bool("Show Delete Price Level Message", show.delete_price_level_message, "Parse and add Delete Price Level Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_end_of_day_market_summary_message = Pref.bool("Show End Of Day Market Summary Message", show.end_of_day_market_summary_message, "Parse and add End Of Day Market Summary Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_fixing_indicative_price_message_message = Pref.bool("Show Fixing Indicative Price Message Message", show.fixing_indicative_price_message_message, "Parse and add Fixing Indicative Price Message Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_fixing_lockdown_message = Pref.bool("Show Fixing Lockdown Message", show.fixing_lockdown_message, "Parse and add Fixing Lockdown Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_fixing_transition_message = Pref.bool("Show Fixing Transition Message", show.fixing_transition_message, "Parse and add Fixing Transition Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_hedge_definition = Pref.bool("Show Hedge Definition", show.hedge_definition, "Parse and add Hedge Definition to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_index_prices_message = Pref.bool("Show Index Prices Message", show.index_prices_message, "Parse and add Index Prices Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_interval_price_limit_notification_message = Pref.bool("Show Interval Price Limit Notification Message", show.interval_price_limit_notification_message, "Parse and add Interval Price Limit Notification Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_investigated_trade_message = Pref.bool("Show Investigated Trade Message", show.investigated_trade_message, "Parse and add Investigated Trade Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_leg_definition = Pref.bool("Show Leg Definition", show.leg_definition, "Parse and add Leg Definition to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_market_event_message = Pref.bool("Show Market Event Message", show.market_event_message, "Parse and add Market Event Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_market_snapshot_message = Pref.bool("Show Market Snapshot Message", show.market_snapshot_message, "Parse and add Market Snapshot Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_market_snapshot_order_message = Pref.bool("Show Market Snapshot Order Message", show.market_snapshot_order_message, "Parse and add Market Snapshot Order Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_market_snapshot_price_level_message = Pref.bool("Show Market Snapshot Price Level Message", show.market_snapshot_price_level_message, "Parse and add Market Snapshot Price Level Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_market_state_change_message = Pref.bool("Show Market State Change Message", show.market_state_change_message, "Parse and add Market State Change Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_market_statistics_message = Pref.bool("Show Market Statistics Message", show.market_statistics_message, "Parse and add Market Statistics Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_message_bundle_marker = Pref.bool("Show Message Bundle Marker", show.message_bundle_marker, "Parse and add Message Bundle Marker to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_new_expiry_message = Pref.bool("Show New Expiry Message", show.new_expiry_message, "Parse and add New Expiry Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_new_futures_strategy_definition_message = Pref.bool("Show New Futures Strategy Definition Message", show.new_futures_strategy_definition_message, "Parse and add New Futures Strategy Definition Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_new_options_market_definition_message = Pref.bool("Show New Options Market Definition Message", show.new_options_market_definition_message, "Parse and add New Options Market Definition Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_new_options_strategy_definition_message = Pref.bool("Show New Options Strategy Definition Message", show.new_options_strategy_definition_message, "Parse and add New Options Strategy Definition Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_old_style_options_trade_and_market_stats_message = Pref.bool("Show Old Style Options Trade And Market Stats Message", show.old_style_options_trade_and_market_stats_message, "Parse and add Old Style Options Trade And Market Stats Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_open_interest_message = Pref.bool("Show Open Interest Message", show.open_interest_message, "Parse and add Open Interest Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_open_price_message = Pref.bool("Show Open Price Message", show.open_price_message, "Parse and add Open Price Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_option_open_interest_message = Pref.bool("Show Option Open Interest Message", show.option_open_interest_message, "Parse and add Option Open Interest Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_option_settlement_price_message = Pref.bool("Show Option Settlement Price Message", show.option_settlement_price_message, "Parse and add Option Settlement Price Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_pre_open_price_indicator_message = Pref.bool("Show Pre Open Price Indicator Message", show.pre_open_price_indicator_message, "Parse and add Pre Open Price Indicator Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_rfq_message = Pref.bool("Show Rfq Message", show.rfq_message, "Parse and add Rfq Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_settlement_price_message = Pref.bool("Show Settlement Price Message", show.settlement_price_message, "Parse and add Settlement Price Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_special_field = Pref.bool("Show Special Field", show.special_field, "Parse and add Special Field to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_special_field_message = Pref.bool("Show Special Field Message", show.special_field_message, "Parse and add Special Field Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_spot_market_trade_message = Pref.bool("Show Spot Market Trade Message", show.spot_market_trade_message, "Parse and add Spot Market Trade Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_strategy_leg_definition = Pref.bool("Show Strategy Leg Definition", show.strategy_leg_definition, "Parse and add Strategy Leg Definition to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_strip_info_message = Pref.bool("Show Strip Info Message", show.strip_info_message, "Parse and add Strip Info Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_system_text_message = Pref.bool("Show System Text Message", show.system_text_message, "Parse and add System Text Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_transaction_end_marker_for_empty_last_bundle_message = Pref.bool("Show Transaction End Marker For Empty Last Bundle Message", show.transaction_end_marker_for_empty_last_bundle_message, "Parse and add Transaction End Marker For Empty Last Bundle Message to protocol tree")
-ice_mdf_impact_v1_1_34.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+-- Register Ice Futures Mdf iMpact 1.1.34 Show Options
+ice_futures_mdf_impact_v1_1_34.prefs.show_add_or_modify_order_message = Pref.bool("Show Add Or Modify Order Message", show.add_or_modify_order_message, "Parse and add Add Or Modify Order Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_add_price_level_message = Pref.bool("Show Add Price Level Message", show.add_price_level_message, "Parse and add Add Price Level Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_cancelled_trade_message = Pref.bool("Show Cancelled Trade Message", show.cancelled_trade_message, "Parse and add Cancelled Trade Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_change_price_level_message = Pref.bool("Show Change Price Level Message", show.change_price_level_message, "Parse and add Change Price Level Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_close_price_message = Pref.bool("Show Close Price Message", show.close_price_message, "Parse and add Close Price Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_delete_order_message = Pref.bool("Show Delete Order Message", show.delete_order_message, "Parse and add Delete Order Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_delete_price_level_message = Pref.bool("Show Delete Price Level Message", show.delete_price_level_message, "Parse and add Delete Price Level Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_end_of_day_market_summary_message = Pref.bool("Show End Of Day Market Summary Message", show.end_of_day_market_summary_message, "Parse and add End Of Day Market Summary Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_fixing_indicative_price_message_message = Pref.bool("Show Fixing Indicative Price Message Message", show.fixing_indicative_price_message_message, "Parse and add Fixing Indicative Price Message Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_fixing_lockdown_message = Pref.bool("Show Fixing Lockdown Message", show.fixing_lockdown_message, "Parse and add Fixing Lockdown Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_fixing_transition_message = Pref.bool("Show Fixing Transition Message", show.fixing_transition_message, "Parse and add Fixing Transition Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_hedge_definition = Pref.bool("Show Hedge Definition", show.hedge_definition, "Parse and add Hedge Definition to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_index_prices_message = Pref.bool("Show Index Prices Message", show.index_prices_message, "Parse and add Index Prices Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_interval_price_limit_notification_message = Pref.bool("Show Interval Price Limit Notification Message", show.interval_price_limit_notification_message, "Parse and add Interval Price Limit Notification Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_investigated_trade_message = Pref.bool("Show Investigated Trade Message", show.investigated_trade_message, "Parse and add Investigated Trade Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_leg_definition = Pref.bool("Show Leg Definition", show.leg_definition, "Parse and add Leg Definition to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_market_event_message = Pref.bool("Show Market Event Message", show.market_event_message, "Parse and add Market Event Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_market_snapshot_message = Pref.bool("Show Market Snapshot Message", show.market_snapshot_message, "Parse and add Market Snapshot Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_market_snapshot_order_message = Pref.bool("Show Market Snapshot Order Message", show.market_snapshot_order_message, "Parse and add Market Snapshot Order Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_market_snapshot_price_level_message = Pref.bool("Show Market Snapshot Price Level Message", show.market_snapshot_price_level_message, "Parse and add Market Snapshot Price Level Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_market_state_change_message = Pref.bool("Show Market State Change Message", show.market_state_change_message, "Parse and add Market State Change Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_market_statistics_message = Pref.bool("Show Market Statistics Message", show.market_statistics_message, "Parse and add Market Statistics Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_message_bundle_marker = Pref.bool("Show Message Bundle Marker", show.message_bundle_marker, "Parse and add Message Bundle Marker to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_new_expiry_message = Pref.bool("Show New Expiry Message", show.new_expiry_message, "Parse and add New Expiry Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_new_futures_strategy_definition_message = Pref.bool("Show New Futures Strategy Definition Message", show.new_futures_strategy_definition_message, "Parse and add New Futures Strategy Definition Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_new_options_market_definition_message = Pref.bool("Show New Options Market Definition Message", show.new_options_market_definition_message, "Parse and add New Options Market Definition Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_new_options_strategy_definition_message = Pref.bool("Show New Options Strategy Definition Message", show.new_options_strategy_definition_message, "Parse and add New Options Strategy Definition Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_old_style_options_trade_and_market_stats_message = Pref.bool("Show Old Style Options Trade And Market Stats Message", show.old_style_options_trade_and_market_stats_message, "Parse and add Old Style Options Trade And Market Stats Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_open_interest_message = Pref.bool("Show Open Interest Message", show.open_interest_message, "Parse and add Open Interest Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_open_price_message = Pref.bool("Show Open Price Message", show.open_price_message, "Parse and add Open Price Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_option_open_interest_message = Pref.bool("Show Option Open Interest Message", show.option_open_interest_message, "Parse and add Option Open Interest Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_option_settlement_price_message = Pref.bool("Show Option Settlement Price Message", show.option_settlement_price_message, "Parse and add Option Settlement Price Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_pre_open_price_indicator_message = Pref.bool("Show Pre Open Price Indicator Message", show.pre_open_price_indicator_message, "Parse and add Pre Open Price Indicator Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_rfq_message = Pref.bool("Show Rfq Message", show.rfq_message, "Parse and add Rfq Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_settlement_price_message = Pref.bool("Show Settlement Price Message", show.settlement_price_message, "Parse and add Settlement Price Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_special_field = Pref.bool("Show Special Field", show.special_field, "Parse and add Special Field to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_special_field_message = Pref.bool("Show Special Field Message", show.special_field_message, "Parse and add Special Field Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_spot_market_trade_message = Pref.bool("Show Spot Market Trade Message", show.spot_market_trade_message, "Parse and add Spot Market Trade Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_strategy_leg_definition = Pref.bool("Show Strategy Leg Definition", show.strategy_leg_definition, "Parse and add Strategy Leg Definition to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_strip_info_message = Pref.bool("Show Strip Info Message", show.strip_info_message, "Parse and add Strip Info Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_system_text_message = Pref.bool("Show System Text Message", show.system_text_message, "Parse and add System Text Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_transaction_end_marker_for_empty_last_bundle_message = Pref.bool("Show Transaction End Marker For Empty Last Bundle Message", show.transaction_end_marker_for_empty_last_bundle_message, "Parse and add Transaction End Marker For Empty Last Bundle Message to protocol tree")
+ice_futures_mdf_impact_v1_1_34.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function ice_mdf_impact_v1_1_34.prefs_changed()
+function ice_futures_mdf_impact_v1_1_34.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_or_modify_order_message ~= ice_mdf_impact_v1_1_34.prefs.show_add_or_modify_order_message then
-    show.add_or_modify_order_message = ice_mdf_impact_v1_1_34.prefs.show_add_or_modify_order_message
+  if show.add_or_modify_order_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_add_or_modify_order_message then
+    show.add_or_modify_order_message = ice_futures_mdf_impact_v1_1_34.prefs.show_add_or_modify_order_message
     changed = true
   end
-  if show.add_price_level_message ~= ice_mdf_impact_v1_1_34.prefs.show_add_price_level_message then
-    show.add_price_level_message = ice_mdf_impact_v1_1_34.prefs.show_add_price_level_message
+  if show.add_price_level_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_add_price_level_message then
+    show.add_price_level_message = ice_futures_mdf_impact_v1_1_34.prefs.show_add_price_level_message
     changed = true
   end
-  if show.cancelled_trade_message ~= ice_mdf_impact_v1_1_34.prefs.show_cancelled_trade_message then
-    show.cancelled_trade_message = ice_mdf_impact_v1_1_34.prefs.show_cancelled_trade_message
+  if show.cancelled_trade_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_cancelled_trade_message then
+    show.cancelled_trade_message = ice_futures_mdf_impact_v1_1_34.prefs.show_cancelled_trade_message
     changed = true
   end
-  if show.change_price_level_message ~= ice_mdf_impact_v1_1_34.prefs.show_change_price_level_message then
-    show.change_price_level_message = ice_mdf_impact_v1_1_34.prefs.show_change_price_level_message
+  if show.change_price_level_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_change_price_level_message then
+    show.change_price_level_message = ice_futures_mdf_impact_v1_1_34.prefs.show_change_price_level_message
     changed = true
   end
-  if show.close_price_message ~= ice_mdf_impact_v1_1_34.prefs.show_close_price_message then
-    show.close_price_message = ice_mdf_impact_v1_1_34.prefs.show_close_price_message
+  if show.close_price_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_close_price_message then
+    show.close_price_message = ice_futures_mdf_impact_v1_1_34.prefs.show_close_price_message
     changed = true
   end
-  if show.delete_order_message ~= ice_mdf_impact_v1_1_34.prefs.show_delete_order_message then
-    show.delete_order_message = ice_mdf_impact_v1_1_34.prefs.show_delete_order_message
+  if show.delete_order_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_delete_order_message then
+    show.delete_order_message = ice_futures_mdf_impact_v1_1_34.prefs.show_delete_order_message
     changed = true
   end
-  if show.delete_price_level_message ~= ice_mdf_impact_v1_1_34.prefs.show_delete_price_level_message then
-    show.delete_price_level_message = ice_mdf_impact_v1_1_34.prefs.show_delete_price_level_message
+  if show.delete_price_level_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_delete_price_level_message then
+    show.delete_price_level_message = ice_futures_mdf_impact_v1_1_34.prefs.show_delete_price_level_message
     changed = true
   end
-  if show.end_of_day_market_summary_message ~= ice_mdf_impact_v1_1_34.prefs.show_end_of_day_market_summary_message then
-    show.end_of_day_market_summary_message = ice_mdf_impact_v1_1_34.prefs.show_end_of_day_market_summary_message
+  if show.end_of_day_market_summary_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_end_of_day_market_summary_message then
+    show.end_of_day_market_summary_message = ice_futures_mdf_impact_v1_1_34.prefs.show_end_of_day_market_summary_message
     changed = true
   end
-  if show.fixing_indicative_price_message_message ~= ice_mdf_impact_v1_1_34.prefs.show_fixing_indicative_price_message_message then
-    show.fixing_indicative_price_message_message = ice_mdf_impact_v1_1_34.prefs.show_fixing_indicative_price_message_message
+  if show.fixing_indicative_price_message_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_fixing_indicative_price_message_message then
+    show.fixing_indicative_price_message_message = ice_futures_mdf_impact_v1_1_34.prefs.show_fixing_indicative_price_message_message
     changed = true
   end
-  if show.fixing_lockdown_message ~= ice_mdf_impact_v1_1_34.prefs.show_fixing_lockdown_message then
-    show.fixing_lockdown_message = ice_mdf_impact_v1_1_34.prefs.show_fixing_lockdown_message
+  if show.fixing_lockdown_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_fixing_lockdown_message then
+    show.fixing_lockdown_message = ice_futures_mdf_impact_v1_1_34.prefs.show_fixing_lockdown_message
     changed = true
   end
-  if show.fixing_transition_message ~= ice_mdf_impact_v1_1_34.prefs.show_fixing_transition_message then
-    show.fixing_transition_message = ice_mdf_impact_v1_1_34.prefs.show_fixing_transition_message
+  if show.fixing_transition_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_fixing_transition_message then
+    show.fixing_transition_message = ice_futures_mdf_impact_v1_1_34.prefs.show_fixing_transition_message
     changed = true
   end
-  if show.hedge_definition ~= ice_mdf_impact_v1_1_34.prefs.show_hedge_definition then
-    show.hedge_definition = ice_mdf_impact_v1_1_34.prefs.show_hedge_definition
+  if show.hedge_definition ~= ice_futures_mdf_impact_v1_1_34.prefs.show_hedge_definition then
+    show.hedge_definition = ice_futures_mdf_impact_v1_1_34.prefs.show_hedge_definition
     changed = true
   end
-  if show.index_prices_message ~= ice_mdf_impact_v1_1_34.prefs.show_index_prices_message then
-    show.index_prices_message = ice_mdf_impact_v1_1_34.prefs.show_index_prices_message
+  if show.index_prices_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_index_prices_message then
+    show.index_prices_message = ice_futures_mdf_impact_v1_1_34.prefs.show_index_prices_message
     changed = true
   end
-  if show.interval_price_limit_notification_message ~= ice_mdf_impact_v1_1_34.prefs.show_interval_price_limit_notification_message then
-    show.interval_price_limit_notification_message = ice_mdf_impact_v1_1_34.prefs.show_interval_price_limit_notification_message
+  if show.interval_price_limit_notification_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_interval_price_limit_notification_message then
+    show.interval_price_limit_notification_message = ice_futures_mdf_impact_v1_1_34.prefs.show_interval_price_limit_notification_message
     changed = true
   end
-  if show.investigated_trade_message ~= ice_mdf_impact_v1_1_34.prefs.show_investigated_trade_message then
-    show.investigated_trade_message = ice_mdf_impact_v1_1_34.prefs.show_investigated_trade_message
+  if show.investigated_trade_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_investigated_trade_message then
+    show.investigated_trade_message = ice_futures_mdf_impact_v1_1_34.prefs.show_investigated_trade_message
     changed = true
   end
-  if show.leg_definition ~= ice_mdf_impact_v1_1_34.prefs.show_leg_definition then
-    show.leg_definition = ice_mdf_impact_v1_1_34.prefs.show_leg_definition
+  if show.leg_definition ~= ice_futures_mdf_impact_v1_1_34.prefs.show_leg_definition then
+    show.leg_definition = ice_futures_mdf_impact_v1_1_34.prefs.show_leg_definition
     changed = true
   end
-  if show.market_event_message ~= ice_mdf_impact_v1_1_34.prefs.show_market_event_message then
-    show.market_event_message = ice_mdf_impact_v1_1_34.prefs.show_market_event_message
+  if show.market_event_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_market_event_message then
+    show.market_event_message = ice_futures_mdf_impact_v1_1_34.prefs.show_market_event_message
     changed = true
   end
-  if show.market_snapshot_message ~= ice_mdf_impact_v1_1_34.prefs.show_market_snapshot_message then
-    show.market_snapshot_message = ice_mdf_impact_v1_1_34.prefs.show_market_snapshot_message
+  if show.market_snapshot_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_market_snapshot_message then
+    show.market_snapshot_message = ice_futures_mdf_impact_v1_1_34.prefs.show_market_snapshot_message
     changed = true
   end
-  if show.market_snapshot_order_message ~= ice_mdf_impact_v1_1_34.prefs.show_market_snapshot_order_message then
-    show.market_snapshot_order_message = ice_mdf_impact_v1_1_34.prefs.show_market_snapshot_order_message
+  if show.market_snapshot_order_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_market_snapshot_order_message then
+    show.market_snapshot_order_message = ice_futures_mdf_impact_v1_1_34.prefs.show_market_snapshot_order_message
     changed = true
   end
-  if show.market_snapshot_price_level_message ~= ice_mdf_impact_v1_1_34.prefs.show_market_snapshot_price_level_message then
-    show.market_snapshot_price_level_message = ice_mdf_impact_v1_1_34.prefs.show_market_snapshot_price_level_message
+  if show.market_snapshot_price_level_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_market_snapshot_price_level_message then
+    show.market_snapshot_price_level_message = ice_futures_mdf_impact_v1_1_34.prefs.show_market_snapshot_price_level_message
     changed = true
   end
-  if show.market_state_change_message ~= ice_mdf_impact_v1_1_34.prefs.show_market_state_change_message then
-    show.market_state_change_message = ice_mdf_impact_v1_1_34.prefs.show_market_state_change_message
+  if show.market_state_change_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_market_state_change_message then
+    show.market_state_change_message = ice_futures_mdf_impact_v1_1_34.prefs.show_market_state_change_message
     changed = true
   end
-  if show.market_statistics_message ~= ice_mdf_impact_v1_1_34.prefs.show_market_statistics_message then
-    show.market_statistics_message = ice_mdf_impact_v1_1_34.prefs.show_market_statistics_message
+  if show.market_statistics_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_market_statistics_message then
+    show.market_statistics_message = ice_futures_mdf_impact_v1_1_34.prefs.show_market_statistics_message
     changed = true
   end
-  if show.message ~= ice_mdf_impact_v1_1_34.prefs.show_message then
-    show.message = ice_mdf_impact_v1_1_34.prefs.show_message
+  if show.message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_message then
+    show.message = ice_futures_mdf_impact_v1_1_34.prefs.show_message
     changed = true
   end
-  if show.message_bundle_marker ~= ice_mdf_impact_v1_1_34.prefs.show_message_bundle_marker then
-    show.message_bundle_marker = ice_mdf_impact_v1_1_34.prefs.show_message_bundle_marker
+  if show.message_bundle_marker ~= ice_futures_mdf_impact_v1_1_34.prefs.show_message_bundle_marker then
+    show.message_bundle_marker = ice_futures_mdf_impact_v1_1_34.prefs.show_message_bundle_marker
     changed = true
   end
-  if show.message_header ~= ice_mdf_impact_v1_1_34.prefs.show_message_header then
-    show.message_header = ice_mdf_impact_v1_1_34.prefs.show_message_header
+  if show.message_header ~= ice_futures_mdf_impact_v1_1_34.prefs.show_message_header then
+    show.message_header = ice_futures_mdf_impact_v1_1_34.prefs.show_message_header
     changed = true
   end
-  if show.new_expiry_message ~= ice_mdf_impact_v1_1_34.prefs.show_new_expiry_message then
-    show.new_expiry_message = ice_mdf_impact_v1_1_34.prefs.show_new_expiry_message
+  if show.new_expiry_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_new_expiry_message then
+    show.new_expiry_message = ice_futures_mdf_impact_v1_1_34.prefs.show_new_expiry_message
     changed = true
   end
-  if show.new_futures_strategy_definition_message ~= ice_mdf_impact_v1_1_34.prefs.show_new_futures_strategy_definition_message then
-    show.new_futures_strategy_definition_message = ice_mdf_impact_v1_1_34.prefs.show_new_futures_strategy_definition_message
+  if show.new_futures_strategy_definition_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_new_futures_strategy_definition_message then
+    show.new_futures_strategy_definition_message = ice_futures_mdf_impact_v1_1_34.prefs.show_new_futures_strategy_definition_message
     changed = true
   end
-  if show.new_options_market_definition_message ~= ice_mdf_impact_v1_1_34.prefs.show_new_options_market_definition_message then
-    show.new_options_market_definition_message = ice_mdf_impact_v1_1_34.prefs.show_new_options_market_definition_message
+  if show.new_options_market_definition_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_new_options_market_definition_message then
+    show.new_options_market_definition_message = ice_futures_mdf_impact_v1_1_34.prefs.show_new_options_market_definition_message
     changed = true
   end
-  if show.new_options_strategy_definition_message ~= ice_mdf_impact_v1_1_34.prefs.show_new_options_strategy_definition_message then
-    show.new_options_strategy_definition_message = ice_mdf_impact_v1_1_34.prefs.show_new_options_strategy_definition_message
+  if show.new_options_strategy_definition_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_new_options_strategy_definition_message then
+    show.new_options_strategy_definition_message = ice_futures_mdf_impact_v1_1_34.prefs.show_new_options_strategy_definition_message
     changed = true
   end
-  if show.old_style_options_trade_and_market_stats_message ~= ice_mdf_impact_v1_1_34.prefs.show_old_style_options_trade_and_market_stats_message then
-    show.old_style_options_trade_and_market_stats_message = ice_mdf_impact_v1_1_34.prefs.show_old_style_options_trade_and_market_stats_message
+  if show.old_style_options_trade_and_market_stats_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_old_style_options_trade_and_market_stats_message then
+    show.old_style_options_trade_and_market_stats_message = ice_futures_mdf_impact_v1_1_34.prefs.show_old_style_options_trade_and_market_stats_message
     changed = true
   end
-  if show.open_interest_message ~= ice_mdf_impact_v1_1_34.prefs.show_open_interest_message then
-    show.open_interest_message = ice_mdf_impact_v1_1_34.prefs.show_open_interest_message
+  if show.open_interest_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_open_interest_message then
+    show.open_interest_message = ice_futures_mdf_impact_v1_1_34.prefs.show_open_interest_message
     changed = true
   end
-  if show.open_price_message ~= ice_mdf_impact_v1_1_34.prefs.show_open_price_message then
-    show.open_price_message = ice_mdf_impact_v1_1_34.prefs.show_open_price_message
+  if show.open_price_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_open_price_message then
+    show.open_price_message = ice_futures_mdf_impact_v1_1_34.prefs.show_open_price_message
     changed = true
   end
-  if show.option_open_interest_message ~= ice_mdf_impact_v1_1_34.prefs.show_option_open_interest_message then
-    show.option_open_interest_message = ice_mdf_impact_v1_1_34.prefs.show_option_open_interest_message
+  if show.option_open_interest_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_option_open_interest_message then
+    show.option_open_interest_message = ice_futures_mdf_impact_v1_1_34.prefs.show_option_open_interest_message
     changed = true
   end
-  if show.option_settlement_price_message ~= ice_mdf_impact_v1_1_34.prefs.show_option_settlement_price_message then
-    show.option_settlement_price_message = ice_mdf_impact_v1_1_34.prefs.show_option_settlement_price_message
+  if show.option_settlement_price_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_option_settlement_price_message then
+    show.option_settlement_price_message = ice_futures_mdf_impact_v1_1_34.prefs.show_option_settlement_price_message
     changed = true
   end
-  if show.packet ~= ice_mdf_impact_v1_1_34.prefs.show_packet then
-    show.packet = ice_mdf_impact_v1_1_34.prefs.show_packet
+  if show.packet ~= ice_futures_mdf_impact_v1_1_34.prefs.show_packet then
+    show.packet = ice_futures_mdf_impact_v1_1_34.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= ice_mdf_impact_v1_1_34.prefs.show_packet_header then
-    show.packet_header = ice_mdf_impact_v1_1_34.prefs.show_packet_header
+  if show.packet_header ~= ice_futures_mdf_impact_v1_1_34.prefs.show_packet_header then
+    show.packet_header = ice_futures_mdf_impact_v1_1_34.prefs.show_packet_header
     changed = true
   end
-  if show.pre_open_price_indicator_message ~= ice_mdf_impact_v1_1_34.prefs.show_pre_open_price_indicator_message then
-    show.pre_open_price_indicator_message = ice_mdf_impact_v1_1_34.prefs.show_pre_open_price_indicator_message
+  if show.pre_open_price_indicator_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_pre_open_price_indicator_message then
+    show.pre_open_price_indicator_message = ice_futures_mdf_impact_v1_1_34.prefs.show_pre_open_price_indicator_message
     changed = true
   end
-  if show.rfq_message ~= ice_mdf_impact_v1_1_34.prefs.show_rfq_message then
-    show.rfq_message = ice_mdf_impact_v1_1_34.prefs.show_rfq_message
+  if show.rfq_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_rfq_message then
+    show.rfq_message = ice_futures_mdf_impact_v1_1_34.prefs.show_rfq_message
     changed = true
   end
-  if show.settlement_price_message ~= ice_mdf_impact_v1_1_34.prefs.show_settlement_price_message then
-    show.settlement_price_message = ice_mdf_impact_v1_1_34.prefs.show_settlement_price_message
+  if show.settlement_price_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_settlement_price_message then
+    show.settlement_price_message = ice_futures_mdf_impact_v1_1_34.prefs.show_settlement_price_message
     changed = true
   end
-  if show.special_field ~= ice_mdf_impact_v1_1_34.prefs.show_special_field then
-    show.special_field = ice_mdf_impact_v1_1_34.prefs.show_special_field
+  if show.special_field ~= ice_futures_mdf_impact_v1_1_34.prefs.show_special_field then
+    show.special_field = ice_futures_mdf_impact_v1_1_34.prefs.show_special_field
     changed = true
   end
-  if show.special_field_message ~= ice_mdf_impact_v1_1_34.prefs.show_special_field_message then
-    show.special_field_message = ice_mdf_impact_v1_1_34.prefs.show_special_field_message
+  if show.special_field_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_special_field_message then
+    show.special_field_message = ice_futures_mdf_impact_v1_1_34.prefs.show_special_field_message
     changed = true
   end
-  if show.spot_market_trade_message ~= ice_mdf_impact_v1_1_34.prefs.show_spot_market_trade_message then
-    show.spot_market_trade_message = ice_mdf_impact_v1_1_34.prefs.show_spot_market_trade_message
+  if show.spot_market_trade_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_spot_market_trade_message then
+    show.spot_market_trade_message = ice_futures_mdf_impact_v1_1_34.prefs.show_spot_market_trade_message
     changed = true
   end
-  if show.strategy_leg_definition ~= ice_mdf_impact_v1_1_34.prefs.show_strategy_leg_definition then
-    show.strategy_leg_definition = ice_mdf_impact_v1_1_34.prefs.show_strategy_leg_definition
+  if show.strategy_leg_definition ~= ice_futures_mdf_impact_v1_1_34.prefs.show_strategy_leg_definition then
+    show.strategy_leg_definition = ice_futures_mdf_impact_v1_1_34.prefs.show_strategy_leg_definition
     changed = true
   end
-  if show.strip_info_message ~= ice_mdf_impact_v1_1_34.prefs.show_strip_info_message then
-    show.strip_info_message = ice_mdf_impact_v1_1_34.prefs.show_strip_info_message
+  if show.strip_info_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_strip_info_message then
+    show.strip_info_message = ice_futures_mdf_impact_v1_1_34.prefs.show_strip_info_message
     changed = true
   end
-  if show.system_text_message ~= ice_mdf_impact_v1_1_34.prefs.show_system_text_message then
-    show.system_text_message = ice_mdf_impact_v1_1_34.prefs.show_system_text_message
+  if show.system_text_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_system_text_message then
+    show.system_text_message = ice_futures_mdf_impact_v1_1_34.prefs.show_system_text_message
     changed = true
   end
-  if show.trade_message ~= ice_mdf_impact_v1_1_34.prefs.show_trade_message then
-    show.trade_message = ice_mdf_impact_v1_1_34.prefs.show_trade_message
+  if show.trade_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_trade_message then
+    show.trade_message = ice_futures_mdf_impact_v1_1_34.prefs.show_trade_message
     changed = true
   end
-  if show.transaction_end_marker_for_empty_last_bundle_message ~= ice_mdf_impact_v1_1_34.prefs.show_transaction_end_marker_for_empty_last_bundle_message then
-    show.transaction_end_marker_for_empty_last_bundle_message = ice_mdf_impact_v1_1_34.prefs.show_transaction_end_marker_for_empty_last_bundle_message
+  if show.transaction_end_marker_for_empty_last_bundle_message ~= ice_futures_mdf_impact_v1_1_34.prefs.show_transaction_end_marker_for_empty_last_bundle_message then
+    show.transaction_end_marker_for_empty_last_bundle_message = ice_futures_mdf_impact_v1_1_34.prefs.show_transaction_end_marker_for_empty_last_bundle_message
     changed = true
   end
-  if show.payload ~= ice_mdf_impact_v1_1_34.prefs.show_payload then
-    show.payload = ice_mdf_impact_v1_1_34.prefs.show_payload
+  if show.payload ~= ice_futures_mdf_impact_v1_1_34.prefs.show_payload then
+    show.payload = ice_futures_mdf_impact_v1_1_34.prefs.show_payload
     changed = true
   end
 
@@ -589,7 +589,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Ice Mdf iMpact 1.1.34
+-- Dissect Ice Futures Mdf iMpact 1.1.34
 -----------------------------------------------------------------------
 
 -- Size: Vwap
@@ -606,7 +606,7 @@ dissect.vwap = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.vwap(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.vwap, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.vwap, range, value, display)
 
   return offset + size_of.vwap
 end
@@ -625,7 +625,7 @@ dissect.low = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.low(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.low, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.low, range, value, display)
 
   return offset + size_of.low
 end
@@ -644,7 +644,7 @@ dissect.high = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.high(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.high, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.high, range, value, display)
 
   return offset + size_of.high
 end
@@ -663,7 +663,7 @@ dissect.efp_volume = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.efp_volume(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.efp_volume, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.efp_volume, range, value, display)
 
   return offset + size_of.efp_volume
 end
@@ -682,7 +682,7 @@ dissect.efs_volume = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.efs_volume(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.efs_volume, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.efs_volume, range, value, display)
 
   return offset + size_of.efs_volume
 end
@@ -701,7 +701,7 @@ dissect.block_volume = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.block_volume(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.block_volume, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.block_volume, range, value, display)
 
   return offset + size_of.block_volume
 end
@@ -720,7 +720,7 @@ dissect.total_volume = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.total_volume(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.total_volume, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.total_volume, range, value, display)
 
   return offset + size_of.total_volume
 end
@@ -749,7 +749,7 @@ dissect.event_code = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.event_code(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.event_code, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.event_code, range, value, display)
 
   return offset + size_of.event_code
 end
@@ -768,7 +768,7 @@ dissect.strike_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.strike_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.strike_price, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.strike_price, range, value, display)
 
   return offset + size_of.strike_price
 end
@@ -794,7 +794,7 @@ dissect.option_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.option_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.option_type, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.option_type, range, value, display)
 
   return offset + size_of.option_type
 end
@@ -813,7 +813,7 @@ dissect.transact_date_time = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.transact_date_time(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.transact_date_time, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.transact_date_time, range, value, display)
 
   return offset + size_of.transact_date_time
 end
@@ -860,7 +860,7 @@ dissect.off_market_trade_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.off_market_trade_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.off_market_trade_indicator, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.off_market_trade_indicator, range, value, display)
 
   return offset + size_of.off_market_trade_indicator
 end
@@ -879,7 +879,7 @@ dissect.quantity = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.quantity(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.quantity, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.quantity, range, value, display)
 
   return offset + size_of.quantity
 end
@@ -898,7 +898,7 @@ dissect.price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.price, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.price, range, value, display)
 
   return offset + size_of.price
 end
@@ -917,7 +917,7 @@ dissect.trade_id = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.trade_id, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.trade_id, range, value, display)
 
   return offset + size_of.trade_id
 end
@@ -936,7 +936,7 @@ dissect.underlying_market_id = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.underlying_market_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.underlying_market_id, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.underlying_market_id, range, value, display)
 
   return offset + size_of.underlying_market_id
 end
@@ -1007,7 +1007,7 @@ dissect.old_style_options_trade_and_market_stats_message = function(buffer, offs
   if show.old_style_options_trade_and_market_stats_message then
     local range = buffer(offset, 83)
     local display = display.old_style_options_trade_and_market_stats_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.old_style_options_trade_and_market_stats_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.old_style_options_trade_and_market_stats_message, range, display)
   end
 
   return dissect.old_style_options_trade_and_market_stats_message_fields(buffer, offset, packet, parent)
@@ -1027,7 +1027,7 @@ dissect.delta = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.delta(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.delta, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.delta, range, value, display)
 
   return offset + size_of.delta
 end
@@ -1046,7 +1046,7 @@ dissect.settlement_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.settlement_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.settlement_price, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.settlement_price, range, value, display)
 
   return offset + size_of.settlement_price
 end
@@ -1065,7 +1065,7 @@ dissect.volatility = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.volatility(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.volatility, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.volatility, range, value, display)
 
   return offset + size_of.volatility
 end
@@ -1084,7 +1084,7 @@ dissect.valuation_date_time = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.valuation_date_time(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.valuation_date_time, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.valuation_date_time, range, value, display)
 
   return offset + size_of.valuation_date_time
 end
@@ -1110,7 +1110,7 @@ dissect.is_official = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.is_official(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.is_official, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.is_official, range, value, display)
 
   return offset + size_of.is_official
 end
@@ -1129,7 +1129,7 @@ dissect.date_time = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.date_time(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.date_time, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.date_time, range, value, display)
 
   return offset + size_of.date_time
 end
@@ -1148,7 +1148,7 @@ dissect.settlement_price_with_deal_price_precision = function(buffer, offset, pa
   local value = range:int64()
   local display = display.settlement_price_with_deal_price_precision(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.settlement_price_with_deal_price_precision, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.settlement_price_with_deal_price_precision, range, value, display)
 
   return offset + size_of.settlement_price_with_deal_price_precision
 end
@@ -1167,7 +1167,7 @@ dissect.market_id = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.market_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.market_id, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.market_id, range, value, display)
 
   return offset + size_of.market_id
 end
@@ -1214,7 +1214,7 @@ dissect.option_settlement_price_message = function(buffer, offset, packet, paren
   if show.option_settlement_price_message then
     local range = buffer(offset, 53)
     local display = display.option_settlement_price_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.option_settlement_price_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.option_settlement_price_message, range, display)
   end
 
   return dissect.option_settlement_price_message_fields(buffer, offset, packet, parent)
@@ -1234,7 +1234,7 @@ dissect.open_interest_date = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.open_interest_date(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.open_interest_date, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.open_interest_date, range, value, display)
 
   return offset + size_of.open_interest_date
 end
@@ -1253,7 +1253,7 @@ dissect.open_interest = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.open_interest(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.open_interest, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.open_interest, range, value, display)
 
   return offset + size_of.open_interest
 end
@@ -1288,7 +1288,7 @@ dissect.option_open_interest_message = function(buffer, offset, packet, parent)
   if show.option_open_interest_message then
     local range = buffer(offset, 26)
     local display = display.option_open_interest_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.option_open_interest_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.option_open_interest_message, range, display)
   end
 
   return dissect.option_open_interest_message_fields(buffer, offset, packet, parent)
@@ -1318,7 +1318,7 @@ dissect.side = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.side(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.side, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.side, range, value, display)
 
   return offset + size_of.side
 end
@@ -1758,7 +1758,7 @@ dissect.market_type_id = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.market_type_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.market_type_id, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.market_type_id, range, value, display)
 
   return offset + size_of.market_type_id
 end
@@ -1777,7 +1777,7 @@ dissect.rfq_system_id = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.rfq_system_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.rfq_system_id, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.rfq_system_id, range, value, display)
 
   return offset + size_of.rfq_system_id
 end
@@ -1796,7 +1796,7 @@ dissect.message_timestamp = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.message_timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.message_timestamp, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.message_timestamp, range, value, display)
 
   return offset + size_of.message_timestamp
 end
@@ -1840,7 +1840,7 @@ dissect.rfq_message = function(buffer, offset, packet, parent)
   if show.rfq_message then
     local range = buffer(offset, 31)
     local display = display.rfq_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.rfq_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.rfq_message, range, display)
   end
 
   return dissect.rfq_message_fields(buffer, offset, packet, parent)
@@ -1867,7 +1867,7 @@ dissect.is_tradable = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.is_tradable(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.is_tradable, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.is_tradable, range, value, display)
 
   return offset + size_of.is_tradable
 end
@@ -1886,7 +1886,7 @@ dissect.screen_last_trade_day = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.screen_last_trade_day(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.screen_last_trade_day, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.screen_last_trade_day, range, value, display)
 
   return offset + size_of.screen_last_trade_day
 end
@@ -1905,7 +1905,7 @@ dissect.screen_last_trade_month = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.screen_last_trade_month(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.screen_last_trade_month, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.screen_last_trade_month, range, value, display)
 
   return offset + size_of.screen_last_trade_month
 end
@@ -1924,7 +1924,7 @@ dissect.screen_last_trade_year = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.screen_last_trade_year(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.screen_last_trade_year, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.screen_last_trade_year, range, value, display)
 
   return offset + size_of.screen_last_trade_year
 end
@@ -1950,7 +1950,7 @@ dissect.mifid_regulated_market = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.mifid_regulated_market(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.mifid_regulated_market, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.mifid_regulated_market, range, value, display)
 
   return offset + size_of.mifid_regulated_market
 end
@@ -1969,7 +1969,7 @@ dissect.unit_of_measure = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.unit_of_measure(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.unit_of_measure, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.unit_of_measure, range, value, display)
 
   return offset + size_of.unit_of_measure
 end
@@ -1995,7 +1995,7 @@ dissect.guaranteed_cross_supported = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.guaranteed_cross_supported(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.guaranteed_cross_supported, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.guaranteed_cross_supported, range, value, display)
 
   return offset + size_of.guaranteed_cross_supported
 end
@@ -2021,7 +2021,7 @@ dissect.cross_order_supported = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.cross_order_supported(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.cross_order_supported, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.cross_order_supported, range, value, display)
 
   return offset + size_of.cross_order_supported
 end
@@ -2047,7 +2047,7 @@ dissect.gt_allowed = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.gt_allowed(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.gt_allowed, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.gt_allowed, range, value, display)
 
   return offset + size_of.gt_allowed
 end
@@ -2073,7 +2073,7 @@ dissect.is_block_only = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.is_block_only(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.is_block_only, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.is_block_only, range, value, display)
 
   return offset + size_of.is_block_only
 end
@@ -2099,7 +2099,7 @@ dissect.settlement_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.settlement_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.settlement_type, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.settlement_type, range, value, display)
 
   return offset + size_of.settlement_type
 end
@@ -2118,7 +2118,7 @@ dissect.flex_allowed = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.flex_allowed(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.flex_allowed, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.flex_allowed, range, value, display)
 
   return offset + size_of.flex_allowed
 end
@@ -2137,7 +2137,7 @@ dissect.tick_value = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.tick_value(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.tick_value, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.tick_value, range, value, display)
 
   return offset + size_of.tick_value
 end
@@ -2156,7 +2156,7 @@ dissect.unit_qty_denominator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.unit_qty_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.unit_qty_denominator, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.unit_qty_denominator, range, value, display)
 
   return offset + size_of.unit_qty_denominator
 end
@@ -2175,7 +2175,7 @@ dissect.settle_price_denominator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.settle_price_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.settle_price_denominator, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.settle_price_denominator, range, value, display)
 
   return offset + size_of.settle_price_denominator
 end
@@ -2194,7 +2194,7 @@ dissect.hedge_market_id = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.hedge_market_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.hedge_market_id, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.hedge_market_id, range, value, display)
 
   return offset + size_of.hedge_market_id
 end
@@ -2220,7 +2220,7 @@ dissect.options_expiration_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.options_expiration_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.options_expiration_type, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.options_expiration_type, range, value, display)
 
   return offset + size_of.options_expiration_type
 end
@@ -2255,7 +2255,7 @@ dissect.options_style = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.options_style(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.options_style, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.options_style, range, value, display)
 
   return offset + size_of.options_style
 end
@@ -2274,7 +2274,7 @@ dissect.options_expiration_day = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.options_expiration_day(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.options_expiration_day, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.options_expiration_day, range, value, display)
 
   return offset + size_of.options_expiration_day
 end
@@ -2293,7 +2293,7 @@ dissect.options_expiration_month = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.options_expiration_month(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.options_expiration_month, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.options_expiration_month, range, value, display)
 
   return offset + size_of.options_expiration_month
 end
@@ -2312,7 +2312,7 @@ dissect.options_expiration_year = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.options_expiration_year(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.options_expiration_year, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.options_expiration_year, range, value, display)
 
   return offset + size_of.options_expiration_year
 end
@@ -2331,7 +2331,7 @@ dissect.increment_premium_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.increment_premium_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.increment_premium_price, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.increment_premium_price, range, value, display)
 
   return offset + size_of.increment_premium_price
 end
@@ -2350,7 +2350,7 @@ dissect.max_options_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.max_options_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.max_options_price, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.max_options_price, range, value, display)
 
   return offset + size_of.max_options_price
 end
@@ -2369,7 +2369,7 @@ dissect.min_options_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.min_options_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.min_options_price, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.min_options_price, range, value, display)
 
   return offset + size_of.min_options_price
 end
@@ -2388,7 +2388,7 @@ dissect.num_decimals_strike_price = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.num_decimals_strike_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.num_decimals_strike_price, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.num_decimals_strike_price, range, value, display)
 
   return offset + size_of.num_decimals_strike_price
 end
@@ -2407,7 +2407,7 @@ dissect.currency = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.currency(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.currency, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.currency, range, value, display)
 
   return offset + size_of.currency
 end
@@ -2426,7 +2426,7 @@ dissect.min_qty = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.min_qty(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.min_qty, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.min_qty, range, value, display)
 
   return offset + size_of.min_qty
 end
@@ -2445,7 +2445,7 @@ dissect.deal_price_denominator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.deal_price_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.deal_price_denominator, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.deal_price_denominator, range, value, display)
 
   return offset + size_of.deal_price_denominator
 end
@@ -2464,7 +2464,7 @@ dissect.market_desc = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.market_desc(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.market_desc, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.market_desc, range, value, display)
 
   return offset + size_of.market_desc
 end
@@ -2483,7 +2483,7 @@ dissect.lot_size = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.lot_size(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.lot_size, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.lot_size, range, value, display)
 
   return offset + size_of.lot_size
 end
@@ -2502,7 +2502,7 @@ dissect.increment_qty = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.increment_qty(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.increment_qty, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.increment_qty, range, value, display)
 
   return offset + size_of.increment_qty
 end
@@ -2521,7 +2521,7 @@ dissect.order_price_denominator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.order_price_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.order_price_denominator, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.order_price_denominator, range, value, display)
 
   return offset + size_of.order_price_denominator
 end
@@ -2556,7 +2556,7 @@ dissect.trading_status = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.trading_status, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.trading_status, range, value, display)
 
   return offset + size_of.trading_status
 end
@@ -2575,7 +2575,7 @@ dissect.futures_contract_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.futures_contract_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.futures_contract_symbol, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.futures_contract_symbol, range, value, display)
 
   return offset + size_of.futures_contract_symbol
 end
@@ -2712,7 +2712,7 @@ dissect.new_options_market_definition_message = function(buffer, offset, packet,
   if show.new_options_market_definition_message then
     local range = buffer(offset, 329)
     local display = display.new_options_market_definition_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.new_options_market_definition_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.new_options_market_definition_message, range, display)
   end
 
   return dissect.new_options_market_definition_message_fields(buffer, offset, packet, parent)
@@ -2739,7 +2739,7 @@ dissect.leg_deal_suppressed = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.leg_deal_suppressed(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.leg_deal_suppressed, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.leg_deal_suppressed, range, value, display)
 
   return offset + size_of.leg_deal_suppressed
 end
@@ -2758,7 +2758,7 @@ dissect.contract_symbol_extra = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.contract_symbol_extra(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.contract_symbol_extra, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.contract_symbol_extra, range, value, display)
 
   return offset + size_of.contract_symbol_extra
 end
@@ -2784,7 +2784,7 @@ dissect.test_market_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.test_market_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.test_market_indicator, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.test_market_indicator, range, value, display)
 
   return offset + size_of.test_market_indicator
 end
@@ -2803,7 +2803,7 @@ dissect.strategy_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.strategy_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.strategy_symbol, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.strategy_symbol, range, value, display)
 
   return offset + size_of.strategy_symbol
 end
@@ -3183,7 +3183,7 @@ dissect.security_sub_type = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.security_sub_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.security_sub_type, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.security_sub_type, range, value, display)
 
   return offset + size_of.security_sub_type
 end
@@ -3202,7 +3202,7 @@ dissect.hedge_strategy_code = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.hedge_strategy_code(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.hedge_strategy_code, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.hedge_strategy_code, range, value, display)
 
   return offset + size_of.hedge_strategy_code
 end
@@ -3221,7 +3221,7 @@ dissect.hedge_delta = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.hedge_delta(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.hedge_delta, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.hedge_delta, range, value, display)
 
   return offset + size_of.hedge_delta
 end
@@ -3240,7 +3240,7 @@ dissect.hedge_price_denominator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.hedge_price_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.hedge_price_denominator, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.hedge_price_denominator, range, value, display)
 
   return offset + size_of.hedge_price_denominator
 end
@@ -3259,7 +3259,7 @@ dissect.hedge_price = function(buffer, offset, packet, parent)
   local value = range:uint64()
   local display = display.hedge_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.hedge_price, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.hedge_price, range, value, display)
 
   return offset + size_of.hedge_price
 end
@@ -3288,7 +3288,7 @@ dissect.hedge_side = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.hedge_side(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.hedge_side, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.hedge_side, range, value, display)
 
   return offset + size_of.hedge_side
 end
@@ -3307,7 +3307,7 @@ dissect.hedge_security_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.hedge_security_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.hedge_security_type, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.hedge_security_type, range, value, display)
 
   return offset + size_of.hedge_security_type
 end
@@ -3326,7 +3326,7 @@ dissect.hedge_body_length = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.hedge_body_length(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.hedge_body_length, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.hedge_body_length, range, value, display)
 
   return offset + size_of.hedge_body_length
 end
@@ -3373,7 +3373,7 @@ dissect.hedge_definition = function(buffer, offset, packet, parent)
   if show.hedge_definition then
     local range = buffer(offset, 20)
     local display = display.hedge_definition(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.hedge_definition, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.hedge_definition, range, display)
   end
 
   return dissect.hedge_definition_fields(buffer, offset, packet, parent)
@@ -3394,7 +3394,7 @@ dissect.number_of_hedge_definitions = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.number_of_hedge_definitions(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.number_of_hedge_definitions, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.number_of_hedge_definitions, range, value, display)
 
   return offset + length, value
 end
@@ -3413,7 +3413,7 @@ dissect.leg_ratio_price_denominator = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.leg_ratio_price_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.leg_ratio_price_denominator, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.leg_ratio_price_denominator, range, value, display)
 
   return offset + size_of.leg_ratio_price_denominator
 end
@@ -3432,7 +3432,7 @@ dissect.leg_ratio_price_numerator = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.leg_ratio_price_numerator(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.leg_ratio_price_numerator, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.leg_ratio_price_numerator, range, value, display)
 
   return offset + size_of.leg_ratio_price_numerator
 end
@@ -3451,7 +3451,7 @@ dissect.leg_ratio_qty_denominator = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.leg_ratio_qty_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.leg_ratio_qty_denominator, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.leg_ratio_qty_denominator, range, value, display)
 
   return offset + size_of.leg_ratio_qty_denominator
 end
@@ -3470,7 +3470,7 @@ dissect.leg_ratio_qty_numerator = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.leg_ratio_qty_numerator(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.leg_ratio_qty_numerator, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.leg_ratio_qty_numerator, range, value, display)
 
   return offset + size_of.leg_ratio_qty_numerator
 end
@@ -3489,7 +3489,7 @@ dissect.leg_strategy_code = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.leg_strategy_code(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.leg_strategy_code, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.leg_strategy_code, range, value, display)
 
   return offset + size_of.leg_strategy_code
 end
@@ -3518,7 +3518,7 @@ dissect.leg_side = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.leg_side(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.leg_side, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.leg_side, range, value, display)
 
   return offset + size_of.leg_side
 end
@@ -3537,7 +3537,7 @@ dissect.leg_ratio = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.leg_ratio(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.leg_ratio, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.leg_ratio, range, value, display)
 
   return offset + size_of.leg_ratio
 end
@@ -3556,7 +3556,7 @@ dissect.leg_underlying_market_id = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.leg_underlying_market_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.leg_underlying_market_id, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.leg_underlying_market_id, range, value, display)
 
   return offset + size_of.leg_underlying_market_id
 end
@@ -3575,7 +3575,7 @@ dissect.leg_market_id = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.leg_market_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.leg_market_id, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.leg_market_id, range, value, display)
 
   return offset + size_of.leg_market_id
 end
@@ -3594,7 +3594,7 @@ dissect.leg_body_length = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.leg_body_length(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.leg_body_length, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.leg_body_length, range, value, display)
 
   return offset + size_of.leg_body_length
 end
@@ -3647,7 +3647,7 @@ dissect.strategy_leg_definition = function(buffer, offset, packet, parent)
   if show.strategy_leg_definition then
     local range = buffer(offset, 30)
     local display = display.strategy_leg_definition(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.strategy_leg_definition, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.strategy_leg_definition, range, display)
   end
 
   return dissect.strategy_leg_definition_fields(buffer, offset, packet, parent)
@@ -3668,7 +3668,7 @@ dissect.number_of_strategy_leg_definitions = function(buffer, offset, packet, pa
   local value = range:int()
   local display = display.number_of_strategy_leg_definitions(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.number_of_strategy_leg_definitions, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.number_of_strategy_leg_definitions, range, value, display)
 
   return offset + length, value
 end
@@ -3687,7 +3687,7 @@ dissect.increment_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.increment_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.increment_price, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.increment_price, range, value, display)
 
   return offset + size_of.increment_price
 end
@@ -3706,7 +3706,7 @@ dissect.contract_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.contract_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.contract_symbol, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.contract_symbol, range, value, display)
 
   return offset + size_of.contract_symbol
 end
@@ -3827,7 +3827,7 @@ dissect.new_options_strategy_definition_message = function(buffer, offset, packe
     local length = size_of.new_options_strategy_definition_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.new_options_strategy_definition_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.new_options_strategy_definition_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.new_options_strategy_definition_message, range, display)
   end
 
   return dissect.new_options_strategy_definition_message_fields(buffer, offset, packet, parent)
@@ -3847,7 +3847,7 @@ dissect.timestamp = function(buffer, offset, packet, parent)
   local value = range:uint64()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.timestamp, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.timestamp, range, value, display)
 
   return offset + size_of.timestamp
 end
@@ -3866,7 +3866,7 @@ dissect.price_level_position = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.price_level_position(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.price_level_position, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.price_level_position, range, value, display)
 
   return offset + size_of.price_level_position
 end
@@ -3901,7 +3901,7 @@ dissect.delete_price_level_message = function(buffer, offset, packet, parent)
   if show.delete_price_level_message then
     local range = buffer(offset, 14)
     local display = display.delete_price_level_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.delete_price_level_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.delete_price_level_message, range, display)
   end
 
   return dissect.delete_price_level_message_fields(buffer, offset, packet, parent)
@@ -3921,7 +3921,7 @@ dissect.implied_order_count = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.implied_order_count(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.implied_order_count, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.implied_order_count, range, value, display)
 
   return offset + size_of.implied_order_count
 end
@@ -3940,7 +3940,7 @@ dissect.implied_quantity = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.implied_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.implied_quantity, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.implied_quantity, range, value, display)
 
   return offset + size_of.implied_quantity
 end
@@ -3959,7 +3959,7 @@ dissect.order_count = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.order_count(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.order_count, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.order_count, range, value, display)
 
   return offset + size_of.order_count
 end
@@ -4009,7 +4009,7 @@ dissect.change_price_level_message = function(buffer, offset, packet, parent)
   if show.change_price_level_message then
     local range = buffer(offset, 34)
     local display = display.change_price_level_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.change_price_level_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.change_price_level_message, range, display)
   end
 
   return dissect.change_price_level_message_fields(buffer, offset, packet, parent)
@@ -4060,7 +4060,7 @@ dissect.add_price_level_message = function(buffer, offset, packet, parent)
   if show.add_price_level_message then
     local range = buffer(offset, 34)
     local display = display.add_price_level_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.add_price_level_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.add_price_level_message, range, display)
   end
 
   return dissect.add_price_level_message_fields(buffer, offset, packet, parent)
@@ -4108,7 +4108,7 @@ dissect.market_snapshot_price_level_message = function(buffer, offset, packet, p
   if show.market_snapshot_price_level_message then
     local range = buffer(offset, 26)
     local display = display.market_snapshot_price_level_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.market_snapshot_price_level_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.market_snapshot_price_level_message, range, display)
   end
 
   return dissect.market_snapshot_price_level_message_fields(buffer, offset, packet, parent)
@@ -4128,7 +4128,7 @@ dissect.trade_transaction_id = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.trade_transaction_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.trade_transaction_id, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.trade_transaction_id, range, value, display)
 
   return offset + size_of.trade_transaction_id
 end
@@ -4154,7 +4154,7 @@ dissect.transaction_end_marker_for_empty_last_bundle_message = function(buffer, 
   if show.transaction_end_marker_for_empty_last_bundle_message then
     local range = buffer(offset, 8)
     local display = display.transaction_end_marker_for_empty_last_bundle_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.transaction_end_marker_for_empty_last_bundle_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.transaction_end_marker_for_empty_last_bundle_message, range, display)
   end
 
   return dissect.transaction_end_marker_for_empty_last_bundle_message_fields(buffer, offset, packet, parent)
@@ -4174,7 +4174,7 @@ dissect.num_decimals_price_in_gram = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.num_decimals_price_in_gram(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.num_decimals_price_in_gram, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.num_decimals_price_in_gram, range, value, display)
 
   return offset + size_of.num_decimals_price_in_gram
 end
@@ -4193,7 +4193,7 @@ dissect.num_decimals_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.num_decimals_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.num_decimals_price, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.num_decimals_price, range, value, display)
 
   return offset + size_of.num_decimals_price
 end
@@ -4212,7 +4212,7 @@ dissect.price_in_gram = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.price_in_gram(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.price_in_gram, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.price_in_gram, range, value, display)
 
   return offset + size_of.price_in_gram
 end
@@ -4231,7 +4231,7 @@ dissect.iba_currency = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.iba_currency(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.iba_currency, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.iba_currency, range, value, display)
 
   return offset + size_of.iba_currency
 end
@@ -4272,7 +4272,7 @@ dissect.fixing_indicative_price_message_message = function(buffer, offset, packe
   if show.fixing_indicative_price_message_message then
     local range = buffer(offset, 25)
     local display = display.fixing_indicative_price_message_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.fixing_indicative_price_message_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.fixing_indicative_price_message_message, range, display)
   end
 
   return dissect.fixing_indicative_price_message_message_fields(buffer, offset, packet, parent)
@@ -4292,7 +4292,7 @@ dissect.eur_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.eur_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.eur_price, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.eur_price, range, value, display)
 
   return offset + size_of.eur_price
 end
@@ -4311,7 +4311,7 @@ dissect.gbp_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.gbp_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.gbp_price, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.gbp_price, range, value, display)
 
   return offset + size_of.gbp_price
 end
@@ -4337,7 +4337,7 @@ dissect.is_final = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.is_final(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.is_final, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.is_final, range, value, display)
 
   return offset + size_of.is_final
 end
@@ -4363,7 +4363,7 @@ dissect.is_balanced = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.is_balanced(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.is_balanced, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.is_balanced, range, value, display)
 
   return offset + size_of.is_balanced
 end
@@ -4382,7 +4382,7 @@ dissect.usd_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.usd_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.usd_price, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.usd_price, range, value, display)
 
   return offset + size_of.usd_price
 end
@@ -4401,7 +4401,7 @@ dissect.agg_offer_qty = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.agg_offer_qty(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.agg_offer_qty, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.agg_offer_qty, range, value, display)
 
   return offset + size_of.agg_offer_qty
 end
@@ -4420,7 +4420,7 @@ dissect.agg_bid_qty = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.agg_bid_qty(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.agg_bid_qty, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.agg_bid_qty, range, value, display)
 
   return offset + size_of.agg_bid_qty
 end
@@ -4439,7 +4439,7 @@ dissect.round = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.round(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.round, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.round, range, value, display)
 
   return offset + size_of.round
 end
@@ -4458,7 +4458,7 @@ dissect.description = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.description(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.description, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.description, range, value, display)
 
   return offset + size_of.description
 end
@@ -4477,7 +4477,7 @@ dissect.time = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.time(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.time, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.time, range, value, display)
 
   return offset + size_of.time
 end
@@ -4496,7 +4496,7 @@ dissect.auction_date = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.auction_date(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.auction_date, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.auction_date, range, value, display)
 
   return offset + size_of.auction_date
 end
@@ -4555,7 +4555,7 @@ dissect.fixing_lockdown_message = function(buffer, offset, packet, parent)
   if show.fixing_lockdown_message then
     local range = buffer(offset, 78)
     local display = display.fixing_lockdown_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.fixing_lockdown_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.fixing_lockdown_message, range, display)
   end
 
   return dissect.fixing_lockdown_message_fields(buffer, offset, packet, parent)
@@ -4575,7 +4575,7 @@ dissect.threshold_imbalance_qty = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.threshold_imbalance_qty(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.threshold_imbalance_qty, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.threshold_imbalance_qty, range, value, display)
 
   return offset + size_of.threshold_imbalance_qty
 end
@@ -4594,7 +4594,7 @@ dissect.auction_end_time = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.auction_end_time(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.auction_end_time, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.auction_end_time, range, value, display)
 
   return offset + size_of.auction_end_time
 end
@@ -4623,7 +4623,7 @@ dissect.status = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.status(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.status, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.status, range, value, display)
 
   return offset + size_of.status
 end
@@ -4661,7 +4661,7 @@ dissect.fixing_transition_message = function(buffer, offset, packet, parent)
   if show.fixing_transition_message then
     local range = buffer(offset, 25)
     local display = display.fixing_transition_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.fixing_transition_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.fixing_transition_message, range, display)
   end
 
   return dissect.fixing_transition_message_fields(buffer, offset, packet, parent)
@@ -4688,7 +4688,7 @@ dissect.is_transaction_end = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.is_transaction_end(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.is_transaction_end, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.is_transaction_end, range, value, display)
 
   return offset + size_of.is_transaction_end
 end
@@ -4714,7 +4714,7 @@ dissect.start_or_end = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.start_or_end(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.start_or_end, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.start_or_end, range, value, display)
 
   return offset + size_of.start_or_end
 end
@@ -4746,7 +4746,7 @@ dissect.message_bundle_marker = function(buffer, offset, packet, parent)
   if show.message_bundle_marker then
     local range = buffer(offset, 10)
     local display = display.message_bundle_marker(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.message_bundle_marker, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.message_bundle_marker, range, display)
   end
 
   return dissect.message_bundle_marker_fields(buffer, offset, packet, parent)
@@ -4766,7 +4766,7 @@ dissect.sequence_within_millis = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.sequence_within_millis(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.sequence_within_millis, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.sequence_within_millis, range, value, display)
 
   return offset + size_of.sequence_within_millis
 end
@@ -4785,7 +4785,7 @@ dissect.order_id = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.order_id, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.order_id, range, value, display)
 
   return offset + size_of.order_id
 end
@@ -4820,7 +4820,7 @@ dissect.delete_order_message = function(buffer, offset, packet, parent)
   if show.delete_order_message then
     local range = buffer(offset, 24)
     local display = display.delete_order_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.delete_order_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.delete_order_message, range, display)
   end
 
   return dissect.delete_order_message_fields(buffer, offset, packet, parent)
@@ -4840,7 +4840,7 @@ dissect.modification_timestamp = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.modification_timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.modification_timestamp, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.modification_timestamp, range, value, display)
 
   return offset + size_of.modification_timestamp
 end
@@ -4859,7 +4859,7 @@ dissect.extra_flags = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.extra_flags(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.extra_flags, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.extra_flags, range, value, display)
 
   return offset + size_of.extra_flags
 end
@@ -4878,7 +4878,7 @@ dissect.order_entry_date_time = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.order_entry_date_time(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.order_entry_date_time, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.order_entry_date_time, range, value, display)
 
   return offset + size_of.order_entry_date_time
 end
@@ -4897,7 +4897,7 @@ dissect.is_rfq = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.is_rfq(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.is_rfq, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.is_rfq, range, value, display)
 
   return offset + size_of.is_rfq
 end
@@ -4916,7 +4916,7 @@ dissect.is_implied = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.is_implied(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.is_implied, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.is_implied, range, value, display)
 
   return offset + size_of.is_implied
 end
@@ -4935,7 +4935,7 @@ dissect.order_sequence_id = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.order_sequence_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.order_sequence_id, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.order_sequence_id, range, value, display)
 
   return offset + size_of.order_sequence_id
 end
@@ -4994,7 +4994,7 @@ dissect.add_or_modify_order_message = function(buffer, offset, packet, parent)
   if show.add_or_modify_order_message then
     local range = buffer(offset, 50)
     local display = display.add_or_modify_order_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.add_or_modify_order_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.add_or_modify_order_message, range, display)
   end
 
   return dissect.add_or_modify_order_message_fields(buffer, offset, packet, parent)
@@ -5048,7 +5048,7 @@ dissect.market_snapshot_order_message = function(buffer, offset, packet, parent)
   if show.market_snapshot_order_message then
     local range = buffer(offset, 41)
     local display = display.market_snapshot_order_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.market_snapshot_order_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.market_snapshot_order_message, range, display)
   end
 
   return dissect.market_snapshot_order_message_fields(buffer, offset, packet, parent)
@@ -5065,7 +5065,7 @@ dissect.special_field_value = function(buffer, offset, packet, parent, size)
   local value = range:bytes():tohex(false, " ")
   local display = display.special_field_value(value, buffer, offset, packet, parent, size)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.special_field_value, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.special_field_value, range, value, display)
 
   return offset + size
 end
@@ -5085,7 +5085,7 @@ dissect.special_field_length = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.special_field_length(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.special_field_length, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.special_field_length, range, value, display)
 
   return offset + length, value
 end
@@ -5104,7 +5104,7 @@ dissect.special_field_id = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.special_field_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.special_field_id, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.special_field_id, range, value, display)
 
   return offset + size_of.special_field_id
 end
@@ -5150,7 +5150,7 @@ dissect.special_field = function(buffer, offset, packet, parent)
     local length = size_of.special_field(buffer, offset)
     local range = buffer(offset, length)
     local display = display.special_field(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.special_field, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.special_field, range, display)
   end
 
   return dissect.special_field_fields(buffer, offset, packet, parent)
@@ -5171,7 +5171,7 @@ dissect.number_of_special_fields = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.number_of_special_fields(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.number_of_special_fields, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.number_of_special_fields, range, value, display)
 
   return offset + length, value
 end
@@ -5218,7 +5218,7 @@ dissect.special_field_message = function(buffer, offset, packet, parent)
     local length = size_of.special_field_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.special_field_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.special_field_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.special_field_message, range, display)
   end
 
   return dissect.special_field_message_fields(buffer, offset, packet, parent)
@@ -5238,7 +5238,7 @@ dissect.num_decimals_options_price = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.num_decimals_options_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.num_decimals_options_price, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.num_decimals_options_price, range, value, display)
 
   return offset + size_of.num_decimals_options_price
 end
@@ -5257,7 +5257,7 @@ dissect.isin = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.isin(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.isin, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.isin, range, value, display)
 
   return offset + size_of.isin
 end
@@ -5276,7 +5276,7 @@ dissect.off_exchange_increment_option_price = function(buffer, offset, packet, p
   local value = range:int()
   local display = display.off_exchange_increment_option_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.off_exchange_increment_option_price, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.off_exchange_increment_option_price, range, value, display)
 
   return offset + size_of.off_exchange_increment_option_price
 end
@@ -5295,7 +5295,7 @@ dissect.off_exchange_increment_price = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.off_exchange_increment_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.off_exchange_increment_price, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.off_exchange_increment_price, range, value, display)
 
   return offset + size_of.off_exchange_increment_price
 end
@@ -5314,7 +5314,7 @@ dissect.off_exchange_increment_qty = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.off_exchange_increment_qty(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.off_exchange_increment_qty, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.off_exchange_increment_qty, range, value, display)
 
   return offset + size_of.off_exchange_increment_qty
 end
@@ -5333,7 +5333,7 @@ dissect.off_exchange_increment_qty_denominator = function(buffer, offset, packet
   local value = range:string()
   local display = display.off_exchange_increment_qty_denominator(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.off_exchange_increment_qty_denominator, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.off_exchange_increment_qty_denominator, range, value, display)
 
   return offset + size_of.off_exchange_increment_qty_denominator
 end
@@ -5352,7 +5352,7 @@ dissect.mic_code = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.mic_code(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.mic_code, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.mic_code, range, value, display)
 
   return offset + size_of.mic_code
 end
@@ -5371,7 +5371,7 @@ dissect.strip_name = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.strip_name(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.strip_name, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.strip_name, range, value, display)
 
   return offset + size_of.strip_name
 end
@@ -5390,7 +5390,7 @@ dissect.strip_id = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.strip_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.strip_id, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.strip_id, range, value, display)
 
   return offset + size_of.strip_id
 end
@@ -5409,7 +5409,7 @@ dissect.hub_alias = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.hub_alias(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.hub_alias, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.hub_alias, range, value, display)
 
   return offset + size_of.hub_alias
 end
@@ -5428,7 +5428,7 @@ dissect.hub_id = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.hub_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.hub_id, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.hub_id, range, value, display)
 
   return offset + size_of.hub_id
 end
@@ -5447,7 +5447,7 @@ dissect.product_name = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.product_name(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.product_name, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.product_name, range, value, display)
 
   return offset + size_of.product_name
 end
@@ -5466,7 +5466,7 @@ dissect.product_id = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.product_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.product_id, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.product_id, range, value, display)
 
   return offset + size_of.product_id
 end
@@ -5485,7 +5485,7 @@ dissect.max_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.max_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.max_price, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.max_price, range, value, display)
 
   return offset + size_of.max_price
 end
@@ -5504,7 +5504,7 @@ dissect.min_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.min_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.min_price, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.min_price, range, value, display)
 
   return offset + size_of.min_price
 end
@@ -5523,7 +5523,7 @@ dissect.cleared_alias = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.cleared_alias(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.cleared_alias, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.cleared_alias, range, value, display)
 
   return offset + size_of.cleared_alias
 end
@@ -5542,7 +5542,7 @@ dissect.unit_quantity = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.unit_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.unit_quantity, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.unit_quantity, range, value, display)
 
   return offset + size_of.unit_quantity
 end
@@ -5561,7 +5561,7 @@ dissect.maturity_day = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.maturity_day(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.maturity_day, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.maturity_day, range, value, display)
 
   return offset + size_of.maturity_day
 end
@@ -5580,7 +5580,7 @@ dissect.maturity_month = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.maturity_month(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.maturity_month, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.maturity_month, range, value, display)
 
   return offset + size_of.maturity_month
 end
@@ -5599,7 +5599,7 @@ dissect.maturity_year = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.maturity_year(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.maturity_year, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.maturity_year, range, value, display)
 
   return offset + size_of.maturity_year
 end
@@ -5748,7 +5748,7 @@ dissect.new_expiry_message = function(buffer, offset, packet, parent)
   if show.new_expiry_message then
     local range = buffer(offset, 509)
     local display = display.new_expiry_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.new_expiry_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.new_expiry_message, range, display)
   end
 
   return dissect.new_expiry_message_fields(buffer, offset, packet, parent)
@@ -5768,7 +5768,7 @@ dissect.underlying_isin = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.underlying_isin(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.underlying_isin, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.underlying_isin, range, value, display)
 
   return offset + size_of.underlying_isin
 end
@@ -5797,7 +5797,7 @@ dissect.exchange_silo = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.exchange_silo(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.exchange_silo, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.exchange_silo, range, value, display)
 
   return offset + size_of.exchange_silo
 end
@@ -5823,7 +5823,7 @@ dissect.hedge_only = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.hedge_only(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.hedge_only, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.hedge_only, range, value, display)
 
   return offset + size_of.hedge_only
 end
@@ -5849,7 +5849,7 @@ dissect.allows_implied = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.allows_implied(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.allows_implied, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.allows_implied, range, value, display)
 
   return offset + size_of.allows_implied
 end
@@ -5875,7 +5875,7 @@ dissect.allow_options = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.allow_options(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.allow_options, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.allow_options, range, value, display)
 
   return offset + size_of.allow_options
 end
@@ -5894,7 +5894,7 @@ dissect.reserved_bytes_4 = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.reserved_bytes_4(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.reserved_bytes_4, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.reserved_bytes_4, range, value, display)
 
   return offset + size_of.reserved_bytes_4
 end
@@ -5944,7 +5944,7 @@ dissect.leg_definition = function(buffer, offset, packet, parent)
   if show.leg_definition then
     local range = buffer(offset, 26)
     local display = display.leg_definition(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.leg_definition, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.leg_definition, range, display)
   end
 
   return dissect.leg_definition_fields(buffer, offset, packet, parent)
@@ -5965,7 +5965,7 @@ dissect.number_of_leg_definitions = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.number_of_leg_definitions(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.number_of_leg_definitions, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.number_of_leg_definitions, range, value, display)
 
   return offset + length, value
 end
@@ -6143,7 +6143,7 @@ dissect.new_futures_strategy_definition_message = function(buffer, offset, packe
     local length = size_of.new_futures_strategy_definition_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.new_futures_strategy_definition_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.new_futures_strategy_definition_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.new_futures_strategy_definition_message, range, display)
   end
 
   return dissect.new_futures_strategy_definition_message_fields(buffer, offset, packet, parent)
@@ -6163,7 +6163,7 @@ dissect.ipl_down = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.ipl_down(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.ipl_down, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.ipl_down, range, value, display)
 
   return offset + size_of.ipl_down
 end
@@ -6182,7 +6182,7 @@ dissect.ipl_up = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.ipl_up(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.ipl_up, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.ipl_up, range, value, display)
 
   return offset + size_of.ipl_up
 end
@@ -6201,7 +6201,7 @@ dissect.ipl_hold_duration = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.ipl_hold_duration(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.ipl_hold_duration, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.ipl_hold_duration, range, value, display)
 
   return offset + size_of.ipl_hold_duration
 end
@@ -6233,7 +6233,7 @@ dissect.is_up = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.is_up(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.is_up, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.is_up, range, value, display)
 
   return offset + size_of.is_up
 end
@@ -6252,7 +6252,7 @@ dissect.notification_date_time = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.notification_date_time(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.notification_date_time, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.notification_date_time, range, value, display)
 
   return offset + size_of.notification_date_time
 end
@@ -6278,7 +6278,7 @@ dissect.ipl_hold_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.ipl_hold_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.ipl_hold_type, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.ipl_hold_type, range, value, display)
 
   return offset + size_of.ipl_hold_type
 end
@@ -6322,7 +6322,7 @@ dissect.interval_price_limit_notification_message = function(buffer, offset, pac
   if show.interval_price_limit_notification_message then
     local range = buffer(offset, 34)
     local display = display.interval_price_limit_notification_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.interval_price_limit_notification_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.interval_price_limit_notification_message, range, display)
   end
 
   return dissect.interval_price_limit_notification_message_fields(buffer, offset, packet, parent)
@@ -6342,7 +6342,7 @@ dissect.strip_info = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.strip_info(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.strip_info, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.strip_info, range, value, display)
 
   return offset + size_of.strip_info
 end
@@ -6361,7 +6361,7 @@ dissect.end_day = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.end_day(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.end_day, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.end_day, range, value, display)
 
   return offset + size_of.end_day
 end
@@ -6380,7 +6380,7 @@ dissect.end_month = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.end_month(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.end_month, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.end_month, range, value, display)
 
   return offset + size_of.end_month
 end
@@ -6399,7 +6399,7 @@ dissect.end_year = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.end_year(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.end_year, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.end_year, range, value, display)
 
   return offset + size_of.end_year
 end
@@ -6418,7 +6418,7 @@ dissect.begin_day = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.begin_day(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.begin_day, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.begin_day, range, value, display)
 
   return offset + size_of.begin_day
 end
@@ -6437,7 +6437,7 @@ dissect.begin_month = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.begin_month(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.begin_month, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.begin_month, range, value, display)
 
   return offset + size_of.begin_month
 end
@@ -6456,7 +6456,7 @@ dissect.begin_year = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.begin_year(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.begin_year, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.begin_year, range, value, display)
 
   return offset + size_of.begin_year
 end
@@ -6475,7 +6475,7 @@ dissect.strip_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.strip_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.strip_type, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.strip_type, range, value, display)
 
   return offset + size_of.strip_type
 end
@@ -6494,7 +6494,7 @@ dissect.old_strip_id = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.old_strip_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.old_strip_id, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.old_strip_id, range, value, display)
 
   return offset + size_of.old_strip_id
 end
@@ -6547,7 +6547,7 @@ dissect.strip_info_message = function(buffer, offset, packet, parent)
   if show.strip_info_message then
     local range = buffer(offset, 88)
     local display = display.strip_info_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.strip_info_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.strip_info_message, range, display)
   end
 
   return dissect.strip_info_message_fields(buffer, offset, packet, parent)
@@ -6567,7 +6567,7 @@ dissect.pre_open_volume = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.pre_open_volume(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.pre_open_volume, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.pre_open_volume, range, value, display)
 
   return offset + size_of.pre_open_volume
 end
@@ -6586,7 +6586,7 @@ dissect.has_pre_open_volume = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.has_pre_open_volume(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.has_pre_open_volume, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.has_pre_open_volume, range, value, display)
 
   return offset + size_of.has_pre_open_volume
 end
@@ -6605,7 +6605,7 @@ dissect.pre_open_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.pre_open_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.pre_open_price, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.pre_open_price, range, value, display)
 
   return offset + size_of.pre_open_price
 end
@@ -6643,7 +6643,7 @@ dissect.pre_open_price_indicator_message = function(buffer, offset, packet, pare
   if show.pre_open_price_indicator_message then
     local range = buffer(offset, 25)
     local display = display.pre_open_price_indicator_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.pre_open_price_indicator_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.pre_open_price_indicator_message, range, display)
   end
 
   return dissect.pre_open_price_indicator_message_fields(buffer, offset, packet, parent)
@@ -6663,7 +6663,7 @@ dissect.event_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.event_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.event_type, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.event_type, range, value, display)
 
   return offset + size_of.event_type
 end
@@ -6695,7 +6695,7 @@ dissect.market_event_message = function(buffer, offset, packet, parent)
   if show.market_event_message then
     local range = buffer(offset, 13)
     local display = display.market_event_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.market_event_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.market_event_message, range, display)
   end
 
   return dissect.market_event_message_fields(buffer, offset, packet, parent)
@@ -6715,7 +6715,7 @@ dissect.opening_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.opening_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.opening_price, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.opening_price, range, value, display)
 
   return offset + size_of.opening_price
 end
@@ -6734,7 +6734,7 @@ dissect.volume = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.volume(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.volume, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.volume, range, value, display)
 
   return offset + size_of.volume
 end
@@ -6796,7 +6796,7 @@ dissect.end_of_day_market_summary_message = function(buffer, offset, packet, par
   if show.end_of_day_market_summary_message then
     local range = buffer(offset, 80)
     local display = display.end_of_day_market_summary_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.end_of_day_market_summary_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.end_of_day_market_summary_message, range, display)
   end
 
   return dissect.end_of_day_market_summary_message_fields(buffer, offset, packet, parent)
@@ -6816,7 +6816,7 @@ dissect.valuation_date = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.valuation_date(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.valuation_date, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.valuation_date, range, value, display)
 
   return offset + size_of.valuation_date
 end
@@ -6835,7 +6835,7 @@ dissect.published_date_time = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.published_date_time(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.published_date_time, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.published_date_time, range, value, display)
 
   return offset + size_of.published_date_time
 end
@@ -6854,7 +6854,7 @@ dissect.short_name = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.short_name(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.short_name, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.short_name, range, value, display)
 
   return offset + size_of.short_name
 end
@@ -6898,7 +6898,7 @@ dissect.index_prices_message = function(buffer, offset, packet, parent)
   if show.index_prices_message then
     local range = buffer(offset, 65)
     local display = display.index_prices_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.index_prices_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.index_prices_message, range, display)
   end
 
   return dissect.index_prices_message_fields(buffer, offset, packet, parent)
@@ -6940,7 +6940,7 @@ dissect.settlement_price_message = function(buffer, offset, packet, parent)
   if show.settlement_price_message then
     local range = buffer(offset, 37)
     local display = display.settlement_price_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.settlement_price_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.settlement_price_message, range, display)
   end
 
   return dissect.settlement_price_message_fields(buffer, offset, packet, parent)
@@ -6960,7 +6960,7 @@ dissect.close_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.close_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.close_price, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.close_price, range, value, display)
 
   return offset + size_of.close_price
 end
@@ -6992,7 +6992,7 @@ dissect.close_price_message = function(buffer, offset, packet, parent)
   if show.close_price_message then
     local range = buffer(offset, 20)
     local display = display.close_price_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.close_price_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.close_price_message, range, display)
   end
 
   return dissect.close_price_message_fields(buffer, offset, packet, parent)
@@ -7012,7 +7012,7 @@ dissect.open_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.open_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.open_price, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.open_price, range, value, display)
 
   return offset + size_of.open_price
 end
@@ -7044,7 +7044,7 @@ dissect.open_price_message = function(buffer, offset, packet, parent)
   if show.open_price_message then
     local range = buffer(offset, 20)
     local display = display.open_price_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.open_price_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.open_price_message, range, display)
   end
 
   return dissect.open_price_message_fields(buffer, offset, packet, parent)
@@ -7064,7 +7064,7 @@ dissect.open_interest_change = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.open_interest_change(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.open_interest_change, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.open_interest_change, range, value, display)
 
   return offset + size_of.open_interest_change
 end
@@ -7102,7 +7102,7 @@ dissect.open_interest_message = function(buffer, offset, packet, parent)
   if show.open_interest_message then
     local range = buffer(offset, 30)
     local display = display.open_interest_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.open_interest_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.open_interest_message, range, display)
   end
 
   return dissect.open_interest_message_fields(buffer, offset, packet, parent)
@@ -7122,7 +7122,7 @@ dissect.text_message_extra_fld = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.text_message_extra_fld(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.text_message_extra_fld, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.text_message_extra_fld, range, value, display)
 
   return offset + size_of.text_message_extra_fld
 end
@@ -7141,7 +7141,7 @@ dissect.text_message = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.text_message(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.text_message, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.text_message, range, value, display)
 
   return offset + size_of.text_message
 end
@@ -7173,7 +7173,7 @@ dissect.system_text_message = function(buffer, offset, packet, parent)
   if show.system_text_message then
     local range = buffer(offset, 1008)
     local display = display.system_text_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.system_text_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.system_text_message, range, display)
   end
 
   return dissect.system_text_message_fields(buffer, offset, packet, parent)
@@ -7206,7 +7206,7 @@ dissect.market_state_change_message = function(buffer, offset, packet, parent)
   if show.market_state_change_message then
     local range = buffer(offset, 13)
     local display = display.market_state_change_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.market_state_change_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.market_state_change_message, range, display)
   end
 
   return dissect.market_state_change_message_fields(buffer, offset, packet, parent)
@@ -7257,7 +7257,7 @@ dissect.market_statistics_message = function(buffer, offset, packet, parent)
   if show.market_statistics_message then
     local range = buffer(offset, 52)
     local display = display.market_statistics_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.market_statistics_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.market_statistics_message, range, display)
   end
 
   return dissect.market_statistics_message_fields(buffer, offset, packet, parent)
@@ -7308,7 +7308,7 @@ dissect.off_market_trade_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.off_market_trade_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.off_market_trade_type, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.off_market_trade_type, range, value, display)
 
   return offset + size_of.off_market_trade_type
 end
@@ -7352,7 +7352,7 @@ dissect.cancelled_trade_message = function(buffer, offset, packet, parent)
   if show.cancelled_trade_message then
     local range = buffer(offset, 36)
     local display = display.cancelled_trade_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.cancelled_trade_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.cancelled_trade_message, range, display)
   end
 
   return dissect.cancelled_trade_message_fields(buffer, offset, packet, parent)
@@ -7379,7 +7379,7 @@ dissect.investigation_status = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.investigation_status(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.investigation_status, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.investigation_status, range, value, display)
 
   return offset + size_of.investigation_status
 end
@@ -7398,7 +7398,7 @@ dissect.ff_market_trade_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.ff_market_trade_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.ff_market_trade_indicator, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.ff_market_trade_indicator, range, value, display)
 
   return offset + size_of.ff_market_trade_indicator
 end
@@ -7445,7 +7445,7 @@ dissect.investigated_trade_message = function(buffer, offset, packet, parent)
   if show.investigated_trade_message then
     local range = buffer(offset, 37)
     local display = display.investigated_trade_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.investigated_trade_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.investigated_trade_message, range, display)
   end
 
   return dissect.investigated_trade_message_fields(buffer, offset, packet, parent)
@@ -7472,7 +7472,7 @@ dissect.is_system_priced_leg = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.is_system_priced_leg(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.is_system_priced_leg, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.is_system_priced_leg, range, value, display)
 
   return offset + size_of.is_system_priced_leg
 end
@@ -7491,7 +7491,7 @@ dissect.delivery_end_date_time = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.delivery_end_date_time(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.delivery_end_date_time, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.delivery_end_date_time, range, value, display)
 
   return offset + size_of.delivery_end_date_time
 end
@@ -7510,7 +7510,7 @@ dissect.delivery_begin_date_time = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.delivery_begin_date_time(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.delivery_begin_date_time, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.delivery_begin_date_time, range, value, display)
 
   return offset + size_of.delivery_begin_date_time
 end
@@ -7560,7 +7560,7 @@ dissect.spot_market_trade_message = function(buffer, offset, packet, parent)
   if show.spot_market_trade_message then
     local range = buffer(offset, 50)
     local display = display.spot_market_trade_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.spot_market_trade_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.spot_market_trade_message, range, display)
   end
 
   return dissect.spot_market_trade_message_fields(buffer, offset, packet, parent)
@@ -7590,7 +7590,7 @@ dissect.aggressor_side = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.aggressor_side(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.aggressor_side, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.aggressor_side, range, value, display)
 
   return offset + size_of.aggressor_side
 end
@@ -7609,7 +7609,7 @@ dissect.is_adjusted_trade = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.is_adjusted_trade(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.is_adjusted_trade, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.is_adjusted_trade, range, value, display)
 
   return offset + size_of.is_adjusted_trade
 end
@@ -7628,7 +7628,7 @@ dissect.is_implied_spread_at_market_open = function(buffer, offset, packet, pare
   local value = range:string()
   local display = display.is_implied_spread_at_market_open(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.is_implied_spread_at_market_open, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.is_implied_spread_at_market_open, range, value, display)
 
   return offset + size_of.is_implied_spread_at_market_open
 end
@@ -7654,7 +7654,7 @@ dissect.system_priced_leg_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.system_priced_leg_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.system_priced_leg_type, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.system_priced_leg_type, range, value, display)
 
   return offset + size_of.system_priced_leg_type
 end
@@ -7719,7 +7719,7 @@ dissect.trade_message = function(buffer, offset, packet, parent)
   if show.trade_message then
     local range = buffer(offset, 46)
     local display = display.trade_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.trade_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.trade_message, range, display)
   end
 
   return dissect.trade_message_fields(buffer, offset, packet, parent)
@@ -7739,7 +7739,7 @@ dissect.previous_day_settlement_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.previous_day_settlement_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.previous_day_settlement_price, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.previous_day_settlement_price, range, value, display)
 
   return offset + size_of.previous_day_settlement_price
 end
@@ -7765,7 +7765,7 @@ dissect.has_previous_day_settlement_price = function(buffer, offset, packet, par
   local value = range:string()
   local display = display.has_previous_day_settlement_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.has_previous_day_settlement_price, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.has_previous_day_settlement_price, range, value, display)
 
   return offset + size_of.has_previous_day_settlement_price
 end
@@ -7791,7 +7791,7 @@ dissect.is_settle_price_official = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.is_settle_price_official(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.is_settle_price_official, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.is_settle_price_official, range, value, display)
 
   return offset + size_of.is_settle_price_official
 end
@@ -7810,7 +7810,7 @@ dissect.reserved2_bytes = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved2_bytes(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.reserved2_bytes, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.reserved2_bytes, range, value, display)
 
   return offset + size_of.reserved2_bytes
 end
@@ -7829,7 +7829,7 @@ dissect.last_message_sequence_id = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.last_message_sequence_id(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.last_message_sequence_id, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.last_message_sequence_id, range, value, display)
 
   return offset + size_of.last_message_sequence_id
 end
@@ -7848,7 +7848,7 @@ dissect.settle_price_date_time = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.settle_price_date_time(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.settle_price_date_time, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.settle_price_date_time, range, value, display)
 
   return offset + size_of.settle_price_date_time
 end
@@ -7867,7 +7867,7 @@ dissect.last_trade_date_time = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.last_trade_date_time(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.last_trade_date_time, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.last_trade_date_time, range, value, display)
 
   return offset + size_of.last_trade_date_time
 end
@@ -7886,7 +7886,7 @@ dissect.last_trade_quantity = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.last_trade_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.last_trade_quantity, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.last_trade_quantity, range, value, display)
 
   return offset + size_of.last_trade_quantity
 end
@@ -7905,7 +7905,7 @@ dissect.last_trade_price = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.last_trade_price(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.last_trade_price, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.last_trade_price, range, value, display)
 
   return offset + size_of.last_trade_price
 end
@@ -7924,7 +7924,7 @@ dissect.num_of_book_entries = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.num_of_book_entries(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.num_of_book_entries, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.num_of_book_entries, range, value, display)
 
   return offset + size_of.num_of_book_entries
 end
@@ -7943,7 +7943,7 @@ dissect.market_type = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.market_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.market_type, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.market_type, range, value, display)
 
   return offset + size_of.market_type
 end
@@ -8041,7 +8041,7 @@ dissect.market_snapshot_message = function(buffer, offset, packet, parent)
   if show.market_snapshot_message then
     local range = buffer(offset, 133)
     local display = display.market_snapshot_message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.market_snapshot_message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.market_snapshot_message, range, display)
   end
 
   return dissect.market_snapshot_message_fields(buffer, offset, packet, parent)
@@ -8391,7 +8391,7 @@ dissect.payload = function(buffer, offset, packet, parent, code)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.payload(buffer, packet, parent)
-  local element = parent:add(ice_mdf_impact_v1_1_34.fields.payload, range, display)
+  local element = parent:add(ice_futures_mdf_impact_v1_1_34.fields.payload, range, display)
 
   return dissect.payload_branches(buffer, offset, packet, parent, code)
 end
@@ -8410,7 +8410,7 @@ dissect.length = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.length(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.length, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.length, range, value, display)
 
   return offset + size_of.length
 end
@@ -8548,7 +8548,7 @@ dissect.message_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.message_type, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -8577,7 +8577,7 @@ dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     local range = buffer(offset, 3)
     local display = display.message_header(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.message_header, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.message_header, range, display)
   end
 
   return dissect.message_header_fields(buffer, offset, packet, parent)
@@ -8623,7 +8623,7 @@ dissect.message = function(buffer, offset, packet, parent)
     local length = size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.message(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.message, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.message, range, display)
   end
 
   return dissect.message_fields(buffer, offset, packet, parent)
@@ -8644,7 +8644,7 @@ dissect.count = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.count(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.count, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.count, range, value, display)
 
   return offset + length, value
 end
@@ -8663,7 +8663,7 @@ dissect.sequence = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.sequence(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.sequence, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.sequence, range, value, display)
 
   return offset + size_of.sequence
 end
@@ -8682,7 +8682,7 @@ dissect.session = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.session(value, buffer, offset, packet, parent)
 
-  parent:add(ice_mdf_impact_v1_1_34.fields.session, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.session, range, value, display)
 
   return offset + size_of.session
 end
@@ -8717,7 +8717,7 @@ dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     local range = buffer(offset, 16)
     local display = display.packet_header(buffer, packet, parent)
-    parent = parent:add(ice_mdf_impact_v1_1_34.fields.packet_header, range, display)
+    parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.packet_header, range, display)
   end
 
   return dissect.packet_header_fields(buffer, offset, packet, parent)
@@ -8745,23 +8745,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function ice_mdf_impact_v1_1_34.init()
+function ice_futures_mdf_impact_v1_1_34.init()
 end
 
--- Dissector for Ice Mdf iMpact 1.1.34
-function ice_mdf_impact_v1_1_34.dissector(buffer, packet, parent)
+-- Dissector for Ice Futures Mdf iMpact 1.1.34
+function ice_futures_mdf_impact_v1_1_34.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = ice_mdf_impact_v1_1_34.name
+  packet.cols.protocol = ice_futures_mdf_impact_v1_1_34.name
 
   -- Dissect protocol
-  local protocol = parent:add(ice_mdf_impact_v1_1_34, buffer(), ice_mdf_impact_v1_1_34.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(ice_futures_mdf_impact_v1_1_34, buffer(), ice_futures_mdf_impact_v1_1_34.description, "("..buffer:len().." Bytes)")
   local protocol_size = dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, ice_mdf_impact_v1_1_34)
+udp_table:add(65333, ice_futures_mdf_impact_v1_1_34)
 
 
 -----------------------------------------------------------------------
@@ -8769,25 +8769,25 @@ udp_table:add(65333, ice_mdf_impact_v1_1_34)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.ice_mdf_impact_v1_1_34_packet_size = function(buffer)
+verify.ice_futures_mdf_impact_v1_1_34_packet_size = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Ice Mdf iMpact 1.1.34
-local function ice_mdf_impact_v1_1_34_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Ice Futures Mdf iMpact 1.1.34
+local function ice_futures_mdf_impact_v1_1_34_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.ice_mdf_impact_v1_1_34_packet_size(buffer) then return false end
+  if not verify.ice_futures_mdf_impact_v1_1_34_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = ice_mdf_impact_v1_1_34
-  ice_mdf_impact_v1_1_34.dissector(buffer, packet, parent)
+  packet.conversation = ice_futures_mdf_impact_v1_1_34
+  ice_futures_mdf_impact_v1_1_34.dissector(buffer, packet, parent)
 
   return true
 end
 
--- Register Ice Mdf iMpact 1.1.34 Heuristic
-ice_mdf_impact_v1_1_34:register_heuristic("udp", ice_mdf_impact_v1_1_34_heuristic)
+-- Register Ice Futures Mdf iMpact 1.1.34 Heuristic
+ice_futures_mdf_impact_v1_1_34:register_heuristic("udp", ice_futures_mdf_impact_v1_1_34_heuristic)
 
 -----------------------------------------------------------------------
 -- This script was generated by the open markets initiative
