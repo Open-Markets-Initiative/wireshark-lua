@@ -1,5 +1,3 @@
-#!/usr/bin/env bash -x
-
 set -o errexit
 set -o pipefail
 
