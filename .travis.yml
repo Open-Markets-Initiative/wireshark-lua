@@ -1,0 +1,18 @@
+notifications:
+  email: omi.devs@gmail.com
+
+dist: trusty
+
+before_install:
+  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+  - sudo apt-get update -qq
+
+install:
+  # tshark
+  - sudo apt-get install -qq tshark jq
+
+before_script:
+  - export PATH=/usr/local/bin:$PATH
+  - git clone --depth=1 https://github.com/Open-Markets-Initiative/Directory.git
+
+script: ./Test.sh
