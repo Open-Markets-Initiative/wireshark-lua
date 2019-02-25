@@ -11,5 +11,5 @@ tshark \
 cat Nasdaq.Ise.OrderComboFeed.Itch.v1.1.StrategyTradingActionMessage.H.json
   
 grep "nasdaq.ise.ordercombofeed.itch.v1.1.strategyid" Nasdaq.Ise.OrderComboFeed.Itch.v1.1.StrategyTradingActionMessage.H.json 
-grep "nasdaq.ise.ordercombofeed.itch.v1.1.currenttradingstate" Nasdaq.Ise.OrderFeed.Itch.v1.1.StrategyTradingActionMessage.H.json 
+grep "nasdaq.ise.ordercombofeed.itch.v1.1.currenttradingstate" Nasdaq.Ise.OrderComboFeed.Itch.v1.1.StrategyTradingActionMessage.H.json 
   
