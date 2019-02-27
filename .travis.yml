@@ -15,4 +15,6 @@ before_script:
   - export PATH=/usr/local/bin:$PATH
   - git clone --depth=1 https://github.com/Open-Markets-Initiative/Directory.git
 
-script: bash -x Test.sh
+script:
+  - bats Test/*.bats
+  - bash Test/*.bash
