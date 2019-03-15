@@ -1,8 +1,8 @@
+# Omi Lua Wireshark Dissectors
+
 <p align = "left">
 <a href="https://travis-ci.org/Open-Markets-Initiative/wireshark-lua"><img src = "https://img.shields.io/travis/Open-Markets-Initiative/wireshark-lua.svg?style=flat-square" /></a>
 </p>
-
-## Omi Lua Wireshark Dissectors
 
 Lua wireshark dissector scripts provide an easily customized cross platform dissection solution for viewing common binary exchange protocols.
 
