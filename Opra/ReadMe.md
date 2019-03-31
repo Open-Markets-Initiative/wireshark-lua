@@ -1,4 +1,4 @@
-![Opra](https://github.com/Open-Markets-Initiative/Directory/blob/master/Logos/Opra.png)
+[![Opra](https://github.com/Open-Markets-Initiative/Directory/blob/master/Logos/Opra.png)](https://www.opraplan.com)
 
 
 ## Options Price Reporting Authority

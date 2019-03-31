@@ -1,4 +1,4 @@
-![Cboe](https://github.com/Open-Markets-Initiative/Directory/blob/master/Logos/Cboe.png)
+[![Cboe](https://github.com/Open-Markets-Initiative/Directory/blob/master/Logos/Cboe.png)](https://www.cboe.com)
 
 
 ## Chicago Board Options Exchange

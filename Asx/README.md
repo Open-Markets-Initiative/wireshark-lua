@@ -1,4 +1,4 @@
-![Asx](https://github.com/Open-Markets-Initiative/Directory/blob/master/Logos/Asx.png)
+[![Asx](https://github.com/Open-Markets-Initiative/Directory/blob/master/Logos/Asx.png)](https://www.asx.com.au)
 
 
 ## Australian Securities Exchange

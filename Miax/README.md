@@ -1,4 +1,4 @@
-![Miax](https://github.com/Open-Markets-Initiative/Directory/blob/master/Logos/Miax.png)
+[![Miax](https://github.com/Open-Markets-Initiative/Directory/blob/master/Logos/Miax.png)](https://www.miaxoptions.com/)
 
 
 ## Miami International Securities Exchange
