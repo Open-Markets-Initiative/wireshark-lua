@@ -13,6 +13,7 @@
 |Ise | OrderComboFeed | Itch | [1.1][Nasdaq.Ise.OrderComboFeed.Itch.v1.1.Dissector] | 6/13/2017 | 1881 | Verified | [url][Nasdaq.Ise.OrderComboFeed.Itch.v1.1.url] - [pdf][Nasdaq.Ise.OrderComboFeed.Itch.v1.1.pdf]|
 |Ise | OrderFeed | Itch | [1.1][Nasdaq.Ise.OrderFeed.Itch.v1.1.Dissector] | 8/23/2017 | 1943 | Untested | [url][Nasdaq.Ise.OrderFeed.Itch.v1.1.url] - [pdf][Nasdaq.Ise.OrderFeed.Itch.v1.1.pdf]|
 |Ise | TopComboQuoteFeed | Itch | [1.0][Nasdaq.Ise.TopComboQuoteFeed.Itch.v1.0.Dissector] | 8/23/2017 | 2159 | Verified | [url][Nasdaq.Ise.TopComboQuoteFeed.Itch.v1.0.url] - [pdf][Nasdaq.Ise.TopComboQuoteFeed.Itch.v1.0.pdf]|
+|Nom | Itto | Itch | [4.0][Nasdaq.Nom.Itto.Itch.v4.0.Dissector] | 2/8/2018 | 2936 | Untested | [url][Nasdaq.Nom.Itto.Itch.v4.0.url] - [pdf][Nasdaq.Nom.Itto.Itch.v4.0.pdf]|
 |Phlx | MarketDepth | Itch | [1.5][Nasdaq.Phlx.MarketDepth.Itch.v1.5.Dissector] | 9/30/2015 | 3308 | Untested | [url][Nasdaq.Phlx.MarketDepth.Itch.v1.5.url] - [pdf][Nasdaq.Phlx.MarketDepth.Itch.v1.5.pdf]|
 |Phlx | Orders | Itch | [1.9][Nasdaq.Phlx.Orders.Itch.v1.9.Dissector] | 8/10/2015 | 2393 | Untested | [url][Nasdaq.Phlx.Orders.Itch.v1.9.url] - [pdf][Nasdaq.Phlx.Orders.Itch.v1.9.pdf]|
 |Phlx | Topo | Itch | [3.3][Nasdaq.Phlx.Topo.Itch.v3.3.Dissector] | 11/2/2017 | 2014 | Untested | [url][Nasdaq.Phlx.Topo.Itch.v3.3.url] - [pdf][Nasdaq.Phlx.Topo.Itch.v3.3.pdf]|
@@ -41,6 +42,9 @@ Nasdaq: [website](https://www.nasdaq.com "Go to National Association of Securiti
 [Nasdaq.Ise.TopComboQuoteFeed.Itch.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nasdaq/Nasdaq.Ise.TopComboQuoteFeed.Itch.v1.0.Script.Dissector.lua "National Association of Securities Dealers Automated Quotations 1.0 Script Dissector"
 [Nasdaq.Ise.TopComboQuoteFeed.Itch.v1.0.url]: https://business.nasdaq.com/trade/US-Options/Technical-Specifications.html "Specification url"
 [Nasdaq.Ise.TopComboQuoteFeed.Itch.v1.0.pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nasdaq/Nasdaq.Ise.TopComboQuoteFeed.Itch.v1.0.pdf "National Association of Securities Dealers Automated Quotations 1.0 pdf"
+[Nasdaq.Nom.Itto.Itch.v4.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nasdaq/Nasdaq.Nom.Itto.Itch.v4.0.Script.Dissector.lua "National Association of Securities Dealers Automated Quotations 4.0 Script Dissector"
+[Nasdaq.Nom.Itto.Itch.v4.0.url]: https://business.nasdaq.com/trade/US-Options/Technical-Specifications.html "Specification url"
+[Nasdaq.Nom.Itto.Itch.v4.0.pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nasdaq/Nasdaq.Nom.Itto.Itch.v4.0.pdf "National Association of Securities Dealers Automated Quotations 4.0 pdf"
 [Nasdaq.Phlx.MarketDepth.Itch.v1.5.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nasdaq/Nasdaq.Phlx.MarketDepth.Itch.v1.5.Script.Dissector.lua "National Association of Securities Dealers Automated Quotations 1.5 Script Dissector"
 [Nasdaq.Phlx.MarketDepth.Itch.v1.5.url]: http://www.phlx.com/Trader.aspx?id=DPSpecs#options_x "Specification url"
 [Nasdaq.Phlx.MarketDepth.Itch.v1.5.pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nasdaq/Nasdaq.Phlx.MarketDepth.Itch.v1.5.pdf "National Association of Securities Dealers Automated Quotations 1.5 pdf"
