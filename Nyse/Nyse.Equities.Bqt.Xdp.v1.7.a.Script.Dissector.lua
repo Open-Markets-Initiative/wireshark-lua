@@ -806,10 +806,10 @@ display.market_id = function(value)
     return "Market Id: Nyse Amex Options (8)"
   end
   if value == 9 then
-    return "Market Id: Nyse American Cash (9)"
+    return "Market Id: Nyse American Equities (9)"
   end
   if value == 10 then
-    return "Market Id: Nyse National Options (10)"
+    return "Market Id: Nyse National Equities (10)"
   end
 
   return "Market Id: Unknown("..value..")"
