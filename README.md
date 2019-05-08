@@ -32,7 +32,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 |Organization | Division | Data | Protocol | Version | Date | Size | Testing|
 |--- | --- | --- | --- | --- | --- | --- | ---|
 |[Asx][Asx.Securities.T24.Itch.v1.13.Organization] | Securities | T24 | Itch | [1.13][Asx.Securities.T24.Itch.v1.13.Dissector] | 7/15/2014 | 5071 | Untested|
-|[Cboe][Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Organization] | Futures | DepthOfBook | Pitch | [1.1.6][Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Dissector] | 4/8/2019 | 2791 | Verified|
+|[Cboe][Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Organization] | Futures | DepthOfBook | Pitch | [1.1.6][Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Dissector] | 4/8/2019 | 2981 | Verified|
 |[Cboe][Cboe.Options.MarketDataFeed.Csm.v1.4.2.Organization] | Options | MarketDataFeed | Csm | [1.4.2][Cboe.Options.MarketDataFeed.Csm.v1.4.2.Dissector] | 5/8/2018 | 3786 | Verified|
 |[Cboe][Cboe.Options.MarketLevel2.Csm.v1.0.4.Organization] | Options | MarketLevel2 | Csm | [1.0.4][Cboe.Options.MarketLevel2.Csm.v1.0.4.Dissector] | 5/8/2018 | 2679 | Verified|
 |[Cboe][Cboe.Options.OpeningAuction.Csm.v1.0.Organization] | Options | OpeningAuction | Csm | [1.0][Cboe.Options.OpeningAuction.Csm.v1.0.Dissector] | 7/18/2018 | 2774 | Verified|
@@ -89,7 +89,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 |Protocol Count | Generated Lines|
 |--- | ---|
-|51 | 189,309|
+|51 | 189,499|
 
 Note: Our dissector model is still under rapid development.
 

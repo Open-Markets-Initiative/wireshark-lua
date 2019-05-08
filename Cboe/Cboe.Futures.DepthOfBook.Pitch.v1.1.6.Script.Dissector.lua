@@ -29,6 +29,7 @@ cboe_futures_depthofbook_pitch_v1_1_6.fields.close_price = ProtoField.new("Close
 cboe_futures_depthofbook_pitch_v1_1_6.fields.contract_size = ProtoField.new("Contract Size", "cboe.futures.depthofbook.pitch.v1.1.6.contractsize", ftypes.UINT16)
 cboe_futures_depthofbook_pitch_v1_1_6.fields.count = ProtoField.new("Count", "cboe.futures.depthofbook.pitch.v1.1.6.count", ftypes.UINT8)
 cboe_futures_depthofbook_pitch_v1_1_6.fields.delete_order_message = ProtoField.new("Delete Order Message", "cboe.futures.depthofbook.pitch.v1.1.6.deleteordermessage", ftypes.STRING)
+cboe_futures_depthofbook_pitch_v1_1_6.fields.discount_factor = ProtoField.new("Discount Factor", "cboe.futures.depthofbook.pitch.v1.1.6.discountfactor", ftypes.INT64)
 cboe_futures_depthofbook_pitch_v1_1_6.fields.ecrp_volume = ProtoField.new("Ecrp Volume", "cboe.futures.depthofbook.pitch.v1.1.6.ecrpvolume", ftypes.UINT32)
 cboe_futures_depthofbook_pitch_v1_1_6.fields.end_of_day_summary_message = ProtoField.new("End Of Day Summary Message", "cboe.futures.depthofbook.pitch.v1.1.6.endofdaysummarymessage", ftypes.STRING)
 cboe_futures_depthofbook_pitch_v1_1_6.fields.end_of_session_message = ProtoField.new("End Of Session Message", "cboe.futures.depthofbook.pitch.v1.1.6.endofsessionmessage", ftypes.STRING)
@@ -36,12 +37,15 @@ cboe_futures_depthofbook_pitch_v1_1_6.fields.epoch = ProtoField.new("Epoch", "cb
 cboe_futures_depthofbook_pitch_v1_1_6.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.futures.depthofbook.pitch.v1.1.6.executedquantity", ftypes.UINT32)
 cboe_futures_depthofbook_pitch_v1_1_6.fields.execution_id = ProtoField.new("Execution Id", "cboe.futures.depthofbook.pitch.v1.1.6.executionid", ftypes.UINT64)
 cboe_futures_depthofbook_pitch_v1_1_6.fields.expiration_date = ProtoField.new("Expiration Date", "cboe.futures.depthofbook.pitch.v1.1.6.expirationdate", ftypes.UINT32)
+cboe_futures_depthofbook_pitch_v1_1_6.fields.fed_funds_rate = ProtoField.new("Fed Funds Rate", "cboe.futures.depthofbook.pitch.v1.1.6.fedfundsrate", ftypes.INT64)
 cboe_futures_depthofbook_pitch_v1_1_6.fields.future_block = ProtoField.new("Future Block", "cboe.futures.depthofbook.pitch.v1.1.6.futureblock", ftypes.STRING)
-cboe_futures_depthofbook_pitch_v1_1_6.fields.future_legs = ProtoField.new("Future Legs", "cboe.futures.depthofbook.pitch.v1.1.6.futurelegs", ftypes.STRING)
+cboe_futures_depthofbook_pitch_v1_1_6.fields.future_leg = ProtoField.new("Future Leg", "cboe.futures.depthofbook.pitch.v1.1.6.futureleg", ftypes.STRING)
+cboe_futures_depthofbook_pitch_v1_1_6.fields.futures_flags = ProtoField.new("Futures Flags", "cboe.futures.depthofbook.pitch.v1.1.6.futuresflags", ftypes.UINT8)
 cboe_futures_depthofbook_pitch_v1_1_6.fields.futures_instrument_definition_message = ProtoField.new("Futures Instrument Definition Message", "cboe.futures.depthofbook.pitch.v1.1.6.futuresinstrumentdefinitionmessage", ftypes.STRING)
 cboe_futures_depthofbook_pitch_v1_1_6.fields.high_price = ProtoField.new("High Price", "cboe.futures.depthofbook.pitch.v1.1.6.highprice", ftypes.UINT64)
 cboe_futures_depthofbook_pitch_v1_1_6.fields.high_price_is_bid = ProtoField.new("High Price Is Bid", "cboe.futures.depthofbook.pitch.v1.1.6.highpriceisbid", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x0020")
 cboe_futures_depthofbook_pitch_v1_1_6.fields.high_price_valid = ProtoField.new("High Price Valid", "cboe.futures.depthofbook.pitch.v1.1.6.highpricevalid", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x0010")
+cboe_futures_depthofbook_pitch_v1_1_6.fields.initial_strike = ProtoField.new("Initial Strike", "cboe.futures.depthofbook.pitch.v1.1.6.initialstrike", ftypes.UINT64)
 cboe_futures_depthofbook_pitch_v1_1_6.fields.issue = ProtoField.new("Issue", "cboe.futures.depthofbook.pitch.v1.1.6.issue", ftypes.STRING)
 cboe_futures_depthofbook_pitch_v1_1_6.fields.leg_count = ProtoField.new("Leg Count", "cboe.futures.depthofbook.pitch.v1.1.6.legcount", ftypes.UINT8)
 cboe_futures_depthofbook_pitch_v1_1_6.fields.leg_offset = ProtoField.new("Leg Offset", "cboe.futures.depthofbook.pitch.v1.1.6.legoffset", ftypes.UINT8)
@@ -61,6 +65,8 @@ cboe_futures_depthofbook_pitch_v1_1_6.fields.message_type = ProtoField.new("Mess
 cboe_futures_depthofbook_pitch_v1_1_6.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.futures.depthofbook.pitch.v1.1.6.midnightreference", ftypes.UINT32)
 cboe_futures_depthofbook_pitch_v1_1_6.fields.modify_order_long_message = ProtoField.new("Modify Order Long Message", "cboe.futures.depthofbook.pitch.v1.1.6.modifyorderlongmessage", ftypes.STRING)
 cboe_futures_depthofbook_pitch_v1_1_6.fields.modify_order_short_message = ProtoField.new("Modify Order Short Message", "cboe.futures.depthofbook.pitch.v1.1.6.modifyordershortmessage", ftypes.STRING)
+cboe_futures_depthofbook_pitch_v1_1_6.fields.num_elapsed_returns = ProtoField.new("Num Elapsed Returns", "cboe.futures.depthofbook.pitch.v1.1.6.numelapsedreturns", ftypes.UINT16)
+cboe_futures_depthofbook_pitch_v1_1_6.fields.num_expected_prices = ProtoField.new("Num Expected Prices", "cboe.futures.depthofbook.pitch.v1.1.6.numexpectedprices", ftypes.UINT16)
 cboe_futures_depthofbook_pitch_v1_1_6.fields.offer_close_valid = ProtoField.new("Offer Close Valid", "cboe.futures.depthofbook.pitch.v1.1.6.offerclosevalid", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x0100")
 cboe_futures_depthofbook_pitch_v1_1_6.fields.open_interest = ProtoField.new("Open Interest", "cboe.futures.depthofbook.pitch.v1.1.6.openinterest", ftypes.UINT32)
 cboe_futures_depthofbook_pitch_v1_1_6.fields.open_price = ProtoField.new("Open Price", "cboe.futures.depthofbook.pitch.v1.1.6.openprice", ftypes.UINT64)
@@ -69,7 +75,10 @@ cboe_futures_depthofbook_pitch_v1_1_6.fields.order_id = ProtoField.new("Order Id
 cboe_futures_depthofbook_pitch_v1_1_6.fields.packet = ProtoField.new("Packet", "cboe.futures.depthofbook.pitch.v1.1.6.packet", ftypes.STRING)
 cboe_futures_depthofbook_pitch_v1_1_6.fields.packet_header = ProtoField.new("Packet Header", "cboe.futures.depthofbook.pitch.v1.1.6.packetheader", ftypes.STRING)
 cboe_futures_depthofbook_pitch_v1_1_6.fields.payload = ProtoField.new("Payload", "cboe.futures.depthofbook.pitch.v1.1.6.payload", ftypes.STRING)
+cboe_futures_depthofbook_pitch_v1_1_6.fields.previous_armvm = ProtoField.new("Previous Armvm", "cboe.futures.depthofbook.pitch.v1.1.6.previousarmvm", ftypes.INT64)
+cboe_futures_depthofbook_pitch_v1_1_6.fields.previous_settlement = ProtoField.new("Previous Settlement", "cboe.futures.depthofbook.pitch.v1.1.6.previoussettlement", ftypes.UINT64)
 cboe_futures_depthofbook_pitch_v1_1_6.fields.price_increment = ProtoField.new("Price Increment", "cboe.futures.depthofbook.pitch.v1.1.6.priceincrement", ftypes.UINT64)
+cboe_futures_depthofbook_pitch_v1_1_6.fields.realized_variance = ProtoField.new("Realized Variance", "cboe.futures.depthofbook.pitch.v1.1.6.realizedvariance", ftypes.INT64)
 cboe_futures_depthofbook_pitch_v1_1_6.fields.reduce_size_long_message = ProtoField.new("Reduce Size Long Message", "cboe.futures.depthofbook.pitch.v1.1.6.reducesizelongmessage", ftypes.STRING)
 cboe_futures_depthofbook_pitch_v1_1_6.fields.reduce_size_short_message = ProtoField.new("Reduce Size Short Message", "cboe.futures.depthofbook.pitch.v1.1.6.reducesizeshortmessage", ftypes.STRING)
 cboe_futures_depthofbook_pitch_v1_1_6.fields.report_symbol = ProtoField.new("Report Symbol", "cboe.futures.depthofbook.pitch.v1.1.6.reportsymbol", ftypes.STRING)
@@ -115,7 +124,7 @@ show.add_order_short_message = true
 show.delete_order_message = true
 show.end_of_day_summary_message = true
 show.end_of_session_message = true
-show.future_legs = true
+show.future_leg = true
 show.futures_instrument_definition_message = true
 show.message = true
 show.message_header = true
@@ -148,7 +157,7 @@ cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_add_order_short_message = Pref.
 cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_delete_order_message = Pref.bool("Show Delete Order Message", show.delete_order_message, "Parse and add Delete Order Message to protocol tree")
 cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_end_of_day_summary_message = Pref.bool("Show End Of Day Summary Message", show.end_of_day_summary_message, "Parse and add End Of Day Summary Message to protocol tree")
 cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_end_of_session_message = Pref.bool("Show End Of Session Message", show.end_of_session_message, "Parse and add End Of Session Message to protocol tree")
-cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_future_legs = Pref.bool("Show Future Legs", show.future_legs, "Parse and add Future Legs to protocol tree")
+cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_future_leg = Pref.bool("Show Future Leg", show.future_leg, "Parse and add Future Leg to protocol tree")
 cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_futures_instrument_definition_message = Pref.bool("Show Futures Instrument Definition Message", show.futures_instrument_definition_message, "Parse and add Futures Instrument Definition Message to protocol tree")
 cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
@@ -200,8 +209,8 @@ function cboe_futures_depthofbook_pitch_v1_1_6.prefs_changed()
     show.end_of_session_message = cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_end_of_session_message
     changed = true
   end
-  if show.future_legs ~= cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_future_legs then
-    show.future_legs = cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_future_legs
+  if show.future_leg ~= cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_future_leg then
+    show.future_leg = cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_future_leg
     changed = true
   end
   if show.futures_instrument_definition_message ~= cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_futures_instrument_definition_message then
@@ -1610,13 +1619,13 @@ dissect.leg_ratio = function(buffer, offset, packet, parent)
   return offset + size_of.leg_ratio
 end
 
--- Display: Future Legs
-display.future_legs = function(buffer, offset, size, packet, parent)
+-- Display: Future Leg
+display.future_leg = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Future Legs
-dissect.future_legs_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Future Leg
+dissect.future_leg_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Leg Ratio: 4 Byte Signed Fixed Width Integer
@@ -1628,25 +1637,179 @@ dissect.future_legs_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Future Legs
-dissect.future_legs = function(buffer, offset, packet, parent)
+-- Dissect: Future Leg
+dissect.future_leg = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.future_legs then
+  if show.future_leg then
     local range = buffer(offset, 10)
-    local display = display.future_legs(buffer, packet, parent)
-    parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.future_legs, range, display)
+    local display = display.future_leg(buffer, packet, parent)
+    parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.future_leg, range, display)
   end
 
-  return dissect.future_legs_fields(buffer, offset, packet, parent)
+  return dissect.future_leg_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Fed Funds Rate
+size_of.fed_funds_rate = 8
+
+-- Display: Fed Funds Rate
+display.fed_funds_rate = function(value)
+  return "Fed Funds Rate: "..value
+end
+
+-- Dissect: Fed Funds Rate
+dissect.fed_funds_rate = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.fed_funds_rate)
+  local value = range:le_int64()
+  local display = display.fed_funds_rate(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.fed_funds_rate, range, value, display)
+
+  return offset + size_of.fed_funds_rate
+end
+
+-- Size: Previous Armvm
+size_of.previous_armvm = 8
+
+-- Display: Previous Armvm
+display.previous_armvm = function(value)
+  return "Previous Armvm: "..value
+end
+
+-- Dissect: Previous Armvm
+dissect.previous_armvm = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.previous_armvm)
+  local value = range:le_int64()
+  local display = display.previous_armvm(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.previous_armvm, range, value, display)
+
+  return offset + size_of.previous_armvm
+end
+
+-- Size: Initial Strike
+size_of.initial_strike = 8
+
+-- Display: Initial Strike
+display.initial_strike = function(value)
+  return "Initial Strike: "..value
+end
+
+-- Dissect: Initial Strike
+dissect.initial_strike = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.initial_strike)
+  local value = range:le_uint64()
+  local display = display.initial_strike(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.initial_strike, range, value, display)
+
+  return offset + size_of.initial_strike
+end
+
+-- Size: Discount Factor
+size_of.discount_factor = 8
+
+-- Display: Discount Factor
+display.discount_factor = function(value)
+  return "Discount Factor: "..value
+end
+
+-- Dissect: Discount Factor
+dissect.discount_factor = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.discount_factor)
+  local value = range:le_int64()
+  local display = display.discount_factor(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.discount_factor, range, value, display)
+
+  return offset + size_of.discount_factor
+end
+
+-- Size: Previous Settlement
+size_of.previous_settlement = 8
+
+-- Display: Previous Settlement
+display.previous_settlement = function(value)
+  return "Previous Settlement: "..value
+end
+
+-- Dissect: Previous Settlement
+dissect.previous_settlement = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.previous_settlement)
+  local value = range:le_uint64()
+  local display = display.previous_settlement(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.previous_settlement, range, value, display)
+
+  return offset + size_of.previous_settlement
+end
+
+-- Size: Num Elapsed Returns
+size_of.num_elapsed_returns = 2
+
+-- Display: Num Elapsed Returns
+display.num_elapsed_returns = function(value)
+  return "Num Elapsed Returns: "..value
+end
+
+-- Dissect: Num Elapsed Returns
+dissect.num_elapsed_returns = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.num_elapsed_returns)
+  local value = range:le_uint()
+  local display = display.num_elapsed_returns(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.num_elapsed_returns, range, value, display)
+
+  return offset + size_of.num_elapsed_returns
+end
+
+-- Size: Num Expected Prices
+size_of.num_expected_prices = 2
+
+-- Display: Num Expected Prices
+display.num_expected_prices = function(value)
+  return "Num Expected Prices: "..value
+end
+
+-- Dissect: Num Expected Prices
+dissect.num_expected_prices = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.num_expected_prices)
+  local value = range:le_uint()
+  local display = display.num_expected_prices(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.num_expected_prices, range, value, display)
+
+  return offset + size_of.num_expected_prices
+end
+
+-- Size: Realized Variance
+size_of.realized_variance = 8
+
+-- Display: Realized Variance
+display.realized_variance = function(value)
+  return "Realized Variance: "..value
+end
+
+-- Dissect: Realized Variance
+dissect.realized_variance = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.realized_variance)
+  local value = range:le_int64()
+  local display = display.realized_variance(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.realized_variance, range, value, display)
+
+  return offset + size_of.realized_variance
 end
 
 -- Calculate runtime size: Variance
 size_of.variance = function(buffer, offset)
   local index = 0
 
+  index = index + 52
+
   -- Calculate field size from count
-  local future_legs_count = buffer(offset + index - 13, 1):le_uint()
-  index = index + future_legs_count * 10
+  local future_leg_count = buffer(offset + index - 65, 1):le_uint()
+  index = index + future_leg_count * 10
 
   return index
 end
@@ -1660,34 +1823,34 @@ end
 dissect.variance_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Realized Variance
+  -- Realized Variance: 8 Byte Signed Fixed Width Integer
   index = dissect.realized_variance(buffer, index, packet, parent)
 
-  -- Num Expected Prices
+  -- Num Expected Prices: 2 Byte Unsigned Fixed Width Integer
   index = dissect.num_expected_prices(buffer, index, packet, parent)
 
-  -- Num Elapsed Returns
+  -- Num Elapsed Returns: 2 Byte Unsigned Fixed Width Integer
   index = dissect.num_elapsed_returns(buffer, index, packet, parent)
 
-  -- Previous Settlement
+  -- Previous Settlement: 8 Byte Unsigned Fixed Width Integer
   index = dissect.previous_settlement(buffer, index, packet, parent)
 
-  -- Discount Factor
+  -- Discount Factor: 8 Byte Signed Fixed Width Integer
   index = dissect.discount_factor(buffer, index, packet, parent)
 
-  -- Initial Strike
+  -- Initial Strike: 8 Byte Unsigned Fixed Width Integer
   index = dissect.initial_strike(buffer, index, packet, parent)
 
-  -- Previous Armvm
+  -- Previous Armvm: 8 Byte Signed Fixed Width Integer
   index = dissect.previous_armvm(buffer, index, packet, parent)
 
-  -- Fed Funds Rate
+  -- Fed Funds Rate: 8 Byte Signed Fixed Width Integer
   index = dissect.fed_funds_rate(buffer, index, packet, parent)
 
-  -- Future Legs: Struct of 2 fields
-  local future_legs_count = buffer(index - 13, 1):le_uint()
-  for i = 1, future_legs_count do
-    index = dissect.future_legs(buffer, index, packet, parent)
+  -- Future Leg: Struct of 2 fields
+  local future_leg_count = buffer(index - 65, 1):le_uint()
+  for i = 1, future_leg_count do
+    index = dissect.future_leg(buffer, index, packet, parent)
   end
 
   return index
@@ -1711,8 +1874,8 @@ size_of.standard = function(buffer, offset)
   local index = 0
 
   -- Calculate field size from count
-  local future_legs_count = buffer(offset + index - 3, 1):le_uint()
-  index = index + future_legs_count * 10
+  local future_leg_count = buffer(offset + index - 3, 1):le_uint()
+  index = index + future_leg_count * 10
 
   return index
 end
@@ -1726,10 +1889,10 @@ end
 dissect.standard_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Future Legs: Struct of 2 fields
-  local future_legs_count = buffer(index - 3, 1):le_uint()
-  for i = 1, future_legs_count do
-    index = dissect.future_legs(buffer, index, packet, parent)
+  -- Future Leg: Struct of 2 fields
+  local future_leg_count = buffer(index - 3, 1):le_uint()
+  for i = 1, future_leg_count do
+    index = dissect.future_leg(buffer, index, packet, parent)
   end
 
   return index
@@ -1755,7 +1918,7 @@ size_of.future_block = function(buffer, offset, code)
     return size_of.standard(buffer, offset)
   end
   -- Size of Variance
-  if code == 0 then
+  if code == 1 then
     return size_of.variance(buffer, offset)
   end
 
@@ -1774,7 +1937,7 @@ dissect.future_block_branches = function(buffer, offset, packet, parent, code)
     return dissect.standard(buffer, offset, packet, parent)
   end
   -- Dissect Variance
-  if code == 0 then
+  if code == 1 then
     return dissect.variance(buffer, offset, packet, parent)
   end
 
@@ -1945,6 +2108,33 @@ dissect.expiration_date = function(buffer, offset, packet, parent)
   return offset + size_of.expiration_date
 end
 
+-- Size: Futures Flags
+size_of.futures_flags = 1
+
+-- Display: Futures Flags
+display.futures_flags = function(value)
+  if value == 0 then
+    return "Futures Flags: Standard (0)"
+  end
+  if value == 1 then
+    return "Futures Flags: Variance (1)"
+  end
+
+  return "Futures Flags: Unknown("..value..")"
+end
+
+-- Dissect: Futures Flags
+dissect.futures_flags = function(buffer, offset, packet, parent)
+  local length = 1
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.futures_flags(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.futures_flags, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Report Symbol
 size_of.report_symbol = 6
 
@@ -1987,11 +2177,11 @@ end
 size_of.futures_instrument_definition_message = function(buffer, offset)
   local index = 0
 
-  index = index + 38
+  index = index + 39
 
   -- Calculate runtime size of Future Block field
   local future_block_offset = offset + index
-  local future_block_type = buffer(future_block_offset - 18, 0):bytes():tohex(false, " ")
+  local future_block_type = buffer(future_block_offset - 19, 1):le_uint()
   index = index + size_of.future_block(buffer, future_block_offset, future_block_type)
 
   return index
@@ -2018,7 +2208,7 @@ dissect.futures_instrument_definition_message_fields = function(buffer, offset, 
   -- Report Symbol: 6 Byte Ascii String
   index = dissect.report_symbol(buffer, index, packet, parent)
 
-  -- Futures Flags
+  -- Futures Flags: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index = dissect.futures_flags(buffer, index, packet, parent)
 
   -- Expiration Date: 4 Byte Unsigned Fixed Width Integer
@@ -2043,7 +2233,7 @@ dissect.futures_instrument_definition_message_fields = function(buffer, offset, 
   index = dissect.variance_block_offset(buffer, index, packet, parent)
 
   -- Future Block: Runtime Type with 2 branches
-  local code = buffer(index - 18, 0):bytes():tohex(false, " ")
+  local code = buffer(index - 19, 1):le_uint()
   index = dissect.future_block(buffer, index, packet, parent, code)
 
   return index
