@@ -2671,6 +2671,7 @@ cboe_options_marketlevel2_csm_v1_0_4:register_heuristic("udp", cboe_options_mark
 -- Protocol:
 -- Version: 1.0.4
 -- Date: Tuesday, May 8, 2018
+-- Specification: cboestreamingbookdepthv1.0.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

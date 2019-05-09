@@ -2151,6 +2151,7 @@ nasdaq_ise_topcomboquotefeed_itch_v1_0:register_heuristic("udp", nasdaq_ise_topc
 -- Protocol:
 -- Version: 1.0
 -- Date: Wednesday, August 23, 2017
+-- Specification: ISEOrderComboFeedSpecification_tcm5044-41354.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

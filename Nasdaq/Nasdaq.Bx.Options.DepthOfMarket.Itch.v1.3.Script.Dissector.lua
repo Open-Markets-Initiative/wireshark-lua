@@ -3082,6 +3082,7 @@ nasdaq_bx_options_depthofmarket_itch_v1_3:register_heuristic("udp", nasdaq_bx_op
 -- Protocol:
 -- Version: 1.3
 -- Date: Thursday, November 2, 2017
+-- Specification: BXOptions_DepthofMarket.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

@@ -2973,6 +2973,7 @@ cboe_futures_depthofbook_pitch_v1_1_6:register_heuristic("udp", cboe_futures_dep
 -- Protocol:
 -- Version: 1.1.6
 -- Date: Monday, April 8, 2019
+-- Specification: CBOE_FUTURES_EXCHANGE_MULTICAST_PITCH_SPECIFICATION.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

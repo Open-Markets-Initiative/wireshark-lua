@@ -2504,6 +2504,7 @@ nyse_equities_imbalancesfeed_xdp_v2_1_f:register_heuristic("udp", nyse_equities_
 -- Protocol:
 -- Version: 2.1.f
 -- Date: Thursday, February 1, 2018
+-- Specification: XDP_Imbalances_Feed_Client_Specification_v2.1f.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

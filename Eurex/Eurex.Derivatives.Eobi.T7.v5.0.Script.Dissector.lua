@@ -3553,6 +3553,7 @@ eurex_derivatives_eobi_t7_v5_0:register_heuristic("udp", eurex_derivatives_eobi_
 -- Protocol:
 -- Version: 5.0
 -- Date: Friday, June 9, 2017
+-- Specification: T7-Enhanced-Order-Book-Interface---Manual.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

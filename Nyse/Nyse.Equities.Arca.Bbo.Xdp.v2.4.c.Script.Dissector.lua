@@ -2652,6 +2652,7 @@ nyse_equities_arca_bbo_xdp_v2_4_c:register_heuristic("udp", nyse_equities_arca_b
 -- Protocol:
 -- Version: 2.4.c
 -- Date: Wednesday, July 13, 2016
+-- Specification: XDP_BBO_Client_Specification_V2.4c.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

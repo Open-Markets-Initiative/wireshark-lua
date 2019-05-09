@@ -3300,6 +3300,7 @@ nasdaq_phlx_marketdepth_itch_v1_5:register_heuristic("udp", nasdaq_phlx_marketde
 -- Protocol:
 -- Version: 1.5
 -- Date: Wednesday, September 30, 2015
+-- Specification: phlxdepth.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

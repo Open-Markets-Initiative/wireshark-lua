@@ -1873,6 +1873,7 @@ nasdaq_ise_ordercombofeed_itch_v1_1:register_heuristic("udp", nasdaq_ise_orderco
 -- Protocol:
 -- Version: 1.1
 -- Date: Tuesday, June 13, 2017
+-- Specification: ISE-GEMX-MRX-Order-Feed-Specification_tcm5044-42717.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

@@ -3173,6 +3173,7 @@ nasdaq_psx_totalview_itch_v5_0:register_heuristic("udp", nasdaq_psx_totalview_it
 -- Protocol:
 -- Version: 5.0
 -- Date: Thursday, May 3, 2018
+-- Specification: PSXTVITCHSpecification.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

@@ -1935,6 +1935,7 @@ nasdaq_ise_orderfeed_itch_v1_1:register_heuristic("udp", nasdaq_ise_orderfeed_it
 -- Protocol:
 -- Version: 1.1
 -- Date: Wednesday, August 23, 2017
+-- Specification: ISEOrderComboFeedSpecification_tcm5044-41354.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

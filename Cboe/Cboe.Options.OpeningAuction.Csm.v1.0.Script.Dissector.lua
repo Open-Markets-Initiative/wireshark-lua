@@ -2766,6 +2766,7 @@ cboe_options_openingauction_csm_v1_0:register_heuristic("udp", cboe_options_open
 -- Protocol:
 -- Version: 1.0
 -- Date: Wednesday, July 18, 2018
+-- Specification: CBOEStreamingOpeningAuction.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

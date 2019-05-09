@@ -2928,6 +2928,7 @@ nasdaq_nom_itto_itch_v4_0:register_heuristic("udp", nasdaq_nom_itto_itch_v4_0_he
 -- Protocol:
 -- Version: 4.0
 -- Date: Thursday, February 8, 2018
+-- Specification: itto_spec40.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

@@ -3849,6 +3849,7 @@ nyse_equities_bqt_xdp_v1_7_a:register_heuristic("udp", nyse_equities_bqt_xdp_v1_
 -- Protocol:
 -- Version: 1.7.a
 -- Date: Monday, July 24, 2017
+-- Specification: NYSE_BQT_Client_Specification_v2.1.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

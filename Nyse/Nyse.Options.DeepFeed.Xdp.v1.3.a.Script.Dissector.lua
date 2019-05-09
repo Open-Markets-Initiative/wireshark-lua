@@ -2251,6 +2251,7 @@ nyse_options_deepfeed_xdp_v1_3_a:register_heuristic("udp", nyse_options_deepfeed
 -- Protocol:
 -- Version: 1.3.a
 -- Date: Wednesday, February 28, 2018
+-- Specification: XDP_Options_Client_Specification_v1.3a.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

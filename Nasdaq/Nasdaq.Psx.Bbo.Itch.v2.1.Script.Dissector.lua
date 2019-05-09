@@ -1821,6 +1821,7 @@ nasdaq_psx_bbo_itch_v2_1:register_heuristic("udp", nasdaq_psx_bbo_itch_v2_1_heur
 -- Protocol:
 -- Version: 2.1
 -- Date: Thursday, May 3, 2018
+-- Specification: PSXbboSpecification2.1.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

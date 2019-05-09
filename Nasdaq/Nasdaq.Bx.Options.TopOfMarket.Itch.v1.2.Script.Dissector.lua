@@ -1990,6 +1990,7 @@ nasdaq_bx_options_topofmarket_itch_v1_2:register_heuristic("udp", nasdaq_bx_opti
 -- Protocol:
 -- Version: 1.2
 -- Date: Thursday, November 2, 2017
+-- Specification: BXOptions_TopofMarket.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

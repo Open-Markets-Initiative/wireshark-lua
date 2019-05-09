@@ -4131,6 +4131,7 @@ nyse_equities_integratedfeed_xdp_v2_1_g:register_heuristic("udp", nyse_equities_
 -- Protocol:
 -- Version: 2.1.g
 -- Date: Monday, January 29, 2018
+-- Specification: XDP_Integrated_Feed_Client_Specification_v2.1g.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

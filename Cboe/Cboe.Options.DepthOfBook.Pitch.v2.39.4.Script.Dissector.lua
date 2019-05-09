@@ -2772,6 +2772,7 @@ cboe_options_depthofbook_pitch_v2_39_4:register_heuristic("udp", cboe_options_de
 -- Protocol:
 -- Version: 2.39.4
 -- Date: Tuesday, August 21, 2018
+-- Specification: BATS_US_EQUITIES_OPTIONS_MULTICAST_PITCH_SPECIFICATION.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

@@ -3906,6 +3906,7 @@ eurex_derivatives_eobi_t7_v7_1:register_heuristic("udp", eurex_derivatives_eobi_
 -- Protocol:
 -- Version: 7.1
 -- Date: Thursday, March 14, 2019
+-- Specification: T7_EOBI_Manual_v.7.1.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

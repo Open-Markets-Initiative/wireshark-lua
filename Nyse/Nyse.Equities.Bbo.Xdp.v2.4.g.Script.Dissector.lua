@@ -2649,6 +2649,7 @@ nyse_equities_bbo_xdp_v2_4_g:register_heuristic("udp", nyse_equities_bbo_xdp_v2_
 -- Protocol:
 -- Version: 2.4.g
 -- Date: Monday, January 29, 2018
+-- Specification: XDP_BBO_Client_Specification_V2.4c.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

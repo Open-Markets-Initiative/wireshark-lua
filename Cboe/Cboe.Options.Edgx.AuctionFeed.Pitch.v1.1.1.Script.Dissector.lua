@@ -1131,6 +1131,7 @@ cboe_options_edgx_auctionfeed_pitch_v1_1_1:register_heuristic("udp", cboe_option
 -- Protocol:
 -- Version: 1.1.1
 -- Date: Thursday, December 6, 2018
+-- Specification: US_Options_Auction_Feed_Specification.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

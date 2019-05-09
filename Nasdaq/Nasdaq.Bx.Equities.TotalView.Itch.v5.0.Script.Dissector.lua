@@ -3179,6 +3179,7 @@ nasdaq_bx_equities_totalview_itch_v5_0:register_heuristic("udp", nasdaq_bx_equit
 -- Protocol:
 -- Version: 5.0
 -- Date: Wednesday, May 23, 2018
+-- Specification: BXOptions_DepthofMarket.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

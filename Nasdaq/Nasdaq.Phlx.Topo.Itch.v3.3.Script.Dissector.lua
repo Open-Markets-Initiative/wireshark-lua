@@ -2006,6 +2006,7 @@ nasdaq_phlx_topo_itch_v3_3:register_heuristic("udp", nasdaq_phlx_topo_itch_v3_3_
 -- Protocol:
 -- Version: 3.3
 -- Date: Thursday, November 2, 2017
+-- Specification: topofphlx.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

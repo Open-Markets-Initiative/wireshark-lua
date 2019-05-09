@@ -5628,6 +5628,7 @@ opra_options_recipient_obdi_v2_9:register_heuristic("udp", opra_options_recipien
 -- Protocol:
 -- Version: 2.9
 -- Date: Wednesday, October 24, 2018
+-- Specification: opra_output_binary_dr_spec.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

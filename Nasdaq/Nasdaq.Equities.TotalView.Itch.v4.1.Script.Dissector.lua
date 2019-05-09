@@ -2266,6 +2266,7 @@ nasdaq_equities_totalview_itch_v4_1:register_heuristic("udp", nasdaq_equities_to
 -- Protocol:
 -- Version: 4.1
 -- Date: Thursday, June 12, 2014
+-- Specification: NQTV-ITCH-V4_1.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

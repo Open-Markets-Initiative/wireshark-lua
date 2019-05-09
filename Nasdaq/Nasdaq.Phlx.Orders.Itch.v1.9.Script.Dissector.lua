@@ -2385,6 +2385,7 @@ nasdaq_phlx_orders_itch_v1_9:register_heuristic("udp", nasdaq_phlx_orders_itch_v
 -- Protocol:
 -- Version: 1.9
 -- Date: Monday, August 10, 2015
+-- Specification: topoplusorders.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

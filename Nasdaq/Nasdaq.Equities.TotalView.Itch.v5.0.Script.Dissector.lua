@@ -3503,6 +3503,7 @@ nasdaq_equities_totalview_itch_v5_0:register_heuristic("udp", nasdaq_equities_to
 -- Protocol:
 -- Version: 5.0
 -- Date: Tuesday, September 12, 2017
+-- Specification: NQTVITCHSpecification.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

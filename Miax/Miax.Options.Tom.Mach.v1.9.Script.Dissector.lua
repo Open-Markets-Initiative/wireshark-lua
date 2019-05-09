@@ -2450,6 +2450,7 @@ miax_options_tom_mach_v1_9:register_heuristic("udp", miax_options_tom_mach_v1_9_
 -- Protocol:
 -- Version: 1.9
 -- Date: Friday, January 15, 2016
+-- Specification: Top_Of_Market_Feed_ToM_v1_9.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1

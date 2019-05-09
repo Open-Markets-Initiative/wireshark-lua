@@ -8797,6 +8797,7 @@ ice_futures_mdf_impact_v1_1_34:register_heuristic("udp", ice_futures_mdf_impact_
 -- Protocol:
 -- Version: 1.1.34
 -- Date: Tuesday, September 4, 2018
+-- Specification: ICE_iMpact_Multicast_Feed_Message_Spec_1.1.34.pdf
 -- Script:
 -- Source Version: 1.5.0.0
 -- Compiler Version: 1.1
