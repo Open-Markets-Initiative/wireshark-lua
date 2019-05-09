@@ -569,8 +569,8 @@ size_of.printable_flag = 1
 
 -- Display: Printable Flag
 display.printable_flag = function(value)
-  if value == O then
-    return "Printable Flag: Not Printed (O)"
+  if value == 0 then
+    return "Printable Flag: Not Printed (0)"
   end
   if value == 1 then
     return "Printable Flag: Printed (1)"
