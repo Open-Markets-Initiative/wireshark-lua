@@ -5,20 +5,20 @@
 
 |Division | Data | Protocol | Version | Date | Size | Testing | Specification|
 |--- | --- | --- | --- | --- | --- | --- | ---|
-|Bx Equities | TotalView | Itch | [5.0][Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Dissector] | 5/23/2018 | 3188 | Untested | [url][Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Url] - [pdf][Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Pdf]|
-|Bx Options | DepthOfMarket | Itch | [1.3][Nasdaq.Bx.Options.DepthOfMarket.Itch.v1.3.Dissector] | 11/2/2017 | 3091 | Untested | [url][Nasdaq.Bx.Options.DepthOfMarket.Itch.v1.3.Url] - [pdf][Nasdaq.Bx.Options.DepthOfMarket.Itch.v1.3.Pdf]|
-|Bx Options | TopOfMarket | Itch | [1.2][Nasdaq.Bx.Options.TopOfMarket.Itch.v1.2.Dissector] | 11/2/2017 | 1999 | Untested | [url][Nasdaq.Bx.Options.TopOfMarket.Itch.v1.2.Url] - [pdf][Nasdaq.Bx.Options.TopOfMarket.Itch.v1.2.Pdf]|
-|Equities | TotalView | Itch | [5.0][Nasdaq.Equities.TotalView.Itch.v5.0.Dissector] | 9/12/2017 | 3512 | Untested | [url][Nasdaq.Equities.TotalView.Itch.v5.0.Url] - [pdf][Nasdaq.Equities.TotalView.Itch.v5.0.Pdf]|
-|Equities | TotalView | Itch | [4.1][Nasdaq.Equities.TotalView.Itch.v4.1.Dissector] | 6/12/2014 | 2275 | Untested | [url][Nasdaq.Equities.TotalView.Itch.v4.1.Url] - [pdf][Nasdaq.Equities.TotalView.Itch.v4.1.Pdf]|
-|Ise | OrderComboFeed | Itch | [1.1][Nasdaq.Ise.OrderComboFeed.Itch.v1.1.Dissector] | 6/13/2017 | 1882 | Verified | [url][Nasdaq.Ise.OrderComboFeed.Itch.v1.1.Url] - [pdf][Nasdaq.Ise.OrderComboFeed.Itch.v1.1.Pdf]|
-|Ise | OrderFeed | Itch | [1.1][Nasdaq.Ise.OrderFeed.Itch.v1.1.Dissector] | 8/23/2017 | 1944 | Untested | [url][Nasdaq.Ise.OrderFeed.Itch.v1.1.Url] - [pdf][Nasdaq.Ise.OrderFeed.Itch.v1.1.Pdf]|
-|Ise | TopComboQuoteFeed | Itch | [1.0][Nasdaq.Ise.TopComboQuoteFeed.Itch.v1.0.Dissector] | 8/23/2017 | 2160 | Verified | [url][Nasdaq.Ise.TopComboQuoteFeed.Itch.v1.0.Url] - [pdf][Nasdaq.Ise.TopComboQuoteFeed.Itch.v1.0.Pdf]|
-|Nom | Itto | Itch | [4.0][Nasdaq.Nom.Itto.Itch.v4.0.Dissector] | 2/8/2018 | 2937 | Untested | [url][Nasdaq.Nom.Itto.Itch.v4.0.Url] - [pdf][Nasdaq.Nom.Itto.Itch.v4.0.Pdf]|
-|Phlx | MarketDepth | Itch | [1.5][Nasdaq.Phlx.MarketDepth.Itch.v1.5.Dissector] | 9/30/2015 | 3309 | Untested | [url][Nasdaq.Phlx.MarketDepth.Itch.v1.5.Url] - [pdf][Nasdaq.Phlx.MarketDepth.Itch.v1.5.Pdf]|
-|Phlx | Orders | Itch | [1.9][Nasdaq.Phlx.Orders.Itch.v1.9.Dissector] | 8/10/2015 | 2394 | Untested | [url][Nasdaq.Phlx.Orders.Itch.v1.9.Url] - [pdf][Nasdaq.Phlx.Orders.Itch.v1.9.Pdf]|
-|Phlx | Topo | Itch | [3.3][Nasdaq.Phlx.Topo.Itch.v3.3.Dissector] | 11/2/2017 | 2015 | Untested | [url][Nasdaq.Phlx.Topo.Itch.v3.3.Url] - [pdf][Nasdaq.Phlx.Topo.Itch.v3.3.Pdf]|
-|Psx | Bbo | Itch | [2.1][Nasdaq.Psx.Bbo.Itch.v2.1.Dissector] | 5/3/2018 | 1830 | Untested | [url][Nasdaq.Psx.Bbo.Itch.v2.1.Url] - [pdf][Nasdaq.Psx.Bbo.Itch.v2.1.Pdf]|
-|Psx | TotalView | Itch | [5.0][Nasdaq.Psx.TotalView.Itch.v5.0.Dissector] | 5/3/2018 | 3182 | Untested | [url][Nasdaq.Psx.TotalView.Itch.v5.0.Url] - [pdf][Nasdaq.Psx.TotalView.Itch.v5.0.Pdf]|
+|Bx Equities | TotalView | Itch | [5.0][Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Dissector] | 5/23/2018 | 3192 | Untested | [url][Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Url] - [pdf][Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Pdf]|
+|Bx Options | DepthOfMarket | Itch | [1.3][Nasdaq.Bx.Options.DepthOfMarket.Itch.v1.3.Dissector] | 11/2/2017 | 3095 | Untested | [url][Nasdaq.Bx.Options.DepthOfMarket.Itch.v1.3.Url] - [pdf][Nasdaq.Bx.Options.DepthOfMarket.Itch.v1.3.Pdf]|
+|Bx Options | TopOfMarket | Itch | [1.2][Nasdaq.Bx.Options.TopOfMarket.Itch.v1.2.Dissector] | 11/2/2017 | 2003 | Untested | [url][Nasdaq.Bx.Options.TopOfMarket.Itch.v1.2.Url] - [pdf][Nasdaq.Bx.Options.TopOfMarket.Itch.v1.2.Pdf]|
+|Equities | TotalView | Itch | [5.0][Nasdaq.Equities.TotalView.Itch.v5.0.Dissector] | 9/12/2017 | 3516 | Untested | [url][Nasdaq.Equities.TotalView.Itch.v5.0.Url] - [pdf][Nasdaq.Equities.TotalView.Itch.v5.0.Pdf]|
+|Equities | TotalView | Itch | [4.1][Nasdaq.Equities.TotalView.Itch.v4.1.Dissector] | 6/12/2014 | 2279 | Untested | [url][Nasdaq.Equities.TotalView.Itch.v4.1.Url] - [pdf][Nasdaq.Equities.TotalView.Itch.v4.1.Pdf]|
+|Ise | OrderComboFeed | Itch | [1.1][Nasdaq.Ise.OrderComboFeed.Itch.v1.1.Dissector] | 6/13/2017 | 1886 | Verified | [url][Nasdaq.Ise.OrderComboFeed.Itch.v1.1.Url] - [pdf][Nasdaq.Ise.OrderComboFeed.Itch.v1.1.Pdf]|
+|Ise | OrderFeed | Itch | [1.1][Nasdaq.Ise.OrderFeed.Itch.v1.1.Dissector] | 8/23/2017 | 1948 | Untested | [url][Nasdaq.Ise.OrderFeed.Itch.v1.1.Url] - [pdf][Nasdaq.Ise.OrderFeed.Itch.v1.1.Pdf]|
+|Ise | TopComboQuoteFeed | Itch | [1.0][Nasdaq.Ise.TopComboQuoteFeed.Itch.v1.0.Dissector] | 8/23/2017 | 2164 | Verified | [url][Nasdaq.Ise.TopComboQuoteFeed.Itch.v1.0.Url] - [pdf][Nasdaq.Ise.TopComboQuoteFeed.Itch.v1.0.Pdf]|
+|Nom | Itto | Itch | [4.0][Nasdaq.Nom.Itto.Itch.v4.0.Dissector] | 2/8/2018 | 2941 | Untested | [url][Nasdaq.Nom.Itto.Itch.v4.0.Url] - [pdf][Nasdaq.Nom.Itto.Itch.v4.0.Pdf]|
+|Phlx | MarketDepth | Itch | [1.5][Nasdaq.Phlx.MarketDepth.Itch.v1.5.Dissector] | 9/30/2015 | 3313 | Untested | [url][Nasdaq.Phlx.MarketDepth.Itch.v1.5.Url] - [pdf][Nasdaq.Phlx.MarketDepth.Itch.v1.5.Pdf]|
+|Phlx | Orders | Itch | [1.9][Nasdaq.Phlx.Orders.Itch.v1.9.Dissector] | 8/10/2015 | 2398 | Untested | [url][Nasdaq.Phlx.Orders.Itch.v1.9.Url] - [pdf][Nasdaq.Phlx.Orders.Itch.v1.9.Pdf]|
+|Phlx | Topo | Itch | [3.3][Nasdaq.Phlx.Topo.Itch.v3.3.Dissector] | 11/2/2017 | 2019 | Untested | [url][Nasdaq.Phlx.Topo.Itch.v3.3.Url] - [pdf][Nasdaq.Phlx.Topo.Itch.v3.3.Pdf]|
+|Psx | Bbo | Itch | [2.1][Nasdaq.Psx.Bbo.Itch.v2.1.Dissector] | 5/3/2018 | 1834 | Untested | [url][Nasdaq.Psx.Bbo.Itch.v2.1.Url] - [pdf][Nasdaq.Psx.Bbo.Itch.v2.1.Pdf]|
+|Psx | TotalView | Itch | [5.0][Nasdaq.Psx.TotalView.Itch.v5.0.Dissector] | 5/3/2018 | 3186 | Untested | [url][Nasdaq.Psx.TotalView.Itch.v5.0.Url] - [pdf][Nasdaq.Psx.TotalView.Itch.v5.0.Pdf]|
 
 
 Nasdaq: [website](https://www.nasdaq.com "Go to National Association of Securities Dealers Automated Quotations")
