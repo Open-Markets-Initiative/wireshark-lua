@@ -79,7 +79,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 |[Nyse][Nyse.Equities.IntegratedFeed.Xdp.v2.1.g.Organization] | Equities | IntegratedFeed | Xdp | [2.1.g][Nyse.Equities.IntegratedFeed.Xdp.v2.1.g.Dissector] | 1/29/2018 | 4159 | Verified|
 |[Nyse][Nyse.Equities.Amex.IntegratedFeed.Xdp.v2.1.g.Organization] | Equities Amex | IntegratedFeed | Xdp | [2.1.g][Nyse.Equities.Amex.IntegratedFeed.Xdp.v2.1.g.Dissector] | 1/29/2018 | 4159 | Verified|
 |[Nyse][Nyse.Equities.Arca.Bbo.Xdp.v2.4.c.Organization] | Equities Arca | Bbo | Xdp | [2.4.c][Nyse.Equities.Arca.Bbo.Xdp.v2.4.c.Dissector] | 7/13/2016 | 2668 | Verified|
-|[Nyse][Nyse.Options.ComplexFeed.Xdp.v1.3.a.Organization] | Options | ComplexFeed | Xdp | [1.3.a][Nyse.Options.ComplexFeed.Xdp.v1.3.a.Dissector] | 2/28/2018 | 2004 | Verified|
+|[Nyse][Nyse.Options.ComplexFeed.Xdp.v1.3.a.Organization] | Options | ComplexFeed | Xdp | [1.3.a][Nyse.Options.ComplexFeed.Xdp.v1.3.a.Dissector] | 2/28/2018 | 2022 | Verified|
 |[Nyse][Nyse.Options.DeepFeed.Xdp.v1.3.a.Organization] | Options | DeepFeed | Xdp | [1.3.a][Nyse.Options.DeepFeed.Xdp.v1.3.a.Dissector] | 2/28/2018 | 2267 | Untested|
 |[Nyse][Nyse.Options.TopFeed.Xdp.v1.3.a.Organization] | Options | TopFeed | Xdp | [1.3.a][Nyse.Options.TopFeed.Xdp.v1.3.a.Dissector] | 2/28/2018 | 3138 | Untested|
 |[Opra][Opra.Options.Recipient.Obdi.v2.9.Organization] | Options | Recipient | Obdi | [2.9][Opra.Options.Recipient.Obdi.v2.9.Dissector] | 10/24/2018 | 5644 | Untested|
@@ -90,7 +90,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 |Protocol Count | Generated Lines|
 |--- | ---|
-|52 | 194,072|
+|52 | 194,090|
 
 Note: Our dissector model is still under rapid development.
 

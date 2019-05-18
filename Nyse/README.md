@@ -12,7 +12,7 @@
 |Equities | IntegratedFeed | Xdp | [2.1.g][Nyse.Equities.IntegratedFeed.Xdp.v2.1.g.Dissector] | 1/29/2018 | 4159 | Verified | [url][Nyse.Equities.IntegratedFeed.Xdp.v2.1.g.Url] - [pdf][Nyse.Equities.IntegratedFeed.Xdp.v2.1.g.Pdf]|
 |Equities Amex | IntegratedFeed | Xdp | [2.1.g][Nyse.Equities.Amex.IntegratedFeed.Xdp.v2.1.g.Dissector] | 1/29/2018 | 4159 | Verified | [url][Nyse.Equities.Amex.IntegratedFeed.Xdp.v2.1.g.Url] - [pdf][Nyse.Equities.Amex.IntegratedFeed.Xdp.v2.1.g.Pdf]|
 |Equities Arca | Bbo | Xdp | [2.4.c][Nyse.Equities.Arca.Bbo.Xdp.v2.4.c.Dissector] | 7/13/2016 | 2668 | Verified | [url][Nyse.Equities.Arca.Bbo.Xdp.v2.4.c.Url] - [pdf][Nyse.Equities.Arca.Bbo.Xdp.v2.4.c.Pdf]|
-|Options | ComplexFeed | Xdp | [1.3.a][Nyse.Options.ComplexFeed.Xdp.v1.3.a.Dissector] | 2/28/2018 | 2004 | Verified | [url][Nyse.Options.ComplexFeed.Xdp.v1.3.a.Url] - [pdf][Nyse.Options.ComplexFeed.Xdp.v1.3.a.Pdf]|
+|Options | ComplexFeed | Xdp | [1.3.a][Nyse.Options.ComplexFeed.Xdp.v1.3.a.Dissector] | 2/28/2018 | 2022 | Verified | [url][Nyse.Options.ComplexFeed.Xdp.v1.3.a.Url] - [pdf][Nyse.Options.ComplexFeed.Xdp.v1.3.a.Pdf]|
 |Options | DeepFeed | Xdp | [1.3.a][Nyse.Options.DeepFeed.Xdp.v1.3.a.Dissector] | 2/28/2018 | 2267 | Untested | [url][Nyse.Options.DeepFeed.Xdp.v1.3.a.Url] - [pdf][Nyse.Options.DeepFeed.Xdp.v1.3.a.Pdf]|
 |Options | TopFeed | Xdp | [1.3.a][Nyse.Options.TopFeed.Xdp.v1.3.a.Dissector] | 2/28/2018 | 3138 | Untested | [url][Nyse.Options.TopFeed.Xdp.v1.3.a.Url] - [pdf][Nyse.Options.TopFeed.Xdp.v1.3.a.Pdf]|
 
@@ -42,11 +42,11 @@ Nyse: [website](https://www.nyse.com "Go to New York Stock Exchange")
 [Nyse.Equities.IntegratedFeed.Xdp.v2.1.g.Url]: https://www.nyse.com/market-data/real-time/integrated-feed "Specification url"
 [Nyse.Equities.IntegratedFeed.Xdp.v2.1.g.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Equities.ImbalancesFeed.Xdp.v2.1.f.pdf "New York Stock Exchange 2.1.g Pdf"
 [Nyse.Options.ComplexFeed.Xdp.v1.3.a.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nyse/Nyse.Options.ComplexFeed.Xdp.v1.3.a.Script.Dissector.lua "New York Stock Exchange 1.3.a Wireshark Dissector"
-[Nyse.Options.ComplexFeed.Xdp.v1.3.a.Url]: https://www.nyse.com/publicdocs/nyse/data/XDP_Options_Client_Specification_v1.3a.pdf "Specification url"
-[Nyse.Options.ComplexFeed.Xdp.v1.3.a.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Options.Client.Xdp.1.3.a.pdf "New York Stock Exchange 1.3.a Pdf"
+[Nyse.Options.ComplexFeed.Xdp.v1.3.a.Url]: https://www.nyse.com/market-data/real-time/options-complex-feed "Specification url"
+[Nyse.Options.ComplexFeed.Xdp.v1.3.a.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Options.Client.Xdp.v1.3.a.pdf "New York Stock Exchange 1.3.a Pdf"
 [Nyse.Options.DeepFeed.Xdp.v1.3.a.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nyse/Nyse.Options.DeepFeed.Xdp.v1.3.a.Script.Dissector.lua "New York Stock Exchange 1.3.a Wireshark Dissector"
-[Nyse.Options.DeepFeed.Xdp.v1.3.a.Url]: https://www.nyse.com/publicdocs/nyse/data/XDP_Options_Client_Specification_v1.3a.pdf "Specification url"
-[Nyse.Options.DeepFeed.Xdp.v1.3.a.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Options.Client.Xdp.1.3.a.pdf "New York Stock Exchange 1.3.a Pdf"
+[Nyse.Options.DeepFeed.Xdp.v1.3.a.Url]: https://www.nyse.com/market-data/real-time/options-deep-feed "Specification url"
+[Nyse.Options.DeepFeed.Xdp.v1.3.a.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Options.Client.Xdp.v1.3.a.pdf "New York Stock Exchange 1.3.a Pdf"
 [Nyse.Options.TopFeed.Xdp.v1.3.a.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nyse/Nyse.Options.TopFeed.Xdp.v1.3.a.Script.Dissector.lua "New York Stock Exchange 1.3.a Wireshark Dissector"
-[Nyse.Options.TopFeed.Xdp.v1.3.a.Url]: https://www.nyse.com/publicdocs/nyse/data/XDP_Options_Client_Specification_v1.3a.pdf "Specification url"
-[Nyse.Options.TopFeed.Xdp.v1.3.a.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Options.Client.Xdp.1.3.a.pdf "New York Stock Exchange 1.3.a Pdf"
+[Nyse.Options.TopFeed.Xdp.v1.3.a.Url]: https://www.nyse.com/market-data/real-time/options-top-feed "Specification url"
+[Nyse.Options.TopFeed.Xdp.v1.3.a.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Options.Client.Xdp.v1.3.a.pdf "New York Stock Exchange 1.3.a Pdf"

@@ -515,13 +515,14 @@ end
 
 -- Dissect: No Of Legs
 dissect.no_of_legs = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.no_of_legs)
+  local length = 2
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.no_of_legs(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.no_of_legs, range, value, display)
 
-  return offset + size_of.no_of_legs
+  return offset + length, value
 end
 
 -- Size: Reserved 1
@@ -647,6 +648,19 @@ dissect.complex_index = function(buffer, offset, packet, parent)
   return offset + size_of.complex_index
 end
 
+-- Calculate runtime size: Complex Symbol Definition Message
+size_of.complex_symbol_definition_message = function(buffer, offset)
+  local index = 0
+
+  index = index + 36
+
+  -- Calculate field size from count
+  local leg_definition_count = buffer(offset + index - 4, 2):le_uint()
+  index = index + leg_definition_count * 8
+
+  return index
+end
+
 -- Display: Complex Symbol Definition Message
 display.complex_symbol_definition_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -684,16 +698,20 @@ dissect.complex_symbol_definition_message_fields = function(buffer, offset, pack
   index = dissect.reserved_2(buffer, index, packet, parent)
 
   -- Leg Definition: Struct of 4 fields
-  index = dissect.leg_definition(buffer, index, packet, parent)
+  local leg_definition_count = buffer(index - 4, 2):le_uint()
+  for i = 1, leg_definition_count do
+    index = dissect.leg_definition(buffer, index, packet, parent)
+  end
 
   return index
 end
 
 -- Dissect: Complex Symbol Definition Message
 dissect.complex_symbol_definition_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.complex_symbol_definition_message then
-    local range = buffer(offset, 44)
+    local length = size_of.complex_symbol_definition_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.complex_symbol_definition_message(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_symbol_definition_message, range, display)
   end
@@ -1492,7 +1510,7 @@ size_of.payload = function(buffer, offset, code)
   end
   -- Size of Complex Symbol Definition Message
   if code == 439 then
-    return 44
+    return size_of.complex_symbol_definition_message(buffer, offset)
   end
   -- Size of Stream Id Message
   if code == 455 then
