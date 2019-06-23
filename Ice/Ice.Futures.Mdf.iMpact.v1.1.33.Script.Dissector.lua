@@ -3281,14 +3281,13 @@ end
 
 -- Dissect: Number Of Hedge Definitions
 dissect.number_of_hedge_definitions = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.number_of_hedge_definitions)
   local value = range:int()
   local display = display.number_of_hedge_definitions(value, buffer, offset, packet, parent)
 
   parent:add(ice_futures_mdf_impact_v1_1_33.fields.number_of_hedge_definitions, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.number_of_hedge_definitions
 end
 
 -- Size: Leg Ratio Price Denominator
@@ -3555,14 +3554,13 @@ end
 
 -- Dissect: Number Of Strategy Leg Definitions
 dissect.number_of_strategy_leg_definitions = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.number_of_strategy_leg_definitions)
   local value = range:int()
   local display = display.number_of_strategy_leg_definitions(value, buffer, offset, packet, parent)
 
   parent:add(ice_futures_mdf_impact_v1_1_33.fields.number_of_strategy_leg_definitions, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.number_of_strategy_leg_definitions
 end
 
 -- Size: Increment Price
@@ -4891,14 +4889,13 @@ end
 
 -- Dissect: Special Field Length
 dissect.special_field_length = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.special_field_length)
   local value = range:uint()
   local display = display.special_field_length(value, buffer, offset, packet, parent)
 
   parent:add(ice_futures_mdf_impact_v1_1_33.fields.special_field_length, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.special_field_length
 end
 
 -- Size: Special Field Id
@@ -4977,14 +4974,13 @@ end
 
 -- Dissect: Number Of Special Fields
 dissect.number_of_special_fields = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.number_of_special_fields)
   local value = range:int()
   local display = display.number_of_special_fields(value, buffer, offset, packet, parent)
 
   parent:add(ice_futures_mdf_impact_v1_1_33.fields.number_of_special_fields, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.number_of_special_fields
 end
 
 -- Calculate runtime size: Special Field Message
@@ -5788,14 +5784,13 @@ end
 
 -- Dissect: Number Of Leg Definitions
 dissect.number_of_leg_definitions = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.number_of_leg_definitions)
   local value = range:int()
   local display = display.number_of_leg_definitions(value, buffer, offset, packet, parent)
 
   parent:add(ice_futures_mdf_impact_v1_1_33.fields.number_of_leg_definitions, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.number_of_leg_definitions
 end
 
 -- Calculate runtime size: New Futures Strategy Definition Message
@@ -7854,157 +7849,157 @@ dissect.market_snapshot_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, code)
+size_of.payload = function(buffer, offset, messagetype)
   -- Size of Market Snapshot Message
-  if code == "C" then
+  if messagetype == "C" then
     return 133
   end
   -- Size of Trade Message
-  if code == "G" then
+  if messagetype == "G" then
     return 46
   end
   -- Size of Spot Market Trade Message
-  if code == "Y" then
+  if messagetype == "Y" then
     return 50
   end
   -- Size of Investigated Trade Message
-  if code == "H" then
+  if messagetype == "H" then
     return 37
   end
   -- Size of Cancelled Trade Message
-  if code == "I" then
+  if messagetype == "I" then
     return 36
   end
   -- Size of Market Statistics Message
-  if code == "J" then
+  if messagetype == "J" then
     return 52
   end
   -- Size of Market State Change Message
-  if code == "K" then
+  if messagetype == "K" then
     return 13
   end
   -- Size of System Text Message
-  if code == "L" then
+  if messagetype == "L" then
     return 1008
   end
   -- Size of Open Interest Message
-  if code == "M" then
+  if messagetype == "M" then
     return 30
   end
   -- Size of Open Price Message
-  if code == "N" then
+  if messagetype == "N" then
     return 20
   end
   -- Size of Close Price Message
-  if code == "c" then
+  if messagetype == "c" then
     return 20
   end
   -- Size of Settlement Price Message
-  if code == "O" then
+  if messagetype == "O" then
     return 37
   end
   -- Size of Index Prices Message
-  if code == "z" then
+  if messagetype == "z" then
     return 61
   end
   -- Size of End Of Day Market Summary Message
-  if code == "u" then
+  if messagetype == "u" then
     return 80
   end
   -- Size of Market Event Message
-  if code == "f" then
+  if messagetype == "f" then
     return 13
   end
   -- Size of Pre Open Price Indicator Message
-  if code == "g" then
+  if messagetype == "g" then
     return 25
   end
   -- Size of Strip Info Message
-  if code == "i" then
+  if messagetype == "i" then
     return 88
   end
   -- Size of Interval Price Limit Notification Message
-  if code == "V" then
+  if messagetype == "V" then
     return 34
   end
   -- Size of New Futures Strategy Definition Message
-  if code == "9" then
+  if messagetype == "9" then
     return size_of.new_futures_strategy_definition_message(buffer, offset)
   end
   -- Size of New Expiry Message
-  if code == "R" then
+  if messagetype == "R" then
     return 503
   end
   -- Size of Special Field Message
-  if code == "b" then
+  if messagetype == "b" then
     return size_of.special_field_message(buffer, offset)
   end
   -- Size of Market Snapshot Order Message
-  if code == "D" then
+  if messagetype == "D" then
     return 41
   end
   -- Size of Add Or Modify Order Message
-  if code == "E" then
+  if messagetype == "E" then
     return 50
   end
   -- Size of Delete Order Message
-  if code == "F" then
+  if messagetype == "F" then
     return 24
   end
   -- Size of Message Bundle Marker
-  if code == "T" then
+  if messagetype == "T" then
     return 1
   end
   -- Size of Fixing Transition Message
-  if code == "3" then
+  if messagetype == "3" then
     return 25
   end
   -- Size of Fixing Lockdown Message
-  if code == "4" then
+  if messagetype == "4" then
     return 78
   end
   -- Size of Fixing Indicative Price Message Message
-  if code == "0" then
+  if messagetype == "0" then
     return 25
   end
   -- Size of Market Snapshot Price Level Message
-  if code == "m" then
+  if messagetype == "m" then
     return 26
   end
   -- Size of Add Price Level Message
-  if code == "t" then
+  if messagetype == "t" then
     return 34
   end
   -- Size of Change Price Level Message
-  if code == "s" then
+  if messagetype == "s" then
     return 34
   end
   -- Size of Delete Price Level Message
-  if code == "r" then
+  if messagetype == "r" then
     return 14
   end
   -- Size of New Options Strategy Definition Message
-  if code == "U" then
+  if messagetype == "U" then
     return size_of.new_options_strategy_definition_message(buffer, offset)
   end
   -- Size of New Options Market Definition Message
-  if code == "l" then
+  if messagetype == "l" then
     return 322
   end
   -- Size of Rfq Message
-  if code == "k" then
+  if messagetype == "k" then
     return 31
   end
   -- Size of Option Open Interest Message
-  if code == "v" then
+  if messagetype == "v" then
     return 26
   end
   -- Size of Option Settlement Price Message
-  if code == "w" then
+  if messagetype == "w" then
     return 53
   end
   -- Size of Old Style Options Trade And Market Stats Message
-  if code == "W" then
+  if messagetype == "W" then
     return 83
   end
 
@@ -8016,158 +8011,158 @@ display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.payload_branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Payload
+dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
   -- Dissect Market Snapshot Message
-  if code == "C" then
+  if messagetype == "C" then
     return dissect.market_snapshot_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Message
-  if code == "G" then
+  if messagetype == "G" then
     return dissect.trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Spot Market Trade Message
-  if code == "Y" then
+  if messagetype == "Y" then
     return dissect.spot_market_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Investigated Trade Message
-  if code == "H" then
+  if messagetype == "H" then
     return dissect.investigated_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Cancelled Trade Message
-  if code == "I" then
+  if messagetype == "I" then
     return dissect.cancelled_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Market Statistics Message
-  if code == "J" then
+  if messagetype == "J" then
     return dissect.market_statistics_message(buffer, offset, packet, parent)
   end
   -- Dissect Market State Change Message
-  if code == "K" then
+  if messagetype == "K" then
     return dissect.market_state_change_message(buffer, offset, packet, parent)
   end
   -- Dissect System Text Message
-  if code == "L" then
+  if messagetype == "L" then
     return dissect.system_text_message(buffer, offset, packet, parent)
   end
   -- Dissect Open Interest Message
-  if code == "M" then
+  if messagetype == "M" then
     return dissect.open_interest_message(buffer, offset, packet, parent)
   end
   -- Dissect Open Price Message
-  if code == "N" then
+  if messagetype == "N" then
     return dissect.open_price_message(buffer, offset, packet, parent)
   end
   -- Dissect Close Price Message
-  if code == "c" then
+  if messagetype == "c" then
     return dissect.close_price_message(buffer, offset, packet, parent)
   end
   -- Dissect Settlement Price Message
-  if code == "O" then
+  if messagetype == "O" then
     return dissect.settlement_price_message(buffer, offset, packet, parent)
   end
   -- Dissect Index Prices Message
-  if code == "z" then
+  if messagetype == "z" then
     return dissect.index_prices_message(buffer, offset, packet, parent)
   end
   -- Dissect End Of Day Market Summary Message
-  if code == "u" then
+  if messagetype == "u" then
     return dissect.end_of_day_market_summary_message(buffer, offset, packet, parent)
   end
   -- Dissect Market Event Message
-  if code == "f" then
+  if messagetype == "f" then
     return dissect.market_event_message(buffer, offset, packet, parent)
   end
   -- Dissect Pre Open Price Indicator Message
-  if code == "g" then
+  if messagetype == "g" then
     return dissect.pre_open_price_indicator_message(buffer, offset, packet, parent)
   end
   -- Dissect Strip Info Message
-  if code == "i" then
+  if messagetype == "i" then
     return dissect.strip_info_message(buffer, offset, packet, parent)
   end
   -- Dissect Interval Price Limit Notification Message
-  if code == "V" then
+  if messagetype == "V" then
     return dissect.interval_price_limit_notification_message(buffer, offset, packet, parent)
   end
   -- Dissect New Futures Strategy Definition Message
-  if code == "9" then
+  if messagetype == "9" then
     return dissect.new_futures_strategy_definition_message(buffer, offset, packet, parent)
   end
   -- Dissect New Expiry Message
-  if code == "R" then
+  if messagetype == "R" then
     return dissect.new_expiry_message(buffer, offset, packet, parent)
   end
   -- Dissect Special Field Message
-  if code == "b" then
+  if messagetype == "b" then
     return dissect.special_field_message(buffer, offset, packet, parent)
   end
   -- Dissect Market Snapshot Order Message
-  if code == "D" then
+  if messagetype == "D" then
     return dissect.market_snapshot_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Add Or Modify Order Message
-  if code == "E" then
+  if messagetype == "E" then
     return dissect.add_or_modify_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Delete Order Message
-  if code == "F" then
+  if messagetype == "F" then
     return dissect.delete_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Message Bundle Marker
-  if code == "T" then
+  if messagetype == "T" then
     return dissect.message_bundle_marker(buffer, offset, packet, parent)
   end
   -- Dissect Fixing Transition Message
-  if code == "3" then
+  if messagetype == "3" then
     return dissect.fixing_transition_message(buffer, offset, packet, parent)
   end
   -- Dissect Fixing Lockdown Message
-  if code == "4" then
+  if messagetype == "4" then
     return dissect.fixing_lockdown_message(buffer, offset, packet, parent)
   end
   -- Dissect Fixing Indicative Price Message Message
-  if code == "0" then
+  if messagetype == "0" then
     return dissect.fixing_indicative_price_message_message(buffer, offset, packet, parent)
   end
   -- Dissect Market Snapshot Price Level Message
-  if code == "m" then
+  if messagetype == "m" then
     return dissect.market_snapshot_price_level_message(buffer, offset, packet, parent)
   end
   -- Dissect Add Price Level Message
-  if code == "t" then
+  if messagetype == "t" then
     return dissect.add_price_level_message(buffer, offset, packet, parent)
   end
   -- Dissect Change Price Level Message
-  if code == "s" then
+  if messagetype == "s" then
     return dissect.change_price_level_message(buffer, offset, packet, parent)
   end
   -- Dissect Delete Price Level Message
-  if code == "r" then
+  if messagetype == "r" then
     return dissect.delete_price_level_message(buffer, offset, packet, parent)
   end
   -- Dissect New Options Strategy Definition Message
-  if code == "U" then
+  if messagetype == "U" then
     return dissect.new_options_strategy_definition_message(buffer, offset, packet, parent)
   end
   -- Dissect New Options Market Definition Message
-  if code == "l" then
+  if messagetype == "l" then
     return dissect.new_options_market_definition_message(buffer, offset, packet, parent)
   end
   -- Dissect Rfq Message
-  if code == "k" then
+  if messagetype == "k" then
     return dissect.rfq_message(buffer, offset, packet, parent)
   end
   -- Dissect Option Open Interest Message
-  if code == "v" then
+  if messagetype == "v" then
     return dissect.option_open_interest_message(buffer, offset, packet, parent)
   end
   -- Dissect Option Settlement Price Message
-  if code == "w" then
+  if messagetype == "w" then
     return dissect.option_settlement_price_message(buffer, offset, packet, parent)
   end
   -- Dissect Old Style Options Trade And Market Stats Message
-  if code == "W" then
+  if messagetype == "W" then
     return dissect.old_style_options_trade_and_market_stats_message(buffer, offset, packet, parent)
   end
 
@@ -8338,14 +8333,13 @@ end
 
 -- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_type)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(ice_futures_mdf_impact_v1_1_33.fields.message_type, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_type
 end
 
 -- Display: Message Header
@@ -8434,14 +8428,13 @@ end
 
 -- Dissect: Count
 dissect.count = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.count)
   local value = range:uint()
   local display = display.count(value, buffer, offset, packet, parent)
 
   parent:add(ice_futures_mdf_impact_v1_1_33.fields.count, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.count
 end
 
 -- Size: Sequence
@@ -8597,7 +8590,7 @@ ice_futures_mdf_impact_v1_1_33:register_heuristic("udp", ice_futures_mdf_impact_
 -- 
 -- Script:
 --   Generator: 1.5.0.0
---   Compiler: 1.1
+--   Compiler: 2.0
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 

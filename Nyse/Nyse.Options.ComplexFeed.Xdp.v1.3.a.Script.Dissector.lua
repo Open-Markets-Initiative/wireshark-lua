@@ -515,14 +515,13 @@ end
 
 -- Dissect: No Of Legs
 dissect.no_of_legs = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.no_of_legs)
   local value = range:le_uint()
   local display = display.no_of_legs(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.no_of_legs, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.no_of_legs
 end
 
 -- Size: Reserved 1
@@ -1479,45 +1478,45 @@ dissect.complex_quote_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, code)
+size_of.payload = function(buffer, offset, messagetype)
   -- Size of Complex Quote Message
-  if code == 423 then
+  if messagetype == 423 then
     return 36
   end
   -- Size of Complex Trade Message
-  if code == 425 then
+  if messagetype == 425 then
     return 32
   end
   -- Size of Complex Crossing Rfq Message
-  if code == 429 then
+  if messagetype == 429 then
     return 24
   end
   -- Size of Complex Cube Rfq Message
-  if code == 472 then
+  if messagetype == 472 then
     return 24
   end
   -- Size of Complex Status Message
-  if code == 433 then
+  if messagetype == 433 then
     return 20
   end
   -- Size of Refresh Complex Quote Message
-  if code == 511 then
+  if messagetype == 511 then
     return 36
   end
   -- Size of Refresh Complex Trade Message
-  if code == 513 then
+  if messagetype == 513 then
     return 32
   end
   -- Size of Complex Symbol Definition Message
-  if code == 439 then
+  if messagetype == 439 then
     return size_of.complex_symbol_definition_message(buffer, offset)
   end
   -- Size of Stream Id Message
-  if code == 455 then
+  if messagetype == 455 then
     return 4
   end
   -- Size of Sequence Number Reset Message
-  if code == 1 then
+  if messagetype == 1 then
     return 10
   end
 
@@ -1529,46 +1528,46 @@ display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.payload_branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Payload
+dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
   -- Dissect Complex Quote Message
-  if code == 423 then
+  if messagetype == 423 then
     return dissect.complex_quote_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Trade Message
-  if code == 425 then
+  if messagetype == 425 then
     return dissect.complex_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Crossing Rfq Message
-  if code == 429 then
+  if messagetype == 429 then
     return dissect.complex_crossing_rfq_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Cube Rfq Message
-  if code == 472 then
+  if messagetype == 472 then
     return dissect.complex_cube_rfq_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Status Message
-  if code == 433 then
+  if messagetype == 433 then
     return dissect.complex_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Refresh Complex Quote Message
-  if code == 511 then
+  if messagetype == 511 then
     return dissect.refresh_complex_quote_message(buffer, offset, packet, parent)
   end
   -- Dissect Refresh Complex Trade Message
-  if code == 513 then
+  if messagetype == 513 then
     return dissect.refresh_complex_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Symbol Definition Message
-  if code == 439 then
+  if messagetype == 439 then
     return dissect.complex_symbol_definition_message(buffer, offset, packet, parent)
   end
   -- Dissect Stream Id Message
-  if code == 455 then
+  if messagetype == 455 then
     return dissect.stream_id_message(buffer, offset, packet, parent)
   end
   -- Dissect Sequence Number Reset Message
-  if code == 1 then
+  if messagetype == 1 then
     return dissect.sequence_number_reset_message(buffer, offset, packet, parent)
   end
 
@@ -1636,14 +1635,13 @@ end
 
 -- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_type)
   local value = range:le_uint()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.message_type, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_type
 end
 
 -- Size: Message Size
@@ -1808,14 +1806,13 @@ end
 
 -- Dissect: Message Count
 dissect.message_count = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_count)
   local value = range:le_uint()
   local display = display.message_count(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.message_count, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_count
 end
 
 -- Size: Delivery Flag
@@ -2011,7 +2008,7 @@ nyse_options_complexfeed_xdp_v1_3_a:register_heuristic("udp", nyse_options_compl
 -- 
 -- Script:
 --   Generator: 1.5.0.0
---   Compiler: 1.1
+--   Compiler: 2.0
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 

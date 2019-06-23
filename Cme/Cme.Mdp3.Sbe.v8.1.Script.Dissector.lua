@@ -888,14 +888,13 @@ end
 
 -- Dissect: Num In Group
 dissect.num_in_group = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.num_in_group)
   local value = range:le_uint()
   local display = display.num_in_group(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.num_in_group, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.num_in_group
 end
 
 -- Size: Block Length
@@ -6461,81 +6460,81 @@ dissect.channel_reset_4 = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, code)
+size_of.payload = function(buffer, offset, templateid)
   -- Size of Channel Reset 4
-  if code == 4 then
+  if templateid == 4 then
     return size_of.channel_reset_4(buffer, offset)
   end
   -- Size of Admin Heartbeat 12
-  if code == 12 then
+  if templateid == 12 then
     return 0
   end
   -- Size of Admin Login 15
-  if code == 15 then
+  if templateid == 15 then
     return 1
   end
   -- Size of Admin Logout 16
-  if code == 16 then
+  if templateid == 16 then
     return 180
   end
   -- Size of Md Instrument Definition Future 27
-  if code == 27 then
+  if templateid == 27 then
     return size_of.md_instrument_definition_future_27(buffer, offset)
   end
   -- Size of Md Instrument Definition Spread 29
-  if code == 29 then
+  if templateid == 29 then
     return size_of.md_instrument_definition_spread_29(buffer, offset)
   end
   -- Size of Security Status 30
-  if code == 30 then
+  if templateid == 30 then
     return 30
   end
   -- Size of Md Incremental Refresh Book 32
-  if code == 32 then
+  if templateid == 32 then
     return size_of.md_incremental_refresh_book_32(buffer, offset)
   end
   -- Size of Md Incremental Refresh Daily Statistics 33
-  if code == 33 then
+  if templateid == 33 then
     return size_of.md_incremental_refresh_daily_statistics_33(buffer, offset)
   end
   -- Size of Md Incremental Refresh Limits Banding 34
-  if code == 34 then
+  if templateid == 34 then
     return size_of.md_incremental_refresh_limits_banding_34(buffer, offset)
   end
   -- Size of Md Incremental Refresh Session Statistics 35
-  if code == 35 then
+  if templateid == 35 then
     return size_of.md_incremental_refresh_session_statistics_35(buffer, offset)
   end
   -- Size of Md Incremental Refresh Trade 36
-  if code == 36 then
+  if templateid == 36 then
     return size_of.md_incremental_refresh_trade_36(buffer, offset)
   end
   -- Size of Md Incremental Refresh Volume 37
-  if code == 37 then
+  if templateid == 37 then
     return size_of.md_incremental_refresh_volume_37(buffer, offset)
   end
   -- Size of Snapshot Full Refresh 38
-  if code == 38 then
+  if templateid == 38 then
     return size_of.snapshot_full_refresh_38(buffer, offset)
   end
   -- Size of Quote Request 39
-  if code == 39 then
+  if templateid == 39 then
     return size_of.quote_request_39(buffer, offset)
   end
   -- Size of Md Instrument Definition Option 41
-  if code == 41 then
+  if templateid == 41 then
     return size_of.md_instrument_definition_option_41(buffer, offset)
   end
   -- Size of Md Incremental Refresh Trade Summary 42
-  if code == 42 then
+  if templateid == 42 then
     return size_of.md_incremental_refresh_trade_summary_42(buffer, offset)
   end
   -- Size of Md Incremental Refresh Order Book 43
-  if code == 43 then
+  if templateid == 43 then
     return size_of.md_incremental_refresh_order_book_43(buffer, offset)
   end
   -- Size of Snapshot Full Refresh Order Book 44
-  if code == 44 then
+  if templateid == 44 then
     return size_of.snapshot_full_refresh_order_book_44(buffer, offset)
   end
 
@@ -6547,81 +6546,81 @@ display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.payload_branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Payload
+dissect.payload_branches = function(buffer, offset, packet, parent, templateid)
   -- Dissect Channel Reset 4
-  if code == 4 then
+  if templateid == 4 then
     return dissect.channel_reset_4(buffer, offset, packet, parent)
   end
   -- Dissect Admin Heartbeat 12
-  if code == 12 then
+  if templateid == 12 then
   end
   -- Dissect Admin Login 15
-  if code == 15 then
+  if templateid == 15 then
     return dissect.admin_login_15(buffer, offset, packet, parent)
   end
   -- Dissect Admin Logout 16
-  if code == 16 then
+  if templateid == 16 then
     return dissect.admin_logout_16(buffer, offset, packet, parent)
   end
   -- Dissect Md Instrument Definition Future 27
-  if code == 27 then
+  if templateid == 27 then
     return dissect.md_instrument_definition_future_27(buffer, offset, packet, parent)
   end
   -- Dissect Md Instrument Definition Spread 29
-  if code == 29 then
+  if templateid == 29 then
     return dissect.md_instrument_definition_spread_29(buffer, offset, packet, parent)
   end
   -- Dissect Security Status 30
-  if code == 30 then
+  if templateid == 30 then
     return dissect.security_status_30(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Book 32
-  if code == 32 then
+  if templateid == 32 then
     return dissect.md_incremental_refresh_book_32(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Daily Statistics 33
-  if code == 33 then
+  if templateid == 33 then
     return dissect.md_incremental_refresh_daily_statistics_33(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Limits Banding 34
-  if code == 34 then
+  if templateid == 34 then
     return dissect.md_incremental_refresh_limits_banding_34(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Session Statistics 35
-  if code == 35 then
+  if templateid == 35 then
     return dissect.md_incremental_refresh_session_statistics_35(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Trade 36
-  if code == 36 then
+  if templateid == 36 then
     return dissect.md_incremental_refresh_trade_36(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Volume 37
-  if code == 37 then
+  if templateid == 37 then
     return dissect.md_incremental_refresh_volume_37(buffer, offset, packet, parent)
   end
   -- Dissect Snapshot Full Refresh 38
-  if code == 38 then
+  if templateid == 38 then
     return dissect.snapshot_full_refresh_38(buffer, offset, packet, parent)
   end
   -- Dissect Quote Request 39
-  if code == 39 then
+  if templateid == 39 then
     return dissect.quote_request_39(buffer, offset, packet, parent)
   end
   -- Dissect Md Instrument Definition Option 41
-  if code == 41 then
+  if templateid == 41 then
     return dissect.md_instrument_definition_option_41(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Trade Summary 42
-  if code == 42 then
+  if templateid == 42 then
     return dissect.md_incremental_refresh_trade_summary_42(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Order Book 43
-  if code == 43 then
+  if templateid == 43 then
     return dissect.md_incremental_refresh_order_book_43(buffer, offset, packet, parent)
   end
   -- Dissect Snapshot Full Refresh Order Book 44
-  if code == 44 then
+  if templateid == 44 then
     return dissect.snapshot_full_refresh_order_book_44(buffer, offset, packet, parent)
   end
 
@@ -6754,14 +6753,13 @@ end
 
 -- Dissect: Template Id
 dissect.template_id = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.template_id)
   local value = range:le_uint()
   local display = display.template_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.template_id, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.template_id
 end
 
 -- Size: Message Size
@@ -7038,7 +7036,7 @@ cme_mdp3_sbe_v8_1:register_heuristic("udp", cme_mdp3_sbe_v8_1_heuristic)
 -- 
 -- Script:
 --   Generator: 1.5.0.0
---   Compiler: 1.1
+--   Compiler: 2.0
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 

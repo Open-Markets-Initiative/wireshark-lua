@@ -870,14 +870,13 @@ end
 
 -- Dissect: Number Of Legs
 dissect.number_of_legs = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.number_of_legs)
   local value = range:uint()
   local display = display.number_of_legs(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.number_of_legs, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.number_of_legs
 end
 
 -- Size: Underlying Symbol
@@ -1947,49 +1946,49 @@ dissect.system_event_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, code)
+size_of.payload = function(buffer, offset, messagetype)
   -- Size of System Event Message
-  if code == "S" then
+  if messagetype == "S" then
     return 10
   end
   -- Size of Options Directory Message
-  if code == "D" then
+  if messagetype == "D" then
     return 40
   end
   -- Size of Complex Order Strategy Message
-  if code == "R" then
+  if messagetype == "R" then
     return size_of.complex_order_strategy_message(buffer, offset)
   end
   -- Size of Security Trading Action Message
-  if code == "H" then
+  if messagetype == "H" then
     return 25
   end
   -- Size of Complex Trading Action Message
-  if code == "I" then
+  if messagetype == "I" then
     return 13
   end
   -- Size of Security Open Closed Message
-  if code == "P" then
+  if messagetype == "P" then
     return 25
   end
   -- Size of Strategy Open Closed Message
-  if code == "Q" then
+  if messagetype == "Q" then
     return 13
   end
   -- Size of Simple Order Message
-  if code == "O" then
+  if messagetype == "O" then
     return 48
   end
   -- Size of Complex Order Message
-  if code == "X" then
+  if messagetype == "X" then
     return size_of.complex_order_message(buffer, offset)
   end
   -- Size of Auction Notification Message
-  if code == "A" then
+  if messagetype == "A" then
     return 46
   end
   -- Size of Complex Auction Notification Message
-  if code == "C" then
+  if messagetype == "C" then
     return 27
   end
 
@@ -2001,50 +2000,50 @@ display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.payload_branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Payload
+dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
   -- Dissect System Event Message
-  if code == "S" then
+  if messagetype == "S" then
     return dissect.system_event_message(buffer, offset, packet, parent)
   end
   -- Dissect Options Directory Message
-  if code == "D" then
+  if messagetype == "D" then
     return dissect.options_directory_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Order Strategy Message
-  if code == "R" then
+  if messagetype == "R" then
     return dissect.complex_order_strategy_message(buffer, offset, packet, parent)
   end
   -- Dissect Security Trading Action Message
-  if code == "H" then
+  if messagetype == "H" then
     return dissect.security_trading_action_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Trading Action Message
-  if code == "I" then
+  if messagetype == "I" then
     return dissect.complex_trading_action_message(buffer, offset, packet, parent)
   end
   -- Dissect Security Open Closed Message
-  if code == "P" then
+  if messagetype == "P" then
     return dissect.security_open_closed_message(buffer, offset, packet, parent)
   end
   -- Dissect Strategy Open Closed Message
-  if code == "Q" then
+  if messagetype == "Q" then
     return dissect.strategy_open_closed_message(buffer, offset, packet, parent)
   end
   -- Dissect Simple Order Message
-  if code == "O" then
+  if messagetype == "O" then
     return dissect.simple_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Order Message
-  if code == "X" then
+  if messagetype == "X" then
     return dissect.complex_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Auction Notification Message
-  if code == "A" then
+  if messagetype == "A" then
     return dissect.auction_notification_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Auction Notification Message
-  if code == "C" then
+  if messagetype == "C" then
     return dissect.complex_auction_notification_message(buffer, offset, packet, parent)
   end
 
@@ -2115,14 +2114,13 @@ end
 
 -- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_type)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.message_type, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_type
 end
 
 -- Size: Length
@@ -2230,14 +2228,13 @@ end
 
 -- Dissect: Count
 dissect.count = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.count)
   local value = range:le_uint()
   local display = display.count(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.count, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.count
 end
 
 -- Size: Sequence
@@ -2390,7 +2387,7 @@ nasdaq_phlx_orders_itch_v1_9:register_heuristic("udp", nasdaq_phlx_orders_itch_v
 -- 
 -- Script:
 --   Generator: 1.5.0.0
---   Compiler: 1.1
+--   Compiler: 2.0
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 

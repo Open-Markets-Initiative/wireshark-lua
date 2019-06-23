@@ -1381,14 +1381,13 @@ end
 
 -- Dissect: Num In Group
 dissect.num_in_group = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.num_in_group)
   local value = range:le_uint()
   local display = display.num_in_group(value, buffer, offset, packet, parent)
 
   parent:add(cme_streamline_sbe_v9_5.fields.num_in_group, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.num_in_group
 end
 
 -- Size: Block Length
@@ -5160,69 +5159,69 @@ dissect.admin_login_315 = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, code)
+size_of.payload = function(buffer, offset, templateid)
   -- Size of Admin Heartbeat 312
-  if code == 312 then
+  if templateid == 312 then
     return 0
   end
   -- Size of Admin Login 315
-  if code == 315 then
+  if templateid == 315 then
     return 1
   end
   -- Size of Admin Logout 316
-  if code == 316 then
+  if templateid == 316 then
     return 180
   end
   -- Size of Md Incremental Refresh Eris Reference Data And Daily Statistics 333
-  if code == 333 then
+  if templateid == 333 then
     return size_of.md_incremental_refresh_eris_reference_data_and_daily_statistics_333(buffer, offset)
   end
   -- Size of Md News Indices 339
-  if code == 339 then
+  if templateid == 339 then
     return size_of.md_news_indices_339(buffer, offset)
   end
   -- Size of Md Incremental Refresh Trade Blocks 340
-  if code == 340 then
+  if templateid == 340 then
     return size_of.md_incremental_refresh_trade_blocks_340(buffer, offset)
   end
   -- Size of Quote Request 345
-  if code == 345 then
+  if templateid == 345 then
     return size_of.quote_request_345(buffer, offset)
   end
   -- Size of Md Instrument Definition Indices 347
-  if code == 347 then
+  if templateid == 347 then
     return size_of.md_instrument_definition_indices_347(buffer, offset)
   end
   -- Size of Md Incremental Refresh Indices 348
-  if code == 348 then
+  if templateid == 348 then
     return size_of.md_incremental_refresh_indices_348(buffer, offset)
   end
   -- Size of Md Incremental Refresh Trade Blocks 349
-  if code == 349 then
+  if templateid == 349 then
     return size_of.md_incremental_refresh_trade_blocks_349(buffer, offset)
   end
   -- Size of Md Incremental Refresh Eris 351
-  if code == 351 then
+  if templateid == 351 then
     return size_of.md_incremental_refresh_eris_351(buffer, offset)
   end
   -- Size of Md Incremental Refresh Eris 353
-  if code == 353 then
+  if templateid == 353 then
     return size_of.md_incremental_refresh_eris_353(buffer, offset)
   end
   -- Size of Md Incremental Refresh Ot C 356
-  if code == 356 then
+  if templateid == 356 then
     return size_of.md_incremental_refresh_ot_c_356(buffer, offset)
   end
   -- Size of Md Instrument Definition Eris 363
-  if code == 363 then
+  if templateid == 363 then
     return size_of.md_instrument_definition_eris_363(buffer, offset)
   end
   -- Size of Md Incremental Refresh Trade Blocks 365
-  if code == 365 then
+  if templateid == 365 then
     return size_of.md_incremental_refresh_trade_blocks_365(buffer, offset)
   end
   -- Size of Md Incremental Refresh Ot C 366
-  if code == 366 then
+  if templateid == 366 then
     return size_of.md_incremental_refresh_ot_c_366(buffer, offset)
   end
 
@@ -5234,69 +5233,69 @@ display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.payload_branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Payload
+dissect.payload_branches = function(buffer, offset, packet, parent, templateid)
   -- Dissect Admin Heartbeat 312
-  if code == 312 then
+  if templateid == 312 then
   end
   -- Dissect Admin Login 315
-  if code == 315 then
+  if templateid == 315 then
     return dissect.admin_login_315(buffer, offset, packet, parent)
   end
   -- Dissect Admin Logout 316
-  if code == 316 then
+  if templateid == 316 then
     return dissect.admin_logout_316(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Eris Reference Data And Daily Statistics 333
-  if code == 333 then
+  if templateid == 333 then
     return dissect.md_incremental_refresh_eris_reference_data_and_daily_statistics_333(buffer, offset, packet, parent)
   end
   -- Dissect Md News Indices 339
-  if code == 339 then
+  if templateid == 339 then
     return dissect.md_news_indices_339(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Trade Blocks 340
-  if code == 340 then
+  if templateid == 340 then
     return dissect.md_incremental_refresh_trade_blocks_340(buffer, offset, packet, parent)
   end
   -- Dissect Quote Request 345
-  if code == 345 then
+  if templateid == 345 then
     return dissect.quote_request_345(buffer, offset, packet, parent)
   end
   -- Dissect Md Instrument Definition Indices 347
-  if code == 347 then
+  if templateid == 347 then
     return dissect.md_instrument_definition_indices_347(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Indices 348
-  if code == 348 then
+  if templateid == 348 then
     return dissect.md_incremental_refresh_indices_348(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Trade Blocks 349
-  if code == 349 then
+  if templateid == 349 then
     return dissect.md_incremental_refresh_trade_blocks_349(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Eris 351
-  if code == 351 then
+  if templateid == 351 then
     return dissect.md_incremental_refresh_eris_351(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Eris 353
-  if code == 353 then
+  if templateid == 353 then
     return dissect.md_incremental_refresh_eris_353(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Ot C 356
-  if code == 356 then
+  if templateid == 356 then
     return dissect.md_incremental_refresh_ot_c_356(buffer, offset, packet, parent)
   end
   -- Dissect Md Instrument Definition Eris 363
-  if code == 363 then
+  if templateid == 363 then
     return dissect.md_instrument_definition_eris_363(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Trade Blocks 365
-  if code == 365 then
+  if templateid == 365 then
     return dissect.md_incremental_refresh_trade_blocks_365(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Ot C 366
-  if code == 366 then
+  if templateid == 366 then
     return dissect.md_incremental_refresh_ot_c_366(buffer, offset, packet, parent)
   end
 
@@ -5420,14 +5419,13 @@ end
 
 -- Dissect: Template Id
 dissect.template_id = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.template_id)
   local value = range:le_uint()
   local display = display.template_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_streamline_sbe_v9_5.fields.template_id, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.template_id
 end
 
 -- Size: Message Size
@@ -5704,7 +5702,7 @@ cme_streamline_sbe_v9_5:register_heuristic("udp", cme_streamline_sbe_v9_5_heuris
 -- 
 -- Script:
 --   Generator: 1.5.0.0
---   Compiler: 1.1
+--   Compiler: 2.0
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 

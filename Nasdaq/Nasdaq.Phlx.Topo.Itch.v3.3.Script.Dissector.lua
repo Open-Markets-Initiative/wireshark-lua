@@ -1546,57 +1546,57 @@ dissect.timestamp_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, code)
+size_of.payload = function(buffer, offset, messagetype)
   -- Size of Timestamp Message
-  if code == "T" then
+  if messagetype == "T" then
     return 4
   end
   -- Size of System Event Message
-  if code == "S" then
+  if messagetype == "S" then
     return 7
   end
   -- Size of Options Directory Message
-  if code == "D" then
+  if messagetype == "D" then
     return 39
   end
   -- Size of Trading Action Message
-  if code == "H" then
+  if messagetype == "H" then
     return 9
   end
   -- Size of Security Open Closed Message
-  if code == "O" then
+  if messagetype == "O" then
     return 9
   end
   -- Size of Short Best Bid And Ask Update Message
-  if code == "q" then
+  if messagetype == "q" then
     return 17
   end
   -- Size of Long Best Bid And Ask Update Message
-  if code == "Q" then
+  if messagetype == "Q" then
     return 25
   end
   -- Size of Short Best Ask Update Message
-  if code == "a" then
+  if messagetype == "a" then
     return 13
   end
   -- Size of Short Best Bid Update Message
-  if code == "b" then
+  if messagetype == "b" then
     return 13
   end
   -- Size of Long Best Ask Update Message
-  if code == "A" then
+  if messagetype == "A" then
     return 17
   end
   -- Size of Long Best Bid Update Message
-  if code == "B" then
+  if messagetype == "B" then
     return 17
   end
   -- Size of Trade Report Message
-  if code == "R" then
+  if messagetype == "R" then
     return 21
   end
   -- Size of Broken Trade Report Message
-  if code == "X" then
+  if messagetype == "X" then
     return 20
   end
 
@@ -1608,58 +1608,58 @@ display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.payload_branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Payload
+dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
   -- Dissect Timestamp Message
-  if code == "T" then
+  if messagetype == "T" then
     return dissect.timestamp_message(buffer, offset, packet, parent)
   end
   -- Dissect System Event Message
-  if code == "S" then
+  if messagetype == "S" then
     return dissect.system_event_message(buffer, offset, packet, parent)
   end
   -- Dissect Options Directory Message
-  if code == "D" then
+  if messagetype == "D" then
     return dissect.options_directory_message(buffer, offset, packet, parent)
   end
   -- Dissect Trading Action Message
-  if code == "H" then
+  if messagetype == "H" then
     return dissect.trading_action_message(buffer, offset, packet, parent)
   end
   -- Dissect Security Open Closed Message
-  if code == "O" then
+  if messagetype == "O" then
     return dissect.security_open_closed_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Best Bid And Ask Update Message
-  if code == "q" then
+  if messagetype == "q" then
     return dissect.short_best_bid_and_ask_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Best Bid And Ask Update Message
-  if code == "Q" then
+  if messagetype == "Q" then
     return dissect.long_best_bid_and_ask_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Best Ask Update Message
-  if code == "a" then
+  if messagetype == "a" then
     return dissect.short_best_ask_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Best Bid Update Message
-  if code == "b" then
+  if messagetype == "b" then
     return dissect.short_best_bid_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Best Ask Update Message
-  if code == "A" then
+  if messagetype == "A" then
     return dissect.long_best_ask_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Best Bid Update Message
-  if code == "B" then
+  if messagetype == "B" then
     return dissect.long_best_bid_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Report Message
-  if code == "R" then
+  if messagetype == "R" then
     return dissect.trade_report_message(buffer, offset, packet, parent)
   end
   -- Dissect Broken Trade Report Message
-  if code == "X" then
+  if messagetype == "X" then
     return dissect.broken_trade_report_message(buffer, offset, packet, parent)
   end
 
@@ -1736,14 +1736,13 @@ end
 
 -- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_type)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.message_type, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_type
 end
 
 -- Size: Length
@@ -1851,14 +1850,13 @@ end
 
 -- Dissect: Count
 dissect.count = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.count)
   local value = range:uint()
   local display = display.count(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.count, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.count
 end
 
 -- Size: Sequence
@@ -2011,7 +2009,7 @@ nasdaq_phlx_topo_itch_v3_3:register_heuristic("udp", nasdaq_phlx_topo_itch_v3_3_
 -- 
 -- Script:
 --   Generator: 1.5.0.0
---   Compiler: 1.1
+--   Compiler: 2.0
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 

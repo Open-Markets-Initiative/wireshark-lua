@@ -1404,14 +1404,13 @@ end
 
 -- Dissect: Number Of Legs
 dissect.number_of_legs = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.number_of_legs)
   local value = range:uint()
   local display = display.number_of_legs(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.number_of_legs, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.number_of_legs
 end
 
 -- Size: Underlying Symbol
@@ -1746,37 +1745,37 @@ dissect.system_event_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, code)
+size_of.payload = function(buffer, offset, messagetype)
   -- Size of System Event Message
-  if code == "S" then
+  if messagetype == "S" then
     return 13
   end
   -- Size of Complex Strategy Directory Message
-  if code == "R" then
+  if messagetype == "R" then
     return size_of.complex_strategy_directory_message(buffer, offset)
   end
   -- Size of Strategy Open Closed Message
-  if code == "O" then
+  if messagetype == "O" then
     return 11
   end
   -- Size of Strategy Trading Action Message
-  if code == "H" then
+  if messagetype == "H" then
     return 11
   end
   -- Size of Strategy Best Bid And Ask Update
-  if code == "C" then
+  if messagetype == "C" then
     return 67
   end
   -- Size of Strategy Best Bid Update
-  if code == "D" then
+  if messagetype == "D" then
     return 39
   end
   -- Size of Strategy Best Ask Update
-  if code == "E" then
+  if messagetype == "E" then
     return 39
   end
   -- Size of Complex Strategy Ticker Message
-  if code == "t" then
+  if messagetype == "t" then
     return 51
   end
 
@@ -1788,38 +1787,38 @@ display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.payload_branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Payload
+dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
   -- Dissect System Event Message
-  if code == "S" then
+  if messagetype == "S" then
     return dissect.system_event_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Strategy Directory Message
-  if code == "R" then
+  if messagetype == "R" then
     return dissect.complex_strategy_directory_message(buffer, offset, packet, parent)
   end
   -- Dissect Strategy Open Closed Message
-  if code == "O" then
+  if messagetype == "O" then
     return dissect.strategy_open_closed_message(buffer, offset, packet, parent)
   end
   -- Dissect Strategy Trading Action Message
-  if code == "H" then
+  if messagetype == "H" then
     return dissect.strategy_trading_action_message(buffer, offset, packet, parent)
   end
   -- Dissect Strategy Best Bid And Ask Update
-  if code == "C" then
+  if messagetype == "C" then
     return dissect.strategy_best_bid_and_ask_update(buffer, offset, packet, parent)
   end
   -- Dissect Strategy Best Bid Update
-  if code == "D" then
+  if messagetype == "D" then
     return dissect.strategy_best_bid_update(buffer, offset, packet, parent)
   end
   -- Dissect Strategy Best Ask Update
-  if code == "E" then
+  if messagetype == "E" then
     return dissect.strategy_best_ask_update(buffer, offset, packet, parent)
   end
   -- Dissect Complex Strategy Ticker Message
-  if code == "t" then
+  if messagetype == "t" then
     return dissect.complex_strategy_ticker_message(buffer, offset, packet, parent)
   end
 
@@ -1881,14 +1880,13 @@ end
 
 -- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_type)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.message_type, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_type
 end
 
 -- Size: Length
@@ -1996,14 +1994,13 @@ end
 
 -- Dissect: Count
 dissect.count = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.count)
   local value = range:uint()
   local display = display.count(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.count, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.count
 end
 
 -- Size: Sequence
@@ -2156,7 +2153,7 @@ nasdaq_ise_topcomboquotefeed_itch_v1_0:register_heuristic("udp", nasdaq_ise_topc
 -- 
 -- Script:
 --   Generator: 1.5.0.0
---   Compiler: 1.1
+--   Compiler: 2.0
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 

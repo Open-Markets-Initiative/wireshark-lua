@@ -738,14 +738,13 @@ end
 
 -- Dissect: No Entries
 dissect.no_entries = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.no_entries)
   local value = range:uint()
   local display = display.no_entries(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketlevel2_csm_v1_0_4.fields.no_entries, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.no_entries
 end
 
 -- Size: Price Type
@@ -1120,14 +1119,13 @@ end
 
 -- Dissect: Underlying Type Length
 dissect.underlying_type_length = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.underlying_type_length)
   local value = range:uint()
   local display = display.underlying_type_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketlevel2_csm_v1_0_4.fields.underlying_type_length, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.underlying_type_length
 end
 
 -- Calculate runtime size: Underlying Type
@@ -1200,14 +1198,13 @@ end
 
 -- Dissect: Underlying Symbol Length
 dissect.underlying_symbol_length = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.underlying_symbol_length)
   local value = range:uint()
   local display = display.underlying_symbol_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketlevel2_csm_v1_0_4.fields.underlying_symbol_length, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.underlying_symbol_length
 end
 
 -- Calculate runtime size: Underlying Symbol
@@ -1280,14 +1277,13 @@ end
 
 -- Dissect: Currency Code Length
 dissect.currency_code_length = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.currency_code_length)
   local value = range:uint()
   local display = display.currency_code_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketlevel2_csm_v1_0_4.fields.currency_code_length, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.currency_code_length
 end
 
 -- Calculate runtime size: Currency Code
@@ -1839,14 +1835,13 @@ end
 
 -- Dissect: Target Location Id Length
 dissect.target_location_id_length = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.target_location_id_length)
   local value = range:uint()
   local display = display.target_location_id_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketlevel2_csm_v1_0_4.fields.target_location_id_length, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.target_location_id_length
 end
 
 -- Calculate runtime size: Target Location Id
@@ -1919,14 +1914,13 @@ end
 
 -- Dissect: Symbol Length
 dissect.symbol_length = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.symbol_length)
   local value = range:uint()
   local display = display.symbol_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketlevel2_csm_v1_0_4.fields.symbol_length, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.symbol_length
 end
 
 -- Calculate runtime size: Symbol
@@ -2034,14 +2028,13 @@ end
 
 -- Dissect: Security Type Length
 dissect.security_type_length = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.security_type_length)
   local value = range:uint()
   local display = display.security_type_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketlevel2_csm_v1_0_4.fields.security_type_length, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.security_type_length
 end
 
 -- Calculate runtime size: Security Type
@@ -2212,25 +2205,25 @@ dissect.security_definition_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, code)
+size_of.payload = function(buffer, offset, templateid)
   -- Size of Security Definition Message
-  if code == 13 then
+  if templateid == 13 then
     return size_of.security_definition_message(buffer, offset)
   end
   -- Size of Snapshot Full Refresh Message
-  if code == 17 then
+  if templateid == 17 then
     return size_of.snapshot_full_refresh_message(buffer, offset)
   end
   -- Size of Incremental Refresh Message
-  if code == 18 then
+  if templateid == 18 then
     return size_of.incremental_refresh_message(buffer, offset)
   end
   -- Size of Security Status Message
-  if code == 19 then
+  if templateid == 19 then
     return 13
   end
   -- Size of Heartbeat Message
-  if code == 16 then
+  if templateid == 16 then
     return 0
   end
 
@@ -2242,26 +2235,26 @@ display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.payload_branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Payload
+dissect.payload_branches = function(buffer, offset, packet, parent, templateid)
   -- Dissect Security Definition Message
-  if code == 13 then
+  if templateid == 13 then
     return dissect.security_definition_message(buffer, offset, packet, parent)
   end
   -- Dissect Snapshot Full Refresh Message
-  if code == 17 then
+  if templateid == 17 then
     return dissect.snapshot_full_refresh_message(buffer, offset, packet, parent)
   end
   -- Dissect Incremental Refresh Message
-  if code == 18 then
+  if templateid == 18 then
     return dissect.incremental_refresh_message(buffer, offset, packet, parent)
   end
   -- Dissect Security Status Message
-  if code == 19 then
+  if templateid == 19 then
     return dissect.security_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Heartbeat Message
-  if code == 16 then
+  if templateid == 16 then
   end
 
   return offset
@@ -2351,14 +2344,13 @@ end
 
 -- Dissect: Template Id
 dissect.template_id = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.template_id)
   local value = range:uint()
   local display = display.template_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketlevel2_csm_v1_0_4.fields.template_id, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.template_id
 end
 
 -- Size: Message Length
@@ -2491,14 +2483,13 @@ end
 
 -- Dissect: Message Count
 dissect.message_count = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_count)
   local value = range:uint()
   local display = display.message_count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketlevel2_csm_v1_0_4.fields.message_count, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_count
 end
 
 -- Size: Sending Time
@@ -2676,7 +2667,7 @@ cboe_options_marketlevel2_csm_v1_0_4:register_heuristic("udp", cboe_options_mark
 -- 
 -- Script:
 --   Generator: 1.5.0.0
---   Compiler: 1.1
+--   Compiler: 2.0
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 

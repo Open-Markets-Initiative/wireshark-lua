@@ -744,14 +744,13 @@ end
 
 -- Dissect: No Entries
 dissect.no_entries = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.no_entries)
   local value = range:uint()
   local display = display.no_entries(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_openingauction_csm_v1_0.fields.no_entries, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.no_entries
 end
 
 -- Size: Price Type
@@ -1160,14 +1159,13 @@ end
 
 -- Dissect: No Legs
 dissect.no_legs = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.no_legs)
   local value = range:uint()
   local display = display.no_legs(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_openingauction_csm_v1_0.fields.no_legs, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.no_legs
 end
 
 -- Size: Contract Size
@@ -1215,14 +1213,13 @@ end
 
 -- Dissect: Underlying Type Length
 dissect.underlying_type_length = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.underlying_type_length)
   local value = range:uint()
   local display = display.underlying_type_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_openingauction_csm_v1_0.fields.underlying_type_length, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.underlying_type_length
 end
 
 -- Calculate runtime size: Underlying Type
@@ -1295,14 +1292,13 @@ end
 
 -- Dissect: Underlying Symbol Length
 dissect.underlying_symbol_length = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.underlying_symbol_length)
   local value = range:uint()
   local display = display.underlying_symbol_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_openingauction_csm_v1_0.fields.underlying_symbol_length, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.underlying_symbol_length
 end
 
 -- Calculate runtime size: Underlying Symbol
@@ -1375,14 +1371,13 @@ end
 
 -- Dissect: Currency Code Length
 dissect.currency_code_length = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.currency_code_length)
   local value = range:uint()
   local display = display.currency_code_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_openingauction_csm_v1_0.fields.currency_code_length, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.currency_code_length
 end
 
 -- Calculate runtime size: Currency Code
@@ -1934,14 +1929,13 @@ end
 
 -- Dissect: Target Location Id Length
 dissect.target_location_id_length = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.target_location_id_length)
   local value = range:uint()
   local display = display.target_location_id_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_openingauction_csm_v1_0.fields.target_location_id_length, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.target_location_id_length
 end
 
 -- Calculate runtime size: Target Location Id
@@ -2014,14 +2008,13 @@ end
 
 -- Dissect: Symbol Length
 dissect.symbol_length = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.symbol_length)
   local value = range:uint()
   local display = display.symbol_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_openingauction_csm_v1_0.fields.symbol_length, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.symbol_length
 end
 
 -- Calculate runtime size: Symbol
@@ -2129,14 +2122,13 @@ end
 
 -- Dissect: Security Type Length
 dissect.security_type_length = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.security_type_length)
   local value = range:uint()
   local display = display.security_type_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_openingauction_csm_v1_0.fields.security_type_length, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.security_type_length
 end
 
 -- Calculate runtime size: Security Type
@@ -2307,25 +2299,25 @@ dissect.security_definition_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, code)
+size_of.payload = function(buffer, offset, templateid)
   -- Size of Security Definition Message
-  if code == 13 then
+  if templateid == 13 then
     return size_of.security_definition_message(buffer, offset)
   end
   -- Size of Market Data Refresh Message
-  if code == 20 then
+  if templateid == 20 then
     return size_of.market_data_refresh_message(buffer, offset)
   end
   -- Size of Current Market Update Message
-  if code == 12 then
+  if templateid == 12 then
     return size_of.current_market_update_message(buffer, offset)
   end
   -- Size of Expected Opening Price And Size Message
-  if code == 15 then
+  if templateid == 15 then
     return 19
   end
   -- Size of Heartbeat Message
-  if code == 16 then
+  if templateid == 16 then
     return 0
   end
 
@@ -2337,26 +2329,26 @@ display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.payload_branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Payload
+dissect.payload_branches = function(buffer, offset, packet, parent, templateid)
   -- Dissect Security Definition Message
-  if code == 13 then
+  if templateid == 13 then
     return dissect.security_definition_message(buffer, offset, packet, parent)
   end
   -- Dissect Market Data Refresh Message
-  if code == 20 then
+  if templateid == 20 then
     return dissect.market_data_refresh_message(buffer, offset, packet, parent)
   end
   -- Dissect Current Market Update Message
-  if code == 12 then
+  if templateid == 12 then
     return dissect.current_market_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Expected Opening Price And Size Message
-  if code == 15 then
+  if templateid == 15 then
     return dissect.expected_opening_price_and_size_message(buffer, offset, packet, parent)
   end
   -- Dissect Heartbeat Message
-  if code == 16 then
+  if templateid == 16 then
   end
 
   return offset
@@ -2446,14 +2438,13 @@ end
 
 -- Dissect: Template Id
 dissect.template_id = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.template_id)
   local value = range:uint()
   local display = display.template_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_openingauction_csm_v1_0.fields.template_id, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.template_id
 end
 
 -- Size: Message Length
@@ -2586,14 +2577,13 @@ end
 
 -- Dissect: Message Count
 dissect.message_count = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_count)
   local value = range:uint()
   local display = display.message_count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_openingauction_csm_v1_0.fields.message_count, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_count
 end
 
 -- Size: Sending Time
@@ -2771,7 +2761,7 @@ cboe_options_openingauction_csm_v1_0:register_heuristic("udp", cboe_options_open
 -- 
 -- Script:
 --   Generator: 1.5.0.0
---   Compiler: 1.1
+--   Compiler: 2.0
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 

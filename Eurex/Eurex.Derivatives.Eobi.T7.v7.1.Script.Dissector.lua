@@ -511,14 +511,13 @@ end
 
 -- Dissect: No Md Entries
 dissect.no_md_entries = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.no_md_entries)
   local value = range:le_uint()
   local display = display.no_md_entries(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v7_1.fields.no_md_entries, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.no_md_entries
 end
 
 -- Size: Pad 2
@@ -3303,14 +3302,13 @@ end
 
 -- Dissect: No Legs
 dissect.no_legs = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.no_legs)
   local value = range:le_uint()
   local display = display.no_legs(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v7_1.fields.no_legs, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.no_legs
 end
 
 -- Size: Implied Market Indicator
@@ -3468,97 +3466,97 @@ dissect.add_complex_instrument = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, code)
+size_of.payload = function(buffer, offset, templateid)
   -- Size of Add Complex Instrument
-  if code == 13400 then
+  if templateid == 13400 then
     return size_of.add_complex_instrument(buffer, offset)
   end
   -- Size of Auction Bbo
-  if code == 13500 then
+  if templateid == 13500 then
     return 56
   end
   -- Size of Auction Clearing Price
-  if code == 13501 then
+  if templateid == 13501 then
     return 48
   end
   -- Size of Cross Request
-  if code == 13502 then
+  if templateid == 13502 then
     return 40
   end
   -- Size of Execution Summary
-  if code == 13202 then
+  if templateid == 13202 then
     return 72
   end
   -- Size of Full Order Execution
-  if code == 13104 then
+  if templateid == 13104 then
     return 48
   end
   -- Size of Heartbeat
-  if code == 13001 then
+  if templateid == 13001 then
     return 8
   end
   -- Size of Instrument State Change
-  if code == 13301 then
+  if templateid == 13301 then
     return 24
   end
   -- Size of Instrument Summary
-  if code == 13601 then
+  if templateid == 13601 then
     return size_of.instrument_summary(buffer, offset)
   end
   -- Size of Order Add
-  if code == 13100 then
+  if templateid == 13100 then
     return 48
   end
   -- Size of Order Delete
-  if code == 13102 then
+  if templateid == 13102 then
     return 56
   end
   -- Size of Order Mass Delete
-  if code == 13103 then
+  if templateid == 13103 then
     return 16
   end
   -- Size of Order Modify
-  if code == 13101 then
+  if templateid == 13101 then
     return 72
   end
   -- Size of Order Modify Same Prio
-  if code == 13106 then
+  if templateid == 13106 then
     return 64
   end
   -- Size of Packet Header
-  if code == 13005 then
+  if templateid == 13005 then
     return 32
   end
   -- Size of Partial Order Execution
-  if code == 13105 then
+  if templateid == 13105 then
     return 48
   end
   -- Size of Product State Change
-  if code == 13300 then
+  if templateid == 13300 then
     return 16
   end
   -- Size of Product Summary
-  if code == 13600 then
+  if templateid == 13600 then
     return 16
   end
   -- Size of Quote Request
-  if code == 13503 then
+  if templateid == 13503 then
     return 32
   end
   -- Size of Snapshot Order
-  if code == 13602 then
+  if templateid == 13602 then
     return 32
   end
   -- Size of Top Of Book
-  if code == 13504 then
+  if templateid == 13504 then
     return 48
   end
   -- Size of Trade Report
-  if code == 13201 then
+  if templateid == 13201 then
     return 40
   end
   -- Size of Trade Reversal
-  if code == 13200 then
+  if templateid == 13200 then
     return size_of.trade_reversal(buffer, offset)
   end
 
@@ -3570,98 +3568,98 @@ display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.payload_branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Payload
+dissect.payload_branches = function(buffer, offset, packet, parent, templateid)
   -- Dissect Add Complex Instrument
-  if code == 13400 then
+  if templateid == 13400 then
     return dissect.add_complex_instrument(buffer, offset, packet, parent)
   end
   -- Dissect Auction Bbo
-  if code == 13500 then
+  if templateid == 13500 then
     return dissect.auction_bbo(buffer, offset, packet, parent)
   end
   -- Dissect Auction Clearing Price
-  if code == 13501 then
+  if templateid == 13501 then
     return dissect.auction_clearing_price(buffer, offset, packet, parent)
   end
   -- Dissect Cross Request
-  if code == 13502 then
+  if templateid == 13502 then
     return dissect.cross_request(buffer, offset, packet, parent)
   end
   -- Dissect Execution Summary
-  if code == 13202 then
+  if templateid == 13202 then
     return dissect.execution_summary(buffer, offset, packet, parent)
   end
   -- Dissect Full Order Execution
-  if code == 13104 then
+  if templateid == 13104 then
     return dissect.full_order_execution(buffer, offset, packet, parent)
   end
   -- Dissect Heartbeat
-  if code == 13001 then
+  if templateid == 13001 then
     return dissect.heartbeat(buffer, offset, packet, parent)
   end
   -- Dissect Instrument State Change
-  if code == 13301 then
+  if templateid == 13301 then
     return dissect.instrument_state_change(buffer, offset, packet, parent)
   end
   -- Dissect Instrument Summary
-  if code == 13601 then
+  if templateid == 13601 then
     return dissect.instrument_summary(buffer, offset, packet, parent)
   end
   -- Dissect Order Add
-  if code == 13100 then
+  if templateid == 13100 then
     return dissect.order_add(buffer, offset, packet, parent)
   end
   -- Dissect Order Delete
-  if code == 13102 then
+  if templateid == 13102 then
     return dissect.order_delete(buffer, offset, packet, parent)
   end
   -- Dissect Order Mass Delete
-  if code == 13103 then
+  if templateid == 13103 then
     return dissect.order_mass_delete(buffer, offset, packet, parent)
   end
   -- Dissect Order Modify
-  if code == 13101 then
+  if templateid == 13101 then
     return dissect.order_modify(buffer, offset, packet, parent)
   end
   -- Dissect Order Modify Same Prio
-  if code == 13106 then
+  if templateid == 13106 then
     return dissect.order_modify_same_prio(buffer, offset, packet, parent)
   end
   -- Dissect Packet Header
-  if code == 13005 then
+  if templateid == 13005 then
     return dissect.packet_header(buffer, offset, packet, parent)
   end
   -- Dissect Partial Order Execution
-  if code == 13105 then
+  if templateid == 13105 then
     return dissect.partial_order_execution(buffer, offset, packet, parent)
   end
   -- Dissect Product State Change
-  if code == 13300 then
+  if templateid == 13300 then
     return dissect.product_state_change(buffer, offset, packet, parent)
   end
   -- Dissect Product Summary
-  if code == 13600 then
+  if templateid == 13600 then
     return dissect.product_summary(buffer, offset, packet, parent)
   end
   -- Dissect Quote Request
-  if code == 13503 then
+  if templateid == 13503 then
     return dissect.quote_request(buffer, offset, packet, parent)
   end
   -- Dissect Snapshot Order
-  if code == 13602 then
+  if templateid == 13602 then
     return dissect.snapshot_order(buffer, offset, packet, parent)
   end
   -- Dissect Top Of Book
-  if code == 13504 then
+  if templateid == 13504 then
     return dissect.top_of_book(buffer, offset, packet, parent)
   end
   -- Dissect Trade Report
-  if code == 13201 then
+  if templateid == 13201 then
     return dissect.trade_report(buffer, offset, packet, parent)
   end
   -- Dissect Trade Reversal
-  if code == 13200 then
+  if templateid == 13200 then
     return dissect.trade_reversal(buffer, offset, packet, parent)
   end
 
@@ -3717,14 +3715,13 @@ end
 
 -- Dissect: Template Id
 dissect.template_id = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.template_id)
   local value = range:le_uint()
   local display = display.template_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v7_1.fields.template_id, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.template_id
 end
 
 -- Size: Body Len
@@ -3737,14 +3734,13 @@ end
 
 -- Dissect: Body Len
 dissect.body_len = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.body_len)
   local value = range:le_uint()
   local display = display.body_len(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v7_1.fields.body_len, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.body_len
 end
 
 -- Display: Message Header
@@ -3911,7 +3907,7 @@ eurex_derivatives_eobi_t7_v7_1:register_heuristic("udp", eurex_derivatives_eobi_
 -- 
 -- Script:
 --   Generator: 1.5.0.0
---   Compiler: 1.1
+--   Compiler: 2.0
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 

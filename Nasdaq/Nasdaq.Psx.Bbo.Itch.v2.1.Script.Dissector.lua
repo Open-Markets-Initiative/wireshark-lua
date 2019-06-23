@@ -1405,41 +1405,41 @@ dissect.system_event_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, code)
+size_of.payload = function(buffer, offset, messagetype)
   -- Size of System Event Message
-  if code == "S" then
+  if messagetype == "S" then
     return 9
   end
   -- Size of Stock Directory Message
-  if code == "R" then
+  if messagetype == "R" then
     return 36
   end
   -- Size of Stock Trading Action Message
-  if code == "H" then
+  if messagetype == "H" then
     return 22
   end
   -- Size of Reg Sho Short Sale Price Test Restricted Indicator Message
-  if code == "Y" then
+  if messagetype == "Y" then
     return 17
   end
   -- Size of Mwcb Decline Level Message
-  if code == "V" then
+  if messagetype == "V" then
     return 32
   end
   -- Size of Mwcb Status Message
-  if code == "W" then
+  if messagetype == "W" then
     return 9
   end
   -- Size of Operational Halt Message
-  if code == "h" then
+  if messagetype == "h" then
     return 18
   end
   -- Size of Quotation Message
-  if code == "Q" then
+  if messagetype == "Q" then
     return 33
   end
   -- Size of Next Shares Quotation Message
-  if code == "A" then
+  if messagetype == "A" then
     return 21
   end
 
@@ -1451,42 +1451,42 @@ display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.payload_branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Payload
+dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
   -- Dissect System Event Message
-  if code == "S" then
+  if messagetype == "S" then
     return dissect.system_event_message(buffer, offset, packet, parent)
   end
   -- Dissect Stock Directory Message
-  if code == "R" then
+  if messagetype == "R" then
     return dissect.stock_directory_message(buffer, offset, packet, parent)
   end
   -- Dissect Stock Trading Action Message
-  if code == "H" then
+  if messagetype == "H" then
     return dissect.stock_trading_action_message(buffer, offset, packet, parent)
   end
   -- Dissect Reg Sho Short Sale Price Test Restricted Indicator Message
-  if code == "Y" then
+  if messagetype == "Y" then
     return dissect.reg_sho_short_sale_price_test_restricted_indicator_message(buffer, offset, packet, parent)
   end
   -- Dissect Mwcb Decline Level Message
-  if code == "V" then
+  if messagetype == "V" then
     return dissect.mwcb_decline_level_message(buffer, offset, packet, parent)
   end
   -- Dissect Mwcb Status Message
-  if code == "W" then
+  if messagetype == "W" then
     return dissect.mwcb_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Operational Halt Message
-  if code == "h" then
+  if messagetype == "h" then
     return dissect.operational_halt_message(buffer, offset, packet, parent)
   end
   -- Dissect Quotation Message
-  if code == "Q" then
+  if messagetype == "Q" then
     return dissect.quotation_message(buffer, offset, packet, parent)
   end
   -- Dissect Next Shares Quotation Message
-  if code == "A" then
+  if messagetype == "A" then
     return dissect.next_shares_quotation_message(buffer, offset, packet, parent)
   end
 
@@ -1551,14 +1551,13 @@ end
 
 -- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_type)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_bbo_itch_v2_1.fields.message_type, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_type
 end
 
 -- Size: Length
@@ -1666,14 +1665,13 @@ end
 
 -- Dissect: Count
 dissect.count = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.count)
   local value = range:uint()
   local display = display.count(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_bbo_itch_v2_1.fields.count, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.count
 end
 
 -- Size: Sequence
@@ -1826,7 +1824,7 @@ nasdaq_psx_bbo_itch_v2_1:register_heuristic("udp", nasdaq_psx_bbo_itch_v2_1_heur
 -- 
 -- Script:
 --   Generator: 1.5.0.0
---   Compiler: 1.1
+--   Compiler: 2.0
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 

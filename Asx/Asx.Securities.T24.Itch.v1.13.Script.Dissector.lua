@@ -4323,125 +4323,125 @@ dissect.time_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, code)
+size_of.payload = function(buffer, offset, messagetype)
   -- Size of Time Message
-  if code == "T" then
+  if messagetype == "T" then
     return 4
   end
   -- Size of System Event
-  if code == "S" then
+  if messagetype == "S" then
     return 7
   end
   -- Size of Future Symbol Directory
-  if code == "f" then
+  if messagetype == "f" then
     return 53
   end
   -- Size of Spread Symbol Directory
-  if code == "g" then
+  if messagetype == "g" then
     return 34
   end
   -- Size of Option Symbol Directory
-  if code == "h" then
+  if messagetype == "h" then
     return 74
   end
   -- Size of Order Book State
-  if code == "O" then
+  if messagetype == "O" then
     return 11
   end
   -- Size of Order Added
-  if code == "A" then
+  if messagetype == "A" then
     return 31
   end
   -- Size of Order Replaced
-  if code == "U" then
+  if messagetype == "U" then
     return 31
   end
   -- Size of Order Volume Cancelled
-  if code == "X" then
+  if messagetype == "X" then
     return 23
   end
   -- Size of Order Deleted
-  if code == "D" then
+  if messagetype == "D" then
     return 19
   end
   -- Size of Implied Order Added
-  if code == "j" then
+  if messagetype == "j" then
     return 31
   end
   -- Size of Implied Order Replaced
-  if code == "l" then
+  if messagetype == "l" then
     return 31
   end
   -- Size of Implied Order Deleted
-  if code == "k" then
+  if messagetype == "k" then
     return 19
   end
   -- Size of Custom Market Order Added
-  if code == "m" then
+  if messagetype == "m" then
     return 89
   end
   -- Size of Custom Market Order Replaced
-  if code == "n" then
+  if messagetype == "n" then
     return 22
   end
   -- Size of Custom Market Order Deleted
-  if code == "r" then
+  if messagetype == "r" then
     return 14
   end
   -- Size of Order Executed
-  if code == "E" then
+  if messagetype == "E" then
     return 36
   end
   -- Size of Order Executed With Price
-  if code == "C" then
+  if messagetype == "C" then
     return 47
   end
   -- Size of Spread Executed
-  if code == "e" then
+  if messagetype == "e" then
     return 46
   end
   -- Size of Trade Spread Execution Chain
-  if code == "P" then
+  if messagetype == "P" then
     return 62
   end
   -- Size of Custom Market Executed
-  if code == "u" then
+  if messagetype == "u" then
     return 37
   end
   -- Size of Custom Market Trade
-  if code == "p" then
+  if messagetype == "p" then
     return 54
   end
   -- Size of Trade Cancellation
-  if code == "B" then
+  if messagetype == "B" then
     return 10
   end
   -- Size of Equilibrium Price Auction Info
-  if code == "Z" then
+  if messagetype == "Z" then
     return 30
   end
   -- Size of Open High Low Last Trade Adjustment
-  if code == "t" then
+  if messagetype == "t" then
     return 39
   end
   -- Size of Market Settlement
-  if code == "Y" then
+  if messagetype == "Y" then
     return 19
   end
   -- Size of Ad Hoc Text
-  if code == "x" then
+  if messagetype == "x" then
     return 112
   end
   -- Size of Request For Quote
-  if code == "q" then
+  if messagetype == "q" then
     return 18
   end
   -- Size of Anomalous Order Threshold Publish
-  if code == "W" then
+  if messagetype == "W" then
     return 34
   end
   -- Size of Volume And Open Interest
-  if code == "V" then
+  if messagetype == "V" then
     return 20
   end
 
@@ -4453,126 +4453,126 @@ display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.payload_branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Payload
+dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
   -- Dissect Time Message
-  if code == "T" then
+  if messagetype == "T" then
     return dissect.time_message(buffer, offset, packet, parent)
   end
   -- Dissect System Event
-  if code == "S" then
+  if messagetype == "S" then
     return dissect.system_event(buffer, offset, packet, parent)
   end
   -- Dissect Future Symbol Directory
-  if code == "f" then
+  if messagetype == "f" then
     return dissect.future_symbol_directory(buffer, offset, packet, parent)
   end
   -- Dissect Spread Symbol Directory
-  if code == "g" then
+  if messagetype == "g" then
     return dissect.spread_symbol_directory(buffer, offset, packet, parent)
   end
   -- Dissect Option Symbol Directory
-  if code == "h" then
+  if messagetype == "h" then
     return dissect.option_symbol_directory(buffer, offset, packet, parent)
   end
   -- Dissect Order Book State
-  if code == "O" then
+  if messagetype == "O" then
     return dissect.order_book_state(buffer, offset, packet, parent)
   end
   -- Dissect Order Added
-  if code == "A" then
+  if messagetype == "A" then
     return dissect.order_added(buffer, offset, packet, parent)
   end
   -- Dissect Order Replaced
-  if code == "U" then
+  if messagetype == "U" then
     return dissect.order_replaced(buffer, offset, packet, parent)
   end
   -- Dissect Order Volume Cancelled
-  if code == "X" then
+  if messagetype == "X" then
     return dissect.order_volume_cancelled(buffer, offset, packet, parent)
   end
   -- Dissect Order Deleted
-  if code == "D" then
+  if messagetype == "D" then
     return dissect.order_deleted(buffer, offset, packet, parent)
   end
   -- Dissect Implied Order Added
-  if code == "j" then
+  if messagetype == "j" then
     return dissect.implied_order_added(buffer, offset, packet, parent)
   end
   -- Dissect Implied Order Replaced
-  if code == "l" then
+  if messagetype == "l" then
     return dissect.implied_order_replaced(buffer, offset, packet, parent)
   end
   -- Dissect Implied Order Deleted
-  if code == "k" then
+  if messagetype == "k" then
     return dissect.implied_order_deleted(buffer, offset, packet, parent)
   end
   -- Dissect Custom Market Order Added
-  if code == "m" then
+  if messagetype == "m" then
     return dissect.custom_market_order_added(buffer, offset, packet, parent)
   end
   -- Dissect Custom Market Order Replaced
-  if code == "n" then
+  if messagetype == "n" then
     return dissect.custom_market_order_replaced(buffer, offset, packet, parent)
   end
   -- Dissect Custom Market Order Deleted
-  if code == "r" then
+  if messagetype == "r" then
     return dissect.custom_market_order_deleted(buffer, offset, packet, parent)
   end
   -- Dissect Order Executed
-  if code == "E" then
+  if messagetype == "E" then
     return dissect.order_executed(buffer, offset, packet, parent)
   end
   -- Dissect Order Executed With Price
-  if code == "C" then
+  if messagetype == "C" then
     return dissect.order_executed_with_price(buffer, offset, packet, parent)
   end
   -- Dissect Spread Executed
-  if code == "e" then
+  if messagetype == "e" then
     return dissect.spread_executed(buffer, offset, packet, parent)
   end
   -- Dissect Trade Spread Execution Chain
-  if code == "P" then
+  if messagetype == "P" then
     return dissect.trade_spread_execution_chain(buffer, offset, packet, parent)
   end
   -- Dissect Custom Market Executed
-  if code == "u" then
+  if messagetype == "u" then
     return dissect.custom_market_executed(buffer, offset, packet, parent)
   end
   -- Dissect Custom Market Trade
-  if code == "p" then
+  if messagetype == "p" then
     return dissect.custom_market_trade(buffer, offset, packet, parent)
   end
   -- Dissect Trade Cancellation
-  if code == "B" then
+  if messagetype == "B" then
     return dissect.trade_cancellation(buffer, offset, packet, parent)
   end
   -- Dissect Equilibrium Price Auction Info
-  if code == "Z" then
+  if messagetype == "Z" then
     return dissect.equilibrium_price_auction_info(buffer, offset, packet, parent)
   end
   -- Dissect Open High Low Last Trade Adjustment
-  if code == "t" then
+  if messagetype == "t" then
     return dissect.open_high_low_last_trade_adjustment(buffer, offset, packet, parent)
   end
   -- Dissect Market Settlement
-  if code == "Y" then
+  if messagetype == "Y" then
     return dissect.market_settlement(buffer, offset, packet, parent)
   end
   -- Dissect Ad Hoc Text
-  if code == "x" then
+  if messagetype == "x" then
     return dissect.ad_hoc_text(buffer, offset, packet, parent)
   end
   -- Dissect Request For Quote
-  if code == "q" then
+  if messagetype == "q" then
     return dissect.request_for_quote(buffer, offset, packet, parent)
   end
   -- Dissect Anomalous Order Threshold Publish
-  if code == "W" then
+  if messagetype == "W" then
     return dissect.anomalous_order_threshold_publish(buffer, offset, packet, parent)
   end
   -- Dissect Volume And Open Interest
-  if code == "V" then
+  if messagetype == "V" then
     return dissect.volume_and_open_interest(buffer, offset, packet, parent)
   end
 
@@ -4700,14 +4700,13 @@ end
 
 -- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_type)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.message_type, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_type
 end
 
 -- Size: Length
@@ -4815,14 +4814,13 @@ end
 
 -- Dissect: Count
 dissect.count = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.count)
   local value = range:uint()
   local display = display.count(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.count, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.count
 end
 
 -- Size: Sequence
@@ -5068,7 +5066,7 @@ asx_securities_t24_itch_v1_13:register_heuristic("udp", asx_securities_t24_itch_
 -- 
 -- Script:
 --   Generator: 1.5.0.0
---   Compiler: 1.1
+--   Compiler: 2.0
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 

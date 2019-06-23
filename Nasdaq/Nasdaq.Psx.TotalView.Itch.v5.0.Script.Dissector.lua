@@ -2636,85 +2636,85 @@ dissect.system_event_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, code)
+size_of.payload = function(buffer, offset, messagetype)
   -- Size of System Event Message
-  if code == "S" then
+  if messagetype == "S" then
     return 11
   end
   -- Size of Stock Directory Message
-  if code == "R" then
+  if messagetype == "R" then
     return 38
   end
   -- Size of Stock Trading Action Message
-  if code == "H" then
+  if messagetype == "H" then
     return 24
   end
   -- Size of Reg Sho Short Sale Price Test Restricted Indicator Message
-  if code == "Y" then
+  if messagetype == "Y" then
     return 19
   end
   -- Size of Market Participant Position Message
-  if code == "L" then
+  if messagetype == "L" then
     return 25
   end
   -- Size of Mwcb Decline Level Message
-  if code == "V" then
+  if messagetype == "V" then
     return 34
   end
   -- Size of Mwcb Status Level Message
-  if code == "W" then
+  if messagetype == "W" then
     return 11
   end
   -- Size of Luld Auction Collar Message
-  if code == "J" then
+  if messagetype == "J" then
     return 34
   end
   -- Size of Operational Halt Message
-  if code == "h" then
+  if messagetype == "h" then
     return 20
   end
   -- Size of Add Order No Mpid Attribution Message
-  if code == "A" then
+  if messagetype == "A" then
     return 35
   end
   -- Size of Add Order With Mpid Attribution Message
-  if code == "F" then
+  if messagetype == "F" then
     return 39
   end
   -- Size of Order Executed Message
-  if code == "E" then
+  if messagetype == "E" then
     return 30
   end
   -- Size of Order Executed With Price Message
-  if code == "C" then
+  if messagetype == "C" then
     return 35
   end
   -- Size of Order Cancel Message
-  if code == "X" then
+  if messagetype == "X" then
     return 22
   end
   -- Size of Order Delete Message
-  if code == "D" then
+  if messagetype == "D" then
     return 18
   end
   -- Size of Order Replace Message
-  if code == "U" then
+  if messagetype == "U" then
     return 34
   end
   -- Size of Trade Message Non Cross
-  if code == "P" then
+  if messagetype == "P" then
     return 43
   end
   -- Size of Cross Trade Message
-  if code == "Q" then
+  if messagetype == "Q" then
     return 39
   end
   -- Size of Broken Trade Message
-  if code == "B" then
+  if messagetype == "B" then
     return 18
   end
   -- Size of Net Order Imbalance Indicator Message
-  if code == "I" then
+  if messagetype == "I" then
     return 49
   end
 
@@ -2726,86 +2726,86 @@ display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.payload_branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Payload
+dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
   -- Dissect System Event Message
-  if code == "S" then
+  if messagetype == "S" then
     return dissect.system_event_message(buffer, offset, packet, parent)
   end
   -- Dissect Stock Directory Message
-  if code == "R" then
+  if messagetype == "R" then
     return dissect.stock_directory_message(buffer, offset, packet, parent)
   end
   -- Dissect Stock Trading Action Message
-  if code == "H" then
+  if messagetype == "H" then
     return dissect.stock_trading_action_message(buffer, offset, packet, parent)
   end
   -- Dissect Reg Sho Short Sale Price Test Restricted Indicator Message
-  if code == "Y" then
+  if messagetype == "Y" then
     return dissect.reg_sho_short_sale_price_test_restricted_indicator_message(buffer, offset, packet, parent)
   end
   -- Dissect Market Participant Position Message
-  if code == "L" then
+  if messagetype == "L" then
     return dissect.market_participant_position_message(buffer, offset, packet, parent)
   end
   -- Dissect Mwcb Decline Level Message
-  if code == "V" then
+  if messagetype == "V" then
     return dissect.mwcb_decline_level_message(buffer, offset, packet, parent)
   end
   -- Dissect Mwcb Status Level Message
-  if code == "W" then
+  if messagetype == "W" then
     return dissect.mwcb_status_level_message(buffer, offset, packet, parent)
   end
   -- Dissect Luld Auction Collar Message
-  if code == "J" then
+  if messagetype == "J" then
     return dissect.luld_auction_collar_message(buffer, offset, packet, parent)
   end
   -- Dissect Operational Halt Message
-  if code == "h" then
+  if messagetype == "h" then
     return dissect.operational_halt_message(buffer, offset, packet, parent)
   end
   -- Dissect Add Order No Mpid Attribution Message
-  if code == "A" then
+  if messagetype == "A" then
     return dissect.add_order_no_mpid_attribution_message(buffer, offset, packet, parent)
   end
   -- Dissect Add Order With Mpid Attribution Message
-  if code == "F" then
+  if messagetype == "F" then
     return dissect.add_order_with_mpid_attribution_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Executed Message
-  if code == "E" then
+  if messagetype == "E" then
     return dissect.order_executed_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Executed With Price Message
-  if code == "C" then
+  if messagetype == "C" then
     return dissect.order_executed_with_price_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Cancel Message
-  if code == "X" then
+  if messagetype == "X" then
     return dissect.order_cancel_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Delete Message
-  if code == "D" then
+  if messagetype == "D" then
     return dissect.order_delete_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Replace Message
-  if code == "U" then
+  if messagetype == "U" then
     return dissect.order_replace_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Message Non Cross
-  if code == "P" then
+  if messagetype == "P" then
     return dissect.trade_message_non_cross(buffer, offset, packet, parent)
   end
   -- Dissect Cross Trade Message
-  if code == "Q" then
+  if messagetype == "Q" then
     return dissect.cross_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Broken Trade Message
-  if code == "B" then
+  if messagetype == "B" then
     return dissect.broken_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Net Order Imbalance Indicator Message
-  if code == "I" then
+  if messagetype == "I" then
     return dissect.net_order_imbalance_indicator_message(buffer, offset, packet, parent)
   end
 
@@ -2903,14 +2903,13 @@ end
 
 -- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_type)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_totalview_itch_v5_0.fields.message_type, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_type
 end
 
 -- Size: Length
@@ -3018,14 +3017,13 @@ end
 
 -- Dissect: Count
 dissect.count = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.count)
   local value = range:uint()
   local display = display.count(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_totalview_itch_v5_0.fields.count, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.count
 end
 
 -- Size: Sequence
@@ -3178,7 +3176,7 @@ nasdaq_psx_totalview_itch_v5_0:register_heuristic("udp", nasdaq_psx_totalview_it
 -- 
 -- Script:
 --   Generator: 1.5.0.0
---   Compiler: 1.1
+--   Compiler: 2.0
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 

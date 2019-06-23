@@ -1912,13 +1912,13 @@ dissect.standard = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Future Block
-size_of.future_block = function(buffer, offset, code)
+size_of.future_block = function(buffer, offset, futuresflags)
   -- Size of Standard
-  if code == 0 then
+  if futuresflags == 0 then
     return size_of.standard(buffer, offset)
   end
   -- Size of Variance
-  if code == 1 then
+  if futuresflags == 1 then
     return size_of.variance(buffer, offset)
   end
 
@@ -1930,14 +1930,14 @@ display.future_block = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.future_block_branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Future Block
+dissect.future_block_branches = function(buffer, offset, packet, parent, futuresflags)
   -- Dissect Standard
-  if code == 0 then
+  if futuresflags == 0 then
     return dissect.standard(buffer, offset, packet, parent)
   end
   -- Dissect Variance
-  if code == 1 then
+  if futuresflags == 1 then
     return dissect.variance(buffer, offset, packet, parent)
   end
 
@@ -2012,14 +2012,13 @@ end
 
 -- Dissect: Leg Count
 dissect.leg_count = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.leg_count)
   local value = range:le_uint()
   local display = display.leg_count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.leg_count, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.leg_count
 end
 
 -- Size: Price Increment
@@ -2125,14 +2124,13 @@ end
 
 -- Dissect: Futures Flags
 dissect.futures_flags = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.futures_flags)
   local value = range:le_uint()
   local display = display.futures_flags(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.futures_flags, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.futures_flags
 end
 
 -- Size: Report Symbol
@@ -2403,89 +2401,89 @@ dissect.time_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, code)
+size_of.payload = function(buffer, offset, messagetype)
   -- Size of Time Message
-  if code == 0x20 then
+  if messagetype == 0x20 then
     return 8
   end
   -- Size of Unit Clear Message
-  if code == 0x97 then
+  if messagetype == 0x97 then
     return 4
   end
   -- Size of Time Reference Message
-  if code == 0xB1 then
+  if messagetype == 0xB1 then
     return 16
   end
   -- Size of Futures Instrument Definition Message
-  if code == 0xBB then
+  if messagetype == 0xBB then
     return size_of.futures_instrument_definition_message(buffer, offset)
   end
   -- Size of Add Order Long Message
-  if code == 0x21 then
+  if messagetype == 0x21 then
     return 31
   end
   -- Size of Add Order Short Message
-  if code == 0x22 then
+  if messagetype == 0x22 then
     return 23
   end
   -- Size of Order Executed Message
-  if code == 0x23 then
+  if messagetype == 0x23 then
     return 25
   end
   -- Size of Reduce Size Long Message
-  if code == 0x25 then
+  if messagetype == 0x25 then
     return 16
   end
   -- Size of Reduce Size Short Message
-  if code == 0x26 then
+  if messagetype == 0x26 then
     return 14
   end
   -- Size of Modify Order Long Message
-  if code == 0x27 then
+  if messagetype == 0x27 then
     return 24
   end
   -- Size of Modify Order Short Message
-  if code == 0x28 then
+  if messagetype == 0x28 then
     return 16
   end
   -- Size of Delete Order Message
-  if code == 0x29 then
+  if messagetype == 0x29 then
     return 12
   end
   -- Size of Trade Long Message
-  if code == 0x2A then
+  if messagetype == 0x2A then
     return 40
   end
   -- Size of Trade Short Message
-  if code == 0x2B then
+  if messagetype == 0x2B then
     return 32
   end
   -- Size of Transaction Begin
-  if code == 0xBC then
+  if messagetype == 0xBC then
     return 4
   end
   -- Size of Transaction End
-  if code == 0xBD then
+  if messagetype == 0xBD then
     return 4
   end
   -- Size of Trade Break Message
-  if code == 0x2C then
+  if messagetype == 0x2C then
     return 12
   end
   -- Size of Settlement Message
-  if code == 0xB9 then
+  if messagetype == 0xB9 then
     return 23
   end
   -- Size of End Of Day Summary Message
-  if code == 0xBA then
+  if messagetype == 0xBA then
     return 63
   end
   -- Size of Trading Status Message
-  if code == 0x31 then
+  if messagetype == 0x31 then
     return 16
   end
   -- Size of End Of Session Message
-  if code == 0x2D then
+  if messagetype == 0x2D then
     return 4
   end
 
@@ -2497,90 +2495,90 @@ display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.payload_branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Payload
+dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
   -- Dissect Time Message
-  if code == 0x20 then
+  if messagetype == 0x20 then
     return dissect.time_message(buffer, offset, packet, parent)
   end
   -- Dissect Unit Clear Message
-  if code == 0x97 then
+  if messagetype == 0x97 then
     return dissect.unit_clear_message(buffer, offset, packet, parent)
   end
   -- Dissect Time Reference Message
-  if code == 0xB1 then
+  if messagetype == 0xB1 then
     return dissect.time_reference_message(buffer, offset, packet, parent)
   end
   -- Dissect Futures Instrument Definition Message
-  if code == 0xBB then
+  if messagetype == 0xBB then
     return dissect.futures_instrument_definition_message(buffer, offset, packet, parent)
   end
   -- Dissect Add Order Long Message
-  if code == 0x21 then
+  if messagetype == 0x21 then
     return dissect.add_order_long_message(buffer, offset, packet, parent)
   end
   -- Dissect Add Order Short Message
-  if code == 0x22 then
+  if messagetype == 0x22 then
     return dissect.add_order_short_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Executed Message
-  if code == 0x23 then
+  if messagetype == 0x23 then
     return dissect.order_executed_message(buffer, offset, packet, parent)
   end
   -- Dissect Reduce Size Long Message
-  if code == 0x25 then
+  if messagetype == 0x25 then
     return dissect.reduce_size_long_message(buffer, offset, packet, parent)
   end
   -- Dissect Reduce Size Short Message
-  if code == 0x26 then
+  if messagetype == 0x26 then
     return dissect.reduce_size_short_message(buffer, offset, packet, parent)
   end
   -- Dissect Modify Order Long Message
-  if code == 0x27 then
+  if messagetype == 0x27 then
     return dissect.modify_order_long_message(buffer, offset, packet, parent)
   end
   -- Dissect Modify Order Short Message
-  if code == 0x28 then
+  if messagetype == 0x28 then
     return dissect.modify_order_short_message(buffer, offset, packet, parent)
   end
   -- Dissect Delete Order Message
-  if code == 0x29 then
+  if messagetype == 0x29 then
     return dissect.delete_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Long Message
-  if code == 0x2A then
+  if messagetype == 0x2A then
     return dissect.trade_long_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Short Message
-  if code == 0x2B then
+  if messagetype == 0x2B then
     return dissect.trade_short_message(buffer, offset, packet, parent)
   end
   -- Dissect Transaction Begin
-  if code == 0xBC then
+  if messagetype == 0xBC then
     return dissect.transaction_begin(buffer, offset, packet, parent)
   end
   -- Dissect Transaction End
-  if code == 0xBD then
+  if messagetype == 0xBD then
     return dissect.transaction_end(buffer, offset, packet, parent)
   end
   -- Dissect Trade Break Message
-  if code == 0x2C then
+  if messagetype == 0x2C then
     return dissect.trade_break_message(buffer, offset, packet, parent)
   end
   -- Dissect Settlement Message
-  if code == 0xB9 then
+  if messagetype == 0xB9 then
     return dissect.settlement_message(buffer, offset, packet, parent)
   end
   -- Dissect End Of Day Summary Message
-  if code == 0xBA then
+  if messagetype == 0xBA then
     return dissect.end_of_day_summary_message(buffer, offset, packet, parent)
   end
   -- Dissect Trading Status Message
-  if code == 0x31 then
+  if messagetype == 0x31 then
     return dissect.trading_status_message(buffer, offset, packet, parent)
   end
   -- Dissect End Of Session Message
-  if code == 0x2D then
+  if messagetype == 0x2D then
     return dissect.end_of_session_message(buffer, offset, packet, parent)
   end
 
@@ -2681,14 +2679,13 @@ end
 
 -- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_type)
   local value = range:le_uint()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.message_type, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_type
 end
 
 -- Size: Message Length
@@ -2834,14 +2831,13 @@ end
 
 -- Dissect: Count
 dissect.count = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.count)
   local value = range:le_uint()
   local display = display.count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.count, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.count
 end
 
 -- Size: Length
@@ -2978,7 +2974,7 @@ cboe_futures_depthofbook_pitch_v1_1_6:register_heuristic("udp", cboe_futures_dep
 -- 
 -- Script:
 --   Generator: 1.5.0.0
---   Compiler: 1.1
+--   Compiler: 2.0
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 

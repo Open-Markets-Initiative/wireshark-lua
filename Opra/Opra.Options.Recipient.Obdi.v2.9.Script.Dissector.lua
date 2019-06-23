@@ -663,9 +663,9 @@ dissect.underlying_value_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: UNDERLYING VALUE Payload
-size_of.underlying_value_payload_ = function(buffer, offset, code)
+size_of.underlying_value_payload_ = function(buffer, offset, underlyingvaluemessageindicator)
   -- Size of Underlying Value Message
-  if code == " " then
+  if underlyingvaluemessageindicator == " " then
     return 15
   end
 
@@ -677,10 +677,10 @@ display.underlying_value_payload_ = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.underlying_value_payload__branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: UNDERLYING VALUE Payload
+dissect.underlying_value_payload__branches = function(buffer, offset, packet, parent, underlyingvaluemessageindicator)
   -- Dissect Underlying Value Message
-  if code == " " then
+  if underlyingvaluemessageindicator == " " then
     return dissect.underlying_value_message(buffer, offset, packet, parent)
   end
 
@@ -804,14 +804,13 @@ end
 
 -- Dissect: Message Data Length
 dissect.message_data_length = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_data_length)
   local value = range:le_uint()
   local display = display.message_data_length(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.message_data_length, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_data_length
 end
 
 -- Calculate runtime size: Control Message
@@ -859,9 +858,9 @@ dissect.control_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: CONTROL Payload
-size_of.control_payload_ = function(buffer, offset, code)
+size_of.control_payload_ = function(buffer, offset, controlmessageindicator)
   -- Size of Control Message
-  if code == " " then
+  if controlmessageindicator == " " then
     return size_of.control_message(buffer, offset)
   end
 
@@ -873,10 +872,10 @@ display.control_payload_ = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.control_payload__branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: CONTROL Payload
+dissect.control_payload__branches = function(buffer, offset, packet, parent, controlmessageindicator)
   -- Dissect Control Message
-  if code == " " then
+  if controlmessageindicator == " " then
     return dissect.control_message(buffer, offset, packet, parent)
   end
 
@@ -1000,9 +999,9 @@ dissect.administrative_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Administrative Payload
-size_of.administrative_payload_ = function(buffer, offset, code)
+size_of.administrative_payload_ = function(buffer, offset, administrativemessageindicator)
   -- Size of Administrative Message
-  if code == " " then
+  if administrativemessageindicator == " " then
     return size_of.administrative_message(buffer, offset)
   end
 
@@ -1014,10 +1013,10 @@ display.administrative_payload_ = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.administrative_payload__branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Administrative Payload
+dissect.administrative_payload__branches = function(buffer, offset, packet, parent, administrativemessageindicator)
   -- Dissect Administrative Message
-  if code == " " then
+  if administrativemessageindicator == " " then
     return dissect.administrative_message(buffer, offset, packet, parent)
   end
 
@@ -2596,73 +2595,73 @@ dissect.short_quote_a_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Short Quote Message
-size_of.short_quote_message_ = function(buffer, offset, code)
+size_of.short_quote_message_ = function(buffer, offset, shortquotemessageindicator)
   -- Size of Short Quote A Message
-  if code == A then
+  if shortquotemessageindicator == A then
     return 17
   end
   -- Size of Short Quote B Message
-  if code == B then
+  if shortquotemessageindicator == B then
     return 17
   end
   -- Size of Short Quote C Message
-  if code == C then
+  if shortquotemessageindicator == C then
     return 25
   end
   -- Size of Short Quote D Message
-  if code == D then
+  if shortquotemessageindicator == D then
     return 17
   end
   -- Size of Short Quote E Message
-  if code == E then
+  if shortquotemessageindicator == E then
     return 17
   end
   -- Size of Short Quote F Message
-  if code == F then
+  if shortquotemessageindicator == F then
     return 17
   end
   -- Size of Short Quote G Message
-  if code == G then
+  if shortquotemessageindicator == G then
     return 25
   end
   -- Size of Short Quote H Message
-  if code == H then
+  if shortquotemessageindicator == H then
     return 17
   end
   -- Size of Short Quote I Message
-  if code == I then
+  if shortquotemessageindicator == I then
     return 17
   end
   -- Size of Short Quote J Message
-  if code == J then
+  if shortquotemessageindicator == J then
     return 17
   end
   -- Size of Short Quote K Message
-  if code == K then
+  if shortquotemessageindicator == K then
     return 25
   end
   -- Size of Short Quote L Message
-  if code == L then
+  if shortquotemessageindicator == L then
     return 17
   end
   -- Size of Short Quote M Message
-  if code == M then
+  if shortquotemessageindicator == M then
     return 37
   end
   -- Size of Short Quote N Message
-  if code == N then
+  if shortquotemessageindicator == N then
     return 35
   end
   -- Size of Short Quote O Message
-  if code == O then
+  if shortquotemessageindicator == O then
     return 17
   end
   -- Size of Short Quote P Message
-  if code == P then
+  if shortquotemessageindicator == P then
     return 37
   end
   -- Size of Short Quote Space Message
-  if code == " " then
+  if shortquotemessageindicator == " " then
     return 17
   end
 
@@ -2674,74 +2673,74 @@ display.short_quote_message_ = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.short_quote_message__branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Short Quote Message
+dissect.short_quote_message__branches = function(buffer, offset, packet, parent, shortquotemessageindicator)
   -- Dissect Short Quote A Message
-  if code == A then
+  if shortquotemessageindicator == A then
     return dissect.short_quote_a_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote B Message
-  if code == B then
+  if shortquotemessageindicator == B then
     return dissect.short_quote_b_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote C Message
-  if code == C then
+  if shortquotemessageindicator == C then
     return dissect.short_quote_c_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote D Message
-  if code == D then
+  if shortquotemessageindicator == D then
     return dissect.short_quote_d_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote E Message
-  if code == E then
+  if shortquotemessageindicator == E then
     return dissect.short_quote_e_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote F Message
-  if code == F then
+  if shortquotemessageindicator == F then
     return dissect.short_quote_f_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote G Message
-  if code == G then
+  if shortquotemessageindicator == G then
     return dissect.short_quote_g_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote H Message
-  if code == H then
+  if shortquotemessageindicator == H then
     return dissect.short_quote_h_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote I Message
-  if code == I then
+  if shortquotemessageindicator == I then
     return dissect.short_quote_i_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote J Message
-  if code == J then
+  if shortquotemessageindicator == J then
     return dissect.short_quote_j_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote K Message
-  if code == K then
+  if shortquotemessageindicator == K then
     return dissect.short_quote_k_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote L Message
-  if code == L then
+  if shortquotemessageindicator == L then
     return dissect.short_quote_l_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote M Message
-  if code == M then
+  if shortquotemessageindicator == M then
     return dissect.short_quote_m_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote N Message
-  if code == N then
+  if shortquotemessageindicator == N then
     return dissect.short_quote_n_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote O Message
-  if code == O then
+  if shortquotemessageindicator == O then
     return dissect.short_quote_o_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote P Message
-  if code == P then
+  if shortquotemessageindicator == P then
     return dissect.short_quote_p_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote Space Message
-  if code == " " then
+  if shortquotemessageindicator == " " then
     return dissect.short_quote_space_message(buffer, offset, packet, parent)
   end
 
@@ -4082,73 +4081,73 @@ dissect.long_quote_a_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Long Quote Message
-size_of.long_quote_message_ = function(buffer, offset, code)
+size_of.long_quote_message_ = function(buffer, offset, longquotemessageindicator)
   -- Size of Long Quote A Message
-  if code == A then
+  if longquotemessageindicator == A then
     return 31
   end
   -- Size of Long Quote B Message
-  if code == B then
+  if longquotemessageindicator == B then
     return 31
   end
   -- Size of Long Quote C Message
-  if code == C then
+  if longquotemessageindicator == C then
     return 39
   end
   -- Size of Long Quote D Message
-  if code == D then
+  if longquotemessageindicator == D then
     return 31
   end
   -- Size of Long Quote E Message
-  if code == E then
+  if longquotemessageindicator == E then
     return 31
   end
   -- Size of Long Quote F Message
-  if code == F then
+  if longquotemessageindicator == F then
     return 31
   end
   -- Size of Long Quote G Message
-  if code == G then
+  if longquotemessageindicator == G then
     return 39
   end
   -- Size of Long Quote H Message
-  if code == H then
+  if longquotemessageindicator == H then
     return 31
   end
   -- Size of Long Quote I Message
-  if code == I then
+  if longquotemessageindicator == I then
     return 31
   end
   -- Size of Long Quote J Message
-  if code == J then
+  if longquotemessageindicator == J then
     return 31
   end
   -- Size of Long Quote K Message
-  if code == K then
+  if longquotemessageindicator == K then
     return 39
   end
   -- Size of Long Quote L Message
-  if code == L then
+  if longquotemessageindicator == L then
     return 31
   end
   -- Size of Long Quote M Message
-  if code == M then
+  if longquotemessageindicator == M then
     return 47
   end
   -- Size of Long Quote N Message
-  if code == N then
+  if longquotemessageindicator == N then
     return 51
   end
   -- Size of Long Quote O Message
-  if code == O then
+  if longquotemessageindicator == O then
     return 31
   end
   -- Size of Long Quote P Message
-  if code == P then
+  if longquotemessageindicator == P then
     return 51
   end
   -- Size of Long Quote Space Message
-  if code == " " then
+  if longquotemessageindicator == " " then
     return 31
   end
 
@@ -4160,74 +4159,74 @@ display.long_quote_message_ = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.long_quote_message__branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Long Quote Message
+dissect.long_quote_message__branches = function(buffer, offset, packet, parent, longquotemessageindicator)
   -- Dissect Long Quote A Message
-  if code == A then
+  if longquotemessageindicator == A then
     return dissect.long_quote_a_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote B Message
-  if code == B then
+  if longquotemessageindicator == B then
     return dissect.long_quote_b_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote C Message
-  if code == C then
+  if longquotemessageindicator == C then
     return dissect.long_quote_c_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote D Message
-  if code == D then
+  if longquotemessageindicator == D then
     return dissect.long_quote_d_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote E Message
-  if code == E then
+  if longquotemessageindicator == E then
     return dissect.long_quote_e_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote F Message
-  if code == F then
+  if longquotemessageindicator == F then
     return dissect.long_quote_f_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote G Message
-  if code == G then
+  if longquotemessageindicator == G then
     return dissect.long_quote_g_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote H Message
-  if code == H then
+  if longquotemessageindicator == H then
     return dissect.long_quote_h_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote I Message
-  if code == I then
+  if longquotemessageindicator == I then
     return dissect.long_quote_i_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote J Message
-  if code == J then
+  if longquotemessageindicator == J then
     return dissect.long_quote_j_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote K Message
-  if code == K then
+  if longquotemessageindicator == K then
     return dissect.long_quote_k_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote L Message
-  if code == L then
+  if longquotemessageindicator == L then
     return dissect.long_quote_l_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote M Message
-  if code == M then
+  if longquotemessageindicator == M then
     return dissect.long_quote_m_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote N Message
-  if code == N then
+  if longquotemessageindicator == N then
     return dissect.long_quote_n_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote O Message
-  if code == O then
+  if longquotemessageindicator == O then
     return dissect.long_quote_o_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote P Message
-  if code == P then
+  if longquotemessageindicator == P then
     return dissect.long_quote_p_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote Space Message
-  if code == " " then
+  if longquotemessageindicator == " " then
     return dissect.long_quote_space_message(buffer, offset, packet, parent)
   end
 
@@ -4608,9 +4607,9 @@ dissect.equity_eod_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Equity EOD Payload
-size_of.equity_eod_payload_ = function(buffer, offset, code)
+size_of.equity_eod_payload_ = function(buffer, offset, equityeodmessageindicator)
   -- Size of Equity Eod Message
-  if code == " " then
+  if equityeodmessageindicator == " " then
     return 60
   end
 
@@ -4622,10 +4621,10 @@ display.equity_eod_payload_ = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.equity_eod_payload__branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Equity EOD Payload
+dissect.equity_eod_payload__branches = function(buffer, offset, packet, parent, equityeodmessageindicator)
   -- Dissect Equity Eod Message
-  if code == " " then
+  if equityeodmessageindicator == " " then
     return dissect.equity_eod_message(buffer, offset, packet, parent)
   end
 
@@ -4753,9 +4752,9 @@ dissect.open_interest_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Open Interest Payload
-size_of.open_interest_payload_ = function(buffer, offset, code)
+size_of.open_interest_payload_ = function(buffer, offset, openinterestmessageindicator)
   -- Size of Open Interest Message
-  if code == " " then
+  if openinterestmessageindicator == " " then
     return 18
   end
 
@@ -4767,10 +4766,10 @@ display.open_interest_payload_ = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.open_interest_payload__branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Open Interest Payload
+dissect.open_interest_payload__branches = function(buffer, offset, packet, parent, openinterestmessageindicator)
   -- Dissect Open Interest Message
-  if code == " " then
+  if openinterestmessageindicator == " " then
     return dissect.open_interest_message(buffer, offset, packet, parent)
   end
 
@@ -4948,9 +4947,9 @@ dissect.equity_and_index_last_sale_message = function(buffer, offset, packet, pa
 end
 
 -- Calculate runtime size of: Equity Index Last Sale Payload
-size_of.equity_index_last_sale_payload_ = function(buffer, offset, code)
+size_of.equity_index_last_sale_payload_ = function(buffer, offset, equityindexlastsalemessageindicator)
   -- Size of Equity And Index Last Sale Message
-  if code == " " then
+  if equityindexlastsalemessageindicator == " " then
     return 31
   end
 
@@ -4962,10 +4961,10 @@ display.equity_index_last_sale_payload_ = function(buffer, offset, packet, paren
   return ""
 end
 
--- Dissect Branches:
-dissect.equity_index_last_sale_payload__branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Equity Index Last Sale Payload
+dissect.equity_index_last_sale_payload__branches = function(buffer, offset, packet, parent, equityindexlastsalemessageindicator)
   -- Dissect Equity And Index Last Sale Message
-  if code == " " then
+  if equityindexlastsalemessageindicator == " " then
     return dissect.equity_and_index_last_sale_message(buffer, offset, packet, parent)
   end
 
@@ -5045,37 +5044,37 @@ dissect.equity_index_last_sale_category = function(buffer, offset, packet, paren
 end
 
 -- Calculate runtime size of: Category Data
-size_of.category_data = function(buffer, offset, code)
+size_of.category_data = function(buffer, offset, messagecategory)
   -- Size of Equity Index Last Sale Category
-  if code == "a" then
+  if messagecategory == "a" then
     return size_of.equity_index_last_sale_category(buffer, offset)
   end
   -- Size of Open Interest Category
-  if code == "d" then
+  if messagecategory == "d" then
     return size_of.open_interest_category(buffer, offset)
   end
   -- Size of Equity EOD Category
-  if code == "f" then
+  if messagecategory == "f" then
     return size_of.equity_eod_category(buffer, offset)
   end
   -- Size of Long Quote Category
-  if code == "k" then
+  if messagecategory == "k" then
     return size_of.long_quote_category(buffer, offset)
   end
   -- Size of Short Quote Category
-  if code == "q" then
+  if messagecategory == "q" then
     return size_of.short_quote_category(buffer, offset)
   end
   -- Size of ADMINISTRATIVE Category
-  if code == "C" then
+  if messagecategory == "C" then
     return size_of.administrative_category(buffer, offset)
   end
   -- Size of CONTROL Category
-  if code == "H" then
+  if messagecategory == "H" then
     return size_of.control_category(buffer, offset)
   end
   -- Size of UNDERLYING VALUE Category
-  if code == "Y" then
+  if messagecategory == "Y" then
     return size_of.underlying_value_category(buffer, offset)
   end
 
@@ -5087,38 +5086,38 @@ display.category_data = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.category_data_branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Category Data
+dissect.category_data_branches = function(buffer, offset, packet, parent, messagecategory)
   -- Dissect Equity Index Last Sale Category
-  if code == "a" then
+  if messagecategory == "a" then
     return dissect.equity_index_last_sale_category(buffer, offset, packet, parent)
   end
   -- Dissect Open Interest Category
-  if code == "d" then
+  if messagecategory == "d" then
     return dissect.open_interest_category(buffer, offset, packet, parent)
   end
   -- Dissect Equity EOD Category
-  if code == "f" then
+  if messagecategory == "f" then
     return dissect.equity_eod_category(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote Category
-  if code == "k" then
+  if messagecategory == "k" then
     return dissect.long_quote_category(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote Category
-  if code == "q" then
+  if messagecategory == "q" then
     return dissect.short_quote_category(buffer, offset, packet, parent)
   end
   -- Dissect ADMINISTRATIVE Category
-  if code == "C" then
+  if messagecategory == "C" then
     return dissect.administrative_category(buffer, offset, packet, parent)
   end
   -- Dissect CONTROL Category
-  if code == "H" then
+  if messagecategory == "H" then
     return dissect.control_category(buffer, offset, packet, parent)
   end
   -- Dissect UNDERLYING VALUE Category
-  if code == "Y" then
+  if messagecategory == "Y" then
     return dissect.underlying_value_category(buffer, offset, packet, parent)
   end
 
@@ -5276,14 +5275,13 @@ end
 
 -- Dissect: Message Category
 dissect.message_category = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_category)
   local value = range:string()
   local display = display.message_category(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.message_category, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_category
 end
 
 -- Display: Message Header
@@ -5391,14 +5389,13 @@ end
 
 -- Dissect: Message Count
 dissect.message_count = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_count)
   local value = range:uint()
   local display = display.message_count(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.message_count, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_count
 end
 
 -- Size: Block Seq Num
@@ -5633,7 +5630,7 @@ opra_options_recipient_obdi_v2_9:register_heuristic("udp", opra_options_recipien
 -- 
 -- Script:
 --   Generator: 1.5.0.0
---   Compiler: 1.1
+--   Compiler: 2.0
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 

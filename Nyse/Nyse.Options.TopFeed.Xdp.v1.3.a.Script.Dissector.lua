@@ -2518,73 +2518,73 @@ dissect.outright_quote_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, code)
+size_of.payload = function(buffer, offset, messagetype)
   -- Size of Outright Quote Message
-  if code == 401 then
+  if messagetype == 401 then
     return 36
   end
   -- Size of Outright Trade Message
-  if code == 407 then
+  if messagetype == 407 then
     return 32
   end
   -- Size of Outright Trade Cancel Message
-  if code == 409 then
+  if messagetype == 409 then
     return 20
   end
   -- Size of Outright Trade Correction Message
-  if code == 411 then
+  if messagetype == 411 then
     return 36
   end
   -- Size of Outright Imbalance Message
-  if code == 413 then
+  if messagetype == 413 then
     return 32
   end
   -- Size of Outright Crossing Rfq Message
-  if code == 415 then
+  if messagetype == 415 then
     return 24
   end
   -- Size of Outright Bold Rfq Message
-  if code == 471 then
+  if messagetype == 471 then
     return 28
   end
   -- Size of Outright Summary Message
-  if code == 417 then
+  if messagetype == 417 then
     return 36
   end
   -- Size of Underlying Status Message
-  if code == 419 then
+  if messagetype == 419 then
     return 20
   end
   -- Size of Outright Series Status Message
-  if code == 421 then
+  if messagetype == 421 then
     return 20
   end
   -- Size of Refresh Outright Quote Message
-  if code == 501 then
+  if messagetype == 501 then
     return 36
   end
   -- Size of Refresh Outright Trade Message
-  if code == 507 then
+  if messagetype == 507 then
     return 32
   end
   -- Size of Refresh Outright Imbalance Message
-  if code == 509 then
+  if messagetype == 509 then
     return 32
   end
   -- Size of Underlying Index Mapping Message
-  if code == 435 then
+  if messagetype == 435 then
     return 24
   end
   -- Size of Series Index Mapping Message
-  if code == 437 then
+  if messagetype == 437 then
     return 56
   end
   -- Size of Stream Id Message
-  if code == 455 then
+  if messagetype == 455 then
     return 4
   end
   -- Size of Sequence Number Reset Message
-  if code == 1 then
+  if messagetype == 1 then
     return 10
   end
 
@@ -2596,74 +2596,74 @@ display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.payload_branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Payload
+dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
   -- Dissect Outright Quote Message
-  if code == 401 then
+  if messagetype == 401 then
     return dissect.outright_quote_message(buffer, offset, packet, parent)
   end
   -- Dissect Outright Trade Message
-  if code == 407 then
+  if messagetype == 407 then
     return dissect.outright_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Outright Trade Cancel Message
-  if code == 409 then
+  if messagetype == 409 then
     return dissect.outright_trade_cancel_message(buffer, offset, packet, parent)
   end
   -- Dissect Outright Trade Correction Message
-  if code == 411 then
+  if messagetype == 411 then
     return dissect.outright_trade_correction_message(buffer, offset, packet, parent)
   end
   -- Dissect Outright Imbalance Message
-  if code == 413 then
+  if messagetype == 413 then
     return dissect.outright_imbalance_message(buffer, offset, packet, parent)
   end
   -- Dissect Outright Crossing Rfq Message
-  if code == 415 then
+  if messagetype == 415 then
     return dissect.outright_crossing_rfq_message(buffer, offset, packet, parent)
   end
   -- Dissect Outright Bold Rfq Message
-  if code == 471 then
+  if messagetype == 471 then
     return dissect.outright_bold_rfq_message(buffer, offset, packet, parent)
   end
   -- Dissect Outright Summary Message
-  if code == 417 then
+  if messagetype == 417 then
     return dissect.outright_summary_message(buffer, offset, packet, parent)
   end
   -- Dissect Underlying Status Message
-  if code == 419 then
+  if messagetype == 419 then
     return dissect.underlying_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Outright Series Status Message
-  if code == 421 then
+  if messagetype == 421 then
     return dissect.outright_series_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Refresh Outright Quote Message
-  if code == 501 then
+  if messagetype == 501 then
     return dissect.refresh_outright_quote_message(buffer, offset, packet, parent)
   end
   -- Dissect Refresh Outright Trade Message
-  if code == 507 then
+  if messagetype == 507 then
     return dissect.refresh_outright_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Refresh Outright Imbalance Message
-  if code == 509 then
+  if messagetype == 509 then
     return dissect.refresh_outright_imbalance_message(buffer, offset, packet, parent)
   end
   -- Dissect Underlying Index Mapping Message
-  if code == 435 then
+  if messagetype == 435 then
     return dissect.underlying_index_mapping_message(buffer, offset, packet, parent)
   end
   -- Dissect Series Index Mapping Message
-  if code == 437 then
+  if messagetype == 437 then
     return dissect.series_index_mapping_message(buffer, offset, packet, parent)
   end
   -- Dissect Stream Id Message
-  if code == 455 then
+  if messagetype == 455 then
     return dissect.stream_id_message(buffer, offset, packet, parent)
   end
   -- Dissect Sequence Number Reset Message
-  if code == 1 then
+  if messagetype == 1 then
     return dissect.sequence_number_reset_message(buffer, offset, packet, parent)
   end
 
@@ -2752,14 +2752,13 @@ end
 
 -- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_type)
   local value = range:le_uint()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.message_type, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_type
 end
 
 -- Size: Message Size
@@ -2924,14 +2923,13 @@ end
 
 -- Dissect: Message Count
 dissect.message_count = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_count)
   local value = range:le_uint()
   local display = display.message_count(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.message_count, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_count
 end
 
 -- Size: Delivery Flag
@@ -3127,7 +3125,7 @@ nyse_options_topfeed_xdp_v1_3_a:register_heuristic("udp", nyse_options_topfeed_x
 -- 
 -- Script:
 --   Generator: 1.5.0.0
---   Compiler: 1.1
+--   Compiler: 2.0
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 

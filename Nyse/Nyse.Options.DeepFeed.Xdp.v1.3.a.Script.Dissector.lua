@@ -1724,45 +1724,45 @@ dissect.outright_market_depth_buy_message = function(buffer, offset, packet, par
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, code)
+size_of.payload = function(buffer, offset, messagetype)
   -- Size of Outright Market Depth Buy Message
-  if code == 403 then
+  if messagetype == 403 then
     return 44
   end
   -- Size of Outright Market Depth Sell Message
-  if code == 405 then
+  if messagetype == 405 then
     return 44
   end
   -- Size of Underlying Status Message
-  if code == 419 then
+  if messagetype == 419 then
     return 20
   end
   -- Size of Outright Series Status Message
-  if code == 421 then
+  if messagetype == 421 then
     return 20
   end
   -- Size of Refresh Outright Market Depth Buy Message
-  if code == 503 then
+  if messagetype == 503 then
     return 44
   end
   -- Size of Refresh Outright Market Depth Sell Message
-  if code == 505 then
+  if messagetype == 505 then
     return 44
   end
   -- Size of Underlying Index Mapping Message
-  if code == 435 then
+  if messagetype == 435 then
     return 24
   end
   -- Size of Series Index Mapping Message
-  if code == 437 then
+  if messagetype == 437 then
     return 56
   end
   -- Size of Stream Id Message
-  if code == 455 then
+  if messagetype == 455 then
     return 4
   end
   -- Size of Sequence Number Reset Message
-  if code == 1 then
+  if messagetype == 1 then
     return 10
   end
 
@@ -1774,46 +1774,46 @@ display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.payload_branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Payload
+dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
   -- Dissect Outright Market Depth Buy Message
-  if code == 403 then
+  if messagetype == 403 then
     return dissect.outright_market_depth_buy_message(buffer, offset, packet, parent)
   end
   -- Dissect Outright Market Depth Sell Message
-  if code == 405 then
+  if messagetype == 405 then
     return dissect.outright_market_depth_sell_message(buffer, offset, packet, parent)
   end
   -- Dissect Underlying Status Message
-  if code == 419 then
+  if messagetype == 419 then
     return dissect.underlying_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Outright Series Status Message
-  if code == 421 then
+  if messagetype == 421 then
     return dissect.outright_series_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Refresh Outright Market Depth Buy Message
-  if code == 503 then
+  if messagetype == 503 then
     return dissect.refresh_outright_market_depth_buy_message(buffer, offset, packet, parent)
   end
   -- Dissect Refresh Outright Market Depth Sell Message
-  if code == 505 then
+  if messagetype == 505 then
     return dissect.refresh_outright_market_depth_sell_message(buffer, offset, packet, parent)
   end
   -- Dissect Underlying Index Mapping Message
-  if code == 435 then
+  if messagetype == 435 then
     return dissect.underlying_index_mapping_message(buffer, offset, packet, parent)
   end
   -- Dissect Series Index Mapping Message
-  if code == 437 then
+  if messagetype == 437 then
     return dissect.series_index_mapping_message(buffer, offset, packet, parent)
   end
   -- Dissect Stream Id Message
-  if code == 455 then
+  if messagetype == 455 then
     return dissect.stream_id_message(buffer, offset, packet, parent)
   end
   -- Dissect Sequence Number Reset Message
-  if code == 1 then
+  if messagetype == 1 then
     return dissect.sequence_number_reset_message(buffer, offset, packet, parent)
   end
 
@@ -1881,14 +1881,13 @@ end
 
 -- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_type)
   local value = range:le_uint()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.message_type, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_type
 end
 
 -- Size: Message Size
@@ -2053,14 +2052,13 @@ end
 
 -- Dissect: Message Count
 dissect.message_count = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_count)
   local value = range:le_uint()
   local display = display.message_count(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.message_count, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_count
 end
 
 -- Size: Delivery Flag
@@ -2256,7 +2254,7 @@ nyse_options_deepfeed_xdp_v1_3_a:register_heuristic("udp", nyse_options_deepfeed
 -- 
 -- Script:
 --   Generator: 1.5.0.0
---   Compiler: 1.1
+--   Compiler: 2.0
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 

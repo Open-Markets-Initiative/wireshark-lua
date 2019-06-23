@@ -1955,53 +1955,53 @@ dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, code)
+size_of.payload = function(buffer, offset, messagetype)
   -- Size of Sequence Number Reset Message
-  if code == 1 then
+  if messagetype == 1 then
     return 10
   end
   -- Size of Symbol Index Mapping Message
-  if code == 3 then
+  if messagetype == 3 then
     return 40
   end
   -- Size of Retransmission Request Message
-  if code == 10 then
+  if messagetype == 10 then
     return 20
   end
   -- Size of Request Response Message
-  if code == 11 then
+  if messagetype == 11 then
     return 25
   end
   -- Size of Heartbeat Response Message
-  if code == 12 then
+  if messagetype == 12 then
     return 10
   end
   -- Size of Symbol Index Mapping Request Message
-  if code == 13 then
+  if messagetype == 13 then
     return 17
   end
   -- Size of Refresh Request Message
-  if code == 15 then
+  if messagetype == 15 then
     return 16
   end
   -- Size of Message Unavailable Message
-  if code == 31 then
+  if messagetype == 31 then
     return 10
   end
   -- Size of Symbol Clear Message
-  if code == 32 then
+  if messagetype == 32 then
     return 16
   end
   -- Size of Security Status Message
-  if code == 34 then
+  if messagetype == 34 then
     return 42
   end
   -- Size of Refresh Header Message
-  if code == 35 then
+  if messagetype == 35 then
     return 12
   end
   -- Size of Imbalance Message
-  if code == 105 then
+  if messagetype == 105 then
     return 63
   end
 
@@ -2013,54 +2013,54 @@ display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.payload_branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Payload
+dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
   -- Dissect Sequence Number Reset Message
-  if code == 1 then
+  if messagetype == 1 then
     return dissect.sequence_number_reset_message(buffer, offset, packet, parent)
   end
   -- Dissect Symbol Index Mapping Message
-  if code == 3 then
+  if messagetype == 3 then
     return dissect.symbol_index_mapping_message(buffer, offset, packet, parent)
   end
   -- Dissect Retransmission Request Message
-  if code == 10 then
+  if messagetype == 10 then
     return dissect.retransmission_request_message(buffer, offset, packet, parent)
   end
   -- Dissect Request Response Message
-  if code == 11 then
+  if messagetype == 11 then
     return dissect.request_response_message(buffer, offset, packet, parent)
   end
   -- Dissect Heartbeat Response Message
-  if code == 12 then
+  if messagetype == 12 then
     return dissect.heartbeat_response_message(buffer, offset, packet, parent)
   end
   -- Dissect Symbol Index Mapping Request Message
-  if code == 13 then
+  if messagetype == 13 then
     return dissect.symbol_index_mapping_request_message(buffer, offset, packet, parent)
   end
   -- Dissect Refresh Request Message
-  if code == 15 then
+  if messagetype == 15 then
     return dissect.refresh_request_message(buffer, offset, packet, parent)
   end
   -- Dissect Message Unavailable Message
-  if code == 31 then
+  if messagetype == 31 then
     return dissect.message_unavailable_message(buffer, offset, packet, parent)
   end
   -- Dissect Symbol Clear Message
-  if code == 32 then
+  if messagetype == 32 then
     return dissect.symbol_clear_message(buffer, offset, packet, parent)
   end
   -- Dissect Security Status Message
-  if code == 34 then
+  if messagetype == 34 then
     return dissect.security_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Refresh Header Message
-  if code == 35 then
+  if messagetype == 35 then
     return dissect.refresh_header_message(buffer, offset, packet, parent)
   end
   -- Dissect Imbalance Message
-  if code == 105 then
+  if messagetype == 105 then
     return dissect.imbalance_message(buffer, offset, packet, parent)
   end
 
@@ -2134,14 +2134,13 @@ end
 
 -- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_type)
   local value = range:le_uint()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.message_type, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_type
 end
 
 -- Size: Message Size
@@ -2306,14 +2305,13 @@ end
 
 -- Dissect: Message Count
 dissect.message_count = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_count)
   local value = range:le_uint()
   local display = display.message_count(value, buffer, offset, packet, parent)
 
   parent:add(nyse_equities_imbalancesfeed_xdp_v2_1_f.fields.message_count, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_count
 end
 
 -- Size: Delivery Flag
@@ -2509,7 +2507,7 @@ nyse_equities_imbalancesfeed_xdp_v2_1_f:register_heuristic("udp", nyse_equities_
 -- 
 -- Script:
 --   Generator: 1.5.0.0
---   Compiler: 1.1
+--   Compiler: 2.0
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 

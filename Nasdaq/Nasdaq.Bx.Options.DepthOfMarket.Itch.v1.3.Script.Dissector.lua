@@ -2490,105 +2490,105 @@ dissect.seconds_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, code)
+size_of.payload = function(buffer, offset, messagetype)
   -- Size of Seconds Message
-  if code == "T" then
+  if messagetype == "T" then
     return 4
   end
   -- Size of System Event Message
-  if code == "S" then
+  if messagetype == "S" then
     return 5
   end
   -- Size of Base Reference Message
-  if code == "L" then
+  if messagetype == "L" then
     return 12
   end
   -- Size of Option Directory Message
-  if code == "R" then
+  if messagetype == "R" then
     return 39
   end
   -- Size of Trading Action Message
-  if code == "H" then
+  if messagetype == "H" then
     return 9
   end
   -- Size of Option Open Message
-  if code == "O" then
+  if messagetype == "O" then
     return 9
   end
   -- Size of Add Order Message Short Form
-  if code == "a" then
+  if messagetype == "a" then
     return 17
   end
   -- Size of Add Order Message Long Form
-  if code == "A" then
+  if messagetype == "A" then
     return 17
   end
   -- Size of Add Quote Message Short Form
-  if code == "j" then
+  if messagetype == "j" then
     return 24
   end
   -- Size of Add Quote Message Long Form
-  if code == "J" then
+  if messagetype == "J" then
     return 28
   end
   -- Size of Single Side Executed Message
-  if code == "E" then
+  if messagetype == "E" then
     return 20
   end
   -- Size of Single Side Order Executed With Price Message
-  if code == "C" then
+  if messagetype == "C" then
     return 21
   end
   -- Size of Order Cancel Message
-  if code == "X" then
+  if messagetype == "X" then
     return 12
   end
   -- Size of Single Side Replace Message Short Form
-  if code == "u" then
+  if messagetype == "u" then
     return 16
   end
   -- Size of Single Side Replace Message Long Form
-  if code == "U" then
+  if messagetype == "U" then
     return 16
   end
   -- Size of Single Side Delete Message
-  if code == "D" then
+  if messagetype == "D" then
     return 8
   end
   -- Size of Single Side Update Message
-  if code == "G" then
+  if messagetype == "G" then
     return 13
   end
   -- Size of Quote Replace Message Short Form
-  if code == "k" then
+  if messagetype == "k" then
     return 28
   end
   -- Size of Quote Replace Message Long Form
-  if code == "K" then
+  if messagetype == "K" then
     return 28
   end
   -- Size of Quote Delete Message
-  if code == "Y" then
+  if messagetype == "Y" then
     return 12
   end
   -- Size of Block Delete Message
-  if code == "Z" then
+  if messagetype == "Z" then
     return 10
   end
   -- Size of Non Auction Options Trade Message
-  if code == "P" then
+  if messagetype == "P" then
     return 21
   end
   -- Size of Options Cross Trade Message
-  if code == "Q" then
+  if messagetype == "Q" then
     return 21
   end
   -- Size of Broken Trade Or Order Execution Message
-  if code == "B" then
+  if messagetype == "B" then
     return 12
   end
   -- Size of Net Order Imbalance Indicator Message
-  if code == "I" then
+  if messagetype == "I" then
     return 30
   end
 
@@ -2600,106 +2600,106 @@ display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.payload_branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Payload
+dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
   -- Dissect Seconds Message
-  if code == "T" then
+  if messagetype == "T" then
     return dissect.seconds_message(buffer, offset, packet, parent)
   end
   -- Dissect System Event Message
-  if code == "S" then
+  if messagetype == "S" then
     return dissect.system_event_message(buffer, offset, packet, parent)
   end
   -- Dissect Base Reference Message
-  if code == "L" then
+  if messagetype == "L" then
     return dissect.base_reference_message(buffer, offset, packet, parent)
   end
   -- Dissect Option Directory Message
-  if code == "R" then
+  if messagetype == "R" then
     return dissect.option_directory_message(buffer, offset, packet, parent)
   end
   -- Dissect Trading Action Message
-  if code == "H" then
+  if messagetype == "H" then
     return dissect.trading_action_message(buffer, offset, packet, parent)
   end
   -- Dissect Option Open Message
-  if code == "O" then
+  if messagetype == "O" then
     return dissect.option_open_message(buffer, offset, packet, parent)
   end
   -- Dissect Add Order Message Short Form
-  if code == "a" then
+  if messagetype == "a" then
     return dissect.add_order_message_short_form(buffer, offset, packet, parent)
   end
   -- Dissect Add Order Message Long Form
-  if code == "A" then
+  if messagetype == "A" then
     return dissect.add_order_message_long_form(buffer, offset, packet, parent)
   end
   -- Dissect Add Quote Message Short Form
-  if code == "j" then
+  if messagetype == "j" then
     return dissect.add_quote_message_short_form(buffer, offset, packet, parent)
   end
   -- Dissect Add Quote Message Long Form
-  if code == "J" then
+  if messagetype == "J" then
     return dissect.add_quote_message_long_form(buffer, offset, packet, parent)
   end
   -- Dissect Single Side Executed Message
-  if code == "E" then
+  if messagetype == "E" then
     return dissect.single_side_executed_message(buffer, offset, packet, parent)
   end
   -- Dissect Single Side Order Executed With Price Message
-  if code == "C" then
+  if messagetype == "C" then
     return dissect.single_side_order_executed_with_price_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Cancel Message
-  if code == "X" then
+  if messagetype == "X" then
     return dissect.order_cancel_message(buffer, offset, packet, parent)
   end
   -- Dissect Single Side Replace Message Short Form
-  if code == "u" then
+  if messagetype == "u" then
     return dissect.single_side_replace_message_short_form(buffer, offset, packet, parent)
   end
   -- Dissect Single Side Replace Message Long Form
-  if code == "U" then
+  if messagetype == "U" then
     return dissect.single_side_replace_message_long_form(buffer, offset, packet, parent)
   end
   -- Dissect Single Side Delete Message
-  if code == "D" then
+  if messagetype == "D" then
     return dissect.single_side_delete_message(buffer, offset, packet, parent)
   end
   -- Dissect Single Side Update Message
-  if code == "G" then
+  if messagetype == "G" then
     return dissect.single_side_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Quote Replace Message Short Form
-  if code == "k" then
+  if messagetype == "k" then
     return dissect.quote_replace_message_short_form(buffer, offset, packet, parent)
   end
   -- Dissect Quote Replace Message Long Form
-  if code == "K" then
+  if messagetype == "K" then
     return dissect.quote_replace_message_long_form(buffer, offset, packet, parent)
   end
   -- Dissect Quote Delete Message
-  if code == "Y" then
+  if messagetype == "Y" then
     return dissect.quote_delete_message(buffer, offset, packet, parent)
   end
   -- Dissect Block Delete Message
-  if code == "Z" then
+  if messagetype == "Z" then
     return dissect.block_delete_message(buffer, offset, packet, parent)
   end
   -- Dissect Non Auction Options Trade Message
-  if code == "P" then
+  if messagetype == "P" then
     return dissect.non_auction_options_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Options Cross Trade Message
-  if code == "Q" then
+  if messagetype == "Q" then
     return dissect.options_cross_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Broken Trade Or Order Execution Message
-  if code == "B" then
+  if messagetype == "B" then
     return dissect.broken_trade_or_order_execution_message(buffer, offset, packet, parent)
   end
   -- Dissect Net Order Imbalance Indicator Message
-  if code == "I" then
+  if messagetype == "I" then
     return dissect.net_order_imbalance_indicator_message(buffer, offset, packet, parent)
   end
 
@@ -2812,14 +2812,13 @@ end
 
 -- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_type)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_options_depthofmarket_itch_v1_3.fields.message_type, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_type
 end
 
 -- Size: Length
@@ -2927,14 +2926,13 @@ end
 
 -- Dissect: Count
 dissect.count = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.count)
   local value = range:uint()
   local display = display.count(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_options_depthofmarket_itch_v1_3.fields.count, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.count
 end
 
 -- Size: Sequence
@@ -3087,7 +3085,7 @@ nasdaq_bx_options_depthofmarket_itch_v1_3:register_heuristic("udp", nasdaq_bx_op
 -- 
 -- Script:
 --   Generator: 1.5.0.0
---   Compiler: 1.1
+--   Compiler: 2.0
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 

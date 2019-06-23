@@ -33,7 +33,7 @@ miax_options_ctom_mach_v1_1.fields.compact_offer_price = ProtoField.new("Compact
 miax_options_ctom_mach_v1_1.fields.compact_offer_size = ProtoField.new("Compact Offer Size", "miax.options.ctom.mach.v1.1.compactoffersize", ftypes.UINT16)
 miax_options_ctom_mach_v1_1.fields.compact_price = ProtoField.new("Compact Price", "miax.options.ctom.mach.v1.1.compactprice", ftypes.INT16)
 miax_options_ctom_mach_v1_1.fields.compact_size = ProtoField.new("Compact Size", "miax.options.ctom.mach.v1.1.compactsize", ftypes.UINT16)
-miax_options_ctom_mach_v1_1.fields.complex_double_sided_top_of_market_compact_message = ProtoField.new("Complex Double Sided Top of Market Compact Message", "miax.options.ctom.mach.v1.1.complexdoublesidedtopofmarketcompactmessage", ftypes.STRING)
+miax_options_ctom_mach_v1_1.fields.complex_double_sided_top_of_market_compact_message = ProtoField.new("Complex Double Sided Top Of Market Compact Message", "miax.options.ctom.mach.v1.1.complexdoublesidedtopofmarketcompactmessage", ftypes.STRING)
 miax_options_ctom_mach_v1_1.fields.complex_strategy_definition_message = ProtoField.new("Complex Strategy Definition Message", "miax.options.ctom.mach.v1.1.complexstrategydefinitionmessage", ftypes.STRING)
 miax_options_ctom_mach_v1_1.fields.complex_top_of_market_bid_compact_message = ProtoField.new("Complex Top Of Market Bid Compact Message", "miax.options.ctom.mach.v1.1.complextopofmarketbidcompactmessage", ftypes.STRING)
 miax_options_ctom_mach_v1_1.fields.complex_top_of_market_offer_compact_message = ProtoField.new("Complex Top Of Market Offer Compact Message", "miax.options.ctom.mach.v1.1.complextopofmarketoffercompactmessage", ftypes.STRING)
@@ -97,7 +97,7 @@ miax_options_ctom_mach_v1_1.fields.update_reason = ProtoField.new("Update Reason
 miax_options_ctom_mach_v1_1.fields.version = ProtoField.new("Version", "miax.options.ctom.mach.v1.1.version", ftypes.STRING)
 miax_options_ctom_mach_v1_1.fields.wide_bid_price = ProtoField.new("Wide Bid Price", "miax.options.ctom.mach.v1.1.widebidprice", ftypes.INT64)
 miax_options_ctom_mach_v1_1.fields.wide_bid_size = ProtoField.new("Wide Bid Size", "miax.options.ctom.mach.v1.1.widebidsize", ftypes.UINT32)
-miax_options_ctom_mach_v1_1.fields.wide_complex_double_sided_top_of_market_message = ProtoField.new("Wide Complex Double Sided Top of Market Message", "miax.options.ctom.mach.v1.1.widecomplexdoublesidedtopofmarketmessage", ftypes.STRING)
+miax_options_ctom_mach_v1_1.fields.wide_complex_double_sided_top_of_market_message = ProtoField.new("Wide Complex Double Sided Top Of Market Message", "miax.options.ctom.mach.v1.1.widecomplexdoublesidedtopofmarketmessage", ftypes.STRING)
 miax_options_ctom_mach_v1_1.fields.wide_complex_top_of_market_bid_message = ProtoField.new("Wide Complex Top Of Market Bid Message", "miax.options.ctom.mach.v1.1.widecomplextopofmarketbidmessage", ftypes.STRING)
 miax_options_ctom_mach_v1_1.fields.wide_complex_top_of_market_offer_message = ProtoField.new("Wide Complex Top Of Market Offer Message", "miax.options.ctom.mach.v1.1.widecomplextopofmarketoffermessage", ftypes.STRING)
 miax_options_ctom_mach_v1_1.fields.wide_offer_price = ProtoField.new("Wide Offer Price", "miax.options.ctom.mach.v1.1.wideofferprice", ftypes.INT64)
@@ -131,7 +131,7 @@ show.payload = false
 
 -- Register Miax Options cTom Mach 1.1 Show Options
 miax_options_ctom_mach_v1_1.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
-miax_options_ctom_mach_v1_1.prefs.show_complex_double_sided_top_of_market_compact_message = Pref.bool("Show Complex Double Sided Top of Market Compact Message", show.complex_double_sided_top_of_market_compact_message, "Parse and add Complex Double Sided Top of Market Compact Message to protocol tree")
+miax_options_ctom_mach_v1_1.prefs.show_complex_double_sided_top_of_market_compact_message = Pref.bool("Show Complex Double Sided Top Of Market Compact Message", show.complex_double_sided_top_of_market_compact_message, "Parse and add Complex Double Sided Top Of Market Compact Message to protocol tree")
 miax_options_ctom_mach_v1_1.prefs.show_complex_strategy_definition_message = Pref.bool("Show Complex Strategy Definition Message", show.complex_strategy_definition_message, "Parse and add Complex Strategy Definition Message to protocol tree")
 miax_options_ctom_mach_v1_1.prefs.show_complex_top_of_market_bid_compact_message = Pref.bool("Show Complex Top Of Market Bid Compact Message", show.complex_top_of_market_bid_compact_message, "Parse and add Complex Top Of Market Bid Compact Message to protocol tree")
 miax_options_ctom_mach_v1_1.prefs.show_complex_top_of_market_offer_compact_message = Pref.bool("Show Complex Top Of Market Offer Compact Message", show.complex_top_of_market_offer_compact_message, "Parse and add Complex Top Of Market Offer Compact Message to protocol tree")
@@ -143,7 +143,7 @@ miax_options_ctom_mach_v1_1.prefs.show_strategy_trade_message = Pref.bool("Show 
 miax_options_ctom_mach_v1_1.prefs.show_system_state_message = Pref.bool("Show System State Message", show.system_state_message, "Parse and add System State Message to protocol tree")
 miax_options_ctom_mach_v1_1.prefs.show_system_time_message = Pref.bool("Show System Time Message", show.system_time_message, "Parse and add System Time Message to protocol tree")
 miax_options_ctom_mach_v1_1.prefs.show_underlying_trading_status_message = Pref.bool("Show Underlying Trading Status Message", show.underlying_trading_status_message, "Parse and add Underlying Trading Status Message to protocol tree")
-miax_options_ctom_mach_v1_1.prefs.show_wide_complex_double_sided_top_of_market_message = Pref.bool("Show Wide Complex Double Sided Top of Market Message", show.wide_complex_double_sided_top_of_market_message, "Parse and add Wide Complex Double Sided Top of Market Message to protocol tree")
+miax_options_ctom_mach_v1_1.prefs.show_wide_complex_double_sided_top_of_market_message = Pref.bool("Show Wide Complex Double Sided Top Of Market Message", show.wide_complex_double_sided_top_of_market_message, "Parse and add Wide Complex Double Sided Top Of Market Message to protocol tree")
 miax_options_ctom_mach_v1_1.prefs.show_wide_complex_top_of_market_bid_message = Pref.bool("Show Wide Complex Top Of Market Bid Message", show.wide_complex_top_of_market_bid_message, "Parse and add Wide Complex Top Of Market Bid Message to protocol tree")
 miax_options_ctom_mach_v1_1.prefs.show_wide_complex_top_of_market_offer_message = Pref.bool("Show Wide Complex Top Of Market Offer Message", show.wide_complex_top_of_market_offer_message, "Parse and add Wide Complex Top Of Market Offer Message to protocol tree")
 miax_options_ctom_mach_v1_1.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
@@ -773,12 +773,12 @@ dissect.wide_bid_price = function(buffer, offset, packet, parent)
   return offset + size_of.wide_bid_price
 end
 
--- Display: Wide Complex Double Sided Top of Market Message
+-- Display: Wide Complex Double Sided Top Of Market Message
 display.wide_complex_double_sided_top_of_market_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Wide Complex Double Sided Top of Market Message
+-- Dissect Fields: Wide Complex Double Sided Top Of Market Message
 dissect.wide_complex_double_sided_top_of_market_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -815,7 +815,7 @@ dissect.wide_complex_double_sided_top_of_market_message_fields = function(buffer
   return index
 end
 
--- Dissect: Wide Complex Double Sided Top of Market Message
+-- Dissect: Wide Complex Double Sided Top Of Market Message
 dissect.wide_complex_double_sided_top_of_market_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.wide_complex_double_sided_top_of_market_message then
@@ -941,12 +941,12 @@ dissect.compact_bid_price = function(buffer, offset, packet, parent)
   return offset + size_of.compact_bid_price
 end
 
--- Display: Complex Double Sided Top of Market Compact Message
+-- Display: Complex Double Sided Top Of Market Compact Message
 display.complex_double_sided_top_of_market_compact_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Complex Double Sided Top of Market Compact Message
+-- Dissect Fields: Complex Double Sided Top Of Market Compact Message
 dissect.complex_double_sided_top_of_market_compact_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -983,7 +983,7 @@ dissect.complex_double_sided_top_of_market_compact_message_fields = function(buf
   return index
 end
 
--- Dissect: Complex Double Sided Top of Market Compact Message
+-- Dissect: Complex Double Sided Top Of Market Compact Message
 dissect.complex_double_sided_top_of_market_compact_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.complex_double_sided_top_of_market_compact_message then
@@ -2191,53 +2191,53 @@ dissect.system_time_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Data
-size_of.data = function(buffer, offset, code)
+size_of.data = function(buffer, offset, messagetype)
   -- Size of System Time Message
-  if code == "1" then
+  if messagetype == "1" then
     return 4
   end
   -- Size of Series Update
-  if code == "P" then
+  if messagetype == "P" then
     return 72
   end
   -- Size of Complex Strategy Definition Message
-  if code == "C" then
+  if messagetype == "C" then
     return 48
   end
   -- Size of System State Message
-  if code == "S" then
+  if messagetype == "S" then
     return 17
   end
   -- Size of Complex Top Of Market Bid Compact Message
-  if code == "b" then
+  if messagetype == "b" then
     return 15
   end
   -- Size of Complex Top Of Market Offer Compact Message
-  if code == "o" then
+  if messagetype == "o" then
     return 15
   end
   -- Size of Wide Complex Top Of Market Bid Message
-  if code == "e" then
+  if messagetype == "e" then
     return 25
   end
   -- Size of Wide Complex Top Of Market Offer Message
-  if code == "f" then
+  if messagetype == "f" then
     return 25
   end
-  -- Size of Complex Double Sided Top of Market Compact Message
-  if code == "m" then
+  -- Size of Complex Double Sided Top Of Market Compact Message
+  if messagetype == "m" then
     return 22
   end
-  -- Size of Wide Complex Double Sided Top of Market Message
-  if code == "w" then
+  -- Size of Wide Complex Double Sided Top Of Market Message
+  if messagetype == "w" then
     return 42
   end
   -- Size of Strategy Trade Message
-  if code == "t" then
+  if messagetype == "t" then
     return 41
   end
   -- Size of Underlying Trading Status Message
-  if code == "H" then
+  if messagetype == "H" then
     return 25
   end
 
@@ -2249,54 +2249,54 @@ display.data = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.data_branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Data
+dissect.data_branches = function(buffer, offset, packet, parent, messagetype)
   -- Dissect System Time Message
-  if code == "1" then
+  if messagetype == "1" then
     return dissect.system_time_message(buffer, offset, packet, parent)
   end
   -- Dissect Series Update
-  if code == "P" then
+  if messagetype == "P" then
     return dissect.series_update(buffer, offset, packet, parent)
   end
   -- Dissect Complex Strategy Definition Message
-  if code == "C" then
+  if messagetype == "C" then
     return dissect.complex_strategy_definition_message(buffer, offset, packet, parent)
   end
   -- Dissect System State Message
-  if code == "S" then
+  if messagetype == "S" then
     return dissect.system_state_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Top Of Market Bid Compact Message
-  if code == "b" then
+  if messagetype == "b" then
     return dissect.complex_top_of_market_bid_compact_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Top Of Market Offer Compact Message
-  if code == "o" then
+  if messagetype == "o" then
     return dissect.complex_top_of_market_offer_compact_message(buffer, offset, packet, parent)
   end
   -- Dissect Wide Complex Top Of Market Bid Message
-  if code == "e" then
+  if messagetype == "e" then
     return dissect.wide_complex_top_of_market_bid_message(buffer, offset, packet, parent)
   end
   -- Dissect Wide Complex Top Of Market Offer Message
-  if code == "f" then
+  if messagetype == "f" then
     return dissect.wide_complex_top_of_market_offer_message(buffer, offset, packet, parent)
   end
-  -- Dissect Complex Double Sided Top of Market Compact Message
-  if code == "m" then
+  -- Dissect Complex Double Sided Top Of Market Compact Message
+  if messagetype == "m" then
     return dissect.complex_double_sided_top_of_market_compact_message(buffer, offset, packet, parent)
   end
-  -- Dissect Wide Complex Double Sided Top of Market Message
-  if code == "w" then
+  -- Dissect Wide Complex Double Sided Top Of Market Message
+  if messagetype == "w" then
     return dissect.wide_complex_double_sided_top_of_market_message(buffer, offset, packet, parent)
   end
   -- Dissect Strategy Trade Message
-  if code == "t" then
+  if messagetype == "t" then
     return dissect.strategy_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Underlying Trading Status Message
-  if code == "H" then
+  if messagetype == "H" then
     return dissect.underlying_trading_status_message(buffer, offset, packet, parent)
   end
 
@@ -2353,10 +2353,10 @@ display.message_type = function(value)
     return "Message Type: Wide Complex Top Of Market Offer Message (f)"
   end
   if value == "m" then
-    return "Message Type: Complex Double Sided Top of Market Compact Message (m)"
+    return "Message Type: Complex Double Sided Top Of Market Compact Message (m)"
   end
   if value == "w" then
-    return "Message Type: Wide Complex Double Sided Top of Market Message (w)"
+    return "Message Type: Wide Complex Double Sided Top Of Market Message (w)"
   end
   if value == "t" then
     return "Message Type: Strategy Trade Message (t)"
@@ -2370,14 +2370,13 @@ end
 
 -- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_type)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(miax_options_ctom_mach_v1_1.fields.message_type, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_type
 end
 
 -- Calculate runtime size: Application Message
@@ -2427,9 +2426,9 @@ dissect.application_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, code)
+size_of.payload = function(buffer, offset, packettype)
   -- Size of Application Message
-  if code == 3 then
+  if packettype == 3 then
     return size_of.application_message(buffer, offset)
   end
 
@@ -2441,10 +2440,10 @@ display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.payload_branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Payload
+dissect.payload_branches = function(buffer, offset, packet, parent, packettype)
   -- Dissect Application Message
-  if code == 3 then
+  if packettype == 3 then
     return dissect.application_message(buffer, offset, packet, parent)
   end
 
@@ -2513,14 +2512,13 @@ end
 
 -- Dissect: Packet Type
 dissect.packet_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.packet_type)
   local value = range:le_uint()
   local display = display.packet_type(value, buffer, offset, packet, parent)
 
   parent:add(miax_options_ctom_mach_v1_1.fields.packet_type, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.packet_type
 end
 
 -- Size: Packet Length
@@ -2692,7 +2690,7 @@ miax_options_ctom_mach_v1_1:register_heuristic("udp", miax_options_ctom_mach_v1_
 -- 
 -- Script:
 --   Generator: 1.5.0.0
---   Compiler: 1.1
+--   Compiler: 2.0
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 

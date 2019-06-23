@@ -262,14 +262,13 @@ end
 
 -- Dissect: Number Of Responses
 dissect.number_of_responses = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.number_of_responses)
   local value = range:uint()
   local display = display.number_of_responses(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_orderfeed_itch_v1_1.fields.number_of_responses, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.number_of_responses
 end
 
 -- Size: Auction Event
@@ -1541,33 +1540,33 @@ dissect.system_event_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, code)
+size_of.payload = function(buffer, offset, messagetype)
   -- Size of System Event Message
-  if code == "S" then
+  if messagetype == "S" then
     return 13
   end
   -- Size of Option Directory Message
-  if code == "D" then
+  if messagetype == "D" then
     return 49
   end
   -- Size of Trading Action Message
-  if code == "H" then
+  if messagetype == "H" then
     return 11
   end
   -- Size of Security Open Closed Message
-  if code == "O" then
+  if messagetype == "O" then
     return 11
   end
   -- Size of Opening Imbalance Message
-  if code == "N" then
+  if messagetype == "N" then
     return 23
   end
   -- Size of Order On Book Message
-  if code == "B" then
+  if messagetype == "B" then
     return 40
   end
   -- Size of Auction Message
-  if code == "A" then
+  if messagetype == "A" then
     return size_of.auction_message(buffer, offset)
   end
 
@@ -1579,34 +1578,34 @@ display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.payload_branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Payload
+dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
   -- Dissect System Event Message
-  if code == "S" then
+  if messagetype == "S" then
     return dissect.system_event_message(buffer, offset, packet, parent)
   end
   -- Dissect Option Directory Message
-  if code == "D" then
+  if messagetype == "D" then
     return dissect.option_directory_message(buffer, offset, packet, parent)
   end
   -- Dissect Trading Action Message
-  if code == "H" then
+  if messagetype == "H" then
     return dissect.trading_action_message(buffer, offset, packet, parent)
   end
   -- Dissect Security Open Closed Message
-  if code == "O" then
+  if messagetype == "O" then
     return dissect.security_open_closed_message(buffer, offset, packet, parent)
   end
   -- Dissect Opening Imbalance Message
-  if code == "N" then
+  if messagetype == "N" then
     return dissect.opening_imbalance_message(buffer, offset, packet, parent)
   end
   -- Dissect Order On Book Message
-  if code == "B" then
+  if messagetype == "B" then
     return dissect.order_on_book_message(buffer, offset, packet, parent)
   end
   -- Dissect Auction Message
-  if code == "A" then
+  if messagetype == "A" then
     return dissect.auction_message(buffer, offset, packet, parent)
   end
 
@@ -1665,14 +1664,13 @@ end
 
 -- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_type)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_orderfeed_itch_v1_1.fields.message_type, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_type
 end
 
 -- Size: Length
@@ -1780,14 +1778,13 @@ end
 
 -- Dissect: Count
 dissect.count = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.count)
   local value = range:uint()
   local display = display.count(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_orderfeed_itch_v1_1.fields.count, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.count
 end
 
 -- Size: Sequence
@@ -1940,7 +1937,7 @@ nasdaq_ise_orderfeed_itch_v1_1:register_heuristic("udp", nasdaq_ise_orderfeed_it
 -- 
 -- Script:
 --   Generator: 1.5.0.0
---   Compiler: 1.1
+--   Compiler: 2.0
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 

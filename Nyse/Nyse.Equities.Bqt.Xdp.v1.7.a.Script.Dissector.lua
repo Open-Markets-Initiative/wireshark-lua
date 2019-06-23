@@ -3223,81 +3223,81 @@ dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, code)
+size_of.payload = function(buffer, offset, messagetype)
   -- Size of Sequence Number Reset Message
-  if code == 1 then
+  if messagetype == 1 then
     return 10
   end
   -- Size of Symbol Index Mapping Message
-  if code == 3 then
+  if messagetype == 3 then
     return 40
   end
   -- Size of Retransmission Request Message
-  if code == 10 then
+  if messagetype == 10 then
     return 20
   end
   -- Size of Request Response Message
-  if code == 11 then
+  if messagetype == 11 then
     return 25
   end
   -- Size of Heartbeat Response Message
-  if code == 12 then
+  if messagetype == 12 then
     return 10
   end
   -- Size of Symbol Index Mapping Request Message
-  if code == 13 then
+  if messagetype == 13 then
     return 17
   end
   -- Size of Refresh Request Message
-  if code == 15 then
+  if messagetype == 15 then
     return 16
   end
   -- Size of Message Unavailable Message
-  if code == 31 then
+  if messagetype == 31 then
     return 10
   end
   -- Size of Consolidated Symbol Clear Message
-  if code == 32 then
+  if messagetype == 32 then
     return 18
   end
   -- Size of Consolidated Trading Session Change Message
-  if code == 33 then
+  if messagetype == 33 then
     return 19
   end
   -- Size of Consolidated Security Status Message
-  if code == 34 then
+  if messagetype == 34 then
     return 42
   end
   -- Size of Refresh Header Message
-  if code == 35 then
+  if messagetype == 35 then
     return 12
   end
   -- Size of Bqt Message
-  if code == 142 then
+  if messagetype == 142 then
     return 31
   end
   -- Size of Consolidated Single Sided Quote Message
-  if code == 143 then
+  if messagetype == 143 then
     return 21
   end
   -- Size of Consolidated Trade Message
-  if code == 220 then
+  if messagetype == 220 then
     return 34
   end
   -- Size of Consolidated Trade Cancel Message
-  if code == 221 then
+  if messagetype == 221 then
     return 22
   end
   -- Size of Consolidated Trade Correction Message
-  if code == 222 then
+  if messagetype == 222 then
     return 38
   end
   -- Size of Consolidated Stock Summary Message
-  if code == 229 then
+  if messagetype == 229 then
     return 41
   end
   -- Size of Consolidated Volume Message
-  if code == 240 then
+  if messagetype == 240 then
     return 14
   end
 
@@ -3309,82 +3309,82 @@ display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.payload_branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Payload
+dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
   -- Dissect Sequence Number Reset Message
-  if code == 1 then
+  if messagetype == 1 then
     return dissect.sequence_number_reset_message(buffer, offset, packet, parent)
   end
   -- Dissect Symbol Index Mapping Message
-  if code == 3 then
+  if messagetype == 3 then
     return dissect.symbol_index_mapping_message(buffer, offset, packet, parent)
   end
   -- Dissect Retransmission Request Message
-  if code == 10 then
+  if messagetype == 10 then
     return dissect.retransmission_request_message(buffer, offset, packet, parent)
   end
   -- Dissect Request Response Message
-  if code == 11 then
+  if messagetype == 11 then
     return dissect.request_response_message(buffer, offset, packet, parent)
   end
   -- Dissect Heartbeat Response Message
-  if code == 12 then
+  if messagetype == 12 then
     return dissect.heartbeat_response_message(buffer, offset, packet, parent)
   end
   -- Dissect Symbol Index Mapping Request Message
-  if code == 13 then
+  if messagetype == 13 then
     return dissect.symbol_index_mapping_request_message(buffer, offset, packet, parent)
   end
   -- Dissect Refresh Request Message
-  if code == 15 then
+  if messagetype == 15 then
     return dissect.refresh_request_message(buffer, offset, packet, parent)
   end
   -- Dissect Message Unavailable Message
-  if code == 31 then
+  if messagetype == 31 then
     return dissect.message_unavailable_message(buffer, offset, packet, parent)
   end
   -- Dissect Consolidated Symbol Clear Message
-  if code == 32 then
+  if messagetype == 32 then
     return dissect.consolidated_symbol_clear_message(buffer, offset, packet, parent)
   end
   -- Dissect Consolidated Trading Session Change Message
-  if code == 33 then
+  if messagetype == 33 then
     return dissect.consolidated_trading_session_change_message(buffer, offset, packet, parent)
   end
   -- Dissect Consolidated Security Status Message
-  if code == 34 then
+  if messagetype == 34 then
     return dissect.consolidated_security_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Refresh Header Message
-  if code == 35 then
+  if messagetype == 35 then
     return dissect.refresh_header_message(buffer, offset, packet, parent)
   end
   -- Dissect Bqt Message
-  if code == 142 then
+  if messagetype == 142 then
     return dissect.bqt_message(buffer, offset, packet, parent)
   end
   -- Dissect Consolidated Single Sided Quote Message
-  if code == 143 then
+  if messagetype == 143 then
     return dissect.consolidated_single_sided_quote_message(buffer, offset, packet, parent)
   end
   -- Dissect Consolidated Trade Message
-  if code == 220 then
+  if messagetype == 220 then
     return dissect.consolidated_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Consolidated Trade Cancel Message
-  if code == 221 then
+  if messagetype == 221 then
     return dissect.consolidated_trade_cancel_message(buffer, offset, packet, parent)
   end
   -- Dissect Consolidated Trade Correction Message
-  if code == 222 then
+  if messagetype == 222 then
     return dissect.consolidated_trade_correction_message(buffer, offset, packet, parent)
   end
   -- Dissect Consolidated Stock Summary Message
-  if code == 229 then
+  if messagetype == 229 then
     return dissect.consolidated_stock_summary_message(buffer, offset, packet, parent)
   end
   -- Dissect Consolidated Volume Message
-  if code == 240 then
+  if messagetype == 240 then
     return dissect.consolidated_volume_message(buffer, offset, packet, parent)
   end
 
@@ -3479,14 +3479,13 @@ end
 
 -- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local length = 2
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_type)
   local value = range:le_uint()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.message_type, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_type
 end
 
 -- Size: Message Size
@@ -3651,14 +3650,13 @@ end
 
 -- Dissect: Message Count
 dissect.message_count = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_count)
   local value = range:le_uint()
   local display = display.message_count(value, buffer, offset, packet, parent)
 
   parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.message_count, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_count
 end
 
 -- Size: Delivery Flag
@@ -3854,7 +3852,7 @@ nyse_equities_bqt_xdp_v1_7_a:register_heuristic("udp", nyse_equities_bqt_xdp_v1_
 -- 
 -- Script:
 --   Generator: 1.5.0.0
---   Compiler: 1.1
+--   Compiler: 2.0
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 

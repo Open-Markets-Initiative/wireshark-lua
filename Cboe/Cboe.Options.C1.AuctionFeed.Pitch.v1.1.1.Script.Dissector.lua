@@ -1161,45 +1161,45 @@ dissect.time_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, code)
+size_of.payload = function(buffer, offset, messagetype)
   -- Size of Time Message
-  if code == 0x20 then
+  if messagetype == 0x20 then
     return 4
   end
   -- Size of Unit Clear Message
-  if code == 0x97 then
+  if messagetype == 0x97 then
     return 4
   end
   -- Size of Auction Notification Message
-  if code == 0xAD then
+  if messagetype == 0xAD then
     return 45
   end
   -- Size of Auction Cancel Message
-  if code == 0xAE then
+  if messagetype == 0xAE then
     return 12
   end
   -- Size of Auction Trade Message
-  if code == 0xAF then
+  if messagetype == 0xAF then
     return 32
   end
   -- Size of Auction Update Message
-  if code == 0xD1 then
+  if messagetype == 0xD1 then
     return 46
   end
   -- Size of Auction Summary Message
-  if code == 0x96 then
+  if messagetype == 0x96 then
     return 25
   end
   -- Size of Width Update Message
-  if code == 0xD2 then
+  if messagetype == 0xD2 then
     return 17
   end
   -- Size of Symbol Mapping Message
-  if code == 0x2E then
+  if messagetype == 0x2E then
     return 36
   end
   -- Size of End Of Session Message
-  if code == 0x2D then
+  if messagetype == 0x2D then
     return 4
   end
 
@@ -1211,46 +1211,46 @@ display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches:
-dissect.payload_branches = function(buffer, offset, packet, parent, code)
+-- Dissect Branches: Payload
+dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
   -- Dissect Time Message
-  if code == 0x20 then
+  if messagetype == 0x20 then
     return dissect.time_message(buffer, offset, packet, parent)
   end
   -- Dissect Unit Clear Message
-  if code == 0x97 then
+  if messagetype == 0x97 then
     return dissect.unit_clear_message(buffer, offset, packet, parent)
   end
   -- Dissect Auction Notification Message
-  if code == 0xAD then
+  if messagetype == 0xAD then
     return dissect.auction_notification_message(buffer, offset, packet, parent)
   end
   -- Dissect Auction Cancel Message
-  if code == 0xAE then
+  if messagetype == 0xAE then
     return dissect.auction_cancel_message(buffer, offset, packet, parent)
   end
   -- Dissect Auction Trade Message
-  if code == 0xAF then
+  if messagetype == 0xAF then
     return dissect.auction_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Auction Update Message
-  if code == 0xD1 then
+  if messagetype == 0xD1 then
     return dissect.auction_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Auction Summary Message
-  if code == 0x96 then
+  if messagetype == 0x96 then
     return dissect.auction_summary_message(buffer, offset, packet, parent)
   end
   -- Dissect Width Update Message
-  if code == 0xD2 then
+  if messagetype == 0xD2 then
     return dissect.width_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Symbol Mapping Message
-  if code == 0x2E then
+  if messagetype == 0x2E then
     return dissect.symbol_mapping_message(buffer, offset, packet, parent)
   end
   -- Dissect End Of Session Message
-  if code == 0x2D then
+  if messagetype == 0x2D then
     return dissect.end_of_session_message(buffer, offset, packet, parent)
   end
 
@@ -1318,14 +1318,13 @@ end
 
 -- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.message_type)
   local value = range:le_uint()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_c1_auctionfeed_pitch_v1_1_1.fields.message_type, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.message_type
 end
 
 -- Size: Message Length
@@ -1471,14 +1470,13 @@ end
 
 -- Dissect: Count
 dissect.count = function(buffer, offset, packet, parent)
-  local length = 1
-  local range = buffer(offset, length)
+  local range = buffer(offset, size_of.count)
   local value = range:le_uint()
   local display = display.count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_c1_auctionfeed_pitch_v1_1_1.fields.count, range, value, display)
 
-  return offset + length, value
+  return offset + size_of.count
 end
 
 -- Size: Length
@@ -1615,7 +1613,7 @@ cboe_options_c1_auctionfeed_pitch_v1_1_1:register_heuristic("udp", cboe_options_
 -- 
 -- Script:
 --   Generator: 1.5.0.0
---   Compiler: 1.1
+--   Compiler: 2.0
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 -- 
