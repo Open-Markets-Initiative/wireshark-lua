@@ -2619,10 +2619,10 @@ dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Message: Struct of 5 fields
-  while index < buffer:len() do
+  local end_of_payload = buffer:len()
+  while index < end_of_payload do
     index = dissect.message(buffer, index, packet, parent)
   end
-
 
   return index
 end

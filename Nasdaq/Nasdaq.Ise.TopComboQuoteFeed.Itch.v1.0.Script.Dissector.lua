@@ -2082,10 +2082,10 @@ dissect.packet = function(buffer, packet, parent)
   index = dissect.packet_header(buffer, index, packet, parent)
 
   -- Message: Struct of 2 fields
-  while index < buffer:len() do
+  local end_of_payload = buffer:len()
+  while index < end_of_payload do
     index = dissect.message(buffer, index, packet, parent)
   end
-
 
   return index
 end

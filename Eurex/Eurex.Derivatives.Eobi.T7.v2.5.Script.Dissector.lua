@@ -3212,7 +3212,7 @@ end
 
 -- Size Of: Message
 size_of.message = function(buffer, offset)
-  return buffer(offset + 0, 2):le_uint()
+  return buffer(offset, size_of.body_len):le_uint()
 end
 
 -- Display: Message
@@ -3258,10 +3258,10 @@ dissect.packet = function(buffer, packet, parent)
   index = dissect.packet_header(buffer, index, packet, parent)
 
   -- Message: Struct of 2 fields
-  while index < buffer:len() do
+  local end_of_payload = buffer:len()
+  while index < end_of_payload do
     index = dissect.message(buffer, index, packet, parent)
   end
-
 
   return index
 end
