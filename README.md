@@ -72,7 +72,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 |[Nasdaq][Nasdaq.Phlx.Topo.Itch.v3.3.Organization] | Phlx | Topo | Itch | [3.3][Nasdaq.Phlx.Topo.Itch.v3.3.Dissector] | 11/2/2017 | 2020 | Untested|
 |[Nasdaq][Nasdaq.Psx.Bbo.Itch.v2.1.Organization] | Psx | Bbo | Itch | [2.1][Nasdaq.Psx.Bbo.Itch.v2.1.Dissector] | 5/3/2018 | 1835 | Untested|
 |[Nasdaq][Nasdaq.Psx.TotalView.Itch.v5.0.Organization] | Psx | TotalView | Itch | [5.0][Nasdaq.Psx.TotalView.Itch.v5.0.Dissector] | 5/3/2018 | 3187 | Untested|
-|[Nyse][Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.Organization] | Amex Equities | OpenBook | Ultra | [2.1.b][Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.Dissector] | 3/9/2018 | 1273 | Untested|
+|[Nyse][Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.Organization] | Amex Equities | OpenBook | Ultra | [2.1.b][Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.Dissector] | 3/9/2018 | 1349 | Verified|
 |[Nyse][Nyse.Equities.Bbo.Xdp.v2.4.g.Organization] | Equities | Bbo | Xdp | [2.4.g][Nyse.Equities.Bbo.Xdp.v2.4.g.Dissector] | 1/29/2018 | 2663 | Verified|
 |[Nyse][Nyse.Equities.Bqt.Xdp.v2.1.a.Organization] | Equities | Bqt | Xdp | [2.1.a][Nyse.Equities.Bqt.Xdp.v2.1.a.Dissector] | 4/4/2018 | 3955 | Untested|
 |[Nyse][Nyse.Equities.Bqt.Xdp.v1.7.a.Organization] | Equities | Bqt | Xdp | [1.7.a][Nyse.Equities.Bqt.Xdp.v1.7.a.Dissector] | 7/24/2017 | 3863 | Verified|
@@ -91,7 +91,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 |Protocol Count | Generated Lines|
 |--- | ---|
-|53 | 195,193|
+|53 | 195,269|
 
 Note: Our dissector model is still under rapid development.
 

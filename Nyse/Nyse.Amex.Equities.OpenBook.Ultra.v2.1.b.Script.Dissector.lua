@@ -35,6 +35,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_id_3 = ProtoField.new("Link
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.message_count = ProtoField.new("Message Count", "nyse.amex.equities.openbook.ultra.v2.1.b.messagecount", ftypes.UINT8)
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.message_type = ProtoField.new("Message Type", "nyse.amex.equities.openbook.ultra.v2.1.b.messagetype", ftypes.UINT16)
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.mpv = ProtoField.new("Mpv", "nyse.amex.equities.openbook.ultra.v2.1.b.mpv", ftypes.INT16)
+nyse_amex_equities_openbook_ultra_v2_1_b.fields.next_sequence_number = ProtoField.new("Next Sequence Number", "nyse.amex.equities.openbook.ultra.v2.1.b.nextsequencenumber", ftypes.INT32)
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.num_orders = ProtoField.new("Num Orders", "nyse.amex.equities.openbook.ultra.v2.1.b.numorders", ftypes.INT16)
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.packet = ProtoField.new("Packet", "nyse.amex.equities.openbook.ultra.v2.1.b.packet", ftypes.STRING)
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.packet_header = ProtoField.new("Packet Header", "nyse.amex.equities.openbook.ultra.v2.1.b.packetheader", ftypes.STRING)
@@ -48,6 +49,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b.fields.reason_code = ProtoField.new("Re
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.amex.equities.openbook.ultra.v2.1.b.reserved1", ftypes.BYTES)
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.retransmission_flag = ProtoField.new("Retransmission Flag", "nyse.amex.equities.openbook.ultra.v2.1.b.retransmissionflag", ftypes.UINT8)
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.amex.equities.openbook.ultra.v2.1.b.sequencenumber", ftypes.UINT32)
+nyse_amex_equities_openbook_ultra_v2_1_b.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.amex.equities.openbook.ultra.v2.1.b.sequencenumberresetmessage", ftypes.STRING)
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.side = ProtoField.new("Side", "nyse.amex.equities.openbook.ultra.v2.1.b.side", ftypes.STRING)
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_seq_num = ProtoField.new("Source Seq Num", "nyse.amex.equities.openbook.ultra.v2.1.b.sourceseqnum", ftypes.INT32)
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_session_id = ProtoField.new("Source Session Id", "nyse.amex.equities.openbook.ultra.v2.1.b.sourcesessionid", ftypes.INT8)
@@ -74,6 +76,7 @@ show.full_update_message = true
 show.full_update_messages = true
 show.packet = true
 show.packet_header = true
+show.sequence_number_reset_message = true
 show.payload = false
 
 -- Register Nyse Amex Equities OpenBook Ultra 2.1.b Show Options
@@ -85,6 +88,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_update_message = Pref.b
 nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_update_messages = Pref.bool("Show Full Update Messages", show.full_update_messages, "Parse and add Full Update Messages to protocol tree")
 nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
 nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
@@ -124,6 +128,10 @@ function nyse_amex_equities_openbook_ultra_v2_1_b.prefs_changed()
     show.packet_header = nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_packet_header
     changed = true
   end
+  if show.sequence_number_reset_message ~= nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_sequence_number_reset_message then
+    show.sequence_number_reset_message = nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_sequence_number_reset_message
+    changed = true
+  end
   if show.payload ~= nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_payload then
     show.payload = nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_payload
     changed = true
@@ -139,6 +147,52 @@ end
 -----------------------------------------------------------------------
 -- Dissect Nyse Amex Equities OpenBook Ultra 2.1.b
 -----------------------------------------------------------------------
+
+-- Size: Next Sequence Number
+size_of.next_sequence_number = 4
+
+-- Display: Next Sequence Number
+display.next_sequence_number = function(value)
+  return "Next Sequence Number: "..value
+end
+
+-- Dissect: Next Sequence Number
+dissect.next_sequence_number = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.next_sequence_number)
+  local value = range:int()
+  local display = display.next_sequence_number(value, buffer, offset, packet, parent)
+
+  parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.next_sequence_number, range, value, display)
+
+  return offset + size_of.next_sequence_number
+end
+
+-- Display: Sequence Number Reset Message
+display.sequence_number_reset_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Sequence Number Reset Message
+dissect.sequence_number_reset_message_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Next Sequence Number: 4 Byte Signed Fixed Width Integer
+  index = dissect.next_sequence_number(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Sequence Number Reset Message
+dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.sequence_number_reset_message then
+    local range = buffer(offset, 4)
+    local display = display.sequence_number_reset_message(buffer, packet, parent)
+    parent = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.sequence_number_reset_message, range, display)
+  end
+
+  return dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
+end
 
 -- Size: Link Id 3
 size_of.link_id_3 = 4
@@ -406,12 +460,6 @@ size_of.trading_status = 1
 
 -- Display: Trading Status
 display.trading_status = function(value)
-  if value == " " then
-    return "Trading Status: No Special Quote Condition (<whitespace>)"
-  end
-  if value == "W" then
-    return "Trading Status: Slow Quote (W)"
-  end
   if value == "P" then
     return "Trading Status: Pre Opening (P)"
   end
@@ -450,7 +498,14 @@ size_of.quote_condition = 1
 
 -- Display: Quote Condition
 display.quote_condition = function(value)
-  return "Quote Condition: "..value
+  if value == " " then
+    return "Quote Condition: No Special Quote Condition (<whitespace>)"
+  end
+  if value == "W" then
+    return "Quote Condition: Slow Quote (W)"
+  end
+
+  return "Quote Condition: Unknown("..value..")"
 end
 
 -- Dissect: Quote Condition
@@ -610,10 +665,10 @@ dissect.delta_update_message_fields = function(buffer, offset, packet, parent)
   -- Source Session Id: 1 Byte Signed Fixed Width Integer
   index = dissect.source_session_id(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String
+  -- Quote Condition: 1 Byte Ascii String Enum with 2 values
   index = dissect.quote_condition(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Ascii String Enum with 8 values
+  -- Trading Status: 1 Byte Ascii String Enum with 6 values
   index = dissect.trading_status(buffer, index, packet, parent)
 
   -- Price Scale Code: 1 Byte Signed Fixed Width Integer
@@ -852,10 +907,10 @@ dissect.full_update_message_fields = function(buffer, offset, packet, parent)
   -- Price Scale Code: 1 Byte Signed Fixed Width Integer
   index = dissect.price_scale_code(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String
+  -- Quote Condition: 1 Byte Ascii String Enum with 2 values
   index = dissect.quote_condition(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Ascii String Enum with 8 values
+  -- Trading Status: 1 Byte Ascii String Enum with 6 values
   index = dissect.trading_status(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
@@ -935,6 +990,14 @@ size_of.payload = function(buffer, offset, messagetype)
   if messagetype == 231 then
     return size_of.delta_update_messages(buffer, offset)
   end
+  -- Size of Sequence Number Reset Message
+  if messagetype == 1 then
+    return 4
+  end
+  -- Size of Heartbeat Message
+  if messagetype == 2 then
+    return 0
+  end
 
   return 0
 end
@@ -953,6 +1016,13 @@ dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
   -- Dissect Delta Update Messages
   if messagetype == 231 then
     return dissect.delta_update_messages(buffer, offset, packet, parent)
+  end
+  -- Dissect Sequence Number Reset Message
+  if messagetype == 1 then
+    return dissect.sequence_number_reset_message(buffer, offset, packet, parent)
+  end
+  -- Dissect Heartbeat Message
+  if messagetype == 2 then
   end
 
   return offset
@@ -1103,6 +1173,12 @@ display.message_type = function(value)
   if value == 231 then
     return "Message Type: Delta Update Message (231)"
   end
+  if value == 1 then
+    return "Message Type: Sequence Number Reset Message (1)"
+  end
+  if value == 2 then
+    return "Message Type: Heartbeat Message (2)"
+  end
 
   return "Message Type: Unknown("..value..")"
 end
@@ -1149,7 +1225,7 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   -- Packet Size: 2 Byte Unsigned Fixed Width Integer
   index = dissect.packet_size(buffer, index, packet, parent)
 
-  -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
   index = dissect.message_type(buffer, index, packet, parent)
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
@@ -1192,7 +1268,7 @@ dissect.packet = function(buffer, packet, parent)
   -- Packet Header: Struct of 8 fields
   index = dissect.packet_header(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 2 branches
+  -- Payload: Runtime Type with 4 branches
   local code = buffer(index - 14, 2):uint()
   index = dissect.payload(buffer, index, packet, parent, code)
 
