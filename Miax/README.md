@@ -10,6 +10,7 @@
 |Options | Tom | Mach | [2.3][Miax.Options.Tom.Mach.v2.3.Dissector] | 6/10/2019 | 2534 | Untested | [url][Miax.Options.Tom.Mach.v2.3.Url] - [pdf][Miax.Options.Tom.Mach.v2.3.Pdf]|
 |Options | Tom | Mach | [2.2][Miax.Options.Tom.Mach.v2.2.Dissector] | 3/16/2018 | 2558 | Untested | [url][Miax.Options.Tom.Mach.v2.2.Url] - [pdf][Miax.Options.Tom.Mach.v2.2.Pdf]|
 |Options | Tom | Mach | [1.9][Miax.Options.Tom.Mach.v1.9.Dissector] | 1/15/2016 | 2464 | Verified | [url][Miax.Options.Tom.Mach.v1.9.Url] - [pdf][Miax.Options.Tom.Mach.v1.9.Pdf]|
+|Pearl | Tom | Mach | [1.0][Miax.Pearl.Tom.Mach.v1.0.Dissector] | 2/27/2017 | 2541 | Untested | [url][Miax.Pearl.Tom.Mach.v1.0.Url] - [pdf][Miax.Pearl.Tom.Mach.v1.0.Pdf]|
 
 
 Miax: [website](https://www.miaxoptions.com/ "Go to Miami International Securities Exchange")
@@ -30,3 +31,6 @@ Miax: [website](https://www.miaxoptions.com/ "Go to Miami International Securiti
 [Miax.Options.Tom.Mach.v2.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Options.Tom.Mach.v2.3.Script.Dissector.lua "Miami International Securities Exchange 2.3 Wireshark Dissector"
 [Miax.Options.Tom.Mach.v2.3.Url]: https://www.miaxoptions.com/interface-specifications "Specification url"
 [Miax.Options.Tom.Mach.v2.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Miax/Miax.Options.Tom.Mach.v2.3.pdf "Miami International Securities Exchange 2.3 Pdf"
+[Miax.Pearl.Tom.Mach.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Pearl.Tom.Mach.v1.0.Script.Dissector.lua "Miami International Securities Exchange 1.0 Wireshark Dissector"
+[Miax.Pearl.Tom.Mach.v1.0.Url]: https://www.miaxoptions.com/interface-specifications/pearl "Specification url"
+[Miax.Pearl.Tom.Mach.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Miax/Miax.Pearl.Tom.Mach.v1.0.pdf "Miami International Securities Exchange 1.0 Pdf"
