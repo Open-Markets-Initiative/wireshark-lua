@@ -43,6 +43,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 |[Cme][Cme.Mdp3.Sbe.v8.1.Organization] |  | Mdp3 | Sbe | [8.1][Cme.Mdp3.Sbe.v8.1.Dissector] | 7/1/2016 | 7047 | Verified|
 |[Cme][Cme.Mdp3.Sbe.v6.1.Organization] |  | Mdp3 | Sbe | [6.1][Cme.Mdp3.Sbe.v6.1.Dissector] | 1/9/2016 | 6277 | Verified|
 |[Cme][Cme.Mdp3.Sbe.v5.1.Organization] |  | Mdp3 | Sbe | [5.1][Cme.Mdp3.Sbe.v5.1.Dissector] | 8/6/2014 | 6268 | Verified|
+|[Cme][Cme.Mdp3.Sbe.v10.1.Organization] |  | Mdp3 | Sbe | [10.1][Cme.Mdp3.Sbe.v10.1.Dissector] | 7/26/2019 | 8433 | Untested|
 |[Cme][Cme.Streamline.Sbe.v9.5.Organization] |  | Streamline | Sbe | [9.5][Cme.Streamline.Sbe.v9.5.Dissector] | 4/4/2018 | 5713 | Untested|
 |[Cme][Cme.Streamline.Sbe.v8.5.Organization] |  | Streamline | Sbe | [8.5][Cme.Streamline.Sbe.v8.5.Dissector] | 6/2/2017 | 5575 | Untested|
 |[Eurex][Eurex.Derivatives.Eobi.T7.v7.1.Organization] | Derivatives | Eobi | T7 | [7.1][Eurex.Derivatives.Eobi.T7.v7.1.Dissector] | 3/14/2019 | 3918 | Untested|
@@ -98,7 +99,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 |Protocol Count | Generated Lines|
 |--- | ---|
-|60 | 213,019|
+|61 | 221,452|
 
 Note: Our dissector model is still under rapid development.
 
@@ -144,6 +145,8 @@ Enjoy.
 [Cme.Mdp3.Sbe.v8.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Mdp3.Sbe.v8.1.Script.Dissector.lua "Chicago Mercantile Exchange 8.1 Wireshark Dissector"
 [Cme.Mdp3.Sbe.v9.1.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange"
 [Cme.Mdp3.Sbe.v9.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Mdp3.Sbe.v9.1.Script.Dissector.lua "Chicago Mercantile Exchange 9.1 Wireshark Dissector"
+[Cme.Mdp3.Sbe.v10.1.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange"
+[Cme.Mdp3.Sbe.v10.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Mdp3.Sbe.v10.1.Script.Dissector.lua "Chicago Mercantile Exchange 10.1 Wireshark Dissector"
 [Cme.Streamline.Sbe.v8.5.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange"
 [Cme.Streamline.Sbe.v8.5.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Streamline.Sbe.v8.5.Script.Dissector.lua "Chicago Mercantile Exchange 8.5 Wireshark Dissector"
 [Cme.Streamline.Sbe.v9.5.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange"
