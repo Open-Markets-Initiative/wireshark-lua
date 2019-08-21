@@ -1607,272 +1607,6 @@ dissect.partial_order_execution = function(buffer, offset, packet, parent)
   return dissect.partial_order_execution_fields(buffer, offset, packet, parent)
 end
 
--- Size: Pad5
-size_of.pad5 = 5
-
--- Display: Pad5
-display.pad5 = function(value)
-  return "Pad5: "..value
-end
-
--- Dissect: Pad5
-dissect.pad5 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.pad5)
-  local value = range:bytes():tohex(false, " ")
-  local display = display.pad5(value, buffer, offset, packet, parent)
-
-  parent:add(eurex_derivatives_eobi_t7_v7_0.fields.pad5, range, value, display)
-
-  return offset + size_of.pad5
-end
-
--- Size: Application Sequence Reset Indicator
-size_of.application_sequence_reset_indicator = 1
-
--- Display: Application Sequence Reset Indicator
-display.application_sequence_reset_indicator = function(value)
-  if value == 0 then
-    return "Application Sequence Reset Indicator: No Reset (0)"
-  end
-  if value == 1 then
-    return "Application Sequence Reset Indicator: Reset (1)"
-  end
-
-  return "Application Sequence Reset Indicator: Unknown("..value..")"
-end
-
--- Dissect: Application Sequence Reset Indicator
-dissect.application_sequence_reset_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.application_sequence_reset_indicator)
-  local value = range:le_uint()
-  local display = display.application_sequence_reset_indicator(value, buffer, offset, packet, parent)
-
-  parent:add(eurex_derivatives_eobi_t7_v7_0.fields.application_sequence_reset_indicator, range, value, display)
-
-  return offset + size_of.application_sequence_reset_indicator
-end
-
--- Size: Completion Indicator
-size_of.completion_indicator = 1
-
--- Display: Completion Indicator
-display.completion_indicator = function(value)
-  if value == 0 then
-    return "Completion Indicator: Incomplete (0)"
-  end
-  if value == 1 then
-    return "Completion Indicator: Complete (1)"
-  end
-
-  return "Completion Indicator: Unknown("..value..")"
-end
-
--- Dissect: Completion Indicator
-dissect.completion_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.completion_indicator)
-  local value = range:le_uint()
-  local display = display.completion_indicator(value, buffer, offset, packet, parent)
-
-  parent:add(eurex_derivatives_eobi_t7_v7_0.fields.completion_indicator, range, value, display)
-
-  return offset + size_of.completion_indicator
-end
-
--- Size: Partition ID
-size_of.partition_id = 1
-
--- Display: Partition ID
-display.partition_id = function(value)
-  return "Partition ID: "..value
-end
-
--- Dissect: Partition ID
-dissect.partition_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.partition_id)
-  local value = range:le_uint()
-  local display = display.partition_id(value, buffer, offset, packet, parent)
-
-  parent:add(eurex_derivatives_eobi_t7_v7_0.fields.partition_id, range, value, display)
-
-  return offset + size_of.partition_id
-end
-
--- Size: Market Segment ID
-size_of.market_segment_id = 4
-
--- Display: Market Segment ID
-display.market_segment_id = function(value)
-  return "Market Segment ID: "..value
-end
-
--- Dissect: Market Segment ID
-dissect.market_segment_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.market_segment_id)
-  local value = range:le_int()
-  local display = display.market_segment_id(value, buffer, offset, packet, parent)
-
-  parent:add(eurex_derivatives_eobi_t7_v7_0.fields.market_segment_id, range, value, display)
-
-  return offset + size_of.market_segment_id
-end
-
--- Size: Application Sequence Number
-size_of.application_sequence_number = 4
-
--- Display: Application Sequence Number
-display.application_sequence_number = function(value)
-  return "Application Sequence Number: "..value
-end
-
--- Dissect: Application Sequence Number
-dissect.application_sequence_number = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.application_sequence_number)
-  local value = range:le_uint()
-  local display = display.application_sequence_number(value, buffer, offset, packet, parent)
-
-  parent:add(eurex_derivatives_eobi_t7_v7_0.fields.application_sequence_number, range, value, display)
-
-  return offset + size_of.application_sequence_number
-end
-
--- Size: Packet Seq Num
-size_of.packet_seq_num = 4
-
--- Display: Packet Seq Num
-display.packet_seq_num = function(value)
-  return "Packet Seq Num: "..value
-end
-
--- Dissect: Packet Seq Num
-dissect.packet_seq_num = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.packet_seq_num)
-  local value = range:le_uint()
-  local display = display.packet_seq_num(value, buffer, offset, packet, parent)
-
-  parent:add(eurex_derivatives_eobi_t7_v7_0.fields.packet_seq_num, range, value, display)
-
-  return offset + size_of.packet_seq_num
-end
-
--- Size: Packet Id
-size_of.packet_id = 2
-
--- Display: Packet Id
-display.packet_id = function(value)
-  return "Packet Id: "..value
-end
-
--- Dissect: Packet Id
-dissect.packet_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.packet_id)
-  local value = range:le_uint()
-  local display = display.packet_id(value, buffer, offset, packet, parent)
-
-  parent:add(eurex_derivatives_eobi_t7_v7_0.fields.packet_id, range, value, display)
-
-  return offset + size_of.packet_id
-end
-
--- Size: Header Length
-size_of.header_length = 2
-
--- Display: Header Length
-display.header_length = function(value)
-  return "Header Length: "..value
-end
-
--- Dissect: Header Length
-dissect.header_length = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.header_length)
-  local value = range:le_uint()
-  local display = display.header_length(value, buffer, offset, packet, parent)
-
-  parent:add(eurex_derivatives_eobi_t7_v7_0.fields.header_length, range, value, display)
-
-  return offset + size_of.header_length
-end
-
--- Display: Packet Info
-display.packet_info = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Packet Info
-dissect.packet_info_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Header Length: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.header_length(buffer, index, packet, parent)
-
-  -- Packet Id: 2 Byte Unsigned Fixed Width Integer Static
-  index = dissect.packet_id(buffer, index, packet, parent)
-
-  -- Packet Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.packet_seq_num(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Packet Info
-dissect.packet_info = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.packet_info then
-    local range = buffer(offset, 8)
-    local display = display.packet_info(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eobi_t7_v7_0.fields.packet_info, range, display)
-  end
-
-  return dissect.packet_info_fields(buffer, offset, packet, parent)
-end
-
--- Display: Packet Header
-display.packet_header = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Packet Header
-dissect.packet_header_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Packet Info: Struct of 3 fields
-  index = dissect.packet_info(buffer, index, packet, parent)
-
-  -- Application Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.application_sequence_number(buffer, index, packet, parent)
-
-  -- Market Segment ID: 4 Byte Signed Fixed Width Integer
-  index = dissect.market_segment_id(buffer, index, packet, parent)
-
-  -- Partition ID: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.partition_id(buffer, index, packet, parent)
-
-  -- Completion Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.completion_indicator(buffer, index, packet, parent)
-
-  -- Application Sequence Reset Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.application_sequence_reset_indicator(buffer, index, packet, parent)
-
-  -- Pad5: 5 Byte
-  index = dissect.pad5(buffer, index, packet, parent)
-
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Packet Header
-dissect.packet_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.packet_header then
-    local range = buffer(offset, 32)
-    local display = display.packet_header(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eobi_t7_v7_0.fields.packet_header, range, display)
-  end
-
-  return dissect.packet_header_fields(buffer, offset, packet, parent)
-end
-
 -- Size: Prev Display Qty
 size_of.prev_display_qty = 8
 
@@ -3408,10 +3142,6 @@ size_of.payload = function(buffer, offset, templateid)
   if templateid == 13106 then
     return 64
   end
-  -- Size of Packet Header
-  if templateid == 13004 then
-    return 32
-  end
   -- Size of Partial Order Execution
   if templateid == 13105 then
     return 48
@@ -3510,10 +3240,6 @@ dissect.payload_branches = function(buffer, offset, packet, parent, templateid)
   -- Dissect Order Modify Same Prio
   if templateid == 13106 then
     return dissect.order_modify_same_prio(buffer, offset, packet, parent)
-  end
-  -- Dissect Packet Header
-  if templateid == 13004 then
-    return dissect.packet_header(buffer, offset, packet, parent)
   end
   -- Dissect Partial Order Execution
   if templateid == 13105 then
@@ -3678,7 +3404,7 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   -- Message Header: Struct of 3 fields
   index = dissect.message_header(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 23 branches
+  -- Payload: Runtime Type with 22 branches
   local code = buffer(index - 6, 2):le_uint()
   index = dissect.payload(buffer, index, packet, parent, code)
 
@@ -3699,6 +3425,272 @@ dissect.message = function(buffer, offset, packet, parent)
 
   dissect.message_fields(buffer, offset, packet, parent)
   return offset + length
+end
+
+-- Size: Pad5
+size_of.pad5 = 5
+
+-- Display: Pad5
+display.pad5 = function(value)
+  return "Pad5: "..value
+end
+
+-- Dissect: Pad5
+dissect.pad5 = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.pad5)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.pad5(value, buffer, offset, packet, parent)
+
+  parent:add(eurex_derivatives_eobi_t7_v7_0.fields.pad5, range, value, display)
+
+  return offset + size_of.pad5
+end
+
+-- Size: Application Sequence Reset Indicator
+size_of.application_sequence_reset_indicator = 1
+
+-- Display: Application Sequence Reset Indicator
+display.application_sequence_reset_indicator = function(value)
+  if value == 0 then
+    return "Application Sequence Reset Indicator: No Reset (0)"
+  end
+  if value == 1 then
+    return "Application Sequence Reset Indicator: Reset (1)"
+  end
+
+  return "Application Sequence Reset Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Application Sequence Reset Indicator
+dissect.application_sequence_reset_indicator = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.application_sequence_reset_indicator)
+  local value = range:le_uint()
+  local display = display.application_sequence_reset_indicator(value, buffer, offset, packet, parent)
+
+  parent:add(eurex_derivatives_eobi_t7_v7_0.fields.application_sequence_reset_indicator, range, value, display)
+
+  return offset + size_of.application_sequence_reset_indicator
+end
+
+-- Size: Completion Indicator
+size_of.completion_indicator = 1
+
+-- Display: Completion Indicator
+display.completion_indicator = function(value)
+  if value == 0 then
+    return "Completion Indicator: Incomplete (0)"
+  end
+  if value == 1 then
+    return "Completion Indicator: Complete (1)"
+  end
+
+  return "Completion Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Completion Indicator
+dissect.completion_indicator = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.completion_indicator)
+  local value = range:le_uint()
+  local display = display.completion_indicator(value, buffer, offset, packet, parent)
+
+  parent:add(eurex_derivatives_eobi_t7_v7_0.fields.completion_indicator, range, value, display)
+
+  return offset + size_of.completion_indicator
+end
+
+-- Size: Partition ID
+size_of.partition_id = 1
+
+-- Display: Partition ID
+display.partition_id = function(value)
+  return "Partition ID: "..value
+end
+
+-- Dissect: Partition ID
+dissect.partition_id = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.partition_id)
+  local value = range:le_uint()
+  local display = display.partition_id(value, buffer, offset, packet, parent)
+
+  parent:add(eurex_derivatives_eobi_t7_v7_0.fields.partition_id, range, value, display)
+
+  return offset + size_of.partition_id
+end
+
+-- Size: Market Segment ID
+size_of.market_segment_id = 4
+
+-- Display: Market Segment ID
+display.market_segment_id = function(value)
+  return "Market Segment ID: "..value
+end
+
+-- Dissect: Market Segment ID
+dissect.market_segment_id = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.market_segment_id)
+  local value = range:le_int()
+  local display = display.market_segment_id(value, buffer, offset, packet, parent)
+
+  parent:add(eurex_derivatives_eobi_t7_v7_0.fields.market_segment_id, range, value, display)
+
+  return offset + size_of.market_segment_id
+end
+
+-- Size: Application Sequence Number
+size_of.application_sequence_number = 4
+
+-- Display: Application Sequence Number
+display.application_sequence_number = function(value)
+  return "Application Sequence Number: "..value
+end
+
+-- Dissect: Application Sequence Number
+dissect.application_sequence_number = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.application_sequence_number)
+  local value = range:le_uint()
+  local display = display.application_sequence_number(value, buffer, offset, packet, parent)
+
+  parent:add(eurex_derivatives_eobi_t7_v7_0.fields.application_sequence_number, range, value, display)
+
+  return offset + size_of.application_sequence_number
+end
+
+-- Size: Packet Seq Num
+size_of.packet_seq_num = 4
+
+-- Display: Packet Seq Num
+display.packet_seq_num = function(value)
+  return "Packet Seq Num: "..value
+end
+
+-- Dissect: Packet Seq Num
+dissect.packet_seq_num = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.packet_seq_num)
+  local value = range:le_uint()
+  local display = display.packet_seq_num(value, buffer, offset, packet, parent)
+
+  parent:add(eurex_derivatives_eobi_t7_v7_0.fields.packet_seq_num, range, value, display)
+
+  return offset + size_of.packet_seq_num
+end
+
+-- Size: Packet Id
+size_of.packet_id = 2
+
+-- Display: Packet Id
+display.packet_id = function(value)
+  return "Packet Id: "..value
+end
+
+-- Dissect: Packet Id
+dissect.packet_id = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.packet_id)
+  local value = range:le_uint()
+  local display = display.packet_id(value, buffer, offset, packet, parent)
+
+  parent:add(eurex_derivatives_eobi_t7_v7_0.fields.packet_id, range, value, display)
+
+  return offset + size_of.packet_id
+end
+
+-- Size: Header Length
+size_of.header_length = 2
+
+-- Display: Header Length
+display.header_length = function(value)
+  return "Header Length: "..value
+end
+
+-- Dissect: Header Length
+dissect.header_length = function(buffer, offset, packet, parent)
+  local range = buffer(offset, size_of.header_length)
+  local value = range:le_uint()
+  local display = display.header_length(value, buffer, offset, packet, parent)
+
+  parent:add(eurex_derivatives_eobi_t7_v7_0.fields.header_length, range, value, display)
+
+  return offset + size_of.header_length
+end
+
+-- Display: Packet Info
+display.packet_info = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Packet Info
+dissect.packet_info_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Header Length: 2 Byte Unsigned Fixed Width Integer
+  index = dissect.header_length(buffer, index, packet, parent)
+
+  -- Packet Id: 2 Byte Unsigned Fixed Width Integer Static
+  index = dissect.packet_id(buffer, index, packet, parent)
+
+  -- Packet Seq Num: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.packet_seq_num(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Packet Info
+dissect.packet_info = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.packet_info then
+    local range = buffer(offset, 8)
+    local display = display.packet_info(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eobi_t7_v7_0.fields.packet_info, range, display)
+  end
+
+  return dissect.packet_info_fields(buffer, offset, packet, parent)
+end
+
+-- Display: Packet Header
+display.packet_header = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Packet Header
+dissect.packet_header_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Packet Info: Struct of 3 fields
+  index = dissect.packet_info(buffer, index, packet, parent)
+
+  -- Application Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.application_sequence_number(buffer, index, packet, parent)
+
+  -- Market Segment ID: 4 Byte Signed Fixed Width Integer
+  index = dissect.market_segment_id(buffer, index, packet, parent)
+
+  -- Partition ID: 1 Byte Unsigned Fixed Width Integer
+  index = dissect.partition_id(buffer, index, packet, parent)
+
+  -- Completion Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  index = dissect.completion_indicator(buffer, index, packet, parent)
+
+  -- Application Sequence Reset Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  index = dissect.application_sequence_reset_indicator(buffer, index, packet, parent)
+
+  -- Pad5: 5 Byte
+  index = dissect.pad5(buffer, index, packet, parent)
+
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  index = dissect.transact_time(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Packet Header
+dissect.packet_header = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.packet_header then
+    local range = buffer(offset, 32)
+    local display = display.packet_header(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eobi_t7_v7_0.fields.packet_header, range, display)
+  end
+
+  return dissect.packet_header_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
