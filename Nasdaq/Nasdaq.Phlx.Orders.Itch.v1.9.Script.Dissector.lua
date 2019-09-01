@@ -2371,7 +2371,7 @@ local function nasdaq_phlx_orders_itch_v1_9_heuristic(buffer, packet, parent)
   return true
 end
 
--- Register Nasdaq Phlx Orders Itch 1.9 Heuristic
+-- Register Heuristic for Nasdaq Phlx Orders Itch 1.9
 nasdaq_phlx_orders_itch_v1_9:register_heuristic("udp", nasdaq_phlx_orders_itch_v1_9_heuristic)
 
 -----------------------------------------------------------------------

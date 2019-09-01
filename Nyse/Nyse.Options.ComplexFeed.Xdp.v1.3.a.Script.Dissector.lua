@@ -1992,7 +1992,7 @@ local function nyse_options_complexfeed_xdp_v1_3_a_heuristic(buffer, packet, par
   return true
 end
 
--- Register Nyse Options ComplexFeed Xdp 1.3.a Heuristic
+-- Register Heuristic for Nyse Options ComplexFeed Xdp 1.3.a
 nyse_options_complexfeed_xdp_v1_3_a:register_heuristic("udp", nyse_options_complexfeed_xdp_v1_3_a_heuristic)
 
 -----------------------------------------------------------------------

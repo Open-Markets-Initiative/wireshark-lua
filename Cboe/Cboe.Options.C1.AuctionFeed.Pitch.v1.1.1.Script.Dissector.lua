@@ -1597,7 +1597,7 @@ local function cboe_options_c1_auctionfeed_pitch_v1_1_1_heuristic(buffer, packet
   return true
 end
 
--- Register Cboe Options C1 AuctionFeed Pitch 1.1.1 Heuristic
+-- Register Heuristic for Cboe Options C1 AuctionFeed Pitch 1.1.1
 cboe_options_c1_auctionfeed_pitch_v1_1_1:register_heuristic("udp", cboe_options_c1_auctionfeed_pitch_v1_1_1_heuristic)
 
 -----------------------------------------------------------------------

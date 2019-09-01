@@ -1977,7 +1977,7 @@ local function nasdaq_bx_options_topofmarket_itch_v1_2_heuristic(buffer, packet,
   return true
 end
 
--- Register Nasdaq Bx Options TopOfMarket Itch 1.2 Heuristic
+-- Register Heuristic for Nasdaq Bx Options TopOfMarket Itch 1.2
 nasdaq_bx_options_topofmarket_itch_v1_2:register_heuristic("udp", nasdaq_bx_options_topofmarket_itch_v1_2_heuristic)
 
 -----------------------------------------------------------------------

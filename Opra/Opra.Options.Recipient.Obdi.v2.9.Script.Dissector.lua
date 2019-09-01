@@ -5614,7 +5614,7 @@ local function opra_options_recipient_obdi_v2_9_heuristic(buffer, packet, parent
   return true
 end
 
--- Register Opra Options Recipient Obdi 2.9 Heuristic
+-- Register Heuristic for Opra Options Recipient Obdi 2.9
 opra_options_recipient_obdi_v2_9:register_heuristic("udp", opra_options_recipient_obdi_v2_9_heuristic)
 
 -----------------------------------------------------------------------

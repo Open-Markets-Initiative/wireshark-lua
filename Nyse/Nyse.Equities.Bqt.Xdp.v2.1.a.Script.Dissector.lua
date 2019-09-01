@@ -3928,7 +3928,7 @@ local function nyse_equities_bqt_xdp_v2_1_a_heuristic(buffer, packet, parent)
   return true
 end
 
--- Register Nyse Equities Bqt Xdp 2.1.a Heuristic
+-- Register Heuristic for Nyse Equities Bqt Xdp 2.1.a
 nyse_equities_bqt_xdp_v2_1_a:register_heuristic("udp", nyse_equities_bqt_xdp_v2_1_a_heuristic)
 
 -----------------------------------------------------------------------

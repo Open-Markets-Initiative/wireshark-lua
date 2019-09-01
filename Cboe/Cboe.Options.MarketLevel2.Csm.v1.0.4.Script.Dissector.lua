@@ -2651,7 +2651,7 @@ local function cboe_options_marketlevel2_csm_v1_0_4_heuristic(buffer, packet, pa
   return true
 end
 
--- Register Cboe Options MarketLevel2 Csm 1.0.4 Heuristic
+-- Register Heuristic for Cboe Options MarketLevel2 Csm 1.0.4
 cboe_options_marketlevel2_csm_v1_0_4:register_heuristic("udp", cboe_options_marketlevel2_csm_v1_0_4_heuristic)
 
 -----------------------------------------------------------------------

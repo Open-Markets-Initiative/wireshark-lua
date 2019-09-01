@@ -3277,7 +3277,7 @@ local function nasdaq_phlx_marketdepth_itch_v1_6_heuristic(buffer, packet, paren
   return true
 end
 
--- Register Nasdaq Phlx MarketDepth Itch 1.6 Heuristic
+-- Register Heuristic for Nasdaq Phlx MarketDepth Itch 1.6
 nasdaq_phlx_marketdepth_itch_v1_6:register_heuristic("udp", nasdaq_phlx_marketdepth_itch_v1_6_heuristic)
 
 -----------------------------------------------------------------------

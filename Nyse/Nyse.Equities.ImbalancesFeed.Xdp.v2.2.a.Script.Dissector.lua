@@ -2577,7 +2577,7 @@ local function nyse_equities_imbalancesfeed_xdp_v2_2_a_heuristic(buffer, packet,
   return true
 end
 
--- Register Nyse Equities ImbalancesFeed Xdp 2.2.a Heuristic
+-- Register Heuristic for Nyse Equities ImbalancesFeed Xdp 2.2.a
 nyse_equities_imbalancesfeed_xdp_v2_2_a:register_heuristic("udp", nyse_equities_imbalancesfeed_xdp_v2_2_a_heuristic)
 
 -----------------------------------------------------------------------

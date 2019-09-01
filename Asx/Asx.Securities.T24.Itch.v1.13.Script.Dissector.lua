@@ -5050,7 +5050,7 @@ local function asx_securities_t24_itch_v1_13_heuristic(buffer, packet, parent)
   return true
 end
 
--- Register Asx Securities T24 Itch 1.13 Heuristic
+-- Register Heuristic for Asx Securities T24 Itch 1.13
 asx_securities_t24_itch_v1_13:register_heuristic("udp", asx_securities_t24_itch_v1_13_heuristic)
 
 -----------------------------------------------------------------------

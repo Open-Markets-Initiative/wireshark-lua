@@ -8013,7 +8013,7 @@ local function cme_mdp3_sbe_v9_1_heuristic(buffer, packet, parent)
   return true
 end
 
--- Register Cme Mdp3 Sbe 9.1 Heuristic
+-- Register Heuristic for Cme Mdp3 Sbe 9.1
 cme_mdp3_sbe_v9_1:register_heuristic("udp", cme_mdp3_sbe_v9_1_heuristic)
 
 -----------------------------------------------------------------------

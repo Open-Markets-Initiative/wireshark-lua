@@ -2531,7 +2531,7 @@ local function miax_options_tom_mach_v2_2_heuristic(buffer, packet, parent)
   return true
 end
 
--- Register Miax Options Tom Mach 2.2 Heuristic
+-- Register Heuristic for Miax Options Tom Mach 2.2
 miax_options_tom_mach_v2_2:register_heuristic("udp", miax_options_tom_mach_v2_2_heuristic)
 
 -----------------------------------------------------------------------

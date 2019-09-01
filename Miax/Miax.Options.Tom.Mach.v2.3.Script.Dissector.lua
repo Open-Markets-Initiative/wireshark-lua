@@ -402,6 +402,90 @@ size_of.trade_condition = 1
 
 -- Display: Trade Condition
 display.trade_condition = function(value)
+  if value == " " then
+    return "Trade Condition: Regular (<whitespace>)"
+  end
+  if value == "A" then
+    return "Trade Condition: Cancel Of Trade Previously Reported Other Than As The Last Or Opening (A)"
+  end
+  if value == "B" then
+    return "Trade Condition: Late And Is Out Of Sequence (B)"
+  end
+  if value == "C" then
+    return "Trade Condition: Cancel Of The Last Reported Trade (C)"
+  end
+  if value == "D" then
+    return "Trade Condition: Late And Is In Correct Sequence (D)"
+  end
+  if value == "E" then
+    return "Trade Condition: Cancel Of The First Reported Trade (E)"
+  end
+  if value == "F" then
+    return "Trade Condition: Late Report Of The Opening Trade And Is Out Of Sequence (F)"
+  end
+  if value == "G" then
+    return "Trade Condition: Cancel Of The Only Reported Trade (G)"
+  end
+  if value == "H" then
+    return "Trade Condition: Late Report Of The Opening Trade And Is In Correct Sequence (H)"
+  end
+  if value == "I" then
+    return "Trade Condition: Reserved (I)"
+  end
+  if value == "J" then
+    return "Trade Condition: Reopening Of An Option (J)"
+  end
+  if value == "K" then
+    return "Trade Condition: Reserved (K)"
+  end
+  if value == "L" then
+    return "Trade Condition: A Buy And A Sell In The Same Class (L)"
+  end
+  if value == "M" then
+    return "Trade Condition: A Buy And A Sell In A Put And A Call (M)"
+  end
+  if value == "N" then
+    return "Trade Condition: Reserved (N)"
+  end
+  if value == "O" then
+    return "Trade Condition: Reserved (O)"
+  end
+  if value == "P" then
+    return "Trade Condition: Buy Or Sell Of A Call Or Put (P)"
+  end
+  if value == "Q" then
+    return "Trade Condition: Buy Of A Call And A Sell Of A Put For The Same Underlying Stock Or Index (Q)"
+  end
+  if value == "R" then
+    return "Trade Condition: Execution Of An Order Which Was Stopped At A Price That Did Not Constitute A Trade Through On Another Market At The Time Of The Stop (R)"
+  end
+  if value == "S" then
+    return "Trade Condition: Execution Of An Iso Order (S)"
+  end
+  if value == "T" then
+    return "Trade Condition: Reserved (T)"
+  end
+  if value == "X" then
+    return "Trade Condition: Trade Through Exempt (X)"
+  end
+  if value == "a" then
+    return "Trade Condition: Paired Prime (a)"
+  end
+  if value == "b" then
+    return "Trade Condition: Reserved (b)"
+  end
+  if value == "c" then
+    return "Trade Condition: Prime Customer To Customer Cross Or Prime Qcc (c)"
+  end
+  if value == "d" then
+    return "Trade Condition: Reserved (d)"
+  end
+  if value == "e" then
+    return "Trade Condition: Reserved (e)"
+  end
+  if value == "f" then
+    return "Trade Condition: Complex Transaction That Is Not Complex Stocktied And Does Not Involve Legging (f)"
+  end
   if value == "g" then
     return "Trade Condition: Complex Prime Transaction That Is Not Complex Stocktied And Does Not Involve Legging (g)"
   end
@@ -581,7 +665,7 @@ dissect.trade_cancel_message_fields = function(buffer, offset, packet, parent)
   -- Trade Size: 4 Byte Unsigned Fixed Width Integer
   index = dissect.trade_size(buffer, index, packet, parent)
 
-  -- Trade Condition: 1 Byte Ascii String Enum with 14 values
+  -- Trade Condition: 1 Byte Ascii String Enum with 42 values
   index = dissect.trade_condition(buffer, index, packet, parent)
 
   return index
@@ -670,7 +754,7 @@ dissect.last_sale_message_fields = function(buffer, offset, packet, parent)
   -- Trade Size: 4 Byte Unsigned Fixed Width Integer
   index = dissect.trade_size(buffer, index, packet, parent)
 
-  -- Trade Condition: 1 Byte Ascii String Enum with 14 values
+  -- Trade Condition: 1 Byte Ascii String Enum with 42 values
   index = dissect.trade_condition(buffer, index, packet, parent)
 
   return index
@@ -2507,7 +2591,7 @@ local function miax_options_tom_mach_v2_3_heuristic(buffer, packet, parent)
   return true
 end
 
--- Register Miax Options Tom Mach 2.3 Heuristic
+-- Register Heuristic for Miax Options Tom Mach 2.3
 miax_options_tom_mach_v2_3:register_heuristic("udp", miax_options_tom_mach_v2_3_heuristic)
 
 -----------------------------------------------------------------------

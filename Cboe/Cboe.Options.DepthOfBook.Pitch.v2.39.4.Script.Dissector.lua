@@ -2759,7 +2759,7 @@ local function cboe_options_depthofbook_pitch_v2_39_4_heuristic(buffer, packet, 
   return true
 end
 
--- Register Cboe Options DepthOfBook Pitch 2.39.4 Heuristic
+-- Register Heuristic for Cboe Options DepthOfBook Pitch 2.39.4
 cboe_options_depthofbook_pitch_v2_39_4:register_heuristic("udp", cboe_options_depthofbook_pitch_v2_39_4_heuristic)
 
 -----------------------------------------------------------------------

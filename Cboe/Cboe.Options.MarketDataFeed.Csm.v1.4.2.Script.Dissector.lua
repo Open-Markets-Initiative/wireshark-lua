@@ -3756,7 +3756,7 @@ local function cboe_options_marketdatafeed_csm_v1_4_2_heuristic(buffer, packet, 
   return true
 end
 
--- Register Cboe Options MarketDataFeed Csm 1.4.2 Heuristic
+-- Register Heuristic for Cboe Options MarketDataFeed Csm 1.4.2
 cboe_options_marketdatafeed_csm_v1_4_2:register_heuristic("udp", cboe_options_marketdatafeed_csm_v1_4_2_heuristic)
 
 -----------------------------------------------------------------------

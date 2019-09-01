@@ -2514,7 +2514,7 @@ local function miax_pearl_tom_mach_v1_0_heuristic(buffer, packet, parent)
   return true
 end
 
--- Register Miax Pearl Tom Mach 1.0 Heuristic
+-- Register Heuristic for Miax Pearl Tom Mach 1.0
 miax_pearl_tom_mach_v1_0:register_heuristic("udp", miax_pearl_tom_mach_v1_0_heuristic)
 
 -----------------------------------------------------------------------

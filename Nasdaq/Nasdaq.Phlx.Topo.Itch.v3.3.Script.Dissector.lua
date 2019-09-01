@@ -1993,7 +1993,7 @@ local function nasdaq_phlx_topo_itch_v3_3_heuristic(buffer, packet, parent)
   return true
 end
 
--- Register Nasdaq Phlx Topo Itch 3.3 Heuristic
+-- Register Heuristic for Nasdaq Phlx Topo Itch 3.3
 nasdaq_phlx_topo_itch_v3_3:register_heuristic("udp", nasdaq_phlx_topo_itch_v3_3_heuristic)
 
 -----------------------------------------------------------------------

@@ -3160,7 +3160,7 @@ local function nasdaq_psx_totalview_itch_v5_0_heuristic(buffer, packet, parent)
   return true
 end
 
--- Register Nasdaq Psx TotalView Itch 5.0 Heuristic
+-- Register Heuristic for Nasdaq Psx TotalView Itch 5.0
 nasdaq_psx_totalview_itch_v5_0:register_heuristic("udp", nasdaq_psx_totalview_itch_v5_0_heuristic)
 
 -----------------------------------------------------------------------

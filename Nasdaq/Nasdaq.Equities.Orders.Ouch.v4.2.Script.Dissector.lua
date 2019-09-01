@@ -2706,7 +2706,7 @@ local function nasdaq_equities_orders_ouch_v4_2_heuristic(buffer, packet, parent
   return true
 end
 
--- Register Nasdaq Equities Orders Ouch 4.2 Heuristic
+-- Register Heuristic for Nasdaq Equities Orders Ouch 4.2
 nasdaq_equities_orders_ouch_v4_2:register_heuristic("tcp", nasdaq_equities_orders_ouch_v4_2_heuristic)
 
 -----------------------------------------------------------------------

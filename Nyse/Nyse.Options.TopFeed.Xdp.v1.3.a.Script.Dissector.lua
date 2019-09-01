@@ -3109,7 +3109,7 @@ local function nyse_options_topfeed_xdp_v1_3_a_heuristic(buffer, packet, parent)
   return true
 end
 
--- Register Nyse Options TopFeed Xdp 1.3.a Heuristic
+-- Register Heuristic for Nyse Options TopFeed Xdp 1.3.a
 nyse_options_topfeed_xdp_v1_3_a:register_heuristic("udp", nyse_options_topfeed_xdp_v1_3_a_heuristic)
 
 -----------------------------------------------------------------------

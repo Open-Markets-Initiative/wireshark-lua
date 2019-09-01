@@ -3490,7 +3490,7 @@ local function nasdaq_equities_totalview_itch_v5_0_heuristic(buffer, packet, par
   return true
 end
 
--- Register Nasdaq Equities TotalView Itch 5.0 Heuristic
+-- Register Heuristic for Nasdaq Equities TotalView Itch 5.0
 nasdaq_equities_totalview_itch_v5_0:register_heuristic("udp", nasdaq_equities_totalview_itch_v5_0_heuristic)
 
 -----------------------------------------------------------------------

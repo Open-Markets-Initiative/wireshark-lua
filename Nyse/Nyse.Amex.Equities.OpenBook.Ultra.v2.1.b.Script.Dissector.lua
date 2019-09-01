@@ -1334,7 +1334,7 @@ local function nyse_amex_equities_openbook_ultra_v2_1_b_heuristic(buffer, packet
   return true
 end
 
--- Register Nyse Amex Equities OpenBook Ultra 2.1.b Heuristic
+-- Register Heuristic for Nyse Amex Equities OpenBook Ultra 2.1.b
 nyse_amex_equities_openbook_ultra_v2_1_b:register_heuristic("udp", nyse_amex_equities_openbook_ultra_v2_1_b_heuristic)
 
 -----------------------------------------------------------------------

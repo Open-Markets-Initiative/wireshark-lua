@@ -5549,7 +5549,7 @@ local function cme_streamline_sbe_v8_5_heuristic(buffer, packet, parent)
   return true
 end
 
--- Register Cme Streamline Sbe 8.5 Heuristic
+-- Register Heuristic for Cme Streamline Sbe 8.5
 cme_streamline_sbe_v8_5:register_heuristic("udp", cme_streamline_sbe_v8_5_heuristic)
 
 -----------------------------------------------------------------------

@@ -3317,7 +3317,7 @@ local function eurex_derivatives_eobi_t7_v2_5_heuristic(buffer, packet, parent)
   return true
 end
 
--- Register Eurex Derivatives Eobi T7 2.5 Heuristic
+-- Register Heuristic for Eurex Derivatives Eobi T7 2.5
 eurex_derivatives_eobi_t7_v2_5:register_heuristic("udp", eurex_derivatives_eobi_t7_v2_5_heuristic)
 
 -----------------------------------------------------------------------

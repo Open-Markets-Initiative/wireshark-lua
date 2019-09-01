@@ -1808,7 +1808,7 @@ local function nasdaq_psx_bbo_itch_v2_1_heuristic(buffer, packet, parent)
   return true
 end
 
--- Register Nasdaq Psx Bbo Itch 2.1 Heuristic
+-- Register Heuristic for Nasdaq Psx Bbo Itch 2.1
 nasdaq_psx_bbo_itch_v2_1:register_heuristic("udp", nasdaq_psx_bbo_itch_v2_1_heuristic)
 
 -----------------------------------------------------------------------

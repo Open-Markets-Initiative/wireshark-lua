@@ -3166,7 +3166,7 @@ local function nasdaq_bx_equities_totalview_itch_v5_0_heuristic(buffer, packet, 
   return true
 end
 
--- Register Nasdaq Bx Equities TotalView Itch 5.0 Heuristic
+-- Register Heuristic for Nasdaq Bx Equities TotalView Itch 5.0
 nasdaq_bx_equities_totalview_itch_v5_0:register_heuristic("udp", nasdaq_bx_equities_totalview_itch_v5_0_heuristic)
 
 -----------------------------------------------------------------------

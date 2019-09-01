@@ -2137,7 +2137,7 @@ local function nasdaq_ise_topcomboquotefeed_itch_v1_0_heuristic(buffer, packet, 
   return true
 end
 
--- Register Nasdaq Ise TopComboQuoteFeed Itch 1.0 Heuristic
+-- Register Heuristic for Nasdaq Ise TopComboQuoteFeed Itch 1.0
 nasdaq_ise_topcomboquotefeed_itch_v1_0:register_heuristic("udp", nasdaq_ise_topcomboquotefeed_itch_v1_0_heuristic)
 
 -----------------------------------------------------------------------

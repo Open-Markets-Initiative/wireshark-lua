@@ -7811,7 +7811,7 @@ local function ice_futures_mdf_impact_v1_1_24_heuristic(buffer, packet, parent)
   return true
 end
 
--- Register Ice Futures Mdf iMpact 1.1.24 Heuristic
+-- Register Heuristic for Ice Futures Mdf iMpact 1.1.24
 ice_futures_mdf_impact_v1_1_24:register_heuristic("udp", ice_futures_mdf_impact_v1_1_24_heuristic)
 
 -----------------------------------------------------------------------

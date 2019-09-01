@@ -2674,7 +2674,7 @@ local function miax_options_ctom_mach_v1_1_heuristic(buffer, packet, parent)
   return true
 end
 
--- Register Miax Options cTom Mach 1.1 Heuristic
+-- Register Heuristic for Miax Options cTom Mach 1.1
 miax_options_ctom_mach_v1_1:register_heuristic("udp", miax_options_ctom_mach_v1_1_heuristic)
 
 -----------------------------------------------------------------------

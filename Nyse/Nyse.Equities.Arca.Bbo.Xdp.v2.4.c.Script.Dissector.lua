@@ -2639,7 +2639,7 @@ local function nyse_equities_arca_bbo_xdp_v2_4_c_heuristic(buffer, packet, paren
   return true
 end
 
--- Register Nyse Equities Arca Bbo Xdp 2.4.c Heuristic
+-- Register Heuristic for Nyse Equities Arca Bbo Xdp 2.4.c
 nyse_equities_arca_bbo_xdp_v2_4_c:register_heuristic("udp", nyse_equities_arca_bbo_xdp_v2_4_c_heuristic)
 
 -----------------------------------------------------------------------

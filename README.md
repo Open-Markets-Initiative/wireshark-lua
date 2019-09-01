@@ -46,6 +46,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 |[Cme][Cme.Mdp3.Sbe.v10.1.Organization] |  | Mdp3 | Sbe | [10.1][Cme.Mdp3.Sbe.v10.1.Dissector] | 7/26/2019 | 8433 | Untested|
 |[Cme][Cme.Streamline.Sbe.v9.5.Organization] |  | Streamline | Sbe | [9.5][Cme.Streamline.Sbe.v9.5.Dissector] | 4/4/2018 | 5713 | Untested|
 |[Cme][Cme.Streamline.Sbe.v8.5.Organization] |  | Streamline | Sbe | [8.5][Cme.Streamline.Sbe.v8.5.Dissector] | 6/2/2017 | 5575 | Untested|
+|[Eurex][Eurex.Derivatives.Eobi.T7.v8.0.Organization] | Derivatives | Eobi | T7 | [8.0][Eurex.Derivatives.Eobi.T7.v8.0.Dissector] | 9/23/2019 | 4356 | Untested|
 |[Eurex][Eurex.Derivatives.Eobi.T7.v7.1.Organization] | Derivatives | Eobi | T7 | [7.1][Eurex.Derivatives.Eobi.T7.v7.1.Dissector] | 3/14/2019 | 3910 | Untested|
 |[Eurex][Eurex.Derivatives.Eobi.T7.v7.0.Organization] | Derivatives | Eobi | T7 | [7.0][Eurex.Derivatives.Eobi.T7.v7.0.Dissector] | 8/20/2018 | 3795 | Untested|
 |[Eurex][Eurex.Derivatives.Eobi.T7.v6.1.Organization] | Derivatives | Eobi | T7 | [6.1][Eurex.Derivatives.Eobi.T7.v6.1.Dissector] | 3/20/2018 | 3667 | Untested|
@@ -59,7 +60,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 |[Ice][Ice.Futures.Mdf.iMpact.v1.1.24.Organization] | Futures | Mdf | iMpact | [1.1.24][Ice.Futures.Mdf.iMpact.v1.1.24.Dissector] | 3/30/2016 | 7838 | Verified|
 |[Miax][Miax.Options.cTom.Mach.v1.3.Organization] | Options | cTom | Mach | [1.3][Miax.Options.cTom.Mach.v1.3.Dissector] | 3/16/2018 | 2713 | Untested|
 |[Miax][Miax.Options.cTom.Mach.v1.1.Organization] | Options | cTom | Mach | [1.1][Miax.Options.cTom.Mach.v1.1.Dissector] | 7/15/2016 | 2701 | Verified|
-|[Miax][Miax.Options.Tom.Mach.v2.3.Organization] | Options | Tom | Mach | [2.3][Miax.Options.Tom.Mach.v2.3.Dissector] | 6/10/2019 | 2534 | Untested|
+|[Miax][Miax.Options.Tom.Mach.v2.3.Organization] | Options | Tom | Mach | [2.3][Miax.Options.Tom.Mach.v2.3.Dissector] | 6/10/2019 | 2618 | Untested|
 |[Miax][Miax.Options.Tom.Mach.v2.2.Organization] | Options | Tom | Mach | [2.2][Miax.Options.Tom.Mach.v2.2.Dissector] | 3/16/2018 | 2558 | Untested|
 |[Miax][Miax.Options.Tom.Mach.v1.9.Organization] | Options | Tom | Mach | [1.9][Miax.Options.Tom.Mach.v1.9.Dissector] | 1/15/2016 | 2464 | Verified|
 |[Miax][Miax.Pearl.Tom.Mach.v1.0.Organization] | Pearl | Tom | Mach | [1.0][Miax.Pearl.Tom.Mach.v1.0.Dissector] | 2/27/2017 | 2541 | Untested|
@@ -100,7 +101,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 |Protocol Count | Generated Lines|
 |--- | ---|
-|62 | 223,992|
+|63 | 228,432|
 
 Note: Our dissector model is still under rapid development.
 
@@ -168,6 +169,8 @@ Enjoy.
 [Eurex.Derivatives.Eobi.T7.v7.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Eurex/Eurex.Derivatives.Eobi.T7.v7.0.Script.Dissector.lua "Eurex Exchange 7.0 Wireshark Dissector"
 [Eurex.Derivatives.Eobi.T7.v7.1.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Eurex "Eurex Exchange"
 [Eurex.Derivatives.Eobi.T7.v7.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Eurex/Eurex.Derivatives.Eobi.T7.v7.1.Script.Dissector.lua "Eurex Exchange 7.1 Wireshark Dissector"
+[Eurex.Derivatives.Eobi.T7.v8.0.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Eurex "Eurex Exchange"
+[Eurex.Derivatives.Eobi.T7.v8.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Eurex/Eurex.Derivatives.Eobi.T7.v8.0.Script.Dissector.lua "Eurex Exchange 8.0 Wireshark Dissector"
 [Ice.Futures.Mdf.iMpact.v1.1.24.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Ice "Intercontinental Exchange"
 [Ice.Futures.Mdf.iMpact.v1.1.24.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Ice/Ice.Futures.Mdf.iMpact.v1.1.24.Script.Dissector.lua "Intercontinental Exchange 1.1.24 Wireshark Dissector"
 [Ice.Futures.Mdf.iMpact.v1.1.33.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Ice "Intercontinental Exchange"

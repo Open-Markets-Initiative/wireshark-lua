@@ -2958,7 +2958,7 @@ local function cboe_futures_depthofbook_pitch_v1_1_6_heuristic(buffer, packet, p
   return true
 end
 
--- Register Cboe Futures DepthOfBook Pitch 1.1.6 Heuristic
+-- Register Heuristic for Cboe Futures DepthOfBook Pitch 1.1.6
 cboe_futures_depthofbook_pitch_v1_1_6:register_heuristic("udp", cboe_futures_depthofbook_pitch_v1_1_6_heuristic)
 
 -----------------------------------------------------------------------

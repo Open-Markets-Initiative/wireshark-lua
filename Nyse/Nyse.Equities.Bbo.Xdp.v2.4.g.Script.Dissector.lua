@@ -2636,7 +2636,7 @@ local function nyse_equities_bbo_xdp_v2_4_g_heuristic(buffer, packet, parent)
   return true
 end
 
--- Register Nyse Equities Bbo Xdp 2.4.g Heuristic
+-- Register Heuristic for Nyse Equities Bbo Xdp 2.4.g
 nyse_equities_bbo_xdp_v2_4_g:register_heuristic("udp", nyse_equities_bbo_xdp_v2_4_g_heuristic)
 
 -----------------------------------------------------------------------

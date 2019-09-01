@@ -2745,7 +2745,7 @@ local function cboe_options_openingauction_csm_v1_0_heuristic(buffer, packet, pa
   return true
 end
 
--- Register Cboe Options OpeningAuction Csm 1.0 Heuristic
+-- Register Heuristic for Cboe Options OpeningAuction Csm 1.0
 cboe_options_openingauction_csm_v1_0:register_heuristic("udp", cboe_options_openingauction_csm_v1_0_heuristic)
 
 -----------------------------------------------------------------------

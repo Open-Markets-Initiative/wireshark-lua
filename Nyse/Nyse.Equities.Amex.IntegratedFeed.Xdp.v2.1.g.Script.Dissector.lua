@@ -4130,7 +4130,7 @@ local function nyse_equities_amex_integratedfeed_xdp_v2_1_g_heuristic(buffer, pa
   return true
 end
 
--- Register Nyse Equities Amex IntegratedFeed Xdp 2.1.g Heuristic
+-- Register Heuristic for Nyse Equities Amex IntegratedFeed Xdp 2.1.g
 nyse_equities_amex_integratedfeed_xdp_v2_1_g:register_heuristic("udp", nyse_equities_amex_integratedfeed_xdp_v2_1_g_heuristic)
 
 -----------------------------------------------------------------------

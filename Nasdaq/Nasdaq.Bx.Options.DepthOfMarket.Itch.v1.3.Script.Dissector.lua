@@ -3069,7 +3069,7 @@ local function nasdaq_bx_options_depthofmarket_itch_v1_3_heuristic(buffer, packe
   return true
 end
 
--- Register Nasdaq Bx Options DepthOfMarket Itch 1.3 Heuristic
+-- Register Heuristic for Nasdaq Bx Options DepthOfMarket Itch 1.3
 nasdaq_bx_options_depthofmarket_itch_v1_3:register_heuristic("udp", nasdaq_bx_options_depthofmarket_itch_v1_3_heuristic)
 
 -----------------------------------------------------------------------

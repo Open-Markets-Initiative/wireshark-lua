@@ -2915,7 +2915,7 @@ local function nasdaq_nom_itto_itch_v4_0_heuristic(buffer, packet, parent)
   return true
 end
 
--- Register Nasdaq Nom Itto Itch 4.0 Heuristic
+-- Register Heuristic for Nasdaq Nom Itto Itch 4.0
 nasdaq_nom_itto_itch_v4_0:register_heuristic("udp", nasdaq_nom_itto_itch_v4_0_heuristic)
 
 -----------------------------------------------------------------------

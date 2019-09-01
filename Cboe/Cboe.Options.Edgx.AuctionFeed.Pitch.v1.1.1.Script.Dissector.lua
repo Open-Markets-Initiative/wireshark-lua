@@ -1118,7 +1118,7 @@ local function cboe_options_edgx_auctionfeed_pitch_v1_1_1_heuristic(buffer, pack
   return true
 end
 
--- Register Cboe Options Edgx AuctionFeed Pitch 1.1.1 Heuristic
+-- Register Heuristic for Cboe Options Edgx AuctionFeed Pitch 1.1.1
 cboe_options_edgx_auctionfeed_pitch_v1_1_1:register_heuristic("udp", cboe_options_edgx_auctionfeed_pitch_v1_1_1_heuristic)
 
 -----------------------------------------------------------------------

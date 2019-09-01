@@ -1858,7 +1858,7 @@ local function nasdaq_ise_ordercombofeed_itch_v1_1_heuristic(buffer, packet, par
   return true
 end
 
--- Register Nasdaq Ise OrderComboFeed Itch 1.1 Heuristic
+-- Register Heuristic for Nasdaq Ise OrderComboFeed Itch 1.1
 nasdaq_ise_ordercombofeed_itch_v1_1:register_heuristic("udp", nasdaq_ise_ordercombofeed_itch_v1_1_heuristic)
 
 -----------------------------------------------------------------------
