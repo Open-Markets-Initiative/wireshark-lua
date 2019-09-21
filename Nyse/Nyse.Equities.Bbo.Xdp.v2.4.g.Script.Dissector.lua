@@ -2363,8 +2363,10 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   -- Message Header: Struct of 2 fields
   index = dissect.message_header(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 14 branches
+  -- Dependency element: Message Type
   local code = buffer(index - 2, 2):le_uint()
+
+  -- Payload: Runtime Type with 14 branches
   index = dissect.payload(buffer, index, packet, parent, code)
 
   return index
@@ -2582,6 +2584,8 @@ dissect.packet = function(buffer, packet, parent)
 
   -- Message: Struct of 2 fields
   local end_of_payload = buffer:len()
+
+  -- Message: Struct of 2 fields
   while index < end_of_payload do
     index = dissect.message(buffer, index, packet, parent)
   end

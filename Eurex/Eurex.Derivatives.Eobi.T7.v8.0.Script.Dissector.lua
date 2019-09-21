@@ -764,8 +764,10 @@ dissect.trade_reversal_fields = function(buffer, offset, packet, parent)
   -- No Md Entries: 1 Byte Unsigned Fixed Width Integer
   index = dissect.no_md_entries(buffer, index, packet, parent)
 
-  -- Md Trade Entry Grp: Struct of 4 fields
+  -- Dependency element: No Md Entries
   local md_trade_entry_grp_count = buffer(index - 1, 1):le_uint()
+
+  -- Md Trade Entry Grp: Struct of 4 fields
   for i = 1, md_trade_entry_grp_count do
     index = dissect.md_trade_entry_grp(buffer, index, packet, parent)
   end
@@ -2464,8 +2466,10 @@ dissect.mass_instrument_state_change_fields = function(buffer, offset, packet, p
   -- Pad 6: 6 Byte
   index = dissect.pad_6(buffer, index, packet, parent)
 
-  -- Sec Mass Stat Grp: Struct of 7 fields
+  -- Dependency element: No Related Sym
   local sec_mass_stat_grp_count = buffer(index - 7, 1):le_uint()
+
+  -- Sec Mass Stat Grp: Struct of 7 fields
   for i = 1, sec_mass_stat_grp_count do
     index = dissect.sec_mass_stat_grp(buffer, index, packet, parent)
   end
@@ -2621,8 +2625,10 @@ dissect.instrument_summary_fields = function(buffer, offset, packet, parent)
   -- Pad 7: 7 Byte
   index = dissect.pad_7(buffer, index, packet, parent)
 
-  -- Md Instrument Entry Grp: Struct of 5 fields
+  -- Dependency element: No Md Entries
   local md_instrument_entry_grp_count = buffer(index - 8, 1):le_uint()
+
+  -- Md Instrument Entry Grp: Struct of 5 fields
   for i = 1, md_instrument_entry_grp_count do
     index = dissect.md_instrument_entry_grp(buffer, index, packet, parent)
   end
@@ -3615,8 +3621,10 @@ dissect.add_complex_instrument_fields = function(buffer, offset, packet, parent)
   -- Pad 1: 1 Byte
   index = dissect.pad_1(buffer, index, packet, parent)
 
-  -- Instrmt Leg Grp: Struct of 8 fields
+  -- Dependency element: No Legs
   local instrmt_leg_grp_count = buffer(index - 2, 1):le_uint()
+
+  -- Instrmt Leg Grp: Struct of 8 fields
   for i = 1, instrmt_leg_grp_count do
     index = dissect.instrmt_leg_grp(buffer, index, packet, parent)
   end
@@ -3965,8 +3973,10 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   -- Message Header: Struct of 3 fields
   index = dissect.message_header(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 23 branches
+  -- Dependency element: Template Id
   local code = buffer(index - 6, 2):le_uint()
+
+  -- Payload: Runtime Type with 23 branches
   index = dissect.payload(buffer, index, packet, parent, code)
 
   return index
@@ -4263,6 +4273,8 @@ dissect.packet = function(buffer, packet, parent)
 
   -- Message: Struct of 2 fields
   local end_of_payload = buffer:len()
+
+  -- Message: Struct of 2 fields
   while index < end_of_payload do
     index = dissect.message(buffer, index, packet, parent)
   end

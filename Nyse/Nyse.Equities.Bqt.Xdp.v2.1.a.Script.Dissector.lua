@@ -818,8 +818,10 @@ dissect.consolidated_stock_summary_message_fields = function(buffer, offset, pac
   -- Number Of Close Prices: 1 Byte Unsigned Fixed Width Integer
   index = dissect.number_of_close_prices(buffer, index, packet, parent)
 
-  -- Close Price: Struct of 2 fields
+  -- Dependency element: Number Of Close Prices
   local close_price_count = buffer(index - 1, 1):le_uint()
+
+  -- Close Price: Struct of 2 fields
   for i = 1, close_price_count do
     index = dissect.close_price(buffer, index, packet, parent)
   end
@@ -3655,8 +3657,10 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   -- Message Header: Struct of 2 fields
   index = dissect.message_header(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 19 branches
+  -- Dependency element: Message Type
   local code = buffer(index - 2, 2):le_uint()
+
+  -- Payload: Runtime Type with 19 branches
   index = dissect.payload(buffer, index, packet, parent, code)
 
   return index
@@ -3874,6 +3878,8 @@ dissect.packet = function(buffer, packet, parent)
 
   -- Message: Struct of 2 fields
   local end_of_payload = buffer:len()
+
+  -- Message: Struct of 2 fields
   while index < end_of_payload do
     index = dissect.message(buffer, index, packet, parent)
   end

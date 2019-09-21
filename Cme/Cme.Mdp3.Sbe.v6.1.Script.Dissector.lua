@@ -816,8 +816,10 @@ dissect.md_incremental_refresh_trade_summary_order_groups_fields = function(buff
   -- Group Size8 Byte: Struct of 3 fields
   index = dissect.group_size8_byte(buffer, index, packet, parent)
 
-  -- MD Incremental Refresh Trade Summary Order Group: Struct of 3 fields
+  -- Dependency element: Num In Group
   local md_incremental_refresh_trade_summary_order_group_count = buffer(index - 1, 1):le_uint()
+
+  -- MD Incremental Refresh Trade Summary Order Group: Struct of 3 fields
   for i = 1, md_incremental_refresh_trade_summary_order_group_count do
     index = dissect.md_incremental_refresh_trade_summary_order_group(buffer, index, packet, parent)
   end
@@ -1123,8 +1125,10 @@ dissect.md_incremental_refresh_trade_summary_groups_fields = function(buffer, of
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- MD Incremental Refresh Trade Summary Group: Struct of 8 fields
+  -- Dependency element: Num In Group
   local md_incremental_refresh_trade_summary_group_count = buffer(index - 1, 1):le_uint()
+
+  -- MD Incremental Refresh Trade Summary Group: Struct of 8 fields
   for i = 1, md_incremental_refresh_trade_summary_group_count do
     index = dissect.md_incremental_refresh_trade_summary_group(buffer, index, packet, parent)
   end
@@ -1411,8 +1415,10 @@ dissect.underlyings_groups_fields = function(buffer, offset, packet, parent)
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- Underlyings Group: Struct of 2 fields
+  -- Dependency element: Num In Group
   local underlyings_group_count = buffer(index - 1, 1):le_uint()
+
+  -- Underlyings Group: Struct of 2 fields
   for i = 1, underlyings_group_count do
     index = dissect.underlyings_group(buffer, index, packet, parent)
   end
@@ -1527,8 +1533,10 @@ dissect.lot_type_rules_groups_fields = function(buffer, offset, packet, parent)
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- Lot Type Rules Group: Struct of 2 fields
+  -- Dependency element: Num In Group
   local lot_type_rules_group_count = buffer(index - 1, 1):le_uint()
+
+  -- Lot Type Rules Group: Struct of 2 fields
   for i = 1, lot_type_rules_group_count do
     index = dissect.lot_type_rules_group(buffer, index, packet, parent)
   end
@@ -1770,8 +1778,10 @@ dissect.inst_attrib_groups_fields = function(buffer, offset, packet, parent)
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- Inst Attrib Group: Struct of 1 fields
+  -- Dependency element: Num In Group
   local inst_attrib_group_count = buffer(index - 1, 1):le_uint()
+
+  -- Inst Attrib Group: Struct of 1 fields
   for i = 1, inst_attrib_group_count do
     index = dissect.inst_attrib_group(buffer, index, packet, parent)
   end
@@ -1885,8 +1895,10 @@ dissect.md_feed_types_groups_fields = function(buffer, offset, packet, parent)
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- MD Feed Types Group: Struct of 2 fields
+  -- Dependency element: Num In Group
   local md_feed_types_group_count = buffer(index - 1, 1):le_uint()
+
+  -- MD Feed Types Group: Struct of 2 fields
   for i = 1, md_feed_types_group_count do
     index = dissect.md_feed_types_group(buffer, index, packet, parent)
   end
@@ -2007,8 +2019,10 @@ dissect.events_groups_fields = function(buffer, offset, packet, parent)
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- Events Group: Struct of 2 fields
+  -- Dependency element: Num In Group
   local events_group_count = buffer(index - 1, 1):le_uint()
+
+  -- Events Group: Struct of 2 fields
   for i = 1, events_group_count do
     index = dissect.events_group(buffer, index, packet, parent)
   end
@@ -2568,7 +2582,7 @@ display.week = function(value)
     return "Week: No Value ("..value..")"
   end
 
-  return "Week: "..value
+  return "{Element}: "..value
 end
 
 -- Dissect: Week
@@ -2592,7 +2606,7 @@ display.day = function(value)
     return "Day: No Value ("..value..")"
   end
 
-  return "Day: "..value
+  return "{Element}: "..value
 end
 
 -- Dissect: Day
@@ -2616,7 +2630,7 @@ display.month = function(value)
     return "Month: No Value ("..value..")"
   end
 
-  return "Month: "..value
+  return "{Element}: "..value
 end
 
 -- Dissect: Month
@@ -2640,7 +2654,7 @@ display.year = function(value)
     return "Year: No Value ("..value..")"
   end
 
-  return "Year: "..value
+  return "{Element}: "..value
 end
 
 -- Dissect: Year
@@ -3282,8 +3296,10 @@ dissect.related_sym_groups_fields = function(buffer, offset, packet, parent)
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- Related Sym Group: Struct of 6 fields
+  -- Dependency element: Num In Group
   local related_sym_group_count = buffer(index - 1, 1):le_uint()
+
+  -- Related Sym Group: Struct of 6 fields
   for i = 1, related_sym_group_count do
     index = dissect.related_sym_group(buffer, index, packet, parent)
   end
@@ -3582,8 +3598,10 @@ dissect.snapshot_full_refresh_groups_fields = function(buffer, offset, packet, p
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- Snapshot Full Refresh Group: Struct of 8 fields
+  -- Dependency element: Num In Group
   local snapshot_full_refresh_group_count = buffer(index - 1, 1):le_uint()
+
+  -- Snapshot Full Refresh Group: Struct of 8 fields
   for i = 1, snapshot_full_refresh_group_count do
     index = dissect.snapshot_full_refresh_group(buffer, index, packet, parent)
   end
@@ -3798,8 +3816,10 @@ dissect.md_incremental_refresh_volume_groups_fields = function(buffer, offset, p
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- MD Incremental Refresh Volume Group: Struct of 5 fields
+  -- Dependency element: Num In Group
   local md_incremental_refresh_volume_group_count = buffer(index - 1, 1):le_uint()
+
+  -- MD Incremental Refresh Volume Group: Struct of 5 fields
   for i = 1, md_incremental_refresh_volume_group_count do
     index = dissect.md_incremental_refresh_volume_group(buffer, index, packet, parent)
   end
@@ -3963,8 +3983,10 @@ dissect.md_incremental_refresh_trade_groups_fields = function(buffer, offset, pa
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- MD Incremental Refresh Trade Group: Struct of 9 fields
+  -- Dependency element: Num In Group
   local md_incremental_refresh_trade_group_count = buffer(index - 1, 1):le_uint()
+
+  -- MD Incremental Refresh Trade Group: Struct of 9 fields
   for i = 1, md_incremental_refresh_trade_group_count do
     index = dissect.md_incremental_refresh_trade_group(buffer, index, packet, parent)
   end
@@ -4103,8 +4125,10 @@ dissect.md_incremental_refresh_session_statistics_groups_fields = function(buffe
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- MD Incremental Refresh Session Statistics Group: Struct of 7 fields
+  -- Dependency element: Num In Group
   local md_incremental_refresh_session_statistics_group_count = buffer(index - 1, 1):le_uint()
+
+  -- MD Incremental Refresh Session Statistics Group: Struct of 7 fields
   for i = 1, md_incremental_refresh_session_statistics_group_count do
     index = dissect.md_incremental_refresh_session_statistics_group(buffer, index, packet, parent)
   end
@@ -4237,8 +4261,10 @@ dissect.md_incremental_refresh_limits_banding_groups_fields = function(buffer, o
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- MD Incremental Refresh Limits Banding Group: Struct of 5 fields
+  -- Dependency element: Num In Group
   local md_incremental_refresh_limits_banding_group_count = buffer(index - 1, 1):le_uint()
+
+  -- MD Incremental Refresh Limits Banding Group: Struct of 5 fields
   for i = 1, md_incremental_refresh_limits_banding_group_count do
     index = dissect.md_incremental_refresh_limits_banding_group(buffer, index, packet, parent)
   end
@@ -4402,8 +4428,10 @@ dissect.md_incremental_refresh_daily_statistics_groups_fields = function(buffer,
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- MD Incremental Refresh Daily Statistics Group: Struct of 9 fields
+  -- Dependency element: Num In Group
   local md_incremental_refresh_daily_statistics_group_count = buffer(index - 1, 1):le_uint()
+
+  -- MD Incremental Refresh Daily Statistics Group: Struct of 9 fields
   for i = 1, md_incremental_refresh_daily_statistics_group_count do
     index = dissect.md_incremental_refresh_daily_statistics_group(buffer, index, packet, parent)
   end
@@ -4548,8 +4576,10 @@ dissect.md_incremental_refresh_book_groups_fields = function(buffer, offset, pac
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- MD Incremental Refresh Book Group: Struct of 9 fields
+  -- Dependency element: Num In Group
   local md_incremental_refresh_book_group_count = buffer(index - 1, 1):le_uint()
+
+  -- MD Incremental Refresh Book Group: Struct of 9 fields
   for i = 1, md_incremental_refresh_book_group_count do
     index = dissect.md_incremental_refresh_book_group(buffer, index, packet, parent)
   end
@@ -4966,8 +4996,10 @@ dissect.legs_groups_fields = function(buffer, offset, packet, parent)
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- Legs Group: Struct of 5 fields
+  -- Dependency element: Num In Group
   local legs_group_count = buffer(index - 1, 1):le_uint()
+
+  -- Legs Group: Struct of 5 fields
   for i = 1, legs_group_count do
     index = dissect.legs_group(buffer, index, packet, parent)
   end
@@ -5644,8 +5676,10 @@ dissect.channel_reset_groups_fields = function(buffer, offset, packet, parent)
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- Channel Reset Group: Struct of 1 fields
+  -- Dependency element: Num In Group
   local channel_reset_group_count = buffer(index - 1, 1):le_uint()
+
+  -- Channel Reset Group: Struct of 1 fields
   for i = 1, channel_reset_group_count do
     index = dissect.channel_reset_group(buffer, index, packet, parent)
   end
@@ -6076,8 +6110,10 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   -- Message Header: Struct of 5 fields
   index = dissect.message_header(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 17 branches
+  -- Dependency element: Template Id
   local code = buffer(index - 6, 2):le_uint()
+
+  -- Payload: Runtime Type with 17 branches
   index = dissect.payload(buffer, index, packet, parent, code)
 
   return index
@@ -6173,6 +6209,8 @@ dissect.packet = function(buffer, packet, parent)
 
   -- Message: Struct of 2 fields
   local end_of_payload = buffer:len()
+
+  -- Message: Struct of 2 fields
   while index < end_of_payload do
     index = dissect.message(buffer, index, packet, parent)
   end

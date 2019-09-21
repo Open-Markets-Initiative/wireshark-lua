@@ -1198,8 +1198,10 @@ dissect.complex_order_message_fields = function(buffer, offset, packet, parent)
   -- Number Of Legs: 1 Byte Unsigned Fixed Width Integer
   index = dissect.number_of_legs(buffer, index, packet, parent)
 
-  -- Complex Order Leg: Struct of 8 fields
+  -- Dependency element: Number Of Legs
   local complex_order_leg_count = buffer(index - 1, 1):uint()
+
+  -- Complex Order Leg: Struct of 8 fields
   for i = 1, complex_order_leg_count do
     index = dissect.complex_order_leg(buffer, index, packet, parent)
   end
@@ -1712,8 +1714,10 @@ dissect.complex_order_strategy_message_fields = function(buffer, offset, packet,
   -- Number Of Legs: 1 Byte Unsigned Fixed Width Integer
   index = dissect.number_of_legs(buffer, index, packet, parent)
 
-  -- Complex Order Strategy Leg: Struct of 7 fields
+  -- Dependency element: Number Of Legs
   local complex_order_strategy_leg_count = buffer(index - 1, 1):uint()
+
+  -- Complex Order Strategy Leg: Struct of 7 fields
   for i = 1, complex_order_strategy_leg_count do
     index = dissect.complex_order_strategy_leg(buffer, index, packet, parent)
   end
@@ -2198,8 +2202,10 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   -- Message Header: Struct of 2 fields
   index = dissect.message_header(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 11 branches
+  -- Dependency element: Message Type
   local code = buffer(index - 1, 1):string()
+
+  -- Payload: Runtime Type with 11 branches
   index = dissect.payload(buffer, index, packet, parent, code)
 
   return index
@@ -2317,6 +2323,8 @@ dissect.packet = function(buffer, packet, parent)
 
   -- Message: Struct of 2 fields
   local end_of_payload = buffer:len()
+
+  -- Message: Struct of 2 fields
   while index < end_of_payload do
     index = dissect.message(buffer, index, packet, parent)
   end

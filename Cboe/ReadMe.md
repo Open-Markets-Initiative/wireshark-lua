@@ -5,13 +5,13 @@
 
 |Division | Data | Protocol | Version | Date | Size | Testing | Specification|
 |--- | --- | --- | --- | --- | --- | --- | ---|
-|Futures | DepthOfBook | Pitch | [1.1.6][Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Dissector] | 4/8/2019 | 2985 | Verified | [url][Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Url] - [pdf][Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Pdf]|
-|Options | MarketDataFeed | Csm | [1.4.2][Cboe.Options.MarketDataFeed.Csm.v1.4.2.Dissector] | 5/8/2018 | 3783 | Verified | [url][Cboe.Options.MarketDataFeed.Csm.v1.4.2.Url] - [pdf][Cboe.Options.MarketDataFeed.Csm.v1.4.2.Pdf]|
-|Options | MarketLevel2 | Csm | [1.0.4][Cboe.Options.MarketLevel2.Csm.v1.0.4.Dissector] | 5/8/2018 | 2678 | Verified | [url][Cboe.Options.MarketLevel2.Csm.v1.0.4.Url] - [pdf][Cboe.Options.MarketLevel2.Csm.v1.0.4.Pdf]|
-|Options | OpeningAuction | Csm | [1.0][Cboe.Options.OpeningAuction.Csm.v1.0.Dissector] | 7/18/2018 | 2772 | Verified | [url][Cboe.Options.OpeningAuction.Csm.v1.0.Url] - [pdf][Cboe.Options.OpeningAuction.Csm.v1.0.Pdf]|
-|Options | DepthOfBook | Pitch | [2.39.4][Cboe.Options.DepthOfBook.Pitch.v2.39.4.Dissector] | 8/21/2018 | 2786 | Verified | [url][Cboe.Options.DepthOfBook.Pitch.v2.39.4.Url] - [pdf][Cboe.Options.DepthOfBook.Pitch.v2.39.4.Pdf]|
-|Options C1 | AuctionFeed | Pitch | [1.1.1][Cboe.Options.C1.AuctionFeed.Pitch.v1.1.1.Dissector] | 12/6/2018 | 1624 | Verified | [url][Cboe.Options.C1.AuctionFeed.Pitch.v1.1.1.Url] - [pdf][Cboe.Options.C1.AuctionFeed.Pitch.v1.1.1.Pdf]|
-|Options Edgx | AuctionFeed | Pitch | [1.1.1][Cboe.Options.Edgx.AuctionFeed.Pitch.v1.1.1.Dissector] | 12/6/2018 | 1145 | Verified | [url][Cboe.Options.Edgx.AuctionFeed.Pitch.v1.1.1.Url] - [pdf][Cboe.Options.Edgx.AuctionFeed.Pitch.v1.1.1.Pdf]|
+|Futures | DepthOfBook | Pitch | [1.1.6][Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Dissector] | 4/8/2019 | 2995 | Verified | [url][Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Url] - [pdf][Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Pdf]|
+|Options | MarketDataFeed | Csm | [1.4.2][Cboe.Options.MarketDataFeed.Csm.v1.4.2.Dissector] | 5/8/2018 | 3819 | Verified | [url][Cboe.Options.MarketDataFeed.Csm.v1.4.2.Url] - [pdf][Cboe.Options.MarketDataFeed.Csm.v1.4.2.Pdf]|
+|Options | MarketLevel2 | Csm | [1.0.4][Cboe.Options.MarketLevel2.Csm.v1.0.4.Dissector] | 5/8/2018 | 2704 | Verified | [url][Cboe.Options.MarketLevel2.Csm.v1.0.4.Url] - [pdf][Cboe.Options.MarketLevel2.Csm.v1.0.4.Pdf]|
+|Options | OpeningAuction | Csm | [1.0][Cboe.Options.OpeningAuction.Csm.v1.0.Dissector] | 7/18/2018 | 2794 | Verified | [url][Cboe.Options.OpeningAuction.Csm.v1.0.Url] - [pdf][Cboe.Options.OpeningAuction.Csm.v1.0.Pdf]|
+|Options | DepthOfBook | Pitch | [2.39.4][Cboe.Options.DepthOfBook.Pitch.v2.39.4.Dissector] | 8/21/2018 | 2790 | Verified | [url][Cboe.Options.DepthOfBook.Pitch.v2.39.4.Url] - [pdf][Cboe.Options.DepthOfBook.Pitch.v2.39.4.Pdf]|
+|Options C1 | AuctionFeed | Pitch | [1.1.1][Cboe.Options.C1.AuctionFeed.Pitch.v1.1.1.Dissector] | 12/6/2018 | 1628 | Verified | [url][Cboe.Options.C1.AuctionFeed.Pitch.v1.1.1.Url] - [pdf][Cboe.Options.C1.AuctionFeed.Pitch.v1.1.1.Pdf]|
+|Options Edgx | AuctionFeed | Pitch | [1.1.1][Cboe.Options.Edgx.AuctionFeed.Pitch.v1.1.1.Dissector] | 12/6/2018 | 1149 | Verified | [url][Cboe.Options.Edgx.AuctionFeed.Pitch.v1.1.1.Url] - [pdf][Cboe.Options.Edgx.AuctionFeed.Pitch.v1.1.1.Pdf]|
 
 
 Cboe: [website](https://www.cboe.com "Go to Chicago Board Options Exchange")

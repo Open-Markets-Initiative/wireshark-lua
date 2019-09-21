@@ -2262,8 +2262,10 @@ dissect.application_message_fields = function(buffer, offset, packet, parent)
   -- Message Type: 1 Byte Ascii String Enum with 12 values
   index = dissect.message_type(buffer, index, packet, parent)
 
-  -- Data: Runtime Type with 12 branches
+  -- Dependency element: Message Type
   local code = buffer(index - 1, 1):string()
+
+  -- Data: Runtime Type with 12 branches
   index = dissect.data(buffer, index, packet, parent, code)
 
   return index
@@ -2451,8 +2453,10 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index = dissect.session_number(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 1 branches
+  -- Dependency element: Packet Type
   local code = buffer(index - 2, 1):le_uint()
+
+  -- Payload: Runtime Type with 1 branches
   index = dissect.payload(buffer, index, packet, parent, code)
 
   return index
@@ -2477,6 +2481,8 @@ dissect.packet = function(buffer, packet, parent)
 
   -- Message: Struct of 5 fields
   local end_of_payload = buffer:len()
+
+  -- Message: Struct of 5 fields
   while index < end_of_payload do
     index = dissect.message(buffer, index, packet, parent)
   end

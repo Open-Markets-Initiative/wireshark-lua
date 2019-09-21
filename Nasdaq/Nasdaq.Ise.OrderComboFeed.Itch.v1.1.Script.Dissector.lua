@@ -702,8 +702,10 @@ dissect.complex_strategy_auction_message_fields = function(buffer, offset, packe
   -- Number Of Responses: 1 Byte Unsigned Fixed Width Integer
   index = dissect.number_of_responses(buffer, index, packet, parent)
 
-  -- Auction Response: Struct of 2 fields
+  -- Dependency element: Number Of Responses
   local auction_response_count = buffer(index - 1, 1):uint()
+
+  -- Auction Response: Struct of 2 fields
   for i = 1, auction_response_count do
     index = dissect.auction_response(buffer, index, packet, parent)
   end
@@ -1281,8 +1283,10 @@ dissect.complex_strategy_directory_message_fields = function(buffer, offset, pac
   -- Number Of Legs: 1 Byte Unsigned Fixed Width Integer
   index = dissect.number_of_legs(buffer, index, packet, parent)
 
-  -- Leg Information: Struct of 10 fields
+  -- Dependency element: Number Of Legs
   local leg_information_count = buffer(index - 1, 1):uint()
+
+  -- Leg Information: Struct of 10 fields
   for i = 1, leg_information_count do
     index = dissect.leg_information(buffer, index, packet, parent)
   end
@@ -1685,8 +1689,10 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   -- Message Header: Struct of 2 fields
   index = dissect.message_header(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 6 branches
+  -- Dependency element: Message Type
   local code = buffer(index - 1, 1):string()
+
+  -- Payload: Runtime Type with 6 branches
   index = dissect.payload(buffer, index, packet, parent, code)
 
   return index
@@ -1804,6 +1810,8 @@ dissect.packet = function(buffer, packet, parent)
 
   -- Message: Struct of 2 fields
   local end_of_payload = buffer:len()
+
+  -- Message: Struct of 2 fields
   while index < end_of_payload do
     index = dissect.message(buffer, index, packet, parent)
   end

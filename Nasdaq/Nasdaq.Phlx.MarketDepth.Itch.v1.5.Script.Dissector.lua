@@ -924,8 +924,10 @@ dissect.block_delete_message_fields = function(buffer, offset, packet, parent)
   -- Number Of Reference Number Deltas: 2 Byte Unsigned Fixed Width Integer
   index = dissect.number_of_reference_number_deltas(buffer, index, packet, parent)
 
-  -- Cancelled Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Dependency element: Number Of Reference Number Deltas
   local cancelled_reference_number_delta_count = buffer(index - 2, 2):uint()
+
+  -- Cancelled Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
   for i = 1, cancelled_reference_number_delta_count do
     index = dissect.cancelled_reference_number_delta(buffer, index, packet, parent)
   end
@@ -3113,8 +3115,10 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   -- Message Header: Struct of 2 fields
   index = dissect.message_header(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 27 branches
+  -- Dependency element: Message Type
   local code = buffer(index - 1, 1):string()
+
+  -- Payload: Runtime Type with 27 branches
   index = dissect.payload(buffer, index, packet, parent, code)
 
   return index
@@ -3232,6 +3236,8 @@ dissect.packet = function(buffer, packet, parent)
 
   -- Message: Struct of 2 fields
   local end_of_payload = buffer:len()
+
+  -- Message: Struct of 2 fields
   while index < end_of_payload do
     index = dissect.message(buffer, index, packet, parent)
   end

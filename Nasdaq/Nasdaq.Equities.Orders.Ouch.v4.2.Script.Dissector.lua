@@ -2095,8 +2095,10 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   -- Message Type: 1 Byte Ascii String Enum with 19 values
   index = dissect.message_type(buffer, index, packet, parent)
 
-  -- Data: Runtime Type with 19 branches
+  -- Dependency element: Message Type
   local code = buffer(index - 1, 1):string()
+
+  -- Data: Runtime Type with 19 branches
   index = dissect.data(buffer, index, packet, parent, code)
 
   return index
@@ -2652,8 +2654,10 @@ dissect.packet = function(buffer, packet, parent)
   -- Packet Header: Struct of 2 fields
   index = dissect.packet_header(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 6 branches
+  -- Dependency element: Packet Type
   local code = buffer(index - 1, 1):string()
+
+  -- Payload: Runtime Type with 6 branches
   index = dissect.payload(buffer, index, packet, parent, code)
 
   return index

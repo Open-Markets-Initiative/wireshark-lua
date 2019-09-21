@@ -1847,8 +1847,10 @@ dissect.variance_fields = function(buffer, offset, packet, parent)
   -- Fed Funds Rate: 8 Byte Signed Fixed Width Integer
   index = dissect.fed_funds_rate(buffer, index, packet, parent)
 
-  -- Future Leg: Struct of 2 fields
+  -- Dependency element: Leg Count
   local future_leg_count = buffer(index - 65, 1):le_uint()
+
+  -- Future Leg: Struct of 2 fields
   for i = 1, future_leg_count do
     index = dissect.future_leg(buffer, index, packet, parent)
   end
@@ -1889,8 +1891,10 @@ end
 dissect.standard_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Future Leg: Struct of 2 fields
+  -- Dependency element: Leg Count
   local future_leg_count = buffer(index - 3, 1):le_uint()
+
+  -- Future Leg: Struct of 2 fields
   for i = 1, future_leg_count do
     index = dissect.future_leg(buffer, index, packet, parent)
   end
@@ -2230,8 +2234,10 @@ dissect.futures_instrument_definition_message_fields = function(buffer, offset, 
   -- Variance Block Offset: 1 Byte Unsigned Fixed Width Integer
   index = dissect.variance_block_offset(buffer, index, packet, parent)
 
-  -- Future Block: Runtime Type with 2 branches
+  -- Dependency element: Futures Flags
   local code = buffer(index - 19, 1):le_uint()
+
+  -- Future Block: Runtime Type with 2 branches
   index = dissect.future_block(buffer, index, packet, parent, code)
 
   return index
@@ -2763,8 +2769,10 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   -- Message Header: Struct of 2 fields
   index = dissect.message_header(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 21 branches
+  -- Dependency element: Message Type
   local code = buffer(index - 1, 1):le_uint()
+
+  -- Payload: Runtime Type with 21 branches
   index = dissect.payload(buffer, index, packet, parent, code)
 
   return index
@@ -2904,6 +2912,8 @@ dissect.packet = function(buffer, packet, parent)
 
   -- Message: Struct of 2 fields
   local end_of_payload = buffer:len()
+
+  -- Message: Struct of 2 fields
   while index < end_of_payload do
     index = dissect.message(buffer, index, packet, parent)
   end

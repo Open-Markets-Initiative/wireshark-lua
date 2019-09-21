@@ -3656,8 +3656,10 @@ dissect.new_options_strategy_definition_message_fields = function(buffer, offset
   -- Number Of Strategy Leg Definitions: 1 Byte Signed Fixed Width Integer
   index = dissect.number_of_strategy_leg_definitions(buffer, index, packet, parent)
 
-  -- Strategy Leg Definition: Struct of 10 fields
+  -- Dependency element: Number Of Strategy Leg Definitions
   local strategy_leg_definition_count = buffer(index - 1, 1):int()
+
+  -- Strategy Leg Definition: Struct of 10 fields
   for i = 1, strategy_leg_definition_count do
     index = dissect.strategy_leg_definition(buffer, index, packet, parent)
   end
@@ -3665,8 +3667,10 @@ dissect.new_options_strategy_definition_message_fields = function(buffer, offset
   -- Number Of Hedge Definitions: 1 Byte Signed Fixed Width Integer
   index = dissect.number_of_hedge_definitions(buffer, index, packet, parent)
 
-  -- Hedge Definition: Struct of 8 fields
+  -- Dependency element: Number Of Hedge Definitions
   local hedge_definition_count = buffer(index - 1, 1):int()
+
+  -- Hedge Definition: Struct of 8 fields
   for i = 1, hedge_definition_count do
     index = dissect.hedge_definition(buffer, index, packet, parent)
   end
@@ -4944,8 +4948,10 @@ dissect.special_field_fields = function(buffer, offset, packet, parent)
   -- Special Field Length: 2 Byte Unsigned Fixed Width Integer
   index = dissect.special_field_length(buffer, index, packet, parent)
 
+  -- Dependency element: Special Field Length
+  local special_field_value_count = buffer(index - 2, 2):uint()
+
   -- Special Field Value: 0 Byte
-  local length = buffer(index - 2, 2):uint()
   index = dissect.special_field_value(buffer, index, packet, parent, length)
 
   return index
@@ -5009,8 +5015,10 @@ dissect.special_field_message_fields = function(buffer, offset, packet, parent)
   -- Number Of Special Fields: 1 Byte Signed Fixed Width Integer
   index = dissect.number_of_special_fields(buffer, index, packet, parent)
 
-  -- Special Field: Struct of 3 fields
+  -- Dependency element: Number Of Special Fields
   local special_field_count = buffer(index - 1, 1):int()
+
+  -- Special Field: Struct of 3 fields
   for i = 1, special_field_count do
     index = dissect.special_field(buffer, index, packet, parent)
   end
@@ -5839,8 +5847,10 @@ dissect.new_futures_strategy_definition_message_fields = function(buffer, offset
   -- Number Of Leg Definitions: 1 Byte Signed Fixed Width Integer
   index = dissect.number_of_leg_definitions(buffer, index, packet, parent)
 
-  -- Leg Definition: Struct of 9 fields
+  -- Dependency element: Number Of Leg Definitions
   local leg_definition_count = buffer(index - 1, 1):int()
+
+  -- Leg Definition: Struct of 9 fields
   for i = 1, leg_definition_count do
     index = dissect.leg_definition(buffer, index, packet, parent)
   end
@@ -8398,8 +8408,10 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   -- Message Header: Struct of 2 fields
   index = dissect.message_header(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 38 branches
+  -- Dependency element: Message Type
   local code = buffer(index - 3, 1):string()
+
+  -- Payload: Runtime Type with 38 branches
   index = dissect.payload(buffer, index, packet, parent, code)
 
   return index
@@ -8518,8 +8530,10 @@ dissect.packet = function(buffer, packet, parent)
   -- Packet Header: Struct of 4 fields
   index = dissect.packet_header(buffer, index, packet, parent)
 
-  -- Message: Struct of 2 fields
+  -- Dependency element: Count
   local message_count = buffer(index - 10, 2):uint()
+
+  -- Message: Struct of 2 fields
   for i = 1, message_count do
     index = dissect.message(buffer, index, packet, parent)
   end

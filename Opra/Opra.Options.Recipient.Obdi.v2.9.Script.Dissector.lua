@@ -758,8 +758,10 @@ dissect.underlying_value_category_fields = function(buffer, offset, packet, pare
   -- Transaction ID : 8 Byte Unsigned Fixed Width Integer
   index = dissect.transaction_id_(buffer, index, packet, parent)
 
-  -- UNDERLYING VALUE Payload : Runtime Type with 1 branches
+  -- Dependency element: UNDERLYING VALUE Message Indicator
   local code = buffer(index - 8, 0):bytes():tohex(false, " ")
+
+  -- UNDERLYING VALUE Payload : Runtime Type with 1 branches
   index = dissect.underlying_value_payload_(buffer, index, packet, parent, code)
 
   return index
@@ -837,8 +839,10 @@ dissect.control_message_fields = function(buffer, offset, packet, parent)
   -- Message Data Length: 2 Byte Unsigned Fixed Width Integer
   index = dissect.message_data_length(buffer, index, packet, parent)
 
+  -- Dependency element: Message Data Length
+  local message_data_count = buffer(index - 2, 2):le_uint()
+
   -- Message Data: 4 Byte Ascii String
-  local length = buffer(index - 2, 2):le_uint()
   index = dissect.message_data(buffer, index, packet, parent, length)
 
   return index
@@ -934,8 +938,10 @@ dissect.control_category_fields = function(buffer, offset, packet, parent)
   -- Transaction ID : 8 Byte Unsigned Fixed Width Integer
   index = dissect.transaction_id_(buffer, index, packet, parent)
 
-  -- CONTROL Payload : Runtime Type with 1 branches
+  -- Dependency element: CONTROL Message Indicator
   local code = buffer(index - 8, 0):bytes():tohex(false, " ")
+
+  -- CONTROL Payload : Runtime Type with 1 branches
   index = dissect.control_payload_(buffer, index, packet, parent, code)
 
   return index
@@ -978,8 +984,10 @@ dissect.administrative_message_fields = function(buffer, offset, packet, parent)
   -- Message Data Length: 2 Byte Unsigned Fixed Width Integer
   index = dissect.message_data_length(buffer, index, packet, parent)
 
+  -- Dependency element: Message Data Length
+  local message_data_count = buffer(index - 2, 2):le_uint()
+
   -- Message Data: 4 Byte Ascii String
-  local length = buffer(index - 2, 2):le_uint()
   index = dissect.message_data(buffer, index, packet, parent, length)
 
   return index
@@ -1075,8 +1083,10 @@ dissect.administrative_category_fields = function(buffer, offset, packet, parent
   -- Transaction ID : 8 Byte Unsigned Fixed Width Integer
   index = dissect.transaction_id_(buffer, index, packet, parent)
 
-  -- Administrative Payload : Runtime Type with 1 branches
+  -- Dependency element: Administrative Message Indicator
   local code = buffer(index - 8, 0):bytes():tohex(false, " ")
+
+  -- Administrative Payload : Runtime Type with 1 branches
   index = dissect.administrative_payload_(buffer, index, packet, parent, code)
 
   return index
@@ -2799,8 +2809,10 @@ dissect.short_quote_category_fields = function(buffer, offset, packet, parent)
   -- Transaction ID : 8 Byte Unsigned Fixed Width Integer
   index = dissect.transaction_id_(buffer, index, packet, parent)
 
-  -- Short Quote Message : Runtime Type with 17 branches
+  -- Dependency element: Short Quote Message Indicator
   local code = buffer(index - 8, 0):bytes():tohex(false, " ")
+
+  -- Short Quote Message : Runtime Type with 17 branches
   index = dissect.short_quote_message_(buffer, index, packet, parent, code)
 
   return index
@@ -4285,8 +4297,10 @@ dissect.long_quote_category_fields = function(buffer, offset, packet, parent)
   -- Transaction ID : 8 Byte Unsigned Fixed Width Integer
   index = dissect.transaction_id_(buffer, index, packet, parent)
 
-  -- Long Quote Message : Runtime Type with 17 branches
+  -- Dependency element: Long Quote Message Indicator
   local code = buffer(index - 8, 0):bytes():tohex(false, " ")
+
+  -- Long Quote Message : Runtime Type with 17 branches
   index = dissect.long_quote_message_(buffer, index, packet, parent, code)
 
   return index
@@ -4683,8 +4697,10 @@ dissect.equity_eod_category_fields = function(buffer, offset, packet, parent)
   -- Transaction ID : 8 Byte Unsigned Fixed Width Integer
   index = dissect.transaction_id_(buffer, index, packet, parent)
 
-  -- Equity EOD Payload : Runtime Type with 1 branches
+  -- Dependency element: Equity EOD Message Indicator
   local code = buffer(index - 8, 0):bytes():tohex(false, " ")
+
+  -- Equity EOD Payload : Runtime Type with 1 branches
   index = dissect.equity_eod_payload_(buffer, index, packet, parent, code)
 
   return index
@@ -4828,8 +4844,10 @@ dissect.open_interest_category_fields = function(buffer, offset, packet, parent)
   -- Transaction ID : 8 Byte Unsigned Fixed Width Integer
   index = dissect.transaction_id_(buffer, index, packet, parent)
 
-  -- Open Interest Payload : Runtime Type with 1 branches
+  -- Dependency element: Open Interest Message Indicator
   local code = buffer(index - 8, 0):bytes():tohex(false, " ")
+
+  -- Open Interest Payload : Runtime Type with 1 branches
   index = dissect.open_interest_payload_(buffer, index, packet, parent, code)
 
   return index
@@ -5023,8 +5041,10 @@ dissect.equity_index_last_sale_category_fields = function(buffer, offset, packet
   -- Transaction ID : 8 Byte Unsigned Fixed Width Integer
   index = dissect.transaction_id_(buffer, index, packet, parent)
 
-  -- Equity Index Last Sale Payload : Runtime Type with 1 branches
+  -- Dependency element: Equity Index Last Sale Message Indicator
   local code = buffer(index - 8, 0):bytes():tohex(false, " ")
+
+  -- Equity Index Last Sale Payload : Runtime Type with 1 branches
   index = dissect.equity_index_last_sale_payload_(buffer, index, packet, parent, code)
 
   return index
@@ -5340,8 +5360,10 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   -- Message Header: Struct of 2 fields
   index = dissect.message_header(buffer, index, packet, parent)
 
-  -- Category Data: Runtime Type with 8 branches
+  -- Dependency element: Message Category
   local code = buffer(index - 1, 1):string()
+
+  -- Category Data: Runtime Type with 8 branches
   index = dissect.category_data(buffer, index, packet, parent, code)
 
   return index
@@ -5558,8 +5580,10 @@ dissect.packet = function(buffer, packet, parent)
   -- Packet Header: Struct of 9 fields
   index = dissect.packet_header(buffer, index, packet, parent)
 
-  -- Message: Struct of 2 fields
+  -- Dependency element: Message Count
   local message_count = buffer(index - 3, 1):uint()
+
+  -- Message: Struct of 2 fields
   for i = 1, message_count do
     index = dissect.message(buffer, index, packet, parent)
   end

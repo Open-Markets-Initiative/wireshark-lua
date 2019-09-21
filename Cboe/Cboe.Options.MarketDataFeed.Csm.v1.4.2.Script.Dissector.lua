@@ -899,8 +899,10 @@ dissect.summary_message_fields = function(buffer, offset, packet, parent)
   -- No Entries: 1 Byte Unsigned Fixed Width Integer
   index = dissect.no_entries(buffer, index, packet, parent)
 
-  -- Summary Md Entry: Struct of 2 fields
+  -- Dependency element: No Entries
   local summary_md_entry_count = buffer(index - 1, 1):uint()
+
+  -- Summary Md Entry: Struct of 2 fields
   for i = 1, summary_md_entry_count do
     index = dissect.summary_md_entry(buffer, index, packet, parent)
   end
@@ -985,8 +987,10 @@ dissect.settlement_value_message_fields = function(buffer, offset, packet, paren
   -- No Entries: 1 Byte Unsigned Fixed Width Integer
   index = dissect.no_entries(buffer, index, packet, parent)
 
-  -- Settlement Value Md Entry: Struct of 2 fields
+  -- Dependency element: No Entries
   local settlement_value_md_entry_count = buffer(index - 1, 1):uint()
+
+  -- Settlement Value Md Entry: Struct of 2 fields
   for i = 1, settlement_value_md_entry_count do
     index = dissect.settlement_value_md_entry(buffer, index, packet, parent)
   end
@@ -1096,8 +1100,10 @@ dissect.symbol_fields = function(buffer, offset, packet, parent)
   -- Symbol Length: 1 Byte Unsigned Fixed Width Integer
   index = dissect.symbol_length(buffer, index, packet, parent)
 
+  -- Dependency element: Symbol Length
+  local symbol_text_count = buffer(index - 1, 1):uint()
+
   -- Symbol Text: 0 Byte Ascii String
-  local length = buffer(index - 1, 1):uint()
   index = dissect.symbol_text(buffer, index, packet, parent, length)
 
   return index
@@ -1146,8 +1152,10 @@ dissect.index_value_message_fields = function(buffer, offset, packet, parent)
   -- No Entries: 1 Byte Unsigned Fixed Width Integer
   index = dissect.no_entries(buffer, index, packet, parent)
 
-  -- Index Value Md Entry: Struct of 2 fields
+  -- Dependency element: No Entries
   local index_value_md_entry_count = buffer(index - 1, 1):uint()
+
+  -- Index Value Md Entry: Struct of 2 fields
   for i = 1, index_value_md_entry_count do
     index = dissect.index_value_md_entry(buffer, index, packet, parent)
   end
@@ -1435,8 +1443,10 @@ dissect.trade_condition_fields = function(buffer, offset, packet, parent)
   -- Trade Condition Length: 1 Byte Unsigned Fixed Width Integer
   index = dissect.trade_condition_length(buffer, index, packet, parent)
 
+  -- Dependency element: Trade Condition Length
+  local trade_condition_text_count = buffer(index - 1, 1):uint()
+
   -- Trade Condition Text: 0 Byte Ascii String
-  local length = buffer(index - 1, 1):uint()
   index = dissect.trade_condition_text(buffer, index, packet, parent, length)
 
   return index
@@ -1557,8 +1567,10 @@ dissect.ticker_message_fields = function(buffer, offset, packet, parent)
   -- No Entries: 1 Byte Unsigned Fixed Width Integer
   index = dissect.no_entries(buffer, index, packet, parent)
 
-  -- Ticker Md Entry: Struct of 4 fields
+  -- Dependency element: No Entries
   local ticker_md_entry_count = buffer(index - 1, 1):uint()
+
+  -- Ticker Md Entry: Struct of 4 fields
   for i = 1, ticker_md_entry_count do
     index = dissect.ticker_md_entry(buffer, index, packet, parent)
   end
@@ -1720,8 +1732,10 @@ dissect.recap_update_message_fields = function(buffer, offset, packet, parent)
   -- No Entries: 1 Byte Unsigned Fixed Width Integer
   index = dissect.no_entries(buffer, index, packet, parent)
 
-  -- Recap Update Md Entry: Struct of 3 fields
+  -- Dependency element: No Entries
   local recap_update_md_entry_count = buffer(index - 1, 1):uint()
+
+  -- Recap Update Md Entry: Struct of 3 fields
   for i = 1, recap_update_md_entry_count do
     index = dissect.recap_update_md_entry(buffer, index, packet, parent)
   end
@@ -1894,8 +1908,10 @@ dissect.current_market_update_message_fields = function(buffer, offset, packet, 
   -- No Entries: 1 Byte Unsigned Fixed Width Integer
   index = dissect.no_entries(buffer, index, packet, parent)
 
-  -- Md Entry: Struct of 4 fields
+  -- Dependency element: No Entries
   local md_entry_count = buffer(index - 1, 1):uint()
+
+  -- Md Entry: Struct of 4 fields
   for i = 1, md_entry_count do
     index = dissect.md_entry(buffer, index, packet, parent)
   end
@@ -1981,8 +1997,10 @@ dissect.market_data_refresh_message_fields = function(buffer, offset, packet, pa
   -- No Entries: 1 Byte Unsigned Fixed Width Integer
   index = dissect.no_entries(buffer, index, packet, parent)
 
-  -- Md Entry: Struct of 4 fields
+  -- Dependency element: No Entries
   local md_entry_count = buffer(index - 1, 1):uint()
+
+  -- Md Entry: Struct of 4 fields
   for i = 1, md_entry_count do
     index = dissect.md_entry(buffer, index, packet, parent)
   end
@@ -2043,8 +2061,10 @@ dissect.current_market_refresh_message_fields = function(buffer, offset, packet,
   -- No Entries: 1 Byte Unsigned Fixed Width Integer
   index = dissect.no_entries(buffer, index, packet, parent)
 
-  -- Md Entry: Struct of 4 fields
+  -- Dependency element: No Entries
   local md_entry_count = buffer(index - 1, 1):uint()
+
+  -- Md Entry: Struct of 4 fields
   for i = 1, md_entry_count do
     index = dissect.md_entry(buffer, index, packet, parent)
   end
@@ -2259,8 +2279,10 @@ dissect.underlying_type_fields = function(buffer, offset, packet, parent)
   -- Underlying Type Length: 1 Byte Unsigned Fixed Width Integer
   index = dissect.underlying_type_length(buffer, index, packet, parent)
 
+  -- Dependency element: Underlying Type Length
+  local underlying_type_text_count = buffer(index - 1, 1):uint()
+
   -- Underlying Type Text: 0 Byte Ascii String
-  local length = buffer(index - 1, 1):uint()
   index = dissect.underlying_type_text(buffer, index, packet, parent, length)
 
   return index
@@ -2338,8 +2360,10 @@ dissect.underlying_symbol_fields = function(buffer, offset, packet, parent)
   -- Underlying Symbol Length: 1 Byte Unsigned Fixed Width Integer
   index = dissect.underlying_symbol_length(buffer, index, packet, parent)
 
+  -- Dependency element: Underlying Symbol Length
+  local underlying_symbol_text_count = buffer(index - 1, 1):uint()
+
   -- Underlying Symbol Text: 0 Byte Ascii String
-  local length = buffer(index - 1, 1):uint()
   index = dissect.underlying_symbol_text(buffer, index, packet, parent, length)
 
   return index
@@ -2417,8 +2441,10 @@ dissect.currency_code_fields = function(buffer, offset, packet, parent)
   -- Currency Code Length: 1 Byte Unsigned Fixed Width Integer
   index = dissect.currency_code_length(buffer, index, packet, parent)
 
+  -- Dependency element: Currency Code Length
+  local currency_code_text_count = buffer(index - 1, 1):uint()
+
   -- Currency Code Text: 0 Byte Ascii String
-  local length = buffer(index - 1, 1):uint()
   index = dissect.currency_code_text(buffer, index, packet, parent, length)
 
   return index
@@ -2975,8 +3001,10 @@ dissect.target_location_id_fields = function(buffer, offset, packet, parent)
   -- Target Location Id Length: 1 Byte Unsigned Fixed Width Integer
   index = dissect.target_location_id_length(buffer, index, packet, parent)
 
+  -- Dependency element: Target Location Id Length
+  local target_location_id_text_count = buffer(index - 1, 1):uint()
+
   -- Target Location Id Text: 0 Byte Ascii String
-  local length = buffer(index - 1, 1):uint()
   index = dissect.target_location_id_text(buffer, index, packet, parent, length)
 
   return index
@@ -3089,8 +3117,10 @@ dissect.security_type_fields = function(buffer, offset, packet, parent)
   -- Security Type Length: 1 Byte Unsigned Fixed Width Integer
   index = dissect.security_type_length(buffer, index, packet, parent)
 
+  -- Dependency element: Security Type Length
+  local security_type_text_count = buffer(index - 1, 1):uint()
+
   -- Security Type Text: 0 Byte Ascii String
-  local length = buffer(index - 1, 1):uint()
   index = dissect.security_type_text(buffer, index, packet, parent, length)
 
   return index
@@ -3210,8 +3240,10 @@ dissect.security_definition_message_fields = function(buffer, offset, packet, pa
   -- No Legs: 1 Byte Unsigned Fixed Width Integer
   index = dissect.no_legs(buffer, index, packet, parent)
 
-  -- Security Definition Leg: Struct of 3 fields
+  -- Dependency element: No Legs
   local security_definition_leg_count = buffer(index - 1, 1):uint()
+
+  -- Security Definition Leg: Struct of 3 fields
   for i = 1, security_definition_leg_count do
     index = dissect.security_definition_leg(buffer, index, packet, parent)
   end
@@ -3539,8 +3571,10 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   -- Message Header: Struct of 4 fields
   index = dissect.message_header(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 12 branches
+  -- Dependency element: Template Id
   local code = buffer(index - 6, 1):uint()
+
+  -- Payload: Runtime Type with 12 branches
   index = dissect.payload(buffer, index, packet, parent, code)
 
   return index
@@ -3700,8 +3734,10 @@ dissect.packet = function(buffer, packet, parent)
   -- Packet Header: Struct of 5 fields
   index = dissect.packet_header(buffer, index, packet, parent)
 
-  -- Message: Struct of 2 fields
+  -- Dependency element: Message Count
   local message_count = buffer(index - 5, 1):uint()
+
+  -- Message: Struct of 2 fields
   for i = 1, message_count do
     index = dissect.message(buffer, index, packet, parent)
   end

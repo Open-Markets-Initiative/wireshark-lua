@@ -670,6 +670,8 @@ dissect.delta_update_message_fields = function(buffer, offset, packet, parent)
 
   -- Delta Price Point: Struct of 9 fields
   local end_of_payload = offset + buffer(offset, size_of.delta_size):int() - (index - offset)
+
+  -- Delta Price Point: Struct of 9 fields
   while index < end_of_payload do
     index = dissect.delta_price_point(buffer, index, packet, parent)
   end
@@ -709,6 +711,8 @@ dissect.delta_update_messages_fields = function(buffer, offset, packet, parent)
 
   -- Delta Update Message: Struct of 10 fields
   local end_of_payload = buffer:len()
+
+  -- Delta Update Message: Struct of 10 fields
   while index < end_of_payload do
     index = dissect.delta_update_message(buffer, index, packet, parent)
   end
@@ -915,6 +919,8 @@ dissect.full_update_message_fields = function(buffer, offset, packet, parent)
 
   -- Full Price Point: Struct of 5 fields
   local end_of_payload = offset + buffer(offset, size_of.update_size):int() - (index - offset)
+
+  -- Full Price Point: Struct of 5 fields
   while index < end_of_payload do
     index = dissect.full_price_point(buffer, index, packet, parent)
   end
@@ -954,6 +960,8 @@ dissect.full_update_messages_fields = function(buffer, offset, packet, parent)
 
   -- Full Update Message: Struct of 13 fields
   local end_of_payload = buffer:len()
+
+  -- Full Update Message: Struct of 13 fields
   while index < end_of_payload do
     index = dissect.full_update_message(buffer, index, packet, parent)
   end
@@ -1262,8 +1270,10 @@ dissect.packet = function(buffer, packet, parent)
   -- Packet Header: Struct of 8 fields
   index = dissect.packet_header(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 4 branches
+  -- Dependency element: Message Type
   local code = buffer(index - 14, 2):uint()
+
+  -- Payload: Runtime Type with 4 branches
   index = dissect.payload(buffer, index, packet, parent, code)
 
   return index

@@ -975,8 +975,10 @@ dissect.affected_orders_groups_fields = function(buffer, offset, packet, parent)
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- Affected Orders Group: Struct of 3 fields
+  -- Dependency element: Num In Group
   local affected_orders_group_count = buffer(index - 1, 1):le_uint()
+
+  -- Affected Orders Group: Struct of 3 fields
   for i = 1, affected_orders_group_count do
     index = dissect.affected_orders_group(buffer, index, packet, parent)
   end
@@ -1824,8 +1826,10 @@ dissect.order_events_groups_fields = function(buffer, offset, packet, parent)
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- Order Events Group: Struct of 6 fields
+  -- Dependency element: Num In Group
   local order_events_group_count = buffer(index - 1, 1):le_uint()
+
+  -- Order Events Group: Struct of 6 fields
   for i = 1, order_events_group_count do
     index = dissect.order_events_group(buffer, index, packet, parent)
   end
@@ -1984,8 +1988,10 @@ dissect.fills_groups_fields = function(buffer, offset, packet, parent)
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- Fills Group: Struct of 4 fields
+  -- Dependency element: Num In Group
   local fills_group_count = buffer(index - 1, 1):le_uint()
+
+  -- Fills Group: Struct of 4 fields
   for i = 1, fills_group_count do
     index = dissect.fills_group(buffer, index, packet, parent)
   end
@@ -2546,8 +2552,10 @@ dissect.legs_groups_fields = function(buffer, offset, packet, parent)
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- Legs Group: Struct of 6 fields
+  -- Dependency element: Num In Group
   local legs_group_count = buffer(index - 1, 1):le_uint()
+
+  -- Legs Group: Struct of 6 fields
   for i = 1, legs_group_count do
     index = dissect.legs_group(buffer, index, packet, parent)
   end
@@ -3143,8 +3151,10 @@ dissect.quote_sets_groups_fields = function(buffer, offset, packet, parent)
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- Quote Sets Group: Struct of 3 fields
+  -- Dependency element: Num In Group
   local quote_sets_group_count = buffer(index - 1, 1):le_uint()
+
+  -- Quote Sets Group: Struct of 3 fields
   for i = 1, quote_sets_group_count do
     index = dissect.quote_sets_group(buffer, index, packet, parent)
   end
@@ -3316,8 +3326,10 @@ dissect.quote_entries_groups_fields = function(buffer, offset, packet, parent)
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- Quote Entries Group: Struct of 8 fields
+  -- Dependency element: Num In Group
   local quote_entries_group_count = buffer(index - 1, 1):le_uint()
+
+  -- Quote Entries Group: Struct of 8 fields
   for i = 1, quote_entries_group_count do
     index = dissect.quote_entries_group(buffer, index, packet, parent)
   end
@@ -3947,8 +3959,10 @@ dissect.sides_groups_fields = function(buffer, offset, packet, parent)
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- Sides Group: Struct of 5 fields
+  -- Dependency element: Num In Group
   local sides_group_count = buffer(index - 1, 1):le_uint()
+
+  -- Sides Group: Struct of 5 fields
   for i = 1, sides_group_count do
     index = dissect.sides_group(buffer, index, packet, parent)
   end
@@ -4154,8 +4168,10 @@ dissect.related_sym_groups_fields = function(buffer, offset, packet, parent)
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- Related Sym Group: Struct of 3 fields
+  -- Dependency element: Num In Group
   local related_sym_group_count = buffer(index - 1, 1):le_uint()
+
+  -- Related Sym Group: Struct of 3 fields
   for i = 1, related_sym_group_count do
     index = dissect.related_sym_group(buffer, index, packet, parent)
   end
@@ -4351,8 +4367,10 @@ dissect.underlyings_groups_fields = function(buffer, offset, packet, parent)
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- Underlyings Group: Struct of 2 fields
+  -- Dependency element: Num In Group
   local underlyings_group_count = buffer(index - 1, 1):le_uint()
+
+  -- Underlyings Group: Struct of 2 fields
   for i = 1, underlyings_group_count do
     index = dissect.underlyings_group(buffer, index, packet, parent)
   end
@@ -4545,7 +4563,7 @@ display.week = function(value)
     return "Week: No Value ("..value..")"
   end
 
-  return "Week: "..value
+  return "{Element}: "..value
 end
 
 -- Dissect: Week
@@ -4569,7 +4587,7 @@ display.day = function(value)
     return "Day: No Value ("..value..")"
   end
 
-  return "Day: "..value
+  return "{Element}: "..value
 end
 
 -- Dissect: Day
@@ -4593,7 +4611,7 @@ display.month = function(value)
     return "Month: No Value ("..value..")"
   end
 
-  return "Month: "..value
+  return "{Element}: "..value
 end
 
 -- Dissect: Month
@@ -4617,7 +4635,7 @@ display.year = function(value)
     return "Year: No Value ("..value..")"
   end
 
-  return "Year: "..value
+  return "{Element}: "..value
 end
 
 -- Dissect: Year
@@ -5117,8 +5135,10 @@ dissect.party_details_groups_fields = function(buffer, offset, packet, parent)
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- Party Details Group: Struct of 2 fields
+  -- Dependency element: Num In Group
   local party_details_group_count = buffer(index - 1, 1):le_uint()
+
+  -- Party Details Group: Struct of 2 fields
   for i = 1, party_details_group_count do
     index = dissect.party_details_group(buffer, index, packet, parent)
   end
@@ -5642,8 +5662,10 @@ dissect.party_i_ds_groups_fields = function(buffer, offset, packet, parent)
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- Party I Ds Group: Struct of 3 fields
+  -- Dependency element: Num In Group
   local party_i_ds_group_count = buffer(index - 1, 1):le_uint()
+
+  -- Party I Ds Group: Struct of 3 fields
   for i = 1, party_i_ds_group_count do
     index = dissect.party_i_ds_group(buffer, index, packet, parent)
   end
@@ -5779,8 +5801,10 @@ dissect.requesting_party_i_ds_groups_fields = function(buffer, offset, packet, p
   -- Group Size: Struct of 2 fields
   index = dissect.group_size(buffer, index, packet, parent)
 
-  -- Requesting Party I Ds Group: Struct of 3 fields
+  -- Dependency element: Num In Group
   local requesting_party_i_ds_group_count = buffer(index - 1, 1):le_uint()
+
+  -- Requesting Party I Ds Group: Struct of 3 fields
   for i = 1, requesting_party_i_ds_group_count do
     index = dissect.requesting_party_i_ds_group(buffer, index, packet, parent)
   end
@@ -10361,8 +10385,10 @@ dissect.packet = function(buffer, packet, parent)
   -- Message Header: Struct of 4 fields
   index = dissect.message_header(buffer, index, packet, parent)
 
-  -- payload: Runtime Type with 47 branches
+  -- Dependency element: Template Id
   local code = buffer(index - 6, 2):le_uint()
+
+  -- payload: Runtime Type with 47 branches
   index = dissect.payload(buffer, index, packet, parent, code)
 
   return index
