@@ -1760,13 +1760,13 @@ size_of.aggressor_side = 1
 -- Display: Aggressor Side
 display.aggressor_side = function(value)
   if value == 0 then
-    return "Aggressor Side: Aggressor Side (0)"
+    return "Aggressor Side: No Aggressor (0)"
   end
   if value == 1 then
-    return "Aggressor Side: Aggressor Side (1)"
+    return "Aggressor Side: Buy (1)"
   end
   if value == 2 then
-    return "Aggressor Side: Aggressor Side (2)"
+    return "Aggressor Side: Sell (2)"
   end
 
   return "Aggressor Side: Unknown("..value..")"
@@ -1846,22 +1846,22 @@ size_of.md_update_action = 1
 -- Display: Md Update Action
 display.md_update_action = function(value)
   if value == 0 then
-    return "Md Update Action: Md Update Action (0)"
+    return "Md Update Action: New (0)"
   end
   if value == 1 then
-    return "Md Update Action: Md Update Action (1)"
+    return "Md Update Action: Change (1)"
   end
   if value == 2 then
-    return "Md Update Action: Md Update Action (2)"
+    return "Md Update Action: Delete (2)"
   end
   if value == 3 then
-    return "Md Update Action: Md Update Action (3)"
+    return "Md Update Action: Delete Thru (3)"
   end
   if value == 4 then
-    return "Md Update Action: Md Update Action (4)"
+    return "Md Update Action: Delete From (4)"
   end
   if value == 5 then
-    return "Md Update Action: Md Update Action (5)"
+    return "Md Update Action: Overlay (5)"
   end
 
   return "Md Update Action: Unknown("..value..")"
@@ -2892,13 +2892,13 @@ size_of.security_update_action = 1
 -- Display: Security Update Action
 display.security_update_action = function(value)
   if value == "A" then
-    return "Security Update Action: Security Update Action (A)"
+    return "Security Update Action: Add (A)"
   end
   if value == "D" then
-    return "Security Update Action: Security Update Action (D)"
+    return "Security Update Action: Delete (D)"
   end
   if value == "M" then
-    return "Security Update Action: Security Update Action (M)"
+    return "Security Update Action: Modify (M)"
   end
 
   return "Security Update Action: Unknown("..value..")"
@@ -3431,19 +3431,19 @@ size_of.md_entry_code = 1
 -- Display: Md Entry Code
 display.md_entry_code = function(value)
   if value == 1 then
-    return "Md Entry Code: Md Entry Code (1)"
+    return "Md Entry Code: Indicative (1)"
   end
   if value == 2 then
-    return "Md Entry Code: Md Entry Code (2)"
+    return "Md Entry Code: Pre Market (2)"
   end
   if value == 3 then
-    return "Md Entry Code: Md Entry Code (3)"
+    return "Md Entry Code: Preliminary Close (3)"
   end
   if value == 4 then
-    return "Md Entry Code: Md Entry Code (4)"
+    return "Md Entry Code: Session Close (4)"
   end
   if value == 5 then
-    return "Md Entry Code: Md Entry Code (5)"
+    return "Md Entry Code: Close (5)"
   end
 
   return "Md Entry Code: Unknown("..value..")"

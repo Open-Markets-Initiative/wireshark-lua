@@ -865,22 +865,22 @@ size_of.md_update_action = 1
 -- Display: Md Update Action
 display.md_update_action = function(value)
   if value == 0 then
-    return "Md Update Action: Md Update Action (0)"
+    return "Md Update Action: New (0)"
   end
   if value == 1 then
-    return "Md Update Action: Md Update Action (1)"
+    return "Md Update Action: Change (1)"
   end
   if value == 2 then
-    return "Md Update Action: Md Update Action (2)"
+    return "Md Update Action: Delete (2)"
   end
   if value == 3 then
-    return "Md Update Action: Md Update Action (3)"
+    return "Md Update Action: Delete Thru (3)"
   end
   if value == 4 then
-    return "Md Update Action: Md Update Action (4)"
+    return "Md Update Action: Delete From (4)"
   end
   if value == 5 then
-    return "Md Update Action: Md Update Action (5)"
+    return "Md Update Action: Overlay (5)"
   end
 
   return "Md Update Action: Unknown("..value..")"
@@ -903,13 +903,13 @@ size_of.aggressor_side = 1
 -- Display: Aggressor Side
 display.aggressor_side = function(value)
   if value == 0 then
-    return "Aggressor Side: Aggressor Side (0)"
+    return "Aggressor Side: No Aggressor (0)"
   end
   if value == 1 then
-    return "Aggressor Side: Aggressor Side (1)"
+    return "Aggressor Side: Buy (1)"
   end
   if value == 2 then
-    return "Aggressor Side: Aggressor Side (2)"
+    return "Aggressor Side: Sell (2)"
   end
 
   return "Aggressor Side: Unknown("..value..")"
@@ -1944,10 +1944,10 @@ size_of.event_type = 1
 -- Display: Event Type
 display.event_type = function(value)
   if value == 5 then
-    return "Event Type: Event Type (5)"
+    return "Event Type: Activation (5)"
   end
   if value == 7 then
-    return "Event Type: Event Type (7)"
+    return "Event Type: Last Eligible Trade Date (7)"
   end
 
   return "Event Type: Unknown("..value..")"
@@ -2710,10 +2710,10 @@ size_of.put_or_call = 1
 -- Display: Put Or Call
 display.put_or_call = function(value)
   if value == 0 then
-    return "Put Or Call: Put Or Call (0)"
+    return "Put Or Call: Put (0)"
   end
   if value == 1 then
-    return "Put Or Call: Put Or Call (1)"
+    return "Put Or Call: Call (1)"
   end
 
   return "Put Or Call: Unknown("..value..")"
@@ -2945,13 +2945,13 @@ size_of.security_update_action = 1
 -- Display: Security Update Action
 display.security_update_action = function(value)
   if value == "A" then
-    return "Security Update Action: Security Update Action (A)"
+    return "Security Update Action: Add (A)"
   end
   if value == "D" then
-    return "Security Update Action: Security Update Action (D)"
+    return "Security Update Action: Delete (D)"
   end
   if value == "M" then
-    return "Security Update Action: Security Update Action (M)"
+    return "Security Update Action: Modify (M)"
   end
 
   return "Security Update Action: Unknown("..value..")"
@@ -3415,55 +3415,55 @@ size_of.md_entry_type = 1
 -- Display: Md Entry Type
 display.md_entry_type = function(value)
   if value == "0" then
-    return "Md Entry Type: Md Entry Type (0)"
+    return "Md Entry Type: Bid (0)"
   end
   if value == "1" then
-    return "Md Entry Type: Md Entry Type (1)"
+    return "Md Entry Type: Offer (1)"
   end
   if value == "2" then
-    return "Md Entry Type: Md Entry Type (2)"
+    return "Md Entry Type: Trade (2)"
   end
   if value == "4" then
-    return "Md Entry Type: Md Entry Type (4)"
+    return "Md Entry Type: Open Price (4)"
   end
   if value == "6" then
-    return "Md Entry Type: Md Entry Type (6)"
+    return "Md Entry Type: Settlement Price (6)"
   end
   if value == "7" then
-    return "Md Entry Type: Md Entry Type (7)"
+    return "Md Entry Type: Trading Session High Price (7)"
   end
   if value == "8" then
-    return "Md Entry Type: Md Entry Type (8)"
+    return "Md Entry Type: Trading Session Low Price (8)"
   end
   if value == "B" then
-    return "Md Entry Type: Md Entry Type (B)"
+    return "Md Entry Type: Cleared Volume (B)"
   end
   if value == "C" then
-    return "Md Entry Type: Md Entry Type (C)"
+    return "Md Entry Type: Open Interest (C)"
   end
   if value == "E" then
-    return "Md Entry Type: Md Entry Type (E)"
+    return "Md Entry Type: Implied Bid (E)"
   end
   if value == "F" then
-    return "Md Entry Type: Md Entry Type (F)"
+    return "Md Entry Type: Implied Offer (F)"
   end
   if value == "J" then
-    return "Md Entry Type: Md Entry Type (J)"
+    return "Md Entry Type: Book Reset (J)"
   end
   if value == "N" then
-    return "Md Entry Type: Md Entry Type (N)"
+    return "Md Entry Type: Session High Bid (N)"
   end
   if value == "O" then
-    return "Md Entry Type: Md Entry Type (O)"
+    return "Md Entry Type: Session Low Offer (O)"
   end
   if value == "W" then
-    return "Md Entry Type: Md Entry Type (W)"
+    return "Md Entry Type: Fixing Price (W)"
   end
   if value == "e" then
-    return "Md Entry Type: Md Entry Type (e)"
+    return "Md Entry Type: Electronic Volume (e)"
   end
   if value == "g" then
-    return "Md Entry Type: Md Entry Type (g)"
+    return "Md Entry Type: Threshold Limitsand Price Band Variation (g)"
   end
 
   return "Md Entry Type: Unknown("..value..")"
@@ -3486,10 +3486,10 @@ size_of.open_close_settl_flag = 1
 -- Display: Open Close Settl Flag
 display.open_close_settl_flag = function(value)
   if value == 0 then
-    return "Open Close Settl Flag: Open Close Settl Flag (0)"
+    return "Open Close Settl Flag: Daily Open Price (0)"
   end
   if value == 5 then
-    return "Open Close Settl Flag: Open Close Settl Flag (5)"
+    return "Open Close Settl Flag: Indicative Opening Price (5)"
   end
 
   return "Open Close Settl Flag: Unknown("..value..")"
@@ -4654,19 +4654,19 @@ size_of.security_trading_event = 1
 -- Display: Security Trading Event
 display.security_trading_event = function(value)
   if value == 0 then
-    return "Security Trading Event: Security Trading Event (0)"
+    return "Security Trading Event: No Event (0)"
   end
   if value == 1 then
-    return "Security Trading Event: Security Trading Event (1)"
+    return "Security Trading Event: No Cancel (1)"
   end
   if value == 4 then
-    return "Security Trading Event: Security Trading Event (4)"
+    return "Security Trading Event: Reset Statistics (4)"
   end
   if value == 5 then
-    return "Security Trading Event: Security Trading Event (5)"
+    return "Security Trading Event: Implied Matching On (5)"
   end
   if value == 6 then
-    return "Security Trading Event: Security Trading Event (6)"
+    return "Security Trading Event: Implied Matching Off (6)"
   end
 
   return "Security Trading Event: Unknown("..value..")"
@@ -4689,25 +4689,25 @@ size_of.halt_reason = 1
 -- Display: Halt Reason
 display.halt_reason = function(value)
   if value == 0 then
-    return "Halt Reason: Halt Reason (0)"
+    return "Halt Reason: Group Schedule (0)"
   end
   if value == 1 then
-    return "Halt Reason: Halt Reason (1)"
+    return "Halt Reason: Surveillance Intervention (1)"
   end
   if value == 2 then
-    return "Halt Reason: Halt Reason (2)"
+    return "Halt Reason: Market Event (2)"
   end
   if value == 3 then
-    return "Halt Reason: Halt Reason (3)"
+    return "Halt Reason: Instrument Activation (3)"
   end
   if value == 4 then
-    return "Halt Reason: Halt Reason (4)"
+    return "Halt Reason: Instrument Expiration (4)"
   end
   if value == 5 then
-    return "Halt Reason: Halt Reason (5)"
+    return "Halt Reason: Unknown (5)"
   end
   if value == 6 then
-    return "Halt Reason: Halt Reason (6)"
+    return "Halt Reason: Recovery In Process (6)"
   end
 
   return "Halt Reason: Unknown("..value..")"
@@ -4730,37 +4730,37 @@ size_of.security_trading_status = 1
 -- Display: Security Trading Status
 display.security_trading_status = function(value)
   if value == 2 then
-    return "Security Trading Status: Security Trading Status (2)"
+    return "Security Trading Status: Trading Halt (2)"
   end
   if value == 4 then
-    return "Security Trading Status: Security Trading Status (4)"
+    return "Security Trading Status: Close (4)"
   end
   if value == 15 then
-    return "Security Trading Status: Security Trading Status (15)"
+    return "Security Trading Status: New Price Indication (15)"
   end
   if value == 17 then
-    return "Security Trading Status: Security Trading Status (17)"
+    return "Security Trading Status: Ready To Trade (17)"
   end
   if value == 18 then
-    return "Security Trading Status: Security Trading Status (18)"
+    return "Security Trading Status: Not Available For Trading (18)"
   end
   if value == 20 then
-    return "Security Trading Status: Security Trading Status (20)"
+    return "Security Trading Status: Unknownor Invalid (20)"
   end
   if value == 21 then
-    return "Security Trading Status: Security Trading Status (21)"
+    return "Security Trading Status: Pre Open (21)"
   end
   if value == 24 then
-    return "Security Trading Status: Security Trading Status (24)"
+    return "Security Trading Status: Pre Cross (24)"
   end
   if value == 25 then
-    return "Security Trading Status: Security Trading Status (25)"
+    return "Security Trading Status: Cross (25)"
   end
   if value == 26 then
-    return "Security Trading Status: Security Trading Status (26)"
+    return "Security Trading Status: Post Close (26)"
   end
   if value == 103 then
-    return "Security Trading Status: Security Trading Status (103)"
+    return "Security Trading Status: No Change (103)"
   end
 
   return "Security Trading Status: Unknown("..value..")"
@@ -4893,10 +4893,10 @@ size_of.leg_side = 1
 -- Display: Leg Side
 display.leg_side = function(value)
   if value == 1 then
-    return "Leg Side: Leg Side (1)"
+    return "Leg Side: Buy Side (1)"
   end
   if value == 2 then
-    return "Leg Side: Leg Side (2)"
+    return "Leg Side: Sell Side (2)"
   end
 
   return "Leg Side: Unknown("..value..")"

@@ -1024,13 +1024,13 @@ size_of.split_msg = 1
 -- Display: Split Msg
 display.split_msg = function(value)
   if value == 0 then
-    return "Split Msg: Split Msg (0)"
+    return "Split Msg: Split Message Delayed (0)"
   end
   if value == 1 then
-    return "Split Msg: Split Msg (1)"
+    return "Split Msg: Outof Order Message Delayed (1)"
   end
   if value == 2 then
-    return "Split Msg: Split Msg (2)"
+    return "Split Msg: Complete Message Delayed (2)"
   end
 
   return "Split Msg: Unknown("..value..")"
@@ -1053,19 +1053,19 @@ size_of.time_in_force = 1
 -- Display: Time In Force
 display.time_in_force = function(value)
   if value == 0 then
-    return "Time In Force: Time In Force (0)"
+    return "Time In Force: Day (0)"
   end
   if value == 1 then
-    return "Time In Force: Time In Force (1)"
+    return "Time In Force: Good Till Cancel (1)"
   end
   if value == 3 then
-    return "Time In Force: Time In Force (3)"
+    return "Time In Force: Fill And Kill (3)"
   end
   if value == 4 then
-    return "Time In Force: Time In Force (4)"
+    return "Time In Force: Fill Or Kill (4)"
   end
   if value == 6 then
-    return "Time In Force: Time In Force (6)"
+    return "Time In Force: Good Till Date (6)"
   end
 
   return "Time In Force: Unknown("..value..")"
@@ -1221,19 +1221,19 @@ size_of.mass_action_scope = 1
 -- Display: Mass Action Scope
 display.mass_action_scope = function(value)
   if value == 1 then
-    return "Mass Action Scope: Mass Action Scope (1)"
+    return "Mass Action Scope: Instrument (1)"
   end
   if value == 7 then
-    return "Mass Action Scope: Mass Action Scope (7)"
+    return "Mass Action Scope: All (7)"
   end
   if value == 9 then
-    return "Mass Action Scope: Mass Action Scope (9)"
+    return "Mass Action Scope: Market Segment Id (9)"
   end
   if value == 10 then
-    return "Mass Action Scope: Mass Action Scope (10)"
+    return "Mass Action Scope: Instrument Group (10)"
   end
   if value == 100 then
-    return "Mass Action Scope: Mass Action Scope (100)"
+    return "Mass Action Scope: Quote Set Id (100)"
   end
 
   return "Mass Action Scope: Unknown("..value..")"
@@ -1275,10 +1275,10 @@ size_of.mass_action_response = 1
 -- Display: Mass Action Response
 display.mass_action_response = function(value)
   if value == 0 then
-    return "Mass Action Response: Mass Action Response (0)"
+    return "Mass Action Response: Rejected (0)"
   end
   if value == 1 then
-    return "Mass Action Response: Mass Action Response (1)"
+    return "Mass Action Response: Accepted (1)"
   end
 
   return "Mass Action Response: Unknown("..value..")"
@@ -1662,10 +1662,10 @@ size_of.order_event_type = 1
 -- Display: Order Event Type
 display.order_event_type = function(value)
   if value == 4 then
-    return "Order Event Type: Order Event Type (4)"
+    return "Order Event Type: Partially Filled (4)"
   end
   if value == 5 then
-    return "Order Event Type: Order Event Type (5)"
+    return "Order Event Type: Filled (5)"
   end
 
   return "Order Event Type: Unknown("..value..")"
@@ -2582,16 +2582,16 @@ size_of.short_sale_type = 1
 -- Display: Short Sale Type
 display.short_sale_type = function(value)
   if value == 0 then
-    return "Short Sale Type: Short Sale Type (0)"
+    return "Short Sale Type: Long Sell (0)"
   end
   if value == 1 then
-    return "Short Sale Type: Short Sale Type (1)"
+    return "Short Sale Type: Short Sale With No Exemption Sesh (1)"
   end
   if value == 2 then
-    return "Short Sale Type: Short Sale Type (2)"
+    return "Short Sale Type: Short Sale With Exemption Ssex (2)"
   end
   if value == 3 then
-    return "Short Sale Type: Short Sale Type (3)"
+    return "Short Sale Type: Undisclosed Sell Information Not Available Undi (3)"
   end
 
   return "Short Sale Type: Unknown("..value..")"
@@ -3856,10 +3856,10 @@ size_of.side_time_in_force = 1
 -- Display: Side Time In Force
 display.side_time_in_force = function(value)
   if value == 0 then
-    return "Side Time In Force: Side Time In Force (0)"
+    return "Side Time In Force: Day (0)"
   end
   if value == 3 then
-    return "Side Time In Force: Side Time In Force (3)"
+    return "Side Time In Force: Fak (3)"
   end
 
   return "Side Time In Force: Unknown("..value..")"
@@ -4397,13 +4397,13 @@ size_of.money_or_par = 1
 -- Display: Money Or Par
 display.money_or_par = function(value)
   if value == 0 then
-    return "Money Or Par: Money Or Par (0)"
+    return "Money Or Par: Not Available (0)"
   end
   if value == 1 then
-    return "Money Or Par: Money Or Par (1)"
+    return "Money Or Par: Money (1)"
   end
   if value == 2 then
-    return "Money Or Par: Money Or Par (2)"
+    return "Money Or Par: Par (2)"
   end
 
   return "Money Or Par: Unknown("..value..")"
@@ -5032,19 +5032,19 @@ size_of.party_detail_role = 2
 -- Display: Party Detail Role
 display.party_detail_role = function(value)
   if value == 1 then
-    return "Party Detail Role: Party Detail Role (1)"
+    return "Party Detail Role: Executing Firm (1)"
   end
   if value == 24 then
-    return "Party Detail Role: Party Detail Role (24)"
+    return "Party Detail Role: Customer Account (24)"
   end
   if value == 96 then
-    return "Party Detail Role: Party Detail Role (96)"
+    return "Party Detail Role: Take Up Firm (96)"
   end
   if value == 118 then
-    return "Party Detail Role: Party Detail Role (118)"
+    return "Party Detail Role: Operator (118)"
   end
   if value == 1000 then
-    return "Party Detail Role: Party Detail Role (1000)"
+    return "Party Detail Role: Take Up Account (1000)"
   end
 
   return "Party Detail Role: Unknown("..value..")"
@@ -5222,10 +5222,10 @@ size_of.cmta_giveup_cd = 1
 -- Display: Cmta Giveup Cd
 display.cmta_giveup_cd = function(value)
   if value == "G" then
-    return "Cmta Giveup Cd: Cmta Give Up Cd (G)"
+    return "Cmta Giveup Cd: Give Up (G)"
   end
   if value == "S" then
-    return "Cmta Giveup Cd: Cmta Give Up Cd (S)"
+    return "Cmta Giveup Cd: Sg Xoffset (S)"
   end
 
   return "Cmta Giveup Cd: Unknown("..value..")"
@@ -5324,16 +5324,16 @@ size_of.cust_order_capacity = 1
 -- Display: Cust Order Capacity
 display.cust_order_capacity = function(value)
   if value == 1 then
-    return "Cust Order Capacity: Cust Order Capacity (1)"
+    return "Cust Order Capacity: Membertradingfortheirownaccount (1)"
   end
   if value == 2 then
-    return "Cust Order Capacity: Cust Order Capacity (2)"
+    return "Cust Order Capacity: Clearingfirmtradingforitsproprietaryaccount (2)"
   end
   if value == 3 then
-    return "Cust Order Capacity: Cust Order Capacity (3)"
+    return "Cust Order Capacity: Membertradingforanothermember (3)"
   end
   if value == 4 then
-    return "Cust Order Capacity: Cust Order Capacity (4)"
+    return "Cust Order Capacity: Allother (4)"
   end
 
   return "Cust Order Capacity: Unknown("..value..")"
