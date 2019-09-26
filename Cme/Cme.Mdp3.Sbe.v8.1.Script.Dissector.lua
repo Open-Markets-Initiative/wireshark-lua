@@ -767,6 +767,11 @@ size_of.md_display_qty = 4
 
 -- Display: Md Display Qty
 display.md_display_qty = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Md Display Qty: No Value ("..value..")"
+  end
+
   return "Md Display Qty: "..value
 end
 
@@ -806,6 +811,11 @@ size_of.md_order_priority = 8
 
 -- Display: Md Order Priority
 display.md_order_priority = function(value)
+  -- Check if field has value
+  if value == 18446744073709551615 then
+    return "Md Order Priority: No Value ("..value..")"
+  end
+
   return "Md Order Priority: "..value
 end
 
@@ -825,6 +835,11 @@ size_of.order_id = 8
 
 -- Display: Order Id
 display.order_id = function(value)
+  -- Check if field has value
+  if value == 18446744073709551615 then
+    return "Order Id: No Value ("..value..")"
+  end
+
   return "Order Id: "..value
 end
 
@@ -848,16 +863,16 @@ end
 dissect.snapshot_full_refresh_order_book_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.order_id(buffer, index, packet, parent)
 
-  -- Md Order Priority: 8 Byte Unsigned Fixed Width Integer
+  -- Md Order Priority: 8 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.md_order_priority(buffer, index, packet, parent)
 
   -- Md Entry Px: 8 Byte Signed Fixed Width Integer
   index = dissect.md_entry_px(buffer, index, packet, parent)
 
-  -- Md Display Qty: 4 Byte Signed Fixed Width Integer
+  -- Md Display Qty: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.md_display_qty(buffer, index, packet, parent)
 
   -- Md Entry Type: 1 Byte Ascii String Enum with 17 values
@@ -1057,6 +1072,11 @@ size_of.security_id = 4
 
 -- Display: Security Id
 display.security_id = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Security Id: No Value ("..value..")"
+  end
+
   return "Security Id: "..value
 end
 
@@ -1076,6 +1096,11 @@ size_of.tot_num_reports = 4
 
 -- Display: Tot Num Reports
 display.tot_num_reports = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Tot Num Reports: No Value ("..value..")"
+  end
+
   return "Tot Num Reports: "..value
 end
 
@@ -1132,10 +1157,10 @@ dissect.snapshot_full_refresh_order_book_44_fields = function(buffer, offset, pa
   -- Last Msg Seq Num Processed: 4 Byte Unsigned Fixed Width Integer
   index = dissect.last_msg_seq_num_processed(buffer, index, packet, parent)
 
-  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer
+  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.tot_num_reports(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- No Chunks: 4 Byte Unsigned Fixed Width Integer
@@ -1232,19 +1257,19 @@ end
 dissect.md_incremental_refresh_order_book_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.order_id(buffer, index, packet, parent)
 
-  -- Md Order Priority: 8 Byte Unsigned Fixed Width Integer
+  -- Md Order Priority: 8 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.md_order_priority(buffer, index, packet, parent)
 
   -- Md Entry Px: 8 Byte Signed Fixed Width Integer
   index = dissect.md_entry_px(buffer, index, packet, parent)
 
-  -- Md Display Qty: 4 Byte Signed Fixed Width Integer
+  -- Md Display Qty: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.md_display_qty(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
@@ -1516,7 +1541,7 @@ end
 dissect.md_incremental_refresh_trade_summary_order_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.order_id(buffer, index, packet, parent)
 
   -- Last Qty: 4 Byte Signed Fixed Width Integer
@@ -1646,6 +1671,11 @@ size_of.md_trade_entry_id = 4
 
 -- Display: Md Trade Entry Id
 display.md_trade_entry_id = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Md Trade Entry Id: No Value ("..value..")"
+  end
+
   return "Md Trade Entry Id: "..value
 end
 
@@ -1674,6 +1704,9 @@ display.aggressor_side = function(value)
   if value == 2 then
     return "Aggressor Side: Sell (2)"
   end
+  if value == 255 then
+    return "Aggressor Side: No Value (255)"
+  end
 
   return "Aggressor Side: Unknown("..value..")"
 end
@@ -1694,6 +1727,11 @@ size_of.number_of_orders = 4
 
 -- Display: Number Of Orders
 display.number_of_orders = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Number Of Orders: No Value ("..value..")"
+  end
+
   return "Number Of Orders: "..value
 end
 
@@ -1732,6 +1770,11 @@ size_of.md_entry_size = 4
 
 -- Display: Md Entry Size
 display.md_entry_size = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Md Entry Size: No Value ("..value..")"
+  end
+
   return "Md Entry Size: "..value
 end
 
@@ -1758,25 +1801,25 @@ dissect.md_incremental_refresh_trade_summary_group_fields = function(buffer, off
   -- Md Entry Px: 8 Byte Signed Fixed Width Integer
   index = dissect.md_entry_px(buffer, index, packet, parent)
 
-  -- Md Entry Size: 4 Byte Signed Fixed Width Integer
+  -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.md_entry_size(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
   index = dissect.rpt_seq(buffer, index, packet, parent)
 
-  -- Number Of Orders: 4 Byte Signed Fixed Width Integer
+  -- Number Of Orders: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.number_of_orders(buffer, index, packet, parent)
 
-  -- Aggressor Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Aggressor Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index = dissect.aggressor_side(buffer, index, packet, parent)
 
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index = dissect.md_update_action(buffer, index, packet, parent)
 
-  -- Md Trade Entry Id: 4 Byte Unsigned Fixed Width Integer
+  -- Md Trade Entry Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.md_trade_entry_id(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
@@ -2742,6 +2785,11 @@ size_of.trading_reference_date = 2
 
 -- Display: Trading Reference Date
 display.trading_reference_date = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Trading Reference Date: No Value ("..value..")"
+  end
+
   return "Trading Reference Date: "..value
 end
 
@@ -2820,6 +2868,11 @@ size_of.open_interest_qty = 4
 
 -- Display: Open Interest Qty
 display.open_interest_qty = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Open Interest Qty: No Value ("..value..")"
+  end
+
   return "Open Interest Qty: "..value
 end
 
@@ -2839,6 +2892,11 @@ size_of.cleared_volume = 4
 
 -- Display: Cleared Volume
 display.cleared_volume = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Cleared Volume: No Value ("..value..")"
+  end
+
   return "Cleared Volume: "..value
 end
 
@@ -2981,6 +3039,11 @@ size_of.price_display_format = 1
 
 -- Display: Price Display Format
 display.price_display_format = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Price Display Format: No Value ("..value..")"
+  end
+
   return "Price Display Format: "..value
 end
 
@@ -3000,6 +3063,11 @@ size_of.sub_fraction = 1
 
 -- Display: Sub Fraction
 display.sub_fraction = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Sub Fraction: No Value ("..value..")"
+  end
+
   return "Sub Fraction: "..value
 end
 
@@ -3019,6 +3087,11 @@ size_of.main_fraction = 1
 
 -- Display: Main Fraction
 display.main_fraction = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Main Fraction: No Value ("..value..")"
+  end
+
   return "Main Fraction: "..value
 end
 
@@ -3038,6 +3111,11 @@ size_of.tick_rule = 1
 
 -- Display: Tick Rule
 display.tick_rule = function(value)
+  -- Check if field has value
+  if value == 127 then
+    return "Tick Rule: No Value ("..value..")"
+  end
+
   return "Tick Rule: "..value
 end
 
@@ -3276,7 +3354,7 @@ display.week = function(value)
     return "Week: No Value ("..value..")"
   end
 
-  return "{Element}: "..value
+  return "Week: "..value
 end
 
 -- Dissect: Week
@@ -3300,7 +3378,7 @@ display.day = function(value)
     return "Day: No Value ("..value..")"
   end
 
-  return "{Element}: "..value
+  return "Day: "..value
 end
 
 -- Dissect: Day
@@ -3324,7 +3402,7 @@ display.month = function(value)
     return "Month: No Value ("..value..")"
   end
 
-  return "{Element}: "..value
+  return "Month: "..value
 end
 
 -- Dissect: Month
@@ -3348,7 +3426,7 @@ display.year = function(value)
     return "Year: No Value ("..value..")"
   end
 
-  return "{Element}: "..value
+  return "Year: "..value
 end
 
 -- Dissect: Year
@@ -3543,6 +3621,11 @@ size_of.underlying_product = 1
 
 -- Display: Underlying Product
 display.underlying_product = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Underlying Product: No Value ("..value..")"
+  end
+
   return "Underlying Product: "..value
 end
 
@@ -3695,7 +3778,7 @@ dissect.md_instrument_definition_option_41_fields = function(buffer, offset, pac
   -- Match Event Indicator: Struct of 8 fields
   index = dissect.match_event_indicator(buffer, index, packet, parent)
 
-  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer
+  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.tot_num_reports(buffer, index, packet, parent)
 
   -- Security Update Action: 1 Byte Ascii String Enum with 3 values
@@ -3713,7 +3796,7 @@ dissect.md_instrument_definition_option_41_fields = function(buffer, offset, pac
   -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer
   index = dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Underlying Product: 1 Byte Unsigned Fixed Width Integer
+  -- Underlying Product: 1 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.underlying_product(buffer, index, packet, parent)
 
   -- Security Exchange: 4 Byte Ascii String
@@ -3728,7 +3811,7 @@ dissect.md_instrument_definition_option_41_fields = function(buffer, offset, pac
   -- Symbol: 20 Byte Ascii String
   index = dissect.symbol(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Security Type: 6 Byte Ascii String
@@ -3776,16 +3859,16 @@ dissect.md_instrument_definition_option_41_fields = function(buffer, offset, pac
   -- Display Factor: 8 Byte Signed Fixed Width Integer
   index = dissect.display_factor(buffer, index, packet, parent)
 
-  -- Tick Rule: 1 Byte Signed Fixed Width Integer
+  -- Tick Rule: 1 Byte Signed Fixed Width Integer Nullable
   index = dissect.tick_rule(buffer, index, packet, parent)
 
-  -- Main Fraction: 1 Byte Unsigned Fixed Width Integer
+  -- Main Fraction: 1 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.main_fraction(buffer, index, packet, parent)
 
-  -- Sub Fraction: 1 Byte Unsigned Fixed Width Integer
+  -- Sub Fraction: 1 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.sub_fraction(buffer, index, packet, parent)
 
-  -- Price Display Format: 1 Byte Unsigned Fixed Width Integer
+  -- Price Display Format: 1 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.price_display_format(buffer, index, packet, parent)
 
   -- Unit Of Measure: 30 Byte Ascii String
@@ -3800,10 +3883,10 @@ dissect.md_instrument_definition_option_41_fields = function(buffer, offset, pac
   -- Settl Price Type: Struct of 6 fields
   index = dissect.settl_price_type(buffer, index, packet, parent)
 
-  -- Cleared Volume: 4 Byte Signed Fixed Width Integer
+  -- Cleared Volume: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.cleared_volume(buffer, index, packet, parent)
 
-  -- Open Interest Qty: 4 Byte Signed Fixed Width Integer
+  -- Open Interest Qty: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.open_interest_qty(buffer, index, packet, parent)
 
   -- Low Limit Price: 8 Byte Signed Fixed Width Integer
@@ -3815,7 +3898,7 @@ dissect.md_instrument_definition_option_41_fields = function(buffer, offset, pac
   -- User Defined Instrument: 1 Byte Ascii String
   index = dissect.user_defined_instrument(buffer, index, packet, parent)
 
-  -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.trading_reference_date(buffer, index, packet, parent)
 
   -- Events Groups: Struct of 2 fields
@@ -3857,6 +3940,11 @@ size_of.side = 1
 
 -- Display: Side
 display.side = function(value)
+  -- Check if field has value
+  if value == 127 then
+    return "Side: No Value ("..value..")"
+  end
+
   return "Side: "..value
 end
 
@@ -3895,6 +3983,11 @@ size_of.order_qty = 4
 
 -- Display: Order Qty
 display.order_qty = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Order Qty: No Value ("..value..")"
+  end
+
   return "Order Qty: "..value
 end
 
@@ -3921,16 +4014,16 @@ dissect.related_sym_group_fields = function(buffer, offset, packet, parent)
   -- Symbol: 20 Byte Ascii String
   index = dissect.symbol(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.security_id(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Signed Fixed Width Integer
+  -- Order Qty: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.order_qty(buffer, index, packet, parent)
 
   -- Quote Type: 1 Byte Signed Fixed Width Integer
   index = dissect.quote_type(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Signed Fixed Width Integer
+  -- Side: 1 Byte Signed Fixed Width Integer Nullable
   index = dissect.side(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
@@ -4100,6 +4193,9 @@ display.open_close_settl_flag = function(value)
   if value == 5 then
     return "Open Close Settl Flag: Indicative Opening Price (5)"
   end
+  if value == 255 then
+    return "Open Close Settl Flag: No Value (255)"
+  end
 
   return "Open Close Settl Flag: Unknown("..value..")"
 end
@@ -4120,6 +4216,11 @@ size_of.md_price_level = 1
 
 -- Display: Md Price Level
 display.md_price_level = function(value)
+  -- Check if field has value
+  if value == 127 then
+    return "Md Price Level: No Value ("..value..")"
+  end
+
   return "Md Price Level: "..value
 end
 
@@ -4146,19 +4247,19 @@ dissect.snapshot_full_refresh_group_fields = function(buffer, offset, packet, pa
   -- Md Entry Px: 8 Byte Signed Fixed Width Integer
   index = dissect.md_entry_px(buffer, index, packet, parent)
 
-  -- Md Entry Size: 4 Byte Signed Fixed Width Integer
+  -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.md_entry_size(buffer, index, packet, parent)
 
-  -- Number Of Orders: 4 Byte Signed Fixed Width Integer
+  -- Number Of Orders: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.number_of_orders(buffer, index, packet, parent)
 
-  -- Md Price Level: 1 Byte Unsigned Fixed Width Integer
+  -- Md Price Level: 1 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.md_price_level(buffer, index, packet, parent)
 
-  -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.trading_reference_date(buffer, index, packet, parent)
 
-  -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index = dissect.open_close_settl_flag(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 6 fields
@@ -4256,6 +4357,11 @@ size_of.trade_date = 2
 
 -- Display: Trade Date
 display.trade_date = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Trade Date: No Value ("..value..")"
+  end
+
   return "Trade Date: "..value
 end
 
@@ -4293,10 +4399,10 @@ dissect.snapshot_full_refresh_38_fields = function(buffer, offset, packet, paren
   -- Last Msg Seq Num Processed: 4 Byte Unsigned Fixed Width Integer
   index = dissect.last_msg_seq_num_processed(buffer, index, packet, parent)
 
-  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer
+  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.tot_num_reports(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
@@ -4308,7 +4414,7 @@ dissect.snapshot_full_refresh_38_fields = function(buffer, offset, packet, paren
   -- Last Update Time: 8 Byte Unsigned Fixed Width Integer
   index = dissect.last_update_time(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.trade_date(buffer, index, packet, parent)
 
   -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer
@@ -4351,10 +4457,10 @@ end
 dissect.md_incremental_refresh_volume_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Entry Size: 4 Byte Signed Fixed Width Integer
+  -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.md_entry_size(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
@@ -4509,22 +4615,22 @@ dissect.md_incremental_refresh_trade_group_fields = function(buffer, offset, pac
   -- Md Entry Px: 8 Byte Signed Fixed Width Integer
   index = dissect.md_entry_px(buffer, index, packet, parent)
 
-  -- Md Entry Size: 4 Byte Signed Fixed Width Integer
+  -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.md_entry_size(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
   index = dissect.rpt_seq(buffer, index, packet, parent)
 
-  -- Number Of Orders: 4 Byte Signed Fixed Width Integer
+  -- Number Of Orders: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.number_of_orders(buffer, index, packet, parent)
 
   -- Trade Id: 4 Byte Signed Fixed Width Integer
   index = dissect.trade_id(buffer, index, packet, parent)
 
-  -- Aggressor Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Aggressor Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index = dissect.aggressor_side(buffer, index, packet, parent)
 
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
@@ -4676,13 +4782,13 @@ dissect.md_incremental_refresh_session_statistics_group_fields = function(buffer
   -- Md Entry Px: 8 Byte Signed Fixed Width Integer
   index = dissect.md_entry_px(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
   index = dissect.rpt_seq(buffer, index, packet, parent)
 
-  -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index = dissect.open_close_settl_flag(buffer, index, packet, parent)
 
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
@@ -4691,7 +4797,7 @@ dissect.md_incremental_refresh_session_statistics_group_fields = function(buffer
   -- Md Entry Type: 1 Byte Ascii String Enum with 17 values
   index = dissect.md_entry_type(buffer, index, packet, parent)
 
-  -- Md Entry Size: 4 Byte Signed Fixed Width Integer
+  -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.md_entry_size(buffer, index, packet, parent)
 
   -- Padding 1: 1 Byte
@@ -4827,7 +4933,7 @@ dissect.md_incremental_refresh_limits_banding_group_fields = function(buffer, of
   -- Max Price Variation: 8 Byte Signed Fixed Width Integer
   index = dissect.max_price_variation(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
@@ -4976,16 +5082,16 @@ dissect.md_incremental_refresh_daily_statistics_group_fields = function(buffer, 
   -- Md Entry Px: 8 Byte Signed Fixed Width Integer
   index = dissect.md_entry_px(buffer, index, packet, parent)
 
-  -- Md Entry Size: 4 Byte Signed Fixed Width Integer
+  -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.md_entry_size(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
   index = dissect.rpt_seq(buffer, index, packet, parent)
 
-  -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.trading_reference_date(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 6 fields
@@ -5146,6 +5252,11 @@ size_of.reference_id = 1
 
 -- Display: Reference Id
 display.reference_id = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Reference Id: No Value ("..value..")"
+  end
+
   return "Reference Id: "..value
 end
 
@@ -5169,16 +5280,16 @@ end
 dissect.md_incremental_refresh_book_order_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.order_id(buffer, index, packet, parent)
 
-  -- Md Order Priority: 8 Byte Unsigned Fixed Width Integer
+  -- Md Order Priority: 8 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.md_order_priority(buffer, index, packet, parent)
 
-  -- Md Display Qty: 4 Byte Signed Fixed Width Integer
+  -- Md Display Qty: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.md_display_qty(buffer, index, packet, parent)
 
-  -- Reference Id: 1 Byte Unsigned Fixed Width Integer
+  -- Reference Id: 1 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.reference_id(buffer, index, packet, parent)
 
   -- Order Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -5263,19 +5374,19 @@ dissect.md_incremental_refresh_book_group_fields = function(buffer, offset, pack
   -- Md Entry Px: 8 Byte Signed Fixed Width Integer
   index = dissect.md_entry_px(buffer, index, packet, parent)
 
-  -- Md Entry Size: 4 Byte Signed Fixed Width Integer
+  -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.md_entry_size(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
   index = dissect.rpt_seq(buffer, index, packet, parent)
 
-  -- Number Of Orders: 4 Byte Signed Fixed Width Integer
+  -- Number Of Orders: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.number_of_orders(buffer, index, packet, parent)
 
-  -- Md Price Level: 1 Byte Unsigned Fixed Width Integer
+  -- Md Price Level: 1 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.md_price_level(buffer, index, packet, parent)
 
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
@@ -5518,6 +5629,9 @@ display.security_trading_status = function(value)
   if value == 103 then
     return "Security Trading Status: No Change (103)"
   end
+  if value == 255 then
+    return "Security Trading Status: No Value (255)"
+  end
 
   return "Security Trading Status: Unknown("..value..")"
 end
@@ -5551,16 +5665,16 @@ dissect.security_status_30_fields = function(buffer, offset, packet, parent)
   -- Asset: 6 Byte Ascii String
   index = dissect.asset(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.security_id(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.trade_date(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index = dissect.match_event_indicator(buffer, index, packet, parent)
 
-  -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
   index = dissect.security_trading_status(buffer, index, packet, parent)
 
   -- Halt Reason: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
@@ -5846,7 +5960,7 @@ dissect.md_instrument_definition_spread_29_fields = function(buffer, offset, pac
   -- Match Event Indicator: Struct of 8 fields
   index = dissect.match_event_indicator(buffer, index, packet, parent)
 
-  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer
+  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.tot_num_reports(buffer, index, packet, parent)
 
   -- Security Update Action: 1 Byte Ascii String Enum with 3 values
@@ -5864,7 +5978,7 @@ dissect.md_instrument_definition_spread_29_fields = function(buffer, offset, pac
   -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer
   index = dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Underlying Product: 1 Byte Unsigned Fixed Width Integer
+  -- Underlying Product: 1 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.underlying_product(buffer, index, packet, parent)
 
   -- Security Exchange: 4 Byte Ascii String
@@ -5879,7 +5993,7 @@ dissect.md_instrument_definition_spread_29_fields = function(buffer, offset, pac
   -- Symbol: 20 Byte Ascii String
   index = dissect.symbol(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Security Type: 6 Byte Ascii String
@@ -5915,13 +6029,13 @@ dissect.md_instrument_definition_spread_29_fields = function(buffer, offset, pac
   -- Display Factor: 8 Byte Signed Fixed Width Integer
   index = dissect.display_factor(buffer, index, packet, parent)
 
-  -- Price Display Format: 1 Byte Unsigned Fixed Width Integer
+  -- Price Display Format: 1 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.price_display_format(buffer, index, packet, parent)
 
   -- Price Ratio: 8 Byte Signed Fixed Width Integer
   index = dissect.price_ratio(buffer, index, packet, parent)
 
-  -- Tick Rule: 1 Byte Signed Fixed Width Integer
+  -- Tick Rule: 1 Byte Signed Fixed Width Integer Nullable
   index = dissect.tick_rule(buffer, index, packet, parent)
 
   -- Unit Of Measure: 30 Byte Ascii String
@@ -5933,10 +6047,10 @@ dissect.md_instrument_definition_spread_29_fields = function(buffer, offset, pac
   -- Settl Price Type: Struct of 6 fields
   index = dissect.settl_price_type(buffer, index, packet, parent)
 
-  -- Open Interest Qty: 4 Byte Signed Fixed Width Integer
+  -- Open Interest Qty: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.open_interest_qty(buffer, index, packet, parent)
 
-  -- Cleared Volume: 4 Byte Signed Fixed Width Integer
+  -- Cleared Volume: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.cleared_volume(buffer, index, packet, parent)
 
   -- High Limit Price: 8 Byte Signed Fixed Width Integer
@@ -5948,13 +6062,13 @@ dissect.md_instrument_definition_spread_29_fields = function(buffer, offset, pac
   -- Max Price Variation: 8 Byte Signed Fixed Width Integer
   index = dissect.max_price_variation(buffer, index, packet, parent)
 
-  -- Main Fraction: 1 Byte Unsigned Fixed Width Integer
+  -- Main Fraction: 1 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.main_fraction(buffer, index, packet, parent)
 
-  -- Sub Fraction: 1 Byte Unsigned Fixed Width Integer
+  -- Sub Fraction: 1 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.sub_fraction(buffer, index, packet, parent)
 
-  -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.trading_reference_date(buffer, index, packet, parent)
 
   -- Events Groups: Struct of 2 fields
@@ -5993,6 +6107,11 @@ size_of.flow_schedule_type = 1
 
 -- Display: Flow Schedule Type
 display.flow_schedule_type = function(value)
+  -- Check if field has value
+  if value == 127 then
+    return "Flow Schedule Type: No Value ("..value..")"
+  end
+
   return "Flow Schedule Type: "..value
 end
 
@@ -6012,6 +6131,11 @@ size_of.contract_multiplier_unit = 1
 
 -- Display: Contract Multiplier Unit
 display.contract_multiplier_unit = function(value)
+  -- Check if field has value
+  if value == 127 then
+    return "Contract Multiplier Unit: No Value ("..value..")"
+  end
+
   return "Contract Multiplier Unit: "..value
 end
 
@@ -6031,6 +6155,11 @@ size_of.contract_multiplier = 4
 
 -- Display: Contract Multiplier
 display.contract_multiplier = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Contract Multiplier: No Value ("..value..")"
+  end
+
   return "Contract Multiplier: "..value
 end
 
@@ -6050,6 +6179,11 @@ size_of.original_contract_size = 4
 
 -- Display: Original Contract Size
 display.original_contract_size = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Original Contract Size: No Value ("..value..")"
+  end
+
   return "Original Contract Size: "..value
 end
 
@@ -6069,6 +6203,11 @@ size_of.decay_start_date = 2
 
 -- Display: Decay Start Date
 display.decay_start_date = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Decay Start Date: No Value ("..value..")"
+  end
+
   return "Decay Start Date: "..value
 end
 
@@ -6088,6 +6227,11 @@ size_of.decay_quantity = 4
 
 -- Display: Decay Quantity
 display.decay_quantity = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Decay Quantity: No Value ("..value..")"
+  end
+
   return "Decay Quantity: "..value
 end
 
@@ -6131,7 +6275,7 @@ dissect.md_instrument_definition_future_27_fields = function(buffer, offset, pac
   -- Match Event Indicator: Struct of 8 fields
   index = dissect.match_event_indicator(buffer, index, packet, parent)
 
-  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer
+  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.tot_num_reports(buffer, index, packet, parent)
 
   -- Security Update Action: 1 Byte Ascii String Enum with 3 values
@@ -6149,7 +6293,7 @@ dissect.md_instrument_definition_future_27_fields = function(buffer, offset, pac
   -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer
   index = dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Underlying Product: 1 Byte Unsigned Fixed Width Integer
+  -- Underlying Product: 1 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.underlying_product(buffer, index, packet, parent)
 
   -- Security Exchange: 4 Byte Ascii String
@@ -6164,7 +6308,7 @@ dissect.md_instrument_definition_future_27_fields = function(buffer, offset, pac
   -- Symbol: 20 Byte Ascii String
   index = dissect.symbol(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.security_id(buffer, index, packet, parent)
 
   -- Security Type: 6 Byte Ascii String
@@ -6197,13 +6341,13 @@ dissect.md_instrument_definition_future_27_fields = function(buffer, offset, pac
   -- Display Factor: 8 Byte Signed Fixed Width Integer
   index = dissect.display_factor(buffer, index, packet, parent)
 
-  -- Main Fraction: 1 Byte Unsigned Fixed Width Integer
+  -- Main Fraction: 1 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.main_fraction(buffer, index, packet, parent)
 
-  -- Sub Fraction: 1 Byte Unsigned Fixed Width Integer
+  -- Sub Fraction: 1 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.sub_fraction(buffer, index, packet, parent)
 
-  -- Price Display Format: 1 Byte Unsigned Fixed Width Integer
+  -- Price Display Format: 1 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.price_display_format(buffer, index, packet, parent)
 
   -- Unit Of Measure: 30 Byte Ascii String
@@ -6218,10 +6362,10 @@ dissect.md_instrument_definition_future_27_fields = function(buffer, offset, pac
   -- Settl Price Type: Struct of 6 fields
   index = dissect.settl_price_type(buffer, index, packet, parent)
 
-  -- Open Interest Qty: 4 Byte Signed Fixed Width Integer
+  -- Open Interest Qty: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.open_interest_qty(buffer, index, packet, parent)
 
-  -- Cleared Volume: 4 Byte Signed Fixed Width Integer
+  -- Cleared Volume: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.cleared_volume(buffer, index, packet, parent)
 
   -- High Limit Price: 8 Byte Signed Fixed Width Integer
@@ -6233,22 +6377,22 @@ dissect.md_instrument_definition_future_27_fields = function(buffer, offset, pac
   -- Max Price Variation: 8 Byte Signed Fixed Width Integer
   index = dissect.max_price_variation(buffer, index, packet, parent)
 
-  -- Decay Quantity: 4 Byte Signed Fixed Width Integer
+  -- Decay Quantity: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.decay_quantity(buffer, index, packet, parent)
 
-  -- Decay Start Date: 2 Byte Unsigned Fixed Width Integer
+  -- Decay Start Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.decay_start_date(buffer, index, packet, parent)
 
-  -- Original Contract Size: 4 Byte Signed Fixed Width Integer
+  -- Original Contract Size: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.original_contract_size(buffer, index, packet, parent)
 
-  -- Contract Multiplier: 4 Byte Signed Fixed Width Integer
+  -- Contract Multiplier: 4 Byte Signed Fixed Width Integer Nullable
   index = dissect.contract_multiplier(buffer, index, packet, parent)
 
-  -- Contract Multiplier Unit: 1 Byte Signed Fixed Width Integer
+  -- Contract Multiplier Unit: 1 Byte Signed Fixed Width Integer Nullable
   index = dissect.contract_multiplier_unit(buffer, index, packet, parent)
 
-  -- Flow Schedule Type: 1 Byte Signed Fixed Width Integer
+  -- Flow Schedule Type: 1 Byte Signed Fixed Width Integer Nullable
   index = dissect.flow_schedule_type(buffer, index, packet, parent)
 
   -- Min Price Increment Amount: 8 Byte Signed Fixed Width Integer
@@ -6257,7 +6401,7 @@ dissect.md_instrument_definition_future_27_fields = function(buffer, offset, pac
   -- User Defined Instrument: 1 Byte Ascii String
   index = dissect.user_defined_instrument(buffer, index, packet, parent)
 
-  -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index = dissect.trading_reference_date(buffer, index, packet, parent)
 
   -- Events Groups: Struct of 2 fields
