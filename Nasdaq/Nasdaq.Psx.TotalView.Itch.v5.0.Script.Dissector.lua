@@ -58,7 +58,7 @@ nasdaq_psx_totalview_itch_v5_0.fields.lower_auction_collar_price = ProtoField.ne
 nasdaq_psx_totalview_itch_v5_0.fields.luld_auction_collar_message = ProtoField.new("Luld Auction Collar Message", "nasdaq.psx.totalview.itch.v5.0.luldauctioncollarmessage", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.luld_reference_price_tier = ProtoField.new("Luld Reference Price Tier", "nasdaq.psx.totalview.itch.v5.0.luldreferencepricetier", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.market_category = ProtoField.new("Market Category", "nasdaq.psx.totalview.itch.v5.0.marketcategory", ftypes.STRING)
-nasdaq_psx_totalview_itch_v5_0.fields.market_code = ProtoField.new("Market Code", "nasdaq.psx.totalview.itch.v5.0.marketcode", ftypes.INT8)
+nasdaq_psx_totalview_itch_v5_0.fields.market_code = ProtoField.new("Market Code", "nasdaq.psx.totalview.itch.v5.0.marketcode", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.market_maker_mode = ProtoField.new("Market Maker Mode", "nasdaq.psx.totalview.itch.v5.0.marketmakermode", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.market_participant_position_message = ProtoField.new("Market Participant Position Message", "nasdaq.psx.totalview.itch.v5.0.marketparticipantpositionmessage", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.market_participant_state = ProtoField.new("Market Participant State", "nasdaq.psx.totalview.itch.v5.0.marketparticipantstate", ftypes.STRING)
@@ -72,7 +72,7 @@ nasdaq_psx_totalview_itch_v5_0.fields.mwcb_status_level_message = ProtoField.new
 nasdaq_psx_totalview_itch_v5_0.fields.near_price = ProtoField.new("Near Price", "nasdaq.psx.totalview.itch.v5.0.nearprice", ftypes.INT32)
 nasdaq_psx_totalview_itch_v5_0.fields.net_order_imbalance_indicator_message = ProtoField.new("Net Order Imbalance Indicator Message", "nasdaq.psx.totalview.itch.v5.0.netorderimbalanceindicatormessage", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.new_order_reference_number = ProtoField.new("New Order Reference Number", "nasdaq.psx.totalview.itch.v5.0.neworderreferencenumber", ftypes.UINT64)
-nasdaq_psx_totalview_itch_v5_0.fields.operational_halt_action = ProtoField.new("Operational Halt Action", "nasdaq.psx.totalview.itch.v5.0.operationalhaltaction", ftypes.INT8)
+nasdaq_psx_totalview_itch_v5_0.fields.operational_halt_action = ProtoField.new("Operational Halt Action", "nasdaq.psx.totalview.itch.v5.0.operationalhaltaction", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.operational_halt_message = ProtoField.new("Operational Halt Message", "nasdaq.psx.totalview.itch.v5.0.operationalhaltmessage", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.order_cancel_message = ProtoField.new("Order Cancel Message", "nasdaq.psx.totalview.itch.v5.0.ordercancelmessage", ftypes.STRING)
 nasdaq_psx_totalview_itch_v5_0.fields.order_delete_message = ProtoField.new("Order Delete Message", "nasdaq.psx.totalview.itch.v5.0.orderdeletemessage", ftypes.STRING)
@@ -1371,10 +1371,10 @@ size_of.operational_halt_action = 1
 
 -- Display: Operational Halt Action
 display.operational_halt_action = function(value)
-  if value == H then
+  if value == "H" then
     return "Operational Halt Action: Halted (H)"
   end
-  if value == T then
+  if value == "T" then
     return "Operational Halt Action: Resumed (T)"
   end
 
@@ -1384,7 +1384,7 @@ end
 -- Dissect: Operational Halt Action
 dissect.operational_halt_action = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.operational_halt_action)
-  local value = range:int()
+  local value = range:string()
   local display = display.operational_halt_action(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_totalview_itch_v5_0.fields.operational_halt_action, range, value, display)
@@ -1397,13 +1397,13 @@ size_of.market_code = 1
 
 -- Display: Market Code
 display.market_code = function(value)
-  if value == Q then
+  if value == "Q" then
     return "Market Code: Nasdaq (Q)"
   end
-  if value == B then
+  if value == "B" then
     return "Market Code: Bx (B)"
   end
-  if value == X then
+  if value == "X" then
     return "Market Code: Psx (X)"
   end
 
@@ -1413,7 +1413,7 @@ end
 -- Dissect: Market Code
 dissect.market_code = function(buffer, offset, packet, parent)
   local range = buffer(offset, size_of.market_code)
-  local value = range:int()
+  local value = range:string()
   local display = display.market_code(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_totalview_itch_v5_0.fields.market_code, range, value, display)
@@ -1442,10 +1442,10 @@ dissect.operational_halt_message_fields = function(buffer, offset, packet, paren
   -- Stock: 8 Byte Ascii String
   index = dissect.stock(buffer, index, packet, parent)
 
-  -- Market Code: 1 Byte Signed Fixed Width Integer Enum with 3 values
+  -- Market Code: 1 Byte Ascii String Enum with 3 values
   index = dissect.market_code(buffer, index, packet, parent)
 
-  -- Operational Halt Action: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  -- Operational Halt Action: 1 Byte Ascii String Enum with 2 values
   index = dissect.operational_halt_action(buffer, index, packet, parent)
 
   return index
