@@ -317,13 +317,14 @@ end
 
 -- Dissect: Interest Flag
 dissect.interest_flag = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.interest_flag)
+  local length = size_of.interest_flag
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.interest_flag(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.interest_flag, range, value, display)
 
-  return offset + size_of.interest_flag
+  return offset + length, value
 end
 
 -- Size: Stock
@@ -336,13 +337,14 @@ end
 
 -- Dissect: Stock
 dissect.stock = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.stock)
+  local length = size_of.stock
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.stock(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.stock, range, value, display)
 
-  return offset + size_of.stock
+  return offset + length, value
 end
 
 -- Size: Timestamp
@@ -355,13 +357,14 @@ end
 
 -- Dissect: Timestamp
 dissect.timestamp = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.timestamp)
+  local length = size_of.timestamp
+  local range = buffer(offset, length)
   local value = range:uint64()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.timestamp, range, value, display)
 
-  return offset + size_of.timestamp
+  return offset + length, value
 end
 
 -- Size: Tracking Number
@@ -374,13 +377,14 @@ end
 
 -- Dissect: Tracking Number
 dissect.tracking_number = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.tracking_number)
+  local length = size_of.tracking_number
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.tracking_number(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.tracking_number, range, value, display)
 
-  return offset + size_of.tracking_number
+  return offset + length, value
 end
 
 -- Size: Stock Locate
@@ -393,13 +397,14 @@ end
 
 -- Dissect: Stock Locate
 dissect.stock_locate = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.stock_locate)
+  local length = size_of.stock_locate
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.stock_locate(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.stock_locate, range, value, display)
 
-  return offset + size_of.stock_locate
+  return offset + length, value
 end
 
 -- Display: Retail Interest Message
@@ -412,19 +417,19 @@ dissect.retail_interest_message_fields = function(buffer, offset, packet, parent
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.stock_locate(buffer, index, packet, parent)
+  index, stock_locate = dissect.stock_locate(buffer, index, packet, parent)
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index = dissect.stock(buffer, index, packet, parent)
+  index, stock = dissect.stock(buffer, index, packet, parent)
 
   -- Interest Flag: 1 Byte Ascii String Enum with 4 values
-  index = dissect.interest_flag(buffer, index, packet, parent)
+  index, interest_flag = dissect.interest_flag(buffer, index, packet, parent)
 
   return index
 end
@@ -494,13 +499,14 @@ end
 
 -- Dissect: Price Variation Indicator
 dissect.price_variation_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price_variation_indicator)
+  local length = size_of.price_variation_indicator
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.price_variation_indicator(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.price_variation_indicator, range, value, display)
 
-  return offset + size_of.price_variation_indicator
+  return offset + length, value
 end
 
 -- Size: Cross Type
@@ -526,13 +532,14 @@ end
 
 -- Dissect: Cross Type
 dissect.cross_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.cross_type)
+  local length = size_of.cross_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.cross_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.cross_type, range, value, display)
 
-  return offset + size_of.cross_type
+  return offset + length, value
 end
 
 -- Size: Current Reference Price
@@ -545,13 +552,14 @@ end
 
 -- Dissect: Current Reference Price
 dissect.current_reference_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.current_reference_price)
+  local length = size_of.current_reference_price
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.current_reference_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.current_reference_price, range, value, display)
 
-  return offset + size_of.current_reference_price
+  return offset + length, value
 end
 
 -- Size: Near Price
@@ -564,13 +572,14 @@ end
 
 -- Dissect: Near Price
 dissect.near_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.near_price)
+  local length = size_of.near_price
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.near_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.near_price, range, value, display)
 
-  return offset + size_of.near_price
+  return offset + length, value
 end
 
 -- Size: Far Price
@@ -583,13 +592,14 @@ end
 
 -- Dissect: Far Price
 dissect.far_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.far_price)
+  local length = size_of.far_price
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.far_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.far_price, range, value, display)
 
-  return offset + size_of.far_price
+  return offset + length, value
 end
 
 -- Size: Imbalance Direction
@@ -615,13 +625,14 @@ end
 
 -- Dissect: Imbalance Direction
 dissect.imbalance_direction = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.imbalance_direction)
+  local length = size_of.imbalance_direction
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.imbalance_direction(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.imbalance_direction, range, value, display)
 
-  return offset + size_of.imbalance_direction
+  return offset + length, value
 end
 
 -- Size: Imbalance Shares
@@ -634,13 +645,14 @@ end
 
 -- Dissect: Imbalance Shares
 dissect.imbalance_shares = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.imbalance_shares)
+  local length = size_of.imbalance_shares
+  local range = buffer(offset, length)
   local value = range:uint64()
   local display = display.imbalance_shares(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.imbalance_shares, range, value, display)
 
-  return offset + size_of.imbalance_shares
+  return offset + length, value
 end
 
 -- Size: Paired Shares
@@ -653,13 +665,14 @@ end
 
 -- Dissect: Paired Shares
 dissect.paired_shares = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.paired_shares)
+  local length = size_of.paired_shares
+  local range = buffer(offset, length)
   local value = range:uint64()
   local display = display.paired_shares(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.paired_shares, range, value, display)
 
-  return offset + size_of.paired_shares
+  return offset + length, value
 end
 
 -- Display: Net Order Imbalance Indicator Message
@@ -672,40 +685,40 @@ dissect.net_order_imbalance_indicator_message_fields = function(buffer, offset, 
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.stock_locate(buffer, index, packet, parent)
+  index, stock_locate = dissect.stock_locate(buffer, index, packet, parent)
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Paired Shares: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.paired_shares(buffer, index, packet, parent)
+  index, paired_shares = dissect.paired_shares(buffer, index, packet, parent)
 
   -- Imbalance Shares: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.imbalance_shares(buffer, index, packet, parent)
+  index, imbalance_shares = dissect.imbalance_shares(buffer, index, packet, parent)
 
   -- Imbalance Direction: 1 Byte Ascii String Enum with 4 values
-  index = dissect.imbalance_direction(buffer, index, packet, parent)
+  index, imbalance_direction = dissect.imbalance_direction(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index = dissect.stock(buffer, index, packet, parent)
+  index, stock = dissect.stock(buffer, index, packet, parent)
 
   -- Far Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.far_price(buffer, index, packet, parent)
+  index, far_price = dissect.far_price(buffer, index, packet, parent)
 
   -- Near Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.near_price(buffer, index, packet, parent)
+  index, near_price = dissect.near_price(buffer, index, packet, parent)
 
   -- Current Reference Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.current_reference_price(buffer, index, packet, parent)
+  index, current_reference_price = dissect.current_reference_price(buffer, index, packet, parent)
 
   -- Cross Type: 1 Byte Ascii String Enum with 4 values
-  index = dissect.cross_type(buffer, index, packet, parent)
+  index, cross_type = dissect.cross_type(buffer, index, packet, parent)
 
   -- Price Variation Indicator: 1 Byte Ascii String Enum with 14 values
-  index = dissect.price_variation_indicator(buffer, index, packet, parent)
+  index, price_variation_indicator = dissect.price_variation_indicator(buffer, index, packet, parent)
 
   return index
 end
@@ -732,13 +745,14 @@ end
 
 -- Dissect: Match Number
 dissect.match_number = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.match_number)
+  local length = size_of.match_number
+  local range = buffer(offset, length)
   local value = range:uint64()
   local display = display.match_number(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.match_number, range, value, display)
 
-  return offset + size_of.match_number
+  return offset + length, value
 end
 
 -- Display: Broken Trade Message
@@ -751,16 +765,16 @@ dissect.broken_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.stock_locate(buffer, index, packet, parent)
+  index, stock_locate = dissect.stock_locate(buffer, index, packet, parent)
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Match Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.match_number(buffer, index, packet, parent)
+  index, match_number = dissect.match_number(buffer, index, packet, parent)
 
   return index
 end
@@ -787,13 +801,14 @@ end
 
 -- Dissect: Cross Price
 dissect.cross_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.cross_price)
+  local length = size_of.cross_price
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.cross_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.cross_price, range, value, display)
 
-  return offset + size_of.cross_price
+  return offset + length, value
 end
 
 -- Size: Cross Shares
@@ -806,13 +821,14 @@ end
 
 -- Dissect: Cross Shares
 dissect.cross_shares = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.cross_shares)
+  local length = size_of.cross_shares
+  local range = buffer(offset, length)
   local value = range:uint64()
   local display = display.cross_shares(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.cross_shares, range, value, display)
 
-  return offset + size_of.cross_shares
+  return offset + length, value
 end
 
 -- Display: Cross Trade Message
@@ -825,28 +841,28 @@ dissect.cross_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.stock_locate(buffer, index, packet, parent)
+  index, stock_locate = dissect.stock_locate(buffer, index, packet, parent)
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Cross Shares: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.cross_shares(buffer, index, packet, parent)
+  index, cross_shares = dissect.cross_shares(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index = dissect.stock(buffer, index, packet, parent)
+  index, stock = dissect.stock(buffer, index, packet, parent)
 
   -- Cross Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.cross_price(buffer, index, packet, parent)
+  index, cross_price = dissect.cross_price(buffer, index, packet, parent)
 
   -- Match Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.match_number(buffer, index, packet, parent)
+  index, match_number = dissect.match_number(buffer, index, packet, parent)
 
   -- Cross Type: 1 Byte Ascii String Enum with 4 values
-  index = dissect.cross_type(buffer, index, packet, parent)
+  index, cross_type = dissect.cross_type(buffer, index, packet, parent)
 
   return index
 end
@@ -873,13 +889,14 @@ end
 
 -- Dissect: Price
 dissect.price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price)
+  local length = size_of.price
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.price, range, value, display)
 
-  return offset + size_of.price
+  return offset + length, value
 end
 
 -- Size: Shares
@@ -892,13 +909,14 @@ end
 
 -- Dissect: Shares
 dissect.shares = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.shares)
+  local length = size_of.shares
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.shares(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.shares, range, value, display)
 
-  return offset + size_of.shares
+  return offset + length, value
 end
 
 -- Size: Buy Sell Indicator
@@ -918,13 +936,14 @@ end
 
 -- Dissect: Buy Sell Indicator
 dissect.buy_sell_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.buy_sell_indicator)
+  local length = size_of.buy_sell_indicator
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.buy_sell_indicator(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.buy_sell_indicator, range, value, display)
 
-  return offset + size_of.buy_sell_indicator
+  return offset + length, value
 end
 
 -- Size: Order Reference Number
@@ -937,13 +956,14 @@ end
 
 -- Dissect: Order Reference Number
 dissect.order_reference_number = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.order_reference_number)
+  local length = size_of.order_reference_number
+  local range = buffer(offset, length)
   local value = range:uint64()
   local display = display.order_reference_number(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.order_reference_number, range, value, display)
 
-  return offset + size_of.order_reference_number
+  return offset + length, value
 end
 
 -- Display: Non Cross Trade Message
@@ -956,31 +976,31 @@ dissect.non_cross_trade_message_fields = function(buffer, offset, packet, parent
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.stock_locate(buffer, index, packet, parent)
+  index, stock_locate = dissect.stock_locate(buffer, index, packet, parent)
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_reference_number(buffer, index, packet, parent)
+  index, order_reference_number = dissect.order_reference_number(buffer, index, packet, parent)
 
   -- Buy Sell Indicator: 1 Byte Ascii String Enum with 2 values
-  index = dissect.buy_sell_indicator(buffer, index, packet, parent)
+  index, buy_sell_indicator = dissect.buy_sell_indicator(buffer, index, packet, parent)
 
   -- Shares: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.shares(buffer, index, packet, parent)
+  index, shares = dissect.shares(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index = dissect.stock(buffer, index, packet, parent)
+  index, stock = dissect.stock(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Match Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.match_number(buffer, index, packet, parent)
+  index, match_number = dissect.match_number(buffer, index, packet, parent)
 
   return index
 end
@@ -1007,13 +1027,14 @@ end
 
 -- Dissect: New Order Reference Number
 dissect.new_order_reference_number = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.new_order_reference_number)
+  local length = size_of.new_order_reference_number
+  local range = buffer(offset, length)
   local value = range:uint64()
   local display = display.new_order_reference_number(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.new_order_reference_number, range, value, display)
 
-  return offset + size_of.new_order_reference_number
+  return offset + length, value
 end
 
 -- Size: Original Order Reference Number
@@ -1026,13 +1047,14 @@ end
 
 -- Dissect: Original Order Reference Number
 dissect.original_order_reference_number = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.original_order_reference_number)
+  local length = size_of.original_order_reference_number
+  local range = buffer(offset, length)
   local value = range:uint64()
   local display = display.original_order_reference_number(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.original_order_reference_number, range, value, display)
 
-  return offset + size_of.original_order_reference_number
+  return offset + length, value
 end
 
 -- Display: Order Replace Message
@@ -1045,25 +1067,25 @@ dissect.order_replace_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.stock_locate(buffer, index, packet, parent)
+  index, stock_locate = dissect.stock_locate(buffer, index, packet, parent)
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Original Order Reference Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.original_order_reference_number(buffer, index, packet, parent)
+  index, original_order_reference_number = dissect.original_order_reference_number(buffer, index, packet, parent)
 
   -- New Order Reference Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.new_order_reference_number(buffer, index, packet, parent)
+  index, new_order_reference_number = dissect.new_order_reference_number(buffer, index, packet, parent)
 
   -- Shares: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.shares(buffer, index, packet, parent)
+  index, shares = dissect.shares(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   return index
 end
@@ -1090,16 +1112,16 @@ dissect.order_delete_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.stock_locate(buffer, index, packet, parent)
+  index, stock_locate = dissect.stock_locate(buffer, index, packet, parent)
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_reference_number(buffer, index, packet, parent)
+  index, order_reference_number = dissect.order_reference_number(buffer, index, packet, parent)
 
   return index
 end
@@ -1126,13 +1148,14 @@ end
 
 -- Dissect: Canceled Shares
 dissect.canceled_shares = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.canceled_shares)
+  local length = size_of.canceled_shares
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.canceled_shares(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.canceled_shares, range, value, display)
 
-  return offset + size_of.canceled_shares
+  return offset + length, value
 end
 
 -- Display: Order Cancel Message
@@ -1145,19 +1168,19 @@ dissect.order_cancel_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.stock_locate(buffer, index, packet, parent)
+  index, stock_locate = dissect.stock_locate(buffer, index, packet, parent)
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_reference_number(buffer, index, packet, parent)
+  index, order_reference_number = dissect.order_reference_number(buffer, index, packet, parent)
 
   -- Canceled Shares: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.canceled_shares(buffer, index, packet, parent)
+  index, canceled_shares = dissect.canceled_shares(buffer, index, packet, parent)
 
   return index
 end
@@ -1184,13 +1207,14 @@ end
 
 -- Dissect: Execution Price
 dissect.execution_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.execution_price)
+  local length = size_of.execution_price
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.execution_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.execution_price, range, value, display)
 
-  return offset + size_of.execution_price
+  return offset + length, value
 end
 
 -- Size: Printable
@@ -1210,13 +1234,14 @@ end
 
 -- Dissect: Printable
 dissect.printable = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.printable)
+  local length = size_of.printable
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.printable(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.printable, range, value, display)
 
-  return offset + size_of.printable
+  return offset + length, value
 end
 
 -- Size: Executed Shares
@@ -1229,13 +1254,14 @@ end
 
 -- Dissect: Executed Shares
 dissect.executed_shares = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.executed_shares)
+  local length = size_of.executed_shares
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.executed_shares(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.executed_shares, range, value, display)
 
-  return offset + size_of.executed_shares
+  return offset + length, value
 end
 
 -- Display: Order Executed With Price Message
@@ -1248,28 +1274,28 @@ dissect.order_executed_with_price_message_fields = function(buffer, offset, pack
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.stock_locate(buffer, index, packet, parent)
+  index, stock_locate = dissect.stock_locate(buffer, index, packet, parent)
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_reference_number(buffer, index, packet, parent)
+  index, order_reference_number = dissect.order_reference_number(buffer, index, packet, parent)
 
   -- Executed Shares: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.executed_shares(buffer, index, packet, parent)
+  index, executed_shares = dissect.executed_shares(buffer, index, packet, parent)
 
   -- Match Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.match_number(buffer, index, packet, parent)
+  index, match_number = dissect.match_number(buffer, index, packet, parent)
 
   -- Printable: 1 Byte Ascii String Enum with 2 values
-  index = dissect.printable(buffer, index, packet, parent)
+  index, printable = dissect.printable(buffer, index, packet, parent)
 
   -- Execution Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.execution_price(buffer, index, packet, parent)
+  index, execution_price = dissect.execution_price(buffer, index, packet, parent)
 
   return index
 end
@@ -1296,22 +1322,22 @@ dissect.order_executed_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.stock_locate(buffer, index, packet, parent)
+  index, stock_locate = dissect.stock_locate(buffer, index, packet, parent)
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_reference_number(buffer, index, packet, parent)
+  index, order_reference_number = dissect.order_reference_number(buffer, index, packet, parent)
 
   -- Executed Shares: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.executed_shares(buffer, index, packet, parent)
+  index, executed_shares = dissect.executed_shares(buffer, index, packet, parent)
 
   -- Match Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.match_number(buffer, index, packet, parent)
+  index, match_number = dissect.match_number(buffer, index, packet, parent)
 
   return index
 end
@@ -1338,13 +1364,14 @@ end
 
 -- Dissect: Attribution
 dissect.attribution = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.attribution)
+  local length = size_of.attribution
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.attribution(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.attribution, range, value, display)
 
-  return offset + size_of.attribution
+  return offset + length, value
 end
 
 -- Display: Add Order With Mpid Attribution Message
@@ -1357,31 +1384,31 @@ dissect.add_order_with_mpid_attribution_message_fields = function(buffer, offset
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.stock_locate(buffer, index, packet, parent)
+  index, stock_locate = dissect.stock_locate(buffer, index, packet, parent)
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_reference_number(buffer, index, packet, parent)
+  index, order_reference_number = dissect.order_reference_number(buffer, index, packet, parent)
 
   -- Buy Sell Indicator: 1 Byte Ascii String Enum with 2 values
-  index = dissect.buy_sell_indicator(buffer, index, packet, parent)
+  index, buy_sell_indicator = dissect.buy_sell_indicator(buffer, index, packet, parent)
 
   -- Shares: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.shares(buffer, index, packet, parent)
+  index, shares = dissect.shares(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index = dissect.stock(buffer, index, packet, parent)
+  index, stock = dissect.stock(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Attribution: 4 Byte Ascii String
-  index = dissect.attribution(buffer, index, packet, parent)
+  index, attribution = dissect.attribution(buffer, index, packet, parent)
 
   return index
 end
@@ -1408,13 +1435,14 @@ end
 
 -- Dissect: Auction Collar Extension
 dissect.auction_collar_extension = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.auction_collar_extension)
+  local length = size_of.auction_collar_extension
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.auction_collar_extension(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.auction_collar_extension, range, value, display)
 
-  return offset + size_of.auction_collar_extension
+  return offset + length, value
 end
 
 -- Size: Lower Auction Collar Price
@@ -1427,13 +1455,14 @@ end
 
 -- Dissect: Lower Auction Collar Price
 dissect.lower_auction_collar_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.lower_auction_collar_price)
+  local length = size_of.lower_auction_collar_price
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.lower_auction_collar_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.lower_auction_collar_price, range, value, display)
 
-  return offset + size_of.lower_auction_collar_price
+  return offset + length, value
 end
 
 -- Size: Upper Auction Collar Price
@@ -1446,13 +1475,14 @@ end
 
 -- Dissect: Upper Auction Collar Price
 dissect.upper_auction_collar_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.upper_auction_collar_price)
+  local length = size_of.upper_auction_collar_price
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.upper_auction_collar_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.upper_auction_collar_price, range, value, display)
 
-  return offset + size_of.upper_auction_collar_price
+  return offset + length, value
 end
 
 -- Size: Auction Collar Reference Price
@@ -1465,13 +1495,14 @@ end
 
 -- Dissect: Auction Collar Reference Price
 dissect.auction_collar_reference_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.auction_collar_reference_price)
+  local length = size_of.auction_collar_reference_price
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.auction_collar_reference_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.auction_collar_reference_price, range, value, display)
 
-  return offset + size_of.auction_collar_reference_price
+  return offset + length, value
 end
 
 -- Display: Luld Auction Collar Message
@@ -1484,28 +1515,28 @@ dissect.luld_auction_collar_message_fields = function(buffer, offset, packet, pa
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.stock_locate(buffer, index, packet, parent)
+  index, stock_locate = dissect.stock_locate(buffer, index, packet, parent)
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index = dissect.stock(buffer, index, packet, parent)
+  index, stock = dissect.stock(buffer, index, packet, parent)
 
   -- Auction Collar Reference Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.auction_collar_reference_price(buffer, index, packet, parent)
+  index, auction_collar_reference_price = dissect.auction_collar_reference_price(buffer, index, packet, parent)
 
   -- Upper Auction Collar Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.upper_auction_collar_price(buffer, index, packet, parent)
+  index, upper_auction_collar_price = dissect.upper_auction_collar_price(buffer, index, packet, parent)
 
   -- Lower Auction Collar Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.lower_auction_collar_price(buffer, index, packet, parent)
+  index, lower_auction_collar_price = dissect.lower_auction_collar_price(buffer, index, packet, parent)
 
   -- Auction Collar Extension: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.auction_collar_extension(buffer, index, packet, parent)
+  index, auction_collar_extension = dissect.auction_collar_extension(buffer, index, packet, parent)
 
   return index
 end
@@ -1532,28 +1563,28 @@ dissect.add_order_no_mpid_attribution_message_fields = function(buffer, offset, 
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.stock_locate(buffer, index, packet, parent)
+  index, stock_locate = dissect.stock_locate(buffer, index, packet, parent)
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_reference_number(buffer, index, packet, parent)
+  index, order_reference_number = dissect.order_reference_number(buffer, index, packet, parent)
 
   -- Buy Sell Indicator: 1 Byte Ascii String Enum with 2 values
-  index = dissect.buy_sell_indicator(buffer, index, packet, parent)
+  index, buy_sell_indicator = dissect.buy_sell_indicator(buffer, index, packet, parent)
 
   -- Shares: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.shares(buffer, index, packet, parent)
+  index, shares = dissect.shares(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index = dissect.stock(buffer, index, packet, parent)
+  index, stock = dissect.stock(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   return index
 end
@@ -1580,13 +1611,14 @@ end
 
 -- Dissect: Ipo Price
 dissect.ipo_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ipo_price)
+  local length = size_of.ipo_price
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.ipo_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.ipo_price, range, value, display)
 
-  return offset + size_of.ipo_price
+  return offset + length, value
 end
 
 -- Size: Ipo Quotation Release Qualifier
@@ -1606,13 +1638,14 @@ end
 
 -- Dissect: Ipo Quotation Release Qualifier
 dissect.ipo_quotation_release_qualifier = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ipo_quotation_release_qualifier)
+  local length = size_of.ipo_quotation_release_qualifier
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.ipo_quotation_release_qualifier(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.ipo_quotation_release_qualifier, range, value, display)
 
-  return offset + size_of.ipo_quotation_release_qualifier
+  return offset + length, value
 end
 
 -- Size: Ipo Quotation Release Time
@@ -1625,13 +1658,14 @@ end
 
 -- Dissect: Ipo Quotation Release Time
 dissect.ipo_quotation_release_time = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ipo_quotation_release_time)
+  local length = size_of.ipo_quotation_release_time
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.ipo_quotation_release_time(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.ipo_quotation_release_time, range, value, display)
 
-  return offset + size_of.ipo_quotation_release_time
+  return offset + length, value
 end
 
 -- Display: Ipo Quoting Period Update
@@ -1644,25 +1678,25 @@ dissect.ipo_quoting_period_update_fields = function(buffer, offset, packet, pare
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.stock_locate(buffer, index, packet, parent)
+  index, stock_locate = dissect.stock_locate(buffer, index, packet, parent)
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index = dissect.stock(buffer, index, packet, parent)
+  index, stock = dissect.stock(buffer, index, packet, parent)
 
   -- Ipo Quotation Release Time: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.ipo_quotation_release_time(buffer, index, packet, parent)
+  index, ipo_quotation_release_time = dissect.ipo_quotation_release_time(buffer, index, packet, parent)
 
   -- Ipo Quotation Release Qualifier: 1 Byte Ascii String Enum with 2 values
-  index = dissect.ipo_quotation_release_qualifier(buffer, index, packet, parent)
+  index, ipo_quotation_release_qualifier = dissect.ipo_quotation_release_qualifier(buffer, index, packet, parent)
 
   -- Ipo Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.ipo_price(buffer, index, packet, parent)
+  index, ipo_price = dissect.ipo_price(buffer, index, packet, parent)
 
   return index
 end
@@ -1699,13 +1733,14 @@ end
 
 -- Dissect: Breached Level
 dissect.breached_level = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.breached_level)
+  local length = size_of.breached_level
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.breached_level(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.breached_level, range, value, display)
 
-  return offset + size_of.breached_level
+  return offset + length, value
 end
 
 -- Display: Mwcb Status Level Message
@@ -1718,16 +1753,16 @@ dissect.mwcb_status_level_message_fields = function(buffer, offset, packet, pare
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.stock_locate(buffer, index, packet, parent)
+  index, stock_locate = dissect.stock_locate(buffer, index, packet, parent)
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Breached Level: 1 Byte Ascii String Enum with 3 values
-  index = dissect.breached_level(buffer, index, packet, parent)
+  index, breached_level = dissect.breached_level(buffer, index, packet, parent)
 
   return index
 end
@@ -1754,13 +1789,14 @@ end
 
 -- Dissect: Level 3
 dissect.level_3 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.level_3)
+  local length = size_of.level_3
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.level_3(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.level_3, range, value, display)
 
-  return offset + size_of.level_3
+  return offset + length, value
 end
 
 -- Size: Level 2
@@ -1773,13 +1809,14 @@ end
 
 -- Dissect: Level 2
 dissect.level_2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.level_2)
+  local length = size_of.level_2
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.level_2(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.level_2, range, value, display)
 
-  return offset + size_of.level_2
+  return offset + length, value
 end
 
 -- Size: Level 1
@@ -1792,13 +1829,14 @@ end
 
 -- Dissect: Level 1
 dissect.level_1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.level_1)
+  local length = size_of.level_1
+  local range = buffer(offset, length)
   local value = range:int64()
   local display = display.level_1(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.level_1, range, value, display)
 
-  return offset + size_of.level_1
+  return offset + length, value
 end
 
 -- Display: Mwcb Decline Level Message
@@ -1811,22 +1849,22 @@ dissect.mwcb_decline_level_message_fields = function(buffer, offset, packet, par
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.stock_locate(buffer, index, packet, parent)
+  index, stock_locate = dissect.stock_locate(buffer, index, packet, parent)
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Level 1: 8 Byte Signed Fixed Width Integer
-  index = dissect.level_1(buffer, index, packet, parent)
+  index, level_1 = dissect.level_1(buffer, index, packet, parent)
 
   -- Level 2: 8 Byte Signed Fixed Width Integer
-  index = dissect.level_2(buffer, index, packet, parent)
+  index, level_2 = dissect.level_2(buffer, index, packet, parent)
 
   -- Level 3: 8 Byte Signed Fixed Width Integer
-  index = dissect.level_3(buffer, index, packet, parent)
+  index, level_3 = dissect.level_3(buffer, index, packet, parent)
 
   return index
 end
@@ -1869,13 +1907,14 @@ end
 
 -- Dissect: Market Participant State
 dissect.market_participant_state = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.market_participant_state)
+  local length = size_of.market_participant_state
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.market_participant_state(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.market_participant_state, range, value, display)
 
-  return offset + size_of.market_participant_state
+  return offset + length, value
 end
 
 -- Size: Market Maker Mode
@@ -1904,13 +1943,14 @@ end
 
 -- Dissect: Market Maker Mode
 dissect.market_maker_mode = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.market_maker_mode)
+  local length = size_of.market_maker_mode
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.market_maker_mode(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.market_maker_mode, range, value, display)
 
-  return offset + size_of.market_maker_mode
+  return offset + length, value
 end
 
 -- Size: Primary Market Maker
@@ -1930,13 +1970,14 @@ end
 
 -- Dissect: Primary Market Maker
 dissect.primary_market_maker = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.primary_market_maker)
+  local length = size_of.primary_market_maker
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.primary_market_maker(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.primary_market_maker, range, value, display)
 
-  return offset + size_of.primary_market_maker
+  return offset + length, value
 end
 
 -- Size: Mpid
@@ -1949,13 +1990,14 @@ end
 
 -- Dissect: Mpid
 dissect.mpid = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.mpid)
+  local length = size_of.mpid
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.mpid(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.mpid, range, value, display)
 
-  return offset + size_of.mpid
+  return offset + length, value
 end
 
 -- Display: Market Participant Position Message
@@ -1968,28 +2010,28 @@ dissect.market_participant_position_message_fields = function(buffer, offset, pa
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.stock_locate(buffer, index, packet, parent)
+  index, stock_locate = dissect.stock_locate(buffer, index, packet, parent)
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Mpid: 4 Byte Ascii String
-  index = dissect.mpid(buffer, index, packet, parent)
+  index, mpid = dissect.mpid(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index = dissect.stock(buffer, index, packet, parent)
+  index, stock = dissect.stock(buffer, index, packet, parent)
 
   -- Primary Market Maker: 1 Byte Ascii String Enum with 2 values
-  index = dissect.primary_market_maker(buffer, index, packet, parent)
+  index, primary_market_maker = dissect.primary_market_maker(buffer, index, packet, parent)
 
   -- Market Maker Mode: 1 Byte Ascii String Enum with 5 values
-  index = dissect.market_maker_mode(buffer, index, packet, parent)
+  index, market_maker_mode = dissect.market_maker_mode(buffer, index, packet, parent)
 
   -- Market Participant State: 1 Byte Ascii String Enum with 5 values
-  index = dissect.market_participant_state(buffer, index, packet, parent)
+  index, market_participant_state = dissect.market_participant_state(buffer, index, packet, parent)
 
   return index
 end
@@ -2026,13 +2068,14 @@ end
 
 -- Dissect: Reg Sho Action
 dissect.reg_sho_action = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reg_sho_action)
+  local length = size_of.reg_sho_action
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.reg_sho_action(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.reg_sho_action, range, value, display)
 
-  return offset + size_of.reg_sho_action
+  return offset + length, value
 end
 
 -- Size: Locate Code
@@ -2045,13 +2088,14 @@ end
 
 -- Dissect: Locate Code
 dissect.locate_code = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.locate_code)
+  local length = size_of.locate_code
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.locate_code(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.locate_code, range, value, display)
 
-  return offset + size_of.locate_code
+  return offset + length, value
 end
 
 -- Display: Reg Sho Short Sale Price Test Restricted Indicator Message
@@ -2064,19 +2108,19 @@ dissect.reg_sho_short_sale_price_test_restricted_indicator_message_fields = func
   local index = offset
 
   -- Locate Code: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.locate_code(buffer, index, packet, parent)
+  index, locate_code = dissect.locate_code(buffer, index, packet, parent)
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index = dissect.stock(buffer, index, packet, parent)
+  index, stock = dissect.stock(buffer, index, packet, parent)
 
   -- Reg Sho Action: 1 Byte Ascii String Enum with 3 values
-  index = dissect.reg_sho_action(buffer, index, packet, parent)
+  index, reg_sho_action = dissect.reg_sho_action(buffer, index, packet, parent)
 
   return index
 end
@@ -2103,13 +2147,14 @@ end
 
 -- Dissect: Reason
 dissect.reason = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reason)
+  local length = size_of.reason
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.reason(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.reason, range, value, display)
 
-  return offset + size_of.reason
+  return offset + length, value
 end
 
 -- Size: Reserved
@@ -2122,13 +2167,14 @@ end
 
 -- Dissect: Reserved
 dissect.reserved = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved)
+  local length = size_of.reserved
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.reserved(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.reserved, range, value, display)
 
-  return offset + size_of.reserved
+  return offset + length, value
 end
 
 -- Size: Trading State
@@ -2154,13 +2200,14 @@ end
 
 -- Dissect: Trading State
 dissect.trading_state = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trading_state)
+  local length = size_of.trading_state
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.trading_state(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.trading_state, range, value, display)
 
-  return offset + size_of.trading_state
+  return offset + length, value
 end
 
 -- Display: Stock Trading Action Message
@@ -2173,25 +2220,25 @@ dissect.stock_trading_action_message_fields = function(buffer, offset, packet, p
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.stock_locate(buffer, index, packet, parent)
+  index, stock_locate = dissect.stock_locate(buffer, index, packet, parent)
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index = dissect.stock(buffer, index, packet, parent)
+  index, stock = dissect.stock(buffer, index, packet, parent)
 
   -- Trading State: 1 Byte Ascii String Enum with 4 values
-  index = dissect.trading_state(buffer, index, packet, parent)
+  index, trading_state = dissect.trading_state(buffer, index, packet, parent)
 
   -- Reserved: 1 Byte Ascii String
-  index = dissect.reserved(buffer, index, packet, parent)
+  index, reserved = dissect.reserved(buffer, index, packet, parent)
 
   -- Reason: 4 Byte Ascii String
-  index = dissect.reason(buffer, index, packet, parent)
+  index, reason = dissect.reason(buffer, index, packet, parent)
 
   return index
 end
@@ -2225,13 +2272,14 @@ end
 
 -- Dissect: Inverse Indicator
 dissect.inverse_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.inverse_indicator)
+  local length = size_of.inverse_indicator
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.inverse_indicator(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.inverse_indicator, range, value, display)
 
-  return offset + size_of.inverse_indicator
+  return offset + length, value
 end
 
 -- Size: Etp Leverage Factor
@@ -2244,13 +2292,14 @@ end
 
 -- Dissect: Etp Leverage Factor
 dissect.etp_leverage_factor = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.etp_leverage_factor)
+  local length = size_of.etp_leverage_factor
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.etp_leverage_factor(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.etp_leverage_factor, range, value, display)
 
-  return offset + size_of.etp_leverage_factor
+  return offset + length, value
 end
 
 -- Size: Etp Flag
@@ -2273,13 +2322,14 @@ end
 
 -- Dissect: Etp Flag
 dissect.etp_flag = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.etp_flag)
+  local length = size_of.etp_flag
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.etp_flag(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.etp_flag, range, value, display)
 
-  return offset + size_of.etp_flag
+  return offset + length, value
 end
 
 -- Size: Luld Reference Price Tier
@@ -2302,13 +2352,14 @@ end
 
 -- Dissect: Luld Reference Price Tier
 dissect.luld_reference_price_tier = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.luld_reference_price_tier)
+  local length = size_of.luld_reference_price_tier
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.luld_reference_price_tier(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.luld_reference_price_tier, range, value, display)
 
-  return offset + size_of.luld_reference_price_tier
+  return offset + length, value
 end
 
 -- Size: Ipo Flag
@@ -2331,13 +2382,14 @@ end
 
 -- Dissect: Ipo Flag
 dissect.ipo_flag = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ipo_flag)
+  local length = size_of.ipo_flag
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.ipo_flag(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.ipo_flag, range, value, display)
 
-  return offset + size_of.ipo_flag
+  return offset + length, value
 end
 
 -- Size: Short Sale Threshold Indicator
@@ -2360,13 +2412,14 @@ end
 
 -- Dissect: Short Sale Threshold Indicator
 dissect.short_sale_threshold_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.short_sale_threshold_indicator)
+  local length = size_of.short_sale_threshold_indicator
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.short_sale_threshold_indicator(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.short_sale_threshold_indicator, range, value, display)
 
-  return offset + size_of.short_sale_threshold_indicator
+  return offset + length, value
 end
 
 -- Size: Authenticity
@@ -2386,13 +2439,14 @@ end
 
 -- Dissect: Authenticity
 dissect.authenticity = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.authenticity)
+  local length = size_of.authenticity
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.authenticity(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.authenticity, range, value, display)
 
-  return offset + size_of.authenticity
+  return offset + length, value
 end
 
 -- Size: Issue Sub Type
@@ -2583,13 +2637,14 @@ end
 
 -- Dissect: Issue Sub Type
 dissect.issue_sub_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.issue_sub_type)
+  local length = size_of.issue_sub_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.issue_sub_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.issue_sub_type, range, value, display)
 
-  return offset + size_of.issue_sub_type
+  return offset + length, value
 end
 
 -- Size: Issue Classification
@@ -2651,13 +2706,14 @@ end
 
 -- Dissect: Issue Classification
 dissect.issue_classification = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.issue_classification)
+  local length = size_of.issue_classification
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.issue_classification(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.issue_classification, range, value, display)
 
-  return offset + size_of.issue_classification
+  return offset + length, value
 end
 
 -- Size: Round Lots Only
@@ -2677,13 +2733,14 @@ end
 
 -- Dissect: Round Lots Only
 dissect.round_lots_only = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.round_lots_only)
+  local length = size_of.round_lots_only
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.round_lots_only(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.round_lots_only, range, value, display)
 
-  return offset + size_of.round_lots_only
+  return offset + length, value
 end
 
 -- Size: Round Lot Size
@@ -2696,13 +2753,14 @@ end
 
 -- Dissect: Round Lot Size
 dissect.round_lot_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.round_lot_size)
+  local length = size_of.round_lot_size
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.round_lot_size(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.round_lot_size, range, value, display)
 
-  return offset + size_of.round_lot_size
+  return offset + length, value
 end
 
 -- Size: Financial Status Indicator
@@ -2749,13 +2807,14 @@ end
 
 -- Dissect: Financial Status Indicator
 dissect.financial_status_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.financial_status_indicator)
+  local length = size_of.financial_status_indicator
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.financial_status_indicator(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.financial_status_indicator, range, value, display)
 
-  return offset + size_of.financial_status_indicator
+  return offset + length, value
 end
 
 -- Size: Market Category
@@ -2796,13 +2855,14 @@ end
 
 -- Dissect: Market Category
 dissect.market_category = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.market_category)
+  local length = size_of.market_category
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.market_category(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.market_category, range, value, display)
 
-  return offset + size_of.market_category
+  return offset + length, value
 end
 
 -- Display: Stock Directory Message
@@ -2815,55 +2875,55 @@ dissect.stock_directory_message_fields = function(buffer, offset, packet, parent
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.stock_locate(buffer, index, packet, parent)
+  index, stock_locate = dissect.stock_locate(buffer, index, packet, parent)
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index = dissect.stock(buffer, index, packet, parent)
+  index, stock = dissect.stock(buffer, index, packet, parent)
 
   -- Market Category: 1 Byte Ascii String Enum with 9 values
-  index = dissect.market_category(buffer, index, packet, parent)
+  index, market_category = dissect.market_category(buffer, index, packet, parent)
 
   -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
-  index = dissect.financial_status_indicator(buffer, index, packet, parent)
+  index, financial_status_indicator = dissect.financial_status_indicator(buffer, index, packet, parent)
 
   -- Round Lot Size: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.round_lot_size(buffer, index, packet, parent)
+  index, round_lot_size = dissect.round_lot_size(buffer, index, packet, parent)
 
   -- Round Lots Only: 1 Byte Ascii String Enum with 2 values
-  index = dissect.round_lots_only(buffer, index, packet, parent)
+  index, round_lots_only = dissect.round_lots_only(buffer, index, packet, parent)
 
   -- Issue Classification: 1 Byte Ascii String Enum with 16 values
-  index = dissect.issue_classification(buffer, index, packet, parent)
+  index, issue_classification = dissect.issue_classification(buffer, index, packet, parent)
 
   -- Issue Sub Type: 2 Byte Ascii String Enum with 59 values
-  index = dissect.issue_sub_type(buffer, index, packet, parent)
+  index, issue_sub_type = dissect.issue_sub_type(buffer, index, packet, parent)
 
   -- Authenticity: 1 Byte Ascii String Enum with 2 values
-  index = dissect.authenticity(buffer, index, packet, parent)
+  index, authenticity = dissect.authenticity(buffer, index, packet, parent)
 
   -- Short Sale Threshold Indicator: 1 Byte Ascii String Enum with 3 values
-  index = dissect.short_sale_threshold_indicator(buffer, index, packet, parent)
+  index, short_sale_threshold_indicator = dissect.short_sale_threshold_indicator(buffer, index, packet, parent)
 
   -- Ipo Flag: 1 Byte Ascii String Enum with 3 values
-  index = dissect.ipo_flag(buffer, index, packet, parent)
+  index, ipo_flag = dissect.ipo_flag(buffer, index, packet, parent)
 
   -- Luld Reference Price Tier: 1 Byte Ascii String Enum with 3 values
-  index = dissect.luld_reference_price_tier(buffer, index, packet, parent)
+  index, luld_reference_price_tier = dissect.luld_reference_price_tier(buffer, index, packet, parent)
 
   -- Etp Flag: 1 Byte Ascii String Enum with 3 values
-  index = dissect.etp_flag(buffer, index, packet, parent)
+  index, etp_flag = dissect.etp_flag(buffer, index, packet, parent)
 
   -- Etp Leverage Factor: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.etp_leverage_factor(buffer, index, packet, parent)
+  index, etp_leverage_factor = dissect.etp_leverage_factor(buffer, index, packet, parent)
 
   -- Inverse Indicator: 1 Byte Ascii String Enum with 2 values
-  index = dissect.inverse_indicator(buffer, index, packet, parent)
+  index, inverse_indicator = dissect.inverse_indicator(buffer, index, packet, parent)
 
   return index
 end
@@ -2909,13 +2969,14 @@ end
 
 -- Dissect: Event Code
 dissect.event_code = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.event_code)
+  local length = size_of.event_code
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.event_code(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.event_code, range, value, display)
 
-  return offset + size_of.event_code
+  return offset + length, value
 end
 
 -- Display: System Event Message
@@ -2928,16 +2989,16 @@ dissect.system_event_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.stock_locate(buffer, index, packet, parent)
+  index, stock_locate = dissect.stock_locate(buffer, index, packet, parent)
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Event Code: 1 Byte Ascii String Enum with 6 values
-  index = dissect.event_code(buffer, index, packet, parent)
+  index, event_code = dissect.event_code(buffer, index, packet, parent)
 
   return index
 end
@@ -2955,89 +3016,89 @@ dissect.system_event_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, messagetype)
+size_of.payload = function(buffer, offset, message_type)
   -- Size of System Event Message
-  if messagetype == "S" then
+  if message_type == "S" then
     return 11
   end
   -- Size of Stock Directory Message
-  if messagetype == "R" then
+  if message_type == "R" then
     return 38
   end
   -- Size of Stock Trading Action Message
-  if messagetype == "H" then
+  if message_type == "H" then
     return 24
   end
   -- Size of Reg Sho Short Sale Price Test Restricted Indicator Message
-  if messagetype == "Y" then
+  if message_type == "Y" then
     return 19
   end
   -- Size of Market Participant Position Message
-  if messagetype == "L" then
+  if message_type == "L" then
     return 25
   end
   -- Size of Mwcb Decline Level Message
-  if messagetype == "V" then
+  if message_type == "V" then
     return 34
   end
   -- Size of Mwcb Status Level Message
-  if messagetype == "W" then
+  if message_type == "W" then
     return 11
   end
   -- Size of Ipo Quoting Period Update
-  if messagetype == "K" then
+  if message_type == "K" then
     return 27
   end
   -- Size of Add Order No Mpid Attribution Message
-  if messagetype == "A" then
+  if message_type == "A" then
     return 35
   end
   -- Size of Luld Auction Collar Message
-  if messagetype == "J" then
+  if message_type == "J" then
     return 34
   end
   -- Size of Add Order With Mpid Attribution Message
-  if messagetype == "F" then
+  if message_type == "F" then
     return 39
   end
   -- Size of Order Executed Message
-  if messagetype == "E" then
+  if message_type == "E" then
     return 30
   end
   -- Size of Order Executed With Price Message
-  if messagetype == "C" then
+  if message_type == "C" then
     return 35
   end
   -- Size of Order Cancel Message
-  if messagetype == "X" then
+  if message_type == "X" then
     return 22
   end
   -- Size of Order Delete Message
-  if messagetype == "D" then
+  if message_type == "D" then
     return 18
   end
   -- Size of Order Replace Message
-  if messagetype == "U" then
+  if message_type == "U" then
     return 34
   end
   -- Size of Non Cross Trade Message
-  if messagetype == "P" then
+  if message_type == "P" then
     return 43
   end
   -- Size of Cross Trade Message
-  if messagetype == "Q" then
+  if message_type == "Q" then
     return 39
   end
   -- Size of Broken Trade Message
-  if messagetype == "B" then
+  if message_type == "B" then
     return 18
   end
   -- Size of Net Order Imbalance Indicator Message
-  if messagetype == "I" then
+  if message_type == "I" then
     return 49
   end
   -- Size of Retail Interest Message
-  if messagetype == "N" then
+  if message_type == "N" then
     return 19
   end
 
@@ -3050,89 +3111,89 @@ display.payload = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Branches: Payload
-dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
+dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Event Message
-  if messagetype == "S" then
+  if message_type == "S" then
     return dissect.system_event_message(buffer, offset, packet, parent)
   end
   -- Dissect Stock Directory Message
-  if messagetype == "R" then
+  if message_type == "R" then
     return dissect.stock_directory_message(buffer, offset, packet, parent)
   end
   -- Dissect Stock Trading Action Message
-  if messagetype == "H" then
+  if message_type == "H" then
     return dissect.stock_trading_action_message(buffer, offset, packet, parent)
   end
   -- Dissect Reg Sho Short Sale Price Test Restricted Indicator Message
-  if messagetype == "Y" then
+  if message_type == "Y" then
     return dissect.reg_sho_short_sale_price_test_restricted_indicator_message(buffer, offset, packet, parent)
   end
   -- Dissect Market Participant Position Message
-  if messagetype == "L" then
+  if message_type == "L" then
     return dissect.market_participant_position_message(buffer, offset, packet, parent)
   end
   -- Dissect Mwcb Decline Level Message
-  if messagetype == "V" then
+  if message_type == "V" then
     return dissect.mwcb_decline_level_message(buffer, offset, packet, parent)
   end
   -- Dissect Mwcb Status Level Message
-  if messagetype == "W" then
+  if message_type == "W" then
     return dissect.mwcb_status_level_message(buffer, offset, packet, parent)
   end
   -- Dissect Ipo Quoting Period Update
-  if messagetype == "K" then
+  if message_type == "K" then
     return dissect.ipo_quoting_period_update(buffer, offset, packet, parent)
   end
   -- Dissect Add Order No Mpid Attribution Message
-  if messagetype == "A" then
+  if message_type == "A" then
     return dissect.add_order_no_mpid_attribution_message(buffer, offset, packet, parent)
   end
   -- Dissect Luld Auction Collar Message
-  if messagetype == "J" then
+  if message_type == "J" then
     return dissect.luld_auction_collar_message(buffer, offset, packet, parent)
   end
   -- Dissect Add Order With Mpid Attribution Message
-  if messagetype == "F" then
+  if message_type == "F" then
     return dissect.add_order_with_mpid_attribution_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Executed Message
-  if messagetype == "E" then
+  if message_type == "E" then
     return dissect.order_executed_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Executed With Price Message
-  if messagetype == "C" then
+  if message_type == "C" then
     return dissect.order_executed_with_price_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Cancel Message
-  if messagetype == "X" then
+  if message_type == "X" then
     return dissect.order_cancel_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Delete Message
-  if messagetype == "D" then
+  if message_type == "D" then
     return dissect.order_delete_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Replace Message
-  if messagetype == "U" then
+  if message_type == "U" then
     return dissect.order_replace_message(buffer, offset, packet, parent)
   end
   -- Dissect Non Cross Trade Message
-  if messagetype == "P" then
+  if message_type == "P" then
     return dissect.non_cross_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Cross Trade Message
-  if messagetype == "Q" then
+  if message_type == "Q" then
     return dissect.cross_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Broken Trade Message
-  if messagetype == "B" then
+  if message_type == "B" then
     return dissect.broken_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Net Order Imbalance Indicator Message
-  if messagetype == "I" then
+  if message_type == "I" then
     return dissect.net_order_imbalance_indicator_message(buffer, offset, packet, parent)
   end
   -- Dissect Retail Interest Message
-  if messagetype == "N" then
+  if message_type == "N" then
     return dissect.retail_interest_message(buffer, offset, packet, parent)
   end
 
@@ -3140,13 +3201,13 @@ dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent, code)
+dissect.payload = function(buffer, offset, packet, parent, message_type)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, code)
+    return dissect.payload_branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, code)
+  local size = size_of.payload(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
@@ -3156,7 +3217,7 @@ dissect.payload = function(buffer, offset, packet, parent, code)
   local display = display.payload(buffer, packet, parent)
   local element = parent:add(nasdaq_equities_totalview_itch_v5_0.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, code)
+  return dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Size: Message Type
@@ -3233,13 +3294,14 @@ end
 
 -- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.message_type)
+  local length = size_of.message_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.message_type, range, value, display)
 
-  return offset + size_of.message_type
+  return offset + length, value
 end
 
 -- Size: Length
@@ -3252,13 +3314,14 @@ end
 
 -- Dissect: Length
 dissect.length = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.length)
+  local length = size_of.length
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.length(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.length, range, value, display)
 
-  return offset + size_of.length
+  return offset + length, value
 end
 
 -- Display: Message Header
@@ -3271,10 +3334,10 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Length: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.length(buffer, index, packet, parent)
+  index, length = dissect.length(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String Enum with 21 values
-  index = dissect.message_type(buffer, index, packet, parent)
+  index, message_type = dissect.message_type(buffer, index, packet, parent)
 
   return index
 end
@@ -3315,13 +3378,13 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 2 fields
-  index = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
-  local code = buffer(index - 1, 1):string()
+  local message_type = buffer(index - 1, 1):string()
 
   -- Payload: Runtime Type with 21 branches
-  index = dissect.payload(buffer, index, packet, parent, code)
+  index = dissect.payload(buffer, index, packet, parent, message_type)
 
   return index
 end
@@ -3349,13 +3412,14 @@ end
 
 -- Dissect: Count
 dissect.count = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.count)
+  local length = size_of.count
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.count(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.count, range, value, display)
 
-  return offset + size_of.count
+  return offset + length, value
 end
 
 -- Size: Sequence
@@ -3368,13 +3432,14 @@ end
 
 -- Dissect: Sequence
 dissect.sequence = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.sequence)
+  local length = size_of.sequence
+  local range = buffer(offset, length)
   local value = range:uint64()
   local display = display.sequence(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.sequence, range, value, display)
 
-  return offset + size_of.sequence
+  return offset + length, value
 end
 
 -- Size: Session
@@ -3387,13 +3452,14 @@ end
 
 -- Dissect: Session
 dissect.session = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.session)
+  local length = size_of.session
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.session(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.session, range, value, display)
 
-  return offset + size_of.session
+  return offset + length, value
 end
 
 -- Display: Packet Header
@@ -3406,13 +3472,13 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Session: 10 Byte Ascii String
-  index = dissect.session(buffer, index, packet, parent)
+  index, session = dissect.session(buffer, index, packet, parent)
 
   -- Sequence: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sequence(buffer, index, packet, parent)
+  index, sequence = dissect.sequence(buffer, index, packet, parent)
 
   -- Count: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.count(buffer, index, packet, parent)
+  index, count = dissect.count(buffer, index, packet, parent)
 
   return index
 end
@@ -3434,7 +3500,7 @@ dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 3 fields
-  index = dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = dissect.packet_header(buffer, index, packet, parent)
 
   -- Message: Struct of 2 fields
   local end_of_payload = buffer:len()

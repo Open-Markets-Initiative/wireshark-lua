@@ -209,13 +209,14 @@ end
 
 -- Dissect: Channel Id
 dissect.channel_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.channel_id)
+  local length = size_of.channel_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.channel_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.channel_id, range, value, display)
 
-  return offset + size_of.channel_id
+  return offset + length, value
 end
 
 -- Size: Product Id
@@ -228,13 +229,14 @@ end
 
 -- Dissect: Product Id
 dissect.product_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.product_id)
+  local length = size_of.product_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.product_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.product_id, range, value, display)
 
-  return offset + size_of.product_id
+  return offset + length, value
 end
 
 -- Size: Source Time Ns
@@ -247,13 +249,14 @@ end
 
 -- Dissect: Source Time Ns
 dissect.source_time_ns = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.source_time_ns)
+  local length = size_of.source_time_ns
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.source_time_ns(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.source_time_ns, range, value, display)
 
-  return offset + size_of.source_time_ns
+  return offset + length, value
 end
 
 -- Size: Source Time
@@ -266,13 +269,14 @@ end
 
 -- Dissect: Source Time
 dissect.source_time = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.source_time)
+  local length = size_of.source_time
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.source_time(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.source_time, range, value, display)
 
-  return offset + size_of.source_time
+  return offset + length, value
 end
 
 -- Display: Sequence Number Reset Message
@@ -285,16 +289,16 @@ dissect.sequence_number_reset_message_fields = function(buffer, offset, packet, 
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Product Id: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.product_id(buffer, index, packet, parent)
+  index, product_id = dissect.product_id(buffer, index, packet, parent)
 
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.channel_id(buffer, index, packet, parent)
+  index, channel_id = dissect.channel_id(buffer, index, packet, parent)
 
   return index
 end
@@ -321,13 +325,14 @@ end
 
 -- Dissect: Reserved 2
 dissect.reserved_2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved_2)
+  local length = size_of.reserved_2
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved_2(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.reserved_2, range, value, display)
 
-  return offset + size_of.reserved_2
+  return offset + length, value
 end
 
 -- Size: Stream Id
@@ -340,13 +345,14 @@ end
 
 -- Dissect: Stream Id
 dissect.stream_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.stream_id)
+  local length = size_of.stream_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.stream_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.stream_id, range, value, display)
 
-  return offset + size_of.stream_id
+  return offset + length, value
 end
 
 -- Display: Stream Id Message
@@ -359,10 +365,10 @@ dissect.stream_id_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stream Id: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.stream_id(buffer, index, packet, parent)
+  index, stream_id = dissect.stream_id(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
@@ -396,13 +402,14 @@ end
 
 -- Dissect: Leg Security Type
 dissect.leg_security_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_security_type)
+  local length = size_of.leg_security_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.leg_security_type(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.leg_security_type, range, value, display)
 
-  return offset + size_of.leg_security_type
+  return offset + length, value
 end
 
 -- Size: Side
@@ -422,13 +429,14 @@ end
 
 -- Dissect: Side
 dissect.side = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.side)
+  local length = size_of.side
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.side(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.side, range, value, display)
 
-  return offset + size_of.side
+  return offset + length, value
 end
 
 -- Size: Leg Ratio Qty
@@ -441,13 +449,14 @@ end
 
 -- Dissect: Leg Ratio Qty
 dissect.leg_ratio_qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_ratio_qty)
+  local length = size_of.leg_ratio_qty
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.leg_ratio_qty(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.leg_ratio_qty, range, value, display)
 
-  return offset + size_of.leg_ratio_qty
+  return offset + length, value
 end
 
 -- Size: Symbol Index
@@ -460,13 +469,14 @@ end
 
 -- Dissect: Symbol Index
 dissect.symbol_index = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.symbol_index)
+  local length = size_of.symbol_index
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.symbol_index(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.symbol_index, range, value, display)
 
-  return offset + size_of.symbol_index
+  return offset + length, value
 end
 
 -- Display: Leg Definition
@@ -479,16 +489,16 @@ dissect.leg_definition_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.symbol_index(buffer, index, packet, parent)
+  index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
   -- Leg Ratio Qty: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.leg_ratio_qty(buffer, index, packet, parent)
+  index, leg_ratio_qty = dissect.leg_ratio_qty(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Leg Security Type: 1 Byte Ascii String Enum with 2 values
-  index = dissect.leg_security_type(buffer, index, packet, parent)
+  index, leg_security_type = dissect.leg_security_type(buffer, index, packet, parent)
 
   return index
 end
@@ -515,13 +525,14 @@ end
 
 -- Dissect: No Of Legs
 dissect.no_of_legs = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.no_of_legs)
+  local length = size_of.no_of_legs
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.no_of_legs(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.no_of_legs, range, value, display)
 
-  return offset + size_of.no_of_legs
+  return offset + length, value
 end
 
 -- Size: Reserved 1
@@ -534,13 +545,14 @@ end
 
 -- Dissect: Reserved 1
 dissect.reserved_1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved_1)
+  local length = size_of.reserved_1
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved_1(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.reserved_1, range, value, display)
 
-  return offset + size_of.reserved_1
+  return offset + length, value
 end
 
 -- Size: System Id
@@ -553,13 +565,14 @@ end
 
 -- Dissect: System Id
 dissect.system_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.system_id)
+  local length = size_of.system_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.system_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.system_id, range, value, display)
 
-  return offset + size_of.system_id
+  return offset + length, value
 end
 
 -- Size: Market Id
@@ -600,13 +613,14 @@ end
 
 -- Dissect: Market Id
 dissect.market_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.market_id)
+  local length = size_of.market_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.market_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.market_id, range, value, display)
 
-  return offset + size_of.market_id
+  return offset + length, value
 end
 
 -- Size: Complex Symbol
@@ -619,13 +633,14 @@ end
 
 -- Dissect: Complex Symbol
 dissect.complex_symbol = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.complex_symbol)
+  local length = size_of.complex_symbol
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.complex_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_symbol, range, value, display)
 
-  return offset + size_of.complex_symbol
+  return offset + length, value
 end
 
 -- Size: Complex Index
@@ -638,13 +653,14 @@ end
 
 -- Dissect: Complex Index
 dissect.complex_index = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.complex_index)
+  local length = size_of.complex_index
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.complex_index(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_index, range, value, display)
 
-  return offset + size_of.complex_index
+  return offset + length, value
 end
 
 -- Calculate runtime size: Complex Symbol Definition Message
@@ -670,37 +686,34 @@ dissect.complex_symbol_definition_message_fields = function(buffer, offset, pack
   local index = offset
 
   -- Complex Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.complex_index(buffer, index, packet, parent)
+  index, complex_index = dissect.complex_index(buffer, index, packet, parent)
 
   -- Complex Symbol: 21 Byte Ascii String
-  index = dissect.complex_symbol(buffer, index, packet, parent)
+  index, complex_symbol = dissect.complex_symbol(buffer, index, packet, parent)
 
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.channel_id(buffer, index, packet, parent)
+  index, channel_id = dissect.channel_id(buffer, index, packet, parent)
 
   -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
-  index = dissect.market_id(buffer, index, packet, parent)
+  index, market_id = dissect.market_id(buffer, index, packet, parent)
 
   -- System Id: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.system_id(buffer, index, packet, parent)
+  index, system_id = dissect.system_id(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Stream Id: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.stream_id(buffer, index, packet, parent)
+  index, stream_id = dissect.stream_id(buffer, index, packet, parent)
 
   -- No Of Legs: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.no_of_legs(buffer, index, packet, parent)
+  index, no_of_legs = dissect.no_of_legs(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index = dissect.reserved_2(buffer, index, packet, parent)
-
-  -- Dependency element: No Of Legs
-  local leg_definition_count = buffer(index - 4, 2):le_uint()
+  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
 
   -- Leg Definition: Struct of 4 fields
-  for i = 1, leg_definition_count do
+  for i = 1, no_of_legs do
     index = dissect.leg_definition(buffer, index, packet, parent)
   end
 
@@ -737,13 +750,14 @@ end
 
 -- Dissect: Trade Cond 2
 dissect.trade_cond_2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trade_cond_2)
+  local length = size_of.trade_cond_2
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.trade_cond_2(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.trade_cond_2, range, value, display)
 
-  return offset + size_of.trade_cond_2
+  return offset + length, value
 end
 
 -- Size: Trade Cond 1
@@ -769,13 +783,14 @@ end
 
 -- Dissect: Trade Cond 1
 dissect.trade_cond_1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trade_cond_1)
+  local length = size_of.trade_cond_1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.trade_cond_1(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.trade_cond_1, range, value, display)
 
-  return offset + size_of.trade_cond_1
+  return offset + length, value
 end
 
 -- Size: Volume 4
@@ -788,13 +803,14 @@ end
 
 -- Dissect: Volume 4
 dissect.volume_4 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.volume_4)
+  local length = size_of.volume_4
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.volume_4(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.volume_4, range, value, display)
 
-  return offset + size_of.volume_4
+  return offset + length, value
 end
 
 -- Size: Price
@@ -807,13 +823,14 @@ end
 
 -- Dissect: Price
 dissect.price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price)
+  local length = size_of.price
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.price(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.price, range, value, display)
 
-  return offset + size_of.price
+  return offset + length, value
 end
 
 -- Size: Trade Id
@@ -826,13 +843,14 @@ end
 
 -- Dissect: Trade Id
 dissect.trade_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trade_id)
+  local length = size_of.trade_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.trade_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.trade_id, range, value, display)
 
-  return offset + size_of.trade_id
+  return offset + length, value
 end
 
 -- Size: Symbol Seq Num
@@ -845,13 +863,14 @@ end
 
 -- Dissect: Symbol Seq Num
 dissect.symbol_seq_num = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.symbol_seq_num)
+  local length = size_of.symbol_seq_num
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.symbol_seq_num(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.symbol_seq_num, range, value, display)
 
-  return offset + size_of.symbol_seq_num
+  return offset + length, value
 end
 
 -- Display: Refresh Complex Trade Message
@@ -864,34 +883,34 @@ dissect.refresh_complex_trade_message_fields = function(buffer, offset, packet, 
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Complex Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.complex_index(buffer, index, packet, parent)
+  index, complex_index = dissect.complex_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Trade Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_id(buffer, index, packet, parent)
+  index, trade_id = dissect.trade_id(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Volume 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.volume_4(buffer, index, packet, parent)
+  index, volume_4 = dissect.volume_4(buffer, index, packet, parent)
 
   -- Trade Cond 1: 1 Byte Ascii String Enum with 4 values
-  index = dissect.trade_cond_1(buffer, index, packet, parent)
+  index, trade_cond_1 = dissect.trade_cond_1(buffer, index, packet, parent)
 
   -- Trade Cond 2: 1 Byte Ascii String Enum with 2 values
-  index = dissect.trade_cond_2(buffer, index, packet, parent)
+  index, trade_cond_2 = dissect.trade_cond_2(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
@@ -934,13 +953,14 @@ end
 
 -- Dissect: Quote Condition
 dissect.quote_condition = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.quote_condition)
+  local length = size_of.quote_condition
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.quote_condition(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.quote_condition, range, value, display)
 
-  return offset + size_of.quote_condition
+  return offset + length, value
 end
 
 -- Size: Bid Customer Volume
@@ -953,13 +973,14 @@ end
 
 -- Dissect: Bid Customer Volume
 dissect.bid_customer_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.bid_customer_volume)
+  local length = size_of.bid_customer_volume
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.bid_customer_volume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.bid_customer_volume, range, value, display)
 
-  return offset + size_of.bid_customer_volume
+  return offset + length, value
 end
 
 -- Size: Ask Customer Volume
@@ -972,13 +993,14 @@ end
 
 -- Dissect: Ask Customer Volume
 dissect.ask_customer_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ask_customer_volume)
+  local length = size_of.ask_customer_volume
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.ask_customer_volume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.ask_customer_volume, range, value, display)
 
-  return offset + size_of.ask_customer_volume
+  return offset + length, value
 end
 
 -- Size: Bid Volume
@@ -991,13 +1013,14 @@ end
 
 -- Dissect: Bid Volume
 dissect.bid_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.bid_volume)
+  local length = size_of.bid_volume
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.bid_volume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.bid_volume, range, value, display)
 
-  return offset + size_of.bid_volume
+  return offset + length, value
 end
 
 -- Size: Ask Volume
@@ -1010,13 +1033,14 @@ end
 
 -- Dissect: Ask Volume
 dissect.ask_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ask_volume)
+  local length = size_of.ask_volume
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.ask_volume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.ask_volume, range, value, display)
 
-  return offset + size_of.ask_volume
+  return offset + length, value
 end
 
 -- Size: Bid Price
@@ -1029,13 +1053,14 @@ end
 
 -- Dissect: Bid Price
 dissect.bid_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.bid_price)
+  local length = size_of.bid_price
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.bid_price(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.bid_price, range, value, display)
 
-  return offset + size_of.bid_price
+  return offset + length, value
 end
 
 -- Size: Ask Price
@@ -1048,13 +1073,14 @@ end
 
 -- Dissect: Ask Price
 dissect.ask_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ask_price)
+  local length = size_of.ask_price
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.ask_price(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.ask_price, range, value, display)
 
-  return offset + size_of.ask_price
+  return offset + length, value
 end
 
 -- Display: Refresh Complex Quote Message
@@ -1067,43 +1093,43 @@ dissect.refresh_complex_quote_message_fields = function(buffer, offset, packet, 
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Complex Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.complex_index(buffer, index, packet, parent)
+  index, complex_index = dissect.complex_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Ask Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.ask_price(buffer, index, packet, parent)
+  index, ask_price = dissect.ask_price(buffer, index, packet, parent)
 
   -- Bid Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.bid_price(buffer, index, packet, parent)
+  index, bid_price = dissect.bid_price(buffer, index, packet, parent)
 
   -- Ask Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.ask_volume(buffer, index, packet, parent)
+  index, ask_volume = dissect.ask_volume(buffer, index, packet, parent)
 
   -- Bid Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_volume(buffer, index, packet, parent)
+  index, bid_volume = dissect.bid_volume(buffer, index, packet, parent)
 
   -- Ask Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.ask_customer_volume(buffer, index, packet, parent)
+  index, ask_customer_volume = dissect.ask_customer_volume(buffer, index, packet, parent)
 
   -- Bid Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_customer_volume(buffer, index, packet, parent)
+  index, bid_customer_volume = dissect.bid_customer_volume(buffer, index, packet, parent)
 
   -- Quote Condition: 1 Byte Ascii String Enum with 5 values
-  index = dissect.quote_condition(buffer, index, packet, parent)
+  index, quote_condition = dissect.quote_condition(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
@@ -1130,13 +1156,14 @@ end
 
 -- Dissect: Halt Condition
 dissect.halt_condition = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.halt_condition)
+  local length = size_of.halt_condition
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.halt_condition(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.halt_condition, range, value, display)
 
-  return offset + size_of.halt_condition
+  return offset + length, value
 end
 
 -- Size: Security Status
@@ -1174,13 +1201,14 @@ end
 
 -- Dissect: Security Status
 dissect.security_status = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_status)
+  local length = size_of.security_status
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.security_status(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.security_status, range, value, display)
 
-  return offset + size_of.security_status
+  return offset + length, value
 end
 
 -- Display: Complex Status Message
@@ -1193,25 +1221,25 @@ dissect.complex_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Complex Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.complex_index(buffer, index, packet, parent)
+  index, complex_index = dissect.complex_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Security Status: 1 Byte Ascii String Enum with 8 values
-  index = dissect.security_status(buffer, index, packet, parent)
+  index, security_status = dissect.security_status(buffer, index, packet, parent)
 
   -- Halt Condition: 1 Byte Ascii String
-  index = dissect.halt_condition(buffer, index, packet, parent)
+  index, halt_condition = dissect.halt_condition(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
@@ -1238,13 +1266,14 @@ end
 
 -- Dissect: Volume 2
 dissect.volume_2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.volume_2)
+  local length = size_of.volume_2
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.volume_2(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.volume_2, range, value, display)
 
-  return offset + size_of.volume_2
+  return offset + length, value
 end
 
 -- Size: Source Ns
@@ -1257,13 +1286,14 @@ end
 
 -- Dissect: Source Ns
 dissect.source_ns = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.source_ns)
+  local length = size_of.source_ns
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.source_ns(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.source_ns, range, value, display)
 
-  return offset + size_of.source_ns
+  return offset + length, value
 end
 
 -- Display: Complex Cube Rfq Message
@@ -1276,28 +1306,28 @@ dissect.complex_cube_rfq_message_fields = function(buffer, offset, packet, paren
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = dissect.source_time(buffer, index, packet, parent)
 
   -- Source Ns: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_ns(buffer, index, packet, parent)
+  index, source_ns = dissect.source_ns(buffer, index, packet, parent)
 
   -- Complex Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.complex_index(buffer, index, packet, parent)
+  index, complex_index = dissect.complex_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Volume 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.volume_2(buffer, index, packet, parent)
+  index, volume_2 = dissect.volume_2(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   return index
 end
@@ -1324,28 +1354,28 @@ dissect.complex_crossing_rfq_message_fields = function(buffer, offset, packet, p
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = dissect.source_time(buffer, index, packet, parent)
 
   -- Source Ns: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_ns(buffer, index, packet, parent)
+  index, source_ns = dissect.source_ns(buffer, index, packet, parent)
 
   -- Complex Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.complex_index(buffer, index, packet, parent)
+  index, complex_index = dissect.complex_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Volume 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.volume_2(buffer, index, packet, parent)
+  index, volume_2 = dissect.volume_2(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   return index
 end
@@ -1372,34 +1402,34 @@ dissect.complex_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Complex Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.complex_index(buffer, index, packet, parent)
+  index, complex_index = dissect.complex_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Trade Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_id(buffer, index, packet, parent)
+  index, trade_id = dissect.trade_id(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Volume 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.volume_4(buffer, index, packet, parent)
+  index, volume_4 = dissect.volume_4(buffer, index, packet, parent)
 
   -- Trade Cond 1: 1 Byte Ascii String Enum with 4 values
-  index = dissect.trade_cond_1(buffer, index, packet, parent)
+  index, trade_cond_1 = dissect.trade_cond_1(buffer, index, packet, parent)
 
   -- Trade Cond 2: 1 Byte Ascii String Enum with 2 values
-  index = dissect.trade_cond_2(buffer, index, packet, parent)
+  index, trade_cond_2 = dissect.trade_cond_2(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
@@ -1426,43 +1456,43 @@ dissect.complex_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Complex Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.complex_index(buffer, index, packet, parent)
+  index, complex_index = dissect.complex_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Ask Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.ask_price(buffer, index, packet, parent)
+  index, ask_price = dissect.ask_price(buffer, index, packet, parent)
 
   -- Bid Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.bid_price(buffer, index, packet, parent)
+  index, bid_price = dissect.bid_price(buffer, index, packet, parent)
 
   -- Ask Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.ask_volume(buffer, index, packet, parent)
+  index, ask_volume = dissect.ask_volume(buffer, index, packet, parent)
 
   -- Bid Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_volume(buffer, index, packet, parent)
+  index, bid_volume = dissect.bid_volume(buffer, index, packet, parent)
 
   -- Ask Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.ask_customer_volume(buffer, index, packet, parent)
+  index, ask_customer_volume = dissect.ask_customer_volume(buffer, index, packet, parent)
 
   -- Bid Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_customer_volume(buffer, index, packet, parent)
+  index, bid_customer_volume = dissect.bid_customer_volume(buffer, index, packet, parent)
 
   -- Quote Condition: 1 Byte Ascii String Enum with 5 values
-  index = dissect.quote_condition(buffer, index, packet, parent)
+  index, quote_condition = dissect.quote_condition(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
@@ -1480,45 +1510,45 @@ dissect.complex_quote_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, messagetype)
+size_of.payload = function(buffer, offset, message_type)
   -- Size of Complex Quote Message
-  if messagetype == 423 then
+  if message_type == 423 then
     return 36
   end
   -- Size of Complex Trade Message
-  if messagetype == 425 then
+  if message_type == 425 then
     return 32
   end
   -- Size of Complex Crossing Rfq Message
-  if messagetype == 429 then
+  if message_type == 429 then
     return 24
   end
   -- Size of Complex Cube Rfq Message
-  if messagetype == 472 then
+  if message_type == 472 then
     return 24
   end
   -- Size of Complex Status Message
-  if messagetype == 433 then
+  if message_type == 433 then
     return 20
   end
   -- Size of Refresh Complex Quote Message
-  if messagetype == 511 then
+  if message_type == 511 then
     return 36
   end
   -- Size of Refresh Complex Trade Message
-  if messagetype == 513 then
+  if message_type == 513 then
     return 32
   end
   -- Size of Complex Symbol Definition Message
-  if messagetype == 439 then
+  if message_type == 439 then
     return size_of.complex_symbol_definition_message(buffer, offset)
   end
   -- Size of Stream Id Message
-  if messagetype == 455 then
+  if message_type == 455 then
     return 4
   end
   -- Size of Sequence Number Reset Message
-  if messagetype == 1 then
+  if message_type == 1 then
     return 10
   end
 
@@ -1531,45 +1561,45 @@ display.payload = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Branches: Payload
-dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
+dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Complex Quote Message
-  if messagetype == 423 then
+  if message_type == 423 then
     return dissect.complex_quote_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Trade Message
-  if messagetype == 425 then
+  if message_type == 425 then
     return dissect.complex_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Crossing Rfq Message
-  if messagetype == 429 then
+  if message_type == 429 then
     return dissect.complex_crossing_rfq_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Cube Rfq Message
-  if messagetype == 472 then
+  if message_type == 472 then
     return dissect.complex_cube_rfq_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Status Message
-  if messagetype == 433 then
+  if message_type == 433 then
     return dissect.complex_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Refresh Complex Quote Message
-  if messagetype == 511 then
+  if message_type == 511 then
     return dissect.refresh_complex_quote_message(buffer, offset, packet, parent)
   end
   -- Dissect Refresh Complex Trade Message
-  if messagetype == 513 then
+  if message_type == 513 then
     return dissect.refresh_complex_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Symbol Definition Message
-  if messagetype == 439 then
+  if message_type == 439 then
     return dissect.complex_symbol_definition_message(buffer, offset, packet, parent)
   end
   -- Dissect Stream Id Message
-  if messagetype == 455 then
+  if message_type == 455 then
     return dissect.stream_id_message(buffer, offset, packet, parent)
   end
   -- Dissect Sequence Number Reset Message
-  if messagetype == 1 then
+  if message_type == 1 then
     return dissect.sequence_number_reset_message(buffer, offset, packet, parent)
   end
 
@@ -1577,13 +1607,13 @@ dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent, code)
+dissect.payload = function(buffer, offset, packet, parent, message_type)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, code)
+    return dissect.payload_branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, code)
+  local size = size_of.payload(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
@@ -1593,7 +1623,7 @@ dissect.payload = function(buffer, offset, packet, parent, code)
   local display = display.payload(buffer, packet, parent)
   local element = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, code)
+  return dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Size: Message Type
@@ -1637,13 +1667,14 @@ end
 
 -- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.message_type)
+  local length = size_of.message_type
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.message_type, range, value, display)
 
-  return offset + size_of.message_type
+  return offset + length, value
 end
 
 -- Size: Message Size
@@ -1656,13 +1687,14 @@ end
 
 -- Dissect: Message Size
 dissect.message_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.message_size)
+  local length = size_of.message_size
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.message_size(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.message_size, range, value, display)
 
-  return offset + size_of.message_size
+  return offset + length, value
 end
 
 -- Display: Message Header
@@ -1675,10 +1707,10 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.message_size(buffer, index, packet, parent)
+  index, message_size = dissect.message_size(buffer, index, packet, parent)
 
   -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index = dissect.message_type(buffer, index, packet, parent)
+  index, message_type = dissect.message_type(buffer, index, packet, parent)
 
   return index
 end
@@ -1719,13 +1751,13 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 2 fields
-  index = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
-  local code = buffer(index - 2, 2):le_uint()
+  local message_type = buffer(index - 2, 2):le_uint()
 
   -- Payload: Runtime Type with 10 branches
-  index = dissect.payload(buffer, index, packet, parent, code)
+  index = dissect.payload(buffer, index, packet, parent, message_type)
 
   return index
 end
@@ -1753,13 +1785,14 @@ end
 
 -- Dissect: Nanoseconds
 dissect.nanoseconds = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.nanoseconds)
+  local length = size_of.nanoseconds
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.nanoseconds(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.nanoseconds, range, value, display)
 
-  return offset + size_of.nanoseconds
+  return offset + length, value
 end
 
 -- Size: Timestamp
@@ -1772,13 +1805,14 @@ end
 
 -- Dissect: Timestamp
 dissect.timestamp = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.timestamp)
+  local length = size_of.timestamp
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.timestamp, range, value, display)
 
-  return offset + size_of.timestamp
+  return offset + length, value
 end
 
 -- Size: Sequence Number
@@ -1791,13 +1825,14 @@ end
 
 -- Dissect: Sequence Number
 dissect.sequence_number = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.sequence_number)
+  local length = size_of.sequence_number
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.sequence_number, range, value, display)
 
-  return offset + size_of.sequence_number
+  return offset + length, value
 end
 
 -- Size: Message Count
@@ -1810,13 +1845,14 @@ end
 
 -- Dissect: Message Count
 dissect.message_count = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.message_count)
+  local length = size_of.message_count
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.message_count(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.message_count, range, value, display)
 
-  return offset + size_of.message_count
+  return offset + length, value
 end
 
 -- Size: Delivery Flag
@@ -1863,13 +1899,14 @@ end
 
 -- Dissect: Delivery Flag
 dissect.delivery_flag = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.delivery_flag)
+  local length = size_of.delivery_flag
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.delivery_flag(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.delivery_flag, range, value, display)
 
-  return offset + size_of.delivery_flag
+  return offset + length, value
 end
 
 -- Size: Packet Size
@@ -1882,13 +1919,14 @@ end
 
 -- Dissect: Packet Size
 dissect.packet_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.packet_size)
+  local length = size_of.packet_size
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.packet_size(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.packet_size, range, value, display)
 
-  return offset + size_of.packet_size
+  return offset + length, value
 end
 
 -- Display: Packet Header
@@ -1901,22 +1939,22 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.packet_size(buffer, index, packet, parent)
+  index, packet_size = dissect.packet_size(buffer, index, packet, parent)
 
   -- Delivery Flag: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index = dissect.delivery_flag(buffer, index, packet, parent)
+  index, delivery_flag = dissect.delivery_flag(buffer, index, packet, parent)
 
   -- Message Count: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.message_count(buffer, index, packet, parent)
+  index, message_count = dissect.message_count(buffer, index, packet, parent)
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.sequence_number(buffer, index, packet, parent)
+  index, sequence_number = dissect.sequence_number(buffer, index, packet, parent)
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
 
   return index
 end
@@ -1938,7 +1976,7 @@ dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 6 fields
-  index = dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = dissect.packet_header(buffer, index, packet, parent)
 
   -- Message: Struct of 2 fields
   local end_of_payload = buffer:len()

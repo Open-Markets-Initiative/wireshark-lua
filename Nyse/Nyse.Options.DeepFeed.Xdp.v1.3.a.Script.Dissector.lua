@@ -211,13 +211,14 @@ end
 
 -- Dissect: Channel Id
 dissect.channel_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.channel_id)
+  local length = size_of.channel_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.channel_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.channel_id, range, value, display)
 
-  return offset + size_of.channel_id
+  return offset + length, value
 end
 
 -- Size: Product Id
@@ -230,13 +231,14 @@ end
 
 -- Dissect: Product Id
 dissect.product_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.product_id)
+  local length = size_of.product_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.product_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.product_id, range, value, display)
 
-  return offset + size_of.product_id
+  return offset + length, value
 end
 
 -- Size: Source Time Ns
@@ -249,13 +251,14 @@ end
 
 -- Dissect: Source Time Ns
 dissect.source_time_ns = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.source_time_ns)
+  local length = size_of.source_time_ns
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.source_time_ns(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.source_time_ns, range, value, display)
 
-  return offset + size_of.source_time_ns
+  return offset + length, value
 end
 
 -- Size: Source Time
@@ -268,13 +271,14 @@ end
 
 -- Dissect: Source Time
 dissect.source_time = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.source_time)
+  local length = size_of.source_time
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.source_time(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.source_time, range, value, display)
 
-  return offset + size_of.source_time
+  return offset + length, value
 end
 
 -- Display: Sequence Number Reset Message
@@ -287,16 +291,16 @@ dissect.sequence_number_reset_message_fields = function(buffer, offset, packet, 
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Product Id: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.product_id(buffer, index, packet, parent)
+  index, product_id = dissect.product_id(buffer, index, packet, parent)
 
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.channel_id(buffer, index, packet, parent)
+  index, channel_id = dissect.channel_id(buffer, index, packet, parent)
 
   return index
 end
@@ -323,13 +327,14 @@ end
 
 -- Dissect: Reserved 2
 dissect.reserved_2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved_2)
+  local length = size_of.reserved_2
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved_2(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.reserved_2, range, value, display)
 
-  return offset + size_of.reserved_2
+  return offset + length, value
 end
 
 -- Size: Stream Id
@@ -342,13 +347,14 @@ end
 
 -- Dissect: Stream Id
 dissect.stream_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.stream_id)
+  local length = size_of.stream_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.stream_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.stream_id, range, value, display)
 
-  return offset + size_of.stream_id
+  return offset + length, value
 end
 
 -- Display: Stream Id Message
@@ -361,10 +367,10 @@ dissect.stream_id_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stream Id: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.stream_id(buffer, index, packet, parent)
+  index, stream_id = dissect.stream_id(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
@@ -391,13 +397,14 @@ end
 
 -- Dissect: Group Id
 dissect.group_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.group_id)
+  local length = size_of.group_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.group_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.group_id, range, value, display)
 
-  return offset + size_of.group_id
+  return offset + length, value
 end
 
 -- Size: Option Symbol Root
@@ -410,13 +417,14 @@ end
 
 -- Dissect: Option Symbol Root
 dissect.option_symbol_root = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.option_symbol_root)
+  local length = size_of.option_symbol_root
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.option_symbol_root(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.option_symbol_root, range, value, display)
 
-  return offset + size_of.option_symbol_root
+  return offset + length, value
 end
 
 -- Size: Underlying Symbol
@@ -429,13 +437,14 @@ end
 
 -- Dissect: Underlying Symbol
 dissect.underlying_symbol = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.underlying_symbol)
+  local length = size_of.underlying_symbol
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.underlying_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.underlying_symbol, range, value, display)
 
-  return offset + size_of.underlying_symbol
+  return offset + length, value
 end
 
 -- Size: Price Scale Code
@@ -448,13 +457,14 @@ end
 
 -- Dissect: Price Scale Code
 dissect.price_scale_code = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price_scale_code)
+  local length = size_of.price_scale_code
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.price_scale_code(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.price_scale_code, range, value, display)
 
-  return offset + size_of.price_scale_code
+  return offset + length, value
 end
 
 -- Size: Strike Price
@@ -467,13 +477,14 @@ end
 
 -- Dissect: Strike Price
 dissect.strike_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.strike_price)
+  local length = size_of.strike_price
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.strike_price(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.strike_price, range, value, display)
 
-  return offset + size_of.strike_price
+  return offset + length, value
 end
 
 -- Size: Put Or Call
@@ -493,13 +504,14 @@ end
 
 -- Dissect: Put Or Call
 dissect.put_or_call = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.put_or_call)
+  local length = size_of.put_or_call
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.put_or_call(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.put_or_call, range, value, display)
 
-  return offset + size_of.put_or_call
+  return offset + length, value
 end
 
 -- Size: Maturity Date
@@ -512,13 +524,14 @@ end
 
 -- Dissect: Maturity Date
 dissect.maturity_date = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.maturity_date)
+  local length = size_of.maturity_date
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.maturity_date(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.maturity_date, range, value, display)
 
-  return offset + size_of.maturity_date
+  return offset + length, value
 end
 
 -- Size: Contract Multiplier
@@ -531,13 +544,14 @@ end
 
 -- Dissect: Contract Multiplier
 dissect.contract_multiplier = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.contract_multiplier)
+  local length = size_of.contract_multiplier
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.contract_multiplier(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.contract_multiplier, range, value, display)
 
-  return offset + size_of.contract_multiplier
+  return offset + length, value
 end
 
 -- Size: Underlying Index
@@ -550,13 +564,14 @@ end
 
 -- Dissect: Underlying Index
 dissect.underlying_index = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.underlying_index)
+  local length = size_of.underlying_index
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.underlying_index(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.underlying_index, range, value, display)
 
-  return offset + size_of.underlying_index
+  return offset + length, value
 end
 
 -- Size: Reserved B 1
@@ -569,13 +584,14 @@ end
 
 -- Dissect: Reserved B 1
 dissect.reserved_b_1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved_b_1)
+  local length = size_of.reserved_b_1
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved_b_1(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.reserved_b_1, range, value, display)
 
-  return offset + size_of.reserved_b_1
+  return offset + length, value
 end
 
 -- Size: System Id
@@ -588,13 +604,14 @@ end
 
 -- Dissect: System Id
 dissect.system_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.system_id)
+  local length = size_of.system_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.system_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.system_id, range, value, display)
 
-  return offset + size_of.system_id
+  return offset + length, value
 end
 
 -- Size: Market Id
@@ -635,13 +652,14 @@ end
 
 -- Dissect: Market Id
 dissect.market_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.market_id)
+  local length = size_of.market_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.market_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.market_id, range, value, display)
 
-  return offset + size_of.market_id
+  return offset + length, value
 end
 
 -- Size: Reserved A 1
@@ -654,13 +672,14 @@ end
 
 -- Dissect: Reserved A 1
 dissect.reserved_a_1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved_a_1)
+  local length = size_of.reserved_a_1
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved_a_1(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.reserved_a_1, range, value, display)
 
-  return offset + size_of.reserved_a_1
+  return offset + length, value
 end
 
 -- Size: Series Index
@@ -673,13 +692,14 @@ end
 
 -- Dissect: Series Index
 dissect.series_index = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.series_index)
+  local length = size_of.series_index
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.series_index(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.series_index, range, value, display)
 
-  return offset + size_of.series_index
+  return offset + length, value
 end
 
 -- Display: Series Index Mapping Message
@@ -692,52 +712,52 @@ dissect.series_index_mapping_message_fields = function(buffer, offset, packet, p
   local index = offset
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.series_index(buffer, index, packet, parent)
+  index, series_index = dissect.series_index(buffer, index, packet, parent)
 
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.channel_id(buffer, index, packet, parent)
+  index, channel_id = dissect.channel_id(buffer, index, packet, parent)
 
   -- Reserved A 1: 1 Byte
-  index = dissect.reserved_a_1(buffer, index, packet, parent)
+  index, reserved_a_1 = dissect.reserved_a_1(buffer, index, packet, parent)
 
   -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
-  index = dissect.market_id(buffer, index, packet, parent)
+  index, market_id = dissect.market_id(buffer, index, packet, parent)
 
   -- System Id: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.system_id(buffer, index, packet, parent)
+  index, system_id = dissect.system_id(buffer, index, packet, parent)
 
   -- Reserved B 1: 1 Byte
-  index = dissect.reserved_b_1(buffer, index, packet, parent)
+  index, reserved_b_1 = dissect.reserved_b_1(buffer, index, packet, parent)
 
   -- Stream Id: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.stream_id(buffer, index, packet, parent)
+  index, stream_id = dissect.stream_id(buffer, index, packet, parent)
 
   -- Underlying Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.underlying_index(buffer, index, packet, parent)
+  index, underlying_index = dissect.underlying_index(buffer, index, packet, parent)
 
   -- Contract Multiplier: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_multiplier(buffer, index, packet, parent)
+  index, contract_multiplier = dissect.contract_multiplier(buffer, index, packet, parent)
 
   -- Maturity Date: 6 Byte Ascii String
-  index = dissect.maturity_date(buffer, index, packet, parent)
+  index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
 
   -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.put_or_call(buffer, index, packet, parent)
+  index, put_or_call = dissect.put_or_call(buffer, index, packet, parent)
 
   -- Strike Price: 10 Byte Ascii String
-  index = dissect.strike_price(buffer, index, packet, parent)
+  index, strike_price = dissect.strike_price(buffer, index, packet, parent)
 
   -- Price Scale Code: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.price_scale_code(buffer, index, packet, parent)
+  index, price_scale_code = dissect.price_scale_code(buffer, index, packet, parent)
 
   -- Underlying Symbol: 11 Byte Ascii String
-  index = dissect.underlying_symbol(buffer, index, packet, parent)
+  index, underlying_symbol = dissect.underlying_symbol(buffer, index, packet, parent)
 
   -- Option Symbol Root: 5 Byte Ascii String
-  index = dissect.option_symbol_root(buffer, index, packet, parent)
+  index, option_symbol_root = dissect.option_symbol_root(buffer, index, packet, parent)
 
   -- Group Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.group_id(buffer, index, packet, parent)
+  index, group_id = dissect.group_id(buffer, index, packet, parent)
 
   return index
 end
@@ -764,13 +784,14 @@ end
 
 -- Dissect: Reserved 1
 dissect.reserved_1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved_1)
+  local length = size_of.reserved_1
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved_1(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.reserved_1, range, value, display)
 
-  return offset + size_of.reserved_1
+  return offset + length, value
 end
 
 -- Size: Price Resolution
@@ -793,13 +814,14 @@ end
 
 -- Dissect: Price Resolution
 dissect.price_resolution = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price_resolution)
+  local length = size_of.price_resolution
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.price_resolution(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.price_resolution, range, value, display)
 
-  return offset + size_of.price_resolution
+  return offset + length, value
 end
 
 -- Size: Security Type
@@ -861,13 +883,14 @@ end
 
 -- Dissect: Security Type
 dissect.security_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_type)
+  local length = size_of.security_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.security_type(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.security_type, range, value, display)
 
-  return offset + size_of.security_type
+  return offset + length, value
 end
 
 -- Size: Exchange Code
@@ -899,13 +922,14 @@ end
 
 -- Dissect: Exchange Code
 dissect.exchange_code = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.exchange_code)
+  local length = size_of.exchange_code
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.exchange_code(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.exchange_code, range, value, display)
 
-  return offset + size_of.exchange_code
+  return offset + length, value
 end
 
 -- Display: Underlying Index Mapping Message
@@ -918,34 +942,34 @@ dissect.underlying_index_mapping_message_fields = function(buffer, offset, packe
   local index = offset
 
   -- Underlying Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.underlying_index(buffer, index, packet, parent)
+  index, underlying_index = dissect.underlying_index(buffer, index, packet, parent)
 
   -- Underlying Symbol: 11 Byte Ascii String
-  index = dissect.underlying_symbol(buffer, index, packet, parent)
+  index, underlying_symbol = dissect.underlying_symbol(buffer, index, packet, parent)
 
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.channel_id(buffer, index, packet, parent)
+  index, channel_id = dissect.channel_id(buffer, index, packet, parent)
 
   -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
-  index = dissect.market_id(buffer, index, packet, parent)
+  index, market_id = dissect.market_id(buffer, index, packet, parent)
 
   -- System Id: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.system_id(buffer, index, packet, parent)
+  index, system_id = dissect.system_id(buffer, index, packet, parent)
 
   -- Exchange Code: 1 Byte Ascii String Enum with 6 values
-  index = dissect.exchange_code(buffer, index, packet, parent)
+  index, exchange_code = dissect.exchange_code(buffer, index, packet, parent)
 
   -- Price Scale Code: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.price_scale_code(buffer, index, packet, parent)
+  index, price_scale_code = dissect.price_scale_code(buffer, index, packet, parent)
 
   -- Security Type: 1 Byte Ascii String Enum with 16 values
-  index = dissect.security_type(buffer, index, packet, parent)
+  index, security_type = dissect.security_type(buffer, index, packet, parent)
 
   -- Price Resolution: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index = dissect.price_resolution(buffer, index, packet, parent)
+  index, price_resolution = dissect.price_resolution(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   return index
 end
@@ -972,13 +996,14 @@ end
 
 -- Dissect: Third Level Customer Volume
 dissect.third_level_customer_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.third_level_customer_volume)
+  local length = size_of.third_level_customer_volume
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.third_level_customer_volume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.third_level_customer_volume, range, value, display)
 
-  return offset + size_of.third_level_customer_volume
+  return offset + length, value
 end
 
 -- Size: Second Level Customer Volume
@@ -991,13 +1016,14 @@ end
 
 -- Dissect: Second Level Customer Volume
 dissect.second_level_customer_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.second_level_customer_volume)
+  local length = size_of.second_level_customer_volume
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.second_level_customer_volume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.second_level_customer_volume, range, value, display)
 
-  return offset + size_of.second_level_customer_volume
+  return offset + length, value
 end
 
 -- Size: First Level Customer Volume
@@ -1010,13 +1036,14 @@ end
 
 -- Dissect: First Level Customer Volume
 dissect.first_level_customer_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.first_level_customer_volume)
+  local length = size_of.first_level_customer_volume
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.first_level_customer_volume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.first_level_customer_volume, range, value, display)
 
-  return offset + size_of.first_level_customer_volume
+  return offset + length, value
 end
 
 -- Size: Quote Condition
@@ -1045,13 +1072,14 @@ end
 
 -- Dissect: Quote Condition
 dissect.quote_condition = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.quote_condition)
+  local length = size_of.quote_condition
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.quote_condition(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.quote_condition, range, value, display)
 
-  return offset + size_of.quote_condition
+  return offset + length, value
 end
 
 -- Size: Third Volume
@@ -1064,13 +1092,14 @@ end
 
 -- Dissect: Third Volume
 dissect.third_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.third_volume)
+  local length = size_of.third_volume
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.third_volume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.third_volume, range, value, display)
 
-  return offset + size_of.third_volume
+  return offset + length, value
 end
 
 -- Size: Second Volume
@@ -1083,13 +1112,14 @@ end
 
 -- Dissect: Second Volume
 dissect.second_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.second_volume)
+  local length = size_of.second_volume
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.second_volume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.second_volume, range, value, display)
 
-  return offset + size_of.second_volume
+  return offset + length, value
 end
 
 -- Size: First Volume
@@ -1102,13 +1132,14 @@ end
 
 -- Dissect: First Volume
 dissect.first_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.first_volume)
+  local length = size_of.first_volume
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.first_volume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.first_volume, range, value, display)
 
-  return offset + size_of.first_volume
+  return offset + length, value
 end
 
 -- Size: Third Level Price
@@ -1121,13 +1152,14 @@ end
 
 -- Dissect: Third Level Price
 dissect.third_level_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.third_level_price)
+  local length = size_of.third_level_price
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.third_level_price(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.third_level_price, range, value, display)
 
-  return offset + size_of.third_level_price
+  return offset + length, value
 end
 
 -- Size: Second Level Price
@@ -1140,13 +1172,14 @@ end
 
 -- Dissect: Second Level Price
 dissect.second_level_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.second_level_price)
+  local length = size_of.second_level_price
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.second_level_price(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.second_level_price, range, value, display)
 
-  return offset + size_of.second_level_price
+  return offset + length, value
 end
 
 -- Size: First Level Price
@@ -1159,13 +1192,14 @@ end
 
 -- Dissect: First Level Price
 dissect.first_level_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.first_level_price)
+  local length = size_of.first_level_price
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.first_level_price(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.first_level_price, range, value, display)
 
-  return offset + size_of.first_level_price
+  return offset + length, value
 end
 
 -- Size: Symbol Seq Num
@@ -1178,13 +1212,14 @@ end
 
 -- Dissect: Symbol Seq Num
 dissect.symbol_seq_num = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.symbol_seq_num)
+  local length = size_of.symbol_seq_num
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.symbol_seq_num(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.symbol_seq_num, range, value, display)
 
-  return offset + size_of.symbol_seq_num
+  return offset + length, value
 end
 
 -- Display: Refresh Outright Market Depth Sell Message
@@ -1197,52 +1232,52 @@ dissect.refresh_outright_market_depth_sell_message_fields = function(buffer, off
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.series_index(buffer, index, packet, parent)
+  index, series_index = dissect.series_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- First Level Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.first_level_price(buffer, index, packet, parent)
+  index, first_level_price = dissect.first_level_price(buffer, index, packet, parent)
 
   -- Second Level Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.second_level_price(buffer, index, packet, parent)
+  index, second_level_price = dissect.second_level_price(buffer, index, packet, parent)
 
   -- Third Level Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.third_level_price(buffer, index, packet, parent)
+  index, third_level_price = dissect.third_level_price(buffer, index, packet, parent)
 
   -- First Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.first_volume(buffer, index, packet, parent)
+  index, first_volume = dissect.first_volume(buffer, index, packet, parent)
 
   -- Second Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.second_volume(buffer, index, packet, parent)
+  index, second_volume = dissect.second_volume(buffer, index, packet, parent)
 
   -- Third Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.third_volume(buffer, index, packet, parent)
+  index, third_volume = dissect.third_volume(buffer, index, packet, parent)
 
   -- Quote Condition: 1 Byte Ascii String Enum with 5 values
-  index = dissect.quote_condition(buffer, index, packet, parent)
+  index, quote_condition = dissect.quote_condition(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- First Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.first_level_customer_volume(buffer, index, packet, parent)
+  index, first_level_customer_volume = dissect.first_level_customer_volume(buffer, index, packet, parent)
 
   -- Second Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.second_level_customer_volume(buffer, index, packet, parent)
+  index, second_level_customer_volume = dissect.second_level_customer_volume(buffer, index, packet, parent)
 
   -- Third Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.third_level_customer_volume(buffer, index, packet, parent)
+  index, third_level_customer_volume = dissect.third_level_customer_volume(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
@@ -1269,13 +1304,14 @@ end
 
 -- Dissect: Source Ns
 dissect.source_ns = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.source_ns)
+  local length = size_of.source_ns
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.source_ns(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.source_ns, range, value, display)
 
-  return offset + size_of.source_ns
+  return offset + length, value
 end
 
 -- Display: Refresh Outright Market Depth Buy Message
@@ -1288,52 +1324,52 @@ dissect.refresh_outright_market_depth_buy_message_fields = function(buffer, offs
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = dissect.source_time(buffer, index, packet, parent)
 
   -- Source Ns: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_ns(buffer, index, packet, parent)
+  index, source_ns = dissect.source_ns(buffer, index, packet, parent)
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.series_index(buffer, index, packet, parent)
+  index, series_index = dissect.series_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- First Level Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.first_level_price(buffer, index, packet, parent)
+  index, first_level_price = dissect.first_level_price(buffer, index, packet, parent)
 
   -- Second Level Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.second_level_price(buffer, index, packet, parent)
+  index, second_level_price = dissect.second_level_price(buffer, index, packet, parent)
 
   -- Third Level Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.third_level_price(buffer, index, packet, parent)
+  index, third_level_price = dissect.third_level_price(buffer, index, packet, parent)
 
   -- First Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.first_volume(buffer, index, packet, parent)
+  index, first_volume = dissect.first_volume(buffer, index, packet, parent)
 
   -- Second Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.second_volume(buffer, index, packet, parent)
+  index, second_volume = dissect.second_volume(buffer, index, packet, parent)
 
   -- Third Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.third_volume(buffer, index, packet, parent)
+  index, third_volume = dissect.third_volume(buffer, index, packet, parent)
 
   -- Quote Condition: 1 Byte Ascii String Enum with 5 values
-  index = dissect.quote_condition(buffer, index, packet, parent)
+  index, quote_condition = dissect.quote_condition(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- First Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.first_level_customer_volume(buffer, index, packet, parent)
+  index, first_level_customer_volume = dissect.first_level_customer_volume(buffer, index, packet, parent)
 
   -- Second Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.second_level_customer_volume(buffer, index, packet, parent)
+  index, second_level_customer_volume = dissect.second_level_customer_volume(buffer, index, packet, parent)
 
   -- Third Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.third_level_customer_volume(buffer, index, packet, parent)
+  index, third_level_customer_volume = dissect.third_level_customer_volume(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
@@ -1360,13 +1396,14 @@ end
 
 -- Dissect: Halt Condition
 dissect.halt_condition = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.halt_condition)
+  local length = size_of.halt_condition
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.halt_condition(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.halt_condition, range, value, display)
 
-  return offset + size_of.halt_condition
+  return offset + length, value
 end
 
 -- Size: Security Status
@@ -1404,13 +1441,14 @@ end
 
 -- Dissect: Security Status
 dissect.security_status = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_status)
+  local length = size_of.security_status
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.security_status(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.security_status, range, value, display)
 
-  return offset + size_of.security_status
+  return offset + length, value
 end
 
 -- Display: Outright Series Status Message
@@ -1423,25 +1461,25 @@ dissect.outright_series_status_message_fields = function(buffer, offset, packet,
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.series_index(buffer, index, packet, parent)
+  index, series_index = dissect.series_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Security Status: 1 Byte Ascii String Enum with 8 values
-  index = dissect.security_status(buffer, index, packet, parent)
+  index, security_status = dissect.security_status(buffer, index, packet, parent)
 
   -- Halt Condition: 1 Byte Ascii String
-  index = dissect.halt_condition(buffer, index, packet, parent)
+  index, halt_condition = dissect.halt_condition(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
@@ -1468,13 +1506,14 @@ end
 
 -- Dissect: Underlying Seq Num
 dissect.underlying_seq_num = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.underlying_seq_num)
+  local length = size_of.underlying_seq_num
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.underlying_seq_num(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.underlying_seq_num, range, value, display)
 
-  return offset + size_of.underlying_seq_num
+  return offset + length, value
 end
 
 -- Display: Underlying Status Message
@@ -1487,25 +1526,25 @@ dissect.underlying_status_message_fields = function(buffer, offset, packet, pare
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Underlying Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.underlying_index(buffer, index, packet, parent)
+  index, underlying_index = dissect.underlying_index(buffer, index, packet, parent)
 
   -- Underlying Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.underlying_seq_num(buffer, index, packet, parent)
+  index, underlying_seq_num = dissect.underlying_seq_num(buffer, index, packet, parent)
 
   -- Security Status: 1 Byte Ascii String Enum with 8 values
-  index = dissect.security_status(buffer, index, packet, parent)
+  index, security_status = dissect.security_status(buffer, index, packet, parent)
 
   -- Halt Condition: 1 Byte Ascii String
-  index = dissect.halt_condition(buffer, index, packet, parent)
+  index, halt_condition = dissect.halt_condition(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
@@ -1532,52 +1571,52 @@ dissect.outright_market_depth_sell_message_fields = function(buffer, offset, pac
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = dissect.source_time(buffer, index, packet, parent)
 
   -- Source Ns: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_ns(buffer, index, packet, parent)
+  index, source_ns = dissect.source_ns(buffer, index, packet, parent)
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.series_index(buffer, index, packet, parent)
+  index, series_index = dissect.series_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- First Level Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.first_level_price(buffer, index, packet, parent)
+  index, first_level_price = dissect.first_level_price(buffer, index, packet, parent)
 
   -- Second Level Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.second_level_price(buffer, index, packet, parent)
+  index, second_level_price = dissect.second_level_price(buffer, index, packet, parent)
 
   -- Third Level Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.third_level_price(buffer, index, packet, parent)
+  index, third_level_price = dissect.third_level_price(buffer, index, packet, parent)
 
   -- First Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.first_volume(buffer, index, packet, parent)
+  index, first_volume = dissect.first_volume(buffer, index, packet, parent)
 
   -- Second Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.second_volume(buffer, index, packet, parent)
+  index, second_volume = dissect.second_volume(buffer, index, packet, parent)
 
   -- Third Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.third_volume(buffer, index, packet, parent)
+  index, third_volume = dissect.third_volume(buffer, index, packet, parent)
 
   -- Quote Condition: 1 Byte Ascii String Enum with 5 values
-  index = dissect.quote_condition(buffer, index, packet, parent)
+  index, quote_condition = dissect.quote_condition(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- First Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.first_level_customer_volume(buffer, index, packet, parent)
+  index, first_level_customer_volume = dissect.first_level_customer_volume(buffer, index, packet, parent)
 
   -- Second Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.second_level_customer_volume(buffer, index, packet, parent)
+  index, second_level_customer_volume = dissect.second_level_customer_volume(buffer, index, packet, parent)
 
   -- Third Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.third_level_customer_volume(buffer, index, packet, parent)
+  index, third_level_customer_volume = dissect.third_level_customer_volume(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
@@ -1604,13 +1643,14 @@ end
 
 -- Dissect: Third Level Volume
 dissect.third_level_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.third_level_volume)
+  local length = size_of.third_level_volume
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.third_level_volume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.third_level_volume, range, value, display)
 
-  return offset + size_of.third_level_volume
+  return offset + length, value
 end
 
 -- Size: Second Level Volume
@@ -1623,13 +1663,14 @@ end
 
 -- Dissect: Second Level Volume
 dissect.second_level_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.second_level_volume)
+  local length = size_of.second_level_volume
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.second_level_volume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.second_level_volume, range, value, display)
 
-  return offset + size_of.second_level_volume
+  return offset + length, value
 end
 
 -- Size: First Level Volume
@@ -1642,13 +1683,14 @@ end
 
 -- Dissect: First Level Volume
 dissect.first_level_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.first_level_volume)
+  local length = size_of.first_level_volume
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.first_level_volume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.first_level_volume, range, value, display)
 
-  return offset + size_of.first_level_volume
+  return offset + length, value
 end
 
 -- Display: Outright Market Depth Buy Message
@@ -1661,52 +1703,52 @@ dissect.outright_market_depth_buy_message_fields = function(buffer, offset, pack
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = dissect.source_time(buffer, index, packet, parent)
 
   -- Source Ns: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.source_ns(buffer, index, packet, parent)
+  index, source_ns = dissect.source_ns(buffer, index, packet, parent)
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.series_index(buffer, index, packet, parent)
+  index, series_index = dissect.series_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- First Level Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.first_level_price(buffer, index, packet, parent)
+  index, first_level_price = dissect.first_level_price(buffer, index, packet, parent)
 
   -- Second Level Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.second_level_price(buffer, index, packet, parent)
+  index, second_level_price = dissect.second_level_price(buffer, index, packet, parent)
 
   -- Third Level Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.third_level_price(buffer, index, packet, parent)
+  index, third_level_price = dissect.third_level_price(buffer, index, packet, parent)
 
   -- First Level Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.first_level_volume(buffer, index, packet, parent)
+  index, first_level_volume = dissect.first_level_volume(buffer, index, packet, parent)
 
   -- Second Level Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.second_level_volume(buffer, index, packet, parent)
+  index, second_level_volume = dissect.second_level_volume(buffer, index, packet, parent)
 
   -- Third Level Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.third_level_volume(buffer, index, packet, parent)
+  index, third_level_volume = dissect.third_level_volume(buffer, index, packet, parent)
 
   -- Quote Condition: 1 Byte Ascii String Enum with 5 values
-  index = dissect.quote_condition(buffer, index, packet, parent)
+  index, quote_condition = dissect.quote_condition(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- First Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.first_level_customer_volume(buffer, index, packet, parent)
+  index, first_level_customer_volume = dissect.first_level_customer_volume(buffer, index, packet, parent)
 
   -- Second Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.second_level_customer_volume(buffer, index, packet, parent)
+  index, second_level_customer_volume = dissect.second_level_customer_volume(buffer, index, packet, parent)
 
   -- Third Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.third_level_customer_volume(buffer, index, packet, parent)
+  index, third_level_customer_volume = dissect.third_level_customer_volume(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
@@ -1724,45 +1766,45 @@ dissect.outright_market_depth_buy_message = function(buffer, offset, packet, par
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, messagetype)
+size_of.payload = function(buffer, offset, message_type)
   -- Size of Outright Market Depth Buy Message
-  if messagetype == 403 then
+  if message_type == 403 then
     return 44
   end
   -- Size of Outright Market Depth Sell Message
-  if messagetype == 405 then
+  if message_type == 405 then
     return 44
   end
   -- Size of Underlying Status Message
-  if messagetype == 419 then
+  if message_type == 419 then
     return 20
   end
   -- Size of Outright Series Status Message
-  if messagetype == 421 then
+  if message_type == 421 then
     return 20
   end
   -- Size of Refresh Outright Market Depth Buy Message
-  if messagetype == 503 then
+  if message_type == 503 then
     return 44
   end
   -- Size of Refresh Outright Market Depth Sell Message
-  if messagetype == 505 then
+  if message_type == 505 then
     return 44
   end
   -- Size of Underlying Index Mapping Message
-  if messagetype == 435 then
+  if message_type == 435 then
     return 24
   end
   -- Size of Series Index Mapping Message
-  if messagetype == 437 then
+  if message_type == 437 then
     return 56
   end
   -- Size of Stream Id Message
-  if messagetype == 455 then
+  if message_type == 455 then
     return 4
   end
   -- Size of Sequence Number Reset Message
-  if messagetype == 1 then
+  if message_type == 1 then
     return 10
   end
 
@@ -1775,45 +1817,45 @@ display.payload = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Branches: Payload
-dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
+dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Outright Market Depth Buy Message
-  if messagetype == 403 then
+  if message_type == 403 then
     return dissect.outright_market_depth_buy_message(buffer, offset, packet, parent)
   end
   -- Dissect Outright Market Depth Sell Message
-  if messagetype == 405 then
+  if message_type == 405 then
     return dissect.outright_market_depth_sell_message(buffer, offset, packet, parent)
   end
   -- Dissect Underlying Status Message
-  if messagetype == 419 then
+  if message_type == 419 then
     return dissect.underlying_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Outright Series Status Message
-  if messagetype == 421 then
+  if message_type == 421 then
     return dissect.outright_series_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Refresh Outright Market Depth Buy Message
-  if messagetype == 503 then
+  if message_type == 503 then
     return dissect.refresh_outright_market_depth_buy_message(buffer, offset, packet, parent)
   end
   -- Dissect Refresh Outright Market Depth Sell Message
-  if messagetype == 505 then
+  if message_type == 505 then
     return dissect.refresh_outright_market_depth_sell_message(buffer, offset, packet, parent)
   end
   -- Dissect Underlying Index Mapping Message
-  if messagetype == 435 then
+  if message_type == 435 then
     return dissect.underlying_index_mapping_message(buffer, offset, packet, parent)
   end
   -- Dissect Series Index Mapping Message
-  if messagetype == 437 then
+  if message_type == 437 then
     return dissect.series_index_mapping_message(buffer, offset, packet, parent)
   end
   -- Dissect Stream Id Message
-  if messagetype == 455 then
+  if message_type == 455 then
     return dissect.stream_id_message(buffer, offset, packet, parent)
   end
   -- Dissect Sequence Number Reset Message
-  if messagetype == 1 then
+  if message_type == 1 then
     return dissect.sequence_number_reset_message(buffer, offset, packet, parent)
   end
 
@@ -1821,13 +1863,13 @@ dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent, code)
+dissect.payload = function(buffer, offset, packet, parent, message_type)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, code)
+    return dissect.payload_branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, code)
+  local size = size_of.payload(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
@@ -1837,7 +1879,7 @@ dissect.payload = function(buffer, offset, packet, parent, code)
   local display = display.payload(buffer, packet, parent)
   local element = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, code)
+  return dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Size: Message Type
@@ -1881,13 +1923,14 @@ end
 
 -- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.message_type)
+  local length = size_of.message_type
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.message_type, range, value, display)
 
-  return offset + size_of.message_type
+  return offset + length, value
 end
 
 -- Size: Message Size
@@ -1900,13 +1943,14 @@ end
 
 -- Dissect: Message Size
 dissect.message_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.message_size)
+  local length = size_of.message_size
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.message_size(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.message_size, range, value, display)
 
-  return offset + size_of.message_size
+  return offset + length, value
 end
 
 -- Display: Message Header
@@ -1919,10 +1963,10 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.message_size(buffer, index, packet, parent)
+  index, message_size = dissect.message_size(buffer, index, packet, parent)
 
   -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index = dissect.message_type(buffer, index, packet, parent)
+  index, message_type = dissect.message_type(buffer, index, packet, parent)
 
   return index
 end
@@ -1963,13 +2007,13 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 2 fields
-  index = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
-  local code = buffer(index - 2, 2):le_uint()
+  local message_type = buffer(index - 2, 2):le_uint()
 
   -- Payload: Runtime Type with 10 branches
-  index = dissect.payload(buffer, index, packet, parent, code)
+  index = dissect.payload(buffer, index, packet, parent, message_type)
 
   return index
 end
@@ -1997,13 +2041,14 @@ end
 
 -- Dissect: Nanoseconds
 dissect.nanoseconds = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.nanoseconds)
+  local length = size_of.nanoseconds
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.nanoseconds(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.nanoseconds, range, value, display)
 
-  return offset + size_of.nanoseconds
+  return offset + length, value
 end
 
 -- Size: Timestamp
@@ -2016,13 +2061,14 @@ end
 
 -- Dissect: Timestamp
 dissect.timestamp = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.timestamp)
+  local length = size_of.timestamp
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.timestamp, range, value, display)
 
-  return offset + size_of.timestamp
+  return offset + length, value
 end
 
 -- Size: Sequence Number
@@ -2035,13 +2081,14 @@ end
 
 -- Dissect: Sequence Number
 dissect.sequence_number = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.sequence_number)
+  local length = size_of.sequence_number
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.sequence_number, range, value, display)
 
-  return offset + size_of.sequence_number
+  return offset + length, value
 end
 
 -- Size: Message Count
@@ -2054,13 +2101,14 @@ end
 
 -- Dissect: Message Count
 dissect.message_count = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.message_count)
+  local length = size_of.message_count
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.message_count(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.message_count, range, value, display)
 
-  return offset + size_of.message_count
+  return offset + length, value
 end
 
 -- Size: Delivery Flag
@@ -2107,13 +2155,14 @@ end
 
 -- Dissect: Delivery Flag
 dissect.delivery_flag = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.delivery_flag)
+  local length = size_of.delivery_flag
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.delivery_flag(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.delivery_flag, range, value, display)
 
-  return offset + size_of.delivery_flag
+  return offset + length, value
 end
 
 -- Size: Packet Size
@@ -2126,13 +2175,14 @@ end
 
 -- Dissect: Packet Size
 dissect.packet_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.packet_size)
+  local length = size_of.packet_size
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.packet_size(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.packet_size, range, value, display)
 
-  return offset + size_of.packet_size
+  return offset + length, value
 end
 
 -- Display: Packet Header
@@ -2145,22 +2195,22 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.packet_size(buffer, index, packet, parent)
+  index, packet_size = dissect.packet_size(buffer, index, packet, parent)
 
   -- Delivery Flag: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index = dissect.delivery_flag(buffer, index, packet, parent)
+  index, delivery_flag = dissect.delivery_flag(buffer, index, packet, parent)
 
   -- Message Count: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.message_count(buffer, index, packet, parent)
+  index, message_count = dissect.message_count(buffer, index, packet, parent)
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.sequence_number(buffer, index, packet, parent)
+  index, sequence_number = dissect.sequence_number(buffer, index, packet, parent)
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
 
   return index
 end
@@ -2182,7 +2232,7 @@ dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 6 fields
-  index = dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = dissect.packet_header(buffer, index, packet, parent)
 
   -- Message: Struct of 2 fields
   local end_of_payload = buffer:len()

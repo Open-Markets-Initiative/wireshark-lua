@@ -440,13 +440,14 @@ end
 
 -- Dissect: Voi Trade Date
 dissect.voi_trade_date = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.voi_trade_date)
+  local length = size_of.voi_trade_date
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.voi_trade_date(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.voi_trade_date, range, value, display)
 
-  return offset + size_of.voi_trade_date
+  return offset + length, value
 end
 
 -- Size: Open Interest
@@ -459,13 +460,14 @@ end
 
 -- Dissect: Open Interest
 dissect.open_interest = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.open_interest)
+  local length = size_of.open_interest
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.open_interest(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.open_interest, range, value, display)
 
-  return offset + size_of.open_interest
+  return offset + length, value
 end
 
 -- Size: Cumulative Volume
@@ -478,13 +480,14 @@ end
 
 -- Dissect: Cumulative Volume
 dissect.cumulative_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.cumulative_volume)
+  local length = size_of.cumulative_volume
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.cumulative_volume(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.cumulative_volume, range, value, display)
 
-  return offset + size_of.cumulative_volume
+  return offset + length, value
 end
 
 -- Size: Contract Number
@@ -497,13 +500,14 @@ end
 
 -- Dissect: Contract Number
 dissect.contract_number = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.contract_number)
+  local length = size_of.contract_number
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.contract_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.contract_number, range, value, display)
 
-  return offset + size_of.contract_number
+  return offset + length, value
 end
 
 -- Size: Trade Date
@@ -516,13 +520,14 @@ end
 
 -- Dissect: Trade Date
 dissect.trade_date = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trade_date)
+  local length = size_of.trade_date
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.trade_date(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.trade_date, range, value, display)
 
-  return offset + size_of.trade_date
+  return offset + length, value
 end
 
 -- Size: Timestamp
@@ -535,13 +540,14 @@ end
 
 -- Dissect: Timestamp
 dissect.timestamp = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.timestamp)
+  local length = size_of.timestamp
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.timestamp, range, value, display)
 
-  return offset + size_of.timestamp
+  return offset + length, value
 end
 
 -- Display: Volume And Open Interest
@@ -554,22 +560,22 @@ dissect.volume_and_open_interest_fields = function(buffer, offset, packet, paren
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number(buffer, index, packet, parent)
+  index, contract_number = dissect.contract_number(buffer, index, packet, parent)
 
   -- Cumulative Volume: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.cumulative_volume(buffer, index, packet, parent)
+  index, cumulative_volume = dissect.cumulative_volume(buffer, index, packet, parent)
 
   -- Open Interest: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.open_interest(buffer, index, packet, parent)
+  index, open_interest = dissect.open_interest(buffer, index, packet, parent)
 
   -- Voi Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.voi_trade_date(buffer, index, packet, parent)
+  index, voi_trade_date = dissect.voi_trade_date(buffer, index, packet, parent)
 
   return index
 end
@@ -596,13 +602,14 @@ end
 
 -- Dissect: Etr Lower Price
 dissect.etr_lower_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.etr_lower_price)
+  local length = size_of.etr_lower_price
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.etr_lower_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.etr_lower_price, range, value, display)
 
-  return offset + size_of.etr_lower_price
+  return offset + length, value
 end
 
 -- Size: Etr Upper Price
@@ -615,13 +622,14 @@ end
 
 -- Dissect: Etr Upper Price
 dissect.etr_upper_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.etr_upper_price)
+  local length = size_of.etr_upper_price
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.etr_upper_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.etr_upper_price, range, value, display)
 
-  return offset + size_of.etr_upper_price
+  return offset + length, value
 end
 
 -- Size: Etr Price
@@ -634,13 +642,14 @@ end
 
 -- Dissect: Etr Price
 dissect.etr_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.etr_price)
+  local length = size_of.etr_price
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.etr_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.etr_price, range, value, display)
 
-  return offset + size_of.etr_price
+  return offset + length, value
 end
 
 -- Size: Aot Lower Price
@@ -653,13 +662,14 @@ end
 
 -- Dissect: Aot Lower Price
 dissect.aot_lower_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.aot_lower_price)
+  local length = size_of.aot_lower_price
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.aot_lower_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.aot_lower_price, range, value, display)
 
-  return offset + size_of.aot_lower_price
+  return offset + length, value
 end
 
 -- Size: Aot Upper Price
@@ -672,13 +682,14 @@ end
 
 -- Dissect: Aot Upper Price
 dissect.aot_upper_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.aot_upper_price)
+  local length = size_of.aot_upper_price
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.aot_upper_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.aot_upper_price, range, value, display)
 
-  return offset + size_of.aot_upper_price
+  return offset + length, value
 end
 
 -- Size: Aot Price
@@ -691,13 +702,14 @@ end
 
 -- Dissect: Aot Price
 dissect.aot_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.aot_price)
+  local length = size_of.aot_price
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.aot_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.aot_price, range, value, display)
 
-  return offset + size_of.aot_price
+  return offset + length, value
 end
 
 -- Display: Anomalous Order Threshold Publish
@@ -710,31 +722,31 @@ dissect.anomalous_order_threshold_publish_fields = function(buffer, offset, pack
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number(buffer, index, packet, parent)
+  index, contract_number = dissect.contract_number(buffer, index, packet, parent)
 
   -- Aot Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.aot_price(buffer, index, packet, parent)
+  index, aot_price = dissect.aot_price(buffer, index, packet, parent)
 
   -- Aot Upper Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.aot_upper_price(buffer, index, packet, parent)
+  index, aot_upper_price = dissect.aot_upper_price(buffer, index, packet, parent)
 
   -- Aot Lower Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.aot_lower_price(buffer, index, packet, parent)
+  index, aot_lower_price = dissect.aot_lower_price(buffer, index, packet, parent)
 
   -- Etr Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.etr_price(buffer, index, packet, parent)
+  index, etr_price = dissect.etr_price(buffer, index, packet, parent)
 
   -- Etr Upper Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.etr_upper_price(buffer, index, packet, parent)
+  index, etr_upper_price = dissect.etr_upper_price(buffer, index, packet, parent)
 
   -- Etr Lower Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.etr_lower_price(buffer, index, packet, parent)
+  index, etr_lower_price = dissect.etr_lower_price(buffer, index, packet, parent)
 
   return index
 end
@@ -761,13 +773,14 @@ end
 
 -- Dissect: Quantity
 dissect.quantity = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.quantity)
+  local length = size_of.quantity
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.quantity(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.quantity, range, value, display)
 
-  return offset + size_of.quantity
+  return offset + length, value
 end
 
 -- Size: Price
@@ -780,13 +793,14 @@ end
 
 -- Dissect: Price
 dissect.price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price)
+  local length = size_of.price
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.price(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.price, range, value, display)
 
-  return offset + size_of.price
+  return offset + length, value
 end
 
 -- Display: Request For Quote
@@ -799,19 +813,19 @@ dissect.request_for_quote_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number(buffer, index, packet, parent)
+  index, contract_number = dissect.contract_number(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.quantity(buffer, index, packet, parent)
+  index, quantity = dissect.quantity(buffer, index, packet, parent)
 
   return index
 end
@@ -838,13 +852,14 @@ end
 
 -- Dissect: Text Message
 dissect.text_message = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.text_message)
+  local length = size_of.text_message
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.text_message(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.text_message, range, value, display)
 
-  return offset + size_of.text_message
+  return offset + length, value
 end
 
 -- Size: Source Id
@@ -857,13 +872,14 @@ end
 
 -- Dissect: Source Id
 dissect.source_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.source_id)
+  local length = size_of.source_id
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.source_id(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.source_id, range, value, display)
 
-  return offset + size_of.source_id
+  return offset + length, value
 end
 
 -- Display: Ad Hoc Text
@@ -876,16 +892,16 @@ dissect.ad_hoc_text_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Source Id: 6 Byte Ascii String
-  index = dissect.source_id(buffer, index, packet, parent)
+  index, source_id = dissect.source_id(buffer, index, packet, parent)
 
   -- Text Message: 100 Byte Ascii String
-  index = dissect.text_message(buffer, index, packet, parent)
+  index, text_message = dissect.text_message(buffer, index, packet, parent)
 
   return index
 end
@@ -912,13 +928,14 @@ end
 
 -- Dissect: Settlement Type
 dissect.settlement_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.settlement_type)
+  local length = size_of.settlement_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.settlement_type(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.settlement_type, range, value, display)
 
-  return offset + size_of.settlement_type
+  return offset + length, value
 end
 
 -- Size: Volatility
@@ -931,13 +948,14 @@ end
 
 -- Dissect: Volatility
 dissect.volatility = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.volatility)
+  local length = size_of.volatility
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.volatility(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.volatility, range, value, display)
 
-  return offset + size_of.volatility
+  return offset + length, value
 end
 
 -- Size: Settlement Price
@@ -950,13 +968,14 @@ end
 
 -- Dissect: Settlement Price
 dissect.settlement_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.settlement_price)
+  local length = size_of.settlement_price
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.settlement_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.settlement_price, range, value, display)
 
-  return offset + size_of.settlement_price
+  return offset + length, value
 end
 
 -- Display: Market Settlement
@@ -969,22 +988,22 @@ dissect.market_settlement_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number(buffer, index, packet, parent)
+  index, contract_number = dissect.contract_number(buffer, index, packet, parent)
 
   -- Settlement Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.settlement_price(buffer, index, packet, parent)
+  index, settlement_price = dissect.settlement_price(buffer, index, packet, parent)
 
   -- Volatility: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.volatility(buffer, index, packet, parent)
+  index, volatility = dissect.volatility(buffer, index, packet, parent)
 
   -- Settlement Type: 1 Byte Ascii String
-  index = dissect.settlement_type(buffer, index, packet, parent)
+  index, settlement_type = dissect.settlement_type(buffer, index, packet, parent)
 
   return index
 end
@@ -1082,13 +1101,14 @@ end
 
 -- Dissect: Total Trades
 dissect.total_trades = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.total_trades)
+  local length = size_of.total_trades
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.total_trades(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.total_trades, range, value, display)
 
-  return offset + size_of.total_trades
+  return offset + length, value
 end
 
 -- Size: Total Traded Volume
@@ -1101,13 +1121,14 @@ end
 
 -- Dissect: Total Traded Volume
 dissect.total_traded_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.total_traded_volume)
+  local length = size_of.total_traded_volume
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.total_traded_volume(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.total_traded_volume, range, value, display)
 
-  return offset + size_of.total_traded_volume
+  return offset + length, value
 end
 
 -- Size: Last Volume
@@ -1120,13 +1141,14 @@ end
 
 -- Dissect: Last Volume
 dissect.last_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.last_volume)
+  local length = size_of.last_volume
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.last_volume(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.last_volume, range, value, display)
 
-  return offset + size_of.last_volume
+  return offset + length, value
 end
 
 -- Size: Last Trade
@@ -1139,13 +1161,14 @@ end
 
 -- Dissect: Last Trade
 dissect.last_trade = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.last_trade)
+  local length = size_of.last_trade
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.last_trade(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.last_trade, range, value, display)
 
-  return offset + size_of.last_trade
+  return offset + length, value
 end
 
 -- Size: Lowest Trade
@@ -1158,13 +1181,14 @@ end
 
 -- Dissect: Lowest Trade
 dissect.lowest_trade = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.lowest_trade)
+  local length = size_of.lowest_trade
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.lowest_trade(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.lowest_trade, range, value, display)
 
-  return offset + size_of.lowest_trade
+  return offset + length, value
 end
 
 -- Size: Highest Trade
@@ -1177,13 +1201,14 @@ end
 
 -- Dissect: Highest Trade
 dissect.highest_trade = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.highest_trade)
+  local length = size_of.highest_trade
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.highest_trade(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.highest_trade, range, value, display)
 
-  return offset + size_of.highest_trade
+  return offset + length, value
 end
 
 -- Size: Opening Trade
@@ -1196,13 +1221,14 @@ end
 
 -- Dissect: Opening Trade
 dissect.opening_trade = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.opening_trade)
+  local length = size_of.opening_trade
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.opening_trade(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.opening_trade, range, value, display)
 
-  return offset + size_of.opening_trade
+  return offset + length, value
 end
 
 -- Display: Open High Low Last Trade Adjustment
@@ -1215,37 +1241,37 @@ dissect.open_high_low_last_trade_adjustment_fields = function(buffer, offset, pa
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number(buffer, index, packet, parent)
+  index, contract_number = dissect.contract_number(buffer, index, packet, parent)
 
   -- Opening Trade: 4 Byte Signed Fixed Width Integer
-  index = dissect.opening_trade(buffer, index, packet, parent)
+  index, opening_trade = dissect.opening_trade(buffer, index, packet, parent)
 
   -- Highest Trade: 4 Byte Signed Fixed Width Integer
-  index = dissect.highest_trade(buffer, index, packet, parent)
+  index, highest_trade = dissect.highest_trade(buffer, index, packet, parent)
 
   -- Lowest Trade: 4 Byte Signed Fixed Width Integer
-  index = dissect.lowest_trade(buffer, index, packet, parent)
+  index, lowest_trade = dissect.lowest_trade(buffer, index, packet, parent)
 
   -- Last Trade: 4 Byte Signed Fixed Width Integer
-  index = dissect.last_trade(buffer, index, packet, parent)
+  index, last_trade = dissect.last_trade(buffer, index, packet, parent)
 
   -- Last Volume: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.last_volume(buffer, index, packet, parent)
+  index, last_volume = dissect.last_volume(buffer, index, packet, parent)
 
   -- Total Traded Volume: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.total_traded_volume(buffer, index, packet, parent)
+  index, total_traded_volume = dissect.total_traded_volume(buffer, index, packet, parent)
 
   -- Total Trades: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.total_trades(buffer, index, packet, parent)
+  index, total_trades = dissect.total_trades(buffer, index, packet, parent)
 
   -- Market Updates: 1 Byte Unsigned Fixed Width Integer: Struct of 7 fields
-  index = dissect.market_updates(buffer, index, packet, parent)
+  index, market_updates = dissect.market_updates(buffer, index, packet, parent)
 
   return index
 end
@@ -1272,13 +1298,14 @@ end
 
 -- Dissect: Best Ask Quantity
 dissect.best_ask_quantity = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.best_ask_quantity)
+  local length = size_of.best_ask_quantity
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.best_ask_quantity(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.best_ask_quantity, range, value, display)
 
-  return offset + size_of.best_ask_quantity
+  return offset + length, value
 end
 
 -- Size: Best Bid Quantity
@@ -1291,13 +1318,14 @@ end
 
 -- Dissect: Best Bid Quantity
 dissect.best_bid_quantity = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.best_bid_quantity)
+  local length = size_of.best_bid_quantity
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.best_bid_quantity(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.best_bid_quantity, range, value, display)
 
-  return offset + size_of.best_bid_quantity
+  return offset + length, value
 end
 
 -- Size: Best Ask Price
@@ -1310,13 +1338,14 @@ end
 
 -- Dissect: Best Ask Price
 dissect.best_ask_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.best_ask_price)
+  local length = size_of.best_ask_price
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.best_ask_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.best_ask_price, range, value, display)
 
-  return offset + size_of.best_ask_price
+  return offset + length, value
 end
 
 -- Size: Best Bid Price
@@ -1329,13 +1358,14 @@ end
 
 -- Dissect: Best Bid Price
 dissect.best_bid_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.best_bid_price)
+  local length = size_of.best_bid_price
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.best_bid_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.best_bid_price, range, value, display)
 
-  return offset + size_of.best_bid_price
+  return offset + length, value
 end
 
 -- Size: Equilibrium Price
@@ -1348,13 +1378,14 @@ end
 
 -- Dissect: Equilibrium Price
 dissect.equilibrium_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.equilibrium_price)
+  local length = size_of.equilibrium_price
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.equilibrium_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.equilibrium_price, range, value, display)
 
-  return offset + size_of.equilibrium_price
+  return offset + length, value
 end
 
 -- Display: Equilibrium Price Auction Info
@@ -1367,28 +1398,28 @@ dissect.equilibrium_price_auction_info_fields = function(buffer, offset, packet,
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number(buffer, index, packet, parent)
+  index, contract_number = dissect.contract_number(buffer, index, packet, parent)
 
   -- Equilibrium Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.equilibrium_price(buffer, index, packet, parent)
+  index, equilibrium_price = dissect.equilibrium_price(buffer, index, packet, parent)
 
   -- Best Bid Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.best_bid_price(buffer, index, packet, parent)
+  index, best_bid_price = dissect.best_bid_price(buffer, index, packet, parent)
 
   -- Best Ask Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.best_ask_price(buffer, index, packet, parent)
+  index, best_ask_price = dissect.best_ask_price(buffer, index, packet, parent)
 
   -- Best Bid Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.best_bid_quantity(buffer, index, packet, parent)
+  index, best_bid_quantity = dissect.best_bid_quantity(buffer, index, packet, parent)
 
   -- Best Ask Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.best_ask_quantity(buffer, index, packet, parent)
+  index, best_ask_quantity = dissect.best_ask_quantity(buffer, index, packet, parent)
 
   return index
 end
@@ -1415,13 +1446,14 @@ end
 
 -- Dissect: Match Number
 dissect.match_number = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.match_number)
+  local length = size_of.match_number
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.match_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.match_number, range, value, display)
 
-  return offset + size_of.match_number
+  return offset + length, value
 end
 
 -- Display: Trade Cancellation
@@ -1434,13 +1466,13 @@ dissect.trade_cancellation_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Match Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.match_number(buffer, index, packet, parent)
+  index, match_number = dissect.match_number(buffer, index, packet, parent)
 
   return index
 end
@@ -1474,13 +1506,14 @@ end
 
 -- Dissect: Printable
 dissect.printable = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.printable)
+  local length = size_of.printable
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.printable(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.printable, range, value, display)
 
-  return offset + size_of.printable
+  return offset + length, value
 end
 
 -- Size: Trade Side Of Non Custom Order
@@ -1493,13 +1526,14 @@ end
 
 -- Dissect: Trade Side Of Non Custom Order
 dissect.trade_side_of_non_custom_order = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trade_side_of_non_custom_order)
+  local length = size_of.trade_side_of_non_custom_order
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.trade_side_of_non_custom_order(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.trade_side_of_non_custom_order, range, value, display)
 
-  return offset + size_of.trade_side_of_non_custom_order
+  return offset + length, value
 end
 
 -- Size: Traded Contract Number
@@ -1512,13 +1546,14 @@ end
 
 -- Dissect: Traded Contract Number
 dissect.traded_contract_number = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.traded_contract_number)
+  local length = size_of.traded_contract_number
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.traded_contract_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.traded_contract_number, range, value, display)
 
-  return offset + size_of.traded_contract_number
+  return offset + length, value
 end
 
 -- Size: Trade Price
@@ -1531,13 +1566,14 @@ end
 
 -- Dissect: Trade Price
 dissect.trade_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trade_price)
+  local length = size_of.trade_price
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.trade_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.trade_price, range, value, display)
 
-  return offset + size_of.trade_price
+  return offset + length, value
 end
 
 -- Size: Executed Quantity
@@ -1550,13 +1586,14 @@ end
 
 -- Dissect: Executed Quantity
 dissect.executed_quantity = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.executed_quantity)
+  local length = size_of.executed_quantity
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.executed_quantity(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.executed_quantity, range, value, display)
 
-  return offset + size_of.executed_quantity
+  return offset + length, value
 end
 
 -- Size: Trade Type
@@ -1612,13 +1649,14 @@ end
 
 -- Dissect: Trade Type
 dissect.trade_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trade_type)
+  local length = size_of.trade_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.trade_type(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.trade_type, range, value, display)
 
-  return offset + size_of.trade_type
+  return offset + length, value
 end
 
 -- Size: Custom Market Quantity Remaining
@@ -1631,13 +1669,14 @@ end
 
 -- Dissect: Custom Market Quantity Remaining
 dissect.custom_market_quantity_remaining = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.custom_market_quantity_remaining)
+  local length = size_of.custom_market_quantity_remaining
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.custom_market_quantity_remaining(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.custom_market_quantity_remaining, range, value, display)
 
-  return offset + size_of.custom_market_quantity_remaining
+  return offset + length, value
 end
 
 -- Size: Custom Market Order Number
@@ -1650,13 +1689,14 @@ end
 
 -- Dissect: Custom Market Order Number
 dissect.custom_market_order_number = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.custom_market_order_number)
+  local length = size_of.custom_market_order_number
+  local range = buffer(offset, length)
   local value = range:uint64()
   local display = display.custom_market_order_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.custom_market_order_number, range, value, display)
 
-  return offset + size_of.custom_market_order_number
+  return offset + length, value
 end
 
 -- Size: Quantity Remaining
@@ -1669,13 +1709,14 @@ end
 
 -- Dissect: Quantity Remaining
 dissect.quantity_remaining = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.quantity_remaining)
+  local length = size_of.quantity_remaining
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.quantity_remaining(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.quantity_remaining, range, value, display)
 
-  return offset + size_of.quantity_remaining
+  return offset + length, value
 end
 
 -- Size: Order Number
@@ -1688,13 +1729,14 @@ end
 
 -- Dissect: Order Number
 dissect.order_number = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.order_number)
+  local length = size_of.order_number
+  local range = buffer(offset, length)
   local value = range:uint64()
   local display = display.order_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.order_number, range, value, display)
 
-  return offset + size_of.order_number
+  return offset + length, value
 end
 
 -- Size: Side
@@ -1714,13 +1756,14 @@ end
 
 -- Dissect: Side
 dissect.side = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.side)
+  local length = size_of.side
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.side(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.side, range, value, display)
 
-  return offset + size_of.side
+  return offset + length, value
 end
 
 -- Display: Custom Market Trade
@@ -1733,49 +1776,49 @@ dissect.custom_market_trade_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number(buffer, index, packet, parent)
+  index, contract_number = dissect.contract_number(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Order Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_number(buffer, index, packet, parent)
+  index, order_number = dissect.order_number(buffer, index, packet, parent)
 
   -- Quantity Remaining: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.quantity_remaining(buffer, index, packet, parent)
+  index, quantity_remaining = dissect.quantity_remaining(buffer, index, packet, parent)
 
   -- Custom Market Order Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.custom_market_order_number(buffer, index, packet, parent)
+  index, custom_market_order_number = dissect.custom_market_order_number(buffer, index, packet, parent)
 
   -- Custom Market Quantity Remaining: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.custom_market_quantity_remaining(buffer, index, packet, parent)
+  index, custom_market_quantity_remaining = dissect.custom_market_quantity_remaining(buffer, index, packet, parent)
 
   -- Trade Type: 1 Byte Ascii String Enum with 14 values
-  index = dissect.trade_type(buffer, index, packet, parent)
+  index, trade_type = dissect.trade_type(buffer, index, packet, parent)
 
   -- Match Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.match_number(buffer, index, packet, parent)
+  index, match_number = dissect.match_number(buffer, index, packet, parent)
 
   -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.executed_quantity(buffer, index, packet, parent)
+  index, executed_quantity = dissect.executed_quantity(buffer, index, packet, parent)
 
   -- Trade Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.trade_price(buffer, index, packet, parent)
+  index, trade_price = dissect.trade_price(buffer, index, packet, parent)
 
   -- Traded Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.traded_contract_number(buffer, index, packet, parent)
+  index, traded_contract_number = dissect.traded_contract_number(buffer, index, packet, parent)
 
   -- Trade Side Of Non Custom Order: 1 Byte Ascii String
-  index = dissect.trade_side_of_non_custom_order(buffer, index, packet, parent)
+  index, trade_side_of_non_custom_order = dissect.trade_side_of_non_custom_order(buffer, index, packet, parent)
 
   -- Printable: 1 Byte Ascii String Enum with 2 values
-  index = dissect.printable(buffer, index, packet, parent)
+  index, printable = dissect.printable(buffer, index, packet, parent)
 
   return index
 end
@@ -1802,13 +1845,14 @@ end
 
 -- Dissect: Trade Side Of Leg
 dissect.trade_side_of_leg = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trade_side_of_leg)
+  local length = size_of.trade_side_of_leg
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.trade_side_of_leg(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.trade_side_of_leg, range, value, display)
 
-  return offset + size_of.trade_side_of_leg
+  return offset + length, value
 end
 
 -- Display: Custom Market Executed
@@ -1821,37 +1865,37 @@ dissect.custom_market_executed_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Order Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_number(buffer, index, packet, parent)
+  index, order_number = dissect.order_number(buffer, index, packet, parent)
 
   -- Quantity Remaining: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.quantity_remaining(buffer, index, packet, parent)
+  index, quantity_remaining = dissect.quantity_remaining(buffer, index, packet, parent)
 
   -- Trade Type: 1 Byte Ascii String Enum with 14 values
-  index = dissect.trade_type(buffer, index, packet, parent)
+  index, trade_type = dissect.trade_type(buffer, index, packet, parent)
 
   -- Match Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.match_number(buffer, index, packet, parent)
+  index, match_number = dissect.match_number(buffer, index, packet, parent)
 
   -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.executed_quantity(buffer, index, packet, parent)
+  index, executed_quantity = dissect.executed_quantity(buffer, index, packet, parent)
 
   -- Trade Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.trade_price(buffer, index, packet, parent)
+  index, trade_price = dissect.trade_price(buffer, index, packet, parent)
 
   -- Traded Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.traded_contract_number(buffer, index, packet, parent)
+  index, traded_contract_number = dissect.traded_contract_number(buffer, index, packet, parent)
 
   -- Trade Side Of Leg: 1 Byte Ascii String
-  index = dissect.trade_side_of_leg(buffer, index, packet, parent)
+  index, trade_side_of_leg = dissect.trade_side_of_leg(buffer, index, packet, parent)
 
   -- Printable: 1 Byte Ascii String Enum with 2 values
-  index = dissect.printable(buffer, index, packet, parent)
+  index, printable = dissect.printable(buffer, index, packet, parent)
 
   return index
 end
@@ -1878,13 +1922,14 @@ end
 
 -- Dissect: Spread Trade Price
 dissect.spread_trade_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.spread_trade_price)
+  local length = size_of.spread_trade_price
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.spread_trade_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.spread_trade_price, range, value, display)
 
-  return offset + size_of.spread_trade_price
+  return offset + length, value
 end
 
 -- Size: Seller Quantity Remaining
@@ -1897,13 +1942,14 @@ end
 
 -- Dissect: Seller Quantity Remaining
 dissect.seller_quantity_remaining = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.seller_quantity_remaining)
+  local length = size_of.seller_quantity_remaining
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.seller_quantity_remaining(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.seller_quantity_remaining, range, value, display)
 
-  return offset + size_of.seller_quantity_remaining
+  return offset + length, value
 end
 
 -- Size: Selling Order Number
@@ -1916,13 +1962,14 @@ end
 
 -- Dissect: Selling Order Number
 dissect.selling_order_number = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.selling_order_number)
+  local length = size_of.selling_order_number
+  local range = buffer(offset, length)
   local value = range:uint64()
   local display = display.selling_order_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.selling_order_number, range, value, display)
 
-  return offset + size_of.selling_order_number
+  return offset + length, value
 end
 
 -- Size: Side Of Seller
@@ -1935,13 +1982,14 @@ end
 
 -- Dissect: Side Of Seller
 dissect.side_of_seller = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.side_of_seller)
+  local length = size_of.side_of_seller
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.side_of_seller(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.side_of_seller, range, value, display)
 
-  return offset + size_of.side_of_seller
+  return offset + length, value
 end
 
 -- Size: Seller Contract Number
@@ -1954,13 +2002,14 @@ end
 
 -- Dissect: Seller Contract Number
 dissect.seller_contract_number = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.seller_contract_number)
+  local length = size_of.seller_contract_number
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.seller_contract_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.seller_contract_number, range, value, display)
 
-  return offset + size_of.seller_contract_number
+  return offset + length, value
 end
 
 -- Size: Buyer Quantity Remaining
@@ -1973,13 +2022,14 @@ end
 
 -- Dissect: Buyer Quantity Remaining
 dissect.buyer_quantity_remaining = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.buyer_quantity_remaining)
+  local length = size_of.buyer_quantity_remaining
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.buyer_quantity_remaining(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.buyer_quantity_remaining, range, value, display)
 
-  return offset + size_of.buyer_quantity_remaining
+  return offset + length, value
 end
 
 -- Size: Buyer Order Number
@@ -1992,13 +2042,14 @@ end
 
 -- Dissect: Buyer Order Number
 dissect.buyer_order_number = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.buyer_order_number)
+  local length = size_of.buyer_order_number
+  local range = buffer(offset, length)
   local value = range:uint64()
   local display = display.buyer_order_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.buyer_order_number, range, value, display)
 
-  return offset + size_of.buyer_order_number
+  return offset + length, value
 end
 
 -- Size: Side Of Buyer
@@ -2011,13 +2062,14 @@ end
 
 -- Dissect: Side Of Buyer
 dissect.side_of_buyer = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.side_of_buyer)
+  local length = size_of.side_of_buyer
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.side_of_buyer(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.side_of_buyer, range, value, display)
 
-  return offset + size_of.side_of_buyer
+  return offset + length, value
 end
 
 -- Size: Buyer
@@ -2030,13 +2082,14 @@ end
 
 -- Dissect: Buyer
 dissect.buyer = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.buyer)
+  local length = size_of.buyer
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.buyer(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.buyer, range, value, display)
 
-  return offset + size_of.buyer
+  return offset + length, value
 end
 
 -- Display: Trade Spread Execution Chain
@@ -2049,55 +2102,55 @@ dissect.trade_spread_execution_chain_fields = function(buffer, offset, packet, p
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Buyer: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.buyer(buffer, index, packet, parent)
+  index, buyer = dissect.buyer(buffer, index, packet, parent)
 
   -- Side Of Buyer: 1 Byte Ascii String
-  index = dissect.side_of_buyer(buffer, index, packet, parent)
+  index, side_of_buyer = dissect.side_of_buyer(buffer, index, packet, parent)
 
   -- Buyer Order Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.buyer_order_number(buffer, index, packet, parent)
+  index, buyer_order_number = dissect.buyer_order_number(buffer, index, packet, parent)
 
   -- Buyer Quantity Remaining: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.buyer_quantity_remaining(buffer, index, packet, parent)
+  index, buyer_quantity_remaining = dissect.buyer_quantity_remaining(buffer, index, packet, parent)
 
   -- Seller Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seller_contract_number(buffer, index, packet, parent)
+  index, seller_contract_number = dissect.seller_contract_number(buffer, index, packet, parent)
 
   -- Side Of Seller: 1 Byte Ascii String
-  index = dissect.side_of_seller(buffer, index, packet, parent)
+  index, side_of_seller = dissect.side_of_seller(buffer, index, packet, parent)
 
   -- Selling Order Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.selling_order_number(buffer, index, packet, parent)
+  index, selling_order_number = dissect.selling_order_number(buffer, index, packet, parent)
 
   -- Seller Quantity Remaining: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seller_quantity_remaining(buffer, index, packet, parent)
+  index, seller_quantity_remaining = dissect.seller_quantity_remaining(buffer, index, packet, parent)
 
   -- Trade Type: 1 Byte Ascii String Enum with 14 values
-  index = dissect.trade_type(buffer, index, packet, parent)
+  index, trade_type = dissect.trade_type(buffer, index, packet, parent)
 
   -- Match Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.match_number(buffer, index, packet, parent)
+  index, match_number = dissect.match_number(buffer, index, packet, parent)
 
   -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.executed_quantity(buffer, index, packet, parent)
+  index, executed_quantity = dissect.executed_quantity(buffer, index, packet, parent)
 
   -- Trade Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.trade_price(buffer, index, packet, parent)
+  index, trade_price = dissect.trade_price(buffer, index, packet, parent)
 
   -- Traded Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.traded_contract_number(buffer, index, packet, parent)
+  index, traded_contract_number = dissect.traded_contract_number(buffer, index, packet, parent)
 
   -- Spread Trade Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.spread_trade_price(buffer, index, packet, parent)
+  index, spread_trade_price = dissect.spread_trade_price(buffer, index, packet, parent)
 
   -- Printable: 1 Byte Ascii String Enum with 2 values
-  index = dissect.printable(buffer, index, packet, parent)
+  index, printable = dissect.printable(buffer, index, packet, parent)
 
   return index
 end
@@ -2124,46 +2177,46 @@ dissect.spread_executed_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number(buffer, index, packet, parent)
+  index, contract_number = dissect.contract_number(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Order Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_number(buffer, index, packet, parent)
+  index, order_number = dissect.order_number(buffer, index, packet, parent)
 
   -- Quantity Remaining: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.quantity_remaining(buffer, index, packet, parent)
+  index, quantity_remaining = dissect.quantity_remaining(buffer, index, packet, parent)
 
   -- Trade Type: 1 Byte Ascii String Enum with 14 values
-  index = dissect.trade_type(buffer, index, packet, parent)
+  index, trade_type = dissect.trade_type(buffer, index, packet, parent)
 
   -- Match Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.match_number(buffer, index, packet, parent)
+  index, match_number = dissect.match_number(buffer, index, packet, parent)
 
   -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.executed_quantity(buffer, index, packet, parent)
+  index, executed_quantity = dissect.executed_quantity(buffer, index, packet, parent)
 
   -- Trade Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.trade_price(buffer, index, packet, parent)
+  index, trade_price = dissect.trade_price(buffer, index, packet, parent)
 
   -- Traded Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.traded_contract_number(buffer, index, packet, parent)
+  index, traded_contract_number = dissect.traded_contract_number(buffer, index, packet, parent)
 
   -- Spread Trade Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.spread_trade_price(buffer, index, packet, parent)
+  index, spread_trade_price = dissect.spread_trade_price(buffer, index, packet, parent)
 
   -- Trade Side Of Leg: 1 Byte Ascii String
-  index = dissect.trade_side_of_leg(buffer, index, packet, parent)
+  index, trade_side_of_leg = dissect.trade_side_of_leg(buffer, index, packet, parent)
 
   -- Printable: 1 Byte Ascii String Enum with 2 values
-  index = dissect.printable(buffer, index, packet, parent)
+  index, printable = dissect.printable(buffer, index, packet, parent)
 
   return index
 end
@@ -2190,13 +2243,14 @@ end
 
 -- Dissect: Buying Order Number
 dissect.buying_order_number = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.buying_order_number)
+  local length = size_of.buying_order_number
+  local range = buffer(offset, length)
   local value = range:uint64()
   local display = display.buying_order_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.buying_order_number, range, value, display)
 
-  return offset + size_of.buying_order_number
+  return offset + length, value
 end
 
 -- Display: Order Executed With Price
@@ -2209,37 +2263,37 @@ dissect.order_executed_with_price_fields = function(buffer, offset, packet, pare
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number(buffer, index, packet, parent)
+  index, contract_number = dissect.contract_number(buffer, index, packet, parent)
 
   -- Buying Order Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.buying_order_number(buffer, index, packet, parent)
+  index, buying_order_number = dissect.buying_order_number(buffer, index, packet, parent)
 
   -- Buyer Quantity Remaining: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.buyer_quantity_remaining(buffer, index, packet, parent)
+  index, buyer_quantity_remaining = dissect.buyer_quantity_remaining(buffer, index, packet, parent)
 
   -- Selling Order Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.selling_order_number(buffer, index, packet, parent)
+  index, selling_order_number = dissect.selling_order_number(buffer, index, packet, parent)
 
   -- Seller Quantity Remaining: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seller_quantity_remaining(buffer, index, packet, parent)
+  index, seller_quantity_remaining = dissect.seller_quantity_remaining(buffer, index, packet, parent)
 
   -- Trade Type: 1 Byte Ascii String Enum with 14 values
-  index = dissect.trade_type(buffer, index, packet, parent)
+  index, trade_type = dissect.trade_type(buffer, index, packet, parent)
 
   -- Match Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.match_number(buffer, index, packet, parent)
+  index, match_number = dissect.match_number(buffer, index, packet, parent)
 
   -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.executed_quantity(buffer, index, packet, parent)
+  index, executed_quantity = dissect.executed_quantity(buffer, index, packet, parent)
 
   -- Trade Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.trade_price(buffer, index, packet, parent)
+  index, trade_price = dissect.trade_price(buffer, index, packet, parent)
 
   return index
 end
@@ -2266,34 +2320,34 @@ dissect.order_executed_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number(buffer, index, packet, parent)
+  index, contract_number = dissect.contract_number(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Order Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_number(buffer, index, packet, parent)
+  index, order_number = dissect.order_number(buffer, index, packet, parent)
 
   -- Quantity Remaining: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.quantity_remaining(buffer, index, packet, parent)
+  index, quantity_remaining = dissect.quantity_remaining(buffer, index, packet, parent)
 
   -- Trade Type: 1 Byte Ascii String Enum with 14 values
-  index = dissect.trade_type(buffer, index, packet, parent)
+  index, trade_type = dissect.trade_type(buffer, index, packet, parent)
 
   -- Match Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.match_number(buffer, index, packet, parent)
+  index, match_number = dissect.match_number(buffer, index, packet, parent)
 
   -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.executed_quantity(buffer, index, packet, parent)
+  index, executed_quantity = dissect.executed_quantity(buffer, index, packet, parent)
 
   -- Trade Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.trade_price(buffer, index, packet, parent)
+  index, trade_price = dissect.trade_price(buffer, index, packet, parent)
 
   return index
 end
@@ -2320,13 +2374,13 @@ dissect.custom_market_order_deleted_fields = function(buffer, offset, packet, pa
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Order Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_number(buffer, index, packet, parent)
+  index, order_number = dissect.order_number(buffer, index, packet, parent)
 
   return index
 end
@@ -2353,13 +2407,14 @@ end
 
 -- Dissect: Order Book Priority
 dissect.order_book_priority = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.order_book_priority)
+  local length = size_of.order_book_priority
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.order_book_priority(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.order_book_priority, range, value, display)
 
-  return offset + size_of.order_book_priority
+  return offset + length, value
 end
 
 -- Display: Custom Market Order Replaced
@@ -2372,19 +2427,19 @@ dissect.custom_market_order_replaced_fields = function(buffer, offset, packet, p
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Order Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_number(buffer, index, packet, parent)
+  index, order_number = dissect.order_number(buffer, index, packet, parent)
 
   -- Order Book Priority: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.order_book_priority(buffer, index, packet, parent)
+  index, order_book_priority = dissect.order_book_priority(buffer, index, packet, parent)
 
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.quantity(buffer, index, packet, parent)
+  index, quantity = dissect.quantity(buffer, index, packet, parent)
 
   return index
 end
@@ -2411,13 +2466,14 @@ end
 
 -- Dissect: Price Leg 6
 dissect.price_leg_6 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price_leg_6)
+  local length = size_of.price_leg_6
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.price_leg_6(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.price_leg_6, range, value, display)
 
-  return offset + size_of.price_leg_6
+  return offset + length, value
 end
 
 -- Size: Ratio Leg 6
@@ -2430,13 +2486,14 @@ end
 
 -- Dissect: Ratio Leg 6
 dissect.ratio_leg_6 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ratio_leg_6)
+  local length = size_of.ratio_leg_6
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.ratio_leg_6(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.ratio_leg_6, range, value, display)
 
-  return offset + size_of.ratio_leg_6
+  return offset + length, value
 end
 
 -- Size: Side Leg 6
@@ -2449,13 +2506,14 @@ end
 
 -- Dissect: Side Leg 6
 dissect.side_leg_6 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.side_leg_6)
+  local length = size_of.side_leg_6
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.side_leg_6(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.side_leg_6, range, value, display)
 
-  return offset + size_of.side_leg_6
+  return offset + length, value
 end
 
 -- Size: Contract Number Leg 6
@@ -2468,13 +2526,14 @@ end
 
 -- Dissect: Contract Number Leg 6
 dissect.contract_number_leg_6 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.contract_number_leg_6)
+  local length = size_of.contract_number_leg_6
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.contract_number_leg_6(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.contract_number_leg_6, range, value, display)
 
-  return offset + size_of.contract_number_leg_6
+  return offset + length, value
 end
 
 -- Size: Price Leg 5
@@ -2487,13 +2546,14 @@ end
 
 -- Dissect: Price Leg 5
 dissect.price_leg_5 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price_leg_5)
+  local length = size_of.price_leg_5
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.price_leg_5(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.price_leg_5, range, value, display)
 
-  return offset + size_of.price_leg_5
+  return offset + length, value
 end
 
 -- Size: Ratio Leg 5
@@ -2506,13 +2566,14 @@ end
 
 -- Dissect: Ratio Leg 5
 dissect.ratio_leg_5 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ratio_leg_5)
+  local length = size_of.ratio_leg_5
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.ratio_leg_5(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.ratio_leg_5, range, value, display)
 
-  return offset + size_of.ratio_leg_5
+  return offset + length, value
 end
 
 -- Size: Side Leg 5
@@ -2525,13 +2586,14 @@ end
 
 -- Dissect: Side Leg 5
 dissect.side_leg_5 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.side_leg_5)
+  local length = size_of.side_leg_5
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.side_leg_5(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.side_leg_5, range, value, display)
 
-  return offset + size_of.side_leg_5
+  return offset + length, value
 end
 
 -- Size: Contract Number Leg 5
@@ -2544,13 +2606,14 @@ end
 
 -- Dissect: Contract Number Leg 5
 dissect.contract_number_leg_5 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.contract_number_leg_5)
+  local length = size_of.contract_number_leg_5
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.contract_number_leg_5(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.contract_number_leg_5, range, value, display)
 
-  return offset + size_of.contract_number_leg_5
+  return offset + length, value
 end
 
 -- Size: Price Leg 4
@@ -2563,13 +2626,14 @@ end
 
 -- Dissect: Price Leg 4
 dissect.price_leg_4 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price_leg_4)
+  local length = size_of.price_leg_4
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.price_leg_4(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.price_leg_4, range, value, display)
 
-  return offset + size_of.price_leg_4
+  return offset + length, value
 end
 
 -- Size: Ratio Leg 4
@@ -2582,13 +2646,14 @@ end
 
 -- Dissect: Ratio Leg 4
 dissect.ratio_leg_4 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ratio_leg_4)
+  local length = size_of.ratio_leg_4
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.ratio_leg_4(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.ratio_leg_4, range, value, display)
 
-  return offset + size_of.ratio_leg_4
+  return offset + length, value
 end
 
 -- Size: Side Leg 4
@@ -2601,13 +2666,14 @@ end
 
 -- Dissect: Side Leg 4
 dissect.side_leg_4 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.side_leg_4)
+  local length = size_of.side_leg_4
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.side_leg_4(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.side_leg_4, range, value, display)
 
-  return offset + size_of.side_leg_4
+  return offset + length, value
 end
 
 -- Size: Contract Number Leg 4
@@ -2620,13 +2686,14 @@ end
 
 -- Dissect: Contract Number Leg 4
 dissect.contract_number_leg_4 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.contract_number_leg_4)
+  local length = size_of.contract_number_leg_4
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.contract_number_leg_4(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.contract_number_leg_4, range, value, display)
 
-  return offset + size_of.contract_number_leg_4
+  return offset + length, value
 end
 
 -- Size: Price Leg 3
@@ -2639,13 +2706,14 @@ end
 
 -- Dissect: Price Leg 3
 dissect.price_leg_3 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price_leg_3)
+  local length = size_of.price_leg_3
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.price_leg_3(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.price_leg_3, range, value, display)
 
-  return offset + size_of.price_leg_3
+  return offset + length, value
 end
 
 -- Size: Ratio Leg 3
@@ -2658,13 +2726,14 @@ end
 
 -- Dissect: Ratio Leg 3
 dissect.ratio_leg_3 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ratio_leg_3)
+  local length = size_of.ratio_leg_3
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.ratio_leg_3(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.ratio_leg_3, range, value, display)
 
-  return offset + size_of.ratio_leg_3
+  return offset + length, value
 end
 
 -- Size: Side Leg 3
@@ -2677,13 +2746,14 @@ end
 
 -- Dissect: Side Leg 3
 dissect.side_leg_3 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.side_leg_3)
+  local length = size_of.side_leg_3
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.side_leg_3(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.side_leg_3, range, value, display)
 
-  return offset + size_of.side_leg_3
+  return offset + length, value
 end
 
 -- Size: Contract Number Leg 3
@@ -2696,13 +2766,14 @@ end
 
 -- Dissect: Contract Number Leg 3
 dissect.contract_number_leg_3 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.contract_number_leg_3)
+  local length = size_of.contract_number_leg_3
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.contract_number_leg_3(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.contract_number_leg_3, range, value, display)
 
-  return offset + size_of.contract_number_leg_3
+  return offset + length, value
 end
 
 -- Size: Price Leg 2
@@ -2715,13 +2786,14 @@ end
 
 -- Dissect: Price Leg 2
 dissect.price_leg_2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price_leg_2)
+  local length = size_of.price_leg_2
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.price_leg_2(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.price_leg_2, range, value, display)
 
-  return offset + size_of.price_leg_2
+  return offset + length, value
 end
 
 -- Size: Ratio Leg 2
@@ -2734,13 +2806,14 @@ end
 
 -- Dissect: Ratio Leg 2
 dissect.ratio_leg_2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ratio_leg_2)
+  local length = size_of.ratio_leg_2
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.ratio_leg_2(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.ratio_leg_2, range, value, display)
 
-  return offset + size_of.ratio_leg_2
+  return offset + length, value
 end
 
 -- Size: Side Leg 2
@@ -2753,13 +2826,14 @@ end
 
 -- Dissect: Side Leg 2
 dissect.side_leg_2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.side_leg_2)
+  local length = size_of.side_leg_2
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.side_leg_2(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.side_leg_2, range, value, display)
 
-  return offset + size_of.side_leg_2
+  return offset + length, value
 end
 
 -- Size: Contract Number Leg 2
@@ -2772,13 +2846,14 @@ end
 
 -- Dissect: Contract Number Leg 2
 dissect.contract_number_leg_2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.contract_number_leg_2)
+  local length = size_of.contract_number_leg_2
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.contract_number_leg_2(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.contract_number_leg_2, range, value, display)
 
-  return offset + size_of.contract_number_leg_2
+  return offset + length, value
 end
 
 -- Size: Price Leg 1
@@ -2791,13 +2866,14 @@ end
 
 -- Dissect: Price Leg 1
 dissect.price_leg_1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price_leg_1)
+  local length = size_of.price_leg_1
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.price_leg_1(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.price_leg_1, range, value, display)
 
-  return offset + size_of.price_leg_1
+  return offset + length, value
 end
 
 -- Size: Ratio Leg 1
@@ -2810,13 +2886,14 @@ end
 
 -- Dissect: Ratio Leg 1
 dissect.ratio_leg_1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ratio_leg_1)
+  local length = size_of.ratio_leg_1
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.ratio_leg_1(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.ratio_leg_1, range, value, display)
 
-  return offset + size_of.ratio_leg_1
+  return offset + length, value
 end
 
 -- Size: Side Leg 1
@@ -2829,13 +2906,14 @@ end
 
 -- Dissect: Side Leg 1
 dissect.side_leg_1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.side_leg_1)
+  local length = size_of.side_leg_1
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.side_leg_1(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.side_leg_1, range, value, display)
 
-  return offset + size_of.side_leg_1
+  return offset + length, value
 end
 
 -- Size: Contract Number Leg 1
@@ -2848,13 +2926,14 @@ end
 
 -- Dissect: Contract Number Leg 1
 dissect.contract_number_leg_1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.contract_number_leg_1)
+  local length = size_of.contract_number_leg_1
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.contract_number_leg_1(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.contract_number_leg_1, range, value, display)
 
-  return offset + size_of.contract_number_leg_1
+  return offset + length, value
 end
 
 -- Size: Legs
@@ -2867,13 +2946,14 @@ end
 
 -- Dissect: Legs
 dissect.legs = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.legs)
+  local length = size_of.legs
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.legs(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.legs, range, value, display)
 
-  return offset + size_of.legs
+  return offset + length, value
 end
 
 -- Display: Custom Market Order Added
@@ -2886,94 +2966,94 @@ dissect.custom_market_order_added_fields = function(buffer, offset, packet, pare
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Order Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_number(buffer, index, packet, parent)
+  index, order_number = dissect.order_number(buffer, index, packet, parent)
 
   -- Order Book Priority: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.order_book_priority(buffer, index, packet, parent)
+  index, order_book_priority = dissect.order_book_priority(buffer, index, packet, parent)
 
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.quantity(buffer, index, packet, parent)
+  index, quantity = dissect.quantity(buffer, index, packet, parent)
 
   -- Legs: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.legs(buffer, index, packet, parent)
+  index, legs = dissect.legs(buffer, index, packet, parent)
 
   -- Contract Number Leg 1: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number_leg_1(buffer, index, packet, parent)
+  index, contract_number_leg_1 = dissect.contract_number_leg_1(buffer, index, packet, parent)
 
   -- Side Leg 1: 1 Byte Ascii String
-  index = dissect.side_leg_1(buffer, index, packet, parent)
+  index, side_leg_1 = dissect.side_leg_1(buffer, index, packet, parent)
 
   -- Ratio Leg 1: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.ratio_leg_1(buffer, index, packet, parent)
+  index, ratio_leg_1 = dissect.ratio_leg_1(buffer, index, packet, parent)
 
   -- Price Leg 1: 4 Byte Signed Fixed Width Integer
-  index = dissect.price_leg_1(buffer, index, packet, parent)
+  index, price_leg_1 = dissect.price_leg_1(buffer, index, packet, parent)
 
   -- Contract Number Leg 2: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number_leg_2(buffer, index, packet, parent)
+  index, contract_number_leg_2 = dissect.contract_number_leg_2(buffer, index, packet, parent)
 
   -- Side Leg 2: 1 Byte Ascii String
-  index = dissect.side_leg_2(buffer, index, packet, parent)
+  index, side_leg_2 = dissect.side_leg_2(buffer, index, packet, parent)
 
   -- Ratio Leg 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.ratio_leg_2(buffer, index, packet, parent)
+  index, ratio_leg_2 = dissect.ratio_leg_2(buffer, index, packet, parent)
 
   -- Price Leg 2: 4 Byte Signed Fixed Width Integer
-  index = dissect.price_leg_2(buffer, index, packet, parent)
+  index, price_leg_2 = dissect.price_leg_2(buffer, index, packet, parent)
 
   -- Contract Number Leg 3: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number_leg_3(buffer, index, packet, parent)
+  index, contract_number_leg_3 = dissect.contract_number_leg_3(buffer, index, packet, parent)
 
   -- Side Leg 3: 1 Byte Ascii String
-  index = dissect.side_leg_3(buffer, index, packet, parent)
+  index, side_leg_3 = dissect.side_leg_3(buffer, index, packet, parent)
 
   -- Ratio Leg 3: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.ratio_leg_3(buffer, index, packet, parent)
+  index, ratio_leg_3 = dissect.ratio_leg_3(buffer, index, packet, parent)
 
   -- Price Leg 3: 4 Byte Signed Fixed Width Integer
-  index = dissect.price_leg_3(buffer, index, packet, parent)
+  index, price_leg_3 = dissect.price_leg_3(buffer, index, packet, parent)
 
   -- Contract Number Leg 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number_leg_4(buffer, index, packet, parent)
+  index, contract_number_leg_4 = dissect.contract_number_leg_4(buffer, index, packet, parent)
 
   -- Side Leg 4: 1 Byte Ascii String
-  index = dissect.side_leg_4(buffer, index, packet, parent)
+  index, side_leg_4 = dissect.side_leg_4(buffer, index, packet, parent)
 
   -- Ratio Leg 4: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.ratio_leg_4(buffer, index, packet, parent)
+  index, ratio_leg_4 = dissect.ratio_leg_4(buffer, index, packet, parent)
 
   -- Price Leg 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.price_leg_4(buffer, index, packet, parent)
+  index, price_leg_4 = dissect.price_leg_4(buffer, index, packet, parent)
 
   -- Contract Number Leg 5: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number_leg_5(buffer, index, packet, parent)
+  index, contract_number_leg_5 = dissect.contract_number_leg_5(buffer, index, packet, parent)
 
   -- Side Leg 5: 1 Byte Ascii String
-  index = dissect.side_leg_5(buffer, index, packet, parent)
+  index, side_leg_5 = dissect.side_leg_5(buffer, index, packet, parent)
 
   -- Ratio Leg 5: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.ratio_leg_5(buffer, index, packet, parent)
+  index, ratio_leg_5 = dissect.ratio_leg_5(buffer, index, packet, parent)
 
   -- Price Leg 5: 4 Byte Signed Fixed Width Integer
-  index = dissect.price_leg_5(buffer, index, packet, parent)
+  index, price_leg_5 = dissect.price_leg_5(buffer, index, packet, parent)
 
   -- Contract Number Leg 6: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number_leg_6(buffer, index, packet, parent)
+  index, contract_number_leg_6 = dissect.contract_number_leg_6(buffer, index, packet, parent)
 
   -- Side Leg 6: 1 Byte Ascii String
-  index = dissect.side_leg_6(buffer, index, packet, parent)
+  index, side_leg_6 = dissect.side_leg_6(buffer, index, packet, parent)
 
   -- Ratio Leg 6: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.ratio_leg_6(buffer, index, packet, parent)
+  index, ratio_leg_6 = dissect.ratio_leg_6(buffer, index, packet, parent)
 
   -- Price Leg 6: 4 Byte Signed Fixed Width Integer
-  index = dissect.price_leg_6(buffer, index, packet, parent)
+  index, price_leg_6 = dissect.price_leg_6(buffer, index, packet, parent)
 
   return index
 end
@@ -3000,19 +3080,19 @@ dissect.implied_order_deleted_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number(buffer, index, packet, parent)
+  index, contract_number = dissect.contract_number(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Order Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_number(buffer, index, packet, parent)
+  index, order_number = dissect.order_number(buffer, index, packet, parent)
 
   return index
 end
@@ -3039,28 +3119,28 @@ dissect.implied_order_replaced_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number(buffer, index, packet, parent)
+  index, contract_number = dissect.contract_number(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Order Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_number(buffer, index, packet, parent)
+  index, order_number = dissect.order_number(buffer, index, packet, parent)
 
   -- Order Book Priority: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.order_book_priority(buffer, index, packet, parent)
+  index, order_book_priority = dissect.order_book_priority(buffer, index, packet, parent)
 
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.quantity(buffer, index, packet, parent)
+  index, quantity = dissect.quantity(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   return index
 end
@@ -3087,28 +3167,28 @@ dissect.implied_order_added_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number(buffer, index, packet, parent)
+  index, contract_number = dissect.contract_number(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Order Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_number(buffer, index, packet, parent)
+  index, order_number = dissect.order_number(buffer, index, packet, parent)
 
   -- Order Book Priority: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.order_book_priority(buffer, index, packet, parent)
+  index, order_book_priority = dissect.order_book_priority(buffer, index, packet, parent)
 
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.quantity(buffer, index, packet, parent)
+  index, quantity = dissect.quantity(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   return index
 end
@@ -3135,19 +3215,19 @@ dissect.order_deleted_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number(buffer, index, packet, parent)
+  index, contract_number = dissect.contract_number(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Order Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_number(buffer, index, packet, parent)
+  index, order_number = dissect.order_number(buffer, index, packet, parent)
 
   return index
 end
@@ -3174,22 +3254,22 @@ dissect.order_volume_cancelled_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number(buffer, index, packet, parent)
+  index, contract_number = dissect.contract_number(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Order Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_number(buffer, index, packet, parent)
+  index, order_number = dissect.order_number(buffer, index, packet, parent)
 
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.quantity(buffer, index, packet, parent)
+  index, quantity = dissect.quantity(buffer, index, packet, parent)
 
   return index
 end
@@ -3216,28 +3296,28 @@ dissect.order_replaced_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number(buffer, index, packet, parent)
+  index, contract_number = dissect.contract_number(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Order Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_number(buffer, index, packet, parent)
+  index, order_number = dissect.order_number(buffer, index, packet, parent)
 
   -- Order Book Priority: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.order_book_priority(buffer, index, packet, parent)
+  index, order_book_priority = dissect.order_book_priority(buffer, index, packet, parent)
 
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.quantity(buffer, index, packet, parent)
+  index, quantity = dissect.quantity(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   return index
 end
@@ -3264,28 +3344,28 @@ dissect.order_added_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number(buffer, index, packet, parent)
+  index, contract_number = dissect.contract_number(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Order Number: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_number(buffer, index, packet, parent)
+  index, order_number = dissect.order_number(buffer, index, packet, parent)
 
   -- Order Book Priority: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.order_book_priority(buffer, index, packet, parent)
+  index, order_book_priority = dissect.order_book_priority(buffer, index, packet, parent)
 
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.quantity(buffer, index, packet, parent)
+  index, quantity = dissect.quantity(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   return index
 end
@@ -3352,13 +3432,14 @@ end
 
 -- Dissect: Trading Status
 dissect.trading_status = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trading_status)
+  local length = size_of.trading_status
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.trading_status(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.trading_status, range, value, display)
 
-  return offset + size_of.trading_status
+  return offset + length, value
 end
 
 -- Display: Order Book State
@@ -3371,16 +3452,16 @@ dissect.order_book_state_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number(buffer, index, packet, parent)
+  index, contract_number = dissect.contract_number(buffer, index, packet, parent)
 
   -- Trading Status: 1 Byte Ascii String Enum with 13 values
-  index = dissect.trading_status(buffer, index, packet, parent)
+  index, trading_status = dissect.trading_status(buffer, index, packet, parent)
 
   return index
 end
@@ -3414,13 +3495,14 @@ end
 
 -- Dissect: Activated
 dissect.activated = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.activated)
+  local length = size_of.activated
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.activated(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.activated, range, value, display)
 
-  return offset + size_of.activated
+  return offset + length, value
 end
 
 -- Size: Payments Per Year
@@ -3433,13 +3515,14 @@ end
 
 -- Dissect: Payments Per Year
 dissect.payments_per_year = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.payments_per_year)
+  local length = size_of.payments_per_year
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.payments_per_year(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.payments_per_year, range, value, display)
 
-  return offset + size_of.payments_per_year
+  return offset + length, value
 end
 
 -- Size: Coupon Rate
@@ -3452,13 +3535,14 @@ end
 
 -- Dissect: Coupon Rate
 dissect.coupon_rate = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.coupon_rate)
+  local length = size_of.coupon_rate
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.coupon_rate(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.coupon_rate, range, value, display)
 
-  return offset + size_of.coupon_rate
+  return offset + length, value
 end
 
 -- Size: Maturity Value
@@ -3471,13 +3555,14 @@ end
 
 -- Dissect: Maturity Value
 dissect.maturity_value = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.maturity_value)
+  local length = size_of.maturity_value
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.maturity_value(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.maturity_value, range, value, display)
 
-  return offset + size_of.maturity_value
+  return offset + length, value
 end
 
 -- Size: Lot Size Or Face Value
@@ -3490,13 +3575,14 @@ end
 
 -- Dissect: Lot Size Or Face Value
 dissect.lot_size_or_face_value = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.lot_size_or_face_value)
+  local length = size_of.lot_size_or_face_value
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.lot_size_or_face_value(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.lot_size_or_face_value, range, value, display)
 
-  return offset + size_of.lot_size_or_face_value
+  return offset + length, value
 end
 
 -- Size: Currency
@@ -3509,13 +3595,14 @@ end
 
 -- Dissect: Currency
 dissect.currency = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.currency)
+  local length = size_of.currency
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.currency(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.currency, range, value, display)
 
-  return offset + size_of.currency
+  return offset + length, value
 end
 
 -- Size: Financial Type
@@ -3544,13 +3631,14 @@ end
 
 -- Dissect: Financial Type
 dissect.financial_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.financial_type)
+  local length = size_of.financial_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.financial_type(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.financial_type, range, value, display)
 
-  return offset + size_of.financial_type
+  return offset + length, value
 end
 
 -- Size: Prior Day Settlement
@@ -3563,13 +3651,14 @@ end
 
 -- Dissect: Prior Day Settlement
 dissect.prior_day_settlement = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.prior_day_settlement)
+  local length = size_of.prior_day_settlement
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.prior_day_settlement(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.prior_day_settlement, range, value, display)
 
-  return offset + size_of.prior_day_settlement
+  return offset + length, value
 end
 
 -- Size: Last Trading Date
@@ -3582,13 +3671,14 @@ end
 
 -- Dissect: Last Trading Date
 dissect.last_trading_date = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.last_trading_date)
+  local length = size_of.last_trading_date
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.last_trading_date(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.last_trading_date, range, value, display)
 
-  return offset + size_of.last_trading_date
+  return offset + length, value
 end
 
 -- Size: Strike Price Minimum Tick
@@ -3601,13 +3691,14 @@ end
 
 -- Dissect: Strike Price Minimum Tick
 dissect.strike_price_minimum_tick = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.strike_price_minimum_tick)
+  local length = size_of.strike_price_minimum_tick
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.strike_price_minimum_tick(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.strike_price_minimum_tick, range, value, display)
 
-  return offset + size_of.strike_price_minimum_tick
+  return offset + length, value
 end
 
 -- Size: Strike Price Fractional Denominator
@@ -3620,13 +3711,14 @@ end
 
 -- Dissect: Strike Price Fractional Denominator
 dissect.strike_price_fractional_denominator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.strike_price_fractional_denominator)
+  local length = size_of.strike_price_fractional_denominator
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.strike_price_fractional_denominator(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.strike_price_fractional_denominator, range, value, display)
 
-  return offset + size_of.strike_price_fractional_denominator
+  return offset + length, value
 end
 
 -- Size: Strike Price Decimal Position
@@ -3639,13 +3731,14 @@ end
 
 -- Dissect: Strike Price Decimal Position
 dissect.strike_price_decimal_position = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.strike_price_decimal_position)
+  local length = size_of.strike_price_decimal_position
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.strike_price_decimal_position(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.strike_price_decimal_position, range, value, display)
 
-  return offset + size_of.strike_price_decimal_position
+  return offset + length, value
 end
 
 -- Size: Price Minimum Tick
@@ -3658,13 +3751,14 @@ end
 
 -- Dissect: Price Minimum Tick
 dissect.price_minimum_tick = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price_minimum_tick)
+  local length = size_of.price_minimum_tick
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.price_minimum_tick(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.price_minimum_tick, range, value, display)
 
-  return offset + size_of.price_minimum_tick
+  return offset + length, value
 end
 
 -- Size: Price Fractional Denominator
@@ -3677,13 +3771,14 @@ end
 
 -- Dissect: Price Fractional Denominator
 dissect.price_fractional_denominator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price_fractional_denominator)
+  local length = size_of.price_fractional_denominator
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.price_fractional_denominator(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.price_fractional_denominator, range, value, display)
 
-  return offset + size_of.price_fractional_denominator
+  return offset + length, value
 end
 
 -- Size: Price Decimal Position
@@ -3696,13 +3791,14 @@ end
 
 -- Dissect: Price Decimal Position
 dissect.price_decimal_position = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price_decimal_position)
+  local length = size_of.price_decimal_position
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.price_decimal_position(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.price_decimal_position, range, value, display)
 
-  return offset + size_of.price_decimal_position
+  return offset + length, value
 end
 
 -- Size: Underlying Contract Number
@@ -3715,13 +3811,14 @@ end
 
 -- Dissect: Underlying Contract Number
 dissect.underlying_contract_number = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.underlying_contract_number)
+  local length = size_of.underlying_contract_number
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.underlying_contract_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.underlying_contract_number, range, value, display)
 
-  return offset + size_of.underlying_contract_number
+  return offset + length, value
 end
 
 -- Size: Strike
@@ -3734,13 +3831,14 @@ end
 
 -- Dissect: Strike
 dissect.strike = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.strike)
+  local length = size_of.strike
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.strike(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.strike, range, value, display)
 
-  return offset + size_of.strike
+  return offset + length, value
 end
 
 -- Size: Option Type
@@ -3760,13 +3858,14 @@ end
 
 -- Dissect: Option Type
 dissect.option_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.option_type)
+  local length = size_of.option_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.option_type(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.option_type, range, value, display)
 
-  return offset + size_of.option_type
+  return offset + length, value
 end
 
 -- Size: Expiry Month
@@ -3779,13 +3878,14 @@ end
 
 -- Dissect: Expiry Month
 dissect.expiry_month = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.expiry_month)
+  local length = size_of.expiry_month
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.expiry_month(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.expiry_month, range, value, display)
 
-  return offset + size_of.expiry_month
+  return offset + length, value
 end
 
 -- Size: Expiry Year
@@ -3798,13 +3898,14 @@ end
 
 -- Dissect: Expiry Year
 dissect.expiry_year = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.expiry_year)
+  local length = size_of.expiry_year
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.expiry_year(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.expiry_year, range, value, display)
 
-  return offset + size_of.expiry_year
+  return offset + length, value
 end
 
 -- Size: Contract Type
@@ -3839,13 +3940,14 @@ end
 
 -- Dissect: Contract Type
 dissect.contract_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.contract_type)
+  local length = size_of.contract_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.contract_type(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.contract_type, range, value, display)
 
-  return offset + size_of.contract_type
+  return offset + length, value
 end
 
 -- Size: Instrument
@@ -3858,13 +3960,14 @@ end
 
 -- Dissect: Instrument
 dissect.instrument = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.instrument)
+  local length = size_of.instrument
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.instrument(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.instrument, range, value, display)
 
-  return offset + size_of.instrument
+  return offset + length, value
 end
 
 -- Size: Exchange
@@ -3877,13 +3980,14 @@ end
 
 -- Dissect: Exchange
 dissect.exchange = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.exchange)
+  local length = size_of.exchange
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.exchange(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.exchange, range, value, display)
 
-  return offset + size_of.exchange
+  return offset + length, value
 end
 
 -- Display: Option Symbol Directory
@@ -3896,85 +4000,85 @@ dissect.option_symbol_directory_fields = function(buffer, offset, packet, parent
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number(buffer, index, packet, parent)
+  index, contract_number = dissect.contract_number(buffer, index, packet, parent)
 
   -- Exchange: 6 Byte Ascii String
-  index = dissect.exchange(buffer, index, packet, parent)
+  index, exchange = dissect.exchange(buffer, index, packet, parent)
 
   -- Instrument: 6 Byte Ascii String
-  index = dissect.instrument(buffer, index, packet, parent)
+  index, instrument = dissect.instrument(buffer, index, packet, parent)
 
   -- Contract Type: 1 Byte Ascii String Enum with 7 values
-  index = dissect.contract_type(buffer, index, packet, parent)
+  index, contract_type = dissect.contract_type(buffer, index, packet, parent)
 
   -- Expiry Year: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.expiry_year(buffer, index, packet, parent)
+  index, expiry_year = dissect.expiry_year(buffer, index, packet, parent)
 
   -- Expiry Month: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiry_month(buffer, index, packet, parent)
+  index, expiry_month = dissect.expiry_month(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Ascii String Enum with 2 values
-  index = dissect.option_type(buffer, index, packet, parent)
+  index, option_type = dissect.option_type(buffer, index, packet, parent)
 
   -- Strike: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strike(buffer, index, packet, parent)
+  index, strike = dissect.strike(buffer, index, packet, parent)
 
   -- Underlying Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.underlying_contract_number(buffer, index, packet, parent)
+  index, underlying_contract_number = dissect.underlying_contract_number(buffer, index, packet, parent)
 
   -- Price Decimal Position: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.price_decimal_position(buffer, index, packet, parent)
+  index, price_decimal_position = dissect.price_decimal_position(buffer, index, packet, parent)
 
   -- Price Fractional Denominator: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.price_fractional_denominator(buffer, index, packet, parent)
+  index, price_fractional_denominator = dissect.price_fractional_denominator(buffer, index, packet, parent)
 
   -- Price Minimum Tick: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.price_minimum_tick(buffer, index, packet, parent)
+  index, price_minimum_tick = dissect.price_minimum_tick(buffer, index, packet, parent)
 
   -- Strike Price Decimal Position: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_decimal_position(buffer, index, packet, parent)
+  index, strike_price_decimal_position = dissect.strike_price_decimal_position(buffer, index, packet, parent)
 
   -- Strike Price Fractional Denominator: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_fractional_denominator(buffer, index, packet, parent)
+  index, strike_price_fractional_denominator = dissect.strike_price_fractional_denominator(buffer, index, packet, parent)
 
   -- Strike Price Minimum Tick: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_minimum_tick(buffer, index, packet, parent)
+  index, strike_price_minimum_tick = dissect.strike_price_minimum_tick(buffer, index, packet, parent)
 
   -- Last Trading Date: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.last_trading_date(buffer, index, packet, parent)
+  index, last_trading_date = dissect.last_trading_date(buffer, index, packet, parent)
 
   -- Prior Day Settlement: 4 Byte Signed Fixed Width Integer
-  index = dissect.prior_day_settlement(buffer, index, packet, parent)
+  index, prior_day_settlement = dissect.prior_day_settlement(buffer, index, packet, parent)
 
   -- Volatility: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.volatility(buffer, index, packet, parent)
+  index, volatility = dissect.volatility(buffer, index, packet, parent)
 
   -- Financial Type: 1 Byte Ascii String Enum with 5 values
-  index = dissect.financial_type(buffer, index, packet, parent)
+  index, financial_type = dissect.financial_type(buffer, index, packet, parent)
 
   -- Currency: 3 Byte Ascii String
-  index = dissect.currency(buffer, index, packet, parent)
+  index, currency = dissect.currency(buffer, index, packet, parent)
 
   -- Lot Size Or Face Value: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.lot_size_or_face_value(buffer, index, packet, parent)
+  index, lot_size_or_face_value = dissect.lot_size_or_face_value(buffer, index, packet, parent)
 
   -- Maturity Value: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.maturity_value(buffer, index, packet, parent)
+  index, maturity_value = dissect.maturity_value(buffer, index, packet, parent)
 
   -- Coupon Rate: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.coupon_rate(buffer, index, packet, parent)
+  index, coupon_rate = dissect.coupon_rate(buffer, index, packet, parent)
 
   -- Payments Per Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.payments_per_year(buffer, index, packet, parent)
+  index, payments_per_year = dissect.payments_per_year(buffer, index, packet, parent)
 
   -- Activated: 1 Byte Ascii String Enum with 2 values
-  index = dissect.activated(buffer, index, packet, parent)
+  index, activated = dissect.activated(buffer, index, packet, parent)
 
   return index
 end
@@ -4001,13 +4105,14 @@ end
 
 -- Dissect: Secondary Ratio
 dissect.secondary_ratio = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.secondary_ratio)
+  local length = size_of.secondary_ratio
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.secondary_ratio(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.secondary_ratio, range, value, display)
 
-  return offset + size_of.secondary_ratio
+  return offset + length, value
 end
 
 -- Size: Primary Ratio
@@ -4020,13 +4125,14 @@ end
 
 -- Dissect: Primary Ratio
 dissect.primary_ratio = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.primary_ratio)
+  local length = size_of.primary_ratio
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.primary_ratio(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.primary_ratio, range, value, display)
 
-  return offset + size_of.primary_ratio
+  return offset + length, value
 end
 
 -- Size: Second Leg Contract Number
@@ -4039,13 +4145,14 @@ end
 
 -- Dissect: Second Leg Contract Number
 dissect.second_leg_contract_number = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.second_leg_contract_number)
+  local length = size_of.second_leg_contract_number
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.second_leg_contract_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.second_leg_contract_number, range, value, display)
 
-  return offset + size_of.second_leg_contract_number
+  return offset + length, value
 end
 
 -- Size: First Leg Contract Number
@@ -4058,13 +4165,14 @@ end
 
 -- Dissect: First Leg Contract Number
 dissect.first_leg_contract_number = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.first_leg_contract_number)
+  local length = size_of.first_leg_contract_number
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.first_leg_contract_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.first_leg_contract_number, range, value, display)
 
-  return offset + size_of.first_leg_contract_number
+  return offset + length, value
 end
 
 -- Display: Spread Symbol Directory
@@ -4077,40 +4185,40 @@ dissect.spread_symbol_directory_fields = function(buffer, offset, packet, parent
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number(buffer, index, packet, parent)
+  index, contract_number = dissect.contract_number(buffer, index, packet, parent)
 
   -- Exchange: 6 Byte Ascii String
-  index = dissect.exchange(buffer, index, packet, parent)
+  index, exchange = dissect.exchange(buffer, index, packet, parent)
 
   -- Contract Type: 1 Byte Ascii String Enum with 7 values
-  index = dissect.contract_type(buffer, index, packet, parent)
+  index, contract_type = dissect.contract_type(buffer, index, packet, parent)
 
   -- First Leg Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.first_leg_contract_number(buffer, index, packet, parent)
+  index, first_leg_contract_number = dissect.first_leg_contract_number(buffer, index, packet, parent)
 
   -- Second Leg Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.second_leg_contract_number(buffer, index, packet, parent)
+  index, second_leg_contract_number = dissect.second_leg_contract_number(buffer, index, packet, parent)
 
   -- Primary Ratio: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.primary_ratio(buffer, index, packet, parent)
+  index, primary_ratio = dissect.primary_ratio(buffer, index, packet, parent)
 
   -- Secondary Ratio: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.secondary_ratio(buffer, index, packet, parent)
+  index, secondary_ratio = dissect.secondary_ratio(buffer, index, packet, parent)
 
   -- Price Decimal Position: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.price_decimal_position(buffer, index, packet, parent)
+  index, price_decimal_position = dissect.price_decimal_position(buffer, index, packet, parent)
 
   -- Price Fractional Denominator: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.price_fractional_denominator(buffer, index, packet, parent)
+  index, price_fractional_denominator = dissect.price_fractional_denominator(buffer, index, packet, parent)
 
   -- Price Minimum Tick: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.price_minimum_tick(buffer, index, packet, parent)
+  index, price_minimum_tick = dissect.price_minimum_tick(buffer, index, packet, parent)
 
   return index
 end
@@ -4137,61 +4245,61 @@ dissect.future_symbol_directory_fields = function(buffer, offset, packet, parent
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Contract Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_number(buffer, index, packet, parent)
+  index, contract_number = dissect.contract_number(buffer, index, packet, parent)
 
   -- Exchange: 6 Byte Ascii String
-  index = dissect.exchange(buffer, index, packet, parent)
+  index, exchange = dissect.exchange(buffer, index, packet, parent)
 
   -- Instrument: 6 Byte Ascii String
-  index = dissect.instrument(buffer, index, packet, parent)
+  index, instrument = dissect.instrument(buffer, index, packet, parent)
 
   -- Contract Type: 1 Byte Ascii String Enum with 7 values
-  index = dissect.contract_type(buffer, index, packet, parent)
+  index, contract_type = dissect.contract_type(buffer, index, packet, parent)
 
   -- Expiry Year: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.expiry_year(buffer, index, packet, parent)
+  index, expiry_year = dissect.expiry_year(buffer, index, packet, parent)
 
   -- Expiry Month: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiry_month(buffer, index, packet, parent)
+  index, expiry_month = dissect.expiry_month(buffer, index, packet, parent)
 
   -- Price Decimal Position: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.price_decimal_position(buffer, index, packet, parent)
+  index, price_decimal_position = dissect.price_decimal_position(buffer, index, packet, parent)
 
   -- Price Fractional Denominator: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.price_fractional_denominator(buffer, index, packet, parent)
+  index, price_fractional_denominator = dissect.price_fractional_denominator(buffer, index, packet, parent)
 
   -- Price Minimum Tick: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.price_minimum_tick(buffer, index, packet, parent)
+  index, price_minimum_tick = dissect.price_minimum_tick(buffer, index, packet, parent)
 
   -- Last Trading Date: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.last_trading_date(buffer, index, packet, parent)
+  index, last_trading_date = dissect.last_trading_date(buffer, index, packet, parent)
 
   -- Prior Day Settlement: 4 Byte Signed Fixed Width Integer
-  index = dissect.prior_day_settlement(buffer, index, packet, parent)
+  index, prior_day_settlement = dissect.prior_day_settlement(buffer, index, packet, parent)
 
   -- Financial Type: 1 Byte Ascii String Enum with 5 values
-  index = dissect.financial_type(buffer, index, packet, parent)
+  index, financial_type = dissect.financial_type(buffer, index, packet, parent)
 
   -- Currency: 3 Byte Ascii String
-  index = dissect.currency(buffer, index, packet, parent)
+  index, currency = dissect.currency(buffer, index, packet, parent)
 
   -- Lot Size Or Face Value: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.lot_size_or_face_value(buffer, index, packet, parent)
+  index, lot_size_or_face_value = dissect.lot_size_or_face_value(buffer, index, packet, parent)
 
   -- Maturity Value: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.maturity_value(buffer, index, packet, parent)
+  index, maturity_value = dissect.maturity_value(buffer, index, packet, parent)
 
   -- Coupon Rate: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.coupon_rate(buffer, index, packet, parent)
+  index, coupon_rate = dissect.coupon_rate(buffer, index, packet, parent)
 
   -- Payments Per Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.payments_per_year(buffer, index, packet, parent)
+  index, payments_per_year = dissect.payments_per_year(buffer, index, packet, parent)
 
   return index
 end
@@ -4234,13 +4342,14 @@ end
 
 -- Dissect: Event Code
 dissect.event_code = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.event_code)
+  local length = size_of.event_code
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.event_code(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.event_code, range, value, display)
 
-  return offset + size_of.event_code
+  return offset + length, value
 end
 
 -- Display: System Event
@@ -4253,13 +4362,13 @@ dissect.system_event_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Event Code: 1 Byte Ascii String Enum with 5 values
-  index = dissect.event_code(buffer, index, packet, parent)
+  index, event_code = dissect.event_code(buffer, index, packet, parent)
 
   return index
 end
@@ -4286,13 +4395,14 @@ end
 
 -- Dissect: Second
 dissect.second = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.second)
+  local length = size_of.second
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.second(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.second, range, value, display)
 
-  return offset + size_of.second
+  return offset + length, value
 end
 
 -- Display: Time Message
@@ -4305,7 +4415,7 @@ dissect.time_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Second: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.second(buffer, index, packet, parent)
+  index, second = dissect.second(buffer, index, packet, parent)
 
   return index
 end
@@ -4323,125 +4433,125 @@ dissect.time_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, messagetype)
+size_of.payload = function(buffer, offset, message_type)
   -- Size of Time Message
-  if messagetype == "T" then
+  if message_type == "T" then
     return 4
   end
   -- Size of System Event
-  if messagetype == "S" then
+  if message_type == "S" then
     return 7
   end
   -- Size of Future Symbol Directory
-  if messagetype == "f" then
+  if message_type == "f" then
     return 53
   end
   -- Size of Spread Symbol Directory
-  if messagetype == "g" then
+  if message_type == "g" then
     return 34
   end
   -- Size of Option Symbol Directory
-  if messagetype == "h" then
+  if message_type == "h" then
     return 74
   end
   -- Size of Order Book State
-  if messagetype == "O" then
+  if message_type == "O" then
     return 11
   end
   -- Size of Order Added
-  if messagetype == "A" then
+  if message_type == "A" then
     return 31
   end
   -- Size of Order Replaced
-  if messagetype == "U" then
+  if message_type == "U" then
     return 31
   end
   -- Size of Order Volume Cancelled
-  if messagetype == "X" then
+  if message_type == "X" then
     return 23
   end
   -- Size of Order Deleted
-  if messagetype == "D" then
+  if message_type == "D" then
     return 19
   end
   -- Size of Implied Order Added
-  if messagetype == "j" then
+  if message_type == "j" then
     return 31
   end
   -- Size of Implied Order Replaced
-  if messagetype == "l" then
+  if message_type == "l" then
     return 31
   end
   -- Size of Implied Order Deleted
-  if messagetype == "k" then
+  if message_type == "k" then
     return 19
   end
   -- Size of Custom Market Order Added
-  if messagetype == "m" then
+  if message_type == "m" then
     return 89
   end
   -- Size of Custom Market Order Replaced
-  if messagetype == "n" then
+  if message_type == "n" then
     return 22
   end
   -- Size of Custom Market Order Deleted
-  if messagetype == "r" then
+  if message_type == "r" then
     return 14
   end
   -- Size of Order Executed
-  if messagetype == "E" then
+  if message_type == "E" then
     return 36
   end
   -- Size of Order Executed With Price
-  if messagetype == "C" then
+  if message_type == "C" then
     return 47
   end
   -- Size of Spread Executed
-  if messagetype == "e" then
+  if message_type == "e" then
     return 46
   end
   -- Size of Trade Spread Execution Chain
-  if messagetype == "P" then
+  if message_type == "P" then
     return 62
   end
   -- Size of Custom Market Executed
-  if messagetype == "u" then
+  if message_type == "u" then
     return 37
   end
   -- Size of Custom Market Trade
-  if messagetype == "p" then
+  if message_type == "p" then
     return 54
   end
   -- Size of Trade Cancellation
-  if messagetype == "B" then
+  if message_type == "B" then
     return 10
   end
   -- Size of Equilibrium Price Auction Info
-  if messagetype == "Z" then
+  if message_type == "Z" then
     return 30
   end
   -- Size of Open High Low Last Trade Adjustment
-  if messagetype == "t" then
+  if message_type == "t" then
     return 39
   end
   -- Size of Market Settlement
-  if messagetype == "Y" then
+  if message_type == "Y" then
     return 19
   end
   -- Size of Ad Hoc Text
-  if messagetype == "x" then
+  if message_type == "x" then
     return 112
   end
   -- Size of Request For Quote
-  if messagetype == "q" then
+  if message_type == "q" then
     return 18
   end
   -- Size of Anomalous Order Threshold Publish
-  if messagetype == "W" then
+  if message_type == "W" then
     return 34
   end
   -- Size of Volume And Open Interest
-  if messagetype == "V" then
+  if message_type == "V" then
     return 20
   end
 
@@ -4454,125 +4564,125 @@ display.payload = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Branches: Payload
-dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
+dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Time Message
-  if messagetype == "T" then
+  if message_type == "T" then
     return dissect.time_message(buffer, offset, packet, parent)
   end
   -- Dissect System Event
-  if messagetype == "S" then
+  if message_type == "S" then
     return dissect.system_event(buffer, offset, packet, parent)
   end
   -- Dissect Future Symbol Directory
-  if messagetype == "f" then
+  if message_type == "f" then
     return dissect.future_symbol_directory(buffer, offset, packet, parent)
   end
   -- Dissect Spread Symbol Directory
-  if messagetype == "g" then
+  if message_type == "g" then
     return dissect.spread_symbol_directory(buffer, offset, packet, parent)
   end
   -- Dissect Option Symbol Directory
-  if messagetype == "h" then
+  if message_type == "h" then
     return dissect.option_symbol_directory(buffer, offset, packet, parent)
   end
   -- Dissect Order Book State
-  if messagetype == "O" then
+  if message_type == "O" then
     return dissect.order_book_state(buffer, offset, packet, parent)
   end
   -- Dissect Order Added
-  if messagetype == "A" then
+  if message_type == "A" then
     return dissect.order_added(buffer, offset, packet, parent)
   end
   -- Dissect Order Replaced
-  if messagetype == "U" then
+  if message_type == "U" then
     return dissect.order_replaced(buffer, offset, packet, parent)
   end
   -- Dissect Order Volume Cancelled
-  if messagetype == "X" then
+  if message_type == "X" then
     return dissect.order_volume_cancelled(buffer, offset, packet, parent)
   end
   -- Dissect Order Deleted
-  if messagetype == "D" then
+  if message_type == "D" then
     return dissect.order_deleted(buffer, offset, packet, parent)
   end
   -- Dissect Implied Order Added
-  if messagetype == "j" then
+  if message_type == "j" then
     return dissect.implied_order_added(buffer, offset, packet, parent)
   end
   -- Dissect Implied Order Replaced
-  if messagetype == "l" then
+  if message_type == "l" then
     return dissect.implied_order_replaced(buffer, offset, packet, parent)
   end
   -- Dissect Implied Order Deleted
-  if messagetype == "k" then
+  if message_type == "k" then
     return dissect.implied_order_deleted(buffer, offset, packet, parent)
   end
   -- Dissect Custom Market Order Added
-  if messagetype == "m" then
+  if message_type == "m" then
     return dissect.custom_market_order_added(buffer, offset, packet, parent)
   end
   -- Dissect Custom Market Order Replaced
-  if messagetype == "n" then
+  if message_type == "n" then
     return dissect.custom_market_order_replaced(buffer, offset, packet, parent)
   end
   -- Dissect Custom Market Order Deleted
-  if messagetype == "r" then
+  if message_type == "r" then
     return dissect.custom_market_order_deleted(buffer, offset, packet, parent)
   end
   -- Dissect Order Executed
-  if messagetype == "E" then
+  if message_type == "E" then
     return dissect.order_executed(buffer, offset, packet, parent)
   end
   -- Dissect Order Executed With Price
-  if messagetype == "C" then
+  if message_type == "C" then
     return dissect.order_executed_with_price(buffer, offset, packet, parent)
   end
   -- Dissect Spread Executed
-  if messagetype == "e" then
+  if message_type == "e" then
     return dissect.spread_executed(buffer, offset, packet, parent)
   end
   -- Dissect Trade Spread Execution Chain
-  if messagetype == "P" then
+  if message_type == "P" then
     return dissect.trade_spread_execution_chain(buffer, offset, packet, parent)
   end
   -- Dissect Custom Market Executed
-  if messagetype == "u" then
+  if message_type == "u" then
     return dissect.custom_market_executed(buffer, offset, packet, parent)
   end
   -- Dissect Custom Market Trade
-  if messagetype == "p" then
+  if message_type == "p" then
     return dissect.custom_market_trade(buffer, offset, packet, parent)
   end
   -- Dissect Trade Cancellation
-  if messagetype == "B" then
+  if message_type == "B" then
     return dissect.trade_cancellation(buffer, offset, packet, parent)
   end
   -- Dissect Equilibrium Price Auction Info
-  if messagetype == "Z" then
+  if message_type == "Z" then
     return dissect.equilibrium_price_auction_info(buffer, offset, packet, parent)
   end
   -- Dissect Open High Low Last Trade Adjustment
-  if messagetype == "t" then
+  if message_type == "t" then
     return dissect.open_high_low_last_trade_adjustment(buffer, offset, packet, parent)
   end
   -- Dissect Market Settlement
-  if messagetype == "Y" then
+  if message_type == "Y" then
     return dissect.market_settlement(buffer, offset, packet, parent)
   end
   -- Dissect Ad Hoc Text
-  if messagetype == "x" then
+  if message_type == "x" then
     return dissect.ad_hoc_text(buffer, offset, packet, parent)
   end
   -- Dissect Request For Quote
-  if messagetype == "q" then
+  if message_type == "q" then
     return dissect.request_for_quote(buffer, offset, packet, parent)
   end
   -- Dissect Anomalous Order Threshold Publish
-  if messagetype == "W" then
+  if message_type == "W" then
     return dissect.anomalous_order_threshold_publish(buffer, offset, packet, parent)
   end
   -- Dissect Volume And Open Interest
-  if messagetype == "V" then
+  if message_type == "V" then
     return dissect.volume_and_open_interest(buffer, offset, packet, parent)
   end
 
@@ -4580,13 +4690,13 @@ dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent, code)
+dissect.payload = function(buffer, offset, packet, parent, message_type)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, code)
+    return dissect.payload_branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, code)
+  local size = size_of.payload(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
@@ -4596,7 +4706,7 @@ dissect.payload = function(buffer, offset, packet, parent, code)
   local display = display.payload(buffer, packet, parent)
   local element = parent:add(asx_securities_t24_itch_v1_13.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, code)
+  return dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Size: Message Type
@@ -4700,13 +4810,14 @@ end
 
 -- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.message_type)
+  local length = size_of.message_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.message_type, range, value, display)
 
-  return offset + size_of.message_type
+  return offset + length, value
 end
 
 -- Size: Length
@@ -4719,13 +4830,14 @@ end
 
 -- Dissect: Length
 dissect.length = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.length)
+  local length = size_of.length
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.length(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.length, range, value, display)
 
-  return offset + size_of.length
+  return offset + length, value
 end
 
 -- Display: Message Header
@@ -4738,10 +4850,10 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Length: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.length(buffer, index, packet, parent)
+  index, length = dissect.length(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String Enum with 30 values
-  index = dissect.message_type(buffer, index, packet, parent)
+  index, message_type = dissect.message_type(buffer, index, packet, parent)
 
   return index
 end
@@ -4782,13 +4894,13 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 2 fields
-  index = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
-  local code = buffer(index - 1, 1):string()
+  local message_type = buffer(index - 1, 1):string()
 
   -- Payload: Runtime Type with 30 branches
-  index = dissect.payload(buffer, index, packet, parent, code)
+  index = dissect.payload(buffer, index, packet, parent, message_type)
 
   return index
 end
@@ -4816,13 +4928,14 @@ end
 
 -- Dissect: Count
 dissect.count = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.count)
+  local length = size_of.count
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.count(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.count, range, value, display)
 
-  return offset + size_of.count
+  return offset + length, value
 end
 
 -- Size: Sequence
@@ -4835,13 +4948,14 @@ end
 
 -- Dissect: Sequence
 dissect.sequence = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.sequence)
+  local length = size_of.sequence
+  local range = buffer(offset, length)
   local value = range:uint64()
   local display = display.sequence(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.sequence, range, value, display)
 
-  return offset + size_of.sequence
+  return offset + length, value
 end
 
 -- Size: Trading Service
@@ -4854,13 +4968,14 @@ end
 
 -- Dissect: Trading Service
 dissect.trading_service = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trading_service)
+  local length = size_of.trading_service
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.trading_service(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.trading_service, range, value, display)
 
-  return offset + size_of.trading_service
+  return offset + length, value
 end
 
 -- Size: Session Week
@@ -4873,13 +4988,14 @@ end
 
 -- Dissect: Session Week
 dissect.session_week = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.session_week)
+  local length = size_of.session_week
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.session_week(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.session_week, range, value, display)
 
-  return offset + size_of.session_week
+  return offset + length, value
 end
 
 -- Size: Session Year
@@ -4892,13 +5008,14 @@ end
 
 -- Dissect: Session Year
 dissect.session_year = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.session_year)
+  local length = size_of.session_year
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.session_year(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.session_year, range, value, display)
 
-  return offset + size_of.session_year
+  return offset + length, value
 end
 
 -- Size: Protocol Version
@@ -4911,13 +5028,14 @@ end
 
 -- Dissect: Protocol Version
 dissect.protocol_version = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.protocol_version)
+  local length = size_of.protocol_version
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.protocol_version(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.protocol_version, range, value, display)
 
-  return offset + size_of.protocol_version
+  return offset + length, value
 end
 
 -- Display: Session
@@ -4930,16 +5048,16 @@ dissect.session_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Protocol Version: 3 Byte Ascii String
-  index = dissect.protocol_version(buffer, index, packet, parent)
+  index, protocol_version = dissect.protocol_version(buffer, index, packet, parent)
 
   -- Session Year: 2 Byte Ascii String
-  index = dissect.session_year(buffer, index, packet, parent)
+  index, session_year = dissect.session_year(buffer, index, packet, parent)
 
   -- Session Week: 2 Byte Ascii String
-  index = dissect.session_week(buffer, index, packet, parent)
+  index, session_week = dissect.session_week(buffer, index, packet, parent)
 
   -- Trading Service: 3 Byte Ascii String
-  index = dissect.trading_service(buffer, index, packet, parent)
+  index, trading_service = dissect.trading_service(buffer, index, packet, parent)
 
   return index
 end
@@ -4966,13 +5084,13 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Session: 10 Byte Ascii String: Struct of 4 fields
-  index = dissect.session(buffer, index, packet, parent)
+  index, session = dissect.session(buffer, index, packet, parent)
 
   -- Sequence: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sequence(buffer, index, packet, parent)
+  index, sequence = dissect.sequence(buffer, index, packet, parent)
 
   -- Count: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.count(buffer, index, packet, parent)
+  index, count = dissect.count(buffer, index, packet, parent)
 
   return index
 end
@@ -4994,7 +5112,7 @@ dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 3 fields
-  index = dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = dissect.packet_header(buffer, index, packet, parent)
 
   -- Message: Struct of 2 fields
   local end_of_payload = buffer:len()

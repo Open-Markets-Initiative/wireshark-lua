@@ -382,13 +382,14 @@ end
 
 -- Dissect: Pad 7
 dissect.pad_7 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.pad_7)
+  local length = size_of.pad_7
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
   local display = display.pad_7(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.pad_7, range, value, display)
 
-  return offset + size_of.pad_7
+  return offset + length, value
 end
 
 -- Size: Md Entry Type
@@ -438,13 +439,14 @@ end
 
 -- Dissect: Md Entry Type
 dissect.md_entry_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.md_entry_type)
+  local length = size_of.md_entry_type
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.md_entry_type(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.md_entry_type, range, value, display)
 
-  return offset + size_of.md_entry_type
+  return offset + length, value
 end
 
 -- Size: Md Entry Size
@@ -458,13 +460,14 @@ end
 
 -- Dissect: Md Entry Size
 dissect.md_entry_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.md_entry_size)
+  local length = size_of.md_entry_size
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.md_entry_size(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.md_entry_size, range, value, display)
 
-  return offset + size_of.md_entry_size
+  return offset + length, value
 end
 
 -- Size: Md Entry Px
@@ -478,13 +481,14 @@ end
 
 -- Dissect: Md Entry Px
 dissect.md_entry_px = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.md_entry_px)
+  local length = size_of.md_entry_px
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.md_entry_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.md_entry_px, range, value, display)
 
-  return offset + size_of.md_entry_px
+  return offset + length, value
 end
 
 -- Display: Md Trade Entry Grp
@@ -497,16 +501,16 @@ dissect.md_trade_entry_grp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Entry Px: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.md_entry_px(buffer, index, packet, parent)
+  index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.md_entry_size(buffer, index, packet, parent)
+  index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
 
   -- Md Entry Type: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
-  index = dissect.md_entry_type(buffer, index, packet, parent)
+  index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
-  index = dissect.pad_7(buffer, index, packet, parent)
+  index, pad_7 = dissect.pad_7(buffer, index, packet, parent)
 
   return index
 end
@@ -533,13 +537,14 @@ end
 
 -- Dissect: No Md Entries
 dissect.no_md_entries = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.no_md_entries)
+  local length = size_of.no_md_entries
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.no_md_entries(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.no_md_entries, range, value, display)
 
-  return offset + size_of.no_md_entries
+  return offset + length, value
 end
 
 -- Size: Pad 2
@@ -552,13 +557,14 @@ end
 
 -- Dissect: Pad 2
 dissect.pad_2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.pad_2)
+  local length = size_of.pad_2
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
   local display = display.pad_2(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.pad_2, range, value, display)
 
-  return offset + size_of.pad_2
+  return offset + length, value
 end
 
 -- Size: Trade Condition
@@ -590,13 +596,14 @@ end
 
 -- Dissect: Trade Condition
 dissect.trade_condition = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trade_condition)
+  local length = size_of.trade_condition
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.trade_condition(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.trade_condition, range, value, display)
 
-  return offset + size_of.trade_condition
+  return offset + length, value
 end
 
 -- Size: Trd Match Id
@@ -609,13 +616,14 @@ end
 
 -- Dissect: Trd Match Id
 dissect.trd_match_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trd_match_id)
+  local length = size_of.trd_match_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.trd_match_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.trd_match_id, range, value, display)
 
-  return offset + size_of.trd_match_id
+  return offset + length, value
 end
 
 -- Size: Trd Reg Ts Execution Time
@@ -628,13 +636,14 @@ end
 
 -- Dissect: Trd Reg Ts Execution Time
 dissect.trd_reg_ts_execution_time = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trd_reg_ts_execution_time)
+  local length = size_of.trd_reg_ts_execution_time
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.trd_reg_ts_execution_time(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.trd_reg_ts_execution_time, range, value, display)
 
-  return offset + size_of.trd_reg_ts_execution_time
+  return offset + length, value
 end
 
 -- Size: Last Px
@@ -648,13 +657,14 @@ end
 
 -- Dissect: Last Px
 dissect.last_px = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.last_px)
+  local length = size_of.last_px
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.last_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.last_px, range, value, display)
 
-  return offset + size_of.last_px
+  return offset + length, value
 end
 
 -- Size: Last Qty
@@ -668,13 +678,14 @@ end
 
 -- Dissect: Last Qty
 dissect.last_qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.last_qty)
+  local length = size_of.last_qty
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.last_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.last_qty, range, value, display)
 
-  return offset + size_of.last_qty
+  return offset + length, value
 end
 
 -- Size: Transact Time
@@ -687,13 +698,14 @@ end
 
 -- Dissect: Transact Time
 dissect.transact_time = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.transact_time)
+  local length = size_of.transact_time
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.transact_time(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.transact_time, range, value, display)
 
-  return offset + size_of.transact_time
+  return offset + length, value
 end
 
 -- Size: Security Id
@@ -706,13 +718,14 @@ end
 
 -- Dissect: Security Id
 dissect.security_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_id)
+  local length = size_of.security_id
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.security_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.security_id, range, value, display)
 
-  return offset + size_of.security_id
+  return offset + length, value
 end
 
 -- Calculate runtime size: Trade Reversal
@@ -738,37 +751,34 @@ dissect.trade_reversal_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Last Qty: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.last_qty(buffer, index, packet, parent)
+  index, last_qty = dissect.last_qty(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.last_px(buffer, index, packet, parent)
+  index, last_px = dissect.last_px(buffer, index, packet, parent)
 
   -- Trd Reg Ts Execution Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.trd_reg_ts_execution_time(buffer, index, packet, parent)
+  index, trd_reg_ts_execution_time = dissect.trd_reg_ts_execution_time(buffer, index, packet, parent)
 
   -- Trd Match Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.trd_match_id(buffer, index, packet, parent)
+  index, trd_match_id = dissect.trd_match_id(buffer, index, packet, parent)
 
   -- Trade Condition: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index = dissect.trade_condition(buffer, index, packet, parent)
+  index, trade_condition = dissect.trade_condition(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
-  index = dissect.pad_2(buffer, index, packet, parent)
+  index, pad_2 = dissect.pad_2(buffer, index, packet, parent)
 
   -- No Md Entries: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.no_md_entries(buffer, index, packet, parent)
-
-  -- Dependency element: No Md Entries
-  local md_trade_entry_grp_count = buffer(index - 1, 1):le_uint()
+  index, no_md_entries = dissect.no_md_entries(buffer, index, packet, parent)
 
   -- Md Trade Entry Grp: Struct of 4 fields
-  for i = 1, md_trade_entry_grp_count do
+  for i = 1, no_md_entries do
     index = dissect.md_trade_entry_grp(buffer, index, packet, parent)
   end
 
@@ -802,13 +812,14 @@ end
 
 -- Dissect: Algorithmic Trade Indicator
 dissect.algorithmic_trade_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.algorithmic_trade_indicator)
+  local length = size_of.algorithmic_trade_indicator
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.algorithmic_trade_indicator(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.algorithmic_trade_indicator, range, value, display)
 
-  return offset + size_of.algorithmic_trade_indicator
+  return offset + length, value
 end
 
 -- Size: Match Sub Type
@@ -837,13 +848,14 @@ end
 
 -- Dissect: Match Sub Type
 dissect.match_sub_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.match_sub_type)
+  local length = size_of.match_sub_type
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.match_sub_type(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.match_sub_type, range, value, display)
 
-  return offset + size_of.match_sub_type
+  return offset + length, value
 end
 
 -- Size: Match Type
@@ -872,13 +884,14 @@ end
 
 -- Dissect: Match Type
 dissect.match_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.match_type)
+  local length = size_of.match_type
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.match_type(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.match_type, range, value, display)
 
-  return offset + size_of.match_type
+  return offset + length, value
 end
 
 -- Display: Trade Report
@@ -891,31 +904,31 @@ dissect.trade_report_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Last Qty: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.last_qty(buffer, index, packet, parent)
+  index, last_qty = dissect.last_qty(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.last_px(buffer, index, packet, parent)
+  index, last_px = dissect.last_px(buffer, index, packet, parent)
 
   -- Trd Match Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.trd_match_id(buffer, index, packet, parent)
+  index, trd_match_id = dissect.trd_match_id(buffer, index, packet, parent)
 
   -- Match Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.match_type(buffer, index, packet, parent)
+  index, match_type = dissect.match_type(buffer, index, packet, parent)
 
   -- Match Sub Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.match_sub_type(buffer, index, packet, parent)
+  index, match_sub_type = dissect.match_sub_type(buffer, index, packet, parent)
 
   -- Algorithmic Trade Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
-  index = dissect.algorithmic_trade_indicator(buffer, index, packet, parent)
+  index, algorithmic_trade_indicator = dissect.algorithmic_trade_indicator(buffer, index, packet, parent)
 
   -- Trade Condition: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index = dissect.trade_condition(buffer, index, packet, parent)
+  index, trade_condition = dissect.trade_condition(buffer, index, packet, parent)
 
   return index
 end
@@ -943,13 +956,14 @@ end
 
 -- Dissect: Offer Size
 dissect.offer_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.offer_size)
+  local length = size_of.offer_size
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.offer_size(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.offer_size, range, value, display)
 
-  return offset + size_of.offer_size
+  return offset + length, value
 end
 
 -- Size: Bid Size
@@ -963,13 +977,14 @@ end
 
 -- Dissect: Bid Size
 dissect.bid_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.bid_size)
+  local length = size_of.bid_size
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.bid_size(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.bid_size, range, value, display)
 
-  return offset + size_of.bid_size
+  return offset + length, value
 end
 
 -- Size: Offer Px
@@ -983,13 +998,14 @@ end
 
 -- Dissect: Offer Px
 dissect.offer_px = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.offer_px)
+  local length = size_of.offer_px
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.offer_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.offer_px, range, value, display)
 
-  return offset + size_of.offer_px
+  return offset + length, value
 end
 
 -- Size: Bid Px
@@ -1003,13 +1019,14 @@ end
 
 -- Dissect: Bid Px
 dissect.bid_px = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.bid_px)
+  local length = size_of.bid_px
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.bid_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.bid_px, range, value, display)
 
-  return offset + size_of.bid_px
+  return offset + length, value
 end
 
 -- Display: Top Of Book
@@ -1022,22 +1039,22 @@ dissect.top_of_book_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Bid Px: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_px(buffer, index, packet, parent)
+  index, bid_px = dissect.bid_px(buffer, index, packet, parent)
 
   -- Offer Px: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_px(buffer, index, packet, parent)
+  index, offer_px = dissect.offer_px(buffer, index, packet, parent)
 
   -- Bid Size: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size(buffer, index, packet, parent)
+  index, bid_size = dissect.bid_size(buffer, index, packet, parent)
 
   -- Offer Size: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size(buffer, index, packet, parent)
+  index, offer_size = dissect.offer_size(buffer, index, packet, parent)
 
   return index
 end
@@ -1065,13 +1082,14 @@ end
 
 -- Dissect: Price
 dissect.price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price)
+  local length = size_of.price
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.price(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.price, range, value, display)
 
-  return offset + size_of.price
+  return offset + length, value
 end
 
 -- Size: Pad 6
@@ -1084,13 +1102,14 @@ end
 
 -- Dissect: Pad 6
 dissect.pad_6 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.pad_6)
+  local length = size_of.pad_6
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
   local display = display.pad_6(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.pad_6, range, value, display)
 
-  return offset + size_of.pad_6
+  return offset + length, value
 end
 
 -- Size: Ord Type
@@ -1107,13 +1126,14 @@ end
 
 -- Dissect: Ord Type
 dissect.ord_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ord_type)
+  local length = size_of.ord_type
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.ord_type(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.ord_type, range, value, display)
 
-  return offset + size_of.ord_type
+  return offset + length, value
 end
 
 -- Size: Side
@@ -1133,13 +1153,14 @@ end
 
 -- Dissect: Side
 dissect.side = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.side)
+  local length = size_of.side
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.side(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.side, range, value, display)
 
-  return offset + size_of.side
+  return offset + length, value
 end
 
 -- Size: Display Qty
@@ -1153,13 +1174,14 @@ end
 
 -- Dissect: Display Qty
 dissect.display_qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.display_qty)
+  local length = size_of.display_qty
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.display_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.display_qty, range, value, display)
 
-  return offset + size_of.display_qty
+  return offset + length, value
 end
 
 -- Size: Trd Reg Ts Time Priority
@@ -1172,13 +1194,14 @@ end
 
 -- Dissect: Trd Reg Ts Time Priority
 dissect.trd_reg_ts_time_priority = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trd_reg_ts_time_priority)
+  local length = size_of.trd_reg_ts_time_priority
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.trd_reg_ts_time_priority(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.trd_reg_ts_time_priority, range, value, display)
 
-  return offset + size_of.trd_reg_ts_time_priority
+  return offset + length, value
 end
 
 -- Display: Order Details
@@ -1191,22 +1214,22 @@ dissect.order_details_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.trd_reg_ts_time_priority(buffer, index, packet, parent)
+  index, trd_reg_ts_time_priority = dissect.trd_reg_ts_time_priority(buffer, index, packet, parent)
 
   -- Display Qty: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.display_qty(buffer, index, packet, parent)
+  index, display_qty = dissect.display_qty(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
-  index = dissect.ord_type(buffer, index, packet, parent)
+  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
-  index = dissect.pad_6(buffer, index, packet, parent)
+  index, pad_6 = dissect.pad_6(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   return index
 end
@@ -1233,7 +1256,7 @@ dissect.snapshot_order_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Order Details: Struct of 6 fields
-  index = dissect.order_details(buffer, index, packet, parent)
+  index, order_details = dissect.order_details(buffer, index, packet, parent)
 
   return index
 end
@@ -1260,19 +1283,19 @@ dissect.quote_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Last Qty: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.last_qty(buffer, index, packet, parent)
+  index, last_qty = dissect.last_qty(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
-  index = dissect.pad_7(buffer, index, packet, parent)
+  index, pad_7 = dissect.pad_7(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   return index
 end
@@ -1306,13 +1329,14 @@ end
 
 -- Dissect: Fast Market Indicator
 dissect.fast_market_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.fast_market_indicator)
+  local length = size_of.fast_market_indicator
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.fast_market_indicator(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.fast_market_indicator, range, value, display)
 
-  return offset + size_of.fast_market_indicator
+  return offset + length, value
 end
 
 -- Size: Market Condition
@@ -1332,13 +1356,14 @@ end
 
 -- Dissect: Market Condition
 dissect.market_condition = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.market_condition)
+  local length = size_of.market_condition
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.market_condition(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.market_condition, range, value, display)
 
-  return offset + size_of.market_condition
+  return offset + length, value
 end
 
 -- Size: Trad Ses Status
@@ -1361,13 +1386,14 @@ end
 
 -- Dissect: Trad Ses Status
 dissect.trad_ses_status = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trad_ses_status)
+  local length = size_of.trad_ses_status
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.trad_ses_status(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.trad_ses_status, range, value, display)
 
-  return offset + size_of.trad_ses_status
+  return offset + length, value
 end
 
 -- Size: Trading Session Sub Id
@@ -1396,13 +1422,14 @@ end
 
 -- Dissect: Trading Session Sub Id
 dissect.trading_session_sub_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trading_session_sub_id)
+  local length = size_of.trading_session_sub_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.trading_session_sub_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.trading_session_sub_id, range, value, display)
 
-  return offset + size_of.trading_session_sub_id
+  return offset + length, value
 end
 
 -- Size: Trading Session Id
@@ -1431,13 +1458,14 @@ end
 
 -- Dissect: Trading Session Id
 dissect.trading_session_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trading_session_id)
+  local length = size_of.trading_session_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.trading_session_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.trading_session_id, range, value, display)
 
-  return offset + size_of.trading_session_id
+  return offset + length, value
 end
 
 -- Size: Last Msg Seq Num Processed
@@ -1450,13 +1478,14 @@ end
 
 -- Dissect: Last Msg Seq Num Processed
 dissect.last_msg_seq_num_processed = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.last_msg_seq_num_processed)
+  local length = size_of.last_msg_seq_num_processed
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.last_msg_seq_num_processed(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.last_msg_seq_num_processed, range, value, display)
 
-  return offset + size_of.last_msg_seq_num_processed
+  return offset + length, value
 end
 
 -- Display: Product Summary
@@ -1469,25 +1498,25 @@ dissect.product_summary_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Last Msg Seq Num Processed: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.last_msg_seq_num_processed(buffer, index, packet, parent)
+  index, last_msg_seq_num_processed = dissect.last_msg_seq_num_processed(buffer, index, packet, parent)
 
   -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.trading_session_id(buffer, index, packet, parent)
+  index, trading_session_id = dissect.trading_session_id(buffer, index, packet, parent)
 
   -- Trading Session Sub Id: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.trading_session_sub_id(buffer, index, packet, parent)
+  index, trading_session_sub_id = dissect.trading_session_sub_id(buffer, index, packet, parent)
 
   -- Trad Ses Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index = dissect.trad_ses_status(buffer, index, packet, parent)
+  index, trad_ses_status = dissect.trad_ses_status(buffer, index, packet, parent)
 
   -- Market Condition: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.market_condition(buffer, index, packet, parent)
+  index, market_condition = dissect.market_condition(buffer, index, packet, parent)
 
   -- Fast Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.fast_market_indicator(buffer, index, packet, parent)
+  index, fast_market_indicator = dissect.fast_market_indicator(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
-  index = dissect.pad_7(buffer, index, packet, parent)
+  index, pad_7 = dissect.pad_7(buffer, index, packet, parent)
 
   return index
 end
@@ -1514,13 +1543,14 @@ end
 
 -- Dissect: Pad 3
 dissect.pad_3 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.pad_3)
+  local length = size_of.pad_3
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
   local display = display.pad_3(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.pad_3, range, value, display)
 
-  return offset + size_of.pad_3
+  return offset + length, value
 end
 
 -- Display: Product State Change
@@ -1533,25 +1563,25 @@ dissect.product_state_change_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.trading_session_id(buffer, index, packet, parent)
+  index, trading_session_id = dissect.trading_session_id(buffer, index, packet, parent)
 
   -- Trading Session Sub Id: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.trading_session_sub_id(buffer, index, packet, parent)
+  index, trading_session_sub_id = dissect.trading_session_sub_id(buffer, index, packet, parent)
 
   -- Trad Ses Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index = dissect.trad_ses_status(buffer, index, packet, parent)
+  index, trad_ses_status = dissect.trad_ses_status(buffer, index, packet, parent)
 
   -- Market Condition: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.market_condition(buffer, index, packet, parent)
+  index, market_condition = dissect.market_condition(buffer, index, packet, parent)
 
   -- Fast Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.fast_market_indicator(buffer, index, packet, parent)
+  index, fast_market_indicator = dissect.fast_market_indicator(buffer, index, packet, parent)
 
   -- Pad 3: 3 Byte
-  index = dissect.pad_3(buffer, index, packet, parent)
+  index, pad_3 = dissect.pad_3(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   return index
 end
@@ -1578,13 +1608,14 @@ end
 
 -- Dissect: Pad 1
 dissect.pad_1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.pad_1)
+  local length = size_of.pad_1
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
   local display = display.pad_1(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.pad_1, range, value, display)
 
-  return offset + size_of.pad_1
+  return offset + length, value
 end
 
 -- Display: Partial Order Execution
@@ -1597,34 +1628,34 @@ dissect.partial_order_execution_fields = function(buffer, offset, packet, parent
   local index = offset
 
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
-  index = dissect.ord_type(buffer, index, packet, parent)
+  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
 
   -- Algorithmic Trade Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
-  index = dissect.algorithmic_trade_indicator(buffer, index, packet, parent)
+  index, algorithmic_trade_indicator = dissect.algorithmic_trade_indicator(buffer, index, packet, parent)
 
   -- Pad 1: 1 Byte
-  index = dissect.pad_1(buffer, index, packet, parent)
+  index, pad_1 = dissect.pad_1(buffer, index, packet, parent)
 
   -- Trd Match Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.trd_match_id(buffer, index, packet, parent)
+  index, trd_match_id = dissect.trd_match_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.trd_reg_ts_time_priority(buffer, index, packet, parent)
+  index, trd_reg_ts_time_priority = dissect.trd_reg_ts_time_priority(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Last Qty: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.last_qty(buffer, index, packet, parent)
+  index, last_qty = dissect.last_qty(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.last_px(buffer, index, packet, parent)
+  index, last_px = dissect.last_px(buffer, index, packet, parent)
 
   return index
 end
@@ -1652,13 +1683,14 @@ end
 
 -- Dissect: Prev Display Qty
 dissect.prev_display_qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.prev_display_qty)
+  local length = size_of.prev_display_qty
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.prev_display_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.prev_display_qty, range, value, display)
 
-  return offset + size_of.prev_display_qty
+  return offset + length, value
 end
 
 -- Size: Trd Reg Ts Time In
@@ -1671,13 +1703,14 @@ end
 
 -- Dissect: Trd Reg Ts Time In
 dissect.trd_reg_ts_time_in = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trd_reg_ts_time_in)
+  local length = size_of.trd_reg_ts_time_in
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.trd_reg_ts_time_in(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.trd_reg_ts_time_in, range, value, display)
 
-  return offset + size_of.trd_reg_ts_time_in
+  return offset + length, value
 end
 
 -- Display: Order Modify Same Prio
@@ -1690,19 +1723,19 @@ dissect.order_modify_same_prio_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Trd Reg Ts Time In: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.trd_reg_ts_time_in(buffer, index, packet, parent)
+  index, trd_reg_ts_time_in = dissect.trd_reg_ts_time_in(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Prev Display Qty: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.prev_display_qty(buffer, index, packet, parent)
+  index, prev_display_qty = dissect.prev_display_qty(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Order Details: Struct of 6 fields
-  index = dissect.order_details(buffer, index, packet, parent)
+  index, order_details = dissect.order_details(buffer, index, packet, parent)
 
   return index
 end
@@ -1730,13 +1763,14 @@ end
 
 -- Dissect: Prev Price
 dissect.prev_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.prev_price)
+  local length = size_of.prev_price
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.prev_price(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.prev_price, range, value, display)
 
-  return offset + size_of.prev_price
+  return offset + length, value
 end
 
 -- Size: Trd Reg Ts Prev Time Priority
@@ -1749,13 +1783,14 @@ end
 
 -- Dissect: Trd Reg Ts Prev Time Priority
 dissect.trd_reg_ts_prev_time_priority = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trd_reg_ts_prev_time_priority)
+  local length = size_of.trd_reg_ts_prev_time_priority
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.trd_reg_ts_prev_time_priority(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.trd_reg_ts_prev_time_priority, range, value, display)
 
-  return offset + size_of.trd_reg_ts_prev_time_priority
+  return offset + length, value
 end
 
 -- Display: Order Modify
@@ -1768,22 +1803,22 @@ dissect.order_modify_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Trd Reg Ts Time In: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.trd_reg_ts_time_in(buffer, index, packet, parent)
+  index, trd_reg_ts_time_in = dissect.trd_reg_ts_time_in(buffer, index, packet, parent)
 
   -- Trd Reg Ts Prev Time Priority: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.trd_reg_ts_prev_time_priority(buffer, index, packet, parent)
+  index, trd_reg_ts_prev_time_priority = dissect.trd_reg_ts_prev_time_priority(buffer, index, packet, parent)
 
   -- Prev Price: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.prev_price(buffer, index, packet, parent)
+  index, prev_price = dissect.prev_price(buffer, index, packet, parent)
 
   -- Prev Display Qty: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.prev_display_qty(buffer, index, packet, parent)
+  index, prev_display_qty = dissect.prev_display_qty(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Order Details: Struct of 6 fields
-  index = dissect.order_details(buffer, index, packet, parent)
+  index, order_details = dissect.order_details(buffer, index, packet, parent)
 
   return index
 end
@@ -1810,10 +1845,10 @@ dissect.order_mass_delete_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   return index
 end
@@ -1840,16 +1875,16 @@ dissect.order_delete_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Trd Reg Ts Time In: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.trd_reg_ts_time_in(buffer, index, packet, parent)
+  index, trd_reg_ts_time_in = dissect.trd_reg_ts_time_in(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Order Details: Struct of 6 fields
-  index = dissect.order_details(buffer, index, packet, parent)
+  index, order_details = dissect.order_details(buffer, index, packet, parent)
 
   return index
 end
@@ -1876,13 +1911,13 @@ dissect.order_add_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Trd Reg Ts Time In: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.trd_reg_ts_time_in(buffer, index, packet, parent)
+  index, trd_reg_ts_time_in = dissect.trd_reg_ts_time_in(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Order Details: Struct of 6 fields
-  index = dissect.order_details(buffer, index, packet, parent)
+  index, order_details = dissect.order_details(buffer, index, packet, parent)
 
   return index
 end
@@ -1913,13 +1948,14 @@ end
 
 -- Dissect: Sold Out Indicator
 dissect.sold_out_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.sold_out_indicator)
+  local length = size_of.sold_out_indicator
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.sold_out_indicator(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.sold_out_indicator, range, value, display)
 
-  return offset + size_of.sold_out_indicator
+  return offset + length, value
 end
 
 -- Size: Security Trading Event
@@ -1939,13 +1975,14 @@ end
 
 -- Dissect: Security Trading Event
 dissect.security_trading_event = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_trading_event)
+  local length = size_of.security_trading_event
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.security_trading_event(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.security_trading_event, range, value, display)
 
-  return offset + size_of.security_trading_event
+  return offset + length, value
 end
 
 -- Size: Security Trading Status
@@ -2019,13 +2056,14 @@ end
 
 -- Dissect: Security Trading Status
 dissect.security_trading_status = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_trading_status)
+  local length = size_of.security_trading_status
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.security_trading_status(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.security_trading_status, range, value, display)
 
-  return offset + size_of.security_trading_status
+  return offset + length, value
 end
 
 -- Size: Security Status
@@ -2063,13 +2101,14 @@ end
 
 -- Dissect: Security Status
 dissect.security_status = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_status)
+  local length = size_of.security_status
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.security_status(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.security_status, range, value, display)
 
-  return offset + size_of.security_status
+  return offset + length, value
 end
 
 -- Display: Sec Mass Stat Grp
@@ -2082,25 +2121,25 @@ dissect.sec_mass_stat_grp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Security Status: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
-  index = dissect.security_status(buffer, index, packet, parent)
+  index, security_status = dissect.security_status(buffer, index, packet, parent)
 
   -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 20 values
-  index = dissect.security_trading_status(buffer, index, packet, parent)
+  index, security_trading_status = dissect.security_trading_status(buffer, index, packet, parent)
 
   -- Market Condition: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.market_condition(buffer, index, packet, parent)
+  index, market_condition = dissect.market_condition(buffer, index, packet, parent)
 
   -- Security Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.security_trading_event(buffer, index, packet, parent)
+  index, security_trading_event = dissect.security_trading_event(buffer, index, packet, parent)
 
   -- Sold Out Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
-  index = dissect.sold_out_indicator(buffer, index, packet, parent)
+  index, sold_out_indicator = dissect.sold_out_indicator(buffer, index, packet, parent)
 
   -- Pad 3: 3 Byte
-  index = dissect.pad_3(buffer, index, packet, parent)
+  index, pad_3 = dissect.pad_3(buffer, index, packet, parent)
 
   return index
 end
@@ -2127,13 +2166,14 @@ end
 
 -- Dissect: No Related Sym
 dissect.no_related_sym = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.no_related_sym)
+  local length = size_of.no_related_sym
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.no_related_sym(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.no_related_sym, range, value, display)
 
-  return offset + size_of.no_related_sym
+  return offset + length, value
 end
 
 -- Size: Last Fragment
@@ -2153,13 +2193,14 @@ end
 
 -- Dissect: Last Fragment
 dissect.last_fragment = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.last_fragment)
+  local length = size_of.last_fragment
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.last_fragment(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.last_fragment, range, value, display)
 
-  return offset + size_of.last_fragment
+  return offset + length, value
 end
 
 -- Size: Mass Sold Out Indicator
@@ -2176,13 +2217,14 @@ end
 
 -- Dissect: Mass Sold Out Indicator
 dissect.mass_sold_out_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.mass_sold_out_indicator)
+  local length = size_of.mass_sold_out_indicator
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.mass_sold_out_indicator(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.mass_sold_out_indicator, range, value, display)
 
-  return offset + size_of.mass_sold_out_indicator
+  return offset + length, value
 end
 
 -- Size: Security Mass Trading Event
@@ -2202,13 +2244,14 @@ end
 
 -- Dissect: Security Mass Trading Event
 dissect.security_mass_trading_event = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_mass_trading_event)
+  local length = size_of.security_mass_trading_event
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.security_mass_trading_event(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.security_mass_trading_event, range, value, display)
 
-  return offset + size_of.security_mass_trading_event
+  return offset + length, value
 end
 
 -- Size: Mass Market Condition
@@ -2228,13 +2271,14 @@ end
 
 -- Dissect: Mass Market Condition
 dissect.mass_market_condition = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.mass_market_condition)
+  local length = size_of.mass_market_condition
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.mass_market_condition(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.mass_market_condition, range, value, display)
 
-  return offset + size_of.mass_market_condition
+  return offset + length, value
 end
 
 -- Size: Security Mass Trading Status
@@ -2308,13 +2352,14 @@ end
 
 -- Dissect: Security Mass Trading Status
 dissect.security_mass_trading_status = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_mass_trading_status)
+  local length = size_of.security_mass_trading_status
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.security_mass_trading_status(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.security_mass_trading_status, range, value, display)
 
-  return offset + size_of.security_mass_trading_status
+  return offset + length, value
 end
 
 -- Size: Security Mass Status
@@ -2352,13 +2397,14 @@ end
 
 -- Dissect: Security Mass Status
 dissect.security_mass_status = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_mass_status)
+  local length = size_of.security_mass_status
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.security_mass_status(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.security_mass_status, range, value, display)
 
-  return offset + size_of.security_mass_status
+  return offset + length, value
 end
 
 -- Size: Instrument Scope Product Complex
@@ -2399,13 +2445,14 @@ end
 
 -- Dissect: Instrument Scope Product Complex
 dissect.instrument_scope_product_complex = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.instrument_scope_product_complex)
+  local length = size_of.instrument_scope_product_complex
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.instrument_scope_product_complex(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.instrument_scope_product_complex, range, value, display)
 
-  return offset + size_of.instrument_scope_product_complex
+  return offset + length, value
 end
 
 -- Calculate runtime size: Mass Instrument State Change
@@ -2431,46 +2478,43 @@ dissect.mass_instrument_state_change_fields = function(buffer, offset, packet, p
   local index = offset
 
   -- Instrument Scope Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
-  index = dissect.instrument_scope_product_complex(buffer, index, packet, parent)
+  index, instrument_scope_product_complex = dissect.instrument_scope_product_complex(buffer, index, packet, parent)
 
   -- Security Mass Status: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
-  index = dissect.security_mass_status(buffer, index, packet, parent)
+  index, security_mass_status = dissect.security_mass_status(buffer, index, packet, parent)
 
   -- Security Mass Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 20 values
-  index = dissect.security_mass_trading_status(buffer, index, packet, parent)
+  index, security_mass_trading_status = dissect.security_mass_trading_status(buffer, index, packet, parent)
 
   -- Mass Market Condition: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.mass_market_condition(buffer, index, packet, parent)
+  index, mass_market_condition = dissect.mass_market_condition(buffer, index, packet, parent)
 
   -- Fast Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.fast_market_indicator(buffer, index, packet, parent)
+  index, fast_market_indicator = dissect.fast_market_indicator(buffer, index, packet, parent)
 
   -- Security Mass Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.security_mass_trading_event(buffer, index, packet, parent)
+  index, security_mass_trading_event = dissect.security_mass_trading_event(buffer, index, packet, parent)
 
   -- Mass Sold Out Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
-  index = dissect.mass_sold_out_indicator(buffer, index, packet, parent)
+  index, mass_sold_out_indicator = dissect.mass_sold_out_indicator(buffer, index, packet, parent)
 
   -- Pad 1: 1 Byte
-  index = dissect.pad_1(buffer, index, packet, parent)
+  index, pad_1 = dissect.pad_1(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Last Fragment: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.last_fragment(buffer, index, packet, parent)
+  index, last_fragment = dissect.last_fragment(buffer, index, packet, parent)
 
   -- No Related Sym: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.no_related_sym(buffer, index, packet, parent)
+  index, no_related_sym = dissect.no_related_sym(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
-  index = dissect.pad_6(buffer, index, packet, parent)
-
-  -- Dependency element: No Related Sym
-  local sec_mass_stat_grp_count = buffer(index - 7, 1):le_uint()
+  index, pad_6 = dissect.pad_6(buffer, index, packet, parent)
 
   -- Sec Mass Stat Grp: Struct of 7 fields
-  for i = 1, sec_mass_stat_grp_count do
+  for i = 1, no_related_sym do
     index = dissect.sec_mass_stat_grp(buffer, index, packet, parent)
   end
 
@@ -2500,19 +2544,19 @@ dissect.md_instrument_entry_grp_fields = function(buffer, offset, packet, parent
   local index = offset
 
   -- Md Entry Px: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.md_entry_px(buffer, index, packet, parent)
+  index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.md_entry_size(buffer, index, packet, parent)
+  index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
 
   -- Md Entry Type: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
-  index = dissect.md_entry_type(buffer, index, packet, parent)
+  index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
 
   -- Trade Condition: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index = dissect.trade_condition(buffer, index, packet, parent)
+  index, trade_condition = dissect.trade_condition(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
-  index = dissect.pad_6(buffer, index, packet, parent)
+  index, pad_6 = dissect.pad_6(buffer, index, packet, parent)
 
   return index
 end
@@ -2539,13 +2583,14 @@ end
 
 -- Dissect: Tot No Orders
 dissect.tot_no_orders = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.tot_no_orders)
+  local length = size_of.tot_no_orders
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.tot_no_orders(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.tot_no_orders, range, value, display)
 
-  return offset + size_of.tot_no_orders
+  return offset + length, value
 end
 
 -- Size: Last Update Time
@@ -2558,13 +2603,14 @@ end
 
 -- Dissect: Last Update Time
 dissect.last_update_time = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.last_update_time)
+  local length = size_of.last_update_time
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.last_update_time(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.last_update_time, range, value, display)
 
-  return offset + size_of.last_update_time
+  return offset + length, value
 end
 
 -- Calculate runtime size: Instrument Summary
@@ -2590,46 +2636,43 @@ dissect.instrument_summary_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Last Update Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.last_update_time(buffer, index, packet, parent)
+  index, last_update_time = dissect.last_update_time(buffer, index, packet, parent)
 
   -- Trd Reg Ts Execution Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.trd_reg_ts_execution_time(buffer, index, packet, parent)
+  index, trd_reg_ts_execution_time = dissect.trd_reg_ts_execution_time(buffer, index, packet, parent)
 
   -- Tot No Orders: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.tot_no_orders(buffer, index, packet, parent)
+  index, tot_no_orders = dissect.tot_no_orders(buffer, index, packet, parent)
 
   -- Security Status: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
-  index = dissect.security_status(buffer, index, packet, parent)
+  index, security_status = dissect.security_status(buffer, index, packet, parent)
 
   -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 20 values
-  index = dissect.security_trading_status(buffer, index, packet, parent)
+  index, security_trading_status = dissect.security_trading_status(buffer, index, packet, parent)
 
   -- Market Condition: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.market_condition(buffer, index, packet, parent)
+  index, market_condition = dissect.market_condition(buffer, index, packet, parent)
 
   -- Fast Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.fast_market_indicator(buffer, index, packet, parent)
+  index, fast_market_indicator = dissect.fast_market_indicator(buffer, index, packet, parent)
 
   -- Security Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.security_trading_event(buffer, index, packet, parent)
+  index, security_trading_event = dissect.security_trading_event(buffer, index, packet, parent)
 
   -- Sold Out Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
-  index = dissect.sold_out_indicator(buffer, index, packet, parent)
+  index, sold_out_indicator = dissect.sold_out_indicator(buffer, index, packet, parent)
 
   -- No Md Entries: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.no_md_entries(buffer, index, packet, parent)
+  index, no_md_entries = dissect.no_md_entries(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
-  index = dissect.pad_7(buffer, index, packet, parent)
-
-  -- Dependency element: No Md Entries
-  local md_instrument_entry_grp_count = buffer(index - 8, 1):le_uint()
+  index, pad_7 = dissect.pad_7(buffer, index, packet, parent)
 
   -- Md Instrument Entry Grp: Struct of 5 fields
-  for i = 1, md_instrument_entry_grp_count do
+  for i = 1, no_md_entries do
     index = dissect.md_instrument_entry_grp(buffer, index, packet, parent)
   end
 
@@ -2659,31 +2702,31 @@ dissect.instrument_state_change_fields = function(buffer, offset, packet, parent
   local index = offset
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Security Status: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
-  index = dissect.security_status(buffer, index, packet, parent)
+  index, security_status = dissect.security_status(buffer, index, packet, parent)
 
   -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 20 values
-  index = dissect.security_trading_status(buffer, index, packet, parent)
+  index, security_trading_status = dissect.security_trading_status(buffer, index, packet, parent)
 
   -- Market Condition: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.market_condition(buffer, index, packet, parent)
+  index, market_condition = dissect.market_condition(buffer, index, packet, parent)
 
   -- Fast Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.fast_market_indicator(buffer, index, packet, parent)
+  index, fast_market_indicator = dissect.fast_market_indicator(buffer, index, packet, parent)
 
   -- Security Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.security_trading_event(buffer, index, packet, parent)
+  index, security_trading_event = dissect.security_trading_event(buffer, index, packet, parent)
 
   -- Sold Out Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
-  index = dissect.sold_out_indicator(buffer, index, packet, parent)
+  index, sold_out_indicator = dissect.sold_out_indicator(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
-  index = dissect.pad_2(buffer, index, packet, parent)
+  index, pad_2 = dissect.pad_2(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   return index
 end
@@ -2710,13 +2753,14 @@ end
 
 -- Dissect: Pad 4
 dissect.pad_4 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.pad_4)
+  local length = size_of.pad_4
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
   local display = display.pad_4(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.pad_4, range, value, display)
 
-  return offset + size_of.pad_4
+  return offset + length, value
 end
 
 -- Display: Heartbeat
@@ -2729,10 +2773,10 @@ dissect.heartbeat_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Last Msg Seq Num Processed: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.last_msg_seq_num_processed(buffer, index, packet, parent)
+  index, last_msg_seq_num_processed = dissect.last_msg_seq_num_processed(buffer, index, packet, parent)
 
   -- Pad 4: 4 Byte
-  index = dissect.pad_4(buffer, index, packet, parent)
+  index, pad_4 = dissect.pad_4(buffer, index, packet, parent)
 
   return index
 end
@@ -2759,34 +2803,34 @@ dissect.full_order_execution_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
-  index = dissect.ord_type(buffer, index, packet, parent)
+  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
 
   -- Algorithmic Trade Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
-  index = dissect.algorithmic_trade_indicator(buffer, index, packet, parent)
+  index, algorithmic_trade_indicator = dissect.algorithmic_trade_indicator(buffer, index, packet, parent)
 
   -- Pad 1: 1 Byte
-  index = dissect.pad_1(buffer, index, packet, parent)
+  index, pad_1 = dissect.pad_1(buffer, index, packet, parent)
 
   -- Trd Match Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.trd_match_id(buffer, index, packet, parent)
+  index, trd_match_id = dissect.trd_match_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.trd_reg_ts_time_priority(buffer, index, packet, parent)
+  index, trd_reg_ts_time_priority = dissect.trd_reg_ts_time_priority(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Last Qty: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.last_qty(buffer, index, packet, parent)
+  index, last_qty = dissect.last_qty(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.last_px(buffer, index, packet, parent)
+  index, last_px = dissect.last_px(buffer, index, packet, parent)
 
   return index
 end
@@ -2814,13 +2858,14 @@ end
 
 -- Dissect: Resting Cxl Qty
 dissect.resting_cxl_qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.resting_cxl_qty)
+  local length = size_of.resting_cxl_qty
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.resting_cxl_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.resting_cxl_qty, range, value, display)
 
-  return offset + size_of.resting_cxl_qty
+  return offset + length, value
 end
 
 -- Size: Resting Hidden Qty
@@ -2834,13 +2879,14 @@ end
 
 -- Dissect: Resting Hidden Qty
 dissect.resting_hidden_qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.resting_hidden_qty)
+  local length = size_of.resting_hidden_qty
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.resting_hidden_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.resting_hidden_qty, range, value, display)
 
-  return offset + size_of.resting_hidden_qty
+  return offset + length, value
 end
 
 -- Size: Aggressor Side
@@ -2860,13 +2906,14 @@ end
 
 -- Dissect: Aggressor Side
 dissect.aggressor_side = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.aggressor_side)
+  local length = size_of.aggressor_side
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.aggressor_side(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.aggressor_side, range, value, display)
 
-  return offset + size_of.aggressor_side
+  return offset + length, value
 end
 
 -- Size: Exec Id
@@ -2879,13 +2926,14 @@ end
 
 -- Dissect: Exec Id
 dissect.exec_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.exec_id)
+  local length = size_of.exec_id
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.exec_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.exec_id, range, value, display)
 
-  return offset + size_of.exec_id
+  return offset + length, value
 end
 
 -- Size: Request Time
@@ -2898,13 +2946,14 @@ end
 
 -- Dissect: Request Time
 dissect.request_time = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.request_time)
+  local length = size_of.request_time
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.request_time(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.request_time, range, value, display)
 
-  return offset + size_of.request_time
+  return offset + length, value
 end
 
 -- Size: Aggressor Time
@@ -2917,13 +2966,14 @@ end
 
 -- Dissect: Aggressor Time
 dissect.aggressor_time = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.aggressor_time)
+  local length = size_of.aggressor_time
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.aggressor_time(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.aggressor_time, range, value, display)
 
-  return offset + size_of.aggressor_time
+  return offset + length, value
 end
 
 -- Display: Execution Summary
@@ -2936,37 +2986,37 @@ dissect.execution_summary_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Aggressor Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.aggressor_time(buffer, index, packet, parent)
+  index, aggressor_time = dissect.aggressor_time(buffer, index, packet, parent)
 
   -- Request Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.request_time(buffer, index, packet, parent)
+  index, request_time = dissect.request_time(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.exec_id(buffer, index, packet, parent)
+  index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
   -- Last Qty: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.last_qty(buffer, index, packet, parent)
+  index, last_qty = dissect.last_qty(buffer, index, packet, parent)
 
   -- Aggressor Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.aggressor_side(buffer, index, packet, parent)
+  index, aggressor_side = dissect.aggressor_side(buffer, index, packet, parent)
 
   -- Trade Condition: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index = dissect.trade_condition(buffer, index, packet, parent)
+  index, trade_condition = dissect.trade_condition(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
-  index = dissect.pad_6(buffer, index, packet, parent)
+  index, pad_6 = dissect.pad_6(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.last_px(buffer, index, packet, parent)
+  index, last_px = dissect.last_px(buffer, index, packet, parent)
 
   -- Resting Hidden Qty: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.resting_hidden_qty(buffer, index, packet, parent)
+  index, resting_hidden_qty = dissect.resting_hidden_qty(buffer, index, packet, parent)
 
   -- Resting Cxl Qty: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.resting_cxl_qty(buffer, index, packet, parent)
+  index, resting_cxl_qty = dissect.resting_cxl_qty(buffer, index, packet, parent)
 
   return index
 end
@@ -2993,13 +3043,14 @@ end
 
 -- Dissect: Pad 5
 dissect.pad_5 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.pad_5)
+  local length = size_of.pad_5
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
   local display = display.pad_5(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.pad_5, range, value, display)
 
-  return offset + size_of.pad_5
+  return offset + length, value
 end
 
 -- Size: Input Source
@@ -3016,13 +3067,14 @@ end
 
 -- Dissect: Input Source
 dissect.input_source = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.input_source)
+  local length = size_of.input_source
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.input_source(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.input_source, range, value, display)
 
-  return offset + size_of.input_source
+  return offset + length, value
 end
 
 -- Size: Cross Request Type
@@ -3042,13 +3094,14 @@ end
 
 -- Dissect: Cross Request Type
 dissect.cross_request_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.cross_request_type)
+  local length = size_of.cross_request_type
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.cross_request_type(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.cross_request_type, range, value, display)
 
-  return offset + size_of.cross_request_type
+  return offset + length, value
 end
 
 -- Display: Cross Request
@@ -3061,28 +3114,28 @@ dissect.cross_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.last_px(buffer, index, packet, parent)
+  index, last_px = dissect.last_px(buffer, index, packet, parent)
 
   -- Last Qty: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.last_qty(buffer, index, packet, parent)
+  index, last_qty = dissect.last_qty(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Cross Request Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.cross_request_type(buffer, index, packet, parent)
+  index, cross_request_type = dissect.cross_request_type(buffer, index, packet, parent)
 
   -- Input Source: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
-  index = dissect.input_source(buffer, index, packet, parent)
+  index, input_source = dissect.input_source(buffer, index, packet, parent)
 
   -- Pad 5: 5 Byte
-  index = dissect.pad_5(buffer, index, packet, parent)
+  index, pad_5 = dissect.pad_5(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   return index
 end
@@ -3116,13 +3169,14 @@ end
 
 -- Dissect: Potential Security Trading Event
 dissect.potential_security_trading_event = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.potential_security_trading_event)
+  local length = size_of.potential_security_trading_event
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.potential_security_trading_event(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.potential_security_trading_event, range, value, display)
 
-  return offset + size_of.potential_security_trading_event
+  return offset + length, value
 end
 
 -- Size: Imbalance Qty
@@ -3136,13 +3190,14 @@ end
 
 -- Dissect: Imbalance Qty
 dissect.imbalance_qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.imbalance_qty)
+  local length = size_of.imbalance_qty
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.imbalance_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.imbalance_qty, range, value, display)
 
-  return offset + size_of.imbalance_qty
+  return offset + length, value
 end
 
 -- Display: Auction Clearing Price
@@ -3155,28 +3210,28 @@ dissect.auction_clearing_price_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.last_px(buffer, index, packet, parent)
+  index, last_px = dissect.last_px(buffer, index, packet, parent)
 
   -- Last Qty: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.last_qty(buffer, index, packet, parent)
+  index, last_qty = dissect.last_qty(buffer, index, packet, parent)
 
   -- Imbalance Qty: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.imbalance_qty(buffer, index, packet, parent)
+  index, imbalance_qty = dissect.imbalance_qty(buffer, index, packet, parent)
 
   -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 20 values
-  index = dissect.security_trading_status(buffer, index, packet, parent)
+  index, security_trading_status = dissect.security_trading_status(buffer, index, packet, parent)
 
   -- Potential Security Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.potential_security_trading_event(buffer, index, packet, parent)
+  index, potential_security_trading_event = dissect.potential_security_trading_event(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
-  index = dissect.pad_6(buffer, index, packet, parent)
+  index, pad_6 = dissect.pad_6(buffer, index, packet, parent)
 
   return index
 end
@@ -3207,13 +3262,14 @@ end
 
 -- Dissect: Offer Ord Type
 dissect.offer_ord_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.offer_ord_type)
+  local length = size_of.offer_ord_type
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.offer_ord_type(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.offer_ord_type, range, value, display)
 
-  return offset + size_of.offer_ord_type
+  return offset + length, value
 end
 
 -- Size: Bid Ord Type
@@ -3230,13 +3286,14 @@ end
 
 -- Dissect: Bid Ord Type
 dissect.bid_ord_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.bid_ord_type)
+  local length = size_of.bid_ord_type
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.bid_ord_type(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.bid_ord_type, range, value, display)
 
-  return offset + size_of.bid_ord_type
+  return offset + length, value
 end
 
 -- Display: Auction Bbo
@@ -3249,34 +3306,34 @@ dissect.auction_bbo_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Bid Px: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_px(buffer, index, packet, parent)
+  index, bid_px = dissect.bid_px(buffer, index, packet, parent)
 
   -- Offer Px: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_px(buffer, index, packet, parent)
+  index, offer_px = dissect.offer_px(buffer, index, packet, parent)
 
   -- Bid Size: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size(buffer, index, packet, parent)
+  index, bid_size = dissect.bid_size(buffer, index, packet, parent)
 
   -- Offer Size: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size(buffer, index, packet, parent)
+  index, offer_size = dissect.offer_size(buffer, index, packet, parent)
 
   -- Potential Security Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.potential_security_trading_event(buffer, index, packet, parent)
+  index, potential_security_trading_event = dissect.potential_security_trading_event(buffer, index, packet, parent)
 
   -- Bid Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
-  index = dissect.bid_ord_type(buffer, index, packet, parent)
+  index, bid_ord_type = dissect.bid_ord_type(buffer, index, packet, parent)
 
   -- Offer Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
-  index = dissect.offer_ord_type(buffer, index, packet, parent)
+  index, offer_ord_type = dissect.offer_ord_type(buffer, index, packet, parent)
 
   -- Pad 5: 5 Byte
-  index = dissect.pad_5(buffer, index, packet, parent)
+  index, pad_5 = dissect.pad_5(buffer, index, packet, parent)
 
   return index
 end
@@ -3310,13 +3367,14 @@ end
 
 -- Dissect: Leg Side
 dissect.leg_side = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_side)
+  local length = size_of.leg_side
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.leg_side(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.leg_side, range, value, display)
 
-  return offset + size_of.leg_side
+  return offset + length, value
 end
 
 -- Size: Leg Security Type
@@ -3336,13 +3394,14 @@ end
 
 -- Dissect: Leg Security Type
 dissect.leg_security_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_security_type)
+  local length = size_of.leg_security_type
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.leg_security_type(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.leg_security_type, range, value, display)
 
-  return offset + size_of.leg_security_type
+  return offset + length, value
 end
 
 -- Size: Leg Ratio Qty
@@ -3355,13 +3414,14 @@ end
 
 -- Dissect: Leg Ratio Qty
 dissect.leg_ratio_qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_ratio_qty)
+  local length = size_of.leg_ratio_qty
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.leg_ratio_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.leg_ratio_qty, range, value, display)
 
-  return offset + size_of.leg_ratio_qty
+  return offset + length, value
 end
 
 -- Size: Leg Price
@@ -3375,13 +3435,14 @@ end
 
 -- Dissect: Leg Price
 dissect.leg_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_price)
+  local length = size_of.leg_price
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.leg_price(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.leg_price, range, value, display)
 
-  return offset + size_of.leg_price
+  return offset + length, value
 end
 
 -- Size: Leg Security Id
@@ -3394,13 +3455,14 @@ end
 
 -- Dissect: Leg Security Id
 dissect.leg_security_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_security_id)
+  local length = size_of.leg_security_id
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.leg_security_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.leg_security_id, range, value, display)
 
-  return offset + size_of.leg_security_id
+  return offset + length, value
 end
 
 -- Size: Leg Symbol
@@ -3413,13 +3475,14 @@ end
 
 -- Dissect: Leg Symbol
 dissect.leg_symbol = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_symbol)
+  local length = size_of.leg_symbol
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.leg_symbol(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.leg_symbol, range, value, display)
 
-  return offset + size_of.leg_symbol
+  return offset + length, value
 end
 
 -- Display: Instrmt Leg Grp
@@ -3432,28 +3495,28 @@ dissect.instrmt_leg_grp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Leg Symbol: 4 Byte Signed Fixed Width Integer
-  index = dissect.leg_symbol(buffer, index, packet, parent)
+  index, leg_symbol = dissect.leg_symbol(buffer, index, packet, parent)
 
   -- Pad 4: 4 Byte
-  index = dissect.pad_4(buffer, index, packet, parent)
+  index, pad_4 = dissect.pad_4(buffer, index, packet, parent)
 
   -- Leg Security Id: 8 Byte Signed Fixed Width Integer
-  index = dissect.leg_security_id(buffer, index, packet, parent)
+  index, leg_security_id = dissect.leg_security_id(buffer, index, packet, parent)
 
   -- Leg Price: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.leg_price(buffer, index, packet, parent)
+  index, leg_price = dissect.leg_price(buffer, index, packet, parent)
 
   -- Leg Ratio Qty: 4 Byte Signed Fixed Width Integer
-  index = dissect.leg_ratio_qty(buffer, index, packet, parent)
+  index, leg_ratio_qty = dissect.leg_ratio_qty(buffer, index, packet, parent)
 
   -- Leg Security Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.leg_security_type(buffer, index, packet, parent)
+  index, leg_security_type = dissect.leg_security_type(buffer, index, packet, parent)
 
   -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.leg_side(buffer, index, packet, parent)
+  index, leg_side = dissect.leg_side(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
-  index = dissect.pad_2(buffer, index, packet, parent)
+  index, pad_2 = dissect.pad_2(buffer, index, packet, parent)
 
   return index
 end
@@ -3480,13 +3543,14 @@ end
 
 -- Dissect: No Legs
 dissect.no_legs = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.no_legs)
+  local length = size_of.no_legs
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.no_legs(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.no_legs, range, value, display)
 
-  return offset + size_of.no_legs
+  return offset + length, value
 end
 
 -- Size: Implied Market Indicator
@@ -3506,13 +3570,14 @@ end
 
 -- Dissect: Implied Market Indicator
 dissect.implied_market_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.implied_market_indicator)
+  local length = size_of.implied_market_indicator
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.implied_market_indicator(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.implied_market_indicator, range, value, display)
 
-  return offset + size_of.implied_market_indicator
+  return offset + length, value
 end
 
 -- Size: Product Complex
@@ -3550,13 +3615,14 @@ end
 
 -- Dissect: Product Complex
 dissect.product_complex = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.product_complex)
+  local length = size_of.product_complex
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.product_complex(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.product_complex, range, value, display)
 
-  return offset + size_of.product_complex
+  return offset + length, value
 end
 
 -- Size: Security Sub Type
@@ -3569,13 +3635,14 @@ end
 
 -- Dissect: Security Sub Type
 dissect.security_sub_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_sub_type)
+  local length = size_of.security_sub_type
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.security_sub_type(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.security_sub_type, range, value, display)
 
-  return offset + size_of.security_sub_type
+  return offset + length, value
 end
 
 -- Calculate runtime size: Add Complex Instrument
@@ -3601,31 +3668,28 @@ dissect.add_complex_instrument_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Security Sub Type: 4 Byte Signed Fixed Width Integer
-  index = dissect.security_sub_type(buffer, index, packet, parent)
+  index, security_sub_type = dissect.security_sub_type(buffer, index, packet, parent)
 
   -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
-  index = dissect.product_complex(buffer, index, packet, parent)
+  index, product_complex = dissect.product_complex(buffer, index, packet, parent)
 
   -- Implied Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.implied_market_indicator(buffer, index, packet, parent)
+  index, implied_market_indicator = dissect.implied_market_indicator(buffer, index, packet, parent)
 
   -- No Legs: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.no_legs(buffer, index, packet, parent)
+  index, no_legs = dissect.no_legs(buffer, index, packet, parent)
 
   -- Pad 1: 1 Byte
-  index = dissect.pad_1(buffer, index, packet, parent)
-
-  -- Dependency element: No Legs
-  local instrmt_leg_grp_count = buffer(index - 2, 1):le_uint()
+  index, pad_1 = dissect.pad_1(buffer, index, packet, parent)
 
   -- Instrmt Leg Grp: Struct of 8 fields
-  for i = 1, instrmt_leg_grp_count do
+  for i = 1, no_legs do
     index = dissect.instrmt_leg_grp(buffer, index, packet, parent)
   end
 
@@ -3646,97 +3710,97 @@ dissect.add_complex_instrument = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, templateid)
+size_of.payload = function(buffer, offset, template_id)
   -- Size of Add Complex Instrument
-  if templateid == 13400 then
+  if template_id == 13400 then
     return size_of.add_complex_instrument(buffer, offset)
   end
   -- Size of Auction Bbo
-  if templateid == 13500 then
+  if template_id == 13500 then
     return 56
   end
   -- Size of Auction Clearing Price
-  if templateid == 13501 then
+  if template_id == 13501 then
     return 48
   end
   -- Size of Cross Request
-  if templateid == 13502 then
+  if template_id == 13502 then
     return 40
   end
   -- Size of Execution Summary
-  if templateid == 13202 then
+  if template_id == 13202 then
     return 72
   end
   -- Size of Full Order Execution
-  if templateid == 13104 then
+  if template_id == 13104 then
     return 48
   end
   -- Size of Heartbeat
-  if templateid == 13001 then
+  if template_id == 13001 then
     return 8
   end
   -- Size of Instrument State Change
-  if templateid == 13301 then
+  if template_id == 13301 then
     return 24
   end
   -- Size of Instrument Summary
-  if templateid == 13601 then
+  if template_id == 13601 then
     return size_of.instrument_summary(buffer, offset)
   end
   -- Size of Mass Instrument State Change
-  if templateid == 13302 then
+  if template_id == 13302 then
     return size_of.mass_instrument_state_change(buffer, offset)
   end
   -- Size of Order Add
-  if templateid == 13100 then
+  if template_id == 13100 then
     return 48
   end
   -- Size of Order Delete
-  if templateid == 13102 then
+  if template_id == 13102 then
     return 56
   end
   -- Size of Order Mass Delete
-  if templateid == 13103 then
+  if template_id == 13103 then
     return 16
   end
   -- Size of Order Modify
-  if templateid == 13101 then
+  if template_id == 13101 then
     return 72
   end
   -- Size of Order Modify Same Prio
-  if templateid == 13106 then
+  if template_id == 13106 then
     return 64
   end
   -- Size of Partial Order Execution
-  if templateid == 13105 then
+  if template_id == 13105 then
     return 48
   end
   -- Size of Product State Change
-  if templateid == 13300 then
+  if template_id == 13300 then
     return 16
   end
   -- Size of Product Summary
-  if templateid == 13600 then
+  if template_id == 13600 then
     return 16
   end
   -- Size of Quote Request
-  if templateid == 13503 then
+  if template_id == 13503 then
     return 32
   end
   -- Size of Snapshot Order
-  if templateid == 13602 then
+  if template_id == 13602 then
     return 32
   end
   -- Size of Top Of Book
-  if templateid == 13504 then
+  if template_id == 13504 then
     return 48
   end
   -- Size of Trade Report
-  if templateid == 13201 then
+  if template_id == 13201 then
     return 40
   end
   -- Size of Trade Reversal
-  if templateid == 13200 then
+  if template_id == 13200 then
     return size_of.trade_reversal(buffer, offset)
   end
 
@@ -3749,97 +3813,97 @@ display.payload = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Branches: Payload
-dissect.payload_branches = function(buffer, offset, packet, parent, templateid)
+dissect.payload_branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Add Complex Instrument
-  if templateid == 13400 then
+  if template_id == 13400 then
     return dissect.add_complex_instrument(buffer, offset, packet, parent)
   end
   -- Dissect Auction Bbo
-  if templateid == 13500 then
+  if template_id == 13500 then
     return dissect.auction_bbo(buffer, offset, packet, parent)
   end
   -- Dissect Auction Clearing Price
-  if templateid == 13501 then
+  if template_id == 13501 then
     return dissect.auction_clearing_price(buffer, offset, packet, parent)
   end
   -- Dissect Cross Request
-  if templateid == 13502 then
+  if template_id == 13502 then
     return dissect.cross_request(buffer, offset, packet, parent)
   end
   -- Dissect Execution Summary
-  if templateid == 13202 then
+  if template_id == 13202 then
     return dissect.execution_summary(buffer, offset, packet, parent)
   end
   -- Dissect Full Order Execution
-  if templateid == 13104 then
+  if template_id == 13104 then
     return dissect.full_order_execution(buffer, offset, packet, parent)
   end
   -- Dissect Heartbeat
-  if templateid == 13001 then
+  if template_id == 13001 then
     return dissect.heartbeat(buffer, offset, packet, parent)
   end
   -- Dissect Instrument State Change
-  if templateid == 13301 then
+  if template_id == 13301 then
     return dissect.instrument_state_change(buffer, offset, packet, parent)
   end
   -- Dissect Instrument Summary
-  if templateid == 13601 then
+  if template_id == 13601 then
     return dissect.instrument_summary(buffer, offset, packet, parent)
   end
   -- Dissect Mass Instrument State Change
-  if templateid == 13302 then
+  if template_id == 13302 then
     return dissect.mass_instrument_state_change(buffer, offset, packet, parent)
   end
   -- Dissect Order Add
-  if templateid == 13100 then
+  if template_id == 13100 then
     return dissect.order_add(buffer, offset, packet, parent)
   end
   -- Dissect Order Delete
-  if templateid == 13102 then
+  if template_id == 13102 then
     return dissect.order_delete(buffer, offset, packet, parent)
   end
   -- Dissect Order Mass Delete
-  if templateid == 13103 then
+  if template_id == 13103 then
     return dissect.order_mass_delete(buffer, offset, packet, parent)
   end
   -- Dissect Order Modify
-  if templateid == 13101 then
+  if template_id == 13101 then
     return dissect.order_modify(buffer, offset, packet, parent)
   end
   -- Dissect Order Modify Same Prio
-  if templateid == 13106 then
+  if template_id == 13106 then
     return dissect.order_modify_same_prio(buffer, offset, packet, parent)
   end
   -- Dissect Partial Order Execution
-  if templateid == 13105 then
+  if template_id == 13105 then
     return dissect.partial_order_execution(buffer, offset, packet, parent)
   end
   -- Dissect Product State Change
-  if templateid == 13300 then
+  if template_id == 13300 then
     return dissect.product_state_change(buffer, offset, packet, parent)
   end
   -- Dissect Product Summary
-  if templateid == 13600 then
+  if template_id == 13600 then
     return dissect.product_summary(buffer, offset, packet, parent)
   end
   -- Dissect Quote Request
-  if templateid == 13503 then
+  if template_id == 13503 then
     return dissect.quote_request(buffer, offset, packet, parent)
   end
   -- Dissect Snapshot Order
-  if templateid == 13602 then
+  if template_id == 13602 then
     return dissect.snapshot_order(buffer, offset, packet, parent)
   end
   -- Dissect Top Of Book
-  if templateid == 13504 then
+  if template_id == 13504 then
     return dissect.top_of_book(buffer, offset, packet, parent)
   end
   -- Dissect Trade Report
-  if templateid == 13201 then
+  if template_id == 13201 then
     return dissect.trade_report(buffer, offset, packet, parent)
   end
   -- Dissect Trade Reversal
-  if templateid == 13200 then
+  if template_id == 13200 then
     return dissect.trade_reversal(buffer, offset, packet, parent)
   end
 
@@ -3847,13 +3911,13 @@ dissect.payload_branches = function(buffer, offset, packet, parent, templateid)
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent, code)
+dissect.payload = function(buffer, offset, packet, parent, template_id)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, code)
+    return dissect.payload_branches(buffer, offset, packet, parent, template_id)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, code)
+  local size = size_of.payload(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
@@ -3863,7 +3927,7 @@ dissect.payload = function(buffer, offset, packet, parent, code)
   local display = display.payload(buffer, packet, parent)
   local element = parent:add(eurex_derivatives_eobi_t7_v8_0.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, code)
+  return dissect.payload_branches(buffer, offset, packet, parent, template_id)
 end
 
 -- Size: Msg Seq Num
@@ -3876,13 +3940,14 @@ end
 
 -- Dissect: Msg Seq Num
 dissect.msg_seq_num = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.msg_seq_num)
+  local length = size_of.msg_seq_num
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.msg_seq_num(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.msg_seq_num, range, value, display)
 
-  return offset + size_of.msg_seq_num
+  return offset + length, value
 end
 
 -- Size: Template Id
@@ -3895,13 +3960,14 @@ end
 
 -- Dissect: Template Id
 dissect.template_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.template_id)
+  local length = size_of.template_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.template_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.template_id, range, value, display)
 
-  return offset + size_of.template_id
+  return offset + length, value
 end
 
 -- Size: Body Len
@@ -3914,13 +3980,14 @@ end
 
 -- Dissect: Body Len
 dissect.body_len = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.body_len)
+  local length = size_of.body_len
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.body_len(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.body_len, range, value, display)
 
-  return offset + size_of.body_len
+  return offset + length, value
 end
 
 -- Display: Message Header
@@ -3933,13 +4000,13 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Body Len: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.body_len(buffer, index, packet, parent)
+  index, body_len = dissect.body_len(buffer, index, packet, parent)
 
   -- Template Id: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.template_id(buffer, index, packet, parent)
+  index, template_id = dissect.template_id(buffer, index, packet, parent)
 
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.msg_seq_num(buffer, index, packet, parent)
+  index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
   return index
 end
@@ -3971,13 +4038,13 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 3 fields
-  index = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
-  local code = buffer(index - 6, 2):le_uint()
+  local template_id = buffer(index - 6, 2):le_uint()
 
   -- Payload: Runtime Type with 23 branches
-  index = dissect.payload(buffer, index, packet, parent, code)
+  index = dissect.payload(buffer, index, packet, parent, template_id)
 
   return index
 end
@@ -4008,13 +4075,14 @@ end
 
 -- Dissect: Pad5
 dissect.pad5 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.pad5)
+  local length = size_of.pad5
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
   local display = display.pad5(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.pad5, range, value, display)
 
-  return offset + size_of.pad5
+  return offset + length, value
 end
 
 -- Size: Application Sequence Reset Indicator
@@ -4034,13 +4102,14 @@ end
 
 -- Dissect: Application Sequence Reset Indicator
 dissect.application_sequence_reset_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.application_sequence_reset_indicator)
+  local length = size_of.application_sequence_reset_indicator
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.application_sequence_reset_indicator(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.application_sequence_reset_indicator, range, value, display)
 
-  return offset + size_of.application_sequence_reset_indicator
+  return offset + length, value
 end
 
 -- Size: Completion Indicator
@@ -4060,13 +4129,14 @@ end
 
 -- Dissect: Completion Indicator
 dissect.completion_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.completion_indicator)
+  local length = size_of.completion_indicator
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.completion_indicator(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.completion_indicator, range, value, display)
 
-  return offset + size_of.completion_indicator
+  return offset + length, value
 end
 
 -- Size: Partition ID
@@ -4079,13 +4149,14 @@ end
 
 -- Dissect: Partition ID
 dissect.partition_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.partition_id)
+  local length = size_of.partition_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.partition_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.partition_id, range, value, display)
 
-  return offset + size_of.partition_id
+  return offset + length, value
 end
 
 -- Size: Market Segment ID
@@ -4098,13 +4169,14 @@ end
 
 -- Dissect: Market Segment ID
 dissect.market_segment_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.market_segment_id)
+  local length = size_of.market_segment_id
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.market_segment_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.market_segment_id, range, value, display)
 
-  return offset + size_of.market_segment_id
+  return offset + length, value
 end
 
 -- Size: Application Sequence Number
@@ -4117,13 +4189,14 @@ end
 
 -- Dissect: Application Sequence Number
 dissect.application_sequence_number = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.application_sequence_number)
+  local length = size_of.application_sequence_number
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.application_sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.application_sequence_number, range, value, display)
 
-  return offset + size_of.application_sequence_number
+  return offset + length, value
 end
 
 -- Size: Packet Seq Num
@@ -4136,13 +4209,14 @@ end
 
 -- Dissect: Packet Seq Num
 dissect.packet_seq_num = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.packet_seq_num)
+  local length = size_of.packet_seq_num
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.packet_seq_num(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.packet_seq_num, range, value, display)
 
-  return offset + size_of.packet_seq_num
+  return offset + length, value
 end
 
 -- Size: Packet Id
@@ -4155,13 +4229,14 @@ end
 
 -- Dissect: Packet Id
 dissect.packet_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.packet_id)
+  local length = size_of.packet_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.packet_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.packet_id, range, value, display)
 
-  return offset + size_of.packet_id
+  return offset + length, value
 end
 
 -- Size: Header Length
@@ -4174,13 +4249,14 @@ end
 
 -- Dissect: Header Length
 dissect.header_length = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.header_length)
+  local length = size_of.header_length
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.header_length(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v8_0.fields.header_length, range, value, display)
 
-  return offset + size_of.header_length
+  return offset + length, value
 end
 
 -- Display: Packet Info
@@ -4193,13 +4269,13 @@ dissect.packet_info_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Header Length: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.header_length(buffer, index, packet, parent)
+  index, header_length = dissect.header_length(buffer, index, packet, parent)
 
   -- Packet Id: 2 Byte Unsigned Fixed Width Integer Static
-  index = dissect.packet_id(buffer, index, packet, parent)
+  index, packet_id = dissect.packet_id(buffer, index, packet, parent)
 
   -- Packet Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.packet_seq_num(buffer, index, packet, parent)
+  index, packet_seq_num = dissect.packet_seq_num(buffer, index, packet, parent)
 
   return index
 end
@@ -4226,28 +4302,28 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Info: Struct of 3 fields
-  index = dissect.packet_info(buffer, index, packet, parent)
+  index, packet_info = dissect.packet_info(buffer, index, packet, parent)
 
   -- Application Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.application_sequence_number(buffer, index, packet, parent)
+  index, application_sequence_number = dissect.application_sequence_number(buffer, index, packet, parent)
 
   -- Market Segment ID: 4 Byte Signed Fixed Width Integer
-  index = dissect.market_segment_id(buffer, index, packet, parent)
+  index, market_segment_id = dissect.market_segment_id(buffer, index, packet, parent)
 
   -- Partition ID: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.partition_id(buffer, index, packet, parent)
+  index, partition_id = dissect.partition_id(buffer, index, packet, parent)
 
   -- Completion Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.completion_indicator(buffer, index, packet, parent)
+  index, completion_indicator = dissect.completion_indicator(buffer, index, packet, parent)
 
   -- Application Sequence Reset Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.application_sequence_reset_indicator(buffer, index, packet, parent)
+  index, application_sequence_reset_indicator = dissect.application_sequence_reset_indicator(buffer, index, packet, parent)
 
   -- Pad5: 5 Byte
-  index = dissect.pad5(buffer, index, packet, parent)
+  index, pad5 = dissect.pad5(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   return index
 end
@@ -4269,7 +4345,7 @@ dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 8 fields
-  index = dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = dissect.packet_header(buffer, index, packet, parent)
 
   -- Message: Struct of 2 fields
   local end_of_payload = buffer:len()

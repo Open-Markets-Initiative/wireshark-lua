@@ -237,13 +237,14 @@ end
 
 -- Dissect: Volume
 dissect.volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.volume)
+  local length = size_of.volume
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.volume(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.volume, range, value, display)
 
-  return offset + size_of.volume
+  return offset + length, value
 end
 
 -- Size: Debit Or Credit
@@ -269,13 +270,14 @@ end
 
 -- Dissect: Debit Or Credit
 dissect.debit_or_credit = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.debit_or_credit)
+  local length = size_of.debit_or_credit
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.debit_or_credit(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.debit_or_credit, range, value, display)
 
-  return offset + size_of.debit_or_credit
+  return offset + length, value
 end
 
 -- Size: Auction Side
@@ -298,13 +300,14 @@ end
 
 -- Dissect: Auction Side
 dissect.auction_side = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.auction_side)
+  local length = size_of.auction_side
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.auction_side(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.auction_side, range, value, display)
 
-  return offset + size_of.auction_side
+  return offset + length, value
 end
 
 -- Size: Price
@@ -317,13 +320,14 @@ end
 
 -- Dissect: Price
 dissect.price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price)
+  local length = size_of.price
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.price, range, value, display)
 
-  return offset + size_of.price
+  return offset + length, value
 end
 
 -- Size: Auction Type
@@ -355,13 +359,14 @@ end
 
 -- Dissect: Auction Type
 dissect.auction_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.auction_type)
+  local length = size_of.auction_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.auction_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.auction_type, range, value, display)
 
-  return offset + size_of.auction_type
+  return offset + length, value
 end
 
 -- Size: Auction Id
@@ -374,13 +379,14 @@ end
 
 -- Dissect: Auction Id
 dissect.auction_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.auction_id)
+  local length = size_of.auction_id
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.auction_id(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.auction_id, range, value, display)
 
-  return offset + size_of.auction_id
+  return offset + length, value
 end
 
 -- Size: Strategy Id
@@ -393,13 +399,14 @@ end
 
 -- Dissect: Strategy Id
 dissect.strategy_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.strategy_id)
+  local length = size_of.strategy_id
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.strategy_id(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.strategy_id, range, value, display)
 
-  return offset + size_of.strategy_id
+  return offset + length, value
 end
 
 -- Size: Nanoseconds
@@ -412,13 +419,14 @@ end
 
 -- Dissect: Nanoseconds
 dissect.nanoseconds = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.nanoseconds)
+  local length = size_of.nanoseconds
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.nanoseconds(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.nanoseconds, range, value, display)
 
-  return offset + size_of.nanoseconds
+  return offset + length, value
 end
 
 -- Size: Seconds
@@ -431,13 +439,14 @@ end
 
 -- Dissect: Seconds
 dissect.seconds = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.seconds)
+  local length = size_of.seconds
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.seconds(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.seconds, range, value, display)
 
-  return offset + size_of.seconds
+  return offset + length, value
 end
 
 -- Display: Complex Auction Notification Message
@@ -450,31 +459,31 @@ dissect.complex_auction_notification_message_fields = function(buffer, offset, p
   local index = offset
 
   -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seconds(buffer, index, packet, parent)
+  index, seconds = dissect.seconds(buffer, index, packet, parent)
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
 
   -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strategy_id(buffer, index, packet, parent)
+  index, strategy_id = dissect.strategy_id(buffer, index, packet, parent)
 
   -- Auction Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.auction_id(buffer, index, packet, parent)
+  index, auction_id = dissect.auction_id(buffer, index, packet, parent)
 
   -- Auction Type: 1 Byte Ascii String Enum with 6 values
-  index = dissect.auction_type(buffer, index, packet, parent)
+  index, auction_type = dissect.auction_type(buffer, index, packet, parent)
 
   -- Price: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Auction Side: 1 Byte Ascii String Enum with 3 values
-  index = dissect.auction_side(buffer, index, packet, parent)
+  index, auction_side = dissect.auction_side(buffer, index, packet, parent)
 
   -- Debit Or Credit: 1 Byte Ascii String Enum with 4 values
-  index = dissect.debit_or_credit(buffer, index, packet, parent)
+  index, debit_or_credit = dissect.debit_or_credit(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.volume(buffer, index, packet, parent)
+  index, volume = dissect.volume(buffer, index, packet, parent)
 
   return index
 end
@@ -501,13 +510,14 @@ end
 
 -- Dissect: Reserved
 dissect.reserved = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved)
+  local length = size_of.reserved
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.reserved(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.reserved, range, value, display)
 
-  return offset + size_of.reserved
+  return offset + length, value
 end
 
 -- Size: Imbalance Volume
@@ -520,13 +530,14 @@ end
 
 -- Dissect: Imbalance Volume
 dissect.imbalance_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.imbalance_volume)
+  local length = size_of.imbalance_volume
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.imbalance_volume(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.imbalance_volume, range, value, display)
 
-  return offset + size_of.imbalance_volume
+  return offset + length, value
 end
 
 -- Size: Matched Volume
@@ -539,13 +550,14 @@ end
 
 -- Dissect: Matched Volume
 dissect.matched_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.matched_volume)
+  local length = size_of.matched_volume
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.matched_volume(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.matched_volume, range, value, display)
 
-  return offset + size_of.matched_volume
+  return offset + length, value
 end
 
 -- Size: Option Type
@@ -568,13 +580,14 @@ end
 
 -- Dissect: Option Type
 dissect.option_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.option_type)
+  local length = size_of.option_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.option_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.option_type, range, value, display)
 
-  return offset + size_of.option_type
+  return offset + length, value
 end
 
 -- Size: Explicit Strike Price
@@ -587,13 +600,14 @@ end
 
 -- Dissect: Explicit Strike Price
 dissect.explicit_strike_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.explicit_strike_price)
+  local length = size_of.explicit_strike_price
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.explicit_strike_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.explicit_strike_price, range, value, display)
 
-  return offset + size_of.explicit_strike_price
+  return offset + length, value
 end
 
 -- Display: Expiration
@@ -641,13 +655,14 @@ end
 
 -- Dissect: Security Symbol
 dissect.security_symbol = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_symbol)
+  local length = size_of.security_symbol
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.security_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.security_symbol, range, value, display)
 
-  return offset + size_of.security_symbol
+  return offset + length, value
 end
 
 -- Size: Option Id
@@ -660,13 +675,14 @@ end
 
 -- Dissect: Option Id
 dissect.option_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.option_id)
+  local length = size_of.option_id
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.option_id(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.option_id, range, value, display)
 
-  return offset + size_of.option_id
+  return offset + length, value
 end
 
 -- Display: Auction Notification Message
@@ -679,46 +695,46 @@ dissect.auction_notification_message_fields = function(buffer, offset, packet, p
   local index = offset
 
   -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seconds(buffer, index, packet, parent)
+  index, seconds = dissect.seconds(buffer, index, packet, parent)
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.option_id(buffer, index, packet, parent)
+  index, option_id = dissect.option_id(buffer, index, packet, parent)
 
   -- Security Symbol: 5 Byte Ascii String
-  index = dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
 
   -- Expiration: Struct of 3 fields
-  index = dissect.expiration(buffer, index, packet, parent)
+  index, expiration = dissect.expiration(buffer, index, packet, parent)
 
   -- Explicit Strike Price: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.explicit_strike_price(buffer, index, packet, parent)
+  index, explicit_strike_price = dissect.explicit_strike_price(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Ascii String Enum with 3 values
-  index = dissect.option_type(buffer, index, packet, parent)
+  index, option_type = dissect.option_type(buffer, index, packet, parent)
 
   -- Auction Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.auction_id(buffer, index, packet, parent)
+  index, auction_id = dissect.auction_id(buffer, index, packet, parent)
 
   -- Auction Type: 1 Byte Ascii String Enum with 6 values
-  index = dissect.auction_type(buffer, index, packet, parent)
+  index, auction_type = dissect.auction_type(buffer, index, packet, parent)
 
   -- Price: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Auction Side: 1 Byte Ascii String Enum with 3 values
-  index = dissect.auction_side(buffer, index, packet, parent)
+  index, auction_side = dissect.auction_side(buffer, index, packet, parent)
 
   -- Matched Volume: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.matched_volume(buffer, index, packet, parent)
+  index, matched_volume = dissect.matched_volume(buffer, index, packet, parent)
 
   -- Imbalance Volume: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.imbalance_volume(buffer, index, packet, parent)
+  index, imbalance_volume = dissect.imbalance_volume(buffer, index, packet, parent)
 
   -- Reserved: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.reserved(buffer, index, packet, parent)
+  index, reserved = dissect.reserved(buffer, index, packet, parent)
 
   return index
 end
@@ -745,13 +761,14 @@ end
 
 -- Dissect: Leg Ratio
 dissect.leg_ratio = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_ratio)
+  local length = size_of.leg_ratio
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.leg_ratio(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.leg_ratio, range, value, display)
 
-  return offset + size_of.leg_ratio
+  return offset + length, value
 end
 
 -- Size: Side
@@ -774,13 +791,14 @@ end
 
 -- Dissect: Side
 dissect.side = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.side)
+  local length = size_of.side
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.side(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.side, range, value, display)
 
-  return offset + size_of.side
+  return offset + length, value
 end
 
 -- Size: Leg Open Close Indicator
@@ -803,13 +821,14 @@ end
 
 -- Dissect: Leg Open Close Indicator
 dissect.leg_open_close_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_open_close_indicator)
+  local length = size_of.leg_open_close_indicator
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.leg_open_close_indicator(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.leg_open_close_indicator, range, value, display)
 
-  return offset + size_of.leg_open_close_indicator
+  return offset + length, value
 end
 
 -- Display: Complex Order Leg
@@ -822,28 +841,28 @@ dissect.complex_order_leg_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Leg Open Close Indicator: 1 Byte Ascii String Enum with 3 values
-  index = dissect.leg_open_close_indicator(buffer, index, packet, parent)
+  index, leg_open_close_indicator = dissect.leg_open_close_indicator(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.option_id(buffer, index, packet, parent)
+  index, option_id = dissect.option_id(buffer, index, packet, parent)
 
   -- Security Symbol: 5 Byte Ascii String
-  index = dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
 
   -- Expiration: Struct of 3 fields
-  index = dissect.expiration(buffer, index, packet, parent)
+  index, expiration = dissect.expiration(buffer, index, packet, parent)
 
   -- Explicit Strike Price: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.explicit_strike_price(buffer, index, packet, parent)
+  index, explicit_strike_price = dissect.explicit_strike_price(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Ascii String Enum with 3 values
-  index = dissect.option_type(buffer, index, packet, parent)
+  index, option_type = dissect.option_type(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 3 values
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Leg Ratio: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.leg_ratio(buffer, index, packet, parent)
+  index, leg_ratio = dissect.leg_ratio(buffer, index, packet, parent)
 
   return index
 end
@@ -870,13 +889,14 @@ end
 
 -- Dissect: Number Of Legs
 dissect.number_of_legs = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.number_of_legs)
+  local length = size_of.number_of_legs
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.number_of_legs(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.number_of_legs, range, value, display)
 
-  return offset + size_of.number_of_legs
+  return offset + length, value
 end
 
 -- Size: Underlying Symbol
@@ -889,13 +909,14 @@ end
 
 -- Dissect: Underlying Symbol
 dissect.underlying_symbol = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.underlying_symbol)
+  local length = size_of.underlying_symbol
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.underlying_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.underlying_symbol, range, value, display)
 
-  return offset + size_of.underlying_symbol
+  return offset + length, value
 end
 
 -- Size: Customer Firm Indicator
@@ -927,13 +948,14 @@ end
 
 -- Dissect: Customer Firm Indicator
 dissect.customer_firm_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.customer_firm_indicator)
+  local length = size_of.customer_firm_indicator
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.customer_firm_indicator(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.customer_firm_indicator, range, value, display)
 
-  return offset + size_of.customer_firm_indicator
+  return offset + length, value
 end
 
 -- Size: Time In Force
@@ -956,13 +978,14 @@ end
 
 -- Dissect: Time In Force
 dissect.time_in_force = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.time_in_force)
+  local length = size_of.time_in_force
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.time_in_force(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.time_in_force, range, value, display)
 
-  return offset + size_of.time_in_force
+  return offset + length, value
 end
 
 -- Size: All Or None
@@ -982,13 +1005,14 @@ end
 
 -- Dissect: All Or None
 dissect.all_or_none = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.all_or_none)
+  local length = size_of.all_or_none
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.all_or_none(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.all_or_none, range, value, display)
 
-  return offset + size_of.all_or_none
+  return offset + length, value
 end
 
 -- Size: Limit Price
@@ -1001,13 +1025,14 @@ end
 
 -- Dissect: Limit Price
 dissect.limit_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.limit_price)
+  local length = size_of.limit_price
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.limit_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.limit_price, range, value, display)
 
-  return offset + size_of.limit_price
+  return offset + length, value
 end
 
 -- Size: Order Type
@@ -1030,13 +1055,14 @@ end
 
 -- Dissect: Order Type
 dissect.order_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.order_type)
+  local length = size_of.order_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.order_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.order_type, range, value, display)
 
-  return offset + size_of.order_type
+  return offset + length, value
 end
 
 -- Size: Order Status
@@ -1062,13 +1088,14 @@ end
 
 -- Dissect: Order Status
 dissect.order_status = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.order_status)
+  local length = size_of.order_status
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.order_status(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.order_status, range, value, display)
 
-  return offset + size_of.order_status
+  return offset + length, value
 end
 
 -- Size: Executable Order Volume
@@ -1081,13 +1108,14 @@ end
 
 -- Dissect: Executable Order Volume
 dissect.executable_order_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.executable_order_volume)
+  local length = size_of.executable_order_volume
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.executable_order_volume(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.executable_order_volume, range, value, display)
 
-  return offset + size_of.executable_order_volume
+  return offset + length, value
 end
 
 -- Size: Original Order Volume
@@ -1100,13 +1128,14 @@ end
 
 -- Dissect: Original Order Volume
 dissect.original_order_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.original_order_volume)
+  local length = size_of.original_order_volume
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.original_order_volume(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.original_order_volume, range, value, display)
 
-  return offset + size_of.original_order_volume
+  return offset + length, value
 end
 
 -- Size: Order Id
@@ -1119,13 +1148,14 @@ end
 
 -- Dissect: Order Id
 dissect.order_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.order_id)
+  local length = size_of.order_id
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.order_id(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.order_id, range, value, display)
 
-  return offset + size_of.order_id
+  return offset + length, value
 end
 
 -- Calculate runtime size: Complex Order Message
@@ -1151,58 +1181,55 @@ dissect.complex_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seconds(buffer, index, packet, parent)
+  index, seconds = dissect.seconds(buffer, index, packet, parent)
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
 
   -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strategy_id(buffer, index, packet, parent)
+  index, strategy_id = dissect.strategy_id(buffer, index, packet, parent)
 
   -- Order Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 3 values
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Original Order Volume: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.original_order_volume(buffer, index, packet, parent)
+  index, original_order_volume = dissect.original_order_volume(buffer, index, packet, parent)
 
   -- Executable Order Volume: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.executable_order_volume(buffer, index, packet, parent)
+  index, executable_order_volume = dissect.executable_order_volume(buffer, index, packet, parent)
 
   -- Order Status: 1 Byte Ascii String Enum with 4 values
-  index = dissect.order_status(buffer, index, packet, parent)
+  index, order_status = dissect.order_status(buffer, index, packet, parent)
 
   -- Order Type: 1 Byte Ascii String Enum with 3 values
-  index = dissect.order_type(buffer, index, packet, parent)
+  index, order_type = dissect.order_type(buffer, index, packet, parent)
 
   -- Limit Price: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.limit_price(buffer, index, packet, parent)
+  index, limit_price = dissect.limit_price(buffer, index, packet, parent)
 
   -- Debit Or Credit: 1 Byte Ascii String Enum with 4 values
-  index = dissect.debit_or_credit(buffer, index, packet, parent)
+  index, debit_or_credit = dissect.debit_or_credit(buffer, index, packet, parent)
 
   -- All Or None: 1 Byte Ascii String Enum with 2 values
-  index = dissect.all_or_none(buffer, index, packet, parent)
+  index, all_or_none = dissect.all_or_none(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Ascii String Enum with 3 values
-  index = dissect.time_in_force(buffer, index, packet, parent)
+  index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Customer Firm Indicator: 1 Byte Ascii String Enum with 6 values
-  index = dissect.customer_firm_indicator(buffer, index, packet, parent)
+  index, customer_firm_indicator = dissect.customer_firm_indicator(buffer, index, packet, parent)
 
   -- Underlying Symbol: 13 Byte Ascii String
-  index = dissect.underlying_symbol(buffer, index, packet, parent)
+  index, underlying_symbol = dissect.underlying_symbol(buffer, index, packet, parent)
 
   -- Number Of Legs: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.number_of_legs(buffer, index, packet, parent)
-
-  -- Dependency element: Number Of Legs
-  local complex_order_leg_count = buffer(index - 1, 1):uint()
+  index, number_of_legs = dissect.number_of_legs(buffer, index, packet, parent)
 
   -- Complex Order Leg: Struct of 8 fields
-  for i = 1, complex_order_leg_count do
+  for i = 1, number_of_legs do
     index = dissect.complex_order_leg(buffer, index, packet, parent)
   end
 
@@ -1242,13 +1269,14 @@ end
 
 -- Dissect: Open Close Indicator
 dissect.open_close_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.open_close_indicator)
+  local length = size_of.open_close_indicator
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.open_close_indicator(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.open_close_indicator, range, value, display)
 
-  return offset + size_of.open_close_indicator
+  return offset + length, value
 end
 
 -- Size: Market Qualifier
@@ -1271,13 +1299,14 @@ end
 
 -- Dissect: Market Qualifier
 dissect.market_qualifier = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.market_qualifier)
+  local length = size_of.market_qualifier
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.market_qualifier(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.market_qualifier, range, value, display)
 
-  return offset + size_of.market_qualifier
+  return offset + length, value
 end
 
 -- Display: Simple Order Message
@@ -1290,61 +1319,61 @@ dissect.simple_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seconds(buffer, index, packet, parent)
+  index, seconds = dissect.seconds(buffer, index, packet, parent)
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.option_id(buffer, index, packet, parent)
+  index, option_id = dissect.option_id(buffer, index, packet, parent)
 
   -- Security Symbol: 5 Byte Ascii String
-  index = dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
 
   -- Expiration: Struct of 3 fields
-  index = dissect.expiration(buffer, index, packet, parent)
+  index, expiration = dissect.expiration(buffer, index, packet, parent)
 
   -- Explicit Strike Price: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.explicit_strike_price(buffer, index, packet, parent)
+  index, explicit_strike_price = dissect.explicit_strike_price(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Ascii String Enum with 3 values
-  index = dissect.option_type(buffer, index, packet, parent)
+  index, option_type = dissect.option_type(buffer, index, packet, parent)
 
   -- Order Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 3 values
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Original Order Volume: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.original_order_volume(buffer, index, packet, parent)
+  index, original_order_volume = dissect.original_order_volume(buffer, index, packet, parent)
 
   -- Executable Order Volume: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.executable_order_volume(buffer, index, packet, parent)
+  index, executable_order_volume = dissect.executable_order_volume(buffer, index, packet, parent)
 
   -- Order Status: 1 Byte Ascii String Enum with 4 values
-  index = dissect.order_status(buffer, index, packet, parent)
+  index, order_status = dissect.order_status(buffer, index, packet, parent)
 
   -- Order Type: 1 Byte Ascii String Enum with 3 values
-  index = dissect.order_type(buffer, index, packet, parent)
+  index, order_type = dissect.order_type(buffer, index, packet, parent)
 
   -- Market Qualifier: 1 Byte Ascii String Enum with 3 values
-  index = dissect.market_qualifier(buffer, index, packet, parent)
+  index, market_qualifier = dissect.market_qualifier(buffer, index, packet, parent)
 
   -- Limit Price: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.limit_price(buffer, index, packet, parent)
+  index, limit_price = dissect.limit_price(buffer, index, packet, parent)
 
   -- All Or None: 1 Byte Ascii String Enum with 2 values
-  index = dissect.all_or_none(buffer, index, packet, parent)
+  index, all_or_none = dissect.all_or_none(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Ascii String Enum with 3 values
-  index = dissect.time_in_force(buffer, index, packet, parent)
+  index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Customer Firm Indicator: 1 Byte Ascii String Enum with 6 values
-  index = dissect.customer_firm_indicator(buffer, index, packet, parent)
+  index, customer_firm_indicator = dissect.customer_firm_indicator(buffer, index, packet, parent)
 
   -- Open Close Indicator: 1 Byte Ascii String Enum with 3 values
-  index = dissect.open_close_indicator(buffer, index, packet, parent)
+  index, open_close_indicator = dissect.open_close_indicator(buffer, index, packet, parent)
 
   return index
 end
@@ -1378,13 +1407,14 @@ end
 
 -- Dissect: Open State
 dissect.open_state = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.open_state)
+  local length = size_of.open_state
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.open_state(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.open_state, range, value, display)
 
-  return offset + size_of.open_state
+  return offset + length, value
 end
 
 -- Display: Strategy Open Closed Message
@@ -1397,16 +1427,16 @@ dissect.strategy_open_closed_message_fields = function(buffer, offset, packet, p
   local index = offset
 
   -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seconds(buffer, index, packet, parent)
+  index, seconds = dissect.seconds(buffer, index, packet, parent)
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
 
   -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strategy_id(buffer, index, packet, parent)
+  index, strategy_id = dissect.strategy_id(buffer, index, packet, parent)
 
   -- Open State: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.open_state(buffer, index, packet, parent)
+  index, open_state = dissect.open_state(buffer, index, packet, parent)
 
   return index
 end
@@ -1433,28 +1463,28 @@ dissect.security_open_closed_message_fields = function(buffer, offset, packet, p
   local index = offset
 
   -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seconds(buffer, index, packet, parent)
+  index, seconds = dissect.seconds(buffer, index, packet, parent)
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.option_id(buffer, index, packet, parent)
+  index, option_id = dissect.option_id(buffer, index, packet, parent)
 
   -- Security Symbol: 5 Byte Ascii String
-  index = dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
 
   -- Expiration: Struct of 3 fields
-  index = dissect.expiration(buffer, index, packet, parent)
+  index, expiration = dissect.expiration(buffer, index, packet, parent)
 
   -- Explicit Strike Price: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.explicit_strike_price(buffer, index, packet, parent)
+  index, explicit_strike_price = dissect.explicit_strike_price(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Ascii String Enum with 3 values
-  index = dissect.option_type(buffer, index, packet, parent)
+  index, option_type = dissect.option_type(buffer, index, packet, parent)
 
   -- Open State: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.open_state(buffer, index, packet, parent)
+  index, open_state = dissect.open_state(buffer, index, packet, parent)
 
   return index
 end
@@ -1488,13 +1518,14 @@ end
 
 -- Dissect: Current Trading State
 dissect.current_trading_state = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.current_trading_state)
+  local length = size_of.current_trading_state
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.current_trading_state(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.current_trading_state, range, value, display)
 
-  return offset + size_of.current_trading_state
+  return offset + length, value
 end
 
 -- Display: Complex Trading Action Message
@@ -1507,16 +1538,16 @@ dissect.complex_trading_action_message_fields = function(buffer, offset, packet,
   local index = offset
 
   -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seconds(buffer, index, packet, parent)
+  index, seconds = dissect.seconds(buffer, index, packet, parent)
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
 
   -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strategy_id(buffer, index, packet, parent)
+  index, strategy_id = dissect.strategy_id(buffer, index, packet, parent)
 
   -- Current Trading State: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.current_trading_state(buffer, index, packet, parent)
+  index, current_trading_state = dissect.current_trading_state(buffer, index, packet, parent)
 
   return index
 end
@@ -1543,28 +1574,28 @@ dissect.security_trading_action_message_fields = function(buffer, offset, packet
   local index = offset
 
   -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seconds(buffer, index, packet, parent)
+  index, seconds = dissect.seconds(buffer, index, packet, parent)
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.option_id(buffer, index, packet, parent)
+  index, option_id = dissect.option_id(buffer, index, packet, parent)
 
   -- Security Symbol: 5 Byte Ascii String
-  index = dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
 
   -- Expiration: Struct of 3 fields
-  index = dissect.expiration(buffer, index, packet, parent)
+  index, expiration = dissect.expiration(buffer, index, packet, parent)
 
   -- Explicit Strike Price: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.explicit_strike_price(buffer, index, packet, parent)
+  index, explicit_strike_price = dissect.explicit_strike_price(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Ascii String Enum with 3 values
-  index = dissect.option_type(buffer, index, packet, parent)
+  index, option_type = dissect.option_type(buffer, index, packet, parent)
 
   -- Current Trading State: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.current_trading_state(buffer, index, packet, parent)
+  index, current_trading_state = dissect.current_trading_state(buffer, index, packet, parent)
 
   return index
 end
@@ -1591,25 +1622,25 @@ dissect.complex_order_strategy_leg_fields = function(buffer, offset, packet, par
   local index = offset
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.option_id(buffer, index, packet, parent)
+  index, option_id = dissect.option_id(buffer, index, packet, parent)
 
   -- Security Symbol: 5 Byte Ascii String
-  index = dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
 
   -- Expiration: Struct of 3 fields
-  index = dissect.expiration(buffer, index, packet, parent)
+  index, expiration = dissect.expiration(buffer, index, packet, parent)
 
   -- Explicit Strike Price: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.explicit_strike_price(buffer, index, packet, parent)
+  index, explicit_strike_price = dissect.explicit_strike_price(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Ascii String Enum with 3 values
-  index = dissect.option_type(buffer, index, packet, parent)
+  index, option_type = dissect.option_type(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 3 values
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Leg Ratio: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.leg_ratio(buffer, index, packet, parent)
+  index, leg_ratio = dissect.leg_ratio(buffer, index, packet, parent)
 
   return index
 end
@@ -1643,13 +1674,14 @@ end
 
 -- Dissect: Action
 dissect.action = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.action)
+  local length = size_of.action
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.action(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.action, range, value, display)
 
-  return offset + size_of.action
+  return offset + length, value
 end
 
 -- Size: Source
@@ -1662,13 +1694,14 @@ end
 
 -- Dissect: Source
 dissect.source = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.source)
+  local length = size_of.source
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.source(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.source, range, value, display)
 
-  return offset + size_of.source
+  return offset + length, value
 end
 
 -- Calculate runtime size: Complex Order Strategy Message
@@ -1694,31 +1727,28 @@ dissect.complex_order_strategy_message_fields = function(buffer, offset, packet,
   local index = offset
 
   -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seconds(buffer, index, packet, parent)
+  index, seconds = dissect.seconds(buffer, index, packet, parent)
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
 
   -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strategy_id(buffer, index, packet, parent)
+  index, strategy_id = dissect.strategy_id(buffer, index, packet, parent)
 
   -- Source: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.source(buffer, index, packet, parent)
+  index, source = dissect.source(buffer, index, packet, parent)
 
   -- Underlying Symbol: 13 Byte Ascii String
-  index = dissect.underlying_symbol(buffer, index, packet, parent)
+  index, underlying_symbol = dissect.underlying_symbol(buffer, index, packet, parent)
 
   -- Action: 1 Byte Ascii String Enum with 2 values
-  index = dissect.action(buffer, index, packet, parent)
+  index, action = dissect.action(buffer, index, packet, parent)
 
   -- Number Of Legs: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.number_of_legs(buffer, index, packet, parent)
-
-  -- Dependency element: Number Of Legs
-  local complex_order_strategy_leg_count = buffer(index - 1, 1):uint()
+  index, number_of_legs = dissect.number_of_legs(buffer, index, packet, parent)
 
   -- Complex Order Strategy Leg: Struct of 7 fields
-  for i = 1, complex_order_strategy_leg_count do
+  for i = 1, number_of_legs do
     index = dissect.complex_order_strategy_leg(buffer, index, packet, parent)
   end
 
@@ -1755,13 +1785,14 @@ end
 
 -- Dissect: Phlx Tradable
 dissect.phlx_tradable = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.phlx_tradable)
+  local length = size_of.phlx_tradable
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.phlx_tradable(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.phlx_tradable, range, value, display)
 
-  return offset + size_of.phlx_tradable
+  return offset + length, value
 end
 
 -- Size: Option Closing Type
@@ -1784,13 +1815,14 @@ end
 
 -- Dissect: Option Closing Type
 dissect.option_closing_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.option_closing_type)
+  local length = size_of.option_closing_type
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.option_closing_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.option_closing_type, range, value, display)
 
-  return offset + size_of.option_closing_type
+  return offset + length, value
 end
 
 -- Display: Options Directory Message
@@ -1803,37 +1835,37 @@ dissect.options_directory_message_fields = function(buffer, offset, packet, pare
   local index = offset
 
   -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seconds(buffer, index, packet, parent)
+  index, seconds = dissect.seconds(buffer, index, packet, parent)
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.option_id(buffer, index, packet, parent)
+  index, option_id = dissect.option_id(buffer, index, packet, parent)
 
   -- Security Symbol: 5 Byte Ascii String
-  index = dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
 
   -- Expiration: Struct of 3 fields
-  index = dissect.expiration(buffer, index, packet, parent)
+  index, expiration = dissect.expiration(buffer, index, packet, parent)
 
   -- Explicit Strike Price: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.explicit_strike_price(buffer, index, packet, parent)
+  index, explicit_strike_price = dissect.explicit_strike_price(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Ascii String Enum with 3 values
-  index = dissect.option_type(buffer, index, packet, parent)
+  index, option_type = dissect.option_type(buffer, index, packet, parent)
 
   -- Source: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.source(buffer, index, packet, parent)
+  index, source = dissect.source(buffer, index, packet, parent)
 
   -- Underlying Symbol: 13 Byte Ascii String
-  index = dissect.underlying_symbol(buffer, index, packet, parent)
+  index, underlying_symbol = dissect.underlying_symbol(buffer, index, packet, parent)
 
   -- Option Closing Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index = dissect.option_closing_type(buffer, index, packet, parent)
+  index, option_closing_type = dissect.option_closing_type(buffer, index, packet, parent)
 
   -- Phlx Tradable: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.phlx_tradable(buffer, index, packet, parent)
+  index, phlx_tradable = dissect.phlx_tradable(buffer, index, packet, parent)
 
   return index
 end
@@ -1860,13 +1892,14 @@ end
 
 -- Dissect: Version
 dissect.version = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.version)
+  local length = size_of.version
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.version(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.version, range, value, display)
 
-  return offset + size_of.version
+  return offset + length, value
 end
 
 -- Size: Event Code
@@ -1904,13 +1937,14 @@ end
 
 -- Dissect: Event Code
 dissect.event_code = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.event_code)
+  local length = size_of.event_code
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.event_code(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.event_code, range, value, display)
 
-  return offset + size_of.event_code
+  return offset + length, value
 end
 
 -- Display: System Event Message
@@ -1923,16 +1957,16 @@ dissect.system_event_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seconds(buffer, index, packet, parent)
+  index, seconds = dissect.seconds(buffer, index, packet, parent)
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
 
   -- Event Code: 1 Byte Ascii String Enum with 8 values
-  index = dissect.event_code(buffer, index, packet, parent)
+  index, event_code = dissect.event_code(buffer, index, packet, parent)
 
   -- Version: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.version(buffer, index, packet, parent)
+  index, version = dissect.version(buffer, index, packet, parent)
 
   return index
 end
@@ -1950,49 +1984,49 @@ dissect.system_event_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, messagetype)
+size_of.payload = function(buffer, offset, message_type)
   -- Size of System Event Message
-  if messagetype == "S" then
+  if message_type == "S" then
     return 10
   end
   -- Size of Options Directory Message
-  if messagetype == "D" then
+  if message_type == "D" then
     return 40
   end
   -- Size of Complex Order Strategy Message
-  if messagetype == "R" then
+  if message_type == "R" then
     return size_of.complex_order_strategy_message(buffer, offset)
   end
   -- Size of Security Trading Action Message
-  if messagetype == "H" then
+  if message_type == "H" then
     return 25
   end
   -- Size of Complex Trading Action Message
-  if messagetype == "I" then
+  if message_type == "I" then
     return 13
   end
   -- Size of Security Open Closed Message
-  if messagetype == "P" then
+  if message_type == "P" then
     return 25
   end
   -- Size of Strategy Open Closed Message
-  if messagetype == "Q" then
+  if message_type == "Q" then
     return 13
   end
   -- Size of Simple Order Message
-  if messagetype == "O" then
+  if message_type == "O" then
     return 48
   end
   -- Size of Complex Order Message
-  if messagetype == "X" then
+  if message_type == "X" then
     return size_of.complex_order_message(buffer, offset)
   end
   -- Size of Auction Notification Message
-  if messagetype == "A" then
+  if message_type == "A" then
     return 46
   end
   -- Size of Complex Auction Notification Message
-  if messagetype == "C" then
+  if message_type == "C" then
     return 27
   end
 
@@ -2005,49 +2039,49 @@ display.payload = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Branches: Payload
-dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
+dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Event Message
-  if messagetype == "S" then
+  if message_type == "S" then
     return dissect.system_event_message(buffer, offset, packet, parent)
   end
   -- Dissect Options Directory Message
-  if messagetype == "D" then
+  if message_type == "D" then
     return dissect.options_directory_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Order Strategy Message
-  if messagetype == "R" then
+  if message_type == "R" then
     return dissect.complex_order_strategy_message(buffer, offset, packet, parent)
   end
   -- Dissect Security Trading Action Message
-  if messagetype == "H" then
+  if message_type == "H" then
     return dissect.security_trading_action_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Trading Action Message
-  if messagetype == "I" then
+  if message_type == "I" then
     return dissect.complex_trading_action_message(buffer, offset, packet, parent)
   end
   -- Dissect Security Open Closed Message
-  if messagetype == "P" then
+  if message_type == "P" then
     return dissect.security_open_closed_message(buffer, offset, packet, parent)
   end
   -- Dissect Strategy Open Closed Message
-  if messagetype == "Q" then
+  if message_type == "Q" then
     return dissect.strategy_open_closed_message(buffer, offset, packet, parent)
   end
   -- Dissect Simple Order Message
-  if messagetype == "O" then
+  if message_type == "O" then
     return dissect.simple_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Order Message
-  if messagetype == "X" then
+  if message_type == "X" then
     return dissect.complex_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Auction Notification Message
-  if messagetype == "A" then
+  if message_type == "A" then
     return dissect.auction_notification_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Auction Notification Message
-  if messagetype == "C" then
+  if message_type == "C" then
     return dissect.complex_auction_notification_message(buffer, offset, packet, parent)
   end
 
@@ -2055,13 +2089,13 @@ dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent, code)
+dissect.payload = function(buffer, offset, packet, parent, message_type)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, code)
+    return dissect.payload_branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, code)
+  local size = size_of.payload(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
@@ -2071,7 +2105,7 @@ dissect.payload = function(buffer, offset, packet, parent, code)
   local display = display.payload(buffer, packet, parent)
   local element = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, code)
+  return dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Size: Message Type
@@ -2118,13 +2152,14 @@ end
 
 -- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.message_type)
+  local length = size_of.message_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.message_type, range, value, display)
 
-  return offset + size_of.message_type
+  return offset + length, value
 end
 
 -- Size: Length
@@ -2137,13 +2172,14 @@ end
 
 -- Dissect: Length
 dissect.length = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.length)
+  local length = size_of.length
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.length(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.length, range, value, display)
 
-  return offset + size_of.length
+  return offset + length, value
 end
 
 -- Display: Message Header
@@ -2156,10 +2192,10 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Length: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.length(buffer, index, packet, parent)
+  index, length = dissect.length(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String Enum with 11 values
-  index = dissect.message_type(buffer, index, packet, parent)
+  index, message_type = dissect.message_type(buffer, index, packet, parent)
 
   return index
 end
@@ -2200,13 +2236,13 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 2 fields
-  index = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
-  local code = buffer(index - 1, 1):string()
+  local message_type = buffer(index - 1, 1):string()
 
   -- Payload: Runtime Type with 11 branches
-  index = dissect.payload(buffer, index, packet, parent, code)
+  index = dissect.payload(buffer, index, packet, parent, message_type)
 
   return index
 end
@@ -2234,13 +2270,14 @@ end
 
 -- Dissect: Count
 dissect.count = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.count)
+  local length = size_of.count
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.count(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.count, range, value, display)
 
-  return offset + size_of.count
+  return offset + length, value
 end
 
 -- Size: Sequence
@@ -2253,13 +2290,14 @@ end
 
 -- Dissect: Sequence
 dissect.sequence = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.sequence)
+  local length = size_of.sequence
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.sequence(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.sequence, range, value, display)
 
-  return offset + size_of.sequence
+  return offset + length, value
 end
 
 -- Size: Session
@@ -2272,13 +2310,14 @@ end
 
 -- Dissect: Session
 dissect.session = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.session)
+  local length = size_of.session
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.session(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.session, range, value, display)
 
-  return offset + size_of.session
+  return offset + length, value
 end
 
 -- Display: Packet Header
@@ -2291,13 +2330,13 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Session: 10 Byte Ascii String
-  index = dissect.session(buffer, index, packet, parent)
+  index, session = dissect.session(buffer, index, packet, parent)
 
   -- Sequence: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.sequence(buffer, index, packet, parent)
+  index, sequence = dissect.sequence(buffer, index, packet, parent)
 
   -- Count: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.count(buffer, index, packet, parent)
+  index, count = dissect.count(buffer, index, packet, parent)
 
   return index
 end
@@ -2319,7 +2358,7 @@ dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 3 fields
-  index = dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = dissect.packet_header(buffer, index, packet, parent)
 
   -- Message: Struct of 2 fields
   local end_of_payload = buffer:len()

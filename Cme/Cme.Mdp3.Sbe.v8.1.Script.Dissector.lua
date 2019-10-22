@@ -753,13 +753,14 @@ end
 
 -- Dissect: Md Entry Type
 dissect.md_entry_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.md_entry_type)
+  local length = size_of.md_entry_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.md_entry_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.md_entry_type, range, value, display)
 
-  return offset + size_of.md_entry_type
+  return offset + length, value
 end
 
 -- Size: Md Display Qty
@@ -777,13 +778,14 @@ end
 
 -- Dissect: Md Display Qty
 dissect.md_display_qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.md_display_qty)
+  local length = size_of.md_display_qty
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.md_display_qty(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.md_display_qty, range, value, display)
 
-  return offset + size_of.md_display_qty
+  return offset + length, value
 end
 
 -- Size: Md Entry Px
@@ -797,13 +799,14 @@ end
 
 -- Dissect: Md Entry Px
 dissect.md_entry_px = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.md_entry_px)
+  local length = size_of.md_entry_px
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.md_entry_px(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.md_entry_px, range, value, display)
 
-  return offset + size_of.md_entry_px
+  return offset + length, value
 end
 
 -- Size: Md Order Priority
@@ -821,13 +824,14 @@ end
 
 -- Dissect: Md Order Priority
 dissect.md_order_priority = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.md_order_priority)
+  local length = size_of.md_order_priority
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.md_order_priority(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.md_order_priority, range, value, display)
 
-  return offset + size_of.md_order_priority
+  return offset + length, value
 end
 
 -- Size: Order Id
@@ -845,13 +849,14 @@ end
 
 -- Dissect: Order Id
 dissect.order_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.order_id)
+  local length = size_of.order_id
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.order_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.order_id, range, value, display)
 
-  return offset + size_of.order_id
+  return offset + length, value
 end
 
 -- Display: Snapshot Full Refresh Order Book Group
@@ -864,19 +869,19 @@ dissect.snapshot_full_refresh_order_book_group_fields = function(buffer, offset,
   local index = offset
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Md Order Priority: 8 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.md_order_priority(buffer, index, packet, parent)
+  index, md_order_priority = dissect.md_order_priority(buffer, index, packet, parent)
 
   -- Md Entry Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.md_entry_px(buffer, index, packet, parent)
+  index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Md Display Qty: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.md_display_qty(buffer, index, packet, parent)
+  index, md_display_qty = dissect.md_display_qty(buffer, index, packet, parent)
 
   -- Md Entry Type: 1 Byte Ascii String Enum with 17 values
-  index = dissect.md_entry_type(buffer, index, packet, parent)
+  index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
 
   return index
 end
@@ -903,13 +908,14 @@ end
 
 -- Dissect: Num In Group
 dissect.num_in_group = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.num_in_group)
+  local length = size_of.num_in_group
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.num_in_group(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.num_in_group, range, value, display)
 
-  return offset + size_of.num_in_group
+  return offset + length, value
 end
 
 -- Size: Block Length
@@ -922,13 +928,14 @@ end
 
 -- Dissect: Block Length
 dissect.block_length = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.block_length)
+  local length = size_of.block_length
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.block_length(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.block_length, range, value, display)
 
-  return offset + size_of.block_length
+  return offset + length, value
 end
 
 -- Display: Group Size
@@ -941,10 +948,10 @@ dissect.group_size_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Block Length: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.block_length(buffer, index, packet, parent)
+  index, block_length = dissect.block_length(buffer, index, packet, parent)
 
   -- Num In Group: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.num_in_group(buffer, index, packet, parent)
+  index, num_in_group = dissect.num_in_group(buffer, index, packet, parent)
 
   return index
 end
@@ -984,13 +991,13 @@ dissect.snapshot_full_refresh_order_book_groups_fields = function(buffer, offset
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local snapshot_full_refresh_order_book_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Snapshot Full Refresh Order Book Group: Struct of 5 fields
-  for i = 1, snapshot_full_refresh_order_book_group_count do
+  for i = 1, num_in_group do
     index = dissect.snapshot_full_refresh_order_book_group(buffer, index, packet, parent)
   end
 
@@ -1020,13 +1027,14 @@ end
 
 -- Dissect: Transact Time
 dissect.transact_time = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.transact_time)
+  local length = size_of.transact_time
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.transact_time(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.transact_time, range, value, display)
 
-  return offset + size_of.transact_time
+  return offset + length, value
 end
 
 -- Size: Current Chunk
@@ -1039,13 +1047,14 @@ end
 
 -- Dissect: Current Chunk
 dissect.current_chunk = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.current_chunk)
+  local length = size_of.current_chunk
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.current_chunk(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.current_chunk, range, value, display)
 
-  return offset + size_of.current_chunk
+  return offset + length, value
 end
 
 -- Size: No Chunks
@@ -1058,13 +1067,14 @@ end
 
 -- Dissect: No Chunks
 dissect.no_chunks = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.no_chunks)
+  local length = size_of.no_chunks
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.no_chunks(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.no_chunks, range, value, display)
 
-  return offset + size_of.no_chunks
+  return offset + length, value
 end
 
 -- Size: Security Id
@@ -1082,13 +1092,14 @@ end
 
 -- Dissect: Security Id
 dissect.security_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_id)
+  local length = size_of.security_id
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.security_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.security_id, range, value, display)
 
-  return offset + size_of.security_id
+  return offset + length, value
 end
 
 -- Size: Tot Num Reports
@@ -1106,13 +1117,14 @@ end
 
 -- Dissect: Tot Num Reports
 dissect.tot_num_reports = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.tot_num_reports)
+  local length = size_of.tot_num_reports
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.tot_num_reports(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.tot_num_reports, range, value, display)
 
-  return offset + size_of.tot_num_reports
+  return offset + length, value
 end
 
 -- Size: Last Msg Seq Num Processed
@@ -1125,13 +1137,14 @@ end
 
 -- Dissect: Last Msg Seq Num Processed
 dissect.last_msg_seq_num_processed = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.last_msg_seq_num_processed)
+  local length = size_of.last_msg_seq_num_processed
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.last_msg_seq_num_processed(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.last_msg_seq_num_processed, range, value, display)
 
-  return offset + size_of.last_msg_seq_num_processed
+  return offset + length, value
 end
 
 -- Calculate runtime size: Snapshot Full Refresh Order Book 44
@@ -1155,25 +1168,25 @@ dissect.snapshot_full_refresh_order_book_44_fields = function(buffer, offset, pa
   local index = offset
 
   -- Last Msg Seq Num Processed: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.last_msg_seq_num_processed(buffer, index, packet, parent)
+  index, last_msg_seq_num_processed = dissect.last_msg_seq_num_processed(buffer, index, packet, parent)
 
   -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.tot_num_reports(buffer, index, packet, parent)
+  index, tot_num_reports = dissect.tot_num_reports(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- No Chunks: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.no_chunks(buffer, index, packet, parent)
+  index, no_chunks = dissect.no_chunks(buffer, index, packet, parent)
 
   -- Current Chunk: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.current_chunk(buffer, index, packet, parent)
+  index, current_chunk = dissect.current_chunk(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Snapshot Full Refresh Order Book Groups: Struct of 2 fields
-  index = dissect.snapshot_full_refresh_order_book_groups(buffer, index, packet, parent)
+  index, snapshot_full_refresh_order_book_groups = dissect.snapshot_full_refresh_order_book_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -1201,13 +1214,14 @@ end
 
 -- Dissect: Padding 6
 dissect.padding_6 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.padding_6)
+  local length = size_of.padding_6
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
   local display = display.padding_6(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.padding_6, range, value, display)
 
-  return offset + size_of.padding_6
+  return offset + length, value
 end
 
 -- Size: Md Update Action
@@ -1239,13 +1253,14 @@ end
 
 -- Dissect: Md Update Action
 dissect.md_update_action = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.md_update_action)
+  local length = size_of.md_update_action
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.md_update_action(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.md_update_action, range, value, display)
 
-  return offset + size_of.md_update_action
+  return offset + length, value
 end
 
 -- Display: MD Incremental Refresh Order Book Group
@@ -1258,28 +1273,28 @@ dissect.md_incremental_refresh_order_book_group_fields = function(buffer, offset
   local index = offset
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Md Order Priority: 8 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.md_order_priority(buffer, index, packet, parent)
+  index, md_order_priority = dissect.md_order_priority(buffer, index, packet, parent)
 
   -- Md Entry Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.md_entry_px(buffer, index, packet, parent)
+  index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Md Display Qty: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.md_display_qty(buffer, index, packet, parent)
+  index, md_display_qty = dissect.md_display_qty(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index = dissect.md_update_action(buffer, index, packet, parent)
+  index, md_update_action = dissect.md_update_action(buffer, index, packet, parent)
 
   -- Md Entry Type: 1 Byte Ascii String Enum with 17 values
-  index = dissect.md_entry_type(buffer, index, packet, parent)
+  index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
 
   -- Padding 6: 6 Byte
-  index = dissect.padding_6(buffer, index, packet, parent)
+  index, padding_6 = dissect.padding_6(buffer, index, packet, parent)
 
   return index
 end
@@ -1319,13 +1334,13 @@ dissect.md_incremental_refresh_order_book_groups_fields = function(buffer, offse
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local md_incremental_refresh_order_book_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- MD Incremental Refresh Order Book Group: Struct of 8 fields
-  for i = 1, md_incremental_refresh_order_book_group_count do
+  for i = 1, num_in_group do
     index = dissect.md_incremental_refresh_order_book_group(buffer, index, packet, parent)
   end
 
@@ -1355,13 +1370,14 @@ end
 
 -- Dissect: Padding 2
 dissect.padding_2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.padding_2)
+  local length = size_of.padding_2
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
   local display = display.padding_2(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.padding_2, range, value, display)
 
-  return offset + size_of.padding_2
+  return offset + length, value
 end
 
 -- Display: Match Event Indicator
@@ -1467,16 +1483,16 @@ dissect.md_incremental_refresh_order_book_43_fields = function(buffer, offset, p
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
-  index = dissect.match_event_indicator(buffer, index, packet, parent)
+  index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index = dissect.padding_2(buffer, index, packet, parent)
+  index, padding_2 = dissect.padding_2(buffer, index, packet, parent)
 
   -- MD Incremental Refresh Order Book Groups: Struct of 2 fields
-  index = dissect.md_incremental_refresh_order_book_groups(buffer, index, packet, parent)
+  index, md_incremental_refresh_order_book_groups = dissect.md_incremental_refresh_order_book_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -1504,13 +1520,14 @@ end
 
 -- Dissect: Padding 4
 dissect.padding_4 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.padding_4)
+  local length = size_of.padding_4
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
   local display = display.padding_4(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.padding_4, range, value, display)
 
-  return offset + size_of.padding_4
+  return offset + length, value
 end
 
 -- Size: Last Qty
@@ -1523,13 +1540,14 @@ end
 
 -- Dissect: Last Qty
 dissect.last_qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.last_qty)
+  local length = size_of.last_qty
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.last_qty(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.last_qty, range, value, display)
 
-  return offset + size_of.last_qty
+  return offset + length, value
 end
 
 -- Display: MD Incremental Refresh Trade Summary Order Group
@@ -1542,13 +1560,13 @@ dissect.md_incremental_refresh_trade_summary_order_group_fields = function(buffe
   local index = offset
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Last Qty: 4 Byte Signed Fixed Width Integer
-  index = dissect.last_qty(buffer, index, packet, parent)
+  index, last_qty = dissect.last_qty(buffer, index, packet, parent)
 
   -- Padding 4: 4 Byte
-  index = dissect.padding_4(buffer, index, packet, parent)
+  index, padding_4 = dissect.padding_4(buffer, index, packet, parent)
 
   return index
 end
@@ -1575,13 +1593,14 @@ end
 
 -- Dissect: Padding 5
 dissect.padding_5 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.padding_5)
+  local length = size_of.padding_5
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
   local display = display.padding_5(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.padding_5, range, value, display)
 
-  return offset + size_of.padding_5
+  return offset + length, value
 end
 
 -- Display: Group Size8 Byte
@@ -1594,13 +1613,13 @@ dissect.group_size8_byte_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Block Length: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.block_length(buffer, index, packet, parent)
+  index, block_length = dissect.block_length(buffer, index, packet, parent)
 
   -- Padding 5: 5 Byte
-  index = dissect.padding_5(buffer, index, packet, parent)
+  index, padding_5 = dissect.padding_5(buffer, index, packet, parent)
 
   -- Num In Group: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.num_in_group(buffer, index, packet, parent)
+  index, num_in_group = dissect.num_in_group(buffer, index, packet, parent)
 
   return index
 end
@@ -1640,13 +1659,13 @@ dissect.md_incremental_refresh_trade_summary_order_groups_fields = function(buff
   local index = offset
 
   -- Group Size8 Byte: Struct of 3 fields
-  index = dissect.group_size8_byte(buffer, index, packet, parent)
+  index, group_size8_byte = dissect.group_size8_byte(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local md_incremental_refresh_trade_summary_order_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- MD Incremental Refresh Trade Summary Order Group: Struct of 3 fields
-  for i = 1, md_incremental_refresh_trade_summary_order_group_count do
+  for i = 1, num_in_group do
     index = dissect.md_incremental_refresh_trade_summary_order_group(buffer, index, packet, parent)
   end
 
@@ -1681,13 +1700,14 @@ end
 
 -- Dissect: Md Trade Entry Id
 dissect.md_trade_entry_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.md_trade_entry_id)
+  local length = size_of.md_trade_entry_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.md_trade_entry_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.md_trade_entry_id, range, value, display)
 
-  return offset + size_of.md_trade_entry_id
+  return offset + length, value
 end
 
 -- Size: Aggressor Side
@@ -1713,13 +1733,14 @@ end
 
 -- Dissect: Aggressor Side
 dissect.aggressor_side = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.aggressor_side)
+  local length = size_of.aggressor_side
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.aggressor_side(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.aggressor_side, range, value, display)
 
-  return offset + size_of.aggressor_side
+  return offset + length, value
 end
 
 -- Size: Number Of Orders
@@ -1737,13 +1758,14 @@ end
 
 -- Dissect: Number Of Orders
 dissect.number_of_orders = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.number_of_orders)
+  local length = size_of.number_of_orders
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.number_of_orders(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.number_of_orders, range, value, display)
 
-  return offset + size_of.number_of_orders
+  return offset + length, value
 end
 
 -- Size: Rpt Seq
@@ -1756,13 +1778,14 @@ end
 
 -- Dissect: Rpt Seq
 dissect.rpt_seq = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.rpt_seq)
+  local length = size_of.rpt_seq
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.rpt_seq(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.rpt_seq, range, value, display)
 
-  return offset + size_of.rpt_seq
+  return offset + length, value
 end
 
 -- Size: Md Entry Size
@@ -1780,13 +1803,14 @@ end
 
 -- Dissect: Md Entry Size
 dissect.md_entry_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.md_entry_size)
+  local length = size_of.md_entry_size
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.md_entry_size(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.md_entry_size, range, value, display)
 
-  return offset + size_of.md_entry_size
+  return offset + length, value
 end
 
 -- Display: MD Incremental Refresh Trade Summary Group
@@ -1799,31 +1823,31 @@ dissect.md_incremental_refresh_trade_summary_group_fields = function(buffer, off
   local index = offset
 
   -- Md Entry Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.md_entry_px(buffer, index, packet, parent)
+  index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.md_entry_size(buffer, index, packet, parent)
+  index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.rpt_seq(buffer, index, packet, parent)
+  index, rpt_seq = dissect.rpt_seq(buffer, index, packet, parent)
 
   -- Number Of Orders: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.number_of_orders(buffer, index, packet, parent)
+  index, number_of_orders = dissect.number_of_orders(buffer, index, packet, parent)
 
   -- Aggressor Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.aggressor_side(buffer, index, packet, parent)
+  index, aggressor_side = dissect.aggressor_side(buffer, index, packet, parent)
 
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index = dissect.md_update_action(buffer, index, packet, parent)
+  index, md_update_action = dissect.md_update_action(buffer, index, packet, parent)
 
   -- Md Trade Entry Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.md_trade_entry_id(buffer, index, packet, parent)
+  index, md_trade_entry_id = dissect.md_trade_entry_id(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index = dissect.padding_2(buffer, index, packet, parent)
+  index, padding_2 = dissect.padding_2(buffer, index, packet, parent)
 
   return index
 end
@@ -1863,13 +1887,13 @@ dissect.md_incremental_refresh_trade_summary_groups_fields = function(buffer, of
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local md_incremental_refresh_trade_summary_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- MD Incremental Refresh Trade Summary Group: Struct of 9 fields
-  for i = 1, md_incremental_refresh_trade_summary_group_count do
+  for i = 1, num_in_group do
     index = dissect.md_incremental_refresh_trade_summary_group(buffer, index, packet, parent)
   end
 
@@ -1912,19 +1936,19 @@ dissect.md_incremental_refresh_trade_summary_42_fields = function(buffer, offset
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
-  index = dissect.match_event_indicator(buffer, index, packet, parent)
+  index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index = dissect.padding_2(buffer, index, packet, parent)
+  index, padding_2 = dissect.padding_2(buffer, index, packet, parent)
 
   -- MD Incremental Refresh Trade Summary Groups: Struct of 2 fields
-  index = dissect.md_incremental_refresh_trade_summary_groups(buffer, index, packet, parent)
+  index, md_incremental_refresh_trade_summary_groups = dissect.md_incremental_refresh_trade_summary_groups(buffer, index, packet, parent)
 
   -- MD Incremental Refresh Trade Summary Order Groups: Struct of 2 fields
-  index = dissect.md_incremental_refresh_trade_summary_order_groups(buffer, index, packet, parent)
+  index, md_incremental_refresh_trade_summary_order_groups = dissect.md_incremental_refresh_trade_summary_order_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -1952,13 +1976,14 @@ end
 
 -- Dissect: Related Symbol
 dissect.related_symbol = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.related_symbol)
+  local length = size_of.related_symbol
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.related_symbol(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.related_symbol, range, value, display)
 
-  return offset + size_of.related_symbol
+  return offset + length, value
 end
 
 -- Size: Related Security Id
@@ -1971,13 +1996,14 @@ end
 
 -- Dissect: Related Security Id
 dissect.related_security_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.related_security_id)
+  local length = size_of.related_security_id
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.related_security_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.related_security_id, range, value, display)
 
-  return offset + size_of.related_security_id
+  return offset + length, value
 end
 
 -- Display: Related Instruments Group
@@ -1990,10 +2016,10 @@ dissect.related_instruments_group_fields = function(buffer, offset, packet, pare
   local index = offset
 
   -- Related Security Id: 4 Byte Signed Fixed Width Integer
-  index = dissect.related_security_id(buffer, index, packet, parent)
+  index, related_security_id = dissect.related_security_id(buffer, index, packet, parent)
 
   -- Related Symbol: 20 Byte Ascii String
-  index = dissect.related_symbol(buffer, index, packet, parent)
+  index, related_symbol = dissect.related_symbol(buffer, index, packet, parent)
 
   return index
 end
@@ -2033,13 +2059,13 @@ dissect.related_instruments_groups_fields = function(buffer, offset, packet, par
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local related_instruments_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Related Instruments Group: Struct of 2 fields
-  for i = 1, related_instruments_group_count do
+  for i = 1, num_in_group do
     index = dissect.related_instruments_group(buffer, index, packet, parent)
   end
 
@@ -2069,13 +2095,14 @@ end
 
 -- Dissect: Underlying Symbol
 dissect.underlying_symbol = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.underlying_symbol)
+  local length = size_of.underlying_symbol
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.underlying_symbol(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.underlying_symbol, range, value, display)
 
-  return offset + size_of.underlying_symbol
+  return offset + length, value
 end
 
 -- Size: Underlying Security Id
@@ -2088,13 +2115,14 @@ end
 
 -- Dissect: Underlying Security Id
 dissect.underlying_security_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.underlying_security_id)
+  local length = size_of.underlying_security_id
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.underlying_security_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.underlying_security_id, range, value, display)
 
-  return offset + size_of.underlying_security_id
+  return offset + length, value
 end
 
 -- Display: Underlyings Group
@@ -2107,10 +2135,10 @@ dissect.underlyings_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Underlying Security Id: 4 Byte Signed Fixed Width Integer
-  index = dissect.underlying_security_id(buffer, index, packet, parent)
+  index, underlying_security_id = dissect.underlying_security_id(buffer, index, packet, parent)
 
   -- Underlying Symbol: 20 Byte Ascii String
-  index = dissect.underlying_symbol(buffer, index, packet, parent)
+  index, underlying_symbol = dissect.underlying_symbol(buffer, index, packet, parent)
 
   return index
 end
@@ -2150,13 +2178,13 @@ dissect.underlyings_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local underlyings_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Underlyings Group: Struct of 2 fields
-  for i = 1, underlyings_group_count do
+  for i = 1, num_in_group do
     index = dissect.underlyings_group(buffer, index, packet, parent)
   end
 
@@ -2187,13 +2215,14 @@ end
 
 -- Dissect: Min Lot Size
 dissect.min_lot_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.min_lot_size)
+  local length = size_of.min_lot_size
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.min_lot_size(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.min_lot_size, range, value, display)
 
-  return offset + size_of.min_lot_size
+  return offset + length, value
 end
 
 -- Size: Lot Type
@@ -2206,13 +2235,14 @@ end
 
 -- Dissect: Lot Type
 dissect.lot_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.lot_type)
+  local length = size_of.lot_type
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.lot_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.lot_type, range, value, display)
 
-  return offset + size_of.lot_type
+  return offset + length, value
 end
 
 -- Display: Lot Type Rules Group
@@ -2225,10 +2255,10 @@ dissect.lot_type_rules_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Lot Type: 1 Byte Signed Fixed Width Integer
-  index = dissect.lot_type(buffer, index, packet, parent)
+  index, lot_type = dissect.lot_type(buffer, index, packet, parent)
 
   -- Min Lot Size: 4 Byte Signed Fixed Width Integer
-  index = dissect.min_lot_size(buffer, index, packet, parent)
+  index, min_lot_size = dissect.min_lot_size(buffer, index, packet, parent)
 
   return index
 end
@@ -2268,13 +2298,13 @@ dissect.lot_type_rules_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local lot_type_rules_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Lot Type Rules Group: Struct of 2 fields
-  for i = 1, lot_type_rules_group_count do
+  for i = 1, num_in_group do
     index = dissect.lot_type_rules_group(buffer, index, packet, parent)
   end
 
@@ -2473,7 +2503,7 @@ dissect.inst_attrib_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Inst Attrib Value: Struct of 21 fields
-  index = dissect.inst_attrib_value(buffer, index, packet, parent)
+  index, inst_attrib_value = dissect.inst_attrib_value(buffer, index, packet, parent)
 
   return index
 end
@@ -2513,13 +2543,13 @@ dissect.inst_attrib_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local inst_attrib_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Inst Attrib Group: Struct of 1 fields
-  for i = 1, inst_attrib_group_count do
+  for i = 1, num_in_group do
     index = dissect.inst_attrib_group(buffer, index, packet, parent)
   end
 
@@ -2549,13 +2579,14 @@ end
 
 -- Dissect: Market Depth
 dissect.market_depth = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.market_depth)
+  local length = size_of.market_depth
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.market_depth(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.market_depth, range, value, display)
 
-  return offset + size_of.market_depth
+  return offset + length, value
 end
 
 -- Size: Md Feed Type
@@ -2568,13 +2599,14 @@ end
 
 -- Dissect: Md Feed Type
 dissect.md_feed_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.md_feed_type)
+  local length = size_of.md_feed_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.md_feed_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.md_feed_type, range, value, display)
 
-  return offset + size_of.md_feed_type
+  return offset + length, value
 end
 
 -- Display: MD Feed Types Group
@@ -2587,10 +2619,10 @@ dissect.md_feed_types_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Feed Type: 3 Byte Ascii String
-  index = dissect.md_feed_type(buffer, index, packet, parent)
+  index, md_feed_type = dissect.md_feed_type(buffer, index, packet, parent)
 
   -- Market Depth: 1 Byte Signed Fixed Width Integer
-  index = dissect.market_depth(buffer, index, packet, parent)
+  index, market_depth = dissect.market_depth(buffer, index, packet, parent)
 
   return index
 end
@@ -2630,13 +2662,13 @@ dissect.md_feed_types_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local md_feed_types_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- MD Feed Types Group: Struct of 2 fields
-  for i = 1, md_feed_types_group_count do
+  for i = 1, num_in_group do
     index = dissect.md_feed_types_group(buffer, index, packet, parent)
   end
 
@@ -2666,13 +2698,14 @@ end
 
 -- Dissect: Event Time
 dissect.event_time = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.event_time)
+  local length = size_of.event_time
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.event_time(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.event_time, range, value, display)
 
-  return offset + size_of.event_time
+  return offset + length, value
 end
 
 -- Size: Event Type
@@ -2692,13 +2725,14 @@ end
 
 -- Dissect: Event Type
 dissect.event_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.event_type)
+  local length = size_of.event_type
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.event_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.event_type, range, value, display)
 
-  return offset + size_of.event_type
+  return offset + length, value
 end
 
 -- Display: Events Group
@@ -2711,10 +2745,10 @@ dissect.events_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.event_type(buffer, index, packet, parent)
+  index, event_type = dissect.event_type(buffer, index, packet, parent)
 
   -- Event Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.event_time(buffer, index, packet, parent)
+  index, event_time = dissect.event_time(buffer, index, packet, parent)
 
   return index
 end
@@ -2754,13 +2788,13 @@ dissect.events_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local events_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Events Group: Struct of 2 fields
-  for i = 1, events_group_count do
+  for i = 1, num_in_group do
     index = dissect.events_group(buffer, index, packet, parent)
   end
 
@@ -2795,13 +2829,14 @@ end
 
 -- Dissect: Trading Reference Date
 dissect.trading_reference_date = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trading_reference_date)
+  local length = size_of.trading_reference_date
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.trading_reference_date(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.trading_reference_date, range, value, display)
 
-  return offset + size_of.trading_reference_date
+  return offset + length, value
 end
 
 -- Size: User Defined Instrument
@@ -2814,13 +2849,14 @@ end
 
 -- Dissect: User Defined Instrument
 dissect.user_defined_instrument = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.user_defined_instrument)
+  local length = size_of.user_defined_instrument
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.user_defined_instrument(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.user_defined_instrument, range, value, display)
 
-  return offset + size_of.user_defined_instrument
+  return offset + length, value
 end
 
 -- Size: High Limit Price
@@ -2834,13 +2870,14 @@ end
 
 -- Dissect: High Limit Price
 dissect.high_limit_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.high_limit_price)
+  local length = size_of.high_limit_price
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.high_limit_price(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.high_limit_price, range, value, display)
 
-  return offset + size_of.high_limit_price
+  return offset + length, value
 end
 
 -- Size: Low Limit Price
@@ -2854,13 +2891,14 @@ end
 
 -- Dissect: Low Limit Price
 dissect.low_limit_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.low_limit_price)
+  local length = size_of.low_limit_price
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.low_limit_price(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.low_limit_price, range, value, display)
 
-  return offset + size_of.low_limit_price
+  return offset + length, value
 end
 
 -- Size: Open Interest Qty
@@ -2878,13 +2916,14 @@ end
 
 -- Dissect: Open Interest Qty
 dissect.open_interest_qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.open_interest_qty)
+  local length = size_of.open_interest_qty
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.open_interest_qty(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.open_interest_qty, range, value, display)
 
-  return offset + size_of.open_interest_qty
+  return offset + length, value
 end
 
 -- Size: Cleared Volume
@@ -2902,13 +2941,14 @@ end
 
 -- Dissect: Cleared Volume
 dissect.cleared_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.cleared_volume)
+  local length = size_of.cleared_volume
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.cleared_volume(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.cleared_volume, range, value, display)
 
-  return offset + size_of.cleared_volume
+  return offset + length, value
 end
 
 -- Display: Settl Price Type
@@ -2986,13 +3026,14 @@ end
 
 -- Dissect: Trading Reference Price
 dissect.trading_reference_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trading_reference_price)
+  local length = size_of.trading_reference_price
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.trading_reference_price(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.trading_reference_price, range, value, display)
 
-  return offset + size_of.trading_reference_price
+  return offset + length, value
 end
 
 -- Size: Unit Of Measure Qty
@@ -3006,13 +3047,14 @@ end
 
 -- Dissect: Unit Of Measure Qty
 dissect.unit_of_measure_qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.unit_of_measure_qty)
+  local length = size_of.unit_of_measure_qty
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.unit_of_measure_qty(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.unit_of_measure_qty, range, value, display)
 
-  return offset + size_of.unit_of_measure_qty
+  return offset + length, value
 end
 
 -- Size: Unit Of Measure
@@ -3025,13 +3067,14 @@ end
 
 -- Dissect: Unit Of Measure
 dissect.unit_of_measure = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.unit_of_measure)
+  local length = size_of.unit_of_measure
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.unit_of_measure(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.unit_of_measure, range, value, display)
 
-  return offset + size_of.unit_of_measure
+  return offset + length, value
 end
 
 -- Size: Price Display Format
@@ -3049,13 +3092,14 @@ end
 
 -- Dissect: Price Display Format
 dissect.price_display_format = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price_display_format)
+  local length = size_of.price_display_format
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.price_display_format(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.price_display_format, range, value, display)
 
-  return offset + size_of.price_display_format
+  return offset + length, value
 end
 
 -- Size: Sub Fraction
@@ -3073,13 +3117,14 @@ end
 
 -- Dissect: Sub Fraction
 dissect.sub_fraction = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.sub_fraction)
+  local length = size_of.sub_fraction
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.sub_fraction(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.sub_fraction, range, value, display)
 
-  return offset + size_of.sub_fraction
+  return offset + length, value
 end
 
 -- Size: Main Fraction
@@ -3097,13 +3142,14 @@ end
 
 -- Dissect: Main Fraction
 dissect.main_fraction = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.main_fraction)
+  local length = size_of.main_fraction
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.main_fraction(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.main_fraction, range, value, display)
 
-  return offset + size_of.main_fraction
+  return offset + length, value
 end
 
 -- Size: Tick Rule
@@ -3121,13 +3167,14 @@ end
 
 -- Dissect: Tick Rule
 dissect.tick_rule = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.tick_rule)
+  local length = size_of.tick_rule
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.tick_rule(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.tick_rule, range, value, display)
 
-  return offset + size_of.tick_rule
+  return offset + length, value
 end
 
 -- Size: Display Factor
@@ -3141,13 +3188,14 @@ end
 
 -- Dissect: Display Factor
 dissect.display_factor = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.display_factor)
+  local length = size_of.display_factor
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.display_factor(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.display_factor, range, value, display)
 
-  return offset + size_of.display_factor
+  return offset + length, value
 end
 
 -- Size: Min Price Increment Amount
@@ -3161,13 +3209,14 @@ end
 
 -- Dissect: Min Price Increment Amount
 dissect.min_price_increment_amount = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.min_price_increment_amount)
+  local length = size_of.min_price_increment_amount
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.min_price_increment_amount(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.min_price_increment_amount, range, value, display)
 
-  return offset + size_of.min_price_increment_amount
+  return offset + length, value
 end
 
 -- Size: Min Price Increment
@@ -3181,13 +3230,14 @@ end
 
 -- Dissect: Min Price Increment
 dissect.min_price_increment = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.min_price_increment)
+  local length = size_of.min_price_increment
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.min_price_increment(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.min_price_increment, range, value, display)
 
-  return offset + size_of.min_price_increment
+  return offset + length, value
 end
 
 -- Size: Max Trade Vol
@@ -3200,13 +3250,14 @@ end
 
 -- Dissect: Max Trade Vol
 dissect.max_trade_vol = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.max_trade_vol)
+  local length = size_of.max_trade_vol
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.max_trade_vol(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.max_trade_vol, range, value, display)
 
-  return offset + size_of.max_trade_vol
+  return offset + length, value
 end
 
 -- Size: Min Trade Vol
@@ -3219,13 +3270,14 @@ end
 
 -- Dissect: Min Trade Vol
 dissect.min_trade_vol = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.min_trade_vol)
+  local length = size_of.min_trade_vol
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.min_trade_vol(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.min_trade_vol, range, value, display)
 
-  return offset + size_of.min_trade_vol
+  return offset + length, value
 end
 
 -- Size: Match Algorithm
@@ -3238,13 +3290,14 @@ end
 
 -- Dissect: Match Algorithm
 dissect.match_algorithm = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.match_algorithm)
+  local length = size_of.match_algorithm
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.match_algorithm(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.match_algorithm, range, value, display)
 
-  return offset + size_of.match_algorithm
+  return offset + length, value
 end
 
 -- Size: Min Cab Price
@@ -3258,13 +3311,14 @@ end
 
 -- Dissect: Min Cab Price
 dissect.min_cab_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.min_cab_price)
+  local length = size_of.min_cab_price
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.min_cab_price(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.min_cab_price, range, value, display)
 
-  return offset + size_of.min_cab_price
+  return offset + length, value
 end
 
 -- Size: Settl Currency
@@ -3277,13 +3331,14 @@ end
 
 -- Dissect: Settl Currency
 dissect.settl_currency = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.settl_currency)
+  local length = size_of.settl_currency
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.settl_currency(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.settl_currency, range, value, display)
 
-  return offset + size_of.settl_currency
+  return offset + length, value
 end
 
 -- Size: Strike Currency
@@ -3296,13 +3351,14 @@ end
 
 -- Dissect: Strike Currency
 dissect.strike_currency = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.strike_currency)
+  local length = size_of.strike_currency
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.strike_currency(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.strike_currency, range, value, display)
 
-  return offset + size_of.strike_currency
+  return offset + length, value
 end
 
 -- Size: Strike Price
@@ -3316,13 +3372,14 @@ end
 
 -- Dissect: Strike Price
 dissect.strike_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.strike_price)
+  local length = size_of.strike_price
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.strike_price(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.strike_price, range, value, display)
 
-  return offset + size_of.strike_price
+  return offset + length, value
 end
 
 -- Size: Currency
@@ -3335,13 +3392,14 @@ end
 
 -- Dissect: Currency
 dissect.currency = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.currency)
+  local length = size_of.currency
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.currency(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.currency, range, value, display)
 
-  return offset + size_of.currency
+  return offset + length, value
 end
 
 -- Size: Week
@@ -3359,13 +3417,14 @@ end
 
 -- Dissect: Week
 dissect.week = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.week)
+  local length = size_of.week
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.week(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.week, range, value, display)
 
-  return offset + size_of.week
+  return offset + length, value
 end
 
 -- Size: Day
@@ -3383,13 +3442,14 @@ end
 
 -- Dissect: Day
 dissect.day = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.day)
+  local length = size_of.day
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.day(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.day, range, value, display)
 
-  return offset + size_of.day
+  return offset + length, value
 end
 
 -- Size: Month
@@ -3407,13 +3467,14 @@ end
 
 -- Dissect: Month
 dissect.month = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.month)
+  local length = size_of.month
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.month(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.month, range, value, display)
 
-  return offset + size_of.month
+  return offset + length, value
 end
 
 -- Size: Year
@@ -3431,13 +3492,14 @@ end
 
 -- Dissect: Year
 dissect.year = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.year)
+  local length = size_of.year
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.year(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.year, range, value, display)
 
-  return offset + size_of.year
+  return offset + length, value
 end
 
 -- Display: Maturity Month Year
@@ -3450,16 +3512,16 @@ dissect.maturity_month_year_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Year: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.year(buffer, index, packet, parent)
+  index, year = dissect.year(buffer, index, packet, parent)
 
   -- Month: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.month(buffer, index, packet, parent)
+  index, month = dissect.month(buffer, index, packet, parent)
 
   -- Day: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.day(buffer, index, packet, parent)
+  index, day = dissect.day(buffer, index, packet, parent)
 
   -- Week: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.week(buffer, index, packet, parent)
+  index, week = dissect.week(buffer, index, packet, parent)
 
   return index
 end
@@ -3493,13 +3555,14 @@ end
 
 -- Dissect: Put Or Call
 dissect.put_or_call = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.put_or_call)
+  local length = size_of.put_or_call
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.put_or_call(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.put_or_call, range, value, display)
 
-  return offset + size_of.put_or_call
+  return offset + length, value
 end
 
 -- Size: Cfi Code
@@ -3512,13 +3575,14 @@ end
 
 -- Dissect: Cfi Code
 dissect.cfi_code = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.cfi_code)
+  local length = size_of.cfi_code
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.cfi_code(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.cfi_code, range, value, display)
 
-  return offset + size_of.cfi_code
+  return offset + length, value
 end
 
 -- Size: Security Type
@@ -3531,13 +3595,14 @@ end
 
 -- Dissect: Security Type
 dissect.security_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_type)
+  local length = size_of.security_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.security_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.security_type, range, value, display)
 
-  return offset + size_of.security_type
+  return offset + length, value
 end
 
 -- Size: Symbol
@@ -3550,13 +3615,14 @@ end
 
 -- Dissect: Symbol
 dissect.symbol = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.symbol)
+  local length = size_of.symbol
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.symbol, range, value, display)
 
-  return offset + size_of.symbol
+  return offset + length, value
 end
 
 -- Size: Asset
@@ -3569,13 +3635,14 @@ end
 
 -- Dissect: Asset
 dissect.asset = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.asset)
+  local length = size_of.asset
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.asset(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.asset, range, value, display)
 
-  return offset + size_of.asset
+  return offset + length, value
 end
 
 -- Size: Security Group
@@ -3588,13 +3655,14 @@ end
 
 -- Dissect: Security Group
 dissect.security_group = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_group)
+  local length = size_of.security_group
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.security_group(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.security_group, range, value, display)
 
-  return offset + size_of.security_group
+  return offset + length, value
 end
 
 -- Size: Security Exchange
@@ -3607,13 +3675,14 @@ end
 
 -- Dissect: Security Exchange
 dissect.security_exchange = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_exchange)
+  local length = size_of.security_exchange
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.security_exchange(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.security_exchange, range, value, display)
 
-  return offset + size_of.security_exchange
+  return offset + length, value
 end
 
 -- Size: Underlying Product
@@ -3631,13 +3700,14 @@ end
 
 -- Dissect: Underlying Product
 dissect.underlying_product = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.underlying_product)
+  local length = size_of.underlying_product
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.underlying_product(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.underlying_product, range, value, display)
 
-  return offset + size_of.underlying_product
+  return offset + length, value
 end
 
 -- Size: Market Segment Id
@@ -3650,13 +3720,14 @@ end
 
 -- Dissect: Market Segment Id
 dissect.market_segment_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.market_segment_id)
+  local length = size_of.market_segment_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.market_segment_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.market_segment_id, range, value, display)
 
-  return offset + size_of.market_segment_id
+  return offset + length, value
 end
 
 -- Size: Appl Id
@@ -3669,13 +3740,14 @@ end
 
 -- Dissect: Appl Id
 dissect.appl_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.appl_id)
+  local length = size_of.appl_id
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.appl_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.appl_id, range, value, display)
 
-  return offset + size_of.appl_id
+  return offset + length, value
 end
 
 -- Size: Md Security Trading Status
@@ -3688,13 +3760,14 @@ end
 
 -- Dissect: Md Security Trading Status
 dissect.md_security_trading_status = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.md_security_trading_status)
+  local length = size_of.md_security_trading_status
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.md_security_trading_status(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.md_security_trading_status, range, value, display)
 
-  return offset + size_of.md_security_trading_status
+  return offset + length, value
 end
 
 -- Size: Last Update Time
@@ -3707,13 +3780,14 @@ end
 
 -- Dissect: Last Update Time
 dissect.last_update_time = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.last_update_time)
+  local length = size_of.last_update_time
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.last_update_time(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.last_update_time, range, value, display)
 
-  return offset + size_of.last_update_time
+  return offset + length, value
 end
 
 -- Size: Security Update Action
@@ -3736,13 +3810,14 @@ end
 
 -- Dissect: Security Update Action
 dissect.security_update_action = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_update_action)
+  local length = size_of.security_update_action
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.security_update_action(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.security_update_action, range, value, display)
 
-  return offset + size_of.security_update_action
+  return offset + length, value
 end
 
 -- Calculate runtime size: Md Instrument Definition Option 41
@@ -3776,148 +3851,148 @@ dissect.md_instrument_definition_option_41_fields = function(buffer, offset, pac
   local index = offset
 
   -- Match Event Indicator: Struct of 8 fields
-  index = dissect.match_event_indicator(buffer, index, packet, parent)
+  index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
   -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.tot_num_reports(buffer, index, packet, parent)
+  index, tot_num_reports = dissect.tot_num_reports(buffer, index, packet, parent)
 
   -- Security Update Action: 1 Byte Ascii String Enum with 3 values
-  index = dissect.security_update_action(buffer, index, packet, parent)
+  index, security_update_action = dissect.security_update_action(buffer, index, packet, parent)
 
   -- Last Update Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.last_update_time(buffer, index, packet, parent)
+  index, last_update_time = dissect.last_update_time(buffer, index, packet, parent)
 
   -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.md_security_trading_status(buffer, index, packet, parent)
+  index, md_security_trading_status = dissect.md_security_trading_status(buffer, index, packet, parent)
 
   -- Appl Id: 2 Byte Signed Fixed Width Integer
-  index = dissect.appl_id(buffer, index, packet, parent)
+  index, appl_id = dissect.appl_id(buffer, index, packet, parent)
 
   -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.market_segment_id(buffer, index, packet, parent)
+  index, market_segment_id = dissect.market_segment_id(buffer, index, packet, parent)
 
   -- Underlying Product: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.underlying_product(buffer, index, packet, parent)
+  index, underlying_product = dissect.underlying_product(buffer, index, packet, parent)
 
   -- Security Exchange: 4 Byte Ascii String
-  index = dissect.security_exchange(buffer, index, packet, parent)
+  index, security_exchange = dissect.security_exchange(buffer, index, packet, parent)
 
   -- Security Group: 6 Byte Ascii String
-  index = dissect.security_group(buffer, index, packet, parent)
+  index, security_group = dissect.security_group(buffer, index, packet, parent)
 
   -- Asset: 6 Byte Ascii String
-  index = dissect.asset(buffer, index, packet, parent)
+  index, asset = dissect.asset(buffer, index, packet, parent)
 
   -- Symbol: 20 Byte Ascii String
-  index = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = dissect.symbol(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Security Type: 6 Byte Ascii String
-  index = dissect.security_type(buffer, index, packet, parent)
+  index, security_type = dissect.security_type(buffer, index, packet, parent)
 
   -- Cfi Code: 6 Byte Ascii String
-  index = dissect.cfi_code(buffer, index, packet, parent)
+  index, cfi_code = dissect.cfi_code(buffer, index, packet, parent)
 
   -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.put_or_call(buffer, index, packet, parent)
+  index, put_or_call = dissect.put_or_call(buffer, index, packet, parent)
 
   -- Maturity Month Year: Struct of 4 fields
-  index = dissect.maturity_month_year(buffer, index, packet, parent)
+  index, maturity_month_year = dissect.maturity_month_year(buffer, index, packet, parent)
 
   -- Currency: 3 Byte Ascii String
-  index = dissect.currency(buffer, index, packet, parent)
+  index, currency = dissect.currency(buffer, index, packet, parent)
 
   -- Strike Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.strike_price(buffer, index, packet, parent)
+  index, strike_price = dissect.strike_price(buffer, index, packet, parent)
 
   -- Strike Currency: 3 Byte Ascii String
-  index = dissect.strike_currency(buffer, index, packet, parent)
+  index, strike_currency = dissect.strike_currency(buffer, index, packet, parent)
 
   -- Settl Currency: 3 Byte Ascii String
-  index = dissect.settl_currency(buffer, index, packet, parent)
+  index, settl_currency = dissect.settl_currency(buffer, index, packet, parent)
 
   -- Min Cab Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.min_cab_price(buffer, index, packet, parent)
+  index, min_cab_price = dissect.min_cab_price(buffer, index, packet, parent)
 
   -- Match Algorithm: 1 Byte Ascii String
-  index = dissect.match_algorithm(buffer, index, packet, parent)
+  index, match_algorithm = dissect.match_algorithm(buffer, index, packet, parent)
 
   -- Min Trade Vol: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.min_trade_vol(buffer, index, packet, parent)
+  index, min_trade_vol = dissect.min_trade_vol(buffer, index, packet, parent)
 
   -- Max Trade Vol: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.max_trade_vol(buffer, index, packet, parent)
+  index, max_trade_vol = dissect.max_trade_vol(buffer, index, packet, parent)
 
   -- Min Price Increment: 8 Byte Signed Fixed Width Integer
-  index = dissect.min_price_increment(buffer, index, packet, parent)
+  index, min_price_increment = dissect.min_price_increment(buffer, index, packet, parent)
 
   -- Min Price Increment Amount: 8 Byte Signed Fixed Width Integer
-  index = dissect.min_price_increment_amount(buffer, index, packet, parent)
+  index, min_price_increment_amount = dissect.min_price_increment_amount(buffer, index, packet, parent)
 
   -- Display Factor: 8 Byte Signed Fixed Width Integer
-  index = dissect.display_factor(buffer, index, packet, parent)
+  index, display_factor = dissect.display_factor(buffer, index, packet, parent)
 
   -- Tick Rule: 1 Byte Signed Fixed Width Integer Nullable
-  index = dissect.tick_rule(buffer, index, packet, parent)
+  index, tick_rule = dissect.tick_rule(buffer, index, packet, parent)
 
   -- Main Fraction: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.main_fraction(buffer, index, packet, parent)
+  index, main_fraction = dissect.main_fraction(buffer, index, packet, parent)
 
   -- Sub Fraction: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.sub_fraction(buffer, index, packet, parent)
+  index, sub_fraction = dissect.sub_fraction(buffer, index, packet, parent)
 
   -- Price Display Format: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.price_display_format(buffer, index, packet, parent)
+  index, price_display_format = dissect.price_display_format(buffer, index, packet, parent)
 
   -- Unit Of Measure: 30 Byte Ascii String
-  index = dissect.unit_of_measure(buffer, index, packet, parent)
+  index, unit_of_measure = dissect.unit_of_measure(buffer, index, packet, parent)
 
   -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer
-  index = dissect.unit_of_measure_qty(buffer, index, packet, parent)
+  index, unit_of_measure_qty = dissect.unit_of_measure_qty(buffer, index, packet, parent)
 
   -- Trading Reference Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.trading_reference_price(buffer, index, packet, parent)
+  index, trading_reference_price = dissect.trading_reference_price(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 6 fields
-  index = dissect.settl_price_type(buffer, index, packet, parent)
+  index, settl_price_type = dissect.settl_price_type(buffer, index, packet, parent)
 
   -- Cleared Volume: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.cleared_volume(buffer, index, packet, parent)
+  index, cleared_volume = dissect.cleared_volume(buffer, index, packet, parent)
 
   -- Open Interest Qty: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.open_interest_qty(buffer, index, packet, parent)
+  index, open_interest_qty = dissect.open_interest_qty(buffer, index, packet, parent)
 
   -- Low Limit Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.low_limit_price(buffer, index, packet, parent)
+  index, low_limit_price = dissect.low_limit_price(buffer, index, packet, parent)
 
   -- High Limit Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.high_limit_price(buffer, index, packet, parent)
+  index, high_limit_price = dissect.high_limit_price(buffer, index, packet, parent)
 
   -- User Defined Instrument: 1 Byte Ascii String
-  index = dissect.user_defined_instrument(buffer, index, packet, parent)
+  index, user_defined_instrument = dissect.user_defined_instrument(buffer, index, packet, parent)
 
   -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.trading_reference_date(buffer, index, packet, parent)
+  index, trading_reference_date = dissect.trading_reference_date(buffer, index, packet, parent)
 
   -- Events Groups: Struct of 2 fields
-  index = dissect.events_groups(buffer, index, packet, parent)
+  index, events_groups = dissect.events_groups(buffer, index, packet, parent)
 
   -- MD Feed Types Groups: Struct of 2 fields
-  index = dissect.md_feed_types_groups(buffer, index, packet, parent)
+  index, md_feed_types_groups = dissect.md_feed_types_groups(buffer, index, packet, parent)
 
   -- Inst Attrib Groups: Struct of 2 fields
-  index = dissect.inst_attrib_groups(buffer, index, packet, parent)
+  index, inst_attrib_groups = dissect.inst_attrib_groups(buffer, index, packet, parent)
 
   -- Lot Type Rules Groups: Struct of 2 fields
-  index = dissect.lot_type_rules_groups(buffer, index, packet, parent)
+  index, lot_type_rules_groups = dissect.lot_type_rules_groups(buffer, index, packet, parent)
 
   -- Underlyings Groups: Struct of 2 fields
-  index = dissect.underlyings_groups(buffer, index, packet, parent)
+  index, underlyings_groups = dissect.underlyings_groups(buffer, index, packet, parent)
 
   -- Related Instruments Groups: Struct of 2 fields
-  index = dissect.related_instruments_groups(buffer, index, packet, parent)
+  index, related_instruments_groups = dissect.related_instruments_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -3950,13 +4025,14 @@ end
 
 -- Dissect: Side
 dissect.side = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.side)
+  local length = size_of.side
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.side(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.side, range, value, display)
 
-  return offset + size_of.side
+  return offset + length, value
 end
 
 -- Size: Quote Type
@@ -3969,13 +4045,14 @@ end
 
 -- Dissect: Quote Type
 dissect.quote_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.quote_type)
+  local length = size_of.quote_type
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.quote_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.quote_type, range, value, display)
 
-  return offset + size_of.quote_type
+  return offset + length, value
 end
 
 -- Size: Order Qty
@@ -3993,13 +4070,14 @@ end
 
 -- Dissect: Order Qty
 dissect.order_qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.order_qty)
+  local length = size_of.order_qty
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.order_qty(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.order_qty, range, value, display)
 
-  return offset + size_of.order_qty
+  return offset + length, value
 end
 
 -- Display: Related Sym Group
@@ -4012,22 +4090,22 @@ dissect.related_sym_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol: 20 Byte Ascii String
-  index = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = dissect.symbol(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.order_qty(buffer, index, packet, parent)
+  index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
   -- Quote Type: 1 Byte Signed Fixed Width Integer
-  index = dissect.quote_type(buffer, index, packet, parent)
+  index, quote_type = dissect.quote_type(buffer, index, packet, parent)
 
   -- Side: 1 Byte Signed Fixed Width Integer Nullable
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index = dissect.padding_2(buffer, index, packet, parent)
+  index, padding_2 = dissect.padding_2(buffer, index, packet, parent)
 
   return index
 end
@@ -4067,13 +4145,13 @@ dissect.related_sym_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local related_sym_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Related Sym Group: Struct of 6 fields
-  for i = 1, related_sym_group_count do
+  for i = 1, num_in_group do
     index = dissect.related_sym_group(buffer, index, packet, parent)
   end
 
@@ -4103,13 +4181,14 @@ end
 
 -- Dissect: Padding 3
 dissect.padding_3 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.padding_3)
+  local length = size_of.padding_3
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
   local display = display.padding_3(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.padding_3, range, value, display)
 
-  return offset + size_of.padding_3
+  return offset + length, value
 end
 
 -- Size: Quote Req Id
@@ -4122,13 +4201,14 @@ end
 
 -- Dissect: Quote Req Id
 dissect.quote_req_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.quote_req_id)
+  local length = size_of.quote_req_id
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.quote_req_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.quote_req_id, range, value, display)
 
-  return offset + size_of.quote_req_id
+  return offset + length, value
 end
 
 -- Calculate runtime size: Quote Request 39
@@ -4152,19 +4232,19 @@ dissect.quote_request_39_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Quote Req Id: 23 Byte Ascii String
-  index = dissect.quote_req_id(buffer, index, packet, parent)
+  index, quote_req_id = dissect.quote_req_id(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
-  index = dissect.match_event_indicator(buffer, index, packet, parent)
+  index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
   -- Padding 3: 3 Byte
-  index = dissect.padding_3(buffer, index, packet, parent)
+  index, padding_3 = dissect.padding_3(buffer, index, packet, parent)
 
   -- Related Sym Groups: Struct of 2 fields
-  index = dissect.related_sym_groups(buffer, index, packet, parent)
+  index, related_sym_groups = dissect.related_sym_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -4202,13 +4282,14 @@ end
 
 -- Dissect: Open Close Settl Flag
 dissect.open_close_settl_flag = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.open_close_settl_flag)
+  local length = size_of.open_close_settl_flag
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.open_close_settl_flag(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.open_close_settl_flag, range, value, display)
 
-  return offset + size_of.open_close_settl_flag
+  return offset + length, value
 end
 
 -- Size: Md Price Level
@@ -4226,13 +4307,14 @@ end
 
 -- Dissect: Md Price Level
 dissect.md_price_level = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.md_price_level)
+  local length = size_of.md_price_level
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.md_price_level(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.md_price_level, range, value, display)
 
-  return offset + size_of.md_price_level
+  return offset + length, value
 end
 
 -- Display: Snapshot Full Refresh Group
@@ -4245,28 +4327,28 @@ dissect.snapshot_full_refresh_group_fields = function(buffer, offset, packet, pa
   local index = offset
 
   -- Md Entry Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.md_entry_px(buffer, index, packet, parent)
+  index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.md_entry_size(buffer, index, packet, parent)
+  index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
 
   -- Number Of Orders: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.number_of_orders(buffer, index, packet, parent)
+  index, number_of_orders = dissect.number_of_orders(buffer, index, packet, parent)
 
   -- Md Price Level: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.md_price_level(buffer, index, packet, parent)
+  index, md_price_level = dissect.md_price_level(buffer, index, packet, parent)
 
   -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.trading_reference_date(buffer, index, packet, parent)
+  index, trading_reference_date = dissect.trading_reference_date(buffer, index, packet, parent)
 
   -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index = dissect.open_close_settl_flag(buffer, index, packet, parent)
+  index, open_close_settl_flag = dissect.open_close_settl_flag(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 6 fields
-  index = dissect.settl_price_type(buffer, index, packet, parent)
+  index, settl_price_type = dissect.settl_price_type(buffer, index, packet, parent)
 
   -- Md Entry Type: 1 Byte Ascii String Enum with 17 values
-  index = dissect.md_entry_type(buffer, index, packet, parent)
+  index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
 
   return index
 end
@@ -4306,13 +4388,13 @@ dissect.snapshot_full_refresh_groups_fields = function(buffer, offset, packet, p
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local snapshot_full_refresh_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Snapshot Full Refresh Group: Struct of 8 fields
-  for i = 1, snapshot_full_refresh_group_count do
+  for i = 1, num_in_group do
     index = dissect.snapshot_full_refresh_group(buffer, index, packet, parent)
   end
 
@@ -4343,13 +4425,14 @@ end
 
 -- Dissect: Max Price Variation
 dissect.max_price_variation = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.max_price_variation)
+  local length = size_of.max_price_variation
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.max_price_variation(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.max_price_variation, range, value, display)
 
-  return offset + size_of.max_price_variation
+  return offset + length, value
 end
 
 -- Size: Trade Date
@@ -4367,13 +4450,14 @@ end
 
 -- Dissect: Trade Date
 dissect.trade_date = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trade_date)
+  local length = size_of.trade_date
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.trade_date(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.trade_date, range, value, display)
 
-  return offset + size_of.trade_date
+  return offset + length, value
 end
 
 -- Calculate runtime size: Snapshot Full Refresh 38
@@ -4397,40 +4481,40 @@ dissect.snapshot_full_refresh_38_fields = function(buffer, offset, packet, paren
   local index = offset
 
   -- Last Msg Seq Num Processed: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.last_msg_seq_num_processed(buffer, index, packet, parent)
+  index, last_msg_seq_num_processed = dissect.last_msg_seq_num_processed(buffer, index, packet, parent)
 
   -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.tot_num_reports(buffer, index, packet, parent)
+  index, tot_num_reports = dissect.tot_num_reports(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.rpt_seq(buffer, index, packet, parent)
+  index, rpt_seq = dissect.rpt_seq(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Last Update Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.last_update_time(buffer, index, packet, parent)
+  index, last_update_time = dissect.last_update_time(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.md_security_trading_status(buffer, index, packet, parent)
+  index, md_security_trading_status = dissect.md_security_trading_status(buffer, index, packet, parent)
 
   -- High Limit Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.high_limit_price(buffer, index, packet, parent)
+  index, high_limit_price = dissect.high_limit_price(buffer, index, packet, parent)
 
   -- Low Limit Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.low_limit_price(buffer, index, packet, parent)
+  index, low_limit_price = dissect.low_limit_price(buffer, index, packet, parent)
 
   -- Max Price Variation: 8 Byte Signed Fixed Width Integer
-  index = dissect.max_price_variation(buffer, index, packet, parent)
+  index, max_price_variation = dissect.max_price_variation(buffer, index, packet, parent)
 
   -- Snapshot Full Refresh Groups: Struct of 2 fields
-  index = dissect.snapshot_full_refresh_groups(buffer, index, packet, parent)
+  index, snapshot_full_refresh_groups = dissect.snapshot_full_refresh_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -4458,19 +4542,19 @@ dissect.md_incremental_refresh_volume_group_fields = function(buffer, offset, pa
   local index = offset
 
   -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.md_entry_size(buffer, index, packet, parent)
+  index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.rpt_seq(buffer, index, packet, parent)
+  index, rpt_seq = dissect.rpt_seq(buffer, index, packet, parent)
 
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index = dissect.md_update_action(buffer, index, packet, parent)
+  index, md_update_action = dissect.md_update_action(buffer, index, packet, parent)
 
   -- Padding 3: 3 Byte
-  index = dissect.padding_3(buffer, index, packet, parent)
+  index, padding_3 = dissect.padding_3(buffer, index, packet, parent)
 
   return index
 end
@@ -4510,13 +4594,13 @@ dissect.md_incremental_refresh_volume_groups_fields = function(buffer, offset, p
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local md_incremental_refresh_volume_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- MD Incremental Refresh Volume Group: Struct of 5 fields
-  for i = 1, md_incremental_refresh_volume_group_count do
+  for i = 1, num_in_group do
     index = dissect.md_incremental_refresh_volume_group(buffer, index, packet, parent)
   end
 
@@ -4557,16 +4641,16 @@ dissect.md_incremental_refresh_volume_37_fields = function(buffer, offset, packe
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
-  index = dissect.match_event_indicator(buffer, index, packet, parent)
+  index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index = dissect.padding_2(buffer, index, packet, parent)
+  index, padding_2 = dissect.padding_2(buffer, index, packet, parent)
 
   -- MD Incremental Refresh Volume Groups: Struct of 2 fields
-  index = dissect.md_incremental_refresh_volume_groups(buffer, index, packet, parent)
+  index, md_incremental_refresh_volume_groups = dissect.md_incremental_refresh_volume_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -4594,13 +4678,14 @@ end
 
 -- Dissect: Trade Id
 dissect.trade_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trade_id)
+  local length = size_of.trade_id
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.trade_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.trade_id, range, value, display)
 
-  return offset + size_of.trade_id
+  return offset + length, value
 end
 
 -- Display: MD Incremental Refresh Trade Group
@@ -4613,31 +4698,31 @@ dissect.md_incremental_refresh_trade_group_fields = function(buffer, offset, pac
   local index = offset
 
   -- Md Entry Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.md_entry_px(buffer, index, packet, parent)
+  index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.md_entry_size(buffer, index, packet, parent)
+  index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.rpt_seq(buffer, index, packet, parent)
+  index, rpt_seq = dissect.rpt_seq(buffer, index, packet, parent)
 
   -- Number Of Orders: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.number_of_orders(buffer, index, packet, parent)
+  index, number_of_orders = dissect.number_of_orders(buffer, index, packet, parent)
 
   -- Trade Id: 4 Byte Signed Fixed Width Integer
-  index = dissect.trade_id(buffer, index, packet, parent)
+  index, trade_id = dissect.trade_id(buffer, index, packet, parent)
 
   -- Aggressor Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.aggressor_side(buffer, index, packet, parent)
+  index, aggressor_side = dissect.aggressor_side(buffer, index, packet, parent)
 
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index = dissect.md_update_action(buffer, index, packet, parent)
+  index, md_update_action = dissect.md_update_action(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index = dissect.padding_2(buffer, index, packet, parent)
+  index, padding_2 = dissect.padding_2(buffer, index, packet, parent)
 
   return index
 end
@@ -4677,13 +4762,13 @@ dissect.md_incremental_refresh_trade_groups_fields = function(buffer, offset, pa
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local md_incremental_refresh_trade_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- MD Incremental Refresh Trade Group: Struct of 9 fields
-  for i = 1, md_incremental_refresh_trade_group_count do
+  for i = 1, num_in_group do
     index = dissect.md_incremental_refresh_trade_group(buffer, index, packet, parent)
   end
 
@@ -4724,16 +4809,16 @@ dissect.md_incremental_refresh_trade_36_fields = function(buffer, offset, packet
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
-  index = dissect.match_event_indicator(buffer, index, packet, parent)
+  index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index = dissect.padding_2(buffer, index, packet, parent)
+  index, padding_2 = dissect.padding_2(buffer, index, packet, parent)
 
   -- MD Incremental Refresh Trade Groups: Struct of 2 fields
-  index = dissect.md_incremental_refresh_trade_groups(buffer, index, packet, parent)
+  index, md_incremental_refresh_trade_groups = dissect.md_incremental_refresh_trade_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -4761,13 +4846,14 @@ end
 
 -- Dissect: Padding 1
 dissect.padding_1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.padding_1)
+  local length = size_of.padding_1
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
   local display = display.padding_1(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.padding_1, range, value, display)
 
-  return offset + size_of.padding_1
+  return offset + length, value
 end
 
 -- Display: MD Incremental Refresh Session Statistics Group
@@ -4780,28 +4866,28 @@ dissect.md_incremental_refresh_session_statistics_group_fields = function(buffer
   local index = offset
 
   -- Md Entry Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.md_entry_px(buffer, index, packet, parent)
+  index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.rpt_seq(buffer, index, packet, parent)
+  index, rpt_seq = dissect.rpt_seq(buffer, index, packet, parent)
 
   -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index = dissect.open_close_settl_flag(buffer, index, packet, parent)
+  index, open_close_settl_flag = dissect.open_close_settl_flag(buffer, index, packet, parent)
 
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index = dissect.md_update_action(buffer, index, packet, parent)
+  index, md_update_action = dissect.md_update_action(buffer, index, packet, parent)
 
   -- Md Entry Type: 1 Byte Ascii String Enum with 17 values
-  index = dissect.md_entry_type(buffer, index, packet, parent)
+  index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
 
   -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.md_entry_size(buffer, index, packet, parent)
+  index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
 
   -- Padding 1: 1 Byte
-  index = dissect.padding_1(buffer, index, packet, parent)
+  index, padding_1 = dissect.padding_1(buffer, index, packet, parent)
 
   return index
 end
@@ -4841,13 +4927,13 @@ dissect.md_incremental_refresh_session_statistics_groups_fields = function(buffe
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local md_incremental_refresh_session_statistics_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- MD Incremental Refresh Session Statistics Group: Struct of 8 fields
-  for i = 1, md_incremental_refresh_session_statistics_group_count do
+  for i = 1, num_in_group do
     index = dissect.md_incremental_refresh_session_statistics_group(buffer, index, packet, parent)
   end
 
@@ -4888,16 +4974,16 @@ dissect.md_incremental_refresh_session_statistics_35_fields = function(buffer, o
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
-  index = dissect.match_event_indicator(buffer, index, packet, parent)
+  index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index = dissect.padding_2(buffer, index, packet, parent)
+  index, padding_2 = dissect.padding_2(buffer, index, packet, parent)
 
   -- MD Incremental Refresh Session Statistics Groups: Struct of 2 fields
-  index = dissect.md_incremental_refresh_session_statistics_groups(buffer, index, packet, parent)
+  index, md_incremental_refresh_session_statistics_groups = dissect.md_incremental_refresh_session_statistics_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -4925,19 +5011,19 @@ dissect.md_incremental_refresh_limits_banding_group_fields = function(buffer, of
   local index = offset
 
   -- High Limit Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.high_limit_price(buffer, index, packet, parent)
+  index, high_limit_price = dissect.high_limit_price(buffer, index, packet, parent)
 
   -- Low Limit Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.low_limit_price(buffer, index, packet, parent)
+  index, low_limit_price = dissect.low_limit_price(buffer, index, packet, parent)
 
   -- Max Price Variation: 8 Byte Signed Fixed Width Integer
-  index = dissect.max_price_variation(buffer, index, packet, parent)
+  index, max_price_variation = dissect.max_price_variation(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.rpt_seq(buffer, index, packet, parent)
+  index, rpt_seq = dissect.rpt_seq(buffer, index, packet, parent)
 
   return index
 end
@@ -4977,13 +5063,13 @@ dissect.md_incremental_refresh_limits_banding_groups_fields = function(buffer, o
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local md_incremental_refresh_limits_banding_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- MD Incremental Refresh Limits Banding Group: Struct of 5 fields
-  for i = 1, md_incremental_refresh_limits_banding_group_count do
+  for i = 1, num_in_group do
     index = dissect.md_incremental_refresh_limits_banding_group(buffer, index, packet, parent)
   end
 
@@ -5024,16 +5110,16 @@ dissect.md_incremental_refresh_limits_banding_34_fields = function(buffer, offse
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
-  index = dissect.match_event_indicator(buffer, index, packet, parent)
+  index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index = dissect.padding_2(buffer, index, packet, parent)
+  index, padding_2 = dissect.padding_2(buffer, index, packet, parent)
 
   -- MD Incremental Refresh Limits Banding Groups: Struct of 2 fields
-  index = dissect.md_incremental_refresh_limits_banding_groups(buffer, index, packet, parent)
+  index, md_incremental_refresh_limits_banding_groups = dissect.md_incremental_refresh_limits_banding_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -5061,13 +5147,14 @@ end
 
 -- Dissect: Padding 7
 dissect.padding_7 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.padding_7)
+  local length = size_of.padding_7
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
   local display = display.padding_7(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.padding_7, range, value, display)
 
-  return offset + size_of.padding_7
+  return offset + length, value
 end
 
 -- Display: MD Incremental Refresh Daily Statistics Group
@@ -5080,31 +5167,31 @@ dissect.md_incremental_refresh_daily_statistics_group_fields = function(buffer, 
   local index = offset
 
   -- Md Entry Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.md_entry_px(buffer, index, packet, parent)
+  index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.md_entry_size(buffer, index, packet, parent)
+  index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.rpt_seq(buffer, index, packet, parent)
+  index, rpt_seq = dissect.rpt_seq(buffer, index, packet, parent)
 
   -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.trading_reference_date(buffer, index, packet, parent)
+  index, trading_reference_date = dissect.trading_reference_date(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 6 fields
-  index = dissect.settl_price_type(buffer, index, packet, parent)
+  index, settl_price_type = dissect.settl_price_type(buffer, index, packet, parent)
 
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index = dissect.md_update_action(buffer, index, packet, parent)
+  index, md_update_action = dissect.md_update_action(buffer, index, packet, parent)
 
   -- Md Entry Type: 1 Byte Ascii String Enum with 17 values
-  index = dissect.md_entry_type(buffer, index, packet, parent)
+  index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
 
   -- Padding 7: 7 Byte
-  index = dissect.padding_7(buffer, index, packet, parent)
+  index, padding_7 = dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -5144,13 +5231,13 @@ dissect.md_incremental_refresh_daily_statistics_groups_fields = function(buffer,
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local md_incremental_refresh_daily_statistics_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- MD Incremental Refresh Daily Statistics Group: Struct of 9 fields
-  for i = 1, md_incremental_refresh_daily_statistics_group_count do
+  for i = 1, num_in_group do
     index = dissect.md_incremental_refresh_daily_statistics_group(buffer, index, packet, parent)
   end
 
@@ -5191,16 +5278,16 @@ dissect.md_incremental_refresh_daily_statistics_33_fields = function(buffer, off
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
-  index = dissect.match_event_indicator(buffer, index, packet, parent)
+  index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index = dissect.padding_2(buffer, index, packet, parent)
+  index, padding_2 = dissect.padding_2(buffer, index, packet, parent)
 
   -- MD Incremental Refresh Daily Statistics Groups: Struct of 2 fields
-  index = dissect.md_incremental_refresh_daily_statistics_groups(buffer, index, packet, parent)
+  index, md_incremental_refresh_daily_statistics_groups = dissect.md_incremental_refresh_daily_statistics_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -5238,13 +5325,14 @@ end
 
 -- Dissect: Order Update Action
 dissect.order_update_action = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.order_update_action)
+  local length = size_of.order_update_action
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.order_update_action(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.order_update_action, range, value, display)
 
-  return offset + size_of.order_update_action
+  return offset + length, value
 end
 
 -- Size: Reference Id
@@ -5262,13 +5350,14 @@ end
 
 -- Dissect: Reference Id
 dissect.reference_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reference_id)
+  local length = size_of.reference_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.reference_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.reference_id, range, value, display)
 
-  return offset + size_of.reference_id
+  return offset + length, value
 end
 
 -- Display: MD Incremental Refresh Book Order Group
@@ -5281,22 +5370,22 @@ dissect.md_incremental_refresh_book_order_group_fields = function(buffer, offset
   local index = offset
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Md Order Priority: 8 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.md_order_priority(buffer, index, packet, parent)
+  index, md_order_priority = dissect.md_order_priority(buffer, index, packet, parent)
 
   -- Md Display Qty: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.md_display_qty(buffer, index, packet, parent)
+  index, md_display_qty = dissect.md_display_qty(buffer, index, packet, parent)
 
   -- Reference Id: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.reference_id(buffer, index, packet, parent)
+  index, reference_id = dissect.reference_id(buffer, index, packet, parent)
 
   -- Order Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index = dissect.order_update_action(buffer, index, packet, parent)
+  index, order_update_action = dissect.order_update_action(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index = dissect.padding_2(buffer, index, packet, parent)
+  index, padding_2 = dissect.padding_2(buffer, index, packet, parent)
 
   return index
 end
@@ -5336,13 +5425,13 @@ dissect.md_incremental_refresh_book_order_groups_fields = function(buffer, offse
   local index = offset
 
   -- Group Size8 Byte: Struct of 3 fields
-  index = dissect.group_size8_byte(buffer, index, packet, parent)
+  index, group_size8_byte = dissect.group_size8_byte(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local md_incremental_refresh_book_order_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- MD Incremental Refresh Book Order Group: Struct of 6 fields
-  for i = 1, md_incremental_refresh_book_order_group_count do
+  for i = 1, num_in_group do
     index = dissect.md_incremental_refresh_book_order_group(buffer, index, packet, parent)
   end
 
@@ -5372,31 +5461,31 @@ dissect.md_incremental_refresh_book_group_fields = function(buffer, offset, pack
   local index = offset
 
   -- Md Entry Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.md_entry_px(buffer, index, packet, parent)
+  index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.md_entry_size(buffer, index, packet, parent)
+  index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.rpt_seq(buffer, index, packet, parent)
+  index, rpt_seq = dissect.rpt_seq(buffer, index, packet, parent)
 
   -- Number Of Orders: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.number_of_orders(buffer, index, packet, parent)
+  index, number_of_orders = dissect.number_of_orders(buffer, index, packet, parent)
 
   -- Md Price Level: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.md_price_level(buffer, index, packet, parent)
+  index, md_price_level = dissect.md_price_level(buffer, index, packet, parent)
 
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index = dissect.md_update_action(buffer, index, packet, parent)
+  index, md_update_action = dissect.md_update_action(buffer, index, packet, parent)
 
   -- Md Entry Type: 1 Byte Ascii String Enum with 17 values
-  index = dissect.md_entry_type(buffer, index, packet, parent)
+  index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
 
   -- Padding 5: 5 Byte
-  index = dissect.padding_5(buffer, index, packet, parent)
+  index, padding_5 = dissect.padding_5(buffer, index, packet, parent)
 
   return index
 end
@@ -5436,13 +5525,13 @@ dissect.md_incremental_refresh_book_groups_fields = function(buffer, offset, pac
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local md_incremental_refresh_book_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- MD Incremental Refresh Book Group: Struct of 9 fields
-  for i = 1, md_incremental_refresh_book_group_count do
+  for i = 1, num_in_group do
     index = dissect.md_incremental_refresh_book_group(buffer, index, packet, parent)
   end
 
@@ -5485,19 +5574,19 @@ dissect.md_incremental_refresh_book_32_fields = function(buffer, offset, packet,
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
-  index = dissect.match_event_indicator(buffer, index, packet, parent)
+  index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
   -- Padding 2: 2 Byte
-  index = dissect.padding_2(buffer, index, packet, parent)
+  index, padding_2 = dissect.padding_2(buffer, index, packet, parent)
 
   -- MD Incremental Refresh Book Groups: Struct of 2 fields
-  index = dissect.md_incremental_refresh_book_groups(buffer, index, packet, parent)
+  index, md_incremental_refresh_book_groups = dissect.md_incremental_refresh_book_groups(buffer, index, packet, parent)
 
   -- MD Incremental Refresh Book Order Groups: Struct of 2 fields
-  index = dissect.md_incremental_refresh_book_order_groups(buffer, index, packet, parent)
+  index, md_incremental_refresh_book_order_groups = dissect.md_incremental_refresh_book_order_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -5541,13 +5630,14 @@ end
 
 -- Dissect: Security Trading Event
 dissect.security_trading_event = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_trading_event)
+  local length = size_of.security_trading_event
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.security_trading_event(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.security_trading_event, range, value, display)
 
-  return offset + size_of.security_trading_event
+  return offset + length, value
 end
 
 -- Size: Halt Reason
@@ -5582,13 +5672,14 @@ end
 
 -- Dissect: Halt Reason
 dissect.halt_reason = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.halt_reason)
+  local length = size_of.halt_reason
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.halt_reason(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.halt_reason, range, value, display)
 
-  return offset + size_of.halt_reason
+  return offset + length, value
 end
 
 -- Size: Security Trading Status
@@ -5638,13 +5729,14 @@ end
 
 -- Dissect: Security Trading Status
 dissect.security_trading_status = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_trading_status)
+  local length = size_of.security_trading_status
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.security_trading_status(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.security_trading_status, range, value, display)
 
-  return offset + size_of.security_trading_status
+  return offset + length, value
 end
 
 -- Display: Security Status 30
@@ -5657,31 +5749,31 @@ dissect.security_status_30_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Security Group: 6 Byte Ascii String
-  index = dissect.security_group(buffer, index, packet, parent)
+  index, security_group = dissect.security_group(buffer, index, packet, parent)
 
   -- Asset: 6 Byte Ascii String
-  index = dissect.asset(buffer, index, packet, parent)
+  index, asset = dissect.asset(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
-  index = dissect.match_event_indicator(buffer, index, packet, parent)
+  index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
   -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
-  index = dissect.security_trading_status(buffer, index, packet, parent)
+  index, security_trading_status = dissect.security_trading_status(buffer, index, packet, parent)
 
   -- Halt Reason: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
-  index = dissect.halt_reason(buffer, index, packet, parent)
+  index, halt_reason = dissect.halt_reason(buffer, index, packet, parent)
 
   -- Security Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.security_trading_event(buffer, index, packet, parent)
+  index, security_trading_event = dissect.security_trading_event(buffer, index, packet, parent)
 
   return index
 end
@@ -5709,13 +5801,14 @@ end
 
 -- Dissect: Leg Option Delta
 dissect.leg_option_delta = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_option_delta)
+  local length = size_of.leg_option_delta
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.leg_option_delta(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.leg_option_delta, range, value, display)
 
-  return offset + size_of.leg_option_delta
+  return offset + length, value
 end
 
 -- Size: Leg Price
@@ -5729,13 +5822,14 @@ end
 
 -- Dissect: Leg Price
 dissect.leg_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_price)
+  local length = size_of.leg_price
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.leg_price(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.leg_price, range, value, display)
 
-  return offset + size_of.leg_price
+  return offset + length, value
 end
 
 -- Size: Leg Ratio Qty
@@ -5748,13 +5842,14 @@ end
 
 -- Dissect: Leg Ratio Qty
 dissect.leg_ratio_qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_ratio_qty)
+  local length = size_of.leg_ratio_qty
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.leg_ratio_qty(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.leg_ratio_qty, range, value, display)
 
-  return offset + size_of.leg_ratio_qty
+  return offset + length, value
 end
 
 -- Size: Leg Side
@@ -5774,13 +5869,14 @@ end
 
 -- Dissect: Leg Side
 dissect.leg_side = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_side)
+  local length = size_of.leg_side
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.leg_side(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.leg_side, range, value, display)
 
-  return offset + size_of.leg_side
+  return offset + length, value
 end
 
 -- Size: Leg Security Id
@@ -5793,13 +5889,14 @@ end
 
 -- Dissect: Leg Security Id
 dissect.leg_security_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_security_id)
+  local length = size_of.leg_security_id
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.leg_security_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.leg_security_id, range, value, display)
 
-  return offset + size_of.leg_security_id
+  return offset + length, value
 end
 
 -- Display: Legs Group
@@ -5812,19 +5909,19 @@ dissect.legs_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Leg Security Id: 4 Byte Signed Fixed Width Integer
-  index = dissect.leg_security_id(buffer, index, packet, parent)
+  index, leg_security_id = dissect.leg_security_id(buffer, index, packet, parent)
 
   -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.leg_side(buffer, index, packet, parent)
+  index, leg_side = dissect.leg_side(buffer, index, packet, parent)
 
   -- Leg Ratio Qty: 1 Byte Signed Fixed Width Integer
-  index = dissect.leg_ratio_qty(buffer, index, packet, parent)
+  index, leg_ratio_qty = dissect.leg_ratio_qty(buffer, index, packet, parent)
 
   -- Leg Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.leg_price(buffer, index, packet, parent)
+  index, leg_price = dissect.leg_price(buffer, index, packet, parent)
 
   -- Leg Option Delta: 4 Byte Signed Fixed Width Integer
-  index = dissect.leg_option_delta(buffer, index, packet, parent)
+  index, leg_option_delta = dissect.leg_option_delta(buffer, index, packet, parent)
 
   return index
 end
@@ -5864,13 +5961,13 @@ dissect.legs_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local legs_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Legs Group: Struct of 5 fields
-  for i = 1, legs_group_count do
+  for i = 1, num_in_group do
     index = dissect.legs_group(buffer, index, packet, parent)
   end
 
@@ -5901,13 +5998,14 @@ end
 
 -- Dissect: Price Ratio
 dissect.price_ratio = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price_ratio)
+  local length = size_of.price_ratio
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.price_ratio(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.price_ratio, range, value, display)
 
-  return offset + size_of.price_ratio
+  return offset + length, value
 end
 
 -- Size: Security Sub Type
@@ -5920,13 +6018,14 @@ end
 
 -- Dissect: Security Sub Type
 dissect.security_sub_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_sub_type)
+  local length = size_of.security_sub_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.security_sub_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.security_sub_type, range, value, display)
 
-  return offset + size_of.security_sub_type
+  return offset + length, value
 end
 
 -- Calculate runtime size: Md Instrument Definition Spread 29
@@ -5958,133 +6057,133 @@ dissect.md_instrument_definition_spread_29_fields = function(buffer, offset, pac
   local index = offset
 
   -- Match Event Indicator: Struct of 8 fields
-  index = dissect.match_event_indicator(buffer, index, packet, parent)
+  index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
   -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.tot_num_reports(buffer, index, packet, parent)
+  index, tot_num_reports = dissect.tot_num_reports(buffer, index, packet, parent)
 
   -- Security Update Action: 1 Byte Ascii String Enum with 3 values
-  index = dissect.security_update_action(buffer, index, packet, parent)
+  index, security_update_action = dissect.security_update_action(buffer, index, packet, parent)
 
   -- Last Update Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.last_update_time(buffer, index, packet, parent)
+  index, last_update_time = dissect.last_update_time(buffer, index, packet, parent)
 
   -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.md_security_trading_status(buffer, index, packet, parent)
+  index, md_security_trading_status = dissect.md_security_trading_status(buffer, index, packet, parent)
 
   -- Appl Id: 2 Byte Signed Fixed Width Integer
-  index = dissect.appl_id(buffer, index, packet, parent)
+  index, appl_id = dissect.appl_id(buffer, index, packet, parent)
 
   -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.market_segment_id(buffer, index, packet, parent)
+  index, market_segment_id = dissect.market_segment_id(buffer, index, packet, parent)
 
   -- Underlying Product: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.underlying_product(buffer, index, packet, parent)
+  index, underlying_product = dissect.underlying_product(buffer, index, packet, parent)
 
   -- Security Exchange: 4 Byte Ascii String
-  index = dissect.security_exchange(buffer, index, packet, parent)
+  index, security_exchange = dissect.security_exchange(buffer, index, packet, parent)
 
   -- Security Group: 6 Byte Ascii String
-  index = dissect.security_group(buffer, index, packet, parent)
+  index, security_group = dissect.security_group(buffer, index, packet, parent)
 
   -- Asset: 6 Byte Ascii String
-  index = dissect.asset(buffer, index, packet, parent)
+  index, asset = dissect.asset(buffer, index, packet, parent)
 
   -- Symbol: 20 Byte Ascii String
-  index = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = dissect.symbol(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Security Type: 6 Byte Ascii String
-  index = dissect.security_type(buffer, index, packet, parent)
+  index, security_type = dissect.security_type(buffer, index, packet, parent)
 
   -- Cfi Code: 6 Byte Ascii String
-  index = dissect.cfi_code(buffer, index, packet, parent)
+  index, cfi_code = dissect.cfi_code(buffer, index, packet, parent)
 
   -- Maturity Month Year: Struct of 4 fields
-  index = dissect.maturity_month_year(buffer, index, packet, parent)
+  index, maturity_month_year = dissect.maturity_month_year(buffer, index, packet, parent)
 
   -- Currency: 3 Byte Ascii String
-  index = dissect.currency(buffer, index, packet, parent)
+  index, currency = dissect.currency(buffer, index, packet, parent)
 
   -- Security Sub Type: 5 Byte Ascii String
-  index = dissect.security_sub_type(buffer, index, packet, parent)
+  index, security_sub_type = dissect.security_sub_type(buffer, index, packet, parent)
 
   -- User Defined Instrument: 1 Byte Ascii String
-  index = dissect.user_defined_instrument(buffer, index, packet, parent)
+  index, user_defined_instrument = dissect.user_defined_instrument(buffer, index, packet, parent)
 
   -- Match Algorithm: 1 Byte Ascii String
-  index = dissect.match_algorithm(buffer, index, packet, parent)
+  index, match_algorithm = dissect.match_algorithm(buffer, index, packet, parent)
 
   -- Min Trade Vol: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.min_trade_vol(buffer, index, packet, parent)
+  index, min_trade_vol = dissect.min_trade_vol(buffer, index, packet, parent)
 
   -- Max Trade Vol: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.max_trade_vol(buffer, index, packet, parent)
+  index, max_trade_vol = dissect.max_trade_vol(buffer, index, packet, parent)
 
   -- Min Price Increment: 8 Byte Signed Fixed Width Integer
-  index = dissect.min_price_increment(buffer, index, packet, parent)
+  index, min_price_increment = dissect.min_price_increment(buffer, index, packet, parent)
 
   -- Display Factor: 8 Byte Signed Fixed Width Integer
-  index = dissect.display_factor(buffer, index, packet, parent)
+  index, display_factor = dissect.display_factor(buffer, index, packet, parent)
 
   -- Price Display Format: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.price_display_format(buffer, index, packet, parent)
+  index, price_display_format = dissect.price_display_format(buffer, index, packet, parent)
 
   -- Price Ratio: 8 Byte Signed Fixed Width Integer
-  index = dissect.price_ratio(buffer, index, packet, parent)
+  index, price_ratio = dissect.price_ratio(buffer, index, packet, parent)
 
   -- Tick Rule: 1 Byte Signed Fixed Width Integer Nullable
-  index = dissect.tick_rule(buffer, index, packet, parent)
+  index, tick_rule = dissect.tick_rule(buffer, index, packet, parent)
 
   -- Unit Of Measure: 30 Byte Ascii String
-  index = dissect.unit_of_measure(buffer, index, packet, parent)
+  index, unit_of_measure = dissect.unit_of_measure(buffer, index, packet, parent)
 
   -- Trading Reference Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.trading_reference_price(buffer, index, packet, parent)
+  index, trading_reference_price = dissect.trading_reference_price(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 6 fields
-  index = dissect.settl_price_type(buffer, index, packet, parent)
+  index, settl_price_type = dissect.settl_price_type(buffer, index, packet, parent)
 
   -- Open Interest Qty: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.open_interest_qty(buffer, index, packet, parent)
+  index, open_interest_qty = dissect.open_interest_qty(buffer, index, packet, parent)
 
   -- Cleared Volume: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.cleared_volume(buffer, index, packet, parent)
+  index, cleared_volume = dissect.cleared_volume(buffer, index, packet, parent)
 
   -- High Limit Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.high_limit_price(buffer, index, packet, parent)
+  index, high_limit_price = dissect.high_limit_price(buffer, index, packet, parent)
 
   -- Low Limit Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.low_limit_price(buffer, index, packet, parent)
+  index, low_limit_price = dissect.low_limit_price(buffer, index, packet, parent)
 
   -- Max Price Variation: 8 Byte Signed Fixed Width Integer
-  index = dissect.max_price_variation(buffer, index, packet, parent)
+  index, max_price_variation = dissect.max_price_variation(buffer, index, packet, parent)
 
   -- Main Fraction: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.main_fraction(buffer, index, packet, parent)
+  index, main_fraction = dissect.main_fraction(buffer, index, packet, parent)
 
   -- Sub Fraction: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.sub_fraction(buffer, index, packet, parent)
+  index, sub_fraction = dissect.sub_fraction(buffer, index, packet, parent)
 
   -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.trading_reference_date(buffer, index, packet, parent)
+  index, trading_reference_date = dissect.trading_reference_date(buffer, index, packet, parent)
 
   -- Events Groups: Struct of 2 fields
-  index = dissect.events_groups(buffer, index, packet, parent)
+  index, events_groups = dissect.events_groups(buffer, index, packet, parent)
 
   -- MD Feed Types Groups: Struct of 2 fields
-  index = dissect.md_feed_types_groups(buffer, index, packet, parent)
+  index, md_feed_types_groups = dissect.md_feed_types_groups(buffer, index, packet, parent)
 
   -- Inst Attrib Groups: Struct of 2 fields
-  index = dissect.inst_attrib_groups(buffer, index, packet, parent)
+  index, inst_attrib_groups = dissect.inst_attrib_groups(buffer, index, packet, parent)
 
   -- Lot Type Rules Groups: Struct of 2 fields
-  index = dissect.lot_type_rules_groups(buffer, index, packet, parent)
+  index, lot_type_rules_groups = dissect.lot_type_rules_groups(buffer, index, packet, parent)
 
   -- Legs Groups: Struct of 2 fields
-  index = dissect.legs_groups(buffer, index, packet, parent)
+  index, legs_groups = dissect.legs_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -6117,13 +6216,14 @@ end
 
 -- Dissect: Flow Schedule Type
 dissect.flow_schedule_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.flow_schedule_type)
+  local length = size_of.flow_schedule_type
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.flow_schedule_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.flow_schedule_type, range, value, display)
 
-  return offset + size_of.flow_schedule_type
+  return offset + length, value
 end
 
 -- Size: Contract Multiplier Unit
@@ -6141,13 +6241,14 @@ end
 
 -- Dissect: Contract Multiplier Unit
 dissect.contract_multiplier_unit = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.contract_multiplier_unit)
+  local length = size_of.contract_multiplier_unit
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.contract_multiplier_unit(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.contract_multiplier_unit, range, value, display)
 
-  return offset + size_of.contract_multiplier_unit
+  return offset + length, value
 end
 
 -- Size: Contract Multiplier
@@ -6165,13 +6266,14 @@ end
 
 -- Dissect: Contract Multiplier
 dissect.contract_multiplier = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.contract_multiplier)
+  local length = size_of.contract_multiplier
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.contract_multiplier(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.contract_multiplier, range, value, display)
 
-  return offset + size_of.contract_multiplier
+  return offset + length, value
 end
 
 -- Size: Original Contract Size
@@ -6189,13 +6291,14 @@ end
 
 -- Dissect: Original Contract Size
 dissect.original_contract_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.original_contract_size)
+  local length = size_of.original_contract_size
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.original_contract_size(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.original_contract_size, range, value, display)
 
-  return offset + size_of.original_contract_size
+  return offset + length, value
 end
 
 -- Size: Decay Start Date
@@ -6213,13 +6316,14 @@ end
 
 -- Dissect: Decay Start Date
 dissect.decay_start_date = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.decay_start_date)
+  local length = size_of.decay_start_date
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.decay_start_date(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.decay_start_date, range, value, display)
 
-  return offset + size_of.decay_start_date
+  return offset + length, value
 end
 
 -- Size: Decay Quantity
@@ -6237,13 +6341,14 @@ end
 
 -- Dissect: Decay Quantity
 dissect.decay_quantity = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.decay_quantity)
+  local length = size_of.decay_quantity
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.decay_quantity(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.decay_quantity, range, value, display)
 
-  return offset + size_of.decay_quantity
+  return offset + length, value
 end
 
 -- Calculate runtime size: Md Instrument Definition Future 27
@@ -6273,148 +6378,148 @@ dissect.md_instrument_definition_future_27_fields = function(buffer, offset, pac
   local index = offset
 
   -- Match Event Indicator: Struct of 8 fields
-  index = dissect.match_event_indicator(buffer, index, packet, parent)
+  index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
   -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.tot_num_reports(buffer, index, packet, parent)
+  index, tot_num_reports = dissect.tot_num_reports(buffer, index, packet, parent)
 
   -- Security Update Action: 1 Byte Ascii String Enum with 3 values
-  index = dissect.security_update_action(buffer, index, packet, parent)
+  index, security_update_action = dissect.security_update_action(buffer, index, packet, parent)
 
   -- Last Update Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.last_update_time(buffer, index, packet, parent)
+  index, last_update_time = dissect.last_update_time(buffer, index, packet, parent)
 
   -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.md_security_trading_status(buffer, index, packet, parent)
+  index, md_security_trading_status = dissect.md_security_trading_status(buffer, index, packet, parent)
 
   -- Appl Id: 2 Byte Signed Fixed Width Integer
-  index = dissect.appl_id(buffer, index, packet, parent)
+  index, appl_id = dissect.appl_id(buffer, index, packet, parent)
 
   -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.market_segment_id(buffer, index, packet, parent)
+  index, market_segment_id = dissect.market_segment_id(buffer, index, packet, parent)
 
   -- Underlying Product: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.underlying_product(buffer, index, packet, parent)
+  index, underlying_product = dissect.underlying_product(buffer, index, packet, parent)
 
   -- Security Exchange: 4 Byte Ascii String
-  index = dissect.security_exchange(buffer, index, packet, parent)
+  index, security_exchange = dissect.security_exchange(buffer, index, packet, parent)
 
   -- Security Group: 6 Byte Ascii String
-  index = dissect.security_group(buffer, index, packet, parent)
+  index, security_group = dissect.security_group(buffer, index, packet, parent)
 
   -- Asset: 6 Byte Ascii String
-  index = dissect.asset(buffer, index, packet, parent)
+  index, asset = dissect.asset(buffer, index, packet, parent)
 
   -- Symbol: 20 Byte Ascii String
-  index = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = dissect.symbol(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Security Type: 6 Byte Ascii String
-  index = dissect.security_type(buffer, index, packet, parent)
+  index, security_type = dissect.security_type(buffer, index, packet, parent)
 
   -- Cfi Code: 6 Byte Ascii String
-  index = dissect.cfi_code(buffer, index, packet, parent)
+  index, cfi_code = dissect.cfi_code(buffer, index, packet, parent)
 
   -- Maturity Month Year: Struct of 4 fields
-  index = dissect.maturity_month_year(buffer, index, packet, parent)
+  index, maturity_month_year = dissect.maturity_month_year(buffer, index, packet, parent)
 
   -- Currency: 3 Byte Ascii String
-  index = dissect.currency(buffer, index, packet, parent)
+  index, currency = dissect.currency(buffer, index, packet, parent)
 
   -- Settl Currency: 3 Byte Ascii String
-  index = dissect.settl_currency(buffer, index, packet, parent)
+  index, settl_currency = dissect.settl_currency(buffer, index, packet, parent)
 
   -- Match Algorithm: 1 Byte Ascii String
-  index = dissect.match_algorithm(buffer, index, packet, parent)
+  index, match_algorithm = dissect.match_algorithm(buffer, index, packet, parent)
 
   -- Min Trade Vol: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.min_trade_vol(buffer, index, packet, parent)
+  index, min_trade_vol = dissect.min_trade_vol(buffer, index, packet, parent)
 
   -- Max Trade Vol: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.max_trade_vol(buffer, index, packet, parent)
+  index, max_trade_vol = dissect.max_trade_vol(buffer, index, packet, parent)
 
   -- Min Price Increment: 8 Byte Signed Fixed Width Integer
-  index = dissect.min_price_increment(buffer, index, packet, parent)
+  index, min_price_increment = dissect.min_price_increment(buffer, index, packet, parent)
 
   -- Display Factor: 8 Byte Signed Fixed Width Integer
-  index = dissect.display_factor(buffer, index, packet, parent)
+  index, display_factor = dissect.display_factor(buffer, index, packet, parent)
 
   -- Main Fraction: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.main_fraction(buffer, index, packet, parent)
+  index, main_fraction = dissect.main_fraction(buffer, index, packet, parent)
 
   -- Sub Fraction: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.sub_fraction(buffer, index, packet, parent)
+  index, sub_fraction = dissect.sub_fraction(buffer, index, packet, parent)
 
   -- Price Display Format: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.price_display_format(buffer, index, packet, parent)
+  index, price_display_format = dissect.price_display_format(buffer, index, packet, parent)
 
   -- Unit Of Measure: 30 Byte Ascii String
-  index = dissect.unit_of_measure(buffer, index, packet, parent)
+  index, unit_of_measure = dissect.unit_of_measure(buffer, index, packet, parent)
 
   -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer
-  index = dissect.unit_of_measure_qty(buffer, index, packet, parent)
+  index, unit_of_measure_qty = dissect.unit_of_measure_qty(buffer, index, packet, parent)
 
   -- Trading Reference Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.trading_reference_price(buffer, index, packet, parent)
+  index, trading_reference_price = dissect.trading_reference_price(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 6 fields
-  index = dissect.settl_price_type(buffer, index, packet, parent)
+  index, settl_price_type = dissect.settl_price_type(buffer, index, packet, parent)
 
   -- Open Interest Qty: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.open_interest_qty(buffer, index, packet, parent)
+  index, open_interest_qty = dissect.open_interest_qty(buffer, index, packet, parent)
 
   -- Cleared Volume: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.cleared_volume(buffer, index, packet, parent)
+  index, cleared_volume = dissect.cleared_volume(buffer, index, packet, parent)
 
   -- High Limit Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.high_limit_price(buffer, index, packet, parent)
+  index, high_limit_price = dissect.high_limit_price(buffer, index, packet, parent)
 
   -- Low Limit Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.low_limit_price(buffer, index, packet, parent)
+  index, low_limit_price = dissect.low_limit_price(buffer, index, packet, parent)
 
   -- Max Price Variation: 8 Byte Signed Fixed Width Integer
-  index = dissect.max_price_variation(buffer, index, packet, parent)
+  index, max_price_variation = dissect.max_price_variation(buffer, index, packet, parent)
 
   -- Decay Quantity: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.decay_quantity(buffer, index, packet, parent)
+  index, decay_quantity = dissect.decay_quantity(buffer, index, packet, parent)
 
   -- Decay Start Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.decay_start_date(buffer, index, packet, parent)
+  index, decay_start_date = dissect.decay_start_date(buffer, index, packet, parent)
 
   -- Original Contract Size: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.original_contract_size(buffer, index, packet, parent)
+  index, original_contract_size = dissect.original_contract_size(buffer, index, packet, parent)
 
   -- Contract Multiplier: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.contract_multiplier(buffer, index, packet, parent)
+  index, contract_multiplier = dissect.contract_multiplier(buffer, index, packet, parent)
 
   -- Contract Multiplier Unit: 1 Byte Signed Fixed Width Integer Nullable
-  index = dissect.contract_multiplier_unit(buffer, index, packet, parent)
+  index, contract_multiplier_unit = dissect.contract_multiplier_unit(buffer, index, packet, parent)
 
   -- Flow Schedule Type: 1 Byte Signed Fixed Width Integer Nullable
-  index = dissect.flow_schedule_type(buffer, index, packet, parent)
+  index, flow_schedule_type = dissect.flow_schedule_type(buffer, index, packet, parent)
 
   -- Min Price Increment Amount: 8 Byte Signed Fixed Width Integer
-  index = dissect.min_price_increment_amount(buffer, index, packet, parent)
+  index, min_price_increment_amount = dissect.min_price_increment_amount(buffer, index, packet, parent)
 
   -- User Defined Instrument: 1 Byte Ascii String
-  index = dissect.user_defined_instrument(buffer, index, packet, parent)
+  index, user_defined_instrument = dissect.user_defined_instrument(buffer, index, packet, parent)
 
   -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.trading_reference_date(buffer, index, packet, parent)
+  index, trading_reference_date = dissect.trading_reference_date(buffer, index, packet, parent)
 
   -- Events Groups: Struct of 2 fields
-  index = dissect.events_groups(buffer, index, packet, parent)
+  index, events_groups = dissect.events_groups(buffer, index, packet, parent)
 
   -- MD Feed Types Groups: Struct of 2 fields
-  index = dissect.md_feed_types_groups(buffer, index, packet, parent)
+  index, md_feed_types_groups = dissect.md_feed_types_groups(buffer, index, packet, parent)
 
   -- Inst Attrib Groups: Struct of 2 fields
-  index = dissect.inst_attrib_groups(buffer, index, packet, parent)
+  index, inst_attrib_groups = dissect.inst_attrib_groups(buffer, index, packet, parent)
 
   -- Lot Type Rules Groups: Struct of 2 fields
-  index = dissect.lot_type_rules_groups(buffer, index, packet, parent)
+  index, lot_type_rules_groups = dissect.lot_type_rules_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -6442,13 +6547,14 @@ end
 
 -- Dissect: Text
 dissect.text = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.text)
+  local length = size_of.text
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.text(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.text, range, value, display)
 
-  return offset + size_of.text
+  return offset + length, value
 end
 
 -- Display: Admin Logout 16
@@ -6461,7 +6567,7 @@ dissect.admin_logout_16_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Text: 180 Byte Ascii String
-  index = dissect.text(buffer, index, packet, parent)
+  index, text = dissect.text(buffer, index, packet, parent)
 
   return index
 end
@@ -6488,13 +6594,14 @@ end
 
 -- Dissect: Heart Bt Int
 dissect.heart_bt_int = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.heart_bt_int)
+  local length = size_of.heart_bt_int
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.heart_bt_int(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.heart_bt_int, range, value, display)
 
-  return offset + size_of.heart_bt_int
+  return offset + length, value
 end
 
 -- Display: Admin Login 15
@@ -6507,7 +6614,7 @@ dissect.admin_login_15_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Heart Bt Int: 1 Byte Signed Fixed Width Integer
-  index = dissect.heart_bt_int(buffer, index, packet, parent)
+  index, heart_bt_int = dissect.heart_bt_int(buffer, index, packet, parent)
 
   return index
 end
@@ -6534,7 +6641,7 @@ dissect.channel_reset_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Appl Id: 2 Byte Signed Fixed Width Integer
-  index = dissect.appl_id(buffer, index, packet, parent)
+  index, appl_id = dissect.appl_id(buffer, index, packet, parent)
 
   return index
 end
@@ -6574,13 +6681,13 @@ dissect.channel_reset_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local channel_reset_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Channel Reset Group: Struct of 1 fields
-  for i = 1, channel_reset_group_count do
+  for i = 1, num_in_group do
     index = dissect.channel_reset_group(buffer, index, packet, parent)
   end
 
@@ -6621,13 +6728,13 @@ dissect.channel_reset_4_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
-  index = dissect.match_event_indicator(buffer, index, packet, parent)
+  index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
   -- Channel Reset Groups: Struct of 2 fields
-  index = dissect.channel_reset_groups(buffer, index, packet, parent)
+  index, channel_reset_groups = dissect.channel_reset_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -6646,81 +6753,81 @@ dissect.channel_reset_4 = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, templateid)
+size_of.payload = function(buffer, offset, template_id)
   -- Size of Channel Reset 4
-  if templateid == 4 then
+  if template_id == 4 then
     return size_of.channel_reset_4(buffer, offset)
   end
   -- Size of Admin Heartbeat 12
-  if templateid == 12 then
+  if template_id == 12 then
     return 0
   end
   -- Size of Admin Login 15
-  if templateid == 15 then
+  if template_id == 15 then
     return 1
   end
   -- Size of Admin Logout 16
-  if templateid == 16 then
+  if template_id == 16 then
     return 180
   end
   -- Size of Md Instrument Definition Future 27
-  if templateid == 27 then
+  if template_id == 27 then
     return size_of.md_instrument_definition_future_27(buffer, offset)
   end
   -- Size of Md Instrument Definition Spread 29
-  if templateid == 29 then
+  if template_id == 29 then
     return size_of.md_instrument_definition_spread_29(buffer, offset)
   end
   -- Size of Security Status 30
-  if templateid == 30 then
+  if template_id == 30 then
     return 30
   end
   -- Size of Md Incremental Refresh Book 32
-  if templateid == 32 then
+  if template_id == 32 then
     return size_of.md_incremental_refresh_book_32(buffer, offset)
   end
   -- Size of Md Incremental Refresh Daily Statistics 33
-  if templateid == 33 then
+  if template_id == 33 then
     return size_of.md_incremental_refresh_daily_statistics_33(buffer, offset)
   end
   -- Size of Md Incremental Refresh Limits Banding 34
-  if templateid == 34 then
+  if template_id == 34 then
     return size_of.md_incremental_refresh_limits_banding_34(buffer, offset)
   end
   -- Size of Md Incremental Refresh Session Statistics 35
-  if templateid == 35 then
+  if template_id == 35 then
     return size_of.md_incremental_refresh_session_statistics_35(buffer, offset)
   end
   -- Size of Md Incremental Refresh Trade 36
-  if templateid == 36 then
+  if template_id == 36 then
     return size_of.md_incremental_refresh_trade_36(buffer, offset)
   end
   -- Size of Md Incremental Refresh Volume 37
-  if templateid == 37 then
+  if template_id == 37 then
     return size_of.md_incremental_refresh_volume_37(buffer, offset)
   end
   -- Size of Snapshot Full Refresh 38
-  if templateid == 38 then
+  if template_id == 38 then
     return size_of.snapshot_full_refresh_38(buffer, offset)
   end
   -- Size of Quote Request 39
-  if templateid == 39 then
+  if template_id == 39 then
     return size_of.quote_request_39(buffer, offset)
   end
   -- Size of Md Instrument Definition Option 41
-  if templateid == 41 then
+  if template_id == 41 then
     return size_of.md_instrument_definition_option_41(buffer, offset)
   end
   -- Size of Md Incremental Refresh Trade Summary 42
-  if templateid == 42 then
+  if template_id == 42 then
     return size_of.md_incremental_refresh_trade_summary_42(buffer, offset)
   end
   -- Size of Md Incremental Refresh Order Book 43
-  if templateid == 43 then
+  if template_id == 43 then
     return size_of.md_incremental_refresh_order_book_43(buffer, offset)
   end
   -- Size of Snapshot Full Refresh Order Book 44
-  if templateid == 44 then
+  if template_id == 44 then
     return size_of.snapshot_full_refresh_order_book_44(buffer, offset)
   end
 
@@ -6733,80 +6840,80 @@ display.payload = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Branches: Payload
-dissect.payload_branches = function(buffer, offset, packet, parent, templateid)
+dissect.payload_branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Channel Reset 4
-  if templateid == 4 then
+  if template_id == 4 then
     return dissect.channel_reset_4(buffer, offset, packet, parent)
   end
   -- Dissect Admin Heartbeat 12
-  if templateid == 12 then
+  if template_id == 12 then
   end
   -- Dissect Admin Login 15
-  if templateid == 15 then
+  if template_id == 15 then
     return dissect.admin_login_15(buffer, offset, packet, parent)
   end
   -- Dissect Admin Logout 16
-  if templateid == 16 then
+  if template_id == 16 then
     return dissect.admin_logout_16(buffer, offset, packet, parent)
   end
   -- Dissect Md Instrument Definition Future 27
-  if templateid == 27 then
+  if template_id == 27 then
     return dissect.md_instrument_definition_future_27(buffer, offset, packet, parent)
   end
   -- Dissect Md Instrument Definition Spread 29
-  if templateid == 29 then
+  if template_id == 29 then
     return dissect.md_instrument_definition_spread_29(buffer, offset, packet, parent)
   end
   -- Dissect Security Status 30
-  if templateid == 30 then
+  if template_id == 30 then
     return dissect.security_status_30(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Book 32
-  if templateid == 32 then
+  if template_id == 32 then
     return dissect.md_incremental_refresh_book_32(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Daily Statistics 33
-  if templateid == 33 then
+  if template_id == 33 then
     return dissect.md_incremental_refresh_daily_statistics_33(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Limits Banding 34
-  if templateid == 34 then
+  if template_id == 34 then
     return dissect.md_incremental_refresh_limits_banding_34(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Session Statistics 35
-  if templateid == 35 then
+  if template_id == 35 then
     return dissect.md_incremental_refresh_session_statistics_35(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Trade 36
-  if templateid == 36 then
+  if template_id == 36 then
     return dissect.md_incremental_refresh_trade_36(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Volume 37
-  if templateid == 37 then
+  if template_id == 37 then
     return dissect.md_incremental_refresh_volume_37(buffer, offset, packet, parent)
   end
   -- Dissect Snapshot Full Refresh 38
-  if templateid == 38 then
+  if template_id == 38 then
     return dissect.snapshot_full_refresh_38(buffer, offset, packet, parent)
   end
   -- Dissect Quote Request 39
-  if templateid == 39 then
+  if template_id == 39 then
     return dissect.quote_request_39(buffer, offset, packet, parent)
   end
   -- Dissect Md Instrument Definition Option 41
-  if templateid == 41 then
+  if template_id == 41 then
     return dissect.md_instrument_definition_option_41(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Trade Summary 42
-  if templateid == 42 then
+  if template_id == 42 then
     return dissect.md_incremental_refresh_trade_summary_42(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Order Book 43
-  if templateid == 43 then
+  if template_id == 43 then
     return dissect.md_incremental_refresh_order_book_43(buffer, offset, packet, parent)
   end
   -- Dissect Snapshot Full Refresh Order Book 44
-  if templateid == 44 then
+  if template_id == 44 then
     return dissect.snapshot_full_refresh_order_book_44(buffer, offset, packet, parent)
   end
 
@@ -6814,13 +6921,13 @@ dissect.payload_branches = function(buffer, offset, packet, parent, templateid)
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent, code)
+dissect.payload = function(buffer, offset, packet, parent, template_id)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, code)
+    return dissect.payload_branches(buffer, offset, packet, parent, template_id)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, code)
+  local size = size_of.payload(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
@@ -6830,7 +6937,7 @@ dissect.payload = function(buffer, offset, packet, parent, code)
   local display = display.payload(buffer, packet, parent)
   local element = parent:add(cme_mdp3_sbe_v8_1.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, code)
+  return dissect.payload_branches(buffer, offset, packet, parent, template_id)
 end
 
 -- Size: Version
@@ -6843,13 +6950,14 @@ end
 
 -- Dissect: Version
 dissect.version = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.version)
+  local length = size_of.version
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.version(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.version, range, value, display)
 
-  return offset + size_of.version
+  return offset + length, value
 end
 
 -- Size: Schema Id
@@ -6862,13 +6970,14 @@ end
 
 -- Dissect: Schema Id
 dissect.schema_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.schema_id)
+  local length = size_of.schema_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.schema_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.schema_id, range, value, display)
 
-  return offset + size_of.schema_id
+  return offset + length, value
 end
 
 -- Size: Template Id
@@ -6939,13 +7048,14 @@ end
 
 -- Dissect: Template Id
 dissect.template_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.template_id)
+  local length = size_of.template_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.template_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.template_id, range, value, display)
 
-  return offset + size_of.template_id
+  return offset + length, value
 end
 
 -- Size: Message Size
@@ -6958,13 +7068,14 @@ end
 
 -- Dissect: Message Size
 dissect.message_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.message_size)
+  local length = size_of.message_size
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.message_size(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.message_size, range, value, display)
 
-  return offset + size_of.message_size
+  return offset + length, value
 end
 
 -- Display: Message Header
@@ -6977,19 +7088,19 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.message_size(buffer, index, packet, parent)
+  index, message_size = dissect.message_size(buffer, index, packet, parent)
 
   -- Block Length: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.block_length(buffer, index, packet, parent)
+  index, block_length = dissect.block_length(buffer, index, packet, parent)
 
   -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 19 values
-  index = dissect.template_id(buffer, index, packet, parent)
+  index, template_id = dissect.template_id(buffer, index, packet, parent)
 
   -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
-  index = dissect.schema_id(buffer, index, packet, parent)
+  index, schema_id = dissect.schema_id(buffer, index, packet, parent)
 
   -- Version: 2 Byte Unsigned Fixed Width Integer Static
-  index = dissect.version(buffer, index, packet, parent)
+  index, version = dissect.version(buffer, index, packet, parent)
 
   return index
 end
@@ -7030,13 +7141,13 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 5 fields
-  index = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
-  local code = buffer(index - 6, 2):le_uint()
+  local template_id = buffer(index - 6, 2):le_uint()
 
   -- Payload: Runtime Type with 19 branches
-  index = dissect.payload(buffer, index, packet, parent, code)
+  index = dissect.payload(buffer, index, packet, parent, template_id)
 
   return index
 end
@@ -7064,13 +7175,14 @@ end
 
 -- Dissect: Sending Time
 dissect.sending_time = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.sending_time)
+  local length = size_of.sending_time
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.sending_time(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.sending_time, range, value, display)
 
-  return offset + size_of.sending_time
+  return offset + length, value
 end
 
 -- Size: Message Sequence Number
@@ -7083,13 +7195,14 @@ end
 
 -- Dissect: Message Sequence Number
 dissect.message_sequence_number = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.message_sequence_number)
+  local length = size_of.message_sequence_number
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.message_sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(cme_mdp3_sbe_v8_1.fields.message_sequence_number, range, value, display)
 
-  return offset + size_of.message_sequence_number
+  return offset + length, value
 end
 
 -- Display: Packet Header
@@ -7102,10 +7215,10 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.message_sequence_number(buffer, index, packet, parent)
+  index, message_sequence_number = dissect.message_sequence_number(buffer, index, packet, parent)
 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time(buffer, index, packet, parent)
+  index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
   return index
 end
@@ -7127,7 +7240,7 @@ dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 2 fields
-  index = dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = dissect.packet_header(buffer, index, packet, parent)
 
   -- Message: Struct of 2 fields
   local end_of_payload = buffer:len()

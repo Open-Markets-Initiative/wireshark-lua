@@ -802,13 +802,14 @@ end
 
 -- Dissect: Cxl Quantity
 dissect.cxl_quantity = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.cxl_quantity)
+  local length = size_of.cxl_quantity
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.cxl_quantity(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.cxl_quantity, range, value, display)
 
-  return offset + size_of.cxl_quantity
+  return offset + length, value
 end
 
 -- Size: Affected Order Id
@@ -821,13 +822,14 @@ end
 
 -- Dissect: Affected Order Id
 dissect.affected_order_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.affected_order_id)
+  local length = size_of.affected_order_id
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.affected_order_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.affected_order_id, range, value, display)
 
-  return offset + size_of.affected_order_id
+  return offset + length, value
 end
 
 -- Size: Orig Ci Ord Id
@@ -840,13 +842,14 @@ end
 
 -- Dissect: Orig Ci Ord Id
 dissect.orig_ci_ord_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.orig_ci_ord_id)
+  local length = size_of.orig_ci_ord_id
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.orig_ci_ord_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.orig_ci_ord_id, range, value, display)
 
-  return offset + size_of.orig_ci_ord_id
+  return offset + length, value
 end
 
 -- Display: Affected Orders Group
@@ -859,13 +862,13 @@ dissect.affected_orders_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Orig Ci Ord Id: 20 Byte Ascii String
-  index = dissect.orig_ci_ord_id(buffer, index, packet, parent)
+  index, orig_ci_ord_id = dissect.orig_ci_ord_id(buffer, index, packet, parent)
 
   -- Affected Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.affected_order_id(buffer, index, packet, parent)
+  index, affected_order_id = dissect.affected_order_id(buffer, index, packet, parent)
 
   -- Cxl Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.cxl_quantity(buffer, index, packet, parent)
+  index, cxl_quantity = dissect.cxl_quantity(buffer, index, packet, parent)
 
   return index
 end
@@ -892,13 +895,14 @@ end
 
 -- Dissect: Num In Group
 dissect.num_in_group = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.num_in_group)
+  local length = size_of.num_in_group
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.num_in_group(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.num_in_group, range, value, display)
 
-  return offset + size_of.num_in_group
+  return offset + length, value
 end
 
 -- Size: Block Length
@@ -911,13 +915,14 @@ end
 
 -- Dissect: Block Length
 dissect.block_length = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.block_length)
+  local length = size_of.block_length
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.block_length(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.block_length, range, value, display)
 
-  return offset + size_of.block_length
+  return offset + length, value
 end
 
 -- Display: Group Size
@@ -930,10 +935,10 @@ dissect.group_size_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Block Length: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.block_length(buffer, index, packet, parent)
+  index, block_length = dissect.block_length(buffer, index, packet, parent)
 
   -- Num In Group: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.num_in_group(buffer, index, packet, parent)
+  index, num_in_group = dissect.num_in_group(buffer, index, packet, parent)
 
   return index
 end
@@ -973,13 +978,13 @@ dissect.affected_orders_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local affected_orders_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Affected Orders Group: Struct of 3 fields
-  for i = 1, affected_orders_group_count do
+  for i = 1, num_in_group do
     index = dissect.affected_orders_group(buffer, index, packet, parent)
   end
 
@@ -1009,13 +1014,14 @@ end
 
 -- Dissect: Liquidity Flag
 dissect.liquidity_flag = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.liquidity_flag)
+  local length = size_of.liquidity_flag
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.liquidity_flag(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.liquidity_flag, range, value, display)
 
-  return offset + size_of.liquidity_flag
+  return offset + length, value
 end
 
 -- Size: Split Msg
@@ -1041,13 +1047,14 @@ end
 
 -- Dissect: Split Msg
 dissect.split_msg = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.split_msg)
+  local length = size_of.split_msg
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.split_msg(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.split_msg, range, value, display)
 
-  return offset + size_of.split_msg
+  return offset + length, value
 end
 
 -- Size: Time In Force
@@ -1076,13 +1083,14 @@ end
 
 -- Dissect: Time In Force
 dissect.time_in_force = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.time_in_force)
+  local length = size_of.time_in_force
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.time_in_force(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.time_in_force, range, value, display)
 
-  return offset + size_of.time_in_force
+  return offset + length, value
 end
 
 -- Size: Ord Type
@@ -1095,13 +1103,14 @@ end
 
 -- Dissect: Ord Type
 dissect.ord_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ord_type)
+  local length = size_of.ord_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.ord_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.ord_type, range, value, display)
 
-  return offset + size_of.ord_type
+  return offset + length, value
 end
 
 -- Size: Side
@@ -1114,13 +1123,14 @@ end
 
 -- Dissect: Side
 dissect.side = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.side)
+  local length = size_of.side
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.side(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.side, range, value, display)
 
-  return offset + size_of.side
+  return offset + length, value
 end
 
 -- Size: Mass Cancel Request Type
@@ -1133,13 +1143,14 @@ end
 
 -- Dissect: Mass Cancel Request Type
 dissect.mass_cancel_request_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.mass_cancel_request_type)
+  local length = size_of.mass_cancel_request_type
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.mass_cancel_request_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.mass_cancel_request_type, range, value, display)
 
-  return offset + size_of.mass_cancel_request_type
+  return offset + length, value
 end
 
 -- Size: Market Segment Id
@@ -1157,13 +1168,14 @@ end
 
 -- Dissect: Market Segment Id
 dissect.market_segment_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.market_segment_id)
+  local length = size_of.market_segment_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.market_segment_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.market_segment_id, range, value, display)
 
-  return offset + size_of.market_segment_id
+  return offset + length, value
 end
 
 -- Size: Mass Action Reject Reason
@@ -1181,13 +1193,14 @@ end
 
 -- Dissect: Mass Action Reject Reason
 dissect.mass_action_reject_reason = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.mass_action_reject_reason)
+  local length = size_of.mass_action_reject_reason
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.mass_action_reject_reason(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.mass_action_reject_reason, range, value, display)
 
-  return offset + size_of.mass_action_reject_reason
+  return offset + length, value
 end
 
 -- Size: Last Fragment
@@ -1200,13 +1213,14 @@ end
 
 -- Dissect: Last Fragment
 dissect.last_fragment = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.last_fragment)
+  local length = size_of.last_fragment
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.last_fragment(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.last_fragment, range, value, display)
 
-  return offset + size_of.last_fragment
+  return offset + length, value
 end
 
 -- Size: Total Affected Orders
@@ -1219,13 +1233,14 @@ end
 
 -- Dissect: Total Affected Orders
 dissect.total_affected_orders = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.total_affected_orders)
+  local length = size_of.total_affected_orders
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.total_affected_orders(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.total_affected_orders, range, value, display)
 
-  return offset + size_of.total_affected_orders
+  return offset + length, value
 end
 
 -- Size: Mass Action Scope
@@ -1254,13 +1269,14 @@ end
 
 -- Dissect: Mass Action Scope
 dissect.mass_action_scope = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.mass_action_scope)
+  local length = size_of.mass_action_scope
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.mass_action_scope(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.mass_action_scope, range, value, display)
 
-  return offset + size_of.mass_action_scope
+  return offset + length, value
 end
 
 -- Size: Manual Order Indicator
@@ -1273,13 +1289,14 @@ end
 
 -- Dissect: Manual Order Indicator
 dissect.manual_order_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.manual_order_indicator)
+  local length = size_of.manual_order_indicator
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.manual_order_indicator(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.manual_order_indicator, range, value, display)
 
-  return offset + size_of.manual_order_indicator
+  return offset + length, value
 end
 
 -- Size: Mass Action Response
@@ -1299,13 +1316,14 @@ end
 
 -- Dissect: Mass Action Response
 dissect.mass_action_response = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.mass_action_response)
+  local length = size_of.mass_action_response
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.mass_action_response(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.mass_action_response, range, value, display)
 
-  return offset + size_of.mass_action_response
+  return offset + length, value
 end
 
 -- Size: Delay Duration
@@ -1323,13 +1341,14 @@ end
 
 -- Dissect: Delay Duration
 dissect.delay_duration = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.delay_duration)
+  local length = size_of.delay_duration
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.delay_duration(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.delay_duration, range, value, display)
 
-  return offset + size_of.delay_duration
+  return offset + length, value
 end
 
 -- Size: Security Id
@@ -1347,13 +1366,14 @@ end
 
 -- Dissect: Security Id
 dissect.security_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_id)
+  local length = size_of.security_id
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.security_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.security_id, range, value, display)
 
-  return offset + size_of.security_id
+  return offset + length, value
 end
 
 -- Size: Location
@@ -1366,13 +1386,14 @@ end
 
 -- Dissect: Location
 dissect.location = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.location)
+  local length = size_of.location
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.location(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.location, range, value, display)
 
-  return offset + size_of.location
+  return offset + length, value
 end
 
 -- Size: Security Group
@@ -1385,13 +1406,14 @@ end
 
 -- Dissect: Security Group
 dissect.security_group = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_group)
+  local length = size_of.security_group
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.security_group(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.security_group, range, value, display)
 
-  return offset + size_of.security_group
+  return offset + length, value
 end
 
 -- Size: Mass Action Report Id
@@ -1404,13 +1426,14 @@ end
 
 -- Dissect: Mass Action Report Id
 dissect.mass_action_report_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.mass_action_report_id)
+  local length = size_of.mass_action_report_id
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.mass_action_report_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.mass_action_report_id, range, value, display)
 
-  return offset + size_of.mass_action_report_id
+  return offset + length, value
 end
 
 -- Size: Order Request Id
@@ -1423,13 +1446,14 @@ end
 
 -- Dissect: Order Request Id
 dissect.order_request_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.order_request_id)
+  local length = size_of.order_request_id
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.order_request_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_request_id, range, value, display)
 
-  return offset + size_of.order_request_id
+  return offset + length, value
 end
 
 -- Size: Sending Time Epoch
@@ -1442,13 +1466,14 @@ end
 
 -- Dissect: Sending Time Epoch
 dissect.sending_time_epoch = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.sending_time_epoch)
+  local length = size_of.sending_time_epoch
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.sending_time_epoch(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.sending_time_epoch, range, value, display)
 
-  return offset + size_of.sending_time_epoch
+  return offset + length, value
 end
 
 -- Size: Transact Time
@@ -1461,13 +1486,14 @@ end
 
 -- Dissect: Transact Time
 dissect.transact_time = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.transact_time)
+  local length = size_of.transact_time
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.transact_time(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.transact_time, range, value, display)
 
-  return offset + size_of.transact_time
+  return offset + length, value
 end
 
 -- Size: Party Details List Req Id
@@ -1480,13 +1506,14 @@ end
 
 -- Dissect: Party Details List Req Id
 dissect.party_details_list_req_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.party_details_list_req_id)
+  local length = size_of.party_details_list_req_id
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.party_details_list_req_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_details_list_req_id, range, value, display)
 
-  return offset + size_of.party_details_list_req_id
+  return offset + length, value
 end
 
 -- Size: Sender Id
@@ -1499,13 +1526,14 @@ end
 
 -- Dissect: Sender Id
 dissect.sender_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.sender_id)
+  local length = size_of.sender_id
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.sender_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.sender_id, range, value, display)
 
-  return offset + size_of.sender_id
+  return offset + length, value
 end
 
 -- Size: Uuid
@@ -1518,13 +1546,14 @@ end
 
 -- Dissect: Uuid
 dissect.uuid = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.uuid)
+  local length = size_of.uuid
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.uuid(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.uuid, range, value, display)
 
-  return offset + size_of.uuid
+  return offset + length, value
 end
 
 -- Size: Seq Num
@@ -1537,13 +1566,14 @@ end
 
 -- Dissect: Seq Num
 dissect.seq_num = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.seq_num)
+  local length = size_of.seq_num
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.seq_num(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.seq_num, range, value, display)
 
-  return offset + size_of.seq_num
+  return offset + length, value
 end
 
 -- Calculate runtime size: Order Mass Action Report 558
@@ -1567,82 +1597,82 @@ dissect.order_mass_action_report_558_fields = function(buffer, offset, packet, p
   local index = offset
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_request_id(buffer, index, packet, parent)
+  index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
   -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.mass_action_report_id(buffer, index, packet, parent)
+  index, mass_action_report_id = dissect.mass_action_report_id(buffer, index, packet, parent)
 
   -- Security Group: 6 Byte Ascii String
-  index = dissect.security_group(buffer, index, packet, parent)
+  index, security_group = dissect.security_group(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.delay_duration(buffer, index, packet, parent)
+  index, delay_duration = dissect.delay_duration(buffer, index, packet, parent)
 
   -- Mass Action Response: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.mass_action_response(buffer, index, packet, parent)
+  index, mass_action_response = dissect.mass_action_response(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Mass Action Scope: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.mass_action_scope(buffer, index, packet, parent)
+  index, mass_action_scope = dissect.mass_action_scope(buffer, index, packet, parent)
 
   -- Total Affected Orders: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.total_affected_orders(buffer, index, packet, parent)
+  index, total_affected_orders = dissect.total_affected_orders(buffer, index, packet, parent)
 
   -- Last Fragment: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.last_fragment(buffer, index, packet, parent)
+  index, last_fragment = dissect.last_fragment(buffer, index, packet, parent)
 
   -- Mass Action Reject Reason: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.mass_action_reject_reason(buffer, index, packet, parent)
+  index, mass_action_reject_reason = dissect.mass_action_reject_reason(buffer, index, packet, parent)
 
   -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.market_segment_id(buffer, index, packet, parent)
+  index, market_segment_id = dissect.market_segment_id(buffer, index, packet, parent)
 
   -- Mass Cancel Request Type: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.mass_cancel_request_type(buffer, index, packet, parent)
+  index, mass_cancel_request_type = dissect.mass_cancel_request_type(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Ord Type: 1 Byte Ascii String
-  index = dissect.ord_type(buffer, index, packet, parent)
+  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.time_in_force(buffer, index, packet, parent)
+  index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.split_msg(buffer, index, packet, parent)
+  index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.liquidity_flag(buffer, index, packet, parent)
+  index, liquidity_flag = dissect.liquidity_flag(buffer, index, packet, parent)
 
   -- Affected Orders Groups: Struct of 2 fields
-  index = dissect.affected_orders_groups(buffer, index, packet, parent)
+  index, affected_orders_groups = dissect.affected_orders_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -1670,13 +1700,14 @@ end
 
 -- Dissect: Order Event Reason
 dissect.order_event_reason = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.order_event_reason)
+  local length = size_of.order_event_reason
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.order_event_reason(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_event_reason, range, value, display)
 
-  return offset + size_of.order_event_reason
+  return offset + length, value
 end
 
 -- Size: Order Event Type
@@ -1699,13 +1730,14 @@ end
 
 -- Dissect: Order Event Type
 dissect.order_event_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.order_event_type)
+  local length = size_of.order_event_type
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.order_event_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_event_type, range, value, display)
 
-  return offset + size_of.order_event_type
+  return offset + length, value
 end
 
 -- Size: Order Event Qty
@@ -1718,13 +1750,14 @@ end
 
 -- Dissect: Order Event Qty
 dissect.order_event_qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.order_event_qty)
+  local length = size_of.order_event_qty
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.order_event_qty(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_event_qty, range, value, display)
 
-  return offset + size_of.order_event_qty
+  return offset + length, value
 end
 
 -- Size: Order Event Exec Id
@@ -1737,13 +1770,14 @@ end
 
 -- Dissect: Order Event Exec Id
 dissect.order_event_exec_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.order_event_exec_id)
+  local length = size_of.order_event_exec_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.order_event_exec_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_event_exec_id, range, value, display)
 
-  return offset + size_of.order_event_exec_id
+  return offset + length, value
 end
 
 -- Size: Order Event Text
@@ -1756,13 +1790,14 @@ end
 
 -- Dissect: Order Event Text
 dissect.order_event_text = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.order_event_text)
+  local length = size_of.order_event_text
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.order_event_text(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_event_text, range, value, display)
 
-  return offset + size_of.order_event_text
+  return offset + length, value
 end
 
 -- Size: Order Event Px
@@ -1776,13 +1811,14 @@ end
 
 -- Dissect: Order Event Px
 dissect.order_event_px = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.order_event_px)
+  local length = size_of.order_event_px
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.order_event_px(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_event_px, range, value, display)
 
-  return offset + size_of.order_event_px
+  return offset + length, value
 end
 
 -- Display: Order Events Group
@@ -1795,22 +1831,22 @@ dissect.order_events_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Order Event Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.order_event_px(buffer, index, packet, parent)
+  index, order_event_px = dissect.order_event_px(buffer, index, packet, parent)
 
   -- Order Event Text: 5 Byte Ascii String
-  index = dissect.order_event_text(buffer, index, packet, parent)
+  index, order_event_text = dissect.order_event_text(buffer, index, packet, parent)
 
   -- Order Event Exec Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.order_event_exec_id(buffer, index, packet, parent)
+  index, order_event_exec_id = dissect.order_event_exec_id(buffer, index, packet, parent)
 
   -- Order Event Qty: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.order_event_qty(buffer, index, packet, parent)
+  index, order_event_qty = dissect.order_event_qty(buffer, index, packet, parent)
 
   -- Order Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index = dissect.order_event_type(buffer, index, packet, parent)
+  index, order_event_type = dissect.order_event_type(buffer, index, packet, parent)
 
   -- Order Event Reason: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.order_event_reason(buffer, index, packet, parent)
+  index, order_event_reason = dissect.order_event_reason(buffer, index, packet, parent)
 
   return index
 end
@@ -1850,13 +1886,13 @@ dissect.order_events_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local order_events_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Order Events Group: Struct of 6 fields
-  for i = 1, order_events_group_count do
+  for i = 1, num_in_group do
     index = dissect.order_events_group(buffer, index, packet, parent)
   end
 
@@ -1886,13 +1922,14 @@ end
 
 -- Dissect: Fill Yield Type
 dissect.fill_yield_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.fill_yield_type)
+  local length = size_of.fill_yield_type
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.fill_yield_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.fill_yield_type, range, value, display)
 
-  return offset + size_of.fill_yield_type
+  return offset + length, value
 end
 
 -- Size: Fill Exec Id
@@ -1905,13 +1942,14 @@ end
 
 -- Dissect: Fill Exec Id
 dissect.fill_exec_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.fill_exec_id)
+  local length = size_of.fill_exec_id
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.fill_exec_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.fill_exec_id, range, value, display)
 
-  return offset + size_of.fill_exec_id
+  return offset + length, value
 end
 
 -- Size: Fill Qty
@@ -1924,13 +1962,14 @@ end
 
 -- Dissect: Fill Qty
 dissect.fill_qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.fill_qty)
+  local length = size_of.fill_qty
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.fill_qty(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.fill_qty, range, value, display)
 
-  return offset + size_of.fill_qty
+  return offset + length, value
 end
 
 -- Size: Fill Px
@@ -1944,13 +1983,14 @@ end
 
 -- Dissect: Fill Px
 dissect.fill_px = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.fill_px)
+  local length = size_of.fill_px
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.fill_px(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.fill_px, range, value, display)
 
-  return offset + size_of.fill_px
+  return offset + length, value
 end
 
 -- Display: Fills Group
@@ -1963,16 +2003,16 @@ dissect.fills_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Fill Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.fill_px(buffer, index, packet, parent)
+  index, fill_px = dissect.fill_px(buffer, index, packet, parent)
 
   -- Fill Qty: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.fill_qty(buffer, index, packet, parent)
+  index, fill_qty = dissect.fill_qty(buffer, index, packet, parent)
 
   -- Fill Exec Id: 2 Byte Ascii String
-  index = dissect.fill_exec_id(buffer, index, packet, parent)
+  index, fill_exec_id = dissect.fill_exec_id(buffer, index, packet, parent)
 
   -- Fill Yield Type: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.fill_yield_type(buffer, index, packet, parent)
+  index, fill_yield_type = dissect.fill_yield_type(buffer, index, packet, parent)
 
   return index
 end
@@ -2012,13 +2052,13 @@ dissect.fills_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local fills_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Fills Group: Struct of 4 fields
-  for i = 1, fills_group_count do
+  for i = 1, num_in_group do
     index = dissect.fills_group(buffer, index, packet, parent)
   end
 
@@ -2048,13 +2088,14 @@ end
 
 -- Dissect: Poss Retrans Flag
 dissect.poss_retrans_flag = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.poss_retrans_flag)
+  local length = size_of.poss_retrans_flag
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.poss_retrans_flag(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.poss_retrans_flag, range, value, display)
 
-  return offset + size_of.poss_retrans_flag
+  return offset + length, value
 end
 
 -- Size: Exec Type
@@ -2067,13 +2108,14 @@ end
 
 -- Dissect: Exec Type
 dissect.exec_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.exec_type)
+  local length = size_of.exec_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.exec_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.exec_type, range, value, display)
 
-  return offset + size_of.exec_type
+  return offset + length, value
 end
 
 -- Size: Ord Status
@@ -2086,13 +2128,14 @@ end
 
 -- Dissect: Ord Status
 dissect.ord_status = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ord_status)
+  local length = size_of.ord_status
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.ord_status(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.ord_status, range, value, display)
 
-  return offset + size_of.ord_status
+  return offset + length, value
 end
 
 -- Size: Trade Date
@@ -2110,13 +2153,14 @@ end
 
 -- Dissect: Trade Date
 dissect.trade_date = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trade_date)
+  local length = size_of.trade_date
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.trade_date(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.trade_date, range, value, display)
 
-  return offset + size_of.trade_date
+  return offset + length, value
 end
 
 -- Size: Orig Side Trade Id
@@ -2134,13 +2178,14 @@ end
 
 -- Dissect: Orig Side Trade Id
 dissect.orig_side_trade_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.orig_side_trade_id)
+  local length = size_of.orig_side_trade_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.orig_side_trade_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.orig_side_trade_id, range, value, display)
 
-  return offset + size_of.orig_side_trade_id
+  return offset + length, value
 end
 
 -- Size: Side Trade Id
@@ -2153,13 +2198,14 @@ end
 
 -- Dissect: Side Trade Id
 dissect.side_trade_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.side_trade_id)
+  local length = size_of.side_trade_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.side_trade_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.side_trade_id, range, value, display)
 
-  return offset + size_of.side_trade_id
+  return offset + length, value
 end
 
 -- Size: Last Qty
@@ -2172,13 +2218,14 @@ end
 
 -- Dissect: Last Qty
 dissect.last_qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.last_qty)
+  local length = size_of.last_qty
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.last_qty(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.last_qty, range, value, display)
 
-  return offset + size_of.last_qty
+  return offset + length, value
 end
 
 -- Size: Orig Secondary Execution Id
@@ -2191,13 +2238,14 @@ end
 
 -- Dissect: Orig Secondary Execution Id
 dissect.orig_secondary_execution_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.orig_secondary_execution_id)
+  local length = size_of.orig_secondary_execution_id
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.orig_secondary_execution_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.orig_secondary_execution_id, range, value, display)
 
-  return offset + size_of.orig_secondary_execution_id
+  return offset + length, value
 end
 
 -- Size: Sec Exec Id
@@ -2210,13 +2258,14 @@ end
 
 -- Dissect: Sec Exec Id
 dissect.sec_exec_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.sec_exec_id)
+  local length = size_of.sec_exec_id
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.sec_exec_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.sec_exec_id, range, value, display)
 
-  return offset + size_of.sec_exec_id
+  return offset + length, value
 end
 
 -- Size: Order Id
@@ -2229,13 +2278,14 @@ end
 
 -- Dissect: Order Id
 dissect.order_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.order_id)
+  local length = size_of.order_id
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.order_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_id, range, value, display)
 
-  return offset + size_of.order_id
+  return offset + length, value
 end
 
 -- Size: Last Px
@@ -2249,13 +2299,14 @@ end
 
 -- Dissect: Last Px
 dissect.last_px = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.last_px)
+  local length = size_of.last_px
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.last_px(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.last_px, range, value, display)
 
-  return offset + size_of.last_px
+  return offset + length, value
 end
 
 -- Size: Cl Ord Id
@@ -2268,13 +2319,14 @@ end
 
 -- Dissect: Cl Ord Id
 dissect.cl_ord_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.cl_ord_id)
+  local length = size_of.cl_ord_id
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.cl_ord_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.cl_ord_id, range, value, display)
 
-  return offset + size_of.cl_ord_id
+  return offset + length, value
 end
 
 -- Size: Exec Id
@@ -2287,13 +2339,14 @@ end
 
 -- Dissect: Exec Id
 dissect.exec_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.exec_id)
+  local length = size_of.exec_id
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.exec_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.exec_id, range, value, display)
 
-  return offset + size_of.exec_id
+  return offset + length, value
 end
 
 -- Calculate runtime size: Execution Report Trade Addendum Spread Leg 550
@@ -2319,76 +2372,76 @@ dissect.execution_report_trade_addendum_spread_leg_550_fields = function(buffer,
   local index = offset
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Exec Id: 40 Byte Ascii String
-  index = dissect.exec_id(buffer, index, packet, parent)
+  index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.last_px(buffer, index, packet, parent)
+  index, last_px = dissect.last_px(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Sec Exec Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sec_exec_id(buffer, index, packet, parent)
+  index, sec_exec_id = dissect.sec_exec_id(buffer, index, packet, parent)
 
   -- Orig Secondary Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.orig_secondary_execution_id(buffer, index, packet, parent)
+  index, orig_secondary_execution_id = dissect.orig_secondary_execution_id(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Last Qty: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.last_qty(buffer, index, packet, parent)
+  index, last_qty = dissect.last_qty(buffer, index, packet, parent)
 
   -- Side Trade Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.side_trade_id(buffer, index, packet, parent)
+  index, side_trade_id = dissect.side_trade_id(buffer, index, packet, parent)
 
   -- Orig Side Trade Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.orig_side_trade_id(buffer, index, packet, parent)
+  index, orig_side_trade_id = dissect.orig_side_trade_id(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String
-  index = dissect.ord_status(buffer, index, packet, parent)
+  index, ord_status = dissect.ord_status(buffer, index, packet, parent)
 
   -- Exec Type: 1 Byte Ascii String
-  index = dissect.exec_type(buffer, index, packet, parent)
+  index, exec_type = dissect.exec_type(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.poss_retrans_flag(buffer, index, packet, parent)
+  index, poss_retrans_flag = dissect.poss_retrans_flag(buffer, index, packet, parent)
 
   -- Fills Groups: Struct of 2 fields
-  index = dissect.fills_groups(buffer, index, packet, parent)
+  index, fills_groups = dissect.fills_groups(buffer, index, packet, parent)
 
   -- Order Events Groups: Struct of 2 fields
-  index = dissect.order_events_groups(buffer, index, packet, parent)
+  index, order_events_groups = dissect.order_events_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -2416,13 +2469,14 @@ end
 
 -- Dissect: Leg Side
 dissect.leg_side = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_side)
+  local length = size_of.leg_side
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.leg_side(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.leg_side, range, value, display)
 
-  return offset + size_of.leg_side
+  return offset + length, value
 end
 
 -- Size: Leg Last Qty
@@ -2435,13 +2489,14 @@ end
 
 -- Dissect: Leg Last Qty
 dissect.leg_last_qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_last_qty)
+  local length = size_of.leg_last_qty
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.leg_last_qty(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.leg_last_qty, range, value, display)
 
-  return offset + size_of.leg_last_qty
+  return offset + length, value
 end
 
 -- Size: Leg Trade Id
@@ -2454,13 +2509,14 @@ end
 
 -- Dissect: Leg Trade Id
 dissect.leg_trade_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_trade_id)
+  local length = size_of.leg_trade_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.leg_trade_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.leg_trade_id, range, value, display)
 
-  return offset + size_of.leg_trade_id
+  return offset + length, value
 end
 
 -- Size: Leg Security Id
@@ -2473,13 +2529,14 @@ end
 
 -- Dissect: Leg Security Id
 dissect.leg_security_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_security_id)
+  local length = size_of.leg_security_id
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.leg_security_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.leg_security_id, range, value, display)
 
-  return offset + size_of.leg_security_id
+  return offset + length, value
 end
 
 -- Size: Leg Last Px
@@ -2493,13 +2550,14 @@ end
 
 -- Dissect: Leg Last Px
 dissect.leg_last_px = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_last_px)
+  local length = size_of.leg_last_px
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.leg_last_px(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.leg_last_px, range, value, display)
 
-  return offset + size_of.leg_last_px
+  return offset + length, value
 end
 
 -- Size: Leg Exec Id
@@ -2512,13 +2570,14 @@ end
 
 -- Dissect: Leg Exec Id
 dissect.leg_exec_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_exec_id)
+  local length = size_of.leg_exec_id
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.leg_exec_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.leg_exec_id, range, value, display)
 
-  return offset + size_of.leg_exec_id
+  return offset + length, value
 end
 
 -- Display: Legs Group
@@ -2531,22 +2590,22 @@ dissect.legs_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Leg Exec Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.leg_exec_id(buffer, index, packet, parent)
+  index, leg_exec_id = dissect.leg_exec_id(buffer, index, packet, parent)
 
   -- Leg Last Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.leg_last_px(buffer, index, packet, parent)
+  index, leg_last_px = dissect.leg_last_px(buffer, index, packet, parent)
 
   -- Leg Security Id: 4 Byte Signed Fixed Width Integer
-  index = dissect.leg_security_id(buffer, index, packet, parent)
+  index, leg_security_id = dissect.leg_security_id(buffer, index, packet, parent)
 
   -- Leg Trade Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.leg_trade_id(buffer, index, packet, parent)
+  index, leg_trade_id = dissect.leg_trade_id(buffer, index, packet, parent)
 
   -- Leg Last Qty: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.leg_last_qty(buffer, index, packet, parent)
+  index, leg_last_qty = dissect.leg_last_qty(buffer, index, packet, parent)
 
   -- Leg Side: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.leg_side(buffer, index, packet, parent)
+  index, leg_side = dissect.leg_side(buffer, index, packet, parent)
 
   return index
 end
@@ -2586,13 +2645,13 @@ dissect.legs_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local legs_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Legs Group: Struct of 6 fields
-  for i = 1, legs_group_count do
+  for i = 1, num_in_group do
     index = dissect.legs_group(buffer, index, packet, parent)
   end
 
@@ -2638,13 +2697,14 @@ end
 
 -- Dissect: Short Sale Type
 dissect.short_sale_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.short_sale_type)
+  local length = size_of.short_sale_type
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.short_sale_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.short_sale_type, range, value, display)
 
-  return offset + size_of.short_sale_type
+  return offset + length, value
 end
 
 -- Size: Managed Order
@@ -2657,13 +2717,14 @@ end
 
 -- Dissect: Managed Order
 dissect.managed_order = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.managed_order)
+  local length = size_of.managed_order
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.managed_order(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.managed_order, range, value, display)
 
-  return offset + size_of.managed_order
+  return offset + length, value
 end
 
 -- Size: Execution Mode
@@ -2676,13 +2737,14 @@ end
 
 -- Dissect: Execution Mode
 dissect.execution_mode = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.execution_mode)
+  local length = size_of.execution_mode
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.execution_mode(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.execution_mode, range, value, display)
 
-  return offset + size_of.execution_mode
+  return offset + length, value
 end
 
 -- Display: Exec Inst
@@ -2777,13 +2839,14 @@ end
 
 -- Dissect: Total Num Securities
 dissect.total_num_securities = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.total_num_securities)
+  local length = size_of.total_num_securities
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.total_num_securities(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.total_num_securities, range, value, display)
 
-  return offset + size_of.total_num_securities
+  return offset + length, value
 end
 
 -- Size: Md Trade Entry Id
@@ -2796,13 +2859,14 @@ end
 
 -- Dissect: Md Trade Entry Id
 dissect.md_trade_entry_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.md_trade_entry_id)
+  local length = size_of.md_trade_entry_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.md_trade_entry_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.md_trade_entry_id, range, value, display)
 
-  return offset + size_of.md_trade_entry_id
+  return offset + length, value
 end
 
 -- Calculate runtime size: Execution Report Trade Addendum Spread 549
@@ -2830,106 +2894,106 @@ dissect.execution_report_trade_addendum_spread_549_fields = function(buffer, off
   local index = offset
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Exec Id: 40 Byte Ascii String
-  index = dissect.exec_id(buffer, index, packet, parent)
+  index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.last_px(buffer, index, packet, parent)
+  index, last_px = dissect.last_px(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Sec Exec Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sec_exec_id(buffer, index, packet, parent)
+  index, sec_exec_id = dissect.sec_exec_id(buffer, index, packet, parent)
 
   -- Orig Secondary Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.orig_secondary_execution_id(buffer, index, packet, parent)
+  index, orig_secondary_execution_id = dissect.orig_secondary_execution_id(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Md Trade Entry Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.md_trade_entry_id(buffer, index, packet, parent)
+  index, md_trade_entry_id = dissect.md_trade_entry_id(buffer, index, packet, parent)
 
   -- Last Qty: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.last_qty(buffer, index, packet, parent)
+  index, last_qty = dissect.last_qty(buffer, index, packet, parent)
 
   -- Side Trade Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.side_trade_id(buffer, index, packet, parent)
+  index, side_trade_id = dissect.side_trade_id(buffer, index, packet, parent)
 
   -- Orig Side Trade Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.orig_side_trade_id(buffer, index, packet, parent)
+  index, orig_side_trade_id = dissect.orig_side_trade_id(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String
-  index = dissect.ord_status(buffer, index, packet, parent)
+  index, ord_status = dissect.ord_status(buffer, index, packet, parent)
 
   -- Exec Type: 1 Byte Ascii String
-  index = dissect.exec_type(buffer, index, packet, parent)
+  index, exec_type = dissect.exec_type(buffer, index, packet, parent)
 
   -- Ord Type: 1 Byte Ascii String
-  index = dissect.ord_type(buffer, index, packet, parent)
+  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.poss_retrans_flag(buffer, index, packet, parent)
+  index, poss_retrans_flag = dissect.poss_retrans_flag(buffer, index, packet, parent)
 
   -- Total Num Securities: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.total_num_securities(buffer, index, packet, parent)
+  index, total_num_securities = dissect.total_num_securities(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
-  index = dissect.exec_inst(buffer, index, packet, parent)
+  index, exec_inst = dissect.exec_inst(buffer, index, packet, parent)
 
   -- Execution Mode: 1 Byte Ascii String
-  index = dissect.execution_mode(buffer, index, packet, parent)
+  index, execution_mode = dissect.execution_mode(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.liquidity_flag(buffer, index, packet, parent)
+  index, liquidity_flag = dissect.liquidity_flag(buffer, index, packet, parent)
 
   -- Managed Order: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.managed_order(buffer, index, packet, parent)
+  index, managed_order = dissect.managed_order(buffer, index, packet, parent)
 
   -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.short_sale_type(buffer, index, packet, parent)
+  index, short_sale_type = dissect.short_sale_type(buffer, index, packet, parent)
 
   -- Fills Groups: Struct of 2 fields
-  index = dissect.fills_groups(buffer, index, packet, parent)
+  index, fills_groups = dissect.fills_groups(buffer, index, packet, parent)
 
   -- Legs Groups: Struct of 2 fields
-  index = dissect.legs_groups(buffer, index, packet, parent)
+  index, legs_groups = dissect.legs_groups(buffer, index, packet, parent)
 
   -- Order Events Groups: Struct of 2 fields
-  index = dissect.order_events_groups(buffer, index, packet, parent)
+  index, order_events_groups = dissect.order_events_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -2970,94 +3034,94 @@ dissect.execution_report_trade_addendum_outright_548_fields = function(buffer, o
   local index = offset
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Exec Id: 40 Byte Ascii String
-  index = dissect.exec_id(buffer, index, packet, parent)
+  index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.last_px(buffer, index, packet, parent)
+  index, last_px = dissect.last_px(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Sec Exec Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sec_exec_id(buffer, index, packet, parent)
+  index, sec_exec_id = dissect.sec_exec_id(buffer, index, packet, parent)
 
   -- Orig Secondary Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.orig_secondary_execution_id(buffer, index, packet, parent)
+  index, orig_secondary_execution_id = dissect.orig_secondary_execution_id(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Last Qty: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.last_qty(buffer, index, packet, parent)
+  index, last_qty = dissect.last_qty(buffer, index, packet, parent)
 
   -- Side Trade Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.side_trade_id(buffer, index, packet, parent)
+  index, side_trade_id = dissect.side_trade_id(buffer, index, packet, parent)
 
   -- Orig Side Trade Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.orig_side_trade_id(buffer, index, packet, parent)
+  index, orig_side_trade_id = dissect.orig_side_trade_id(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String
-  index = dissect.ord_status(buffer, index, packet, parent)
+  index, ord_status = dissect.ord_status(buffer, index, packet, parent)
 
   -- Exec Type: 1 Byte Ascii String
-  index = dissect.exec_type(buffer, index, packet, parent)
+  index, exec_type = dissect.exec_type(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.poss_retrans_flag(buffer, index, packet, parent)
+  index, poss_retrans_flag = dissect.poss_retrans_flag(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
-  index = dissect.exec_inst(buffer, index, packet, parent)
+  index, exec_inst = dissect.exec_inst(buffer, index, packet, parent)
 
   -- Execution Mode: 1 Byte Ascii String
-  index = dissect.execution_mode(buffer, index, packet, parent)
+  index, execution_mode = dissect.execution_mode(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.liquidity_flag(buffer, index, packet, parent)
+  index, liquidity_flag = dissect.liquidity_flag(buffer, index, packet, parent)
 
   -- Managed Order: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.managed_order(buffer, index, packet, parent)
+  index, managed_order = dissect.managed_order(buffer, index, packet, parent)
 
   -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.short_sale_type(buffer, index, packet, parent)
+  index, short_sale_type = dissect.short_sale_type(buffer, index, packet, parent)
 
   -- Fills Groups: Struct of 2 fields
-  index = dissect.fills_groups(buffer, index, packet, parent)
+  index, fills_groups = dissect.fills_groups(buffer, index, packet, parent)
 
   -- Order Events Groups: Struct of 2 fields
-  index = dissect.order_events_groups(buffer, index, packet, parent)
+  index, order_events_groups = dissect.order_events_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -3085,13 +3149,14 @@ end
 
 -- Dissect: Quote Set Id
 dissect.quote_set_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.quote_set_id)
+  local length = size_of.quote_set_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.quote_set_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.quote_set_id, range, value, display)
 
-  return offset + size_of.quote_set_id
+  return offset + length, value
 end
 
 -- Size: Offer Size
@@ -3109,13 +3174,14 @@ end
 
 -- Dissect: Offer Size
 dissect.offer_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.offer_size)
+  local length = size_of.offer_size
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.offer_size(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.offer_size, range, value, display)
 
-  return offset + size_of.offer_size
+  return offset + length, value
 end
 
 -- Size: Bid Size
@@ -3133,13 +3199,14 @@ end
 
 -- Dissect: Bid Size
 dissect.bid_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.bid_size)
+  local length = size_of.bid_size
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.bid_size(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.bid_size, range, value, display)
 
-  return offset + size_of.bid_size
+  return offset + length, value
 end
 
 -- Display: Quote Sets Group
@@ -3152,13 +3219,13 @@ dissect.quote_sets_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Bid Size: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.bid_size(buffer, index, packet, parent)
+  index, bid_size = dissect.bid_size(buffer, index, packet, parent)
 
   -- Offer Size: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.offer_size(buffer, index, packet, parent)
+  index, offer_size = dissect.offer_size(buffer, index, packet, parent)
 
   -- Quote Set Id: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.quote_set_id(buffer, index, packet, parent)
+  index, quote_set_id = dissect.quote_set_id(buffer, index, packet, parent)
 
   return index
 end
@@ -3198,13 +3265,13 @@ dissect.quote_sets_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local quote_sets_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Quote Sets Group: Struct of 3 fields
-  for i = 1, quote_sets_group_count do
+  for i = 1, num_in_group do
     index = dissect.quote_sets_group(buffer, index, packet, parent)
   end
 
@@ -3239,13 +3306,14 @@ end
 
 -- Dissect: Underlying Security Id
 dissect.underlying_security_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.underlying_security_id)
+  local length = size_of.underlying_security_id
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.underlying_security_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.underlying_security_id, range, value, display)
 
-  return offset + size_of.underlying_security_id
+  return offset + length, value
 end
 
 -- Size: Quote Entry Id
@@ -3258,13 +3326,14 @@ end
 
 -- Dissect: Quote Entry Id
 dissect.quote_entry_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.quote_entry_id)
+  local length = size_of.quote_entry_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.quote_entry_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.quote_entry_id, range, value, display)
 
-  return offset + size_of.quote_entry_id
+  return offset + length, value
 end
 
 -- Size: Offer Px
@@ -3278,13 +3347,14 @@ end
 
 -- Dissect: Offer Px
 dissect.offer_px = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.offer_px)
+  local length = size_of.offer_px
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.offer_px(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.offer_px, range, value, display)
 
-  return offset + size_of.offer_px
+  return offset + length, value
 end
 
 -- Size: Bid Px
@@ -3298,13 +3368,14 @@ end
 
 -- Dissect: Bid Px
 dissect.bid_px = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.bid_px)
+  local length = size_of.bid_px
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.bid_px(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.bid_px, range, value, display)
 
-  return offset + size_of.bid_px
+  return offset + length, value
 end
 
 -- Display: Quote Entries Group
@@ -3317,28 +3388,28 @@ dissect.quote_entries_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Bid Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.bid_px(buffer, index, packet, parent)
+  index, bid_px = dissect.bid_px(buffer, index, packet, parent)
 
   -- Offer Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.offer_px(buffer, index, packet, parent)
+  index, offer_px = dissect.offer_px(buffer, index, packet, parent)
 
   -- Quote Entry Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.quote_entry_id(buffer, index, packet, parent)
+  index, quote_entry_id = dissect.quote_entry_id(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Bid Size: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.bid_size(buffer, index, packet, parent)
+  index, bid_size = dissect.bid_size(buffer, index, packet, parent)
 
   -- Offer Size: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.offer_size(buffer, index, packet, parent)
+  index, offer_size = dissect.offer_size(buffer, index, packet, parent)
 
   -- Underlying Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.underlying_security_id(buffer, index, packet, parent)
+  index, underlying_security_id = dissect.underlying_security_id(buffer, index, packet, parent)
 
   -- Quote Set Id: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.quote_set_id(buffer, index, packet, parent)
+  index, quote_set_id = dissect.quote_set_id(buffer, index, packet, parent)
 
   return index
 end
@@ -3378,13 +3449,13 @@ dissect.quote_entries_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local quote_entries_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Quote Entries Group: Struct of 8 fields
-  for i = 1, quote_entries_group_count do
+  for i = 1, num_in_group do
     index = dissect.quote_entries_group(buffer, index, packet, parent)
   end
 
@@ -3419,13 +3490,14 @@ end
 
 -- Dissect: Tot No Quote Entries
 dissect.tot_no_quote_entries = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.tot_no_quote_entries)
+  local length = size_of.tot_no_quote_entries
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.tot_no_quote_entries(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.tot_no_quote_entries, range, value, display)
 
-  return offset + size_of.tot_no_quote_entries
+  return offset + length, value
 end
 
 -- Size: Unsolicited Cancel Type
@@ -3443,13 +3515,14 @@ end
 
 -- Dissect: Unsolicited Cancel Type
 dissect.unsolicited_cancel_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.unsolicited_cancel_type)
+  local length = size_of.unsolicited_cancel_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.unsolicited_cancel_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.unsolicited_cancel_type, range, value, display)
 
-  return offset + size_of.unsolicited_cancel_type
+  return offset + length, value
 end
 
 -- Size: Mm Protection Reset
@@ -3462,13 +3535,14 @@ end
 
 -- Dissect: Mm Protection Reset
 dissect.mm_protection_reset = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.mm_protection_reset)
+  local length = size_of.mm_protection_reset
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.mm_protection_reset(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.mm_protection_reset, range, value, display)
 
-  return offset + size_of.mm_protection_reset
+  return offset + length, value
 end
 
 -- Size: No Processed Entries
@@ -3481,13 +3555,14 @@ end
 
 -- Dissect: No Processed Entries
 dissect.no_processed_entries = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.no_processed_entries)
+  local length = size_of.no_processed_entries
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.no_processed_entries(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.no_processed_entries, range, value, display)
 
-  return offset + size_of.no_processed_entries
+  return offset + length, value
 end
 
 -- Size: Quote Status
@@ -3500,13 +3575,14 @@ end
 
 -- Dissect: Quote Status
 dissect.quote_status = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.quote_status)
+  local length = size_of.quote_status
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.quote_status(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.quote_status, range, value, display)
 
-  return offset + size_of.quote_status
+  return offset + length, value
 end
 
 -- Size: Quote Reject Reason
@@ -3524,13 +3600,14 @@ end
 
 -- Dissect: Quote Reject Reason
 dissect.quote_reject_reason = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.quote_reject_reason)
+  local length = size_of.quote_reject_reason
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.quote_reject_reason(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.quote_reject_reason, range, value, display)
 
-  return offset + size_of.quote_reject_reason
+  return offset + length, value
 end
 
 -- Size: Quote Id
@@ -3543,13 +3620,14 @@ end
 
 -- Dissect: Quote Id
 dissect.quote_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.quote_id)
+  local length = size_of.quote_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.quote_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.quote_id, range, value, display)
 
-  return offset + size_of.quote_id
+  return offset + length, value
 end
 
 -- Size: Cancelled Symbol
@@ -3562,13 +3640,14 @@ end
 
 -- Dissect: Cancelled Symbol
 dissect.cancelled_symbol = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.cancelled_symbol)
+  local length = size_of.cancelled_symbol
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.cancelled_symbol(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.cancelled_symbol, range, value, display)
 
-  return offset + size_of.cancelled_symbol
+  return offset + length, value
 end
 
 -- Size: Request Time
@@ -3581,13 +3660,14 @@ end
 
 -- Dissect: Request Time
 dissect.request_time = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.request_time)
+  local length = size_of.request_time
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.request_time(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.request_time, range, value, display)
 
-  return offset + size_of.request_time
+  return offset + length, value
 end
 
 -- Size: Text
@@ -3600,13 +3680,14 @@ end
 
 -- Dissect: Text
 dissect.text = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.text)
+  local length = size_of.text
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.text(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.text, range, value, display)
 
-  return offset + size_of.text
+  return offset + length, value
 end
 
 -- Calculate runtime size: Quote Cancel Ack 547
@@ -3632,70 +3713,70 @@ dissect.quote_cancel_ack_547_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Text: 256 Byte Ascii String
-  index = dissect.text(buffer, index, packet, parent)
+  index, text = dissect.text(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Request Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.request_time(buffer, index, packet, parent)
+  index, request_time = dissect.request_time(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Cancelled Symbol: 6 Byte Ascii String
-  index = dissect.cancelled_symbol(buffer, index, packet, parent)
+  index, cancelled_symbol = dissect.cancelled_symbol(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Quote Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.quote_id(buffer, index, packet, parent)
+  index, quote_id = dissect.quote_id(buffer, index, packet, parent)
 
   -- Quote Reject Reason: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.quote_reject_reason(buffer, index, packet, parent)
+  index, quote_reject_reason = dissect.quote_reject_reason(buffer, index, packet, parent)
 
   -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.delay_duration(buffer, index, packet, parent)
+  index, delay_duration = dissect.delay_duration(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Quote Status: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.quote_status(buffer, index, packet, parent)
+  index, quote_status = dissect.quote_status(buffer, index, packet, parent)
 
   -- No Processed Entries: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.no_processed_entries(buffer, index, packet, parent)
+  index, no_processed_entries = dissect.no_processed_entries(buffer, index, packet, parent)
 
   -- Mm Protection Reset: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.mm_protection_reset(buffer, index, packet, parent)
+  index, mm_protection_reset = dissect.mm_protection_reset(buffer, index, packet, parent)
 
   -- Unsolicited Cancel Type: 1 Byte Ascii String Nullable
-  index = dissect.unsolicited_cancel_type(buffer, index, packet, parent)
+  index, unsolicited_cancel_type = dissect.unsolicited_cancel_type(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.split_msg(buffer, index, packet, parent)
+  index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
   -- Tot No Quote Entries: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.tot_no_quote_entries(buffer, index, packet, parent)
+  index, tot_no_quote_entries = dissect.tot_no_quote_entries(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.liquidity_flag(buffer, index, packet, parent)
+  index, liquidity_flag = dissect.liquidity_flag(buffer, index, packet, parent)
 
   -- Quote Entries Groups: Struct of 2 fields
-  index = dissect.quote_entries_groups(buffer, index, packet, parent)
+  index, quote_entries_groups = dissect.quote_entries_groups(buffer, index, packet, parent)
 
   -- Quote Sets Groups: Struct of 2 fields
-  index = dissect.quote_sets_groups(buffer, index, packet, parent)
+  index, quote_sets_groups = dissect.quote_sets_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -3723,13 +3804,14 @@ end
 
 -- Dissect: Quote Req Id
 dissect.quote_req_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.quote_req_id)
+  local length = size_of.quote_req_id
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.quote_req_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.quote_req_id, range, value, display)
 
-  return offset + size_of.quote_req_id
+  return offset + length, value
 end
 
 -- Size: Exchange Quote Req Id
@@ -3742,13 +3824,14 @@ end
 
 -- Dissect: Exchange Quote Req Id
 dissect.exchange_quote_req_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.exchange_quote_req_id)
+  local length = size_of.exchange_quote_req_id
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.exchange_quote_req_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.exchange_quote_req_id, range, value, display)
 
-  return offset + size_of.exchange_quote_req_id
+  return offset + length, value
 end
 
 -- Display: Request For Quote Ack 546
@@ -3761,49 +3844,49 @@ dissect.request_for_quote_ack_546_fields = function(buffer, offset, packet, pare
   local index = offset
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Text: 256 Byte Ascii String
-  index = dissect.text(buffer, index, packet, parent)
+  index, text = dissect.text(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Exchange Quote Req Id: 17 Byte Ascii String
-  index = dissect.exchange_quote_req_id(buffer, index, packet, parent)
+  index, exchange_quote_req_id = dissect.exchange_quote_req_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Request Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.request_time(buffer, index, packet, parent)
+  index, request_time = dissect.request_time(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Quote Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.quote_req_id(buffer, index, packet, parent)
+  index, quote_req_id = dissect.quote_req_id(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Quote Reject Reason: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.quote_reject_reason(buffer, index, packet, parent)
+  index, quote_reject_reason = dissect.quote_reject_reason(buffer, index, packet, parent)
 
   -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.delay_duration(buffer, index, packet, parent)
+  index, delay_duration = dissect.delay_duration(buffer, index, packet, parent)
 
   -- Quote Status: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.quote_status(buffer, index, packet, parent)
+  index, quote_status = dissect.quote_status(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.split_msg(buffer, index, packet, parent)
+  index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
   return index
 end
@@ -3841,67 +3924,67 @@ dissect.mass_quote_ack_545_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Text: 256 Byte Ascii String
-  index = dissect.text(buffer, index, packet, parent)
+  index, text = dissect.text(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Request Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.request_time(buffer, index, packet, parent)
+  index, request_time = dissect.request_time(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Quote Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.quote_req_id(buffer, index, packet, parent)
+  index, quote_req_id = dissect.quote_req_id(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Quote Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.quote_id(buffer, index, packet, parent)
+  index, quote_id = dissect.quote_id(buffer, index, packet, parent)
 
   -- Quote Reject Reason: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.quote_reject_reason(buffer, index, packet, parent)
+  index, quote_reject_reason = dissect.quote_reject_reason(buffer, index, packet, parent)
 
   -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.delay_duration(buffer, index, packet, parent)
+  index, delay_duration = dissect.delay_duration(buffer, index, packet, parent)
 
   -- Quote Status: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.quote_status(buffer, index, packet, parent)
+  index, quote_status = dissect.quote_status(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- No Processed Entries: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.no_processed_entries(buffer, index, packet, parent)
+  index, no_processed_entries = dissect.no_processed_entries(buffer, index, packet, parent)
 
   -- Mm Protection Reset: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.mm_protection_reset(buffer, index, packet, parent)
+  index, mm_protection_reset = dissect.mm_protection_reset(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.split_msg(buffer, index, packet, parent)
+  index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.liquidity_flag(buffer, index, packet, parent)
+  index, liquidity_flag = dissect.liquidity_flag(buffer, index, packet, parent)
 
   -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.short_sale_type(buffer, index, packet, parent)
+  index, short_sale_type = dissect.short_sale_type(buffer, index, packet, parent)
 
   -- Tot No Quote Entries: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.tot_no_quote_entries(buffer, index, packet, parent)
+  index, tot_no_quote_entries = dissect.tot_no_quote_entries(buffer, index, packet, parent)
 
   -- Quote Entries Groups: Struct of 2 fields
-  index = dissect.quote_entries_groups(buffer, index, packet, parent)
+  index, quote_entries_groups = dissect.quote_entries_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -3936,13 +4019,14 @@ end
 
 -- Dissect: Side Time In Force
 dissect.side_time_in_force = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.side_time_in_force)
+  local length = size_of.side_time_in_force
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.side_time_in_force(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.side_time_in_force, range, value, display)
 
-  return offset + size_of.side_time_in_force
+  return offset + length, value
 end
 
 -- Size: Order Qty
@@ -3960,13 +4044,14 @@ end
 
 -- Dissect: Order Qty
 dissect.order_qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.order_qty)
+  local length = size_of.order_qty
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.order_qty(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_qty, range, value, display)
 
-  return offset + size_of.order_qty
+  return offset + length, value
 end
 
 -- Display: Sides Group
@@ -3979,19 +4064,19 @@ dissect.sides_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.order_qty(buffer, index, packet, parent)
+  index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Side Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.side_time_in_force(buffer, index, packet, parent)
+  index, side_time_in_force = dissect.side_time_in_force(buffer, index, packet, parent)
 
   return index
 end
@@ -4031,13 +4116,13 @@ dissect.sides_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local sides_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Sides Group: Struct of 5 fields
-  for i = 1, sides_group_count do
+  for i = 1, num_in_group do
     index = dissect.sides_group(buffer, index, packet, parent)
   end
 
@@ -4067,13 +4152,14 @@ end
 
 -- Dissect: Trans Bkd Time
 dissect.trans_bkd_time = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trans_bkd_time)
+  local length = size_of.trans_bkd_time
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.trans_bkd_time(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.trans_bkd_time, range, value, display)
 
-  return offset + size_of.trans_bkd_time
+  return offset + length, value
 end
 
 -- Size: Price
@@ -4087,13 +4173,14 @@ end
 
 -- Dissect: Price
 dissect.price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price)
+  local length = size_of.price
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.price(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.price, range, value, display)
 
-  return offset + size_of.price
+  return offset + length, value
 end
 
 -- Size: Cross Id
@@ -4106,13 +4193,14 @@ end
 
 -- Dissect: Cross Id
 dissect.cross_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.cross_id)
+  local length = size_of.cross_id
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.cross_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.cross_id, range, value, display)
 
-  return offset + size_of.cross_id
+  return offset + length, value
 end
 
 -- Calculate runtime size: New Order Cross 544
@@ -4136,37 +4224,37 @@ dissect.new_order_cross_544_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Cross Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.cross_id(buffer, index, packet, parent)
+  index, cross_id = dissect.cross_id(buffer, index, packet, parent)
 
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_request_id(buffer, index, packet, parent)
+  index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.trans_bkd_time(buffer, index, packet, parent)
+  index, trans_bkd_time = dissect.trans_bkd_time(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Sides Groups: Struct of 2 fields
-  index = dissect.sides_groups(buffer, index, packet, parent)
+  index, sides_groups = dissect.sides_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -4194,13 +4282,13 @@ dissect.related_sym_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.order_qty(buffer, index, packet, parent)
+  index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   return index
 end
@@ -4240,13 +4328,13 @@ dissect.related_sym_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local related_sym_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Related Sym Group: Struct of 3 fields
-  for i = 1, related_sym_group_count do
+  for i = 1, num_in_group do
     index = dissect.related_sym_group(buffer, index, packet, parent)
   end
 
@@ -4276,13 +4364,14 @@ end
 
 -- Dissect: Quote Type
 dissect.quote_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.quote_type)
+  local length = size_of.quote_type
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.quote_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.quote_type, range, value, display)
 
-  return offset + size_of.quote_type
+  return offset + length, value
 end
 
 -- Calculate runtime size: Request For Quote 543
@@ -4306,31 +4395,31 @@ dissect.request_for_quote_543_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Quote Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.quote_req_id(buffer, index, packet, parent)
+  index, quote_req_id = dissect.quote_req_id(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Quote Type: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.quote_type(buffer, index, packet, parent)
+  index, quote_type = dissect.quote_type(buffer, index, packet, parent)
 
   -- Related Sym Groups: Struct of 2 fields
-  index = dissect.related_sym_groups(buffer, index, packet, parent)
+  index, related_sym_groups = dissect.related_sym_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -4358,13 +4447,14 @@ end
 
 -- Dissect: Underlying Security Alt Id Source
 dissect.underlying_security_alt_id_source = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.underlying_security_alt_id_source)
+  local length = size_of.underlying_security_alt_id_source
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.underlying_security_alt_id_source(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.underlying_security_alt_id_source, range, value, display)
 
-  return offset + size_of.underlying_security_alt_id_source
+  return offset + length, value
 end
 
 -- Size: Underlying Security Alt Id
@@ -4377,13 +4467,14 @@ end
 
 -- Dissect: Underlying Security Alt Id
 dissect.underlying_security_alt_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.underlying_security_alt_id)
+  local length = size_of.underlying_security_alt_id
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.underlying_security_alt_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.underlying_security_alt_id, range, value, display)
 
-  return offset + size_of.underlying_security_alt_id
+  return offset + length, value
 end
 
 -- Display: Underlyings Group
@@ -4396,10 +4487,10 @@ dissect.underlyings_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Underlying Security Alt Id: 12 Byte Ascii String
-  index = dissect.underlying_security_alt_id(buffer, index, packet, parent)
+  index, underlying_security_alt_id = dissect.underlying_security_alt_id(buffer, index, packet, parent)
 
   -- Underlying Security Alt Id Source: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.underlying_security_alt_id_source(buffer, index, packet, parent)
+  index, underlying_security_alt_id_source = dissect.underlying_security_alt_id_source(buffer, index, packet, parent)
 
   return index
 end
@@ -4439,13 +4530,13 @@ dissect.underlyings_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local underlyings_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Underlyings Group: Struct of 2 fields
-  for i = 1, underlyings_group_count do
+  for i = 1, num_in_group do
     index = dissect.underlyings_group(buffer, index, packet, parent)
   end
 
@@ -4488,13 +4579,14 @@ end
 
 -- Dissect: Money Or Par
 dissect.money_or_par = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.money_or_par)
+  local length = size_of.money_or_par
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.money_or_par(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.money_or_par, range, value, display)
 
-  return offset + size_of.money_or_par
+  return offset + length, value
 end
 
 -- Size: Max No Of Substitutions
@@ -4512,13 +4604,14 @@ end
 
 -- Dissect: Max No Of Substitutions
 dissect.max_no_of_substitutions = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.max_no_of_substitutions)
+  local length = size_of.max_no_of_substitutions
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.max_no_of_substitutions(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.max_no_of_substitutions, range, value, display)
 
-  return offset + size_of.max_no_of_substitutions
+  return offset + length, value
 end
 
 -- Size: Auto Quote Request
@@ -4531,13 +4624,14 @@ end
 
 -- Dissect: Auto Quote Request
 dissect.auto_quote_request = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.auto_quote_request)
+  local length = size_of.auto_quote_request
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.auto_quote_request(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.auto_quote_request, range, value, display)
 
-  return offset + size_of.auto_quote_request
+  return offset + length, value
 end
 
 -- Size: Expiration Cycle
@@ -4550,13 +4644,14 @@ end
 
 -- Dissect: Expiration Cycle
 dissect.expiration_cycle = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.expiration_cycle)
+  local length = size_of.expiration_cycle
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.expiration_cycle(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.expiration_cycle, range, value, display)
 
-  return offset + size_of.expiration_cycle
+  return offset + length, value
 end
 
 -- Size: Security Response Type
@@ -4569,13 +4664,14 @@ end
 
 -- Dissect: Security Response Type
 dissect.security_response_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_response_type)
+  local length = size_of.security_response_type
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.security_response_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.security_response_type, range, value, display)
 
-  return offset + size_of.security_response_type
+  return offset + length, value
 end
 
 -- Size: End Date
@@ -4593,13 +4689,14 @@ end
 
 -- Dissect: End Date
 dissect.end_date = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.end_date)
+  local length = size_of.end_date
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.end_date(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.end_date, range, value, display)
 
-  return offset + size_of.end_date
+  return offset + length, value
 end
 
 -- Size: Start Date
@@ -4617,13 +4714,14 @@ end
 
 -- Dissect: Start Date
 dissect.start_date = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.start_date)
+  local length = size_of.start_date
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.start_date(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.start_date, range, value, display)
 
-  return offset + size_of.start_date
+  return offset + length, value
 end
 
 -- Size: Maturity Date
@@ -4641,13 +4739,14 @@ end
 
 -- Dissect: Maturity Date
 dissect.maturity_date = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.maturity_date)
+  local length = size_of.maturity_date
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.maturity_date(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.maturity_date, range, value, display)
 
-  return offset + size_of.maturity_date
+  return offset + length, value
 end
 
 -- Size: Week
@@ -4665,13 +4764,14 @@ end
 
 -- Dissect: Week
 dissect.week = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.week)
+  local length = size_of.week
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.week(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.week, range, value, display)
 
-  return offset + size_of.week
+  return offset + length, value
 end
 
 -- Size: Day
@@ -4689,13 +4789,14 @@ end
 
 -- Dissect: Day
 dissect.day = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.day)
+  local length = size_of.day
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.day(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.day, range, value, display)
 
-  return offset + size_of.day
+  return offset + length, value
 end
 
 -- Size: Month
@@ -4713,13 +4814,14 @@ end
 
 -- Dissect: Month
 dissect.month = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.month)
+  local length = size_of.month
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.month(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.month, range, value, display)
 
-  return offset + size_of.month
+  return offset + length, value
 end
 
 -- Size: Year
@@ -4737,13 +4839,14 @@ end
 
 -- Dissect: Year
 dissect.year = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.year)
+  local length = size_of.year
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.year(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.year, range, value, display)
 
-  return offset + size_of.year
+  return offset + length, value
 end
 
 -- Display: Maturity Month Year
@@ -4756,16 +4859,16 @@ dissect.maturity_month_year_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Year: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.year(buffer, index, packet, parent)
+  index, year = dissect.year(buffer, index, packet, parent)
 
   -- Month: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.month(buffer, index, packet, parent)
+  index, month = dissect.month(buffer, index, packet, parent)
 
   -- Day: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.day(buffer, index, packet, parent)
+  index, day = dissect.day(buffer, index, packet, parent)
 
   -- Week: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.week(buffer, index, packet, parent)
+  index, week = dissect.week(buffer, index, packet, parent)
 
   return index
 end
@@ -4792,13 +4895,14 @@ end
 
 -- Dissect: Currency
 dissect.currency = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.currency)
+  local length = size_of.currency
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.currency(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.currency, range, value, display)
 
-  return offset + size_of.currency
+  return offset + length, value
 end
 
 -- Size: Security Type
@@ -4811,13 +4915,14 @@ end
 
 -- Dissect: Security Type
 dissect.security_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_type)
+  local length = size_of.security_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.security_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.security_type, range, value, display)
 
-  return offset + size_of.security_type
+  return offset + length, value
 end
 
 -- Size: Security Response Id
@@ -4830,13 +4935,14 @@ end
 
 -- Dissect: Security Response Id
 dissect.security_response_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_response_id)
+  local length = size_of.security_response_id
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.security_response_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.security_response_id, range, value, display)
 
-  return offset + size_of.security_response_id
+  return offset + length, value
 end
 
 -- Size: Security Req Id
@@ -4849,13 +4955,14 @@ end
 
 -- Dissect: Security Req Id
 dissect.security_req_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_req_id)
+  local length = size_of.security_req_id
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.security_req_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.security_req_id, range, value, display)
 
-  return offset + size_of.security_req_id
+  return offset + length, value
 end
 
 -- Size: Symbol
@@ -4868,13 +4975,14 @@ end
 
 -- Dissect: Symbol
 dissect.symbol = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.symbol)
+  local length = size_of.symbol
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.symbol, range, value, display)
 
-  return offset + size_of.symbol
+  return offset + length, value
 end
 
 -- Size: Financial Instrument Full Name
@@ -4887,13 +4995,14 @@ end
 
 -- Dissect: Financial Instrument Full Name
 dissect.financial_instrument_full_name = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.financial_instrument_full_name)
+  local length = size_of.financial_instrument_full_name
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.financial_instrument_full_name(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.financial_instrument_full_name, range, value, display)
 
-  return offset + size_of.financial_instrument_full_name
+  return offset + length, value
 end
 
 -- Calculate runtime size: Security Definition Response 542
@@ -4919,91 +5028,91 @@ dissect.security_definition_response_542_fields = function(buffer, offset, packe
   local index = offset
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Text: 256 Byte Ascii String
-  index = dissect.text(buffer, index, packet, parent)
+  index, text = dissect.text(buffer, index, packet, parent)
 
   -- Financial Instrument Full Name: 35 Byte Ascii String
-  index = dissect.financial_instrument_full_name(buffer, index, packet, parent)
+  index, financial_instrument_full_name = dissect.financial_instrument_full_name(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Symbol: 20 Byte Ascii String
-  index = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = dissect.symbol(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Security Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.security_req_id(buffer, index, packet, parent)
+  index, security_req_id = dissect.security_req_id(buffer, index, packet, parent)
 
   -- Security Response Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.security_response_id(buffer, index, packet, parent)
+  index, security_response_id = dissect.security_response_id(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Security Group: 6 Byte Ascii String
-  index = dissect.security_group(buffer, index, packet, parent)
+  index, security_group = dissect.security_group(buffer, index, packet, parent)
 
   -- Security Type: 6 Byte Ascii String
-  index = dissect.security_type(buffer, index, packet, parent)
+  index, security_type = dissect.security_type(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Currency: 3 Byte Ascii String
-  index = dissect.currency(buffer, index, packet, parent)
+  index, currency = dissect.currency(buffer, index, packet, parent)
 
   -- Maturity Month Year: Struct of 4 fields
-  index = dissect.maturity_month_year(buffer, index, packet, parent)
+  index, maturity_month_year = dissect.maturity_month_year(buffer, index, packet, parent)
 
   -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.delay_duration(buffer, index, packet, parent)
+  index, delay_duration = dissect.delay_duration(buffer, index, packet, parent)
 
   -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.maturity_date(buffer, index, packet, parent)
+  index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
 
   -- Start Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.start_date(buffer, index, packet, parent)
+  index, start_date = dissect.start_date(buffer, index, packet, parent)
 
   -- End Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.end_date(buffer, index, packet, parent)
+  index, end_date = dissect.end_date(buffer, index, packet, parent)
 
   -- Security Response Type: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.security_response_type(buffer, index, packet, parent)
+  index, security_response_type = dissect.security_response_type(buffer, index, packet, parent)
 
   -- Expiration Cycle: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_cycle(buffer, index, packet, parent)
+  index, expiration_cycle = dissect.expiration_cycle(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.split_msg(buffer, index, packet, parent)
+  index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
   -- Auto Quote Request: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.auto_quote_request(buffer, index, packet, parent)
+  index, auto_quote_request = dissect.auto_quote_request(buffer, index, packet, parent)
 
   -- Max No Of Substitutions: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.max_no_of_substitutions(buffer, index, packet, parent)
+  index, max_no_of_substitutions = dissect.max_no_of_substitutions(buffer, index, packet, parent)
 
   -- Money Or Par: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.money_or_par(buffer, index, packet, parent)
+  index, money_or_par = dissect.money_or_par(buffer, index, packet, parent)
 
   -- Legs Groups: Struct of 2 fields
-  index = dissect.legs_groups(buffer, index, packet, parent)
+  index, legs_groups = dissect.legs_groups(buffer, index, packet, parent)
 
   -- Underlyings Groups: Struct of 2 fields
-  index = dissect.underlyings_groups(buffer, index, packet, parent)
+  index, underlyings_groups = dissect.underlyings_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -5031,13 +5140,14 @@ end
 
 -- Dissect: Security Sub Type
 dissect.security_sub_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_sub_type)
+  local length = size_of.security_sub_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.security_sub_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.security_sub_type, range, value, display)
 
-  return offset + size_of.security_sub_type
+  return offset + length, value
 end
 
 -- Calculate runtime size: Security Definition Request 541
@@ -5063,49 +5173,49 @@ dissect.security_definition_request_541_fields = function(buffer, offset, packet
   local index = offset
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Security Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.security_req_id(buffer, index, packet, parent)
+  index, security_req_id = dissect.security_req_id(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Security Sub Type: 8 Byte Ascii String
-  index = dissect.security_sub_type(buffer, index, packet, parent)
+  index, security_sub_type = dissect.security_sub_type(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Start Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.start_date(buffer, index, packet, parent)
+  index, start_date = dissect.start_date(buffer, index, packet, parent)
 
   -- End Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.end_date(buffer, index, packet, parent)
+  index, end_date = dissect.end_date(buffer, index, packet, parent)
 
   -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.maturity_date(buffer, index, packet, parent)
+  index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
 
   -- Max No Of Substitutions: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.max_no_of_substitutions(buffer, index, packet, parent)
+  index, max_no_of_substitutions = dissect.max_no_of_substitutions(buffer, index, packet, parent)
 
   -- Money Or Par: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.money_or_par(buffer, index, packet, parent)
+  index, money_or_par = dissect.money_or_par(buffer, index, packet, parent)
 
   -- Legs Groups: Struct of 2 fields
-  index = dissect.legs_groups(buffer, index, packet, parent)
+  index, legs_groups = dissect.legs_groups(buffer, index, packet, parent)
 
   -- Underlyings Groups: Struct of 2 fields
-  index = dissect.underlyings_groups(buffer, index, packet, parent)
+  index, underlyings_groups = dissect.underlyings_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -5149,13 +5259,14 @@ end
 
 -- Dissect: Party Detail Role
 dissect.party_detail_role = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.party_detail_role)
+  local length = size_of.party_detail_role
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.party_detail_role(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_detail_role, range, value, display)
 
-  return offset + size_of.party_detail_role
+  return offset + length, value
 end
 
 -- Size: Party Detail Id
@@ -5168,13 +5279,14 @@ end
 
 -- Dissect: Party Detail Id
 dissect.party_detail_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.party_detail_id)
+  local length = size_of.party_detail_id
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.party_detail_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_detail_id, range, value, display)
 
-  return offset + size_of.party_detail_id
+  return offset + length, value
 end
 
 -- Display: Party Details Group
@@ -5187,10 +5299,10 @@ dissect.party_details_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Party Detail Id: 20 Byte Ascii String
-  index = dissect.party_detail_id(buffer, index, packet, parent)
+  index, party_detail_id = dissect.party_detail_id(buffer, index, packet, parent)
 
   -- Party Detail Role: 2 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.party_detail_role(buffer, index, packet, parent)
+  index, party_detail_role = dissect.party_detail_role(buffer, index, packet, parent)
 
   return index
 end
@@ -5230,13 +5342,13 @@ dissect.party_details_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local party_details_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Party Details Group: Struct of 2 fields
-  for i = 1, party_details_group_count do
+  for i = 1, num_in_group do
     index = dissect.party_details_group(buffer, index, packet, parent)
   end
 
@@ -5266,13 +5378,14 @@ end
 
 -- Dissect: Idm Short Code
 dissect.idm_short_code = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.idm_short_code)
+  local length = size_of.idm_short_code
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.idm_short_code(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.idm_short_code, range, value, display)
 
-  return offset + size_of.idm_short_code
+  return offset + length, value
 end
 
 -- Size: Executor
@@ -5285,13 +5398,14 @@ end
 
 -- Dissect: Executor
 dissect.executor = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.executor)
+  local length = size_of.executor
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.executor(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.executor, range, value, display)
 
-  return offset + size_of.executor
+  return offset + length, value
 end
 
 -- Size: Cust Order Handling Inst
@@ -5304,13 +5418,14 @@ end
 
 -- Dissect: Cust Order Handling Inst
 dissect.cust_order_handling_inst = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.cust_order_handling_inst)
+  local length = size_of.cust_order_handling_inst
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.cust_order_handling_inst(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.cust_order_handling_inst, range, value, display)
 
-  return offset + size_of.cust_order_handling_inst
+  return offset + length, value
 end
 
 -- Size: Cmta Giveup Cd
@@ -5333,13 +5448,14 @@ end
 
 -- Dissect: Cmta Giveup Cd
 dissect.cmta_giveup_cd = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.cmta_giveup_cd)
+  local length = size_of.cmta_giveup_cd
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.cmta_giveup_cd(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.cmta_giveup_cd, range, value, display)
 
-  return offset + size_of.cmta_giveup_cd
+  return offset + length, value
 end
 
 -- Size: Clearing Trade Price Type
@@ -5352,13 +5468,14 @@ end
 
 -- Dissect: Clearing Trade Price Type
 dissect.clearing_trade_price_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.clearing_trade_price_type)
+  local length = size_of.clearing_trade_price_type
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.clearing_trade_price_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.clearing_trade_price_type, range, value, display)
 
-  return offset + size_of.clearing_trade_price_type
+  return offset + length, value
 end
 
 -- Size: Avg Px Indicator
@@ -5371,13 +5488,14 @@ end
 
 -- Dissect: Avg Px Indicator
 dissect.avg_px_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.avg_px_indicator)
+  local length = size_of.avg_px_indicator
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.avg_px_indicator(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.avg_px_indicator, range, value, display)
 
-  return offset + size_of.avg_px_indicator
+  return offset + length, value
 end
 
 -- Size: Self Match Prevention Instruction
@@ -5390,13 +5508,14 @@ end
 
 -- Dissect: Self Match Prevention Instruction
 dissect.self_match_prevention_instruction = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.self_match_prevention_instruction)
+  local length = size_of.self_match_prevention_instruction
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.self_match_prevention_instruction(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.self_match_prevention_instruction, range, value, display)
 
-  return offset + size_of.self_match_prevention_instruction
+  return offset + length, value
 end
 
 -- Size: Clearing Account Type
@@ -5409,13 +5528,14 @@ end
 
 -- Dissect: Clearing Account Type
 dissect.clearing_account_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.clearing_account_type)
+  local length = size_of.clearing_account_type
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.clearing_account_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.clearing_account_type, range, value, display)
 
-  return offset + size_of.clearing_account_type
+  return offset + length, value
 end
 
 -- Size: Cust Order Capacity
@@ -5444,13 +5564,14 @@ end
 
 -- Dissect: Cust Order Capacity
 dissect.cust_order_capacity = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.cust_order_capacity)
+  local length = size_of.cust_order_capacity
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.cust_order_capacity(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.cust_order_capacity, range, value, display)
 
-  return offset + size_of.cust_order_capacity
+  return offset + length, value
 end
 
 -- Size: Request Result
@@ -5463,13 +5584,14 @@ end
 
 -- Dissect: Request Result
 dissect.request_result = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.request_result)
+  local length = size_of.request_result
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.request_result(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.request_result, range, value, display)
 
-  return offset + size_of.request_result
+  return offset + length, value
 end
 
 -- Size: Tot Num Parties
@@ -5482,13 +5604,14 @@ end
 
 -- Dissect: Tot Num Parties
 dissect.tot_num_parties = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.tot_num_parties)
+  local length = size_of.tot_num_parties
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.tot_num_parties(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.tot_num_parties, range, value, display)
 
-  return offset + size_of.tot_num_parties
+  return offset + length, value
 end
 
 -- Size: Self Match Prevention Id
@@ -5501,13 +5624,14 @@ end
 
 -- Dissect: Self Match Prevention Id
 dissect.self_match_prevention_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.self_match_prevention_id)
+  local length = size_of.self_match_prevention_id
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.self_match_prevention_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.self_match_prevention_id, range, value, display)
 
-  return offset + size_of.self_match_prevention_id
+  return offset + length, value
 end
 
 -- Size: Party Details List Report Id
@@ -5520,13 +5644,14 @@ end
 
 -- Dissect: Party Details List Report Id
 dissect.party_details_list_report_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.party_details_list_report_id)
+  local length = size_of.party_details_list_report_id
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.party_details_list_report_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_details_list_report_id, range, value, display)
 
-  return offset + size_of.party_details_list_report_id
+  return offset + length, value
 end
 
 -- Size: Avg Px Group Id
@@ -5539,13 +5664,14 @@ end
 
 -- Dissect: Avg Px Group Id
 dissect.avg_px_group_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.avg_px_group_id)
+  local length = size_of.avg_px_group_id
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.avg_px_group_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.avg_px_group_id, range, value, display)
 
-  return offset + size_of.avg_px_group_id
+  return offset + length, value
 end
 
 -- Calculate runtime size: Party Details List Report 538
@@ -5569,70 +5695,70 @@ dissect.party_details_list_report_538_fields = function(buffer, offset, packet, 
   local index = offset
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Avg Px Group Id: 20 Byte Ascii String
-  index = dissect.avg_px_group_id(buffer, index, packet, parent)
+  index, avg_px_group_id = dissect.avg_px_group_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Party Details List Report Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_report_id(buffer, index, packet, parent)
+  index, party_details_list_report_id = dissect.party_details_list_report_id(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Self Match Prevention Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.self_match_prevention_id(buffer, index, packet, parent)
+  index, self_match_prevention_id = dissect.self_match_prevention_id(buffer, index, packet, parent)
 
   -- Tot Num Parties: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.tot_num_parties(buffer, index, packet, parent)
+  index, tot_num_parties = dissect.tot_num_parties(buffer, index, packet, parent)
 
   -- Request Result: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.request_result(buffer, index, packet, parent)
+  index, request_result = dissect.request_result(buffer, index, packet, parent)
 
   -- Last Fragment: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.last_fragment(buffer, index, packet, parent)
+  index, last_fragment = dissect.last_fragment(buffer, index, packet, parent)
 
   -- Cust Order Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.cust_order_capacity(buffer, index, packet, parent)
+  index, cust_order_capacity = dissect.cust_order_capacity(buffer, index, packet, parent)
 
   -- Clearing Account Type: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.clearing_account_type(buffer, index, packet, parent)
+  index, clearing_account_type = dissect.clearing_account_type(buffer, index, packet, parent)
 
   -- Self Match Prevention Instruction: 1 Byte Ascii String
-  index = dissect.self_match_prevention_instruction(buffer, index, packet, parent)
+  index, self_match_prevention_instruction = dissect.self_match_prevention_instruction(buffer, index, packet, parent)
 
   -- Avg Px Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.avg_px_indicator(buffer, index, packet, parent)
+  index, avg_px_indicator = dissect.avg_px_indicator(buffer, index, packet, parent)
 
   -- Clearing Trade Price Type: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.clearing_trade_price_type(buffer, index, packet, parent)
+  index, clearing_trade_price_type = dissect.clearing_trade_price_type(buffer, index, packet, parent)
 
   -- Cmta Giveup Cd: 1 Byte Ascii String Enum with 3 values
-  index = dissect.cmta_giveup_cd(buffer, index, packet, parent)
+  index, cmta_giveup_cd = dissect.cmta_giveup_cd(buffer, index, packet, parent)
 
   -- Cust Order Handling Inst: 1 Byte Ascii String
-  index = dissect.cust_order_handling_inst(buffer, index, packet, parent)
+  index, cust_order_handling_inst = dissect.cust_order_handling_inst(buffer, index, packet, parent)
 
   -- Executor: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.executor(buffer, index, packet, parent)
+  index, executor = dissect.executor(buffer, index, packet, parent)
 
   -- Idm Short Code: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.idm_short_code(buffer, index, packet, parent)
+  index, idm_short_code = dissect.idm_short_code(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.poss_retrans_flag(buffer, index, packet, parent)
+  index, poss_retrans_flag = dissect.poss_retrans_flag(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.split_msg(buffer, index, packet, parent)
+  index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
   -- Party Details Groups: Struct of 2 fields
-  index = dissect.party_details_groups(buffer, index, packet, parent)
+  index, party_details_groups = dissect.party_details_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -5660,13 +5786,14 @@ end
 
 -- Dissect: Party Role
 dissect.party_role = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.party_role)
+  local length = size_of.party_role
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.party_role(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_role, range, value, display)
 
-  return offset + size_of.party_role
+  return offset + length, value
 end
 
 -- Size: Party Id Source
@@ -5679,13 +5806,14 @@ end
 
 -- Dissect: Party Id Source
 dissect.party_id_source = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.party_id_source)
+  local length = size_of.party_id_source
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.party_id_source(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_id_source, range, value, display)
 
-  return offset + size_of.party_id_source
+  return offset + length, value
 end
 
 -- Size: Party Id
@@ -5698,13 +5826,14 @@ end
 
 -- Dissect: Party Id
 dissect.party_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.party_id)
+  local length = size_of.party_id
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.party_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_id, range, value, display)
 
-  return offset + size_of.party_id
+  return offset + length, value
 end
 
 -- Display: Party I Ds Group
@@ -5717,13 +5846,13 @@ dissect.party_i_ds_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Party Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_id(buffer, index, packet, parent)
+  index, party_id = dissect.party_id(buffer, index, packet, parent)
 
   -- Party Id Source: 1 Byte Ascii String
-  index = dissect.party_id_source(buffer, index, packet, parent)
+  index, party_id_source = dissect.party_id_source(buffer, index, packet, parent)
 
   -- Party Role: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.party_role(buffer, index, packet, parent)
+  index, party_role = dissect.party_role(buffer, index, packet, parent)
 
   return index
 end
@@ -5763,13 +5892,13 @@ dissect.party_i_ds_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local party_i_ds_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Party I Ds Group: Struct of 3 fields
-  for i = 1, party_i_ds_group_count do
+  for i = 1, num_in_group do
     index = dissect.party_i_ds_group(buffer, index, packet, parent)
   end
 
@@ -5799,13 +5928,14 @@ end
 
 -- Dissect: Requesting Party Role
 dissect.requesting_party_role = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.requesting_party_role)
+  local length = size_of.requesting_party_role
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.requesting_party_role(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.requesting_party_role, range, value, display)
 
-  return offset + size_of.requesting_party_role
+  return offset + length, value
 end
 
 -- Size: Requesting Party Id Source
@@ -5818,13 +5948,14 @@ end
 
 -- Dissect: Requesting Party Id Source
 dissect.requesting_party_id_source = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.requesting_party_id_source)
+  local length = size_of.requesting_party_id_source
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.requesting_party_id_source(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.requesting_party_id_source, range, value, display)
 
-  return offset + size_of.requesting_party_id_source
+  return offset + length, value
 end
 
 -- Size: Requesting Party Id
@@ -5837,13 +5968,14 @@ end
 
 -- Dissect: Requesting Party Id
 dissect.requesting_party_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.requesting_party_id)
+  local length = size_of.requesting_party_id
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.requesting_party_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.requesting_party_id, range, value, display)
 
-  return offset + size_of.requesting_party_id
+  return offset + length, value
 end
 
 -- Display: Requesting Party I Ds Group
@@ -5856,13 +5988,13 @@ dissect.requesting_party_i_ds_group_fields = function(buffer, offset, packet, pa
   local index = offset
 
   -- Requesting Party Id: 5 Byte Ascii String
-  index = dissect.requesting_party_id(buffer, index, packet, parent)
+  index, requesting_party_id = dissect.requesting_party_id(buffer, index, packet, parent)
 
   -- Requesting Party Id Source: 1 Byte Ascii String
-  index = dissect.requesting_party_id_source(buffer, index, packet, parent)
+  index, requesting_party_id_source = dissect.requesting_party_id_source(buffer, index, packet, parent)
 
   -- Requesting Party Role: 1 Byte Ascii String
-  index = dissect.requesting_party_role(buffer, index, packet, parent)
+  index, requesting_party_role = dissect.requesting_party_role(buffer, index, packet, parent)
 
   return index
 end
@@ -5902,13 +6034,13 @@ dissect.requesting_party_i_ds_groups_fields = function(buffer, offset, packet, p
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index = dissect.group_size(buffer, index, packet, parent)
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local requesting_party_i_ds_group_count = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Requesting Party I Ds Group: Struct of 3 fields
-  for i = 1, requesting_party_i_ds_group_count do
+  for i = 1, num_in_group do
     index = dissect.requesting_party_i_ds_group(buffer, index, packet, parent)
   end
 
@@ -5951,19 +6083,19 @@ dissect.party_details_list_request_537_fields = function(buffer, offset, packet,
   local index = offset
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Requesting Party I Ds Groups: Struct of 2 fields
-  index = dissect.requesting_party_i_ds_groups(buffer, index, packet, parent)
+  index, requesting_party_i_ds_groups = dissect.requesting_party_i_ds_groups(buffer, index, packet, parent)
 
   -- Party I Ds Groups: Struct of 2 fields
-  index = dissect.party_i_ds_groups(buffer, index, packet, parent)
+  index, party_i_ds_groups = dissect.party_i_ds_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -5991,13 +6123,14 @@ end
 
 -- Dissect: Cxl Rej Reason
 dissect.cxl_rej_reason = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.cxl_rej_reason)
+  local length = size_of.cxl_rej_reason
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.cxl_rej_reason(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.cxl_rej_reason, range, value, display)
 
-  return offset + size_of.cxl_rej_reason
+  return offset + length, value
 end
 
 -- Display: Order Cancel Replace Reject 536
@@ -6010,58 +6143,58 @@ dissect.order_cancel_replace_reject_536_fields = function(buffer, offset, packet
   local index = offset
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Text: 256 Byte Ascii String
-  index = dissect.text(buffer, index, packet, parent)
+  index, text = dissect.text(buffer, index, packet, parent)
 
   -- Exec Id: 40 Byte Ascii String
-  index = dissect.exec_id(buffer, index, packet, parent)
+  index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_request_id(buffer, index, packet, parent)
+  index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Cxl Rej Reason: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.cxl_rej_reason(buffer, index, packet, parent)
+  index, cxl_rej_reason = dissect.cxl_rej_reason(buffer, index, packet, parent)
 
   -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.delay_duration(buffer, index, packet, parent)
+  index, delay_duration = dissect.delay_duration(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.poss_retrans_flag(buffer, index, packet, parent)
+  index, poss_retrans_flag = dissect.poss_retrans_flag(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.split_msg(buffer, index, packet, parent)
+  index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.liquidity_flag(buffer, index, packet, parent)
+  index, liquidity_flag = dissect.liquidity_flag(buffer, index, packet, parent)
 
   return index
 end
@@ -6088,58 +6221,58 @@ dissect.order_cancel_reject_535_fields = function(buffer, offset, packet, parent
   local index = offset
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Text: 256 Byte Ascii String
-  index = dissect.text(buffer, index, packet, parent)
+  index, text = dissect.text(buffer, index, packet, parent)
 
   -- Exec Id: 40 Byte Ascii String
-  index = dissect.exec_id(buffer, index, packet, parent)
+  index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_request_id(buffer, index, packet, parent)
+  index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Cxl Rej Reason: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.cxl_rej_reason(buffer, index, packet, parent)
+  index, cxl_rej_reason = dissect.cxl_rej_reason(buffer, index, packet, parent)
 
   -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.delay_duration(buffer, index, packet, parent)
+  index, delay_duration = dissect.delay_duration(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.poss_retrans_flag(buffer, index, packet, parent)
+  index, poss_retrans_flag = dissect.poss_retrans_flag(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.split_msg(buffer, index, packet, parent)
+  index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.liquidity_flag(buffer, index, packet, parent)
+  index, liquidity_flag = dissect.liquidity_flag(buffer, index, packet, parent)
 
   return index
 end
@@ -6171,13 +6304,14 @@ end
 
 -- Dissect: Cross Type
 dissect.cross_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.cross_type)
+  local length = size_of.cross_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.cross_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.cross_type, range, value, display)
 
-  return offset + size_of.cross_type
+  return offset + length, value
 end
 
 -- Size: Exec Restatement Reason
@@ -6190,13 +6324,14 @@ end
 
 -- Dissect: Exec Restatement Reason
 dissect.exec_restatement_reason = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.exec_restatement_reason)
+  local length = size_of.exec_restatement_reason
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.exec_restatement_reason(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.exec_restatement_reason, range, value, display)
 
-  return offset + size_of.exec_restatement_reason
+  return offset + length, value
 end
 
 -- Size: Expire Date
@@ -6214,13 +6349,14 @@ end
 
 -- Dissect: Expire Date
 dissect.expire_date = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.expire_date)
+  local length = size_of.expire_date
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.expire_date(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.expire_date, range, value, display)
 
-  return offset + size_of.expire_date
+  return offset + length, value
 end
 
 -- Size: Display Qty
@@ -6238,13 +6374,14 @@ end
 
 -- Dissect: Display Qty
 dissect.display_qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.display_qty)
+  local length = size_of.display_qty
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.display_qty(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.display_qty, range, value, display)
 
-  return offset + size_of.display_qty
+  return offset + length, value
 end
 
 -- Size: Min Qty
@@ -6262,13 +6399,14 @@ end
 
 -- Dissect: Min Qty
 dissect.min_qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.min_qty)
+  local length = size_of.min_qty
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.min_qty(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.min_qty, range, value, display)
 
-  return offset + size_of.min_qty
+  return offset + length, value
 end
 
 -- Size: Cum Qty
@@ -6281,13 +6419,14 @@ end
 
 -- Dissect: Cum Qty
 dissect.cum_qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.cum_qty)
+  local length = size_of.cum_qty
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.cum_qty(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.cum_qty, range, value, display)
 
-  return offset + size_of.cum_qty
+  return offset + length, value
 end
 
 -- Size: Host Cross Id
@@ -6300,13 +6439,14 @@ end
 
 -- Dissect: Host Cross Id
 dissect.host_cross_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.host_cross_id)
+  local length = size_of.host_cross_id
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.host_cross_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.host_cross_id, range, value, display)
 
-  return offset + size_of.host_cross_id
+  return offset + length, value
 end
 
 -- Size: Stop Px
@@ -6320,13 +6460,14 @@ end
 
 -- Dissect: Stop Px
 dissect.stop_px = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.stop_px)
+  local length = size_of.stop_px
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.stop_px(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.stop_px, range, value, display)
 
-  return offset + size_of.stop_px
+  return offset + length, value
 end
 
 -- Display: Execution Report Cancel 534
@@ -6339,109 +6480,109 @@ dissect.execution_report_cancel_534_fields = function(buffer, offset, packet, pa
   local index = offset
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Exec Id: 40 Byte Ascii String
-  index = dissect.exec_id(buffer, index, packet, parent)
+  index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.stop_px(buffer, index, packet, parent)
+  index, stop_px = dissect.stop_px(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_request_id(buffer, index, packet, parent)
+  index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
   -- Cross Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.cross_id(buffer, index, packet, parent)
+  index, cross_id = dissect.cross_id(buffer, index, packet, parent)
 
   -- Host Cross Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.host_cross_id(buffer, index, packet, parent)
+  index, host_cross_id = dissect.host_cross_id(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.order_qty(buffer, index, packet, parent)
+  index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.cum_qty(buffer, index, packet, parent)
+  index, cum_qty = dissect.cum_qty(buffer, index, packet, parent)
 
   -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.min_qty(buffer, index, packet, parent)
+  index, min_qty = dissect.min_qty(buffer, index, packet, parent)
 
   -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.display_qty(buffer, index, packet, parent)
+  index, display_qty = dissect.display_qty(buffer, index, packet, parent)
 
   -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.expire_date(buffer, index, packet, parent)
+  index, expire_date = dissect.expire_date(buffer, index, packet, parent)
 
   -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.delay_duration(buffer, index, packet, parent)
+  index, delay_duration = dissect.delay_duration(buffer, index, packet, parent)
 
   -- Ord Type: 1 Byte Ascii String
-  index = dissect.ord_type(buffer, index, packet, parent)
+  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.time_in_force(buffer, index, packet, parent)
+  index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.poss_retrans_flag(buffer, index, packet, parent)
+  index, poss_retrans_flag = dissect.poss_retrans_flag(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.split_msg(buffer, index, packet, parent)
+  index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
   -- Exec Restatement Reason: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.exec_restatement_reason(buffer, index, packet, parent)
+  index, exec_restatement_reason = dissect.exec_restatement_reason(buffer, index, packet, parent)
 
   -- Cross Type: 1 Byte Ascii String Nullable
-  index = dissect.cross_type(buffer, index, packet, parent)
+  index, cross_type = dissect.cross_type(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
-  index = dissect.exec_inst(buffer, index, packet, parent)
+  index, exec_inst = dissect.exec_inst(buffer, index, packet, parent)
 
   -- Execution Mode: 1 Byte Ascii String
-  index = dissect.execution_mode(buffer, index, packet, parent)
+  index, execution_mode = dissect.execution_mode(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.liquidity_flag(buffer, index, packet, parent)
+  index, liquidity_flag = dissect.liquidity_flag(buffer, index, packet, parent)
 
   -- Managed Order: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.managed_order(buffer, index, packet, parent)
+  index, managed_order = dissect.managed_order(buffer, index, packet, parent)
 
   -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.short_sale_type(buffer, index, packet, parent)
+  index, short_sale_type = dissect.short_sale_type(buffer, index, packet, parent)
 
   return index
 end
@@ -6468,13 +6609,14 @@ end
 
 -- Dissect: Ord Status Req Id
 dissect.ord_status_req_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ord_status_req_id)
+  local length = size_of.ord_status_req_id
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.ord_status_req_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.ord_status_req_id, range, value, display)
 
-  return offset + size_of.ord_status_req_id
+  return offset + length, value
 end
 
 -- Display: Order Status Request 533
@@ -6487,28 +6629,28 @@ dissect.order_status_request_533_fields = function(buffer, offset, packet, paren
   local index = offset
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Ord Status Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.ord_status_req_id(buffer, index, packet, parent)
+  index, ord_status_req_id = dissect.ord_status_req_id(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   return index
 end
@@ -6535,13 +6677,14 @@ end
 
 -- Dissect: Last Rpt Requested
 dissect.last_rpt_requested = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.last_rpt_requested)
+  local length = size_of.last_rpt_requested
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.last_rpt_requested(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.last_rpt_requested, range, value, display)
 
-  return offset + size_of.last_rpt_requested
+  return offset + length, value
 end
 
 -- Size: Leaves Qty
@@ -6554,13 +6697,14 @@ end
 
 -- Dissect: Leaves Qty
 dissect.leaves_qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leaves_qty)
+  local length = size_of.leaves_qty
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.leaves_qty(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.leaves_qty, range, value, display)
 
-  return offset + size_of.leaves_qty
+  return offset + length, value
 end
 
 -- Size: Mass Status Req Id
@@ -6573,13 +6717,14 @@ end
 
 -- Dissect: Mass Status Req Id
 dissect.mass_status_req_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.mass_status_req_id)
+  local length = size_of.mass_status_req_id
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.mass_status_req_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.mass_status_req_id, range, value, display)
 
-  return offset + size_of.mass_status_req_id
+  return offset + length, value
 end
 
 -- Display: Execution Report Status 532
@@ -6592,118 +6737,118 @@ dissect.execution_report_status_532_fields = function(buffer, offset, packet, pa
   local index = offset
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Text: 256 Byte Ascii String
-  index = dissect.text(buffer, index, packet, parent)
+  index, text = dissect.text(buffer, index, packet, parent)
 
   -- Exec Id: 40 Byte Ascii String
-  index = dissect.exec_id(buffer, index, packet, parent)
+  index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.stop_px(buffer, index, packet, parent)
+  index, stop_px = dissect.stop_px(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_request_id(buffer, index, packet, parent)
+  index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
   -- Ord Status Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.ord_status_req_id(buffer, index, packet, parent)
+  index, ord_status_req_id = dissect.ord_status_req_id(buffer, index, packet, parent)
 
   -- Mass Status Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.mass_status_req_id(buffer, index, packet, parent)
+  index, mass_status_req_id = dissect.mass_status_req_id(buffer, index, packet, parent)
 
   -- Cross Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.cross_id(buffer, index, packet, parent)
+  index, cross_id = dissect.cross_id(buffer, index, packet, parent)
 
   -- Host Cross Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.host_cross_id(buffer, index, packet, parent)
+  index, host_cross_id = dissect.host_cross_id(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.order_qty(buffer, index, packet, parent)
+  index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.cum_qty(buffer, index, packet, parent)
+  index, cum_qty = dissect.cum_qty(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.leaves_qty(buffer, index, packet, parent)
+  index, leaves_qty = dissect.leaves_qty(buffer, index, packet, parent)
 
   -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.min_qty(buffer, index, packet, parent)
+  index, min_qty = dissect.min_qty(buffer, index, packet, parent)
 
   -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.display_qty(buffer, index, packet, parent)
+  index, display_qty = dissect.display_qty(buffer, index, packet, parent)
 
   -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.expire_date(buffer, index, packet, parent)
+  index, expire_date = dissect.expire_date(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String
-  index = dissect.ord_status(buffer, index, packet, parent)
+  index, ord_status = dissect.ord_status(buffer, index, packet, parent)
 
   -- Ord Type: 1 Byte Ascii String
-  index = dissect.ord_type(buffer, index, packet, parent)
+  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.time_in_force(buffer, index, packet, parent)
+  index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.poss_retrans_flag(buffer, index, packet, parent)
+  index, poss_retrans_flag = dissect.poss_retrans_flag(buffer, index, packet, parent)
 
   -- Last Rpt Requested: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.last_rpt_requested(buffer, index, packet, parent)
+  index, last_rpt_requested = dissect.last_rpt_requested(buffer, index, packet, parent)
 
   -- Cross Type: 1 Byte Ascii String Nullable
-  index = dissect.cross_type(buffer, index, packet, parent)
+  index, cross_type = dissect.cross_type(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
-  index = dissect.exec_inst(buffer, index, packet, parent)
+  index, exec_inst = dissect.exec_inst(buffer, index, packet, parent)
 
   -- Execution Mode: 1 Byte Ascii String
-  index = dissect.execution_mode(buffer, index, packet, parent)
+  index, execution_mode = dissect.execution_mode(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.liquidity_flag(buffer, index, packet, parent)
+  index, liquidity_flag = dissect.liquidity_flag(buffer, index, packet, parent)
 
   -- Managed Order: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.managed_order(buffer, index, packet, parent)
+  index, managed_order = dissect.managed_order(buffer, index, packet, parent)
 
   -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.short_sale_type(buffer, index, packet, parent)
+  index, short_sale_type = dissect.short_sale_type(buffer, index, packet, parent)
 
   return index
 end
@@ -6730,109 +6875,109 @@ dissect.execution_report_modify_531_fields = function(buffer, offset, packet, pa
   local index = offset
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Exec Id: 40 Byte Ascii String
-  index = dissect.exec_id(buffer, index, packet, parent)
+  index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.stop_px(buffer, index, packet, parent)
+  index, stop_px = dissect.stop_px(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_request_id(buffer, index, packet, parent)
+  index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
   -- Cross Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.cross_id(buffer, index, packet, parent)
+  index, cross_id = dissect.cross_id(buffer, index, packet, parent)
 
   -- Host Cross Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.host_cross_id(buffer, index, packet, parent)
+  index, host_cross_id = dissect.host_cross_id(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.order_qty(buffer, index, packet, parent)
+  index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.cum_qty(buffer, index, packet, parent)
+  index, cum_qty = dissect.cum_qty(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.leaves_qty(buffer, index, packet, parent)
+  index, leaves_qty = dissect.leaves_qty(buffer, index, packet, parent)
 
   -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.min_qty(buffer, index, packet, parent)
+  index, min_qty = dissect.min_qty(buffer, index, packet, parent)
 
   -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.display_qty(buffer, index, packet, parent)
+  index, display_qty = dissect.display_qty(buffer, index, packet, parent)
 
   -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.expire_date(buffer, index, packet, parent)
+  index, expire_date = dissect.expire_date(buffer, index, packet, parent)
 
   -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.delay_duration(buffer, index, packet, parent)
+  index, delay_duration = dissect.delay_duration(buffer, index, packet, parent)
 
   -- Ord Type: 1 Byte Ascii String
-  index = dissect.ord_type(buffer, index, packet, parent)
+  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.time_in_force(buffer, index, packet, parent)
+  index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.poss_retrans_flag(buffer, index, packet, parent)
+  index, poss_retrans_flag = dissect.poss_retrans_flag(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.split_msg(buffer, index, packet, parent)
+  index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
   -- Cross Type: 1 Byte Ascii String Nullable
-  index = dissect.cross_type(buffer, index, packet, parent)
+  index, cross_type = dissect.cross_type(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
-  index = dissect.exec_inst(buffer, index, packet, parent)
+  index, exec_inst = dissect.exec_inst(buffer, index, packet, parent)
 
   -- Execution Mode: 1 Byte Ascii String
-  index = dissect.execution_mode(buffer, index, packet, parent)
+  index, execution_mode = dissect.execution_mode(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.liquidity_flag(buffer, index, packet, parent)
+  index, liquidity_flag = dissect.liquidity_flag(buffer, index, packet, parent)
 
   -- Managed Order: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.managed_order(buffer, index, packet, parent)
+  index, managed_order = dissect.managed_order(buffer, index, packet, parent)
 
   -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.short_sale_type(buffer, index, packet, parent)
+  index, short_sale_type = dissect.short_sale_type(buffer, index, packet, parent)
 
   return index
 end
@@ -6859,13 +7004,14 @@ end
 
 -- Dissect: Ord Status Req Type
 dissect.ord_status_req_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ord_status_req_type)
+  local length = size_of.ord_status_req_type
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.ord_status_req_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.ord_status_req_type, range, value, display)
 
-  return offset + size_of.ord_status_req_type
+  return offset + length, value
 end
 
 -- Size: Mass Status Req Type
@@ -6878,13 +7024,14 @@ end
 
 -- Dissect: Mass Status Req Type
 dissect.mass_status_req_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.mass_status_req_type)
+  local length = size_of.mass_status_req_type
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.mass_status_req_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.mass_status_req_type, range, value, display)
 
-  return offset + size_of.mass_status_req_type
+  return offset + length, value
 end
 
 -- Display: Order Mass Status Request 530
@@ -6897,43 +7044,43 @@ dissect.order_mass_status_request_530_fields = function(buffer, offset, packet, 
   local index = offset
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Mass Status Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.mass_status_req_id(buffer, index, packet, parent)
+  index, mass_status_req_id = dissect.mass_status_req_id(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Security Group: 6 Byte Ascii String
-  index = dissect.security_group(buffer, index, packet, parent)
+  index, security_group = dissect.security_group(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Mass Status Req Type: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.mass_status_req_type(buffer, index, packet, parent)
+  index, mass_status_req_type = dissect.mass_status_req_type(buffer, index, packet, parent)
 
   -- Ord Status Req Type: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.ord_status_req_type(buffer, index, packet, parent)
+  index, ord_status_req_type = dissect.ord_status_req_type(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.time_in_force(buffer, index, packet, parent)
+  index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.market_segment_id(buffer, index, packet, parent)
+  index, market_segment_id = dissect.market_segment_id(buffer, index, packet, parent)
 
   return index
 end
@@ -6960,52 +7107,52 @@ dissect.order_mass_action_request_529_fields = function(buffer, offset, packet, 
   local index = offset
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_request_id(buffer, index, packet, parent)
+  index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Security Group: 6 Byte Ascii String
-  index = dissect.security_group(buffer, index, packet, parent)
+  index, security_group = dissect.security_group(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Mass Action Scope: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.mass_action_scope(buffer, index, packet, parent)
+  index, mass_action_scope = dissect.mass_action_scope(buffer, index, packet, parent)
 
   -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.market_segment_id(buffer, index, packet, parent)
+  index, market_segment_id = dissect.market_segment_id(buffer, index, packet, parent)
 
   -- Mass Cancel Request Type: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.mass_cancel_request_type(buffer, index, packet, parent)
+  index, mass_cancel_request_type = dissect.mass_cancel_request_type(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Ord Type: 1 Byte Ascii String
-  index = dissect.ord_type(buffer, index, packet, parent)
+  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.time_in_force(buffer, index, packet, parent)
+  index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.liquidity_flag(buffer, index, packet, parent)
+  index, liquidity_flag = dissect.liquidity_flag(buffer, index, packet, parent)
 
   return index
 end
@@ -7032,13 +7179,14 @@ end
 
 -- Dissect: Quote Cancel Type
 dissect.quote_cancel_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.quote_cancel_type)
+  local length = size_of.quote_cancel_type
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.quote_cancel_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.quote_cancel_type, range, value, display)
 
-  return offset + size_of.quote_cancel_type
+  return offset + length, value
 end
 
 -- Calculate runtime size: Quote Cancel 528
@@ -7064,37 +7212,37 @@ dissect.quote_cancel_528_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Quote Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.quote_id(buffer, index, packet, parent)
+  index, quote_id = dissect.quote_id(buffer, index, packet, parent)
 
   -- Quote Cancel Type: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.quote_cancel_type(buffer, index, packet, parent)
+  index, quote_cancel_type = dissect.quote_cancel_type(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.liquidity_flag(buffer, index, packet, parent)
+  index, liquidity_flag = dissect.liquidity_flag(buffer, index, packet, parent)
 
   -- Quote Entries Groups: Struct of 2 fields
-  index = dissect.quote_entries_groups(buffer, index, packet, parent)
+  index, quote_entries_groups = dissect.quote_entries_groups(buffer, index, packet, parent)
 
   -- Quote Sets Groups: Struct of 2 fields
-  index = dissect.quote_sets_groups(buffer, index, packet, parent)
+  index, quote_sets_groups = dissect.quote_sets_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -7122,13 +7270,14 @@ end
 
 -- Dissect: Risk Free Rate
 dissect.risk_free_rate = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.risk_free_rate)
+  local length = size_of.risk_free_rate
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.risk_free_rate(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.risk_free_rate, range, value, display)
 
-  return offset + size_of.risk_free_rate
+  return offset + length, value
 end
 
 -- Size: Time To Expiration
@@ -7141,13 +7290,14 @@ end
 
 -- Dissect: Time To Expiration
 dissect.time_to_expiration = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.time_to_expiration)
+  local length = size_of.time_to_expiration
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.time_to_expiration(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.time_to_expiration, range, value, display)
 
-  return offset + size_of.time_to_expiration
+  return offset + length, value
 end
 
 -- Size: Option Delta
@@ -7160,13 +7310,14 @@ end
 
 -- Dissect: Option Delta
 dissect.option_delta = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.option_delta)
+  local length = size_of.option_delta
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.option_delta(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.option_delta, range, value, display)
 
-  return offset + size_of.option_delta
+  return offset + length, value
 end
 
 -- Size: Underlying Px
@@ -7180,13 +7331,14 @@ end
 
 -- Dissect: Underlying Px
 dissect.underlying_px = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.underlying_px)
+  local length = size_of.underlying_px
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.underlying_px(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.underlying_px, range, value, display)
 
-  return offset + size_of.underlying_px
+  return offset + length, value
 end
 
 -- Size: Volatility
@@ -7199,13 +7351,14 @@ end
 
 -- Dissect: Volatility
 dissect.volatility = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.volatility)
+  local length = size_of.volatility
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.volatility(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.volatility, range, value, display)
 
-  return offset + size_of.volatility
+  return offset + length, value
 end
 
 -- Calculate runtime size: Execution Report Trade Spread Leg 527
@@ -7231,88 +7384,88 @@ dissect.execution_report_trade_spread_leg_527_fields = function(buffer, offset, 
   local index = offset
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Exec Id: 40 Byte Ascii String
-  index = dissect.exec_id(buffer, index, packet, parent)
+  index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Volatility: 8 Byte Signed Fixed Width Integer
-  index = dissect.volatility(buffer, index, packet, parent)
+  index, volatility = dissect.volatility(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.last_px(buffer, index, packet, parent)
+  index, last_px = dissect.last_px(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Underlying Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.underlying_px(buffer, index, packet, parent)
+  index, underlying_px = dissect.underlying_px(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Sec Exec Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sec_exec_id(buffer, index, packet, parent)
+  index, sec_exec_id = dissect.sec_exec_id(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Option Delta: 4 Byte Signed Fixed Width Integer
-  index = dissect.option_delta(buffer, index, packet, parent)
+  index, option_delta = dissect.option_delta(buffer, index, packet, parent)
 
   -- Time To Expiration: 4 Byte Signed Fixed Width Integer
-  index = dissect.time_to_expiration(buffer, index, packet, parent)
+  index, time_to_expiration = dissect.time_to_expiration(buffer, index, packet, parent)
 
   -- Risk Free Rate: 4 Byte Signed Fixed Width Integer
-  index = dissect.risk_free_rate(buffer, index, packet, parent)
+  index, risk_free_rate = dissect.risk_free_rate(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Last Qty: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.last_qty(buffer, index, packet, parent)
+  index, last_qty = dissect.last_qty(buffer, index, packet, parent)
 
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.cum_qty(buffer, index, packet, parent)
+  index, cum_qty = dissect.cum_qty(buffer, index, packet, parent)
 
   -- Side Trade Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.side_trade_id(buffer, index, packet, parent)
+  index, side_trade_id = dissect.side_trade_id(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String
-  index = dissect.ord_status(buffer, index, packet, parent)
+  index, ord_status = dissect.ord_status(buffer, index, packet, parent)
 
   -- Ord Type: 1 Byte Ascii String
-  index = dissect.ord_type(buffer, index, packet, parent)
+  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.poss_retrans_flag(buffer, index, packet, parent)
+  index, poss_retrans_flag = dissect.poss_retrans_flag(buffer, index, packet, parent)
 
   -- Fills Groups: Struct of 2 fields
-  index = dissect.fills_groups(buffer, index, packet, parent)
+  index, fills_groups = dissect.fills_groups(buffer, index, packet, parent)
 
   -- Order Events Groups: Struct of 2 fields
-  index = dissect.order_events_groups(buffer, index, packet, parent)
+  index, order_events_groups = dissect.order_events_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -7340,13 +7493,14 @@ end
 
 -- Dissect: Aggressor Indicator
 dissect.aggressor_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.aggressor_indicator)
+  local length = size_of.aggressor_indicator
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.aggressor_indicator(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.aggressor_indicator, range, value, display)
 
-  return offset + size_of.aggressor_indicator
+  return offset + length, value
 end
 
 -- Calculate runtime size: Execution Report Trade Spread 526
@@ -7374,130 +7528,130 @@ dissect.execution_report_trade_spread_526_fields = function(buffer, offset, pack
   local index = offset
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Exec Id: 40 Byte Ascii String
-  index = dissect.exec_id(buffer, index, packet, parent)
+  index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.last_px(buffer, index, packet, parent)
+  index, last_px = dissect.last_px(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.stop_px(buffer, index, packet, parent)
+  index, stop_px = dissect.stop_px(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_request_id(buffer, index, packet, parent)
+  index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
   -- Sec Exec Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sec_exec_id(buffer, index, packet, parent)
+  index, sec_exec_id = dissect.sec_exec_id(buffer, index, packet, parent)
 
   -- Cross Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.cross_id(buffer, index, packet, parent)
+  index, cross_id = dissect.cross_id(buffer, index, packet, parent)
 
   -- Host Cross Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.host_cross_id(buffer, index, packet, parent)
+  index, host_cross_id = dissect.host_cross_id(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.order_qty(buffer, index, packet, parent)
+  index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
   -- Last Qty: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.last_qty(buffer, index, packet, parent)
+  index, last_qty = dissect.last_qty(buffer, index, packet, parent)
 
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.cum_qty(buffer, index, packet, parent)
+  index, cum_qty = dissect.cum_qty(buffer, index, packet, parent)
 
   -- Md Trade Entry Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.md_trade_entry_id(buffer, index, packet, parent)
+  index, md_trade_entry_id = dissect.md_trade_entry_id(buffer, index, packet, parent)
 
   -- Side Trade Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.side_trade_id(buffer, index, packet, parent)
+  index, side_trade_id = dissect.side_trade_id(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.leaves_qty(buffer, index, packet, parent)
+  index, leaves_qty = dissect.leaves_qty(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.expire_date(buffer, index, packet, parent)
+  index, expire_date = dissect.expire_date(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String
-  index = dissect.ord_status(buffer, index, packet, parent)
+  index, ord_status = dissect.ord_status(buffer, index, packet, parent)
 
   -- Ord Type: 1 Byte Ascii String
-  index = dissect.ord_type(buffer, index, packet, parent)
+  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.time_in_force(buffer, index, packet, parent)
+  index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.poss_retrans_flag(buffer, index, packet, parent)
+  index, poss_retrans_flag = dissect.poss_retrans_flag(buffer, index, packet, parent)
 
   -- Aggressor Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.aggressor_indicator(buffer, index, packet, parent)
+  index, aggressor_indicator = dissect.aggressor_indicator(buffer, index, packet, parent)
 
   -- Cross Type: 1 Byte Ascii String Nullable
-  index = dissect.cross_type(buffer, index, packet, parent)
+  index, cross_type = dissect.cross_type(buffer, index, packet, parent)
 
   -- Total Num Securities: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.total_num_securities(buffer, index, packet, parent)
+  index, total_num_securities = dissect.total_num_securities(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
-  index = dissect.exec_inst(buffer, index, packet, parent)
+  index, exec_inst = dissect.exec_inst(buffer, index, packet, parent)
 
   -- Execution Mode: 1 Byte Ascii String
-  index = dissect.execution_mode(buffer, index, packet, parent)
+  index, execution_mode = dissect.execution_mode(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.liquidity_flag(buffer, index, packet, parent)
+  index, liquidity_flag = dissect.liquidity_flag(buffer, index, packet, parent)
 
   -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.short_sale_type(buffer, index, packet, parent)
+  index, short_sale_type = dissect.short_sale_type(buffer, index, packet, parent)
 
   -- Fills Groups: Struct of 2 fields
-  index = dissect.fills_groups(buffer, index, packet, parent)
+  index, fills_groups = dissect.fills_groups(buffer, index, packet, parent)
 
   -- Legs Groups: Struct of 2 fields
-  index = dissect.legs_groups(buffer, index, packet, parent)
+  index, legs_groups = dissect.legs_groups(buffer, index, packet, parent)
 
   -- Order Events Groups: Struct of 2 fields
-  index = dissect.order_events_groups(buffer, index, packet, parent)
+  index, order_events_groups = dissect.order_events_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -7525,13 +7679,14 @@ end
 
 -- Dissect: Ownership
 dissect.ownership = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ownership)
+  local length = size_of.ownership
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.ownership(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.ownership, range, value, display)
 
-  return offset + size_of.ownership
+  return offset + length, value
 end
 
 -- Size: Trade Link Id
@@ -7549,13 +7704,14 @@ end
 
 -- Dissect: Trade Link Id
 dissect.trade_link_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trade_link_id)
+  local length = size_of.trade_link_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.trade_link_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.trade_link_id, range, value, display)
 
-  return offset + size_of.trade_link_id
+  return offset + length, value
 end
 
 -- Calculate runtime size: Execution Report Trade Outright 525
@@ -7581,133 +7737,133 @@ dissect.execution_report_trade_outright_525_fields = function(buffer, offset, pa
   local index = offset
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Exec Id: 40 Byte Ascii String
-  index = dissect.exec_id(buffer, index, packet, parent)
+  index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.last_px(buffer, index, packet, parent)
+  index, last_px = dissect.last_px(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.stop_px(buffer, index, packet, parent)
+  index, stop_px = dissect.stop_px(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_request_id(buffer, index, packet, parent)
+  index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
   -- Sec Exec Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sec_exec_id(buffer, index, packet, parent)
+  index, sec_exec_id = dissect.sec_exec_id(buffer, index, packet, parent)
 
   -- Cross Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.cross_id(buffer, index, packet, parent)
+  index, cross_id = dissect.cross_id(buffer, index, packet, parent)
 
   -- Host Cross Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.host_cross_id(buffer, index, packet, parent)
+  index, host_cross_id = dissect.host_cross_id(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.order_qty(buffer, index, packet, parent)
+  index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
   -- Last Qty: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.last_qty(buffer, index, packet, parent)
+  index, last_qty = dissect.last_qty(buffer, index, packet, parent)
 
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.cum_qty(buffer, index, packet, parent)
+  index, cum_qty = dissect.cum_qty(buffer, index, packet, parent)
 
   -- Md Trade Entry Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.md_trade_entry_id(buffer, index, packet, parent)
+  index, md_trade_entry_id = dissect.md_trade_entry_id(buffer, index, packet, parent)
 
   -- Side Trade Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.side_trade_id(buffer, index, packet, parent)
+  index, side_trade_id = dissect.side_trade_id(buffer, index, packet, parent)
 
   -- Trade Link Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.trade_link_id(buffer, index, packet, parent)
+  index, trade_link_id = dissect.trade_link_id(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.leaves_qty(buffer, index, packet, parent)
+  index, leaves_qty = dissect.leaves_qty(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.expire_date(buffer, index, packet, parent)
+  index, expire_date = dissect.expire_date(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String
-  index = dissect.ord_status(buffer, index, packet, parent)
+  index, ord_status = dissect.ord_status(buffer, index, packet, parent)
 
   -- Ord Type: 1 Byte Ascii String
-  index = dissect.ord_type(buffer, index, packet, parent)
+  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.time_in_force(buffer, index, packet, parent)
+  index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.poss_retrans_flag(buffer, index, packet, parent)
+  index, poss_retrans_flag = dissect.poss_retrans_flag(buffer, index, packet, parent)
 
   -- Aggressor Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.aggressor_indicator(buffer, index, packet, parent)
+  index, aggressor_indicator = dissect.aggressor_indicator(buffer, index, packet, parent)
 
   -- Cross Type: 1 Byte Ascii String Nullable
-  index = dissect.cross_type(buffer, index, packet, parent)
+  index, cross_type = dissect.cross_type(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
-  index = dissect.exec_inst(buffer, index, packet, parent)
+  index, exec_inst = dissect.exec_inst(buffer, index, packet, parent)
 
   -- Execution Mode: 1 Byte Ascii String
-  index = dissect.execution_mode(buffer, index, packet, parent)
+  index, execution_mode = dissect.execution_mode(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.liquidity_flag(buffer, index, packet, parent)
+  index, liquidity_flag = dissect.liquidity_flag(buffer, index, packet, parent)
 
   -- Managed Order: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.managed_order(buffer, index, packet, parent)
+  index, managed_order = dissect.managed_order(buffer, index, packet, parent)
 
   -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.short_sale_type(buffer, index, packet, parent)
+  index, short_sale_type = dissect.short_sale_type(buffer, index, packet, parent)
 
   -- Ownership: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.ownership(buffer, index, packet, parent)
+  index, ownership = dissect.ownership(buffer, index, packet, parent)
 
   -- Fills Groups: Struct of 2 fields
-  index = dissect.fills_groups(buffer, index, packet, parent)
+  index, fills_groups = dissect.fills_groups(buffer, index, packet, parent)
 
   -- Order Events Groups: Struct of 2 fields
-  index = dissect.order_events_groups(buffer, index, packet, parent)
+  index, order_events_groups = dissect.order_events_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -7735,100 +7891,100 @@ dissect.execution_report_elimination_524_fields = function(buffer, offset, packe
   local index = offset
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Exec Id: 40 Byte Ascii String
-  index = dissect.exec_id(buffer, index, packet, parent)
+  index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.stop_px(buffer, index, packet, parent)
+  index, stop_px = dissect.stop_px(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_request_id(buffer, index, packet, parent)
+  index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
   -- Cross Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.cross_id(buffer, index, packet, parent)
+  index, cross_id = dissect.cross_id(buffer, index, packet, parent)
 
   -- Host Cross Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.host_cross_id(buffer, index, packet, parent)
+  index, host_cross_id = dissect.host_cross_id(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.cum_qty(buffer, index, packet, parent)
+  index, cum_qty = dissect.cum_qty(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.order_qty(buffer, index, packet, parent)
+  index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
   -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.min_qty(buffer, index, packet, parent)
+  index, min_qty = dissect.min_qty(buffer, index, packet, parent)
 
   -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.display_qty(buffer, index, packet, parent)
+  index, display_qty = dissect.display_qty(buffer, index, packet, parent)
 
   -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.expire_date(buffer, index, packet, parent)
+  index, expire_date = dissect.expire_date(buffer, index, packet, parent)
 
   -- Ord Type: 1 Byte Ascii String
-  index = dissect.ord_type(buffer, index, packet, parent)
+  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.time_in_force(buffer, index, packet, parent)
+  index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.poss_retrans_flag(buffer, index, packet, parent)
+  index, poss_retrans_flag = dissect.poss_retrans_flag(buffer, index, packet, parent)
 
   -- Cross Type: 1 Byte Ascii String Nullable
-  index = dissect.cross_type(buffer, index, packet, parent)
+  index, cross_type = dissect.cross_type(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
-  index = dissect.exec_inst(buffer, index, packet, parent)
+  index, exec_inst = dissect.exec_inst(buffer, index, packet, parent)
 
   -- Execution Mode: 1 Byte Ascii String
-  index = dissect.execution_mode(buffer, index, packet, parent)
+  index, execution_mode = dissect.execution_mode(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.liquidity_flag(buffer, index, packet, parent)
+  index, liquidity_flag = dissect.liquidity_flag(buffer, index, packet, parent)
 
   -- Managed Order: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.managed_order(buffer, index, packet, parent)
+  index, managed_order = dissect.managed_order(buffer, index, packet, parent)
 
   -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.short_sale_type(buffer, index, packet, parent)
+  index, short_sale_type = dissect.short_sale_type(buffer, index, packet, parent)
 
   return index
 end
@@ -7855,13 +8011,14 @@ end
 
 -- Dissect: Ord Rej Reason
 dissect.ord_rej_reason = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ord_rej_reason)
+  local length = size_of.ord_rej_reason
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.ord_rej_reason(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.ord_rej_reason, range, value, display)
 
-  return offset + size_of.ord_rej_reason
+  return offset + length, value
 end
 
 -- Display: Execution Report Reject 523
@@ -7874,109 +8031,109 @@ dissect.execution_report_reject_523_fields = function(buffer, offset, packet, pa
   local index = offset
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Text: 256 Byte Ascii String
-  index = dissect.text(buffer, index, packet, parent)
+  index, text = dissect.text(buffer, index, packet, parent)
 
   -- Exec Id: 40 Byte Ascii String
-  index = dissect.exec_id(buffer, index, packet, parent)
+  index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.stop_px(buffer, index, packet, parent)
+  index, stop_px = dissect.stop_px(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_request_id(buffer, index, packet, parent)
+  index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
   -- Cross Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.cross_id(buffer, index, packet, parent)
+  index, cross_id = dissect.cross_id(buffer, index, packet, parent)
 
   -- Host Cross Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.host_cross_id(buffer, index, packet, parent)
+  index, host_cross_id = dissect.host_cross_id(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.order_qty(buffer, index, packet, parent)
+  index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
   -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.min_qty(buffer, index, packet, parent)
+  index, min_qty = dissect.min_qty(buffer, index, packet, parent)
 
   -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.display_qty(buffer, index, packet, parent)
+  index, display_qty = dissect.display_qty(buffer, index, packet, parent)
 
   -- Ord Rej Reason: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.ord_rej_reason(buffer, index, packet, parent)
+  index, ord_rej_reason = dissect.ord_rej_reason(buffer, index, packet, parent)
 
   -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.expire_date(buffer, index, packet, parent)
+  index, expire_date = dissect.expire_date(buffer, index, packet, parent)
 
   -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.delay_duration(buffer, index, packet, parent)
+  index, delay_duration = dissect.delay_duration(buffer, index, packet, parent)
 
   -- Ord Type: 1 Byte Ascii String
-  index = dissect.ord_type(buffer, index, packet, parent)
+  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.time_in_force(buffer, index, packet, parent)
+  index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.poss_retrans_flag(buffer, index, packet, parent)
+  index, poss_retrans_flag = dissect.poss_retrans_flag(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.split_msg(buffer, index, packet, parent)
+  index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
   -- Cross Type: 1 Byte Ascii String Nullable
-  index = dissect.cross_type(buffer, index, packet, parent)
+  index, cross_type = dissect.cross_type(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
-  index = dissect.exec_inst(buffer, index, packet, parent)
+  index, exec_inst = dissect.exec_inst(buffer, index, packet, parent)
 
   -- Execution Mode: 1 Byte Ascii String
-  index = dissect.execution_mode(buffer, index, packet, parent)
+  index, execution_mode = dissect.execution_mode(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.liquidity_flag(buffer, index, packet, parent)
+  index, liquidity_flag = dissect.liquidity_flag(buffer, index, packet, parent)
 
   -- Managed Order: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.managed_order(buffer, index, packet, parent)
+  index, managed_order = dissect.managed_order(buffer, index, packet, parent)
 
   -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.short_sale_type(buffer, index, packet, parent)
+  index, short_sale_type = dissect.short_sale_type(buffer, index, packet, parent)
 
   return index
 end
@@ -8003,103 +8160,103 @@ dissect.execution_report_new_522_fields = function(buffer, offset, packet, paren
   local index = offset
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Exec Id: 40 Byte Ascii String
-  index = dissect.exec_id(buffer, index, packet, parent)
+  index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.stop_px(buffer, index, packet, parent)
+  index, stop_px = dissect.stop_px(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_request_id(buffer, index, packet, parent)
+  index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
   -- Cross Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.cross_id(buffer, index, packet, parent)
+  index, cross_id = dissect.cross_id(buffer, index, packet, parent)
 
   -- Host Cross Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.host_cross_id(buffer, index, packet, parent)
+  index, host_cross_id = dissect.host_cross_id(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.order_qty(buffer, index, packet, parent)
+  index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
   -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.min_qty(buffer, index, packet, parent)
+  index, min_qty = dissect.min_qty(buffer, index, packet, parent)
 
   -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.display_qty(buffer, index, packet, parent)
+  index, display_qty = dissect.display_qty(buffer, index, packet, parent)
 
   -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.expire_date(buffer, index, packet, parent)
+  index, expire_date = dissect.expire_date(buffer, index, packet, parent)
 
   -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.delay_duration(buffer, index, packet, parent)
+  index, delay_duration = dissect.delay_duration(buffer, index, packet, parent)
 
   -- Ord Type: 1 Byte Ascii String
-  index = dissect.ord_type(buffer, index, packet, parent)
+  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.time_in_force(buffer, index, packet, parent)
+  index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.poss_retrans_flag(buffer, index, packet, parent)
+  index, poss_retrans_flag = dissect.poss_retrans_flag(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.split_msg(buffer, index, packet, parent)
+  index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
   -- Cross Type: 1 Byte Ascii String Nullable
-  index = dissect.cross_type(buffer, index, packet, parent)
+  index, cross_type = dissect.cross_type(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
-  index = dissect.exec_inst(buffer, index, packet, parent)
+  index, exec_inst = dissect.exec_inst(buffer, index, packet, parent)
 
   -- Execution Mode: 1 Byte Ascii String
-  index = dissect.execution_mode(buffer, index, packet, parent)
+  index, execution_mode = dissect.execution_mode(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.liquidity_flag(buffer, index, packet, parent)
+  index, liquidity_flag = dissect.liquidity_flag(buffer, index, packet, parent)
 
   -- Managed Order: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.managed_order(buffer, index, packet, parent)
+  index, managed_order = dissect.managed_order(buffer, index, packet, parent)
 
   -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.short_sale_type(buffer, index, packet, parent)
+  index, short_sale_type = dissect.short_sale_type(buffer, index, packet, parent)
 
   return index
 end
@@ -8126,13 +8283,14 @@ end
 
 -- Dissect: Ref Msg Type
 dissect.ref_msg_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ref_msg_type)
+  local length = size_of.ref_msg_type
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.ref_msg_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.ref_msg_type, range, value, display)
 
-  return offset + size_of.ref_msg_type
+  return offset + length, value
 end
 
 -- Size: Business Reject Reason
@@ -8145,13 +8303,14 @@ end
 
 -- Dissect: Business Reject Reason
 dissect.business_reject_reason = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.business_reject_reason)
+  local length = size_of.business_reject_reason
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.business_reject_reason(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.business_reject_reason, range, value, display)
 
-  return offset + size_of.business_reject_reason
+  return offset + length, value
 end
 
 -- Size: Ref Tag Id
@@ -8169,13 +8328,14 @@ end
 
 -- Dissect: Ref Tag Id
 dissect.ref_tag_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ref_tag_id)
+  local length = size_of.ref_tag_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.ref_tag_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.ref_tag_id, range, value, display)
 
-  return offset + size_of.ref_tag_id
+  return offset + length, value
 end
 
 -- Size: Ref Seq Num
@@ -8193,13 +8353,14 @@ end
 
 -- Dissect: Ref Seq Num
 dissect.ref_seq_num = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ref_seq_num)
+  local length = size_of.ref_seq_num
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.ref_seq_num(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.ref_seq_num, range, value, display)
 
-  return offset + size_of.ref_seq_num
+  return offset + length, value
 end
 
 -- Size: Business Reject Ref Id
@@ -8212,13 +8373,14 @@ end
 
 -- Dissect: Business Reject Ref Id
 dissect.business_reject_ref_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.business_reject_ref_id)
+  local length = size_of.business_reject_ref_id
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.business_reject_ref_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.business_reject_ref_id, range, value, display)
 
-  return offset + size_of.business_reject_ref_id
+  return offset + length, value
 end
 
 -- Display: Business Reject 521
@@ -8231,49 +8393,49 @@ dissect.business_reject_521_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Text: 256 Byte Ascii String
-  index = dissect.text(buffer, index, packet, parent)
+  index, text = dissect.text(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Business Reject Ref Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.business_reject_ref_id(buffer, index, packet, parent)
+  index, business_reject_ref_id = dissect.business_reject_ref_id(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Ref Seq Num: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.ref_seq_num(buffer, index, packet, parent)
+  index, ref_seq_num = dissect.ref_seq_num(buffer, index, packet, parent)
 
   -- Ref Tag Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.ref_tag_id(buffer, index, packet, parent)
+  index, ref_tag_id = dissect.ref_tag_id(buffer, index, packet, parent)
 
   -- Business Reject Reason: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.business_reject_reason(buffer, index, packet, parent)
+  index, business_reject_reason = dissect.business_reject_reason(buffer, index, packet, parent)
 
   -- Ref Msg Type: 2 Byte Ascii String
-  index = dissect.ref_msg_type(buffer, index, packet, parent)
+  index, ref_msg_type = dissect.ref_msg_type(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.poss_retrans_flag(buffer, index, packet, parent)
+  index, poss_retrans_flag = dissect.poss_retrans_flag(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.split_msg(buffer, index, packet, parent)
+  index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
   return index
 end
@@ -8300,13 +8462,14 @@ end
 
 -- Dissect: Party Detail Definition Status
 dissect.party_detail_definition_status = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.party_detail_definition_status)
+  local length = size_of.party_detail_definition_status
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.party_detail_definition_status(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_detail_definition_status, range, value, display)
 
-  return offset + size_of.party_detail_definition_status
+  return offset + length, value
 end
 
 -- Size: List Update Action
@@ -8319,13 +8482,14 @@ end
 
 -- Dissect: List Update Action
 dissect.list_update_action = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.list_update_action)
+  local length = size_of.list_update_action
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.list_update_action(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.list_update_action, range, value, display)
 
-  return offset + size_of.list_update_action
+  return offset + length, value
 end
 
 -- Size: Party Detail Request Status
@@ -8338,13 +8502,14 @@ end
 
 -- Dissect: Party Detail Request Status
 dissect.party_detail_request_status = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.party_detail_request_status)
+  local length = size_of.party_detail_request_status
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.party_detail_request_status(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_detail_request_status, range, value, display)
 
-  return offset + size_of.party_detail_request_status
+  return offset + length, value
 end
 
 -- Size: Memo
@@ -8357,13 +8522,14 @@ end
 
 -- Dissect: Memo
 dissect.memo = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.memo)
+  local length = size_of.memo
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.memo(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.memo, range, value, display)
 
-  return offset + size_of.memo
+  return offset + length, value
 end
 
 -- Calculate runtime size: Party Details Definition Request Ack 519
@@ -8387,70 +8553,70 @@ dissect.party_details_definition_request_ack_519_fields = function(buffer, offse
   local index = offset
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Memo: 75 Byte Ascii String
-  index = dissect.memo(buffer, index, packet, parent)
+  index, memo = dissect.memo(buffer, index, packet, parent)
 
   -- Avg Px Group Id: 20 Byte Ascii String
-  index = dissect.avg_px_group_id(buffer, index, packet, parent)
+  index, avg_px_group_id = dissect.avg_px_group_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Self Match Prevention Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.self_match_prevention_id(buffer, index, packet, parent)
+  index, self_match_prevention_id = dissect.self_match_prevention_id(buffer, index, packet, parent)
 
   -- Party Detail Request Status: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.party_detail_request_status(buffer, index, packet, parent)
+  index, party_detail_request_status = dissect.party_detail_request_status(buffer, index, packet, parent)
 
   -- Cust Order Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.cust_order_capacity(buffer, index, packet, parent)
+  index, cust_order_capacity = dissect.cust_order_capacity(buffer, index, packet, parent)
 
   -- Clearing Account Type: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.clearing_account_type(buffer, index, packet, parent)
+  index, clearing_account_type = dissect.clearing_account_type(buffer, index, packet, parent)
 
   -- Self Match Prevention Instruction: 1 Byte Ascii String
-  index = dissect.self_match_prevention_instruction(buffer, index, packet, parent)
+  index, self_match_prevention_instruction = dissect.self_match_prevention_instruction(buffer, index, packet, parent)
 
   -- Avg Px Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.avg_px_indicator(buffer, index, packet, parent)
+  index, avg_px_indicator = dissect.avg_px_indicator(buffer, index, packet, parent)
 
   -- Clearing Trade Price Type: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.clearing_trade_price_type(buffer, index, packet, parent)
+  index, clearing_trade_price_type = dissect.clearing_trade_price_type(buffer, index, packet, parent)
 
   -- Cmta Giveup Cd: 1 Byte Ascii String Enum with 3 values
-  index = dissect.cmta_giveup_cd(buffer, index, packet, parent)
+  index, cmta_giveup_cd = dissect.cmta_giveup_cd(buffer, index, packet, parent)
 
   -- Cust Order Handling Inst: 1 Byte Ascii String
-  index = dissect.cust_order_handling_inst(buffer, index, packet, parent)
+  index, cust_order_handling_inst = dissect.cust_order_handling_inst(buffer, index, packet, parent)
 
   -- List Update Action: 1 Byte Ascii String
-  index = dissect.list_update_action(buffer, index, packet, parent)
+  index, list_update_action = dissect.list_update_action(buffer, index, packet, parent)
 
   -- Party Detail Definition Status: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.party_detail_definition_status(buffer, index, packet, parent)
+  index, party_detail_definition_status = dissect.party_detail_definition_status(buffer, index, packet, parent)
 
   -- Executor: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.executor(buffer, index, packet, parent)
+  index, executor = dissect.executor(buffer, index, packet, parent)
 
   -- Idm Short Code: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.idm_short_code(buffer, index, packet, parent)
+  index, idm_short_code = dissect.idm_short_code(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.poss_retrans_flag(buffer, index, packet, parent)
+  index, poss_retrans_flag = dissect.poss_retrans_flag(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.split_msg(buffer, index, packet, parent)
+  index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
   -- Party Details Groups: Struct of 2 fields
-  index = dissect.party_details_groups(buffer, index, packet, parent)
+  index, party_details_groups = dissect.party_details_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -8489,55 +8655,55 @@ dissect.party_details_definition_request_518_fields = function(buffer, offset, p
   local index = offset
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- List Update Action: 1 Byte Ascii String
-  index = dissect.list_update_action(buffer, index, packet, parent)
+  index, list_update_action = dissect.list_update_action(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Memo: 75 Byte Ascii String
-  index = dissect.memo(buffer, index, packet, parent)
+  index, memo = dissect.memo(buffer, index, packet, parent)
 
   -- Avg Px Group Id: 20 Byte Ascii String
-  index = dissect.avg_px_group_id(buffer, index, packet, parent)
+  index, avg_px_group_id = dissect.avg_px_group_id(buffer, index, packet, parent)
 
   -- Self Match Prevention Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.self_match_prevention_id(buffer, index, packet, parent)
+  index, self_match_prevention_id = dissect.self_match_prevention_id(buffer, index, packet, parent)
 
   -- Cmta Giveup Cd: 1 Byte Ascii String Enum with 3 values
-  index = dissect.cmta_giveup_cd(buffer, index, packet, parent)
+  index, cmta_giveup_cd = dissect.cmta_giveup_cd(buffer, index, packet, parent)
 
   -- Cust Order Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.cust_order_capacity(buffer, index, packet, parent)
+  index, cust_order_capacity = dissect.cust_order_capacity(buffer, index, packet, parent)
 
   -- Clearing Account Type: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.clearing_account_type(buffer, index, packet, parent)
+  index, clearing_account_type = dissect.clearing_account_type(buffer, index, packet, parent)
 
   -- Self Match Prevention Instruction: 1 Byte Ascii String
-  index = dissect.self_match_prevention_instruction(buffer, index, packet, parent)
+  index, self_match_prevention_instruction = dissect.self_match_prevention_instruction(buffer, index, packet, parent)
 
   -- Avg Px Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.avg_px_indicator(buffer, index, packet, parent)
+  index, avg_px_indicator = dissect.avg_px_indicator(buffer, index, packet, parent)
 
   -- Clearing Trade Price Type: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.clearing_trade_price_type(buffer, index, packet, parent)
+  index, clearing_trade_price_type = dissect.clearing_trade_price_type(buffer, index, packet, parent)
 
   -- Cust Order Handling Inst: 1 Byte Ascii String
-  index = dissect.cust_order_handling_inst(buffer, index, packet, parent)
+  index, cust_order_handling_inst = dissect.cust_order_handling_inst(buffer, index, packet, parent)
 
   -- Executor: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.executor(buffer, index, packet, parent)
+  index, executor = dissect.executor(buffer, index, packet, parent)
 
   -- Idm Short Code: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.idm_short_code(buffer, index, packet, parent)
+  index, idm_short_code = dissect.idm_short_code(buffer, index, packet, parent)
 
   -- Party Details Groups: Struct of 2 fields
-  index = dissect.party_details_groups(buffer, index, packet, parent)
+  index, party_details_groups = dissect.party_details_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -8576,43 +8742,43 @@ dissect.mass_quote_517_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Quote Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.quote_req_id(buffer, index, packet, parent)
+  index, quote_req_id = dissect.quote_req_id(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Quote Id: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.quote_id(buffer, index, packet, parent)
+  index, quote_id = dissect.quote_id(buffer, index, packet, parent)
 
   -- Tot No Quote Entries: 1 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.tot_no_quote_entries(buffer, index, packet, parent)
+  index, tot_no_quote_entries = dissect.tot_no_quote_entries(buffer, index, packet, parent)
 
   -- Mm Protection Reset: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.mm_protection_reset(buffer, index, packet, parent)
+  index, mm_protection_reset = dissect.mm_protection_reset(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.liquidity_flag(buffer, index, packet, parent)
+  index, liquidity_flag = dissect.liquidity_flag(buffer, index, packet, parent)
 
   -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.short_sale_type(buffer, index, packet, parent)
+  index, short_sale_type = dissect.short_sale_type(buffer, index, packet, parent)
 
   -- Quote Entries Groups: Struct of 2 fields
-  index = dissect.quote_entries_groups(buffer, index, packet, parent)
+  index, quote_entries_groups = dissect.quote_entries_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -8640,40 +8806,40 @@ dissect.order_cancel_request_516_fields = function(buffer, offset, packet, paren
   local index = offset
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_request_id(buffer, index, packet, parent)
+  index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.liquidity_flag(buffer, index, packet, parent)
+  index, liquidity_flag = dissect.liquidity_flag(buffer, index, packet, parent)
 
   return index
 end
@@ -8700,13 +8866,14 @@ end
 
 -- Dissect: Ofm Override
 dissect.ofm_override = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ofm_override)
+  local length = size_of.ofm_override
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.ofm_override(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.ofm_override, range, value, display)
 
-  return offset + size_of.ofm_override
+  return offset + length, value
 end
 
 -- Display: Order Cancel Replace Request 515
@@ -8719,79 +8886,79 @@ dissect.order_cancel_replace_request_515_fields = function(buffer, offset, packe
   local index = offset
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.order_qty(buffer, index, packet, parent)
+  index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.stop_px(buffer, index, packet, parent)
+  index, stop_px = dissect.stop_px(buffer, index, packet, parent)
 
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_request_id(buffer, index, packet, parent)
+  index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.min_qty(buffer, index, packet, parent)
+  index, min_qty = dissect.min_qty(buffer, index, packet, parent)
 
   -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.display_qty(buffer, index, packet, parent)
+  index, display_qty = dissect.display_qty(buffer, index, packet, parent)
 
   -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.expire_date(buffer, index, packet, parent)
+  index, expire_date = dissect.expire_date(buffer, index, packet, parent)
 
   -- Ord Type: 1 Byte Ascii String
-  index = dissect.ord_type(buffer, index, packet, parent)
+  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.time_in_force(buffer, index, packet, parent)
+  index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Ofm Override: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.ofm_override(buffer, index, packet, parent)
+  index, ofm_override = dissect.ofm_override(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
-  index = dissect.exec_inst(buffer, index, packet, parent)
+  index, exec_inst = dissect.exec_inst(buffer, index, packet, parent)
 
   -- Execution Mode: 1 Byte Ascii String
-  index = dissect.execution_mode(buffer, index, packet, parent)
+  index, execution_mode = dissect.execution_mode(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.liquidity_flag(buffer, index, packet, parent)
+  index, liquidity_flag = dissect.liquidity_flag(buffer, index, packet, parent)
 
   -- Managed Order: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.managed_order(buffer, index, packet, parent)
+  index, managed_order = dissect.managed_order(buffer, index, packet, parent)
 
   -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.short_sale_type(buffer, index, packet, parent)
+  index, short_sale_type = dissect.short_sale_type(buffer, index, packet, parent)
 
   return index
 end
@@ -8818,73 +8985,73 @@ dissect.new_order_single_514_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.order_qty(buffer, index, packet, parent)
+  index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  index = dissect.sender_id(buffer, index, packet, parent)
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_request_id(buffer, index, packet, parent)
+  index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.sending_time_epoch(buffer, index, packet, parent)
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Signed Fixed Width Integer
-  index = dissect.stop_px(buffer, index, packet, parent)
+  index, stop_px = dissect.stop_px(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  index = dissect.location(buffer, index, packet, parent)
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.min_qty(buffer, index, packet, parent)
+  index, min_qty = dissect.min_qty(buffer, index, packet, parent)
 
   -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.display_qty(buffer, index, packet, parent)
+  index, display_qty = dissect.display_qty(buffer, index, packet, parent)
 
   -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.expire_date(buffer, index, packet, parent)
+  index, expire_date = dissect.expire_date(buffer, index, packet, parent)
 
   -- Ord Type: 1 Byte Ascii String
-  index = dissect.ord_type(buffer, index, packet, parent)
+  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.time_in_force(buffer, index, packet, parent)
+  index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
-  index = dissect.exec_inst(buffer, index, packet, parent)
+  index, exec_inst = dissect.exec_inst(buffer, index, packet, parent)
 
   -- Execution Mode: 1 Byte Ascii String
-  index = dissect.execution_mode(buffer, index, packet, parent)
+  index, execution_mode = dissect.execution_mode(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.liquidity_flag(buffer, index, packet, parent)
+  index, liquidity_flag = dissect.liquidity_flag(buffer, index, packet, parent)
 
   -- Managed Order: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.managed_order(buffer, index, packet, parent)
+  index, managed_order = dissect.managed_order(buffer, index, packet, parent)
 
   -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index = dissect.short_sale_type(buffer, index, packet, parent)
+  index, short_sale_type = dissect.short_sale_type(buffer, index, packet, parent)
 
   return index
 end
@@ -8911,13 +9078,14 @@ end
 
 -- Dissect: Msg Count
 dissect.msg_count = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.msg_count)
+  local length = size_of.msg_count
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.msg_count(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.msg_count, range, value, display)
 
-  return offset + size_of.msg_count
+  return offset + length, value
 end
 
 -- Size: From Seq No
@@ -8930,13 +9098,14 @@ end
 
 -- Dissect: From Seq No
 dissect.from_seq_no = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.from_seq_no)
+  local length = size_of.from_seq_no
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.from_seq_no(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.from_seq_no, range, value, display)
 
-  return offset + size_of.from_seq_no
+  return offset + length, value
 end
 
 -- Display: Not Applied 513
@@ -8949,16 +9118,16 @@ dissect.not_applied_513_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- From Seq No: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.from_seq_no(buffer, index, packet, parent)
+  index, from_seq_no = dissect.from_seq_no(buffer, index, packet, parent)
 
   -- Msg Count: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.msg_count(buffer, index, packet, parent)
+  index, msg_count = dissect.msg_count(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.split_msg(buffer, index, packet, parent)
+  index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
   return index
 end
@@ -8985,13 +9154,14 @@ end
 
 -- Dissect: Error Codes
 dissect.error_codes = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.error_codes)
+  local length = size_of.error_codes
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.error_codes(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.error_codes, range, value, display)
 
-  return offset + size_of.error_codes
+  return offset + length, value
 end
 
 -- Size: Request Timestamp
@@ -9004,13 +9174,14 @@ end
 
 -- Dissect: Request Timestamp
 dissect.request_timestamp = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.request_timestamp)
+  local length = size_of.request_timestamp
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.request_timestamp(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.request_timestamp, range, value, display)
 
-  return offset + size_of.request_timestamp
+  return offset + length, value
 end
 
 -- Size: Last Uuid
@@ -9023,13 +9194,14 @@ end
 
 -- Dissect: Last Uuid
 dissect.last_uuid = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.last_uuid)
+  local length = size_of.last_uuid
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.last_uuid(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.last_uuid, range, value, display)
 
-  return offset + size_of.last_uuid
+  return offset + length, value
 end
 
 -- Size: Reason
@@ -9042,13 +9214,14 @@ end
 
 -- Dissect: Reason
 dissect.reason = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reason)
+  local length = size_of.reason
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.reason(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.reason, range, value, display)
 
-  return offset + size_of.reason
+  return offset + length, value
 end
 
 -- Display: Retransmit Reject 510
@@ -9061,22 +9234,22 @@ dissect.retransmit_reject_510_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Reason: 48 Byte Ascii String
-  index = dissect.reason(buffer, index, packet, parent)
+  index, reason = dissect.reason(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Last Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.last_uuid(buffer, index, packet, parent)
+  index, last_uuid = dissect.last_uuid(buffer, index, packet, parent)
 
   -- Request Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.request_timestamp(buffer, index, packet, parent)
+  index, request_timestamp = dissect.request_timestamp(buffer, index, packet, parent)
 
   -- Error Codes: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.error_codes(buffer, index, packet, parent)
+  index, error_codes = dissect.error_codes(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.split_msg(buffer, index, packet, parent)
+  index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
   return index
 end
@@ -9103,22 +9276,22 @@ dissect.retransmission_509_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Last Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.last_uuid(buffer, index, packet, parent)
+  index, last_uuid = dissect.last_uuid(buffer, index, packet, parent)
 
   -- Request Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.request_timestamp(buffer, index, packet, parent)
+  index, request_timestamp = dissect.request_timestamp(buffer, index, packet, parent)
 
   -- From Seq No: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.from_seq_no(buffer, index, packet, parent)
+  index, from_seq_no = dissect.from_seq_no(buffer, index, packet, parent)
 
   -- Msg Count: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.msg_count(buffer, index, packet, parent)
+  index, msg_count = dissect.msg_count(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.split_msg(buffer, index, packet, parent)
+  index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
   return index
 end
@@ -9145,19 +9318,19 @@ dissect.retransmit_request_508_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Last Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.last_uuid(buffer, index, packet, parent)
+  index, last_uuid = dissect.last_uuid(buffer, index, packet, parent)
 
   -- Request Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.request_timestamp(buffer, index, packet, parent)
+  index, request_timestamp = dissect.request_timestamp(buffer, index, packet, parent)
 
   -- From Seq No: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.from_seq_no(buffer, index, packet, parent)
+  index, from_seq_no = dissect.from_seq_no(buffer, index, packet, parent)
 
   -- Msg Count: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.msg_count(buffer, index, packet, parent)
+  index, msg_count = dissect.msg_count(buffer, index, packet, parent)
 
   return index
 end
@@ -9184,19 +9357,19 @@ dissect.terminate_507_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Reason: 48 Byte Ascii String
-  index = dissect.reason(buffer, index, packet, parent)
+  index, reason = dissect.reason(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Request Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.request_timestamp(buffer, index, packet, parent)
+  index, request_timestamp = dissect.request_timestamp(buffer, index, packet, parent)
 
   -- Error Codes: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.error_codes(buffer, index, packet, parent)
+  index, error_codes = dissect.error_codes(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.split_msg(buffer, index, packet, parent)
+  index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
   return index
 end
@@ -9223,13 +9396,14 @@ end
 
 -- Dissect: Keep Alive Interval Lapsed
 dissect.keep_alive_interval_lapsed = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.keep_alive_interval_lapsed)
+  local length = size_of.keep_alive_interval_lapsed
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.keep_alive_interval_lapsed(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.keep_alive_interval_lapsed, range, value, display)
 
-  return offset + size_of.keep_alive_interval_lapsed
+  return offset + length, value
 end
 
 -- Size: Fault Tolerance Indicator
@@ -9242,13 +9416,14 @@ end
 
 -- Dissect: Fault Tolerance Indicator
 dissect.fault_tolerance_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.fault_tolerance_indicator)
+  local length = size_of.fault_tolerance_indicator
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.fault_tolerance_indicator(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.fault_tolerance_indicator, range, value, display)
 
-  return offset + size_of.fault_tolerance_indicator
+  return offset + length, value
 end
 
 -- Size: Next Seq No
@@ -9261,13 +9436,14 @@ end
 
 -- Dissect: Next Seq No
 dissect.next_seq_no = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.next_seq_no)
+  local length = size_of.next_seq_no
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.next_seq_no(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.next_seq_no, range, value, display)
 
-  return offset + size_of.next_seq_no
+  return offset + length, value
 end
 
 -- Display: Sequence 506
@@ -9280,16 +9456,16 @@ dissect.sequence_506_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Next Seq No: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.next_seq_no(buffer, index, packet, parent)
+  index, next_seq_no = dissect.next_seq_no(buffer, index, packet, parent)
 
   -- Fault Tolerance Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.fault_tolerance_indicator(buffer, index, packet, parent)
+  index, fault_tolerance_indicator = dissect.fault_tolerance_indicator(buffer, index, packet, parent)
 
   -- Keep Alive Interval Lapsed: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.keep_alive_interval_lapsed(buffer, index, packet, parent)
+  index, keep_alive_interval_lapsed = dissect.keep_alive_interval_lapsed(buffer, index, packet, parent)
 
   return index
 end
@@ -9316,25 +9492,25 @@ dissect.establishment_reject_505_fields = function(buffer, offset, packet, paren
   local index = offset
 
   -- Reason: 48 Byte Ascii String
-  index = dissect.reason(buffer, index, packet, parent)
+  index, reason = dissect.reason(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Request Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.request_timestamp(buffer, index, packet, parent)
+  index, request_timestamp = dissect.request_timestamp(buffer, index, packet, parent)
 
   -- Next Seq No: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.next_seq_no(buffer, index, packet, parent)
+  index, next_seq_no = dissect.next_seq_no(buffer, index, packet, parent)
 
   -- Error Codes: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.error_codes(buffer, index, packet, parent)
+  index, error_codes = dissect.error_codes(buffer, index, packet, parent)
 
   -- Fault Tolerance Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.fault_tolerance_indicator(buffer, index, packet, parent)
+  index, fault_tolerance_indicator = dissect.fault_tolerance_indicator(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.split_msg(buffer, index, packet, parent)
+  index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
   return index
 end
@@ -9366,13 +9542,14 @@ end
 
 -- Dissect: Secret Key Secure Id Expiration
 dissect.secret_key_secure_id_expiration = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.secret_key_secure_id_expiration)
+  local length = size_of.secret_key_secure_id_expiration
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.secret_key_secure_id_expiration(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.secret_key_secure_id_expiration, range, value, display)
 
-  return offset + size_of.secret_key_secure_id_expiration
+  return offset + length, value
 end
 
 -- Size: Keep Alive Interval
@@ -9385,13 +9562,14 @@ end
 
 -- Dissect: Keep Alive Interval
 dissect.keep_alive_interval = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.keep_alive_interval)
+  local length = size_of.keep_alive_interval
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.keep_alive_interval(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.keep_alive_interval, range, value, display)
 
-  return offset + size_of.keep_alive_interval
+  return offset + length, value
 end
 
 -- Size: Previous Uuid
@@ -9404,13 +9582,14 @@ end
 
 -- Dissect: Previous Uuid
 dissect.previous_uuid = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.previous_uuid)
+  local length = size_of.previous_uuid
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.previous_uuid(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.previous_uuid, range, value, display)
 
-  return offset + size_of.previous_uuid
+  return offset + length, value
 end
 
 -- Size: Previous Seq No
@@ -9423,13 +9602,14 @@ end
 
 -- Dissect: Previous Seq No
 dissect.previous_seq_no = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.previous_seq_no)
+  local length = size_of.previous_seq_no
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.previous_seq_no(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.previous_seq_no, range, value, display)
 
-  return offset + size_of.previous_seq_no
+  return offset + length, value
 end
 
 -- Display: Establishment Ack 504
@@ -9442,31 +9622,31 @@ dissect.establishment_ack_504_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Request Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.request_timestamp(buffer, index, packet, parent)
+  index, request_timestamp = dissect.request_timestamp(buffer, index, packet, parent)
 
   -- Next Seq No: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.next_seq_no(buffer, index, packet, parent)
+  index, next_seq_no = dissect.next_seq_no(buffer, index, packet, parent)
 
   -- Previous Seq No: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.previous_seq_no(buffer, index, packet, parent)
+  index, previous_seq_no = dissect.previous_seq_no(buffer, index, packet, parent)
 
   -- Previous Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.previous_uuid(buffer, index, packet, parent)
+  index, previous_uuid = dissect.previous_uuid(buffer, index, packet, parent)
 
   -- Keep Alive Interval: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.keep_alive_interval(buffer, index, packet, parent)
+  index, keep_alive_interval = dissect.keep_alive_interval(buffer, index, packet, parent)
 
   -- Secret Key Secure Id Expiration: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.secret_key_secure_id_expiration(buffer, index, packet, parent)
+  index, secret_key_secure_id_expiration = dissect.secret_key_secure_id_expiration(buffer, index, packet, parent)
 
   -- Fault Tolerance Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.fault_tolerance_indicator(buffer, index, packet, parent)
+  index, fault_tolerance_indicator = dissect.fault_tolerance_indicator(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.split_msg(buffer, index, packet, parent)
+  index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
   return index
 end
@@ -9493,13 +9673,14 @@ end
 
 -- Dissect: Firm
 dissect.firm = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.firm)
+  local length = size_of.firm
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.firm(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.firm, range, value, display)
 
-  return offset + size_of.firm
+  return offset + length, value
 end
 
 -- Size: Session
@@ -9512,13 +9693,14 @@ end
 
 -- Dissect: Session
 dissect.session = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.session)
+  local length = size_of.session
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.session(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.session, range, value, display)
 
-  return offset + size_of.session
+  return offset + length, value
 end
 
 -- Size: Trading System Vendor
@@ -9531,13 +9713,14 @@ end
 
 -- Dissect: Trading System Vendor
 dissect.trading_system_vendor = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trading_system_vendor)
+  local length = size_of.trading_system_vendor
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.trading_system_vendor(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.trading_system_vendor, range, value, display)
 
-  return offset + size_of.trading_system_vendor
+  return offset + length, value
 end
 
 -- Size: Trading System Version
@@ -9550,13 +9733,14 @@ end
 
 -- Dissect: Trading System Version
 dissect.trading_system_version = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trading_system_version)
+  local length = size_of.trading_system_version
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.trading_system_version(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.trading_system_version, range, value, display)
 
-  return offset + size_of.trading_system_version
+  return offset + length, value
 end
 
 -- Size: Trading System Name
@@ -9569,13 +9753,14 @@ end
 
 -- Dissect: Trading System Name
 dissect.trading_system_name = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trading_system_name)
+  local length = size_of.trading_system_name
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.trading_system_name(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.trading_system_name, range, value, display)
 
-  return offset + size_of.trading_system_name
+  return offset + length, value
 end
 
 -- Size: Access Key Id
@@ -9588,13 +9773,14 @@ end
 
 -- Dissect: Access Key Id
 dissect.access_key_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.access_key_id)
+  local length = size_of.access_key_id
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.access_key_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.access_key_id, range, value, display)
 
-  return offset + size_of.access_key_id
+  return offset + length, value
 end
 
 -- Size: Hmac Signature
@@ -9607,13 +9793,14 @@ end
 
 -- Dissect: Hmac Signature
 dissect.hmac_signature = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.hmac_signature)
+  local length = size_of.hmac_signature
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.hmac_signature(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.hmac_signature, range, value, display)
 
-  return offset + size_of.hmac_signature
+  return offset + length, value
 end
 
 -- Display: Establish 503
@@ -9626,37 +9813,37 @@ dissect.establish_503_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Hmac Signature: 32 Byte Ascii String
-  index = dissect.hmac_signature(buffer, index, packet, parent)
+  index, hmac_signature = dissect.hmac_signature(buffer, index, packet, parent)
 
   -- Access Key Id: 20 Byte Ascii String
-  index = dissect.access_key_id(buffer, index, packet, parent)
+  index, access_key_id = dissect.access_key_id(buffer, index, packet, parent)
 
   -- Trading System Name: 30 Byte Ascii String
-  index = dissect.trading_system_name(buffer, index, packet, parent)
+  index, trading_system_name = dissect.trading_system_name(buffer, index, packet, parent)
 
   -- Trading System Version: 10 Byte Ascii String
-  index = dissect.trading_system_version(buffer, index, packet, parent)
+  index, trading_system_version = dissect.trading_system_version(buffer, index, packet, parent)
 
   -- Trading System Vendor: 10 Byte Ascii String
-  index = dissect.trading_system_vendor(buffer, index, packet, parent)
+  index, trading_system_vendor = dissect.trading_system_vendor(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Request Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.request_timestamp(buffer, index, packet, parent)
+  index, request_timestamp = dissect.request_timestamp(buffer, index, packet, parent)
 
   -- Next Seq No: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.next_seq_no(buffer, index, packet, parent)
+  index, next_seq_no = dissect.next_seq_no(buffer, index, packet, parent)
 
   -- Session: 3 Byte Ascii String
-  index = dissect.session(buffer, index, packet, parent)
+  index, session = dissect.session(buffer, index, packet, parent)
 
   -- Firm: 5 Byte Ascii String
-  index = dissect.firm(buffer, index, packet, parent)
+  index, firm = dissect.firm(buffer, index, packet, parent)
 
   -- Keep Alive Interval: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.keep_alive_interval(buffer, index, packet, parent)
+  index, keep_alive_interval = dissect.keep_alive_interval(buffer, index, packet, parent)
 
   return index
 end
@@ -9683,22 +9870,22 @@ dissect.negotiation_reject_502_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Reason: 48 Byte Ascii String
-  index = dissect.reason(buffer, index, packet, parent)
+  index, reason = dissect.reason(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Request Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.request_timestamp(buffer, index, packet, parent)
+  index, request_timestamp = dissect.request_timestamp(buffer, index, packet, parent)
 
   -- Error Codes: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.error_codes(buffer, index, packet, parent)
+  index, error_codes = dissect.error_codes(buffer, index, packet, parent)
 
   -- Fault Tolerance Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.fault_tolerance_indicator(buffer, index, packet, parent)
+  index, fault_tolerance_indicator = dissect.fault_tolerance_indicator(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.split_msg(buffer, index, packet, parent)
+  index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
   return index
 end
@@ -9725,25 +9912,25 @@ dissect.negotiation_response_501_fields = function(buffer, offset, packet, paren
   local index = offset
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Request Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.request_timestamp(buffer, index, packet, parent)
+  index, request_timestamp = dissect.request_timestamp(buffer, index, packet, parent)
 
   -- Secret Key Secure Id Expiration: 2 Byte Unsigned Fixed Width Integer Nullable
-  index = dissect.secret_key_secure_id_expiration(buffer, index, packet, parent)
+  index, secret_key_secure_id_expiration = dissect.secret_key_secure_id_expiration(buffer, index, packet, parent)
 
   -- Fault Tolerance Indicator: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.fault_tolerance_indicator(buffer, index, packet, parent)
+  index, fault_tolerance_indicator = dissect.fault_tolerance_indicator(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.split_msg(buffer, index, packet, parent)
+  index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
   -- Previous Seq No: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.previous_seq_no(buffer, index, packet, parent)
+  index, previous_seq_no = dissect.previous_seq_no(buffer, index, packet, parent)
 
   -- Previous Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.previous_uuid(buffer, index, packet, parent)
+  index, previous_uuid = dissect.previous_uuid(buffer, index, packet, parent)
 
   return index
 end
@@ -9770,22 +9957,22 @@ dissect.negotiate_500_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Hmac Signature: 32 Byte Ascii String
-  index = dissect.hmac_signature(buffer, index, packet, parent)
+  index, hmac_signature = dissect.hmac_signature(buffer, index, packet, parent)
 
   -- Access Key Id: 20 Byte Ascii String
-  index = dissect.access_key_id(buffer, index, packet, parent)
+  index, access_key_id = dissect.access_key_id(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.uuid(buffer, index, packet, parent)
+  index, uuid = dissect.uuid(buffer, index, packet, parent)
 
   -- Request Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.request_timestamp(buffer, index, packet, parent)
+  index, request_timestamp = dissect.request_timestamp(buffer, index, packet, parent)
 
   -- Session: 3 Byte Ascii String
-  index = dissect.session(buffer, index, packet, parent)
+  index, session = dissect.session(buffer, index, packet, parent)
 
   -- Firm: 5 Byte Ascii String
-  index = dissect.firm(buffer, index, packet, parent)
+  index, firm = dissect.firm(buffer, index, packet, parent)
 
   return index
 end
@@ -9803,193 +9990,193 @@ dissect.negotiate_500 = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: payload
-size_of.payload = function(buffer, offset, templateid)
+size_of.payload = function(buffer, offset, template_id)
   -- Size of Negotiate 500
-  if templateid == 500 then
+  if template_id == 500 then
     return 76
   end
   -- Size of Negotiation Response 501
-  if templateid == 501 then
+  if template_id == 501 then
     return 32
   end
   -- Size of Negotiation Reject 502
-  if templateid == 502 then
+  if template_id == 502 then
     return 68
   end
   -- Size of Establish 503
-  if templateid == 503 then
+  if template_id == 503 then
     return 132
   end
   -- Size of Establishment Ack 504
-  if templateid == 504 then
+  if template_id == 504 then
     return 38
   end
   -- Size of Establishment Reject 505
-  if templateid == 505 then
+  if template_id == 505 then
     return 72
   end
   -- Size of Sequence 506
-  if templateid == 506 then
+  if template_id == 506 then
     return 14
   end
   -- Size of Terminate 507
-  if templateid == 507 then
+  if template_id == 507 then
     return 67
   end
   -- Size of Retransmit Request 508
-  if templateid == 508 then
+  if template_id == 508 then
     return 30
   end
   -- Size of Retransmission 509
-  if templateid == 509 then
+  if template_id == 509 then
     return 31
   end
   -- Size of Retransmit Reject 510
-  if templateid == 510 then
+  if template_id == 510 then
     return 75
   end
   -- Size of Not Applied 513
-  if templateid == 513 then
+  if template_id == 513 then
     return 15
   end
   -- Size of New Order Single 514
-  if templateid == 514 then
+  if template_id == 514 then
     return 116
   end
   -- Size of Order Cancel Replace Request 515
-  if templateid == 515 then
+  if template_id == 515 then
     return 125
   end
   -- Size of Order Cancel Request 516
-  if templateid == 516 then
+  if template_id == 516 then
     return 88
   end
   -- Size of Mass Quote 517
-  if templateid == 517 then
+  if template_id == 517 then
     return size_of.mass_quote_517(buffer, offset)
   end
   -- Size of Party Details Definition Request 518
-  if templateid == 518 then
+  if template_id == 518 then
     return size_of.party_details_definition_request_518(buffer, offset)
   end
   -- Size of Party Details Definition Request Ack 519
-  if templateid == 519 then
+  if template_id == 519 then
     return size_of.party_details_definition_request_ack_519(buffer, offset)
   end
   -- Size of Business Reject 521
-  if templateid == 521 then
+  if template_id == 521 then
     return 330
   end
   -- Size of Execution Report New 522
-  if templateid == 522 then
+  if template_id == 522 then
     return 201
   end
   -- Size of Execution Report Reject 523
-  if templateid == 523 then
+  if template_id == 523 then
     return 459
   end
   -- Size of Execution Report Elimination 524
-  if templateid == 524 then
+  if template_id == 524 then
     return 202
   end
   -- Size of Execution Report Trade Outright 525
-  if templateid == 525 then
+  if template_id == 525 then
     return size_of.execution_report_trade_outright_525(buffer, offset)
   end
   -- Size of Execution Report Trade Spread 526
-  if templateid == 526 then
+  if template_id == 526 then
     return size_of.execution_report_trade_spread_526(buffer, offset)
   end
   -- Size of Execution Report Trade Spread Leg 527
-  if templateid == 527 then
+  if template_id == 527 then
     return size_of.execution_report_trade_spread_leg_527(buffer, offset)
   end
   -- Size of Quote Cancel 528
-  if templateid == 528 then
+  if template_id == 528 then
     return size_of.quote_cancel_528(buffer, offset)
   end
   -- Size of Order Mass Action Request 529
-  if templateid == 529 then
+  if template_id == 529 then
     return 71
   end
   -- Size of Order Mass Status Request 530
-  if templateid == 530 then
+  if template_id == 530 then
     return 68
   end
   -- Size of Execution Report Modify 531
-  if templateid == 531 then
+  if template_id == 531 then
     return 209
   end
   -- Size of Execution Report Status 532
-  if templateid == 532 then
+  if template_id == 532 then
     return 480
   end
   -- Size of Order Status Request 533
-  if templateid == 533 then
+  if template_id == 533 then
     return 62
   end
   -- Size of Execution Report Cancel 534
-  if templateid == 534 then
+  if template_id == 534 then
     return 206
   end
   -- Size of Order Cancel Reject 535
-  if templateid == 535 then
+  if template_id == 535 then
     return 401
   end
   -- Size of Order Cancel Replace Reject 536
-  if templateid == 536 then
+  if template_id == 536 then
     return 401
   end
   -- Size of Party Details List Request 537
-  if templateid == 537 then
+  if template_id == 537 then
     return size_of.party_details_list_request_537(buffer, offset)
   end
   -- Size of Party Details List Report 538
-  if templateid == 538 then
+  if template_id == 538 then
     return size_of.party_details_list_report_538(buffer, offset)
   end
   -- Size of Security Definition Request 541
-  if templateid == 541 then
+  if template_id == 541 then
     return size_of.security_definition_request_541(buffer, offset)
   end
   -- Size of Security Definition Response 542
-  if templateid == 542 then
+  if template_id == 542 then
     return size_of.security_definition_response_542(buffer, offset)
   end
   -- Size of Request For Quote 543
-  if templateid == 543 then
+  if template_id == 543 then
     return size_of.request_for_quote_543(buffer, offset)
   end
   -- Size of New Order Cross 544
-  if templateid == 544 then
+  if template_id == 544 then
     return size_of.new_order_cross_544(buffer, offset)
   end
   -- Size of Mass Quote Ack 545
-  if templateid == 545 then
+  if template_id == 545 then
     return size_of.mass_quote_ack_545(buffer, offset)
   end
   -- Size of Request For Quote Ack 546
-  if templateid == 546 then
+  if template_id == 546 then
     return 349
   end
   -- Size of Quote Cancel Ack 547
-  if templateid == 547 then
+  if template_id == 547 then
     return size_of.quote_cancel_ack_547(buffer, offset)
   end
   -- Size of Execution Report Trade Addendum Outright 548
-  if templateid == 548 then
+  if template_id == 548 then
     return size_of.execution_report_trade_addendum_outright_548(buffer, offset)
   end
   -- Size of Execution Report Trade Addendum Spread 549
-  if templateid == 549 then
+  if template_id == 549 then
     return size_of.execution_report_trade_addendum_spread_549(buffer, offset)
   end
   -- Size of Execution Report Trade Addendum Spread Leg 550
-  if templateid == 550 then
+  if template_id == 550 then
     return size_of.execution_report_trade_addendum_spread_leg_550(buffer, offset)
   end
   -- Size of Order Mass Action Report 558
-  if templateid == 558 then
+  if template_id == 558 then
     return size_of.order_mass_action_report_558(buffer, offset)
   end
 
@@ -10002,193 +10189,193 @@ display.payload = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Branches: payload
-dissect.payload_branches = function(buffer, offset, packet, parent, templateid)
+dissect.payload_branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Negotiate 500
-  if templateid == 500 then
+  if template_id == 500 then
     return dissect.negotiate_500(buffer, offset, packet, parent)
   end
   -- Dissect Negotiation Response 501
-  if templateid == 501 then
+  if template_id == 501 then
     return dissect.negotiation_response_501(buffer, offset, packet, parent)
   end
   -- Dissect Negotiation Reject 502
-  if templateid == 502 then
+  if template_id == 502 then
     return dissect.negotiation_reject_502(buffer, offset, packet, parent)
   end
   -- Dissect Establish 503
-  if templateid == 503 then
+  if template_id == 503 then
     return dissect.establish_503(buffer, offset, packet, parent)
   end
   -- Dissect Establishment Ack 504
-  if templateid == 504 then
+  if template_id == 504 then
     return dissect.establishment_ack_504(buffer, offset, packet, parent)
   end
   -- Dissect Establishment Reject 505
-  if templateid == 505 then
+  if template_id == 505 then
     return dissect.establishment_reject_505(buffer, offset, packet, parent)
   end
   -- Dissect Sequence 506
-  if templateid == 506 then
+  if template_id == 506 then
     return dissect.sequence_506(buffer, offset, packet, parent)
   end
   -- Dissect Terminate 507
-  if templateid == 507 then
+  if template_id == 507 then
     return dissect.terminate_507(buffer, offset, packet, parent)
   end
   -- Dissect Retransmit Request 508
-  if templateid == 508 then
+  if template_id == 508 then
     return dissect.retransmit_request_508(buffer, offset, packet, parent)
   end
   -- Dissect Retransmission 509
-  if templateid == 509 then
+  if template_id == 509 then
     return dissect.retransmission_509(buffer, offset, packet, parent)
   end
   -- Dissect Retransmit Reject 510
-  if templateid == 510 then
+  if template_id == 510 then
     return dissect.retransmit_reject_510(buffer, offset, packet, parent)
   end
   -- Dissect Not Applied 513
-  if templateid == 513 then
+  if template_id == 513 then
     return dissect.not_applied_513(buffer, offset, packet, parent)
   end
   -- Dissect New Order Single 514
-  if templateid == 514 then
+  if template_id == 514 then
     return dissect.new_order_single_514(buffer, offset, packet, parent)
   end
   -- Dissect Order Cancel Replace Request 515
-  if templateid == 515 then
+  if template_id == 515 then
     return dissect.order_cancel_replace_request_515(buffer, offset, packet, parent)
   end
   -- Dissect Order Cancel Request 516
-  if templateid == 516 then
+  if template_id == 516 then
     return dissect.order_cancel_request_516(buffer, offset, packet, parent)
   end
   -- Dissect Mass Quote 517
-  if templateid == 517 then
+  if template_id == 517 then
     return dissect.mass_quote_517(buffer, offset, packet, parent)
   end
   -- Dissect Party Details Definition Request 518
-  if templateid == 518 then
+  if template_id == 518 then
     return dissect.party_details_definition_request_518(buffer, offset, packet, parent)
   end
   -- Dissect Party Details Definition Request Ack 519
-  if templateid == 519 then
+  if template_id == 519 then
     return dissect.party_details_definition_request_ack_519(buffer, offset, packet, parent)
   end
   -- Dissect Business Reject 521
-  if templateid == 521 then
+  if template_id == 521 then
     return dissect.business_reject_521(buffer, offset, packet, parent)
   end
   -- Dissect Execution Report New 522
-  if templateid == 522 then
+  if template_id == 522 then
     return dissect.execution_report_new_522(buffer, offset, packet, parent)
   end
   -- Dissect Execution Report Reject 523
-  if templateid == 523 then
+  if template_id == 523 then
     return dissect.execution_report_reject_523(buffer, offset, packet, parent)
   end
   -- Dissect Execution Report Elimination 524
-  if templateid == 524 then
+  if template_id == 524 then
     return dissect.execution_report_elimination_524(buffer, offset, packet, parent)
   end
   -- Dissect Execution Report Trade Outright 525
-  if templateid == 525 then
+  if template_id == 525 then
     return dissect.execution_report_trade_outright_525(buffer, offset, packet, parent)
   end
   -- Dissect Execution Report Trade Spread 526
-  if templateid == 526 then
+  if template_id == 526 then
     return dissect.execution_report_trade_spread_526(buffer, offset, packet, parent)
   end
   -- Dissect Execution Report Trade Spread Leg 527
-  if templateid == 527 then
+  if template_id == 527 then
     return dissect.execution_report_trade_spread_leg_527(buffer, offset, packet, parent)
   end
   -- Dissect Quote Cancel 528
-  if templateid == 528 then
+  if template_id == 528 then
     return dissect.quote_cancel_528(buffer, offset, packet, parent)
   end
   -- Dissect Order Mass Action Request 529
-  if templateid == 529 then
+  if template_id == 529 then
     return dissect.order_mass_action_request_529(buffer, offset, packet, parent)
   end
   -- Dissect Order Mass Status Request 530
-  if templateid == 530 then
+  if template_id == 530 then
     return dissect.order_mass_status_request_530(buffer, offset, packet, parent)
   end
   -- Dissect Execution Report Modify 531
-  if templateid == 531 then
+  if template_id == 531 then
     return dissect.execution_report_modify_531(buffer, offset, packet, parent)
   end
   -- Dissect Execution Report Status 532
-  if templateid == 532 then
+  if template_id == 532 then
     return dissect.execution_report_status_532(buffer, offset, packet, parent)
   end
   -- Dissect Order Status Request 533
-  if templateid == 533 then
+  if template_id == 533 then
     return dissect.order_status_request_533(buffer, offset, packet, parent)
   end
   -- Dissect Execution Report Cancel 534
-  if templateid == 534 then
+  if template_id == 534 then
     return dissect.execution_report_cancel_534(buffer, offset, packet, parent)
   end
   -- Dissect Order Cancel Reject 535
-  if templateid == 535 then
+  if template_id == 535 then
     return dissect.order_cancel_reject_535(buffer, offset, packet, parent)
   end
   -- Dissect Order Cancel Replace Reject 536
-  if templateid == 536 then
+  if template_id == 536 then
     return dissect.order_cancel_replace_reject_536(buffer, offset, packet, parent)
   end
   -- Dissect Party Details List Request 537
-  if templateid == 537 then
+  if template_id == 537 then
     return dissect.party_details_list_request_537(buffer, offset, packet, parent)
   end
   -- Dissect Party Details List Report 538
-  if templateid == 538 then
+  if template_id == 538 then
     return dissect.party_details_list_report_538(buffer, offset, packet, parent)
   end
   -- Dissect Security Definition Request 541
-  if templateid == 541 then
+  if template_id == 541 then
     return dissect.security_definition_request_541(buffer, offset, packet, parent)
   end
   -- Dissect Security Definition Response 542
-  if templateid == 542 then
+  if template_id == 542 then
     return dissect.security_definition_response_542(buffer, offset, packet, parent)
   end
   -- Dissect Request For Quote 543
-  if templateid == 543 then
+  if template_id == 543 then
     return dissect.request_for_quote_543(buffer, offset, packet, parent)
   end
   -- Dissect New Order Cross 544
-  if templateid == 544 then
+  if template_id == 544 then
     return dissect.new_order_cross_544(buffer, offset, packet, parent)
   end
   -- Dissect Mass Quote Ack 545
-  if templateid == 545 then
+  if template_id == 545 then
     return dissect.mass_quote_ack_545(buffer, offset, packet, parent)
   end
   -- Dissect Request For Quote Ack 546
-  if templateid == 546 then
+  if template_id == 546 then
     return dissect.request_for_quote_ack_546(buffer, offset, packet, parent)
   end
   -- Dissect Quote Cancel Ack 547
-  if templateid == 547 then
+  if template_id == 547 then
     return dissect.quote_cancel_ack_547(buffer, offset, packet, parent)
   end
   -- Dissect Execution Report Trade Addendum Outright 548
-  if templateid == 548 then
+  if template_id == 548 then
     return dissect.execution_report_trade_addendum_outright_548(buffer, offset, packet, parent)
   end
   -- Dissect Execution Report Trade Addendum Spread 549
-  if templateid == 549 then
+  if template_id == 549 then
     return dissect.execution_report_trade_addendum_spread_549(buffer, offset, packet, parent)
   end
   -- Dissect Execution Report Trade Addendum Spread Leg 550
-  if templateid == 550 then
+  if template_id == 550 then
     return dissect.execution_report_trade_addendum_spread_leg_550(buffer, offset, packet, parent)
   end
   -- Dissect Order Mass Action Report 558
-  if templateid == 558 then
+  if template_id == 558 then
     return dissect.order_mass_action_report_558(buffer, offset, packet, parent)
   end
 
@@ -10196,13 +10383,13 @@ dissect.payload_branches = function(buffer, offset, packet, parent, templateid)
 end
 
 -- Dissect: payload
-dissect.payload = function(buffer, offset, packet, parent, code)
+dissect.payload = function(buffer, offset, packet, parent, template_id)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, code)
+    return dissect.payload_branches(buffer, offset, packet, parent, template_id)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, code)
+  local size = size_of.payload(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
@@ -10212,7 +10399,7 @@ dissect.payload = function(buffer, offset, packet, parent, code)
   local display = display.payload(buffer, packet, parent)
   local element = parent:add(cme_futures_ilink3_sbe_v8_0.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, code)
+  return dissect.payload_branches(buffer, offset, packet, parent, template_id)
 end
 
 -- Size: Version
@@ -10225,13 +10412,14 @@ end
 
 -- Dissect: Version
 dissect.version = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.version)
+  local length = size_of.version
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.version(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.version, range, value, display)
 
-  return offset + size_of.version
+  return offset + length, value
 end
 
 -- Size: Schema Id
@@ -10244,13 +10432,14 @@ end
 
 -- Dissect: Schema Id
 dissect.schema_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.schema_id)
+  local length = size_of.schema_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.schema_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.schema_id, range, value, display)
 
-  return offset + size_of.schema_id
+  return offset + length, value
 end
 
 -- Size: Template Id
@@ -10405,13 +10594,14 @@ end
 
 -- Dissect: Template Id
 dissect.template_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.template_id)
+  local length = size_of.template_id
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.template_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.template_id, range, value, display)
 
-  return offset + size_of.template_id
+  return offset + length, value
 end
 
 -- Display: Message Header
@@ -10424,16 +10614,16 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Block Length: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.block_length(buffer, index, packet, parent)
+  index, block_length = dissect.block_length(buffer, index, packet, parent)
 
   -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 47 values
-  index = dissect.template_id(buffer, index, packet, parent)
+  index, template_id = dissect.template_id(buffer, index, packet, parent)
 
   -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
-  index = dissect.schema_id(buffer, index, packet, parent)
+  index, schema_id = dissect.schema_id(buffer, index, packet, parent)
 
   -- Version: 2 Byte Unsigned Fixed Width Integer Static
-  index = dissect.version(buffer, index, packet, parent)
+  index, version = dissect.version(buffer, index, packet, parent)
 
   return index
 end
@@ -10460,13 +10650,14 @@ end
 
 -- Dissect: Encoding Type
 dissect.encoding_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.encoding_type)
+  local length = size_of.encoding_type
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.encoding_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.encoding_type, range, value, display)
 
-  return offset + size_of.encoding_type
+  return offset + length, value
 end
 
 -- Size: Message Length
@@ -10479,13 +10670,14 @@ end
 
 -- Dissect: Message Length
 dissect.message_length = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.message_length)
+  local length = size_of.message_length
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.message_length(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_0.fields.message_length, range, value, display)
 
-  return offset + size_of.message_length
+  return offset + length, value
 end
 
 -- Display: Packet Header
@@ -10498,10 +10690,10 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.message_length(buffer, index, packet, parent)
+  index, message_length = dissect.message_length(buffer, index, packet, parent)
 
   -- Encoding Type: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.encoding_type(buffer, index, packet, parent)
+  index, encoding_type = dissect.encoding_type(buffer, index, packet, parent)
 
   return index
 end
@@ -10523,16 +10715,16 @@ dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 2 fields
-  index = dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = dissect.packet_header(buffer, index, packet, parent)
 
   -- Message Header: Struct of 4 fields
-  index = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
-  local code = buffer(index - 6, 2):le_uint()
+  local template_id = buffer(index - 6, 2):le_uint()
 
   -- payload: Runtime Type with 47 branches
-  index = dissect.payload(buffer, index, packet, parent, code)
+  index = dissect.payload(buffer, index, packet, parent, template_id)
 
   return index
 end

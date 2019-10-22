@@ -335,13 +335,14 @@ end
 
 -- Dissect: Time Offset
 dissect.time_offset = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.time_offset)
+  local length = size_of.time_offset
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.time_offset(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.time_offset, range, value, display)
 
-  return offset + size_of.time_offset
+  return offset + length, value
 end
 
 -- Display: End Of Session Message
@@ -354,7 +355,7 @@ dissect.end_of_session_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
 
   return index
 end
@@ -381,13 +382,14 @@ end
 
 -- Dissect: Reserved 3
 dissect.reserved_3 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved_3)
+  local length = size_of.reserved_3
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.reserved_3(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.reserved_3, range, value, display)
 
-  return offset + size_of.reserved_3
+  return offset + length, value
 end
 
 -- Size: Trading Status
@@ -413,13 +415,14 @@ end
 
 -- Dissect: Trading Status
 dissect.trading_status = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trading_status)
+  local length = size_of.trading_status
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.trading_status(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.trading_status, range, value, display)
 
-  return offset + size_of.trading_status
+  return offset + length, value
 end
 
 -- Size: Reserved 2
@@ -432,13 +435,14 @@ end
 
 -- Dissect: Reserved 2
 dissect.reserved_2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved_2)
+  local length = size_of.reserved_2
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.reserved_2(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.reserved_2, range, value, display)
 
-  return offset + size_of.reserved_2
+  return offset + length, value
 end
 
 -- Size: Symbol
@@ -451,13 +455,14 @@ end
 
 -- Dissect: Symbol
 dissect.symbol = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.symbol)
+  local length = size_of.symbol
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.symbol, range, value, display)
 
-  return offset + size_of.symbol
+  return offset + length, value
 end
 
 -- Display: Trading Status Message
@@ -470,19 +475,19 @@ dissect.trading_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
-  index = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = dissect.symbol(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte Ascii String
-  index = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
 
   -- Trading Status: 1 Byte Ascii String Enum with 4 values
-  index = dissect.trading_status(buffer, index, packet, parent)
+  index, trading_status = dissect.trading_status(buffer, index, packet, parent)
 
   -- Reserved 3: 3 Byte Ascii String
-  index = dissect.reserved_3(buffer, index, packet, parent)
+  index, reserved_3 = dissect.reserved_3(buffer, index, packet, parent)
 
   return index
 end
@@ -573,13 +578,14 @@ end
 
 -- Dissect: Ecrp Volume
 dissect.ecrp_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.ecrp_volume)
+  local length = size_of.ecrp_volume
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.ecrp_volume(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.ecrp_volume, range, value, display)
 
-  return offset + size_of.ecrp_volume
+  return offset + length, value
 end
 
 -- Size: Block Volume
@@ -592,13 +598,14 @@ end
 
 -- Dissect: Block Volume
 dissect.block_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.block_volume)
+  local length = size_of.block_volume
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.block_volume(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.block_volume, range, value, display)
 
-  return offset + size_of.block_volume
+  return offset + length, value
 end
 
 -- Size: Total Volume
@@ -611,13 +618,14 @@ end
 
 -- Dissect: Total Volume
 dissect.total_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.total_volume)
+  local length = size_of.total_volume
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.total_volume(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.total_volume, range, value, display)
 
-  return offset + size_of.total_volume
+  return offset + length, value
 end
 
 -- Size: Close Price
@@ -630,13 +638,14 @@ end
 
 -- Dissect: Close Price
 dissect.close_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.close_price)
+  local length = size_of.close_price
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.close_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.close_price, range, value, display)
 
-  return offset + size_of.close_price
+  return offset + length, value
 end
 
 -- Size: Open Price
@@ -649,13 +658,14 @@ end
 
 -- Dissect: Open Price
 dissect.open_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.open_price)
+  local length = size_of.open_price
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.open_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.open_price, range, value, display)
 
-  return offset + size_of.open_price
+  return offset + length, value
 end
 
 -- Size: Low Price
@@ -668,13 +678,14 @@ end
 
 -- Dissect: Low Price
 dissect.low_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.low_price)
+  local length = size_of.low_price
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.low_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.low_price, range, value, display)
 
-  return offset + size_of.low_price
+  return offset + length, value
 end
 
 -- Size: High Price
@@ -687,13 +698,14 @@ end
 
 -- Dissect: High Price
 dissect.high_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.high_price)
+  local length = size_of.high_price
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.high_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.high_price, range, value, display)
 
-  return offset + size_of.high_price
+  return offset + length, value
 end
 
 -- Size: Open Interest
@@ -706,13 +718,14 @@ end
 
 -- Dissect: Open Interest
 dissect.open_interest = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.open_interest)
+  local length = size_of.open_interest
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.open_interest(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.open_interest, range, value, display)
 
-  return offset + size_of.open_interest
+  return offset + length, value
 end
 
 -- Size: Trade Date
@@ -725,13 +738,14 @@ end
 
 -- Dissect: Trade Date
 dissect.trade_date = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trade_date)
+  local length = size_of.trade_date
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.trade_date(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.trade_date, range, value, display)
 
-  return offset + size_of.trade_date
+  return offset + length, value
 end
 
 -- Display: End Of Day Summary Message
@@ -744,40 +758,40 @@ dissect.end_of_day_summary_message_fields = function(buffer, offset, packet, par
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
-  index = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = dissect.symbol(buffer, index, packet, parent)
 
   -- Trade Date: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Open Interest: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.open_interest(buffer, index, packet, parent)
+  index, open_interest = dissect.open_interest(buffer, index, packet, parent)
 
   -- High Price: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.high_price(buffer, index, packet, parent)
+  index, high_price = dissect.high_price(buffer, index, packet, parent)
 
   -- Low Price: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.low_price(buffer, index, packet, parent)
+  index, low_price = dissect.low_price(buffer, index, packet, parent)
 
   -- Open Price: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.open_price(buffer, index, packet, parent)
+  index, open_price = dissect.open_price(buffer, index, packet, parent)
 
   -- Close Price: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.close_price(buffer, index, packet, parent)
+  index, close_price = dissect.close_price(buffer, index, packet, parent)
 
   -- Total Volume: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.total_volume(buffer, index, packet, parent)
+  index, total_volume = dissect.total_volume(buffer, index, packet, parent)
 
   -- Block Volume: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.block_volume(buffer, index, packet, parent)
+  index, block_volume = dissect.block_volume(buffer, index, packet, parent)
 
   -- Ecrp Volume: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.ecrp_volume(buffer, index, packet, parent)
+  index, ecrp_volume = dissect.ecrp_volume(buffer, index, packet, parent)
 
   -- Summary Flags: Struct of 6 fields
-  index = dissect.summary_flags(buffer, index, packet, parent)
+  index, summary_flags = dissect.summary_flags(buffer, index, packet, parent)
 
   return index
 end
@@ -811,13 +825,14 @@ end
 
 -- Dissect: Issue
 dissect.issue = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.issue)
+  local length = size_of.issue
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.issue(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.issue, range, value, display)
 
-  return offset + size_of.issue
+  return offset + length, value
 end
 
 -- Size: Settlement Price
@@ -830,13 +845,14 @@ end
 
 -- Dissect: Settlement Price
 dissect.settlement_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.settlement_price)
+  local length = size_of.settlement_price
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.settlement_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.settlement_price, range, value, display)
 
-  return offset + size_of.settlement_price
+  return offset + length, value
 end
 
 -- Display: Settlement Message
@@ -849,19 +865,19 @@ dissect.settlement_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
-  index = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = dissect.symbol(buffer, index, packet, parent)
 
   -- Trade Date: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   -- Settlement Price: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.settlement_price(buffer, index, packet, parent)
+  index, settlement_price = dissect.settlement_price(buffer, index, packet, parent)
 
   -- Issue: 1 Byte Ascii String Enum with 2 values
-  index = dissect.issue(buffer, index, packet, parent)
+  index, issue = dissect.issue(buffer, index, packet, parent)
 
   return index
 end
@@ -888,13 +904,14 @@ end
 
 -- Dissect: Execution Id
 dissect.execution_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.execution_id)
+  local length = size_of.execution_id
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.execution_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.execution_id, range, value, display)
 
-  return offset + size_of.execution_id
+  return offset + length, value
 end
 
 -- Display: Trade Break Message
@@ -907,10 +924,10 @@ dissect.trade_break_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
 
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.execution_id(buffer, index, packet, parent)
+  index, execution_id = dissect.execution_id(buffer, index, packet, parent)
 
   return index
 end
@@ -937,7 +954,7 @@ dissect.transaction_end_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
 
   return index
 end
@@ -964,7 +981,7 @@ dissect.transaction_begin_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
 
   return index
 end
@@ -1007,13 +1024,14 @@ end
 
 -- Dissect: Trade Condition
 dissect.trade_condition = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trade_condition)
+  local length = size_of.trade_condition
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.trade_condition(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.trade_condition, range, value, display)
 
-  return offset + size_of.trade_condition
+  return offset + length, value
 end
 
 -- Size: Short Price
@@ -1026,13 +1044,14 @@ end
 
 -- Dissect: Short Price
 dissect.short_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.short_price)
+  local length = size_of.short_price
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.short_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.short_price, range, value, display)
 
-  return offset + size_of.short_price
+  return offset + length, value
 end
 
 -- Size: Short Quantity
@@ -1045,13 +1064,14 @@ end
 
 -- Dissect: Short Quantity
 dissect.short_quantity = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.short_quantity)
+  local length = size_of.short_quantity
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.short_quantity(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.short_quantity, range, value, display)
 
-  return offset + size_of.short_quantity
+  return offset + length, value
 end
 
 -- Size: Side Indicator
@@ -1071,13 +1091,14 @@ end
 
 -- Dissect: Side Indicator
 dissect.side_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.side_indicator)
+  local length = size_of.side_indicator
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.side_indicator(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.side_indicator, range, value, display)
 
-  return offset + size_of.side_indicator
+  return offset + length, value
 end
 
 -- Size: Order Id
@@ -1090,13 +1111,14 @@ end
 
 -- Dissect: Order Id
 dissect.order_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.order_id)
+  local length = size_of.order_id
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.order_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.order_id, range, value, display)
 
-  return offset + size_of.order_id
+  return offset + length, value
 end
 
 -- Display: Trade Short Message
@@ -1109,28 +1131,28 @@ dissect.trade_short_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
-  index = dissect.side_indicator(buffer, index, packet, parent)
+  index, side_indicator = dissect.side_indicator(buffer, index, packet, parent)
 
   -- Short Quantity: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.short_quantity(buffer, index, packet, parent)
+  index, short_quantity = dissect.short_quantity(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
-  index = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = dissect.symbol(buffer, index, packet, parent)
 
   -- Short Price: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.short_price(buffer, index, packet, parent)
+  index, short_price = dissect.short_price(buffer, index, packet, parent)
 
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.execution_id(buffer, index, packet, parent)
+  index, execution_id = dissect.execution_id(buffer, index, packet, parent)
 
   -- Trade Condition: 1 Byte Ascii String Enum with 5 values
-  index = dissect.trade_condition(buffer, index, packet, parent)
+  index, trade_condition = dissect.trade_condition(buffer, index, packet, parent)
 
   return index
 end
@@ -1157,13 +1179,14 @@ end
 
 -- Dissect: Long Price
 dissect.long_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.long_price)
+  local length = size_of.long_price
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.long_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.long_price, range, value, display)
 
-  return offset + size_of.long_price
+  return offset + length, value
 end
 
 -- Size: Long Quantity
@@ -1176,13 +1199,14 @@ end
 
 -- Dissect: Long Quantity
 dissect.long_quantity = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.long_quantity)
+  local length = size_of.long_quantity
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.long_quantity(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.long_quantity, range, value, display)
 
-  return offset + size_of.long_quantity
+  return offset + length, value
 end
 
 -- Display: Trade Long Message
@@ -1195,28 +1219,28 @@ dissect.trade_long_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
-  index = dissect.side_indicator(buffer, index, packet, parent)
+  index, side_indicator = dissect.side_indicator(buffer, index, packet, parent)
 
   -- Long Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.long_quantity(buffer, index, packet, parent)
+  index, long_quantity = dissect.long_quantity(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
-  index = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = dissect.symbol(buffer, index, packet, parent)
 
   -- Long Price: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.long_price(buffer, index, packet, parent)
+  index, long_price = dissect.long_price(buffer, index, packet, parent)
 
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.execution_id(buffer, index, packet, parent)
+  index, execution_id = dissect.execution_id(buffer, index, packet, parent)
 
   -- Trade Condition: 1 Byte Ascii String Enum with 5 values
-  index = dissect.trade_condition(buffer, index, packet, parent)
+  index, trade_condition = dissect.trade_condition(buffer, index, packet, parent)
 
   return index
 end
@@ -1243,10 +1267,10 @@ dissect.delete_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   return index
 end
@@ -1273,16 +1297,16 @@ dissect.modify_order_short_message_fields = function(buffer, offset, packet, par
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Short Quantity: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.short_quantity(buffer, index, packet, parent)
+  index, short_quantity = dissect.short_quantity(buffer, index, packet, parent)
 
   -- Short Price: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.short_price(buffer, index, packet, parent)
+  index, short_price = dissect.short_price(buffer, index, packet, parent)
 
   return index
 end
@@ -1309,16 +1333,16 @@ dissect.modify_order_long_message_fields = function(buffer, offset, packet, pare
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Long Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.long_quantity(buffer, index, packet, parent)
+  index, long_quantity = dissect.long_quantity(buffer, index, packet, parent)
 
   -- Long Price: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.long_price(buffer, index, packet, parent)
+  index, long_price = dissect.long_price(buffer, index, packet, parent)
 
   return index
 end
@@ -1345,13 +1369,14 @@ end
 
 -- Dissect: Canceled Short Quantity
 dissect.canceled_short_quantity = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.canceled_short_quantity)
+  local length = size_of.canceled_short_quantity
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.canceled_short_quantity(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.canceled_short_quantity, range, value, display)
 
-  return offset + size_of.canceled_short_quantity
+  return offset + length, value
 end
 
 -- Display: Reduce Size Short Message
@@ -1364,13 +1389,13 @@ dissect.reduce_size_short_message_fields = function(buffer, offset, packet, pare
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Canceled Short Quantity: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.canceled_short_quantity(buffer, index, packet, parent)
+  index, canceled_short_quantity = dissect.canceled_short_quantity(buffer, index, packet, parent)
 
   return index
 end
@@ -1397,13 +1422,14 @@ end
 
 -- Dissect: Canceled Long Quantity
 dissect.canceled_long_quantity = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.canceled_long_quantity)
+  local length = size_of.canceled_long_quantity
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.canceled_long_quantity(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.canceled_long_quantity, range, value, display)
 
-  return offset + size_of.canceled_long_quantity
+  return offset + length, value
 end
 
 -- Display: Reduce Size Long Message
@@ -1416,13 +1442,13 @@ dissect.reduce_size_long_message_fields = function(buffer, offset, packet, paren
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Canceled Long Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.canceled_long_quantity(buffer, index, packet, parent)
+  index, canceled_long_quantity = dissect.canceled_long_quantity(buffer, index, packet, parent)
 
   return index
 end
@@ -1449,13 +1475,14 @@ end
 
 -- Dissect: Executed Quantity
 dissect.executed_quantity = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.executed_quantity)
+  local length = size_of.executed_quantity
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.executed_quantity(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.executed_quantity, range, value, display)
 
-  return offset + size_of.executed_quantity
+  return offset + length, value
 end
 
 -- Display: Order Executed Message
@@ -1468,19 +1495,19 @@ dissect.order_executed_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.executed_quantity(buffer, index, packet, parent)
+  index, executed_quantity = dissect.executed_quantity(buffer, index, packet, parent)
 
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.execution_id(buffer, index, packet, parent)
+  index, execution_id = dissect.execution_id(buffer, index, packet, parent)
 
   -- Trade Condition: 1 Byte Ascii String Enum with 5 values
-  index = dissect.trade_condition(buffer, index, packet, parent)
+  index, trade_condition = dissect.trade_condition(buffer, index, packet, parent)
 
   return index
 end
@@ -1507,22 +1534,22 @@ dissect.add_order_short_message_fields = function(buffer, offset, packet, parent
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
-  index = dissect.side_indicator(buffer, index, packet, parent)
+  index, side_indicator = dissect.side_indicator(buffer, index, packet, parent)
 
   -- Short Quantity: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.short_quantity(buffer, index, packet, parent)
+  index, short_quantity = dissect.short_quantity(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
-  index = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = dissect.symbol(buffer, index, packet, parent)
 
   -- Short Price: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.short_price(buffer, index, packet, parent)
+  index, short_price = dissect.short_price(buffer, index, packet, parent)
 
   return index
 end
@@ -1549,22 +1576,22 @@ dissect.add_order_long_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
-  index = dissect.side_indicator(buffer, index, packet, parent)
+  index, side_indicator = dissect.side_indicator(buffer, index, packet, parent)
 
   -- Long Quantity: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.long_quantity(buffer, index, packet, parent)
+  index, long_quantity = dissect.long_quantity(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
-  index = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = dissect.symbol(buffer, index, packet, parent)
 
   -- Long Price: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.long_price(buffer, index, packet, parent)
+  index, long_price = dissect.long_price(buffer, index, packet, parent)
 
   return index
 end
@@ -1591,13 +1618,14 @@ end
 
 -- Dissect: Leg Symbol
 dissect.leg_symbol = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_symbol)
+  local length = size_of.leg_symbol
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.leg_symbol(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.leg_symbol, range, value, display)
 
-  return offset + size_of.leg_symbol
+  return offset + length, value
 end
 
 -- Size: Leg Ratio
@@ -1610,13 +1638,14 @@ end
 
 -- Dissect: Leg Ratio
 dissect.leg_ratio = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_ratio)
+  local length = size_of.leg_ratio
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.leg_ratio(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.leg_ratio, range, value, display)
 
-  return offset + size_of.leg_ratio
+  return offset + length, value
 end
 
 -- Display: Future Leg
@@ -1629,10 +1658,10 @@ dissect.future_leg_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Leg Ratio: 4 Byte Signed Fixed Width Integer
-  index = dissect.leg_ratio(buffer, index, packet, parent)
+  index, leg_ratio = dissect.leg_ratio(buffer, index, packet, parent)
 
   -- Leg Symbol: 6 Byte Ascii String
-  index = dissect.leg_symbol(buffer, index, packet, parent)
+  index, leg_symbol = dissect.leg_symbol(buffer, index, packet, parent)
 
   return index
 end
@@ -1659,13 +1688,14 @@ end
 
 -- Dissect: Fed Funds Rate
 dissect.fed_funds_rate = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.fed_funds_rate)
+  local length = size_of.fed_funds_rate
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.fed_funds_rate(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.fed_funds_rate, range, value, display)
 
-  return offset + size_of.fed_funds_rate
+  return offset + length, value
 end
 
 -- Size: Previous Armvm
@@ -1678,13 +1708,14 @@ end
 
 -- Dissect: Previous Armvm
 dissect.previous_armvm = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.previous_armvm)
+  local length = size_of.previous_armvm
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.previous_armvm(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.previous_armvm, range, value, display)
 
-  return offset + size_of.previous_armvm
+  return offset + length, value
 end
 
 -- Size: Initial Strike
@@ -1697,13 +1728,14 @@ end
 
 -- Dissect: Initial Strike
 dissect.initial_strike = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.initial_strike)
+  local length = size_of.initial_strike
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.initial_strike(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.initial_strike, range, value, display)
 
-  return offset + size_of.initial_strike
+  return offset + length, value
 end
 
 -- Size: Discount Factor
@@ -1716,13 +1748,14 @@ end
 
 -- Dissect: Discount Factor
 dissect.discount_factor = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.discount_factor)
+  local length = size_of.discount_factor
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.discount_factor(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.discount_factor, range, value, display)
 
-  return offset + size_of.discount_factor
+  return offset + length, value
 end
 
 -- Size: Previous Settlement
@@ -1735,13 +1768,14 @@ end
 
 -- Dissect: Previous Settlement
 dissect.previous_settlement = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.previous_settlement)
+  local length = size_of.previous_settlement
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.previous_settlement(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.previous_settlement, range, value, display)
 
-  return offset + size_of.previous_settlement
+  return offset + length, value
 end
 
 -- Size: Num Elapsed Returns
@@ -1754,13 +1788,14 @@ end
 
 -- Dissect: Num Elapsed Returns
 dissect.num_elapsed_returns = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.num_elapsed_returns)
+  local length = size_of.num_elapsed_returns
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.num_elapsed_returns(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.num_elapsed_returns, range, value, display)
 
-  return offset + size_of.num_elapsed_returns
+  return offset + length, value
 end
 
 -- Size: Num Expected Prices
@@ -1773,13 +1808,14 @@ end
 
 -- Dissect: Num Expected Prices
 dissect.num_expected_prices = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.num_expected_prices)
+  local length = size_of.num_expected_prices
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.num_expected_prices(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.num_expected_prices, range, value, display)
 
-  return offset + size_of.num_expected_prices
+  return offset + length, value
 end
 
 -- Size: Realized Variance
@@ -1792,13 +1828,14 @@ end
 
 -- Dissect: Realized Variance
 dissect.realized_variance = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.realized_variance)
+  local length = size_of.realized_variance
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.realized_variance(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.realized_variance, range, value, display)
 
-  return offset + size_of.realized_variance
+  return offset + length, value
 end
 
 -- Calculate runtime size: Variance
@@ -1824,34 +1861,34 @@ dissect.variance_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Realized Variance: 8 Byte Signed Fixed Width Integer
-  index = dissect.realized_variance(buffer, index, packet, parent)
+  index, realized_variance = dissect.realized_variance(buffer, index, packet, parent)
 
   -- Num Expected Prices: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.num_expected_prices(buffer, index, packet, parent)
+  index, num_expected_prices = dissect.num_expected_prices(buffer, index, packet, parent)
 
   -- Num Elapsed Returns: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.num_elapsed_returns(buffer, index, packet, parent)
+  index, num_elapsed_returns = dissect.num_elapsed_returns(buffer, index, packet, parent)
 
   -- Previous Settlement: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.previous_settlement(buffer, index, packet, parent)
+  index, previous_settlement = dissect.previous_settlement(buffer, index, packet, parent)
 
   -- Discount Factor: 8 Byte Signed Fixed Width Integer
-  index = dissect.discount_factor(buffer, index, packet, parent)
+  index, discount_factor = dissect.discount_factor(buffer, index, packet, parent)
 
   -- Initial Strike: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.initial_strike(buffer, index, packet, parent)
+  index, initial_strike = dissect.initial_strike(buffer, index, packet, parent)
 
   -- Previous Armvm: 8 Byte Signed Fixed Width Integer
-  index = dissect.previous_armvm(buffer, index, packet, parent)
+  index, previous_armvm = dissect.previous_armvm(buffer, index, packet, parent)
 
   -- Fed Funds Rate: 8 Byte Signed Fixed Width Integer
-  index = dissect.fed_funds_rate(buffer, index, packet, parent)
+  index, fed_funds_rate = dissect.fed_funds_rate(buffer, index, packet, parent)
 
   -- Dependency element: Leg Count
-  local future_leg_count = buffer(index - 65, 1):le_uint()
+  local leg_count = buffer(index - 65, 1):le_uint()
 
   -- Future Leg: Struct of 2 fields
-  for i = 1, future_leg_count do
+  for i = 1, leg_count do
     index = dissect.future_leg(buffer, index, packet, parent)
   end
 
@@ -1892,10 +1929,10 @@ dissect.standard_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Dependency element: Leg Count
-  local future_leg_count = buffer(index - 3, 1):le_uint()
+  local leg_count = buffer(index - 3, 1):le_uint()
 
   -- Future Leg: Struct of 2 fields
-  for i = 1, future_leg_count do
+  for i = 1, leg_count do
     index = dissect.future_leg(buffer, index, packet, parent)
   end
 
@@ -1916,13 +1953,13 @@ dissect.standard = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Future Block
-size_of.future_block = function(buffer, offset, futuresflags)
+size_of.future_block = function(buffer, offset, futures_flags)
   -- Size of Standard
-  if futuresflags == 0 then
+  if futures_flags == 0 then
     return size_of.standard(buffer, offset)
   end
   -- Size of Variance
-  if futuresflags == 1 then
+  if futures_flags == 1 then
     return size_of.variance(buffer, offset)
   end
 
@@ -1935,13 +1972,13 @@ display.future_block = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Branches: Future Block
-dissect.future_block_branches = function(buffer, offset, packet, parent, futuresflags)
+dissect.future_block_branches = function(buffer, offset, packet, parent, futures_flags)
   -- Dissect Standard
-  if futuresflags == 0 then
+  if futures_flags == 0 then
     return dissect.standard(buffer, offset, packet, parent)
   end
   -- Dissect Variance
-  if futuresflags == 1 then
+  if futures_flags == 1 then
     return dissect.variance(buffer, offset, packet, parent)
   end
 
@@ -1949,13 +1986,13 @@ dissect.future_block_branches = function(buffer, offset, packet, parent, futures
 end
 
 -- Dissect: Future Block
-dissect.future_block = function(buffer, offset, packet, parent, code)
+dissect.future_block = function(buffer, offset, packet, parent, futures_flags)
   if not show.future_block then
-    return dissect.future_block_branches(buffer, offset, packet, parent, code)
+    return dissect.future_block_branches(buffer, offset, packet, parent, futures_flags)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.future_block(buffer, offset, code)
+  local size = size_of.future_block(buffer, offset, futures_flags)
   if size == 0 then
     return offset
   end
@@ -1965,7 +2002,7 @@ dissect.future_block = function(buffer, offset, packet, parent, code)
   local display = display.future_block(buffer, packet, parent)
   local element = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.future_block, range, display)
 
-  return dissect.future_block_branches(buffer, offset, packet, parent, code)
+  return dissect.future_block_branches(buffer, offset, packet, parent, futures_flags)
 end
 
 -- Size: Variance Block Offset
@@ -1978,13 +2015,14 @@ end
 
 -- Dissect: Variance Block Offset
 dissect.variance_block_offset = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.variance_block_offset)
+  local length = size_of.variance_block_offset
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.variance_block_offset(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.variance_block_offset, range, value, display)
 
-  return offset + size_of.variance_block_offset
+  return offset + length, value
 end
 
 -- Size: Leg Offset
@@ -1997,13 +2035,14 @@ end
 
 -- Dissect: Leg Offset
 dissect.leg_offset = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_offset)
+  local length = size_of.leg_offset
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.leg_offset(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.leg_offset, range, value, display)
 
-  return offset + size_of.leg_offset
+  return offset + length, value
 end
 
 -- Size: Leg Count
@@ -2016,13 +2055,14 @@ end
 
 -- Dissect: Leg Count
 dissect.leg_count = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.leg_count)
+  local length = size_of.leg_count
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.leg_count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.leg_count, range, value, display)
 
-  return offset + size_of.leg_count
+  return offset + length, value
 end
 
 -- Size: Price Increment
@@ -2035,13 +2075,14 @@ end
 
 -- Dissect: Price Increment
 dissect.price_increment = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price_increment)
+  local length = size_of.price_increment
+  local range = buffer(offset, length)
   local value = range:le_uint64()
   local display = display.price_increment(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.price_increment, range, value, display)
 
-  return offset + size_of.price_increment
+  return offset + length, value
 end
 
 -- Size: Listing State
@@ -2064,13 +2105,14 @@ end
 
 -- Dissect: Listing State
 dissect.listing_state = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.listing_state)
+  local length = size_of.listing_state
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.listing_state(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.listing_state, range, value, display)
 
-  return offset + size_of.listing_state
+  return offset + length, value
 end
 
 -- Size: Contract Size
@@ -2083,13 +2125,14 @@ end
 
 -- Dissect: Contract Size
 dissect.contract_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.contract_size)
+  local length = size_of.contract_size
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.contract_size(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.contract_size, range, value, display)
 
-  return offset + size_of.contract_size
+  return offset + length, value
 end
 
 -- Size: Expiration Date
@@ -2102,13 +2145,14 @@ end
 
 -- Dissect: Expiration Date
 dissect.expiration_date = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.expiration_date)
+  local length = size_of.expiration_date
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.expiration_date(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.expiration_date, range, value, display)
 
-  return offset + size_of.expiration_date
+  return offset + length, value
 end
 
 -- Size: Futures Flags
@@ -2128,13 +2172,14 @@ end
 
 -- Dissect: Futures Flags
 dissect.futures_flags = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.futures_flags)
+  local length = size_of.futures_flags
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.futures_flags(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.futures_flags, range, value, display)
 
-  return offset + size_of.futures_flags
+  return offset + length, value
 end
 
 -- Size: Report Symbol
@@ -2147,13 +2192,14 @@ end
 
 -- Dissect: Report Symbol
 dissect.report_symbol = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.report_symbol)
+  local length = size_of.report_symbol
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.report_symbol(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.report_symbol, range, value, display)
 
-  return offset + size_of.report_symbol
+  return offset + length, value
 end
 
 -- Size: Unit Timestamp
@@ -2166,13 +2212,14 @@ end
 
 -- Dissect: Unit Timestamp
 dissect.unit_timestamp = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.unit_timestamp)
+  local length = size_of.unit_timestamp
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.unit_timestamp(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.unit_timestamp, range, value, display)
 
-  return offset + size_of.unit_timestamp
+  return offset + length, value
 end
 
 -- Calculate runtime size: Futures Instrument Definition Message
@@ -2199,46 +2246,43 @@ dissect.futures_instrument_definition_message_fields = function(buffer, offset, 
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
-  index = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = dissect.symbol(buffer, index, packet, parent)
 
   -- Unit Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.unit_timestamp(buffer, index, packet, parent)
+  index, unit_timestamp = dissect.unit_timestamp(buffer, index, packet, parent)
 
   -- Report Symbol: 6 Byte Ascii String
-  index = dissect.report_symbol(buffer, index, packet, parent)
+  index, report_symbol = dissect.report_symbol(buffer, index, packet, parent)
 
   -- Futures Flags: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.futures_flags(buffer, index, packet, parent)
+  index, futures_flags = dissect.futures_flags(buffer, index, packet, parent)
 
   -- Expiration Date: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_date(buffer, index, packet, parent)
+  index, expiration_date = dissect.expiration_date(buffer, index, packet, parent)
 
   -- Contract Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.contract_size(buffer, index, packet, parent)
+  index, contract_size = dissect.contract_size(buffer, index, packet, parent)
 
   -- Listing State: 1 Byte Ascii String Enum with 3 values
-  index = dissect.listing_state(buffer, index, packet, parent)
+  index, listing_state = dissect.listing_state(buffer, index, packet, parent)
 
   -- Price Increment: 8 Byte Unsigned Fixed Width Integer
-  index = dissect.price_increment(buffer, index, packet, parent)
+  index, price_increment = dissect.price_increment(buffer, index, packet, parent)
 
   -- Leg Count: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.leg_count(buffer, index, packet, parent)
+  index, leg_count = dissect.leg_count(buffer, index, packet, parent)
 
   -- Leg Offset: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.leg_offset(buffer, index, packet, parent)
+  index, leg_offset = dissect.leg_offset(buffer, index, packet, parent)
 
   -- Variance Block Offset: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.variance_block_offset(buffer, index, packet, parent)
-
-  -- Dependency element: Futures Flags
-  local code = buffer(index - 19, 1):le_uint()
+  index, variance_block_offset = dissect.variance_block_offset(buffer, index, packet, parent)
 
   -- Future Block: Runtime Type with 2 branches
-  index = dissect.future_block(buffer, index, packet, parent, code)
+  index = dissect.future_block(buffer, index, packet, parent, futures_flags)
 
   return index
 end
@@ -2266,13 +2310,14 @@ end
 
 -- Dissect: Time
 dissect.time = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.time)
+  local length = size_of.time
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.time(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.time, range, value, display)
 
-  return offset + size_of.time
+  return offset + length, value
 end
 
 -- Size: Midnight Reference
@@ -2285,13 +2330,14 @@ end
 
 -- Dissect: Midnight Reference
 dissect.midnight_reference = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.midnight_reference)
+  local length = size_of.midnight_reference
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.midnight_reference(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.midnight_reference, range, value, display)
 
-  return offset + size_of.midnight_reference
+  return offset + length, value
 end
 
 -- Display: Time Reference Message
@@ -2304,16 +2350,16 @@ dissect.time_reference_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Midnight Reference: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.midnight_reference(buffer, index, packet, parent)
+  index, midnight_reference = dissect.midnight_reference(buffer, index, packet, parent)
 
   -- Time: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.time(buffer, index, packet, parent)
+  index, time = dissect.time(buffer, index, packet, parent)
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
 
   -- Trade Date: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
   return index
 end
@@ -2340,7 +2386,7 @@ dissect.unit_clear_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
 
   return index
 end
@@ -2367,13 +2413,14 @@ end
 
 -- Dissect: Epoch
 dissect.epoch = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.epoch)
+  local length = size_of.epoch
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.epoch(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.epoch, range, value, display)
 
-  return offset + size_of.epoch
+  return offset + length, value
 end
 
 -- Display: Time Message
@@ -2386,10 +2433,10 @@ dissect.time_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.time(buffer, index, packet, parent)
+  index, time = dissect.time(buffer, index, packet, parent)
 
   -- Epoch: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.epoch(buffer, index, packet, parent)
+  index, epoch = dissect.epoch(buffer, index, packet, parent)
 
   return index
 end
@@ -2407,89 +2454,89 @@ dissect.time_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, messagetype)
+size_of.payload = function(buffer, offset, message_type)
   -- Size of Time Message
-  if messagetype == 0x20 then
+  if message_type == 0x20 then
     return 8
   end
   -- Size of Unit Clear Message
-  if messagetype == 0x97 then
+  if message_type == 0x97 then
     return 4
   end
   -- Size of Time Reference Message
-  if messagetype == 0xB1 then
+  if message_type == 0xB1 then
     return 16
   end
   -- Size of Futures Instrument Definition Message
-  if messagetype == 0xBB then
+  if message_type == 0xBB then
     return size_of.futures_instrument_definition_message(buffer, offset)
   end
   -- Size of Add Order Long Message
-  if messagetype == 0x21 then
+  if message_type == 0x21 then
     return 31
   end
   -- Size of Add Order Short Message
-  if messagetype == 0x22 then
+  if message_type == 0x22 then
     return 23
   end
   -- Size of Order Executed Message
-  if messagetype == 0x23 then
+  if message_type == 0x23 then
     return 25
   end
   -- Size of Reduce Size Long Message
-  if messagetype == 0x25 then
+  if message_type == 0x25 then
     return 16
   end
   -- Size of Reduce Size Short Message
-  if messagetype == 0x26 then
+  if message_type == 0x26 then
     return 14
   end
   -- Size of Modify Order Long Message
-  if messagetype == 0x27 then
+  if message_type == 0x27 then
     return 24
   end
   -- Size of Modify Order Short Message
-  if messagetype == 0x28 then
+  if message_type == 0x28 then
     return 16
   end
   -- Size of Delete Order Message
-  if messagetype == 0x29 then
+  if message_type == 0x29 then
     return 12
   end
   -- Size of Trade Long Message
-  if messagetype == 0x2A then
+  if message_type == 0x2A then
     return 40
   end
   -- Size of Trade Short Message
-  if messagetype == 0x2B then
+  if message_type == 0x2B then
     return 32
   end
   -- Size of Transaction Begin
-  if messagetype == 0xBC then
+  if message_type == 0xBC then
     return 4
   end
   -- Size of Transaction End
-  if messagetype == 0xBD then
+  if message_type == 0xBD then
     return 4
   end
   -- Size of Trade Break Message
-  if messagetype == 0x2C then
+  if message_type == 0x2C then
     return 12
   end
   -- Size of Settlement Message
-  if messagetype == 0xB9 then
+  if message_type == 0xB9 then
     return 23
   end
   -- Size of End Of Day Summary Message
-  if messagetype == 0xBA then
+  if message_type == 0xBA then
     return 63
   end
   -- Size of Trading Status Message
-  if messagetype == 0x31 then
+  if message_type == 0x31 then
     return 16
   end
   -- Size of End Of Session Message
-  if messagetype == 0x2D then
+  if message_type == 0x2D then
     return 4
   end
 
@@ -2502,89 +2549,89 @@ display.payload = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Branches: Payload
-dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
+dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Time Message
-  if messagetype == 0x20 then
+  if message_type == 0x20 then
     return dissect.time_message(buffer, offset, packet, parent)
   end
   -- Dissect Unit Clear Message
-  if messagetype == 0x97 then
+  if message_type == 0x97 then
     return dissect.unit_clear_message(buffer, offset, packet, parent)
   end
   -- Dissect Time Reference Message
-  if messagetype == 0xB1 then
+  if message_type == 0xB1 then
     return dissect.time_reference_message(buffer, offset, packet, parent)
   end
   -- Dissect Futures Instrument Definition Message
-  if messagetype == 0xBB then
+  if message_type == 0xBB then
     return dissect.futures_instrument_definition_message(buffer, offset, packet, parent)
   end
   -- Dissect Add Order Long Message
-  if messagetype == 0x21 then
+  if message_type == 0x21 then
     return dissect.add_order_long_message(buffer, offset, packet, parent)
   end
   -- Dissect Add Order Short Message
-  if messagetype == 0x22 then
+  if message_type == 0x22 then
     return dissect.add_order_short_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Executed Message
-  if messagetype == 0x23 then
+  if message_type == 0x23 then
     return dissect.order_executed_message(buffer, offset, packet, parent)
   end
   -- Dissect Reduce Size Long Message
-  if messagetype == 0x25 then
+  if message_type == 0x25 then
     return dissect.reduce_size_long_message(buffer, offset, packet, parent)
   end
   -- Dissect Reduce Size Short Message
-  if messagetype == 0x26 then
+  if message_type == 0x26 then
     return dissect.reduce_size_short_message(buffer, offset, packet, parent)
   end
   -- Dissect Modify Order Long Message
-  if messagetype == 0x27 then
+  if message_type == 0x27 then
     return dissect.modify_order_long_message(buffer, offset, packet, parent)
   end
   -- Dissect Modify Order Short Message
-  if messagetype == 0x28 then
+  if message_type == 0x28 then
     return dissect.modify_order_short_message(buffer, offset, packet, parent)
   end
   -- Dissect Delete Order Message
-  if messagetype == 0x29 then
+  if message_type == 0x29 then
     return dissect.delete_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Long Message
-  if messagetype == 0x2A then
+  if message_type == 0x2A then
     return dissect.trade_long_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Short Message
-  if messagetype == 0x2B then
+  if message_type == 0x2B then
     return dissect.trade_short_message(buffer, offset, packet, parent)
   end
   -- Dissect Transaction Begin
-  if messagetype == 0xBC then
+  if message_type == 0xBC then
     return dissect.transaction_begin(buffer, offset, packet, parent)
   end
   -- Dissect Transaction End
-  if messagetype == 0xBD then
+  if message_type == 0xBD then
     return dissect.transaction_end(buffer, offset, packet, parent)
   end
   -- Dissect Trade Break Message
-  if messagetype == 0x2C then
+  if message_type == 0x2C then
     return dissect.trade_break_message(buffer, offset, packet, parent)
   end
   -- Dissect Settlement Message
-  if messagetype == 0xB9 then
+  if message_type == 0xB9 then
     return dissect.settlement_message(buffer, offset, packet, parent)
   end
   -- Dissect End Of Day Summary Message
-  if messagetype == 0xBA then
+  if message_type == 0xBA then
     return dissect.end_of_day_summary_message(buffer, offset, packet, parent)
   end
   -- Dissect Trading Status Message
-  if messagetype == 0x31 then
+  if message_type == 0x31 then
     return dissect.trading_status_message(buffer, offset, packet, parent)
   end
   -- Dissect End Of Session Message
-  if messagetype == 0x2D then
+  if message_type == 0x2D then
     return dissect.end_of_session_message(buffer, offset, packet, parent)
   end
 
@@ -2592,13 +2639,13 @@ dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent, code)
+dissect.payload = function(buffer, offset, packet, parent, message_type)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, code)
+    return dissect.payload_branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, code)
+  local size = size_of.payload(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
@@ -2608,7 +2655,7 @@ dissect.payload = function(buffer, offset, packet, parent, code)
   local display = display.payload(buffer, packet, parent)
   local element = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, code)
+  return dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Size: Message Type
@@ -2685,13 +2732,14 @@ end
 
 -- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.message_type)
+  local length = size_of.message_type
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.message_type, range, value, display)
 
-  return offset + size_of.message_type
+  return offset + length, value
 end
 
 -- Size: Message Length
@@ -2704,13 +2752,14 @@ end
 
 -- Dissect: Message Length
 dissect.message_length = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.message_length)
+  local length = size_of.message_length
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.message_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.message_length, range, value, display)
 
-  return offset + size_of.message_length
+  return offset + length, value
 end
 
 -- Display: Message Header
@@ -2723,10 +2772,10 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Length: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.message_length(buffer, index, packet, parent)
+  index, message_length = dissect.message_length(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 21 values
-  index = dissect.message_type(buffer, index, packet, parent)
+  index, message_type = dissect.message_type(buffer, index, packet, parent)
 
   return index
 end
@@ -2767,13 +2816,13 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 2 fields
-  index = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
-  local code = buffer(index - 1, 1):le_uint()
+  local message_type = buffer(index - 1, 1):le_uint()
 
   -- Payload: Runtime Type with 21 branches
-  index = dissect.payload(buffer, index, packet, parent, code)
+  index = dissect.payload(buffer, index, packet, parent, message_type)
 
   return index
 end
@@ -2801,13 +2850,14 @@ end
 
 -- Dissect: Sequence
 dissect.sequence = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.sequence)
+  local length = size_of.sequence
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.sequence(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.sequence, range, value, display)
 
-  return offset + size_of.sequence
+  return offset + length, value
 end
 
 -- Size: Unit
@@ -2820,13 +2870,14 @@ end
 
 -- Dissect: Unit
 dissect.unit = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.unit)
+  local length = size_of.unit
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.unit(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.unit, range, value, display)
 
-  return offset + size_of.unit
+  return offset + length, value
 end
 
 -- Size: Count
@@ -2839,13 +2890,14 @@ end
 
 -- Dissect: Count
 dissect.count = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.count)
+  local length = size_of.count
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.count, range, value, display)
 
-  return offset + size_of.count
+  return offset + length, value
 end
 
 -- Size: Length
@@ -2858,13 +2910,14 @@ end
 
 -- Dissect: Length
 dissect.length = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.length)
+  local length = size_of.length
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.length, range, value, display)
 
-  return offset + size_of.length
+  return offset + length, value
 end
 
 -- Display: Packet Header
@@ -2877,16 +2930,16 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Length: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.length(buffer, index, packet, parent)
+  index, length = dissect.length(buffer, index, packet, parent)
 
   -- Count: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.count(buffer, index, packet, parent)
+  index, count = dissect.count(buffer, index, packet, parent)
 
   -- Unit: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.unit(buffer, index, packet, parent)
+  index, unit = dissect.unit(buffer, index, packet, parent)
 
   -- Sequence: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.sequence(buffer, index, packet, parent)
+  index, sequence = dissect.sequence(buffer, index, packet, parent)
 
   return index
 end
@@ -2908,7 +2961,7 @@ dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 4 fields
-  index = dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = dissect.packet_header(buffer, index, packet, parent)
 
   -- Message: Struct of 2 fields
   local end_of_payload = buffer:len()

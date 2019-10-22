@@ -158,13 +158,14 @@ end
 
 -- Dissect: Next Sequence Number
 dissect.next_sequence_number = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.next_sequence_number)
+  local length = size_of.next_sequence_number
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.next_sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.next_sequence_number, range, value, display)
 
-  return offset + size_of.next_sequence_number
+  return offset + length, value
 end
 
 -- Display: Sequence Number Reset Message
@@ -177,7 +178,7 @@ dissect.sequence_number_reset_message_fields = function(buffer, offset, packet, 
   local index = offset
 
   -- Next Sequence Number: 4 Byte Signed Fixed Width Integer
-  index = dissect.next_sequence_number(buffer, index, packet, parent)
+  index, next_sequence_number = dissect.next_sequence_number(buffer, index, packet, parent)
 
   return index
 end
@@ -204,13 +205,14 @@ end
 
 -- Dissect: Link Id 3
 dissect.link_id_3 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.link_id_3)
+  local length = size_of.link_id_3
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.link_id_3(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_id_3, range, value, display)
 
-  return offset + size_of.link_id_3
+  return offset + length, value
 end
 
 -- Size: Link Id 2
@@ -223,13 +225,14 @@ end
 
 -- Dissect: Link Id 2
 dissect.link_id_2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.link_id_2)
+  local length = size_of.link_id_2
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.link_id_2(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_id_2, range, value, display)
 
-  return offset + size_of.link_id_2
+  return offset + length, value
 end
 
 -- Size: Link Id 1
@@ -242,13 +245,14 @@ end
 
 -- Dissect: Link Id 1
 dissect.link_id_1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.link_id_1)
+  local length = size_of.link_id_1
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.link_id_1(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_id_1, range, value, display)
 
-  return offset + size_of.link_id_1
+  return offset + length, value
 end
 
 -- Size: Reason Code
@@ -274,13 +278,14 @@ end
 
 -- Dissect: Reason Code
 dissect.reason_code = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reason_code)
+  local length = size_of.reason_code
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.reason_code(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.reason_code, range, value, display)
 
-  return offset + size_of.reason_code
+  return offset + length, value
 end
 
 -- Size: Side
@@ -300,13 +305,14 @@ end
 
 -- Dissect: Side
 dissect.side = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.side)
+  local length = size_of.side
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.side(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.side, range, value, display)
 
-  return offset + size_of.side
+  return offset + length, value
 end
 
 -- Size: Num Orders
@@ -319,13 +325,14 @@ end
 
 -- Dissect: Num Orders
 dissect.num_orders = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.num_orders)
+  local length = size_of.num_orders
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.num_orders(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.num_orders, range, value, display)
 
-  return offset + size_of.num_orders
+  return offset + length, value
 end
 
 -- Size: Chg Qty
@@ -338,13 +345,14 @@ end
 
 -- Dissect: Chg Qty
 dissect.chg_qty = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.chg_qty)
+  local length = size_of.chg_qty
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.chg_qty(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.chg_qty, range, value, display)
 
-  return offset + size_of.chg_qty
+  return offset + length, value
 end
 
 -- Size: Volume
@@ -357,13 +365,14 @@ end
 
 -- Dissect: Volume
 dissect.volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.volume)
+  local length = size_of.volume
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.volume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.volume, range, value, display)
 
-  return offset + size_of.volume
+  return offset + length, value
 end
 
 -- Size: Price Numerator
@@ -376,13 +385,14 @@ end
 
 -- Dissect: Price Numerator
 dissect.price_numerator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price_numerator)
+  local length = size_of.price_numerator
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.price_numerator(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.price_numerator, range, value, display)
 
-  return offset + size_of.price_numerator
+  return offset + length, value
 end
 
 -- Display: Delta Price Point
@@ -395,31 +405,31 @@ dissect.delta_price_point_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Price Numerator: 4 Byte Signed Fixed Width Integer
-  index = dissect.price_numerator(buffer, index, packet, parent)
+  index, price_numerator = dissect.price_numerator(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Signed Fixed Width Integer
-  index = dissect.volume(buffer, index, packet, parent)
+  index, volume = dissect.volume(buffer, index, packet, parent)
 
   -- Chg Qty: 4 Byte Signed Fixed Width Integer
-  index = dissect.chg_qty(buffer, index, packet, parent)
+  index, chg_qty = dissect.chg_qty(buffer, index, packet, parent)
 
   -- Num Orders: 2 Byte Signed Fixed Width Integer
-  index = dissect.num_orders(buffer, index, packet, parent)
+  index, num_orders = dissect.num_orders(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Reason Code: 1 Byte Ascii String Enum with 4 values
-  index = dissect.reason_code(buffer, index, packet, parent)
+  index, reason_code = dissect.reason_code(buffer, index, packet, parent)
 
   -- Link Id 1: 4 Byte Signed Fixed Width Integer
-  index = dissect.link_id_1(buffer, index, packet, parent)
+  index, link_id_1 = dissect.link_id_1(buffer, index, packet, parent)
 
   -- Link Id 2: 4 Byte Signed Fixed Width Integer
-  index = dissect.link_id_2(buffer, index, packet, parent)
+  index, link_id_2 = dissect.link_id_2(buffer, index, packet, parent)
 
   -- Link Id 3: 4 Byte Signed Fixed Width Integer
-  index = dissect.link_id_3(buffer, index, packet, parent)
+  index, link_id_3 = dissect.link_id_3(buffer, index, packet, parent)
 
   return index
 end
@@ -446,13 +456,14 @@ end
 
 -- Dissect: Price Scale Code
 dissect.price_scale_code = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price_scale_code)
+  local length = size_of.price_scale_code
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.price_scale_code(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.price_scale_code, range, value, display)
 
-  return offset + size_of.price_scale_code
+  return offset + length, value
 end
 
 -- Size: Trading Status
@@ -484,13 +495,14 @@ end
 
 -- Dissect: Trading Status
 dissect.trading_status = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trading_status)
+  local length = size_of.trading_status
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.trading_status(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.trading_status, range, value, display)
 
-  return offset + size_of.trading_status
+  return offset + length, value
 end
 
 -- Size: Quote Condition
@@ -510,13 +522,14 @@ end
 
 -- Dissect: Quote Condition
 dissect.quote_condition = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.quote_condition)
+  local length = size_of.quote_condition
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.quote_condition(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.quote_condition, range, value, display)
 
-  return offset + size_of.quote_condition
+  return offset + length, value
 end
 
 -- Size: Source Session Id
@@ -529,13 +542,14 @@ end
 
 -- Dissect: Source Session Id
 dissect.source_session_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.source_session_id)
+  local length = size_of.source_session_id
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.source_session_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_session_id, range, value, display)
 
-  return offset + size_of.source_session_id
+  return offset + length, value
 end
 
 -- Size: Source Seq Num
@@ -548,13 +562,14 @@ end
 
 -- Dissect: Source Seq Num
 dissect.source_seq_num = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.source_seq_num)
+  local length = size_of.source_seq_num
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.source_seq_num(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_seq_num, range, value, display)
 
-  return offset + size_of.source_seq_num
+  return offset + length, value
 end
 
 -- Size: Source Time Micro Secs
@@ -567,13 +582,14 @@ end
 
 -- Dissect: Source Time Micro Secs
 dissect.source_time_micro_secs = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.source_time_micro_secs)
+  local length = size_of.source_time_micro_secs
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.source_time_micro_secs(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_time_micro_secs, range, value, display)
 
-  return offset + size_of.source_time_micro_secs
+  return offset + length, value
 end
 
 -- Size: Source Time
@@ -586,13 +602,14 @@ end
 
 -- Dissect: Source Time
 dissect.source_time = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.source_time)
+  local length = size_of.source_time
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.source_time(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_time, range, value, display)
 
-  return offset + size_of.source_time
+  return offset + length, value
 end
 
 -- Size: Symbol Index
@@ -605,13 +622,14 @@ end
 
 -- Dissect: Symbol Index
 dissect.symbol_index = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.symbol_index)
+  local length = size_of.symbol_index
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.symbol_index(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.symbol_index, range, value, display)
 
-  return offset + size_of.symbol_index
+  return offset + length, value
 end
 
 -- Size: Delta Size
@@ -624,13 +642,14 @@ end
 
 -- Dissect: Delta Size
 dissect.delta_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.delta_size)
+  local length = size_of.delta_size
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.delta_size(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_size, range, value, display)
 
-  return offset + size_of.delta_size
+  return offset + length, value
 end
 
 -- Size Of: Delta Update Message
@@ -648,34 +667,34 @@ dissect.delta_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Delta Size: 2 Byte Signed Fixed Width Integer
-  index = dissect.delta_size(buffer, index, packet, parent)
+  index, delta_size = dissect.delta_size(buffer, index, packet, parent)
 
   -- Symbol Index: 4 Byte Signed Fixed Width Integer
-  index = dissect.symbol_index(buffer, index, packet, parent)
+  index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
   -- Source Time: 4 Byte Signed Fixed Width Integer
-  index = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Micro Secs: 2 Byte Signed Fixed Width Integer
-  index = dissect.source_time_micro_secs(buffer, index, packet, parent)
+  index, source_time_micro_secs = dissect.source_time_micro_secs(buffer, index, packet, parent)
 
   -- Source Seq Num: 4 Byte Signed Fixed Width Integer
-  index = dissect.source_seq_num(buffer, index, packet, parent)
+  index, source_seq_num = dissect.source_seq_num(buffer, index, packet, parent)
 
   -- Source Session Id: 1 Byte Signed Fixed Width Integer
-  index = dissect.source_session_id(buffer, index, packet, parent)
+  index, source_session_id = dissect.source_session_id(buffer, index, packet, parent)
 
   -- Quote Condition: 1 Byte Ascii String Enum with 2 values
-  index = dissect.quote_condition(buffer, index, packet, parent)
+  index, quote_condition = dissect.quote_condition(buffer, index, packet, parent)
 
   -- Trading Status: 1 Byte Ascii String Enum with 6 values
-  index = dissect.trading_status(buffer, index, packet, parent)
+  index, trading_status = dissect.trading_status(buffer, index, packet, parent)
 
   -- Price Scale Code: 1 Byte Signed Fixed Width Integer
-  index = dissect.price_scale_code(buffer, index, packet, parent)
+  index, price_scale_code = dissect.price_scale_code(buffer, index, packet, parent)
 
   -- Delta Price Point: Struct of 9 fields
-  local end_of_payload = offset + buffer(offset, size_of.delta_size):int() - (index - offset)
+  local end_of_payload = offset + delta_size -(index - offset)
 
   -- Delta Price Point: Struct of 9 fields
   while index < end_of_payload do
@@ -749,13 +768,14 @@ end
 
 -- Dissect: Reserved 1
 dissect.reserved_1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved_1)
+  local length = size_of.reserved_1
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved_1(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.reserved_1, range, value, display)
 
-  return offset + size_of.reserved_1
+  return offset + length, value
 end
 
 -- Display: Full Price Point
@@ -768,19 +788,19 @@ dissect.full_price_point_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Price Numerator: 4 Byte Signed Fixed Width Integer
-  index = dissect.price_numerator(buffer, index, packet, parent)
+  index, price_numerator = dissect.price_numerator(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Signed Fixed Width Integer
-  index = dissect.volume(buffer, index, packet, parent)
+  index, volume = dissect.volume(buffer, index, packet, parent)
 
   -- Num Orders: 2 Byte Signed Fixed Width Integer
-  index = dissect.num_orders(buffer, index, packet, parent)
+  index, num_orders = dissect.num_orders(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index = dissect.side(buffer, index, packet, parent)
+  index, side = dissect.side(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   return index
 end
@@ -807,13 +827,14 @@ end
 
 -- Dissect: Mpv
 dissect.mpv = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.mpv)
+  local length = size_of.mpv
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.mpv(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.mpv, range, value, display)
 
-  return offset + size_of.mpv
+  return offset + length, value
 end
 
 -- Size: Symbol
@@ -826,13 +847,14 @@ end
 
 -- Dissect: Symbol
 dissect.symbol = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.symbol)
+  local length = size_of.symbol
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.symbol, range, value, display)
 
-  return offset + size_of.symbol
+  return offset + length, value
 end
 
 -- Size: Symbol Seq Num
@@ -845,13 +867,14 @@ end
 
 -- Dissect: Symbol Seq Num
 dissect.symbol_seq_num = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.symbol_seq_num)
+  local length = size_of.symbol_seq_num
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.symbol_seq_num(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.symbol_seq_num, range, value, display)
 
-  return offset + size_of.symbol_seq_num
+  return offset + length, value
 end
 
 -- Size: Update Size
@@ -864,13 +887,14 @@ end
 
 -- Dissect: Update Size
 dissect.update_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.update_size)
+  local length = size_of.update_size
+  local range = buffer(offset, length)
   local value = range:int()
   local display = display.update_size(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.update_size, range, value, display)
 
-  return offset + size_of.update_size
+  return offset + length, value
 end
 
 -- Size Of: Full Update Message
@@ -888,43 +912,43 @@ dissect.full_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Update Size: 2 Byte Signed Fixed Width Integer
-  index = dissect.update_size(buffer, index, packet, parent)
+  index, update_size = dissect.update_size(buffer, index, packet, parent)
 
   -- Symbol Index: 4 Byte Signed Fixed Width Integer
-  index = dissect.symbol_index(buffer, index, packet, parent)
+  index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
   -- Source Time: 4 Byte Signed Fixed Width Integer
-  index = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Micro Secs: 2 Byte Signed Fixed Width Integer
-  index = dissect.source_time_micro_secs(buffer, index, packet, parent)
+  index, source_time_micro_secs = dissect.source_time_micro_secs(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Signed Fixed Width Integer
-  index = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Source Session Id: 1 Byte Signed Fixed Width Integer
-  index = dissect.source_session_id(buffer, index, packet, parent)
+  index, source_session_id = dissect.source_session_id(buffer, index, packet, parent)
 
   -- Symbol: 11 Byte Ascii String
-  index = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = dissect.symbol(buffer, index, packet, parent)
 
   -- Price Scale Code: 1 Byte Signed Fixed Width Integer
-  index = dissect.price_scale_code(buffer, index, packet, parent)
+  index, price_scale_code = dissect.price_scale_code(buffer, index, packet, parent)
 
   -- Quote Condition: 1 Byte Ascii String Enum with 2 values
-  index = dissect.quote_condition(buffer, index, packet, parent)
+  index, quote_condition = dissect.quote_condition(buffer, index, packet, parent)
 
   -- Trading Status: 1 Byte Ascii String Enum with 6 values
-  index = dissect.trading_status(buffer, index, packet, parent)
+  index, trading_status = dissect.trading_status(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Mpv: 2 Byte Signed Fixed Width Integer
-  index = dissect.mpv(buffer, index, packet, parent)
+  index, mpv = dissect.mpv(buffer, index, packet, parent)
 
   -- Full Price Point: Struct of 5 fields
-  local end_of_payload = offset + buffer(offset, size_of.update_size):int() - (index - offset)
+  local end_of_payload = offset + update_size -(index - offset)
 
   -- Full Price Point: Struct of 5 fields
   while index < end_of_payload do
@@ -989,21 +1013,21 @@ dissect.full_update_messages = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, messagetype)
+size_of.payload = function(buffer, offset, message_type)
   -- Size of Full Update Messages
-  if messagetype == 230 then
+  if message_type == 230 then
     return size_of.full_update_messages(buffer, offset)
   end
   -- Size of Delta Update Messages
-  if messagetype == 231 then
+  if message_type == 231 then
     return size_of.delta_update_messages(buffer, offset)
   end
   -- Size of Sequence Number Reset Message
-  if messagetype == 1 then
+  if message_type == 1 then
     return 4
   end
   -- Size of Heartbeat Message
-  if messagetype == 2 then
+  if message_type == 2 then
     return 0
   end
 
@@ -1016,34 +1040,34 @@ display.payload = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Branches: Payload
-dissect.payload_branches = function(buffer, offset, packet, parent, messagetype)
+dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Full Update Messages
-  if messagetype == 230 then
+  if message_type == 230 then
     return dissect.full_update_messages(buffer, offset, packet, parent)
   end
   -- Dissect Delta Update Messages
-  if messagetype == 231 then
+  if message_type == 231 then
     return dissect.delta_update_messages(buffer, offset, packet, parent)
   end
   -- Dissect Sequence Number Reset Message
-  if messagetype == 1 then
+  if message_type == 1 then
     return dissect.sequence_number_reset_message(buffer, offset, packet, parent)
   end
   -- Dissect Heartbeat Message
-  if messagetype == 2 then
+  if message_type == 2 then
   end
 
   return offset
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent, code)
+dissect.payload = function(buffer, offset, packet, parent, message_type)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, code)
+    return dissect.payload_branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, code)
+  local size = size_of.payload(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
@@ -1053,7 +1077,7 @@ dissect.payload = function(buffer, offset, packet, parent, code)
   local display = display.payload(buffer, packet, parent)
   local element = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, code)
+  return dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Size: Link Flag
@@ -1066,13 +1090,14 @@ end
 
 -- Dissect: Link Flag
 dissect.link_flag = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.link_flag)
+  local length = size_of.link_flag
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.link_flag(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_flag, range, value, display)
 
-  return offset + size_of.link_flag
+  return offset + length, value
 end
 
 -- Size: Message Count
@@ -1085,13 +1110,14 @@ end
 
 -- Dissect: Message Count
 dissect.message_count = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.message_count)
+  local length = size_of.message_count
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.message_count(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.message_count, range, value, display)
 
-  return offset + size_of.message_count
+  return offset + length, value
 end
 
 -- Size: Retransmission Flag
@@ -1104,13 +1130,14 @@ end
 
 -- Dissect: Retransmission Flag
 dissect.retransmission_flag = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.retransmission_flag)
+  local length = size_of.retransmission_flag
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.retransmission_flag(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.retransmission_flag, range, value, display)
 
-  return offset + size_of.retransmission_flag
+  return offset + length, value
 end
 
 -- Size: Product Id
@@ -1123,13 +1150,14 @@ end
 
 -- Dissect: Product Id
 dissect.product_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.product_id)
+  local length = size_of.product_id
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.product_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.product_id, range, value, display)
 
-  return offset + size_of.product_id
+  return offset + length, value
 end
 
 -- Size: Timestamp
@@ -1142,13 +1170,14 @@ end
 
 -- Dissect: Timestamp
 dissect.timestamp = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.timestamp)
+  local length = size_of.timestamp
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.timestamp, range, value, display)
 
-  return offset + size_of.timestamp
+  return offset + length, value
 end
 
 -- Size: Sequence Number
@@ -1161,13 +1190,14 @@ end
 
 -- Dissect: Sequence Number
 dissect.sequence_number = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.sequence_number)
+  local length = size_of.sequence_number
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.sequence_number, range, value, display)
 
-  return offset + size_of.sequence_number
+  return offset + length, value
 end
 
 -- Size: Message Type
@@ -1193,13 +1223,14 @@ end
 
 -- Dissect: Message Type
 dissect.message_type = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.message_type)
+  local length = size_of.message_type
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.message_type, range, value, display)
 
-  return offset + size_of.message_type
+  return offset + length, value
 end
 
 -- Size: Packet Size
@@ -1212,13 +1243,14 @@ end
 
 -- Dissect: Packet Size
 dissect.packet_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.packet_size)
+  local length = size_of.packet_size
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.packet_size(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.packet_size, range, value, display)
 
-  return offset + size_of.packet_size
+  return offset + length, value
 end
 
 -- Display: Packet Header
@@ -1231,28 +1263,28 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.packet_size(buffer, index, packet, parent)
+  index, packet_size = dissect.packet_size(buffer, index, packet, parent)
 
   -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index = dissect.message_type(buffer, index, packet, parent)
+  index, message_type = dissect.message_type(buffer, index, packet, parent)
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.sequence_number(buffer, index, packet, parent)
+  index, sequence_number = dissect.sequence_number(buffer, index, packet, parent)
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   -- Product Id: 1 Byte Unsigned Fixed Width Integer Static
-  index = dissect.product_id(buffer, index, packet, parent)
+  index, product_id = dissect.product_id(buffer, index, packet, parent)
 
   -- Retransmission Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.retransmission_flag(buffer, index, packet, parent)
+  index, retransmission_flag = dissect.retransmission_flag(buffer, index, packet, parent)
 
   -- Message Count: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.message_count(buffer, index, packet, parent)
+  index, message_count = dissect.message_count(buffer, index, packet, parent)
 
   -- Link Flag: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.link_flag(buffer, index, packet, parent)
+  index, link_flag = dissect.link_flag(buffer, index, packet, parent)
 
   return index
 end
@@ -1274,13 +1306,13 @@ dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 8 fields
-  index = dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = dissect.packet_header(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
-  local code = buffer(index - 14, 2):uint()
+  local message_type = buffer(index - 14, 2):uint()
 
   -- Payload: Runtime Type with 4 branches
-  index = dissect.payload(buffer, index, packet, parent, code)
+  index = dissect.payload(buffer, index, packet, parent, message_type)
 
   return index
 end

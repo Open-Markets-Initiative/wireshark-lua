@@ -538,13 +538,14 @@ end
 
 -- Dissect: Reserved 4
 dissect.reserved_4 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved_4)
+  local length = size_of.reserved_4
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved_4(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.reserved_4, range, value, display)
 
-  return offset + size_of.reserved_4
+  return offset + length, value
 end
 
 -- Size: Index Value
@@ -557,13 +558,14 @@ end
 
 -- Dissect: Index Value
 dissect.index_value = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.index_value)
+  local length = size_of.index_value
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.index_value(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.index_value, range, value, display)
 
-  return offset + size_of.index_value
+  return offset + length, value
 end
 
 -- Size: Index Value Denominator Code
@@ -576,13 +578,14 @@ end
 
 -- Dissect: Index Value Denominator Code
 dissect.index_value_denominator_code = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.index_value_denominator_code)
+  local length = size_of.index_value_denominator_code
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.index_value_denominator_code(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.index_value_denominator_code, range, value, display)
 
-  return offset + size_of.index_value_denominator_code
+  return offset + length, value
 end
 
 -- Size: Reserved 1
@@ -595,13 +598,14 @@ end
 
 -- Dissect: Reserved 1
 dissect.reserved_1 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.reserved_1)
+  local length = size_of.reserved_1
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved_1(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.reserved_1, range, value, display)
 
-  return offset + size_of.reserved_1
+  return offset + length, value
 end
 
 -- Size: Security Symbol 5
@@ -614,13 +618,14 @@ end
 
 -- Dissect: Security Symbol 5
 dissect.security_symbol_5 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_symbol_5)
+  local length = size_of.security_symbol_5
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.security_symbol_5(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.security_symbol_5, range, value, display)
 
-  return offset + size_of.security_symbol_5
+  return offset + length, value
 end
 
 -- Display: Underlying Value Message
@@ -633,19 +638,19 @@ dissect.underlying_value_message_fields = function(buffer, offset, packet, paren
   local index = offset
 
   -- Security Symbol 5: 5 Byte Ascii String
-  index = dissect.security_symbol_5(buffer, index, packet, parent)
+  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Index Value Denominator Code: 1 Byte Ascii String
-  index = dissect.index_value_denominator_code(buffer, index, packet, parent)
+  index, index_value_denominator_code = dissect.index_value_denominator_code(buffer, index, packet, parent)
 
   -- Index Value: 4 Byte Signed Fixed Width Integer
-  index = dissect.index_value(buffer, index, packet, parent)
+  index, index_value = dissect.index_value(buffer, index, packet, parent)
 
   -- Reserved 4: 4 Byte
-  index = dissect.reserved_4(buffer, index, packet, parent)
+  index, reserved_4 = dissect.reserved_4(buffer, index, packet, parent)
 
   return index
 end
@@ -663,9 +668,9 @@ dissect.underlying_value_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: UNDERLYING VALUE Payload
-size_of.underlying_value_payload_ = function(buffer, offset, underlyingvaluemessageindicator)
+size_of.underlying_value_payload_ = function(buffer, offset, underlying_value_message_indicator_)
   -- Size of Underlying Value Message
-  if underlyingvaluemessageindicator == " " then
+  if underlying_value_message_indicator_ == " " then
     return 15
   end
 
@@ -678,9 +683,9 @@ display.underlying_value_payload_ = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Branches: UNDERLYING VALUE Payload
-dissect.underlying_value_payload__branches = function(buffer, offset, packet, parent, underlyingvaluemessageindicator)
+dissect.underlying_value_payload__branches = function(buffer, offset, packet, parent, underlying_value_message_indicator_)
   -- Dissect Underlying Value Message
-  if underlyingvaluemessageindicator == " " then
+  if underlying_value_message_indicator_ == " " then
     return dissect.underlying_value_message(buffer, offset, packet, parent)
   end
 
@@ -688,13 +693,13 @@ dissect.underlying_value_payload__branches = function(buffer, offset, packet, pa
 end
 
 -- Dissect: UNDERLYING VALUE Payload
-dissect.underlying_value_payload_ = function(buffer, offset, packet, parent, code)
+dissect.underlying_value_payload_ = function(buffer, offset, packet, parent, underlying_value_message_indicator_)
   if not show.underlying_value_payload_ then
-    return dissect.underlying_value_payload__branches(buffer, offset, packet, parent, code)
+    return dissect.underlying_value_payload__branches(buffer, offset, packet, parent, underlying_value_message_indicator_)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.underlying_value_payload_(buffer, offset, code)
+  local size = size_of.underlying_value_payload_(buffer, offset, underlying_value_message_indicator_)
   if size == 0 then
     return offset
   end
@@ -704,7 +709,7 @@ dissect.underlying_value_payload_ = function(buffer, offset, packet, parent, cod
   local display = display.underlying_value_payload_(buffer, packet, parent)
   local element = parent:add(opra_options_recipient_obdi_v2_9.fields.underlying_value_payload_, range, display)
 
-  return dissect.underlying_value_payload__branches(buffer, offset, packet, parent, code)
+  return dissect.underlying_value_payload__branches(buffer, offset, packet, parent, underlying_value_message_indicator_)
 end
 
 -- Size: Transaction ID
@@ -717,13 +722,14 @@ end
 
 -- Dissect: Transaction ID
 dissect.transaction_id_ = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.transaction_id_)
+  local length = size_of.transaction_id_
+  local range = buffer(offset, length)
   local value = range:uint64()
   local display = display.transaction_id_(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.transaction_id_, range, value, display)
 
-  return offset + size_of.transaction_id_
+  return offset + length, value
 end
 
 -- Calculate runtime size: UNDERLYING VALUE Category
@@ -750,19 +756,16 @@ dissect.underlying_value_category_fields = function(buffer, offset, packet, pare
   local index = offset
 
   -- UNDERLYING VALUE Message Type
-  index = dissect.underlying_value_message_type(buffer, index, packet, parent)
+  index, underlying_value_message_type = dissect.underlying_value_message_type(buffer, index, packet, parent)
 
   -- UNDERLYING VALUE Message Indicator
-  index = dissect.underlying_value_message_indicator_(buffer, index, packet, parent)
+  index, underlying_value_message_indicator_ = dissect.underlying_value_message_indicator_(buffer, index, packet, parent)
 
   -- Transaction ID : 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transaction_id_(buffer, index, packet, parent)
-
-  -- Dependency element: UNDERLYING VALUE Message Indicator
-  local code = buffer(index - 8, 0):bytes():tohex(false, " ")
+  index, transaction_id_ = dissect.transaction_id_(buffer, index, packet, parent)
 
   -- UNDERLYING VALUE Payload : Runtime Type with 1 branches
-  index = dissect.underlying_value_payload_(buffer, index, packet, parent, code)
+  index = dissect.underlying_value_payload_(buffer, index, packet, parent, underlying_value_message_indicator_)
 
   return index
 end
@@ -806,13 +809,14 @@ end
 
 -- Dissect: Message Data Length
 dissect.message_data_length = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.message_data_length)
+  local length = size_of.message_data_length
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.message_data_length(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.message_data_length, range, value, display)
 
-  return offset + size_of.message_data_length
+  return offset + length, value
 end
 
 -- Calculate runtime size: Control Message
@@ -837,13 +841,10 @@ dissect.control_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Data Length: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.message_data_length(buffer, index, packet, parent)
-
-  -- Dependency element: Message Data Length
-  local message_data_count = buffer(index - 2, 2):le_uint()
+  index, message_data_length = dissect.message_data_length(buffer, index, packet, parent)
 
   -- Message Data: 4 Byte Ascii String
-  index = dissect.message_data(buffer, index, packet, parent, length)
+  index = dissect.message_data(buffer, index, packet, parent, message_data_length)
 
   return index
 end
@@ -862,9 +863,9 @@ dissect.control_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: CONTROL Payload
-size_of.control_payload_ = function(buffer, offset, controlmessageindicator)
+size_of.control_payload_ = function(buffer, offset, control_message_indicator_)
   -- Size of Control Message
-  if controlmessageindicator == " " then
+  if control_message_indicator_ == " " then
     return size_of.control_message(buffer, offset)
   end
 
@@ -877,9 +878,9 @@ display.control_payload_ = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Branches: CONTROL Payload
-dissect.control_payload__branches = function(buffer, offset, packet, parent, controlmessageindicator)
+dissect.control_payload__branches = function(buffer, offset, packet, parent, control_message_indicator_)
   -- Dissect Control Message
-  if controlmessageindicator == " " then
+  if control_message_indicator_ == " " then
     return dissect.control_message(buffer, offset, packet, parent)
   end
 
@@ -887,13 +888,13 @@ dissect.control_payload__branches = function(buffer, offset, packet, parent, con
 end
 
 -- Dissect: CONTROL Payload
-dissect.control_payload_ = function(buffer, offset, packet, parent, code)
+dissect.control_payload_ = function(buffer, offset, packet, parent, control_message_indicator_)
   if not show.control_payload_ then
-    return dissect.control_payload__branches(buffer, offset, packet, parent, code)
+    return dissect.control_payload__branches(buffer, offset, packet, parent, control_message_indicator_)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.control_payload_(buffer, offset, code)
+  local size = size_of.control_payload_(buffer, offset, control_message_indicator_)
   if size == 0 then
     return offset
   end
@@ -903,7 +904,7 @@ dissect.control_payload_ = function(buffer, offset, packet, parent, code)
   local display = display.control_payload_(buffer, packet, parent)
   local element = parent:add(opra_options_recipient_obdi_v2_9.fields.control_payload_, range, display)
 
-  return dissect.control_payload__branches(buffer, offset, packet, parent, code)
+  return dissect.control_payload__branches(buffer, offset, packet, parent, control_message_indicator_)
 end
 
 -- Calculate runtime size: CONTROL Category
@@ -930,19 +931,16 @@ dissect.control_category_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- CONTROL Message Type
-  index = dissect.control_message_type(buffer, index, packet, parent)
+  index, control_message_type = dissect.control_message_type(buffer, index, packet, parent)
 
   -- CONTROL Message Indicator
-  index = dissect.control_message_indicator_(buffer, index, packet, parent)
+  index, control_message_indicator_ = dissect.control_message_indicator_(buffer, index, packet, parent)
 
   -- Transaction ID : 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transaction_id_(buffer, index, packet, parent)
-
-  -- Dependency element: CONTROL Message Indicator
-  local code = buffer(index - 8, 0):bytes():tohex(false, " ")
+  index, transaction_id_ = dissect.transaction_id_(buffer, index, packet, parent)
 
   -- CONTROL Payload : Runtime Type with 1 branches
-  index = dissect.control_payload_(buffer, index, packet, parent, code)
+  index = dissect.control_payload_(buffer, index, packet, parent, control_message_indicator_)
 
   return index
 end
@@ -982,13 +980,10 @@ dissect.administrative_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Data Length: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.message_data_length(buffer, index, packet, parent)
-
-  -- Dependency element: Message Data Length
-  local message_data_count = buffer(index - 2, 2):le_uint()
+  index, message_data_length = dissect.message_data_length(buffer, index, packet, parent)
 
   -- Message Data: 4 Byte Ascii String
-  index = dissect.message_data(buffer, index, packet, parent, length)
+  index = dissect.message_data(buffer, index, packet, parent, message_data_length)
 
   return index
 end
@@ -1007,9 +1002,9 @@ dissect.administrative_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Administrative Payload
-size_of.administrative_payload_ = function(buffer, offset, administrativemessageindicator)
+size_of.administrative_payload_ = function(buffer, offset, administrative_message_indicator_)
   -- Size of Administrative Message
-  if administrativemessageindicator == " " then
+  if administrative_message_indicator_ == " " then
     return size_of.administrative_message(buffer, offset)
   end
 
@@ -1022,9 +1017,9 @@ display.administrative_payload_ = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Branches: Administrative Payload
-dissect.administrative_payload__branches = function(buffer, offset, packet, parent, administrativemessageindicator)
+dissect.administrative_payload__branches = function(buffer, offset, packet, parent, administrative_message_indicator_)
   -- Dissect Administrative Message
-  if administrativemessageindicator == " " then
+  if administrative_message_indicator_ == " " then
     return dissect.administrative_message(buffer, offset, packet, parent)
   end
 
@@ -1032,13 +1027,13 @@ dissect.administrative_payload__branches = function(buffer, offset, packet, pare
 end
 
 -- Dissect: Administrative Payload
-dissect.administrative_payload_ = function(buffer, offset, packet, parent, code)
+dissect.administrative_payload_ = function(buffer, offset, packet, parent, administrative_message_indicator_)
   if not show.administrative_payload_ then
-    return dissect.administrative_payload__branches(buffer, offset, packet, parent, code)
+    return dissect.administrative_payload__branches(buffer, offset, packet, parent, administrative_message_indicator_)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.administrative_payload_(buffer, offset, code)
+  local size = size_of.administrative_payload_(buffer, offset, administrative_message_indicator_)
   if size == 0 then
     return offset
   end
@@ -1048,7 +1043,7 @@ dissect.administrative_payload_ = function(buffer, offset, packet, parent, code)
   local display = display.administrative_payload_(buffer, packet, parent)
   local element = parent:add(opra_options_recipient_obdi_v2_9.fields.administrative_payload_, range, display)
 
-  return dissect.administrative_payload__branches(buffer, offset, packet, parent, code)
+  return dissect.administrative_payload__branches(buffer, offset, packet, parent, administrative_message_indicator_)
 end
 
 -- Calculate runtime size: ADMINISTRATIVE Category
@@ -1075,19 +1070,16 @@ dissect.administrative_category_fields = function(buffer, offset, packet, parent
   local index = offset
 
   -- Administrative Message Type
-  index = dissect.administrative_message_type(buffer, index, packet, parent)
+  index, administrative_message_type = dissect.administrative_message_type(buffer, index, packet, parent)
 
   -- Administrative Message Indicator
-  index = dissect.administrative_message_indicator_(buffer, index, packet, parent)
+  index, administrative_message_indicator_ = dissect.administrative_message_indicator_(buffer, index, packet, parent)
 
   -- Transaction ID : 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transaction_id_(buffer, index, packet, parent)
-
-  -- Dependency element: Administrative Message Indicator
-  local code = buffer(index - 8, 0):bytes():tohex(false, " ")
+  index, transaction_id_ = dissect.transaction_id_(buffer, index, packet, parent)
 
   -- Administrative Payload : Runtime Type with 1 branches
-  index = dissect.administrative_payload_(buffer, index, packet, parent, code)
+  index = dissect.administrative_payload_(buffer, index, packet, parent, administrative_message_indicator_)
 
   return index
 end
@@ -1115,13 +1107,14 @@ end
 
 -- Dissect: Offer Size 2
 dissect.offer_size_2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.offer_size_2)
+  local length = size_of.offer_size_2
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.offer_size_2(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.offer_size_2, range, value, display)
 
-  return offset + size_of.offer_size_2
+  return offset + length, value
 end
 
 -- Size: Offer Price 2
@@ -1134,13 +1127,14 @@ end
 
 -- Dissect: Offer Price 2
 dissect.offer_price_2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.offer_price_2)
+  local length = size_of.offer_price_2
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.offer_price_2(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.offer_price_2, range, value, display)
 
-  return offset + size_of.offer_price_2
+  return offset + length, value
 end
 
 -- Size: Bid Size 2
@@ -1153,13 +1147,14 @@ end
 
 -- Dissect: Bid Size 2
 dissect.bid_size_2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.bid_size_2)
+  local length = size_of.bid_size_2
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.bid_size_2(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.bid_size_2, range, value, display)
 
-  return offset + size_of.bid_size_2
+  return offset + length, value
 end
 
 -- Size: Bid Price 2
@@ -1172,13 +1167,14 @@ end
 
 -- Dissect: Bid Price 2
 dissect.bid_price_2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.bid_price_2)
+  local length = size_of.bid_price_2
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.bid_price_2(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.bid_price_2, range, value, display)
 
-  return offset + size_of.bid_price_2
+  return offset + length, value
 end
 
 -- Size: Strike Price 2
@@ -1191,13 +1187,14 @@ end
 
 -- Dissect: Strike Price 2
 dissect.strike_price_2 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.strike_price_2)
+  local length = size_of.strike_price_2
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.strike_price_2(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.strike_price_2, range, value, display)
 
-  return offset + size_of.strike_price_2
+  return offset + length, value
 end
 
 -- Size: Expiration Year
@@ -1210,13 +1207,14 @@ end
 
 -- Dissect: Expiration Year
 dissect.expiration_year = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.expiration_year)
+  local length = size_of.expiration_year
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.expiration_year(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.expiration_year, range, value, display)
 
-  return offset + size_of.expiration_year
+  return offset + length, value
 end
 
 -- Size: Expiration Day
@@ -1229,13 +1227,14 @@ end
 
 -- Dissect: Expiration Day
 dissect.expiration_day = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.expiration_day)
+  local length = size_of.expiration_day
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.expiration_day(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.expiration_day, range, value, display)
 
-  return offset + size_of.expiration_day
+  return offset + length, value
 end
 
 -- Size: Expiration Month
@@ -1321,13 +1320,14 @@ end
 
 -- Dissect: Expiration Month
 dissect.expiration_month = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.expiration_month)
+  local length = size_of.expiration_month
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.expiration_month(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.expiration_month, range, value, display)
 
-  return offset + size_of.expiration_month
+  return offset + length, value
 end
 
 -- Size: Security Symbol 4
@@ -1340,13 +1340,14 @@ end
 
 -- Dissect: Security Symbol 4
 dissect.security_symbol_4 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.security_symbol_4)
+  local length = size_of.security_symbol_4
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.security_symbol_4(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.security_symbol_4, range, value, display)
 
-  return offset + size_of.security_symbol_4
+  return offset + length, value
 end
 
 -- Display: Short Quote Space Message
@@ -1359,31 +1360,31 @@ dissect.short_quote_space_message_fields = function(buffer, offset, packet, pare
   local index = offset
 
   -- Security Symbol 4: 4 Byte Ascii String
-  index = dissect.security_symbol_4(buffer, index, packet, parent)
+  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_2(buffer, index, packet, parent)
+  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
 
   -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_2(buffer, index, packet, parent)
+  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
 
   -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_2(buffer, index, packet, parent)
+  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
 
   -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_2(buffer, index, packet, parent)
+  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
 
   -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_2(buffer, index, packet, parent)
+  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
 
   return index
 end
@@ -1410,13 +1411,14 @@ end
 
 -- Dissect: Best Offer Size
 dissect.best_offer_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.best_offer_size)
+  local length = size_of.best_offer_size
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.best_offer_size(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.best_offer_size, range, value, display)
 
-  return offset + size_of.best_offer_size
+  return offset + length, value
 end
 
 -- Size: Best Offer Price
@@ -1429,13 +1431,14 @@ end
 
 -- Dissect: Best Offer Price
 dissect.best_offer_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.best_offer_price)
+  local length = size_of.best_offer_price
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.best_offer_price(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.best_offer_price, range, value, display)
 
-  return offset + size_of.best_offer_price
+  return offset + length, value
 end
 
 -- Size: Best Offer Denominator Code
@@ -1448,13 +1451,14 @@ end
 
 -- Dissect: Best Offer Denominator Code
 dissect.best_offer_denominator_code = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.best_offer_denominator_code)
+  local length = size_of.best_offer_denominator_code
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.best_offer_denominator_code(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.best_offer_denominator_code, range, value, display)
 
-  return offset + size_of.best_offer_denominator_code
+  return offset + length, value
 end
 
 -- Size: Best Offer Participant Id
@@ -1467,13 +1471,14 @@ end
 
 -- Dissect: Best Offer Participant Id
 dissect.best_offer_participant_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.best_offer_participant_id)
+  local length = size_of.best_offer_participant_id
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.best_offer_participant_id(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.best_offer_participant_id, range, value, display)
 
-  return offset + size_of.best_offer_participant_id
+  return offset + length, value
 end
 
 -- Size: Best Bid Size
@@ -1486,13 +1491,14 @@ end
 
 -- Dissect: Best Bid Size
 dissect.best_bid_size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.best_bid_size)
+  local length = size_of.best_bid_size
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.best_bid_size(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.best_bid_size, range, value, display)
 
-  return offset + size_of.best_bid_size
+  return offset + length, value
 end
 
 -- Size: Best Bid Price
@@ -1505,13 +1511,14 @@ end
 
 -- Dissect: Best Bid Price
 dissect.best_bid_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.best_bid_price)
+  local length = size_of.best_bid_price
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.best_bid_price(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.best_bid_price, range, value, display)
 
-  return offset + size_of.best_bid_price
+  return offset + length, value
 end
 
 -- Size: Best Bid Denominator Code
@@ -1524,13 +1531,14 @@ end
 
 -- Dissect: Best Bid Denominator Code
 dissect.best_bid_denominator_code = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.best_bid_denominator_code)
+  local length = size_of.best_bid_denominator_code
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.best_bid_denominator_code(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.best_bid_denominator_code, range, value, display)
 
-  return offset + size_of.best_bid_denominator_code
+  return offset + length, value
 end
 
 -- Size: Best Bid Participant Id
@@ -1543,13 +1551,14 @@ end
 
 -- Dissect: Best Bid Participant Id
 dissect.best_bid_participant_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.best_bid_participant_id)
+  local length = size_of.best_bid_participant_id
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.best_bid_participant_id(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.best_bid_participant_id, range, value, display)
 
-  return offset + size_of.best_bid_participant_id
+  return offset + length, value
 end
 
 -- Display: Short Quote P Message
@@ -1562,55 +1571,55 @@ dissect.short_quote_p_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 4: 4 Byte Ascii String
-  index = dissect.security_symbol_4(buffer, index, packet, parent)
+  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_2(buffer, index, packet, parent)
+  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
 
   -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_2(buffer, index, packet, parent)
+  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
 
   -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_2(buffer, index, packet, parent)
+  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
 
   -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_2(buffer, index, packet, parent)
+  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
 
   -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_2(buffer, index, packet, parent)
+  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
 
   -- Best Bid Participant Id: 1 Byte Ascii String
-  index = dissect.best_bid_participant_id(buffer, index, packet, parent)
+  index, best_bid_participant_id = dissect.best_bid_participant_id(buffer, index, packet, parent)
 
   -- Best Bid Denominator Code: 1 Byte Ascii String
-  index = dissect.best_bid_denominator_code(buffer, index, packet, parent)
+  index, best_bid_denominator_code = dissect.best_bid_denominator_code(buffer, index, packet, parent)
 
   -- Best Bid Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.best_bid_price(buffer, index, packet, parent)
+  index, best_bid_price = dissect.best_bid_price(buffer, index, packet, parent)
 
   -- Best Bid Size: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.best_bid_size(buffer, index, packet, parent)
+  index, best_bid_size = dissect.best_bid_size(buffer, index, packet, parent)
 
   -- Best Offer Participant Id: 1 Byte Ascii String
-  index = dissect.best_offer_participant_id(buffer, index, packet, parent)
+  index, best_offer_participant_id = dissect.best_offer_participant_id(buffer, index, packet, parent)
 
   -- Best Offer Denominator Code: 1 Byte Ascii String
-  index = dissect.best_offer_denominator_code(buffer, index, packet, parent)
+  index, best_offer_denominator_code = dissect.best_offer_denominator_code(buffer, index, packet, parent)
 
   -- Best Offer Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.best_offer_price(buffer, index, packet, parent)
+  index, best_offer_price = dissect.best_offer_price(buffer, index, packet, parent)
 
   -- Best Offer Size: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.best_offer_size(buffer, index, packet, parent)
+  index, best_offer_size = dissect.best_offer_size(buffer, index, packet, parent)
 
   return index
 end
@@ -1637,31 +1646,31 @@ dissect.short_quote_o_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 4: 4 Byte Ascii String
-  index = dissect.security_symbol_4(buffer, index, packet, parent)
+  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_2(buffer, index, packet, parent)
+  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
 
   -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_2(buffer, index, packet, parent)
+  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
 
   -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_2(buffer, index, packet, parent)
+  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
 
   -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_2(buffer, index, packet, parent)
+  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
 
   -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_2(buffer, index, packet, parent)
+  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
 
   return index
 end
@@ -1688,55 +1697,55 @@ dissect.short_quote_n_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 4: 4 Byte Ascii String
-  index = dissect.security_symbol_4(buffer, index, packet, parent)
+  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_2(buffer, index, packet, parent)
+  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
 
   -- Bid Price
-  index = dissect.bid_price(buffer, index, packet, parent)
+  index, bid_price = dissect.bid_price(buffer, index, packet, parent)
 
   -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_2(buffer, index, packet, parent)
+  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
 
   -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_2(buffer, index, packet, parent)
+  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
 
   -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_2(buffer, index, packet, parent)
+  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
 
   -- Best Bid Participant Id: 1 Byte Ascii String
-  index = dissect.best_bid_participant_id(buffer, index, packet, parent)
+  index, best_bid_participant_id = dissect.best_bid_participant_id(buffer, index, packet, parent)
 
   -- Best Bid Denominator Code: 1 Byte Ascii String
-  index = dissect.best_bid_denominator_code(buffer, index, packet, parent)
+  index, best_bid_denominator_code = dissect.best_bid_denominator_code(buffer, index, packet, parent)
 
   -- Best Bid Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.best_bid_price(buffer, index, packet, parent)
+  index, best_bid_price = dissect.best_bid_price(buffer, index, packet, parent)
 
   -- Best Bid Size: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.best_bid_size(buffer, index, packet, parent)
+  index, best_bid_size = dissect.best_bid_size(buffer, index, packet, parent)
 
   -- Best Offer Participant Id: 1 Byte Ascii String
-  index = dissect.best_offer_participant_id(buffer, index, packet, parent)
+  index, best_offer_participant_id = dissect.best_offer_participant_id(buffer, index, packet, parent)
 
   -- Best Offer Denominator Code: 1 Byte Ascii String
-  index = dissect.best_offer_denominator_code(buffer, index, packet, parent)
+  index, best_offer_denominator_code = dissect.best_offer_denominator_code(buffer, index, packet, parent)
 
   -- Best Offer Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.best_offer_price(buffer, index, packet, parent)
+  index, best_offer_price = dissect.best_offer_price(buffer, index, packet, parent)
 
   -- Best Offer Size: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.best_offer_size(buffer, index, packet, parent)
+  index, best_offer_size = dissect.best_offer_size(buffer, index, packet, parent)
 
   return index
 end
@@ -1763,55 +1772,55 @@ dissect.short_quote_m_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 4: 4 Byte Ascii String
-  index = dissect.security_symbol_4(buffer, index, packet, parent)
+  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_2(buffer, index, packet, parent)
+  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
 
   -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_2(buffer, index, packet, parent)
+  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
 
   -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_2(buffer, index, packet, parent)
+  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
 
   -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_2(buffer, index, packet, parent)
+  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
 
   -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_2(buffer, index, packet, parent)
+  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
 
   -- Best Bid Participant Id: 1 Byte Ascii String
-  index = dissect.best_bid_participant_id(buffer, index, packet, parent)
+  index, best_bid_participant_id = dissect.best_bid_participant_id(buffer, index, packet, parent)
 
   -- Best Bid Denominator Code: 1 Byte Ascii String
-  index = dissect.best_bid_denominator_code(buffer, index, packet, parent)
+  index, best_bid_denominator_code = dissect.best_bid_denominator_code(buffer, index, packet, parent)
 
   -- Best Bid Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.best_bid_price(buffer, index, packet, parent)
+  index, best_bid_price = dissect.best_bid_price(buffer, index, packet, parent)
 
   -- Best Bid Size: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.best_bid_size(buffer, index, packet, parent)
+  index, best_bid_size = dissect.best_bid_size(buffer, index, packet, parent)
 
   -- Best Offer Participant Id: 1 Byte Ascii String
-  index = dissect.best_offer_participant_id(buffer, index, packet, parent)
+  index, best_offer_participant_id = dissect.best_offer_participant_id(buffer, index, packet, parent)
 
   -- Best Offer Denominator Code: 1 Byte Ascii String
-  index = dissect.best_offer_denominator_code(buffer, index, packet, parent)
+  index, best_offer_denominator_code = dissect.best_offer_denominator_code(buffer, index, packet, parent)
 
   -- Best Offer Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.best_offer_price(buffer, index, packet, parent)
+  index, best_offer_price = dissect.best_offer_price(buffer, index, packet, parent)
 
   -- Best Offer Size: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.best_offer_size(buffer, index, packet, parent)
+  index, best_offer_size = dissect.best_offer_size(buffer, index, packet, parent)
 
   return index
 end
@@ -1838,31 +1847,31 @@ dissect.short_quote_l_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 4: 4 Byte Ascii String
-  index = dissect.security_symbol_4(buffer, index, packet, parent)
+  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_2(buffer, index, packet, parent)
+  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
 
   -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_2(buffer, index, packet, parent)
+  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
 
   -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_2(buffer, index, packet, parent)
+  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
 
   -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_2(buffer, index, packet, parent)
+  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
 
   -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_2(buffer, index, packet, parent)
+  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
 
   return index
 end
@@ -1889,13 +1898,14 @@ end
 
 -- Dissect: Size
 dissect.size = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.size)
+  local length = size_of.size
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.size(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.size, range, value, display)
 
-  return offset + size_of.size
+  return offset + length, value
 end
 
 -- Size: Price
@@ -1908,13 +1918,14 @@ end
 
 -- Dissect: Price
 dissect.price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.price)
+  local length = size_of.price
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.price(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.price, range, value, display)
 
-  return offset + size_of.price
+  return offset + length, value
 end
 
 -- Size: Denominator Code
@@ -1927,13 +1938,14 @@ end
 
 -- Dissect: Denominator Code
 dissect.denominator_code = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.denominator_code)
+  local length = size_of.denominator_code
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.denominator_code(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.denominator_code, range, value, display)
 
-  return offset + size_of.denominator_code
+  return offset + length, value
 end
 
 -- Size: Participant Id
@@ -1998,13 +2010,14 @@ end
 
 -- Dissect: Participant Id
 dissect.participant_id = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.participant_id)
+  local length = size_of.participant_id
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.participant_id(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.participant_id, range, value, display)
 
-  return offset + size_of.participant_id
+  return offset + length, value
 end
 
 -- Display: Short Quote K Message
@@ -2017,43 +2030,43 @@ dissect.short_quote_k_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 4: 4 Byte Ascii String
-  index = dissect.security_symbol_4(buffer, index, packet, parent)
+  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_2(buffer, index, packet, parent)
+  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
 
   -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_2(buffer, index, packet, parent)
+  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
 
   -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_2(buffer, index, packet, parent)
+  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
 
   -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_2(buffer, index, packet, parent)
+  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
 
   -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_2(buffer, index, packet, parent)
+  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
 
   -- Participant Id: 1 Byte Ascii String Enum with 17 values
-  index = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
 
   -- Denominator Code: 1 Byte Ascii String
-  index = dissect.denominator_code(buffer, index, packet, parent)
+  index, denominator_code = dissect.denominator_code(buffer, index, packet, parent)
 
   -- Price: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.size(buffer, index, packet, parent)
+  index, size = dissect.size(buffer, index, packet, parent)
 
   return index
 end
@@ -2080,31 +2093,31 @@ dissect.short_quote_j_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 4: 4 Byte Ascii String
-  index = dissect.security_symbol_4(buffer, index, packet, parent)
+  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_2(buffer, index, packet, parent)
+  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
 
   -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_2(buffer, index, packet, parent)
+  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
 
   -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_2(buffer, index, packet, parent)
+  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
 
   -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_2(buffer, index, packet, parent)
+  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
 
   -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_2(buffer, index, packet, parent)
+  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
 
   return index
 end
@@ -2131,31 +2144,31 @@ dissect.short_quote_i_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 4: 4 Byte Ascii String
-  index = dissect.security_symbol_4(buffer, index, packet, parent)
+  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_2(buffer, index, packet, parent)
+  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
 
   -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_2(buffer, index, packet, parent)
+  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
 
   -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_2(buffer, index, packet, parent)
+  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
 
   -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_2(buffer, index, packet, parent)
+  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
 
   -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_2(buffer, index, packet, parent)
+  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
 
   return index
 end
@@ -2182,31 +2195,31 @@ dissect.short_quote_h_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 4: 4 Byte Ascii String
-  index = dissect.security_symbol_4(buffer, index, packet, parent)
+  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_2(buffer, index, packet, parent)
+  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
 
   -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_2(buffer, index, packet, parent)
+  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
 
   -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_2(buffer, index, packet, parent)
+  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
 
   -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_2(buffer, index, packet, parent)
+  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
 
   -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_2(buffer, index, packet, parent)
+  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
 
   return index
 end
@@ -2233,43 +2246,43 @@ dissect.short_quote_g_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 4: 4 Byte Ascii String
-  index = dissect.security_symbol_4(buffer, index, packet, parent)
+  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_2(buffer, index, packet, parent)
+  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
 
   -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_2(buffer, index, packet, parent)
+  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
 
   -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_2(buffer, index, packet, parent)
+  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
 
   -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_2(buffer, index, packet, parent)
+  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
 
   -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_2(buffer, index, packet, parent)
+  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
 
   -- Participant Id: 1 Byte Ascii String Enum with 17 values
-  index = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
 
   -- Denominator Code: 1 Byte Ascii String
-  index = dissect.denominator_code(buffer, index, packet, parent)
+  index, denominator_code = dissect.denominator_code(buffer, index, packet, parent)
 
   -- Price: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.size(buffer, index, packet, parent)
+  index, size = dissect.size(buffer, index, packet, parent)
 
   return index
 end
@@ -2296,31 +2309,31 @@ dissect.short_quote_f_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 4: 4 Byte Ascii String
-  index = dissect.security_symbol_4(buffer, index, packet, parent)
+  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_2(buffer, index, packet, parent)
+  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
 
   -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_2(buffer, index, packet, parent)
+  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
 
   -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_2(buffer, index, packet, parent)
+  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
 
   -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_2(buffer, index, packet, parent)
+  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
 
   -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_2(buffer, index, packet, parent)
+  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
 
   return index
 end
@@ -2347,31 +2360,31 @@ dissect.short_quote_e_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 4: 4 Byte Ascii String
-  index = dissect.security_symbol_4(buffer, index, packet, parent)
+  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_2(buffer, index, packet, parent)
+  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
 
   -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_2(buffer, index, packet, parent)
+  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
 
   -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_2(buffer, index, packet, parent)
+  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
 
   -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_2(buffer, index, packet, parent)
+  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
 
   -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_2(buffer, index, packet, parent)
+  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
 
   return index
 end
@@ -2398,31 +2411,31 @@ dissect.short_quote_d_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 4: 4 Byte Ascii String
-  index = dissect.security_symbol_4(buffer, index, packet, parent)
+  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_2(buffer, index, packet, parent)
+  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
 
   -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_2(buffer, index, packet, parent)
+  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
 
   -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_2(buffer, index, packet, parent)
+  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
 
   -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_2(buffer, index, packet, parent)
+  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
 
   -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_2(buffer, index, packet, parent)
+  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
 
   return index
 end
@@ -2449,43 +2462,43 @@ dissect.short_quote_c_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 4: 4 Byte Ascii String
-  index = dissect.security_symbol_4(buffer, index, packet, parent)
+  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_2(buffer, index, packet, parent)
+  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
 
   -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_2(buffer, index, packet, parent)
+  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
 
   -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_2(buffer, index, packet, parent)
+  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
 
   -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_2(buffer, index, packet, parent)
+  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
 
   -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_2(buffer, index, packet, parent)
+  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
 
   -- Participant Id: 1 Byte Ascii String Enum with 17 values
-  index = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
 
   -- Denominator Code: 1 Byte Ascii String
-  index = dissect.denominator_code(buffer, index, packet, parent)
+  index, denominator_code = dissect.denominator_code(buffer, index, packet, parent)
 
   -- Price: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.size(buffer, index, packet, parent)
+  index, size = dissect.size(buffer, index, packet, parent)
 
   return index
 end
@@ -2512,31 +2525,31 @@ dissect.short_quote_b_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 4: 4 Byte Ascii String
-  index = dissect.security_symbol_4(buffer, index, packet, parent)
+  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_2(buffer, index, packet, parent)
+  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
 
   -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_2(buffer, index, packet, parent)
+  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
 
   -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_2(buffer, index, packet, parent)
+  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
 
   -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_2(buffer, index, packet, parent)
+  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
 
   -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_2(buffer, index, packet, parent)
+  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
 
   return index
 end
@@ -2563,31 +2576,31 @@ dissect.short_quote_a_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 4: 4 Byte Ascii String
-  index = dissect.security_symbol_4(buffer, index, packet, parent)
+  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_2(buffer, index, packet, parent)
+  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
 
   -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_2(buffer, index, packet, parent)
+  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
 
   -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_2(buffer, index, packet, parent)
+  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
 
   -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_2(buffer, index, packet, parent)
+  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
 
   -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_2(buffer, index, packet, parent)
+  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
 
   return index
 end
@@ -2605,73 +2618,73 @@ dissect.short_quote_a_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Short Quote Message
-size_of.short_quote_message_ = function(buffer, offset, shortquotemessageindicator)
+size_of.short_quote_message_ = function(buffer, offset, short_quote_message_indicator_)
   -- Size of Short Quote A Message
-  if shortquotemessageindicator == A then
+  if short_quote_message_indicator_ == A then
     return 17
   end
   -- Size of Short Quote B Message
-  if shortquotemessageindicator == B then
+  if short_quote_message_indicator_ == B then
     return 17
   end
   -- Size of Short Quote C Message
-  if shortquotemessageindicator == C then
+  if short_quote_message_indicator_ == C then
     return 25
   end
   -- Size of Short Quote D Message
-  if shortquotemessageindicator == D then
+  if short_quote_message_indicator_ == D then
     return 17
   end
   -- Size of Short Quote E Message
-  if shortquotemessageindicator == E then
+  if short_quote_message_indicator_ == E then
     return 17
   end
   -- Size of Short Quote F Message
-  if shortquotemessageindicator == F then
+  if short_quote_message_indicator_ == F then
     return 17
   end
   -- Size of Short Quote G Message
-  if shortquotemessageindicator == G then
+  if short_quote_message_indicator_ == G then
     return 25
   end
   -- Size of Short Quote H Message
-  if shortquotemessageindicator == H then
+  if short_quote_message_indicator_ == H then
     return 17
   end
   -- Size of Short Quote I Message
-  if shortquotemessageindicator == I then
+  if short_quote_message_indicator_ == I then
     return 17
   end
   -- Size of Short Quote J Message
-  if shortquotemessageindicator == J then
+  if short_quote_message_indicator_ == J then
     return 17
   end
   -- Size of Short Quote K Message
-  if shortquotemessageindicator == K then
+  if short_quote_message_indicator_ == K then
     return 25
   end
   -- Size of Short Quote L Message
-  if shortquotemessageindicator == L then
+  if short_quote_message_indicator_ == L then
     return 17
   end
   -- Size of Short Quote M Message
-  if shortquotemessageindicator == M then
+  if short_quote_message_indicator_ == M then
     return 37
   end
   -- Size of Short Quote N Message
-  if shortquotemessageindicator == N then
+  if short_quote_message_indicator_ == N then
     return 35
   end
   -- Size of Short Quote O Message
-  if shortquotemessageindicator == O then
+  if short_quote_message_indicator_ == O then
     return 17
   end
   -- Size of Short Quote P Message
-  if shortquotemessageindicator == P then
+  if short_quote_message_indicator_ == P then
     return 37
   end
   -- Size of Short Quote Space Message
-  if shortquotemessageindicator == " " then
+  if short_quote_message_indicator_ == " " then
     return 17
   end
 
@@ -2684,73 +2697,73 @@ display.short_quote_message_ = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Branches: Short Quote Message
-dissect.short_quote_message__branches = function(buffer, offset, packet, parent, shortquotemessageindicator)
+dissect.short_quote_message__branches = function(buffer, offset, packet, parent, short_quote_message_indicator_)
   -- Dissect Short Quote A Message
-  if shortquotemessageindicator == A then
+  if short_quote_message_indicator_ == A then
     return dissect.short_quote_a_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote B Message
-  if shortquotemessageindicator == B then
+  if short_quote_message_indicator_ == B then
     return dissect.short_quote_b_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote C Message
-  if shortquotemessageindicator == C then
+  if short_quote_message_indicator_ == C then
     return dissect.short_quote_c_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote D Message
-  if shortquotemessageindicator == D then
+  if short_quote_message_indicator_ == D then
     return dissect.short_quote_d_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote E Message
-  if shortquotemessageindicator == E then
+  if short_quote_message_indicator_ == E then
     return dissect.short_quote_e_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote F Message
-  if shortquotemessageindicator == F then
+  if short_quote_message_indicator_ == F then
     return dissect.short_quote_f_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote G Message
-  if shortquotemessageindicator == G then
+  if short_quote_message_indicator_ == G then
     return dissect.short_quote_g_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote H Message
-  if shortquotemessageindicator == H then
+  if short_quote_message_indicator_ == H then
     return dissect.short_quote_h_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote I Message
-  if shortquotemessageindicator == I then
+  if short_quote_message_indicator_ == I then
     return dissect.short_quote_i_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote J Message
-  if shortquotemessageindicator == J then
+  if short_quote_message_indicator_ == J then
     return dissect.short_quote_j_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote K Message
-  if shortquotemessageindicator == K then
+  if short_quote_message_indicator_ == K then
     return dissect.short_quote_k_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote L Message
-  if shortquotemessageindicator == L then
+  if short_quote_message_indicator_ == L then
     return dissect.short_quote_l_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote M Message
-  if shortquotemessageindicator == M then
+  if short_quote_message_indicator_ == M then
     return dissect.short_quote_m_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote N Message
-  if shortquotemessageindicator == N then
+  if short_quote_message_indicator_ == N then
     return dissect.short_quote_n_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote O Message
-  if shortquotemessageindicator == O then
+  if short_quote_message_indicator_ == O then
     return dissect.short_quote_o_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote P Message
-  if shortquotemessageindicator == P then
+  if short_quote_message_indicator_ == P then
     return dissect.short_quote_p_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote Space Message
-  if shortquotemessageindicator == " " then
+  if short_quote_message_indicator_ == " " then
     return dissect.short_quote_space_message(buffer, offset, packet, parent)
   end
 
@@ -2758,13 +2771,13 @@ dissect.short_quote_message__branches = function(buffer, offset, packet, parent,
 end
 
 -- Dissect: Short Quote Message
-dissect.short_quote_message_ = function(buffer, offset, packet, parent, code)
+dissect.short_quote_message_ = function(buffer, offset, packet, parent, short_quote_message_indicator_)
   if not show.short_quote_message_ then
-    return dissect.short_quote_message__branches(buffer, offset, packet, parent, code)
+    return dissect.short_quote_message__branches(buffer, offset, packet, parent, short_quote_message_indicator_)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.short_quote_message_(buffer, offset, code)
+  local size = size_of.short_quote_message_(buffer, offset, short_quote_message_indicator_)
   if size == 0 then
     return offset
   end
@@ -2774,7 +2787,7 @@ dissect.short_quote_message_ = function(buffer, offset, packet, parent, code)
   local display = display.short_quote_message_(buffer, packet, parent)
   local element = parent:add(opra_options_recipient_obdi_v2_9.fields.short_quote_message_, range, display)
 
-  return dissect.short_quote_message__branches(buffer, offset, packet, parent, code)
+  return dissect.short_quote_message__branches(buffer, offset, packet, parent, short_quote_message_indicator_)
 end
 
 -- Calculate runtime size: Short Quote Category
@@ -2801,19 +2814,16 @@ dissect.short_quote_category_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Short Quote Message Type
-  index = dissect.short_quote_message_type(buffer, index, packet, parent)
+  index, short_quote_message_type = dissect.short_quote_message_type(buffer, index, packet, parent)
 
   -- Short Quote Message Indicator
-  index = dissect.short_quote_message_indicator_(buffer, index, packet, parent)
+  index, short_quote_message_indicator_ = dissect.short_quote_message_indicator_(buffer, index, packet, parent)
 
   -- Transaction ID : 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transaction_id_(buffer, index, packet, parent)
-
-  -- Dependency element: Short Quote Message Indicator
-  local code = buffer(index - 8, 0):bytes():tohex(false, " ")
+  index, transaction_id_ = dissect.transaction_id_(buffer, index, packet, parent)
 
   -- Short Quote Message : Runtime Type with 17 branches
-  index = dissect.short_quote_message_(buffer, index, packet, parent, code)
+  index = dissect.short_quote_message_(buffer, index, packet, parent, short_quote_message_indicator_)
 
   return index
 end
@@ -2841,13 +2851,14 @@ end
 
 -- Dissect: Offer Size 4
 dissect.offer_size_4 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.offer_size_4)
+  local length = size_of.offer_size_4
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.offer_size_4(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.offer_size_4, range, value, display)
 
-  return offset + size_of.offer_size_4
+  return offset + length, value
 end
 
 -- Size: Offer Price 4
@@ -2860,13 +2871,14 @@ end
 
 -- Dissect: Offer Price 4
 dissect.offer_price_4 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.offer_price_4)
+  local length = size_of.offer_price_4
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.offer_price_4(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.offer_price_4, range, value, display)
 
-  return offset + size_of.offer_price_4
+  return offset + length, value
 end
 
 -- Size: Bid Size 4
@@ -2879,13 +2891,14 @@ end
 
 -- Dissect: Bid Size 4
 dissect.bid_size_4 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.bid_size_4)
+  local length = size_of.bid_size_4
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.bid_size_4(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.bid_size_4, range, value, display)
 
-  return offset + size_of.bid_size_4
+  return offset + length, value
 end
 
 -- Size: Bid Price 4
@@ -2898,13 +2911,14 @@ end
 
 -- Dissect: Bid Price 4
 dissect.bid_price_4 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.bid_price_4)
+  local length = size_of.bid_price_4
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.bid_price_4(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.bid_price_4, range, value, display)
 
-  return offset + size_of.bid_price_4
+  return offset + length, value
 end
 
 -- Size: Premium Price Denominator Code
@@ -2917,13 +2931,14 @@ end
 
 -- Dissect: Premium Price Denominator Code
 dissect.premium_price_denominator_code = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.premium_price_denominator_code)
+  local length = size_of.premium_price_denominator_code
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.premium_price_denominator_code(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.premium_price_denominator_code, range, value, display)
 
-  return offset + size_of.premium_price_denominator_code
+  return offset + length, value
 end
 
 -- Size: Strike Price 4
@@ -2936,13 +2951,14 @@ end
 
 -- Dissect: Strike Price 4
 dissect.strike_price_4 = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.strike_price_4)
+  local length = size_of.strike_price_4
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.strike_price_4(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.strike_price_4, range, value, display)
 
-  return offset + size_of.strike_price_4
+  return offset + length, value
 end
 
 -- Size: Strike Price Denominator Code
@@ -2955,13 +2971,14 @@ end
 
 -- Dissect: Strike Price Denominator Code
 dissect.strike_price_denominator_code = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.strike_price_denominator_code)
+  local length = size_of.strike_price_denominator_code
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.strike_price_denominator_code(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.strike_price_denominator_code, range, value, display)
 
-  return offset + size_of.strike_price_denominator_code
+  return offset + length, value
 end
 
 -- Display: Long Quote Space Message
@@ -2974,40 +2991,40 @@ dissect.long_quote_space_message_fields = function(buffer, offset, packet, paren
   local index = offset
 
   -- Security Symbol 5: 5 Byte Ascii String
-  index = dissect.security_symbol_5(buffer, index, packet, parent)
+  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price Denominator Code: 1 Byte Ascii String
-  index = dissect.strike_price_denominator_code(buffer, index, packet, parent)
+  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
   -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_4(buffer, index, packet, parent)
+  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
 
   -- Premium Price Denominator Code: 1 Byte Ascii String
-  index = dissect.premium_price_denominator_code(buffer, index, packet, parent)
+  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
   -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_4(buffer, index, packet, parent)
+  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
 
   -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_4(buffer, index, packet, parent)
+  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
 
   -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_4(buffer, index, packet, parent)
+  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
 
   -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_4(buffer, index, packet, parent)
+  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
 
   return index
 end
@@ -3034,64 +3051,64 @@ dissect.long_quote_p_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 5: 5 Byte Ascii String
-  index = dissect.security_symbol_5(buffer, index, packet, parent)
+  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price Denominator Code: 1 Byte Ascii String
-  index = dissect.strike_price_denominator_code(buffer, index, packet, parent)
+  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
   -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_4(buffer, index, packet, parent)
+  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
 
   -- Premium Price Denominator Code: 1 Byte Ascii String
-  index = dissect.premium_price_denominator_code(buffer, index, packet, parent)
+  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
   -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_4(buffer, index, packet, parent)
+  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
 
   -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_4(buffer, index, packet, parent)
+  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
 
   -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_4(buffer, index, packet, parent)
+  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
 
   -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_4(buffer, index, packet, parent)
+  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
 
   -- Best Bid Participant Id: 1 Byte Ascii String
-  index = dissect.best_bid_participant_id(buffer, index, packet, parent)
+  index, best_bid_participant_id = dissect.best_bid_participant_id(buffer, index, packet, parent)
 
   -- Best Bid Denominator Code: 1 Byte Ascii String
-  index = dissect.best_bid_denominator_code(buffer, index, packet, parent)
+  index, best_bid_denominator_code = dissect.best_bid_denominator_code(buffer, index, packet, parent)
 
   -- Best Bid Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.best_bid_price(buffer, index, packet, parent)
+  index, best_bid_price = dissect.best_bid_price(buffer, index, packet, parent)
 
   -- Best Bid Size: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.best_bid_size(buffer, index, packet, parent)
+  index, best_bid_size = dissect.best_bid_size(buffer, index, packet, parent)
 
   -- Best Offer Participant Id: 1 Byte Ascii String
-  index = dissect.best_offer_participant_id(buffer, index, packet, parent)
+  index, best_offer_participant_id = dissect.best_offer_participant_id(buffer, index, packet, parent)
 
   -- Best Offer Denominator Code: 1 Byte Ascii String
-  index = dissect.best_offer_denominator_code(buffer, index, packet, parent)
+  index, best_offer_denominator_code = dissect.best_offer_denominator_code(buffer, index, packet, parent)
 
   -- Best Offer Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.best_offer_price(buffer, index, packet, parent)
+  index, best_offer_price = dissect.best_offer_price(buffer, index, packet, parent)
 
   -- Best Offer Size: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.best_offer_size(buffer, index, packet, parent)
+  index, best_offer_size = dissect.best_offer_size(buffer, index, packet, parent)
 
   return index
 end
@@ -3118,40 +3135,40 @@ dissect.long_quote_o_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 5: 5 Byte Ascii String
-  index = dissect.security_symbol_5(buffer, index, packet, parent)
+  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price Denominator Code: 1 Byte Ascii String
-  index = dissect.strike_price_denominator_code(buffer, index, packet, parent)
+  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
   -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_4(buffer, index, packet, parent)
+  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
 
   -- Premium Price Denominator Code: 1 Byte Ascii String
-  index = dissect.premium_price_denominator_code(buffer, index, packet, parent)
+  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
   -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_4(buffer, index, packet, parent)
+  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
 
   -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_4(buffer, index, packet, parent)
+  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
 
   -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_4(buffer, index, packet, parent)
+  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
 
   -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_4(buffer, index, packet, parent)
+  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
 
   return index
 end
@@ -3178,64 +3195,64 @@ dissect.long_quote_n_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 5: 5 Byte Ascii String
-  index = dissect.security_symbol_5(buffer, index, packet, parent)
+  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price Denominator Code: 1 Byte Ascii String
-  index = dissect.strike_price_denominator_code(buffer, index, packet, parent)
+  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
   -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_4(buffer, index, packet, parent)
+  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
 
   -- Premium Price Denominator Code: 1 Byte Ascii String
-  index = dissect.premium_price_denominator_code(buffer, index, packet, parent)
+  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
   -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_4(buffer, index, packet, parent)
+  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
 
   -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_4(buffer, index, packet, parent)
+  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
 
   -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_4(buffer, index, packet, parent)
+  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
 
   -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_4(buffer, index, packet, parent)
+  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
 
   -- Best Bid Participant Id: 1 Byte Ascii String
-  index = dissect.best_bid_participant_id(buffer, index, packet, parent)
+  index, best_bid_participant_id = dissect.best_bid_participant_id(buffer, index, packet, parent)
 
   -- Best Bid Denominator Code: 1 Byte Ascii String
-  index = dissect.best_bid_denominator_code(buffer, index, packet, parent)
+  index, best_bid_denominator_code = dissect.best_bid_denominator_code(buffer, index, packet, parent)
 
   -- Best Bid Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.best_bid_price(buffer, index, packet, parent)
+  index, best_bid_price = dissect.best_bid_price(buffer, index, packet, parent)
 
   -- Best Bid Size: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.best_bid_size(buffer, index, packet, parent)
+  index, best_bid_size = dissect.best_bid_size(buffer, index, packet, parent)
 
   -- Best Offer Participant Id: 1 Byte Ascii String
-  index = dissect.best_offer_participant_id(buffer, index, packet, parent)
+  index, best_offer_participant_id = dissect.best_offer_participant_id(buffer, index, packet, parent)
 
   -- Best Offer Denominator Code: 1 Byte Ascii String
-  index = dissect.best_offer_denominator_code(buffer, index, packet, parent)
+  index, best_offer_denominator_code = dissect.best_offer_denominator_code(buffer, index, packet, parent)
 
   -- Best Offer Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.best_offer_price(buffer, index, packet, parent)
+  index, best_offer_price = dissect.best_offer_price(buffer, index, packet, parent)
 
   -- Best Offer Size: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.best_offer_size(buffer, index, packet, parent)
+  index, best_offer_size = dissect.best_offer_size(buffer, index, packet, parent)
 
   return index
 end
@@ -3262,64 +3279,64 @@ dissect.long_quote_m_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 5: 5 Byte Ascii String
-  index = dissect.security_symbol_5(buffer, index, packet, parent)
+  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price Denominator Code: 1 Byte Ascii String
-  index = dissect.strike_price_denominator_code(buffer, index, packet, parent)
+  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
   -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_4(buffer, index, packet, parent)
+  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
 
   -- Premium Price Denominator Code: 1 Byte Ascii String
-  index = dissect.premium_price_denominator_code(buffer, index, packet, parent)
+  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
   -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_4(buffer, index, packet, parent)
+  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
 
   -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_4(buffer, index, packet, parent)
+  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
 
   -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_4(buffer, index, packet, parent)
+  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
 
   -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_4(buffer, index, packet, parent)
+  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
 
   -- Best Bid Participant Id: 1 Byte Ascii String
-  index = dissect.best_bid_participant_id(buffer, index, packet, parent)
+  index, best_bid_participant_id = dissect.best_bid_participant_id(buffer, index, packet, parent)
 
   -- Best Bid Denominator Code: 1 Byte Ascii String
-  index = dissect.best_bid_denominator_code(buffer, index, packet, parent)
+  index, best_bid_denominator_code = dissect.best_bid_denominator_code(buffer, index, packet, parent)
 
   -- Best Bid Price 4
-  index = dissect.best_bid_price_4(buffer, index, packet, parent)
+  index, best_bid_price_4 = dissect.best_bid_price_4(buffer, index, packet, parent)
 
   -- Best Bid Size: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.best_bid_size(buffer, index, packet, parent)
+  index, best_bid_size = dissect.best_bid_size(buffer, index, packet, parent)
 
   -- Best Offer Participant Id: 1 Byte Ascii String
-  index = dissect.best_offer_participant_id(buffer, index, packet, parent)
+  index, best_offer_participant_id = dissect.best_offer_participant_id(buffer, index, packet, parent)
 
   -- Best Offer Denominator Code: 1 Byte Ascii String
-  index = dissect.best_offer_denominator_code(buffer, index, packet, parent)
+  index, best_offer_denominator_code = dissect.best_offer_denominator_code(buffer, index, packet, parent)
 
   -- Best Offer Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.best_offer_price(buffer, index, packet, parent)
+  index, best_offer_price = dissect.best_offer_price(buffer, index, packet, parent)
 
   -- Best Offer Size: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.best_offer_size(buffer, index, packet, parent)
+  index, best_offer_size = dissect.best_offer_size(buffer, index, packet, parent)
 
   return index
 end
@@ -3346,40 +3363,40 @@ dissect.long_quote_l_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 5: 5 Byte Ascii String
-  index = dissect.security_symbol_5(buffer, index, packet, parent)
+  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price Denominator Code: 1 Byte Ascii String
-  index = dissect.strike_price_denominator_code(buffer, index, packet, parent)
+  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
   -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_4(buffer, index, packet, parent)
+  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
 
   -- Premium Price Denominator Code: 1 Byte Ascii String
-  index = dissect.premium_price_denominator_code(buffer, index, packet, parent)
+  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
   -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_4(buffer, index, packet, parent)
+  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
 
   -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_4(buffer, index, packet, parent)
+  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
 
   -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_4(buffer, index, packet, parent)
+  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
 
   -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_4(buffer, index, packet, parent)
+  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
 
   return index
 end
@@ -3406,52 +3423,52 @@ dissect.long_quote_k_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 5: 5 Byte Ascii String
-  index = dissect.security_symbol_5(buffer, index, packet, parent)
+  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price Denominator Code: 1 Byte Ascii String
-  index = dissect.strike_price_denominator_code(buffer, index, packet, parent)
+  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
   -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_4(buffer, index, packet, parent)
+  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
 
   -- Premium Price Denominator Code: 1 Byte Ascii String
-  index = dissect.premium_price_denominator_code(buffer, index, packet, parent)
+  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
   -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_4(buffer, index, packet, parent)
+  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
 
   -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_4(buffer, index, packet, parent)
+  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
 
   -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_4(buffer, index, packet, parent)
+  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
 
   -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_4(buffer, index, packet, parent)
+  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
 
   -- Participant Id: 1 Byte Ascii String Enum with 17 values
-  index = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
 
   -- Denominator Code: 1 Byte Ascii String
-  index = dissect.denominator_code(buffer, index, packet, parent)
+  index, denominator_code = dissect.denominator_code(buffer, index, packet, parent)
 
   -- Price: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.size(buffer, index, packet, parent)
+  index, size = dissect.size(buffer, index, packet, parent)
 
   return index
 end
@@ -3478,40 +3495,40 @@ dissect.long_quote_j_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 5: 5 Byte Ascii String
-  index = dissect.security_symbol_5(buffer, index, packet, parent)
+  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price Denominator Code: 1 Byte Ascii String
-  index = dissect.strike_price_denominator_code(buffer, index, packet, parent)
+  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
   -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_4(buffer, index, packet, parent)
+  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
 
   -- Premium Price Denominator Code: 1 Byte Ascii String
-  index = dissect.premium_price_denominator_code(buffer, index, packet, parent)
+  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
   -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_4(buffer, index, packet, parent)
+  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
 
   -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_4(buffer, index, packet, parent)
+  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
 
   -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_4(buffer, index, packet, parent)
+  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
 
   -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_4(buffer, index, packet, parent)
+  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
 
   return index
 end
@@ -3538,40 +3555,40 @@ dissect.long_quote_i_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 5: 5 Byte Ascii String
-  index = dissect.security_symbol_5(buffer, index, packet, parent)
+  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price Denominator Code: 1 Byte Ascii String
-  index = dissect.strike_price_denominator_code(buffer, index, packet, parent)
+  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
   -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_4(buffer, index, packet, parent)
+  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
 
   -- Premium Price Denominator Code: 1 Byte Ascii String
-  index = dissect.premium_price_denominator_code(buffer, index, packet, parent)
+  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
   -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_4(buffer, index, packet, parent)
+  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
 
   -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_4(buffer, index, packet, parent)
+  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
 
   -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_4(buffer, index, packet, parent)
+  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
 
   -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_4(buffer, index, packet, parent)
+  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
 
   return index
 end
@@ -3598,40 +3615,40 @@ dissect.long_quote_h_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 5: 5 Byte Ascii String
-  index = dissect.security_symbol_5(buffer, index, packet, parent)
+  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price Denominator Code: 1 Byte Ascii String
-  index = dissect.strike_price_denominator_code(buffer, index, packet, parent)
+  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
   -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_4(buffer, index, packet, parent)
+  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
 
   -- Premium Price Denominator Code: 1 Byte Ascii String
-  index = dissect.premium_price_denominator_code(buffer, index, packet, parent)
+  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
   -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_4(buffer, index, packet, parent)
+  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
 
   -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_4(buffer, index, packet, parent)
+  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
 
   -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_4(buffer, index, packet, parent)
+  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
 
   -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_4(buffer, index, packet, parent)
+  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
 
   return index
 end
@@ -3658,52 +3675,52 @@ dissect.long_quote_g_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 5: 5 Byte Ascii String
-  index = dissect.security_symbol_5(buffer, index, packet, parent)
+  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price Denominator Code: 1 Byte Ascii String
-  index = dissect.strike_price_denominator_code(buffer, index, packet, parent)
+  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
   -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_4(buffer, index, packet, parent)
+  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
 
   -- Premium Price Denominator Code: 1 Byte Ascii String
-  index = dissect.premium_price_denominator_code(buffer, index, packet, parent)
+  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
   -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_4(buffer, index, packet, parent)
+  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
 
   -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_4(buffer, index, packet, parent)
+  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
 
   -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_4(buffer, index, packet, parent)
+  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
 
   -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_4(buffer, index, packet, parent)
+  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
 
   -- Participant Id: 1 Byte Ascii String Enum with 17 values
-  index = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
 
   -- Denominator Code: 1 Byte Ascii String
-  index = dissect.denominator_code(buffer, index, packet, parent)
+  index, denominator_code = dissect.denominator_code(buffer, index, packet, parent)
 
   -- Price: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.size(buffer, index, packet, parent)
+  index, size = dissect.size(buffer, index, packet, parent)
 
   return index
 end
@@ -3730,40 +3747,40 @@ dissect.long_quote_f_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 5: 5 Byte Ascii String
-  index = dissect.security_symbol_5(buffer, index, packet, parent)
+  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price Denominator Code: 1 Byte Ascii String
-  index = dissect.strike_price_denominator_code(buffer, index, packet, parent)
+  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
   -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_4(buffer, index, packet, parent)
+  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
 
   -- Premium Price Denominator Code: 1 Byte Ascii String
-  index = dissect.premium_price_denominator_code(buffer, index, packet, parent)
+  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
   -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_4(buffer, index, packet, parent)
+  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
 
   -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_4(buffer, index, packet, parent)
+  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
 
   -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_4(buffer, index, packet, parent)
+  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
 
   -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_4(buffer, index, packet, parent)
+  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
 
   return index
 end
@@ -3790,40 +3807,40 @@ dissect.long_quote_e_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 5: 5 Byte Ascii String
-  index = dissect.security_symbol_5(buffer, index, packet, parent)
+  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price Denominator Code: 1 Byte Ascii String
-  index = dissect.strike_price_denominator_code(buffer, index, packet, parent)
+  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
   -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_4(buffer, index, packet, parent)
+  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
 
   -- Premium Price Denominator Code: 1 Byte Ascii String
-  index = dissect.premium_price_denominator_code(buffer, index, packet, parent)
+  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
   -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_4(buffer, index, packet, parent)
+  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
 
   -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_4(buffer, index, packet, parent)
+  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
 
   -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_4(buffer, index, packet, parent)
+  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
 
   -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_4(buffer, index, packet, parent)
+  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
 
   return index
 end
@@ -3850,40 +3867,40 @@ dissect.long_quote_d_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 5: 5 Byte Ascii String
-  index = dissect.security_symbol_5(buffer, index, packet, parent)
+  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price Denominator Code: 1 Byte Ascii String
-  index = dissect.strike_price_denominator_code(buffer, index, packet, parent)
+  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
   -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_4(buffer, index, packet, parent)
+  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
 
   -- Premium Price Denominator Code: 1 Byte Ascii String
-  index = dissect.premium_price_denominator_code(buffer, index, packet, parent)
+  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
   -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_4(buffer, index, packet, parent)
+  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
 
   -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_4(buffer, index, packet, parent)
+  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
 
   -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_4(buffer, index, packet, parent)
+  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
 
   -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_4(buffer, index, packet, parent)
+  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
 
   return index
 end
@@ -3910,52 +3927,52 @@ dissect.long_quote_c_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 5: 5 Byte Ascii String
-  index = dissect.security_symbol_5(buffer, index, packet, parent)
+  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price Denominator Code: 1 Byte Ascii String
-  index = dissect.strike_price_denominator_code(buffer, index, packet, parent)
+  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
   -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_4(buffer, index, packet, parent)
+  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
 
   -- Premium Price Denominator Code: 1 Byte Ascii String
-  index = dissect.premium_price_denominator_code(buffer, index, packet, parent)
+  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
   -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_4(buffer, index, packet, parent)
+  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
 
   -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_4(buffer, index, packet, parent)
+  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
 
   -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_4(buffer, index, packet, parent)
+  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
 
   -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_4(buffer, index, packet, parent)
+  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
 
   -- Participant Id: 1 Byte Ascii String Enum with 17 values
-  index = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
 
   -- Denominator Code: 1 Byte Ascii String
-  index = dissect.denominator_code(buffer, index, packet, parent)
+  index, denominator_code = dissect.denominator_code(buffer, index, packet, parent)
 
   -- Price: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.price(buffer, index, packet, parent)
+  index, price = dissect.price(buffer, index, packet, parent)
 
   -- Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.size(buffer, index, packet, parent)
+  index, size = dissect.size(buffer, index, packet, parent)
 
   return index
 end
@@ -3982,40 +3999,40 @@ dissect.long_quote_b_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 5: 5 Byte Ascii String
-  index = dissect.security_symbol_5(buffer, index, packet, parent)
+  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price Denominator Code: 1 Byte Ascii String
-  index = dissect.strike_price_denominator_code(buffer, index, packet, parent)
+  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
   -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_4(buffer, index, packet, parent)
+  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
 
   -- Premium Price Denominator Code: 1 Byte Ascii String
-  index = dissect.premium_price_denominator_code(buffer, index, packet, parent)
+  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
   -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_4(buffer, index, packet, parent)
+  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
 
   -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_4(buffer, index, packet, parent)
+  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
 
   -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_4(buffer, index, packet, parent)
+  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
 
   -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_4(buffer, index, packet, parent)
+  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
 
   return index
 end
@@ -4042,40 +4059,40 @@ dissect.long_quote_a_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 5: 5 Byte Ascii String
-  index = dissect.security_symbol_5(buffer, index, packet, parent)
+  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price Denominator Code: 1 Byte Ascii String
-  index = dissect.strike_price_denominator_code(buffer, index, packet, parent)
+  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
   -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_4(buffer, index, packet, parent)
+  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
 
   -- Premium Price Denominator Code: 1 Byte Ascii String
-  index = dissect.premium_price_denominator_code(buffer, index, packet, parent)
+  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
   -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_4(buffer, index, packet, parent)
+  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
 
   -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.bid_size_4(buffer, index, packet, parent)
+  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
 
   -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_4(buffer, index, packet, parent)
+  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
 
   -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.offer_size_4(buffer, index, packet, parent)
+  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
 
   return index
 end
@@ -4093,73 +4110,73 @@ dissect.long_quote_a_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Long Quote Message
-size_of.long_quote_message_ = function(buffer, offset, longquotemessageindicator)
+size_of.long_quote_message_ = function(buffer, offset, long_quote_message_indicator_)
   -- Size of Long Quote A Message
-  if longquotemessageindicator == A then
+  if long_quote_message_indicator_ == A then
     return 31
   end
   -- Size of Long Quote B Message
-  if longquotemessageindicator == B then
+  if long_quote_message_indicator_ == B then
     return 31
   end
   -- Size of Long Quote C Message
-  if longquotemessageindicator == C then
+  if long_quote_message_indicator_ == C then
     return 39
   end
   -- Size of Long Quote D Message
-  if longquotemessageindicator == D then
+  if long_quote_message_indicator_ == D then
     return 31
   end
   -- Size of Long Quote E Message
-  if longquotemessageindicator == E then
+  if long_quote_message_indicator_ == E then
     return 31
   end
   -- Size of Long Quote F Message
-  if longquotemessageindicator == F then
+  if long_quote_message_indicator_ == F then
     return 31
   end
   -- Size of Long Quote G Message
-  if longquotemessageindicator == G then
+  if long_quote_message_indicator_ == G then
     return 39
   end
   -- Size of Long Quote H Message
-  if longquotemessageindicator == H then
+  if long_quote_message_indicator_ == H then
     return 31
   end
   -- Size of Long Quote I Message
-  if longquotemessageindicator == I then
+  if long_quote_message_indicator_ == I then
     return 31
   end
   -- Size of Long Quote J Message
-  if longquotemessageindicator == J then
+  if long_quote_message_indicator_ == J then
     return 31
   end
   -- Size of Long Quote K Message
-  if longquotemessageindicator == K then
+  if long_quote_message_indicator_ == K then
     return 39
   end
   -- Size of Long Quote L Message
-  if longquotemessageindicator == L then
+  if long_quote_message_indicator_ == L then
     return 31
   end
   -- Size of Long Quote M Message
-  if longquotemessageindicator == M then
+  if long_quote_message_indicator_ == M then
     return 47
   end
   -- Size of Long Quote N Message
-  if longquotemessageindicator == N then
+  if long_quote_message_indicator_ == N then
     return 51
   end
   -- Size of Long Quote O Message
-  if longquotemessageindicator == O then
+  if long_quote_message_indicator_ == O then
     return 31
   end
   -- Size of Long Quote P Message
-  if longquotemessageindicator == P then
+  if long_quote_message_indicator_ == P then
     return 51
   end
   -- Size of Long Quote Space Message
-  if longquotemessageindicator == " " then
+  if long_quote_message_indicator_ == " " then
     return 31
   end
 
@@ -4172,73 +4189,73 @@ display.long_quote_message_ = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Branches: Long Quote Message
-dissect.long_quote_message__branches = function(buffer, offset, packet, parent, longquotemessageindicator)
+dissect.long_quote_message__branches = function(buffer, offset, packet, parent, long_quote_message_indicator_)
   -- Dissect Long Quote A Message
-  if longquotemessageindicator == A then
+  if long_quote_message_indicator_ == A then
     return dissect.long_quote_a_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote B Message
-  if longquotemessageindicator == B then
+  if long_quote_message_indicator_ == B then
     return dissect.long_quote_b_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote C Message
-  if longquotemessageindicator == C then
+  if long_quote_message_indicator_ == C then
     return dissect.long_quote_c_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote D Message
-  if longquotemessageindicator == D then
+  if long_quote_message_indicator_ == D then
     return dissect.long_quote_d_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote E Message
-  if longquotemessageindicator == E then
+  if long_quote_message_indicator_ == E then
     return dissect.long_quote_e_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote F Message
-  if longquotemessageindicator == F then
+  if long_quote_message_indicator_ == F then
     return dissect.long_quote_f_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote G Message
-  if longquotemessageindicator == G then
+  if long_quote_message_indicator_ == G then
     return dissect.long_quote_g_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote H Message
-  if longquotemessageindicator == H then
+  if long_quote_message_indicator_ == H then
     return dissect.long_quote_h_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote I Message
-  if longquotemessageindicator == I then
+  if long_quote_message_indicator_ == I then
     return dissect.long_quote_i_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote J Message
-  if longquotemessageindicator == J then
+  if long_quote_message_indicator_ == J then
     return dissect.long_quote_j_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote K Message
-  if longquotemessageindicator == K then
+  if long_quote_message_indicator_ == K then
     return dissect.long_quote_k_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote L Message
-  if longquotemessageindicator == L then
+  if long_quote_message_indicator_ == L then
     return dissect.long_quote_l_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote M Message
-  if longquotemessageindicator == M then
+  if long_quote_message_indicator_ == M then
     return dissect.long_quote_m_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote N Message
-  if longquotemessageindicator == N then
+  if long_quote_message_indicator_ == N then
     return dissect.long_quote_n_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote O Message
-  if longquotemessageindicator == O then
+  if long_quote_message_indicator_ == O then
     return dissect.long_quote_o_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote P Message
-  if longquotemessageindicator == P then
+  if long_quote_message_indicator_ == P then
     return dissect.long_quote_p_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote Space Message
-  if longquotemessageindicator == " " then
+  if long_quote_message_indicator_ == " " then
     return dissect.long_quote_space_message(buffer, offset, packet, parent)
   end
 
@@ -4246,13 +4263,13 @@ dissect.long_quote_message__branches = function(buffer, offset, packet, parent, 
 end
 
 -- Dissect: Long Quote Message
-dissect.long_quote_message_ = function(buffer, offset, packet, parent, code)
+dissect.long_quote_message_ = function(buffer, offset, packet, parent, long_quote_message_indicator_)
   if not show.long_quote_message_ then
-    return dissect.long_quote_message__branches(buffer, offset, packet, parent, code)
+    return dissect.long_quote_message__branches(buffer, offset, packet, parent, long_quote_message_indicator_)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.long_quote_message_(buffer, offset, code)
+  local size = size_of.long_quote_message_(buffer, offset, long_quote_message_indicator_)
   if size == 0 then
     return offset
   end
@@ -4262,7 +4279,7 @@ dissect.long_quote_message_ = function(buffer, offset, packet, parent, code)
   local display = display.long_quote_message_(buffer, packet, parent)
   local element = parent:add(opra_options_recipient_obdi_v2_9.fields.long_quote_message_, range, display)
 
-  return dissect.long_quote_message__branches(buffer, offset, packet, parent, code)
+  return dissect.long_quote_message__branches(buffer, offset, packet, parent, long_quote_message_indicator_)
 end
 
 -- Calculate runtime size: Long Quote Category
@@ -4289,19 +4306,16 @@ dissect.long_quote_category_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Long Quote Message Type
-  index = dissect.long_quote_message_type(buffer, index, packet, parent)
+  index, long_quote_message_type = dissect.long_quote_message_type(buffer, index, packet, parent)
 
   -- Long Quote Message Indicator
-  index = dissect.long_quote_message_indicator_(buffer, index, packet, parent)
+  index, long_quote_message_indicator_ = dissect.long_quote_message_indicator_(buffer, index, packet, parent)
 
   -- Transaction ID : 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transaction_id_(buffer, index, packet, parent)
-
-  -- Dependency element: Long Quote Message Indicator
-  local code = buffer(index - 8, 0):bytes():tohex(false, " ")
+  index, transaction_id_ = dissect.transaction_id_(buffer, index, packet, parent)
 
   -- Long Quote Message : Runtime Type with 17 branches
-  index = dissect.long_quote_message_(buffer, index, packet, parent, code)
+  index = dissect.long_quote_message_(buffer, index, packet, parent, long_quote_message_indicator_)
 
   return index
 end
@@ -4329,13 +4343,14 @@ end
 
 -- Dissect: Underlying Price
 dissect.underlying_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.underlying_price)
+  local length = size_of.underlying_price
+  local range = buffer(offset, length)
   local value = range:le_int64()
   local display = display.underlying_price(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.underlying_price, range, value, display)
 
-  return offset + size_of.underlying_price
+  return offset + length, value
 end
 
 -- Size: Underlying Price Denominator Code
@@ -4348,13 +4363,14 @@ end
 
 -- Dissect: Underlying Price Denominator Code
 dissect.underlying_price_denominator_code = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.underlying_price_denominator_code)
+  local length = size_of.underlying_price_denominator_code
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.underlying_price_denominator_code(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.underlying_price_denominator_code, range, value, display)
 
-  return offset + size_of.underlying_price_denominator_code
+  return offset + length, value
 end
 
 -- Size: Net Change
@@ -4367,13 +4383,14 @@ end
 
 -- Dissect: Net Change
 dissect.net_change = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.net_change)
+  local length = size_of.net_change
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.net_change(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.net_change, range, value, display)
 
-  return offset + size_of.net_change
+  return offset + length, value
 end
 
 -- Size: Last Price
@@ -4386,13 +4403,14 @@ end
 
 -- Dissect: Last Price
 dissect.last_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.last_price)
+  local length = size_of.last_price
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.last_price(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.last_price, range, value, display)
 
-  return offset + size_of.last_price
+  return offset + length, value
 end
 
 -- Size: Low Price
@@ -4405,13 +4423,14 @@ end
 
 -- Dissect: Low Price
 dissect.low_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.low_price)
+  local length = size_of.low_price
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.low_price(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.low_price, range, value, display)
 
-  return offset + size_of.low_price
+  return offset + length, value
 end
 
 -- Size: High Price
@@ -4424,13 +4443,14 @@ end
 
 -- Dissect: High Price
 dissect.high_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.high_price)
+  local length = size_of.high_price
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.high_price(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.high_price, range, value, display)
 
-  return offset + size_of.high_price
+  return offset + length, value
 end
 
 -- Size: Open Price
@@ -4443,13 +4463,14 @@ end
 
 -- Dissect: Open Price
 dissect.open_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.open_price)
+  local length = size_of.open_price
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.open_price(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.open_price, range, value, display)
 
-  return offset + size_of.open_price
+  return offset + length, value
 end
 
 -- Size: Open Interest Volume
@@ -4462,13 +4483,14 @@ end
 
 -- Dissect: Open Interest Volume
 dissect.open_interest_volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.open_interest_volume)
+  local length = size_of.open_interest_volume
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.open_interest_volume(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.open_interest_volume, range, value, display)
 
-  return offset + size_of.open_interest_volume
+  return offset + length, value
 end
 
 -- Size: Volume
@@ -4530,13 +4552,14 @@ end
 
 -- Dissect: Volume
 dissect.volume = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.volume)
+  local length = size_of.volume
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.volume(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.volume, range, value, display)
 
-  return offset + size_of.volume
+  return offset + length, value
 end
 
 -- Display: Equity Eod Message
@@ -4549,61 +4572,61 @@ dissect.equity_eod_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 5: 5 Byte Ascii String
-  index = dissect.security_symbol_5(buffer, index, packet, parent)
+  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price Denominator Code: 1 Byte Ascii String
-  index = dissect.strike_price_denominator_code(buffer, index, packet, parent)
+  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
   -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_4(buffer, index, packet, parent)
+  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer Enum with 16 values
-  index = dissect.volume(buffer, index, packet, parent)
+  index, volume = dissect.volume(buffer, index, packet, parent)
 
   -- Open Interest Volume: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.open_interest_volume(buffer, index, packet, parent)
+  index, open_interest_volume = dissect.open_interest_volume(buffer, index, packet, parent)
 
   -- Premium Price Denominator Code: 1 Byte Ascii String
-  index = dissect.premium_price_denominator_code(buffer, index, packet, parent)
+  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
   -- Open Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.open_price(buffer, index, packet, parent)
+  index, open_price = dissect.open_price(buffer, index, packet, parent)
 
   -- High Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.high_price(buffer, index, packet, parent)
+  index, high_price = dissect.high_price(buffer, index, packet, parent)
 
   -- Low Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.low_price(buffer, index, packet, parent)
+  index, low_price = dissect.low_price(buffer, index, packet, parent)
 
   -- Last Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.last_price(buffer, index, packet, parent)
+  index, last_price = dissect.last_price(buffer, index, packet, parent)
 
   -- Net Change: 4 Byte Signed Fixed Width Integer
-  index = dissect.net_change(buffer, index, packet, parent)
+  index, net_change = dissect.net_change(buffer, index, packet, parent)
 
   -- Underlying Price Denominator Code: 1 Byte Ascii String
-  index = dissect.underlying_price_denominator_code(buffer, index, packet, parent)
+  index, underlying_price_denominator_code = dissect.underlying_price_denominator_code(buffer, index, packet, parent)
 
   -- Underlying Price: 8 Byte Signed Fixed Width Integer
-  index = dissect.underlying_price(buffer, index, packet, parent)
+  index, underlying_price = dissect.underlying_price(buffer, index, packet, parent)
 
   -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.bid_price_4(buffer, index, packet, parent)
+  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
 
   -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index = dissect.offer_price_4(buffer, index, packet, parent)
+  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
 
   return index
 end
@@ -4621,9 +4644,9 @@ dissect.equity_eod_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Equity EOD Payload
-size_of.equity_eod_payload_ = function(buffer, offset, equityeodmessageindicator)
+size_of.equity_eod_payload_ = function(buffer, offset, equity_eod_message_indicator_)
   -- Size of Equity Eod Message
-  if equityeodmessageindicator == " " then
+  if equity_eod_message_indicator_ == " " then
     return 60
   end
 
@@ -4636,9 +4659,9 @@ display.equity_eod_payload_ = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Branches: Equity EOD Payload
-dissect.equity_eod_payload__branches = function(buffer, offset, packet, parent, equityeodmessageindicator)
+dissect.equity_eod_payload__branches = function(buffer, offset, packet, parent, equity_eod_message_indicator_)
   -- Dissect Equity Eod Message
-  if equityeodmessageindicator == " " then
+  if equity_eod_message_indicator_ == " " then
     return dissect.equity_eod_message(buffer, offset, packet, parent)
   end
 
@@ -4646,13 +4669,13 @@ dissect.equity_eod_payload__branches = function(buffer, offset, packet, parent, 
 end
 
 -- Dissect: Equity EOD Payload
-dissect.equity_eod_payload_ = function(buffer, offset, packet, parent, code)
+dissect.equity_eod_payload_ = function(buffer, offset, packet, parent, equity_eod_message_indicator_)
   if not show.equity_eod_payload_ then
-    return dissect.equity_eod_payload__branches(buffer, offset, packet, parent, code)
+    return dissect.equity_eod_payload__branches(buffer, offset, packet, parent, equity_eod_message_indicator_)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.equity_eod_payload_(buffer, offset, code)
+  local size = size_of.equity_eod_payload_(buffer, offset, equity_eod_message_indicator_)
   if size == 0 then
     return offset
   end
@@ -4662,7 +4685,7 @@ dissect.equity_eod_payload_ = function(buffer, offset, packet, parent, code)
   local display = display.equity_eod_payload_(buffer, packet, parent)
   local element = parent:add(opra_options_recipient_obdi_v2_9.fields.equity_eod_payload_, range, display)
 
-  return dissect.equity_eod_payload__branches(buffer, offset, packet, parent, code)
+  return dissect.equity_eod_payload__branches(buffer, offset, packet, parent, equity_eod_message_indicator_)
 end
 
 -- Calculate runtime size: Equity EOD Category
@@ -4689,19 +4712,16 @@ dissect.equity_eod_category_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Equity EOD Message Type
-  index = dissect.equity_eod_message_type(buffer, index, packet, parent)
+  index, equity_eod_message_type = dissect.equity_eod_message_type(buffer, index, packet, parent)
 
   -- Equity EOD Message Indicator
-  index = dissect.equity_eod_message_indicator_(buffer, index, packet, parent)
+  index, equity_eod_message_indicator_ = dissect.equity_eod_message_indicator_(buffer, index, packet, parent)
 
   -- Transaction ID : 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transaction_id_(buffer, index, packet, parent)
-
-  -- Dependency element: Equity EOD Message Indicator
-  local code = buffer(index - 8, 0):bytes():tohex(false, " ")
+  index, transaction_id_ = dissect.transaction_id_(buffer, index, packet, parent)
 
   -- Equity EOD Payload : Runtime Type with 1 branches
-  index = dissect.equity_eod_payload_(buffer, index, packet, parent, code)
+  index = dissect.equity_eod_payload_(buffer, index, packet, parent, equity_eod_message_indicator_)
 
   return index
 end
@@ -4729,28 +4749,28 @@ dissect.open_interest_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Symbol 5: 5 Byte Ascii String
-  index = dissect.security_symbol_5(buffer, index, packet, parent)
+  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price Denominator Code: 1 Byte Ascii String
-  index = dissect.strike_price_denominator_code(buffer, index, packet, parent)
+  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
   -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_4(buffer, index, packet, parent)
+  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
 
   -- Open Interest Volume: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.open_interest_volume(buffer, index, packet, parent)
+  index, open_interest_volume = dissect.open_interest_volume(buffer, index, packet, parent)
 
   return index
 end
@@ -4768,9 +4788,9 @@ dissect.open_interest_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Open Interest Payload
-size_of.open_interest_payload_ = function(buffer, offset, openinterestmessageindicator)
+size_of.open_interest_payload_ = function(buffer, offset, open_interest_message_indicator_)
   -- Size of Open Interest Message
-  if openinterestmessageindicator == " " then
+  if open_interest_message_indicator_ == " " then
     return 18
   end
 
@@ -4783,9 +4803,9 @@ display.open_interest_payload_ = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Branches: Open Interest Payload
-dissect.open_interest_payload__branches = function(buffer, offset, packet, parent, openinterestmessageindicator)
+dissect.open_interest_payload__branches = function(buffer, offset, packet, parent, open_interest_message_indicator_)
   -- Dissect Open Interest Message
-  if openinterestmessageindicator == " " then
+  if open_interest_message_indicator_ == " " then
     return dissect.open_interest_message(buffer, offset, packet, parent)
   end
 
@@ -4793,13 +4813,13 @@ dissect.open_interest_payload__branches = function(buffer, offset, packet, paren
 end
 
 -- Dissect: Open Interest Payload
-dissect.open_interest_payload_ = function(buffer, offset, packet, parent, code)
+dissect.open_interest_payload_ = function(buffer, offset, packet, parent, open_interest_message_indicator_)
   if not show.open_interest_payload_ then
-    return dissect.open_interest_payload__branches(buffer, offset, packet, parent, code)
+    return dissect.open_interest_payload__branches(buffer, offset, packet, parent, open_interest_message_indicator_)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.open_interest_payload_(buffer, offset, code)
+  local size = size_of.open_interest_payload_(buffer, offset, open_interest_message_indicator_)
   if size == 0 then
     return offset
   end
@@ -4809,7 +4829,7 @@ dissect.open_interest_payload_ = function(buffer, offset, packet, parent, code)
   local display = display.open_interest_payload_(buffer, packet, parent)
   local element = parent:add(opra_options_recipient_obdi_v2_9.fields.open_interest_payload_, range, display)
 
-  return dissect.open_interest_payload__branches(buffer, offset, packet, parent, code)
+  return dissect.open_interest_payload__branches(buffer, offset, packet, parent, open_interest_message_indicator_)
 end
 
 -- Calculate runtime size: Open Interest Category
@@ -4836,19 +4856,16 @@ dissect.open_interest_category_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Open Interest Message Type
-  index = dissect.open_interest_message_type(buffer, index, packet, parent)
+  index, open_interest_message_type = dissect.open_interest_message_type(buffer, index, packet, parent)
 
   -- Open Interest Message Indicator
-  index = dissect.open_interest_message_indicator_(buffer, index, packet, parent)
+  index, open_interest_message_indicator_ = dissect.open_interest_message_indicator_(buffer, index, packet, parent)
 
   -- Transaction ID : 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transaction_id_(buffer, index, packet, parent)
-
-  -- Dependency element: Open Interest Message Indicator
-  local code = buffer(index - 8, 0):bytes():tohex(false, " ")
+  index, transaction_id_ = dissect.transaction_id_(buffer, index, packet, parent)
 
   -- Open Interest Payload : Runtime Type with 1 branches
-  index = dissect.open_interest_payload_(buffer, index, packet, parent, code)
+  index = dissect.open_interest_payload_(buffer, index, packet, parent, open_interest_message_indicator_)
 
   return index
 end
@@ -4876,13 +4893,14 @@ end
 
 -- Dissect: Trade Identifier
 dissect.trade_identifier = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.trade_identifier)
+  local length = size_of.trade_identifier
+  local range = buffer(offset, length)
   local value = range:le_uint()
   local display = display.trade_identifier(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.trade_identifier, range, value, display)
 
-  return offset + size_of.trade_identifier
+  return offset + length, value
 end
 
 -- Size: Premium Price
@@ -4895,13 +4913,14 @@ end
 
 -- Dissect: Premium Price
 dissect.premium_price = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.premium_price)
+  local length = size_of.premium_price
+  local range = buffer(offset, length)
   local value = range:le_int()
   local display = display.premium_price(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.premium_price, range, value, display)
 
-  return offset + size_of.premium_price
+  return offset + length, value
 end
 
 -- Display: Equity And Index Last Sale Message
@@ -4914,40 +4933,40 @@ dissect.equity_and_index_last_sale_message_fields = function(buffer, offset, pac
   local index = offset
 
   -- Security Symbol 5: 5 Byte Ascii String
-  index = dissect.security_symbol_5(buffer, index, packet, parent)
+  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
   -- Strike Price Denominator Code: 1 Byte Ascii String
-  index = dissect.strike_price_denominator_code(buffer, index, packet, parent)
+  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
   -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.strike_price_4(buffer, index, packet, parent)
+  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer Enum with 16 values
-  index = dissect.volume(buffer, index, packet, parent)
+  index, volume = dissect.volume(buffer, index, packet, parent)
 
   -- Premium Price Denominator Code: 1 Byte Ascii String
-  index = dissect.premium_price_denominator_code(buffer, index, packet, parent)
+  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
   -- Premium Price: 4 Byte Signed Fixed Width Integer
-  index = dissect.premium_price(buffer, index, packet, parent)
+  index, premium_price = dissect.premium_price(buffer, index, packet, parent)
 
   -- Trade Identifier: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.trade_identifier(buffer, index, packet, parent)
+  index, trade_identifier = dissect.trade_identifier(buffer, index, packet, parent)
 
   -- Reserved 4: 4 Byte
-  index = dissect.reserved_4(buffer, index, packet, parent)
+  index, reserved_4 = dissect.reserved_4(buffer, index, packet, parent)
 
   return index
 end
@@ -4965,9 +4984,9 @@ dissect.equity_and_index_last_sale_message = function(buffer, offset, packet, pa
 end
 
 -- Calculate runtime size of: Equity Index Last Sale Payload
-size_of.equity_index_last_sale_payload_ = function(buffer, offset, equityindexlastsalemessageindicator)
+size_of.equity_index_last_sale_payload_ = function(buffer, offset, equity_index_last_sale_message_indicator_)
   -- Size of Equity And Index Last Sale Message
-  if equityindexlastsalemessageindicator == " " then
+  if equity_index_last_sale_message_indicator_ == " " then
     return 31
   end
 
@@ -4980,9 +4999,9 @@ display.equity_index_last_sale_payload_ = function(buffer, offset, packet, paren
 end
 
 -- Dissect Branches: Equity Index Last Sale Payload
-dissect.equity_index_last_sale_payload__branches = function(buffer, offset, packet, parent, equityindexlastsalemessageindicator)
+dissect.equity_index_last_sale_payload__branches = function(buffer, offset, packet, parent, equity_index_last_sale_message_indicator_)
   -- Dissect Equity And Index Last Sale Message
-  if equityindexlastsalemessageindicator == " " then
+  if equity_index_last_sale_message_indicator_ == " " then
     return dissect.equity_and_index_last_sale_message(buffer, offset, packet, parent)
   end
 
@@ -4990,13 +5009,13 @@ dissect.equity_index_last_sale_payload__branches = function(buffer, offset, pack
 end
 
 -- Dissect: Equity Index Last Sale Payload
-dissect.equity_index_last_sale_payload_ = function(buffer, offset, packet, parent, code)
+dissect.equity_index_last_sale_payload_ = function(buffer, offset, packet, parent, equity_index_last_sale_message_indicator_)
   if not show.equity_index_last_sale_payload_ then
-    return dissect.equity_index_last_sale_payload__branches(buffer, offset, packet, parent, code)
+    return dissect.equity_index_last_sale_payload__branches(buffer, offset, packet, parent, equity_index_last_sale_message_indicator_)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.equity_index_last_sale_payload_(buffer, offset, code)
+  local size = size_of.equity_index_last_sale_payload_(buffer, offset, equity_index_last_sale_message_indicator_)
   if size == 0 then
     return offset
   end
@@ -5006,7 +5025,7 @@ dissect.equity_index_last_sale_payload_ = function(buffer, offset, packet, paren
   local display = display.equity_index_last_sale_payload_(buffer, packet, parent)
   local element = parent:add(opra_options_recipient_obdi_v2_9.fields.equity_index_last_sale_payload_, range, display)
 
-  return dissect.equity_index_last_sale_payload__branches(buffer, offset, packet, parent, code)
+  return dissect.equity_index_last_sale_payload__branches(buffer, offset, packet, parent, equity_index_last_sale_message_indicator_)
 end
 
 -- Calculate runtime size: Equity Index Last Sale Category
@@ -5033,19 +5052,16 @@ dissect.equity_index_last_sale_category_fields = function(buffer, offset, packet
   local index = offset
 
   -- Equity Index Last Sale Message Type
-  index = dissect.equity_index_last_sale_message_type(buffer, index, packet, parent)
+  index, equity_index_last_sale_message_type = dissect.equity_index_last_sale_message_type(buffer, index, packet, parent)
 
   -- Equity Index Last Sale Message Indicator
-  index = dissect.equity_index_last_sale_message_indicator_(buffer, index, packet, parent)
+  index, equity_index_last_sale_message_indicator_ = dissect.equity_index_last_sale_message_indicator_(buffer, index, packet, parent)
 
   -- Transaction ID : 8 Byte Unsigned Fixed Width Integer
-  index = dissect.transaction_id_(buffer, index, packet, parent)
-
-  -- Dependency element: Equity Index Last Sale Message Indicator
-  local code = buffer(index - 8, 0):bytes():tohex(false, " ")
+  index, transaction_id_ = dissect.transaction_id_(buffer, index, packet, parent)
 
   -- Equity Index Last Sale Payload : Runtime Type with 1 branches
-  index = dissect.equity_index_last_sale_payload_(buffer, index, packet, parent, code)
+  index = dissect.equity_index_last_sale_payload_(buffer, index, packet, parent, equity_index_last_sale_message_indicator_)
 
   return index
 end
@@ -5064,37 +5080,37 @@ dissect.equity_index_last_sale_category = function(buffer, offset, packet, paren
 end
 
 -- Calculate runtime size of: Category Data
-size_of.category_data = function(buffer, offset, messagecategory)
+size_of.category_data = function(buffer, offset, message_category)
   -- Size of Equity Index Last Sale Category
-  if messagecategory == "a" then
+  if message_category == "a" then
     return size_of.equity_index_last_sale_category(buffer, offset)
   end
   -- Size of Open Interest Category
-  if messagecategory == "d" then
+  if message_category == "d" then
     return size_of.open_interest_category(buffer, offset)
   end
   -- Size of Equity EOD Category
-  if messagecategory == "f" then
+  if message_category == "f" then
     return size_of.equity_eod_category(buffer, offset)
   end
   -- Size of Long Quote Category
-  if messagecategory == "k" then
+  if message_category == "k" then
     return size_of.long_quote_category(buffer, offset)
   end
   -- Size of Short Quote Category
-  if messagecategory == "q" then
+  if message_category == "q" then
     return size_of.short_quote_category(buffer, offset)
   end
   -- Size of ADMINISTRATIVE Category
-  if messagecategory == "C" then
+  if message_category == "C" then
     return size_of.administrative_category(buffer, offset)
   end
   -- Size of CONTROL Category
-  if messagecategory == "H" then
+  if message_category == "H" then
     return size_of.control_category(buffer, offset)
   end
   -- Size of UNDERLYING VALUE Category
-  if messagecategory == "Y" then
+  if message_category == "Y" then
     return size_of.underlying_value_category(buffer, offset)
   end
 
@@ -5107,37 +5123,37 @@ display.category_data = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Branches: Category Data
-dissect.category_data_branches = function(buffer, offset, packet, parent, messagecategory)
+dissect.category_data_branches = function(buffer, offset, packet, parent, message_category)
   -- Dissect Equity Index Last Sale Category
-  if messagecategory == "a" then
+  if message_category == "a" then
     return dissect.equity_index_last_sale_category(buffer, offset, packet, parent)
   end
   -- Dissect Open Interest Category
-  if messagecategory == "d" then
+  if message_category == "d" then
     return dissect.open_interest_category(buffer, offset, packet, parent)
   end
   -- Dissect Equity EOD Category
-  if messagecategory == "f" then
+  if message_category == "f" then
     return dissect.equity_eod_category(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote Category
-  if messagecategory == "k" then
+  if message_category == "k" then
     return dissect.long_quote_category(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote Category
-  if messagecategory == "q" then
+  if message_category == "q" then
     return dissect.short_quote_category(buffer, offset, packet, parent)
   end
   -- Dissect ADMINISTRATIVE Category
-  if messagecategory == "C" then
+  if message_category == "C" then
     return dissect.administrative_category(buffer, offset, packet, parent)
   end
   -- Dissect CONTROL Category
-  if messagecategory == "H" then
+  if message_category == "H" then
     return dissect.control_category(buffer, offset, packet, parent)
   end
   -- Dissect UNDERLYING VALUE Category
-  if messagecategory == "Y" then
+  if message_category == "Y" then
     return dissect.underlying_value_category(buffer, offset, packet, parent)
   end
 
@@ -5145,13 +5161,13 @@ dissect.category_data_branches = function(buffer, offset, packet, parent, messag
 end
 
 -- Dissect: Category Data
-dissect.category_data = function(buffer, offset, packet, parent, code)
+dissect.category_data = function(buffer, offset, packet, parent, message_category)
   if not show.category_data then
-    return dissect.category_data_branches(buffer, offset, packet, parent, code)
+    return dissect.category_data_branches(buffer, offset, packet, parent, message_category)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.category_data(buffer, offset, code)
+  local size = size_of.category_data(buffer, offset, message_category)
   if size == 0 then
     return offset
   end
@@ -5161,7 +5177,7 @@ dissect.category_data = function(buffer, offset, packet, parent, code)
   local display = display.category_data(buffer, packet, parent)
   local element = parent:add(opra_options_recipient_obdi_v2_9.fields.category_data, range, display)
 
-  return dissect.category_data_branches(buffer, offset, packet, parent, code)
+  return dissect.category_data_branches(buffer, offset, packet, parent, message_category)
 end
 
 -- Size: Message Category
@@ -5295,13 +5311,14 @@ end
 
 -- Dissect: Message Category
 dissect.message_category = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.message_category)
+  local length = size_of.message_category
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.message_category(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.message_category, range, value, display)
 
-  return offset + size_of.message_category
+  return offset + length, value
 end
 
 -- Display: Message Header
@@ -5314,10 +5331,10 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 17 values
-  index = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
 
   -- Message Category: 1 Byte Ascii String Enum with 40 values
-  index = dissect.message_category(buffer, index, packet, parent)
+  index, message_category = dissect.message_category(buffer, index, packet, parent)
 
   return index
 end
@@ -5358,13 +5375,13 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 2 fields
-  index = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Message Category
-  local code = buffer(index - 1, 1):string()
+  local message_category = buffer(index - 1, 1):string()
 
   -- Category Data: Runtime Type with 8 branches
-  index = dissect.category_data(buffer, index, packet, parent, code)
+  index = dissect.category_data(buffer, index, packet, parent, message_category)
 
   return index
 end
@@ -5392,13 +5409,14 @@ end
 
 -- Dissect: Checksum
 dissect.checksum = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.checksum)
+  local length = size_of.checksum
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.checksum(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.checksum, range, value, display)
 
-  return offset + size_of.checksum
+  return offset + length, value
 end
 
 -- Size: Message Count
@@ -5411,13 +5429,14 @@ end
 
 -- Dissect: Message Count
 dissect.message_count = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.message_count)
+  local length = size_of.message_count
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.message_count(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.message_count, range, value, display)
 
-  return offset + size_of.message_count
+  return offset + length, value
 end
 
 -- Size: Block Seq Num
@@ -5430,13 +5449,14 @@ end
 
 -- Dissect: Block Seq Num
 dissect.block_seq_num = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.block_seq_num)
+  local length = size_of.block_seq_num
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.block_seq_num(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.block_seq_num, range, value, display)
 
-  return offset + size_of.block_seq_num
+  return offset + length, value
 end
 
 -- Size: Session Indicator
@@ -5456,13 +5476,14 @@ end
 
 -- Dissect: Session Indicator
 dissect.session_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.session_indicator)
+  local length = size_of.session_indicator
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.session_indicator(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.session_indicator, range, value, display)
 
-  return offset + size_of.session_indicator
+  return offset + length, value
 end
 
 -- Size: Retransmission Indicator
@@ -5475,13 +5496,14 @@ end
 
 -- Dissect: Retransmission Indicator
 dissect.retransmission_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.retransmission_indicator)
+  local length = size_of.retransmission_indicator
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.retransmission_indicator(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.retransmission_indicator, range, value, display)
 
-  return offset + size_of.retransmission_indicator
+  return offset + length, value
 end
 
 -- Size: Data Feed Indicator
@@ -5494,13 +5516,14 @@ end
 
 -- Dissect: Data Feed Indicator
 dissect.data_feed_indicator = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.data_feed_indicator)
+  local length = size_of.data_feed_indicator
+  local range = buffer(offset, length)
   local value = range:string()
   local display = display.data_feed_indicator(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.data_feed_indicator, range, value, display)
 
-  return offset + size_of.data_feed_indicator
+  return offset + length, value
 end
 
 -- Size: Version
@@ -5513,13 +5536,14 @@ end
 
 -- Dissect: Version
 dissect.version = function(buffer, offset, packet, parent)
-  local range = buffer(offset, size_of.version)
+  local length = size_of.version
+  local range = buffer(offset, length)
   local value = range:uint()
   local display = display.version(value, buffer, offset, packet, parent)
 
   parent:add(opra_options_recipient_obdi_v2_9.fields.version, range, value, display)
 
-  return offset + size_of.version
+  return offset + length, value
 end
 
 -- Display: Packet Header
@@ -5532,31 +5556,31 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Version: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.version(buffer, index, packet, parent)
+  index, version = dissect.version(buffer, index, packet, parent)
 
   -- Size: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.size(buffer, index, packet, parent)
+  index, size = dissect.size(buffer, index, packet, parent)
 
   -- Data Feed Indicator: 1 Byte Ascii String
-  index = dissect.data_feed_indicator(buffer, index, packet, parent)
+  index, data_feed_indicator = dissect.data_feed_indicator(buffer, index, packet, parent)
 
   -- Retransmission Indicator: 1 Byte Ascii String
-  index = dissect.retransmission_indicator(buffer, index, packet, parent)
+  index, retransmission_indicator = dissect.retransmission_indicator(buffer, index, packet, parent)
 
   -- Session Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index = dissect.session_indicator(buffer, index, packet, parent)
+  index, session_indicator = dissect.session_indicator(buffer, index, packet, parent)
 
   -- Block Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.block_seq_num(buffer, index, packet, parent)
+  index, block_seq_num = dissect.block_seq_num(buffer, index, packet, parent)
 
   -- Message Count: 1 Byte Unsigned Fixed Width Integer
-  index = dissect.message_count(buffer, index, packet, parent)
+  index, message_count = dissect.message_count(buffer, index, packet, parent)
 
   -- Block Timestamp
-  index = dissect.block_timestamp(buffer, index, packet, parent)
+  index, block_timestamp = dissect.block_timestamp(buffer, index, packet, parent)
 
   -- Checksum: 2 Byte Unsigned Fixed Width Integer
-  index = dissect.checksum(buffer, index, packet, parent)
+  index, checksum = dissect.checksum(buffer, index, packet, parent)
 
   return index
 end
@@ -5578,7 +5602,7 @@ dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 9 fields
-  index = dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = dissect.packet_header(buffer, index, packet, parent)
 
   -- Dependency element: Message Count
   local message_count = buffer(index - 3, 1):uint()
