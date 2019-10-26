@@ -2376,7 +2376,7 @@ display.security_status = function(value)
     return "Security Status: Pre Opening Price Indication (G)"
   end
   if value == "R" then
-    return "Security Status: Rule15 Indication (R)"
+    return "Security Status: Rule 15 Indication (R)"
   end
 
   return "Security Status: Unknown("..value..")"
@@ -2814,7 +2814,7 @@ display.status = function(value)
     return "Status: Invalid Product Id (8)"
   end
   if value == "9" then
-    return "Status: 1 Invalid Msg Type Or2 Mismatch Between Msg Type And Msg Size (9)"
+    return "Status: 1 Invalid Msg Type Or 2 Mismatch Between Msg Type And Msg Size (9)"
   end
 
   return "Status: Unknown("..value..")"

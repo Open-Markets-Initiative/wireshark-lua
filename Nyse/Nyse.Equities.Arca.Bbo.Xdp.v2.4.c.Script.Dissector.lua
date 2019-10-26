@@ -957,7 +957,7 @@ display.security_status = function(value)
     return "Security Status: Pre Opening Price Indication (G)"
   end
   if value == "R" then
-    return "Security Status: Rule15 Indication (R)"
+    return "Security Status: Rule 15 Indication (R)"
   end
 
   return "Security Status: Unknown("..value..")"

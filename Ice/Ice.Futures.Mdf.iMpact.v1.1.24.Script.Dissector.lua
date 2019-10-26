@@ -1340,7 +1340,7 @@ display.market_type_id = function(value)
     return "Market Type Id: Ice Wti Crude Futures (9)"
   end
   if value == 10 then
-    return "Market Type Id: GC Newcastle Coal Futures (10)"
+    return "Market Type Id: G C Newcastle Coal Futures (10)"
   end
   if value == 11 then
     return "Market Type Id: Ice Brent Wti Futures Spread (11)"
@@ -1499,7 +1499,7 @@ display.market_type_id = function(value)
     return "Market Type Id: Dutch Power Futures (99)"
   end
   if value == 100 then
-    return "Market Type Id: GC Newcastle Fob Indo Subbit Coal Futures Spread (100)"
+    return "Market Type Id: G C Newcastle Fob Indo Subbit Coal Futures Spread (100)"
   end
   if value == 101 then
     return "Market Type Id: Richards Bayg C Newcastle Coal Futures Spread (101)"
@@ -1511,7 +1511,7 @@ display.market_type_id = function(value)
     return "Market Type Id: Cif Us (104)"
   end
   if value == 108 then
-    return "Market Type Id: D6 Rin (108)"
+    return "Market Type Id: D 6 Rin (108)"
   end
   if value == 111 then
     return "Market Type Id: European Power Spreads (111)"
@@ -2669,10 +2669,10 @@ display.security_sub_type = function(value)
     return "Security Sub Type: Gut Strangle (11)"
   end
   if value == 12 then
-    return "Security Sub Type: 1X2 Call Spread To The 2 (12)"
+    return "Security Sub Type: 1 X 2 Call Spread To The 2 (12)"
   end
   if value == 13 then
-    return "Security Sub Type: 1X2 Put Spread To The 2 (13)"
+    return "Security Sub Type: 1 X 2 Put Spread To The 2 (13)"
   end
   if value == 14 then
     return "Security Sub Type: Iron Butterfly (14)"
@@ -2714,16 +2714,16 @@ display.security_sub_type = function(value)
     return "Security Sub Type: Synthetic Underlying (33)"
   end
   if value == 34 then
-    return "Security Sub Type: Call Spread Vs Put3 Way (34)"
+    return "Security Sub Type: Call Spread Vs Put 3 Way (34)"
   end
   if value == 35 then
-    return "Security Sub Type: Put Spread Vs Call3 Way (35)"
+    return "Security Sub Type: Put Spread Vs Call 3 Way (35)"
   end
   if value == 36 then
-    return "Security Sub Type: Straddle Vs Call3 Way (36)"
+    return "Security Sub Type: Straddle Vs Call 3 Way (36)"
   end
   if value == 37 then
-    return "Security Sub Type: Straddle Vs Put3 Way (37)"
+    return "Security Sub Type: Straddle Vs Put 3 Way (37)"
   end
   if value == 38 then
     return "Security Sub Type: Call Calendar Spread (38)"
@@ -2738,10 +2738,10 @@ display.security_sub_type = function(value)
     return "Security Sub Type: Jelly Roll (41)"
   end
   if value == 42 then
-    return "Security Sub Type: Hedged1X2 Call Spread To The 2 (42)"
+    return "Security Sub Type: Hedged 1 X 2 Call Spread To The 2 (42)"
   end
   if value == 43 then
-    return "Security Sub Type: Hedged1X2 Put Spread To The 2 (43)"
+    return "Security Sub Type: Hedged 1 X 2 Put Spread To The 2 (43)"
   end
   if value == 44 then
     return "Security Sub Type: Call Spread Versus Sell Put Hedge (44)"
@@ -2825,16 +2825,16 @@ display.security_sub_type = function(value)
     return "Security Sub Type: Hedged Fence To The Put (73)"
   end
   if value == 74 then
-    return "Security Sub Type: 1X2 Call Spread To The 1 (74)"
+    return "Security Sub Type: 1 X 2 Call Spread To The 1 (74)"
   end
   if value == 75 then
-    return "Security Sub Type: 1X2 Put Spread To The 1 (75)"
+    return "Security Sub Type: 1 X 2 Put Spread To The 1 (75)"
   end
   if value == 76 then
-    return "Security Sub Type: Hedged1X2 Call Spread To The 1 (76)"
+    return "Security Sub Type: Hedged 1 X 2 Call Spread To The 1 (76)"
   end
   if value == 77 then
-    return "Security Sub Type: Hedged1X2 Put Spread To The 1 (77)"
+    return "Security Sub Type: Hedged 1 X 2 Put Spread To The 1 (77)"
   end
   if value == 88 then
     return "Security Sub Type: Discount Spreads (88)"
@@ -2909,31 +2909,31 @@ display.security_sub_type = function(value)
     return "Security Sub Type: Bundle No Color (200)"
   end
   if value == 201 then
-    return "Security Sub Type: Bundle2 Yr (201)"
+    return "Security Sub Type: Bundle 2 Yr (201)"
   end
   if value == 202 then
-    return "Security Sub Type: Bundle3 Yr (202)"
+    return "Security Sub Type: Bundle 3 Yr (202)"
   end
   if value == 203 then
-    return "Security Sub Type: Bundle4 Yr (203)"
+    return "Security Sub Type: Bundle 4 Yr (203)"
   end
   if value == 204 then
-    return "Security Sub Type: Bundle5 Yr (204)"
+    return "Security Sub Type: Bundle 5 Yr (204)"
   end
   if value == 205 then
-    return "Security Sub Type: Bundle6 Yr (205)"
+    return "Security Sub Type: Bundle 6 Yr (205)"
   end
   if value == 206 then
-    return "Security Sub Type: Bundle7 Yr (206)"
+    return "Security Sub Type: Bundle 7 Yr (206)"
   end
   if value == 207 then
-    return "Security Sub Type: Bundle8 Yr (207)"
+    return "Security Sub Type: Bundle 8 Yr (207)"
   end
   if value == 208 then
-    return "Security Sub Type: Bundle9 Yr (208)"
+    return "Security Sub Type: Bundle 9 Yr (208)"
   end
   if value == 209 then
-    return "Security Sub Type: Bundle10 Yr (209)"
+    return "Security Sub Type: Bundle 10 Yr (209)"
   end
   if value == 400 then
     return "Security Sub Type: Balmo (400)"
@@ -2978,13 +2978,13 @@ display.security_sub_type = function(value)
     return "Security Sub Type: Custom Daily Cfd (711)"
   end
   if value == 712 then
-    return "Security Sub Type: Custom Daily7X 8 (712)"
+    return "Security Sub Type: Custom Daily 7 X 8 (712)"
   end
   if value == 713 then
-    return "Security Sub Type: Custom Daily7X 16 (713)"
+    return "Security Sub Type: Custom Daily 7 X 16 (713)"
   end
   if value == 714 then
-    return "Security Sub Type: Custom Daily7X 6 (714)"
+    return "Security Sub Type: Custom Daily 7 X 6 (714)"
   end
   if value == 715 then
     return "Security Sub Type: Custom Daily Off Peak X 16 (715)"

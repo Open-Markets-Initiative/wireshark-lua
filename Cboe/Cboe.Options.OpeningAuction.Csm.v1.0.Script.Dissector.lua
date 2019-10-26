@@ -2116,7 +2116,7 @@ display.security_exchange = function(value)
     return "Security Exchange: Cfecof (F)"
   end
   if value == "2" then
-    return "Security Exchange: Cboe2 Options (2)"
+    return "Security Exchange: Cboe 2 Options (2)"
   end
 
   return "Security Exchange: Unknown("..value..")"

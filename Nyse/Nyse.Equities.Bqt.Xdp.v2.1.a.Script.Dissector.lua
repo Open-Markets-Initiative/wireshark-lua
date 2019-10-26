@@ -927,7 +927,7 @@ display.trade_condition_4 = function(value)
     return "Trade Condition 4: Odd Lot Trade (I)"
   end
   if value == "K" then
-    return "Trade Condition 4: Rule127 Nyse Only Or Rule155 Nyse American Only (K)"
+    return "Trade Condition 4: Rule 127 Nyse Only Or Rule 155 Nyse American Only (K)"
   end
   if value == "M" then
     return "Trade Condition 4: Official Closing Price (M)"
@@ -2271,7 +2271,7 @@ display.security_status = function(value)
     return "Security Status: Pre Opening Price Indication (G)"
   end
   if value == "R" then
-    return "Security Status: Rule15 Indication (R)"
+    return "Security Status: Rule 15 Indication (R)"
   end
 
   return "Security Status: Unknown("..value..")"

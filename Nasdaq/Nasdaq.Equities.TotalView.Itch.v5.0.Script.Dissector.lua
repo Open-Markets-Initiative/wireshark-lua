@@ -2665,7 +2665,7 @@ display.issue_classification = function(value)
     return "Issue Classification: Depository (F)"
   end
   if value == "I" then
-    return "Issue Classification: 144A (I)"
+    return "Issue Classification: 144 A (I)"
   end
   if value == "L" then
     return "Issue Classification: Limited (L)"

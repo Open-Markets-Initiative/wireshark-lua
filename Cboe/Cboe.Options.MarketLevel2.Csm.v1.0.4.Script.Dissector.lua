@@ -2021,7 +2021,7 @@ display.security_exchange = function(value)
     return "Security Exchange: Cfecof Not Supported (F)"
   end
   if value == "2" then
-    return "Security Exchange: Cboe2 Options Not Supported (2)"
+    return "Security Exchange: Cboe 2 Options Not Supported (2)"
   end
 
   return "Security Exchange: Unknown("..value..")"

@@ -215,8 +215,8 @@ ice_futures_mdf_impact_v1_1_34.fields.product_id = ProtoField.new("Product Id", 
 ice_futures_mdf_impact_v1_1_34.fields.product_name = ProtoField.new("Product Name", "ice.futures.mdf.impact.v1.1.34.productname", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_34.fields.published_date_time = ProtoField.new("Published Date Time", "ice.futures.mdf.impact.v1.1.34.publisheddatetime", ftypes.INT64)
 ice_futures_mdf_impact_v1_1_34.fields.quantity = ProtoField.new("Quantity", "ice.futures.mdf.impact.v1.1.34.quantity", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_34.fields.reserved_2_bytes = ProtoField.new("Reserved 2 Bytes", "ice.futures.mdf.impact.v1.1.34.reserved2bytes", ftypes.BYTES)
 ice_futures_mdf_impact_v1_1_34.fields.reserved_bytes_4 = ProtoField.new("Reserved Bytes 4", "ice.futures.mdf.impact.v1.1.34.reservedbytes4", ftypes.INT32)
-ice_futures_mdf_impact_v1_1_34.fields.reserved2_bytes = ProtoField.new("Reserved2 Bytes", "ice.futures.mdf.impact.v1.1.34.reserved2bytes", ftypes.BYTES)
 ice_futures_mdf_impact_v1_1_34.fields.rfq_message = ProtoField.new("Rfq Message", "ice.futures.mdf.impact.v1.1.34.rfqmessage", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_34.fields.rfq_system_id = ProtoField.new("Rfq System Id", "ice.futures.mdf.impact.v1.1.34.rfqsystemid", ftypes.INT64)
 ice_futures_mdf_impact_v1_1_34.fields.round = ProtoField.new("Round", "ice.futures.mdf.impact.v1.1.34.round", ftypes.INT16)
@@ -1383,7 +1383,7 @@ display.market_type_id = function(value)
     return "Market Type Id: Ice Wti Crude Futures (9)"
   end
   if value == 10 then
-    return "Market Type Id: GC Newcastle Coal Futures (10)"
+    return "Market Type Id: G C Newcastle Coal Futures (10)"
   end
   if value == 11 then
     return "Market Type Id: Ice Brent Wti Futures Spread (11)"
@@ -1542,7 +1542,7 @@ display.market_type_id = function(value)
     return "Market Type Id: Dutch Power Futures (99)"
   end
   if value == 100 then
-    return "Market Type Id: GC Newcastle Fob Indo Subbit Coal Futures Spread (100)"
+    return "Market Type Id: G C Newcastle Fob Indo Subbit Coal Futures Spread (100)"
   end
   if value == 101 then
     return "Market Type Id: Richards Bayg C Newcastle Coal Futures Spread (101)"
@@ -1554,7 +1554,7 @@ display.market_type_id = function(value)
     return "Market Type Id: Cif Us (104)"
   end
   if value == 108 then
-    return "Market Type Id: D6 Rin (108)"
+    return "Market Type Id: D 6 Rin (108)"
   end
   if value == 111 then
     return "Market Type Id: European Power Spreads (111)"
@@ -2915,10 +2915,10 @@ display.security_sub_type = function(value)
     return "Security Sub Type: Gut Strangle (11)"
   end
   if value == 12 then
-    return "Security Sub Type: 1X2 Call Spread To The 2 (12)"
+    return "Security Sub Type: 1 X 2 Call Spread To The 2 (12)"
   end
   if value == 13 then
-    return "Security Sub Type: 1X2 Put Spread To The 2 (13)"
+    return "Security Sub Type: 1 X 2 Put Spread To The 2 (13)"
   end
   if value == 14 then
     return "Security Sub Type: Iron Butterfly (14)"
@@ -2960,16 +2960,16 @@ display.security_sub_type = function(value)
     return "Security Sub Type: Synthetic Underlying (33)"
   end
   if value == 34 then
-    return "Security Sub Type: Call Spread Vs Put3 Way (34)"
+    return "Security Sub Type: Call Spread Vs Put 3 Way (34)"
   end
   if value == 35 then
-    return "Security Sub Type: Put Spread Vs Call3 Way (35)"
+    return "Security Sub Type: Put Spread Vs Call 3 Way (35)"
   end
   if value == 36 then
-    return "Security Sub Type: Straddle Vs Call3 Way (36)"
+    return "Security Sub Type: Straddle Vs Call 3 Way (36)"
   end
   if value == 37 then
-    return "Security Sub Type: Straddle Vs Put3 Way (37)"
+    return "Security Sub Type: Straddle Vs Put 3 Way (37)"
   end
   if value == 38 then
     return "Security Sub Type: Call Calendar Spread (38)"
@@ -2984,10 +2984,10 @@ display.security_sub_type = function(value)
     return "Security Sub Type: Jelly Roll (41)"
   end
   if value == 42 then
-    return "Security Sub Type: Hedged1X2 Call Spread To The 2 (42)"
+    return "Security Sub Type: Hedged 1 X 2 Call Spread To The 2 (42)"
   end
   if value == 43 then
-    return "Security Sub Type: Hedged1X2 Put Spread To The 2 (43)"
+    return "Security Sub Type: Hedged 1 X 2 Put Spread To The 2 (43)"
   end
   if value == 44 then
     return "Security Sub Type: Call Spread Versus Sell Put Hedge (44)"
@@ -3071,16 +3071,16 @@ display.security_sub_type = function(value)
     return "Security Sub Type: Hedged Fence To The Put (73)"
   end
   if value == 74 then
-    return "Security Sub Type: 1X2 Call Spread To The 1 (74)"
+    return "Security Sub Type: 1 X 2 Call Spread To The 1 (74)"
   end
   if value == 75 then
-    return "Security Sub Type: 1X2 Put Spread To The 1 (75)"
+    return "Security Sub Type: 1 X 2 Put Spread To The 1 (75)"
   end
   if value == 76 then
-    return "Security Sub Type: Hedged1X2 Call Spread To The 1 (76)"
+    return "Security Sub Type: Hedged 1 X 2 Call Spread To The 1 (76)"
   end
   if value == 77 then
-    return "Security Sub Type: Hedged1X2 Put Spread To The 1 (77)"
+    return "Security Sub Type: Hedged 1 X 2 Put Spread To The 1 (77)"
   end
   if value == 88 then
     return "Security Sub Type: Discount Spreads (88)"
@@ -3155,31 +3155,31 @@ display.security_sub_type = function(value)
     return "Security Sub Type: Bundle No Color (200)"
   end
   if value == 201 then
-    return "Security Sub Type: Bundle2 Yr (201)"
+    return "Security Sub Type: Bundle 2 Yr (201)"
   end
   if value == 202 then
-    return "Security Sub Type: Bundle3 Yr (202)"
+    return "Security Sub Type: Bundle 3 Yr (202)"
   end
   if value == 203 then
-    return "Security Sub Type: Bundle4 Yr (203)"
+    return "Security Sub Type: Bundle 4 Yr (203)"
   end
   if value == 204 then
-    return "Security Sub Type: Bundle5 Yr (204)"
+    return "Security Sub Type: Bundle 5 Yr (204)"
   end
   if value == 205 then
-    return "Security Sub Type: Bundle6 Yr (205)"
+    return "Security Sub Type: Bundle 6 Yr (205)"
   end
   if value == 206 then
-    return "Security Sub Type: Bundle7 Yr (206)"
+    return "Security Sub Type: Bundle 7 Yr (206)"
   end
   if value == 207 then
-    return "Security Sub Type: Bundle8 Yr (207)"
+    return "Security Sub Type: Bundle 8 Yr (207)"
   end
   if value == 208 then
-    return "Security Sub Type: Bundle9 Yr (208)"
+    return "Security Sub Type: Bundle 9 Yr (208)"
   end
   if value == 209 then
-    return "Security Sub Type: Bundle10 Yr (209)"
+    return "Security Sub Type: Bundle 10 Yr (209)"
   end
   if value == 400 then
     return "Security Sub Type: Balmo (400)"
@@ -3224,13 +3224,13 @@ display.security_sub_type = function(value)
     return "Security Sub Type: Custom Daily Cfd (711)"
   end
   if value == 712 then
-    return "Security Sub Type: Custom Daily7X 8 (712)"
+    return "Security Sub Type: Custom Daily 7 X 8 (712)"
   end
   if value == 713 then
-    return "Security Sub Type: Custom Daily7X 16 (713)"
+    return "Security Sub Type: Custom Daily 7 X 16 (713)"
   end
   if value == 714 then
-    return "Security Sub Type: Custom Daily7X 6 (714)"
+    return "Security Sub Type: Custom Daily 7 X 6 (714)"
   end
   if value == 715 then
     return "Security Sub Type: Custom Daily Off Peak X 16 (715)"
@@ -7982,22 +7982,22 @@ dissect.is_settle_price_official = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Reserved2 Bytes
-size_of.reserved2_bytes = 2
+-- Size: Reserved 2 Bytes
+size_of.reserved_2_bytes = 2
 
--- Display: Reserved2 Bytes
-display.reserved2_bytes = function(value)
-  return "Reserved2 Bytes: "..value
+-- Display: Reserved 2 Bytes
+display.reserved_2_bytes = function(value)
+  return "Reserved 2 Bytes: "..value
 end
 
--- Dissect: Reserved2 Bytes
-dissect.reserved2_bytes = function(buffer, offset, packet, parent)
-  local length = size_of.reserved2_bytes
+-- Dissect: Reserved 2 Bytes
+dissect.reserved_2_bytes = function(buffer, offset, packet, parent)
+  local length = size_of.reserved_2_bytes
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = display.reserved2_bytes(value, buffer, offset, packet, parent)
+  local display = display.reserved_2_bytes(value, buffer, offset, packet, parent)
 
-  parent:add(ice_futures_mdf_impact_v1_1_34.fields.reserved2_bytes, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.reserved_2_bytes, range, value, display)
 
   return offset + length, value
 end
@@ -8208,8 +8208,8 @@ dissect.market_snapshot_message_fields = function(buffer, offset, packet, parent
   -- Last Message Sequence Id: 4 Byte Signed Fixed Width Integer
   index, last_message_sequence_id = dissect.last_message_sequence_id(buffer, index, packet, parent)
 
-  -- Reserved2 Bytes: 2 Byte
-  index, reserved2_bytes = dissect.reserved2_bytes(buffer, index, packet, parent)
+  -- Reserved 2 Bytes: 2 Byte
+  index, reserved_2_bytes = dissect.reserved_2_bytes(buffer, index, packet, parent)
 
   -- Open Interest Date: 10 Byte Ascii String
   index, open_interest_date = dissect.open_interest_date(buffer, index, packet, parent)
