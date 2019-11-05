@@ -3215,7 +3215,7 @@ display.message = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: Message
-dissect.message_fields = function(buffer, offset, packet, parent)
+dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
   -- Message Header: Struct of 3 fields
@@ -3231,19 +3231,17 @@ dissect.message_fields = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Message
-dissect.message = function(buffer, offset, packet, parent)
-  -- Parse runtime struct size
-  local length = size_of.message(buffer, offset)
-
+dissect.message = function(buffer, offset, packet, parent, size_of_message)
   -- Optionally add struct element to protocol tree
   if show.message then
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_message)
     local display = display.message(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v4_0.fields.message, range, display)
   end
 
-  dissect.message_fields(buffer, offset, packet, parent)
-  return offset + length
+  dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+
+  return offset + size_of_message
 end
 
 -- Size: Pad5
@@ -3533,7 +3531,12 @@ dissect.packet = function(buffer, packet, parent)
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index = dissect.message(buffer, index, packet, parent)
+
+    -- Dependency element: Body Len
+    local body_len = buffer(index - 0, 2):le_uint()
+
+    -- Message: Struct of 2 fields
+    index = dissect.message(buffer, index, packet, parent, body_len)
   end
 
   return index

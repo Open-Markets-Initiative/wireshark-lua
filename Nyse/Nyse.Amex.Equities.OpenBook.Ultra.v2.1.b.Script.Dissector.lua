@@ -663,7 +663,7 @@ display.delta_update_message = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: Delta Update Message
-dissect.delta_update_message_fields = function(buffer, offset, packet, parent)
+dissect.delta_update_message_fields = function(buffer, offset, packet, parent, size_of_delta_update_message)
   local index = offset
 
   -- Delta Size: 2 Byte Signed Fixed Width Integer
@@ -705,19 +705,17 @@ dissect.delta_update_message_fields = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Delta Update Message
-dissect.delta_update_message = function(buffer, offset, packet, parent)
-  -- Parse runtime struct size
-  local length = size_of.delta_update_message(buffer, offset)
-
+dissect.delta_update_message = function(buffer, offset, packet, parent, size_of_delta_update_message)
   -- Optionally add struct element to protocol tree
   if show.delta_update_message then
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_delta_update_message)
     local display = display.delta_update_message(buffer, packet, parent)
     parent = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_update_message, range, display)
   end
 
-  dissect.delta_update_message_fields(buffer, offset, packet, parent)
-  return offset + length
+  dissect.delta_update_message_fields(buffer, offset, packet, parent, size_of_delta_update_message)
+
+  return offset + size_of_delta_update_message
 end
 
 -- Size Of: Delta Update Messages
@@ -739,7 +737,12 @@ dissect.delta_update_messages_fields = function(buffer, offset, packet, parent)
 
   -- Delta Update Message: Struct of 10 fields
   while index < end_of_payload do
-    index = dissect.delta_update_message(buffer, index, packet, parent)
+
+    -- Dependency element: Delta Size
+    local delta_size = buffer(index - 0, 2):int()
+
+    -- Delta Update Message: Struct of 10 fields
+    index = dissect.delta_update_message(buffer, index, packet, parent, delta_size)
   end
 
   return index
@@ -908,7 +911,7 @@ display.full_update_message = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: Full Update Message
-dissect.full_update_message_fields = function(buffer, offset, packet, parent)
+dissect.full_update_message_fields = function(buffer, offset, packet, parent, size_of_full_update_message)
   local index = offset
 
   -- Update Size: 2 Byte Signed Fixed Width Integer
@@ -959,19 +962,17 @@ dissect.full_update_message_fields = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Full Update Message
-dissect.full_update_message = function(buffer, offset, packet, parent)
-  -- Parse runtime struct size
-  local length = size_of.full_update_message(buffer, offset)
-
+dissect.full_update_message = function(buffer, offset, packet, parent, size_of_full_update_message)
   -- Optionally add struct element to protocol tree
   if show.full_update_message then
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_full_update_message)
     local display = display.full_update_message(buffer, packet, parent)
     parent = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.full_update_message, range, display)
   end
 
-  dissect.full_update_message_fields(buffer, offset, packet, parent)
-  return offset + length
+  dissect.full_update_message_fields(buffer, offset, packet, parent, size_of_full_update_message)
+
+  return offset + size_of_full_update_message
 end
 
 -- Size Of: Full Update Messages
@@ -993,7 +994,12 @@ dissect.full_update_messages_fields = function(buffer, offset, packet, parent)
 
   -- Full Update Message: Struct of 13 fields
   while index < end_of_payload do
-    index = dissect.full_update_message(buffer, index, packet, parent)
+
+    -- Dependency element: Update Size
+    local update_size = buffer(index - 0, 2):int()
+
+    -- Full Update Message: Struct of 13 fields
+    index = dissect.full_update_message(buffer, index, packet, parent, update_size)
   end
 
   return index
