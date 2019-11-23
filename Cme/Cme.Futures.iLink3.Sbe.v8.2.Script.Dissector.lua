@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Cme Futures iLink3 Sbe 8.0 Protocol
-local cme_futures_ilink3_sbe_v8_0 = Proto("Cme.Futures.iLink3.Sbe.v8.0.Lua", "Cme Futures iLink3 Sbe 8.0")
+-- Cme Futures iLink3 Sbe 8.2 Protocol
+local cme_futures_ilink3_sbe_v8_2 = Proto("Cme.Futures.iLink3.Sbe.v8.2.Lua", "Cme Futures iLink3 Sbe 8.2")
 
 -- Component Tables
 local show = {}
@@ -19,294 +19,295 @@ local verify = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cme Futures iLink3 Sbe 8.0 Fields
-cme_futures_ilink3_sbe_v8_0.fields.access_key_id = ProtoField.new("Access Key Id", "cme.futures.ilink3.sbe.v8.0.accesskeyid", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.affected_order_id = ProtoField.new("Affected Order Id", "cme.futures.ilink3.sbe.v8.0.affectedorderid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.affected_orders_group = ProtoField.new("Affected Orders Group", "cme.futures.ilink3.sbe.v8.0.affectedordersgroup", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.affected_orders_groups = ProtoField.new("Affected Orders Groups", "cme.futures.ilink3.sbe.v8.0.affectedordersgroups", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.aggressor_indicator = ProtoField.new("Aggressor Indicator", "cme.futures.ilink3.sbe.v8.0.aggressorindicator", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.aon = ProtoField.new("Aon", "cme.futures.ilink3.sbe.v8.0.aon", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
-cme_futures_ilink3_sbe_v8_0.fields.auto_quote_request = ProtoField.new("Auto Quote Request", "cme.futures.ilink3.sbe.v8.0.autoquoterequest", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.avg_px_group_id = ProtoField.new("Avg Px Group Id", "cme.futures.ilink3.sbe.v8.0.avgpxgroupid", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.avg_px_indicator = ProtoField.new("Avg Px Indicator", "cme.futures.ilink3.sbe.v8.0.avgpxindicator", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.bid_px = ProtoField.new("Bid Px", "cme.futures.ilink3.sbe.v8.0.bidpx", ftypes.INT64)
-cme_futures_ilink3_sbe_v8_0.fields.bid_size = ProtoField.new("Bid Size", "cme.futures.ilink3.sbe.v8.0.bidsize", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_0.fields.block_length = ProtoField.new("Block Length", "cme.futures.ilink3.sbe.v8.0.blocklength", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_0.fields.business_reject_521 = ProtoField.new("Business Reject 521", "cme.futures.ilink3.sbe.v8.0.businessreject521", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.business_reject_reason = ProtoField.new("Business Reject Reason", "cme.futures.ilink3.sbe.v8.0.businessrejectreason", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_0.fields.business_reject_ref_id = ProtoField.new("Business Reject Ref Id", "cme.futures.ilink3.sbe.v8.0.businessrejectrefid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.cancelled_symbol = ProtoField.new("Cancelled Symbol", "cme.futures.ilink3.sbe.v8.0.cancelledsymbol", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "cme.futures.ilink3.sbe.v8.0.clordid", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.clearing_account_type = ProtoField.new("Clearing Account Type", "cme.futures.ilink3.sbe.v8.0.clearingaccounttype", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.clearing_trade_price_type = ProtoField.new("Clearing Trade Price Type", "cme.futures.ilink3.sbe.v8.0.clearingtradepricetype", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.cmta_giveup_cd = ProtoField.new("Cmta Giveup Cd", "cme.futures.ilink3.sbe.v8.0.cmtagiveupcd", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.cross_id = ProtoField.new("Cross Id", "cme.futures.ilink3.sbe.v8.0.crossid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.cross_type = ProtoField.new("Cross Type", "cme.futures.ilink3.sbe.v8.0.crosstype", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.cum_qty = ProtoField.new("Cum Qty", "cme.futures.ilink3.sbe.v8.0.cumqty", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_0.fields.currency = ProtoField.new("Currency", "cme.futures.ilink3.sbe.v8.0.currency", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.cust_order_capacity = ProtoField.new("Cust Order Capacity", "cme.futures.ilink3.sbe.v8.0.custordercapacity", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.cust_order_handling_inst = ProtoField.new("Cust Order Handling Inst", "cme.futures.ilink3.sbe.v8.0.custorderhandlinginst", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.cxl_quantity = ProtoField.new("Cxl Quantity", "cme.futures.ilink3.sbe.v8.0.cxlquantity", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_0.fields.cxl_rej_reason = ProtoField.new("Cxl Rej Reason", "cme.futures.ilink3.sbe.v8.0.cxlrejreason", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_0.fields.day = ProtoField.new("Day", "cme.futures.ilink3.sbe.v8.0.day", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.delay_duration = ProtoField.new("Delay Duration", "cme.futures.ilink3.sbe.v8.0.delayduration", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_0.fields.display_qty = ProtoField.new("Display Qty", "cme.futures.ilink3.sbe.v8.0.displayqty", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_0.fields.dk_reason = ProtoField.new("Dk Reason", "cme.futures.ilink3.sbe.v8.0.dkreason", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.encoding_type = ProtoField.new("Encoding Type", "cme.futures.ilink3.sbe.v8.0.encodingtype", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_0.fields.end_date = ProtoField.new("End Date", "cme.futures.ilink3.sbe.v8.0.enddate", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_0.fields.error_codes = ProtoField.new("Error Codes", "cme.futures.ilink3.sbe.v8.0.errorcodes", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_0.fields.establish_503 = ProtoField.new("Establish 503", "cme.futures.ilink3.sbe.v8.0.establish503", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.establishment_ack_504 = ProtoField.new("Establishment Ack 504", "cme.futures.ilink3.sbe.v8.0.establishmentack504", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.establishment_reject_505 = ProtoField.new("Establishment Reject 505", "cme.futures.ilink3.sbe.v8.0.establishmentreject505", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.exchange_quote_req_id = ProtoField.new("Exchange Quote Req Id", "cme.futures.ilink3.sbe.v8.0.exchangequotereqid", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.exec_ack_status = ProtoField.new("Exec Ack Status", "cme.futures.ilink3.sbe.v8.0.execackstatus", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.exec_id = ProtoField.new("Exec Id", "cme.futures.ilink3.sbe.v8.0.execid", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.exec_inst = ProtoField.new("Exec Inst", "cme.futures.ilink3.sbe.v8.0.execinst", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.exec_restatement_reason = ProtoField.new("Exec Restatement Reason", "cme.futures.ilink3.sbe.v8.0.execrestatementreason", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.exec_type = ProtoField.new("Exec Type", "cme.futures.ilink3.sbe.v8.0.exectype", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.execution_ack_539 = ProtoField.new("Execution Ack 539", "cme.futures.ilink3.sbe.v8.0.executionack539", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.execution_mode = ProtoField.new("Execution Mode", "cme.futures.ilink3.sbe.v8.0.executionmode", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.execution_report_cancel_534 = ProtoField.new("Execution Report Cancel 534", "cme.futures.ilink3.sbe.v8.0.executionreportcancel534", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.execution_report_elimination_524 = ProtoField.new("Execution Report Elimination 524", "cme.futures.ilink3.sbe.v8.0.executionreportelimination524", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.execution_report_modify_531 = ProtoField.new("Execution Report Modify 531", "cme.futures.ilink3.sbe.v8.0.executionreportmodify531", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.execution_report_new_522 = ProtoField.new("Execution Report New 522", "cme.futures.ilink3.sbe.v8.0.executionreportnew522", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.execution_report_reject_523 = ProtoField.new("Execution Report Reject 523", "cme.futures.ilink3.sbe.v8.0.executionreportreject523", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.execution_report_status_532 = ProtoField.new("Execution Report Status 532", "cme.futures.ilink3.sbe.v8.0.executionreportstatus532", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.execution_report_trade_addendum_outright_548 = ProtoField.new("Execution Report Trade Addendum Outright 548", "cme.futures.ilink3.sbe.v8.0.executionreporttradeaddendumoutright548", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.execution_report_trade_addendum_spread_549 = ProtoField.new("Execution Report Trade Addendum Spread 549", "cme.futures.ilink3.sbe.v8.0.executionreporttradeaddendumspread549", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.execution_report_trade_addendum_spread_leg_550 = ProtoField.new("Execution Report Trade Addendum Spread Leg 550", "cme.futures.ilink3.sbe.v8.0.executionreporttradeaddendumspreadleg550", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.execution_report_trade_outright_525 = ProtoField.new("Execution Report Trade Outright 525", "cme.futures.ilink3.sbe.v8.0.executionreporttradeoutright525", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.execution_report_trade_spread_526 = ProtoField.new("Execution Report Trade Spread 526", "cme.futures.ilink3.sbe.v8.0.executionreporttradespread526", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.execution_report_trade_spread_leg_527 = ProtoField.new("Execution Report Trade Spread Leg 527", "cme.futures.ilink3.sbe.v8.0.executionreporttradespreadleg527", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.executor = ProtoField.new("Executor", "cme.futures.ilink3.sbe.v8.0.executor", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.expiration_cycle = ProtoField.new("Expiration Cycle", "cme.futures.ilink3.sbe.v8.0.expirationcycle", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.expire_date = ProtoField.new("Expire Date", "cme.futures.ilink3.sbe.v8.0.expiredate", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_0.fields.fault_tolerance_indicator = ProtoField.new("Fault Tolerance Indicator", "cme.futures.ilink3.sbe.v8.0.faulttoleranceindicator", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.fill_exec_id = ProtoField.new("Fill Exec Id", "cme.futures.ilink3.sbe.v8.0.fillexecid", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.fill_px = ProtoField.new("Fill Px", "cme.futures.ilink3.sbe.v8.0.fillpx", ftypes.INT64)
-cme_futures_ilink3_sbe_v8_0.fields.fill_qty = ProtoField.new("Fill Qty", "cme.futures.ilink3.sbe.v8.0.fillqty", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_0.fields.fill_yield_type = ProtoField.new("Fill Yield Type", "cme.futures.ilink3.sbe.v8.0.fillyieldtype", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.fills_group = ProtoField.new("Fills Group", "cme.futures.ilink3.sbe.v8.0.fillsgroup", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.fills_groups = ProtoField.new("Fills Groups", "cme.futures.ilink3.sbe.v8.0.fillsgroups", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.financial_instrument_full_name = ProtoField.new("Financial Instrument Full Name", "cme.futures.ilink3.sbe.v8.0.financialinstrumentfullname", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.firm = ProtoField.new("Firm", "cme.futures.ilink3.sbe.v8.0.firm", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.from_seq_no = ProtoField.new("From Seq No", "cme.futures.ilink3.sbe.v8.0.fromseqno", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_0.fields.group_size = ProtoField.new("Group Size", "cme.futures.ilink3.sbe.v8.0.groupsize", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.hmac_signature = ProtoField.new("Hmac Signature", "cme.futures.ilink3.sbe.v8.0.hmacsignature", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.host_cross_id = ProtoField.new("Host Cross Id", "cme.futures.ilink3.sbe.v8.0.hostcrossid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.idm_short_code = ProtoField.new("Idm Short Code", "cme.futures.ilink3.sbe.v8.0.idmshortcode", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.keep_alive_interval = ProtoField.new("Keep Alive Interval", "cme.futures.ilink3.sbe.v8.0.keepaliveinterval", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_0.fields.keep_alive_interval_lapsed = ProtoField.new("Keep Alive Interval Lapsed", "cme.futures.ilink3.sbe.v8.0.keepaliveintervallapsed", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.last_fragment = ProtoField.new("Last Fragment", "cme.futures.ilink3.sbe.v8.0.lastfragment", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.last_px = ProtoField.new("Last Px", "cme.futures.ilink3.sbe.v8.0.lastpx", ftypes.INT64)
-cme_futures_ilink3_sbe_v8_0.fields.last_qty = ProtoField.new("Last Qty", "cme.futures.ilink3.sbe.v8.0.lastqty", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_0.fields.last_rpt_requested = ProtoField.new("Last Rpt Requested", "cme.futures.ilink3.sbe.v8.0.lastrptrequested", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.last_uuid = ProtoField.new("Last Uuid", "cme.futures.ilink3.sbe.v8.0.lastuuid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.leaves_qty = ProtoField.new("Leaves Qty", "cme.futures.ilink3.sbe.v8.0.leavesqty", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_0.fields.leg_exec_id = ProtoField.new("Leg Exec Id", "cme.futures.ilink3.sbe.v8.0.legexecid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.leg_last_px = ProtoField.new("Leg Last Px", "cme.futures.ilink3.sbe.v8.0.leglastpx", ftypes.INT64)
-cme_futures_ilink3_sbe_v8_0.fields.leg_last_qty = ProtoField.new("Leg Last Qty", "cme.futures.ilink3.sbe.v8.0.leglastqty", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_0.fields.leg_security_id = ProtoField.new("Leg Security Id", "cme.futures.ilink3.sbe.v8.0.legsecurityid", ftypes.INT32)
-cme_futures_ilink3_sbe_v8_0.fields.leg_side = ProtoField.new("Leg Side", "cme.futures.ilink3.sbe.v8.0.legside", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.leg_trade_id = ProtoField.new("Leg Trade Id", "cme.futures.ilink3.sbe.v8.0.legtradeid", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_0.fields.legs_group = ProtoField.new("Legs Group", "cme.futures.ilink3.sbe.v8.0.legsgroup", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.legs_groups = ProtoField.new("Legs Groups", "cme.futures.ilink3.sbe.v8.0.legsgroups", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.liquidity_flag = ProtoField.new("Liquidity Flag", "cme.futures.ilink3.sbe.v8.0.liquidityflag", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.list_update_action = ProtoField.new("List Update Action", "cme.futures.ilink3.sbe.v8.0.listupdateaction", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.location = ProtoField.new("Location", "cme.futures.ilink3.sbe.v8.0.location", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.managed_order = ProtoField.new("Managed Order", "cme.futures.ilink3.sbe.v8.0.managedorder", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.manual_order_indicator = ProtoField.new("Manual Order Indicator", "cme.futures.ilink3.sbe.v8.0.manualorderindicator", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.market_segment_id = ProtoField.new("Market Segment Id", "cme.futures.ilink3.sbe.v8.0.marketsegmentid", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.mass_action_reject_reason = ProtoField.new("Mass Action Reject Reason", "cme.futures.ilink3.sbe.v8.0.massactionrejectreason", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.mass_action_report_id = ProtoField.new("Mass Action Report Id", "cme.futures.ilink3.sbe.v8.0.massactionreportid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.mass_action_response = ProtoField.new("Mass Action Response", "cme.futures.ilink3.sbe.v8.0.massactionresponse", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.mass_action_scope = ProtoField.new("Mass Action Scope", "cme.futures.ilink3.sbe.v8.0.massactionscope", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.mass_cancel_request_type = ProtoField.new("Mass Cancel Request Type", "cme.futures.ilink3.sbe.v8.0.masscancelrequesttype", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.mass_quote_517 = ProtoField.new("Mass Quote 517", "cme.futures.ilink3.sbe.v8.0.massquote517", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.mass_quote_ack_545 = ProtoField.new("Mass Quote Ack 545", "cme.futures.ilink3.sbe.v8.0.massquoteack545", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.mass_status_req_id = ProtoField.new("Mass Status Req Id", "cme.futures.ilink3.sbe.v8.0.massstatusreqid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.mass_status_req_type = ProtoField.new("Mass Status Req Type", "cme.futures.ilink3.sbe.v8.0.massstatusreqtype", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.maturity_month_year = ProtoField.new("Maturity Month Year", "cme.futures.ilink3.sbe.v8.0.maturitymonthyear", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.max_no_of_substitutions = ProtoField.new("Max No Of Substitutions", "cme.futures.ilink3.sbe.v8.0.maxnoofsubstitutions", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.md_trade_entry_id = ProtoField.new("Md Trade Entry Id", "cme.futures.ilink3.sbe.v8.0.mdtradeentryid", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_0.fields.memo = ProtoField.new("Memo", "cme.futures.ilink3.sbe.v8.0.memo", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.message_header = ProtoField.new("Message Header", "cme.futures.ilink3.sbe.v8.0.messageheader", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.message_length = ProtoField.new("Message Length", "cme.futures.ilink3.sbe.v8.0.messagelength", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_0.fields.min_qty = ProtoField.new("Min Qty", "cme.futures.ilink3.sbe.v8.0.minqty", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_0.fields.mm_protection_reset = ProtoField.new("Mm Protection Reset", "cme.futures.ilink3.sbe.v8.0.mmprotectionreset", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.month = ProtoField.new("Month", "cme.futures.ilink3.sbe.v8.0.month", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.msg_count = ProtoField.new("Msg Count", "cme.futures.ilink3.sbe.v8.0.msgcount", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_0.fields.negotiate_500 = ProtoField.new("Negotiate 500", "cme.futures.ilink3.sbe.v8.0.negotiate500", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.negotiation_reject_502 = ProtoField.new("Negotiation Reject 502", "cme.futures.ilink3.sbe.v8.0.negotiationreject502", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.negotiation_response_501 = ProtoField.new("Negotiation Response 501", "cme.futures.ilink3.sbe.v8.0.negotiationresponse501", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.new_order_cross_544 = ProtoField.new("New Order Cross 544", "cme.futures.ilink3.sbe.v8.0.newordercross544", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.new_order_single_514 = ProtoField.new("New Order Single 514", "cme.futures.ilink3.sbe.v8.0.newordersingle514", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.next_seq_no = ProtoField.new("Next Seq No", "cme.futures.ilink3.sbe.v8.0.nextseqno", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_0.fields.nh = ProtoField.new("Nh", "cme.futures.ilink3.sbe.v8.0.nh", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
-cme_futures_ilink3_sbe_v8_0.fields.no_processed_entries = ProtoField.new("No Processed Entries", "cme.futures.ilink3.sbe.v8.0.noprocessedentries", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.not_applied_513 = ProtoField.new("Not Applied 513", "cme.futures.ilink3.sbe.v8.0.notapplied513", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.num_in_group = ProtoField.new("Num In Group", "cme.futures.ilink3.sbe.v8.0.numingroup", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.ob = ProtoField.new("Ob", "cme.futures.ilink3.sbe.v8.0.ob", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
-cme_futures_ilink3_sbe_v8_0.fields.offer_px = ProtoField.new("Offer Px", "cme.futures.ilink3.sbe.v8.0.offerpx", ftypes.INT64)
-cme_futures_ilink3_sbe_v8_0.fields.offer_size = ProtoField.new("Offer Size", "cme.futures.ilink3.sbe.v8.0.offersize", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_0.fields.ofm_override = ProtoField.new("Ofm Override", "cme.futures.ilink3.sbe.v8.0.ofmoverride", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.option_delta = ProtoField.new("Option Delta", "cme.futures.ilink3.sbe.v8.0.optiondelta", ftypes.INT32)
-cme_futures_ilink3_sbe_v8_0.fields.ord_rej_reason = ProtoField.new("Ord Rej Reason", "cme.futures.ilink3.sbe.v8.0.ordrejreason", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_0.fields.ord_status = ProtoField.new("Ord Status", "cme.futures.ilink3.sbe.v8.0.ordstatus", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.ord_status_req_id = ProtoField.new("Ord Status Req Id", "cme.futures.ilink3.sbe.v8.0.ordstatusreqid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.ord_status_req_type = ProtoField.new("Ord Status Req Type", "cme.futures.ilink3.sbe.v8.0.ordstatusreqtype", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.ord_type = ProtoField.new("Ord Type", "cme.futures.ilink3.sbe.v8.0.ordtype", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.order_cancel_reject_535 = ProtoField.new("Order Cancel Reject 535", "cme.futures.ilink3.sbe.v8.0.ordercancelreject535", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.order_cancel_replace_reject_536 = ProtoField.new("Order Cancel Replace Reject 536", "cme.futures.ilink3.sbe.v8.0.ordercancelreplacereject536", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.order_cancel_replace_request_515 = ProtoField.new("Order Cancel Replace Request 515", "cme.futures.ilink3.sbe.v8.0.ordercancelreplacerequest515", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.order_cancel_request_516 = ProtoField.new("Order Cancel Request 516", "cme.futures.ilink3.sbe.v8.0.ordercancelrequest516", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.order_event_exec_id = ProtoField.new("Order Event Exec Id", "cme.futures.ilink3.sbe.v8.0.ordereventexecid", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_0.fields.order_event_px = ProtoField.new("Order Event Px", "cme.futures.ilink3.sbe.v8.0.ordereventpx", ftypes.INT64)
-cme_futures_ilink3_sbe_v8_0.fields.order_event_qty = ProtoField.new("Order Event Qty", "cme.futures.ilink3.sbe.v8.0.ordereventqty", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_0.fields.order_event_reason = ProtoField.new("Order Event Reason", "cme.futures.ilink3.sbe.v8.0.ordereventreason", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.order_event_text = ProtoField.new("Order Event Text", "cme.futures.ilink3.sbe.v8.0.ordereventtext", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.order_event_type = ProtoField.new("Order Event Type", "cme.futures.ilink3.sbe.v8.0.ordereventtype", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.order_events_group = ProtoField.new("Order Events Group", "cme.futures.ilink3.sbe.v8.0.ordereventsgroup", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.order_events_groups = ProtoField.new("Order Events Groups", "cme.futures.ilink3.sbe.v8.0.ordereventsgroups", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.order_id = ProtoField.new("Order Id", "cme.futures.ilink3.sbe.v8.0.orderid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.order_mass_action_report_558 = ProtoField.new("Order Mass Action Report 558", "cme.futures.ilink3.sbe.v8.0.ordermassactionreport558", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.order_mass_action_request_529 = ProtoField.new("Order Mass Action Request 529", "cme.futures.ilink3.sbe.v8.0.ordermassactionrequest529", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.order_mass_status_request_530 = ProtoField.new("Order Mass Status Request 530", "cme.futures.ilink3.sbe.v8.0.ordermassstatusrequest530", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.order_qty = ProtoField.new("Order Qty", "cme.futures.ilink3.sbe.v8.0.orderqty", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_0.fields.order_request_id = ProtoField.new("Order Request Id", "cme.futures.ilink3.sbe.v8.0.orderrequestid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.order_status_request_533 = ProtoField.new("Order Status Request 533", "cme.futures.ilink3.sbe.v8.0.orderstatusrequest533", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.orig_ci_ord_id = ProtoField.new("Orig Ci Ord Id", "cme.futures.ilink3.sbe.v8.0.origciordid", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.orig_secondary_execution_id = ProtoField.new("Orig Secondary Execution Id", "cme.futures.ilink3.sbe.v8.0.origsecondaryexecutionid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.orig_side_trade_id = ProtoField.new("Orig Side Trade Id", "cme.futures.ilink3.sbe.v8.0.origsidetradeid", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_0.fields.ownership = ProtoField.new("Ownership", "cme.futures.ilink3.sbe.v8.0.ownership", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.packet = ProtoField.new("Packet", "cme.futures.ilink3.sbe.v8.0.packet", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.party_detail_definition_status = ProtoField.new("Party Detail Definition Status", "cme.futures.ilink3.sbe.v8.0.partydetaildefinitionstatus", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.party_detail_id = ProtoField.new("Party Detail Id", "cme.futures.ilink3.sbe.v8.0.partydetailid", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.party_detail_request_status = ProtoField.new("Party Detail Request Status", "cme.futures.ilink3.sbe.v8.0.partydetailrequeststatus", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.party_detail_role = ProtoField.new("Party Detail Role", "cme.futures.ilink3.sbe.v8.0.partydetailrole", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_0.fields.party_details_definition_request_518 = ProtoField.new("Party Details Definition Request 518", "cme.futures.ilink3.sbe.v8.0.partydetailsdefinitionrequest518", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.party_details_definition_request_ack_519 = ProtoField.new("Party Details Definition Request Ack 519", "cme.futures.ilink3.sbe.v8.0.partydetailsdefinitionrequestack519", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.party_details_group = ProtoField.new("Party Details Group", "cme.futures.ilink3.sbe.v8.0.partydetailsgroup", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.party_details_groups = ProtoField.new("Party Details Groups", "cme.futures.ilink3.sbe.v8.0.partydetailsgroups", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.party_details_list_report_538 = ProtoField.new("Party Details List Report 538", "cme.futures.ilink3.sbe.v8.0.partydetailslistreport538", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.party_details_list_report_id = ProtoField.new("Party Details List Report Id", "cme.futures.ilink3.sbe.v8.0.partydetailslistreportid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.party_details_list_req_id = ProtoField.new("Party Details List Req Id", "cme.futures.ilink3.sbe.v8.0.partydetailslistreqid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.party_details_list_request_537 = ProtoField.new("Party Details List Request 537", "cme.futures.ilink3.sbe.v8.0.partydetailslistrequest537", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.party_i_ds_group = ProtoField.new("Party I Ds Group", "cme.futures.ilink3.sbe.v8.0.partyidsgroup", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.party_i_ds_groups = ProtoField.new("Party I Ds Groups", "cme.futures.ilink3.sbe.v8.0.partyidsgroups", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.party_id = ProtoField.new("Party Id", "cme.futures.ilink3.sbe.v8.0.partyid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.party_id_source = ProtoField.new("Party Id Source", "cme.futures.ilink3.sbe.v8.0.partyidsource", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.party_role = ProtoField.new("Party Role", "cme.futures.ilink3.sbe.v8.0.partyrole", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_0.fields.payload = ProtoField.new("payload", "cme.futures.ilink3.sbe.v8.0.payload", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.poss_retrans_flag = ProtoField.new("Poss Retrans Flag", "cme.futures.ilink3.sbe.v8.0.possretransflag", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.previous_seq_no = ProtoField.new("Previous Seq No", "cme.futures.ilink3.sbe.v8.0.previousseqno", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_0.fields.previous_uuid = ProtoField.new("Previous Uuid", "cme.futures.ilink3.sbe.v8.0.previousuuid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.price = ProtoField.new("Price", "cme.futures.ilink3.sbe.v8.0.price", ftypes.INT64)
-cme_futures_ilink3_sbe_v8_0.fields.quote_cancel_528 = ProtoField.new("Quote Cancel 528", "cme.futures.ilink3.sbe.v8.0.quotecancel528", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.quote_cancel_ack_547 = ProtoField.new("Quote Cancel Ack 547", "cme.futures.ilink3.sbe.v8.0.quotecancelack547", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.quote_cancel_type = ProtoField.new("Quote Cancel Type", "cme.futures.ilink3.sbe.v8.0.quotecanceltype", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.quote_entries_group = ProtoField.new("Quote Entries Group", "cme.futures.ilink3.sbe.v8.0.quoteentriesgroup", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.quote_entries_groups = ProtoField.new("Quote Entries Groups", "cme.futures.ilink3.sbe.v8.0.quoteentriesgroups", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.quote_entry_id = ProtoField.new("Quote Entry Id", "cme.futures.ilink3.sbe.v8.0.quoteentryid", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_0.fields.quote_id = ProtoField.new("Quote Id", "cme.futures.ilink3.sbe.v8.0.quoteid", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_0.fields.quote_reject_reason = ProtoField.new("Quote Reject Reason", "cme.futures.ilink3.sbe.v8.0.quoterejectreason", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_0.fields.quote_req_id = ProtoField.new("Quote Req Id", "cme.futures.ilink3.sbe.v8.0.quotereqid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.quote_set_id = ProtoField.new("Quote Set Id", "cme.futures.ilink3.sbe.v8.0.quotesetid", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_0.fields.quote_sets_group = ProtoField.new("Quote Sets Group", "cme.futures.ilink3.sbe.v8.0.quotesetsgroup", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.quote_sets_groups = ProtoField.new("Quote Sets Groups", "cme.futures.ilink3.sbe.v8.0.quotesetsgroups", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.quote_status = ProtoField.new("Quote Status", "cme.futures.ilink3.sbe.v8.0.quotestatus", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.quote_type = ProtoField.new("Quote Type", "cme.futures.ilink3.sbe.v8.0.quotetype", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.reason = ProtoField.new("Reason", "cme.futures.ilink3.sbe.v8.0.reason", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.ref_msg_type = ProtoField.new("Ref Msg Type", "cme.futures.ilink3.sbe.v8.0.refmsgtype", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.ref_seq_num = ProtoField.new("Ref Seq Num", "cme.futures.ilink3.sbe.v8.0.refseqnum", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_0.fields.ref_tag_id = ProtoField.new("Ref Tag Id", "cme.futures.ilink3.sbe.v8.0.reftagid", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_0.fields.related_sym_group = ProtoField.new("Related Sym Group", "cme.futures.ilink3.sbe.v8.0.relatedsymgroup", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.related_sym_groups = ProtoField.new("Related Sym Groups", "cme.futures.ilink3.sbe.v8.0.relatedsymgroups", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.request_for_quote_543 = ProtoField.new("Request For Quote 543", "cme.futures.ilink3.sbe.v8.0.requestforquote543", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.request_for_quote_ack_546 = ProtoField.new("Request For Quote Ack 546", "cme.futures.ilink3.sbe.v8.0.requestforquoteack546", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.request_result = ProtoField.new("Request Result", "cme.futures.ilink3.sbe.v8.0.requestresult", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.request_time = ProtoField.new("Request Time", "cme.futures.ilink3.sbe.v8.0.requesttime", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.request_timestamp = ProtoField.new("Request Timestamp", "cme.futures.ilink3.sbe.v8.0.requesttimestamp", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.requesting_party_i_ds_group = ProtoField.new("Requesting Party I Ds Group", "cme.futures.ilink3.sbe.v8.0.requestingpartyidsgroup", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.requesting_party_i_ds_groups = ProtoField.new("Requesting Party I Ds Groups", "cme.futures.ilink3.sbe.v8.0.requestingpartyidsgroups", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.requesting_party_id = ProtoField.new("Requesting Party Id", "cme.futures.ilink3.sbe.v8.0.requestingpartyid", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.requesting_party_id_source = ProtoField.new("Requesting Party Id Source", "cme.futures.ilink3.sbe.v8.0.requestingpartyidsource", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.requesting_party_role = ProtoField.new("Requesting Party Role", "cme.futures.ilink3.sbe.v8.0.requestingpartyrole", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.reserved_1 = ProtoField.new("Reserved 1", "cme.futures.ilink3.sbe.v8.0.reserved1", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
-cme_futures_ilink3_sbe_v8_0.fields.reserved_2 = ProtoField.new("Reserved 2", "cme.futures.ilink3.sbe.v8.0.reserved2", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
-cme_futures_ilink3_sbe_v8_0.fields.reserved_3 = ProtoField.new("Reserved 3", "cme.futures.ilink3.sbe.v8.0.reserved3", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
-cme_futures_ilink3_sbe_v8_0.fields.reserved_4 = ProtoField.new("Reserved 4", "cme.futures.ilink3.sbe.v8.0.reserved4", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
-cme_futures_ilink3_sbe_v8_0.fields.reserved_5 = ProtoField.new("Reserved 5", "cme.futures.ilink3.sbe.v8.0.reserved5", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
-cme_futures_ilink3_sbe_v8_0.fields.retransmission_509 = ProtoField.new("Retransmission 509", "cme.futures.ilink3.sbe.v8.0.retransmission509", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.retransmit_reject_510 = ProtoField.new("Retransmit Reject 510", "cme.futures.ilink3.sbe.v8.0.retransmitreject510", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.retransmit_request_508 = ProtoField.new("Retransmit Request 508", "cme.futures.ilink3.sbe.v8.0.retransmitrequest508", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.risk_free_rate = ProtoField.new("Risk Free Rate", "cme.futures.ilink3.sbe.v8.0.riskfreerate", ftypes.INT32)
-cme_futures_ilink3_sbe_v8_0.fields.schema_id = ProtoField.new("Schema Id", "cme.futures.ilink3.sbe.v8.0.schemaid", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_0.fields.sec_exec_id = ProtoField.new("Sec Exec Id", "cme.futures.ilink3.sbe.v8.0.secexecid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.secret_key_secure_id_expiration = ProtoField.new("Secret Key Secure Id Expiration", "cme.futures.ilink3.sbe.v8.0.secretkeysecureidexpiration", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_0.fields.security_definition_request_560 = ProtoField.new("Security Definition Request 560", "cme.futures.ilink3.sbe.v8.0.securitydefinitionrequest560", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.security_definition_response_561 = ProtoField.new("Security Definition Response 561", "cme.futures.ilink3.sbe.v8.0.securitydefinitionresponse561", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.security_group = ProtoField.new("Security Group", "cme.futures.ilink3.sbe.v8.0.securitygroup", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.security_id = ProtoField.new("Security Id", "cme.futures.ilink3.sbe.v8.0.securityid", ftypes.INT32)
-cme_futures_ilink3_sbe_v8_0.fields.security_req_id = ProtoField.new("Security Req Id", "cme.futures.ilink3.sbe.v8.0.securityreqid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.security_response_id = ProtoField.new("Security Response Id", "cme.futures.ilink3.sbe.v8.0.securityresponseid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.security_response_type = ProtoField.new("Security Response Type", "cme.futures.ilink3.sbe.v8.0.securityresponsetype", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.security_sub_type = ProtoField.new("Security Sub Type", "cme.futures.ilink3.sbe.v8.0.securitysubtype", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.security_type = ProtoField.new("Security Type", "cme.futures.ilink3.sbe.v8.0.securitytype", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.self_match_prevention_id = ProtoField.new("Self Match Prevention Id", "cme.futures.ilink3.sbe.v8.0.selfmatchpreventionid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.self_match_prevention_instruction = ProtoField.new("Self Match Prevention Instruction", "cme.futures.ilink3.sbe.v8.0.selfmatchpreventioninstruction", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.sender_id = ProtoField.new("Sender Id", "cme.futures.ilink3.sbe.v8.0.senderid", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.sending_time_epoch = ProtoField.new("Sending Time Epoch", "cme.futures.ilink3.sbe.v8.0.sendingtimeepoch", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.seq_num = ProtoField.new("Seq Num", "cme.futures.ilink3.sbe.v8.0.seqnum", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_0.fields.sequence_506 = ProtoField.new("Sequence 506", "cme.futures.ilink3.sbe.v8.0.sequence506", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.session = ProtoField.new("Session", "cme.futures.ilink3.sbe.v8.0.session", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.short_sale_type = ProtoField.new("Short Sale Type", "cme.futures.ilink3.sbe.v8.0.shortsaletype", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.side = ProtoField.new("Side", "cme.futures.ilink3.sbe.v8.0.side", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.side_time_in_force = ProtoField.new("Side Time In Force", "cme.futures.ilink3.sbe.v8.0.sidetimeinforce", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.side_trade_id = ProtoField.new("Side Trade Id", "cme.futures.ilink3.sbe.v8.0.sidetradeid", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_0.fields.sides_group = ProtoField.new("Sides Group", "cme.futures.ilink3.sbe.v8.0.sidesgroup", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.sides_groups = ProtoField.new("Sides Groups", "cme.futures.ilink3.sbe.v8.0.sidesgroups", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.simple_open_framing_header = ProtoField.new("Simple Open Framing Header", "cme.futures.ilink3.sbe.v8.0.simpleopenframingheader", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.source_repo_id = ProtoField.new("Source Repo Id", "cme.futures.ilink3.sbe.v8.0.sourcerepoid", ftypes.INT32)
-cme_futures_ilink3_sbe_v8_0.fields.split_msg = ProtoField.new("Split Msg", "cme.futures.ilink3.sbe.v8.0.splitmsg", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.start_date = ProtoField.new("Start Date", "cme.futures.ilink3.sbe.v8.0.startdate", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_0.fields.stop_px = ProtoField.new("Stop Px", "cme.futures.ilink3.sbe.v8.0.stoppx", ftypes.INT64)
-cme_futures_ilink3_sbe_v8_0.fields.symbol = ProtoField.new("Symbol", "cme.futures.ilink3.sbe.v8.0.symbol", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.template_id = ProtoField.new("Template Id", "cme.futures.ilink3.sbe.v8.0.templateid", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_0.fields.terminate_507 = ProtoField.new("Terminate 507", "cme.futures.ilink3.sbe.v8.0.terminate507", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.termination_type = ProtoField.new("Termination Type", "cme.futures.ilink3.sbe.v8.0.terminationtype", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.text = ProtoField.new("Text", "cme.futures.ilink3.sbe.v8.0.text", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.time_in_force = ProtoField.new("Time In Force", "cme.futures.ilink3.sbe.v8.0.timeinforce", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.time_to_expiration = ProtoField.new("Time To Expiration", "cme.futures.ilink3.sbe.v8.0.timetoexpiration", ftypes.INT32)
-cme_futures_ilink3_sbe_v8_0.fields.tot_no_quote_entries = ProtoField.new("Tot No Quote Entries", "cme.futures.ilink3.sbe.v8.0.totnoquoteentries", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.tot_num_parties = ProtoField.new("Tot Num Parties", "cme.futures.ilink3.sbe.v8.0.totnumparties", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_0.fields.total_affected_orders = ProtoField.new("Total Affected Orders", "cme.futures.ilink3.sbe.v8.0.totalaffectedorders", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.total_num_securities = ProtoField.new("Total Num Securities", "cme.futures.ilink3.sbe.v8.0.totalnumsecurities", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.trade_date = ProtoField.new("Trade Date", "cme.futures.ilink3.sbe.v8.0.tradedate", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_0.fields.trade_link_id = ProtoField.new("Trade Link Id", "cme.futures.ilink3.sbe.v8.0.tradelinkid", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_0.fields.trading_system_name = ProtoField.new("Trading System Name", "cme.futures.ilink3.sbe.v8.0.tradingsystemname", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.trading_system_vendor = ProtoField.new("Trading System Vendor", "cme.futures.ilink3.sbe.v8.0.tradingsystemvendor", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.trading_system_version = ProtoField.new("Trading System Version", "cme.futures.ilink3.sbe.v8.0.tradingsystemversion", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.trans_bkd_time = ProtoField.new("Trans Bkd Time", "cme.futures.ilink3.sbe.v8.0.transbkdtime", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.transact_time = ProtoField.new("Transact Time", "cme.futures.ilink3.sbe.v8.0.transacttime", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.trd_reg_publication_reason = ProtoField.new("Trd Reg Publication Reason", "cme.futures.ilink3.sbe.v8.0.trdregpublicationreason", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.trd_reg_publication_type = ProtoField.new("Trd Reg Publication Type", "cme.futures.ilink3.sbe.v8.0.trdregpublicationtype", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.trd_reg_publications_group = ProtoField.new("Trd Reg Publications Group", "cme.futures.ilink3.sbe.v8.0.trdregpublicationsgroup", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.trd_reg_publications_groups = ProtoField.new("Trd Reg Publications Groups", "cme.futures.ilink3.sbe.v8.0.trdregpublicationsgroups", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.underlying_px = ProtoField.new("Underlying Px", "cme.futures.ilink3.sbe.v8.0.underlyingpx", ftypes.INT64)
-cme_futures_ilink3_sbe_v8_0.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "cme.futures.ilink3.sbe.v8.0.underlyingsecurityid", ftypes.INT32)
-cme_futures_ilink3_sbe_v8_0.fields.unsolicited_cancel_type = ProtoField.new("Unsolicited Cancel Type", "cme.futures.ilink3.sbe.v8.0.unsolicitedcanceltype", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_0.fields.uuid = ProtoField.new("Uuid", "cme.futures.ilink3.sbe.v8.0.uuid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_0.fields.version = ProtoField.new("Version", "cme.futures.ilink3.sbe.v8.0.version", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_0.fields.volatility = ProtoField.new("Volatility", "cme.futures.ilink3.sbe.v8.0.volatility", ftypes.INT64)
-cme_futures_ilink3_sbe_v8_0.fields.week = ProtoField.new("Week", "cme.futures.ilink3.sbe.v8.0.week", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_0.fields.year = ProtoField.new("Year", "cme.futures.ilink3.sbe.v8.0.year", ftypes.UINT16)
+-- Cme Futures iLink3 Sbe 8.2 Fields
+cme_futures_ilink3_sbe_v8_2.fields.access_key_id = ProtoField.new("Access Key Id", "cme.futures.ilink3.sbe.v8.2.accesskeyid", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.affected_order_id = ProtoField.new("Affected Order Id", "cme.futures.ilink3.sbe.v8.2.affectedorderid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.affected_orders_group = ProtoField.new("Affected Orders Group", "cme.futures.ilink3.sbe.v8.2.affectedordersgroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.affected_orders_groups = ProtoField.new("Affected Orders Groups", "cme.futures.ilink3.sbe.v8.2.affectedordersgroups", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.aggressor_indicator = ProtoField.new("Aggressor Indicator", "cme.futures.ilink3.sbe.v8.2.aggressorindicator", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.aon = ProtoField.new("Aon", "cme.futures.ilink3.sbe.v8.2.aon", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
+cme_futures_ilink3_sbe_v8_2.fields.auto_quote_request = ProtoField.new("Auto Quote Request", "cme.futures.ilink3.sbe.v8.2.autoquoterequest", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.avg_px_group_id = ProtoField.new("Avg Px Group Id", "cme.futures.ilink3.sbe.v8.2.avgpxgroupid", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.avg_px_indicator = ProtoField.new("Avg Px Indicator", "cme.futures.ilink3.sbe.v8.2.avgpxindicator", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.bid_px = ProtoField.new("Bid Px", "cme.futures.ilink3.sbe.v8.2.bidpx", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_2.fields.bid_size = ProtoField.new("Bid Size", "cme.futures.ilink3.sbe.v8.2.bidsize", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.block_length = ProtoField.new("Block Length", "cme.futures.ilink3.sbe.v8.2.blocklength", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.business_reject_521 = ProtoField.new("Business Reject 521", "cme.futures.ilink3.sbe.v8.2.businessreject521", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.business_reject_reason = ProtoField.new("Business Reject Reason", "cme.futures.ilink3.sbe.v8.2.businessrejectreason", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.business_reject_ref_id = ProtoField.new("Business Reject Ref Id", "cme.futures.ilink3.sbe.v8.2.businessrejectrefid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.cancelled_symbol = ProtoField.new("Cancelled Symbol", "cme.futures.ilink3.sbe.v8.2.cancelledsymbol", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "cme.futures.ilink3.sbe.v8.2.clordid", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.clearing_account_type = ProtoField.new("Clearing Account Type", "cme.futures.ilink3.sbe.v8.2.clearingaccounttype", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.clearing_trade_price_type = ProtoField.new("Clearing Trade Price Type", "cme.futures.ilink3.sbe.v8.2.clearingtradepricetype", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.cmta_giveup_cd = ProtoField.new("Cmta Giveup Cd", "cme.futures.ilink3.sbe.v8.2.cmtagiveupcd", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.cross_id = ProtoField.new("Cross Id", "cme.futures.ilink3.sbe.v8.2.crossid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.cross_type = ProtoField.new("Cross Type", "cme.futures.ilink3.sbe.v8.2.crosstype", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.cum_qty = ProtoField.new("Cum Qty", "cme.futures.ilink3.sbe.v8.2.cumqty", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.currency = ProtoField.new("Currency", "cme.futures.ilink3.sbe.v8.2.currency", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.cust_order_capacity = ProtoField.new("Cust Order Capacity", "cme.futures.ilink3.sbe.v8.2.custordercapacity", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.cust_order_handling_inst = ProtoField.new("Cust Order Handling Inst", "cme.futures.ilink3.sbe.v8.2.custorderhandlinginst", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.cxl_quantity = ProtoField.new("Cxl Quantity", "cme.futures.ilink3.sbe.v8.2.cxlquantity", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.cxl_rej_reason = ProtoField.new("Cxl Rej Reason", "cme.futures.ilink3.sbe.v8.2.cxlrejreason", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.day = ProtoField.new("Day", "cme.futures.ilink3.sbe.v8.2.day", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.delay_duration = ProtoField.new("Delay Duration", "cme.futures.ilink3.sbe.v8.2.delayduration", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.display_qty = ProtoField.new("Display Qty", "cme.futures.ilink3.sbe.v8.2.displayqty", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.dk_reason = ProtoField.new("Dk Reason", "cme.futures.ilink3.sbe.v8.2.dkreason", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.encoding_type = ProtoField.new("Encoding Type", "cme.futures.ilink3.sbe.v8.2.encodingtype", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.end_date = ProtoField.new("End Date", "cme.futures.ilink3.sbe.v8.2.enddate", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.error_codes = ProtoField.new("Error Codes", "cme.futures.ilink3.sbe.v8.2.errorcodes", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.establish_503 = ProtoField.new("Establish 503", "cme.futures.ilink3.sbe.v8.2.establish503", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.establishment_ack_504 = ProtoField.new("Establishment Ack 504", "cme.futures.ilink3.sbe.v8.2.establishmentack504", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.establishment_reject_505 = ProtoField.new("Establishment Reject 505", "cme.futures.ilink3.sbe.v8.2.establishmentreject505", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.exchange_quote_req_id = ProtoField.new("Exchange Quote Req Id", "cme.futures.ilink3.sbe.v8.2.exchangequotereqid", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.exec_ack_status = ProtoField.new("Exec Ack Status", "cme.futures.ilink3.sbe.v8.2.execackstatus", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.exec_id = ProtoField.new("Exec Id", "cme.futures.ilink3.sbe.v8.2.execid", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.exec_inst = ProtoField.new("Exec Inst", "cme.futures.ilink3.sbe.v8.2.execinst", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.exec_restatement_reason = ProtoField.new("Exec Restatement Reason", "cme.futures.ilink3.sbe.v8.2.execrestatementreason", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.exec_type = ProtoField.new("Exec Type", "cme.futures.ilink3.sbe.v8.2.exectype", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.execution_ack_539 = ProtoField.new("Execution Ack 539", "cme.futures.ilink3.sbe.v8.2.executionack539", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.execution_mode = ProtoField.new("Execution Mode", "cme.futures.ilink3.sbe.v8.2.executionmode", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.execution_report_cancel_534 = ProtoField.new("Execution Report Cancel 534", "cme.futures.ilink3.sbe.v8.2.executionreportcancel534", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.execution_report_elimination_524 = ProtoField.new("Execution Report Elimination 524", "cme.futures.ilink3.sbe.v8.2.executionreportelimination524", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.execution_report_modify_531 = ProtoField.new("Execution Report Modify 531", "cme.futures.ilink3.sbe.v8.2.executionreportmodify531", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.execution_report_new_522 = ProtoField.new("Execution Report New 522", "cme.futures.ilink3.sbe.v8.2.executionreportnew522", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.execution_report_reject_523 = ProtoField.new("Execution Report Reject 523", "cme.futures.ilink3.sbe.v8.2.executionreportreject523", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.execution_report_status_532 = ProtoField.new("Execution Report Status 532", "cme.futures.ilink3.sbe.v8.2.executionreportstatus532", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.execution_report_trade_addendum_outright_548 = ProtoField.new("Execution Report Trade Addendum Outright 548", "cme.futures.ilink3.sbe.v8.2.executionreporttradeaddendumoutright548", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.execution_report_trade_addendum_spread_549 = ProtoField.new("Execution Report Trade Addendum Spread 549", "cme.futures.ilink3.sbe.v8.2.executionreporttradeaddendumspread549", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.execution_report_trade_addendum_spread_leg_550 = ProtoField.new("Execution Report Trade Addendum Spread Leg 550", "cme.futures.ilink3.sbe.v8.2.executionreporttradeaddendumspreadleg550", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.execution_report_trade_outright_525 = ProtoField.new("Execution Report Trade Outright 525", "cme.futures.ilink3.sbe.v8.2.executionreporttradeoutright525", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.execution_report_trade_spread_526 = ProtoField.new("Execution Report Trade Spread 526", "cme.futures.ilink3.sbe.v8.2.executionreporttradespread526", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.execution_report_trade_spread_leg_527 = ProtoField.new("Execution Report Trade Spread Leg 527", "cme.futures.ilink3.sbe.v8.2.executionreporttradespreadleg527", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.executor = ProtoField.new("Executor", "cme.futures.ilink3.sbe.v8.2.executor", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.expiration_cycle = ProtoField.new("Expiration Cycle", "cme.futures.ilink3.sbe.v8.2.expirationcycle", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.expire_date = ProtoField.new("Expire Date", "cme.futures.ilink3.sbe.v8.2.expiredate", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.fault_tolerance_indicator = ProtoField.new("Fault Tolerance Indicator", "cme.futures.ilink3.sbe.v8.2.faulttoleranceindicator", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.fill_exec_id = ProtoField.new("Fill Exec Id", "cme.futures.ilink3.sbe.v8.2.fillexecid", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.fill_px = ProtoField.new("Fill Px", "cme.futures.ilink3.sbe.v8.2.fillpx", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_2.fields.fill_qty = ProtoField.new("Fill Qty", "cme.futures.ilink3.sbe.v8.2.fillqty", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.fill_yield_type = ProtoField.new("Fill Yield Type", "cme.futures.ilink3.sbe.v8.2.fillyieldtype", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.fills_group = ProtoField.new("Fills Group", "cme.futures.ilink3.sbe.v8.2.fillsgroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.fills_groups = ProtoField.new("Fills Groups", "cme.futures.ilink3.sbe.v8.2.fillsgroups", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.financial_instrument_full_name = ProtoField.new("Financial Instrument Full Name", "cme.futures.ilink3.sbe.v8.2.financialinstrumentfullname", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.firm = ProtoField.new("Firm", "cme.futures.ilink3.sbe.v8.2.firm", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.frame = ProtoField.new("Frame", "cme.futures.ilink3.sbe.v8.2.frame", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.from_seq_no = ProtoField.new("From Seq No", "cme.futures.ilink3.sbe.v8.2.fromseqno", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.group_size = ProtoField.new("Group Size", "cme.futures.ilink3.sbe.v8.2.groupsize", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.hmac_signature = ProtoField.new("Hmac Signature", "cme.futures.ilink3.sbe.v8.2.hmacsignature", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.host_cross_id = ProtoField.new("Host Cross Id", "cme.futures.ilink3.sbe.v8.2.hostcrossid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.idm_short_code = ProtoField.new("Idm Short Code", "cme.futures.ilink3.sbe.v8.2.idmshortcode", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.keep_alive_interval = ProtoField.new("Keep Alive Interval", "cme.futures.ilink3.sbe.v8.2.keepaliveinterval", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.keep_alive_interval_lapsed = ProtoField.new("Keep Alive Interval Lapsed", "cme.futures.ilink3.sbe.v8.2.keepaliveintervallapsed", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.last_fragment = ProtoField.new("Last Fragment", "cme.futures.ilink3.sbe.v8.2.lastfragment", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.last_px = ProtoField.new("Last Px", "cme.futures.ilink3.sbe.v8.2.lastpx", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_2.fields.last_qty = ProtoField.new("Last Qty", "cme.futures.ilink3.sbe.v8.2.lastqty", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.last_rpt_requested = ProtoField.new("Last Rpt Requested", "cme.futures.ilink3.sbe.v8.2.lastrptrequested", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.last_uuid = ProtoField.new("Last Uuid", "cme.futures.ilink3.sbe.v8.2.lastuuid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.leaves_qty = ProtoField.new("Leaves Qty", "cme.futures.ilink3.sbe.v8.2.leavesqty", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.leg_exec_id = ProtoField.new("Leg Exec Id", "cme.futures.ilink3.sbe.v8.2.legexecid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.leg_last_px = ProtoField.new("Leg Last Px", "cme.futures.ilink3.sbe.v8.2.leglastpx", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_2.fields.leg_last_qty = ProtoField.new("Leg Last Qty", "cme.futures.ilink3.sbe.v8.2.leglastqty", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.leg_security_id = ProtoField.new("Leg Security Id", "cme.futures.ilink3.sbe.v8.2.legsecurityid", ftypes.INT32)
+cme_futures_ilink3_sbe_v8_2.fields.leg_side = ProtoField.new("Leg Side", "cme.futures.ilink3.sbe.v8.2.legside", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.leg_trade_id = ProtoField.new("Leg Trade Id", "cme.futures.ilink3.sbe.v8.2.legtradeid", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.legs_group = ProtoField.new("Legs Group", "cme.futures.ilink3.sbe.v8.2.legsgroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.legs_groups = ProtoField.new("Legs Groups", "cme.futures.ilink3.sbe.v8.2.legsgroups", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.liquidity_flag = ProtoField.new("Liquidity Flag", "cme.futures.ilink3.sbe.v8.2.liquidityflag", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.list_update_action = ProtoField.new("List Update Action", "cme.futures.ilink3.sbe.v8.2.listupdateaction", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.location = ProtoField.new("Location", "cme.futures.ilink3.sbe.v8.2.location", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.managed_order = ProtoField.new("Managed Order", "cme.futures.ilink3.sbe.v8.2.managedorder", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.manual_order_indicator = ProtoField.new("Manual Order Indicator", "cme.futures.ilink3.sbe.v8.2.manualorderindicator", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.market_segment_id = ProtoField.new("Market Segment Id", "cme.futures.ilink3.sbe.v8.2.marketsegmentid", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.mass_action_reject_reason = ProtoField.new("Mass Action Reject Reason", "cme.futures.ilink3.sbe.v8.2.massactionrejectreason", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.mass_action_report_id = ProtoField.new("Mass Action Report Id", "cme.futures.ilink3.sbe.v8.2.massactionreportid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.mass_action_response = ProtoField.new("Mass Action Response", "cme.futures.ilink3.sbe.v8.2.massactionresponse", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.mass_action_scope = ProtoField.new("Mass Action Scope", "cme.futures.ilink3.sbe.v8.2.massactionscope", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.mass_cancel_request_type = ProtoField.new("Mass Cancel Request Type", "cme.futures.ilink3.sbe.v8.2.masscancelrequesttype", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.mass_quote_517 = ProtoField.new("Mass Quote 517", "cme.futures.ilink3.sbe.v8.2.massquote517", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.mass_quote_ack_545 = ProtoField.new("Mass Quote Ack 545", "cme.futures.ilink3.sbe.v8.2.massquoteack545", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.mass_status_req_id = ProtoField.new("Mass Status Req Id", "cme.futures.ilink3.sbe.v8.2.massstatusreqid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.mass_status_req_type = ProtoField.new("Mass Status Req Type", "cme.futures.ilink3.sbe.v8.2.massstatusreqtype", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.maturity_month_year = ProtoField.new("Maturity Month Year", "cme.futures.ilink3.sbe.v8.2.maturitymonthyear", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.max_no_of_substitutions = ProtoField.new("Max No Of Substitutions", "cme.futures.ilink3.sbe.v8.2.maxnoofsubstitutions", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.md_trade_entry_id = ProtoField.new("Md Trade Entry Id", "cme.futures.ilink3.sbe.v8.2.mdtradeentryid", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.memo = ProtoField.new("Memo", "cme.futures.ilink3.sbe.v8.2.memo", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.message_header = ProtoField.new("Message Header", "cme.futures.ilink3.sbe.v8.2.messageheader", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.message_length = ProtoField.new("Message Length", "cme.futures.ilink3.sbe.v8.2.messagelength", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.min_qty = ProtoField.new("Min Qty", "cme.futures.ilink3.sbe.v8.2.minqty", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.mm_protection_reset = ProtoField.new("Mm Protection Reset", "cme.futures.ilink3.sbe.v8.2.mmprotectionreset", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.month = ProtoField.new("Month", "cme.futures.ilink3.sbe.v8.2.month", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.msg_count = ProtoField.new("Msg Count", "cme.futures.ilink3.sbe.v8.2.msgcount", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.negotiate_500 = ProtoField.new("Negotiate 500", "cme.futures.ilink3.sbe.v8.2.negotiate500", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.negotiation_reject_502 = ProtoField.new("Negotiation Reject 502", "cme.futures.ilink3.sbe.v8.2.negotiationreject502", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.negotiation_response_501 = ProtoField.new("Negotiation Response 501", "cme.futures.ilink3.sbe.v8.2.negotiationresponse501", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.new_order_cross_544 = ProtoField.new("New Order Cross 544", "cme.futures.ilink3.sbe.v8.2.newordercross544", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.new_order_single_514 = ProtoField.new("New Order Single 514", "cme.futures.ilink3.sbe.v8.2.newordersingle514", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.next_seq_no = ProtoField.new("Next Seq No", "cme.futures.ilink3.sbe.v8.2.nextseqno", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.nh = ProtoField.new("Nh", "cme.futures.ilink3.sbe.v8.2.nh", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
+cme_futures_ilink3_sbe_v8_2.fields.no_processed_entries = ProtoField.new("No Processed Entries", "cme.futures.ilink3.sbe.v8.2.noprocessedentries", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.not_applied_513 = ProtoField.new("Not Applied 513", "cme.futures.ilink3.sbe.v8.2.notapplied513", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.num_in_group = ProtoField.new("Num In Group", "cme.futures.ilink3.sbe.v8.2.numingroup", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.ob = ProtoField.new("Ob", "cme.futures.ilink3.sbe.v8.2.ob", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
+cme_futures_ilink3_sbe_v8_2.fields.offer_px = ProtoField.new("Offer Px", "cme.futures.ilink3.sbe.v8.2.offerpx", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_2.fields.offer_size = ProtoField.new("Offer Size", "cme.futures.ilink3.sbe.v8.2.offersize", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.ofm_override = ProtoField.new("Ofm Override", "cme.futures.ilink3.sbe.v8.2.ofmoverride", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.option_delta = ProtoField.new("Option Delta", "cme.futures.ilink3.sbe.v8.2.optiondelta", ftypes.INT32)
+cme_futures_ilink3_sbe_v8_2.fields.ord_rej_reason = ProtoField.new("Ord Rej Reason", "cme.futures.ilink3.sbe.v8.2.ordrejreason", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.ord_status = ProtoField.new("Ord Status", "cme.futures.ilink3.sbe.v8.2.ordstatus", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.ord_status_req_id = ProtoField.new("Ord Status Req Id", "cme.futures.ilink3.sbe.v8.2.ordstatusreqid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.ord_status_req_type = ProtoField.new("Ord Status Req Type", "cme.futures.ilink3.sbe.v8.2.ordstatusreqtype", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.ord_type = ProtoField.new("Ord Type", "cme.futures.ilink3.sbe.v8.2.ordtype", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.order_cancel_reject_535 = ProtoField.new("Order Cancel Reject 535", "cme.futures.ilink3.sbe.v8.2.ordercancelreject535", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.order_cancel_replace_reject_536 = ProtoField.new("Order Cancel Replace Reject 536", "cme.futures.ilink3.sbe.v8.2.ordercancelreplacereject536", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.order_cancel_replace_request_515 = ProtoField.new("Order Cancel Replace Request 515", "cme.futures.ilink3.sbe.v8.2.ordercancelreplacerequest515", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.order_cancel_request_516 = ProtoField.new("Order Cancel Request 516", "cme.futures.ilink3.sbe.v8.2.ordercancelrequest516", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.order_event_exec_id = ProtoField.new("Order Event Exec Id", "cme.futures.ilink3.sbe.v8.2.ordereventexecid", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.order_event_px = ProtoField.new("Order Event Px", "cme.futures.ilink3.sbe.v8.2.ordereventpx", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_2.fields.order_event_qty = ProtoField.new("Order Event Qty", "cme.futures.ilink3.sbe.v8.2.ordereventqty", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.order_event_reason = ProtoField.new("Order Event Reason", "cme.futures.ilink3.sbe.v8.2.ordereventreason", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.order_event_text = ProtoField.new("Order Event Text", "cme.futures.ilink3.sbe.v8.2.ordereventtext", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.order_event_type = ProtoField.new("Order Event Type", "cme.futures.ilink3.sbe.v8.2.ordereventtype", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.order_events_group = ProtoField.new("Order Events Group", "cme.futures.ilink3.sbe.v8.2.ordereventsgroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.order_events_groups = ProtoField.new("Order Events Groups", "cme.futures.ilink3.sbe.v8.2.ordereventsgroups", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.order_id = ProtoField.new("Order Id", "cme.futures.ilink3.sbe.v8.2.orderid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.order_mass_action_report_558 = ProtoField.new("Order Mass Action Report 558", "cme.futures.ilink3.sbe.v8.2.ordermassactionreport558", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.order_mass_action_request_529 = ProtoField.new("Order Mass Action Request 529", "cme.futures.ilink3.sbe.v8.2.ordermassactionrequest529", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.order_mass_status_request_530 = ProtoField.new("Order Mass Status Request 530", "cme.futures.ilink3.sbe.v8.2.ordermassstatusrequest530", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.order_qty = ProtoField.new("Order Qty", "cme.futures.ilink3.sbe.v8.2.orderqty", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.order_request_id = ProtoField.new("Order Request Id", "cme.futures.ilink3.sbe.v8.2.orderrequestid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.order_status_request_533 = ProtoField.new("Order Status Request 533", "cme.futures.ilink3.sbe.v8.2.orderstatusrequest533", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.orig_ci_ord_id = ProtoField.new("Orig Ci Ord Id", "cme.futures.ilink3.sbe.v8.2.origciordid", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.orig_secondary_execution_id = ProtoField.new("Orig Secondary Execution Id", "cme.futures.ilink3.sbe.v8.2.origsecondaryexecutionid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.orig_side_trade_id = ProtoField.new("Orig Side Trade Id", "cme.futures.ilink3.sbe.v8.2.origsidetradeid", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.ownership = ProtoField.new("Ownership", "cme.futures.ilink3.sbe.v8.2.ownership", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.packet = ProtoField.new("Packet", "cme.futures.ilink3.sbe.v8.2.packet", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.party_detail_definition_status = ProtoField.new("Party Detail Definition Status", "cme.futures.ilink3.sbe.v8.2.partydetaildefinitionstatus", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.party_detail_id = ProtoField.new("Party Detail Id", "cme.futures.ilink3.sbe.v8.2.partydetailid", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.party_detail_request_status = ProtoField.new("Party Detail Request Status", "cme.futures.ilink3.sbe.v8.2.partydetailrequeststatus", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.party_detail_role = ProtoField.new("Party Detail Role", "cme.futures.ilink3.sbe.v8.2.partydetailrole", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.party_details_definition_request_518 = ProtoField.new("Party Details Definition Request 518", "cme.futures.ilink3.sbe.v8.2.partydetailsdefinitionrequest518", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.party_details_definition_request_ack_519 = ProtoField.new("Party Details Definition Request Ack 519", "cme.futures.ilink3.sbe.v8.2.partydetailsdefinitionrequestack519", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.party_details_group = ProtoField.new("Party Details Group", "cme.futures.ilink3.sbe.v8.2.partydetailsgroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.party_details_groups = ProtoField.new("Party Details Groups", "cme.futures.ilink3.sbe.v8.2.partydetailsgroups", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.party_details_list_report_538 = ProtoField.new("Party Details List Report 538", "cme.futures.ilink3.sbe.v8.2.partydetailslistreport538", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.party_details_list_report_id = ProtoField.new("Party Details List Report Id", "cme.futures.ilink3.sbe.v8.2.partydetailslistreportid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.party_details_list_req_id = ProtoField.new("Party Details List Req Id", "cme.futures.ilink3.sbe.v8.2.partydetailslistreqid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.party_details_list_request_537 = ProtoField.new("Party Details List Request 537", "cme.futures.ilink3.sbe.v8.2.partydetailslistrequest537", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.party_i_ds_group = ProtoField.new("Party I Ds Group", "cme.futures.ilink3.sbe.v8.2.partyidsgroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.party_i_ds_groups = ProtoField.new("Party I Ds Groups", "cme.futures.ilink3.sbe.v8.2.partyidsgroups", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.party_id = ProtoField.new("Party Id", "cme.futures.ilink3.sbe.v8.2.partyid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.party_id_source = ProtoField.new("Party Id Source", "cme.futures.ilink3.sbe.v8.2.partyidsource", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.party_role = ProtoField.new("Party Role", "cme.futures.ilink3.sbe.v8.2.partyrole", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.payload = ProtoField.new("payload", "cme.futures.ilink3.sbe.v8.2.payload", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.poss_retrans_flag = ProtoField.new("Poss Retrans Flag", "cme.futures.ilink3.sbe.v8.2.possretransflag", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.previous_seq_no = ProtoField.new("Previous Seq No", "cme.futures.ilink3.sbe.v8.2.previousseqno", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.previous_uuid = ProtoField.new("Previous Uuid", "cme.futures.ilink3.sbe.v8.2.previousuuid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.price = ProtoField.new("Price", "cme.futures.ilink3.sbe.v8.2.price", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_2.fields.quote_cancel_528 = ProtoField.new("Quote Cancel 528", "cme.futures.ilink3.sbe.v8.2.quotecancel528", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.quote_cancel_ack_547 = ProtoField.new("Quote Cancel Ack 547", "cme.futures.ilink3.sbe.v8.2.quotecancelack547", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.quote_cancel_type = ProtoField.new("Quote Cancel Type", "cme.futures.ilink3.sbe.v8.2.quotecanceltype", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.quote_entries_group = ProtoField.new("Quote Entries Group", "cme.futures.ilink3.sbe.v8.2.quoteentriesgroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.quote_entries_groups = ProtoField.new("Quote Entries Groups", "cme.futures.ilink3.sbe.v8.2.quoteentriesgroups", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.quote_entry_id = ProtoField.new("Quote Entry Id", "cme.futures.ilink3.sbe.v8.2.quoteentryid", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.quote_id = ProtoField.new("Quote Id", "cme.futures.ilink3.sbe.v8.2.quoteid", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.quote_reject_reason = ProtoField.new("Quote Reject Reason", "cme.futures.ilink3.sbe.v8.2.quoterejectreason", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.quote_req_id = ProtoField.new("Quote Req Id", "cme.futures.ilink3.sbe.v8.2.quotereqid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.quote_set_id = ProtoField.new("Quote Set Id", "cme.futures.ilink3.sbe.v8.2.quotesetid", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.quote_sets_group = ProtoField.new("Quote Sets Group", "cme.futures.ilink3.sbe.v8.2.quotesetsgroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.quote_sets_groups = ProtoField.new("Quote Sets Groups", "cme.futures.ilink3.sbe.v8.2.quotesetsgroups", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.quote_status = ProtoField.new("Quote Status", "cme.futures.ilink3.sbe.v8.2.quotestatus", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.quote_type = ProtoField.new("Quote Type", "cme.futures.ilink3.sbe.v8.2.quotetype", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.reason = ProtoField.new("Reason", "cme.futures.ilink3.sbe.v8.2.reason", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.ref_msg_type = ProtoField.new("Ref Msg Type", "cme.futures.ilink3.sbe.v8.2.refmsgtype", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.ref_seq_num = ProtoField.new("Ref Seq Num", "cme.futures.ilink3.sbe.v8.2.refseqnum", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.ref_tag_id = ProtoField.new("Ref Tag Id", "cme.futures.ilink3.sbe.v8.2.reftagid", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.related_sym_group = ProtoField.new("Related Sym Group", "cme.futures.ilink3.sbe.v8.2.relatedsymgroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.related_sym_groups = ProtoField.new("Related Sym Groups", "cme.futures.ilink3.sbe.v8.2.relatedsymgroups", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.request_for_quote_543 = ProtoField.new("Request For Quote 543", "cme.futures.ilink3.sbe.v8.2.requestforquote543", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.request_for_quote_ack_546 = ProtoField.new("Request For Quote Ack 546", "cme.futures.ilink3.sbe.v8.2.requestforquoteack546", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.request_result = ProtoField.new("Request Result", "cme.futures.ilink3.sbe.v8.2.requestresult", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.request_time = ProtoField.new("Request Time", "cme.futures.ilink3.sbe.v8.2.requesttime", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.request_timestamp = ProtoField.new("Request Timestamp", "cme.futures.ilink3.sbe.v8.2.requesttimestamp", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.requesting_party_i_ds_group = ProtoField.new("Requesting Party I Ds Group", "cme.futures.ilink3.sbe.v8.2.requestingpartyidsgroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.requesting_party_i_ds_groups = ProtoField.new("Requesting Party I Ds Groups", "cme.futures.ilink3.sbe.v8.2.requestingpartyidsgroups", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.requesting_party_id = ProtoField.new("Requesting Party Id", "cme.futures.ilink3.sbe.v8.2.requestingpartyid", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.requesting_party_id_source = ProtoField.new("Requesting Party Id Source", "cme.futures.ilink3.sbe.v8.2.requestingpartyidsource", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.requesting_party_role = ProtoField.new("Requesting Party Role", "cme.futures.ilink3.sbe.v8.2.requestingpartyrole", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.reserved_1 = ProtoField.new("Reserved 1", "cme.futures.ilink3.sbe.v8.2.reserved1", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
+cme_futures_ilink3_sbe_v8_2.fields.reserved_2 = ProtoField.new("Reserved 2", "cme.futures.ilink3.sbe.v8.2.reserved2", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
+cme_futures_ilink3_sbe_v8_2.fields.reserved_3 = ProtoField.new("Reserved 3", "cme.futures.ilink3.sbe.v8.2.reserved3", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
+cme_futures_ilink3_sbe_v8_2.fields.reserved_4 = ProtoField.new("Reserved 4", "cme.futures.ilink3.sbe.v8.2.reserved4", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
+cme_futures_ilink3_sbe_v8_2.fields.reserved_5 = ProtoField.new("Reserved 5", "cme.futures.ilink3.sbe.v8.2.reserved5", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
+cme_futures_ilink3_sbe_v8_2.fields.retransmission_509 = ProtoField.new("Retransmission 509", "cme.futures.ilink3.sbe.v8.2.retransmission509", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.retransmit_reject_510 = ProtoField.new("Retransmit Reject 510", "cme.futures.ilink3.sbe.v8.2.retransmitreject510", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.retransmit_request_508 = ProtoField.new("Retransmit Request 508", "cme.futures.ilink3.sbe.v8.2.retransmitrequest508", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.risk_free_rate = ProtoField.new("Risk Free Rate", "cme.futures.ilink3.sbe.v8.2.riskfreerate", ftypes.INT32)
+cme_futures_ilink3_sbe_v8_2.fields.schema_id = ProtoField.new("Schema Id", "cme.futures.ilink3.sbe.v8.2.schemaid", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.sec_exec_id = ProtoField.new("Sec Exec Id", "cme.futures.ilink3.sbe.v8.2.secexecid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.secret_key_secure_id_expiration = ProtoField.new("Secret Key Secure Id Expiration", "cme.futures.ilink3.sbe.v8.2.secretkeysecureidexpiration", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.security_definition_request_560 = ProtoField.new("Security Definition Request 560", "cme.futures.ilink3.sbe.v8.2.securitydefinitionrequest560", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.security_definition_response_561 = ProtoField.new("Security Definition Response 561", "cme.futures.ilink3.sbe.v8.2.securitydefinitionresponse561", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.security_group = ProtoField.new("Security Group", "cme.futures.ilink3.sbe.v8.2.securitygroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.security_id = ProtoField.new("Security Id", "cme.futures.ilink3.sbe.v8.2.securityid", ftypes.INT32)
+cme_futures_ilink3_sbe_v8_2.fields.security_req_id = ProtoField.new("Security Req Id", "cme.futures.ilink3.sbe.v8.2.securityreqid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.security_response_id = ProtoField.new("Security Response Id", "cme.futures.ilink3.sbe.v8.2.securityresponseid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.security_response_type = ProtoField.new("Security Response Type", "cme.futures.ilink3.sbe.v8.2.securityresponsetype", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.security_sub_type = ProtoField.new("Security Sub Type", "cme.futures.ilink3.sbe.v8.2.securitysubtype", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.security_type = ProtoField.new("Security Type", "cme.futures.ilink3.sbe.v8.2.securitytype", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.self_match_prevention_id = ProtoField.new("Self Match Prevention Id", "cme.futures.ilink3.sbe.v8.2.selfmatchpreventionid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.self_match_prevention_instruction = ProtoField.new("Self Match Prevention Instruction", "cme.futures.ilink3.sbe.v8.2.selfmatchpreventioninstruction", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.sender_id = ProtoField.new("Sender Id", "cme.futures.ilink3.sbe.v8.2.senderid", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.sending_time_epoch = ProtoField.new("Sending Time Epoch", "cme.futures.ilink3.sbe.v8.2.sendingtimeepoch", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.seq_num = ProtoField.new("Seq Num", "cme.futures.ilink3.sbe.v8.2.seqnum", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.sequence_506 = ProtoField.new("Sequence 506", "cme.futures.ilink3.sbe.v8.2.sequence506", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.session = ProtoField.new("Session", "cme.futures.ilink3.sbe.v8.2.session", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.short_sale_type = ProtoField.new("Short Sale Type", "cme.futures.ilink3.sbe.v8.2.shortsaletype", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.side = ProtoField.new("Side", "cme.futures.ilink3.sbe.v8.2.side", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.side_time_in_force = ProtoField.new("Side Time In Force", "cme.futures.ilink3.sbe.v8.2.sidetimeinforce", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.side_trade_id = ProtoField.new("Side Trade Id", "cme.futures.ilink3.sbe.v8.2.sidetradeid", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.sides_group = ProtoField.new("Sides Group", "cme.futures.ilink3.sbe.v8.2.sidesgroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.sides_groups = ProtoField.new("Sides Groups", "cme.futures.ilink3.sbe.v8.2.sidesgroups", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.simple_open_framing_header = ProtoField.new("Simple Open Framing Header", "cme.futures.ilink3.sbe.v8.2.simpleopenframingheader", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.source_repo_id = ProtoField.new("Source Repo Id", "cme.futures.ilink3.sbe.v8.2.sourcerepoid", ftypes.INT32)
+cme_futures_ilink3_sbe_v8_2.fields.split_msg = ProtoField.new("Split Msg", "cme.futures.ilink3.sbe.v8.2.splitmsg", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.start_date = ProtoField.new("Start Date", "cme.futures.ilink3.sbe.v8.2.startdate", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.stop_px = ProtoField.new("Stop Px", "cme.futures.ilink3.sbe.v8.2.stoppx", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_2.fields.symbol = ProtoField.new("Symbol", "cme.futures.ilink3.sbe.v8.2.symbol", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.template_id = ProtoField.new("Template Id", "cme.futures.ilink3.sbe.v8.2.templateid", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.terminate_507 = ProtoField.new("Terminate 507", "cme.futures.ilink3.sbe.v8.2.terminate507", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.termination_type = ProtoField.new("Termination Type", "cme.futures.ilink3.sbe.v8.2.terminationtype", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.text = ProtoField.new("Text", "cme.futures.ilink3.sbe.v8.2.text", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.time_in_force = ProtoField.new("Time In Force", "cme.futures.ilink3.sbe.v8.2.timeinforce", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.time_to_expiration = ProtoField.new("Time To Expiration", "cme.futures.ilink3.sbe.v8.2.timetoexpiration", ftypes.INT32)
+cme_futures_ilink3_sbe_v8_2.fields.tot_no_quote_entries = ProtoField.new("Tot No Quote Entries", "cme.futures.ilink3.sbe.v8.2.totnoquoteentries", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.tot_num_parties = ProtoField.new("Tot Num Parties", "cme.futures.ilink3.sbe.v8.2.totnumparties", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.total_affected_orders = ProtoField.new("Total Affected Orders", "cme.futures.ilink3.sbe.v8.2.totalaffectedorders", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.total_num_securities = ProtoField.new("Total Num Securities", "cme.futures.ilink3.sbe.v8.2.totalnumsecurities", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.trade_date = ProtoField.new("Trade Date", "cme.futures.ilink3.sbe.v8.2.tradedate", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.trade_link_id = ProtoField.new("Trade Link Id", "cme.futures.ilink3.sbe.v8.2.tradelinkid", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.trading_system_name = ProtoField.new("Trading System Name", "cme.futures.ilink3.sbe.v8.2.tradingsystemname", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.trading_system_vendor = ProtoField.new("Trading System Vendor", "cme.futures.ilink3.sbe.v8.2.tradingsystemvendor", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.trading_system_version = ProtoField.new("Trading System Version", "cme.futures.ilink3.sbe.v8.2.tradingsystemversion", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.trans_bkd_time = ProtoField.new("Trans Bkd Time", "cme.futures.ilink3.sbe.v8.2.transbkdtime", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.transact_time = ProtoField.new("Transact Time", "cme.futures.ilink3.sbe.v8.2.transacttime", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.trd_reg_publication_reason = ProtoField.new("Trd Reg Publication Reason", "cme.futures.ilink3.sbe.v8.2.trdregpublicationreason", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.trd_reg_publication_type = ProtoField.new("Trd Reg Publication Type", "cme.futures.ilink3.sbe.v8.2.trdregpublicationtype", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.trd_reg_publications_group = ProtoField.new("Trd Reg Publications Group", "cme.futures.ilink3.sbe.v8.2.trdregpublicationsgroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.trd_reg_publications_groups = ProtoField.new("Trd Reg Publications Groups", "cme.futures.ilink3.sbe.v8.2.trdregpublicationsgroups", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.underlying_px = ProtoField.new("Underlying Px", "cme.futures.ilink3.sbe.v8.2.underlyingpx", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_2.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "cme.futures.ilink3.sbe.v8.2.underlyingsecurityid", ftypes.INT32)
+cme_futures_ilink3_sbe_v8_2.fields.unsolicited_cancel_type = ProtoField.new("Unsolicited Cancel Type", "cme.futures.ilink3.sbe.v8.2.unsolicitedcanceltype", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.uuid = ProtoField.new("Uuid", "cme.futures.ilink3.sbe.v8.2.uuid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.version = ProtoField.new("Version", "cme.futures.ilink3.sbe.v8.2.version", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.volatility = ProtoField.new("Volatility", "cme.futures.ilink3.sbe.v8.2.volatility", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_2.fields.week = ProtoField.new("Week", "cme.futures.ilink3.sbe.v8.2.week", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.year = ProtoField.new("Year", "cme.futures.ilink3.sbe.v8.2.year", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Cme Futures iLink3 Sbe 8.0 Element Dissection Options
+-- Cme Futures iLink3 Sbe 8.2 Element Dissection Options
 show.affected_orders_group = true
 show.affected_orders_groups = true
 show.business_reject_521 = true
@@ -329,6 +330,7 @@ show.execution_report_trade_spread_526 = true
 show.execution_report_trade_spread_leg_527 = true
 show.fills_group = true
 show.fills_groups = true
+show.frame = true
 show.group_size = true
 show.legs_group = true
 show.legs_groups = true
@@ -387,406 +389,411 @@ show.trd_reg_publications_group = true
 show.trd_reg_publications_groups = true
 show.payload = false
 
--- Register Cme Futures iLink3 Sbe 8.0 Show Options
-cme_futures_ilink3_sbe_v8_0.prefs.show_affected_orders_group = Pref.bool("Show Affected Orders Group", show.affected_orders_group, "Parse and add Affected Orders Group to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_affected_orders_groups = Pref.bool("Show Affected Orders Groups", show.affected_orders_groups, "Parse and add Affected Orders Groups to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_business_reject_521 = Pref.bool("Show Business Reject 521", show.business_reject_521, "Parse and add Business Reject 521 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_establish_503 = Pref.bool("Show Establish 503", show.establish_503, "Parse and add Establish 503 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_establishment_ack_504 = Pref.bool("Show Establishment Ack 504", show.establishment_ack_504, "Parse and add Establishment Ack 504 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_establishment_reject_505 = Pref.bool("Show Establishment Reject 505", show.establishment_reject_505, "Parse and add Establishment Reject 505 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_exec_inst = Pref.bool("Show Exec Inst", show.exec_inst, "Parse and add Exec Inst to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_execution_ack_539 = Pref.bool("Show Execution Ack 539", show.execution_ack_539, "Parse and add Execution Ack 539 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_cancel_534 = Pref.bool("Show Execution Report Cancel 534", show.execution_report_cancel_534, "Parse and add Execution Report Cancel 534 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_elimination_524 = Pref.bool("Show Execution Report Elimination 524", show.execution_report_elimination_524, "Parse and add Execution Report Elimination 524 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_modify_531 = Pref.bool("Show Execution Report Modify 531", show.execution_report_modify_531, "Parse and add Execution Report Modify 531 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_new_522 = Pref.bool("Show Execution Report New 522", show.execution_report_new_522, "Parse and add Execution Report New 522 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_reject_523 = Pref.bool("Show Execution Report Reject 523", show.execution_report_reject_523, "Parse and add Execution Report Reject 523 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_status_532 = Pref.bool("Show Execution Report Status 532", show.execution_report_status_532, "Parse and add Execution Report Status 532 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_trade_addendum_outright_548 = Pref.bool("Show Execution Report Trade Addendum Outright 548", show.execution_report_trade_addendum_outright_548, "Parse and add Execution Report Trade Addendum Outright 548 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_trade_addendum_spread_549 = Pref.bool("Show Execution Report Trade Addendum Spread 549", show.execution_report_trade_addendum_spread_549, "Parse and add Execution Report Trade Addendum Spread 549 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_trade_addendum_spread_leg_550 = Pref.bool("Show Execution Report Trade Addendum Spread Leg 550", show.execution_report_trade_addendum_spread_leg_550, "Parse and add Execution Report Trade Addendum Spread Leg 550 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_trade_outright_525 = Pref.bool("Show Execution Report Trade Outright 525", show.execution_report_trade_outright_525, "Parse and add Execution Report Trade Outright 525 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_trade_spread_526 = Pref.bool("Show Execution Report Trade Spread 526", show.execution_report_trade_spread_526, "Parse and add Execution Report Trade Spread 526 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_trade_spread_leg_527 = Pref.bool("Show Execution Report Trade Spread Leg 527", show.execution_report_trade_spread_leg_527, "Parse and add Execution Report Trade Spread Leg 527 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_fills_group = Pref.bool("Show Fills Group", show.fills_group, "Parse and add Fills Group to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_fills_groups = Pref.bool("Show Fills Groups", show.fills_groups, "Parse and add Fills Groups to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_group_size = Pref.bool("Show Group Size", show.group_size, "Parse and add Group Size to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_legs_group = Pref.bool("Show Legs Group", show.legs_group, "Parse and add Legs Group to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_legs_groups = Pref.bool("Show Legs Groups", show.legs_groups, "Parse and add Legs Groups to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_mass_quote_517 = Pref.bool("Show Mass Quote 517", show.mass_quote_517, "Parse and add Mass Quote 517 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_mass_quote_ack_545 = Pref.bool("Show Mass Quote Ack 545", show.mass_quote_ack_545, "Parse and add Mass Quote Ack 545 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_maturity_month_year = Pref.bool("Show Maturity Month Year", show.maturity_month_year, "Parse and add Maturity Month Year to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_negotiate_500 = Pref.bool("Show Negotiate 500", show.negotiate_500, "Parse and add Negotiate 500 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_negotiation_reject_502 = Pref.bool("Show Negotiation Reject 502", show.negotiation_reject_502, "Parse and add Negotiation Reject 502 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_negotiation_response_501 = Pref.bool("Show Negotiation Response 501", show.negotiation_response_501, "Parse and add Negotiation Response 501 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_new_order_cross_544 = Pref.bool("Show New Order Cross 544", show.new_order_cross_544, "Parse and add New Order Cross 544 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_new_order_single_514 = Pref.bool("Show New Order Single 514", show.new_order_single_514, "Parse and add New Order Single 514 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_not_applied_513 = Pref.bool("Show Not Applied 513", show.not_applied_513, "Parse and add Not Applied 513 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_order_cancel_reject_535 = Pref.bool("Show Order Cancel Reject 535", show.order_cancel_reject_535, "Parse and add Order Cancel Reject 535 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_order_cancel_replace_reject_536 = Pref.bool("Show Order Cancel Replace Reject 536", show.order_cancel_replace_reject_536, "Parse and add Order Cancel Replace Reject 536 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_order_cancel_replace_request_515 = Pref.bool("Show Order Cancel Replace Request 515", show.order_cancel_replace_request_515, "Parse and add Order Cancel Replace Request 515 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_order_cancel_request_516 = Pref.bool("Show Order Cancel Request 516", show.order_cancel_request_516, "Parse and add Order Cancel Request 516 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_order_events_group = Pref.bool("Show Order Events Group", show.order_events_group, "Parse and add Order Events Group to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_order_events_groups = Pref.bool("Show Order Events Groups", show.order_events_groups, "Parse and add Order Events Groups to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_order_mass_action_report_558 = Pref.bool("Show Order Mass Action Report 558", show.order_mass_action_report_558, "Parse and add Order Mass Action Report 558 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_order_mass_action_request_529 = Pref.bool("Show Order Mass Action Request 529", show.order_mass_action_request_529, "Parse and add Order Mass Action Request 529 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_order_mass_status_request_530 = Pref.bool("Show Order Mass Status Request 530", show.order_mass_status_request_530, "Parse and add Order Mass Status Request 530 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_order_status_request_533 = Pref.bool("Show Order Status Request 533", show.order_status_request_533, "Parse and add Order Status Request 533 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_party_details_definition_request_518 = Pref.bool("Show Party Details Definition Request 518", show.party_details_definition_request_518, "Parse and add Party Details Definition Request 518 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_party_details_definition_request_ack_519 = Pref.bool("Show Party Details Definition Request Ack 519", show.party_details_definition_request_ack_519, "Parse and add Party Details Definition Request Ack 519 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_party_details_group = Pref.bool("Show Party Details Group", show.party_details_group, "Parse and add Party Details Group to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_party_details_groups = Pref.bool("Show Party Details Groups", show.party_details_groups, "Parse and add Party Details Groups to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_party_details_list_report_538 = Pref.bool("Show Party Details List Report 538", show.party_details_list_report_538, "Parse and add Party Details List Report 538 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_party_details_list_request_537 = Pref.bool("Show Party Details List Request 537", show.party_details_list_request_537, "Parse and add Party Details List Request 537 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_party_i_ds_group = Pref.bool("Show Party I Ds Group", show.party_i_ds_group, "Parse and add Party I Ds Group to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_party_i_ds_groups = Pref.bool("Show Party I Ds Groups", show.party_i_ds_groups, "Parse and add Party I Ds Groups to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_quote_cancel_528 = Pref.bool("Show Quote Cancel 528", show.quote_cancel_528, "Parse and add Quote Cancel 528 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_quote_cancel_ack_547 = Pref.bool("Show Quote Cancel Ack 547", show.quote_cancel_ack_547, "Parse and add Quote Cancel Ack 547 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_quote_entries_group = Pref.bool("Show Quote Entries Group", show.quote_entries_group, "Parse and add Quote Entries Group to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_quote_entries_groups = Pref.bool("Show Quote Entries Groups", show.quote_entries_groups, "Parse and add Quote Entries Groups to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_quote_sets_group = Pref.bool("Show Quote Sets Group", show.quote_sets_group, "Parse and add Quote Sets Group to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_quote_sets_groups = Pref.bool("Show Quote Sets Groups", show.quote_sets_groups, "Parse and add Quote Sets Groups to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_related_sym_group = Pref.bool("Show Related Sym Group", show.related_sym_group, "Parse and add Related Sym Group to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_related_sym_groups = Pref.bool("Show Related Sym Groups", show.related_sym_groups, "Parse and add Related Sym Groups to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_request_for_quote_543 = Pref.bool("Show Request For Quote 543", show.request_for_quote_543, "Parse and add Request For Quote 543 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_request_for_quote_ack_546 = Pref.bool("Show Request For Quote Ack 546", show.request_for_quote_ack_546, "Parse and add Request For Quote Ack 546 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_requesting_party_i_ds_group = Pref.bool("Show Requesting Party I Ds Group", show.requesting_party_i_ds_group, "Parse and add Requesting Party I Ds Group to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_requesting_party_i_ds_groups = Pref.bool("Show Requesting Party I Ds Groups", show.requesting_party_i_ds_groups, "Parse and add Requesting Party I Ds Groups to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_retransmission_509 = Pref.bool("Show Retransmission 509", show.retransmission_509, "Parse and add Retransmission 509 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_retransmit_reject_510 = Pref.bool("Show Retransmit Reject 510", show.retransmit_reject_510, "Parse and add Retransmit Reject 510 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_retransmit_request_508 = Pref.bool("Show Retransmit Request 508", show.retransmit_request_508, "Parse and add Retransmit Request 508 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_security_definition_request_560 = Pref.bool("Show Security Definition Request 560", show.security_definition_request_560, "Parse and add Security Definition Request 560 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_security_definition_response_561 = Pref.bool("Show Security Definition Response 561", show.security_definition_response_561, "Parse and add Security Definition Response 561 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_sequence_506 = Pref.bool("Show Sequence 506", show.sequence_506, "Parse and add Sequence 506 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_sides_group = Pref.bool("Show Sides Group", show.sides_group, "Parse and add Sides Group to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_sides_groups = Pref.bool("Show Sides Groups", show.sides_groups, "Parse and add Sides Groups to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_simple_open_framing_header = Pref.bool("Show Simple Open Framing Header", show.simple_open_framing_header, "Parse and add Simple Open Framing Header to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_terminate_507 = Pref.bool("Show Terminate 507", show.terminate_507, "Parse and add Terminate 507 to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_trd_reg_publications_group = Pref.bool("Show Trd Reg Publications Group", show.trd_reg_publications_group, "Parse and add Trd Reg Publications Group to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_trd_reg_publications_groups = Pref.bool("Show Trd Reg Publications Groups", show.trd_reg_publications_groups, "Parse and add Trd Reg Publications Groups to protocol tree")
-cme_futures_ilink3_sbe_v8_0.prefs.show_payload = Pref.bool("Show payload", show.payload, "Parse and add payload to protocol tree")
+-- Register Cme Futures iLink3 Sbe 8.2 Show Options
+cme_futures_ilink3_sbe_v8_2.prefs.show_affected_orders_group = Pref.bool("Show Affected Orders Group", show.affected_orders_group, "Parse and add Affected Orders Group to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_affected_orders_groups = Pref.bool("Show Affected Orders Groups", show.affected_orders_groups, "Parse and add Affected Orders Groups to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_business_reject_521 = Pref.bool("Show Business Reject 521", show.business_reject_521, "Parse and add Business Reject 521 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_establish_503 = Pref.bool("Show Establish 503", show.establish_503, "Parse and add Establish 503 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_establishment_ack_504 = Pref.bool("Show Establishment Ack 504", show.establishment_ack_504, "Parse and add Establishment Ack 504 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_establishment_reject_505 = Pref.bool("Show Establishment Reject 505", show.establishment_reject_505, "Parse and add Establishment Reject 505 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_exec_inst = Pref.bool("Show Exec Inst", show.exec_inst, "Parse and add Exec Inst to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_execution_ack_539 = Pref.bool("Show Execution Ack 539", show.execution_ack_539, "Parse and add Execution Ack 539 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_cancel_534 = Pref.bool("Show Execution Report Cancel 534", show.execution_report_cancel_534, "Parse and add Execution Report Cancel 534 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_elimination_524 = Pref.bool("Show Execution Report Elimination 524", show.execution_report_elimination_524, "Parse and add Execution Report Elimination 524 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_modify_531 = Pref.bool("Show Execution Report Modify 531", show.execution_report_modify_531, "Parse and add Execution Report Modify 531 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_new_522 = Pref.bool("Show Execution Report New 522", show.execution_report_new_522, "Parse and add Execution Report New 522 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_reject_523 = Pref.bool("Show Execution Report Reject 523", show.execution_report_reject_523, "Parse and add Execution Report Reject 523 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_status_532 = Pref.bool("Show Execution Report Status 532", show.execution_report_status_532, "Parse and add Execution Report Status 532 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_trade_addendum_outright_548 = Pref.bool("Show Execution Report Trade Addendum Outright 548", show.execution_report_trade_addendum_outright_548, "Parse and add Execution Report Trade Addendum Outright 548 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_trade_addendum_spread_549 = Pref.bool("Show Execution Report Trade Addendum Spread 549", show.execution_report_trade_addendum_spread_549, "Parse and add Execution Report Trade Addendum Spread 549 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_trade_addendum_spread_leg_550 = Pref.bool("Show Execution Report Trade Addendum Spread Leg 550", show.execution_report_trade_addendum_spread_leg_550, "Parse and add Execution Report Trade Addendum Spread Leg 550 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_trade_outright_525 = Pref.bool("Show Execution Report Trade Outright 525", show.execution_report_trade_outright_525, "Parse and add Execution Report Trade Outright 525 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_trade_spread_526 = Pref.bool("Show Execution Report Trade Spread 526", show.execution_report_trade_spread_526, "Parse and add Execution Report Trade Spread 526 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_trade_spread_leg_527 = Pref.bool("Show Execution Report Trade Spread Leg 527", show.execution_report_trade_spread_leg_527, "Parse and add Execution Report Trade Spread Leg 527 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_fills_group = Pref.bool("Show Fills Group", show.fills_group, "Parse and add Fills Group to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_fills_groups = Pref.bool("Show Fills Groups", show.fills_groups, "Parse and add Fills Groups to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_frame = Pref.bool("Show Frame", show.frame, "Parse and add Frame to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_group_size = Pref.bool("Show Group Size", show.group_size, "Parse and add Group Size to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_legs_group = Pref.bool("Show Legs Group", show.legs_group, "Parse and add Legs Group to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_legs_groups = Pref.bool("Show Legs Groups", show.legs_groups, "Parse and add Legs Groups to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_mass_quote_517 = Pref.bool("Show Mass Quote 517", show.mass_quote_517, "Parse and add Mass Quote 517 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_mass_quote_ack_545 = Pref.bool("Show Mass Quote Ack 545", show.mass_quote_ack_545, "Parse and add Mass Quote Ack 545 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_maturity_month_year = Pref.bool("Show Maturity Month Year", show.maturity_month_year, "Parse and add Maturity Month Year to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_negotiate_500 = Pref.bool("Show Negotiate 500", show.negotiate_500, "Parse and add Negotiate 500 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_negotiation_reject_502 = Pref.bool("Show Negotiation Reject 502", show.negotiation_reject_502, "Parse and add Negotiation Reject 502 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_negotiation_response_501 = Pref.bool("Show Negotiation Response 501", show.negotiation_response_501, "Parse and add Negotiation Response 501 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_new_order_cross_544 = Pref.bool("Show New Order Cross 544", show.new_order_cross_544, "Parse and add New Order Cross 544 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_new_order_single_514 = Pref.bool("Show New Order Single 514", show.new_order_single_514, "Parse and add New Order Single 514 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_not_applied_513 = Pref.bool("Show Not Applied 513", show.not_applied_513, "Parse and add Not Applied 513 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_order_cancel_reject_535 = Pref.bool("Show Order Cancel Reject 535", show.order_cancel_reject_535, "Parse and add Order Cancel Reject 535 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_order_cancel_replace_reject_536 = Pref.bool("Show Order Cancel Replace Reject 536", show.order_cancel_replace_reject_536, "Parse and add Order Cancel Replace Reject 536 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_order_cancel_replace_request_515 = Pref.bool("Show Order Cancel Replace Request 515", show.order_cancel_replace_request_515, "Parse and add Order Cancel Replace Request 515 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_order_cancel_request_516 = Pref.bool("Show Order Cancel Request 516", show.order_cancel_request_516, "Parse and add Order Cancel Request 516 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_order_events_group = Pref.bool("Show Order Events Group", show.order_events_group, "Parse and add Order Events Group to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_order_events_groups = Pref.bool("Show Order Events Groups", show.order_events_groups, "Parse and add Order Events Groups to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_order_mass_action_report_558 = Pref.bool("Show Order Mass Action Report 558", show.order_mass_action_report_558, "Parse and add Order Mass Action Report 558 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_order_mass_action_request_529 = Pref.bool("Show Order Mass Action Request 529", show.order_mass_action_request_529, "Parse and add Order Mass Action Request 529 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_order_mass_status_request_530 = Pref.bool("Show Order Mass Status Request 530", show.order_mass_status_request_530, "Parse and add Order Mass Status Request 530 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_order_status_request_533 = Pref.bool("Show Order Status Request 533", show.order_status_request_533, "Parse and add Order Status Request 533 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_party_details_definition_request_518 = Pref.bool("Show Party Details Definition Request 518", show.party_details_definition_request_518, "Parse and add Party Details Definition Request 518 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_party_details_definition_request_ack_519 = Pref.bool("Show Party Details Definition Request Ack 519", show.party_details_definition_request_ack_519, "Parse and add Party Details Definition Request Ack 519 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_party_details_group = Pref.bool("Show Party Details Group", show.party_details_group, "Parse and add Party Details Group to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_party_details_groups = Pref.bool("Show Party Details Groups", show.party_details_groups, "Parse and add Party Details Groups to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_party_details_list_report_538 = Pref.bool("Show Party Details List Report 538", show.party_details_list_report_538, "Parse and add Party Details List Report 538 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_party_details_list_request_537 = Pref.bool("Show Party Details List Request 537", show.party_details_list_request_537, "Parse and add Party Details List Request 537 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_party_i_ds_group = Pref.bool("Show Party I Ds Group", show.party_i_ds_group, "Parse and add Party I Ds Group to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_party_i_ds_groups = Pref.bool("Show Party I Ds Groups", show.party_i_ds_groups, "Parse and add Party I Ds Groups to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_quote_cancel_528 = Pref.bool("Show Quote Cancel 528", show.quote_cancel_528, "Parse and add Quote Cancel 528 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_quote_cancel_ack_547 = Pref.bool("Show Quote Cancel Ack 547", show.quote_cancel_ack_547, "Parse and add Quote Cancel Ack 547 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_quote_entries_group = Pref.bool("Show Quote Entries Group", show.quote_entries_group, "Parse and add Quote Entries Group to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_quote_entries_groups = Pref.bool("Show Quote Entries Groups", show.quote_entries_groups, "Parse and add Quote Entries Groups to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_quote_sets_group = Pref.bool("Show Quote Sets Group", show.quote_sets_group, "Parse and add Quote Sets Group to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_quote_sets_groups = Pref.bool("Show Quote Sets Groups", show.quote_sets_groups, "Parse and add Quote Sets Groups to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_related_sym_group = Pref.bool("Show Related Sym Group", show.related_sym_group, "Parse and add Related Sym Group to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_related_sym_groups = Pref.bool("Show Related Sym Groups", show.related_sym_groups, "Parse and add Related Sym Groups to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_request_for_quote_543 = Pref.bool("Show Request For Quote 543", show.request_for_quote_543, "Parse and add Request For Quote 543 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_request_for_quote_ack_546 = Pref.bool("Show Request For Quote Ack 546", show.request_for_quote_ack_546, "Parse and add Request For Quote Ack 546 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_requesting_party_i_ds_group = Pref.bool("Show Requesting Party I Ds Group", show.requesting_party_i_ds_group, "Parse and add Requesting Party I Ds Group to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_requesting_party_i_ds_groups = Pref.bool("Show Requesting Party I Ds Groups", show.requesting_party_i_ds_groups, "Parse and add Requesting Party I Ds Groups to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_retransmission_509 = Pref.bool("Show Retransmission 509", show.retransmission_509, "Parse and add Retransmission 509 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_retransmit_reject_510 = Pref.bool("Show Retransmit Reject 510", show.retransmit_reject_510, "Parse and add Retransmit Reject 510 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_retransmit_request_508 = Pref.bool("Show Retransmit Request 508", show.retransmit_request_508, "Parse and add Retransmit Request 508 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_security_definition_request_560 = Pref.bool("Show Security Definition Request 560", show.security_definition_request_560, "Parse and add Security Definition Request 560 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_security_definition_response_561 = Pref.bool("Show Security Definition Response 561", show.security_definition_response_561, "Parse and add Security Definition Response 561 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_sequence_506 = Pref.bool("Show Sequence 506", show.sequence_506, "Parse and add Sequence 506 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_sides_group = Pref.bool("Show Sides Group", show.sides_group, "Parse and add Sides Group to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_sides_groups = Pref.bool("Show Sides Groups", show.sides_groups, "Parse and add Sides Groups to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_simple_open_framing_header = Pref.bool("Show Simple Open Framing Header", show.simple_open_framing_header, "Parse and add Simple Open Framing Header to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_terminate_507 = Pref.bool("Show Terminate 507", show.terminate_507, "Parse and add Terminate 507 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_trd_reg_publications_group = Pref.bool("Show Trd Reg Publications Group", show.trd_reg_publications_group, "Parse and add Trd Reg Publications Group to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_trd_reg_publications_groups = Pref.bool("Show Trd Reg Publications Groups", show.trd_reg_publications_groups, "Parse and add Trd Reg Publications Groups to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_payload = Pref.bool("Show payload", show.payload, "Parse and add payload to protocol tree")
 
 -- Handle changed preferences
-function cme_futures_ilink3_sbe_v8_0.prefs_changed()
+function cme_futures_ilink3_sbe_v8_2.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.affected_orders_group ~= cme_futures_ilink3_sbe_v8_0.prefs.show_affected_orders_group then
-    show.affected_orders_group = cme_futures_ilink3_sbe_v8_0.prefs.show_affected_orders_group
+  if show.affected_orders_group ~= cme_futures_ilink3_sbe_v8_2.prefs.show_affected_orders_group then
+    show.affected_orders_group = cme_futures_ilink3_sbe_v8_2.prefs.show_affected_orders_group
     changed = true
   end
-  if show.affected_orders_groups ~= cme_futures_ilink3_sbe_v8_0.prefs.show_affected_orders_groups then
-    show.affected_orders_groups = cme_futures_ilink3_sbe_v8_0.prefs.show_affected_orders_groups
+  if show.affected_orders_groups ~= cme_futures_ilink3_sbe_v8_2.prefs.show_affected_orders_groups then
+    show.affected_orders_groups = cme_futures_ilink3_sbe_v8_2.prefs.show_affected_orders_groups
     changed = true
   end
-  if show.business_reject_521 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_business_reject_521 then
-    show.business_reject_521 = cme_futures_ilink3_sbe_v8_0.prefs.show_business_reject_521
+  if show.business_reject_521 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_business_reject_521 then
+    show.business_reject_521 = cme_futures_ilink3_sbe_v8_2.prefs.show_business_reject_521
     changed = true
   end
-  if show.establish_503 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_establish_503 then
-    show.establish_503 = cme_futures_ilink3_sbe_v8_0.prefs.show_establish_503
+  if show.establish_503 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_establish_503 then
+    show.establish_503 = cme_futures_ilink3_sbe_v8_2.prefs.show_establish_503
     changed = true
   end
-  if show.establishment_ack_504 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_establishment_ack_504 then
-    show.establishment_ack_504 = cme_futures_ilink3_sbe_v8_0.prefs.show_establishment_ack_504
+  if show.establishment_ack_504 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_establishment_ack_504 then
+    show.establishment_ack_504 = cme_futures_ilink3_sbe_v8_2.prefs.show_establishment_ack_504
     changed = true
   end
-  if show.establishment_reject_505 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_establishment_reject_505 then
-    show.establishment_reject_505 = cme_futures_ilink3_sbe_v8_0.prefs.show_establishment_reject_505
+  if show.establishment_reject_505 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_establishment_reject_505 then
+    show.establishment_reject_505 = cme_futures_ilink3_sbe_v8_2.prefs.show_establishment_reject_505
     changed = true
   end
-  if show.exec_inst ~= cme_futures_ilink3_sbe_v8_0.prefs.show_exec_inst then
-    show.exec_inst = cme_futures_ilink3_sbe_v8_0.prefs.show_exec_inst
+  if show.exec_inst ~= cme_futures_ilink3_sbe_v8_2.prefs.show_exec_inst then
+    show.exec_inst = cme_futures_ilink3_sbe_v8_2.prefs.show_exec_inst
     changed = true
   end
-  if show.execution_ack_539 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_execution_ack_539 then
-    show.execution_ack_539 = cme_futures_ilink3_sbe_v8_0.prefs.show_execution_ack_539
+  if show.execution_ack_539 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_execution_ack_539 then
+    show.execution_ack_539 = cme_futures_ilink3_sbe_v8_2.prefs.show_execution_ack_539
     changed = true
   end
-  if show.execution_report_cancel_534 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_cancel_534 then
-    show.execution_report_cancel_534 = cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_cancel_534
+  if show.execution_report_cancel_534 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_cancel_534 then
+    show.execution_report_cancel_534 = cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_cancel_534
     changed = true
   end
-  if show.execution_report_elimination_524 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_elimination_524 then
-    show.execution_report_elimination_524 = cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_elimination_524
+  if show.execution_report_elimination_524 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_elimination_524 then
+    show.execution_report_elimination_524 = cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_elimination_524
     changed = true
   end
-  if show.execution_report_modify_531 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_modify_531 then
-    show.execution_report_modify_531 = cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_modify_531
+  if show.execution_report_modify_531 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_modify_531 then
+    show.execution_report_modify_531 = cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_modify_531
     changed = true
   end
-  if show.execution_report_new_522 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_new_522 then
-    show.execution_report_new_522 = cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_new_522
+  if show.execution_report_new_522 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_new_522 then
+    show.execution_report_new_522 = cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_new_522
     changed = true
   end
-  if show.execution_report_reject_523 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_reject_523 then
-    show.execution_report_reject_523 = cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_reject_523
+  if show.execution_report_reject_523 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_reject_523 then
+    show.execution_report_reject_523 = cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_reject_523
     changed = true
   end
-  if show.execution_report_status_532 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_status_532 then
-    show.execution_report_status_532 = cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_status_532
+  if show.execution_report_status_532 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_status_532 then
+    show.execution_report_status_532 = cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_status_532
     changed = true
   end
-  if show.execution_report_trade_addendum_outright_548 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_trade_addendum_outright_548 then
-    show.execution_report_trade_addendum_outright_548 = cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_trade_addendum_outright_548
+  if show.execution_report_trade_addendum_outright_548 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_trade_addendum_outright_548 then
+    show.execution_report_trade_addendum_outright_548 = cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_trade_addendum_outright_548
     changed = true
   end
-  if show.execution_report_trade_addendum_spread_549 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_trade_addendum_spread_549 then
-    show.execution_report_trade_addendum_spread_549 = cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_trade_addendum_spread_549
+  if show.execution_report_trade_addendum_spread_549 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_trade_addendum_spread_549 then
+    show.execution_report_trade_addendum_spread_549 = cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_trade_addendum_spread_549
     changed = true
   end
-  if show.execution_report_trade_addendum_spread_leg_550 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_trade_addendum_spread_leg_550 then
-    show.execution_report_trade_addendum_spread_leg_550 = cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_trade_addendum_spread_leg_550
+  if show.execution_report_trade_addendum_spread_leg_550 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_trade_addendum_spread_leg_550 then
+    show.execution_report_trade_addendum_spread_leg_550 = cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_trade_addendum_spread_leg_550
     changed = true
   end
-  if show.execution_report_trade_outright_525 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_trade_outright_525 then
-    show.execution_report_trade_outright_525 = cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_trade_outright_525
+  if show.execution_report_trade_outright_525 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_trade_outright_525 then
+    show.execution_report_trade_outright_525 = cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_trade_outright_525
     changed = true
   end
-  if show.execution_report_trade_spread_526 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_trade_spread_526 then
-    show.execution_report_trade_spread_526 = cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_trade_spread_526
+  if show.execution_report_trade_spread_526 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_trade_spread_526 then
+    show.execution_report_trade_spread_526 = cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_trade_spread_526
     changed = true
   end
-  if show.execution_report_trade_spread_leg_527 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_trade_spread_leg_527 then
-    show.execution_report_trade_spread_leg_527 = cme_futures_ilink3_sbe_v8_0.prefs.show_execution_report_trade_spread_leg_527
+  if show.execution_report_trade_spread_leg_527 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_trade_spread_leg_527 then
+    show.execution_report_trade_spread_leg_527 = cme_futures_ilink3_sbe_v8_2.prefs.show_execution_report_trade_spread_leg_527
     changed = true
   end
-  if show.fills_group ~= cme_futures_ilink3_sbe_v8_0.prefs.show_fills_group then
-    show.fills_group = cme_futures_ilink3_sbe_v8_0.prefs.show_fills_group
+  if show.fills_group ~= cme_futures_ilink3_sbe_v8_2.prefs.show_fills_group then
+    show.fills_group = cme_futures_ilink3_sbe_v8_2.prefs.show_fills_group
     changed = true
   end
-  if show.fills_groups ~= cme_futures_ilink3_sbe_v8_0.prefs.show_fills_groups then
-    show.fills_groups = cme_futures_ilink3_sbe_v8_0.prefs.show_fills_groups
+  if show.fills_groups ~= cme_futures_ilink3_sbe_v8_2.prefs.show_fills_groups then
+    show.fills_groups = cme_futures_ilink3_sbe_v8_2.prefs.show_fills_groups
     changed = true
   end
-  if show.group_size ~= cme_futures_ilink3_sbe_v8_0.prefs.show_group_size then
-    show.group_size = cme_futures_ilink3_sbe_v8_0.prefs.show_group_size
+  if show.frame ~= cme_futures_ilink3_sbe_v8_2.prefs.show_frame then
+    show.frame = cme_futures_ilink3_sbe_v8_2.prefs.show_frame
     changed = true
   end
-  if show.legs_group ~= cme_futures_ilink3_sbe_v8_0.prefs.show_legs_group then
-    show.legs_group = cme_futures_ilink3_sbe_v8_0.prefs.show_legs_group
+  if show.group_size ~= cme_futures_ilink3_sbe_v8_2.prefs.show_group_size then
+    show.group_size = cme_futures_ilink3_sbe_v8_2.prefs.show_group_size
     changed = true
   end
-  if show.legs_groups ~= cme_futures_ilink3_sbe_v8_0.prefs.show_legs_groups then
-    show.legs_groups = cme_futures_ilink3_sbe_v8_0.prefs.show_legs_groups
+  if show.legs_group ~= cme_futures_ilink3_sbe_v8_2.prefs.show_legs_group then
+    show.legs_group = cme_futures_ilink3_sbe_v8_2.prefs.show_legs_group
     changed = true
   end
-  if show.mass_quote_517 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_mass_quote_517 then
-    show.mass_quote_517 = cme_futures_ilink3_sbe_v8_0.prefs.show_mass_quote_517
+  if show.legs_groups ~= cme_futures_ilink3_sbe_v8_2.prefs.show_legs_groups then
+    show.legs_groups = cme_futures_ilink3_sbe_v8_2.prefs.show_legs_groups
     changed = true
   end
-  if show.mass_quote_ack_545 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_mass_quote_ack_545 then
-    show.mass_quote_ack_545 = cme_futures_ilink3_sbe_v8_0.prefs.show_mass_quote_ack_545
+  if show.mass_quote_517 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_mass_quote_517 then
+    show.mass_quote_517 = cme_futures_ilink3_sbe_v8_2.prefs.show_mass_quote_517
     changed = true
   end
-  if show.maturity_month_year ~= cme_futures_ilink3_sbe_v8_0.prefs.show_maturity_month_year then
-    show.maturity_month_year = cme_futures_ilink3_sbe_v8_0.prefs.show_maturity_month_year
+  if show.mass_quote_ack_545 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_mass_quote_ack_545 then
+    show.mass_quote_ack_545 = cme_futures_ilink3_sbe_v8_2.prefs.show_mass_quote_ack_545
     changed = true
   end
-  if show.message_header ~= cme_futures_ilink3_sbe_v8_0.prefs.show_message_header then
-    show.message_header = cme_futures_ilink3_sbe_v8_0.prefs.show_message_header
+  if show.maturity_month_year ~= cme_futures_ilink3_sbe_v8_2.prefs.show_maturity_month_year then
+    show.maturity_month_year = cme_futures_ilink3_sbe_v8_2.prefs.show_maturity_month_year
     changed = true
   end
-  if show.negotiate_500 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_negotiate_500 then
-    show.negotiate_500 = cme_futures_ilink3_sbe_v8_0.prefs.show_negotiate_500
+  if show.message_header ~= cme_futures_ilink3_sbe_v8_2.prefs.show_message_header then
+    show.message_header = cme_futures_ilink3_sbe_v8_2.prefs.show_message_header
     changed = true
   end
-  if show.negotiation_reject_502 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_negotiation_reject_502 then
-    show.negotiation_reject_502 = cme_futures_ilink3_sbe_v8_0.prefs.show_negotiation_reject_502
+  if show.negotiate_500 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_negotiate_500 then
+    show.negotiate_500 = cme_futures_ilink3_sbe_v8_2.prefs.show_negotiate_500
     changed = true
   end
-  if show.negotiation_response_501 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_negotiation_response_501 then
-    show.negotiation_response_501 = cme_futures_ilink3_sbe_v8_0.prefs.show_negotiation_response_501
+  if show.negotiation_reject_502 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_negotiation_reject_502 then
+    show.negotiation_reject_502 = cme_futures_ilink3_sbe_v8_2.prefs.show_negotiation_reject_502
     changed = true
   end
-  if show.new_order_cross_544 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_new_order_cross_544 then
-    show.new_order_cross_544 = cme_futures_ilink3_sbe_v8_0.prefs.show_new_order_cross_544
+  if show.negotiation_response_501 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_negotiation_response_501 then
+    show.negotiation_response_501 = cme_futures_ilink3_sbe_v8_2.prefs.show_negotiation_response_501
     changed = true
   end
-  if show.new_order_single_514 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_new_order_single_514 then
-    show.new_order_single_514 = cme_futures_ilink3_sbe_v8_0.prefs.show_new_order_single_514
+  if show.new_order_cross_544 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_new_order_cross_544 then
+    show.new_order_cross_544 = cme_futures_ilink3_sbe_v8_2.prefs.show_new_order_cross_544
     changed = true
   end
-  if show.not_applied_513 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_not_applied_513 then
-    show.not_applied_513 = cme_futures_ilink3_sbe_v8_0.prefs.show_not_applied_513
+  if show.new_order_single_514 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_new_order_single_514 then
+    show.new_order_single_514 = cme_futures_ilink3_sbe_v8_2.prefs.show_new_order_single_514
     changed = true
   end
-  if show.order_cancel_reject_535 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_order_cancel_reject_535 then
-    show.order_cancel_reject_535 = cme_futures_ilink3_sbe_v8_0.prefs.show_order_cancel_reject_535
+  if show.not_applied_513 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_not_applied_513 then
+    show.not_applied_513 = cme_futures_ilink3_sbe_v8_2.prefs.show_not_applied_513
     changed = true
   end
-  if show.order_cancel_replace_reject_536 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_order_cancel_replace_reject_536 then
-    show.order_cancel_replace_reject_536 = cme_futures_ilink3_sbe_v8_0.prefs.show_order_cancel_replace_reject_536
+  if show.order_cancel_reject_535 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_order_cancel_reject_535 then
+    show.order_cancel_reject_535 = cme_futures_ilink3_sbe_v8_2.prefs.show_order_cancel_reject_535
     changed = true
   end
-  if show.order_cancel_replace_request_515 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_order_cancel_replace_request_515 then
-    show.order_cancel_replace_request_515 = cme_futures_ilink3_sbe_v8_0.prefs.show_order_cancel_replace_request_515
+  if show.order_cancel_replace_reject_536 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_order_cancel_replace_reject_536 then
+    show.order_cancel_replace_reject_536 = cme_futures_ilink3_sbe_v8_2.prefs.show_order_cancel_replace_reject_536
     changed = true
   end
-  if show.order_cancel_request_516 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_order_cancel_request_516 then
-    show.order_cancel_request_516 = cme_futures_ilink3_sbe_v8_0.prefs.show_order_cancel_request_516
+  if show.order_cancel_replace_request_515 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_order_cancel_replace_request_515 then
+    show.order_cancel_replace_request_515 = cme_futures_ilink3_sbe_v8_2.prefs.show_order_cancel_replace_request_515
     changed = true
   end
-  if show.order_events_group ~= cme_futures_ilink3_sbe_v8_0.prefs.show_order_events_group then
-    show.order_events_group = cme_futures_ilink3_sbe_v8_0.prefs.show_order_events_group
+  if show.order_cancel_request_516 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_order_cancel_request_516 then
+    show.order_cancel_request_516 = cme_futures_ilink3_sbe_v8_2.prefs.show_order_cancel_request_516
     changed = true
   end
-  if show.order_events_groups ~= cme_futures_ilink3_sbe_v8_0.prefs.show_order_events_groups then
-    show.order_events_groups = cme_futures_ilink3_sbe_v8_0.prefs.show_order_events_groups
+  if show.order_events_group ~= cme_futures_ilink3_sbe_v8_2.prefs.show_order_events_group then
+    show.order_events_group = cme_futures_ilink3_sbe_v8_2.prefs.show_order_events_group
     changed = true
   end
-  if show.order_mass_action_report_558 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_order_mass_action_report_558 then
-    show.order_mass_action_report_558 = cme_futures_ilink3_sbe_v8_0.prefs.show_order_mass_action_report_558
+  if show.order_events_groups ~= cme_futures_ilink3_sbe_v8_2.prefs.show_order_events_groups then
+    show.order_events_groups = cme_futures_ilink3_sbe_v8_2.prefs.show_order_events_groups
     changed = true
   end
-  if show.order_mass_action_request_529 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_order_mass_action_request_529 then
-    show.order_mass_action_request_529 = cme_futures_ilink3_sbe_v8_0.prefs.show_order_mass_action_request_529
+  if show.order_mass_action_report_558 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_order_mass_action_report_558 then
+    show.order_mass_action_report_558 = cme_futures_ilink3_sbe_v8_2.prefs.show_order_mass_action_report_558
     changed = true
   end
-  if show.order_mass_status_request_530 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_order_mass_status_request_530 then
-    show.order_mass_status_request_530 = cme_futures_ilink3_sbe_v8_0.prefs.show_order_mass_status_request_530
+  if show.order_mass_action_request_529 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_order_mass_action_request_529 then
+    show.order_mass_action_request_529 = cme_futures_ilink3_sbe_v8_2.prefs.show_order_mass_action_request_529
     changed = true
   end
-  if show.order_status_request_533 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_order_status_request_533 then
-    show.order_status_request_533 = cme_futures_ilink3_sbe_v8_0.prefs.show_order_status_request_533
+  if show.order_mass_status_request_530 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_order_mass_status_request_530 then
+    show.order_mass_status_request_530 = cme_futures_ilink3_sbe_v8_2.prefs.show_order_mass_status_request_530
     changed = true
   end
-  if show.packet ~= cme_futures_ilink3_sbe_v8_0.prefs.show_packet then
-    show.packet = cme_futures_ilink3_sbe_v8_0.prefs.show_packet
+  if show.order_status_request_533 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_order_status_request_533 then
+    show.order_status_request_533 = cme_futures_ilink3_sbe_v8_2.prefs.show_order_status_request_533
     changed = true
   end
-  if show.party_details_definition_request_518 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_party_details_definition_request_518 then
-    show.party_details_definition_request_518 = cme_futures_ilink3_sbe_v8_0.prefs.show_party_details_definition_request_518
+  if show.packet ~= cme_futures_ilink3_sbe_v8_2.prefs.show_packet then
+    show.packet = cme_futures_ilink3_sbe_v8_2.prefs.show_packet
     changed = true
   end
-  if show.party_details_definition_request_ack_519 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_party_details_definition_request_ack_519 then
-    show.party_details_definition_request_ack_519 = cme_futures_ilink3_sbe_v8_0.prefs.show_party_details_definition_request_ack_519
+  if show.party_details_definition_request_518 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_party_details_definition_request_518 then
+    show.party_details_definition_request_518 = cme_futures_ilink3_sbe_v8_2.prefs.show_party_details_definition_request_518
     changed = true
   end
-  if show.party_details_group ~= cme_futures_ilink3_sbe_v8_0.prefs.show_party_details_group then
-    show.party_details_group = cme_futures_ilink3_sbe_v8_0.prefs.show_party_details_group
+  if show.party_details_definition_request_ack_519 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_party_details_definition_request_ack_519 then
+    show.party_details_definition_request_ack_519 = cme_futures_ilink3_sbe_v8_2.prefs.show_party_details_definition_request_ack_519
     changed = true
   end
-  if show.party_details_groups ~= cme_futures_ilink3_sbe_v8_0.prefs.show_party_details_groups then
-    show.party_details_groups = cme_futures_ilink3_sbe_v8_0.prefs.show_party_details_groups
+  if show.party_details_group ~= cme_futures_ilink3_sbe_v8_2.prefs.show_party_details_group then
+    show.party_details_group = cme_futures_ilink3_sbe_v8_2.prefs.show_party_details_group
     changed = true
   end
-  if show.party_details_list_report_538 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_party_details_list_report_538 then
-    show.party_details_list_report_538 = cme_futures_ilink3_sbe_v8_0.prefs.show_party_details_list_report_538
+  if show.party_details_groups ~= cme_futures_ilink3_sbe_v8_2.prefs.show_party_details_groups then
+    show.party_details_groups = cme_futures_ilink3_sbe_v8_2.prefs.show_party_details_groups
     changed = true
   end
-  if show.party_details_list_request_537 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_party_details_list_request_537 then
-    show.party_details_list_request_537 = cme_futures_ilink3_sbe_v8_0.prefs.show_party_details_list_request_537
+  if show.party_details_list_report_538 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_party_details_list_report_538 then
+    show.party_details_list_report_538 = cme_futures_ilink3_sbe_v8_2.prefs.show_party_details_list_report_538
     changed = true
   end
-  if show.party_i_ds_group ~= cme_futures_ilink3_sbe_v8_0.prefs.show_party_i_ds_group then
-    show.party_i_ds_group = cme_futures_ilink3_sbe_v8_0.prefs.show_party_i_ds_group
+  if show.party_details_list_request_537 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_party_details_list_request_537 then
+    show.party_details_list_request_537 = cme_futures_ilink3_sbe_v8_2.prefs.show_party_details_list_request_537
     changed = true
   end
-  if show.party_i_ds_groups ~= cme_futures_ilink3_sbe_v8_0.prefs.show_party_i_ds_groups then
-    show.party_i_ds_groups = cme_futures_ilink3_sbe_v8_0.prefs.show_party_i_ds_groups
+  if show.party_i_ds_group ~= cme_futures_ilink3_sbe_v8_2.prefs.show_party_i_ds_group then
+    show.party_i_ds_group = cme_futures_ilink3_sbe_v8_2.prefs.show_party_i_ds_group
     changed = true
   end
-  if show.quote_cancel_528 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_quote_cancel_528 then
-    show.quote_cancel_528 = cme_futures_ilink3_sbe_v8_0.prefs.show_quote_cancel_528
+  if show.party_i_ds_groups ~= cme_futures_ilink3_sbe_v8_2.prefs.show_party_i_ds_groups then
+    show.party_i_ds_groups = cme_futures_ilink3_sbe_v8_2.prefs.show_party_i_ds_groups
     changed = true
   end
-  if show.quote_cancel_ack_547 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_quote_cancel_ack_547 then
-    show.quote_cancel_ack_547 = cme_futures_ilink3_sbe_v8_0.prefs.show_quote_cancel_ack_547
+  if show.quote_cancel_528 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_quote_cancel_528 then
+    show.quote_cancel_528 = cme_futures_ilink3_sbe_v8_2.prefs.show_quote_cancel_528
     changed = true
   end
-  if show.quote_entries_group ~= cme_futures_ilink3_sbe_v8_0.prefs.show_quote_entries_group then
-    show.quote_entries_group = cme_futures_ilink3_sbe_v8_0.prefs.show_quote_entries_group
+  if show.quote_cancel_ack_547 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_quote_cancel_ack_547 then
+    show.quote_cancel_ack_547 = cme_futures_ilink3_sbe_v8_2.prefs.show_quote_cancel_ack_547
     changed = true
   end
-  if show.quote_entries_groups ~= cme_futures_ilink3_sbe_v8_0.prefs.show_quote_entries_groups then
-    show.quote_entries_groups = cme_futures_ilink3_sbe_v8_0.prefs.show_quote_entries_groups
+  if show.quote_entries_group ~= cme_futures_ilink3_sbe_v8_2.prefs.show_quote_entries_group then
+    show.quote_entries_group = cme_futures_ilink3_sbe_v8_2.prefs.show_quote_entries_group
     changed = true
   end
-  if show.quote_sets_group ~= cme_futures_ilink3_sbe_v8_0.prefs.show_quote_sets_group then
-    show.quote_sets_group = cme_futures_ilink3_sbe_v8_0.prefs.show_quote_sets_group
+  if show.quote_entries_groups ~= cme_futures_ilink3_sbe_v8_2.prefs.show_quote_entries_groups then
+    show.quote_entries_groups = cme_futures_ilink3_sbe_v8_2.prefs.show_quote_entries_groups
     changed = true
   end
-  if show.quote_sets_groups ~= cme_futures_ilink3_sbe_v8_0.prefs.show_quote_sets_groups then
-    show.quote_sets_groups = cme_futures_ilink3_sbe_v8_0.prefs.show_quote_sets_groups
+  if show.quote_sets_group ~= cme_futures_ilink3_sbe_v8_2.prefs.show_quote_sets_group then
+    show.quote_sets_group = cme_futures_ilink3_sbe_v8_2.prefs.show_quote_sets_group
     changed = true
   end
-  if show.related_sym_group ~= cme_futures_ilink3_sbe_v8_0.prefs.show_related_sym_group then
-    show.related_sym_group = cme_futures_ilink3_sbe_v8_0.prefs.show_related_sym_group
+  if show.quote_sets_groups ~= cme_futures_ilink3_sbe_v8_2.prefs.show_quote_sets_groups then
+    show.quote_sets_groups = cme_futures_ilink3_sbe_v8_2.prefs.show_quote_sets_groups
     changed = true
   end
-  if show.related_sym_groups ~= cme_futures_ilink3_sbe_v8_0.prefs.show_related_sym_groups then
-    show.related_sym_groups = cme_futures_ilink3_sbe_v8_0.prefs.show_related_sym_groups
+  if show.related_sym_group ~= cme_futures_ilink3_sbe_v8_2.prefs.show_related_sym_group then
+    show.related_sym_group = cme_futures_ilink3_sbe_v8_2.prefs.show_related_sym_group
     changed = true
   end
-  if show.request_for_quote_543 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_request_for_quote_543 then
-    show.request_for_quote_543 = cme_futures_ilink3_sbe_v8_0.prefs.show_request_for_quote_543
+  if show.related_sym_groups ~= cme_futures_ilink3_sbe_v8_2.prefs.show_related_sym_groups then
+    show.related_sym_groups = cme_futures_ilink3_sbe_v8_2.prefs.show_related_sym_groups
     changed = true
   end
-  if show.request_for_quote_ack_546 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_request_for_quote_ack_546 then
-    show.request_for_quote_ack_546 = cme_futures_ilink3_sbe_v8_0.prefs.show_request_for_quote_ack_546
+  if show.request_for_quote_543 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_request_for_quote_543 then
+    show.request_for_quote_543 = cme_futures_ilink3_sbe_v8_2.prefs.show_request_for_quote_543
     changed = true
   end
-  if show.requesting_party_i_ds_group ~= cme_futures_ilink3_sbe_v8_0.prefs.show_requesting_party_i_ds_group then
-    show.requesting_party_i_ds_group = cme_futures_ilink3_sbe_v8_0.prefs.show_requesting_party_i_ds_group
+  if show.request_for_quote_ack_546 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_request_for_quote_ack_546 then
+    show.request_for_quote_ack_546 = cme_futures_ilink3_sbe_v8_2.prefs.show_request_for_quote_ack_546
     changed = true
   end
-  if show.requesting_party_i_ds_groups ~= cme_futures_ilink3_sbe_v8_0.prefs.show_requesting_party_i_ds_groups then
-    show.requesting_party_i_ds_groups = cme_futures_ilink3_sbe_v8_0.prefs.show_requesting_party_i_ds_groups
+  if show.requesting_party_i_ds_group ~= cme_futures_ilink3_sbe_v8_2.prefs.show_requesting_party_i_ds_group then
+    show.requesting_party_i_ds_group = cme_futures_ilink3_sbe_v8_2.prefs.show_requesting_party_i_ds_group
     changed = true
   end
-  if show.retransmission_509 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_retransmission_509 then
-    show.retransmission_509 = cme_futures_ilink3_sbe_v8_0.prefs.show_retransmission_509
+  if show.requesting_party_i_ds_groups ~= cme_futures_ilink3_sbe_v8_2.prefs.show_requesting_party_i_ds_groups then
+    show.requesting_party_i_ds_groups = cme_futures_ilink3_sbe_v8_2.prefs.show_requesting_party_i_ds_groups
     changed = true
   end
-  if show.retransmit_reject_510 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_retransmit_reject_510 then
-    show.retransmit_reject_510 = cme_futures_ilink3_sbe_v8_0.prefs.show_retransmit_reject_510
+  if show.retransmission_509 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_retransmission_509 then
+    show.retransmission_509 = cme_futures_ilink3_sbe_v8_2.prefs.show_retransmission_509
     changed = true
   end
-  if show.retransmit_request_508 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_retransmit_request_508 then
-    show.retransmit_request_508 = cme_futures_ilink3_sbe_v8_0.prefs.show_retransmit_request_508
+  if show.retransmit_reject_510 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_retransmit_reject_510 then
+    show.retransmit_reject_510 = cme_futures_ilink3_sbe_v8_2.prefs.show_retransmit_reject_510
     changed = true
   end
-  if show.security_definition_request_560 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_security_definition_request_560 then
-    show.security_definition_request_560 = cme_futures_ilink3_sbe_v8_0.prefs.show_security_definition_request_560
+  if show.retransmit_request_508 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_retransmit_request_508 then
+    show.retransmit_request_508 = cme_futures_ilink3_sbe_v8_2.prefs.show_retransmit_request_508
     changed = true
   end
-  if show.security_definition_response_561 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_security_definition_response_561 then
-    show.security_definition_response_561 = cme_futures_ilink3_sbe_v8_0.prefs.show_security_definition_response_561
+  if show.security_definition_request_560 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_security_definition_request_560 then
+    show.security_definition_request_560 = cme_futures_ilink3_sbe_v8_2.prefs.show_security_definition_request_560
     changed = true
   end
-  if show.sequence_506 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_sequence_506 then
-    show.sequence_506 = cme_futures_ilink3_sbe_v8_0.prefs.show_sequence_506
+  if show.security_definition_response_561 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_security_definition_response_561 then
+    show.security_definition_response_561 = cme_futures_ilink3_sbe_v8_2.prefs.show_security_definition_response_561
     changed = true
   end
-  if show.sides_group ~= cme_futures_ilink3_sbe_v8_0.prefs.show_sides_group then
-    show.sides_group = cme_futures_ilink3_sbe_v8_0.prefs.show_sides_group
+  if show.sequence_506 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_sequence_506 then
+    show.sequence_506 = cme_futures_ilink3_sbe_v8_2.prefs.show_sequence_506
     changed = true
   end
-  if show.sides_groups ~= cme_futures_ilink3_sbe_v8_0.prefs.show_sides_groups then
-    show.sides_groups = cme_futures_ilink3_sbe_v8_0.prefs.show_sides_groups
+  if show.sides_group ~= cme_futures_ilink3_sbe_v8_2.prefs.show_sides_group then
+    show.sides_group = cme_futures_ilink3_sbe_v8_2.prefs.show_sides_group
     changed = true
   end
-  if show.simple_open_framing_header ~= cme_futures_ilink3_sbe_v8_0.prefs.show_simple_open_framing_header then
-    show.simple_open_framing_header = cme_futures_ilink3_sbe_v8_0.prefs.show_simple_open_framing_header
+  if show.sides_groups ~= cme_futures_ilink3_sbe_v8_2.prefs.show_sides_groups then
+    show.sides_groups = cme_futures_ilink3_sbe_v8_2.prefs.show_sides_groups
     changed = true
   end
-  if show.terminate_507 ~= cme_futures_ilink3_sbe_v8_0.prefs.show_terminate_507 then
-    show.terminate_507 = cme_futures_ilink3_sbe_v8_0.prefs.show_terminate_507
+  if show.simple_open_framing_header ~= cme_futures_ilink3_sbe_v8_2.prefs.show_simple_open_framing_header then
+    show.simple_open_framing_header = cme_futures_ilink3_sbe_v8_2.prefs.show_simple_open_framing_header
     changed = true
   end
-  if show.trd_reg_publications_group ~= cme_futures_ilink3_sbe_v8_0.prefs.show_trd_reg_publications_group then
-    show.trd_reg_publications_group = cme_futures_ilink3_sbe_v8_0.prefs.show_trd_reg_publications_group
+  if show.terminate_507 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_terminate_507 then
+    show.terminate_507 = cme_futures_ilink3_sbe_v8_2.prefs.show_terminate_507
     changed = true
   end
-  if show.trd_reg_publications_groups ~= cme_futures_ilink3_sbe_v8_0.prefs.show_trd_reg_publications_groups then
-    show.trd_reg_publications_groups = cme_futures_ilink3_sbe_v8_0.prefs.show_trd_reg_publications_groups
+  if show.trd_reg_publications_group ~= cme_futures_ilink3_sbe_v8_2.prefs.show_trd_reg_publications_group then
+    show.trd_reg_publications_group = cme_futures_ilink3_sbe_v8_2.prefs.show_trd_reg_publications_group
     changed = true
   end
-  if show.payload ~= cme_futures_ilink3_sbe_v8_0.prefs.show_payload then
-    show.payload = cme_futures_ilink3_sbe_v8_0.prefs.show_payload
+  if show.trd_reg_publications_groups ~= cme_futures_ilink3_sbe_v8_2.prefs.show_trd_reg_publications_groups then
+    show.trd_reg_publications_groups = cme_futures_ilink3_sbe_v8_2.prefs.show_trd_reg_publications_groups
+    changed = true
+  end
+  if show.payload ~= cme_futures_ilink3_sbe_v8_2.prefs.show_payload then
+    show.payload = cme_futures_ilink3_sbe_v8_2.prefs.show_payload
     changed = true
   end
 
@@ -798,7 +805,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Cme Futures iLink3 Sbe 8.0
+-- Dissect Cme Futures iLink3 Sbe 8.2
 -----------------------------------------------------------------------
 
 -- Size: Leg Side
@@ -816,7 +823,7 @@ dissect.leg_side = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.leg_side(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.leg_side, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.leg_side, range, value, display)
 
   return offset + length, value
 end
@@ -836,7 +843,7 @@ dissect.leg_last_qty = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.leg_last_qty(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.leg_last_qty, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.leg_last_qty, range, value, display)
 
   return offset + length, value
 end
@@ -856,7 +863,7 @@ dissect.leg_trade_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.leg_trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.leg_trade_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.leg_trade_id, range, value, display)
 
   return offset + length, value
 end
@@ -876,7 +883,7 @@ dissect.leg_security_id = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.leg_security_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.leg_security_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.leg_security_id, range, value, display)
 
   return offset + length, value
 end
@@ -897,7 +904,7 @@ dissect.leg_last_px = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.leg_last_px(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.leg_last_px, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.leg_last_px, range, value, display)
 
   return offset + length, value
 end
@@ -917,7 +924,7 @@ dissect.leg_exec_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.leg_exec_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.leg_exec_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.leg_exec_id, range, value, display)
 
   return offset + length, value
 end
@@ -958,7 +965,7 @@ dissect.legs_group = function(buffer, offset, packet, parent)
   if show.legs_group then
     local range = buffer(offset, 29)
     local display = display.legs_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.legs_group, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.legs_group, range, display)
   end
 
   return dissect.legs_group_fields(buffer, offset, packet, parent)
@@ -979,7 +986,7 @@ dissect.num_in_group = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.num_in_group(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.num_in_group, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.num_in_group, range, value, display)
 
   return offset + length, value
 end
@@ -999,7 +1006,7 @@ dissect.block_length = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.block_length(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.block_length, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.block_length, range, value, display)
 
   return offset + length, value
 end
@@ -1028,7 +1035,7 @@ dissect.group_size = function(buffer, offset, packet, parent)
   if show.group_size then
     local range = buffer(offset, 3)
     local display = display.group_size(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.group_size, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.group_size, range, display)
   end
 
   return dissect.group_size_fields(buffer, offset, packet, parent)
@@ -1077,7 +1084,7 @@ dissect.legs_groups = function(buffer, offset, packet, parent)
     local length = size_of.legs_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.legs_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.legs_groups, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.legs_groups, range, display)
   end
 
   return dissect.legs_groups_fields(buffer, offset, packet, parent)
@@ -1098,7 +1105,7 @@ dissect.poss_retrans_flag = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.poss_retrans_flag(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.poss_retrans_flag, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.poss_retrans_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1118,7 +1125,7 @@ dissect.auto_quote_request = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.auto_quote_request(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.auto_quote_request, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.auto_quote_request, range, value, display)
 
   return offset + length, value
 end
@@ -1151,7 +1158,7 @@ dissect.split_msg = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.split_msg(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.split_msg, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.split_msg, range, value, display)
 
   return offset + length, value
 end
@@ -1171,7 +1178,7 @@ dissect.manual_order_indicator = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.manual_order_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.manual_order_indicator, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.manual_order_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1191,7 +1198,7 @@ dissect.expiration_cycle = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.expiration_cycle(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.expiration_cycle, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.expiration_cycle, range, value, display)
 
   return offset + length, value
 end
@@ -1211,7 +1218,7 @@ dissect.security_response_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.security_response_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.security_response_type, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.security_response_type, range, value, display)
 
   return offset + length, value
 end
@@ -1231,7 +1238,7 @@ dissect.termination_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.termination_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.termination_type, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.termination_type, range, value, display)
 
   return offset + length, value
 end
@@ -1256,7 +1263,7 @@ dissect.source_repo_id = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.source_repo_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.source_repo_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.source_repo_id, range, value, display)
 
   return offset + length, value
 end
@@ -1281,7 +1288,7 @@ dissect.max_no_of_substitutions = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.max_no_of_substitutions(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.max_no_of_substitutions, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.max_no_of_substitutions, range, value, display)
 
   return offset + length, value
 end
@@ -1306,7 +1313,7 @@ dissect.end_date = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.end_date(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.end_date, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.end_date, range, value, display)
 
   return offset + length, value
 end
@@ -1331,7 +1338,7 @@ dissect.start_date = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.start_date(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.start_date, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.start_date, range, value, display)
 
   return offset + length, value
 end
@@ -1356,7 +1363,7 @@ dissect.delay_duration = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.delay_duration(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.delay_duration, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.delay_duration, range, value, display)
 
   return offset + length, value
 end
@@ -1381,7 +1388,7 @@ dissect.week = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.week(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.week, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.week, range, value, display)
 
   return offset + length, value
 end
@@ -1406,7 +1413,7 @@ dissect.day = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.day(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.day, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.day, range, value, display)
 
   return offset + length, value
 end
@@ -1431,7 +1438,7 @@ dissect.month = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.month(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.month, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.month, range, value, display)
 
   return offset + length, value
 end
@@ -1456,7 +1463,7 @@ dissect.year = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.year(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.year, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.year, range, value, display)
 
   return offset + length, value
 end
@@ -1491,7 +1498,7 @@ dissect.maturity_month_year = function(buffer, offset, packet, parent)
   if show.maturity_month_year then
     local range = buffer(offset, 5)
     local display = display.maturity_month_year(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.maturity_month_year, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.maturity_month_year, range, display)
   end
 
   return dissect.maturity_month_year_fields(buffer, offset, packet, parent)
@@ -1512,7 +1519,7 @@ dissect.currency = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.currency(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.currency, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.currency, range, value, display)
 
   return offset + length, value
 end
@@ -1537,7 +1544,7 @@ dissect.security_id = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.security_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.security_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.security_id, range, value, display)
 
   return offset + length, value
 end
@@ -1557,7 +1564,7 @@ dissect.location = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.location(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.location, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.location, range, value, display)
 
   return offset + length, value
 end
@@ -1577,7 +1584,7 @@ dissect.security_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.security_type, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.security_type, range, value, display)
 
   return offset + length, value
 end
@@ -1597,7 +1604,7 @@ dissect.security_group = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_group(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.security_group, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.security_group, range, value, display)
 
   return offset + length, value
 end
@@ -1617,7 +1624,7 @@ dissect.sending_time_epoch = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.sending_time_epoch(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.sending_time_epoch, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.sending_time_epoch, range, value, display)
 
   return offset + length, value
 end
@@ -1637,7 +1644,7 @@ dissect.security_response_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.security_response_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.security_response_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.security_response_id, range, value, display)
 
   return offset + length, value
 end
@@ -1657,7 +1664,7 @@ dissect.security_req_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.security_req_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.security_req_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.security_req_id, range, value, display)
 
   return offset + length, value
 end
@@ -1682,7 +1689,7 @@ dissect.party_details_list_req_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.party_details_list_req_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_details_list_req_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.party_details_list_req_id, range, value, display)
 
   return offset + length, value
 end
@@ -1702,7 +1709,7 @@ dissect.symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.symbol, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1722,7 +1729,7 @@ dissect.sender_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.sender_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.sender_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.sender_id, range, value, display)
 
   return offset + length, value
 end
@@ -1742,7 +1749,7 @@ dissect.financial_instrument_full_name = function(buffer, offset, packet, parent
   local value = range:string()
   local display = display.financial_instrument_full_name(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.financial_instrument_full_name, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.financial_instrument_full_name, range, value, display)
 
   return offset + length, value
 end
@@ -1762,7 +1769,7 @@ dissect.text = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.text(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.text, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -1782,7 +1789,7 @@ dissect.uuid = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.uuid(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.uuid, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.uuid, range, value, display)
 
   return offset + length, value
 end
@@ -1802,7 +1809,7 @@ dissect.seq_num = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.seq_num, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -1924,7 +1931,7 @@ dissect.security_definition_response_561 = function(buffer, offset, packet, pare
     local length = size_of.security_definition_response_561(buffer, offset)
     local range = buffer(offset, length)
     local display = display.security_definition_response_561(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.security_definition_response_561, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.security_definition_response_561, range, display)
   end
 
   return dissect.security_definition_response_561_fields(buffer, offset, packet, parent)
@@ -1945,7 +1952,7 @@ dissect.security_sub_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_sub_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.security_sub_type, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.security_sub_type, range, value, display)
 
   return offset + length, value
 end
@@ -2019,7 +2026,7 @@ dissect.security_definition_request_560 = function(buffer, offset, packet, paren
     local length = size_of.security_definition_request_560(buffer, offset)
     local range = buffer(offset, length)
     local display = display.security_definition_request_560(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.security_definition_request_560, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.security_definition_request_560, range, display)
   end
 
   return dissect.security_definition_request_560_fields(buffer, offset, packet, parent)
@@ -2040,7 +2047,7 @@ dissect.cxl_quantity = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.cxl_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.cxl_quantity, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.cxl_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -2060,7 +2067,7 @@ dissect.affected_order_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.affected_order_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.affected_order_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.affected_order_id, range, value, display)
 
   return offset + length, value
 end
@@ -2080,7 +2087,7 @@ dissect.orig_ci_ord_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.orig_ci_ord_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.orig_ci_ord_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.orig_ci_ord_id, range, value, display)
 
   return offset + length, value
 end
@@ -2112,7 +2119,7 @@ dissect.affected_orders_group = function(buffer, offset, packet, parent)
   if show.affected_orders_group then
     local range = buffer(offset, 32)
     local display = display.affected_orders_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.affected_orders_group, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.affected_orders_group, range, display)
   end
 
   return dissect.affected_orders_group_fields(buffer, offset, packet, parent)
@@ -2161,7 +2168,7 @@ dissect.affected_orders_groups = function(buffer, offset, packet, parent)
     local length = size_of.affected_orders_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.affected_orders_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.affected_orders_groups, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.affected_orders_groups, range, display)
   end
 
   return dissect.affected_orders_groups_fields(buffer, offset, packet, parent)
@@ -2182,7 +2189,7 @@ dissect.liquidity_flag = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.liquidity_flag(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.liquidity_flag, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.liquidity_flag, range, value, display)
 
   return offset + length, value
 end
@@ -2218,7 +2225,7 @@ dissect.time_in_force = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.time_in_force(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.time_in_force, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.time_in_force, range, value, display)
 
   return offset + length, value
 end
@@ -2238,7 +2245,7 @@ dissect.ord_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.ord_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.ord_type, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.ord_type, range, value, display)
 
   return offset + length, value
 end
@@ -2258,7 +2265,7 @@ dissect.side = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.side(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.side, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -2278,7 +2285,7 @@ dissect.mass_cancel_request_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.mass_cancel_request_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.mass_cancel_request_type, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.mass_cancel_request_type, range, value, display)
 
   return offset + length, value
 end
@@ -2303,7 +2310,7 @@ dissect.market_segment_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.market_segment_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.market_segment_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.market_segment_id, range, value, display)
 
   return offset + length, value
 end
@@ -2328,7 +2335,7 @@ dissect.mass_action_reject_reason = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.mass_action_reject_reason(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.mass_action_reject_reason, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.mass_action_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -2348,7 +2355,7 @@ dissect.last_fragment = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.last_fragment(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.last_fragment, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.last_fragment, range, value, display)
 
   return offset + length, value
 end
@@ -2368,7 +2375,7 @@ dissect.total_affected_orders = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.total_affected_orders(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.total_affected_orders, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.total_affected_orders, range, value, display)
 
   return offset + length, value
 end
@@ -2404,7 +2411,7 @@ dissect.mass_action_scope = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.mass_action_scope(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.mass_action_scope, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.mass_action_scope, range, value, display)
 
   return offset + length, value
 end
@@ -2431,7 +2438,7 @@ dissect.mass_action_response = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.mass_action_response(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.mass_action_response, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.mass_action_response, range, value, display)
 
   return offset + length, value
 end
@@ -2451,7 +2458,7 @@ dissect.mass_action_report_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.mass_action_report_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.mass_action_report_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.mass_action_report_id, range, value, display)
 
   return offset + length, value
 end
@@ -2471,7 +2478,7 @@ dissect.order_request_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.order_request_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_request_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_request_id, range, value, display)
 
   return offset + length, value
 end
@@ -2491,7 +2498,7 @@ dissect.transact_time = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.transact_time(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.transact_time, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.transact_time, range, value, display)
 
   return offset + length, value
 end
@@ -2607,7 +2614,7 @@ dissect.order_mass_action_report_558 = function(buffer, offset, packet, parent)
     local length = size_of.order_mass_action_report_558(buffer, offset)
     local range = buffer(offset, length)
     local display = display.order_mass_action_report_558(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_mass_action_report_558, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_mass_action_report_558, range, display)
   end
 
   return dissect.order_mass_action_report_558_fields(buffer, offset, packet, parent)
@@ -2628,7 +2635,7 @@ dissect.order_event_reason = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.order_event_reason(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_event_reason, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_event_reason, range, value, display)
 
   return offset + length, value
 end
@@ -2658,7 +2665,7 @@ dissect.order_event_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.order_event_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_event_type, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_event_type, range, value, display)
 
   return offset + length, value
 end
@@ -2678,7 +2685,7 @@ dissect.order_event_qty = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.order_event_qty(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_event_qty, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_event_qty, range, value, display)
 
   return offset + length, value
 end
@@ -2698,7 +2705,7 @@ dissect.order_event_exec_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.order_event_exec_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_event_exec_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_event_exec_id, range, value, display)
 
   return offset + length, value
 end
@@ -2718,7 +2725,7 @@ dissect.order_event_text = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.order_event_text(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_event_text, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_event_text, range, value, display)
 
   return offset + length, value
 end
@@ -2739,7 +2746,7 @@ dissect.order_event_px = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.order_event_px(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_event_px, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_event_px, range, value, display)
 
   return offset + length, value
 end
@@ -2780,7 +2787,7 @@ dissect.order_events_group = function(buffer, offset, packet, parent)
   if show.order_events_group then
     local range = buffer(offset, 23)
     local display = display.order_events_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_events_group, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_events_group, range, display)
   end
 
   return dissect.order_events_group_fields(buffer, offset, packet, parent)
@@ -2829,7 +2836,7 @@ dissect.order_events_groups = function(buffer, offset, packet, parent)
     local length = size_of.order_events_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.order_events_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_events_groups, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_events_groups, range, display)
   end
 
   return dissect.order_events_groups_fields(buffer, offset, packet, parent)
@@ -2850,7 +2857,7 @@ dissect.fill_yield_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.fill_yield_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.fill_yield_type, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.fill_yield_type, range, value, display)
 
   return offset + length, value
 end
@@ -2870,7 +2877,7 @@ dissect.fill_exec_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.fill_exec_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.fill_exec_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.fill_exec_id, range, value, display)
 
   return offset + length, value
 end
@@ -2890,7 +2897,7 @@ dissect.fill_qty = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.fill_qty(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.fill_qty, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.fill_qty, range, value, display)
 
   return offset + length, value
 end
@@ -2911,7 +2918,7 @@ dissect.fill_px = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.fill_px(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.fill_px, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.fill_px, range, value, display)
 
   return offset + length, value
 end
@@ -2946,7 +2953,7 @@ dissect.fills_group = function(buffer, offset, packet, parent)
   if show.fills_group then
     local range = buffer(offset, 15)
     local display = display.fills_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.fills_group, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.fills_group, range, display)
   end
 
   return dissect.fills_group_fields(buffer, offset, packet, parent)
@@ -2995,7 +3002,7 @@ dissect.fills_groups = function(buffer, offset, packet, parent)
     local length = size_of.fills_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.fills_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.fills_groups, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.fills_groups, range, display)
   end
 
   return dissect.fills_groups_fields(buffer, offset, packet, parent)
@@ -3016,7 +3023,7 @@ dissect.exec_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.exec_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.exec_type, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.exec_type, range, value, display)
 
   return offset + length, value
 end
@@ -3036,7 +3043,7 @@ dissect.ord_status = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.ord_status(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.ord_status, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.ord_status, range, value, display)
 
   return offset + length, value
 end
@@ -3061,7 +3068,7 @@ dissect.trade_date = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.trade_date(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.trade_date, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.trade_date, range, value, display)
 
   return offset + length, value
 end
@@ -3086,7 +3093,7 @@ dissect.orig_side_trade_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.orig_side_trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.orig_side_trade_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.orig_side_trade_id, range, value, display)
 
   return offset + length, value
 end
@@ -3106,7 +3113,7 @@ dissect.side_trade_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.side_trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.side_trade_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.side_trade_id, range, value, display)
 
   return offset + length, value
 end
@@ -3126,7 +3133,7 @@ dissect.last_qty = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.last_qty(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.last_qty, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.last_qty, range, value, display)
 
   return offset + length, value
 end
@@ -3151,7 +3158,7 @@ dissect.orig_secondary_execution_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.orig_secondary_execution_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.orig_secondary_execution_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.orig_secondary_execution_id, range, value, display)
 
   return offset + length, value
 end
@@ -3171,7 +3178,7 @@ dissect.sec_exec_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.sec_exec_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.sec_exec_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.sec_exec_id, range, value, display)
 
   return offset + length, value
 end
@@ -3191,7 +3198,7 @@ dissect.order_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -3212,7 +3219,7 @@ dissect.last_px = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.last_px(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.last_px, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.last_px, range, value, display)
 
   return offset + length, value
 end
@@ -3232,7 +3239,7 @@ dissect.cl_ord_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.cl_ord_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.cl_ord_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.cl_ord_id, range, value, display)
 
   return offset + length, value
 end
@@ -3252,7 +3259,7 @@ dissect.exec_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.exec_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.exec_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.exec_id, range, value, display)
 
   return offset + length, value
 end
@@ -3361,7 +3368,7 @@ dissect.execution_report_trade_addendum_spread_leg_550 = function(buffer, offset
     local length = size_of.execution_report_trade_addendum_spread_leg_550(buffer, offset)
     local range = buffer(offset, length)
     local display = display.execution_report_trade_addendum_spread_leg_550(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.execution_report_trade_addendum_spread_leg_550, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.execution_report_trade_addendum_spread_leg_550, range, display)
   end
 
   return dissect.execution_report_trade_addendum_spread_leg_550_fields(buffer, offset, packet, parent)
@@ -3398,7 +3405,7 @@ dissect.short_sale_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.short_sale_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.short_sale_type, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.short_sale_type, range, value, display)
 
   return offset + length, value
 end
@@ -3418,7 +3425,7 @@ dissect.managed_order = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.managed_order(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.managed_order, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.managed_order, range, value, display)
 
   return offset + length, value
 end
@@ -3438,7 +3445,7 @@ dissect.execution_mode = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.execution_mode(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.execution_mode, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.execution_mode, range, value, display)
 
   return offset + length, value
 end
@@ -3487,28 +3494,28 @@ end
 dissect.exec_inst_bits = function(buffer, offset, packet, parent)
 
   -- Reserved 5: 1 Bit
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.reserved_5, buffer(offset, 1))
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.reserved_5, buffer(offset, 1))
 
   -- Reserved 4: 1 Bit
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.reserved_4, buffer(offset, 1))
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.reserved_4, buffer(offset, 1))
 
   -- Reserved 3: 1 Bit
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.reserved_3, buffer(offset, 1))
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.reserved_3, buffer(offset, 1))
 
   -- Reserved 2: 1 Bit
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.reserved_2, buffer(offset, 1))
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.reserved_2, buffer(offset, 1))
 
   -- Reserved 1: 1 Bit
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.reserved_1, buffer(offset, 1))
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.reserved_1, buffer(offset, 1))
 
   -- Nh: 1 Bit
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.nh, buffer(offset, 1))
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.nh, buffer(offset, 1))
 
   -- Ob: 1 Bit
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.ob, buffer(offset, 1))
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.ob, buffer(offset, 1))
 
   -- Aon: 1 Bit
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.aon, buffer(offset, 1))
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.aon, buffer(offset, 1))
 end
 
 -- Dissect: Exec Inst
@@ -3516,7 +3523,7 @@ dissect.exec_inst = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
   local display = display.exec_inst(range, packet, parent)
-  local element = parent:add(cme_futures_ilink3_sbe_v8_0.fields.exec_inst, range, display)
+  local element = parent:add(cme_futures_ilink3_sbe_v8_2.fields.exec_inst, range, display)
 
   if show.exec_inst then
     dissect.exec_inst_bits(buffer, offset, packet, element)
@@ -3540,7 +3547,7 @@ dissect.total_num_securities = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.total_num_securities(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.total_num_securities, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.total_num_securities, range, value, display)
 
   return offset + length, value
 end
@@ -3560,7 +3567,7 @@ dissect.md_trade_entry_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.md_trade_entry_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.md_trade_entry_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.md_trade_entry_id, range, value, display)
 
   return offset + length, value
 end
@@ -3701,7 +3708,7 @@ dissect.execution_report_trade_addendum_spread_549 = function(buffer, offset, pa
     local length = size_of.execution_report_trade_addendum_spread_549(buffer, offset)
     local range = buffer(offset, length)
     local display = display.execution_report_trade_addendum_spread_549(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.execution_report_trade_addendum_spread_549, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.execution_report_trade_addendum_spread_549, range, display)
   end
 
   return dissect.execution_report_trade_addendum_spread_549_fields(buffer, offset, packet, parent)
@@ -3829,7 +3836,7 @@ dissect.execution_report_trade_addendum_outright_548 = function(buffer, offset, 
     local length = size_of.execution_report_trade_addendum_outright_548(buffer, offset)
     local range = buffer(offset, length)
     local display = display.execution_report_trade_addendum_outright_548(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.execution_report_trade_addendum_outright_548, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.execution_report_trade_addendum_outright_548, range, display)
   end
 
   return dissect.execution_report_trade_addendum_outright_548_fields(buffer, offset, packet, parent)
@@ -3850,7 +3857,7 @@ dissect.quote_set_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.quote_set_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.quote_set_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.quote_set_id, range, value, display)
 
   return offset + length, value
 end
@@ -3875,7 +3882,7 @@ dissect.offer_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.offer_size(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.offer_size, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.offer_size, range, value, display)
 
   return offset + length, value
 end
@@ -3900,7 +3907,7 @@ dissect.bid_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.bid_size(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.bid_size, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -3932,7 +3939,7 @@ dissect.quote_sets_group = function(buffer, offset, packet, parent)
   if show.quote_sets_group then
     local range = buffer(offset, 10)
     local display = display.quote_sets_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.quote_sets_group, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.quote_sets_group, range, display)
   end
 
   return dissect.quote_sets_group_fields(buffer, offset, packet, parent)
@@ -3981,7 +3988,7 @@ dissect.quote_sets_groups = function(buffer, offset, packet, parent)
     local length = size_of.quote_sets_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.quote_sets_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.quote_sets_groups, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.quote_sets_groups, range, display)
   end
 
   return dissect.quote_sets_groups_fields(buffer, offset, packet, parent)
@@ -4007,7 +4014,7 @@ dissect.underlying_security_id = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.underlying_security_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.underlying_security_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.underlying_security_id, range, value, display)
 
   return offset + length, value
 end
@@ -4027,7 +4034,7 @@ dissect.quote_entry_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.quote_entry_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.quote_entry_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.quote_entry_id, range, value, display)
 
   return offset + length, value
 end
@@ -4048,7 +4055,7 @@ dissect.offer_px = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.offer_px(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.offer_px, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.offer_px, range, value, display)
 
   return offset + length, value
 end
@@ -4069,7 +4076,7 @@ dissect.bid_px = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.bid_px(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.bid_px, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.bid_px, range, value, display)
 
   return offset + length, value
 end
@@ -4116,7 +4123,7 @@ dissect.quote_entries_group = function(buffer, offset, packet, parent)
   if show.quote_entries_group then
     local range = buffer(offset, 38)
     local display = display.quote_entries_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.quote_entries_group, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.quote_entries_group, range, display)
   end
 
   return dissect.quote_entries_group_fields(buffer, offset, packet, parent)
@@ -4165,7 +4172,7 @@ dissect.quote_entries_groups = function(buffer, offset, packet, parent)
     local length = size_of.quote_entries_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.quote_entries_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.quote_entries_groups, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.quote_entries_groups, range, display)
   end
 
   return dissect.quote_entries_groups_fields(buffer, offset, packet, parent)
@@ -4191,7 +4198,7 @@ dissect.tot_no_quote_entries = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.tot_no_quote_entries(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.tot_no_quote_entries, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.tot_no_quote_entries, range, value, display)
 
   return offset + length, value
 end
@@ -4216,7 +4223,7 @@ dissect.unsolicited_cancel_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.unsolicited_cancel_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.unsolicited_cancel_type, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.unsolicited_cancel_type, range, value, display)
 
   return offset + length, value
 end
@@ -4236,7 +4243,7 @@ dissect.mm_protection_reset = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.mm_protection_reset(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.mm_protection_reset, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.mm_protection_reset, range, value, display)
 
   return offset + length, value
 end
@@ -4256,7 +4263,7 @@ dissect.no_processed_entries = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.no_processed_entries(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.no_processed_entries, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.no_processed_entries, range, value, display)
 
   return offset + length, value
 end
@@ -4276,7 +4283,7 @@ dissect.quote_status = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.quote_status(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.quote_status, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.quote_status, range, value, display)
 
   return offset + length, value
 end
@@ -4301,7 +4308,7 @@ dissect.quote_reject_reason = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.quote_reject_reason(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.quote_reject_reason, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.quote_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -4321,7 +4328,7 @@ dissect.quote_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.quote_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.quote_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.quote_id, range, value, display)
 
   return offset + length, value
 end
@@ -4341,7 +4348,7 @@ dissect.cancelled_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.cancelled_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.cancelled_symbol, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.cancelled_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -4361,7 +4368,7 @@ dissect.request_time = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.request_time(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.request_time, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.request_time, range, value, display)
 
   return offset + length, value
 end
@@ -4467,7 +4474,7 @@ dissect.quote_cancel_ack_547 = function(buffer, offset, packet, parent)
     local length = size_of.quote_cancel_ack_547(buffer, offset)
     local range = buffer(offset, length)
     local display = display.quote_cancel_ack_547(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.quote_cancel_ack_547, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.quote_cancel_ack_547, range, display)
   end
 
   return dissect.quote_cancel_ack_547_fields(buffer, offset, packet, parent)
@@ -4493,7 +4500,7 @@ dissect.quote_req_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.quote_req_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.quote_req_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.quote_req_id, range, value, display)
 
   return offset + length, value
 end
@@ -4513,7 +4520,7 @@ dissect.exchange_quote_req_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.exchange_quote_req_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.exchange_quote_req_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.exchange_quote_req_id, range, value, display)
 
   return offset + length, value
 end
@@ -4584,7 +4591,7 @@ dissect.request_for_quote_ack_546 = function(buffer, offset, packet, parent)
   if show.request_for_quote_ack_546 then
     local range = buffer(offset, 350)
     local display = display.request_for_quote_ack_546(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.request_for_quote_ack_546, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.request_for_quote_ack_546, range, display)
   end
 
   return dissect.request_for_quote_ack_546_fields(buffer, offset, packet, parent)
@@ -4686,7 +4693,7 @@ dissect.mass_quote_ack_545 = function(buffer, offset, packet, parent)
     local length = size_of.mass_quote_ack_545(buffer, offset)
     local range = buffer(offset, length)
     local display = display.mass_quote_ack_545(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.mass_quote_ack_545, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.mass_quote_ack_545, range, display)
   end
 
   return dissect.mass_quote_ack_545_fields(buffer, offset, packet, parent)
@@ -4714,7 +4721,7 @@ dissect.side_time_in_force = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.side_time_in_force(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.side_time_in_force, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.side_time_in_force, range, value, display)
 
   return offset + length, value
 end
@@ -4739,7 +4746,7 @@ dissect.order_qty = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.order_qty(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_qty, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_qty, range, value, display)
 
   return offset + length, value
 end
@@ -4777,7 +4784,7 @@ dissect.sides_group = function(buffer, offset, packet, parent)
   if show.sides_group then
     local range = buffer(offset, 34)
     local display = display.sides_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.sides_group, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.sides_group, range, display)
   end
 
   return dissect.sides_group_fields(buffer, offset, packet, parent)
@@ -4826,7 +4833,7 @@ dissect.sides_groups = function(buffer, offset, packet, parent)
     local length = size_of.sides_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.sides_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.sides_groups, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.sides_groups, range, display)
   end
 
   return dissect.sides_groups_fields(buffer, offset, packet, parent)
@@ -4847,7 +4854,7 @@ dissect.trans_bkd_time = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.trans_bkd_time(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.trans_bkd_time, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.trans_bkd_time, range, value, display)
 
   return offset + length, value
 end
@@ -4868,7 +4875,7 @@ dissect.price = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.price(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.price, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -4893,7 +4900,7 @@ dissect.cross_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.cross_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.cross_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.cross_id, range, value, display)
 
   return offset + length, value
 end
@@ -4961,7 +4968,7 @@ dissect.new_order_cross_544 = function(buffer, offset, packet, parent)
     local length = size_of.new_order_cross_544(buffer, offset)
     local range = buffer(offset, length)
     local display = display.new_order_cross_544(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.new_order_cross_544, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.new_order_cross_544, range, display)
   end
 
   return dissect.new_order_cross_544_fields(buffer, offset, packet, parent)
@@ -4994,7 +5001,7 @@ dissect.related_sym_group = function(buffer, offset, packet, parent)
   if show.related_sym_group then
     local range = buffer(offset, 9)
     local display = display.related_sym_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.related_sym_group, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.related_sym_group, range, display)
   end
 
   return dissect.related_sym_group_fields(buffer, offset, packet, parent)
@@ -5043,7 +5050,7 @@ dissect.related_sym_groups = function(buffer, offset, packet, parent)
     local length = size_of.related_sym_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.related_sym_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.related_sym_groups, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.related_sym_groups, range, display)
   end
 
   return dissect.related_sym_groups_fields(buffer, offset, packet, parent)
@@ -5064,7 +5071,7 @@ dissect.quote_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.quote_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.quote_type, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.quote_type, range, value, display)
 
   return offset + length, value
 end
@@ -5126,7 +5133,7 @@ dissect.request_for_quote_543 = function(buffer, offset, packet, parent)
     local length = size_of.request_for_quote_543(buffer, offset)
     local range = buffer(offset, length)
     local display = display.request_for_quote_543(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.request_for_quote_543, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.request_for_quote_543, range, display)
   end
 
   return dissect.request_for_quote_543_fields(buffer, offset, packet, parent)
@@ -5175,7 +5182,7 @@ dissect.dk_reason = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.dk_reason(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.dk_reason, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.dk_reason, range, value, display)
 
   return offset + length, value
 end
@@ -5202,7 +5209,7 @@ dissect.exec_ack_status = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.exec_ack_status(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.exec_ack_status, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.exec_ack_status, range, value, display)
 
   return offset + length, value
 end
@@ -5258,7 +5265,7 @@ dissect.execution_ack_539 = function(buffer, offset, packet, parent)
   if show.execution_ack_539 then
     local range = buffer(offset, 67)
     local display = display.execution_ack_539(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.execution_ack_539, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.execution_ack_539, range, display)
   end
 
   return dissect.execution_ack_539_fields(buffer, offset, packet, parent)
@@ -5279,7 +5286,7 @@ dissect.trd_reg_publication_reason = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.trd_reg_publication_reason(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.trd_reg_publication_reason, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.trd_reg_publication_reason, range, value, display)
 
   return offset + length, value
 end
@@ -5299,7 +5306,7 @@ dissect.trd_reg_publication_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.trd_reg_publication_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.trd_reg_publication_type, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.trd_reg_publication_type, range, value, display)
 
   return offset + length, value
 end
@@ -5328,7 +5335,7 @@ dissect.trd_reg_publications_group = function(buffer, offset, packet, parent)
   if show.trd_reg_publications_group then
     local range = buffer(offset, 2)
     local display = display.trd_reg_publications_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.trd_reg_publications_group, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.trd_reg_publications_group, range, display)
   end
 
   return dissect.trd_reg_publications_group_fields(buffer, offset, packet, parent)
@@ -5377,7 +5384,7 @@ dissect.trd_reg_publications_groups = function(buffer, offset, packet, parent)
     local length = size_of.trd_reg_publications_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.trd_reg_publications_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.trd_reg_publications_groups, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.trd_reg_publications_groups, range, display)
   end
 
   return dissect.trd_reg_publications_groups_fields(buffer, offset, packet, parent)
@@ -5414,7 +5421,7 @@ dissect.party_detail_role = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.party_detail_role(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_detail_role, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.party_detail_role, range, value, display)
 
   return offset + length, value
 end
@@ -5434,7 +5441,7 @@ dissect.party_detail_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.party_detail_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_detail_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.party_detail_id, range, value, display)
 
   return offset + length, value
 end
@@ -5463,7 +5470,7 @@ dissect.party_details_group = function(buffer, offset, packet, parent)
   if show.party_details_group then
     local range = buffer(offset, 22)
     local display = display.party_details_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_details_group, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.party_details_group, range, display)
   end
 
   return dissect.party_details_group_fields(buffer, offset, packet, parent)
@@ -5512,7 +5519,7 @@ dissect.party_details_groups = function(buffer, offset, packet, parent)
     local length = size_of.party_details_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.party_details_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_details_groups, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.party_details_groups, range, display)
   end
 
   return dissect.party_details_groups_fields(buffer, offset, packet, parent)
@@ -5538,7 +5545,7 @@ dissect.idm_short_code = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.idm_short_code(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.idm_short_code, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.idm_short_code, range, value, display)
 
   return offset + length, value
 end
@@ -5563,7 +5570,7 @@ dissect.executor = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.executor(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.executor, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.executor, range, value, display)
 
   return offset + length, value
 end
@@ -5583,7 +5590,7 @@ dissect.cust_order_handling_inst = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.cust_order_handling_inst(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.cust_order_handling_inst, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.cust_order_handling_inst, range, value, display)
 
   return offset + length, value
 end
@@ -5613,7 +5620,7 @@ dissect.cmta_giveup_cd = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.cmta_giveup_cd(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.cmta_giveup_cd, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.cmta_giveup_cd, range, value, display)
 
   return offset + length, value
 end
@@ -5633,7 +5640,7 @@ dissect.clearing_trade_price_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.clearing_trade_price_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.clearing_trade_price_type, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.clearing_trade_price_type, range, value, display)
 
   return offset + length, value
 end
@@ -5653,7 +5660,7 @@ dissect.avg_px_indicator = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.avg_px_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.avg_px_indicator, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.avg_px_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -5673,7 +5680,7 @@ dissect.self_match_prevention_instruction = function(buffer, offset, packet, par
   local value = range:string()
   local display = display.self_match_prevention_instruction(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.self_match_prevention_instruction, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.self_match_prevention_instruction, range, value, display)
 
   return offset + length, value
 end
@@ -5693,7 +5700,7 @@ dissect.clearing_account_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.clearing_account_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.clearing_account_type, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.clearing_account_type, range, value, display)
 
   return offset + length, value
 end
@@ -5729,7 +5736,7 @@ dissect.cust_order_capacity = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.cust_order_capacity(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.cust_order_capacity, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.cust_order_capacity, range, value, display)
 
   return offset + length, value
 end
@@ -5749,7 +5756,7 @@ dissect.request_result = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.request_result(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.request_result, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.request_result, range, value, display)
 
   return offset + length, value
 end
@@ -5769,7 +5776,7 @@ dissect.tot_num_parties = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.tot_num_parties(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.tot_num_parties, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.tot_num_parties, range, value, display)
 
   return offset + length, value
 end
@@ -5794,7 +5801,7 @@ dissect.self_match_prevention_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.self_match_prevention_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.self_match_prevention_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.self_match_prevention_id, range, value, display)
 
   return offset + length, value
 end
@@ -5814,7 +5821,7 @@ dissect.party_details_list_report_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.party_details_list_report_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_details_list_report_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.party_details_list_report_id, range, value, display)
 
   return offset + length, value
 end
@@ -5834,7 +5841,7 @@ dissect.avg_px_group_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.avg_px_group_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.avg_px_group_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.avg_px_group_id, range, value, display)
 
   return offset + length, value
 end
@@ -5940,7 +5947,7 @@ dissect.party_details_list_report_538 = function(buffer, offset, packet, parent)
     local length = size_of.party_details_list_report_538(buffer, offset)
     local range = buffer(offset, length)
     local display = display.party_details_list_report_538(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_details_list_report_538, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.party_details_list_report_538, range, display)
   end
 
   return dissect.party_details_list_report_538_fields(buffer, offset, packet, parent)
@@ -5961,7 +5968,7 @@ dissect.party_role = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.party_role(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_role, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.party_role, range, value, display)
 
   return offset + length, value
 end
@@ -5981,7 +5988,7 @@ dissect.party_id_source = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.party_id_source(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_id_source, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.party_id_source, range, value, display)
 
   return offset + length, value
 end
@@ -6001,7 +6008,7 @@ dissect.party_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.party_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.party_id, range, value, display)
 
   return offset + length, value
 end
@@ -6033,7 +6040,7 @@ dissect.party_i_ds_group = function(buffer, offset, packet, parent)
   if show.party_i_ds_group then
     local range = buffer(offset, 11)
     local display = display.party_i_ds_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_i_ds_group, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.party_i_ds_group, range, display)
   end
 
   return dissect.party_i_ds_group_fields(buffer, offset, packet, parent)
@@ -6082,7 +6089,7 @@ dissect.party_i_ds_groups = function(buffer, offset, packet, parent)
     local length = size_of.party_i_ds_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.party_i_ds_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_i_ds_groups, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.party_i_ds_groups, range, display)
   end
 
   return dissect.party_i_ds_groups_fields(buffer, offset, packet, parent)
@@ -6103,7 +6110,7 @@ dissect.requesting_party_role = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.requesting_party_role(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.requesting_party_role, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.requesting_party_role, range, value, display)
 
   return offset + length, value
 end
@@ -6123,7 +6130,7 @@ dissect.requesting_party_id_source = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.requesting_party_id_source(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.requesting_party_id_source, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.requesting_party_id_source, range, value, display)
 
   return offset + length, value
 end
@@ -6143,7 +6150,7 @@ dissect.requesting_party_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.requesting_party_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.requesting_party_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.requesting_party_id, range, value, display)
 
   return offset + length, value
 end
@@ -6175,7 +6182,7 @@ dissect.requesting_party_i_ds_group = function(buffer, offset, packet, parent)
   if show.requesting_party_i_ds_group then
     local range = buffer(offset, 7)
     local display = display.requesting_party_i_ds_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.requesting_party_i_ds_group, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.requesting_party_i_ds_group, range, display)
   end
 
   return dissect.requesting_party_i_ds_group_fields(buffer, offset, packet, parent)
@@ -6224,7 +6231,7 @@ dissect.requesting_party_i_ds_groups = function(buffer, offset, packet, parent)
     local length = size_of.requesting_party_i_ds_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.requesting_party_i_ds_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.requesting_party_i_ds_groups, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.requesting_party_i_ds_groups, range, display)
   end
 
   return dissect.requesting_party_i_ds_groups_fields(buffer, offset, packet, parent)
@@ -6277,7 +6284,7 @@ dissect.party_details_list_request_537 = function(buffer, offset, packet, parent
     local length = size_of.party_details_list_request_537(buffer, offset)
     local range = buffer(offset, length)
     local display = display.party_details_list_request_537(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_details_list_request_537, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.party_details_list_request_537, range, display)
   end
 
   return dissect.party_details_list_request_537_fields(buffer, offset, packet, parent)
@@ -6298,7 +6305,7 @@ dissect.cxl_rej_reason = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.cxl_rej_reason(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.cxl_rej_reason, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.cxl_rej_reason, range, value, display)
 
   return offset + length, value
 end
@@ -6375,7 +6382,7 @@ dissect.order_cancel_replace_reject_536 = function(buffer, offset, packet, paren
   if show.order_cancel_replace_reject_536 then
     local range = buffer(offset, 401)
     local display = display.order_cancel_replace_reject_536(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_cancel_replace_reject_536, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_cancel_replace_reject_536, range, display)
   end
 
   return dissect.order_cancel_replace_reject_536_fields(buffer, offset, packet, parent)
@@ -6453,7 +6460,7 @@ dissect.order_cancel_reject_535 = function(buffer, offset, packet, parent)
   if show.order_cancel_reject_535 then
     local range = buffer(offset, 401)
     local display = display.order_cancel_reject_535(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_cancel_reject_535, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_cancel_reject_535, range, display)
   end
 
   return dissect.order_cancel_reject_535_fields(buffer, offset, packet, parent)
@@ -6479,7 +6486,7 @@ dissect.cross_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.cross_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.cross_type, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.cross_type, range, value, display)
 
   return offset + length, value
 end
@@ -6499,7 +6506,7 @@ dissect.exec_restatement_reason = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.exec_restatement_reason(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.exec_restatement_reason, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.exec_restatement_reason, range, value, display)
 
   return offset + length, value
 end
@@ -6524,7 +6531,7 @@ dissect.expire_date = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.expire_date(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.expire_date, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.expire_date, range, value, display)
 
   return offset + length, value
 end
@@ -6549,7 +6556,7 @@ dissect.display_qty = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.display_qty(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.display_qty, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.display_qty, range, value, display)
 
   return offset + length, value
 end
@@ -6574,7 +6581,7 @@ dissect.min_qty = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.min_qty(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.min_qty, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.min_qty, range, value, display)
 
   return offset + length, value
 end
@@ -6594,7 +6601,7 @@ dissect.cum_qty = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.cum_qty(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.cum_qty, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.cum_qty, range, value, display)
 
   return offset + length, value
 end
@@ -6619,7 +6626,7 @@ dissect.host_cross_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.host_cross_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.host_cross_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.host_cross_id, range, value, display)
 
   return offset + length, value
 end
@@ -6640,7 +6647,7 @@ dissect.stop_px = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.stop_px(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.stop_px, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.stop_px, range, value, display)
 
   return offset + length, value
 end
@@ -6768,7 +6775,7 @@ dissect.execution_report_cancel_534 = function(buffer, offset, packet, parent)
   if show.execution_report_cancel_534 then
     local range = buffer(offset, 206)
     local display = display.execution_report_cancel_534(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.execution_report_cancel_534, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.execution_report_cancel_534, range, display)
   end
 
   return dissect.execution_report_cancel_534_fields(buffer, offset, packet, parent)
@@ -6794,7 +6801,7 @@ dissect.ord_status_req_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.ord_status_req_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.ord_status_req_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.ord_status_req_id, range, value, display)
 
   return offset + length, value
 end
@@ -6841,7 +6848,7 @@ dissect.order_status_request_533 = function(buffer, offset, packet, parent)
   if show.order_status_request_533 then
     local range = buffer(offset, 62)
     local display = display.order_status_request_533(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_status_request_533, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_status_request_533, range, display)
   end
 
   return dissect.order_status_request_533_fields(buffer, offset, packet, parent)
@@ -6862,7 +6869,7 @@ dissect.last_rpt_requested = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.last_rpt_requested(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.last_rpt_requested, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.last_rpt_requested, range, value, display)
 
   return offset + length, value
 end
@@ -6882,7 +6889,7 @@ dissect.leaves_qty = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.leaves_qty(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.leaves_qty, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.leaves_qty, range, value, display)
 
   return offset + length, value
 end
@@ -6907,7 +6914,7 @@ dissect.mass_status_req_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.mass_status_req_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.mass_status_req_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.mass_status_req_id, range, value, display)
 
   return offset + length, value
 end
@@ -7044,7 +7051,7 @@ dissect.execution_report_status_532 = function(buffer, offset, packet, parent)
   if show.execution_report_status_532 then
     local range = buffer(offset, 480)
     local display = display.execution_report_status_532(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.execution_report_status_532, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.execution_report_status_532, range, display)
   end
 
   return dissect.execution_report_status_532_fields(buffer, offset, packet, parent)
@@ -7173,7 +7180,7 @@ dissect.execution_report_modify_531 = function(buffer, offset, packet, parent)
   if show.execution_report_modify_531 then
     local range = buffer(offset, 209)
     local display = display.execution_report_modify_531(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.execution_report_modify_531, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.execution_report_modify_531, range, display)
   end
 
   return dissect.execution_report_modify_531_fields(buffer, offset, packet, parent)
@@ -7194,7 +7201,7 @@ dissect.ord_status_req_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.ord_status_req_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.ord_status_req_type, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.ord_status_req_type, range, value, display)
 
   return offset + length, value
 end
@@ -7214,7 +7221,7 @@ dissect.mass_status_req_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.mass_status_req_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.mass_status_req_type, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.mass_status_req_type, range, value, display)
 
   return offset + length, value
 end
@@ -7276,7 +7283,7 @@ dissect.order_mass_status_request_530 = function(buffer, offset, packet, parent)
   if show.order_mass_status_request_530 then
     local range = buffer(offset, 68)
     local display = display.order_mass_status_request_530(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_mass_status_request_530, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_mass_status_request_530, range, display)
   end
 
   return dissect.order_mass_status_request_530_fields(buffer, offset, packet, parent)
@@ -7348,7 +7355,7 @@ dissect.order_mass_action_request_529 = function(buffer, offset, packet, parent)
   if show.order_mass_action_request_529 then
     local range = buffer(offset, 71)
     local display = display.order_mass_action_request_529(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_mass_action_request_529, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_mass_action_request_529, range, display)
   end
 
   return dissect.order_mass_action_request_529_fields(buffer, offset, packet, parent)
@@ -7369,7 +7376,7 @@ dissect.quote_cancel_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.quote_cancel_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.quote_cancel_type, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.quote_cancel_type, range, value, display)
 
   return offset + length, value
 end
@@ -7439,7 +7446,7 @@ dissect.quote_cancel_528 = function(buffer, offset, packet, parent)
     local length = size_of.quote_cancel_528(buffer, offset)
     local range = buffer(offset, length)
     local display = display.quote_cancel_528(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.quote_cancel_528, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.quote_cancel_528, range, display)
   end
 
   return dissect.quote_cancel_528_fields(buffer, offset, packet, parent)
@@ -7460,7 +7467,7 @@ dissect.risk_free_rate = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.risk_free_rate(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.risk_free_rate, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.risk_free_rate, range, value, display)
 
   return offset + length, value
 end
@@ -7480,7 +7487,7 @@ dissect.time_to_expiration = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.time_to_expiration(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.time_to_expiration, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.time_to_expiration, range, value, display)
 
   return offset + length, value
 end
@@ -7500,7 +7507,7 @@ dissect.option_delta = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.option_delta(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.option_delta, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.option_delta, range, value, display)
 
   return offset + length, value
 end
@@ -7521,7 +7528,7 @@ dissect.underlying_px = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.underlying_px(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.underlying_px, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.underlying_px, range, value, display)
 
   return offset + length, value
 end
@@ -7541,7 +7548,7 @@ dissect.volatility = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.volatility(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.volatility, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.volatility, range, value, display)
 
   return offset + length, value
 end
@@ -7662,7 +7669,7 @@ dissect.execution_report_trade_spread_leg_527 = function(buffer, offset, packet,
     local length = size_of.execution_report_trade_spread_leg_527(buffer, offset)
     local range = buffer(offset, length)
     local display = display.execution_report_trade_spread_leg_527(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.execution_report_trade_spread_leg_527, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.execution_report_trade_spread_leg_527, range, display)
   end
 
   return dissect.execution_report_trade_spread_leg_527_fields(buffer, offset, packet, parent)
@@ -7683,7 +7690,7 @@ dissect.aggressor_indicator = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.aggressor_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.aggressor_indicator, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.aggressor_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -7848,7 +7855,7 @@ dissect.execution_report_trade_spread_526 = function(buffer, offset, packet, par
     local length = size_of.execution_report_trade_spread_526(buffer, offset)
     local range = buffer(offset, length)
     local display = display.execution_report_trade_spread_526(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.execution_report_trade_spread_526, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.execution_report_trade_spread_526, range, display)
   end
 
   return dissect.execution_report_trade_spread_526_fields(buffer, offset, packet, parent)
@@ -7869,7 +7876,7 @@ dissect.ownership = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.ownership(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.ownership, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.ownership, range, value, display)
 
   return offset + length, value
 end
@@ -7894,7 +7901,7 @@ dissect.trade_link_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.trade_link_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.trade_link_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.trade_link_id, range, value, display)
 
   return offset + length, value
 end
@@ -8060,7 +8067,7 @@ dissect.execution_report_trade_outright_525 = function(buffer, offset, packet, p
     local length = size_of.execution_report_trade_outright_525(buffer, offset)
     local range = buffer(offset, length)
     local display = display.execution_report_trade_outright_525(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.execution_report_trade_outright_525, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.execution_report_trade_outright_525, range, display)
   end
 
   return dissect.execution_report_trade_outright_525_fields(buffer, offset, packet, parent)
@@ -8180,7 +8187,7 @@ dissect.execution_report_elimination_524 = function(buffer, offset, packet, pare
   if show.execution_report_elimination_524 then
     local range = buffer(offset, 202)
     local display = display.execution_report_elimination_524(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.execution_report_elimination_524, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.execution_report_elimination_524, range, display)
   end
 
   return dissect.execution_report_elimination_524_fields(buffer, offset, packet, parent)
@@ -8201,7 +8208,7 @@ dissect.ord_rej_reason = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.ord_rej_reason(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.ord_rej_reason, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.ord_rej_reason, range, value, display)
 
   return offset + length, value
 end
@@ -8329,7 +8336,7 @@ dissect.execution_report_reject_523 = function(buffer, offset, packet, parent)
   if show.execution_report_reject_523 then
     local range = buffer(offset, 459)
     local display = display.execution_report_reject_523(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.execution_report_reject_523, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.execution_report_reject_523, range, display)
   end
 
   return dissect.execution_report_reject_523_fields(buffer, offset, packet, parent)
@@ -8452,7 +8459,7 @@ dissect.execution_report_new_522 = function(buffer, offset, packet, parent)
   if show.execution_report_new_522 then
     local range = buffer(offset, 201)
     local display = display.execution_report_new_522(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.execution_report_new_522, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.execution_report_new_522, range, display)
   end
 
   return dissect.execution_report_new_522_fields(buffer, offset, packet, parent)
@@ -8473,7 +8480,7 @@ dissect.ref_msg_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.ref_msg_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.ref_msg_type, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.ref_msg_type, range, value, display)
 
   return offset + length, value
 end
@@ -8493,7 +8500,7 @@ dissect.business_reject_reason = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.business_reject_reason(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.business_reject_reason, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.business_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -8518,7 +8525,7 @@ dissect.ref_tag_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.ref_tag_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.ref_tag_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.ref_tag_id, range, value, display)
 
   return offset + length, value
 end
@@ -8543,7 +8550,7 @@ dissect.ref_seq_num = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.ref_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.ref_seq_num, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.ref_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -8568,7 +8575,7 @@ dissect.business_reject_ref_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.business_reject_ref_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.business_reject_ref_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.business_reject_ref_id, range, value, display)
 
   return offset + length, value
 end
@@ -8636,7 +8643,7 @@ dissect.business_reject_521 = function(buffer, offset, packet, parent)
   if show.business_reject_521 then
     local range = buffer(offset, 330)
     local display = display.business_reject_521(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.business_reject_521, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.business_reject_521, range, display)
   end
 
   return dissect.business_reject_521_fields(buffer, offset, packet, parent)
@@ -8657,7 +8664,7 @@ dissect.party_detail_definition_status = function(buffer, offset, packet, parent
   local value = range:le_uint()
   local display = display.party_detail_definition_status(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_detail_definition_status, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.party_detail_definition_status, range, value, display)
 
   return offset + length, value
 end
@@ -8677,7 +8684,7 @@ dissect.list_update_action = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.list_update_action(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.list_update_action, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.list_update_action, range, value, display)
 
   return offset + length, value
 end
@@ -8697,7 +8704,7 @@ dissect.party_detail_request_status = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.party_detail_request_status(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_detail_request_status, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.party_detail_request_status, range, value, display)
 
   return offset + length, value
 end
@@ -8717,7 +8724,7 @@ dissect.memo = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.memo(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.memo, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.memo, range, value, display)
 
   return offset + length, value
 end
@@ -8823,7 +8830,7 @@ dissect.party_details_definition_request_ack_519 = function(buffer, offset, pack
     local length = size_of.party_details_definition_request_ack_519(buffer, offset)
     local range = buffer(offset, length)
     local display = display.party_details_definition_request_ack_519(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_details_definition_request_ack_519, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.party_details_definition_request_ack_519, range, display)
   end
 
   return dissect.party_details_definition_request_ack_519_fields(buffer, offset, packet, parent)
@@ -8915,7 +8922,7 @@ dissect.party_details_definition_request_518 = function(buffer, offset, packet, 
     local length = size_of.party_details_definition_request_518(buffer, offset)
     local range = buffer(offset, length)
     local display = display.party_details_definition_request_518(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.party_details_definition_request_518, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.party_details_definition_request_518, range, display)
   end
 
   return dissect.party_details_definition_request_518_fields(buffer, offset, packet, parent)
@@ -8990,7 +8997,7 @@ dissect.mass_quote_517 = function(buffer, offset, packet, parent)
     local length = size_of.mass_quote_517(buffer, offset)
     local range = buffer(offset, length)
     local display = display.mass_quote_517(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.mass_quote_517, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.mass_quote_517, range, display)
   end
 
   return dissect.mass_quote_517_fields(buffer, offset, packet, parent)
@@ -9050,7 +9057,7 @@ dissect.order_cancel_request_516 = function(buffer, offset, packet, parent)
   if show.order_cancel_request_516 then
     local range = buffer(offset, 88)
     local display = display.order_cancel_request_516(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_cancel_request_516, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_cancel_request_516, range, display)
   end
 
   return dissect.order_cancel_request_516_fields(buffer, offset, packet, parent)
@@ -9071,7 +9078,7 @@ dissect.ofm_override = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.ofm_override(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.ofm_override, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.ofm_override, range, value, display)
 
   return offset + length, value
 end
@@ -9169,7 +9176,7 @@ dissect.order_cancel_replace_request_515 = function(buffer, offset, packet, pare
   if show.order_cancel_replace_request_515 then
     local range = buffer(offset, 125)
     local display = display.order_cancel_replace_request_515(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.order_cancel_replace_request_515, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_cancel_replace_request_515, range, display)
   end
 
   return dissect.order_cancel_replace_request_515_fields(buffer, offset, packet, parent)
@@ -9262,7 +9269,7 @@ dissect.new_order_single_514 = function(buffer, offset, packet, parent)
   if show.new_order_single_514 then
     local range = buffer(offset, 116)
     local display = display.new_order_single_514(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.new_order_single_514, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.new_order_single_514, range, display)
   end
 
   return dissect.new_order_single_514_fields(buffer, offset, packet, parent)
@@ -9283,7 +9290,7 @@ dissect.msg_count = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.msg_count(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.msg_count, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.msg_count, range, value, display)
 
   return offset + length, value
 end
@@ -9303,7 +9310,7 @@ dissect.from_seq_no = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.from_seq_no(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.from_seq_no, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.from_seq_no, range, value, display)
 
   return offset + length, value
 end
@@ -9338,7 +9345,7 @@ dissect.not_applied_513 = function(buffer, offset, packet, parent)
   if show.not_applied_513 then
     local range = buffer(offset, 15)
     local display = display.not_applied_513(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.not_applied_513, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.not_applied_513, range, display)
   end
 
   return dissect.not_applied_513_fields(buffer, offset, packet, parent)
@@ -9359,7 +9366,7 @@ dissect.error_codes = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.error_codes(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.error_codes, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.error_codes, range, value, display)
 
   return offset + length, value
 end
@@ -9379,7 +9386,7 @@ dissect.request_timestamp = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.request_timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.request_timestamp, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.request_timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -9404,7 +9411,7 @@ dissect.last_uuid = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.last_uuid(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.last_uuid, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.last_uuid, range, value, display)
 
   return offset + length, value
 end
@@ -9424,7 +9431,7 @@ dissect.reason = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.reason(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.reason, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.reason, range, value, display)
 
   return offset + length, value
 end
@@ -9465,7 +9472,7 @@ dissect.retransmit_reject_510 = function(buffer, offset, packet, parent)
   if show.retransmit_reject_510 then
     local range = buffer(offset, 75)
     local display = display.retransmit_reject_510(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.retransmit_reject_510, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.retransmit_reject_510, range, display)
   end
 
   return dissect.retransmit_reject_510_fields(buffer, offset, packet, parent)
@@ -9507,7 +9514,7 @@ dissect.retransmission_509 = function(buffer, offset, packet, parent)
   if show.retransmission_509 then
     local range = buffer(offset, 31)
     local display = display.retransmission_509(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.retransmission_509, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.retransmission_509, range, display)
   end
 
   return dissect.retransmission_509_fields(buffer, offset, packet, parent)
@@ -9546,7 +9553,7 @@ dissect.retransmit_request_508 = function(buffer, offset, packet, parent)
   if show.retransmit_request_508 then
     local range = buffer(offset, 30)
     local display = display.retransmit_request_508(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.retransmit_request_508, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.retransmit_request_508, range, display)
   end
 
   return dissect.retransmit_request_508_fields(buffer, offset, packet, parent)
@@ -9585,7 +9592,7 @@ dissect.terminate_507 = function(buffer, offset, packet, parent)
   if show.terminate_507 then
     local range = buffer(offset, 67)
     local display = display.terminate_507(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.terminate_507, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.terminate_507, range, display)
   end
 
   return dissect.terminate_507_fields(buffer, offset, packet, parent)
@@ -9606,7 +9613,7 @@ dissect.keep_alive_interval_lapsed = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.keep_alive_interval_lapsed(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.keep_alive_interval_lapsed, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.keep_alive_interval_lapsed, range, value, display)
 
   return offset + length, value
 end
@@ -9626,7 +9633,7 @@ dissect.fault_tolerance_indicator = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.fault_tolerance_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.fault_tolerance_indicator, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.fault_tolerance_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -9646,7 +9653,7 @@ dissect.next_seq_no = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.next_seq_no(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.next_seq_no, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.next_seq_no, range, value, display)
 
   return offset + length, value
 end
@@ -9681,7 +9688,7 @@ dissect.sequence_506 = function(buffer, offset, packet, parent)
   if show.sequence_506 then
     local range = buffer(offset, 14)
     local display = display.sequence_506(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.sequence_506, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.sequence_506, range, display)
   end
 
   return dissect.sequence_506_fields(buffer, offset, packet, parent)
@@ -9726,7 +9733,7 @@ dissect.establishment_reject_505 = function(buffer, offset, packet, parent)
   if show.establishment_reject_505 then
     local range = buffer(offset, 72)
     local display = display.establishment_reject_505(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.establishment_reject_505, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.establishment_reject_505, range, display)
   end
 
   return dissect.establishment_reject_505_fields(buffer, offset, packet, parent)
@@ -9752,7 +9759,7 @@ dissect.secret_key_secure_id_expiration = function(buffer, offset, packet, paren
   local value = range:le_uint()
   local display = display.secret_key_secure_id_expiration(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.secret_key_secure_id_expiration, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.secret_key_secure_id_expiration, range, value, display)
 
   return offset + length, value
 end
@@ -9772,7 +9779,7 @@ dissect.keep_alive_interval = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.keep_alive_interval(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.keep_alive_interval, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.keep_alive_interval, range, value, display)
 
   return offset + length, value
 end
@@ -9792,7 +9799,7 @@ dissect.previous_uuid = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.previous_uuid(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.previous_uuid, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.previous_uuid, range, value, display)
 
   return offset + length, value
 end
@@ -9812,7 +9819,7 @@ dissect.previous_seq_no = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.previous_seq_no(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.previous_seq_no, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.previous_seq_no, range, value, display)
 
   return offset + length, value
 end
@@ -9862,7 +9869,7 @@ dissect.establishment_ack_504 = function(buffer, offset, packet, parent)
   if show.establishment_ack_504 then
     local range = buffer(offset, 38)
     local display = display.establishment_ack_504(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.establishment_ack_504, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.establishment_ack_504, range, display)
   end
 
   return dissect.establishment_ack_504_fields(buffer, offset, packet, parent)
@@ -9883,7 +9890,7 @@ dissect.firm = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.firm(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.firm, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.firm, range, value, display)
 
   return offset + length, value
 end
@@ -9903,7 +9910,7 @@ dissect.session = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.session(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.session, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -9923,7 +9930,7 @@ dissect.trading_system_vendor = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trading_system_vendor(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.trading_system_vendor, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.trading_system_vendor, range, value, display)
 
   return offset + length, value
 end
@@ -9943,7 +9950,7 @@ dissect.trading_system_version = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trading_system_version(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.trading_system_version, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.trading_system_version, range, value, display)
 
   return offset + length, value
 end
@@ -9963,7 +9970,7 @@ dissect.trading_system_name = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trading_system_name(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.trading_system_name, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.trading_system_name, range, value, display)
 
   return offset + length, value
 end
@@ -9983,7 +9990,7 @@ dissect.access_key_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.access_key_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.access_key_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.access_key_id, range, value, display)
 
   return offset + length, value
 end
@@ -10003,7 +10010,7 @@ dissect.hmac_signature = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.hmac_signature(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.hmac_signature, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.hmac_signature, range, value, display)
 
   return offset + length, value
 end
@@ -10059,7 +10066,7 @@ dissect.establish_503 = function(buffer, offset, packet, parent)
   if show.establish_503 then
     local range = buffer(offset, 132)
     local display = display.establish_503(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.establish_503, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.establish_503, range, display)
   end
 
   return dissect.establish_503_fields(buffer, offset, packet, parent)
@@ -10101,7 +10108,7 @@ dissect.negotiation_reject_502 = function(buffer, offset, packet, parent)
   if show.negotiation_reject_502 then
     local range = buffer(offset, 68)
     local display = display.negotiation_reject_502(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.negotiation_reject_502, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.negotiation_reject_502, range, display)
   end
 
   return dissect.negotiation_reject_502_fields(buffer, offset, packet, parent)
@@ -10146,7 +10153,7 @@ dissect.negotiation_response_501 = function(buffer, offset, packet, parent)
   if show.negotiation_response_501 then
     local range = buffer(offset, 32)
     local display = display.negotiation_response_501(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.negotiation_response_501, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.negotiation_response_501, range, display)
   end
 
   return dissect.negotiation_response_501_fields(buffer, offset, packet, parent)
@@ -10188,7 +10195,7 @@ dissect.negotiate_500 = function(buffer, offset, packet, parent)
   if show.negotiate_500 then
     local range = buffer(offset, 76)
     local display = display.negotiate_500(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.negotiate_500, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.negotiate_500, range, display)
   end
 
   return dissect.negotiate_500_fields(buffer, offset, packet, parent)
@@ -10610,7 +10617,7 @@ dissect.payload = function(buffer, offset, packet, parent, template_id)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.payload(buffer, packet, parent)
-  local element = parent:add(cme_futures_ilink3_sbe_v8_0.fields.payload, range, display)
+  local element = parent:add(cme_futures_ilink3_sbe_v8_2.fields.payload, range, display)
 
   return dissect.payload_branches(buffer, offset, packet, parent, template_id)
 end
@@ -10630,7 +10637,7 @@ dissect.version = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.version(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.version, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -10650,7 +10657,7 @@ dissect.schema_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.schema_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.schema_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.schema_id, range, value, display)
 
   return offset + length, value
 end
@@ -10815,7 +10822,7 @@ dissect.template_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.template_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.template_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.template_id, range, value, display)
 
   return offset + length, value
 end
@@ -10850,7 +10857,7 @@ dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     local range = buffer(offset, 8)
     local display = display.message_header(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.message_header, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.message_header, range, display)
   end
 
   return dissect.message_header_fields(buffer, offset, packet, parent)
@@ -10871,7 +10878,7 @@ dissect.encoding_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.encoding_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.encoding_type, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.encoding_type, range, value, display)
 
   return offset + length, value
 end
@@ -10891,7 +10898,7 @@ dissect.message_length = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_0.fields.message_length, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -10920,15 +10927,34 @@ dissect.simple_open_framing_header = function(buffer, offset, packet, parent)
   if show.simple_open_framing_header then
     local range = buffer(offset, 4)
     local display = display.simple_open_framing_header(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_0.fields.simple_open_framing_header, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.simple_open_framing_header, range, display)
   end
 
   return dissect.simple_open_framing_header_fields(buffer, offset, packet, parent)
 end
 
--- Dissect Packet
-dissect.packet = function(buffer, packet, parent)
+-- Calculate runtime size: Frame
+size_of.frame = function(buffer, offset)
   local index = 0
+
+  index = index + 12
+
+  -- Calculate runtime size of payload field
+  local payload_offset = offset + index
+  local payload_type = buffer(payload_offset - 6, 2):le_uint()
+  index = index + size_of.payload(buffer, payload_offset, payload_type)
+
+  return index
+end
+
+-- Display: Frame
+display.frame = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Frame
+dissect.frame_fields = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Simple Open Framing Header: Struct of 2 fields
   index, simple_open_framing_header = dissect.simple_open_framing_header(buffer, index, packet, parent)
@@ -10945,29 +10971,57 @@ dissect.packet = function(buffer, packet, parent)
   return index
 end
 
+-- Dissect: Frame
+dissect.frame = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.frame then
+    local length = size_of.frame(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.frame(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.frame, range, display)
+  end
+
+  return dissect.frame_fields(buffer, offset, packet, parent)
+end
+
+-- Dissect Packet
+dissect.packet = function(buffer, packet, parent)
+  local index = 0
+
+  -- Frame: Struct of 3 fields
+  local end_of_payload = buffer:len()
+
+  -- Frame: Struct of 3 fields
+  while index < end_of_payload do
+    index = dissect.frame(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
 
 -----------------------------------------------------------------------
 -- Protocol Dissector and Components
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function cme_futures_ilink3_sbe_v8_0.init()
+function cme_futures_ilink3_sbe_v8_2.init()
 end
 
--- Dissector for Cme Futures iLink3 Sbe 8.0
-function cme_futures_ilink3_sbe_v8_0.dissector(buffer, packet, parent)
+-- Dissector for Cme Futures iLink3 Sbe 8.2
+function cme_futures_ilink3_sbe_v8_2.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = cme_futures_ilink3_sbe_v8_0.name
+  packet.cols.protocol = cme_futures_ilink3_sbe_v8_2.name
 
   -- Dissect protocol
-  local protocol = parent:add(cme_futures_ilink3_sbe_v8_0, buffer(), cme_futures_ilink3_sbe_v8_0.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(cme_futures_ilink3_sbe_v8_2, buffer(), cme_futures_ilink3_sbe_v8_2.description, "("..buffer:len().." Bytes)")
   local protocol_size = dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table
 local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, cme_futures_ilink3_sbe_v8_0)
+tcp_table:add(65333, cme_futures_ilink3_sbe_v8_2)
 
 
 -----------------------------------------------------------------------
@@ -10975,14 +11029,14 @@ tcp_table:add(65333, cme_futures_ilink3_sbe_v8_0)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.cme_futures_ilink3_sbe_v8_0_packet_size = function(buffer)
+verify.cme_futures_ilink3_sbe_v8_2_packet_size = function(buffer)
 
   return true
 end
 
 -- Verify Schema Id Field
 verify.schema_id = function(buffer)
-  if 0 == buffer(8, 2):le_uint() then
+  if 2 == buffer(8, 2):le_uint() then
     return true
   end
 
@@ -10998,10 +11052,10 @@ verify.version = function(buffer)
   return false
 end
 
--- Dissector Heuristic for Cme Futures iLink3 Sbe 8.0
-local function cme_futures_ilink3_sbe_v8_0_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Cme Futures iLink3 Sbe 8.2
+local function cme_futures_ilink3_sbe_v8_2_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.cme_futures_ilink3_sbe_v8_0_packet_size(buffer) then return false end
+  if not verify.cme_futures_ilink3_sbe_v8_2_packet_size(buffer) then return false end
 
   -- Verify Schema Id
   if not verify.schema_id(buffer) then return false end
@@ -11010,14 +11064,14 @@ local function cme_futures_ilink3_sbe_v8_0_heuristic(buffer, packet, parent)
   if not verify.version(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = cme_futures_ilink3_sbe_v8_0
-  cme_futures_ilink3_sbe_v8_0.dissector(buffer, packet, parent)
+  packet.conversation = cme_futures_ilink3_sbe_v8_2
+  cme_futures_ilink3_sbe_v8_2.dissector(buffer, packet, parent)
 
   return true
 end
 
--- Register Heuristic for Cme Futures iLink3 Sbe 8.0
-cme_futures_ilink3_sbe_v8_0:register_heuristic("tcp", cme_futures_ilink3_sbe_v8_0_heuristic)
+-- Register Heuristic for Cme Futures iLink3 Sbe 8.2
+cme_futures_ilink3_sbe_v8_2:register_heuristic("tcp", cme_futures_ilink3_sbe_v8_2_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.
@@ -11026,7 +11080,7 @@ cme_futures_ilink3_sbe_v8_0:register_heuristic("tcp", cme_futures_ilink3_sbe_v8_
 -- 
 -- Protocol:
 --   Organization: Chicago Mercantile Exchange
---   Version: 8.0
+--   Version: 8.2
 --   Date: Wednesday, July 24, 2019
 -- 
 -- Script:
