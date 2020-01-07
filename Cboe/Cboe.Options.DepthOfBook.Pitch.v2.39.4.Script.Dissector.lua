@@ -1632,7 +1632,7 @@ dissect.modify_flags = function(buffer, offset, packet, parent)
     dissect.modify_flags_bits(buffer, offset, packet, element)
   end
 
-  return offset + 1
+  return offset + 1, range
 end
 
 -- Display: Modify Order Short Message
@@ -1976,7 +1976,7 @@ dissect.add_flags = function(buffer, offset, packet, parent)
     dissect.add_flags_bits(buffer, offset, packet, element)
   end
 
-  return offset + 1
+  return offset + 1, range
 end
 
 -- Display: Add Order Expanded Message

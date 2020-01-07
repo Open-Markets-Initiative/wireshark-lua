@@ -3009,11 +3009,6 @@ dissect.message_header = function(buffer, offset, packet, parent)
   return dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
--- Size Of: Message
-size_of.message = function(buffer, offset)
-  return buffer(offset, size_of.body_len):le_uint()
-end
-
 -- Display: Message
 display.message = function(buffer, offset, size, packet, parent)
   return ""

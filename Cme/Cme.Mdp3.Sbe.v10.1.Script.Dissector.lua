@@ -837,7 +837,7 @@ dissect.settl_price_type = function(buffer, offset, packet, parent)
     dissect.settl_price_type_bits(buffer, offset, packet, element)
   end
 
-  return offset + 1
+  return offset + 1, range
 end
 
 -- Size: Trading Reference Date
@@ -1440,7 +1440,7 @@ dissect.match_event_indicator = function(buffer, offset, packet, parent)
     dissect.match_event_indicator_bits(buffer, offset, packet, element)
   end
 
-  return offset + 1
+  return offset + 1, range
 end
 
 -- Size: Transact Time
@@ -2669,7 +2669,7 @@ dissect.inst_attrib_value = function(buffer, offset, packet, parent)
     dissect.inst_attrib_value_bits(buffer, offset, packet, element)
   end
 
-  return offset + 4
+  return offset + 4, range
 end
 
 -- Display: Inst Attrib Group

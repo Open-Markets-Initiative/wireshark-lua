@@ -565,7 +565,7 @@ dissect.summary_flags = function(buffer, offset, packet, parent)
     dissect.summary_flags_bits(buffer, offset, packet, element)
   end
 
-  return offset + 1
+  return offset + 1, range
 end
 
 -- Size: Ecrp Volume
@@ -1845,7 +1845,7 @@ size_of.variance = function(buffer, offset)
   index = index + 52
 
   -- Calculate field size from count
-  local future_leg_count = buffer(offset + index - 65, 1):le_uint()
+  local future_leg_count = buffer(offset + index - 55, 1):le_uint()
   index = index + future_leg_count * 10
 
   return index
@@ -1885,7 +1885,7 @@ dissect.variance_fields = function(buffer, offset, packet, parent)
   index, fed_funds_rate = dissect.fed_funds_rate(buffer, index, packet, parent)
 
   -- Dependency element: Leg Count
-  local leg_count = buffer(index - 65, 1):le_uint()
+  local leg_count = buffer(offset - 3, 1):le_uint()
 
   -- Future Leg: Struct of 2 fields
   for i = 1, leg_count do
@@ -1929,7 +1929,7 @@ dissect.standard_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Dependency element: Leg Count
-  local leg_count = buffer(index - 3, 1):le_uint()
+  local leg_count = buffer(offset - 3, 1):le_uint()
 
   -- Future Leg: Struct of 2 fields
   for i = 1, leg_count do

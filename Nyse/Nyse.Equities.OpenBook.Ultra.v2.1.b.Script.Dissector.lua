@@ -646,11 +646,6 @@ dissect.delta_size = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size Of: Delta Update Message
-size_of.delta_update_message = function(buffer, offset)
-  return buffer(offset, size_of.delta_size):int()
-end
-
 -- Display: Delta Update Message
 display.delta_update_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -688,7 +683,7 @@ dissect.delta_update_message_fields = function(buffer, offset, packet, parent, s
   index, price_scale_code = dissect.price_scale_code(buffer, index, packet, parent)
 
   -- Delta Price Point: Struct of 9 fields
-  local end_of_payload = offset + delta_size -(index - offset)
+  local end_of_payload = offset + delta_size - (index - offset)
 
   -- Delta Price Point: Struct of 9 fields
   while index < end_of_payload do
@@ -894,11 +889,6 @@ dissect.update_size = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size Of: Full Update Message
-size_of.full_update_message = function(buffer, offset)
-  return buffer(offset, size_of.update_size):int()
-end
-
 -- Display: Full Update Message
 display.full_update_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -945,7 +935,7 @@ dissect.full_update_message_fields = function(buffer, offset, packet, parent, si
   index, mpv = dissect.mpv(buffer, index, packet, parent)
 
   -- Full Price Point: Struct of 5 fields
-  local end_of_payload = offset + update_size -(index - offset)
+  local end_of_payload = offset + update_size - (index - offset)
 
   -- Full Price Point: Struct of 5 fields
   while index < end_of_payload do

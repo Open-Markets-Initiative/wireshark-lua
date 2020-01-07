@@ -642,7 +642,7 @@ dissect.expiration = function(buffer, offset, packet, parent)
     dissect.expiration_bits(buffer, offset, packet, element)
   end
 
-  return offset + 2
+  return offset + 2, range
 end
 
 -- Size: Security Symbol

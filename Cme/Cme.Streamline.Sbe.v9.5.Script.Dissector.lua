@@ -1674,7 +1674,7 @@ dissect.match_event_indicator = function(buffer, offset, packet, parent)
     dissect.match_event_indicator_bits(buffer, offset, packet, element)
   end
 
-  return offset + 1
+  return offset + 1, range
 end
 
 -- Size: Trade Date
@@ -5132,7 +5132,7 @@ dissect.settl_price_type = function(buffer, offset, packet, parent)
     dissect.settl_price_type_bits(buffer, offset, packet, element)
   end
 
-  return offset + 1
+  return offset + 1, range
 end
 
 -- Display: M D Incremental Refresh Eris Reference Data And Daily Statistics Group

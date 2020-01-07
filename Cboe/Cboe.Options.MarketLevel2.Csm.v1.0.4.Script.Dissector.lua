@@ -719,7 +719,7 @@ dissect.incremental_refresh_md_entry_fields = function(buffer, offset, packet, p
   index, no_legs = dissect.no_legs(buffer, index, packet, parent)
 
   -- Dependency element: No Entries
-  local no_entries = buffer(index - 10, 1):uint()
+  local no_entries = buffer(offset - 1, 1):uint()
 
   -- Md Volume Entry: Struct of 2 fields
   for i = 1, no_entries do
@@ -879,7 +879,7 @@ dissect.snapshot_full_refresh_md_entry_fields = function(buffer, offset, packet,
   index, no_legs = dissect.no_legs(buffer, index, packet, parent)
 
   -- Dependency element: No Entries
-  local no_entries = buffer(index - 9, 1):uint()
+  local no_entries = buffer(offset - 1, 1):uint()
 
   -- Md Volume Entry: Struct of 2 fields
   for i = 1, no_entries do
@@ -2446,11 +2446,6 @@ dissect.message_header = function(buffer, offset, packet, parent)
   end
 
   return dissect.message_header_fields(buffer, offset, packet, parent)
-end
-
--- Size Of: Message
-size_of.message = function(buffer, offset)
-  return buffer(offset, size_of.message_length):uint()
 end
 
 -- Display: Message

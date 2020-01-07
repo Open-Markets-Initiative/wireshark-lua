@@ -1088,7 +1088,7 @@ dissect.market_updates = function(buffer, offset, packet, parent)
     dissect.market_updates_bits(buffer, offset, packet, element)
   end
 
-  return offset + 1
+  return offset + 1, range
 end
 
 -- Size: Total Trades

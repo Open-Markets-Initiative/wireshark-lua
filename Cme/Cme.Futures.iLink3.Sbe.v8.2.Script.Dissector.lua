@@ -3529,7 +3529,7 @@ dissect.exec_inst = function(buffer, offset, packet, parent)
     dissect.exec_inst_bits(buffer, offset, packet, element)
   end
 
-  return offset + 1
+  return offset + 1, range
 end
 
 -- Size: Total Num Securities

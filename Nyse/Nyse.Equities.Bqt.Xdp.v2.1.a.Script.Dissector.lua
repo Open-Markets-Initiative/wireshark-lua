@@ -2408,7 +2408,7 @@ dissect.trade_session = function(buffer, offset, packet, parent)
     dissect.trade_session_bits(buffer, offset, packet, element)
   end
 
-  return offset + 1
+  return offset + 1, range
 end
 
 -- Display: Consolidated Trading Session Change Message

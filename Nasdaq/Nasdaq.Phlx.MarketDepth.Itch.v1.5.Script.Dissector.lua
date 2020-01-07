@@ -877,6 +877,9 @@ dissect.non_auction_options_trade_message = function(buffer, offset, packet, par
   return dissect.non_auction_options_trade_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Cancelled Reference Number Delta
+size_of.cancelled_reference_number_delta = 4
+
 -- Display: Cancelled Reference Number Delta
 display.cancelled_reference_number_delta = function(value)
   return "Cancelled Reference Number Delta: "..value
