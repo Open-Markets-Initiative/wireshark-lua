@@ -37,6 +37,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 |[Cboe][Cboe.Options.MarketLevel2.Csm.v1.0.4.Organization] | Options | MarketLevel2 | Csm | [1.0.4][Cboe.Options.MarketLevel2.Csm.v1.0.4.Dissector] | 5/8/2018 | 2719 | Verified|
 |[Cboe][Cboe.Options.OpeningAuction.Csm.v1.0.Organization] | Options | OpeningAuction | Csm | [1.0][Cboe.Options.OpeningAuction.Csm.v1.0.Dissector] | 7/18/2018 | 2822 | Verified|
 |[Cboe][Cboe.Options.DepthOfBook.Pitch.v2.39.4.Organization] | Options | DepthOfBook | Pitch | [2.39.4][Cboe.Options.DepthOfBook.Pitch.v2.39.4.Dissector] | 8/21/2018 | 2833 | Verified|
+|[Cboe][Cboe.Options.C1.OrderEntry.Boe.v2.10.Organization] | Options C1 | OrderEntry | Boe | [2.10][Cboe.Options.C1.OrderEntry.Boe.v2.10.Dissector] | 9/18/2019 | 43714 | Untested|
 |[Cboe][Cboe.Options.C1.AuctionFeed.Pitch.v1.1.1.Organization] | Options C1 | AuctionFeed | Pitch | [1.1.1][Cboe.Options.C1.AuctionFeed.Pitch.v1.1.1.Dissector] | 12/6/2018 | 1663 | Verified|
 |[Cboe][Cboe.Options.Edgx.AuctionFeed.Pitch.v1.1.1.Organization] | Options Edgx | AuctionFeed | Pitch | [1.1.1][Cboe.Options.Edgx.AuctionFeed.Pitch.v1.1.1.Dissector] | 12/6/2018 | 1171 | Verified|
 |[Cme][Cme.Mdp3.Sbe.v9.1.Organization] |  | Mdp3 | Sbe | [9.1][Cme.Mdp3.Sbe.v9.1.Dissector] | 3/8/2018 | 8339 | Verified|
@@ -107,7 +108,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 |Protocol Count | Generated Lines|
 |--- | ---|
-|69 | 257,572|
+|70 | 301,286|
 
 Note: Our dissector model is still under rapid development.
 
@@ -135,6 +136,8 @@ Enjoy.
 [Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Script.Dissector.lua "Chicago Board Options Exchange 1.1.6 Wireshark Dissector"
 [Cboe.Options.C1.AuctionFeed.Pitch.v1.1.1.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cboe "Chicago Board Options Exchange"
 [Cboe.Options.C1.AuctionFeed.Pitch.v1.1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Options.C1.AuctionFeed.Pitch.v1.1.1.Script.Dissector.lua "Chicago Board Options Exchange 1.1.1 Wireshark Dissector"
+[Cboe.Options.C1.OrderEntry.Boe.v2.10.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cboe "Chicago Board Options Exchange"
+[Cboe.Options.C1.OrderEntry.Boe.v2.10.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Options.C1.OrderEntry.Boe.v2.10.Script.Dissector.lua "Chicago Board Options Exchange 2.10 Wireshark Dissector"
 [Cboe.Options.Edgx.AuctionFeed.Pitch.v1.1.1.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cboe "Chicago Board Options Exchange"
 [Cboe.Options.Edgx.AuctionFeed.Pitch.v1.1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Options.Edgx.AuctionFeed.Pitch.v1.1.1.Script.Dissector.lua "Chicago Board Options Exchange 1.1.1 Wireshark Dissector"
 [Cboe.Options.DepthOfBook.Pitch.v2.39.4.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cboe "Chicago Board Options Exchange"
