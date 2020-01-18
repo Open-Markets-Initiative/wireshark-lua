@@ -40,6 +40,7 @@ cme_futures_ilink3_sbe_v8_2.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "cme.
 cme_futures_ilink3_sbe_v8_2.fields.clearing_account_type = ProtoField.new("Clearing Account Type", "cme.futures.ilink3.sbe.v8.2.clearingaccounttype", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.clearing_trade_price_type = ProtoField.new("Clearing Trade Price Type", "cme.futures.ilink3.sbe.v8.2.clearingtradepricetype", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.cmta_giveup_cd = ProtoField.new("Cmta Giveup Cd", "cme.futures.ilink3.sbe.v8.2.cmtagiveupcd", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.credentials = ProtoField.new("Credentials", "cme.futures.ilink3.sbe.v8.2.credentials", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.cross_id = ProtoField.new("Cross Id", "cme.futures.ilink3.sbe.v8.2.crossid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_2.fields.cross_type = ProtoField.new("Cross Type", "cme.futures.ilink3.sbe.v8.2.crosstype", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.cum_qty = ProtoField.new("Cum Qty", "cme.futures.ilink3.sbe.v8.2.cumqty", ftypes.UINT32)
@@ -112,6 +113,7 @@ cme_futures_ilink3_sbe_v8_2.fields.leg_side = ProtoField.new("Leg Side", "cme.fu
 cme_futures_ilink3_sbe_v8_2.fields.leg_trade_id = ProtoField.new("Leg Trade Id", "cme.futures.ilink3.sbe.v8.2.legtradeid", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_2.fields.legs_group = ProtoField.new("Legs Group", "cme.futures.ilink3.sbe.v8.2.legsgroup", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.legs_groups = ProtoField.new("Legs Groups", "cme.futures.ilink3.sbe.v8.2.legsgroups", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.length = ProtoField.new("Length", "cme.futures.ilink3.sbe.v8.2.length", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_2.fields.liquidity_flag = ProtoField.new("Liquidity Flag", "cme.futures.ilink3.sbe.v8.2.liquidityflag", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.list_update_action = ProtoField.new("List Update Action", "cme.futures.ilink3.sbe.v8.2.listupdateaction", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.location = ProtoField.new("Location", "cme.futures.ilink3.sbe.v8.2.location", ftypes.STRING)
@@ -298,6 +300,7 @@ cme_futures_ilink3_sbe_v8_2.fields.underlying_px = ProtoField.new("Underlying Px
 cme_futures_ilink3_sbe_v8_2.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "cme.futures.ilink3.sbe.v8.2.underlyingsecurityid", ftypes.INT32)
 cme_futures_ilink3_sbe_v8_2.fields.unsolicited_cancel_type = ProtoField.new("Unsolicited Cancel Type", "cme.futures.ilink3.sbe.v8.2.unsolicitedcanceltype", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.uuid = ProtoField.new("Uuid", "cme.futures.ilink3.sbe.v8.2.uuid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.var_data = ProtoField.new("Var Data", "cme.futures.ilink3.sbe.v8.2.vardata", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.version = ProtoField.new("Version", "cme.futures.ilink3.sbe.v8.2.version", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_2.fields.volatility = ProtoField.new("Volatility", "cme.futures.ilink3.sbe.v8.2.volatility", ftypes.INT64)
 cme_futures_ilink3_sbe_v8_2.fields.week = ProtoField.new("Week", "cme.futures.ilink3.sbe.v8.2.week", ftypes.UINT8)
@@ -311,6 +314,7 @@ cme_futures_ilink3_sbe_v8_2.fields.year = ProtoField.new("Year", "cme.futures.il
 show.affected_orders_group = true
 show.affected_orders_groups = true
 show.business_reject_521 = true
+show.credentials = true
 show.establish_503 = true
 show.establishment_ack_504 = true
 show.establishment_reject_505 = true
@@ -393,6 +397,7 @@ show.payload = false
 cme_futures_ilink3_sbe_v8_2.prefs.show_affected_orders_group = Pref.bool("Show Affected Orders Group", show.affected_orders_group, "Parse and add Affected Orders Group to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_affected_orders_groups = Pref.bool("Show Affected Orders Groups", show.affected_orders_groups, "Parse and add Affected Orders Groups to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_business_reject_521 = Pref.bool("Show Business Reject 521", show.business_reject_521, "Parse and add Business Reject 521 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_credentials = Pref.bool("Show Credentials", show.credentials, "Parse and add Credentials to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_establish_503 = Pref.bool("Show Establish 503", show.establish_503, "Parse and add Establish 503 to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_establishment_ack_504 = Pref.bool("Show Establishment Ack 504", show.establishment_ack_504, "Parse and add Establishment Ack 504 to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_establishment_reject_505 = Pref.bool("Show Establishment Reject 505", show.establishment_reject_505, "Parse and add Establishment Reject 505 to protocol tree")
@@ -486,6 +491,10 @@ function cme_futures_ilink3_sbe_v8_2.prefs_changed()
   end
   if show.business_reject_521 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_business_reject_521 then
     show.business_reject_521 = cme_futures_ilink3_sbe_v8_2.prefs.show_business_reject_521
+    changed = true
+  end
+  if show.credentials ~= cme_futures_ilink3_sbe_v8_2.prefs.show_credentials then
+    show.credentials = cme_futures_ilink3_sbe_v8_2.prefs.show_credentials
     changed = true
   end
   if show.establish_503 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_establish_503 then
@@ -8906,6 +8915,9 @@ dissect.party_details_definition_request_518_fields = function(buffer, offset, p
   -- Idm Short Code: 8 Byte Unsigned Fixed Width Integer Nullable
   index, idm_short_code = dissect.idm_short_code(buffer, index, packet, parent)
 
+  -- Padding 272
+  index, padding_272 = dissect.padding_272(buffer, index, packet, parent)
+
   -- Party Details Groups: Struct of 2 fields
   index, party_details_groups = dissect.party_details_groups(buffer, index, packet, parent)
 
@@ -9875,6 +9887,85 @@ dissect.establishment_ack_504 = function(buffer, offset, packet, parent)
   return dissect.establishment_ack_504_fields(buffer, offset, packet, parent)
 end
 
+-- Display: Var Data
+display.var_data = function(value)
+  return "Var Data: "..value
+end
+
+-- Dissect runtime sized field: Var Data
+dissect.var_data = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:string()
+  local display = display.var_data(value, buffer, offset, packet, parent, size)
+
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.var_data, range, value, display)
+
+  return offset + size
+end
+
+-- Size: Length
+size_of.length = 2
+
+-- Display: Length
+display.length = function(value)
+  return "Length: "..value
+end
+
+-- Dissect: Length
+dissect.length = function(buffer, offset, packet, parent)
+  local length = size_of.length
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.length(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate runtime size: Credentials
+size_of.credentials = function(buffer, offset)
+  local index = 0
+
+  index = index + 2
+
+  -- Parse runtime size of: Var Data
+  index = index + buffer(offset + index - 2, 2):le_uint()
+
+  return index
+end
+
+-- Display: Credentials
+display.credentials = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Credentials
+dissect.credentials_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Length: 2 Byte Unsigned Fixed Width Integer
+  index, length = dissect.length(buffer, index, packet, parent)
+
+  -- Var Data: 1 Byte Ascii String
+  index = dissect.var_data(buffer, index, packet, parent, length)
+
+  return index
+end
+
+-- Dissect: Credentials
+dissect.credentials = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.credentials then
+    local length = size_of.credentials(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.credentials(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.credentials, range, display)
+  end
+
+  return dissect.credentials_fields(buffer, offset, packet, parent)
+end
+
 -- Size: Firm
 size_of.firm = 5
 
@@ -10015,6 +10106,17 @@ dissect.hmac_signature = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate runtime size: Establish 503
+size_of.establish_503 = function(buffer, offset)
+  local index = 0
+
+  index = index + 132
+
+  index = index + size_of.credentials(buffer, offset + index)
+
+  return index
+end
+
 -- Display: Establish 503
 display.establish_503 = function(buffer, offset, size, packet, parent)
   return ""
@@ -10057,14 +10159,18 @@ dissect.establish_503_fields = function(buffer, offset, packet, parent)
   -- Keep Alive Interval: 2 Byte Unsigned Fixed Width Integer
   index, keep_alive_interval = dissect.keep_alive_interval(buffer, index, packet, parent)
 
+  -- Credentials: Struct of 2 fields
+  index, credentials = dissect.credentials(buffer, index, packet, parent)
+
   return index
 end
 
 -- Dissect: Establish 503
 dissect.establish_503 = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.establish_503 then
-    local range = buffer(offset, 132)
+    local length = size_of.establish_503(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.establish_503(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.establish_503, range, display)
   end
@@ -10114,6 +10220,17 @@ dissect.negotiation_reject_502 = function(buffer, offset, packet, parent)
   return dissect.negotiation_reject_502_fields(buffer, offset, packet, parent)
 end
 
+-- Calculate runtime size: Negotiation Response 501
+size_of.negotiation_response_501 = function(buffer, offset)
+  local index = 0
+
+  index = index + 32
+
+  index = index + size_of.credentials(buffer, offset + index)
+
+  return index
+end
+
 -- Display: Negotiation Response 501
 display.negotiation_response_501 = function(buffer, offset, size, packet, parent)
   return ""
@@ -10144,19 +10261,34 @@ dissect.negotiation_response_501_fields = function(buffer, offset, packet, paren
   -- Previous Uuid: 8 Byte Unsigned Fixed Width Integer
   index, previous_uuid = dissect.previous_uuid(buffer, index, packet, parent)
 
+  -- Credentials: Struct of 2 fields
+  index, credentials = dissect.credentials(buffer, index, packet, parent)
+
   return index
 end
 
 -- Dissect: Negotiation Response 501
 dissect.negotiation_response_501 = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.negotiation_response_501 then
-    local range = buffer(offset, 32)
+    local length = size_of.negotiation_response_501(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.negotiation_response_501(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.negotiation_response_501, range, display)
   end
 
   return dissect.negotiation_response_501_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate runtime size: Negotiate 500
+size_of.negotiate_500 = function(buffer, offset)
+  local index = 0
+
+  index = index + 76
+
+  index = index + size_of.credentials(buffer, offset + index)
+
+  return index
 end
 
 -- Display: Negotiate 500
@@ -10186,14 +10318,18 @@ dissect.negotiate_500_fields = function(buffer, offset, packet, parent)
   -- Firm: 5 Byte Ascii String
   index, firm = dissect.firm(buffer, index, packet, parent)
 
+  -- Credentials: Struct of 2 fields
+  index, credentials = dissect.credentials(buffer, index, packet, parent)
+
   return index
 end
 
 -- Dissect: Negotiate 500
 dissect.negotiate_500 = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.negotiate_500 then
-    local range = buffer(offset, 76)
+    local length = size_of.negotiate_500(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.negotiate_500(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.negotiate_500, range, display)
   end
@@ -10205,11 +10341,11 @@ end
 size_of.payload = function(buffer, offset, template_id)
   -- Size of Negotiate 500
   if template_id == 500 then
-    return 76
+    return size_of.negotiate_500(buffer, offset)
   end
   -- Size of Negotiation Response 501
   if template_id == 501 then
-    return 32
+    return size_of.negotiation_response_501(buffer, offset)
   end
   -- Size of Negotiation Reject 502
   if template_id == 502 then
@@ -10217,7 +10353,7 @@ size_of.payload = function(buffer, offset, template_id)
   end
   -- Size of Establish 503
   if template_id == 503 then
-    return 132
+    return size_of.establish_503(buffer, offset)
   end
   -- Size of Establishment Ack 504
   if template_id == 504 then
