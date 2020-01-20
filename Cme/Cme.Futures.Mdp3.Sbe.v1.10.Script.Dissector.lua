@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Cme Mdp3 Sbe 10.1 Protocol
-local cme_mdp3_sbe_v10_1 = Proto("Cme.Mdp3.Sbe.v10.1.Lua", "Cme Mdp3 Sbe 10.1")
+-- Cme Futures Mdp3 Sbe 1.10 Protocol
+local cme_futures_mdp3_sbe_v1_10 = Proto("Cme.Futures.Mdp3.Sbe.v1.10.Lua", "Cme Futures Mdp3 Sbe 1.10")
 
 -- Component Tables
 local show = {}
@@ -19,269 +19,269 @@ local verify = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cme Mdp3 Sbe 10.1 Fields
-cme_mdp3_sbe_v10_1.fields.actual = ProtoField.new("Actual", "cme.mdp3.sbe.v10.1.actual", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
-cme_mdp3_sbe_v10_1.fields.admin_login_15 = ProtoField.new("Admin Login 15", "cme.mdp3.sbe.v10.1.adminlogin15", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.admin_logout_16 = ProtoField.new("Admin Logout 16", "cme.mdp3.sbe.v10.1.adminlogout16", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.aggressor_indicator = ProtoField.new("Aggressor Indicator", "cme.mdp3.sbe.v10.1.aggressorindicator", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.aggressor_side = ProtoField.new("Aggressor Side", "cme.mdp3.sbe.v10.1.aggressorside", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.appl_id = ProtoField.new("Appl Id", "cme.mdp3.sbe.v10.1.applid", ftypes.INT16)
-cme_mdp3_sbe_v10_1.fields.asset = ProtoField.new("Asset", "cme.mdp3.sbe.v10.1.asset", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.block_length = ProtoField.new("Block Length", "cme.mdp3.sbe.v10.1.blocklength", ftypes.UINT16)
-cme_mdp3_sbe_v10_1.fields.block_trade_eligible = ProtoField.new("Block Trade Eligible", "cme.mdp3.sbe.v10.1.blocktradeeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000004")
-cme_mdp3_sbe_v10_1.fields.cfi_code = ProtoField.new("Cfi Code", "cme.mdp3.sbe.v10.1.cficode", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.channel_reset_4 = ProtoField.new("Channel Reset 4", "cme.mdp3.sbe.v10.1.channelreset4", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.channel_reset_group = ProtoField.new("Channel Reset Group", "cme.mdp3.sbe.v10.1.channelresetgroup", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.channel_reset_groups = ProtoField.new("Channel Reset Groups", "cme.mdp3.sbe.v10.1.channelresetgroups", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.cleared_volume = ProtoField.new("Cleared Volume", "cme.mdp3.sbe.v10.1.clearedvolume", ftypes.INT32)
-cme_mdp3_sbe_v10_1.fields.contract_multiplier = ProtoField.new("Contract Multiplier", "cme.mdp3.sbe.v10.1.contractmultiplier", ftypes.INT32)
-cme_mdp3_sbe_v10_1.fields.contract_multiplier_unit = ProtoField.new("Contract Multiplier Unit", "cme.mdp3.sbe.v10.1.contractmultiplierunit", ftypes.INT8)
-cme_mdp3_sbe_v10_1.fields.country_of_issue = ProtoField.new("Country Of Issue", "cme.mdp3.sbe.v10.1.countryofissue", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.coupon_day_count = ProtoField.new("Coupon Day Count", "cme.mdp3.sbe.v10.1.coupondaycount", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.coupon_frequency_period = ProtoField.new("Coupon Frequency Period", "cme.mdp3.sbe.v10.1.couponfrequencyperiod", ftypes.UINT16)
-cme_mdp3_sbe_v10_1.fields.coupon_frequency_unit = ProtoField.new("Coupon Frequency Unit", "cme.mdp3.sbe.v10.1.couponfrequencyunit", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.coupon_rate = ProtoField.new("Coupon Rate", "cme.mdp3.sbe.v10.1.couponrate", ftypes.INT64)
-cme_mdp3_sbe_v10_1.fields.currency = ProtoField.new("Currency", "cme.mdp3.sbe.v10.1.currency", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.current_chunk = ProtoField.new("Current Chunk", "cme.mdp3.sbe.v10.1.currentchunk", ftypes.UINT32)
-cme_mdp3_sbe_v10_1.fields.daily_product_eligibility = ProtoField.new("Daily Product Eligibility", "cme.mdp3.sbe.v10.1.dailyproducteligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00020000")
-cme_mdp3_sbe_v10_1.fields.dated_date = ProtoField.new("Dated Date", "cme.mdp3.sbe.v10.1.dateddate", ftypes.UINT16)
-cme_mdp3_sbe_v10_1.fields.day = ProtoField.new("Day", "cme.mdp3.sbe.v10.1.day", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.decay_quantity = ProtoField.new("Decay Quantity", "cme.mdp3.sbe.v10.1.decayquantity", ftypes.INT32)
-cme_mdp3_sbe_v10_1.fields.decay_start_date = ProtoField.new("Decay Start Date", "cme.mdp3.sbe.v10.1.decaystartdate", ftypes.UINT16)
-cme_mdp3_sbe_v10_1.fields.decaying_product_eligibility = ProtoField.new("Decaying Product Eligibility", "cme.mdp3.sbe.v10.1.decayingproducteligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00008000")
-cme_mdp3_sbe_v10_1.fields.display_factor = ProtoField.new("Display Factor", "cme.mdp3.sbe.v10.1.displayfactor", ftypes.INT64)
-cme_mdp3_sbe_v10_1.fields.ebf_eligible = ProtoField.new("Ebf Eligible", "cme.mdp3.sbe.v10.1.ebfeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000010")
-cme_mdp3_sbe_v10_1.fields.efp_eligible = ProtoField.new("Efp Eligible", "cme.mdp3.sbe.v10.1.efpeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000008")
-cme_mdp3_sbe_v10_1.fields.efr_eligible = ProtoField.new("Efr Eligible", "cme.mdp3.sbe.v10.1.efreligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000040")
-cme_mdp3_sbe_v10_1.fields.efs_eligible = ProtoField.new("Efs Eligible", "cme.mdp3.sbe.v10.1.efseligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000020")
-cme_mdp3_sbe_v10_1.fields.electronic_match_eligible = ProtoField.new("Electronic Match Eligible", "cme.mdp3.sbe.v10.1.electronicmatcheligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000001")
-cme_mdp3_sbe_v10_1.fields.end_date = ProtoField.new("End Date", "cme.mdp3.sbe.v10.1.enddate", ftypes.UINT16)
-cme_mdp3_sbe_v10_1.fields.end_of_event = ProtoField.new("End Of Event", "cme.mdp3.sbe.v10.1.endofevent", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
-cme_mdp3_sbe_v10_1.fields.event_time = ProtoField.new("Event Time", "cme.mdp3.sbe.v10.1.eventtime", ftypes.UINT64)
-cme_mdp3_sbe_v10_1.fields.event_type = ProtoField.new("Event Type", "cme.mdp3.sbe.v10.1.eventtype", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.events_group = ProtoField.new("Events Group", "cme.mdp3.sbe.v10.1.eventsgroup", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.events_groups = ProtoField.new("Events Groups", "cme.mdp3.sbe.v10.1.eventsgroups", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.final_daily = ProtoField.new("Final Daily", "cme.mdp3.sbe.v10.1.finaldaily", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
-cme_mdp3_sbe_v10_1.fields.financial_instrument_full_name = ProtoField.new("Financial Instrument Full Name", "cme.mdp3.sbe.v10.1.financialinstrumentfullname", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.flow_schedule_type = ProtoField.new("Flow Schedule Type", "cme.mdp3.sbe.v10.1.flowscheduletype", ftypes.INT8)
-cme_mdp3_sbe_v10_1.fields.group_size = ProtoField.new("Group Size", "cme.mdp3.sbe.v10.1.groupsize", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.group_size_8_byte = ProtoField.new("Group Size 8 Byte", "cme.mdp3.sbe.v10.1.groupsize8byte", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.gt_orders_eligibility = ProtoField.new("Gt Orders Eligibility", "cme.mdp3.sbe.v10.1.gtorderseligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00040000")
-cme_mdp3_sbe_v10_1.fields.halt_reason = ProtoField.new("Halt Reason", "cme.mdp3.sbe.v10.1.haltreason", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.heart_bt_int = ProtoField.new("Heart Bt Int", "cme.mdp3.sbe.v10.1.heartbtint", ftypes.INT8)
-cme_mdp3_sbe_v10_1.fields.high_limit_price = ProtoField.new("High Limit Price", "cme.mdp3.sbe.v10.1.highlimitprice", ftypes.INT64)
-cme_mdp3_sbe_v10_1.fields.i_link_indicative_mass_quoting_eligible = ProtoField.new("I Link Indicative Mass Quoting Eligible", "cme.mdp3.sbe.v10.1.ilinkindicativemassquotingeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000100")
-cme_mdp3_sbe_v10_1.fields.implied_matching_eligibility = ProtoField.new("Implied Matching Eligibility", "cme.mdp3.sbe.v10.1.impliedmatchingeligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00080000")
-cme_mdp3_sbe_v10_1.fields.inst_attrib_group = ProtoField.new("Inst Attrib Group", "cme.mdp3.sbe.v10.1.instattribgroup", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.inst_attrib_groups = ProtoField.new("Inst Attrib Groups", "cme.mdp3.sbe.v10.1.instattribgroups", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.inst_attrib_value = ProtoField.new("Inst Attrib Value", "cme.mdp3.sbe.v10.1.instattribvalue", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.instrument_guid = ProtoField.new("Instrument Guid", "cme.mdp3.sbe.v10.1.instrumentguid", ftypes.UINT64)
-cme_mdp3_sbe_v10_1.fields.intraday = ProtoField.new("Intraday", "cme.mdp3.sbe.v10.1.intraday", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
-cme_mdp3_sbe_v10_1.fields.inverted_book = ProtoField.new("Inverted Book", "cme.mdp3.sbe.v10.1.invertedbook", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00400000")
-cme_mdp3_sbe_v10_1.fields.is_ao_n_instrument = ProtoField.new("Is Ao N Instrument", "cme.mdp3.sbe.v10.1.isaoninstrument", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00800000")
-cme_mdp3_sbe_v10_1.fields.is_fractional = ProtoField.new("Is Fractional", "cme.mdp3.sbe.v10.1.isfractional", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000800")
-cme_mdp3_sbe_v10_1.fields.issue_date = ProtoField.new("Issue Date", "cme.mdp3.sbe.v10.1.issuedate", ftypes.UINT16)
-cme_mdp3_sbe_v10_1.fields.issuer = ProtoField.new("Issuer", "cme.mdp3.sbe.v10.1.issuer", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.last_implied_msg = ProtoField.new("Last Implied Msg", "cme.mdp3.sbe.v10.1.lastimpliedmsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
-cme_mdp3_sbe_v10_1.fields.last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "cme.mdp3.sbe.v10.1.lastmsgseqnumprocessed", ftypes.UINT32)
-cme_mdp3_sbe_v10_1.fields.last_qty = ProtoField.new("Last Qty", "cme.mdp3.sbe.v10.1.lastqty", ftypes.INT32)
-cme_mdp3_sbe_v10_1.fields.last_quote_msg = ProtoField.new("Last Quote Msg", "cme.mdp3.sbe.v10.1.lastquotemsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
-cme_mdp3_sbe_v10_1.fields.last_stats_msg = ProtoField.new("Last Stats Msg", "cme.mdp3.sbe.v10.1.laststatsmsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
-cme_mdp3_sbe_v10_1.fields.last_trade_msg = ProtoField.new("Last Trade Msg", "cme.mdp3.sbe.v10.1.lasttrademsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
-cme_mdp3_sbe_v10_1.fields.last_update_time = ProtoField.new("Last Update Time", "cme.mdp3.sbe.v10.1.lastupdatetime", ftypes.UINT64)
-cme_mdp3_sbe_v10_1.fields.last_volume_msg = ProtoField.new("Last Volume Msg", "cme.mdp3.sbe.v10.1.lastvolumemsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
-cme_mdp3_sbe_v10_1.fields.leg_option_delta = ProtoField.new("Leg Option Delta", "cme.mdp3.sbe.v10.1.legoptiondelta", ftypes.INT32)
-cme_mdp3_sbe_v10_1.fields.leg_price = ProtoField.new("Leg Price", "cme.mdp3.sbe.v10.1.legprice", ftypes.INT64)
-cme_mdp3_sbe_v10_1.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cme.mdp3.sbe.v10.1.legratioqty", ftypes.INT8)
-cme_mdp3_sbe_v10_1.fields.leg_security_id = ProtoField.new("Leg Security Id", "cme.mdp3.sbe.v10.1.legsecurityid", ftypes.INT32)
-cme_mdp3_sbe_v10_1.fields.leg_side = ProtoField.new("Leg Side", "cme.mdp3.sbe.v10.1.legside", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.legs_group = ProtoField.new("Legs Group", "cme.mdp3.sbe.v10.1.legsgroup", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.legs_groups = ProtoField.new("Legs Groups", "cme.mdp3.sbe.v10.1.legsgroups", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.lot_type = ProtoField.new("Lot Type", "cme.mdp3.sbe.v10.1.lottype", ftypes.INT8)
-cme_mdp3_sbe_v10_1.fields.lot_type_rules_group = ProtoField.new("Lot Type Rules Group", "cme.mdp3.sbe.v10.1.lottyperulesgroup", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.lot_type_rules_groups = ProtoField.new("Lot Type Rules Groups", "cme.mdp3.sbe.v10.1.lottyperulesgroups", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.low_limit_price = ProtoField.new("Low Limit Price", "cme.mdp3.sbe.v10.1.lowlimitprice", ftypes.INT64)
-cme_mdp3_sbe_v10_1.fields.m_d_feed_types_group = ProtoField.new("M D Feed Types Group", "cme.mdp3.sbe.v10.1.mdfeedtypesgroup", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.m_d_feed_types_groups = ProtoField.new("M D Feed Types Groups", "cme.mdp3.sbe.v10.1.mdfeedtypesgroups", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_book_group = ProtoField.new("M D Incremental Refresh Book Group", "cme.mdp3.sbe.v10.1.mdincrementalrefreshbookgroup", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_book_groups = ProtoField.new("M D Incremental Refresh Book Groups", "cme.mdp3.sbe.v10.1.mdincrementalrefreshbookgroups", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_book_order_group = ProtoField.new("M D Incremental Refresh Book Order Group", "cme.mdp3.sbe.v10.1.mdincrementalrefreshbookordergroup", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_book_order_groups = ProtoField.new("M D Incremental Refresh Book Order Groups", "cme.mdp3.sbe.v10.1.mdincrementalrefreshbookordergroups", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_daily_statistics_group = ProtoField.new("M D Incremental Refresh Daily Statistics Group", "cme.mdp3.sbe.v10.1.mdincrementalrefreshdailystatisticsgroup", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_daily_statistics_groups = ProtoField.new("M D Incremental Refresh Daily Statistics Groups", "cme.mdp3.sbe.v10.1.mdincrementalrefreshdailystatisticsgroups", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_limits_banding_group = ProtoField.new("M D Incremental Refresh Limits Banding Group", "cme.mdp3.sbe.v10.1.mdincrementalrefreshlimitsbandinggroup", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_limits_banding_groups = ProtoField.new("M D Incremental Refresh Limits Banding Groups", "cme.mdp3.sbe.v10.1.mdincrementalrefreshlimitsbandinggroups", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_order_book_group = ProtoField.new("M D Incremental Refresh Order Book Group", "cme.mdp3.sbe.v10.1.mdincrementalrefreshorderbookgroup", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_order_book_groups = ProtoField.new("M D Incremental Refresh Order Book Groups", "cme.mdp3.sbe.v10.1.mdincrementalrefreshorderbookgroups", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_session_statistics_group = ProtoField.new("M D Incremental Refresh Session Statistics Group", "cme.mdp3.sbe.v10.1.mdincrementalrefreshsessionstatisticsgroup", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_session_statistics_groups = ProtoField.new("M D Incremental Refresh Session Statistics Groups", "cme.mdp3.sbe.v10.1.mdincrementalrefreshsessionstatisticsgroups", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_trade_summary_group = ProtoField.new("M D Incremental Refresh Trade Summary Group", "cme.mdp3.sbe.v10.1.mdincrementalrefreshtradesummarygroup", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_trade_summary_groups = ProtoField.new("M D Incremental Refresh Trade Summary Groups", "cme.mdp3.sbe.v10.1.mdincrementalrefreshtradesummarygroups", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_trade_summary_order_group = ProtoField.new("M D Incremental Refresh Trade Summary Order Group", "cme.mdp3.sbe.v10.1.mdincrementalrefreshtradesummaryordergroup", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_trade_summary_order_groups = ProtoField.new("M D Incremental Refresh Trade Summary Order Groups", "cme.mdp3.sbe.v10.1.mdincrementalrefreshtradesummaryordergroups", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_volume_group = ProtoField.new("M D Incremental Refresh Volume Group", "cme.mdp3.sbe.v10.1.mdincrementalrefreshvolumegroup", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_volume_groups = ProtoField.new("M D Incremental Refresh Volume Groups", "cme.mdp3.sbe.v10.1.mdincrementalrefreshvolumegroups", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.main_fraction = ProtoField.new("Main Fraction", "cme.mdp3.sbe.v10.1.mainfraction", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.market_depth = ProtoField.new("Market Depth", "cme.mdp3.sbe.v10.1.marketdepth", ftypes.INT8)
-cme_mdp3_sbe_v10_1.fields.market_segment_id = ProtoField.new("Market Segment Id", "cme.mdp3.sbe.v10.1.marketsegmentid", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.market_set = ProtoField.new("Market Set", "cme.mdp3.sbe.v10.1.marketset", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.match_algorithm = ProtoField.new("Match Algorithm", "cme.mdp3.sbe.v10.1.matchalgorithm", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.match_event_indicator = ProtoField.new("Match Event Indicator", "cme.mdp3.sbe.v10.1.matcheventindicator", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.maturity_date = ProtoField.new("Maturity Date", "cme.mdp3.sbe.v10.1.maturitydate", ftypes.UINT16)
-cme_mdp3_sbe_v10_1.fields.maturity_month_year = ProtoField.new("Maturity Month Year", "cme.mdp3.sbe.v10.1.maturitymonthyear", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.max_no_of_substitutions = ProtoField.new("Max No Of Substitutions", "cme.mdp3.sbe.v10.1.maxnoofsubstitutions", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.max_price_variation = ProtoField.new("Max Price Variation", "cme.mdp3.sbe.v10.1.maxpricevariation", ftypes.INT64)
-cme_mdp3_sbe_v10_1.fields.max_trade_vol = ProtoField.new("Max Trade Vol", "cme.mdp3.sbe.v10.1.maxtradevol", ftypes.UINT32)
-cme_mdp3_sbe_v10_1.fields.md_display_qty = ProtoField.new("Md Display Qty", "cme.mdp3.sbe.v10.1.mddisplayqty", ftypes.INT32)
-cme_mdp3_sbe_v10_1.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.mdp3.sbe.v10.1.mdentrypx", ftypes.INT64)
-cme_mdp3_sbe_v10_1.fields.md_entry_size = ProtoField.new("Md Entry Size", "cme.mdp3.sbe.v10.1.mdentrysize", ftypes.INT32)
-cme_mdp3_sbe_v10_1.fields.md_entry_type = ProtoField.new("Md Entry Type", "cme.mdp3.sbe.v10.1.mdentrytype", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.md_feed_type = ProtoField.new("Md Feed Type", "cme.mdp3.sbe.v10.1.mdfeedtype", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.md_incremental_refresh_book_46 = ProtoField.new("Md Incremental Refresh Book 46", "cme.mdp3.sbe.v10.1.mdincrementalrefreshbook46", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.md_incremental_refresh_daily_statistics_49 = ProtoField.new("Md Incremental Refresh Daily Statistics 49", "cme.mdp3.sbe.v10.1.mdincrementalrefreshdailystatistics49", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.md_incremental_refresh_limits_banding_50 = ProtoField.new("Md Incremental Refresh Limits Banding 50", "cme.mdp3.sbe.v10.1.mdincrementalrefreshlimitsbanding50", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.md_incremental_refresh_order_book_47 = ProtoField.new("Md Incremental Refresh Order Book 47", "cme.mdp3.sbe.v10.1.mdincrementalrefreshorderbook47", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.md_incremental_refresh_session_statistics_51 = ProtoField.new("Md Incremental Refresh Session Statistics 51", "cme.mdp3.sbe.v10.1.mdincrementalrefreshsessionstatistics51", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.md_incremental_refresh_trade_summary_48 = ProtoField.new("Md Incremental Refresh Trade Summary 48", "cme.mdp3.sbe.v10.1.mdincrementalrefreshtradesummary48", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.md_incremental_refresh_volume_37 = ProtoField.new("Md Incremental Refresh Volume 37", "cme.mdp3.sbe.v10.1.mdincrementalrefreshvolume37", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.md_instrument_definition_fixed_income_57 = ProtoField.new("Md Instrument Definition Fixed Income 57", "cme.mdp3.sbe.v10.1.mdinstrumentdefinitionfixedincome57", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.md_instrument_definition_future_54 = ProtoField.new("Md Instrument Definition Future 54", "cme.mdp3.sbe.v10.1.mdinstrumentdefinitionfuture54", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.md_instrument_definition_option_55 = ProtoField.new("Md Instrument Definition Option 55", "cme.mdp3.sbe.v10.1.mdinstrumentdefinitionoption55", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.md_instrument_definition_repo_58 = ProtoField.new("Md Instrument Definition Repo 58", "cme.mdp3.sbe.v10.1.mdinstrumentdefinitionrepo58", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.md_instrument_definition_spread_56 = ProtoField.new("Md Instrument Definition Spread 56", "cme.mdp3.sbe.v10.1.mdinstrumentdefinitionspread56", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.md_order_priority = ProtoField.new("Md Order Priority", "cme.mdp3.sbe.v10.1.mdorderpriority", ftypes.UINT64)
-cme_mdp3_sbe_v10_1.fields.md_price_level = ProtoField.new("Md Price Level", "cme.mdp3.sbe.v10.1.mdpricelevel", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.md_security_trading_status = ProtoField.new("Md Security Trading Status", "cme.mdp3.sbe.v10.1.mdsecuritytradingstatus", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.md_trade_entry_id = ProtoField.new("Md Trade Entry Id", "cme.mdp3.sbe.v10.1.mdtradeentryid", ftypes.UINT32)
-cme_mdp3_sbe_v10_1.fields.md_update_action = ProtoField.new("Md Update Action", "cme.mdp3.sbe.v10.1.mdupdateaction", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.message = ProtoField.new("Message", "cme.mdp3.sbe.v10.1.message", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.message_header = ProtoField.new("Message Header", "cme.mdp3.sbe.v10.1.messageheader", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.mdp3.sbe.v10.1.messagesequencenumber", ftypes.UINT32)
-cme_mdp3_sbe_v10_1.fields.message_size = ProtoField.new("Message Size", "cme.mdp3.sbe.v10.1.messagesize", ftypes.UINT16)
-cme_mdp3_sbe_v10_1.fields.min_cab_price = ProtoField.new("Min Cab Price", "cme.mdp3.sbe.v10.1.mincabprice", ftypes.INT64)
-cme_mdp3_sbe_v10_1.fields.min_lot_size = ProtoField.new("Min Lot Size", "cme.mdp3.sbe.v10.1.minlotsize", ftypes.INT32)
-cme_mdp3_sbe_v10_1.fields.min_price_increment = ProtoField.new("Min Price Increment", "cme.mdp3.sbe.v10.1.minpriceincrement", ftypes.INT64)
-cme_mdp3_sbe_v10_1.fields.min_price_increment_amount = ProtoField.new("Min Price Increment Amount", "cme.mdp3.sbe.v10.1.minpriceincrementamount", ftypes.INT64)
-cme_mdp3_sbe_v10_1.fields.min_trade_vol = ProtoField.new("Min Trade Vol", "cme.mdp3.sbe.v10.1.mintradevol", ftypes.UINT32)
-cme_mdp3_sbe_v10_1.fields.money_or_par = ProtoField.new("Money Or Par", "cme.mdp3.sbe.v10.1.moneyorpar", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.month = ProtoField.new("Month", "cme.mdp3.sbe.v10.1.month", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.negative_price_outright_eligible = ProtoField.new("Negative Price Outright Eligible", "cme.mdp3.sbe.v10.1.negativepriceoutrighteligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000400")
-cme_mdp3_sbe_v10_1.fields.negative_strike_eligible = ProtoField.new("Negative Strike Eligible", "cme.mdp3.sbe.v10.1.negativestrikeeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000200")
-cme_mdp3_sbe_v10_1.fields.no_chunks = ProtoField.new("No Chunks", "cme.mdp3.sbe.v10.1.nochunks", ftypes.UINT32)
-cme_mdp3_sbe_v10_1.fields.null_value = ProtoField.new("Null Value", "cme.mdp3.sbe.v10.1.nullvalue", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
-cme_mdp3_sbe_v10_1.fields.num_in_group = ProtoField.new("Num In Group", "cme.mdp3.sbe.v10.1.numingroup", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.number_of_orders = ProtoField.new("Number Of Orders", "cme.mdp3.sbe.v10.1.numberoforders", ftypes.INT32)
-cme_mdp3_sbe_v10_1.fields.open_close_settl_flag = ProtoField.new("Open Close Settl Flag", "cme.mdp3.sbe.v10.1.openclosesettlflag", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.open_interest_qty = ProtoField.new("Open Interest Qty", "cme.mdp3.sbe.v10.1.openinterestqty", ftypes.INT32)
-cme_mdp3_sbe_v10_1.fields.order_cross_eligible = ProtoField.new("Order Cross Eligible", "cme.mdp3.sbe.v10.1.ordercrosseligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000002")
-cme_mdp3_sbe_v10_1.fields.order_id = ProtoField.new("Order Id", "cme.mdp3.sbe.v10.1.orderid", ftypes.UINT64)
-cme_mdp3_sbe_v10_1.fields.order_qty = ProtoField.new("Order Qty", "cme.mdp3.sbe.v10.1.orderqty", ftypes.INT32)
-cme_mdp3_sbe_v10_1.fields.order_update_action = ProtoField.new("Order Update Action", "cme.mdp3.sbe.v10.1.orderupdateaction", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.original_contract_size = ProtoField.new("Original Contract Size", "cme.mdp3.sbe.v10.1.originalcontractsize", ftypes.INT32)
-cme_mdp3_sbe_v10_1.fields.otc_eligible = ProtoField.new("Otc Eligible", "cme.mdp3.sbe.v10.1.otceligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000080")
-cme_mdp3_sbe_v10_1.fields.packet = ProtoField.new("Packet", "cme.mdp3.sbe.v10.1.packet", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.packet_header = ProtoField.new("Packet Header", "cme.mdp3.sbe.v10.1.packetheader", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.padding_1 = ProtoField.new("Padding 1", "cme.mdp3.sbe.v10.1.padding1", ftypes.BYTES)
-cme_mdp3_sbe_v10_1.fields.padding_2 = ProtoField.new("Padding 2", "cme.mdp3.sbe.v10.1.padding2", ftypes.BYTES)
-cme_mdp3_sbe_v10_1.fields.padding_3 = ProtoField.new("Padding 3", "cme.mdp3.sbe.v10.1.padding3", ftypes.BYTES)
-cme_mdp3_sbe_v10_1.fields.padding_4 = ProtoField.new("Padding 4", "cme.mdp3.sbe.v10.1.padding4", ftypes.BYTES)
-cme_mdp3_sbe_v10_1.fields.padding_5 = ProtoField.new("Padding 5", "cme.mdp3.sbe.v10.1.padding5", ftypes.BYTES)
-cme_mdp3_sbe_v10_1.fields.padding_6 = ProtoField.new("Padding 6", "cme.mdp3.sbe.v10.1.padding6", ftypes.BYTES)
-cme_mdp3_sbe_v10_1.fields.padding_7 = ProtoField.new("Padding 7", "cme.mdp3.sbe.v10.1.padding7", ftypes.BYTES)
-cme_mdp3_sbe_v10_1.fields.par_value = ProtoField.new("Par Value", "cme.mdp3.sbe.v10.1.parvalue", ftypes.INT64)
-cme_mdp3_sbe_v10_1.fields.party_role_clearing_org = ProtoField.new("Party Role Clearing Org", "cme.mdp3.sbe.v10.1.partyroleclearingorg", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.payload = ProtoField.new("Payload", "cme.mdp3.sbe.v10.1.payload", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.price_display_format = ProtoField.new("Price Display Format", "cme.mdp3.sbe.v10.1.pricedisplayformat", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.price_quote_method = ProtoField.new("Price Quote Method", "cme.mdp3.sbe.v10.1.pricequotemethod", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.price_ratio = ProtoField.new("Price Ratio", "cme.mdp3.sbe.v10.1.priceratio", ftypes.INT64)
-cme_mdp3_sbe_v10_1.fields.put_or_call = ProtoField.new("Put Or Call", "cme.mdp3.sbe.v10.1.putorcall", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.quote_req_id = ProtoField.new("Quote Req Id", "cme.mdp3.sbe.v10.1.quotereqid", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.quote_request_39 = ProtoField.new("Quote Request 39", "cme.mdp3.sbe.v10.1.quoterequest39", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.quote_type = ProtoField.new("Quote Type", "cme.mdp3.sbe.v10.1.quotetype", ftypes.INT8)
-cme_mdp3_sbe_v10_1.fields.recovery_msg = ProtoField.new("Recovery Msg", "cme.mdp3.sbe.v10.1.recoverymsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
-cme_mdp3_sbe_v10_1.fields.reference_id = ProtoField.new("Reference Id", "cme.mdp3.sbe.v10.1.referenceid", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.related_instruments_group = ProtoField.new("Related Instruments Group", "cme.mdp3.sbe.v10.1.relatedinstrumentsgroup", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.related_instruments_groups = ProtoField.new("Related Instruments Groups", "cme.mdp3.sbe.v10.1.relatedinstrumentsgroups", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.related_security_id = ProtoField.new("Related Security Id", "cme.mdp3.sbe.v10.1.relatedsecurityid", ftypes.INT32)
-cme_mdp3_sbe_v10_1.fields.related_sym_group = ProtoField.new("Related Sym Group", "cme.mdp3.sbe.v10.1.relatedsymgroup", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.related_sym_groups = ProtoField.new("Related Sym Groups", "cme.mdp3.sbe.v10.1.relatedsymgroups", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.related_symbol = ProtoField.new("Related Symbol", "cme.mdp3.sbe.v10.1.relatedsymbol", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.reserved = ProtoField.new("Reserved", "cme.mdp3.sbe.v10.1.reserved", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
-cme_mdp3_sbe_v10_1.fields.reserved_8 = ProtoField.new("Reserved 8", "cme.mdp3.sbe.v10.1.reserved8", ftypes.UINT32, nil, base.DEC, "0xFF000000")
-cme_mdp3_sbe_v10_1.fields.reserved_bits = ProtoField.new("Reserved Bits", "cme.mdp3.sbe.v10.1.reservedbits", ftypes.UINT8, nil, base.DEC, "0x70")
-cme_mdp3_sbe_v10_1.fields.rfq_cross_eligible = ProtoField.new("Rfq Cross Eligible", "cme.mdp3.sbe.v10.1.rfqcrosseligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00002000")
-cme_mdp3_sbe_v10_1.fields.risk_set = ProtoField.new("Risk Set", "cme.mdp3.sbe.v10.1.riskset", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.rounded = ProtoField.new("Rounded", "cme.mdp3.sbe.v10.1.rounded", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
-cme_mdp3_sbe_v10_1.fields.rpt_seq = ProtoField.new("Rpt Seq", "cme.mdp3.sbe.v10.1.rptseq", ftypes.UINT32)
-cme_mdp3_sbe_v10_1.fields.schema_id = ProtoField.new("Schema Id", "cme.mdp3.sbe.v10.1.schemaid", ftypes.UINT16)
-cme_mdp3_sbe_v10_1.fields.security_alt_id = ProtoField.new("Security Alt Id", "cme.mdp3.sbe.v10.1.securityaltid", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.security_alt_id_source = ProtoField.new("Security Alt Id Source", "cme.mdp3.sbe.v10.1.securityaltidsource", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.security_exchange = ProtoField.new("Security Exchange", "cme.mdp3.sbe.v10.1.securityexchange", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.security_group = ProtoField.new("Security Group", "cme.mdp3.sbe.v10.1.securitygroup", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.security_id = ProtoField.new("Security Id", "cme.mdp3.sbe.v10.1.securityid", ftypes.INT32)
-cme_mdp3_sbe_v10_1.fields.security_status_30 = ProtoField.new("Security Status 30", "cme.mdp3.sbe.v10.1.securitystatus30", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.security_status_workup_60 = ProtoField.new("Security Status Workup 60", "cme.mdp3.sbe.v10.1.securitystatusworkup60", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.security_status_workup_order_group = ProtoField.new("Security Status Workup Order Group", "cme.mdp3.sbe.v10.1.securitystatusworkupordergroup", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.security_status_workup_order_groups = ProtoField.new("Security Status Workup Order Groups", "cme.mdp3.sbe.v10.1.securitystatusworkupordergroups", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.security_sub_type = ProtoField.new("Security Sub Type", "cme.mdp3.sbe.v10.1.securitysubtype", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.security_trading_event = ProtoField.new("Security Trading Event", "cme.mdp3.sbe.v10.1.securitytradingevent", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.security_trading_status = ProtoField.new("Security Trading Status", "cme.mdp3.sbe.v10.1.securitytradingstatus", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.security_type = ProtoField.new("Security Type", "cme.mdp3.sbe.v10.1.securitytype", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.security_update_action = ProtoField.new("Security Update Action", "cme.mdp3.sbe.v10.1.securityupdateaction", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.sending_time = ProtoField.new("Sending Time", "cme.mdp3.sbe.v10.1.sendingtime", ftypes.UINT64)
-cme_mdp3_sbe_v10_1.fields.settl_currency = ProtoField.new("Settl Currency", "cme.mdp3.sbe.v10.1.settlcurrency", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.settl_price_type = ProtoField.new("Settl Price Type", "cme.mdp3.sbe.v10.1.settlpricetype", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.side = ProtoField.new("Side", "cme.mdp3.sbe.v10.1.side", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.snapshot_full_refresh_52 = ProtoField.new("Snapshot Full Refresh 52", "cme.mdp3.sbe.v10.1.snapshotfullrefresh52", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.snapshot_full_refresh_group = ProtoField.new("Snapshot Full Refresh Group", "cme.mdp3.sbe.v10.1.snapshotfullrefreshgroup", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.snapshot_full_refresh_groups = ProtoField.new("Snapshot Full Refresh Groups", "cme.mdp3.sbe.v10.1.snapshotfullrefreshgroups", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.snapshot_full_refresh_order_book_53 = ProtoField.new("Snapshot Full Refresh Order Book 53", "cme.mdp3.sbe.v10.1.snapshotfullrefreshorderbook53", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.snapshot_full_refresh_order_book_group = ProtoField.new("Snapshot Full Refresh Order Book Group", "cme.mdp3.sbe.v10.1.snapshotfullrefreshorderbookgroup", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.snapshot_full_refresh_order_book_groups = ProtoField.new("Snapshot Full Refresh Order Book Groups", "cme.mdp3.sbe.v10.1.snapshotfullrefreshorderbookgroups", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.snapshot_full_refresh_tc_p_61 = ProtoField.new("Snapshot Full Refresh Tc P 61", "cme.mdp3.sbe.v10.1.snapshotfullrefreshtcp61", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.snapshot_full_refresh_tcp_group = ProtoField.new("Snapshot Full Refresh Tcp Group", "cme.mdp3.sbe.v10.1.snapshotfullrefreshtcpgroup", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.snapshot_full_refresh_tcp_groups = ProtoField.new("Snapshot Full Refresh Tcp Groups", "cme.mdp3.sbe.v10.1.snapshotfullrefreshtcpgroups", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.snapshot_refresh_top_orders_59 = ProtoField.new("Snapshot Refresh Top Orders 59", "cme.mdp3.sbe.v10.1.snapshotrefreshtoporders59", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.snapshot_refresh_top_orders_group = ProtoField.new("Snapshot Refresh Top Orders Group", "cme.mdp3.sbe.v10.1.snapshotrefreshtopordersgroup", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.snapshot_refresh_top_orders_groups = ProtoField.new("Snapshot Refresh Top Orders Groups", "cme.mdp3.sbe.v10.1.snapshotrefreshtopordersgroups", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.start_date = ProtoField.new("Start Date", "cme.mdp3.sbe.v10.1.startdate", ftypes.UINT16)
-cme_mdp3_sbe_v10_1.fields.strike_currency = ProtoField.new("Strike Currency", "cme.mdp3.sbe.v10.1.strikecurrency", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.strike_price = ProtoField.new("Strike Price", "cme.mdp3.sbe.v10.1.strikeprice", ftypes.INT64)
-cme_mdp3_sbe_v10_1.fields.sub_fraction = ProtoField.new("Sub Fraction", "cme.mdp3.sbe.v10.1.subfraction", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.symbol = ProtoField.new("Symbol", "cme.mdp3.sbe.v10.1.symbol", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.template_id = ProtoField.new("Template Id", "cme.mdp3.sbe.v10.1.templateid", ftypes.UINT16)
-cme_mdp3_sbe_v10_1.fields.termination_type = ProtoField.new("Termination Type", "cme.mdp3.sbe.v10.1.terminationtype", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.text = ProtoField.new("Text", "cme.mdp3.sbe.v10.1.text", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.tick_rule = ProtoField.new("Tick Rule", "cme.mdp3.sbe.v10.1.tickrule", ftypes.INT8)
-cme_mdp3_sbe_v10_1.fields.tot_num_reports = ProtoField.new("Tot Num Reports", "cme.mdp3.sbe.v10.1.totnumreports", ftypes.UINT32)
-cme_mdp3_sbe_v10_1.fields.trade_date = ProtoField.new("Trade Date", "cme.mdp3.sbe.v10.1.tradedate", ftypes.UINT16)
-cme_mdp3_sbe_v10_1.fields.trade_link_id = ProtoField.new("Trade Link Id", "cme.mdp3.sbe.v10.1.tradelinkid", ftypes.UINT32)
-cme_mdp3_sbe_v10_1.fields.tradeable_size = ProtoField.new("Tradeable Size", "cme.mdp3.sbe.v10.1.tradeablesize", ftypes.INT32)
-cme_mdp3_sbe_v10_1.fields.trading_reference_date = ProtoField.new("Trading Reference Date", "cme.mdp3.sbe.v10.1.tradingreferencedate", ftypes.UINT16)
-cme_mdp3_sbe_v10_1.fields.trading_reference_price = ProtoField.new("Trading Reference Price", "cme.mdp3.sbe.v10.1.tradingreferenceprice", ftypes.INT64)
-cme_mdp3_sbe_v10_1.fields.transact_time = ProtoField.new("Transact Time", "cme.mdp3.sbe.v10.1.transacttime", ftypes.UINT64)
-cme_mdp3_sbe_v10_1.fields.triangulation_eligible = ProtoField.new("Triangulation Eligible", "cme.mdp3.sbe.v10.1.triangulationeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00100000")
-cme_mdp3_sbe_v10_1.fields.underlying_product = ProtoField.new("Underlying Product", "cme.mdp3.sbe.v10.1.underlyingproduct", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "cme.mdp3.sbe.v10.1.underlyingsecurityid", ftypes.INT32)
-cme_mdp3_sbe_v10_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "cme.mdp3.sbe.v10.1.underlyingsymbol", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.underlyings_group = ProtoField.new("Underlyings Group", "cme.mdp3.sbe.v10.1.underlyingsgroup", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.underlyings_groups = ProtoField.new("Underlyings Groups", "cme.mdp3.sbe.v10.1.underlyingsgroups", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "cme.mdp3.sbe.v10.1.unitofmeasure", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.unit_of_measure_qty = ProtoField.new("Unit Of Measure Qty", "cme.mdp3.sbe.v10.1.unitofmeasureqty", ftypes.INT64)
-cme_mdp3_sbe_v10_1.fields.user_defined_instrument = ProtoField.new("User Defined Instrument", "cme.mdp3.sbe.v10.1.userdefinedinstrument", ftypes.STRING)
-cme_mdp3_sbe_v10_1.fields.variable_cab_eligible = ProtoField.new("Variable Cab Eligible", "cme.mdp3.sbe.v10.1.variablecabeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00200000")
-cme_mdp3_sbe_v10_1.fields.variable_product_eligibility = ProtoField.new("Variable Product Eligibility", "cme.mdp3.sbe.v10.1.variableproducteligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00010000")
-cme_mdp3_sbe_v10_1.fields.version = ProtoField.new("Version", "cme.mdp3.sbe.v10.1.version", ftypes.UINT16)
-cme_mdp3_sbe_v10_1.fields.volatility_quoted_option = ProtoField.new("Volatility Quoted Option", "cme.mdp3.sbe.v10.1.volatilityquotedoption", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00001000")
-cme_mdp3_sbe_v10_1.fields.week = ProtoField.new("Week", "cme.mdp3.sbe.v10.1.week", ftypes.UINT8)
-cme_mdp3_sbe_v10_1.fields.year = ProtoField.new("Year", "cme.mdp3.sbe.v10.1.year", ftypes.UINT16)
-cme_mdp3_sbe_v10_1.fields.zero_price_outright_eligible = ProtoField.new("Zero Price Outright Eligible", "cme.mdp3.sbe.v10.1.zeropriceoutrighteligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00004000")
+-- Cme Futures Mdp3 Sbe 1.10 Fields
+cme_futures_mdp3_sbe_v1_10.fields.actual = ProtoField.new("Actual", "cme.futures.mdp3.sbe.v1.10.actual", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
+cme_futures_mdp3_sbe_v1_10.fields.admin_login_15 = ProtoField.new("Admin Login 15", "cme.futures.mdp3.sbe.v1.10.adminlogin15", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.admin_logout_16 = ProtoField.new("Admin Logout 16", "cme.futures.mdp3.sbe.v1.10.adminlogout16", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.aggressor_indicator = ProtoField.new("Aggressor Indicator", "cme.futures.mdp3.sbe.v1.10.aggressorindicator", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.aggressor_side = ProtoField.new("Aggressor Side", "cme.futures.mdp3.sbe.v1.10.aggressorside", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.appl_id = ProtoField.new("Appl Id", "cme.futures.mdp3.sbe.v1.10.applid", ftypes.INT16)
+cme_futures_mdp3_sbe_v1_10.fields.asset = ProtoField.new("Asset", "cme.futures.mdp3.sbe.v1.10.asset", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.block_length = ProtoField.new("Block Length", "cme.futures.mdp3.sbe.v1.10.blocklength", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_10.fields.block_trade_eligible = ProtoField.new("Block Trade Eligible", "cme.futures.mdp3.sbe.v1.10.blocktradeeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000004")
+cme_futures_mdp3_sbe_v1_10.fields.cfi_code = ProtoField.new("Cfi Code", "cme.futures.mdp3.sbe.v1.10.cficode", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.channel_reset_4 = ProtoField.new("Channel Reset 4", "cme.futures.mdp3.sbe.v1.10.channelreset4", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.channel_reset_group = ProtoField.new("Channel Reset Group", "cme.futures.mdp3.sbe.v1.10.channelresetgroup", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.channel_reset_groups = ProtoField.new("Channel Reset Groups", "cme.futures.mdp3.sbe.v1.10.channelresetgroups", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.cleared_volume = ProtoField.new("Cleared Volume", "cme.futures.mdp3.sbe.v1.10.clearedvolume", ftypes.INT32)
+cme_futures_mdp3_sbe_v1_10.fields.contract_multiplier = ProtoField.new("Contract Multiplier", "cme.futures.mdp3.sbe.v1.10.contractmultiplier", ftypes.INT32)
+cme_futures_mdp3_sbe_v1_10.fields.contract_multiplier_unit = ProtoField.new("Contract Multiplier Unit", "cme.futures.mdp3.sbe.v1.10.contractmultiplierunit", ftypes.INT8)
+cme_futures_mdp3_sbe_v1_10.fields.country_of_issue = ProtoField.new("Country Of Issue", "cme.futures.mdp3.sbe.v1.10.countryofissue", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.coupon_day_count = ProtoField.new("Coupon Day Count", "cme.futures.mdp3.sbe.v1.10.coupondaycount", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.coupon_frequency_period = ProtoField.new("Coupon Frequency Period", "cme.futures.mdp3.sbe.v1.10.couponfrequencyperiod", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_10.fields.coupon_frequency_unit = ProtoField.new("Coupon Frequency Unit", "cme.futures.mdp3.sbe.v1.10.couponfrequencyunit", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.coupon_rate = ProtoField.new("Coupon Rate", "cme.futures.mdp3.sbe.v1.10.couponrate", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_10.fields.currency = ProtoField.new("Currency", "cme.futures.mdp3.sbe.v1.10.currency", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.current_chunk = ProtoField.new("Current Chunk", "cme.futures.mdp3.sbe.v1.10.currentchunk", ftypes.UINT32)
+cme_futures_mdp3_sbe_v1_10.fields.daily_product_eligibility = ProtoField.new("Daily Product Eligibility", "cme.futures.mdp3.sbe.v1.10.dailyproducteligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00020000")
+cme_futures_mdp3_sbe_v1_10.fields.dated_date = ProtoField.new("Dated Date", "cme.futures.mdp3.sbe.v1.10.dateddate", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_10.fields.day = ProtoField.new("Day", "cme.futures.mdp3.sbe.v1.10.day", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.decay_quantity = ProtoField.new("Decay Quantity", "cme.futures.mdp3.sbe.v1.10.decayquantity", ftypes.INT32)
+cme_futures_mdp3_sbe_v1_10.fields.decay_start_date = ProtoField.new("Decay Start Date", "cme.futures.mdp3.sbe.v1.10.decaystartdate", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_10.fields.decaying_product_eligibility = ProtoField.new("Decaying Product Eligibility", "cme.futures.mdp3.sbe.v1.10.decayingproducteligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00008000")
+cme_futures_mdp3_sbe_v1_10.fields.display_factor = ProtoField.new("Display Factor", "cme.futures.mdp3.sbe.v1.10.displayfactor", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_10.fields.ebf_eligible = ProtoField.new("Ebf Eligible", "cme.futures.mdp3.sbe.v1.10.ebfeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000010")
+cme_futures_mdp3_sbe_v1_10.fields.efp_eligible = ProtoField.new("Efp Eligible", "cme.futures.mdp3.sbe.v1.10.efpeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000008")
+cme_futures_mdp3_sbe_v1_10.fields.efr_eligible = ProtoField.new("Efr Eligible", "cme.futures.mdp3.sbe.v1.10.efreligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000040")
+cme_futures_mdp3_sbe_v1_10.fields.efs_eligible = ProtoField.new("Efs Eligible", "cme.futures.mdp3.sbe.v1.10.efseligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000020")
+cme_futures_mdp3_sbe_v1_10.fields.electronic_match_eligible = ProtoField.new("Electronic Match Eligible", "cme.futures.mdp3.sbe.v1.10.electronicmatcheligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000001")
+cme_futures_mdp3_sbe_v1_10.fields.end_date = ProtoField.new("End Date", "cme.futures.mdp3.sbe.v1.10.enddate", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_10.fields.end_of_event = ProtoField.new("End Of Event", "cme.futures.mdp3.sbe.v1.10.endofevent", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
+cme_futures_mdp3_sbe_v1_10.fields.event_time = ProtoField.new("Event Time", "cme.futures.mdp3.sbe.v1.10.eventtime", ftypes.UINT64)
+cme_futures_mdp3_sbe_v1_10.fields.event_type = ProtoField.new("Event Type", "cme.futures.mdp3.sbe.v1.10.eventtype", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.events_group = ProtoField.new("Events Group", "cme.futures.mdp3.sbe.v1.10.eventsgroup", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.events_groups = ProtoField.new("Events Groups", "cme.futures.mdp3.sbe.v1.10.eventsgroups", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.final_daily = ProtoField.new("Final Daily", "cme.futures.mdp3.sbe.v1.10.finaldaily", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
+cme_futures_mdp3_sbe_v1_10.fields.financial_instrument_full_name = ProtoField.new("Financial Instrument Full Name", "cme.futures.mdp3.sbe.v1.10.financialinstrumentfullname", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.flow_schedule_type = ProtoField.new("Flow Schedule Type", "cme.futures.mdp3.sbe.v1.10.flowscheduletype", ftypes.INT8)
+cme_futures_mdp3_sbe_v1_10.fields.group_size = ProtoField.new("Group Size", "cme.futures.mdp3.sbe.v1.10.groupsize", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.group_size_8_byte = ProtoField.new("Group Size 8 Byte", "cme.futures.mdp3.sbe.v1.10.groupsize8byte", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.gt_orders_eligibility = ProtoField.new("Gt Orders Eligibility", "cme.futures.mdp3.sbe.v1.10.gtorderseligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00040000")
+cme_futures_mdp3_sbe_v1_10.fields.halt_reason = ProtoField.new("Halt Reason", "cme.futures.mdp3.sbe.v1.10.haltreason", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.heart_bt_int = ProtoField.new("Heart Bt Int", "cme.futures.mdp3.sbe.v1.10.heartbtint", ftypes.INT8)
+cme_futures_mdp3_sbe_v1_10.fields.high_limit_price = ProtoField.new("High Limit Price", "cme.futures.mdp3.sbe.v1.10.highlimitprice", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_10.fields.i_link_indicative_mass_quoting_eligible = ProtoField.new("I Link Indicative Mass Quoting Eligible", "cme.futures.mdp3.sbe.v1.10.ilinkindicativemassquotingeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000100")
+cme_futures_mdp3_sbe_v1_10.fields.implied_matching_eligibility = ProtoField.new("Implied Matching Eligibility", "cme.futures.mdp3.sbe.v1.10.impliedmatchingeligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00080000")
+cme_futures_mdp3_sbe_v1_10.fields.inst_attrib_group = ProtoField.new("Inst Attrib Group", "cme.futures.mdp3.sbe.v1.10.instattribgroup", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.inst_attrib_groups = ProtoField.new("Inst Attrib Groups", "cme.futures.mdp3.sbe.v1.10.instattribgroups", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.inst_attrib_value = ProtoField.new("Inst Attrib Value", "cme.futures.mdp3.sbe.v1.10.instattribvalue", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.instrument_guid = ProtoField.new("Instrument Guid", "cme.futures.mdp3.sbe.v1.10.instrumentguid", ftypes.UINT64)
+cme_futures_mdp3_sbe_v1_10.fields.intraday = ProtoField.new("Intraday", "cme.futures.mdp3.sbe.v1.10.intraday", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
+cme_futures_mdp3_sbe_v1_10.fields.inverted_book = ProtoField.new("Inverted Book", "cme.futures.mdp3.sbe.v1.10.invertedbook", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00400000")
+cme_futures_mdp3_sbe_v1_10.fields.is_ao_n_instrument = ProtoField.new("Is Ao N Instrument", "cme.futures.mdp3.sbe.v1.10.isaoninstrument", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00800000")
+cme_futures_mdp3_sbe_v1_10.fields.is_fractional = ProtoField.new("Is Fractional", "cme.futures.mdp3.sbe.v1.10.isfractional", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000800")
+cme_futures_mdp3_sbe_v1_10.fields.issue_date = ProtoField.new("Issue Date", "cme.futures.mdp3.sbe.v1.10.issuedate", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_10.fields.issuer = ProtoField.new("Issuer", "cme.futures.mdp3.sbe.v1.10.issuer", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.last_implied_msg = ProtoField.new("Last Implied Msg", "cme.futures.mdp3.sbe.v1.10.lastimpliedmsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
+cme_futures_mdp3_sbe_v1_10.fields.last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "cme.futures.mdp3.sbe.v1.10.lastmsgseqnumprocessed", ftypes.UINT32)
+cme_futures_mdp3_sbe_v1_10.fields.last_qty = ProtoField.new("Last Qty", "cme.futures.mdp3.sbe.v1.10.lastqty", ftypes.INT32)
+cme_futures_mdp3_sbe_v1_10.fields.last_quote_msg = ProtoField.new("Last Quote Msg", "cme.futures.mdp3.sbe.v1.10.lastquotemsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
+cme_futures_mdp3_sbe_v1_10.fields.last_stats_msg = ProtoField.new("Last Stats Msg", "cme.futures.mdp3.sbe.v1.10.laststatsmsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
+cme_futures_mdp3_sbe_v1_10.fields.last_trade_msg = ProtoField.new("Last Trade Msg", "cme.futures.mdp3.sbe.v1.10.lasttrademsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
+cme_futures_mdp3_sbe_v1_10.fields.last_update_time = ProtoField.new("Last Update Time", "cme.futures.mdp3.sbe.v1.10.lastupdatetime", ftypes.UINT64)
+cme_futures_mdp3_sbe_v1_10.fields.last_volume_msg = ProtoField.new("Last Volume Msg", "cme.futures.mdp3.sbe.v1.10.lastvolumemsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
+cme_futures_mdp3_sbe_v1_10.fields.leg_option_delta = ProtoField.new("Leg Option Delta", "cme.futures.mdp3.sbe.v1.10.legoptiondelta", ftypes.INT32)
+cme_futures_mdp3_sbe_v1_10.fields.leg_price = ProtoField.new("Leg Price", "cme.futures.mdp3.sbe.v1.10.legprice", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_10.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cme.futures.mdp3.sbe.v1.10.legratioqty", ftypes.INT8)
+cme_futures_mdp3_sbe_v1_10.fields.leg_security_id = ProtoField.new("Leg Security Id", "cme.futures.mdp3.sbe.v1.10.legsecurityid", ftypes.INT32)
+cme_futures_mdp3_sbe_v1_10.fields.leg_side = ProtoField.new("Leg Side", "cme.futures.mdp3.sbe.v1.10.legside", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.legs_group = ProtoField.new("Legs Group", "cme.futures.mdp3.sbe.v1.10.legsgroup", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.legs_groups = ProtoField.new("Legs Groups", "cme.futures.mdp3.sbe.v1.10.legsgroups", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.lot_type = ProtoField.new("Lot Type", "cme.futures.mdp3.sbe.v1.10.lottype", ftypes.INT8)
+cme_futures_mdp3_sbe_v1_10.fields.lot_type_rules_group = ProtoField.new("Lot Type Rules Group", "cme.futures.mdp3.sbe.v1.10.lottyperulesgroup", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.lot_type_rules_groups = ProtoField.new("Lot Type Rules Groups", "cme.futures.mdp3.sbe.v1.10.lottyperulesgroups", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.low_limit_price = ProtoField.new("Low Limit Price", "cme.futures.mdp3.sbe.v1.10.lowlimitprice", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_10.fields.m_d_feed_types_group = ProtoField.new("M D Feed Types Group", "cme.futures.mdp3.sbe.v1.10.mdfeedtypesgroup", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.m_d_feed_types_groups = ProtoField.new("M D Feed Types Groups", "cme.futures.mdp3.sbe.v1.10.mdfeedtypesgroups", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_book_group = ProtoField.new("M D Incremental Refresh Book Group", "cme.futures.mdp3.sbe.v1.10.mdincrementalrefreshbookgroup", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_book_groups = ProtoField.new("M D Incremental Refresh Book Groups", "cme.futures.mdp3.sbe.v1.10.mdincrementalrefreshbookgroups", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_book_order_group = ProtoField.new("M D Incremental Refresh Book Order Group", "cme.futures.mdp3.sbe.v1.10.mdincrementalrefreshbookordergroup", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_book_order_groups = ProtoField.new("M D Incremental Refresh Book Order Groups", "cme.futures.mdp3.sbe.v1.10.mdincrementalrefreshbookordergroups", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_daily_statistics_group = ProtoField.new("M D Incremental Refresh Daily Statistics Group", "cme.futures.mdp3.sbe.v1.10.mdincrementalrefreshdailystatisticsgroup", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_daily_statistics_groups = ProtoField.new("M D Incremental Refresh Daily Statistics Groups", "cme.futures.mdp3.sbe.v1.10.mdincrementalrefreshdailystatisticsgroups", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_limits_banding_group = ProtoField.new("M D Incremental Refresh Limits Banding Group", "cme.futures.mdp3.sbe.v1.10.mdincrementalrefreshlimitsbandinggroup", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_limits_banding_groups = ProtoField.new("M D Incremental Refresh Limits Banding Groups", "cme.futures.mdp3.sbe.v1.10.mdincrementalrefreshlimitsbandinggroups", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_order_book_group = ProtoField.new("M D Incremental Refresh Order Book Group", "cme.futures.mdp3.sbe.v1.10.mdincrementalrefreshorderbookgroup", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_order_book_groups = ProtoField.new("M D Incremental Refresh Order Book Groups", "cme.futures.mdp3.sbe.v1.10.mdincrementalrefreshorderbookgroups", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_session_statistics_group = ProtoField.new("M D Incremental Refresh Session Statistics Group", "cme.futures.mdp3.sbe.v1.10.mdincrementalrefreshsessionstatisticsgroup", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_session_statistics_groups = ProtoField.new("M D Incremental Refresh Session Statistics Groups", "cme.futures.mdp3.sbe.v1.10.mdincrementalrefreshsessionstatisticsgroups", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_trade_summary_group = ProtoField.new("M D Incremental Refresh Trade Summary Group", "cme.futures.mdp3.sbe.v1.10.mdincrementalrefreshtradesummarygroup", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_trade_summary_groups = ProtoField.new("M D Incremental Refresh Trade Summary Groups", "cme.futures.mdp3.sbe.v1.10.mdincrementalrefreshtradesummarygroups", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_trade_summary_order_group = ProtoField.new("M D Incremental Refresh Trade Summary Order Group", "cme.futures.mdp3.sbe.v1.10.mdincrementalrefreshtradesummaryordergroup", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_trade_summary_order_groups = ProtoField.new("M D Incremental Refresh Trade Summary Order Groups", "cme.futures.mdp3.sbe.v1.10.mdincrementalrefreshtradesummaryordergroups", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_volume_group = ProtoField.new("M D Incremental Refresh Volume Group", "cme.futures.mdp3.sbe.v1.10.mdincrementalrefreshvolumegroup", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_volume_groups = ProtoField.new("M D Incremental Refresh Volume Groups", "cme.futures.mdp3.sbe.v1.10.mdincrementalrefreshvolumegroups", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.main_fraction = ProtoField.new("Main Fraction", "cme.futures.mdp3.sbe.v1.10.mainfraction", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.market_depth = ProtoField.new("Market Depth", "cme.futures.mdp3.sbe.v1.10.marketdepth", ftypes.INT8)
+cme_futures_mdp3_sbe_v1_10.fields.market_segment_id = ProtoField.new("Market Segment Id", "cme.futures.mdp3.sbe.v1.10.marketsegmentid", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.market_set = ProtoField.new("Market Set", "cme.futures.mdp3.sbe.v1.10.marketset", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.match_algorithm = ProtoField.new("Match Algorithm", "cme.futures.mdp3.sbe.v1.10.matchalgorithm", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.match_event_indicator = ProtoField.new("Match Event Indicator", "cme.futures.mdp3.sbe.v1.10.matcheventindicator", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.maturity_date = ProtoField.new("Maturity Date", "cme.futures.mdp3.sbe.v1.10.maturitydate", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_10.fields.maturity_month_year = ProtoField.new("Maturity Month Year", "cme.futures.mdp3.sbe.v1.10.maturitymonthyear", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.max_no_of_substitutions = ProtoField.new("Max No Of Substitutions", "cme.futures.mdp3.sbe.v1.10.maxnoofsubstitutions", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.max_price_variation = ProtoField.new("Max Price Variation", "cme.futures.mdp3.sbe.v1.10.maxpricevariation", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_10.fields.max_trade_vol = ProtoField.new("Max Trade Vol", "cme.futures.mdp3.sbe.v1.10.maxtradevol", ftypes.UINT32)
+cme_futures_mdp3_sbe_v1_10.fields.md_display_qty = ProtoField.new("Md Display Qty", "cme.futures.mdp3.sbe.v1.10.mddisplayqty", ftypes.INT32)
+cme_futures_mdp3_sbe_v1_10.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.futures.mdp3.sbe.v1.10.mdentrypx", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_10.fields.md_entry_size = ProtoField.new("Md Entry Size", "cme.futures.mdp3.sbe.v1.10.mdentrysize", ftypes.INT32)
+cme_futures_mdp3_sbe_v1_10.fields.md_entry_type = ProtoField.new("Md Entry Type", "cme.futures.mdp3.sbe.v1.10.mdentrytype", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.md_feed_type = ProtoField.new("Md Feed Type", "cme.futures.mdp3.sbe.v1.10.mdfeedtype", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.md_incremental_refresh_book_46 = ProtoField.new("Md Incremental Refresh Book 46", "cme.futures.mdp3.sbe.v1.10.mdincrementalrefreshbook46", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.md_incremental_refresh_daily_statistics_49 = ProtoField.new("Md Incremental Refresh Daily Statistics 49", "cme.futures.mdp3.sbe.v1.10.mdincrementalrefreshdailystatistics49", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.md_incremental_refresh_limits_banding_50 = ProtoField.new("Md Incremental Refresh Limits Banding 50", "cme.futures.mdp3.sbe.v1.10.mdincrementalrefreshlimitsbanding50", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.md_incremental_refresh_order_book_47 = ProtoField.new("Md Incremental Refresh Order Book 47", "cme.futures.mdp3.sbe.v1.10.mdincrementalrefreshorderbook47", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.md_incremental_refresh_session_statistics_51 = ProtoField.new("Md Incremental Refresh Session Statistics 51", "cme.futures.mdp3.sbe.v1.10.mdincrementalrefreshsessionstatistics51", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.md_incremental_refresh_trade_summary_48 = ProtoField.new("Md Incremental Refresh Trade Summary 48", "cme.futures.mdp3.sbe.v1.10.mdincrementalrefreshtradesummary48", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.md_incremental_refresh_volume_37 = ProtoField.new("Md Incremental Refresh Volume 37", "cme.futures.mdp3.sbe.v1.10.mdincrementalrefreshvolume37", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.md_instrument_definition_fixed_income_57 = ProtoField.new("Md Instrument Definition Fixed Income 57", "cme.futures.mdp3.sbe.v1.10.mdinstrumentdefinitionfixedincome57", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.md_instrument_definition_future_54 = ProtoField.new("Md Instrument Definition Future 54", "cme.futures.mdp3.sbe.v1.10.mdinstrumentdefinitionfuture54", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.md_instrument_definition_option_55 = ProtoField.new("Md Instrument Definition Option 55", "cme.futures.mdp3.sbe.v1.10.mdinstrumentdefinitionoption55", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.md_instrument_definition_repo_58 = ProtoField.new("Md Instrument Definition Repo 58", "cme.futures.mdp3.sbe.v1.10.mdinstrumentdefinitionrepo58", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.md_instrument_definition_spread_56 = ProtoField.new("Md Instrument Definition Spread 56", "cme.futures.mdp3.sbe.v1.10.mdinstrumentdefinitionspread56", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.md_order_priority = ProtoField.new("Md Order Priority", "cme.futures.mdp3.sbe.v1.10.mdorderpriority", ftypes.UINT64)
+cme_futures_mdp3_sbe_v1_10.fields.md_price_level = ProtoField.new("Md Price Level", "cme.futures.mdp3.sbe.v1.10.mdpricelevel", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.md_security_trading_status = ProtoField.new("Md Security Trading Status", "cme.futures.mdp3.sbe.v1.10.mdsecuritytradingstatus", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.md_trade_entry_id = ProtoField.new("Md Trade Entry Id", "cme.futures.mdp3.sbe.v1.10.mdtradeentryid", ftypes.UINT32)
+cme_futures_mdp3_sbe_v1_10.fields.md_update_action = ProtoField.new("Md Update Action", "cme.futures.mdp3.sbe.v1.10.mdupdateaction", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.message = ProtoField.new("Message", "cme.futures.mdp3.sbe.v1.10.message", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.message_header = ProtoField.new("Message Header", "cme.futures.mdp3.sbe.v1.10.messageheader", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.futures.mdp3.sbe.v1.10.messagesequencenumber", ftypes.UINT32)
+cme_futures_mdp3_sbe_v1_10.fields.message_size = ProtoField.new("Message Size", "cme.futures.mdp3.sbe.v1.10.messagesize", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_10.fields.min_cab_price = ProtoField.new("Min Cab Price", "cme.futures.mdp3.sbe.v1.10.mincabprice", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_10.fields.min_lot_size = ProtoField.new("Min Lot Size", "cme.futures.mdp3.sbe.v1.10.minlotsize", ftypes.INT32)
+cme_futures_mdp3_sbe_v1_10.fields.min_price_increment = ProtoField.new("Min Price Increment", "cme.futures.mdp3.sbe.v1.10.minpriceincrement", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_10.fields.min_price_increment_amount = ProtoField.new("Min Price Increment Amount", "cme.futures.mdp3.sbe.v1.10.minpriceincrementamount", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_10.fields.min_trade_vol = ProtoField.new("Min Trade Vol", "cme.futures.mdp3.sbe.v1.10.mintradevol", ftypes.UINT32)
+cme_futures_mdp3_sbe_v1_10.fields.money_or_par = ProtoField.new("Money Or Par", "cme.futures.mdp3.sbe.v1.10.moneyorpar", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.month = ProtoField.new("Month", "cme.futures.mdp3.sbe.v1.10.month", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.negative_price_outright_eligible = ProtoField.new("Negative Price Outright Eligible", "cme.futures.mdp3.sbe.v1.10.negativepriceoutrighteligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000400")
+cme_futures_mdp3_sbe_v1_10.fields.negative_strike_eligible = ProtoField.new("Negative Strike Eligible", "cme.futures.mdp3.sbe.v1.10.negativestrikeeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000200")
+cme_futures_mdp3_sbe_v1_10.fields.no_chunks = ProtoField.new("No Chunks", "cme.futures.mdp3.sbe.v1.10.nochunks", ftypes.UINT32)
+cme_futures_mdp3_sbe_v1_10.fields.null_value = ProtoField.new("Null Value", "cme.futures.mdp3.sbe.v1.10.nullvalue", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
+cme_futures_mdp3_sbe_v1_10.fields.num_in_group = ProtoField.new("Num In Group", "cme.futures.mdp3.sbe.v1.10.numingroup", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.number_of_orders = ProtoField.new("Number Of Orders", "cme.futures.mdp3.sbe.v1.10.numberoforders", ftypes.INT32)
+cme_futures_mdp3_sbe_v1_10.fields.open_close_settl_flag = ProtoField.new("Open Close Settl Flag", "cme.futures.mdp3.sbe.v1.10.openclosesettlflag", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.open_interest_qty = ProtoField.new("Open Interest Qty", "cme.futures.mdp3.sbe.v1.10.openinterestqty", ftypes.INT32)
+cme_futures_mdp3_sbe_v1_10.fields.order_cross_eligible = ProtoField.new("Order Cross Eligible", "cme.futures.mdp3.sbe.v1.10.ordercrosseligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000002")
+cme_futures_mdp3_sbe_v1_10.fields.order_id = ProtoField.new("Order Id", "cme.futures.mdp3.sbe.v1.10.orderid", ftypes.UINT64)
+cme_futures_mdp3_sbe_v1_10.fields.order_qty = ProtoField.new("Order Qty", "cme.futures.mdp3.sbe.v1.10.orderqty", ftypes.INT32)
+cme_futures_mdp3_sbe_v1_10.fields.order_update_action = ProtoField.new("Order Update Action", "cme.futures.mdp3.sbe.v1.10.orderupdateaction", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.original_contract_size = ProtoField.new("Original Contract Size", "cme.futures.mdp3.sbe.v1.10.originalcontractsize", ftypes.INT32)
+cme_futures_mdp3_sbe_v1_10.fields.otc_eligible = ProtoField.new("Otc Eligible", "cme.futures.mdp3.sbe.v1.10.otceligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000080")
+cme_futures_mdp3_sbe_v1_10.fields.packet = ProtoField.new("Packet", "cme.futures.mdp3.sbe.v1.10.packet", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.packet_header = ProtoField.new("Packet Header", "cme.futures.mdp3.sbe.v1.10.packetheader", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.padding_1 = ProtoField.new("Padding 1", "cme.futures.mdp3.sbe.v1.10.padding1", ftypes.BYTES)
+cme_futures_mdp3_sbe_v1_10.fields.padding_2 = ProtoField.new("Padding 2", "cme.futures.mdp3.sbe.v1.10.padding2", ftypes.BYTES)
+cme_futures_mdp3_sbe_v1_10.fields.padding_3 = ProtoField.new("Padding 3", "cme.futures.mdp3.sbe.v1.10.padding3", ftypes.BYTES)
+cme_futures_mdp3_sbe_v1_10.fields.padding_4 = ProtoField.new("Padding 4", "cme.futures.mdp3.sbe.v1.10.padding4", ftypes.BYTES)
+cme_futures_mdp3_sbe_v1_10.fields.padding_5 = ProtoField.new("Padding 5", "cme.futures.mdp3.sbe.v1.10.padding5", ftypes.BYTES)
+cme_futures_mdp3_sbe_v1_10.fields.padding_6 = ProtoField.new("Padding 6", "cme.futures.mdp3.sbe.v1.10.padding6", ftypes.BYTES)
+cme_futures_mdp3_sbe_v1_10.fields.padding_7 = ProtoField.new("Padding 7", "cme.futures.mdp3.sbe.v1.10.padding7", ftypes.BYTES)
+cme_futures_mdp3_sbe_v1_10.fields.par_value = ProtoField.new("Par Value", "cme.futures.mdp3.sbe.v1.10.parvalue", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_10.fields.party_role_clearing_org = ProtoField.new("Party Role Clearing Org", "cme.futures.mdp3.sbe.v1.10.partyroleclearingorg", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.payload = ProtoField.new("Payload", "cme.futures.mdp3.sbe.v1.10.payload", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.price_display_format = ProtoField.new("Price Display Format", "cme.futures.mdp3.sbe.v1.10.pricedisplayformat", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.price_quote_method = ProtoField.new("Price Quote Method", "cme.futures.mdp3.sbe.v1.10.pricequotemethod", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.price_ratio = ProtoField.new("Price Ratio", "cme.futures.mdp3.sbe.v1.10.priceratio", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_10.fields.put_or_call = ProtoField.new("Put Or Call", "cme.futures.mdp3.sbe.v1.10.putorcall", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.quote_req_id = ProtoField.new("Quote Req Id", "cme.futures.mdp3.sbe.v1.10.quotereqid", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.quote_request_39 = ProtoField.new("Quote Request 39", "cme.futures.mdp3.sbe.v1.10.quoterequest39", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.quote_type = ProtoField.new("Quote Type", "cme.futures.mdp3.sbe.v1.10.quotetype", ftypes.INT8)
+cme_futures_mdp3_sbe_v1_10.fields.recovery_msg = ProtoField.new("Recovery Msg", "cme.futures.mdp3.sbe.v1.10.recoverymsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
+cme_futures_mdp3_sbe_v1_10.fields.reference_id = ProtoField.new("Reference Id", "cme.futures.mdp3.sbe.v1.10.referenceid", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.related_instruments_group = ProtoField.new("Related Instruments Group", "cme.futures.mdp3.sbe.v1.10.relatedinstrumentsgroup", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.related_instruments_groups = ProtoField.new("Related Instruments Groups", "cme.futures.mdp3.sbe.v1.10.relatedinstrumentsgroups", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.related_security_id = ProtoField.new("Related Security Id", "cme.futures.mdp3.sbe.v1.10.relatedsecurityid", ftypes.INT32)
+cme_futures_mdp3_sbe_v1_10.fields.related_sym_group = ProtoField.new("Related Sym Group", "cme.futures.mdp3.sbe.v1.10.relatedsymgroup", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.related_sym_groups = ProtoField.new("Related Sym Groups", "cme.futures.mdp3.sbe.v1.10.relatedsymgroups", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.related_symbol = ProtoField.new("Related Symbol", "cme.futures.mdp3.sbe.v1.10.relatedsymbol", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.reserved = ProtoField.new("Reserved", "cme.futures.mdp3.sbe.v1.10.reserved", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
+cme_futures_mdp3_sbe_v1_10.fields.reserved_8 = ProtoField.new("Reserved 8", "cme.futures.mdp3.sbe.v1.10.reserved8", ftypes.UINT32, nil, base.DEC, "0xFF000000")
+cme_futures_mdp3_sbe_v1_10.fields.reserved_bits = ProtoField.new("Reserved Bits", "cme.futures.mdp3.sbe.v1.10.reservedbits", ftypes.UINT8, nil, base.DEC, "0x70")
+cme_futures_mdp3_sbe_v1_10.fields.rfq_cross_eligible = ProtoField.new("Rfq Cross Eligible", "cme.futures.mdp3.sbe.v1.10.rfqcrosseligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00002000")
+cme_futures_mdp3_sbe_v1_10.fields.risk_set = ProtoField.new("Risk Set", "cme.futures.mdp3.sbe.v1.10.riskset", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.rounded = ProtoField.new("Rounded", "cme.futures.mdp3.sbe.v1.10.rounded", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
+cme_futures_mdp3_sbe_v1_10.fields.rpt_seq = ProtoField.new("Rpt Seq", "cme.futures.mdp3.sbe.v1.10.rptseq", ftypes.UINT32)
+cme_futures_mdp3_sbe_v1_10.fields.schema_id = ProtoField.new("Schema Id", "cme.futures.mdp3.sbe.v1.10.schemaid", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_10.fields.security_alt_id = ProtoField.new("Security Alt Id", "cme.futures.mdp3.sbe.v1.10.securityaltid", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.security_alt_id_source = ProtoField.new("Security Alt Id Source", "cme.futures.mdp3.sbe.v1.10.securityaltidsource", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.security_exchange = ProtoField.new("Security Exchange", "cme.futures.mdp3.sbe.v1.10.securityexchange", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.security_group = ProtoField.new("Security Group", "cme.futures.mdp3.sbe.v1.10.securitygroup", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.security_id = ProtoField.new("Security Id", "cme.futures.mdp3.sbe.v1.10.securityid", ftypes.INT32)
+cme_futures_mdp3_sbe_v1_10.fields.security_status_30 = ProtoField.new("Security Status 30", "cme.futures.mdp3.sbe.v1.10.securitystatus30", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.security_status_workup_60 = ProtoField.new("Security Status Workup 60", "cme.futures.mdp3.sbe.v1.10.securitystatusworkup60", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.security_status_workup_order_group = ProtoField.new("Security Status Workup Order Group", "cme.futures.mdp3.sbe.v1.10.securitystatusworkupordergroup", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.security_status_workup_order_groups = ProtoField.new("Security Status Workup Order Groups", "cme.futures.mdp3.sbe.v1.10.securitystatusworkupordergroups", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.security_sub_type = ProtoField.new("Security Sub Type", "cme.futures.mdp3.sbe.v1.10.securitysubtype", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.security_trading_event = ProtoField.new("Security Trading Event", "cme.futures.mdp3.sbe.v1.10.securitytradingevent", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.security_trading_status = ProtoField.new("Security Trading Status", "cme.futures.mdp3.sbe.v1.10.securitytradingstatus", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.security_type = ProtoField.new("Security Type", "cme.futures.mdp3.sbe.v1.10.securitytype", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.security_update_action = ProtoField.new("Security Update Action", "cme.futures.mdp3.sbe.v1.10.securityupdateaction", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.sending_time = ProtoField.new("Sending Time", "cme.futures.mdp3.sbe.v1.10.sendingtime", ftypes.UINT64)
+cme_futures_mdp3_sbe_v1_10.fields.settl_currency = ProtoField.new("Settl Currency", "cme.futures.mdp3.sbe.v1.10.settlcurrency", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.settl_price_type = ProtoField.new("Settl Price Type", "cme.futures.mdp3.sbe.v1.10.settlpricetype", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.side = ProtoField.new("Side", "cme.futures.mdp3.sbe.v1.10.side", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.snapshot_full_refresh_52 = ProtoField.new("Snapshot Full Refresh 52", "cme.futures.mdp3.sbe.v1.10.snapshotfullrefresh52", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.snapshot_full_refresh_group = ProtoField.new("Snapshot Full Refresh Group", "cme.futures.mdp3.sbe.v1.10.snapshotfullrefreshgroup", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.snapshot_full_refresh_groups = ProtoField.new("Snapshot Full Refresh Groups", "cme.futures.mdp3.sbe.v1.10.snapshotfullrefreshgroups", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.snapshot_full_refresh_order_book_53 = ProtoField.new("Snapshot Full Refresh Order Book 53", "cme.futures.mdp3.sbe.v1.10.snapshotfullrefreshorderbook53", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.snapshot_full_refresh_order_book_group = ProtoField.new("Snapshot Full Refresh Order Book Group", "cme.futures.mdp3.sbe.v1.10.snapshotfullrefreshorderbookgroup", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.snapshot_full_refresh_order_book_groups = ProtoField.new("Snapshot Full Refresh Order Book Groups", "cme.futures.mdp3.sbe.v1.10.snapshotfullrefreshorderbookgroups", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.snapshot_full_refresh_tc_p_61 = ProtoField.new("Snapshot Full Refresh Tc P 61", "cme.futures.mdp3.sbe.v1.10.snapshotfullrefreshtcp61", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.snapshot_full_refresh_tcp_group = ProtoField.new("Snapshot Full Refresh Tcp Group", "cme.futures.mdp3.sbe.v1.10.snapshotfullrefreshtcpgroup", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.snapshot_full_refresh_tcp_groups = ProtoField.new("Snapshot Full Refresh Tcp Groups", "cme.futures.mdp3.sbe.v1.10.snapshotfullrefreshtcpgroups", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.snapshot_refresh_top_orders_59 = ProtoField.new("Snapshot Refresh Top Orders 59", "cme.futures.mdp3.sbe.v1.10.snapshotrefreshtoporders59", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.snapshot_refresh_top_orders_group = ProtoField.new("Snapshot Refresh Top Orders Group", "cme.futures.mdp3.sbe.v1.10.snapshotrefreshtopordersgroup", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.snapshot_refresh_top_orders_groups = ProtoField.new("Snapshot Refresh Top Orders Groups", "cme.futures.mdp3.sbe.v1.10.snapshotrefreshtopordersgroups", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.start_date = ProtoField.new("Start Date", "cme.futures.mdp3.sbe.v1.10.startdate", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_10.fields.strike_currency = ProtoField.new("Strike Currency", "cme.futures.mdp3.sbe.v1.10.strikecurrency", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.strike_price = ProtoField.new("Strike Price", "cme.futures.mdp3.sbe.v1.10.strikeprice", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_10.fields.sub_fraction = ProtoField.new("Sub Fraction", "cme.futures.mdp3.sbe.v1.10.subfraction", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.symbol = ProtoField.new("Symbol", "cme.futures.mdp3.sbe.v1.10.symbol", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.template_id = ProtoField.new("Template Id", "cme.futures.mdp3.sbe.v1.10.templateid", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_10.fields.termination_type = ProtoField.new("Termination Type", "cme.futures.mdp3.sbe.v1.10.terminationtype", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.text = ProtoField.new("Text", "cme.futures.mdp3.sbe.v1.10.text", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.tick_rule = ProtoField.new("Tick Rule", "cme.futures.mdp3.sbe.v1.10.tickrule", ftypes.INT8)
+cme_futures_mdp3_sbe_v1_10.fields.tot_num_reports = ProtoField.new("Tot Num Reports", "cme.futures.mdp3.sbe.v1.10.totnumreports", ftypes.UINT32)
+cme_futures_mdp3_sbe_v1_10.fields.trade_date = ProtoField.new("Trade Date", "cme.futures.mdp3.sbe.v1.10.tradedate", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_10.fields.trade_link_id = ProtoField.new("Trade Link Id", "cme.futures.mdp3.sbe.v1.10.tradelinkid", ftypes.UINT32)
+cme_futures_mdp3_sbe_v1_10.fields.tradeable_size = ProtoField.new("Tradeable Size", "cme.futures.mdp3.sbe.v1.10.tradeablesize", ftypes.INT32)
+cme_futures_mdp3_sbe_v1_10.fields.trading_reference_date = ProtoField.new("Trading Reference Date", "cme.futures.mdp3.sbe.v1.10.tradingreferencedate", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_10.fields.trading_reference_price = ProtoField.new("Trading Reference Price", "cme.futures.mdp3.sbe.v1.10.tradingreferenceprice", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_10.fields.transact_time = ProtoField.new("Transact Time", "cme.futures.mdp3.sbe.v1.10.transacttime", ftypes.UINT64)
+cme_futures_mdp3_sbe_v1_10.fields.triangulation_eligible = ProtoField.new("Triangulation Eligible", "cme.futures.mdp3.sbe.v1.10.triangulationeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00100000")
+cme_futures_mdp3_sbe_v1_10.fields.underlying_product = ProtoField.new("Underlying Product", "cme.futures.mdp3.sbe.v1.10.underlyingproduct", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "cme.futures.mdp3.sbe.v1.10.underlyingsecurityid", ftypes.INT32)
+cme_futures_mdp3_sbe_v1_10.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "cme.futures.mdp3.sbe.v1.10.underlyingsymbol", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.underlyings_group = ProtoField.new("Underlyings Group", "cme.futures.mdp3.sbe.v1.10.underlyingsgroup", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.underlyings_groups = ProtoField.new("Underlyings Groups", "cme.futures.mdp3.sbe.v1.10.underlyingsgroups", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "cme.futures.mdp3.sbe.v1.10.unitofmeasure", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.unit_of_measure_qty = ProtoField.new("Unit Of Measure Qty", "cme.futures.mdp3.sbe.v1.10.unitofmeasureqty", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_10.fields.user_defined_instrument = ProtoField.new("User Defined Instrument", "cme.futures.mdp3.sbe.v1.10.userdefinedinstrument", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.variable_cab_eligible = ProtoField.new("Variable Cab Eligible", "cme.futures.mdp3.sbe.v1.10.variablecabeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00200000")
+cme_futures_mdp3_sbe_v1_10.fields.variable_product_eligibility = ProtoField.new("Variable Product Eligibility", "cme.futures.mdp3.sbe.v1.10.variableproducteligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00010000")
+cme_futures_mdp3_sbe_v1_10.fields.version = ProtoField.new("Version", "cme.futures.mdp3.sbe.v1.10.version", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_10.fields.volatility_quoted_option = ProtoField.new("Volatility Quoted Option", "cme.futures.mdp3.sbe.v1.10.volatilityquotedoption", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00001000")
+cme_futures_mdp3_sbe_v1_10.fields.week = ProtoField.new("Week", "cme.futures.mdp3.sbe.v1.10.week", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_10.fields.year = ProtoField.new("Year", "cme.futures.mdp3.sbe.v1.10.year", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_10.fields.zero_price_outright_eligible = ProtoField.new("Zero Price Outright Eligible", "cme.futures.mdp3.sbe.v1.10.zeropriceoutrighteligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00004000")
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Cme Mdp3 Sbe 10.1 Element Dissection Options
+-- Cme Futures Mdp3 Sbe 1.10 Element Dissection Options
 show.admin_login_15 = true
 show.admin_logout_16 = true
 show.channel_reset_4 = true
@@ -362,406 +362,406 @@ show.underlyings_group = true
 show.underlyings_groups = true
 show.payload = false
 
--- Register Cme Mdp3 Sbe 10.1 Show Options
-cme_mdp3_sbe_v10_1.prefs.show_admin_login_15 = Pref.bool("Show Admin Login 15", show.admin_login_15, "Parse and add Admin Login 15 to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_admin_logout_16 = Pref.bool("Show Admin Logout 16", show.admin_logout_16, "Parse and add Admin Logout 16 to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_channel_reset_4 = Pref.bool("Show Channel Reset 4", show.channel_reset_4, "Parse and add Channel Reset 4 to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_channel_reset_group = Pref.bool("Show Channel Reset Group", show.channel_reset_group, "Parse and add Channel Reset Group to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_channel_reset_groups = Pref.bool("Show Channel Reset Groups", show.channel_reset_groups, "Parse and add Channel Reset Groups to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_events_group = Pref.bool("Show Events Group", show.events_group, "Parse and add Events Group to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_events_groups = Pref.bool("Show Events Groups", show.events_groups, "Parse and add Events Groups to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_group_size = Pref.bool("Show Group Size", show.group_size, "Parse and add Group Size to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_group_size_8_byte = Pref.bool("Show Group Size 8 Byte", show.group_size_8_byte, "Parse and add Group Size 8 Byte to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_inst_attrib_group = Pref.bool("Show Inst Attrib Group", show.inst_attrib_group, "Parse and add Inst Attrib Group to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_inst_attrib_groups = Pref.bool("Show Inst Attrib Groups", show.inst_attrib_groups, "Parse and add Inst Attrib Groups to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_inst_attrib_value = Pref.bool("Show Inst Attrib Value", show.inst_attrib_value, "Parse and add Inst Attrib Value to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_legs_group = Pref.bool("Show Legs Group", show.legs_group, "Parse and add Legs Group to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_legs_groups = Pref.bool("Show Legs Groups", show.legs_groups, "Parse and add Legs Groups to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_lot_type_rules_group = Pref.bool("Show Lot Type Rules Group", show.lot_type_rules_group, "Parse and add Lot Type Rules Group to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_lot_type_rules_groups = Pref.bool("Show Lot Type Rules Groups", show.lot_type_rules_groups, "Parse and add Lot Type Rules Groups to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_m_d_feed_types_group = Pref.bool("Show M D Feed Types Group", show.m_d_feed_types_group, "Parse and add M D Feed Types Group to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_m_d_feed_types_groups = Pref.bool("Show M D Feed Types Groups", show.m_d_feed_types_groups, "Parse and add M D Feed Types Groups to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_book_group = Pref.bool("Show M D Incremental Refresh Book Group", show.m_d_incremental_refresh_book_group, "Parse and add M D Incremental Refresh Book Group to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_book_groups = Pref.bool("Show M D Incremental Refresh Book Groups", show.m_d_incremental_refresh_book_groups, "Parse and add M D Incremental Refresh Book Groups to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_book_order_group = Pref.bool("Show M D Incremental Refresh Book Order Group", show.m_d_incremental_refresh_book_order_group, "Parse and add M D Incremental Refresh Book Order Group to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_book_order_groups = Pref.bool("Show M D Incremental Refresh Book Order Groups", show.m_d_incremental_refresh_book_order_groups, "Parse and add M D Incremental Refresh Book Order Groups to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_daily_statistics_group = Pref.bool("Show M D Incremental Refresh Daily Statistics Group", show.m_d_incremental_refresh_daily_statistics_group, "Parse and add M D Incremental Refresh Daily Statistics Group to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_daily_statistics_groups = Pref.bool("Show M D Incremental Refresh Daily Statistics Groups", show.m_d_incremental_refresh_daily_statistics_groups, "Parse and add M D Incremental Refresh Daily Statistics Groups to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_limits_banding_group = Pref.bool("Show M D Incremental Refresh Limits Banding Group", show.m_d_incremental_refresh_limits_banding_group, "Parse and add M D Incremental Refresh Limits Banding Group to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_limits_banding_groups = Pref.bool("Show M D Incremental Refresh Limits Banding Groups", show.m_d_incremental_refresh_limits_banding_groups, "Parse and add M D Incremental Refresh Limits Banding Groups to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_order_book_group = Pref.bool("Show M D Incremental Refresh Order Book Group", show.m_d_incremental_refresh_order_book_group, "Parse and add M D Incremental Refresh Order Book Group to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_order_book_groups = Pref.bool("Show M D Incremental Refresh Order Book Groups", show.m_d_incremental_refresh_order_book_groups, "Parse and add M D Incremental Refresh Order Book Groups to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_session_statistics_group = Pref.bool("Show M D Incremental Refresh Session Statistics Group", show.m_d_incremental_refresh_session_statistics_group, "Parse and add M D Incremental Refresh Session Statistics Group to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_session_statistics_groups = Pref.bool("Show M D Incremental Refresh Session Statistics Groups", show.m_d_incremental_refresh_session_statistics_groups, "Parse and add M D Incremental Refresh Session Statistics Groups to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_trade_summary_group = Pref.bool("Show M D Incremental Refresh Trade Summary Group", show.m_d_incremental_refresh_trade_summary_group, "Parse and add M D Incremental Refresh Trade Summary Group to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_trade_summary_groups = Pref.bool("Show M D Incremental Refresh Trade Summary Groups", show.m_d_incremental_refresh_trade_summary_groups, "Parse and add M D Incremental Refresh Trade Summary Groups to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_trade_summary_order_group = Pref.bool("Show M D Incremental Refresh Trade Summary Order Group", show.m_d_incremental_refresh_trade_summary_order_group, "Parse and add M D Incremental Refresh Trade Summary Order Group to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_trade_summary_order_groups = Pref.bool("Show M D Incremental Refresh Trade Summary Order Groups", show.m_d_incremental_refresh_trade_summary_order_groups, "Parse and add M D Incremental Refresh Trade Summary Order Groups to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_volume_group = Pref.bool("Show M D Incremental Refresh Volume Group", show.m_d_incremental_refresh_volume_group, "Parse and add M D Incremental Refresh Volume Group to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_volume_groups = Pref.bool("Show M D Incremental Refresh Volume Groups", show.m_d_incremental_refresh_volume_groups, "Parse and add M D Incremental Refresh Volume Groups to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_match_event_indicator = Pref.bool("Show Match Event Indicator", show.match_event_indicator, "Parse and add Match Event Indicator to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_maturity_month_year = Pref.bool("Show Maturity Month Year", show.maturity_month_year, "Parse and add Maturity Month Year to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_md_incremental_refresh_book_46 = Pref.bool("Show Md Incremental Refresh Book 46", show.md_incremental_refresh_book_46, "Parse and add Md Incremental Refresh Book 46 to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_md_incremental_refresh_daily_statistics_49 = Pref.bool("Show Md Incremental Refresh Daily Statistics 49", show.md_incremental_refresh_daily_statistics_49, "Parse and add Md Incremental Refresh Daily Statistics 49 to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_md_incremental_refresh_limits_banding_50 = Pref.bool("Show Md Incremental Refresh Limits Banding 50", show.md_incremental_refresh_limits_banding_50, "Parse and add Md Incremental Refresh Limits Banding 50 to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_md_incremental_refresh_order_book_47 = Pref.bool("Show Md Incremental Refresh Order Book 47", show.md_incremental_refresh_order_book_47, "Parse and add Md Incremental Refresh Order Book 47 to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_md_incremental_refresh_session_statistics_51 = Pref.bool("Show Md Incremental Refresh Session Statistics 51", show.md_incremental_refresh_session_statistics_51, "Parse and add Md Incremental Refresh Session Statistics 51 to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_md_incremental_refresh_trade_summary_48 = Pref.bool("Show Md Incremental Refresh Trade Summary 48", show.md_incremental_refresh_trade_summary_48, "Parse and add Md Incremental Refresh Trade Summary 48 to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_md_incremental_refresh_volume_37 = Pref.bool("Show Md Incremental Refresh Volume 37", show.md_incremental_refresh_volume_37, "Parse and add Md Incremental Refresh Volume 37 to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_md_instrument_definition_fixed_income_57 = Pref.bool("Show Md Instrument Definition Fixed Income 57", show.md_instrument_definition_fixed_income_57, "Parse and add Md Instrument Definition Fixed Income 57 to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_md_instrument_definition_future_54 = Pref.bool("Show Md Instrument Definition Future 54", show.md_instrument_definition_future_54, "Parse and add Md Instrument Definition Future 54 to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_md_instrument_definition_option_55 = Pref.bool("Show Md Instrument Definition Option 55", show.md_instrument_definition_option_55, "Parse and add Md Instrument Definition Option 55 to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_md_instrument_definition_repo_58 = Pref.bool("Show Md Instrument Definition Repo 58", show.md_instrument_definition_repo_58, "Parse and add Md Instrument Definition Repo 58 to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_md_instrument_definition_spread_56 = Pref.bool("Show Md Instrument Definition Spread 56", show.md_instrument_definition_spread_56, "Parse and add Md Instrument Definition Spread 56 to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_quote_request_39 = Pref.bool("Show Quote Request 39", show.quote_request_39, "Parse and add Quote Request 39 to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_related_instruments_group = Pref.bool("Show Related Instruments Group", show.related_instruments_group, "Parse and add Related Instruments Group to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_related_instruments_groups = Pref.bool("Show Related Instruments Groups", show.related_instruments_groups, "Parse and add Related Instruments Groups to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_related_sym_group = Pref.bool("Show Related Sym Group", show.related_sym_group, "Parse and add Related Sym Group to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_related_sym_groups = Pref.bool("Show Related Sym Groups", show.related_sym_groups, "Parse and add Related Sym Groups to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_security_status_30 = Pref.bool("Show Security Status 30", show.security_status_30, "Parse and add Security Status 30 to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_security_status_workup_60 = Pref.bool("Show Security Status Workup 60", show.security_status_workup_60, "Parse and add Security Status Workup 60 to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_security_status_workup_order_group = Pref.bool("Show Security Status Workup Order Group", show.security_status_workup_order_group, "Parse and add Security Status Workup Order Group to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_security_status_workup_order_groups = Pref.bool("Show Security Status Workup Order Groups", show.security_status_workup_order_groups, "Parse and add Security Status Workup Order Groups to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_settl_price_type = Pref.bool("Show Settl Price Type", show.settl_price_type, "Parse and add Settl Price Type to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_52 = Pref.bool("Show Snapshot Full Refresh 52", show.snapshot_full_refresh_52, "Parse and add Snapshot Full Refresh 52 to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_group = Pref.bool("Show Snapshot Full Refresh Group", show.snapshot_full_refresh_group, "Parse and add Snapshot Full Refresh Group to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_groups = Pref.bool("Show Snapshot Full Refresh Groups", show.snapshot_full_refresh_groups, "Parse and add Snapshot Full Refresh Groups to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_order_book_53 = Pref.bool("Show Snapshot Full Refresh Order Book 53", show.snapshot_full_refresh_order_book_53, "Parse and add Snapshot Full Refresh Order Book 53 to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_order_book_group = Pref.bool("Show Snapshot Full Refresh Order Book Group", show.snapshot_full_refresh_order_book_group, "Parse and add Snapshot Full Refresh Order Book Group to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_order_book_groups = Pref.bool("Show Snapshot Full Refresh Order Book Groups", show.snapshot_full_refresh_order_book_groups, "Parse and add Snapshot Full Refresh Order Book Groups to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_tc_p_61 = Pref.bool("Show Snapshot Full Refresh Tc P 61", show.snapshot_full_refresh_tc_p_61, "Parse and add Snapshot Full Refresh Tc P 61 to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_tcp_group = Pref.bool("Show Snapshot Full Refresh Tcp Group", show.snapshot_full_refresh_tcp_group, "Parse and add Snapshot Full Refresh Tcp Group to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_tcp_groups = Pref.bool("Show Snapshot Full Refresh Tcp Groups", show.snapshot_full_refresh_tcp_groups, "Parse and add Snapshot Full Refresh Tcp Groups to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_snapshot_refresh_top_orders_59 = Pref.bool("Show Snapshot Refresh Top Orders 59", show.snapshot_refresh_top_orders_59, "Parse and add Snapshot Refresh Top Orders 59 to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_snapshot_refresh_top_orders_group = Pref.bool("Show Snapshot Refresh Top Orders Group", show.snapshot_refresh_top_orders_group, "Parse and add Snapshot Refresh Top Orders Group to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_snapshot_refresh_top_orders_groups = Pref.bool("Show Snapshot Refresh Top Orders Groups", show.snapshot_refresh_top_orders_groups, "Parse and add Snapshot Refresh Top Orders Groups to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_underlyings_group = Pref.bool("Show Underlyings Group", show.underlyings_group, "Parse and add Underlyings Group to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_underlyings_groups = Pref.bool("Show Underlyings Groups", show.underlyings_groups, "Parse and add Underlyings Groups to protocol tree")
-cme_mdp3_sbe_v10_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+-- Register Cme Futures Mdp3 Sbe 1.10 Show Options
+cme_futures_mdp3_sbe_v1_10.prefs.show_admin_login_15 = Pref.bool("Show Admin Login 15", show.admin_login_15, "Parse and add Admin Login 15 to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_admin_logout_16 = Pref.bool("Show Admin Logout 16", show.admin_logout_16, "Parse and add Admin Logout 16 to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_channel_reset_4 = Pref.bool("Show Channel Reset 4", show.channel_reset_4, "Parse and add Channel Reset 4 to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_channel_reset_group = Pref.bool("Show Channel Reset Group", show.channel_reset_group, "Parse and add Channel Reset Group to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_channel_reset_groups = Pref.bool("Show Channel Reset Groups", show.channel_reset_groups, "Parse and add Channel Reset Groups to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_events_group = Pref.bool("Show Events Group", show.events_group, "Parse and add Events Group to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_events_groups = Pref.bool("Show Events Groups", show.events_groups, "Parse and add Events Groups to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_group_size = Pref.bool("Show Group Size", show.group_size, "Parse and add Group Size to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_group_size_8_byte = Pref.bool("Show Group Size 8 Byte", show.group_size_8_byte, "Parse and add Group Size 8 Byte to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_inst_attrib_group = Pref.bool("Show Inst Attrib Group", show.inst_attrib_group, "Parse and add Inst Attrib Group to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_inst_attrib_groups = Pref.bool("Show Inst Attrib Groups", show.inst_attrib_groups, "Parse and add Inst Attrib Groups to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_inst_attrib_value = Pref.bool("Show Inst Attrib Value", show.inst_attrib_value, "Parse and add Inst Attrib Value to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_legs_group = Pref.bool("Show Legs Group", show.legs_group, "Parse and add Legs Group to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_legs_groups = Pref.bool("Show Legs Groups", show.legs_groups, "Parse and add Legs Groups to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_lot_type_rules_group = Pref.bool("Show Lot Type Rules Group", show.lot_type_rules_group, "Parse and add Lot Type Rules Group to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_lot_type_rules_groups = Pref.bool("Show Lot Type Rules Groups", show.lot_type_rules_groups, "Parse and add Lot Type Rules Groups to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_feed_types_group = Pref.bool("Show M D Feed Types Group", show.m_d_feed_types_group, "Parse and add M D Feed Types Group to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_feed_types_groups = Pref.bool("Show M D Feed Types Groups", show.m_d_feed_types_groups, "Parse and add M D Feed Types Groups to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_book_group = Pref.bool("Show M D Incremental Refresh Book Group", show.m_d_incremental_refresh_book_group, "Parse and add M D Incremental Refresh Book Group to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_book_groups = Pref.bool("Show M D Incremental Refresh Book Groups", show.m_d_incremental_refresh_book_groups, "Parse and add M D Incremental Refresh Book Groups to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_book_order_group = Pref.bool("Show M D Incremental Refresh Book Order Group", show.m_d_incremental_refresh_book_order_group, "Parse and add M D Incremental Refresh Book Order Group to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_book_order_groups = Pref.bool("Show M D Incremental Refresh Book Order Groups", show.m_d_incremental_refresh_book_order_groups, "Parse and add M D Incremental Refresh Book Order Groups to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_daily_statistics_group = Pref.bool("Show M D Incremental Refresh Daily Statistics Group", show.m_d_incremental_refresh_daily_statistics_group, "Parse and add M D Incremental Refresh Daily Statistics Group to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_daily_statistics_groups = Pref.bool("Show M D Incremental Refresh Daily Statistics Groups", show.m_d_incremental_refresh_daily_statistics_groups, "Parse and add M D Incremental Refresh Daily Statistics Groups to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_limits_banding_group = Pref.bool("Show M D Incremental Refresh Limits Banding Group", show.m_d_incremental_refresh_limits_banding_group, "Parse and add M D Incremental Refresh Limits Banding Group to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_limits_banding_groups = Pref.bool("Show M D Incremental Refresh Limits Banding Groups", show.m_d_incremental_refresh_limits_banding_groups, "Parse and add M D Incremental Refresh Limits Banding Groups to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_order_book_group = Pref.bool("Show M D Incremental Refresh Order Book Group", show.m_d_incremental_refresh_order_book_group, "Parse and add M D Incremental Refresh Order Book Group to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_order_book_groups = Pref.bool("Show M D Incremental Refresh Order Book Groups", show.m_d_incremental_refresh_order_book_groups, "Parse and add M D Incremental Refresh Order Book Groups to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_session_statistics_group = Pref.bool("Show M D Incremental Refresh Session Statistics Group", show.m_d_incremental_refresh_session_statistics_group, "Parse and add M D Incremental Refresh Session Statistics Group to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_session_statistics_groups = Pref.bool("Show M D Incremental Refresh Session Statistics Groups", show.m_d_incremental_refresh_session_statistics_groups, "Parse and add M D Incremental Refresh Session Statistics Groups to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_trade_summary_group = Pref.bool("Show M D Incremental Refresh Trade Summary Group", show.m_d_incremental_refresh_trade_summary_group, "Parse and add M D Incremental Refresh Trade Summary Group to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_trade_summary_groups = Pref.bool("Show M D Incremental Refresh Trade Summary Groups", show.m_d_incremental_refresh_trade_summary_groups, "Parse and add M D Incremental Refresh Trade Summary Groups to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_trade_summary_order_group = Pref.bool("Show M D Incremental Refresh Trade Summary Order Group", show.m_d_incremental_refresh_trade_summary_order_group, "Parse and add M D Incremental Refresh Trade Summary Order Group to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_trade_summary_order_groups = Pref.bool("Show M D Incremental Refresh Trade Summary Order Groups", show.m_d_incremental_refresh_trade_summary_order_groups, "Parse and add M D Incremental Refresh Trade Summary Order Groups to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_volume_group = Pref.bool("Show M D Incremental Refresh Volume Group", show.m_d_incremental_refresh_volume_group, "Parse and add M D Incremental Refresh Volume Group to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_volume_groups = Pref.bool("Show M D Incremental Refresh Volume Groups", show.m_d_incremental_refresh_volume_groups, "Parse and add M D Incremental Refresh Volume Groups to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_match_event_indicator = Pref.bool("Show Match Event Indicator", show.match_event_indicator, "Parse and add Match Event Indicator to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_maturity_month_year = Pref.bool("Show Maturity Month Year", show.maturity_month_year, "Parse and add Maturity Month Year to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_md_incremental_refresh_book_46 = Pref.bool("Show Md Incremental Refresh Book 46", show.md_incremental_refresh_book_46, "Parse and add Md Incremental Refresh Book 46 to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_md_incremental_refresh_daily_statistics_49 = Pref.bool("Show Md Incremental Refresh Daily Statistics 49", show.md_incremental_refresh_daily_statistics_49, "Parse and add Md Incremental Refresh Daily Statistics 49 to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_md_incremental_refresh_limits_banding_50 = Pref.bool("Show Md Incremental Refresh Limits Banding 50", show.md_incremental_refresh_limits_banding_50, "Parse and add Md Incremental Refresh Limits Banding 50 to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_md_incremental_refresh_order_book_47 = Pref.bool("Show Md Incremental Refresh Order Book 47", show.md_incremental_refresh_order_book_47, "Parse and add Md Incremental Refresh Order Book 47 to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_md_incremental_refresh_session_statistics_51 = Pref.bool("Show Md Incremental Refresh Session Statistics 51", show.md_incremental_refresh_session_statistics_51, "Parse and add Md Incremental Refresh Session Statistics 51 to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_md_incremental_refresh_trade_summary_48 = Pref.bool("Show Md Incremental Refresh Trade Summary 48", show.md_incremental_refresh_trade_summary_48, "Parse and add Md Incremental Refresh Trade Summary 48 to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_md_incremental_refresh_volume_37 = Pref.bool("Show Md Incremental Refresh Volume 37", show.md_incremental_refresh_volume_37, "Parse and add Md Incremental Refresh Volume 37 to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_md_instrument_definition_fixed_income_57 = Pref.bool("Show Md Instrument Definition Fixed Income 57", show.md_instrument_definition_fixed_income_57, "Parse and add Md Instrument Definition Fixed Income 57 to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_md_instrument_definition_future_54 = Pref.bool("Show Md Instrument Definition Future 54", show.md_instrument_definition_future_54, "Parse and add Md Instrument Definition Future 54 to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_md_instrument_definition_option_55 = Pref.bool("Show Md Instrument Definition Option 55", show.md_instrument_definition_option_55, "Parse and add Md Instrument Definition Option 55 to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_md_instrument_definition_repo_58 = Pref.bool("Show Md Instrument Definition Repo 58", show.md_instrument_definition_repo_58, "Parse and add Md Instrument Definition Repo 58 to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_md_instrument_definition_spread_56 = Pref.bool("Show Md Instrument Definition Spread 56", show.md_instrument_definition_spread_56, "Parse and add Md Instrument Definition Spread 56 to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_quote_request_39 = Pref.bool("Show Quote Request 39", show.quote_request_39, "Parse and add Quote Request 39 to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_related_instruments_group = Pref.bool("Show Related Instruments Group", show.related_instruments_group, "Parse and add Related Instruments Group to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_related_instruments_groups = Pref.bool("Show Related Instruments Groups", show.related_instruments_groups, "Parse and add Related Instruments Groups to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_related_sym_group = Pref.bool("Show Related Sym Group", show.related_sym_group, "Parse and add Related Sym Group to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_related_sym_groups = Pref.bool("Show Related Sym Groups", show.related_sym_groups, "Parse and add Related Sym Groups to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_security_status_30 = Pref.bool("Show Security Status 30", show.security_status_30, "Parse and add Security Status 30 to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_security_status_workup_60 = Pref.bool("Show Security Status Workup 60", show.security_status_workup_60, "Parse and add Security Status Workup 60 to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_security_status_workup_order_group = Pref.bool("Show Security Status Workup Order Group", show.security_status_workup_order_group, "Parse and add Security Status Workup Order Group to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_security_status_workup_order_groups = Pref.bool("Show Security Status Workup Order Groups", show.security_status_workup_order_groups, "Parse and add Security Status Workup Order Groups to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_settl_price_type = Pref.bool("Show Settl Price Type", show.settl_price_type, "Parse and add Settl Price Type to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_52 = Pref.bool("Show Snapshot Full Refresh 52", show.snapshot_full_refresh_52, "Parse and add Snapshot Full Refresh 52 to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_group = Pref.bool("Show Snapshot Full Refresh Group", show.snapshot_full_refresh_group, "Parse and add Snapshot Full Refresh Group to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_groups = Pref.bool("Show Snapshot Full Refresh Groups", show.snapshot_full_refresh_groups, "Parse and add Snapshot Full Refresh Groups to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_order_book_53 = Pref.bool("Show Snapshot Full Refresh Order Book 53", show.snapshot_full_refresh_order_book_53, "Parse and add Snapshot Full Refresh Order Book 53 to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_order_book_group = Pref.bool("Show Snapshot Full Refresh Order Book Group", show.snapshot_full_refresh_order_book_group, "Parse and add Snapshot Full Refresh Order Book Group to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_order_book_groups = Pref.bool("Show Snapshot Full Refresh Order Book Groups", show.snapshot_full_refresh_order_book_groups, "Parse and add Snapshot Full Refresh Order Book Groups to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_tc_p_61 = Pref.bool("Show Snapshot Full Refresh Tc P 61", show.snapshot_full_refresh_tc_p_61, "Parse and add Snapshot Full Refresh Tc P 61 to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_tcp_group = Pref.bool("Show Snapshot Full Refresh Tcp Group", show.snapshot_full_refresh_tcp_group, "Parse and add Snapshot Full Refresh Tcp Group to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_tcp_groups = Pref.bool("Show Snapshot Full Refresh Tcp Groups", show.snapshot_full_refresh_tcp_groups, "Parse and add Snapshot Full Refresh Tcp Groups to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_refresh_top_orders_59 = Pref.bool("Show Snapshot Refresh Top Orders 59", show.snapshot_refresh_top_orders_59, "Parse and add Snapshot Refresh Top Orders 59 to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_refresh_top_orders_group = Pref.bool("Show Snapshot Refresh Top Orders Group", show.snapshot_refresh_top_orders_group, "Parse and add Snapshot Refresh Top Orders Group to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_refresh_top_orders_groups = Pref.bool("Show Snapshot Refresh Top Orders Groups", show.snapshot_refresh_top_orders_groups, "Parse and add Snapshot Refresh Top Orders Groups to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_underlyings_group = Pref.bool("Show Underlyings Group", show.underlyings_group, "Parse and add Underlyings Group to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_underlyings_groups = Pref.bool("Show Underlyings Groups", show.underlyings_groups, "Parse and add Underlyings Groups to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function cme_mdp3_sbe_v10_1.prefs_changed()
+function cme_futures_mdp3_sbe_v1_10.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.admin_login_15 ~= cme_mdp3_sbe_v10_1.prefs.show_admin_login_15 then
-    show.admin_login_15 = cme_mdp3_sbe_v10_1.prefs.show_admin_login_15
+  if show.admin_login_15 ~= cme_futures_mdp3_sbe_v1_10.prefs.show_admin_login_15 then
+    show.admin_login_15 = cme_futures_mdp3_sbe_v1_10.prefs.show_admin_login_15
     changed = true
   end
-  if show.admin_logout_16 ~= cme_mdp3_sbe_v10_1.prefs.show_admin_logout_16 then
-    show.admin_logout_16 = cme_mdp3_sbe_v10_1.prefs.show_admin_logout_16
+  if show.admin_logout_16 ~= cme_futures_mdp3_sbe_v1_10.prefs.show_admin_logout_16 then
+    show.admin_logout_16 = cme_futures_mdp3_sbe_v1_10.prefs.show_admin_logout_16
     changed = true
   end
-  if show.channel_reset_4 ~= cme_mdp3_sbe_v10_1.prefs.show_channel_reset_4 then
-    show.channel_reset_4 = cme_mdp3_sbe_v10_1.prefs.show_channel_reset_4
+  if show.channel_reset_4 ~= cme_futures_mdp3_sbe_v1_10.prefs.show_channel_reset_4 then
+    show.channel_reset_4 = cme_futures_mdp3_sbe_v1_10.prefs.show_channel_reset_4
     changed = true
   end
-  if show.channel_reset_group ~= cme_mdp3_sbe_v10_1.prefs.show_channel_reset_group then
-    show.channel_reset_group = cme_mdp3_sbe_v10_1.prefs.show_channel_reset_group
+  if show.channel_reset_group ~= cme_futures_mdp3_sbe_v1_10.prefs.show_channel_reset_group then
+    show.channel_reset_group = cme_futures_mdp3_sbe_v1_10.prefs.show_channel_reset_group
     changed = true
   end
-  if show.channel_reset_groups ~= cme_mdp3_sbe_v10_1.prefs.show_channel_reset_groups then
-    show.channel_reset_groups = cme_mdp3_sbe_v10_1.prefs.show_channel_reset_groups
+  if show.channel_reset_groups ~= cme_futures_mdp3_sbe_v1_10.prefs.show_channel_reset_groups then
+    show.channel_reset_groups = cme_futures_mdp3_sbe_v1_10.prefs.show_channel_reset_groups
     changed = true
   end
-  if show.events_group ~= cme_mdp3_sbe_v10_1.prefs.show_events_group then
-    show.events_group = cme_mdp3_sbe_v10_1.prefs.show_events_group
+  if show.events_group ~= cme_futures_mdp3_sbe_v1_10.prefs.show_events_group then
+    show.events_group = cme_futures_mdp3_sbe_v1_10.prefs.show_events_group
     changed = true
   end
-  if show.events_groups ~= cme_mdp3_sbe_v10_1.prefs.show_events_groups then
-    show.events_groups = cme_mdp3_sbe_v10_1.prefs.show_events_groups
+  if show.events_groups ~= cme_futures_mdp3_sbe_v1_10.prefs.show_events_groups then
+    show.events_groups = cme_futures_mdp3_sbe_v1_10.prefs.show_events_groups
     changed = true
   end
-  if show.group_size ~= cme_mdp3_sbe_v10_1.prefs.show_group_size then
-    show.group_size = cme_mdp3_sbe_v10_1.prefs.show_group_size
+  if show.group_size ~= cme_futures_mdp3_sbe_v1_10.prefs.show_group_size then
+    show.group_size = cme_futures_mdp3_sbe_v1_10.prefs.show_group_size
     changed = true
   end
-  if show.group_size_8_byte ~= cme_mdp3_sbe_v10_1.prefs.show_group_size_8_byte then
-    show.group_size_8_byte = cme_mdp3_sbe_v10_1.prefs.show_group_size_8_byte
+  if show.group_size_8_byte ~= cme_futures_mdp3_sbe_v1_10.prefs.show_group_size_8_byte then
+    show.group_size_8_byte = cme_futures_mdp3_sbe_v1_10.prefs.show_group_size_8_byte
     changed = true
   end
-  if show.inst_attrib_group ~= cme_mdp3_sbe_v10_1.prefs.show_inst_attrib_group then
-    show.inst_attrib_group = cme_mdp3_sbe_v10_1.prefs.show_inst_attrib_group
+  if show.inst_attrib_group ~= cme_futures_mdp3_sbe_v1_10.prefs.show_inst_attrib_group then
+    show.inst_attrib_group = cme_futures_mdp3_sbe_v1_10.prefs.show_inst_attrib_group
     changed = true
   end
-  if show.inst_attrib_groups ~= cme_mdp3_sbe_v10_1.prefs.show_inst_attrib_groups then
-    show.inst_attrib_groups = cme_mdp3_sbe_v10_1.prefs.show_inst_attrib_groups
+  if show.inst_attrib_groups ~= cme_futures_mdp3_sbe_v1_10.prefs.show_inst_attrib_groups then
+    show.inst_attrib_groups = cme_futures_mdp3_sbe_v1_10.prefs.show_inst_attrib_groups
     changed = true
   end
-  if show.inst_attrib_value ~= cme_mdp3_sbe_v10_1.prefs.show_inst_attrib_value then
-    show.inst_attrib_value = cme_mdp3_sbe_v10_1.prefs.show_inst_attrib_value
+  if show.inst_attrib_value ~= cme_futures_mdp3_sbe_v1_10.prefs.show_inst_attrib_value then
+    show.inst_attrib_value = cme_futures_mdp3_sbe_v1_10.prefs.show_inst_attrib_value
     changed = true
   end
-  if show.legs_group ~= cme_mdp3_sbe_v10_1.prefs.show_legs_group then
-    show.legs_group = cme_mdp3_sbe_v10_1.prefs.show_legs_group
+  if show.legs_group ~= cme_futures_mdp3_sbe_v1_10.prefs.show_legs_group then
+    show.legs_group = cme_futures_mdp3_sbe_v1_10.prefs.show_legs_group
     changed = true
   end
-  if show.legs_groups ~= cme_mdp3_sbe_v10_1.prefs.show_legs_groups then
-    show.legs_groups = cme_mdp3_sbe_v10_1.prefs.show_legs_groups
+  if show.legs_groups ~= cme_futures_mdp3_sbe_v1_10.prefs.show_legs_groups then
+    show.legs_groups = cme_futures_mdp3_sbe_v1_10.prefs.show_legs_groups
     changed = true
   end
-  if show.lot_type_rules_group ~= cme_mdp3_sbe_v10_1.prefs.show_lot_type_rules_group then
-    show.lot_type_rules_group = cme_mdp3_sbe_v10_1.prefs.show_lot_type_rules_group
+  if show.lot_type_rules_group ~= cme_futures_mdp3_sbe_v1_10.prefs.show_lot_type_rules_group then
+    show.lot_type_rules_group = cme_futures_mdp3_sbe_v1_10.prefs.show_lot_type_rules_group
     changed = true
   end
-  if show.lot_type_rules_groups ~= cme_mdp3_sbe_v10_1.prefs.show_lot_type_rules_groups then
-    show.lot_type_rules_groups = cme_mdp3_sbe_v10_1.prefs.show_lot_type_rules_groups
+  if show.lot_type_rules_groups ~= cme_futures_mdp3_sbe_v1_10.prefs.show_lot_type_rules_groups then
+    show.lot_type_rules_groups = cme_futures_mdp3_sbe_v1_10.prefs.show_lot_type_rules_groups
     changed = true
   end
-  if show.m_d_feed_types_group ~= cme_mdp3_sbe_v10_1.prefs.show_m_d_feed_types_group then
-    show.m_d_feed_types_group = cme_mdp3_sbe_v10_1.prefs.show_m_d_feed_types_group
+  if show.m_d_feed_types_group ~= cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_feed_types_group then
+    show.m_d_feed_types_group = cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_feed_types_group
     changed = true
   end
-  if show.m_d_feed_types_groups ~= cme_mdp3_sbe_v10_1.prefs.show_m_d_feed_types_groups then
-    show.m_d_feed_types_groups = cme_mdp3_sbe_v10_1.prefs.show_m_d_feed_types_groups
+  if show.m_d_feed_types_groups ~= cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_feed_types_groups then
+    show.m_d_feed_types_groups = cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_feed_types_groups
     changed = true
   end
-  if show.m_d_incremental_refresh_book_group ~= cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_book_group then
-    show.m_d_incremental_refresh_book_group = cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_book_group
+  if show.m_d_incremental_refresh_book_group ~= cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_book_group then
+    show.m_d_incremental_refresh_book_group = cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_book_group
     changed = true
   end
-  if show.m_d_incremental_refresh_book_groups ~= cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_book_groups then
-    show.m_d_incremental_refresh_book_groups = cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_book_groups
+  if show.m_d_incremental_refresh_book_groups ~= cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_book_groups then
+    show.m_d_incremental_refresh_book_groups = cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_book_groups
     changed = true
   end
-  if show.m_d_incremental_refresh_book_order_group ~= cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_book_order_group then
-    show.m_d_incremental_refresh_book_order_group = cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_book_order_group
+  if show.m_d_incremental_refresh_book_order_group ~= cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_book_order_group then
+    show.m_d_incremental_refresh_book_order_group = cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_book_order_group
     changed = true
   end
-  if show.m_d_incremental_refresh_book_order_groups ~= cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_book_order_groups then
-    show.m_d_incremental_refresh_book_order_groups = cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_book_order_groups
+  if show.m_d_incremental_refresh_book_order_groups ~= cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_book_order_groups then
+    show.m_d_incremental_refresh_book_order_groups = cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_book_order_groups
     changed = true
   end
-  if show.m_d_incremental_refresh_daily_statistics_group ~= cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_daily_statistics_group then
-    show.m_d_incremental_refresh_daily_statistics_group = cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_daily_statistics_group
+  if show.m_d_incremental_refresh_daily_statistics_group ~= cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_daily_statistics_group then
+    show.m_d_incremental_refresh_daily_statistics_group = cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_daily_statistics_group
     changed = true
   end
-  if show.m_d_incremental_refresh_daily_statistics_groups ~= cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_daily_statistics_groups then
-    show.m_d_incremental_refresh_daily_statistics_groups = cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_daily_statistics_groups
+  if show.m_d_incremental_refresh_daily_statistics_groups ~= cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_daily_statistics_groups then
+    show.m_d_incremental_refresh_daily_statistics_groups = cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_daily_statistics_groups
     changed = true
   end
-  if show.m_d_incremental_refresh_limits_banding_group ~= cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_limits_banding_group then
-    show.m_d_incremental_refresh_limits_banding_group = cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_limits_banding_group
+  if show.m_d_incremental_refresh_limits_banding_group ~= cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_limits_banding_group then
+    show.m_d_incremental_refresh_limits_banding_group = cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_limits_banding_group
     changed = true
   end
-  if show.m_d_incremental_refresh_limits_banding_groups ~= cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_limits_banding_groups then
-    show.m_d_incremental_refresh_limits_banding_groups = cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_limits_banding_groups
+  if show.m_d_incremental_refresh_limits_banding_groups ~= cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_limits_banding_groups then
+    show.m_d_incremental_refresh_limits_banding_groups = cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_limits_banding_groups
     changed = true
   end
-  if show.m_d_incremental_refresh_order_book_group ~= cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_order_book_group then
-    show.m_d_incremental_refresh_order_book_group = cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_order_book_group
+  if show.m_d_incremental_refresh_order_book_group ~= cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_order_book_group then
+    show.m_d_incremental_refresh_order_book_group = cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_order_book_group
     changed = true
   end
-  if show.m_d_incremental_refresh_order_book_groups ~= cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_order_book_groups then
-    show.m_d_incremental_refresh_order_book_groups = cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_order_book_groups
+  if show.m_d_incremental_refresh_order_book_groups ~= cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_order_book_groups then
+    show.m_d_incremental_refresh_order_book_groups = cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_order_book_groups
     changed = true
   end
-  if show.m_d_incremental_refresh_session_statistics_group ~= cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_session_statistics_group then
-    show.m_d_incremental_refresh_session_statistics_group = cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_session_statistics_group
+  if show.m_d_incremental_refresh_session_statistics_group ~= cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_session_statistics_group then
+    show.m_d_incremental_refresh_session_statistics_group = cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_session_statistics_group
     changed = true
   end
-  if show.m_d_incremental_refresh_session_statistics_groups ~= cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_session_statistics_groups then
-    show.m_d_incremental_refresh_session_statistics_groups = cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_session_statistics_groups
+  if show.m_d_incremental_refresh_session_statistics_groups ~= cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_session_statistics_groups then
+    show.m_d_incremental_refresh_session_statistics_groups = cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_session_statistics_groups
     changed = true
   end
-  if show.m_d_incremental_refresh_trade_summary_group ~= cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_trade_summary_group then
-    show.m_d_incremental_refresh_trade_summary_group = cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_trade_summary_group
+  if show.m_d_incremental_refresh_trade_summary_group ~= cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_trade_summary_group then
+    show.m_d_incremental_refresh_trade_summary_group = cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_trade_summary_group
     changed = true
   end
-  if show.m_d_incremental_refresh_trade_summary_groups ~= cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_trade_summary_groups then
-    show.m_d_incremental_refresh_trade_summary_groups = cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_trade_summary_groups
+  if show.m_d_incremental_refresh_trade_summary_groups ~= cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_trade_summary_groups then
+    show.m_d_incremental_refresh_trade_summary_groups = cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_trade_summary_groups
     changed = true
   end
-  if show.m_d_incremental_refresh_trade_summary_order_group ~= cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_trade_summary_order_group then
-    show.m_d_incremental_refresh_trade_summary_order_group = cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_trade_summary_order_group
+  if show.m_d_incremental_refresh_trade_summary_order_group ~= cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_trade_summary_order_group then
+    show.m_d_incremental_refresh_trade_summary_order_group = cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_trade_summary_order_group
     changed = true
   end
-  if show.m_d_incremental_refresh_trade_summary_order_groups ~= cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_trade_summary_order_groups then
-    show.m_d_incremental_refresh_trade_summary_order_groups = cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_trade_summary_order_groups
+  if show.m_d_incremental_refresh_trade_summary_order_groups ~= cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_trade_summary_order_groups then
+    show.m_d_incremental_refresh_trade_summary_order_groups = cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_trade_summary_order_groups
     changed = true
   end
-  if show.m_d_incremental_refresh_volume_group ~= cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_volume_group then
-    show.m_d_incremental_refresh_volume_group = cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_volume_group
+  if show.m_d_incremental_refresh_volume_group ~= cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_volume_group then
+    show.m_d_incremental_refresh_volume_group = cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_volume_group
     changed = true
   end
-  if show.m_d_incremental_refresh_volume_groups ~= cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_volume_groups then
-    show.m_d_incremental_refresh_volume_groups = cme_mdp3_sbe_v10_1.prefs.show_m_d_incremental_refresh_volume_groups
+  if show.m_d_incremental_refresh_volume_groups ~= cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_volume_groups then
+    show.m_d_incremental_refresh_volume_groups = cme_futures_mdp3_sbe_v1_10.prefs.show_m_d_incremental_refresh_volume_groups
     changed = true
   end
-  if show.match_event_indicator ~= cme_mdp3_sbe_v10_1.prefs.show_match_event_indicator then
-    show.match_event_indicator = cme_mdp3_sbe_v10_1.prefs.show_match_event_indicator
+  if show.match_event_indicator ~= cme_futures_mdp3_sbe_v1_10.prefs.show_match_event_indicator then
+    show.match_event_indicator = cme_futures_mdp3_sbe_v1_10.prefs.show_match_event_indicator
     changed = true
   end
-  if show.maturity_month_year ~= cme_mdp3_sbe_v10_1.prefs.show_maturity_month_year then
-    show.maturity_month_year = cme_mdp3_sbe_v10_1.prefs.show_maturity_month_year
+  if show.maturity_month_year ~= cme_futures_mdp3_sbe_v1_10.prefs.show_maturity_month_year then
+    show.maturity_month_year = cme_futures_mdp3_sbe_v1_10.prefs.show_maturity_month_year
     changed = true
   end
-  if show.md_incremental_refresh_book_46 ~= cme_mdp3_sbe_v10_1.prefs.show_md_incremental_refresh_book_46 then
-    show.md_incremental_refresh_book_46 = cme_mdp3_sbe_v10_1.prefs.show_md_incremental_refresh_book_46
+  if show.md_incremental_refresh_book_46 ~= cme_futures_mdp3_sbe_v1_10.prefs.show_md_incremental_refresh_book_46 then
+    show.md_incremental_refresh_book_46 = cme_futures_mdp3_sbe_v1_10.prefs.show_md_incremental_refresh_book_46
     changed = true
   end
-  if show.md_incremental_refresh_daily_statistics_49 ~= cme_mdp3_sbe_v10_1.prefs.show_md_incremental_refresh_daily_statistics_49 then
-    show.md_incremental_refresh_daily_statistics_49 = cme_mdp3_sbe_v10_1.prefs.show_md_incremental_refresh_daily_statistics_49
+  if show.md_incremental_refresh_daily_statistics_49 ~= cme_futures_mdp3_sbe_v1_10.prefs.show_md_incremental_refresh_daily_statistics_49 then
+    show.md_incremental_refresh_daily_statistics_49 = cme_futures_mdp3_sbe_v1_10.prefs.show_md_incremental_refresh_daily_statistics_49
     changed = true
   end
-  if show.md_incremental_refresh_limits_banding_50 ~= cme_mdp3_sbe_v10_1.prefs.show_md_incremental_refresh_limits_banding_50 then
-    show.md_incremental_refresh_limits_banding_50 = cme_mdp3_sbe_v10_1.prefs.show_md_incremental_refresh_limits_banding_50
+  if show.md_incremental_refresh_limits_banding_50 ~= cme_futures_mdp3_sbe_v1_10.prefs.show_md_incremental_refresh_limits_banding_50 then
+    show.md_incremental_refresh_limits_banding_50 = cme_futures_mdp3_sbe_v1_10.prefs.show_md_incremental_refresh_limits_banding_50
     changed = true
   end
-  if show.md_incremental_refresh_order_book_47 ~= cme_mdp3_sbe_v10_1.prefs.show_md_incremental_refresh_order_book_47 then
-    show.md_incremental_refresh_order_book_47 = cme_mdp3_sbe_v10_1.prefs.show_md_incremental_refresh_order_book_47
+  if show.md_incremental_refresh_order_book_47 ~= cme_futures_mdp3_sbe_v1_10.prefs.show_md_incremental_refresh_order_book_47 then
+    show.md_incremental_refresh_order_book_47 = cme_futures_mdp3_sbe_v1_10.prefs.show_md_incremental_refresh_order_book_47
     changed = true
   end
-  if show.md_incremental_refresh_session_statistics_51 ~= cme_mdp3_sbe_v10_1.prefs.show_md_incremental_refresh_session_statistics_51 then
-    show.md_incremental_refresh_session_statistics_51 = cme_mdp3_sbe_v10_1.prefs.show_md_incremental_refresh_session_statistics_51
+  if show.md_incremental_refresh_session_statistics_51 ~= cme_futures_mdp3_sbe_v1_10.prefs.show_md_incremental_refresh_session_statistics_51 then
+    show.md_incremental_refresh_session_statistics_51 = cme_futures_mdp3_sbe_v1_10.prefs.show_md_incremental_refresh_session_statistics_51
     changed = true
   end
-  if show.md_incremental_refresh_trade_summary_48 ~= cme_mdp3_sbe_v10_1.prefs.show_md_incremental_refresh_trade_summary_48 then
-    show.md_incremental_refresh_trade_summary_48 = cme_mdp3_sbe_v10_1.prefs.show_md_incremental_refresh_trade_summary_48
+  if show.md_incremental_refresh_trade_summary_48 ~= cme_futures_mdp3_sbe_v1_10.prefs.show_md_incremental_refresh_trade_summary_48 then
+    show.md_incremental_refresh_trade_summary_48 = cme_futures_mdp3_sbe_v1_10.prefs.show_md_incremental_refresh_trade_summary_48
     changed = true
   end
-  if show.md_incremental_refresh_volume_37 ~= cme_mdp3_sbe_v10_1.prefs.show_md_incremental_refresh_volume_37 then
-    show.md_incremental_refresh_volume_37 = cme_mdp3_sbe_v10_1.prefs.show_md_incremental_refresh_volume_37
+  if show.md_incremental_refresh_volume_37 ~= cme_futures_mdp3_sbe_v1_10.prefs.show_md_incremental_refresh_volume_37 then
+    show.md_incremental_refresh_volume_37 = cme_futures_mdp3_sbe_v1_10.prefs.show_md_incremental_refresh_volume_37
     changed = true
   end
-  if show.md_instrument_definition_fixed_income_57 ~= cme_mdp3_sbe_v10_1.prefs.show_md_instrument_definition_fixed_income_57 then
-    show.md_instrument_definition_fixed_income_57 = cme_mdp3_sbe_v10_1.prefs.show_md_instrument_definition_fixed_income_57
+  if show.md_instrument_definition_fixed_income_57 ~= cme_futures_mdp3_sbe_v1_10.prefs.show_md_instrument_definition_fixed_income_57 then
+    show.md_instrument_definition_fixed_income_57 = cme_futures_mdp3_sbe_v1_10.prefs.show_md_instrument_definition_fixed_income_57
     changed = true
   end
-  if show.md_instrument_definition_future_54 ~= cme_mdp3_sbe_v10_1.prefs.show_md_instrument_definition_future_54 then
-    show.md_instrument_definition_future_54 = cme_mdp3_sbe_v10_1.prefs.show_md_instrument_definition_future_54
+  if show.md_instrument_definition_future_54 ~= cme_futures_mdp3_sbe_v1_10.prefs.show_md_instrument_definition_future_54 then
+    show.md_instrument_definition_future_54 = cme_futures_mdp3_sbe_v1_10.prefs.show_md_instrument_definition_future_54
     changed = true
   end
-  if show.md_instrument_definition_option_55 ~= cme_mdp3_sbe_v10_1.prefs.show_md_instrument_definition_option_55 then
-    show.md_instrument_definition_option_55 = cme_mdp3_sbe_v10_1.prefs.show_md_instrument_definition_option_55
+  if show.md_instrument_definition_option_55 ~= cme_futures_mdp3_sbe_v1_10.prefs.show_md_instrument_definition_option_55 then
+    show.md_instrument_definition_option_55 = cme_futures_mdp3_sbe_v1_10.prefs.show_md_instrument_definition_option_55
     changed = true
   end
-  if show.md_instrument_definition_repo_58 ~= cme_mdp3_sbe_v10_1.prefs.show_md_instrument_definition_repo_58 then
-    show.md_instrument_definition_repo_58 = cme_mdp3_sbe_v10_1.prefs.show_md_instrument_definition_repo_58
+  if show.md_instrument_definition_repo_58 ~= cme_futures_mdp3_sbe_v1_10.prefs.show_md_instrument_definition_repo_58 then
+    show.md_instrument_definition_repo_58 = cme_futures_mdp3_sbe_v1_10.prefs.show_md_instrument_definition_repo_58
     changed = true
   end
-  if show.md_instrument_definition_spread_56 ~= cme_mdp3_sbe_v10_1.prefs.show_md_instrument_definition_spread_56 then
-    show.md_instrument_definition_spread_56 = cme_mdp3_sbe_v10_1.prefs.show_md_instrument_definition_spread_56
+  if show.md_instrument_definition_spread_56 ~= cme_futures_mdp3_sbe_v1_10.prefs.show_md_instrument_definition_spread_56 then
+    show.md_instrument_definition_spread_56 = cme_futures_mdp3_sbe_v1_10.prefs.show_md_instrument_definition_spread_56
     changed = true
   end
-  if show.message ~= cme_mdp3_sbe_v10_1.prefs.show_message then
-    show.message = cme_mdp3_sbe_v10_1.prefs.show_message
+  if show.message ~= cme_futures_mdp3_sbe_v1_10.prefs.show_message then
+    show.message = cme_futures_mdp3_sbe_v1_10.prefs.show_message
     changed = true
   end
-  if show.message_header ~= cme_mdp3_sbe_v10_1.prefs.show_message_header then
-    show.message_header = cme_mdp3_sbe_v10_1.prefs.show_message_header
+  if show.message_header ~= cme_futures_mdp3_sbe_v1_10.prefs.show_message_header then
+    show.message_header = cme_futures_mdp3_sbe_v1_10.prefs.show_message_header
     changed = true
   end
-  if show.packet ~= cme_mdp3_sbe_v10_1.prefs.show_packet then
-    show.packet = cme_mdp3_sbe_v10_1.prefs.show_packet
+  if show.packet ~= cme_futures_mdp3_sbe_v1_10.prefs.show_packet then
+    show.packet = cme_futures_mdp3_sbe_v1_10.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= cme_mdp3_sbe_v10_1.prefs.show_packet_header then
-    show.packet_header = cme_mdp3_sbe_v10_1.prefs.show_packet_header
+  if show.packet_header ~= cme_futures_mdp3_sbe_v1_10.prefs.show_packet_header then
+    show.packet_header = cme_futures_mdp3_sbe_v1_10.prefs.show_packet_header
     changed = true
   end
-  if show.quote_request_39 ~= cme_mdp3_sbe_v10_1.prefs.show_quote_request_39 then
-    show.quote_request_39 = cme_mdp3_sbe_v10_1.prefs.show_quote_request_39
+  if show.quote_request_39 ~= cme_futures_mdp3_sbe_v1_10.prefs.show_quote_request_39 then
+    show.quote_request_39 = cme_futures_mdp3_sbe_v1_10.prefs.show_quote_request_39
     changed = true
   end
-  if show.related_instruments_group ~= cme_mdp3_sbe_v10_1.prefs.show_related_instruments_group then
-    show.related_instruments_group = cme_mdp3_sbe_v10_1.prefs.show_related_instruments_group
+  if show.related_instruments_group ~= cme_futures_mdp3_sbe_v1_10.prefs.show_related_instruments_group then
+    show.related_instruments_group = cme_futures_mdp3_sbe_v1_10.prefs.show_related_instruments_group
     changed = true
   end
-  if show.related_instruments_groups ~= cme_mdp3_sbe_v10_1.prefs.show_related_instruments_groups then
-    show.related_instruments_groups = cme_mdp3_sbe_v10_1.prefs.show_related_instruments_groups
+  if show.related_instruments_groups ~= cme_futures_mdp3_sbe_v1_10.prefs.show_related_instruments_groups then
+    show.related_instruments_groups = cme_futures_mdp3_sbe_v1_10.prefs.show_related_instruments_groups
     changed = true
   end
-  if show.related_sym_group ~= cme_mdp3_sbe_v10_1.prefs.show_related_sym_group then
-    show.related_sym_group = cme_mdp3_sbe_v10_1.prefs.show_related_sym_group
+  if show.related_sym_group ~= cme_futures_mdp3_sbe_v1_10.prefs.show_related_sym_group then
+    show.related_sym_group = cme_futures_mdp3_sbe_v1_10.prefs.show_related_sym_group
     changed = true
   end
-  if show.related_sym_groups ~= cme_mdp3_sbe_v10_1.prefs.show_related_sym_groups then
-    show.related_sym_groups = cme_mdp3_sbe_v10_1.prefs.show_related_sym_groups
+  if show.related_sym_groups ~= cme_futures_mdp3_sbe_v1_10.prefs.show_related_sym_groups then
+    show.related_sym_groups = cme_futures_mdp3_sbe_v1_10.prefs.show_related_sym_groups
     changed = true
   end
-  if show.security_status_30 ~= cme_mdp3_sbe_v10_1.prefs.show_security_status_30 then
-    show.security_status_30 = cme_mdp3_sbe_v10_1.prefs.show_security_status_30
+  if show.security_status_30 ~= cme_futures_mdp3_sbe_v1_10.prefs.show_security_status_30 then
+    show.security_status_30 = cme_futures_mdp3_sbe_v1_10.prefs.show_security_status_30
     changed = true
   end
-  if show.security_status_workup_60 ~= cme_mdp3_sbe_v10_1.prefs.show_security_status_workup_60 then
-    show.security_status_workup_60 = cme_mdp3_sbe_v10_1.prefs.show_security_status_workup_60
+  if show.security_status_workup_60 ~= cme_futures_mdp3_sbe_v1_10.prefs.show_security_status_workup_60 then
+    show.security_status_workup_60 = cme_futures_mdp3_sbe_v1_10.prefs.show_security_status_workup_60
     changed = true
   end
-  if show.security_status_workup_order_group ~= cme_mdp3_sbe_v10_1.prefs.show_security_status_workup_order_group then
-    show.security_status_workup_order_group = cme_mdp3_sbe_v10_1.prefs.show_security_status_workup_order_group
+  if show.security_status_workup_order_group ~= cme_futures_mdp3_sbe_v1_10.prefs.show_security_status_workup_order_group then
+    show.security_status_workup_order_group = cme_futures_mdp3_sbe_v1_10.prefs.show_security_status_workup_order_group
     changed = true
   end
-  if show.security_status_workup_order_groups ~= cme_mdp3_sbe_v10_1.prefs.show_security_status_workup_order_groups then
-    show.security_status_workup_order_groups = cme_mdp3_sbe_v10_1.prefs.show_security_status_workup_order_groups
+  if show.security_status_workup_order_groups ~= cme_futures_mdp3_sbe_v1_10.prefs.show_security_status_workup_order_groups then
+    show.security_status_workup_order_groups = cme_futures_mdp3_sbe_v1_10.prefs.show_security_status_workup_order_groups
     changed = true
   end
-  if show.settl_price_type ~= cme_mdp3_sbe_v10_1.prefs.show_settl_price_type then
-    show.settl_price_type = cme_mdp3_sbe_v10_1.prefs.show_settl_price_type
+  if show.settl_price_type ~= cme_futures_mdp3_sbe_v1_10.prefs.show_settl_price_type then
+    show.settl_price_type = cme_futures_mdp3_sbe_v1_10.prefs.show_settl_price_type
     changed = true
   end
-  if show.snapshot_full_refresh_52 ~= cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_52 then
-    show.snapshot_full_refresh_52 = cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_52
+  if show.snapshot_full_refresh_52 ~= cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_52 then
+    show.snapshot_full_refresh_52 = cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_52
     changed = true
   end
-  if show.snapshot_full_refresh_group ~= cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_group then
-    show.snapshot_full_refresh_group = cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_group
+  if show.snapshot_full_refresh_group ~= cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_group then
+    show.snapshot_full_refresh_group = cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_group
     changed = true
   end
-  if show.snapshot_full_refresh_groups ~= cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_groups then
-    show.snapshot_full_refresh_groups = cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_groups
+  if show.snapshot_full_refresh_groups ~= cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_groups then
+    show.snapshot_full_refresh_groups = cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_groups
     changed = true
   end
-  if show.snapshot_full_refresh_order_book_53 ~= cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_order_book_53 then
-    show.snapshot_full_refresh_order_book_53 = cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_order_book_53
+  if show.snapshot_full_refresh_order_book_53 ~= cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_order_book_53 then
+    show.snapshot_full_refresh_order_book_53 = cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_order_book_53
     changed = true
   end
-  if show.snapshot_full_refresh_order_book_group ~= cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_order_book_group then
-    show.snapshot_full_refresh_order_book_group = cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_order_book_group
+  if show.snapshot_full_refresh_order_book_group ~= cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_order_book_group then
+    show.snapshot_full_refresh_order_book_group = cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_order_book_group
     changed = true
   end
-  if show.snapshot_full_refresh_order_book_groups ~= cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_order_book_groups then
-    show.snapshot_full_refresh_order_book_groups = cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_order_book_groups
+  if show.snapshot_full_refresh_order_book_groups ~= cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_order_book_groups then
+    show.snapshot_full_refresh_order_book_groups = cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_order_book_groups
     changed = true
   end
-  if show.snapshot_full_refresh_tc_p_61 ~= cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_tc_p_61 then
-    show.snapshot_full_refresh_tc_p_61 = cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_tc_p_61
+  if show.snapshot_full_refresh_tc_p_61 ~= cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_tc_p_61 then
+    show.snapshot_full_refresh_tc_p_61 = cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_tc_p_61
     changed = true
   end
-  if show.snapshot_full_refresh_tcp_group ~= cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_tcp_group then
-    show.snapshot_full_refresh_tcp_group = cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_tcp_group
+  if show.snapshot_full_refresh_tcp_group ~= cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_tcp_group then
+    show.snapshot_full_refresh_tcp_group = cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_tcp_group
     changed = true
   end
-  if show.snapshot_full_refresh_tcp_groups ~= cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_tcp_groups then
-    show.snapshot_full_refresh_tcp_groups = cme_mdp3_sbe_v10_1.prefs.show_snapshot_full_refresh_tcp_groups
+  if show.snapshot_full_refresh_tcp_groups ~= cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_tcp_groups then
+    show.snapshot_full_refresh_tcp_groups = cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_tcp_groups
     changed = true
   end
-  if show.snapshot_refresh_top_orders_59 ~= cme_mdp3_sbe_v10_1.prefs.show_snapshot_refresh_top_orders_59 then
-    show.snapshot_refresh_top_orders_59 = cme_mdp3_sbe_v10_1.prefs.show_snapshot_refresh_top_orders_59
+  if show.snapshot_refresh_top_orders_59 ~= cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_refresh_top_orders_59 then
+    show.snapshot_refresh_top_orders_59 = cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_refresh_top_orders_59
     changed = true
   end
-  if show.snapshot_refresh_top_orders_group ~= cme_mdp3_sbe_v10_1.prefs.show_snapshot_refresh_top_orders_group then
-    show.snapshot_refresh_top_orders_group = cme_mdp3_sbe_v10_1.prefs.show_snapshot_refresh_top_orders_group
+  if show.snapshot_refresh_top_orders_group ~= cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_refresh_top_orders_group then
+    show.snapshot_refresh_top_orders_group = cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_refresh_top_orders_group
     changed = true
   end
-  if show.snapshot_refresh_top_orders_groups ~= cme_mdp3_sbe_v10_1.prefs.show_snapshot_refresh_top_orders_groups then
-    show.snapshot_refresh_top_orders_groups = cme_mdp3_sbe_v10_1.prefs.show_snapshot_refresh_top_orders_groups
+  if show.snapshot_refresh_top_orders_groups ~= cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_refresh_top_orders_groups then
+    show.snapshot_refresh_top_orders_groups = cme_futures_mdp3_sbe_v1_10.prefs.show_snapshot_refresh_top_orders_groups
     changed = true
   end
-  if show.underlyings_group ~= cme_mdp3_sbe_v10_1.prefs.show_underlyings_group then
-    show.underlyings_group = cme_mdp3_sbe_v10_1.prefs.show_underlyings_group
+  if show.underlyings_group ~= cme_futures_mdp3_sbe_v1_10.prefs.show_underlyings_group then
+    show.underlyings_group = cme_futures_mdp3_sbe_v1_10.prefs.show_underlyings_group
     changed = true
   end
-  if show.underlyings_groups ~= cme_mdp3_sbe_v10_1.prefs.show_underlyings_groups then
-    show.underlyings_groups = cme_mdp3_sbe_v10_1.prefs.show_underlyings_groups
+  if show.underlyings_groups ~= cme_futures_mdp3_sbe_v1_10.prefs.show_underlyings_groups then
+    show.underlyings_groups = cme_futures_mdp3_sbe_v1_10.prefs.show_underlyings_groups
     changed = true
   end
-  if show.payload ~= cme_mdp3_sbe_v10_1.prefs.show_payload then
-    show.payload = cme_mdp3_sbe_v10_1.prefs.show_payload
+  if show.payload ~= cme_futures_mdp3_sbe_v1_10.prefs.show_payload then
+    show.payload = cme_futures_mdp3_sbe_v1_10.prefs.show_payload
     changed = true
   end
 
@@ -773,7 +773,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Cme Mdp3 Sbe 10.1
+-- Dissect Cme Futures Mdp3 Sbe 1.10
 -----------------------------------------------------------------------
 
 -- Display: Settl Price Type
@@ -808,22 +808,22 @@ end
 dissect.settl_price_type_bits = function(buffer, offset, packet, parent)
 
   -- Null Value: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.null_value, buffer(offset, 1))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.null_value, buffer(offset, 1))
 
   -- Reserved Bits: 3 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.reserved_bits, buffer(offset, 1))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.reserved_bits, buffer(offset, 1))
 
   -- Intraday: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.intraday, buffer(offset, 1))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.intraday, buffer(offset, 1))
 
   -- Rounded: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.rounded, buffer(offset, 1))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.rounded, buffer(offset, 1))
 
   -- Actual: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.actual, buffer(offset, 1))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.actual, buffer(offset, 1))
 
   -- Final Daily: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.final_daily, buffer(offset, 1))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.final_daily, buffer(offset, 1))
 end
 
 -- Dissect: Settl Price Type
@@ -831,7 +831,7 @@ dissect.settl_price_type = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
   local display = display.settl_price_type(range, packet, parent)
-  local element = parent:add(cme_mdp3_sbe_v10_1.fields.settl_price_type, range, display)
+  local element = parent:add(cme_futures_mdp3_sbe_v1_10.fields.settl_price_type, range, display)
 
   if show.settl_price_type then
     dissect.settl_price_type_bits(buffer, offset, packet, element)
@@ -860,7 +860,7 @@ dissect.trading_reference_date = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.trading_reference_date(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.trading_reference_date, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.trading_reference_date, range, value, display)
 
   return offset + length, value
 end
@@ -935,7 +935,7 @@ dissect.md_entry_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.md_entry_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.md_entry_type, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.md_entry_type, range, value, display)
 
   return offset + length, value
 end
@@ -977,7 +977,7 @@ dissect.open_close_settl_flag = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.open_close_settl_flag(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.open_close_settl_flag, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.open_close_settl_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1002,7 +1002,7 @@ dissect.md_price_level = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.md_price_level(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.md_price_level, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.md_price_level, range, value, display)
 
   return offset + length, value
 end
@@ -1027,7 +1027,7 @@ dissect.number_of_orders = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.number_of_orders(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.number_of_orders, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.number_of_orders, range, value, display)
 
   return offset + length, value
 end
@@ -1052,7 +1052,7 @@ dissect.tradeable_size = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.tradeable_size(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.tradeable_size, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.tradeable_size, range, value, display)
 
   return offset + length, value
 end
@@ -1077,7 +1077,7 @@ dissect.md_entry_size = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.md_entry_size(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.md_entry_size, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.md_entry_size, range, value, display)
 
   return offset + length, value
 end
@@ -1098,7 +1098,7 @@ dissect.md_entry_px = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.md_entry_px(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.md_entry_px, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.md_entry_px, range, value, display)
 
   return offset + length, value
 end
@@ -1148,7 +1148,7 @@ dissect.snapshot_full_refresh_tcp_group = function(buffer, offset, packet, paren
   if show.snapshot_full_refresh_tcp_group then
     local range = buffer(offset, 26)
     local display = display.snapshot_full_refresh_tcp_group(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.snapshot_full_refresh_tcp_group, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.snapshot_full_refresh_tcp_group, range, display)
   end
 
   return dissect.snapshot_full_refresh_tcp_group_fields(buffer, offset, packet, parent)
@@ -1169,7 +1169,7 @@ dissect.num_in_group = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.num_in_group(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.num_in_group, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.num_in_group, range, value, display)
 
   return offset + length, value
 end
@@ -1189,7 +1189,7 @@ dissect.block_length = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.block_length(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.block_length, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.block_length, range, value, display)
 
   return offset + length, value
 end
@@ -1218,7 +1218,7 @@ dissect.group_size = function(buffer, offset, packet, parent)
   if show.group_size then
     local range = buffer(offset, 3)
     local display = display.group_size(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.group_size, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.group_size, range, display)
   end
 
   return dissect.group_size_fields(buffer, offset, packet, parent)
@@ -1267,7 +1267,7 @@ dissect.snapshot_full_refresh_tcp_groups = function(buffer, offset, packet, pare
     local length = size_of.snapshot_full_refresh_tcp_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.snapshot_full_refresh_tcp_groups(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.snapshot_full_refresh_tcp_groups, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.snapshot_full_refresh_tcp_groups, range, display)
   end
 
   return dissect.snapshot_full_refresh_tcp_groups_fields(buffer, offset, packet, parent)
@@ -1289,7 +1289,7 @@ dissect.max_price_variation = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.max_price_variation(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.max_price_variation, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.max_price_variation, range, value, display)
 
   return offset + length, value
 end
@@ -1310,7 +1310,7 @@ dissect.low_limit_price = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.low_limit_price(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.low_limit_price, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.low_limit_price, range, value, display)
 
   return offset + length, value
 end
@@ -1331,7 +1331,7 @@ dissect.high_limit_price = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.high_limit_price(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.high_limit_price, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.high_limit_price, range, value, display)
 
   return offset + length, value
 end
@@ -1356,7 +1356,7 @@ dissect.security_id = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.security_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.security_id, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.security_id, range, value, display)
 
   return offset + length, value
 end
@@ -1405,28 +1405,28 @@ end
 dissect.match_event_indicator_bits = function(buffer, offset, packet, parent)
 
   -- End Of Event: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.end_of_event, buffer(offset, 1))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.end_of_event, buffer(offset, 1))
 
   -- Reserved: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.reserved, buffer(offset, 1))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.reserved, buffer(offset, 1))
 
   -- Recovery Msg: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.recovery_msg, buffer(offset, 1))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.recovery_msg, buffer(offset, 1))
 
   -- Last Implied Msg: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.last_implied_msg, buffer(offset, 1))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.last_implied_msg, buffer(offset, 1))
 
   -- Last Stats Msg: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.last_stats_msg, buffer(offset, 1))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.last_stats_msg, buffer(offset, 1))
 
   -- Last Quote Msg: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.last_quote_msg, buffer(offset, 1))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.last_quote_msg, buffer(offset, 1))
 
   -- Last Volume Msg: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.last_volume_msg, buffer(offset, 1))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.last_volume_msg, buffer(offset, 1))
 
   -- Last Trade Msg: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.last_trade_msg, buffer(offset, 1))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.last_trade_msg, buffer(offset, 1))
 end
 
 -- Dissect: Match Event Indicator
@@ -1434,7 +1434,7 @@ dissect.match_event_indicator = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
   local display = display.match_event_indicator(range, packet, parent)
-  local element = parent:add(cme_mdp3_sbe_v10_1.fields.match_event_indicator, range, display)
+  local element = parent:add(cme_futures_mdp3_sbe_v1_10.fields.match_event_indicator, range, display)
 
   if show.match_event_indicator then
     dissect.match_event_indicator_bits(buffer, offset, packet, element)
@@ -1458,7 +1458,7 @@ dissect.transact_time = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.transact_time(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.transact_time, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.transact_time, range, value, display)
 
   return offset + length, value
 end
@@ -1514,7 +1514,7 @@ dissect.snapshot_full_refresh_tc_p_61 = function(buffer, offset, packet, parent)
     local length = size_of.snapshot_full_refresh_tc_p_61(buffer, offset)
     local range = buffer(offset, length)
     local display = display.snapshot_full_refresh_tc_p_61(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.snapshot_full_refresh_tc_p_61, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.snapshot_full_refresh_tc_p_61, range, display)
   end
 
   return dissect.snapshot_full_refresh_tc_p_61_fields(buffer, offset, packet, parent)
@@ -1535,7 +1535,7 @@ dissect.aggressor_indicator = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.aggressor_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.aggressor_indicator, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.aggressor_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1565,7 +1565,7 @@ dissect.side = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.side(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.side, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -1590,7 +1590,7 @@ dissect.order_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.order_id, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -1622,7 +1622,7 @@ dissect.security_status_workup_order_group = function(buffer, offset, packet, pa
   if show.security_status_workup_order_group then
     local range = buffer(offset, 10)
     local display = display.security_status_workup_order_group(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.security_status_workup_order_group, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.security_status_workup_order_group, range, display)
   end
 
   return dissect.security_status_workup_order_group_fields(buffer, offset, packet, parent)
@@ -1671,7 +1671,7 @@ dissect.security_status_workup_order_groups = function(buffer, offset, packet, p
     local length = size_of.security_status_workup_order_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.security_status_workup_order_groups(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.security_status_workup_order_groups, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.security_status_workup_order_groups, range, display)
   end
 
   return dissect.security_status_workup_order_groups_fields(buffer, offset, packet, parent)
@@ -1711,7 +1711,7 @@ dissect.security_trading_event = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.security_trading_event(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.security_trading_event, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.security_trading_event, range, value, display)
 
   return offset + length, value
 end
@@ -1753,7 +1753,7 @@ dissect.halt_reason = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.halt_reason(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.halt_reason, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.halt_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1810,7 +1810,7 @@ dissect.security_trading_status = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.security_trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.security_trading_status, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.security_trading_status, range, value, display)
 
   return offset + length, value
 end
@@ -1830,7 +1830,7 @@ dissect.trade_link_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.trade_link_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.trade_link_id, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.trade_link_id, range, value, display)
 
   return offset + length, value
 end
@@ -1855,7 +1855,7 @@ dissect.trade_date = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.trade_date(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.trade_date, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.trade_date, range, value, display)
 
   return offset + length, value
 end
@@ -1920,7 +1920,7 @@ dissect.security_status_workup_60 = function(buffer, offset, packet, parent)
     local length = size_of.security_status_workup_60(buffer, offset)
     local range = buffer(offset, length)
     local display = display.security_status_workup_60(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.security_status_workup_60, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.security_status_workup_60, range, display)
   end
 
   return dissect.security_status_workup_60_fields(buffer, offset, packet, parent)
@@ -1946,7 +1946,7 @@ dissect.md_display_qty = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.md_display_qty(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.md_display_qty, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.md_display_qty, range, value, display)
 
   return offset + length, value
 end
@@ -1971,7 +1971,7 @@ dissect.md_order_priority = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.md_order_priority(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.md_order_priority, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.md_order_priority, range, value, display)
 
   return offset + length, value
 end
@@ -2009,7 +2009,7 @@ dissect.snapshot_refresh_top_orders_group = function(buffer, offset, packet, par
   if show.snapshot_refresh_top_orders_group then
     local range = buffer(offset, 29)
     local display = display.snapshot_refresh_top_orders_group(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.snapshot_refresh_top_orders_group, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.snapshot_refresh_top_orders_group, range, display)
   end
 
   return dissect.snapshot_refresh_top_orders_group_fields(buffer, offset, packet, parent)
@@ -2058,7 +2058,7 @@ dissect.snapshot_refresh_top_orders_groups = function(buffer, offset, packet, pa
     local length = size_of.snapshot_refresh_top_orders_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.snapshot_refresh_top_orders_groups(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.snapshot_refresh_top_orders_groups, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.snapshot_refresh_top_orders_groups, range, display)
   end
 
   return dissect.snapshot_refresh_top_orders_groups_fields(buffer, offset, packet, parent)
@@ -2106,7 +2106,7 @@ dissect.snapshot_refresh_top_orders_59 = function(buffer, offset, packet, parent
     local length = size_of.snapshot_refresh_top_orders_59(buffer, offset)
     local range = buffer(offset, length)
     local display = display.snapshot_refresh_top_orders_59(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.snapshot_refresh_top_orders_59, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.snapshot_refresh_top_orders_59, range, display)
   end
 
   return dissect.snapshot_refresh_top_orders_59_fields(buffer, offset, packet, parent)
@@ -2127,7 +2127,7 @@ dissect.related_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.related_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.related_symbol, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.related_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -2147,7 +2147,7 @@ dissect.related_security_id = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.related_security_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.related_security_id, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.related_security_id, range, value, display)
 
   return offset + length, value
 end
@@ -2176,7 +2176,7 @@ dissect.related_instruments_group = function(buffer, offset, packet, parent)
   if show.related_instruments_group then
     local range = buffer(offset, 24)
     local display = display.related_instruments_group(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.related_instruments_group, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.related_instruments_group, range, display)
   end
 
   return dissect.related_instruments_group_fields(buffer, offset, packet, parent)
@@ -2225,7 +2225,7 @@ dissect.related_instruments_groups = function(buffer, offset, packet, parent)
     local length = size_of.related_instruments_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.related_instruments_groups(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.related_instruments_groups, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.related_instruments_groups, range, display)
   end
 
   return dissect.related_instruments_groups_fields(buffer, offset, packet, parent)
@@ -2246,7 +2246,7 @@ dissect.underlying_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.underlying_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.underlying_symbol, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.underlying_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -2271,7 +2271,7 @@ dissect.underlying_security_id = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.underlying_security_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.underlying_security_id, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.underlying_security_id, range, value, display)
 
   return offset + length, value
 end
@@ -2300,7 +2300,7 @@ dissect.underlyings_group = function(buffer, offset, packet, parent)
   if show.underlyings_group then
     local range = buffer(offset, 24)
     local display = display.underlyings_group(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.underlyings_group, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.underlyings_group, range, display)
   end
 
   return dissect.underlyings_group_fields(buffer, offset, packet, parent)
@@ -2349,7 +2349,7 @@ dissect.underlyings_groups = function(buffer, offset, packet, parent)
     local length = size_of.underlyings_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.underlyings_groups(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.underlyings_groups, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.underlyings_groups, range, display)
   end
 
   return dissect.underlyings_groups_fields(buffer, offset, packet, parent)
@@ -2371,7 +2371,7 @@ dissect.min_lot_size = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.min_lot_size(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.min_lot_size, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.min_lot_size, range, value, display)
 
   return offset + length, value
 end
@@ -2391,7 +2391,7 @@ dissect.lot_type = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.lot_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.lot_type, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.lot_type, range, value, display)
 
   return offset + length, value
 end
@@ -2420,7 +2420,7 @@ dissect.lot_type_rules_group = function(buffer, offset, packet, parent)
   if show.lot_type_rules_group then
     local range = buffer(offset, 5)
     local display = display.lot_type_rules_group(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.lot_type_rules_group, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.lot_type_rules_group, range, display)
   end
 
   return dissect.lot_type_rules_group_fields(buffer, offset, packet, parent)
@@ -2469,7 +2469,7 @@ dissect.lot_type_rules_groups = function(buffer, offset, packet, parent)
     local length = size_of.lot_type_rules_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.lot_type_rules_groups(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.lot_type_rules_groups, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.lot_type_rules_groups, range, display)
   end
 
   return dissect.lot_type_rules_groups_fields(buffer, offset, packet, parent)
@@ -2583,79 +2583,79 @@ end
 dissect.inst_attrib_value_bits = function(buffer, offset, packet, parent)
 
   -- Reserved 8: 8 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.reserved_8, buffer(offset, 4))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.reserved_8, buffer(offset, 4))
 
   -- Is Ao N Instrument: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.is_ao_n_instrument, buffer(offset, 4))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.is_ao_n_instrument, buffer(offset, 4))
 
   -- Inverted Book: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.inverted_book, buffer(offset, 4))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.inverted_book, buffer(offset, 4))
 
   -- Variable Cab Eligible: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.variable_cab_eligible, buffer(offset, 4))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.variable_cab_eligible, buffer(offset, 4))
 
   -- Triangulation Eligible: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.triangulation_eligible, buffer(offset, 4))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.triangulation_eligible, buffer(offset, 4))
 
   -- Implied Matching Eligibility: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.implied_matching_eligibility, buffer(offset, 4))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.implied_matching_eligibility, buffer(offset, 4))
 
   -- Gt Orders Eligibility: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.gt_orders_eligibility, buffer(offset, 4))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.gt_orders_eligibility, buffer(offset, 4))
 
   -- Daily Product Eligibility: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.daily_product_eligibility, buffer(offset, 4))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.daily_product_eligibility, buffer(offset, 4))
 
   -- Variable Product Eligibility: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.variable_product_eligibility, buffer(offset, 4))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.variable_product_eligibility, buffer(offset, 4))
 
   -- Decaying Product Eligibility: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.decaying_product_eligibility, buffer(offset, 4))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.decaying_product_eligibility, buffer(offset, 4))
 
   -- Zero Price Outright Eligible: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.zero_price_outright_eligible, buffer(offset, 4))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.zero_price_outright_eligible, buffer(offset, 4))
 
   -- Rfq Cross Eligible: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.rfq_cross_eligible, buffer(offset, 4))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.rfq_cross_eligible, buffer(offset, 4))
 
   -- Volatility Quoted Option: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.volatility_quoted_option, buffer(offset, 4))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.volatility_quoted_option, buffer(offset, 4))
 
   -- Is Fractional: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.is_fractional, buffer(offset, 4))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.is_fractional, buffer(offset, 4))
 
   -- Negative Price Outright Eligible: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.negative_price_outright_eligible, buffer(offset, 4))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.negative_price_outright_eligible, buffer(offset, 4))
 
   -- Negative Strike Eligible: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.negative_strike_eligible, buffer(offset, 4))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.negative_strike_eligible, buffer(offset, 4))
 
   -- I Link Indicative Mass Quoting Eligible: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.i_link_indicative_mass_quoting_eligible, buffer(offset, 4))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.i_link_indicative_mass_quoting_eligible, buffer(offset, 4))
 
   -- Otc Eligible: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.otc_eligible, buffer(offset, 4))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.otc_eligible, buffer(offset, 4))
 
   -- Efr Eligible: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.efr_eligible, buffer(offset, 4))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.efr_eligible, buffer(offset, 4))
 
   -- Efs Eligible: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.efs_eligible, buffer(offset, 4))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.efs_eligible, buffer(offset, 4))
 
   -- Ebf Eligible: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.ebf_eligible, buffer(offset, 4))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.ebf_eligible, buffer(offset, 4))
 
   -- Efp Eligible: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.efp_eligible, buffer(offset, 4))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.efp_eligible, buffer(offset, 4))
 
   -- Block Trade Eligible: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.block_trade_eligible, buffer(offset, 4))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.block_trade_eligible, buffer(offset, 4))
 
   -- Order Cross Eligible: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.order_cross_eligible, buffer(offset, 4))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.order_cross_eligible, buffer(offset, 4))
 
   -- Electronic Match Eligible: 1 Bit
-  parent:add(cme_mdp3_sbe_v10_1.fields.electronic_match_eligible, buffer(offset, 4))
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.electronic_match_eligible, buffer(offset, 4))
 end
 
 -- Dissect: Inst Attrib Value
@@ -2663,7 +2663,7 @@ dissect.inst_attrib_value = function(buffer, offset, packet, parent)
   local size = 4
   local range = buffer(offset, size)
   local display = display.inst_attrib_value(range, packet, parent)
-  local element = parent:add(cme_mdp3_sbe_v10_1.fields.inst_attrib_value, range, display)
+  local element = parent:add(cme_futures_mdp3_sbe_v1_10.fields.inst_attrib_value, range, display)
 
   if show.inst_attrib_value then
     dissect.inst_attrib_value_bits(buffer, offset, packet, element)
@@ -2693,7 +2693,7 @@ dissect.inst_attrib_group = function(buffer, offset, packet, parent)
   if show.inst_attrib_group then
     local range = buffer(offset, 4)
     local display = display.inst_attrib_group(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.inst_attrib_group, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.inst_attrib_group, range, display)
   end
 
   return dissect.inst_attrib_group_fields(buffer, offset, packet, parent)
@@ -2742,7 +2742,7 @@ dissect.inst_attrib_groups = function(buffer, offset, packet, parent)
     local length = size_of.inst_attrib_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.inst_attrib_groups(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.inst_attrib_groups, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.inst_attrib_groups, range, display)
   end
 
   return dissect.inst_attrib_groups_fields(buffer, offset, packet, parent)
@@ -2763,7 +2763,7 @@ dissect.market_depth = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.market_depth(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.market_depth, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.market_depth, range, value, display)
 
   return offset + length, value
 end
@@ -2783,7 +2783,7 @@ dissect.md_feed_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.md_feed_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.md_feed_type, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.md_feed_type, range, value, display)
 
   return offset + length, value
 end
@@ -2812,7 +2812,7 @@ dissect.m_d_feed_types_group = function(buffer, offset, packet, parent)
   if show.m_d_feed_types_group then
     local range = buffer(offset, 4)
     local display = display.m_d_feed_types_group(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.m_d_feed_types_group, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.m_d_feed_types_group, range, display)
   end
 
   return dissect.m_d_feed_types_group_fields(buffer, offset, packet, parent)
@@ -2861,7 +2861,7 @@ dissect.m_d_feed_types_groups = function(buffer, offset, packet, parent)
     local length = size_of.m_d_feed_types_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.m_d_feed_types_groups(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.m_d_feed_types_groups, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.m_d_feed_types_groups, range, display)
   end
 
   return dissect.m_d_feed_types_groups_fields(buffer, offset, packet, parent)
@@ -2882,7 +2882,7 @@ dissect.event_time = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.event_time(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.event_time, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.event_time, range, value, display)
 
   return offset + length, value
 end
@@ -2909,7 +2909,7 @@ dissect.event_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.event_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.event_type, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.event_type, range, value, display)
 
   return offset + length, value
 end
@@ -2938,7 +2938,7 @@ dissect.events_group = function(buffer, offset, packet, parent)
   if show.events_group then
     local range = buffer(offset, 9)
     local display = display.events_group(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.events_group, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.events_group, range, display)
   end
 
   return dissect.events_group_fields(buffer, offset, packet, parent)
@@ -2987,7 +2987,7 @@ dissect.events_groups = function(buffer, offset, packet, parent)
     local length = size_of.events_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.events_groups(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.events_groups, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.events_groups, range, display)
   end
 
   return dissect.events_groups_fields(buffer, offset, packet, parent)
@@ -3013,7 +3013,7 @@ dissect.instrument_guid = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.instrument_guid(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.instrument_guid, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.instrument_guid, range, value, display)
 
   return offset + length, value
 end
@@ -3033,7 +3033,7 @@ dissect.market_set = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.market_set(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.market_set, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.market_set, range, value, display)
 
   return offset + length, value
 end
@@ -3053,7 +3053,7 @@ dissect.risk_set = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.risk_set(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.risk_set, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.risk_set, range, value, display)
 
   return offset + length, value
 end
@@ -3073,7 +3073,7 @@ dissect.user_defined_instrument = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.user_defined_instrument(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.user_defined_instrument, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.user_defined_instrument, range, value, display)
 
   return offset + length, value
 end
@@ -3093,7 +3093,7 @@ dissect.price_quote_method = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.price_quote_method(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.price_quote_method, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.price_quote_method, range, value, display)
 
   return offset + length, value
 end
@@ -3113,7 +3113,7 @@ dissect.max_no_of_substitutions = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.max_no_of_substitutions(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.max_no_of_substitutions, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.max_no_of_substitutions, range, value, display)
 
   return offset + length, value
 end
@@ -3143,7 +3143,7 @@ dissect.money_or_par = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.money_or_par(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.money_or_par, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.money_or_par, range, value, display)
 
   return offset + length, value
 end
@@ -3163,7 +3163,7 @@ dissect.security_sub_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_sub_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.security_sub_type, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.security_sub_type, range, value, display)
 
   return offset + length, value
 end
@@ -3183,7 +3183,7 @@ dissect.termination_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.termination_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.termination_type, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.termination_type, range, value, display)
 
   return offset + length, value
 end
@@ -3208,7 +3208,7 @@ dissect.end_date = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.end_date(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.end_date, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.end_date, range, value, display)
 
   return offset + length, value
 end
@@ -3233,7 +3233,7 @@ dissect.start_date = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.start_date(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.start_date, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.start_date, range, value, display)
 
   return offset + length, value
 end
@@ -3253,7 +3253,7 @@ dissect.party_role_clearing_org = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.party_role_clearing_org(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.party_role_clearing_org, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.party_role_clearing_org, range, value, display)
 
   return offset + length, value
 end
@@ -3273,7 +3273,7 @@ dissect.financial_instrument_full_name = function(buffer, offset, packet, parent
   local value = range:string()
   local display = display.financial_instrument_full_name(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.financial_instrument_full_name, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.financial_instrument_full_name, range, value, display)
 
   return offset + length, value
 end
@@ -3294,7 +3294,7 @@ dissect.trading_reference_price = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.trading_reference_price(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.trading_reference_price, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.trading_reference_price, range, value, display)
 
   return offset + length, value
 end
@@ -3315,7 +3315,7 @@ dissect.unit_of_measure_qty = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.unit_of_measure_qty(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.unit_of_measure_qty, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.unit_of_measure_qty, range, value, display)
 
   return offset + length, value
 end
@@ -3335,7 +3335,7 @@ dissect.unit_of_measure = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.unit_of_measure(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.unit_of_measure, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.unit_of_measure, range, value, display)
 
   return offset + length, value
 end
@@ -3356,7 +3356,7 @@ dissect.display_factor = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.display_factor(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.display_factor, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.display_factor, range, value, display)
 
   return offset + length, value
 end
@@ -3377,7 +3377,7 @@ dissect.min_price_increment = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.min_price_increment(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.min_price_increment, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.min_price_increment, range, value, display)
 
   return offset + length, value
 end
@@ -3397,7 +3397,7 @@ dissect.max_trade_vol = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.max_trade_vol(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.max_trade_vol, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.max_trade_vol, range, value, display)
 
   return offset + length, value
 end
@@ -3417,7 +3417,7 @@ dissect.min_trade_vol = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.min_trade_vol(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.min_trade_vol, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.min_trade_vol, range, value, display)
 
   return offset + length, value
 end
@@ -3437,7 +3437,7 @@ dissect.match_algorithm = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.match_algorithm(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.match_algorithm, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.match_algorithm, range, value, display)
 
   return offset + length, value
 end
@@ -3457,7 +3457,7 @@ dissect.settl_currency = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.settl_currency(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.settl_currency, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.settl_currency, range, value, display)
 
   return offset + length, value
 end
@@ -3477,7 +3477,7 @@ dissect.currency = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.currency(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.currency, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.currency, range, value, display)
 
   return offset + length, value
 end
@@ -3497,7 +3497,7 @@ dissect.cfi_code = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.cfi_code(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.cfi_code, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.cfi_code, range, value, display)
 
   return offset + length, value
 end
@@ -3517,7 +3517,7 @@ dissect.security_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.security_type, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.security_type, range, value, display)
 
   return offset + length, value
 end
@@ -3537,7 +3537,7 @@ dissect.symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.symbol, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -3557,7 +3557,7 @@ dissect.asset = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.asset(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.asset, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.asset, range, value, display)
 
   return offset + length, value
 end
@@ -3577,7 +3577,7 @@ dissect.security_group = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_group(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.security_group, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.security_group, range, value, display)
 
   return offset + length, value
 end
@@ -3597,7 +3597,7 @@ dissect.security_exchange = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_exchange(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.security_exchange, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.security_exchange, range, value, display)
 
   return offset + length, value
 end
@@ -3622,7 +3622,7 @@ dissect.underlying_product = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.underlying_product(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.underlying_product, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.underlying_product, range, value, display)
 
   return offset + length, value
 end
@@ -3642,7 +3642,7 @@ dissect.market_segment_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.market_segment_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.market_segment_id, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.market_segment_id, range, value, display)
 
   return offset + length, value
 end
@@ -3662,7 +3662,7 @@ dissect.appl_id = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.appl_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.appl_id, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.appl_id, range, value, display)
 
   return offset + length, value
 end
@@ -3682,7 +3682,7 @@ dissect.md_security_trading_status = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.md_security_trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.md_security_trading_status, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.md_security_trading_status, range, value, display)
 
   return offset + length, value
 end
@@ -3702,7 +3702,7 @@ dissect.last_update_time = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.last_update_time(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.last_update_time, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.last_update_time, range, value, display)
 
   return offset + length, value
 end
@@ -3732,7 +3732,7 @@ dissect.security_update_action = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_update_action(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.security_update_action, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.security_update_action, range, value, display)
 
   return offset + length, value
 end
@@ -3757,7 +3757,7 @@ dissect.tot_num_reports = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.tot_num_reports(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.tot_num_reports, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.tot_num_reports, range, value, display)
 
   return offset + length, value
 end
@@ -3946,7 +3946,7 @@ dissect.md_instrument_definition_repo_58 = function(buffer, offset, packet, pare
     local length = size_of.md_instrument_definition_repo_58(buffer, offset)
     local range = buffer(offset, length)
     local display = display.md_instrument_definition_repo_58(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.md_instrument_definition_repo_58, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.md_instrument_definition_repo_58, range, display)
   end
 
   return dissect.md_instrument_definition_repo_58_fields(buffer, offset, packet, parent)
@@ -3977,7 +3977,7 @@ dissect.security_alt_id_source = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.security_alt_id_source(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.security_alt_id_source, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.security_alt_id_source, range, value, display)
 
   return offset + length, value
 end
@@ -3997,7 +3997,7 @@ dissect.security_alt_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_alt_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.security_alt_id, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.security_alt_id, range, value, display)
 
   return offset + length, value
 end
@@ -4017,7 +4017,7 @@ dissect.issuer = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.issuer(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.issuer, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.issuer, range, value, display)
 
   return offset + length, value
 end
@@ -4037,7 +4037,7 @@ dissect.country_of_issue = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.country_of_issue(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.country_of_issue, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.country_of_issue, range, value, display)
 
   return offset + length, value
 end
@@ -4057,7 +4057,7 @@ dissect.coupon_day_count = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.coupon_day_count(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.coupon_day_count, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.coupon_day_count, range, value, display)
 
   return offset + length, value
 end
@@ -4082,7 +4082,7 @@ dissect.coupon_frequency_period = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.coupon_frequency_period(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.coupon_frequency_period, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.coupon_frequency_period, range, value, display)
 
   return offset + length, value
 end
@@ -4102,7 +4102,7 @@ dissect.coupon_frequency_unit = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.coupon_frequency_unit(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.coupon_frequency_unit, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.coupon_frequency_unit, range, value, display)
 
   return offset + length, value
 end
@@ -4123,7 +4123,7 @@ dissect.par_value = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.par_value(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.par_value, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.par_value, range, value, display)
 
   return offset + length, value
 end
@@ -4144,7 +4144,7 @@ dissect.coupon_rate = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.coupon_rate(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.coupon_rate, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.coupon_rate, range, value, display)
 
   return offset + length, value
 end
@@ -4169,7 +4169,7 @@ dissect.maturity_date = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.maturity_date(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.maturity_date, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.maturity_date, range, value, display)
 
   return offset + length, value
 end
@@ -4194,7 +4194,7 @@ dissect.dated_date = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.dated_date(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.dated_date, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.dated_date, range, value, display)
 
   return offset + length, value
 end
@@ -4219,7 +4219,7 @@ dissect.issue_date = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.issue_date(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.issue_date, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.issue_date, range, value, display)
 
   return offset + length, value
 end
@@ -4240,7 +4240,7 @@ dissect.min_price_increment_amount = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.min_price_increment_amount(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.min_price_increment_amount, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.min_price_increment_amount, range, value, display)
 
   return offset + length, value
 end
@@ -4265,7 +4265,7 @@ dissect.price_display_format = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.price_display_format(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.price_display_format, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.price_display_format, range, value, display)
 
   return offset + length, value
 end
@@ -4290,7 +4290,7 @@ dissect.sub_fraction = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.sub_fraction(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.sub_fraction, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.sub_fraction, range, value, display)
 
   return offset + length, value
 end
@@ -4315,7 +4315,7 @@ dissect.main_fraction = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.main_fraction(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.main_fraction, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.main_fraction, range, value, display)
 
   return offset + length, value
 end
@@ -4524,7 +4524,7 @@ dissect.md_instrument_definition_fixed_income_57 = function(buffer, offset, pack
     local length = size_of.md_instrument_definition_fixed_income_57(buffer, offset)
     local range = buffer(offset, length)
     local display = display.md_instrument_definition_fixed_income_57(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.md_instrument_definition_fixed_income_57, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.md_instrument_definition_fixed_income_57, range, display)
   end
 
   return dissect.md_instrument_definition_fixed_income_57_fields(buffer, offset, packet, parent)
@@ -4546,7 +4546,7 @@ dissect.leg_option_delta = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.leg_option_delta(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.leg_option_delta, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.leg_option_delta, range, value, display)
 
   return offset + length, value
 end
@@ -4567,7 +4567,7 @@ dissect.leg_price = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.leg_price(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.leg_price, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.leg_price, range, value, display)
 
   return offset + length, value
 end
@@ -4587,7 +4587,7 @@ dissect.leg_ratio_qty = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.leg_ratio_qty(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.leg_ratio_qty, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.leg_ratio_qty, range, value, display)
 
   return offset + length, value
 end
@@ -4614,7 +4614,7 @@ dissect.leg_side = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.leg_side(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.leg_side, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.leg_side, range, value, display)
 
   return offset + length, value
 end
@@ -4634,7 +4634,7 @@ dissect.leg_security_id = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.leg_security_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.leg_security_id, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.leg_security_id, range, value, display)
 
   return offset + length, value
 end
@@ -4672,7 +4672,7 @@ dissect.legs_group = function(buffer, offset, packet, parent)
   if show.legs_group then
     local range = buffer(offset, 18)
     local display = display.legs_group(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.legs_group, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.legs_group, range, display)
   end
 
   return dissect.legs_group_fields(buffer, offset, packet, parent)
@@ -4721,7 +4721,7 @@ dissect.legs_groups = function(buffer, offset, packet, parent)
     local length = size_of.legs_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.legs_groups(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.legs_groups, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.legs_groups, range, display)
   end
 
   return dissect.legs_groups_fields(buffer, offset, packet, parent)
@@ -4747,7 +4747,7 @@ dissect.cleared_volume = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.cleared_volume(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.cleared_volume, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.cleared_volume, range, value, display)
 
   return offset + length, value
 end
@@ -4772,7 +4772,7 @@ dissect.open_interest_qty = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.open_interest_qty(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.open_interest_qty, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.open_interest_qty, range, value, display)
 
   return offset + length, value
 end
@@ -4797,7 +4797,7 @@ dissect.tick_rule = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.tick_rule(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.tick_rule, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.tick_rule, range, value, display)
 
   return offset + length, value
 end
@@ -4818,7 +4818,7 @@ dissect.price_ratio = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.price_ratio(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.price_ratio, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.price_ratio, range, value, display)
 
   return offset + length, value
 end
@@ -4843,7 +4843,7 @@ dissect.week = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.week(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.week, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.week, range, value, display)
 
   return offset + length, value
 end
@@ -4868,7 +4868,7 @@ dissect.day = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.day(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.day, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.day, range, value, display)
 
   return offset + length, value
 end
@@ -4893,7 +4893,7 @@ dissect.month = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.month(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.month, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.month, range, value, display)
 
   return offset + length, value
 end
@@ -4918,7 +4918,7 @@ dissect.year = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.year(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.year, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.year, range, value, display)
 
   return offset + length, value
 end
@@ -4953,7 +4953,7 @@ dissect.maturity_month_year = function(buffer, offset, packet, parent)
   if show.maturity_month_year then
     local range = buffer(offset, 5)
     local display = display.maturity_month_year(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.maturity_month_year, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.maturity_month_year, range, display)
   end
 
   return dissect.maturity_month_year_fields(buffer, offset, packet, parent)
@@ -5141,7 +5141,7 @@ dissect.md_instrument_definition_spread_56 = function(buffer, offset, packet, pa
     local length = size_of.md_instrument_definition_spread_56(buffer, offset)
     local range = buffer(offset, length)
     local display = display.md_instrument_definition_spread_56(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.md_instrument_definition_spread_56, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.md_instrument_definition_spread_56, range, display)
   end
 
   return dissect.md_instrument_definition_spread_56_fields(buffer, offset, packet, parent)
@@ -5163,7 +5163,7 @@ dissect.min_cab_price = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.min_cab_price(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.min_cab_price, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.min_cab_price, range, value, display)
 
   return offset + length, value
 end
@@ -5183,7 +5183,7 @@ dissect.strike_currency = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.strike_currency(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.strike_currency, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.strike_currency, range, value, display)
 
   return offset + length, value
 end
@@ -5204,7 +5204,7 @@ dissect.strike_price = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.strike_price(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.strike_price, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.strike_price, range, value, display)
 
   return offset + length, value
 end
@@ -5231,7 +5231,7 @@ dissect.put_or_call = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.put_or_call(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.put_or_call, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.put_or_call, range, value, display)
 
   return offset + length, value
 end
@@ -5423,7 +5423,7 @@ dissect.md_instrument_definition_option_55 = function(buffer, offset, packet, pa
     local length = size_of.md_instrument_definition_option_55(buffer, offset)
     local range = buffer(offset, length)
     local display = display.md_instrument_definition_option_55(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.md_instrument_definition_option_55, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.md_instrument_definition_option_55, range, display)
   end
 
   return dissect.md_instrument_definition_option_55_fields(buffer, offset, packet, parent)
@@ -5449,7 +5449,7 @@ dissect.flow_schedule_type = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.flow_schedule_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.flow_schedule_type, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.flow_schedule_type, range, value, display)
 
   return offset + length, value
 end
@@ -5474,7 +5474,7 @@ dissect.contract_multiplier_unit = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.contract_multiplier_unit(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.contract_multiplier_unit, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.contract_multiplier_unit, range, value, display)
 
   return offset + length, value
 end
@@ -5499,7 +5499,7 @@ dissect.contract_multiplier = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.contract_multiplier(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.contract_multiplier, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.contract_multiplier, range, value, display)
 
   return offset + length, value
 end
@@ -5524,7 +5524,7 @@ dissect.original_contract_size = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.original_contract_size(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.original_contract_size, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.original_contract_size, range, value, display)
 
   return offset + length, value
 end
@@ -5549,7 +5549,7 @@ dissect.decay_start_date = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.decay_start_date(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.decay_start_date, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.decay_start_date, range, value, display)
 
   return offset + length, value
 end
@@ -5574,7 +5574,7 @@ dissect.decay_quantity = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.decay_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.decay_quantity, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.decay_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -5762,7 +5762,7 @@ dissect.md_instrument_definition_future_54 = function(buffer, offset, packet, pa
     local length = size_of.md_instrument_definition_future_54(buffer, offset)
     local range = buffer(offset, length)
     local display = display.md_instrument_definition_future_54(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.md_instrument_definition_future_54, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.md_instrument_definition_future_54, range, display)
   end
 
   return dissect.md_instrument_definition_future_54_fields(buffer, offset, packet, parent)
@@ -5801,7 +5801,7 @@ dissect.snapshot_full_refresh_order_book_group = function(buffer, offset, packet
   if show.snapshot_full_refresh_order_book_group then
     local range = buffer(offset, 29)
     local display = display.snapshot_full_refresh_order_book_group(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.snapshot_full_refresh_order_book_group, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.snapshot_full_refresh_order_book_group, range, display)
   end
 
   return dissect.snapshot_full_refresh_order_book_group_fields(buffer, offset, packet, parent)
@@ -5850,7 +5850,7 @@ dissect.snapshot_full_refresh_order_book_groups = function(buffer, offset, packe
     local length = size_of.snapshot_full_refresh_order_book_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.snapshot_full_refresh_order_book_groups(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.snapshot_full_refresh_order_book_groups, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.snapshot_full_refresh_order_book_groups, range, display)
   end
 
   return dissect.snapshot_full_refresh_order_book_groups_fields(buffer, offset, packet, parent)
@@ -5871,7 +5871,7 @@ dissect.current_chunk = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.current_chunk(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.current_chunk, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.current_chunk, range, value, display)
 
   return offset + length, value
 end
@@ -5891,7 +5891,7 @@ dissect.no_chunks = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.no_chunks(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.no_chunks, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.no_chunks, range, value, display)
 
   return offset + length, value
 end
@@ -5911,7 +5911,7 @@ dissect.last_msg_seq_num_processed = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.last_msg_seq_num_processed(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.last_msg_seq_num_processed, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.last_msg_seq_num_processed, range, value, display)
 
   return offset + length, value
 end
@@ -5967,7 +5967,7 @@ dissect.snapshot_full_refresh_order_book_53 = function(buffer, offset, packet, p
     local length = size_of.snapshot_full_refresh_order_book_53(buffer, offset)
     local range = buffer(offset, length)
     local display = display.snapshot_full_refresh_order_book_53(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.snapshot_full_refresh_order_book_53, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.snapshot_full_refresh_order_book_53, range, display)
   end
 
   return dissect.snapshot_full_refresh_order_book_53_fields(buffer, offset, packet, parent)
@@ -6015,7 +6015,7 @@ dissect.snapshot_full_refresh_group = function(buffer, offset, packet, parent)
   if show.snapshot_full_refresh_group then
     local range = buffer(offset, 22)
     local display = display.snapshot_full_refresh_group(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.snapshot_full_refresh_group, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.snapshot_full_refresh_group, range, display)
   end
 
   return dissect.snapshot_full_refresh_group_fields(buffer, offset, packet, parent)
@@ -6064,7 +6064,7 @@ dissect.snapshot_full_refresh_groups = function(buffer, offset, packet, parent)
     local length = size_of.snapshot_full_refresh_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.snapshot_full_refresh_groups(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.snapshot_full_refresh_groups, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.snapshot_full_refresh_groups, range, display)
   end
 
   return dissect.snapshot_full_refresh_groups_fields(buffer, offset, packet, parent)
@@ -6085,7 +6085,7 @@ dissect.rpt_seq = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.rpt_seq(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.rpt_seq, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.rpt_seq, range, value, display)
 
   return offset + length, value
 end
@@ -6156,7 +6156,7 @@ dissect.snapshot_full_refresh_52 = function(buffer, offset, packet, parent)
     local length = size_of.snapshot_full_refresh_52(buffer, offset)
     local range = buffer(offset, length)
     local display = display.snapshot_full_refresh_52(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.snapshot_full_refresh_52, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.snapshot_full_refresh_52, range, display)
   end
 
   return dissect.snapshot_full_refresh_52_fields(buffer, offset, packet, parent)
@@ -6177,7 +6177,7 @@ dissect.padding_1 = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.padding_1(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.padding_1, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.padding_1, range, value, display)
 
   return offset + length, value
 end
@@ -6216,7 +6216,7 @@ dissect.md_update_action = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.md_update_action(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.md_update_action, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.md_update_action, range, value, display)
 
   return offset + length, value
 end
@@ -6263,7 +6263,7 @@ dissect.m_d_incremental_refresh_session_statistics_group = function(buffer, offs
   if show.m_d_incremental_refresh_session_statistics_group then
     local range = buffer(offset, 24)
     local display = display.m_d_incremental_refresh_session_statistics_group(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_session_statistics_group, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_session_statistics_group, range, display)
   end
 
   return dissect.m_d_incremental_refresh_session_statistics_group_fields(buffer, offset, packet, parent)
@@ -6312,7 +6312,7 @@ dissect.m_d_incremental_refresh_session_statistics_groups = function(buffer, off
     local length = size_of.m_d_incremental_refresh_session_statistics_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_session_statistics_groups(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_session_statistics_groups, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_session_statistics_groups, range, display)
   end
 
   return dissect.m_d_incremental_refresh_session_statistics_groups_fields(buffer, offset, packet, parent)
@@ -6333,7 +6333,7 @@ dissect.padding_2 = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.padding_2(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.padding_2, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.padding_2, range, value, display)
 
   return offset + length, value
 end
@@ -6380,7 +6380,7 @@ dissect.md_incremental_refresh_session_statistics_51 = function(buffer, offset, 
     local length = size_of.md_incremental_refresh_session_statistics_51(buffer, offset)
     local range = buffer(offset, length)
     local display = display.md_incremental_refresh_session_statistics_51(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.md_incremental_refresh_session_statistics_51, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.md_incremental_refresh_session_statistics_51, range, display)
   end
 
   return dissect.md_incremental_refresh_session_statistics_51_fields(buffer, offset, packet, parent)
@@ -6419,7 +6419,7 @@ dissect.m_d_incremental_refresh_limits_banding_group = function(buffer, offset, 
   if show.m_d_incremental_refresh_limits_banding_group then
     local range = buffer(offset, 32)
     local display = display.m_d_incremental_refresh_limits_banding_group(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_limits_banding_group, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_limits_banding_group, range, display)
   end
 
   return dissect.m_d_incremental_refresh_limits_banding_group_fields(buffer, offset, packet, parent)
@@ -6468,7 +6468,7 @@ dissect.m_d_incremental_refresh_limits_banding_groups = function(buffer, offset,
     local length = size_of.m_d_incremental_refresh_limits_banding_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_limits_banding_groups(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_limits_banding_groups, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_limits_banding_groups, range, display)
   end
 
   return dissect.m_d_incremental_refresh_limits_banding_groups_fields(buffer, offset, packet, parent)
@@ -6516,7 +6516,7 @@ dissect.md_incremental_refresh_limits_banding_50 = function(buffer, offset, pack
     local length = size_of.md_incremental_refresh_limits_banding_50(buffer, offset)
     local range = buffer(offset, length)
     local display = display.md_incremental_refresh_limits_banding_50(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.md_incremental_refresh_limits_banding_50, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.md_incremental_refresh_limits_banding_50, range, display)
   end
 
   return dissect.md_incremental_refresh_limits_banding_50_fields(buffer, offset, packet, parent)
@@ -6537,7 +6537,7 @@ dissect.padding_7 = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.padding_7(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.padding_7, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.padding_7, range, value, display)
 
   return offset + length, value
 end
@@ -6587,7 +6587,7 @@ dissect.m_d_incremental_refresh_daily_statistics_group = function(buffer, offset
   if show.m_d_incremental_refresh_daily_statistics_group then
     local range = buffer(offset, 32)
     local display = display.m_d_incremental_refresh_daily_statistics_group(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_daily_statistics_group, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_daily_statistics_group, range, display)
   end
 
   return dissect.m_d_incremental_refresh_daily_statistics_group_fields(buffer, offset, packet, parent)
@@ -6636,7 +6636,7 @@ dissect.m_d_incremental_refresh_daily_statistics_groups = function(buffer, offse
     local length = size_of.m_d_incremental_refresh_daily_statistics_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_daily_statistics_groups(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_daily_statistics_groups, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_daily_statistics_groups, range, display)
   end
 
   return dissect.m_d_incremental_refresh_daily_statistics_groups_fields(buffer, offset, packet, parent)
@@ -6684,7 +6684,7 @@ dissect.md_incremental_refresh_daily_statistics_49 = function(buffer, offset, pa
     local length = size_of.md_incremental_refresh_daily_statistics_49(buffer, offset)
     local range = buffer(offset, length)
     local display = display.md_incremental_refresh_daily_statistics_49(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.md_incremental_refresh_daily_statistics_49, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.md_incremental_refresh_daily_statistics_49, range, display)
   end
 
   return dissect.md_incremental_refresh_daily_statistics_49_fields(buffer, offset, packet, parent)
@@ -6705,7 +6705,7 @@ dissect.padding_4 = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.padding_4(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.padding_4, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.padding_4, range, value, display)
 
   return offset + length, value
 end
@@ -6725,7 +6725,7 @@ dissect.last_qty = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.last_qty(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.last_qty, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.last_qty, range, value, display)
 
   return offset + length, value
 end
@@ -6757,7 +6757,7 @@ dissect.m_d_incremental_refresh_trade_summary_order_group = function(buffer, off
   if show.m_d_incremental_refresh_trade_summary_order_group then
     local range = buffer(offset, 16)
     local display = display.m_d_incremental_refresh_trade_summary_order_group(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_trade_summary_order_group, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_trade_summary_order_group, range, display)
   end
 
   return dissect.m_d_incremental_refresh_trade_summary_order_group_fields(buffer, offset, packet, parent)
@@ -6778,7 +6778,7 @@ dissect.padding_5 = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.padding_5(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.padding_5, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.padding_5, range, value, display)
 
   return offset + length, value
 end
@@ -6810,7 +6810,7 @@ dissect.group_size_8_byte = function(buffer, offset, packet, parent)
   if show.group_size_8_byte then
     local range = buffer(offset, 8)
     local display = display.group_size_8_byte(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.group_size_8_byte, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.group_size_8_byte, range, display)
   end
 
   return dissect.group_size_8_byte_fields(buffer, offset, packet, parent)
@@ -6859,7 +6859,7 @@ dissect.m_d_incremental_refresh_trade_summary_order_groups = function(buffer, of
     local length = size_of.m_d_incremental_refresh_trade_summary_order_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_trade_summary_order_groups(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_trade_summary_order_groups, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_trade_summary_order_groups, range, display)
   end
 
   return dissect.m_d_incremental_refresh_trade_summary_order_groups_fields(buffer, offset, packet, parent)
@@ -6885,7 +6885,7 @@ dissect.md_trade_entry_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.md_trade_entry_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.md_trade_entry_id, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.md_trade_entry_id, range, value, display)
 
   return offset + length, value
 end
@@ -6918,7 +6918,7 @@ dissect.aggressor_side = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.aggressor_side(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.aggressor_side, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.aggressor_side, range, value, display)
 
   return offset + length, value
 end
@@ -6968,7 +6968,7 @@ dissect.m_d_incremental_refresh_trade_summary_group = function(buffer, offset, p
   if show.m_d_incremental_refresh_trade_summary_group then
     local range = buffer(offset, 32)
     local display = display.m_d_incremental_refresh_trade_summary_group(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_trade_summary_group, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_trade_summary_group, range, display)
   end
 
   return dissect.m_d_incremental_refresh_trade_summary_group_fields(buffer, offset, packet, parent)
@@ -7017,7 +7017,7 @@ dissect.m_d_incremental_refresh_trade_summary_groups = function(buffer, offset, 
     local length = size_of.m_d_incremental_refresh_trade_summary_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_trade_summary_groups(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_trade_summary_groups, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_trade_summary_groups, range, display)
   end
 
   return dissect.m_d_incremental_refresh_trade_summary_groups_fields(buffer, offset, packet, parent)
@@ -7070,7 +7070,7 @@ dissect.md_incremental_refresh_trade_summary_48 = function(buffer, offset, packe
     local length = size_of.md_incremental_refresh_trade_summary_48(buffer, offset)
     local range = buffer(offset, length)
     local display = display.md_incremental_refresh_trade_summary_48(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.md_incremental_refresh_trade_summary_48, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.md_incremental_refresh_trade_summary_48, range, display)
   end
 
   return dissect.md_incremental_refresh_trade_summary_48_fields(buffer, offset, packet, parent)
@@ -7091,7 +7091,7 @@ dissect.padding_6 = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.padding_6(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.padding_6, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.padding_6, range, value, display)
 
   return offset + length, value
 end
@@ -7138,7 +7138,7 @@ dissect.m_d_incremental_refresh_order_book_group = function(buffer, offset, pack
   if show.m_d_incremental_refresh_order_book_group then
     local range = buffer(offset, 40)
     local display = display.m_d_incremental_refresh_order_book_group(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_order_book_group, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_order_book_group, range, display)
   end
 
   return dissect.m_d_incremental_refresh_order_book_group_fields(buffer, offset, packet, parent)
@@ -7187,7 +7187,7 @@ dissect.m_d_incremental_refresh_order_book_groups = function(buffer, offset, pac
     local length = size_of.m_d_incremental_refresh_order_book_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_order_book_groups(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_order_book_groups, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_order_book_groups, range, display)
   end
 
   return dissect.m_d_incremental_refresh_order_book_groups_fields(buffer, offset, packet, parent)
@@ -7235,7 +7235,7 @@ dissect.md_incremental_refresh_order_book_47 = function(buffer, offset, packet, 
     local length = size_of.md_incremental_refresh_order_book_47(buffer, offset)
     local range = buffer(offset, length)
     local display = display.md_incremental_refresh_order_book_47(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.md_incremental_refresh_order_book_47, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.md_incremental_refresh_order_book_47, range, display)
   end
 
   return dissect.md_incremental_refresh_order_book_47_fields(buffer, offset, packet, parent)
@@ -7266,7 +7266,7 @@ dissect.order_update_action = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.order_update_action(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.order_update_action, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.order_update_action, range, value, display)
 
   return offset + length, value
 end
@@ -7291,7 +7291,7 @@ dissect.reference_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.reference_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.reference_id, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.reference_id, range, value, display)
 
   return offset + length, value
 end
@@ -7332,7 +7332,7 @@ dissect.m_d_incremental_refresh_book_order_group = function(buffer, offset, pack
   if show.m_d_incremental_refresh_book_order_group then
     local range = buffer(offset, 24)
     local display = display.m_d_incremental_refresh_book_order_group(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_book_order_group, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_book_order_group, range, display)
   end
 
   return dissect.m_d_incremental_refresh_book_order_group_fields(buffer, offset, packet, parent)
@@ -7381,7 +7381,7 @@ dissect.m_d_incremental_refresh_book_order_groups = function(buffer, offset, pac
     local length = size_of.m_d_incremental_refresh_book_order_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_book_order_groups(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_book_order_groups, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_book_order_groups, range, display)
   end
 
   return dissect.m_d_incremental_refresh_book_order_groups_fields(buffer, offset, packet, parent)
@@ -7435,7 +7435,7 @@ dissect.m_d_incremental_refresh_book_group = function(buffer, offset, packet, pa
   if show.m_d_incremental_refresh_book_group then
     local range = buffer(offset, 32)
     local display = display.m_d_incremental_refresh_book_group(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_book_group, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_book_group, range, display)
   end
 
   return dissect.m_d_incremental_refresh_book_group_fields(buffer, offset, packet, parent)
@@ -7484,7 +7484,7 @@ dissect.m_d_incremental_refresh_book_groups = function(buffer, offset, packet, p
     local length = size_of.m_d_incremental_refresh_book_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_book_groups(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_book_groups, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_book_groups, range, display)
   end
 
   return dissect.m_d_incremental_refresh_book_groups_fields(buffer, offset, packet, parent)
@@ -7537,7 +7537,7 @@ dissect.md_incremental_refresh_book_46 = function(buffer, offset, packet, parent
     local length = size_of.md_incremental_refresh_book_46(buffer, offset)
     local range = buffer(offset, length)
     local display = display.md_incremental_refresh_book_46(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.md_incremental_refresh_book_46, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.md_incremental_refresh_book_46, range, display)
   end
 
   return dissect.md_incremental_refresh_book_46_fields(buffer, offset, packet, parent)
@@ -7558,7 +7558,7 @@ dissect.quote_type = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.quote_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.quote_type, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.quote_type, range, value, display)
 
   return offset + length, value
 end
@@ -7583,7 +7583,7 @@ dissect.order_qty = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.order_qty(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.order_qty, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.order_qty, range, value, display)
 
   return offset + length, value
 end
@@ -7624,7 +7624,7 @@ dissect.related_sym_group = function(buffer, offset, packet, parent)
   if show.related_sym_group then
     local range = buffer(offset, 32)
     local display = display.related_sym_group(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.related_sym_group, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.related_sym_group, range, display)
   end
 
   return dissect.related_sym_group_fields(buffer, offset, packet, parent)
@@ -7673,7 +7673,7 @@ dissect.related_sym_groups = function(buffer, offset, packet, parent)
     local length = size_of.related_sym_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.related_sym_groups(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.related_sym_groups, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.related_sym_groups, range, display)
   end
 
   return dissect.related_sym_groups_fields(buffer, offset, packet, parent)
@@ -7694,7 +7694,7 @@ dissect.padding_3 = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.padding_3(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.padding_3, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.padding_3, range, value, display)
 
   return offset + length, value
 end
@@ -7714,7 +7714,7 @@ dissect.quote_req_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.quote_req_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.quote_req_id, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.quote_req_id, range, value, display)
 
   return offset + length, value
 end
@@ -7764,7 +7764,7 @@ dissect.quote_request_39 = function(buffer, offset, packet, parent)
     local length = size_of.quote_request_39(buffer, offset)
     local range = buffer(offset, length)
     local display = display.quote_request_39(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.quote_request_39, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.quote_request_39, range, display)
   end
 
   return dissect.quote_request_39_fields(buffer, offset, packet, parent)
@@ -7803,7 +7803,7 @@ dissect.m_d_incremental_refresh_volume_group = function(buffer, offset, packet, 
   if show.m_d_incremental_refresh_volume_group then
     local range = buffer(offset, 16)
     local display = display.m_d_incremental_refresh_volume_group(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_volume_group, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_volume_group, range, display)
   end
 
   return dissect.m_d_incremental_refresh_volume_group_fields(buffer, offset, packet, parent)
@@ -7852,7 +7852,7 @@ dissect.m_d_incremental_refresh_volume_groups = function(buffer, offset, packet,
     local length = size_of.m_d_incremental_refresh_volume_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_volume_groups(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.m_d_incremental_refresh_volume_groups, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.m_d_incremental_refresh_volume_groups, range, display)
   end
 
   return dissect.m_d_incremental_refresh_volume_groups_fields(buffer, offset, packet, parent)
@@ -7900,7 +7900,7 @@ dissect.md_incremental_refresh_volume_37 = function(buffer, offset, packet, pare
     local length = size_of.md_incremental_refresh_volume_37(buffer, offset)
     local range = buffer(offset, length)
     local display = display.md_incremental_refresh_volume_37(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.md_incremental_refresh_volume_37, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.md_incremental_refresh_volume_37, range, display)
   end
 
   return dissect.md_incremental_refresh_volume_37_fields(buffer, offset, packet, parent)
@@ -7951,7 +7951,7 @@ dissect.security_status_30 = function(buffer, offset, packet, parent)
   if show.security_status_30 then
     local range = buffer(offset, 30)
     local display = display.security_status_30(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.security_status_30, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.security_status_30, range, display)
   end
 
   return dissect.security_status_30_fields(buffer, offset, packet, parent)
@@ -7972,7 +7972,7 @@ dissect.text = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.text(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.text, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -7998,7 +7998,7 @@ dissect.admin_logout_16 = function(buffer, offset, packet, parent)
   if show.admin_logout_16 then
     local range = buffer(offset, 180)
     local display = display.admin_logout_16(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.admin_logout_16, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.admin_logout_16, range, display)
   end
 
   return dissect.admin_logout_16_fields(buffer, offset, packet, parent)
@@ -8019,7 +8019,7 @@ dissect.heart_bt_int = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.heart_bt_int(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.heart_bt_int, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.heart_bt_int, range, value, display)
 
   return offset + length, value
 end
@@ -8045,7 +8045,7 @@ dissect.admin_login_15 = function(buffer, offset, packet, parent)
   if show.admin_login_15 then
     local range = buffer(offset, 1)
     local display = display.admin_login_15(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.admin_login_15, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.admin_login_15, range, display)
   end
 
   return dissect.admin_login_15_fields(buffer, offset, packet, parent)
@@ -8072,7 +8072,7 @@ dissect.channel_reset_group = function(buffer, offset, packet, parent)
   if show.channel_reset_group then
     local range = buffer(offset, 2)
     local display = display.channel_reset_group(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.channel_reset_group, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.channel_reset_group, range, display)
   end
 
   return dissect.channel_reset_group_fields(buffer, offset, packet, parent)
@@ -8121,7 +8121,7 @@ dissect.channel_reset_groups = function(buffer, offset, packet, parent)
     local length = size_of.channel_reset_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.channel_reset_groups(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.channel_reset_groups, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.channel_reset_groups, range, display)
   end
 
   return dissect.channel_reset_groups_fields(buffer, offset, packet, parent)
@@ -8166,7 +8166,7 @@ dissect.channel_reset_4 = function(buffer, offset, packet, parent)
     local length = size_of.channel_reset_4(buffer, offset)
     local range = buffer(offset, length)
     local display = display.channel_reset_4(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.channel_reset_4, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.channel_reset_4, range, display)
   end
 
   return dissect.channel_reset_4_fields(buffer, offset, packet, parent)
@@ -8387,7 +8387,7 @@ dissect.payload = function(buffer, offset, packet, parent, template_id)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.payload(buffer, packet, parent)
-  local element = parent:add(cme_mdp3_sbe_v10_1.fields.payload, range, display)
+  local element = parent:add(cme_futures_mdp3_sbe_v1_10.fields.payload, range, display)
 
   return dissect.payload_branches(buffer, offset, packet, parent, template_id)
 end
@@ -8407,7 +8407,7 @@ dissect.version = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.version(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.version, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -8427,7 +8427,7 @@ dissect.schema_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.schema_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.schema_id, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.schema_id, range, value, display)
 
   return offset + length, value
 end
@@ -8517,27 +8517,7 @@ dissect.template_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.template_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.template_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Message Size
-size_of.message_size = 2
-
--- Display: Message Size
-display.message_size = function(value)
-  return "Message Size: "..value
-end
-
--- Dissect: Message Size
-dissect.message_size = function(buffer, offset, packet, parent)
-  local length = size_of.message_size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = display.message_size(value, buffer, offset, packet, parent)
-
-  parent:add(cme_mdp3_sbe_v10_1.fields.message_size, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.template_id, range, value, display)
 
   return offset + length, value
 end
@@ -8550,9 +8530,6 @@ end
 -- Dissect Fields: Message Header
 dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Message Size: 2 Byte Unsigned Fixed Width Integer
-  index, message_size = dissect.message_size(buffer, index, packet, parent)
 
   -- Block Length: 2 Byte Unsigned Fixed Width Integer
   index, block_length = dissect.block_length(buffer, index, packet, parent)
@@ -8573,12 +8550,32 @@ end
 dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local range = buffer(offset, 10)
+    local range = buffer(offset, 8)
     local display = display.message_header(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.message_header, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.message_header, range, display)
   end
 
   return dissect.message_header_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Message Size
+size_of.message_size = 2
+
+-- Display: Message Size
+display.message_size = function(value)
+  return "Message Size: "..value
+end
+
+-- Dissect: Message Size
+dissect.message_size = function(buffer, offset, packet, parent)
+  local length = size_of.message_size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.message_size(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.message_size, range, value, display)
+
+  return offset + length, value
 end
 
 -- Calculate runtime size: Message
@@ -8604,7 +8601,10 @@ end
 dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 5 fields
+  -- Message Size: 2 Byte Unsigned Fixed Width Integer
+  index, message_size = dissect.message_size(buffer, index, packet, parent)
+
+  -- Message Header: Struct of 4 fields
   index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
@@ -8623,7 +8623,7 @@ dissect.message = function(buffer, offset, packet, parent)
     local length = size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.message(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.message, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.message, range, display)
   end
 
   return dissect.message_fields(buffer, offset, packet, parent)
@@ -8644,7 +8644,7 @@ dissect.sending_time = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.sending_time(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.sending_time, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.sending_time, range, value, display)
 
   return offset + length, value
 end
@@ -8664,7 +8664,7 @@ dissect.message_sequence_number = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.message_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(cme_mdp3_sbe_v10_1.fields.message_sequence_number, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_10.fields.message_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -8693,7 +8693,7 @@ dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     local range = buffer(offset, 12)
     local display = display.packet_header(buffer, packet, parent)
-    parent = parent:add(cme_mdp3_sbe_v10_1.fields.packet_header, range, display)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.packet_header, range, display)
   end
 
   return dissect.packet_header_fields(buffer, offset, packet, parent)
@@ -8706,10 +8706,10 @@ dissect.packet = function(buffer, packet, parent)
   -- Packet Header: Struct of 2 fields
   index, packet_header = dissect.packet_header(buffer, index, packet, parent)
 
-  -- Message: Struct of 2 fields
+  -- Message: Struct of 3 fields
   local end_of_payload = buffer:len()
 
-  -- Message: Struct of 2 fields
+  -- Message: Struct of 3 fields
   while index < end_of_payload do
     index = dissect.message(buffer, index, packet, parent)
   end
@@ -8723,23 +8723,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function cme_mdp3_sbe_v10_1.init()
+function cme_futures_mdp3_sbe_v1_10.init()
 end
 
--- Dissector for Cme Mdp3 Sbe 10.1
-function cme_mdp3_sbe_v10_1.dissector(buffer, packet, parent)
+-- Dissector for Cme Futures Mdp3 Sbe 1.10
+function cme_futures_mdp3_sbe_v1_10.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = cme_mdp3_sbe_v10_1.name
+  packet.cols.protocol = cme_futures_mdp3_sbe_v1_10.name
 
   -- Dissect protocol
-  local protocol = parent:add(cme_mdp3_sbe_v10_1, buffer(), cme_mdp3_sbe_v10_1.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(cme_futures_mdp3_sbe_v1_10, buffer(), cme_futures_mdp3_sbe_v1_10.description, "("..buffer:len().." Bytes)")
   local protocol_size = dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, cme_mdp3_sbe_v10_1)
+udp_table:add(65333, cme_futures_mdp3_sbe_v1_10)
 
 
 -----------------------------------------------------------------------
@@ -8747,7 +8747,7 @@ udp_table:add(65333, cme_mdp3_sbe_v10_1)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.cme_mdp3_sbe_v10_1_packet_size = function(buffer)
+verify.cme_futures_mdp3_sbe_v1_10_packet_size = function(buffer)
 
   return true
 end
@@ -8770,10 +8770,10 @@ verify.version = function(buffer)
   return false
 end
 
--- Dissector Heuristic for Cme Mdp3 Sbe 10.1
-local function cme_mdp3_sbe_v10_1_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Cme Futures Mdp3 Sbe 1.10
+local function cme_futures_mdp3_sbe_v1_10_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.cme_mdp3_sbe_v10_1_packet_size(buffer) then return false end
+  if not verify.cme_futures_mdp3_sbe_v1_10_packet_size(buffer) then return false end
 
   -- Verify Schema Id
   if not verify.schema_id(buffer) then return false end
@@ -8782,14 +8782,14 @@ local function cme_mdp3_sbe_v10_1_heuristic(buffer, packet, parent)
   if not verify.version(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = cme_mdp3_sbe_v10_1
-  cme_mdp3_sbe_v10_1.dissector(buffer, packet, parent)
+  packet.conversation = cme_futures_mdp3_sbe_v1_10
+  cme_futures_mdp3_sbe_v1_10.dissector(buffer, packet, parent)
 
   return true
 end
 
--- Register Heuristic for Cme Mdp3 Sbe 10.1
-cme_mdp3_sbe_v10_1:register_heuristic("udp", cme_mdp3_sbe_v10_1_heuristic)
+-- Register Heuristic for Cme Futures Mdp3 Sbe 1.10
+cme_futures_mdp3_sbe_v1_10:register_heuristic("udp", cme_futures_mdp3_sbe_v1_10_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.
@@ -8798,7 +8798,7 @@ cme_mdp3_sbe_v10_1:register_heuristic("udp", cme_mdp3_sbe_v10_1_heuristic)
 -- 
 -- Protocol:
 --   Organization: Chicago Mercantile Exchange
---   Version: 10.1
+--   Version: 1.10
 --   Date: Friday, July 26, 2019
 -- 
 -- Script:

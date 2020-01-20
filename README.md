@@ -41,14 +41,14 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 |[Cboe][Cboe.Options.C1.OrderEntry.Boe.v2.10.Organization] | Options C1 | OrderEntry | Boe | [2.10][Cboe.Options.C1.OrderEntry.Boe.v2.10.Dissector] | 12/3/2019 | 45214 | Beta|
 |[Cboe][Cboe.Options.C1.AuctionFeed.Pitch.v1.1.1.Organization] | Options C1 | AuctionFeed | Pitch | [1.1.1][Cboe.Options.C1.AuctionFeed.Pitch.v1.1.1.Dissector] | 12/6/2018 | 1663 | Verified|
 |[Cboe][Cboe.Options.Edgx.AuctionFeed.Pitch.v1.1.1.Organization] | Options Edgx | AuctionFeed | Pitch | [1.1.1][Cboe.Options.Edgx.AuctionFeed.Pitch.v1.1.1.Dissector] | 12/6/2018 | 1171 | Verified|
-|[Cme][Cme.Mdp3.Sbe.v9.1.Organization] |  | Mdp3 | Sbe | [9.1][Cme.Mdp3.Sbe.v9.1.Dissector] | 3/8/2018 | 8339 | Verified|
-|[Cme][Cme.Mdp3.Sbe.v8.1.Organization] |  | Mdp3 | Sbe | [8.1][Cme.Mdp3.Sbe.v8.1.Dissector] | 7/1/2016 | 7350 | Verified|
-|[Cme][Cme.Mdp3.Sbe.v6.1.Organization] |  | Mdp3 | Sbe | [6.1][Cme.Mdp3.Sbe.v6.1.Dissector] | 1/9/2016 | 6537 | Verified|
-|[Cme][Cme.Mdp3.Sbe.v5.1.Organization] |  | Mdp3 | Sbe | [5.1][Cme.Mdp3.Sbe.v5.1.Dissector] | 8/6/2014 | 6528 | Verified|
-|[Cme][Cme.Mdp3.Sbe.v10.1.Organization] |  | Mdp3 | Sbe | [10.1][Cme.Mdp3.Sbe.v10.1.Dissector] | 7/26/2019 | 8814 | Untested|
 |[Cme][Cme.Streamline.Sbe.v9.5.Organization] |  | Streamline | Sbe | [9.5][Cme.Streamline.Sbe.v9.5.Dissector] | 4/4/2018 | 6030 | Untested|
 |[Cme][Cme.Streamline.Sbe.v8.5.Organization] |  | Streamline | Sbe | [8.5][Cme.Streamline.Sbe.v8.5.Dissector] | 6/2/2017 | 5892 | Untested|
-|[Cme][Cme.Futures.iLink3.Sbe.v8.2.Organization] | Futures | iLink3 | Sbe | [8.2][Cme.Futures.iLink3.Sbe.v8.2.Dissector] | 7/24/2019 | 11232 | Verified|
+|[Cme][Cme.Futures.iLink3.Sbe.v8.2.Organization] | Futures | iLink3 | Sbe | [8.2][Cme.Futures.iLink3.Sbe.v8.2.Dissector] | 11/5/2019 | 11232 | Verified|
+|[Cme][Cme.Futures.Mdp3.Sbe.v1.9.Organization] | Futures | Mdp3 | Sbe | [1.9][Cme.Futures.Mdp3.Sbe.v1.9.Dissector] | 3/8/2018 | 8339 | Verified|
+|[Cme][Cme.Futures.Mdp3.Sbe.v1.8.Organization] | Futures | Mdp3 | Sbe | [1.8][Cme.Futures.Mdp3.Sbe.v1.8.Dissector] | 7/1/2016 | 7350 | Verified|
+|[Cme][Cme.Futures.Mdp3.Sbe.v1.6.Organization] | Futures | Mdp3 | Sbe | [1.6][Cme.Futures.Mdp3.Sbe.v1.6.Dissector] | 1/9/2016 | 6537 | Verified|
+|[Cme][Cme.Futures.Mdp3.Sbe.v1.5.Organization] | Futures | Mdp3 | Sbe | [1.5][Cme.Futures.Mdp3.Sbe.v1.5.Dissector] | 8/6/2014 | 6528 | Verified|
+|[Cme][Cme.Futures.Mdp3.Sbe.v1.10.Organization] | Futures | Mdp3 | Sbe | [1.10][Cme.Futures.Mdp3.Sbe.v1.10.Dissector] | 7/26/2019 | 8814 | Untested|
 |[Eurex][Eurex.Derivatives.Eobi.T7.v8.0.Organization] | Derivatives | Eobi | T7 | [8.0][Eurex.Derivatives.Eobi.T7.v8.0.Dissector] | 9/23/2019 | 4442 | Untested|
 |[Eurex][Eurex.Derivatives.Eobi.T7.v7.1.Organization] | Derivatives | Eobi | T7 | [7.1][Eurex.Derivatives.Eobi.T7.v7.1.Dissector] | 3/14/2019 | 3989 | Untested|
 |[Eurex][Eurex.Derivatives.Eobi.T7.v7.0.Organization] | Derivatives | Eobi | T7 | [7.0][Eurex.Derivatives.Eobi.T7.v7.0.Dissector] | 8/20/2018 | 3870 | Untested|
@@ -151,16 +151,16 @@ Enjoy.
 [Cboe.Options.MarketLevel2.Csm.v1.0.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Options.MarketLevel2.Csm.v1.0.4.Script.Dissector.lua "Chicago Board Options Exchange 1.0.4 Wireshark Dissector"
 [Cboe.Options.OpeningAuction.Csm.v1.0.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cboe "Chicago Board Options Exchange"
 [Cboe.Options.OpeningAuction.Csm.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Options.OpeningAuction.Csm.v1.0.Script.Dissector.lua "Chicago Board Options Exchange 1.0 Wireshark Dissector"
-[Cme.Mdp3.Sbe.v5.1.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange"
-[Cme.Mdp3.Sbe.v5.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Mdp3.Sbe.v5.1.Script.Dissector.lua "Chicago Mercantile Exchange 5.1 Wireshark Dissector"
-[Cme.Mdp3.Sbe.v6.1.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange"
-[Cme.Mdp3.Sbe.v6.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Mdp3.Sbe.v6.1.Script.Dissector.lua "Chicago Mercantile Exchange 6.1 Wireshark Dissector"
-[Cme.Mdp3.Sbe.v8.1.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange"
-[Cme.Mdp3.Sbe.v8.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Mdp3.Sbe.v8.1.Script.Dissector.lua "Chicago Mercantile Exchange 8.1 Wireshark Dissector"
-[Cme.Mdp3.Sbe.v9.1.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange"
-[Cme.Mdp3.Sbe.v9.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Mdp3.Sbe.v9.1.Script.Dissector.lua "Chicago Mercantile Exchange 9.1 Wireshark Dissector"
-[Cme.Mdp3.Sbe.v10.1.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange"
-[Cme.Mdp3.Sbe.v10.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Mdp3.Sbe.v10.1.Script.Dissector.lua "Chicago Mercantile Exchange 10.1 Wireshark Dissector"
+[Cme.Futures.Mdp3.Sbe.v1.5.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange"
+[Cme.Futures.Mdp3.Sbe.v1.5.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Futures.Mdp3.Sbe.v1.5.Script.Dissector.lua "Chicago Mercantile Exchange 1.5 Wireshark Dissector"
+[Cme.Futures.Mdp3.Sbe.v1.6.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange"
+[Cme.Futures.Mdp3.Sbe.v1.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Futures.Mdp3.Sbe.v1.6.Script.Dissector.lua "Chicago Mercantile Exchange 1.6 Wireshark Dissector"
+[Cme.Futures.Mdp3.Sbe.v1.8.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange"
+[Cme.Futures.Mdp3.Sbe.v1.8.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Futures.Mdp3.Sbe.v1.8.Script.Dissector.lua "Chicago Mercantile Exchange 1.8 Wireshark Dissector"
+[Cme.Futures.Mdp3.Sbe.v1.9.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange"
+[Cme.Futures.Mdp3.Sbe.v1.9.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Futures.Mdp3.Sbe.v1.9.Script.Dissector.lua "Chicago Mercantile Exchange 1.9 Wireshark Dissector"
+[Cme.Futures.Mdp3.Sbe.v1.10.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange"
+[Cme.Futures.Mdp3.Sbe.v1.10.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Futures.Mdp3.Sbe.v1.10.Script.Dissector.lua "Chicago Mercantile Exchange 1.10 Wireshark Dissector"
 [Cme.Streamline.Sbe.v8.5.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange"
 [Cme.Streamline.Sbe.v8.5.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Streamline.Sbe.v8.5.Script.Dissector.lua "Chicago Mercantile Exchange 8.5 Wireshark Dissector"
 [Cme.Streamline.Sbe.v9.5.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cme "Chicago Mercantile Exchange"

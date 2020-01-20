@@ -200,7 +200,7 @@ cme_futures_ilink3_sbe_v8_2.fields.party_i_ds_groups = ProtoField.new("Party I D
 cme_futures_ilink3_sbe_v8_2.fields.party_id = ProtoField.new("Party Id", "cme.futures.ilink3.sbe.v8.2.partyid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_2.fields.party_id_source = ProtoField.new("Party Id Source", "cme.futures.ilink3.sbe.v8.2.partyidsource", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.party_role = ProtoField.new("Party Role", "cme.futures.ilink3.sbe.v8.2.partyrole", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_2.fields.payload = ProtoField.new("payload", "cme.futures.ilink3.sbe.v8.2.payload", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.payload = ProtoField.new("Payload", "cme.futures.ilink3.sbe.v8.2.payload", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.poss_retrans_flag = ProtoField.new("Poss Retrans Flag", "cme.futures.ilink3.sbe.v8.2.possretransflag", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.previous_seq_no = ProtoField.new("Previous Seq No", "cme.futures.ilink3.sbe.v8.2.previousseqno", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_2.fields.previous_uuid = ProtoField.new("Previous Uuid", "cme.futures.ilink3.sbe.v8.2.previousuuid", ftypes.UINT64)
@@ -474,7 +474,7 @@ cme_futures_ilink3_sbe_v8_2.prefs.show_simple_open_framing_header = Pref.bool("S
 cme_futures_ilink3_sbe_v8_2.prefs.show_terminate_507 = Pref.bool("Show Terminate 507", show.terminate_507, "Parse and add Terminate 507 to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_trd_reg_publications_group = Pref.bool("Show Trd Reg Publications Group", show.trd_reg_publications_group, "Parse and add Trd Reg Publications Group to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_trd_reg_publications_groups = Pref.bool("Show Trd Reg Publications Groups", show.trd_reg_publications_groups, "Parse and add Trd Reg Publications Groups to protocol tree")
-cme_futures_ilink3_sbe_v8_2.prefs.show_payload = Pref.bool("Show payload", show.payload, "Parse and add payload to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function cme_futures_ilink3_sbe_v8_2.prefs_changed()
@@ -10337,7 +10337,7 @@ dissect.negotiate_500 = function(buffer, offset, packet, parent)
   return dissect.negotiate_500_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size of: payload
+-- Calculate runtime size of: Payload
 size_of.payload = function(buffer, offset, template_id)
   -- Size of Negotiate 500
   if template_id == 500 then
@@ -10535,12 +10535,12 @@ size_of.payload = function(buffer, offset, template_id)
   return 0
 end
 
--- Display: payload
+-- Display: Payload
 display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
--- Dissect Branches: payload
+-- Dissect Branches: Payload
 dissect.payload_branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Negotiate 500
   if template_id == 500 then
@@ -10738,7 +10738,7 @@ dissect.payload_branches = function(buffer, offset, packet, parent, template_id)
   return offset
 end
 
--- Dissect: payload
+-- Dissect: Payload
 dissect.payload = function(buffer, offset, packet, parent, template_id)
   if not show.payload then
     return dissect.payload_branches(buffer, offset, packet, parent, template_id)
@@ -11075,7 +11075,7 @@ size_of.frame = function(buffer, offset)
 
   index = index + 12
 
-  -- Calculate runtime size of payload field
+  -- Calculate runtime size of Payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 6, 2):le_uint()
   index = index + size_of.payload(buffer, payload_offset, payload_type)
@@ -11101,7 +11101,7 @@ dissect.frame_fields = function(buffer, offset, packet, parent)
   -- Dependency element: Template Id
   local template_id = buffer(index - 6, 2):le_uint()
 
-  -- payload: Runtime Type with 48 branches
+  -- Payload: Runtime Type with 48 branches
   index = dissect.payload(buffer, index, packet, parent, template_id)
 
   return index
@@ -11217,7 +11217,7 @@ cme_futures_ilink3_sbe_v8_2:register_heuristic("tcp", cme_futures_ilink3_sbe_v8_
 -- Protocol:
 --   Organization: Chicago Mercantile Exchange
 --   Version: 8.2
---   Date: Wednesday, July 24, 2019
+--   Date: Tuesday, November 5, 2019
 -- 
 -- Script:
 --   Generator: 1.5.0.0
