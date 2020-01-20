@@ -27,6 +27,7 @@ cme_futures_mdp3_sbe_v1_10.fields.aggressor_indicator = ProtoField.new("Aggresso
 cme_futures_mdp3_sbe_v1_10.fields.aggressor_side = ProtoField.new("Aggressor Side", "cme.futures.mdp3.sbe.v1.10.aggressorside", ftypes.UINT8)
 cme_futures_mdp3_sbe_v1_10.fields.appl_id = ProtoField.new("Appl Id", "cme.futures.mdp3.sbe.v1.10.applid", ftypes.INT16)
 cme_futures_mdp3_sbe_v1_10.fields.asset = ProtoField.new("Asset", "cme.futures.mdp3.sbe.v1.10.asset", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_10.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.futures.mdp3.sbe.v1.10.binarypacketheader", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_10.fields.block_length = ProtoField.new("Block Length", "cme.futures.mdp3.sbe.v1.10.blocklength", ftypes.UINT16)
 cme_futures_mdp3_sbe_v1_10.fields.block_trade_eligible = ProtoField.new("Block Trade Eligible", "cme.futures.mdp3.sbe.v1.10.blocktradeeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000004")
 cme_futures_mdp3_sbe_v1_10.fields.cfi_code = ProtoField.new("Cfi Code", "cme.futures.mdp3.sbe.v1.10.cficode", ftypes.STRING)
@@ -180,7 +181,6 @@ cme_futures_mdp3_sbe_v1_10.fields.order_update_action = ProtoField.new("Order Up
 cme_futures_mdp3_sbe_v1_10.fields.original_contract_size = ProtoField.new("Original Contract Size", "cme.futures.mdp3.sbe.v1.10.originalcontractsize", ftypes.INT32)
 cme_futures_mdp3_sbe_v1_10.fields.otc_eligible = ProtoField.new("Otc Eligible", "cme.futures.mdp3.sbe.v1.10.otceligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000080")
 cme_futures_mdp3_sbe_v1_10.fields.packet = ProtoField.new("Packet", "cme.futures.mdp3.sbe.v1.10.packet", ftypes.STRING)
-cme_futures_mdp3_sbe_v1_10.fields.packet_header = ProtoField.new("Packet Header", "cme.futures.mdp3.sbe.v1.10.packetheader", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_10.fields.padding_1 = ProtoField.new("Padding 1", "cme.futures.mdp3.sbe.v1.10.padding1", ftypes.BYTES)
 cme_futures_mdp3_sbe_v1_10.fields.padding_2 = ProtoField.new("Padding 2", "cme.futures.mdp3.sbe.v1.10.padding2", ftypes.BYTES)
 cme_futures_mdp3_sbe_v1_10.fields.padding_3 = ProtoField.new("Padding 3", "cme.futures.mdp3.sbe.v1.10.padding3", ftypes.BYTES)
@@ -284,6 +284,7 @@ cme_futures_mdp3_sbe_v1_10.fields.zero_price_outright_eligible = ProtoField.new(
 -- Cme Futures Mdp3 Sbe 1.10 Element Dissection Options
 show.admin_login_15 = true
 show.admin_logout_16 = true
+show.binary_packet_header = true
 show.channel_reset_4 = true
 show.channel_reset_group = true
 show.channel_reset_groups = true
@@ -335,7 +336,6 @@ show.md_instrument_definition_spread_56 = true
 show.message = true
 show.message_header = true
 show.packet = true
-show.packet_header = true
 show.quote_request_39 = true
 show.related_instruments_group = true
 show.related_instruments_groups = true
@@ -365,6 +365,7 @@ show.payload = false
 -- Register Cme Futures Mdp3 Sbe 1.10 Show Options
 cme_futures_mdp3_sbe_v1_10.prefs.show_admin_login_15 = Pref.bool("Show Admin Login 15", show.admin_login_15, "Parse and add Admin Login 15 to protocol tree")
 cme_futures_mdp3_sbe_v1_10.prefs.show_admin_logout_16 = Pref.bool("Show Admin Logout 16", show.admin_logout_16, "Parse and add Admin Logout 16 to protocol tree")
+cme_futures_mdp3_sbe_v1_10.prefs.show_binary_packet_header = Pref.bool("Show Binary Packet Header", show.binary_packet_header, "Parse and add Binary Packet Header to protocol tree")
 cme_futures_mdp3_sbe_v1_10.prefs.show_channel_reset_4 = Pref.bool("Show Channel Reset 4", show.channel_reset_4, "Parse and add Channel Reset 4 to protocol tree")
 cme_futures_mdp3_sbe_v1_10.prefs.show_channel_reset_group = Pref.bool("Show Channel Reset Group", show.channel_reset_group, "Parse and add Channel Reset Group to protocol tree")
 cme_futures_mdp3_sbe_v1_10.prefs.show_channel_reset_groups = Pref.bool("Show Channel Reset Groups", show.channel_reset_groups, "Parse and add Channel Reset Groups to protocol tree")
@@ -416,7 +417,6 @@ cme_futures_mdp3_sbe_v1_10.prefs.show_md_instrument_definition_spread_56 = Pref.
 cme_futures_mdp3_sbe_v1_10.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 cme_futures_mdp3_sbe_v1_10.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 cme_futures_mdp3_sbe_v1_10.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-cme_futures_mdp3_sbe_v1_10.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 cme_futures_mdp3_sbe_v1_10.prefs.show_quote_request_39 = Pref.bool("Show Quote Request 39", show.quote_request_39, "Parse and add Quote Request 39 to protocol tree")
 cme_futures_mdp3_sbe_v1_10.prefs.show_related_instruments_group = Pref.bool("Show Related Instruments Group", show.related_instruments_group, "Parse and add Related Instruments Group to protocol tree")
 cme_futures_mdp3_sbe_v1_10.prefs.show_related_instruments_groups = Pref.bool("Show Related Instruments Groups", show.related_instruments_groups, "Parse and add Related Instruments Groups to protocol tree")
@@ -454,6 +454,10 @@ function cme_futures_mdp3_sbe_v1_10.prefs_changed()
   end
   if show.admin_logout_16 ~= cme_futures_mdp3_sbe_v1_10.prefs.show_admin_logout_16 then
     show.admin_logout_16 = cme_futures_mdp3_sbe_v1_10.prefs.show_admin_logout_16
+    changed = true
+  end
+  if show.binary_packet_header ~= cme_futures_mdp3_sbe_v1_10.prefs.show_binary_packet_header then
+    show.binary_packet_header = cme_futures_mdp3_sbe_v1_10.prefs.show_binary_packet_header
     changed = true
   end
   if show.channel_reset_4 ~= cme_futures_mdp3_sbe_v1_10.prefs.show_channel_reset_4 then
@@ -658,10 +662,6 @@ function cme_futures_mdp3_sbe_v1_10.prefs_changed()
   end
   if show.packet ~= cme_futures_mdp3_sbe_v1_10.prefs.show_packet then
     show.packet = cme_futures_mdp3_sbe_v1_10.prefs.show_packet
-    changed = true
-  end
-  if show.packet_header ~= cme_futures_mdp3_sbe_v1_10.prefs.show_packet_header then
-    show.packet_header = cme_futures_mdp3_sbe_v1_10.prefs.show_packet_header
     changed = true
   end
   if show.quote_request_39 ~= cme_futures_mdp3_sbe_v1_10.prefs.show_quote_request_39 then
@@ -8669,13 +8669,13 @@ dissect.message_sequence_number = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Display: Packet Header
-display.packet_header = function(buffer, offset, size, packet, parent)
+-- Display: Binary Packet Header
+display.binary_packet_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Packet Header
-dissect.packet_header_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Binary Packet Header
+dissect.binary_packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Sequence Number: 4 Byte Unsigned Fixed Width Integer
@@ -8687,24 +8687,24 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Packet Header
-dissect.packet_header = function(buffer, offset, packet, parent)
+-- Dissect: Binary Packet Header
+dissect.binary_packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.packet_header then
+  if show.binary_packet_header then
     local range = buffer(offset, 12)
-    local display = display.packet_header(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.packet_header, range, display)
+    local display = display.binary_packet_header(buffer, packet, parent)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_10.fields.binary_packet_header, range, display)
   end
 
-  return dissect.packet_header_fields(buffer, offset, packet, parent)
+  return dissect.binary_packet_header_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
 dissect.packet = function(buffer, packet, parent)
   local index = 0
 
-  -- Packet Header: Struct of 2 fields
-  index, packet_header = dissect.packet_header(buffer, index, packet, parent)
+  -- Binary Packet Header: Struct of 2 fields
+  index, binary_packet_header = dissect.binary_packet_header(buffer, index, packet, parent)
 
   -- Message: Struct of 3 fields
   local end_of_payload = buffer:len()

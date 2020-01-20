@@ -28,6 +28,7 @@ cme_streamline_sbe_v9_5.fields.admin_logout_316 = ProtoField.new("Admin Logout 3
 cme_streamline_sbe_v9_5.fields.aggressor_side = ProtoField.new("Aggressor Side", "cme.streamline.sbe.v9.5.aggressorside", ftypes.UINT8)
 cme_streamline_sbe_v9_5.fields.appl_id = ProtoField.new("Appl Id", "cme.streamline.sbe.v9.5.applid", ftypes.UINT16)
 cme_streamline_sbe_v9_5.fields.batch_total_messages = ProtoField.new("Batch Total Messages", "cme.streamline.sbe.v9.5.batchtotalmessages", ftypes.UINT16)
+cme_streamline_sbe_v9_5.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.streamline.sbe.v9.5.binarypacketheader", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.block_length = ProtoField.new("Block Length", "cme.streamline.sbe.v9.5.blocklength", ftypes.UINT16)
 cme_streamline_sbe_v9_5.fields.cal_fut_px = ProtoField.new("Cal Fut Px", "cme.streamline.sbe.v9.5.calfutpx", ftypes.INT64)
 cme_streamline_sbe_v9_5.fields.coupon_rate = ProtoField.new("Coupon Rate", "cme.streamline.sbe.v9.5.couponrate", ftypes.INT32)
@@ -142,7 +143,6 @@ cme_streamline_sbe_v9_5.fields.open_close_settl_flag = ProtoField.new("Open Clos
 cme_streamline_sbe_v9_5.fields.orig_time = ProtoField.new("Orig Time", "cme.streamline.sbe.v9.5.origtime", ftypes.UINT64)
 cme_streamline_sbe_v9_5.fields.p_v_01 = ProtoField.new("P V 01", "cme.streamline.sbe.v9.5.pv01", ftypes.INT64)
 cme_streamline_sbe_v9_5.fields.packet = ProtoField.new("Packet", "cme.streamline.sbe.v9.5.packet", ftypes.STRING)
-cme_streamline_sbe_v9_5.fields.packet_header = ProtoField.new("Packet Header", "cme.streamline.sbe.v9.5.packetheader", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.payload = ProtoField.new("Payload", "cme.streamline.sbe.v9.5.payload", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.percent_trading = ProtoField.new("Percent Trading", "cme.streamline.sbe.v9.5.percenttrading", ftypes.INT64)
 cme_streamline_sbe_v9_5.fields.previous_eris_pai = ProtoField.new("Previous Eris Pai", "cme.streamline.sbe.v9.5.previouserispai", ftypes.INT64)
@@ -213,6 +213,7 @@ cme_streamline_sbe_v9_5.fields.yield_type = ProtoField.new("Yield Type", "cme.st
 -- Cme Streamline Sbe 9.5 Element Dissection Options
 show.admin_login_315 = true
 show.admin_logout_316 = true
+show.binary_packet_header = true
 show.events_group = true
 show.events_groups = true
 show.group_size = true
@@ -252,7 +253,6 @@ show.md_news_indices_339 = true
 show.message = true
 show.message_header = true
 show.packet = true
-show.packet_header = true
 show.quote_request_345 = true
 show.related_sym_group = true
 show.related_sym_groups = true
@@ -264,6 +264,7 @@ show.payload = false
 -- Register Cme Streamline Sbe 9.5 Show Options
 cme_streamline_sbe_v9_5.prefs.show_admin_login_315 = Pref.bool("Show Admin Login 315", show.admin_login_315, "Parse and add Admin Login 315 to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_admin_logout_316 = Pref.bool("Show Admin Logout 316", show.admin_logout_316, "Parse and add Admin Logout 316 to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_binary_packet_header = Pref.bool("Show Binary Packet Header", show.binary_packet_header, "Parse and add Binary Packet Header to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_events_group = Pref.bool("Show Events Group", show.events_group, "Parse and add Events Group to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_events_groups = Pref.bool("Show Events Groups", show.events_groups, "Parse and add Events Groups to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_group_size = Pref.bool("Show Group Size", show.group_size, "Parse and add Group Size to protocol tree")
@@ -303,7 +304,6 @@ cme_streamline_sbe_v9_5.prefs.show_md_news_indices_339 = Pref.bool("Show Md News
 cme_streamline_sbe_v9_5.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-cme_streamline_sbe_v9_5.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_quote_request_345 = Pref.bool("Show Quote Request 345", show.quote_request_345, "Parse and add Quote Request 345 to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_related_sym_group = Pref.bool("Show Related Sym Group", show.related_sym_group, "Parse and add Related Sym Group to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_related_sym_groups = Pref.bool("Show Related Sym Groups", show.related_sym_groups, "Parse and add Related Sym Groups to protocol tree")
@@ -323,6 +323,10 @@ function cme_streamline_sbe_v9_5.prefs_changed()
   end
   if show.admin_logout_316 ~= cme_streamline_sbe_v9_5.prefs.show_admin_logout_316 then
     show.admin_logout_316 = cme_streamline_sbe_v9_5.prefs.show_admin_logout_316
+    changed = true
+  end
+  if show.binary_packet_header ~= cme_streamline_sbe_v9_5.prefs.show_binary_packet_header then
+    show.binary_packet_header = cme_streamline_sbe_v9_5.prefs.show_binary_packet_header
     changed = true
   end
   if show.events_group ~= cme_streamline_sbe_v9_5.prefs.show_events_group then
@@ -479,10 +483,6 @@ function cme_streamline_sbe_v9_5.prefs_changed()
   end
   if show.packet ~= cme_streamline_sbe_v9_5.prefs.show_packet then
     show.packet = cme_streamline_sbe_v9_5.prefs.show_packet
-    changed = true
-  end
-  if show.packet_header ~= cme_streamline_sbe_v9_5.prefs.show_packet_header then
-    show.packet_header = cme_streamline_sbe_v9_5.prefs.show_packet_header
     changed = true
   end
   if show.quote_request_345 ~= cme_streamline_sbe_v9_5.prefs.show_quote_request_345 then
@@ -5738,26 +5738,6 @@ dissect.template_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Message Size
-size_of.message_size = 2
-
--- Display: Message Size
-display.message_size = function(value)
-  return "Message Size: "..value
-end
-
--- Dissect: Message Size
-dissect.message_size = function(buffer, offset, packet, parent)
-  local length = size_of.message_size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = display.message_size(value, buffer, offset, packet, parent)
-
-  parent:add(cme_streamline_sbe_v9_5.fields.message_size, range, value, display)
-
-  return offset + length, value
-end
-
 -- Display: Message Header
 display.message_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -5766,9 +5746,6 @@ end
 -- Dissect Fields: Message Header
 dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Message Size: 2 Byte Unsigned Fixed Width Integer
-  index, message_size = dissect.message_size(buffer, index, packet, parent)
 
   -- Block Length: 2 Byte Unsigned Fixed Width Integer
   index, block_length = dissect.block_length(buffer, index, packet, parent)
@@ -5789,12 +5766,32 @@ end
 dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local range = buffer(offset, 10)
+    local range = buffer(offset, 8)
     local display = display.message_header(buffer, packet, parent)
     parent = parent:add(cme_streamline_sbe_v9_5.fields.message_header, range, display)
   end
 
   return dissect.message_header_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Message Size
+size_of.message_size = 2
+
+-- Display: Message Size
+display.message_size = function(value)
+  return "Message Size: "..value
+end
+
+-- Dissect: Message Size
+dissect.message_size = function(buffer, offset, packet, parent)
+  local length = size_of.message_size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.message_size(value, buffer, offset, packet, parent)
+
+  parent:add(cme_streamline_sbe_v9_5.fields.message_size, range, value, display)
+
+  return offset + length, value
 end
 
 -- Calculate runtime size: Message
@@ -5820,7 +5817,10 @@ end
 dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 5 fields
+  -- Message Size: 2 Byte Unsigned Fixed Width Integer
+  index, message_size = dissect.message_size(buffer, index, packet, parent)
+
+  -- Message Header: Struct of 4 fields
   index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
@@ -5885,13 +5885,13 @@ dissect.message_sequence_number = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Display: Packet Header
-display.packet_header = function(buffer, offset, size, packet, parent)
+-- Display: Binary Packet Header
+display.binary_packet_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Packet Header
-dissect.packet_header_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Binary Packet Header
+dissect.binary_packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Sequence Number: 4 Byte Unsigned Fixed Width Integer
@@ -5903,29 +5903,29 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Packet Header
-dissect.packet_header = function(buffer, offset, packet, parent)
+-- Dissect: Binary Packet Header
+dissect.binary_packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.packet_header then
+  if show.binary_packet_header then
     local range = buffer(offset, 12)
-    local display = display.packet_header(buffer, packet, parent)
-    parent = parent:add(cme_streamline_sbe_v9_5.fields.packet_header, range, display)
+    local display = display.binary_packet_header(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.binary_packet_header, range, display)
   end
 
-  return dissect.packet_header_fields(buffer, offset, packet, parent)
+  return dissect.binary_packet_header_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
 dissect.packet = function(buffer, packet, parent)
   local index = 0
 
-  -- Packet Header: Struct of 2 fields
-  index, packet_header = dissect.packet_header(buffer, index, packet, parent)
+  -- Binary Packet Header: Struct of 2 fields
+  index, binary_packet_header = dissect.binary_packet_header(buffer, index, packet, parent)
 
-  -- Message: Struct of 2 fields
+  -- Message: Struct of 3 fields
   local end_of_payload = buffer:len()
 
-  -- Message: Struct of 2 fields
+  -- Message: Struct of 3 fields
   while index < end_of_payload do
     index = dissect.message(buffer, index, packet, parent)
   end
