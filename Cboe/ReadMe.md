@@ -13,6 +13,7 @@
 |Options Bzx | OrderEntry | Boe | [2.10][Cboe.Options.Bzx.OrderEntry.Boe.v2.10.Dissector] | 12/3/2019 | 29620 | Beta | [url][Cboe.Options.Bzx.OrderEntry.Boe.v2.10.Url] - [pdf][Cboe.Options.Bzx.OrderEntry.Boe.v2.10.Pdf]|
 |Options C1 | OrderEntry | Boe | [2.10][Cboe.Options.C1.OrderEntry.Boe.v2.10.Dissector] | 12/3/2019 | 45214 | Beta | [url][Cboe.Options.C1.OrderEntry.Boe.v2.10.Url] - [pdf][Cboe.Options.C1.OrderEntry.Boe.v2.10.Pdf]|
 |Options C1 | AuctionFeed | Pitch | [1.1.1][Cboe.Options.C1.AuctionFeed.Pitch.v1.1.1.Dissector] | 12/6/2018 | 1663 | Verified | [url][Cboe.Options.C1.AuctionFeed.Pitch.v1.1.1.Url] - [pdf][Cboe.Options.C1.AuctionFeed.Pitch.v1.1.1.Pdf]|
+|Options Edgx | OrderEntry | Boe | [2.10][Cboe.Options.Edgx.OrderEntry.Boe.v2.10.Dissector] | 12/3/2019 | 44064 | Beta | [url][Cboe.Options.Edgx.OrderEntry.Boe.v2.10.Url] - [pdf][Cboe.Options.Edgx.OrderEntry.Boe.v2.10.Pdf]|
 |Options Edgx | AuctionFeed | Pitch | [1.1.1][Cboe.Options.Edgx.AuctionFeed.Pitch.v1.1.1.Dissector] | 12/6/2018 | 1171 | Verified | [url][Cboe.Options.Edgx.AuctionFeed.Pitch.v1.1.1.Url] - [pdf][Cboe.Options.Edgx.AuctionFeed.Pitch.v1.1.1.Pdf]|
 
 
@@ -34,6 +35,9 @@ Cboe: [website](https://www.cboe.com "Go to Chicago Board Options Exchange")
 [Cboe.Options.Edgx.AuctionFeed.Pitch.v1.1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Options.Edgx.AuctionFeed.Pitch.v1.1.1.Script.Dissector.lua "Chicago Board Options Exchange 1.1.1 Wireshark Dissector"
 [Cboe.Options.Edgx.AuctionFeed.Pitch.v1.1.1.Url]: http://markets.cboe.com/us/options/support/technical "Specification url"
 [Cboe.Options.Edgx.AuctionFeed.Pitch.v1.1.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Cboe/Cboe.Options.AuctionFeed.Pitch.v1.1.1.pdf "Chicago Board Options Exchange 1.1.1 Pdf"
+[Cboe.Options.Edgx.OrderEntry.Boe.v2.10.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Options.Edgx.OrderEntry.Boe.v2.10.Script.Dissector.lua "Chicago Board Options Exchange 2.10 Wireshark Dissector"
+[Cboe.Options.Edgx.OrderEntry.Boe.v2.10.Url]: http://markets.cboe.com/us/options/support/technical/ "Specification url"
+[Cboe.Options.Edgx.OrderEntry.Boe.v2.10.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Cboe/Cboe.Options.OrderEntry.Boe.v2.10.11.pdf "Chicago Board Options Exchange 2.10 Pdf"
 [Cboe.Options.DepthOfBook.Pitch.v2.39.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Options.DepthOfBook.Pitch.v2.39.4.Script.Dissector.lua "Chicago Board Options Exchange 2.39.4 Wireshark Dissector"
 [Cboe.Options.DepthOfBook.Pitch.v2.39.4.Url]: http://markets.cboe.com/us/options/support/technical "Specification url"
 [Cboe.Options.DepthOfBook.Pitch.v2.39.4.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Cboe/Cboe.Options.DepthOfBook.Pitch.v2.39.4.pdf "Chicago Board Options Exchange 2.39.4 Pdf"
