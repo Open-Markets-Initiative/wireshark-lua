@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Saic Cta Output Cta 1.91 Protocol
-local saic_cta_output_cta_v1_91 = Proto("Saic.Cta.Output.Cta.v1.91.Lua", "Saic Cta Output Cta 1.91")
+-- Siac Cta Output Cta 1.91 Protocol
+local siac_cta_output_cta_v1_91 = Proto("Siac.Cta.Output.Cta.v1.91.Lua", "Siac Cta Output Cta 1.91")
 
 -- Component Tables
 local show = {}
@@ -19,47 +19,47 @@ local verify = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Saic Cta Output Cta 1.91 Fields
-saic_cta_output_cta_v1_91.fields.administrative = ProtoField.new("Administrative", "saic.cta.output.cta.v1.91.administrative", ftypes.STRING)
-saic_cta_output_cta_v1_91.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "saic.cta.output.cta.v1.91.administrativemessagetype", ftypes.STRING)
-saic_cta_output_cta_v1_91.fields.administrative_payload = ProtoField.new("Administrative Payload", "saic.cta.output.cta.v1.91.administrativepayload", ftypes.STRING)
-saic_cta_output_cta_v1_91.fields.block_checksum = ProtoField.new("Block Checksum", "saic.cta.output.cta.v1.91.blockchecksum", ftypes.UINT16)
-saic_cta_output_cta_v1_91.fields.block_header = ProtoField.new("Block Header", "saic.cta.output.cta.v1.91.blockheader", ftypes.STRING)
-saic_cta_output_cta_v1_91.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "saic.cta.output.cta.v1.91.blocksequencenumber", ftypes.UINT32)
-saic_cta_output_cta_v1_91.fields.block_size = ProtoField.new("Block Size", "saic.cta.output.cta.v1.91.blocksize", ftypes.UINT16)
-saic_cta_output_cta_v1_91.fields.control = ProtoField.new("Control", "saic.cta.output.cta.v1.91.control", ftypes.STRING)
-saic_cta_output_cta_v1_91.fields.control_message_type = ProtoField.new("Control Message Type", "saic.cta.output.cta.v1.91.controlmessagetype", ftypes.STRING)
-saic_cta_output_cta_v1_91.fields.data_feed_indicator = ProtoField.new("Data Feed Indicator", "saic.cta.output.cta.v1.91.datafeedindicator", ftypes.STRING)
-saic_cta_output_cta_v1_91.fields.market_status = ProtoField.new("Market Status", "saic.cta.output.cta.v1.91.marketstatus", ftypes.STRING)
-saic_cta_output_cta_v1_91.fields.market_status_message_type = ProtoField.new("Market Status Message Type", "saic.cta.output.cta.v1.91.marketstatusmessagetype", ftypes.STRING)
-saic_cta_output_cta_v1_91.fields.market_status_payload = ProtoField.new("Market Status Payload", "saic.cta.output.cta.v1.91.marketstatuspayload", ftypes.STRING)
-saic_cta_output_cta_v1_91.fields.market_wide_circuit_breaker_decline_level_status_message = ProtoField.new("Market Wide Circuit Breaker Decline Level Status Message", "saic.cta.output.cta.v1.91.marketwidecircuitbreakerdeclinelevelstatusmessage", ftypes.STRING)
-saic_cta_output_cta_v1_91.fields.message = ProtoField.new("Message", "saic.cta.output.cta.v1.91.message", ftypes.STRING)
-saic_cta_output_cta_v1_91.fields.message_category = ProtoField.new("Message Category", "saic.cta.output.cta.v1.91.messagecategory", ftypes.UINT16)
-saic_cta_output_cta_v1_91.fields.message_header = ProtoField.new("Message Header", "saic.cta.output.cta.v1.91.messageheader", ftypes.STRING)
-saic_cta_output_cta_v1_91.fields.message_id = ProtoField.new("Message Id", "saic.cta.output.cta.v1.91.messageid", ftypes.UINT8)
-saic_cta_output_cta_v1_91.fields.message_identifier = ProtoField.new("Message Identifier", "saic.cta.output.cta.v1.91.messageidentifier", ftypes.STRING)
-saic_cta_output_cta_v1_91.fields.message_length = ProtoField.new("Message Length", "saic.cta.output.cta.v1.91.messagelength", ftypes.UINT16)
-saic_cta_output_cta_v1_91.fields.messages_in_block = ProtoField.new("Messages In Block", "saic.cta.output.cta.v1.91.messagesinblock", ftypes.UINT8)
-saic_cta_output_cta_v1_91.fields.nanoseconds = ProtoField.new("Nanoseconds", "saic.cta.output.cta.v1.91.nanoseconds", ftypes.UINT32)
-saic_cta_output_cta_v1_91.fields.packet = ProtoField.new("Packet", "saic.cta.output.cta.v1.91.packet", ftypes.STRING)
-saic_cta_output_cta_v1_91.fields.participant_id = ProtoField.new("Participant Id", "saic.cta.output.cta.v1.91.participantid", ftypes.STRING)
-saic_cta_output_cta_v1_91.fields.participant_reference_number = ProtoField.new("Participant Reference Number", "saic.cta.output.cta.v1.91.participantreferencenumber", ftypes.INT64)
-saic_cta_output_cta_v1_91.fields.participant_timestamp = ProtoField.new("Participant Timestamp", "saic.cta.output.cta.v1.91.participanttimestamp", ftypes.STRING)
-saic_cta_output_cta_v1_91.fields.payload = ProtoField.new("Payload", "saic.cta.output.cta.v1.91.payload", ftypes.STRING)
-saic_cta_output_cta_v1_91.fields.quote = ProtoField.new("Quote", "saic.cta.output.cta.v1.91.quote", ftypes.STRING)
-saic_cta_output_cta_v1_91.fields.quote_message_type = ProtoField.new("Quote Message Type", "saic.cta.output.cta.v1.91.quotemessagetype", ftypes.STRING)
-saic_cta_output_cta_v1_91.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "saic.cta.output.cta.v1.91.retransmissionindicator", ftypes.STRING)
-saic_cta_output_cta_v1_91.fields.seconds = ProtoField.new("Seconds", "saic.cta.output.cta.v1.91.seconds", ftypes.UINT32)
-saic_cta_output_cta_v1_91.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "saic.cta.output.cta.v1.91.sipblocktimestamp", ftypes.STRING)
-saic_cta_output_cta_v1_91.fields.transaction_id = ProtoField.new("Transaction Id", "saic.cta.output.cta.v1.91.transactionid", ftypes.UINT32)
-saic_cta_output_cta_v1_91.fields.version = ProtoField.new("Version", "saic.cta.output.cta.v1.91.version", ftypes.UINT8)
+-- Siac Cta Output Cta 1.91 Fields
+siac_cta_output_cta_v1_91.fields.administrative = ProtoField.new("Administrative", "siac.cta.output.cta.v1.91.administrative", ftypes.STRING)
+siac_cta_output_cta_v1_91.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "siac.cta.output.cta.v1.91.administrativemessagetype", ftypes.STRING)
+siac_cta_output_cta_v1_91.fields.administrative_payload = ProtoField.new("Administrative Payload", "siac.cta.output.cta.v1.91.administrativepayload", ftypes.STRING)
+siac_cta_output_cta_v1_91.fields.block_checksum = ProtoField.new("Block Checksum", "siac.cta.output.cta.v1.91.blockchecksum", ftypes.UINT16)
+siac_cta_output_cta_v1_91.fields.block_header = ProtoField.new("Block Header", "siac.cta.output.cta.v1.91.blockheader", ftypes.STRING)
+siac_cta_output_cta_v1_91.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.cta.output.cta.v1.91.blocksequencenumber", ftypes.UINT32)
+siac_cta_output_cta_v1_91.fields.block_size = ProtoField.new("Block Size", "siac.cta.output.cta.v1.91.blocksize", ftypes.UINT16)
+siac_cta_output_cta_v1_91.fields.control = ProtoField.new("Control", "siac.cta.output.cta.v1.91.control", ftypes.STRING)
+siac_cta_output_cta_v1_91.fields.control_message_type = ProtoField.new("Control Message Type", "siac.cta.output.cta.v1.91.controlmessagetype", ftypes.STRING)
+siac_cta_output_cta_v1_91.fields.data_feed_indicator = ProtoField.new("Data Feed Indicator", "siac.cta.output.cta.v1.91.datafeedindicator", ftypes.STRING)
+siac_cta_output_cta_v1_91.fields.market_status = ProtoField.new("Market Status", "siac.cta.output.cta.v1.91.marketstatus", ftypes.STRING)
+siac_cta_output_cta_v1_91.fields.market_status_message_type = ProtoField.new("Market Status Message Type", "siac.cta.output.cta.v1.91.marketstatusmessagetype", ftypes.STRING)
+siac_cta_output_cta_v1_91.fields.market_status_payload = ProtoField.new("Market Status Payload", "siac.cta.output.cta.v1.91.marketstatuspayload", ftypes.STRING)
+siac_cta_output_cta_v1_91.fields.market_wide_circuit_breaker_decline_level_status_message = ProtoField.new("Market Wide Circuit Breaker Decline Level Status Message", "siac.cta.output.cta.v1.91.marketwidecircuitbreakerdeclinelevelstatusmessage", ftypes.STRING)
+siac_cta_output_cta_v1_91.fields.message = ProtoField.new("Message", "siac.cta.output.cta.v1.91.message", ftypes.STRING)
+siac_cta_output_cta_v1_91.fields.message_category = ProtoField.new("Message Category", "siac.cta.output.cta.v1.91.messagecategory", ftypes.STRING)
+siac_cta_output_cta_v1_91.fields.message_header = ProtoField.new("Message Header", "siac.cta.output.cta.v1.91.messageheader", ftypes.STRING)
+siac_cta_output_cta_v1_91.fields.message_id = ProtoField.new("Message Id", "siac.cta.output.cta.v1.91.messageid", ftypes.UINT8)
+siac_cta_output_cta_v1_91.fields.message_identifier = ProtoField.new("Message Identifier", "siac.cta.output.cta.v1.91.messageidentifier", ftypes.STRING)
+siac_cta_output_cta_v1_91.fields.message_length = ProtoField.new("Message Length", "siac.cta.output.cta.v1.91.messagelength", ftypes.UINT16)
+siac_cta_output_cta_v1_91.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.cta.output.cta.v1.91.messagesinblock", ftypes.UINT8)
+siac_cta_output_cta_v1_91.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.cta.output.cta.v1.91.nanoseconds", ftypes.UINT32)
+siac_cta_output_cta_v1_91.fields.packet = ProtoField.new("Packet", "siac.cta.output.cta.v1.91.packet", ftypes.STRING)
+siac_cta_output_cta_v1_91.fields.participant_id = ProtoField.new("Participant Id", "siac.cta.output.cta.v1.91.participantid", ftypes.STRING)
+siac_cta_output_cta_v1_91.fields.participant_reference_number = ProtoField.new("Participant Reference Number", "siac.cta.output.cta.v1.91.participantreferencenumber", ftypes.INT64)
+siac_cta_output_cta_v1_91.fields.participant_timestamp = ProtoField.new("Participant Timestamp", "siac.cta.output.cta.v1.91.participanttimestamp", ftypes.STRING)
+siac_cta_output_cta_v1_91.fields.payload = ProtoField.new("Payload", "siac.cta.output.cta.v1.91.payload", ftypes.STRING)
+siac_cta_output_cta_v1_91.fields.quote = ProtoField.new("Quote", "siac.cta.output.cta.v1.91.quote", ftypes.STRING)
+siac_cta_output_cta_v1_91.fields.quote_message_type = ProtoField.new("Quote Message Type", "siac.cta.output.cta.v1.91.quotemessagetype", ftypes.STRING)
+siac_cta_output_cta_v1_91.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "siac.cta.output.cta.v1.91.retransmissionindicator", ftypes.STRING)
+siac_cta_output_cta_v1_91.fields.seconds = ProtoField.new("Seconds", "siac.cta.output.cta.v1.91.seconds", ftypes.UINT32)
+siac_cta_output_cta_v1_91.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cta.output.cta.v1.91.sipblocktimestamp", ftypes.STRING)
+siac_cta_output_cta_v1_91.fields.transaction_id = ProtoField.new("Transaction Id", "siac.cta.output.cta.v1.91.transactionid", ftypes.UINT32)
+siac_cta_output_cta_v1_91.fields.version = ProtoField.new("Version", "siac.cta.output.cta.v1.91.version", ftypes.UINT8)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Saic Cta Output Cta 1.91 Element Dissection Options
+-- Siac Cta Output Cta 1.91 Element Dissection Options
 show.administrative = true
 show.block_header = true
 show.control = true
@@ -76,86 +76,86 @@ show.administrative_payload = false
 show.market_status_payload = false
 show.payload = false
 
--- Register Saic Cta Output Cta 1.91 Show Options
-saic_cta_output_cta_v1_91.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
-saic_cta_output_cta_v1_91.prefs.show_block_header = Pref.bool("Show Block Header", show.block_header, "Parse and add Block Header to protocol tree")
-saic_cta_output_cta_v1_91.prefs.show_control = Pref.bool("Show Control", show.control, "Parse and add Control to protocol tree")
-saic_cta_output_cta_v1_91.prefs.show_market_status = Pref.bool("Show Market Status", show.market_status, "Parse and add Market Status to protocol tree")
-saic_cta_output_cta_v1_91.prefs.show_market_wide_circuit_breaker_decline_level_status_message = Pref.bool("Show Market Wide Circuit Breaker Decline Level Status Message", show.market_wide_circuit_breaker_decline_level_status_message, "Parse and add Market Wide Circuit Breaker Decline Level Status Message to protocol tree")
-saic_cta_output_cta_v1_91.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-saic_cta_output_cta_v1_91.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-saic_cta_output_cta_v1_91.prefs.show_message_identifier = Pref.bool("Show Message Identifier", show.message_identifier, "Parse and add Message Identifier to protocol tree")
-saic_cta_output_cta_v1_91.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-saic_cta_output_cta_v1_91.prefs.show_participant_timestamp = Pref.bool("Show Participant Timestamp", show.participant_timestamp, "Parse and add Participant Timestamp to protocol tree")
-saic_cta_output_cta_v1_91.prefs.show_quote = Pref.bool("Show Quote", show.quote, "Parse and add Quote to protocol tree")
-saic_cta_output_cta_v1_91.prefs.show_sip_block_timestamp = Pref.bool("Show Sip Block Timestamp", show.sip_block_timestamp, "Parse and add Sip Block Timestamp to protocol tree")
-saic_cta_output_cta_v1_91.prefs.show_administrative_payload = Pref.bool("Show Administrative Payload", show.administrative_payload, "Parse and add Administrative Payload to protocol tree")
-saic_cta_output_cta_v1_91.prefs.show_market_status_payload = Pref.bool("Show Market Status Payload", show.market_status_payload, "Parse and add Market Status Payload to protocol tree")
-saic_cta_output_cta_v1_91.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+-- Register Siac Cta Output Cta 1.91 Show Options
+siac_cta_output_cta_v1_91.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
+siac_cta_output_cta_v1_91.prefs.show_block_header = Pref.bool("Show Block Header", show.block_header, "Parse and add Block Header to protocol tree")
+siac_cta_output_cta_v1_91.prefs.show_control = Pref.bool("Show Control", show.control, "Parse and add Control to protocol tree")
+siac_cta_output_cta_v1_91.prefs.show_market_status = Pref.bool("Show Market Status", show.market_status, "Parse and add Market Status to protocol tree")
+siac_cta_output_cta_v1_91.prefs.show_market_wide_circuit_breaker_decline_level_status_message = Pref.bool("Show Market Wide Circuit Breaker Decline Level Status Message", show.market_wide_circuit_breaker_decline_level_status_message, "Parse and add Market Wide Circuit Breaker Decline Level Status Message to protocol tree")
+siac_cta_output_cta_v1_91.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+siac_cta_output_cta_v1_91.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+siac_cta_output_cta_v1_91.prefs.show_message_identifier = Pref.bool("Show Message Identifier", show.message_identifier, "Parse and add Message Identifier to protocol tree")
+siac_cta_output_cta_v1_91.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+siac_cta_output_cta_v1_91.prefs.show_participant_timestamp = Pref.bool("Show Participant Timestamp", show.participant_timestamp, "Parse and add Participant Timestamp to protocol tree")
+siac_cta_output_cta_v1_91.prefs.show_quote = Pref.bool("Show Quote", show.quote, "Parse and add Quote to protocol tree")
+siac_cta_output_cta_v1_91.prefs.show_sip_block_timestamp = Pref.bool("Show Sip Block Timestamp", show.sip_block_timestamp, "Parse and add Sip Block Timestamp to protocol tree")
+siac_cta_output_cta_v1_91.prefs.show_administrative_payload = Pref.bool("Show Administrative Payload", show.administrative_payload, "Parse and add Administrative Payload to protocol tree")
+siac_cta_output_cta_v1_91.prefs.show_market_status_payload = Pref.bool("Show Market Status Payload", show.market_status_payload, "Parse and add Market Status Payload to protocol tree")
+siac_cta_output_cta_v1_91.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function saic_cta_output_cta_v1_91.prefs_changed()
+function siac_cta_output_cta_v1_91.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.administrative ~= saic_cta_output_cta_v1_91.prefs.show_administrative then
-    show.administrative = saic_cta_output_cta_v1_91.prefs.show_administrative
+  if show.administrative ~= siac_cta_output_cta_v1_91.prefs.show_administrative then
+    show.administrative = siac_cta_output_cta_v1_91.prefs.show_administrative
     changed = true
   end
-  if show.block_header ~= saic_cta_output_cta_v1_91.prefs.show_block_header then
-    show.block_header = saic_cta_output_cta_v1_91.prefs.show_block_header
+  if show.block_header ~= siac_cta_output_cta_v1_91.prefs.show_block_header then
+    show.block_header = siac_cta_output_cta_v1_91.prefs.show_block_header
     changed = true
   end
-  if show.control ~= saic_cta_output_cta_v1_91.prefs.show_control then
-    show.control = saic_cta_output_cta_v1_91.prefs.show_control
+  if show.control ~= siac_cta_output_cta_v1_91.prefs.show_control then
+    show.control = siac_cta_output_cta_v1_91.prefs.show_control
     changed = true
   end
-  if show.market_status ~= saic_cta_output_cta_v1_91.prefs.show_market_status then
-    show.market_status = saic_cta_output_cta_v1_91.prefs.show_market_status
+  if show.market_status ~= siac_cta_output_cta_v1_91.prefs.show_market_status then
+    show.market_status = siac_cta_output_cta_v1_91.prefs.show_market_status
     changed = true
   end
-  if show.market_wide_circuit_breaker_decline_level_status_message ~= saic_cta_output_cta_v1_91.prefs.show_market_wide_circuit_breaker_decline_level_status_message then
-    show.market_wide_circuit_breaker_decline_level_status_message = saic_cta_output_cta_v1_91.prefs.show_market_wide_circuit_breaker_decline_level_status_message
+  if show.market_wide_circuit_breaker_decline_level_status_message ~= siac_cta_output_cta_v1_91.prefs.show_market_wide_circuit_breaker_decline_level_status_message then
+    show.market_wide_circuit_breaker_decline_level_status_message = siac_cta_output_cta_v1_91.prefs.show_market_wide_circuit_breaker_decline_level_status_message
     changed = true
   end
-  if show.message ~= saic_cta_output_cta_v1_91.prefs.show_message then
-    show.message = saic_cta_output_cta_v1_91.prefs.show_message
+  if show.message ~= siac_cta_output_cta_v1_91.prefs.show_message then
+    show.message = siac_cta_output_cta_v1_91.prefs.show_message
     changed = true
   end
-  if show.message_header ~= saic_cta_output_cta_v1_91.prefs.show_message_header then
-    show.message_header = saic_cta_output_cta_v1_91.prefs.show_message_header
+  if show.message_header ~= siac_cta_output_cta_v1_91.prefs.show_message_header then
+    show.message_header = siac_cta_output_cta_v1_91.prefs.show_message_header
     changed = true
   end
-  if show.message_identifier ~= saic_cta_output_cta_v1_91.prefs.show_message_identifier then
-    show.message_identifier = saic_cta_output_cta_v1_91.prefs.show_message_identifier
+  if show.message_identifier ~= siac_cta_output_cta_v1_91.prefs.show_message_identifier then
+    show.message_identifier = siac_cta_output_cta_v1_91.prefs.show_message_identifier
     changed = true
   end
-  if show.packet ~= saic_cta_output_cta_v1_91.prefs.show_packet then
-    show.packet = saic_cta_output_cta_v1_91.prefs.show_packet
+  if show.packet ~= siac_cta_output_cta_v1_91.prefs.show_packet then
+    show.packet = siac_cta_output_cta_v1_91.prefs.show_packet
     changed = true
   end
-  if show.participant_timestamp ~= saic_cta_output_cta_v1_91.prefs.show_participant_timestamp then
-    show.participant_timestamp = saic_cta_output_cta_v1_91.prefs.show_participant_timestamp
+  if show.participant_timestamp ~= siac_cta_output_cta_v1_91.prefs.show_participant_timestamp then
+    show.participant_timestamp = siac_cta_output_cta_v1_91.prefs.show_participant_timestamp
     changed = true
   end
-  if show.quote ~= saic_cta_output_cta_v1_91.prefs.show_quote then
-    show.quote = saic_cta_output_cta_v1_91.prefs.show_quote
+  if show.quote ~= siac_cta_output_cta_v1_91.prefs.show_quote then
+    show.quote = siac_cta_output_cta_v1_91.prefs.show_quote
     changed = true
   end
-  if show.sip_block_timestamp ~= saic_cta_output_cta_v1_91.prefs.show_sip_block_timestamp then
-    show.sip_block_timestamp = saic_cta_output_cta_v1_91.prefs.show_sip_block_timestamp
+  if show.sip_block_timestamp ~= siac_cta_output_cta_v1_91.prefs.show_sip_block_timestamp then
+    show.sip_block_timestamp = siac_cta_output_cta_v1_91.prefs.show_sip_block_timestamp
     changed = true
   end
-  if show.administrative_payload ~= saic_cta_output_cta_v1_91.prefs.show_administrative_payload then
-    show.administrative_payload = saic_cta_output_cta_v1_91.prefs.show_administrative_payload
+  if show.administrative_payload ~= siac_cta_output_cta_v1_91.prefs.show_administrative_payload then
+    show.administrative_payload = siac_cta_output_cta_v1_91.prefs.show_administrative_payload
     changed = true
   end
-  if show.market_status_payload ~= saic_cta_output_cta_v1_91.prefs.show_market_status_payload then
-    show.market_status_payload = saic_cta_output_cta_v1_91.prefs.show_market_status_payload
+  if show.market_status_payload ~= siac_cta_output_cta_v1_91.prefs.show_market_status_payload then
+    show.market_status_payload = siac_cta_output_cta_v1_91.prefs.show_market_status_payload
     changed = true
   end
-  if show.payload ~= saic_cta_output_cta_v1_91.prefs.show_payload then
-    show.payload = saic_cta_output_cta_v1_91.prefs.show_payload
+  if show.payload ~= siac_cta_output_cta_v1_91.prefs.show_payload then
+    show.payload = siac_cta_output_cta_v1_91.prefs.show_payload
     changed = true
   end
 
@@ -167,7 +167,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Saic Cta Output Cta 1.91
+-- Dissect Siac Cta Output Cta 1.91
 -----------------------------------------------------------------------
 
 -- Size: Participant Reference Number
@@ -185,7 +185,7 @@ dissect.participant_reference_number = function(buffer, offset, packet, parent)
   local value = range:int64()
   local display = display.participant_reference_number(value, buffer, offset, packet, parent)
 
-  parent:add(saic_cta_output_cta_v1_91.fields.participant_reference_number, range, value, display)
+  parent:add(siac_cta_output_cta_v1_91.fields.participant_reference_number, range, value, display)
 
   return offset + length, value
 end
@@ -205,7 +205,7 @@ dissect.transaction_id = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.transaction_id(value, buffer, offset, packet, parent)
 
-  parent:add(saic_cta_output_cta_v1_91.fields.transaction_id, range, value, display)
+  parent:add(siac_cta_output_cta_v1_91.fields.transaction_id, range, value, display)
 
   return offset + length, value
 end
@@ -225,7 +225,7 @@ dissect.message_id = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.message_id(value, buffer, offset, packet, parent)
 
-  parent:add(saic_cta_output_cta_v1_91.fields.message_id, range, value, display)
+  parent:add(siac_cta_output_cta_v1_91.fields.message_id, range, value, display)
 
   return offset + length, value
 end
@@ -245,7 +245,7 @@ dissect.nanoseconds = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.nanoseconds(value, buffer, offset, packet, parent)
 
-  parent:add(saic_cta_output_cta_v1_91.fields.nanoseconds, range, value, display)
+  parent:add(siac_cta_output_cta_v1_91.fields.nanoseconds, range, value, display)
 
   return offset + length, value
 end
@@ -265,7 +265,7 @@ dissect.seconds = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.seconds(value, buffer, offset, packet, parent)
 
-  parent:add(saic_cta_output_cta_v1_91.fields.seconds, range, value, display)
+  parent:add(siac_cta_output_cta_v1_91.fields.seconds, range, value, display)
 
   return offset + length, value
 end
@@ -294,7 +294,7 @@ dissect.participant_timestamp = function(buffer, offset, packet, parent)
   if show.participant_timestamp then
     local range = buffer(offset, 8)
     local display = display.participant_timestamp(buffer, packet, parent)
-    parent = parent:add(saic_cta_output_cta_v1_91.fields.participant_timestamp, range, display)
+    parent = parent:add(siac_cta_output_cta_v1_91.fields.participant_timestamp, range, display)
   end
 
   return dissect.participant_timestamp_fields(buffer, offset, packet, parent)
@@ -315,7 +315,7 @@ dissect.participant_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.participant_id(value, buffer, offset, packet, parent)
 
-  parent:add(saic_cta_output_cta_v1_91.fields.participant_id, range, value, display)
+  parent:add(siac_cta_output_cta_v1_91.fields.participant_id, range, value, display)
 
   return offset + length, value
 end
@@ -353,7 +353,7 @@ dissect.message_identifier = function(buffer, offset, packet, parent)
   if show.message_identifier then
     local range = buffer(offset, 22)
     local display = display.message_identifier(buffer, packet, parent)
-    parent = parent:add(saic_cta_output_cta_v1_91.fields.message_identifier, range, display)
+    parent = parent:add(siac_cta_output_cta_v1_91.fields.message_identifier, range, display)
   end
 
   return dissect.message_identifier_fields(buffer, offset, packet, parent)
@@ -374,7 +374,7 @@ dissect.quote_message_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.quote_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(saic_cta_output_cta_v1_91.fields.quote_message_type, range, value, display)
+  parent:add(siac_cta_output_cta_v1_91.fields.quote_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -406,7 +406,7 @@ dissect.quote = function(buffer, offset, packet, parent)
   if show.quote then
     local range = buffer(offset, 23)
     local display = display.quote(buffer, packet, parent)
-    parent = parent:add(saic_cta_output_cta_v1_91.fields.quote, range, display)
+    parent = parent:add(siac_cta_output_cta_v1_91.fields.quote, range, display)
   end
 
   return dissect.quote_fields(buffer, offset, packet, parent)
@@ -442,7 +442,7 @@ dissect.market_wide_circuit_breaker_decline_level_status_message = function(buff
   if show.market_wide_circuit_breaker_decline_level_status_message then
     local range = buffer(offset, 0)
     local display = display.market_wide_circuit_breaker_decline_level_status_message(buffer, packet, parent)
-    parent = parent:add(saic_cta_output_cta_v1_91.fields.market_wide_circuit_breaker_decline_level_status_message, range, display)
+    parent = parent:add(siac_cta_output_cta_v1_91.fields.market_wide_circuit_breaker_decline_level_status_message, range, display)
   end
 
   return dissect.market_wide_circuit_breaker_decline_level_status_message_fields(buffer, offset, packet, parent)
@@ -488,7 +488,7 @@ dissect.market_status_payload = function(buffer, offset, packet, parent, market_
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.market_status_payload(buffer, packet, parent)
-  local element = parent:add(saic_cta_output_cta_v1_91.fields.market_status_payload, range, display)
+  local element = parent:add(siac_cta_output_cta_v1_91.fields.market_status_payload, range, display)
 
   return dissect.market_status_payload_branches(buffer, offset, packet, parent, market_status_message_type)
 end
@@ -512,7 +512,7 @@ dissect.market_status_message_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.market_status_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(saic_cta_output_cta_v1_91.fields.market_status_message_type, range, value, display)
+  parent:add(siac_cta_output_cta_v1_91.fields.market_status_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -559,7 +559,7 @@ dissect.market_status = function(buffer, offset, packet, parent)
     local length = size_of.market_status(buffer, offset)
     local range = buffer(offset, length)
     local display = display.market_status(buffer, packet, parent)
-    parent = parent:add(saic_cta_output_cta_v1_91.fields.market_status, range, display)
+    parent = parent:add(siac_cta_output_cta_v1_91.fields.market_status, range, display)
   end
 
   return dissect.market_status_fields(buffer, offset, packet, parent)
@@ -580,7 +580,7 @@ dissect.control_message_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.control_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(saic_cta_output_cta_v1_91.fields.control_message_type, range, value, display)
+  parent:add(siac_cta_output_cta_v1_91.fields.control_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -612,7 +612,7 @@ dissect.control = function(buffer, offset, packet, parent)
   if show.control then
     local range = buffer(offset, 23)
     local display = display.control(buffer, packet, parent)
-    parent = parent:add(saic_cta_output_cta_v1_91.fields.control, range, display)
+    parent = parent:add(siac_cta_output_cta_v1_91.fields.control, range, display)
   end
 
   return dissect.control_fields(buffer, offset, packet, parent)
@@ -657,7 +657,7 @@ dissect.administrative_payload = function(buffer, offset, packet, parent, admini
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.administrative_payload(buffer, packet, parent)
-  local element = parent:add(saic_cta_output_cta_v1_91.fields.administrative_payload, range, display)
+  local element = parent:add(siac_cta_output_cta_v1_91.fields.administrative_payload, range, display)
 
   return dissect.administrative_payload_branches(buffer, offset, packet, parent, administrative_message_type)
 end
@@ -681,7 +681,7 @@ dissect.administrative_message_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.administrative_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(saic_cta_output_cta_v1_91.fields.administrative_message_type, range, value, display)
+  parent:add(siac_cta_output_cta_v1_91.fields.administrative_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -728,7 +728,7 @@ dissect.administrative = function(buffer, offset, packet, parent)
     local length = size_of.administrative(buffer, offset)
     local range = buffer(offset, length)
     local display = display.administrative(buffer, packet, parent)
-    parent = parent:add(saic_cta_output_cta_v1_91.fields.administrative, range, display)
+    parent = parent:add(siac_cta_output_cta_v1_91.fields.administrative, range, display)
   end
 
   return dissect.administrative_fields(buffer, offset, packet, parent)
@@ -737,19 +737,19 @@ end
 -- Calculate runtime size of: Payload
 size_of.payload = function(buffer, offset, message_category)
   -- Size of Administrative
-  if message_category == A then
+  if message_category == "A" then
     return size_of.administrative(buffer, offset)
   end
   -- Size of Control
-  if message_category == C then
+  if message_category == "C" then
     return 23
   end
   -- Size of Market Status
-  if message_category == M then
+  if message_category == "M" then
     return size_of.market_status(buffer, offset)
   end
   -- Size of Quote
-  if message_category == Q then
+  if message_category == "Q" then
     return 23
   end
 
@@ -764,19 +764,19 @@ end
 -- Dissect Branches: Payload
 dissect.payload_branches = function(buffer, offset, packet, parent, message_category)
   -- Dissect Administrative
-  if message_category == A then
+  if message_category == "A" then
     return dissect.administrative(buffer, offset, packet, parent)
   end
   -- Dissect Control
-  if message_category == C then
+  if message_category == "C" then
     return dissect.control(buffer, offset, packet, parent)
   end
   -- Dissect Market Status
-  if message_category == M then
+  if message_category == "M" then
     return dissect.market_status(buffer, offset, packet, parent)
   end
   -- Dissect Quote
-  if message_category == Q then
+  if message_category == "Q" then
     return dissect.quote(buffer, offset, packet, parent)
   end
 
@@ -798,26 +798,26 @@ dissect.payload = function(buffer, offset, packet, parent, message_category)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.payload(buffer, packet, parent)
-  local element = parent:add(saic_cta_output_cta_v1_91.fields.payload, range, display)
+  local element = parent:add(siac_cta_output_cta_v1_91.fields.payload, range, display)
 
   return dissect.payload_branches(buffer, offset, packet, parent, message_category)
 end
 
 -- Size: Message Category
-size_of.message_category = 2
+size_of.message_category = 1
 
 -- Display: Message Category
 display.message_category = function(value)
-  if value == A then
+  if value == "A" then
     return "Message Category: Administrative (A)"
   end
-  if value == C then
+  if value == "C" then
     return "Message Category: Control (C)"
   end
-  if value == M then
+  if value == "M" then
     return "Message Category: Market Status (M)"
   end
-  if value == Q then
+  if value == "Q" then
     return "Message Category: Quote (Q)"
   end
 
@@ -828,10 +828,10 @@ end
 dissect.message_category = function(buffer, offset, packet, parent)
   local length = size_of.message_category
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:string()
   local display = display.message_category(value, buffer, offset, packet, parent)
 
-  parent:add(saic_cta_output_cta_v1_91.fields.message_category, range, value, display)
+  parent:add(siac_cta_output_cta_v1_91.fields.message_category, range, value, display)
 
   return offset + length, value
 end
@@ -851,7 +851,7 @@ dissect.message_length = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(saic_cta_output_cta_v1_91.fields.message_length, range, value, display)
+  parent:add(siac_cta_output_cta_v1_91.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -868,7 +868,7 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
   index, message_length = dissect.message_length(buffer, index, packet, parent)
 
-  -- Message Category: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Message Category: 1 Byte Ascii String Enum with 4 values
   index, message_category = dissect.message_category(buffer, index, packet, parent)
 
   return index
@@ -878,9 +878,9 @@ end
 dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local range = buffer(offset, 4)
+    local range = buffer(offset, 3)
     local display = display.message_header(buffer, packet, parent)
-    parent = parent:add(saic_cta_output_cta_v1_91.fields.message_header, range, display)
+    parent = parent:add(siac_cta_output_cta_v1_91.fields.message_header, range, display)
   end
 
   return dissect.message_header_fields(buffer, offset, packet, parent)
@@ -899,7 +899,7 @@ dissect.message_fields = function(buffer, offset, packet, parent, size_of_messag
   index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Message Category
-  local message_category = buffer(index - 2, 2):uint()
+  local message_category = buffer(index - 1, 1):string()
 
   -- Payload: Runtime Type with 4 branches
   index = dissect.payload(buffer, index, packet, parent, message_category)
@@ -913,7 +913,7 @@ dissect.message = function(buffer, offset, packet, parent, size_of_message)
   if show.message then
     local range = buffer(offset, size_of_message)
     local display = display.message(buffer, packet, parent)
-    parent = parent:add(saic_cta_output_cta_v1_91.fields.message, range, display)
+    parent = parent:add(siac_cta_output_cta_v1_91.fields.message, range, display)
   end
 
   dissect.message_fields(buffer, offset, packet, parent, size_of_message)
@@ -936,7 +936,7 @@ dissect.block_checksum = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.block_checksum(value, buffer, offset, packet, parent)
 
-  parent:add(saic_cta_output_cta_v1_91.fields.block_checksum, range, value, display)
+  parent:add(siac_cta_output_cta_v1_91.fields.block_checksum, range, value, display)
 
   return offset + length, value
 end
@@ -965,7 +965,7 @@ dissect.sip_block_timestamp = function(buffer, offset, packet, parent)
   if show.sip_block_timestamp then
     local range = buffer(offset, 8)
     local display = display.sip_block_timestamp(buffer, packet, parent)
-    parent = parent:add(saic_cta_output_cta_v1_91.fields.sip_block_timestamp, range, display)
+    parent = parent:add(siac_cta_output_cta_v1_91.fields.sip_block_timestamp, range, display)
   end
 
   return dissect.sip_block_timestamp_fields(buffer, offset, packet, parent)
@@ -986,7 +986,7 @@ dissect.messages_in_block = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.messages_in_block(value, buffer, offset, packet, parent)
 
-  parent:add(saic_cta_output_cta_v1_91.fields.messages_in_block, range, value, display)
+  parent:add(siac_cta_output_cta_v1_91.fields.messages_in_block, range, value, display)
 
   return offset + length, value
 end
@@ -1006,7 +1006,7 @@ dissect.block_sequence_number = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.block_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(saic_cta_output_cta_v1_91.fields.block_sequence_number, range, value, display)
+  parent:add(siac_cta_output_cta_v1_91.fields.block_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -1033,7 +1033,7 @@ dissect.retransmission_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.retransmission_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(saic_cta_output_cta_v1_91.fields.retransmission_indicator, range, value, display)
+  parent:add(siac_cta_output_cta_v1_91.fields.retransmission_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1053,7 +1053,7 @@ dissect.data_feed_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.data_feed_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(saic_cta_output_cta_v1_91.fields.data_feed_indicator, range, value, display)
+  parent:add(siac_cta_output_cta_v1_91.fields.data_feed_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1073,7 +1073,7 @@ dissect.block_size = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.block_size(value, buffer, offset, packet, parent)
 
-  parent:add(saic_cta_output_cta_v1_91.fields.block_size, range, value, display)
+  parent:add(siac_cta_output_cta_v1_91.fields.block_size, range, value, display)
 
   return offset + length, value
 end
@@ -1093,7 +1093,7 @@ dissect.version = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.version(value, buffer, offset, packet, parent)
 
-  parent:add(saic_cta_output_cta_v1_91.fields.version, range, value, display)
+  parent:add(siac_cta_output_cta_v1_91.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -1140,7 +1140,7 @@ dissect.block_header = function(buffer, offset, packet, parent)
   if show.block_header then
     local range = buffer(offset, 20)
     local display = display.block_header(buffer, packet, parent)
-    parent = parent:add(saic_cta_output_cta_v1_91.fields.block_header, range, display)
+    parent = parent:add(siac_cta_output_cta_v1_91.fields.block_header, range, display)
   end
 
   return dissect.block_header_fields(buffer, offset, packet, parent)
@@ -1175,23 +1175,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function saic_cta_output_cta_v1_91.init()
+function siac_cta_output_cta_v1_91.init()
 end
 
--- Dissector for Saic Cta Output Cta 1.91
-function saic_cta_output_cta_v1_91.dissector(buffer, packet, parent)
+-- Dissector for Siac Cta Output Cta 1.91
+function siac_cta_output_cta_v1_91.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = saic_cta_output_cta_v1_91.name
+  packet.cols.protocol = siac_cta_output_cta_v1_91.name
 
   -- Dissect protocol
-  local protocol = parent:add(saic_cta_output_cta_v1_91, buffer(), saic_cta_output_cta_v1_91.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(siac_cta_output_cta_v1_91, buffer(), siac_cta_output_cta_v1_91.description, "("..buffer:len().." Bytes)")
   local protocol_size = dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, saic_cta_output_cta_v1_91)
+udp_table:add(65333, siac_cta_output_cta_v1_91)
 
 
 -----------------------------------------------------------------------
@@ -1199,25 +1199,25 @@ udp_table:add(65333, saic_cta_output_cta_v1_91)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.saic_cta_output_cta_v1_91_packet_size = function(buffer)
+verify.siac_cta_output_cta_v1_91_packet_size = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Saic Cta Output Cta 1.91
-local function saic_cta_output_cta_v1_91_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Siac Cta Output Cta 1.91
+local function siac_cta_output_cta_v1_91_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.saic_cta_output_cta_v1_91_packet_size(buffer) then return false end
+  if not verify.siac_cta_output_cta_v1_91_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = saic_cta_output_cta_v1_91
-  saic_cta_output_cta_v1_91.dissector(buffer, packet, parent)
+  packet.conversation = siac_cta_output_cta_v1_91
+  siac_cta_output_cta_v1_91.dissector(buffer, packet, parent)
 
   return true
 end
 
--- Register Heuristic for Saic Cta Output Cta 1.91
-saic_cta_output_cta_v1_91:register_heuristic("udp", saic_cta_output_cta_v1_91_heuristic)
+-- Register Heuristic for Siac Cta Output Cta 1.91
+siac_cta_output_cta_v1_91:register_heuristic("udp", siac_cta_output_cta_v1_91_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.
