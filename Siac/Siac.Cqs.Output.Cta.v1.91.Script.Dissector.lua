@@ -24,6 +24,7 @@ siac_cqs_output_cta_v1_91.fields.adf_timestamp = ProtoField.new("Adf Timestamp",
 siac_cqs_output_cta_v1_91.fields.administrative = ProtoField.new("Administrative", "siac.cqs.output.cta.v1.91.administrative", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "siac.cqs.output.cta.v1.91.administrativemessagetype", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.administrative_payload = ProtoField.new("Administrative Payload", "siac.cqs.output.cta.v1.91.administrativepayload", ftypes.STRING)
+siac_cqs_output_cta_v1_91.fields.administrative_unformatted_message = ProtoField.new("Administrative Unformatted Message", "siac.cqs.output.cta.v1.91.administrativeunformattedmessage", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.best_bid_participant_id = ProtoField.new("Best Bid Participant Id", "siac.cqs.output.cta.v1.91.bestbidparticipantid", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.best_bid_price_long = ProtoField.new("Best Bid Price Long", "siac.cqs.output.cta.v1.91.bestbidpricelong", ftypes.UINT64)
 siac_cqs_output_cta_v1_91.fields.best_bid_quote_condition = ProtoField.new("Best Bid Quote Condition", "siac.cqs.output.cta.v1.91.bestbidquotecondition", ftypes.STRING)
@@ -36,12 +37,19 @@ siac_cqs_output_cta_v1_91.fields.block_sequence_number = ProtoField.new("Block S
 siac_cqs_output_cta_v1_91.fields.block_size = ProtoField.new("Block Size", "siac.cqs.output.cta.v1.91.blocksize", ftypes.UINT16)
 siac_cqs_output_cta_v1_91.fields.control = ProtoField.new("Control", "siac.cqs.output.cta.v1.91.control", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.control_message_type = ProtoField.new("Control Message Type", "siac.cqs.output.cta.v1.91.controlmessagetype", ftypes.STRING)
+siac_cqs_output_cta_v1_91.fields.control_payload = ProtoField.new("Control Payload", "siac.cqs.output.cta.v1.91.controlpayload", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.data_feed_indicator = ProtoField.new("Data Feed Indicator", "siac.cqs.output.cta.v1.91.datafeedindicator", ftypes.STRING)
+siac_cqs_output_cta_v1_91.fields.disaster_recovery_data_center_activation_message = ProtoField.new("Disaster Recovery Data Center Activation Message", "siac.cqs.output.cta.v1.91.disasterrecoverydatacenteractivationmessage", ftypes.STRING)
+siac_cqs_output_cta_v1_91.fields.end_of_day_message = ProtoField.new("End Of Day Message", "siac.cqs.output.cta.v1.91.endofdaymessage", ftypes.STRING)
+siac_cqs_output_cta_v1_91.fields.end_of_test_cycle_message = ProtoField.new("End Of Test Cycle Message", "siac.cqs.output.cta.v1.91.endoftestcyclemessage", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "siac.cqs.output.cta.v1.91.financialstatusindicator", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.finra_bbo_indicator = ProtoField.new("Finra Bbo Indicator", "siac.cqs.output.cta.v1.91.finrabboindicator", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.finra_best_bid_market_maker_id = ProtoField.new("Finra Best Bid Market Maker Id", "siac.cqs.output.cta.v1.91.finrabestbidmarketmakerid", ftypes.STRING)
+siac_cqs_output_cta_v1_91.fields.finra_close_message = ProtoField.new("Finra Close Message", "siac.cqs.output.cta.v1.91.finraclosemessage", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.finra_market_maker_id = ProtoField.new("Finra Market Maker Id", "siac.cqs.output.cta.v1.91.finramarketmakerid", ftypes.STRING)
+siac_cqs_output_cta_v1_91.fields.finra_open_message = ProtoField.new("Finra Open Message", "siac.cqs.output.cta.v1.91.finraopenmessage", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.instrument_type = ProtoField.new("Instrument Type", "siac.cqs.output.cta.v1.91.instrumenttype", ftypes.STRING)
+siac_cqs_output_cta_v1_91.fields.line_integrity_message = ProtoField.new("Line Integrity Message", "siac.cqs.output.cta.v1.91.lineintegritymessage", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.long_quote_message = ProtoField.new("Long Quote Message", "siac.cqs.output.cta.v1.91.longquotemessage", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.luld_indicator = ProtoField.new("Luld Indicator", "siac.cqs.output.cta.v1.91.luldindicator", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.market_condition = ProtoField.new("Market Condition", "siac.cqs.output.cta.v1.91.marketcondition", ftypes.STRING)
@@ -49,11 +57,11 @@ siac_cqs_output_cta_v1_91.fields.market_status = ProtoField.new("Market Status",
 siac_cqs_output_cta_v1_91.fields.market_status_message_type = ProtoField.new("Market Status Message Type", "siac.cqs.output.cta.v1.91.marketstatusmessagetype", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.market_status_payload = ProtoField.new("Market Status Payload", "siac.cqs.output.cta.v1.91.marketstatuspayload", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.market_wide_circuit_breaker_decline_level_status_message = ProtoField.new("Market Wide Circuit Breaker Decline Level Status Message", "siac.cqs.output.cta.v1.91.marketwidecircuitbreakerdeclinelevelstatusmessage", ftypes.STRING)
+siac_cqs_output_cta_v1_91.fields.market_wide_circuit_breaker_status_message = ProtoField.new("Market Wide Circuit Breaker Status Message", "siac.cqs.output.cta.v1.91.marketwidecircuitbreakerstatusmessage", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.message = ProtoField.new("Message", "siac.cqs.output.cta.v1.91.message", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.message_category = ProtoField.new("Message Category", "siac.cqs.output.cta.v1.91.messagecategory", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.message_header = ProtoField.new("Message Header", "siac.cqs.output.cta.v1.91.messageheader", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.message_id = ProtoField.new("Message Id", "siac.cqs.output.cta.v1.91.messageid", ftypes.UINT8)
-siac_cqs_output_cta_v1_91.fields.message_identifier = ProtoField.new("Message Identifier", "siac.cqs.output.cta.v1.91.messageidentifier", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.message_length = ProtoField.new("Message Length", "siac.cqs.output.cta.v1.91.messagelength", ftypes.UINT16)
 siac_cqs_output_cta_v1_91.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.cqs.output.cta.v1.91.messagesinblock", ftypes.UINT8)
 siac_cqs_output_cta_v1_91.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "siac.cqs.output.cta.v1.91.mwcblevel2", ftypes.INT64)
@@ -75,6 +83,7 @@ siac_cqs_output_cta_v1_91.fields.quote_condition = ProtoField.new("Quote Conditi
 siac_cqs_output_cta_v1_91.fields.quote_message_type = ProtoField.new("Quote Message Type", "siac.cqs.output.cta.v1.91.quotemessagetype", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.quote_payload = ProtoField.new("Quote Payload", "siac.cqs.output.cta.v1.91.quotepayload", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.reserved = ProtoField.new("Reserved", "siac.cqs.output.cta.v1.91.reserved", ftypes.UINT8)
+siac_cqs_output_cta_v1_91.fields.reset_block_sequence_number_message = ProtoField.new("Reset Block Sequence Number Message", "siac.cqs.output.cta.v1.91.resetblocksequencenumbermessage", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.retail_interest_indicator = ProtoField.new("Retail Interest Indicator", "siac.cqs.output.cta.v1.91.retailinterestindicator", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "siac.cqs.output.cta.v1.91.retransmissionindicator", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.seconds = ProtoField.new("Seconds", "siac.cqs.output.cta.v1.91.seconds", ftypes.UINT32)
@@ -85,6 +94,7 @@ siac_cqs_output_cta_v1_91.fields.short_sale_restriction_indicator = ProtoField.n
 siac_cqs_output_cta_v1_91.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cqs.output.cta.v1.91.sipblocktimestamp", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.sip_generated_message_identifier = ProtoField.new("Sip Generated Message Identifier", "siac.cqs.output.cta.v1.91.sipgeneratedmessageidentifier", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.start_of_day_message = ProtoField.new("Start Of Day Message", "siac.cqs.output.cta.v1.91.startofdaymessage", ftypes.STRING)
+siac_cqs_output_cta_v1_91.fields.start_of_test_cycle_message = ProtoField.new("Start Of Test Cycle Message", "siac.cqs.output.cta.v1.91.startoftestcyclemessage", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.transaction_id = ProtoField.new("Transaction Id", "siac.cqs.output.cta.v1.91.transactionid", ftypes.UINT32)
 siac_cqs_output_cta_v1_91.fields.version = ProtoField.new("Version", "siac.cqs.output.cta.v1.91.version", ftypes.UINT8)
 
@@ -95,21 +105,31 @@ siac_cqs_output_cta_v1_91.fields.version = ProtoField.new("Version", "siac.cqs.o
 -- Siac Cqs Output Cta 1.91 Element Dissection Options
 show.adf_timestamp = true
 show.administrative = true
+show.administrative_unformatted_message = true
 show.block_header = true
 show.control = true
+show.disaster_recovery_data_center_activation_message = true
+show.end_of_day_message = true
+show.end_of_test_cycle_message = true
+show.finra_close_message = true
+show.finra_open_message = true
+show.line_integrity_message = true
 show.long_quote_message = true
 show.market_status = true
 show.market_wide_circuit_breaker_decline_level_status_message = true
+show.market_wide_circuit_breaker_status_message = true
 show.message = true
 show.message_header = true
-show.message_identifier = true
 show.national_best_bid_long_appendage = true
 show.packet = true
 show.participant_timestamp = true
 show.quote = true
+show.reset_block_sequence_number_message = true
 show.sip_block_timestamp = true
 show.start_of_day_message = true
+show.start_of_test_cycle_message = true
 show.administrative_payload = false
+show.control_payload = false
 show.market_status_payload = false
 show.payload = false
 show.quote_payload = false
@@ -117,21 +137,31 @@ show.quote_payload = false
 -- Register Siac Cqs Output Cta 1.91 Show Options
 siac_cqs_output_cta_v1_91.prefs.show_adf_timestamp = Pref.bool("Show Adf Timestamp", show.adf_timestamp, "Parse and add Adf Timestamp to protocol tree")
 siac_cqs_output_cta_v1_91.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
+siac_cqs_output_cta_v1_91.prefs.show_administrative_unformatted_message = Pref.bool("Show Administrative Unformatted Message", show.administrative_unformatted_message, "Parse and add Administrative Unformatted Message to protocol tree")
 siac_cqs_output_cta_v1_91.prefs.show_block_header = Pref.bool("Show Block Header", show.block_header, "Parse and add Block Header to protocol tree")
 siac_cqs_output_cta_v1_91.prefs.show_control = Pref.bool("Show Control", show.control, "Parse and add Control to protocol tree")
+siac_cqs_output_cta_v1_91.prefs.show_disaster_recovery_data_center_activation_message = Pref.bool("Show Disaster Recovery Data Center Activation Message", show.disaster_recovery_data_center_activation_message, "Parse and add Disaster Recovery Data Center Activation Message to protocol tree")
+siac_cqs_output_cta_v1_91.prefs.show_end_of_day_message = Pref.bool("Show End Of Day Message", show.end_of_day_message, "Parse and add End Of Day Message to protocol tree")
+siac_cqs_output_cta_v1_91.prefs.show_end_of_test_cycle_message = Pref.bool("Show End Of Test Cycle Message", show.end_of_test_cycle_message, "Parse and add End Of Test Cycle Message to protocol tree")
+siac_cqs_output_cta_v1_91.prefs.show_finra_close_message = Pref.bool("Show Finra Close Message", show.finra_close_message, "Parse and add Finra Close Message to protocol tree")
+siac_cqs_output_cta_v1_91.prefs.show_finra_open_message = Pref.bool("Show Finra Open Message", show.finra_open_message, "Parse and add Finra Open Message to protocol tree")
+siac_cqs_output_cta_v1_91.prefs.show_line_integrity_message = Pref.bool("Show Line Integrity Message", show.line_integrity_message, "Parse and add Line Integrity Message to protocol tree")
 siac_cqs_output_cta_v1_91.prefs.show_long_quote_message = Pref.bool("Show Long Quote Message", show.long_quote_message, "Parse and add Long Quote Message to protocol tree")
 siac_cqs_output_cta_v1_91.prefs.show_market_status = Pref.bool("Show Market Status", show.market_status, "Parse and add Market Status to protocol tree")
 siac_cqs_output_cta_v1_91.prefs.show_market_wide_circuit_breaker_decline_level_status_message = Pref.bool("Show Market Wide Circuit Breaker Decline Level Status Message", show.market_wide_circuit_breaker_decline_level_status_message, "Parse and add Market Wide Circuit Breaker Decline Level Status Message to protocol tree")
+siac_cqs_output_cta_v1_91.prefs.show_market_wide_circuit_breaker_status_message = Pref.bool("Show Market Wide Circuit Breaker Status Message", show.market_wide_circuit_breaker_status_message, "Parse and add Market Wide Circuit Breaker Status Message to protocol tree")
 siac_cqs_output_cta_v1_91.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 siac_cqs_output_cta_v1_91.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-siac_cqs_output_cta_v1_91.prefs.show_message_identifier = Pref.bool("Show Message Identifier", show.message_identifier, "Parse and add Message Identifier to protocol tree")
 siac_cqs_output_cta_v1_91.prefs.show_national_best_bid_long_appendage = Pref.bool("Show National Best Bid Long Appendage", show.national_best_bid_long_appendage, "Parse and add National Best Bid Long Appendage to protocol tree")
 siac_cqs_output_cta_v1_91.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 siac_cqs_output_cta_v1_91.prefs.show_participant_timestamp = Pref.bool("Show Participant Timestamp", show.participant_timestamp, "Parse and add Participant Timestamp to protocol tree")
 siac_cqs_output_cta_v1_91.prefs.show_quote = Pref.bool("Show Quote", show.quote, "Parse and add Quote to protocol tree")
+siac_cqs_output_cta_v1_91.prefs.show_reset_block_sequence_number_message = Pref.bool("Show Reset Block Sequence Number Message", show.reset_block_sequence_number_message, "Parse and add Reset Block Sequence Number Message to protocol tree")
 siac_cqs_output_cta_v1_91.prefs.show_sip_block_timestamp = Pref.bool("Show Sip Block Timestamp", show.sip_block_timestamp, "Parse and add Sip Block Timestamp to protocol tree")
 siac_cqs_output_cta_v1_91.prefs.show_start_of_day_message = Pref.bool("Show Start Of Day Message", show.start_of_day_message, "Parse and add Start Of Day Message to protocol tree")
+siac_cqs_output_cta_v1_91.prefs.show_start_of_test_cycle_message = Pref.bool("Show Start Of Test Cycle Message", show.start_of_test_cycle_message, "Parse and add Start Of Test Cycle Message to protocol tree")
 siac_cqs_output_cta_v1_91.prefs.show_administrative_payload = Pref.bool("Show Administrative Payload", show.administrative_payload, "Parse and add Administrative Payload to protocol tree")
+siac_cqs_output_cta_v1_91.prefs.show_control_payload = Pref.bool("Show Control Payload", show.control_payload, "Parse and add Control Payload to protocol tree")
 siac_cqs_output_cta_v1_91.prefs.show_market_status_payload = Pref.bool("Show Market Status Payload", show.market_status_payload, "Parse and add Market Status Payload to protocol tree")
 siac_cqs_output_cta_v1_91.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 siac_cqs_output_cta_v1_91.prefs.show_quote_payload = Pref.bool("Show Quote Payload", show.quote_payload, "Parse and add Quote Payload to protocol tree")
@@ -149,12 +179,40 @@ function siac_cqs_output_cta_v1_91.prefs_changed()
     show.administrative = siac_cqs_output_cta_v1_91.prefs.show_administrative
     changed = true
   end
+  if show.administrative_unformatted_message ~= siac_cqs_output_cta_v1_91.prefs.show_administrative_unformatted_message then
+    show.administrative_unformatted_message = siac_cqs_output_cta_v1_91.prefs.show_administrative_unformatted_message
+    changed = true
+  end
   if show.block_header ~= siac_cqs_output_cta_v1_91.prefs.show_block_header then
     show.block_header = siac_cqs_output_cta_v1_91.prefs.show_block_header
     changed = true
   end
   if show.control ~= siac_cqs_output_cta_v1_91.prefs.show_control then
     show.control = siac_cqs_output_cta_v1_91.prefs.show_control
+    changed = true
+  end
+  if show.disaster_recovery_data_center_activation_message ~= siac_cqs_output_cta_v1_91.prefs.show_disaster_recovery_data_center_activation_message then
+    show.disaster_recovery_data_center_activation_message = siac_cqs_output_cta_v1_91.prefs.show_disaster_recovery_data_center_activation_message
+    changed = true
+  end
+  if show.end_of_day_message ~= siac_cqs_output_cta_v1_91.prefs.show_end_of_day_message then
+    show.end_of_day_message = siac_cqs_output_cta_v1_91.prefs.show_end_of_day_message
+    changed = true
+  end
+  if show.end_of_test_cycle_message ~= siac_cqs_output_cta_v1_91.prefs.show_end_of_test_cycle_message then
+    show.end_of_test_cycle_message = siac_cqs_output_cta_v1_91.prefs.show_end_of_test_cycle_message
+    changed = true
+  end
+  if show.finra_close_message ~= siac_cqs_output_cta_v1_91.prefs.show_finra_close_message then
+    show.finra_close_message = siac_cqs_output_cta_v1_91.prefs.show_finra_close_message
+    changed = true
+  end
+  if show.finra_open_message ~= siac_cqs_output_cta_v1_91.prefs.show_finra_open_message then
+    show.finra_open_message = siac_cqs_output_cta_v1_91.prefs.show_finra_open_message
+    changed = true
+  end
+  if show.line_integrity_message ~= siac_cqs_output_cta_v1_91.prefs.show_line_integrity_message then
+    show.line_integrity_message = siac_cqs_output_cta_v1_91.prefs.show_line_integrity_message
     changed = true
   end
   if show.long_quote_message ~= siac_cqs_output_cta_v1_91.prefs.show_long_quote_message then
@@ -169,16 +227,16 @@ function siac_cqs_output_cta_v1_91.prefs_changed()
     show.market_wide_circuit_breaker_decline_level_status_message = siac_cqs_output_cta_v1_91.prefs.show_market_wide_circuit_breaker_decline_level_status_message
     changed = true
   end
+  if show.market_wide_circuit_breaker_status_message ~= siac_cqs_output_cta_v1_91.prefs.show_market_wide_circuit_breaker_status_message then
+    show.market_wide_circuit_breaker_status_message = siac_cqs_output_cta_v1_91.prefs.show_market_wide_circuit_breaker_status_message
+    changed = true
+  end
   if show.message ~= siac_cqs_output_cta_v1_91.prefs.show_message then
     show.message = siac_cqs_output_cta_v1_91.prefs.show_message
     changed = true
   end
   if show.message_header ~= siac_cqs_output_cta_v1_91.prefs.show_message_header then
     show.message_header = siac_cqs_output_cta_v1_91.prefs.show_message_header
-    changed = true
-  end
-  if show.message_identifier ~= siac_cqs_output_cta_v1_91.prefs.show_message_identifier then
-    show.message_identifier = siac_cqs_output_cta_v1_91.prefs.show_message_identifier
     changed = true
   end
   if show.national_best_bid_long_appendage ~= siac_cqs_output_cta_v1_91.prefs.show_national_best_bid_long_appendage then
@@ -197,6 +255,10 @@ function siac_cqs_output_cta_v1_91.prefs_changed()
     show.quote = siac_cqs_output_cta_v1_91.prefs.show_quote
     changed = true
   end
+  if show.reset_block_sequence_number_message ~= siac_cqs_output_cta_v1_91.prefs.show_reset_block_sequence_number_message then
+    show.reset_block_sequence_number_message = siac_cqs_output_cta_v1_91.prefs.show_reset_block_sequence_number_message
+    changed = true
+  end
   if show.sip_block_timestamp ~= siac_cqs_output_cta_v1_91.prefs.show_sip_block_timestamp then
     show.sip_block_timestamp = siac_cqs_output_cta_v1_91.prefs.show_sip_block_timestamp
     changed = true
@@ -205,8 +267,16 @@ function siac_cqs_output_cta_v1_91.prefs_changed()
     show.start_of_day_message = siac_cqs_output_cta_v1_91.prefs.show_start_of_day_message
     changed = true
   end
+  if show.start_of_test_cycle_message ~= siac_cqs_output_cta_v1_91.prefs.show_start_of_test_cycle_message then
+    show.start_of_test_cycle_message = siac_cqs_output_cta_v1_91.prefs.show_start_of_test_cycle_message
+    changed = true
+  end
   if show.administrative_payload ~= siac_cqs_output_cta_v1_91.prefs.show_administrative_payload then
     show.administrative_payload = siac_cqs_output_cta_v1_91.prefs.show_administrative_payload
+    changed = true
+  end
+  if show.control_payload ~= siac_cqs_output_cta_v1_91.prefs.show_control_payload then
+    show.control_payload = siac_cqs_output_cta_v1_91.prefs.show_control_payload
     changed = true
   end
   if show.market_status_payload ~= siac_cqs_output_cta_v1_91.prefs.show_market_status_payload then
@@ -1206,6 +1276,60 @@ dissect.reserved = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Display: Market Wide Circuit Breaker Status Message
+display.market_wide_circuit_breaker_status_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Market Wide Circuit Breaker Status Message
+dissect.market_wide_circuit_breaker_status_message_fields = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
+  local index = offset
+
+  -- Participant Id: 1 Byte Ascii String
+  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+
+  -- Participant Timestamp: Struct of 2 fields
+  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+
+  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  index, message_id = dissect.message_id(buffer, index, packet, parent)
+
+  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+
+  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+
+  -- Mwcb Level 1
+  index, mwcb_level_1 = dissect.mwcb_level_1(buffer, index, packet, parent)
+
+  -- Reserved: 1 Byte Unsigned Fixed Width Integer
+  index, reserved = dissect.reserved(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Market Wide Circuit Breaker Status Message
+dissect.market_wide_circuit_breaker_status_message = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  -- Parse runtime struct size
+  local size_of_market_wide_circuit_breaker_status_message = message_length - 4
+
+  -- Optionally add struct element to protocol tree
+  if show.market_wide_circuit_breaker_status_message then
+    local range = buffer(offset, size_of_market_wide_circuit_breaker_status_message)
+    local display = display.market_wide_circuit_breaker_status_message(buffer, packet, parent)
+    parent = parent:add(siac_cqs_output_cta_v1_91.fields.market_wide_circuit_breaker_status_message, range, display)
+  end
+
+  dissect.market_wide_circuit_breaker_status_message_fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
+
+  return offset + size_of_market_wide_circuit_breaker_status_message
+end
+
 -- Size: Mwcb Level 3
 size_of.mwcb_level_3 = 8
 
@@ -1246,13 +1370,13 @@ dissect.mwcb_level_2 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Display: Message Identifier
-display.message_identifier = function(buffer, offset, size, packet, parent)
+-- Display: Market Wide Circuit Breaker Decline Level Status Message
+display.market_wide_circuit_breaker_decline_level_status_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Message Identifier
-dissect.message_identifier_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Market Wide Circuit Breaker Decline Level Status Message
+dissect.market_wide_circuit_breaker_decline_level_status_message_fields = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String
@@ -1269,33 +1393,6 @@ dissect.message_identifier_fields = function(buffer, offset, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
   index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Message Identifier
-dissect.message_identifier = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.message_identifier then
-    local range = buffer(offset, 22)
-    local display = display.message_identifier(buffer, packet, parent)
-    parent = parent:add(siac_cqs_output_cta_v1_91.fields.message_identifier, range, display)
-  end
-
-  return dissect.message_identifier_fields(buffer, offset, packet, parent)
-end
-
--- Display: Market Wide Circuit Breaker Decline Level Status Message
-display.market_wide_circuit_breaker_decline_level_status_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Market Wide Circuit Breaker Decline Level Status Message
-dissect.market_wide_circuit_breaker_decline_level_status_message_fields = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_message)
-  local index = offset
-
-  -- Message Identifier: Struct of 5 fields
-  index, message_identifier = dissect.message_identifier(buffer, index, packet, parent)
 
   -- Mwcb Level 1
   index, mwcb_level_1 = dissect.mwcb_level_1(buffer, index, packet, parent)
@@ -1339,6 +1436,10 @@ size_of.market_status_payload = function(buffer, offset, market_status_message_t
   if market_status_message_type == "M" then
     return size_of.market_wide_circuit_breaker_decline_level_status_message(buffer, offset)
   end
+  -- Size of Market Wide Circuit Breaker Status Message
+  if market_status_message_type == "L" then
+    return size_of.market_wide_circuit_breaker_status_message(buffer, offset)
+  end
 
   return 0
 end
@@ -1353,6 +1454,10 @@ dissect.market_status_payload_branches = function(buffer, offset, packet, parent
   -- Dissect Market Wide Circuit Breaker Decline Level Status Message
   if market_status_message_type == "M" then
     return dissect.market_wide_circuit_breaker_decline_level_status_message(buffer, offset, packet, parent)
+  end
+  -- Dissect Market Wide Circuit Breaker Status Message
+  if market_status_message_type == "L" then
+    return dissect.market_wide_circuit_breaker_status_message(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1386,6 +1491,9 @@ display.market_status_message_type = function(value)
   if value == "M" then
     return "Market Status Message Type: Market Wide Circuit Breaker Decline Level Status Message (M)"
   end
+  if value == "L" then
+    return "Market Status Message Type: Market Wide Circuit Breaker Status Message (L)"
+  end
 
   return "Market Status Message Type: Unknown("..value..")"
 end
@@ -1411,10 +1519,10 @@ end
 dissect.market_status_fields = function(buffer, offset, packet, parent, size_of_market_status)
   local index = offset
 
-  -- Market Status Message Type: 1 Byte Ascii String Enum with 1 values
+  -- Market Status Message Type: 1 Byte Ascii String Enum with 2 values
   index, market_status_message_type = dissect.market_status_message_type(buffer, index, packet, parent)
 
-  -- Market Status Payload: Runtime Type with 1 branches
+  -- Market Status Payload: Runtime Type with 2 branches
   index = dissect.market_status_payload(buffer, index, packet, parent, market_status_message_type)
 
   return index
@@ -1441,63 +1549,388 @@ dissect.market_status = function(buffer, offset, packet, parent)
   return offset + size_of_market_status
 end
 
--- Size: Control Message Type
-size_of.control_message_type = 1
-
--- Display: Control Message Type
-display.control_message_type = function(value)
-  return "Control Message Type: "..value
-end
-
--- Dissect: Control Message Type
-dissect.control_message_type = function(buffer, offset, packet, parent)
-  local length = size_of.control_message_type
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.control_message_type(value, buffer, offset, packet, parent)
-
-  parent:add(siac_cqs_output_cta_v1_91.fields.control_message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Display: Control
-display.control = function(buffer, offset, size, packet, parent)
+-- Display: End Of Day Message
+display.end_of_day_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Control
-dissect.control_fields = function(buffer, offset, packet, parent, size_of_control)
+-- Dissect Fields: End Of Day Message
+dissect.end_of_day_message_fields = function(buffer, offset, packet, parent, size_of_end_of_day_message)
   local index = offset
 
-  -- Control Message Type: 1 Byte Ascii String
-  index, control_message_type = dissect.control_message_type(buffer, index, packet, parent)
+  -- Participant Id: 1 Byte Ascii String
+  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
 
-  -- Control Payload
-  index, control_payload = dissect.control_payload(buffer, index, packet, parent)
+  -- Participant Timestamp: Struct of 2 fields
+  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+
+  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  index, message_id = dissect.message_id(buffer, index, packet, parent)
+
+  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+
+  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Control
-dissect.control = function(buffer, offset, packet, parent)
+-- Dissect: End Of Day Message
+dissect.end_of_day_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
-  local message_length = buffer(offset - 3, 2):uint()
+  local message_length = buffer(offset - 4, 2):uint()
 
   -- Parse runtime struct size
-  local size_of_control = message_length - 3
+  local size_of_end_of_day_message = message_length - 4
 
   -- Optionally add struct element to protocol tree
-  if show.control then
-    local range = buffer(offset, size_of_control)
-    local display = display.control(buffer, packet, parent)
-    parent = parent:add(siac_cqs_output_cta_v1_91.fields.control, range, display)
+  if show.end_of_day_message then
+    local range = buffer(offset, size_of_end_of_day_message)
+    local display = display.end_of_day_message(buffer, packet, parent)
+    parent = parent:add(siac_cqs_output_cta_v1_91.fields.end_of_day_message, range, display)
   end
 
-  dissect.control_fields(buffer, offset, packet, parent, size_of_control)
+  dissect.end_of_day_message_fields(buffer, offset, packet, parent, size_of_end_of_day_message)
 
-  return offset + size_of_control
+  return offset + size_of_end_of_day_message
+end
+
+-- Display: Line Integrity Message
+display.line_integrity_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Line Integrity Message
+dissect.line_integrity_message_fields = function(buffer, offset, packet, parent, size_of_line_integrity_message)
+  local index = offset
+
+  -- Participant Id: 1 Byte Ascii String
+  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+
+  -- Participant Timestamp: Struct of 2 fields
+  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+
+  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  index, message_id = dissect.message_id(buffer, index, packet, parent)
+
+  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+
+  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Line Integrity Message
+dissect.line_integrity_message = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  -- Parse runtime struct size
+  local size_of_line_integrity_message = message_length - 4
+
+  -- Optionally add struct element to protocol tree
+  if show.line_integrity_message then
+    local range = buffer(offset, size_of_line_integrity_message)
+    local display = display.line_integrity_message(buffer, packet, parent)
+    parent = parent:add(siac_cqs_output_cta_v1_91.fields.line_integrity_message, range, display)
+  end
+
+  dissect.line_integrity_message_fields(buffer, offset, packet, parent, size_of_line_integrity_message)
+
+  return offset + size_of_line_integrity_message
+end
+
+-- Display: Disaster Recovery Data Center Activation Message
+display.disaster_recovery_data_center_activation_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Disaster Recovery Data Center Activation Message
+dissect.disaster_recovery_data_center_activation_message_fields = function(buffer, offset, packet, parent, size_of_disaster_recovery_data_center_activation_message)
+  local index = offset
+
+  -- Participant Id: 1 Byte Ascii String
+  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+
+  -- Participant Timestamp: Struct of 2 fields
+  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+
+  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  index, message_id = dissect.message_id(buffer, index, packet, parent)
+
+  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+
+  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Disaster Recovery Data Center Activation Message
+dissect.disaster_recovery_data_center_activation_message = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  -- Parse runtime struct size
+  local size_of_disaster_recovery_data_center_activation_message = message_length - 4
+
+  -- Optionally add struct element to protocol tree
+  if show.disaster_recovery_data_center_activation_message then
+    local range = buffer(offset, size_of_disaster_recovery_data_center_activation_message)
+    local display = display.disaster_recovery_data_center_activation_message(buffer, packet, parent)
+    parent = parent:add(siac_cqs_output_cta_v1_91.fields.disaster_recovery_data_center_activation_message, range, display)
+  end
+
+  dissect.disaster_recovery_data_center_activation_message_fields(buffer, offset, packet, parent, size_of_disaster_recovery_data_center_activation_message)
+
+  return offset + size_of_disaster_recovery_data_center_activation_message
+end
+
+-- Display: Finra Open Message
+display.finra_open_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Finra Open Message
+dissect.finra_open_message_fields = function(buffer, offset, packet, parent, size_of_finra_open_message)
+  local index = offset
+
+  -- Participant Id: 1 Byte Ascii String
+  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+
+  -- Participant Timestamp: Struct of 2 fields
+  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+
+  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  index, message_id = dissect.message_id(buffer, index, packet, parent)
+
+  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+
+  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Finra Open Message
+dissect.finra_open_message = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  -- Parse runtime struct size
+  local size_of_finra_open_message = message_length - 4
+
+  -- Optionally add struct element to protocol tree
+  if show.finra_open_message then
+    local range = buffer(offset, size_of_finra_open_message)
+    local display = display.finra_open_message(buffer, packet, parent)
+    parent = parent:add(siac_cqs_output_cta_v1_91.fields.finra_open_message, range, display)
+  end
+
+  dissect.finra_open_message_fields(buffer, offset, packet, parent, size_of_finra_open_message)
+
+  return offset + size_of_finra_open_message
+end
+
+-- Display: End Of Test Cycle Message
+display.end_of_test_cycle_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: End Of Test Cycle Message
+dissect.end_of_test_cycle_message_fields = function(buffer, offset, packet, parent, size_of_end_of_test_cycle_message)
+  local index = offset
+
+  -- Participant Id: 1 Byte Ascii String
+  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+
+  -- Participant Timestamp: Struct of 2 fields
+  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+
+  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  index, message_id = dissect.message_id(buffer, index, packet, parent)
+
+  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+
+  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: End Of Test Cycle Message
+dissect.end_of_test_cycle_message = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  -- Parse runtime struct size
+  local size_of_end_of_test_cycle_message = message_length - 4
+
+  -- Optionally add struct element to protocol tree
+  if show.end_of_test_cycle_message then
+    local range = buffer(offset, size_of_end_of_test_cycle_message)
+    local display = display.end_of_test_cycle_message(buffer, packet, parent)
+    parent = parent:add(siac_cqs_output_cta_v1_91.fields.end_of_test_cycle_message, range, display)
+  end
+
+  dissect.end_of_test_cycle_message_fields(buffer, offset, packet, parent, size_of_end_of_test_cycle_message)
+
+  return offset + size_of_end_of_test_cycle_message
+end
+
+-- Display: Start Of Test Cycle Message
+display.start_of_test_cycle_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Start Of Test Cycle Message
+dissect.start_of_test_cycle_message_fields = function(buffer, offset, packet, parent, size_of_start_of_test_cycle_message)
+  local index = offset
+
+  -- Participant Id: 1 Byte Ascii String
+  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+
+  -- Participant Timestamp: Struct of 2 fields
+  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+
+  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  index, message_id = dissect.message_id(buffer, index, packet, parent)
+
+  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+
+  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Start Of Test Cycle Message
+dissect.start_of_test_cycle_message = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  -- Parse runtime struct size
+  local size_of_start_of_test_cycle_message = message_length - 4
+
+  -- Optionally add struct element to protocol tree
+  if show.start_of_test_cycle_message then
+    local range = buffer(offset, size_of_start_of_test_cycle_message)
+    local display = display.start_of_test_cycle_message(buffer, packet, parent)
+    parent = parent:add(siac_cqs_output_cta_v1_91.fields.start_of_test_cycle_message, range, display)
+  end
+
+  dissect.start_of_test_cycle_message_fields(buffer, offset, packet, parent, size_of_start_of_test_cycle_message)
+
+  return offset + size_of_start_of_test_cycle_message
+end
+
+-- Display: Reset Block Sequence Number Message
+display.reset_block_sequence_number_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Reset Block Sequence Number Message
+dissect.reset_block_sequence_number_message_fields = function(buffer, offset, packet, parent, size_of_reset_block_sequence_number_message)
+  local index = offset
+
+  -- Participant Id: 1 Byte Ascii String
+  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+
+  -- Participant Timestamp: Struct of 2 fields
+  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+
+  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  index, message_id = dissect.message_id(buffer, index, packet, parent)
+
+  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+
+  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Reset Block Sequence Number Message
+dissect.reset_block_sequence_number_message = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  -- Parse runtime struct size
+  local size_of_reset_block_sequence_number_message = message_length - 4
+
+  -- Optionally add struct element to protocol tree
+  if show.reset_block_sequence_number_message then
+    local range = buffer(offset, size_of_reset_block_sequence_number_message)
+    local display = display.reset_block_sequence_number_message(buffer, packet, parent)
+    parent = parent:add(siac_cqs_output_cta_v1_91.fields.reset_block_sequence_number_message, range, display)
+  end
+
+  dissect.reset_block_sequence_number_message_fields(buffer, offset, packet, parent, size_of_reset_block_sequence_number_message)
+
+  return offset + size_of_reset_block_sequence_number_message
+end
+
+-- Display: Finra Close Message
+display.finra_close_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Finra Close Message
+dissect.finra_close_message_fields = function(buffer, offset, packet, parent, size_of_finra_close_message)
+  local index = offset
+
+  -- Participant Id: 1 Byte Ascii String
+  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+
+  -- Participant Timestamp: Struct of 2 fields
+  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+
+  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  index, message_id = dissect.message_id(buffer, index, packet, parent)
+
+  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+
+  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Finra Close Message
+dissect.finra_close_message = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  -- Parse runtime struct size
+  local size_of_finra_close_message = message_length - 4
+
+  -- Optionally add struct element to protocol tree
+  if show.finra_close_message then
+    local range = buffer(offset, size_of_finra_close_message)
+    local display = display.finra_close_message(buffer, packet, parent)
+    parent = parent:add(siac_cqs_output_cta_v1_91.fields.finra_close_message, range, display)
+  end
+
+  dissect.finra_close_message_fields(buffer, offset, packet, parent, size_of_finra_close_message)
+
+  return offset + size_of_finra_close_message
 end
 
 -- Display: Start Of Day Message
@@ -1548,11 +1981,258 @@ dissect.start_of_day_message = function(buffer, offset, packet, parent)
   return offset + size_of_start_of_day_message
 end
 
+-- Calculate runtime size of: Control Payload
+size_of.control_payload = function(buffer, offset, control_message_type)
+  -- Size of Start Of Day Message
+  if control_message_type == "A" then
+    return size_of.start_of_day_message(buffer, offset)
+  end
+  -- Size of Finra Close Message
+  if control_message_type == "C" then
+    return size_of.finra_close_message(buffer, offset)
+  end
+  -- Size of Reset Block Sequence Number Message
+  if control_message_type == "L" then
+    return size_of.reset_block_sequence_number_message(buffer, offset)
+  end
+  -- Size of Start Of Test Cycle Message
+  if control_message_type == "M" then
+    return size_of.start_of_test_cycle_message(buffer, offset)
+  end
+  -- Size of End Of Test Cycle Message
+  if control_message_type == "N" then
+    return size_of.end_of_test_cycle_message(buffer, offset)
+  end
+  -- Size of Finra Open Message
+  if control_message_type == "O" then
+    return size_of.finra_open_message(buffer, offset)
+  end
+  -- Size of Disaster Recovery Data Center Activation Message
+  if control_message_type == "P" then
+    return size_of.disaster_recovery_data_center_activation_message(buffer, offset)
+  end
+  -- Size of Line Integrity Message
+  if control_message_type == "T" then
+    return size_of.line_integrity_message(buffer, offset)
+  end
+  -- Size of End Of Day Message
+  if control_message_type == "Z" then
+    return size_of.end_of_day_message(buffer, offset)
+  end
+
+  return 0
+end
+
+-- Display: Control Payload
+display.control_payload = function(buffer, offset, packet, parent)
+  return ""
+end
+
+-- Dissect Branches: Control Payload
+dissect.control_payload_branches = function(buffer, offset, packet, parent, control_message_type)
+  -- Dissect Start Of Day Message
+  if control_message_type == "A" then
+    return dissect.start_of_day_message(buffer, offset, packet, parent)
+  end
+  -- Dissect Finra Close Message
+  if control_message_type == "C" then
+    return dissect.finra_close_message(buffer, offset, packet, parent)
+  end
+  -- Dissect Reset Block Sequence Number Message
+  if control_message_type == "L" then
+    return dissect.reset_block_sequence_number_message(buffer, offset, packet, parent)
+  end
+  -- Dissect Start Of Test Cycle Message
+  if control_message_type == "M" then
+    return dissect.start_of_test_cycle_message(buffer, offset, packet, parent)
+  end
+  -- Dissect End Of Test Cycle Message
+  if control_message_type == "N" then
+    return dissect.end_of_test_cycle_message(buffer, offset, packet, parent)
+  end
+  -- Dissect Finra Open Message
+  if control_message_type == "O" then
+    return dissect.finra_open_message(buffer, offset, packet, parent)
+  end
+  -- Dissect Disaster Recovery Data Center Activation Message
+  if control_message_type == "P" then
+    return dissect.disaster_recovery_data_center_activation_message(buffer, offset, packet, parent)
+  end
+  -- Dissect Line Integrity Message
+  if control_message_type == "T" then
+    return dissect.line_integrity_message(buffer, offset, packet, parent)
+  end
+  -- Dissect End Of Day Message
+  if control_message_type == "Z" then
+    return dissect.end_of_day_message(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Dissect: Control Payload
+dissect.control_payload = function(buffer, offset, packet, parent, control_message_type)
+  if not show.control_payload then
+    return dissect.control_payload_branches(buffer, offset, packet, parent, control_message_type)
+  end
+
+  -- Calculate size and check that branch is not empty
+  local size = size_of.control_payload(buffer, offset, control_message_type)
+  if size == 0 then
+    return offset
+  end
+
+  -- Dissect Element
+  local range = buffer(offset, size)
+  local display = display.control_payload(buffer, packet, parent)
+  local element = parent:add(siac_cqs_output_cta_v1_91.fields.control_payload, range, display)
+
+  return dissect.control_payload_branches(buffer, offset, packet, parent, control_message_type)
+end
+
+-- Size: Control Message Type
+size_of.control_message_type = 1
+
+-- Display: Control Message Type
+display.control_message_type = function(value)
+  if value == "A" then
+    return "Control Message Type: Start Of Day Message (A)"
+  end
+  if value == "C" then
+    return "Control Message Type: Finra Close Message (C)"
+  end
+  if value == "L" then
+    return "Control Message Type: Reset Block Sequence Number Message (L)"
+  end
+  if value == "M" then
+    return "Control Message Type: Start Of Test Cycle Message (M)"
+  end
+  if value == "N" then
+    return "Control Message Type: End Of Test Cycle Message (N)"
+  end
+  if value == "O" then
+    return "Control Message Type: Finra Open Message (O)"
+  end
+  if value == "P" then
+    return "Control Message Type: Disaster Recovery Data Center Activation Message (P)"
+  end
+  if value == "T" then
+    return "Control Message Type: Line Integrity Message (T)"
+  end
+  if value == "Z" then
+    return "Control Message Type: End Of Day Message (Z)"
+  end
+
+  return "Control Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Control Message Type
+dissect.control_message_type = function(buffer, offset, packet, parent)
+  local length = size_of.control_message_type
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.control_message_type(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cqs_output_cta_v1_91.fields.control_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display: Control
+display.control = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Control
+dissect.control_fields = function(buffer, offset, packet, parent, size_of_control)
+  local index = offset
+
+  -- Control Message Type: 1 Byte Ascii String Enum with 9 values
+  index, control_message_type = dissect.control_message_type(buffer, index, packet, parent)
+
+  -- Control Payload: Runtime Type with 9 branches
+  index = dissect.control_payload(buffer, index, packet, parent, control_message_type)
+
+  return index
+end
+
+-- Dissect: Control
+dissect.control = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 3, 2):uint()
+
+  -- Parse runtime struct size
+  local size_of_control = message_length - 3
+
+  -- Optionally add struct element to protocol tree
+  if show.control then
+    local range = buffer(offset, size_of_control)
+    local display = display.control(buffer, packet, parent)
+    parent = parent:add(siac_cqs_output_cta_v1_91.fields.control, range, display)
+  end
+
+  dissect.control_fields(buffer, offset, packet, parent, size_of_control)
+
+  return offset + size_of_control
+end
+
+-- Display: Administrative Unformatted Message
+display.administrative_unformatted_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Administrative Unformatted Message
+dissect.administrative_unformatted_message_fields = function(buffer, offset, packet, parent, size_of_administrative_unformatted_message)
+  local index = offset
+
+  -- Participant Id: 1 Byte Ascii String
+  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+
+  -- Participant Timestamp: Struct of 2 fields
+  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+
+  -- Message Id: 1 Byte Unsigned Fixed Width Integer
+  index, message_id = dissect.message_id(buffer, index, packet, parent)
+
+  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+
+  -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+
+  -- Text
+  index, text = dissect.text(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Administrative Unformatted Message
+dissect.administrative_unformatted_message = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  -- Parse runtime struct size
+  local size_of_administrative_unformatted_message = message_length - 4
+
+  -- Optionally add struct element to protocol tree
+  if show.administrative_unformatted_message then
+    local range = buffer(offset, size_of_administrative_unformatted_message)
+    local display = display.administrative_unformatted_message(buffer, packet, parent)
+    parent = parent:add(siac_cqs_output_cta_v1_91.fields.administrative_unformatted_message, range, display)
+  end
+
+  dissect.administrative_unformatted_message_fields(buffer, offset, packet, parent, size_of_administrative_unformatted_message)
+
+  return offset + size_of_administrative_unformatted_message
+end
+
 -- Calculate runtime size of: Administrative Payload
 size_of.administrative_payload = function(buffer, offset, administrative_message_type)
-  -- Size of Start Of Day Message
+  -- Size of Administrative Unformatted Message
   if administrative_message_type == "H" then
-    return size_of.start_of_day_message(buffer, offset)
+    return size_of.administrative_unformatted_message(buffer, offset)
   end
 
   return 0
@@ -1565,9 +2245,9 @@ end
 
 -- Dissect Branches: Administrative Payload
 dissect.administrative_payload_branches = function(buffer, offset, packet, parent, administrative_message_type)
-  -- Dissect Start Of Day Message
+  -- Dissect Administrative Unformatted Message
   if administrative_message_type == "H" then
-    return dissect.start_of_day_message(buffer, offset, packet, parent)
+    return dissect.administrative_unformatted_message(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1599,7 +2279,7 @@ size_of.administrative_message_type = 1
 -- Display: Administrative Message Type
 display.administrative_message_type = function(value)
   if value == "H" then
-    return "Administrative Message Type: Start Of Day Message (H)"
+    return "Administrative Message Type: Administrative Unformatted Message (H)"
   end
 
   return "Administrative Message Type: Unknown("..value..")"
@@ -1944,6 +2624,60 @@ display.retransmission_indicator = function(value)
   if value == "V" then
     return "Retransmission Indicator: Retransmitted (V)"
   end
+  if value == "A" then
+    return "Retransmission Indicator: Nyse American (A)"
+  end
+  if value == "B" then
+    return "Retransmission Indicator: Nasdaq Bx (B)"
+  end
+  if value == "C" then
+    return "Retransmission Indicator: Nyse National (C)"
+  end
+  if value == "D" then
+    return "Retransmission Indicator: Finra Adf (D)"
+  end
+  if value == "I" then
+    return "Retransmission Indicator: Ise (I)"
+  end
+  if value == "J" then
+    return "Retransmission Indicator: Cboe Edga (J)"
+  end
+  if value == "K" then
+    return "Retransmission Indicator: Cboe Edgx (K)"
+  end
+  if value == "L" then
+    return "Retransmission Indicator: Ltse (L)"
+  end
+  if value == "M" then
+    return "Retransmission Indicator: Nyse Chicago (M)"
+  end
+  if value == "N" then
+    return "Retransmission Indicator: Nyse (N)"
+  end
+  if value == "P" then
+    return "Retransmission Indicator: Nyse Arca (P)"
+  end
+  if value == "S" then
+    return "Retransmission Indicator: Cqs (S)"
+  end
+  if value == "T" then
+    return "Retransmission Indicator: Nasdaq (T)"
+  end
+  if value == "V" then
+    return "Retransmission Indicator: Iex (V)"
+  end
+  if value == "W" then
+    return "Retransmission Indicator: Cbsx (W)"
+  end
+  if value == "X" then
+    return "Retransmission Indicator: Nasdaq Psx (X)"
+  end
+  if value == "Y" then
+    return "Retransmission Indicator: Cboe Byx (Y)"
+  end
+  if value == "Z" then
+    return "Retransmission Indicator: Cboe Bzx (Z)"
+  end
 
   return "Retransmission Indicator: Unknown("..value..")"
 end
@@ -2038,7 +2772,7 @@ dissect.block_header_fields = function(buffer, offset, packet, parent)
   -- Data Feed Indicator: 1 Byte Ascii String
   index, data_feed_indicator = dissect.data_feed_indicator(buffer, index, packet, parent)
 
-  -- Retransmission Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Retransmission Indicator: 1 Byte Ascii String Enum with 20 values
   index, retransmission_indicator = dissect.retransmission_indicator(buffer, index, packet, parent)
 
   -- Block Sequence Number: 4 Byte Unsigned Fixed Width Integer
