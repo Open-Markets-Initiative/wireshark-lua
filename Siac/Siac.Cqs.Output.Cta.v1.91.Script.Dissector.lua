@@ -28,11 +28,16 @@ siac_cqs_output_cta_v1_91.fields.administrative_unformatted_message = ProtoField
 siac_cqs_output_cta_v1_91.fields.auction_status_message = ProtoField.new("Auction Status Message", "siac.cqs.output.cta.v1.91.auctionstatusmessage", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.best_bid_participant_id = ProtoField.new("Best Bid Participant Id", "siac.cqs.output.cta.v1.91.bestbidparticipantid", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.best_bid_price_long = ProtoField.new("Best Bid Price Long", "siac.cqs.output.cta.v1.91.bestbidpricelong", ftypes.UINT64)
+siac_cqs_output_cta_v1_91.fields.best_bid_price_short = ProtoField.new("Best Bid Price Short", "siac.cqs.output.cta.v1.91.bestbidpriceshort", ftypes.UINT16)
 siac_cqs_output_cta_v1_91.fields.best_bid_quote_condition = ProtoField.new("Best Bid Quote Condition", "siac.cqs.output.cta.v1.91.bestbidquotecondition", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.best_bid_size_long = ProtoField.new("Best Bid Size Long", "siac.cqs.output.cta.v1.91.bestbidsizelong", ftypes.UINT32)
+siac_cqs_output_cta_v1_91.fields.best_bid_size_short = ProtoField.new("Best Bid Size Short", "siac.cqs.output.cta.v1.91.bestbidsizeshort", ftypes.UINT16)
+siac_cqs_output_cta_v1_91.fields.best_offer_participant_id = ProtoField.new("Best Offer Participant Id", "siac.cqs.output.cta.v1.91.bestofferparticipantid", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.best_offer_price_long = ProtoField.new("Best Offer Price Long", "siac.cqs.output.cta.v1.91.bestofferpricelong", ftypes.UINT64)
+siac_cqs_output_cta_v1_91.fields.best_offer_price_short = ProtoField.new("Best Offer Price Short", "siac.cqs.output.cta.v1.91.bestofferpriceshort", ftypes.UINT16)
 siac_cqs_output_cta_v1_91.fields.best_offer_quote_condition = ProtoField.new("Best Offer Quote Condition", "siac.cqs.output.cta.v1.91.bestofferquotecondition", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.best_offer_size_long = ProtoField.new("Best Offer Size Long", "siac.cqs.output.cta.v1.91.bestoffersizelong", ftypes.UINT32)
+siac_cqs_output_cta_v1_91.fields.best_offer_size_short = ProtoField.new("Best Offer Size Short", "siac.cqs.output.cta.v1.91.bestoffersizeshort", ftypes.UINT16)
 siac_cqs_output_cta_v1_91.fields.bid_price_long = ProtoField.new("Bid Price Long", "siac.cqs.output.cta.v1.91.bidpricelong", ftypes.UINT64)
 siac_cqs_output_cta_v1_91.fields.bid_price_lower_limit_price_band = ProtoField.new("Bid Price Lower Limit Price Band", "siac.cqs.output.cta.v1.91.bidpricelowerlimitpriceband", ftypes.UINT64)
 siac_cqs_output_cta_v1_91.fields.bid_price_short = ProtoField.new("Bid Price Short", "siac.cqs.output.cta.v1.91.bidpriceshort", ftypes.UINT16)
@@ -86,7 +91,9 @@ siac_cqs_output_cta_v1_91.fields.nanoseconds = ProtoField.new("Nanoseconds", "si
 siac_cqs_output_cta_v1_91.fields.national_bbo_indicator = ProtoField.new("National Bbo Indicator", "siac.cqs.output.cta.v1.91.nationalbboindicator", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.national_bbo_luld_indicator = ProtoField.new("National Bbo Luld Indicator", "siac.cqs.output.cta.v1.91.nationalbboluldindicator", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.national_best_bid_long_appendage = ProtoField.new("National Best Bid Long Appendage", "siac.cqs.output.cta.v1.91.nationalbestbidlongappendage", ftypes.STRING)
+siac_cqs_output_cta_v1_91.fields.national_best_bid_short_appendage = ProtoField.new("National Best Bid Short Appendage", "siac.cqs.output.cta.v1.91.nationalbestbidshortappendage", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.national_best_offer_long_appendage = ProtoField.new("National Best Offer Long Appendage", "siac.cqs.output.cta.v1.91.nationalbestofferlongappendage", ftypes.STRING)
+siac_cqs_output_cta_v1_91.fields.national_best_offer_short_appendage = ProtoField.new("National Best Offer Short Appendage", "siac.cqs.output.cta.v1.91.nationalbestoffershortappendage", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.number_of_extensions = ProtoField.new("Number Of Extensions", "siac.cqs.output.cta.v1.91.numberofextensions", ftypes.UINT8)
 siac_cqs_output_cta_v1_91.fields.offer_price_long = ProtoField.new("Offer Price Long", "siac.cqs.output.cta.v1.91.offerpricelong", ftypes.UINT64)
 siac_cqs_output_cta_v1_91.fields.offer_price_short = ProtoField.new("Offer Price Short", "siac.cqs.output.cta.v1.91.offerpriceshort", ftypes.UINT16)
@@ -145,7 +152,9 @@ show.market_wide_circuit_breaker_status_message = true
 show.message = true
 show.message_header = true
 show.national_best_bid_long_appendage = true
+show.national_best_bid_short_appendage = true
 show.national_best_offer_long_appendage = true
+show.national_best_offer_short_appendage = true
 show.packet = true
 show.participant_timestamp = true
 show.quote = true
@@ -181,7 +190,9 @@ siac_cqs_output_cta_v1_91.prefs.show_market_wide_circuit_breaker_status_message 
 siac_cqs_output_cta_v1_91.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 siac_cqs_output_cta_v1_91.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 siac_cqs_output_cta_v1_91.prefs.show_national_best_bid_long_appendage = Pref.bool("Show National Best Bid Long Appendage", show.national_best_bid_long_appendage, "Parse and add National Best Bid Long Appendage to protocol tree")
+siac_cqs_output_cta_v1_91.prefs.show_national_best_bid_short_appendage = Pref.bool("Show National Best Bid Short Appendage", show.national_best_bid_short_appendage, "Parse and add National Best Bid Short Appendage to protocol tree")
 siac_cqs_output_cta_v1_91.prefs.show_national_best_offer_long_appendage = Pref.bool("Show National Best Offer Long Appendage", show.national_best_offer_long_appendage, "Parse and add National Best Offer Long Appendage to protocol tree")
+siac_cqs_output_cta_v1_91.prefs.show_national_best_offer_short_appendage = Pref.bool("Show National Best Offer Short Appendage", show.national_best_offer_short_appendage, "Parse and add National Best Offer Short Appendage to protocol tree")
 siac_cqs_output_cta_v1_91.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 siac_cqs_output_cta_v1_91.prefs.show_participant_timestamp = Pref.bool("Show Participant Timestamp", show.participant_timestamp, "Parse and add Participant Timestamp to protocol tree")
 siac_cqs_output_cta_v1_91.prefs.show_quote = Pref.bool("Show Quote", show.quote, "Parse and add Quote to protocol tree")
@@ -278,8 +289,16 @@ function siac_cqs_output_cta_v1_91.prefs_changed()
     show.national_best_bid_long_appendage = siac_cqs_output_cta_v1_91.prefs.show_national_best_bid_long_appendage
     changed = true
   end
+  if show.national_best_bid_short_appendage ~= siac_cqs_output_cta_v1_91.prefs.show_national_best_bid_short_appendage then
+    show.national_best_bid_short_appendage = siac_cqs_output_cta_v1_91.prefs.show_national_best_bid_short_appendage
+    changed = true
+  end
   if show.national_best_offer_long_appendage ~= siac_cqs_output_cta_v1_91.prefs.show_national_best_offer_long_appendage then
     show.national_best_offer_long_appendage = siac_cqs_output_cta_v1_91.prefs.show_national_best_offer_long_appendage
+    changed = true
+  end
+  if show.national_best_offer_short_appendage ~= siac_cqs_output_cta_v1_91.prefs.show_national_best_offer_short_appendage then
+    show.national_best_offer_short_appendage = siac_cqs_output_cta_v1_91.prefs.show_national_best_offer_short_appendage
     changed = true
   end
   if show.packet ~= siac_cqs_output_cta_v1_91.prefs.show_packet then
@@ -350,6 +369,540 @@ end
 -- Dissect Siac Cqs Output Cta 1.91
 -----------------------------------------------------------------------
 
+-- Size: Best Offer Size Short
+size_of.best_offer_size_short = 2
+
+-- Display: Best Offer Size Short
+display.best_offer_size_short = function(value)
+  return "Best Offer Size Short: "..value
+end
+
+-- Dissect: Best Offer Size Short
+dissect.best_offer_size_short = function(buffer, offset, packet, parent)
+  local length = size_of.best_offer_size_short
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = display.best_offer_size_short(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cqs_output_cta_v1_91.fields.best_offer_size_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Best Offer Price Short
+size_of.best_offer_price_short = 2
+
+-- Display: Best Offer Price Short
+display.best_offer_price_short = function(value)
+  return "Best Offer Price Short: "..value
+end
+
+-- Dissect: Best Offer Price Short
+dissect.best_offer_price_short = function(buffer, offset, packet, parent)
+  local length = size_of.best_offer_price_short
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = display.best_offer_price_short(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cqs_output_cta_v1_91.fields.best_offer_price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Best Offer Participant Id
+size_of.best_offer_participant_id = 1
+
+-- Display: Best Offer Participant Id
+display.best_offer_participant_id = function(value)
+  if value == "A" then
+    return "Best Offer Participant Id: Nyse American (A)"
+  end
+  if value == "B" then
+    return "Best Offer Participant Id: Nasdaq Bx (B)"
+  end
+  if value == "C" then
+    return "Best Offer Participant Id: Nyse National (C)"
+  end
+  if value == "D" then
+    return "Best Offer Participant Id: Finra Adf (D)"
+  end
+  if value == "I" then
+    return "Best Offer Participant Id: Ise (I)"
+  end
+  if value == "J" then
+    return "Best Offer Participant Id: Cboe Edga (J)"
+  end
+  if value == "K" then
+    return "Best Offer Participant Id: Cboe Edgx (K)"
+  end
+  if value == "L" then
+    return "Best Offer Participant Id: Ltse (L)"
+  end
+  if value == "M" then
+    return "Best Offer Participant Id: Nyse Chicago (M)"
+  end
+  if value == "N" then
+    return "Best Offer Participant Id: Nyse (N)"
+  end
+  if value == "P" then
+    return "Best Offer Participant Id: Nyse Arca (P)"
+  end
+  if value == "S" then
+    return "Best Offer Participant Id: Cqs (S)"
+  end
+  if value == "T" then
+    return "Best Offer Participant Id: Nasdaq (T)"
+  end
+  if value == "V" then
+    return "Best Offer Participant Id: Iex (V)"
+  end
+  if value == "W" then
+    return "Best Offer Participant Id: Cbsx (W)"
+  end
+  if value == "X" then
+    return "Best Offer Participant Id: Nasdaq Psx (X)"
+  end
+  if value == "Y" then
+    return "Best Offer Participant Id: Cboe Byx (Y)"
+  end
+  if value == "Z" then
+    return "Best Offer Participant Id: Cboe Bzx (Z)"
+  end
+
+  return "Best Offer Participant Id: Unknown("..value..")"
+end
+
+-- Dissect: Best Offer Participant Id
+dissect.best_offer_participant_id = function(buffer, offset, packet, parent)
+  local length = size_of.best_offer_participant_id
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.best_offer_participant_id(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cqs_output_cta_v1_91.fields.best_offer_participant_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display: National Best Offer Short Appendage
+display.national_best_offer_short_appendage = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: National Best Offer Short Appendage
+dissect.national_best_offer_short_appendage_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Best Offer Participant Id: 1 Byte Ascii String Enum with 18 values
+  index, best_offer_participant_id = dissect.best_offer_participant_id(buffer, index, packet, parent)
+
+  -- Best Offer Price Short: 2 Byte Unsigned Fixed Width Integer
+  index, best_offer_price_short = dissect.best_offer_price_short(buffer, index, packet, parent)
+
+  -- Best Offer Size Short: 2 Byte Unsigned Fixed Width Integer
+  index, best_offer_size_short = dissect.best_offer_size_short(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: National Best Offer Short Appendage
+dissect.national_best_offer_short_appendage = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.national_best_offer_short_appendage then
+    local range = buffer(offset, 5)
+    local display = display.national_best_offer_short_appendage(buffer, packet, parent)
+    parent = parent:add(siac_cqs_output_cta_v1_91.fields.national_best_offer_short_appendage, range, display)
+  end
+
+  return dissect.national_best_offer_short_appendage_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Best Bid Size Short
+size_of.best_bid_size_short = 2
+
+-- Display: Best Bid Size Short
+display.best_bid_size_short = function(value)
+  return "Best Bid Size Short: "..value
+end
+
+-- Dissect: Best Bid Size Short
+dissect.best_bid_size_short = function(buffer, offset, packet, parent)
+  local length = size_of.best_bid_size_short
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = display.best_bid_size_short(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cqs_output_cta_v1_91.fields.best_bid_size_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Best Bid Price Short
+size_of.best_bid_price_short = 2
+
+-- Display: Best Bid Price Short
+display.best_bid_price_short = function(value)
+  return "Best Bid Price Short: "..value
+end
+
+-- Dissect: Best Bid Price Short
+dissect.best_bid_price_short = function(buffer, offset, packet, parent)
+  local length = size_of.best_bid_price_short
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = display.best_bid_price_short(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cqs_output_cta_v1_91.fields.best_bid_price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Best Bid Participant Id
+size_of.best_bid_participant_id = 1
+
+-- Display: Best Bid Participant Id
+display.best_bid_participant_id = function(value)
+  if value == "A" then
+    return "Best Bid Participant Id: Nyse American (A)"
+  end
+  if value == "B" then
+    return "Best Bid Participant Id: Nasdaq Bx (B)"
+  end
+  if value == "C" then
+    return "Best Bid Participant Id: Nyse National (C)"
+  end
+  if value == "D" then
+    return "Best Bid Participant Id: Finra Adf (D)"
+  end
+  if value == "I" then
+    return "Best Bid Participant Id: Ise (I)"
+  end
+  if value == "J" then
+    return "Best Bid Participant Id: Cboe Edga (J)"
+  end
+  if value == "K" then
+    return "Best Bid Participant Id: Cboe Edgx (K)"
+  end
+  if value == "L" then
+    return "Best Bid Participant Id: Ltse (L)"
+  end
+  if value == "M" then
+    return "Best Bid Participant Id: Nyse Chicago (M)"
+  end
+  if value == "N" then
+    return "Best Bid Participant Id: Nyse (N)"
+  end
+  if value == "P" then
+    return "Best Bid Participant Id: Nyse Arca (P)"
+  end
+  if value == "S" then
+    return "Best Bid Participant Id: Cqs (S)"
+  end
+  if value == "T" then
+    return "Best Bid Participant Id: Nasdaq (T)"
+  end
+  if value == "V" then
+    return "Best Bid Participant Id: Iex (V)"
+  end
+  if value == "W" then
+    return "Best Bid Participant Id: Cbsx (W)"
+  end
+  if value == "X" then
+    return "Best Bid Participant Id: Nasdaq Psx (X)"
+  end
+  if value == "Y" then
+    return "Best Bid Participant Id: Cboe Byx (Y)"
+  end
+  if value == "Z" then
+    return "Best Bid Participant Id: Cboe Bzx (Z)"
+  end
+
+  return "Best Bid Participant Id: Unknown("..value..")"
+end
+
+-- Dissect: Best Bid Participant Id
+dissect.best_bid_participant_id = function(buffer, offset, packet, parent)
+  local length = size_of.best_bid_participant_id
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.best_bid_participant_id(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cqs_output_cta_v1_91.fields.best_bid_participant_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display: National Best Bid Short Appendage
+display.national_best_bid_short_appendage = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: National Best Bid Short Appendage
+dissect.national_best_bid_short_appendage_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Best Bid Participant Id: 1 Byte Ascii String Enum with 18 values
+  index, best_bid_participant_id = dissect.best_bid_participant_id(buffer, index, packet, parent)
+
+  -- Best Bid Price Short: 2 Byte Unsigned Fixed Width Integer
+  index, best_bid_price_short = dissect.best_bid_price_short(buffer, index, packet, parent)
+
+  -- Best Bid Size Short: 2 Byte Unsigned Fixed Width Integer
+  index, best_bid_size_short = dissect.best_bid_size_short(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: National Best Bid Short Appendage
+dissect.national_best_bid_short_appendage = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.national_best_bid_short_appendage then
+    local range = buffer(offset, 5)
+    local display = display.national_best_bid_short_appendage(buffer, packet, parent)
+    parent = parent:add(siac_cqs_output_cta_v1_91.fields.national_best_bid_short_appendage, range, display)
+  end
+
+  return dissect.national_best_bid_short_appendage_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Finra Best Offer Market Maker Id
+size_of.finra_best_offer_market_maker_id = 4
+
+-- Display: Finra Best Offer Market Maker Id
+display.finra_best_offer_market_maker_id = function(value)
+  return "Finra Best Offer Market Maker Id: "..value
+end
+
+-- Dissect: Finra Best Offer Market Maker Id
+dissect.finra_best_offer_market_maker_id = function(buffer, offset, packet, parent)
+  local length = size_of.finra_best_offer_market_maker_id
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.finra_best_offer_market_maker_id(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cqs_output_cta_v1_91.fields.finra_best_offer_market_maker_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Best Offer Size Long
+size_of.best_offer_size_long = 4
+
+-- Display: Best Offer Size Long
+display.best_offer_size_long = function(value)
+  return "Best Offer Size Long: "..value
+end
+
+-- Dissect: Best Offer Size Long
+dissect.best_offer_size_long = function(buffer, offset, packet, parent)
+  local length = size_of.best_offer_size_long
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = display.best_offer_size_long(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cqs_output_cta_v1_91.fields.best_offer_size_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Best Offer Price Long
+size_of.best_offer_price_long = 8
+
+-- Display: Best Offer Price Long
+display.best_offer_price_long = function(value)
+  return "Best Offer Price Long: "..value
+end
+
+-- Dissect: Best Offer Price Long
+dissect.best_offer_price_long = function(buffer, offset, packet, parent)
+  local length = size_of.best_offer_price_long
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = display.best_offer_price_long(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cqs_output_cta_v1_91.fields.best_offer_price_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Best Offer Quote Condition
+size_of.best_offer_quote_condition = 1
+
+-- Display: Best Offer Quote Condition
+display.best_offer_quote_condition = function(value)
+  return "Best Offer Quote Condition: "..value
+end
+
+-- Dissect: Best Offer Quote Condition
+dissect.best_offer_quote_condition = function(buffer, offset, packet, parent)
+  local length = size_of.best_offer_quote_condition
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.best_offer_quote_condition(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cqs_output_cta_v1_91.fields.best_offer_quote_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display: National Best Offer Long Appendage
+display.national_best_offer_long_appendage = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: National Best Offer Long Appendage
+dissect.national_best_offer_long_appendage_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Best Offer Participant Id: 1 Byte Ascii String Enum with 18 values
+  index, best_offer_participant_id = dissect.best_offer_participant_id(buffer, index, packet, parent)
+
+  -- Best Offer Quote Condition: 1 Byte Ascii String
+  index, best_offer_quote_condition = dissect.best_offer_quote_condition(buffer, index, packet, parent)
+
+  -- Best Offer Price Long: 8 Byte Unsigned Fixed Width Integer
+  index, best_offer_price_long = dissect.best_offer_price_long(buffer, index, packet, parent)
+
+  -- Best Offer Size Long: 4 Byte Unsigned Fixed Width Integer
+  index, best_offer_size_long = dissect.best_offer_size_long(buffer, index, packet, parent)
+
+  -- Finra Best Offer Market Maker Id: 4 Byte Ascii String
+  index, finra_best_offer_market_maker_id = dissect.finra_best_offer_market_maker_id(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: National Best Offer Long Appendage
+dissect.national_best_offer_long_appendage = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.national_best_offer_long_appendage then
+    local range = buffer(offset, 18)
+    local display = display.national_best_offer_long_appendage(buffer, packet, parent)
+    parent = parent:add(siac_cqs_output_cta_v1_91.fields.national_best_offer_long_appendage, range, display)
+  end
+
+  return dissect.national_best_offer_long_appendage_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Finra Best Bid Market Maker Id
+size_of.finra_best_bid_market_maker_id = 4
+
+-- Display: Finra Best Bid Market Maker Id
+display.finra_best_bid_market_maker_id = function(value)
+  return "Finra Best Bid Market Maker Id: "..value
+end
+
+-- Dissect: Finra Best Bid Market Maker Id
+dissect.finra_best_bid_market_maker_id = function(buffer, offset, packet, parent)
+  local length = size_of.finra_best_bid_market_maker_id
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.finra_best_bid_market_maker_id(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cqs_output_cta_v1_91.fields.finra_best_bid_market_maker_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Best Bid Size Long
+size_of.best_bid_size_long = 4
+
+-- Display: Best Bid Size Long
+display.best_bid_size_long = function(value)
+  return "Best Bid Size Long: "..value
+end
+
+-- Dissect: Best Bid Size Long
+dissect.best_bid_size_long = function(buffer, offset, packet, parent)
+  local length = size_of.best_bid_size_long
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = display.best_bid_size_long(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cqs_output_cta_v1_91.fields.best_bid_size_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Best Bid Price Long
+size_of.best_bid_price_long = 8
+
+-- Display: Best Bid Price Long
+display.best_bid_price_long = function(value)
+  return "Best Bid Price Long: "..value
+end
+
+-- Dissect: Best Bid Price Long
+dissect.best_bid_price_long = function(buffer, offset, packet, parent)
+  local length = size_of.best_bid_price_long
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = display.best_bid_price_long(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cqs_output_cta_v1_91.fields.best_bid_price_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Best Bid Quote Condition
+size_of.best_bid_quote_condition = 1
+
+-- Display: Best Bid Quote Condition
+display.best_bid_quote_condition = function(value)
+  return "Best Bid Quote Condition: "..value
+end
+
+-- Dissect: Best Bid Quote Condition
+dissect.best_bid_quote_condition = function(buffer, offset, packet, parent)
+  local length = size_of.best_bid_quote_condition
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.best_bid_quote_condition(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cqs_output_cta_v1_91.fields.best_bid_quote_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display: National Best Bid Long Appendage
+display.national_best_bid_long_appendage = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: National Best Bid Long Appendage
+dissect.national_best_bid_long_appendage_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Best Bid Participant Id: 1 Byte Ascii String Enum with 18 values
+  index, best_bid_participant_id = dissect.best_bid_participant_id(buffer, index, packet, parent)
+
+  -- Best Bid Quote Condition: 1 Byte Ascii String
+  index, best_bid_quote_condition = dissect.best_bid_quote_condition(buffer, index, packet, parent)
+
+  -- Best Bid Price Long: 8 Byte Unsigned Fixed Width Integer
+  index, best_bid_price_long = dissect.best_bid_price_long(buffer, index, packet, parent)
+
+  -- Best Bid Size Long: 4 Byte Unsigned Fixed Width Integer
+  index, best_bid_size_long = dissect.best_bid_size_long(buffer, index, packet, parent)
+
+  -- Finra Best Bid Market Maker Id: 4 Byte Ascii String
+  index, finra_best_bid_market_maker_id = dissect.finra_best_bid_market_maker_id(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: National Best Bid Long Appendage
+dissect.national_best_bid_long_appendage = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.national_best_bid_long_appendage then
+    local range = buffer(offset, 18)
+    local display = display.national_best_bid_long_appendage(buffer, packet, parent)
+    parent = parent:add(siac_cqs_output_cta_v1_91.fields.national_best_bid_long_appendage, range, display)
+  end
+
+  return dissect.national_best_bid_long_appendage_fields(buffer, offset, packet, parent)
+end
+
 -- Size: National Bbo Indicator
 size_of.national_bbo_indicator = 1
 
@@ -358,8 +911,74 @@ display.national_bbo_indicator = function(value)
   if value == " " then
     return "National Bbo Indicator: Not Included (<whitespace>)"
   end
+  if value == "A" then
+    return "National Bbo Indicator: No Best Bid Change Or Best Offer Change (A)"
+  end
+  if value == "B" then
+    return "National Bbo Indicator: No Best Bid Change Quote Contains Best Offer (B)"
+  end
+  if value == "C" then
+    return "National Bbo Indicator: No Best Bid Change Best Offer Short Appendage (C)"
+  end
+  if value == "D" then
+    return "National Bbo Indicator: No Best Bid Change Best Offer Long Appendage (D)"
+  end
+  if value == "E" then
+    return "National Bbo Indicator: No Best Bid Change No Best Offer (E)"
+  end
+  if value == "F" then
+    return "National Bbo Indicator: Quote Contains Best Bid No Best Offer Change (F)"
+  end
+  if value == "G" then
+    return "National Bbo Indicator: Quote Contains Best Bid Quote Contains Best Offer (G)"
+  end
+  if value == "H" then
+    return "National Bbo Indicator: Quote Contains Best Bid Best Offer Short Appendage (H)"
+  end
+  if value == "I" then
+    return "National Bbo Indicator: Quote Contains Best Bid Best Offer Long Appendage (I)"
+  end
+  if value == "J" then
+    return "National Bbo Indicator: Quote Contains Best Bid No Best Offer (J)"
+  end
+  if value == "K" then
+    return "National Bbo Indicator: No Best Bid No Best Offer Change (K)"
+  end
+  if value == "L" then
+    return "National Bbo Indicator: No Best Bid Quote Contains Best Offer (L)"
+  end
+  if value == "M" then
+    return "National Bbo Indicator: No Best Bid Best Offer Short Appendage (M)"
+  end
+  if value == "N" then
+    return "National Bbo Indicator: No Best Bid Best Offer Long Appendage (N)"
+  end
+  if value == "O" then
+    return "National Bbo Indicator: No Best Bid No Best Offer (O)"
+  end
+  if value == "P" then
+    return "National Bbo Indicator: Best Bid Short Appendage No Best Offer Change (P)"
+  end
+  if value == "Q" then
+    return "National Bbo Indicator: Best Bid Long Appendage No Best Offer Change (Q)"
+  end
+  if value == "R" then
+    return "National Bbo Indicator: Best Bid Short Appendage Quote Contains Best Offer (R)"
+  end
+  if value == "S" then
+    return "National Bbo Indicator: Best Bid Long Appendage Quote Contains Best Offer (S)"
+  end
+  if value == "T" then
+    return "National Bbo Indicator: Best Bid Short Appendage Best Offer Short Appendage (T)"
+  end
   if value == "U" then
-    return "National Bbo Indicator: Best Bid Long And Best Offer Long Appendages (U)"
+    return "National Bbo Indicator: Best Bid Long Appendage Best Offer Long Appendage (U)"
+  end
+  if value == "V" then
+    return "National Bbo Indicator: Best Bid Short Appendage No Best Offer (V)"
+  end
+  if value == "W" then
+    return "National Bbo Indicator: Best Bid Long Appendage No Best Offer (W)"
   end
 
   return "National Bbo Indicator: Unknown("..value..")"
@@ -382,7 +1001,38 @@ size_of.national_bbo_luld_indicator = 1
 
 -- Display: National Bbo Luld Indicator
 display.national_bbo_luld_indicator = function(value)
-  return "National Bbo Luld Indicator: "..value
+  if value == " " then
+    return "National Bbo Luld Indicator: Not Applicable (<whitespace>)"
+  end
+  if value == "A" then
+    return "National Bbo Luld Indicator: National Best Bid And Or National Best Offer Are Executable (A)"
+  end
+  if value == "B" then
+    return "National Bbo Luld Indicator: National Best Bid Below Lower Limit Price Band And Is Non Executable (B)"
+  end
+  if value == "C" then
+    return "National Bbo Luld Indicator: National Best Offer Above Upper Limit Price Band And Is Non Executable (C)"
+  end
+  if value == "D" then
+    return "National Bbo Luld Indicator: National Best Bid Below Lower Limit Price Band And National Best Offer Above Upper Limit Price Band Both Are Non Executable (D)"
+  end
+  if value == "E" then
+    return "National Bbo Luld Indicator: National Best Bid Equals Upper Limit Price Band And Is In Limit State (E)"
+  end
+  if value == "F" then
+    return "National Bbo Luld Indicator: National Best Offer Equals Lower Limit Price Band And Is In Limit State (F)"
+  end
+  if value == "G" then
+    return "National Bbo Luld Indicator: National Best Bid Equals Upper Limit Price Band And Is In Limit State And National Best Offer Above Upper Limit Price Band And Is Non Executable (G)"
+  end
+  if value == "H" then
+    return "National Bbo Luld Indicator: National Best Bid Below Lower Limit Price Band And Is Non Executable And National Best Offer Equals Lower Limit Price Band And Is In Limit State (H)"
+  end
+  if value == "I" then
+    return "National Bbo Luld Indicator: National Best Bid Equals Upper Limit Price Band And National Best Offer Equals Lower Limit Price Band (I)"
+  end
+
+  return "National Bbo Luld Indicator: Unknown("..value..")"
 end
 
 -- Dissect: National Bbo Luld Indicator
@@ -402,7 +1052,23 @@ size_of.finra_bbo_luld_indicator = 1
 
 -- Display: Finra Bbo Luld Indicator
 display.finra_bbo_luld_indicator = function(value)
-  return "Finra Bbo Luld Indicator: "..value
+  if value == "" then
+    return "Finra Bbo Luld Indicator: Limit Up Limit Down Not Applicable (<whitespace>)"
+  end
+  if value == "A" then
+    return "Finra Bbo Luld Indicator: Finra Best Bid And Or Finra Best Offer Are Executable (A)"
+  end
+  if value == "B" then
+    return "Finra Bbo Luld Indicator: Finra Best Bid Below Lower Limit Price Band And Finra Best Bid Is Non Executable (B)"
+  end
+  if value == "C" then
+    return "Finra Bbo Luld Indicator: Finra Best Offer Above Upper Limit Price Band And Finra Best Offer Is Non Executable (C)"
+  end
+  if value == "D" then
+    return "Finra Bbo Luld Indicator: Best Bid Below Lower Limit Price Band And Best Offer Above Upper Limit Price Band Best Bid And Best Offer Are Non Executable For Finra (D)"
+  end
+
+  return "Finra Bbo Luld Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Finra Bbo Luld Indicator
@@ -422,7 +1088,14 @@ size_of.sip_generated_message_identifier = 1
 
 -- Display: Sip Generated Message Identifier
 display.sip_generated_message_identifier = function(value)
-  return "Sip Generated Message Identifier: "..value
+  if value == " " then
+    return "Sip Generated Message Identifier: Not Applicable (<whitespace>)"
+  end
+  if value == "S" then
+    return "Sip Generated Message Identifier: Consolidated Quotation System (S)"
+  end
+
+  return "Sip Generated Message Identifier: Unknown("..value..")"
 end
 
 -- Dissect: Sip Generated Message Identifier
@@ -442,7 +1115,41 @@ size_of.financial_status_indicator = 1
 
 -- Display: Financial Status Indicator
 display.financial_status_indicator = function(value)
-  return "Financial Status Indicator: "..value
+  if value == "0" then
+    return "Financial Status Indicator: Financial Status Not Applicable (0)"
+  end
+  if value == "1" then
+    return "Financial Status Indicator: Bankrupt (1)"
+  end
+  if value == "2" then
+    return "Financial Status Indicator: Below Continuing Listing Standards (2)"
+  end
+  if value == "3" then
+    return "Financial Status Indicator: Bankrupt And Below Continuing Listing Standards (3)"
+  end
+  if value == "4" then
+    return "Financial Status Indicator: Late Filing (4)"
+  end
+  if value == "5" then
+    return "Financial Status Indicator: Bankrupt And Late Filing (5)"
+  end
+  if value == "6" then
+    return "Financial Status Indicator: Below Continuing Listing Standards And Late Filing (6)"
+  end
+  if value == "7" then
+    return "Financial Status Indicator: Bankrupt Below Continuing Listing Standards And Late Filing (7)"
+  end
+  if value == "8" then
+    return "Financial Status Indicator: Creations Suspended (8)"
+  end
+  if value == "9" then
+    return "Financial Status Indicator: Redemptions Suspended (9)"
+  end
+  if value == "A" then
+    return "Financial Status Indicator: Liquidation (A)"
+  end
+
+  return "Financial Status Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Financial Status Indicator
@@ -462,7 +1169,59 @@ size_of.primary_listing_market_participant_id = 1
 
 -- Display: Primary Listing Market Participant Id
 display.primary_listing_market_participant_id = function(value)
-  return "Primary Listing Market Participant Id: "..value
+  if value == "Space" then
+    return "Primary Listing Market Participant Id: Primary Listing Market Participant Id Not Applicable (Space)"
+  end
+  if value == "A" then
+    return "Primary Listing Market Participant Id: Nyse American (A)"
+  end
+  if value == "B" then
+    return "Primary Listing Market Participant Id: Nasdaq Omx Bx (B)"
+  end
+  if value == "C" then
+    return "Primary Listing Market Participant Id: Nyse National (C)"
+  end
+  if value == "D" then
+    return "Primary Listing Market Participant Id: Finra Adf (D)"
+  end
+  if value == "I" then
+    return "Primary Listing Market Participant Id: Ise (I)"
+  end
+  if value == "J" then
+    return "Primary Listing Market Participant Id: Cboe Edga (J)"
+  end
+  if value == "K" then
+    return "Primary Listing Market Participant Id: Cboe Edgx (K)"
+  end
+  if value == "M" then
+    return "Primary Listing Market Participant Id: Nyse Chicago (M)"
+  end
+  if value == "N" then
+    return "Primary Listing Market Participant Id: Nyse (N)"
+  end
+  if value == "P" then
+    return "Primary Listing Market Participant Id: Nyse Arca (P)"
+  end
+  if value == "T" then
+    return "Primary Listing Market Participant Id: Nasdaq (T)"
+  end
+  if value == "V" then
+    return "Primary Listing Market Participant Id: Iex (V)"
+  end
+  if value == "W" then
+    return "Primary Listing Market Participant Id: Cbsx (W)"
+  end
+  if value == "X" then
+    return "Primary Listing Market Participant Id: Nasdaq Omx Psx (X)"
+  end
+  if value == "Y" then
+    return "Primary Listing Market Participant Id: Cboe Byx (Y)"
+  end
+  if value == "Z" then
+    return "Primary Listing Market Participant Id: Cboe Bzx (Z)"
+  end
+
+  return "Primary Listing Market Participant Id: Unknown("..value..")"
 end
 
 -- Dissect: Primary Listing Market Participant Id
@@ -482,7 +1241,23 @@ size_of.short_sale_restriction_indicator = 1
 
 -- Display: Short Sale Restriction Indicator
 display.short_sale_restriction_indicator = function(value)
-  return "Short Sale Restriction Indicator: "..value
+  if value == " " then
+    return "Short Sale Restriction Indicator: Not In Effect (<whitespace>)"
+  end
+  if value == "A" then
+    return "Short Sale Restriction Indicator: Short Sale Restriction Activated (A)"
+  end
+  if value == "C" then
+    return "Short Sale Restriction Indicator: Short Sale Restriction Continued (C)"
+  end
+  if value == "D" then
+    return "Short Sale Restriction Indicator: Short Sale Restriction Deactivated (D)"
+  end
+  if value == "E" then
+    return "Short Sale Restriction Indicator: Short Sale Restriction In Effect (E)"
+  end
+
+  return "Short Sale Restriction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Short Sale Restriction Indicator
@@ -497,24 +1272,74 @@ dissect.short_sale_restriction_indicator = function(buffer, offset, packet, pare
   return offset + length, value
 end
 
--- Size: Finra Best Offer Market Maker Id
-size_of.finra_best_offer_market_maker_id = 4
+-- Size: Nanoseconds
+size_of.nanoseconds = 4
 
--- Display: Finra Best Offer Market Maker Id
-display.finra_best_offer_market_maker_id = function(value)
-  return "Finra Best Offer Market Maker Id: "..value
+-- Display: Nanoseconds
+display.nanoseconds = function(value)
+  return "Nanoseconds: "..value
 end
 
--- Dissect: Finra Best Offer Market Maker Id
-dissect.finra_best_offer_market_maker_id = function(buffer, offset, packet, parent)
-  local length = size_of.finra_best_offer_market_maker_id
+-- Dissect: Nanoseconds
+dissect.nanoseconds = function(buffer, offset, packet, parent)
+  local length = size_of.nanoseconds
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.finra_best_offer_market_maker_id(value, buffer, offset, packet, parent)
+  local value = range:uint()
+  local display = display.nanoseconds(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cqs_output_cta_v1_91.fields.finra_best_offer_market_maker_id, range, value, display)
+  parent:add(siac_cqs_output_cta_v1_91.fields.nanoseconds, range, value, display)
 
   return offset + length, value
+end
+
+-- Size: Seconds
+size_of.seconds = 4
+
+-- Display: Seconds
+display.seconds = function(value)
+  return "Seconds: "..value
+end
+
+-- Dissect: Seconds
+dissect.seconds = function(buffer, offset, packet, parent)
+  local length = size_of.seconds
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = display.seconds(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cqs_output_cta_v1_91.fields.seconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display: Adf Timestamp
+display.adf_timestamp = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Adf Timestamp
+dissect.adf_timestamp_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Seconds: 4 Byte Unsigned Fixed Width Integer
+  index, seconds = dissect.seconds(buffer, index, packet, parent)
+
+  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Adf Timestamp
+dissect.adf_timestamp = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.adf_timestamp then
+    local range = buffer(offset, 8)
+    local display = display.adf_timestamp(buffer, packet, parent)
+    parent = parent:add(siac_cqs_output_cta_v1_91.fields.adf_timestamp, range, display)
+  end
+
+  return dissect.adf_timestamp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Finra Best Offer Size
@@ -573,26 +1398,6 @@ dissect.finra_best_offer_quote_condition = function(buffer, offset, packet, pare
   local display = display.finra_best_offer_quote_condition(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.finra_best_offer_quote_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Finra Best Bid Market Maker Id
-size_of.finra_best_bid_market_maker_id = 4
-
--- Display: Finra Best Bid Market Maker Id
-display.finra_best_bid_market_maker_id = function(value)
-  return "Finra Best Bid Market Maker Id: "..value
-end
-
--- Dissect: Finra Best Bid Market Maker Id
-dissect.finra_best_bid_market_maker_id = function(buffer, offset, packet, parent)
-  local length = size_of.finra_best_bid_market_maker_id
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.finra_best_bid_market_maker_id(value, buffer, offset, packet, parent)
-
-  parent:add(siac_cqs_output_cta_v1_91.fields.finra_best_bid_market_maker_id, range, value, display)
 
   return offset + length, value
 end
@@ -682,7 +1487,17 @@ size_of.market_condition = 1
 
 -- Display: Market Condition
 display.market_condition = function(value)
-  return "Market Condition: "..value
+  if value == " " then
+    return "Market Condition: Normal Auction Market (<whitespace>)"
+  end
+  if value == "A" then
+    return "Market Condition: Crossed Market (A)"
+  end
+  if value == "B" then
+    return "Market Condition: Locked Market (B)"
+  end
+
+  return "Market Condition: Unknown("..value..")"
 end
 
 -- Dissect: Market Condition
@@ -702,7 +1517,17 @@ size_of.settlement_condition = 1
 
 -- Display: Settlement Condition
 display.settlement_condition = function(value)
-  return "Settlement Condition: "..value
+  if value == " " then
+    return "Settlement Condition: Regular Way Settlement (<whitespace>)"
+  end
+  if value == "A" then
+    return "Settlement Condition: Cash Only Settlement (A)"
+  end
+  if value == "B" then
+    return "Settlement Condition: Next Day Only Settlement (B)"
+  end
+
+  return "Settlement Condition: Unknown("..value..")"
 end
 
 -- Dissect: Settlement Condition
@@ -722,7 +1547,20 @@ size_of.retail_interest_indicator = 1
 
 -- Display: Retail Interest Indicator
 display.retail_interest_indicator = function(value)
-  return "Retail Interest Indicator: "..value
+  if value == " " then
+    return "Retail Interest Indicator: Not Applicable (<whitespace>)"
+  end
+  if value == "A" then
+    return "Retail Interest Indicator: Retail Interest On Bid Quote (A)"
+  end
+  if value == "B" then
+    return "Retail Interest Indicator: Retail Interest On Offer Quote (B)"
+  end
+  if value == "C" then
+    return "Retail Interest Indicator: Retail Interest On Both The Bid And Offer Quotes (C)"
+  end
+
+  return "Retail Interest Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Retail Interest Indicator
@@ -822,7 +1660,53 @@ size_of.security_status_indicator = 1
 
 -- Display: Security Status Indicator
 display.security_status_indicator = function(value)
-  return "Security Status Indicator: "..value
+  if value == " " then
+    return "Security Status Indicator: Not Applicable (<whitespace>)"
+  end
+  if value == "D" then
+    return "Security Status Indicator: News Dissemination (D)"
+  end
+  if value == "G" then
+    return "Security Status Indicator: Trading Range Indication (G)"
+  end
+  if value == "I" then
+    return "Security Status Indicator: Order Imbalance (I)"
+  end
+  if value == "M" then
+    return "Security Status Indicator: Luld Trading Pause (M)"
+  end
+  if value == "P" then
+    return "Security Status Indicator: News Pending (P)"
+  end
+  if value == "T" then
+    return "Security Status Indicator: Resume (T)"
+  end
+  if value == "X" then
+    return "Security Status Indicator: Operational (X)"
+  end
+  if value == "Y" then
+    return "Security Status Indicator: Sup Penny Trading (Y)"
+  end
+  if value == "Z" then
+    return "Security Status Indicator: No Open No Resume (Z)"
+  end
+  if value == "0" then
+    return "Security Status Indicator: Luld Price Band (0)"
+  end
+  if value == "1" then
+    return "Security Status Indicator: Market Wide Circuit Breaker Level 1 Breached (1)"
+  end
+  if value == "2" then
+    return "Security Status Indicator: Market Wide Circuit Breaker Level 2 Breached (2)"
+  end
+  if value == "3" then
+    return "Security Status Indicator: Market Wide Circuit Breaker Level 3 Breached (3)"
+  end
+  if value == "9" then
+    return "Security Status Indicator: Republished Luld Price Band (9)"
+  end
+
+  return "Security Status Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Security Status Indicator
@@ -842,7 +1726,50 @@ size_of.quote_condition = 1
 
 -- Display: Quote Condition
 display.quote_condition = function(value)
-  return "Quote Condition: "..value
+  if value == " " then
+    return "Quote Condition: Quote Condition Not Applicable (<whitespace>)"
+  end
+  if value == "A" then
+    return "Quote Condition: Slow Quote On Offer Side (A)"
+  end
+  if value == "B" then
+    return "Quote Condition: Slow Quote On Bid Side (B)"
+  end
+  if value == "C" then
+    return "Quote Condition: Closing (C)"
+  end
+  if value == "E" then
+    return "Quote Condition: Slow Quote Due To Lrp Or Gap Quote On The Bid Side (E)"
+  end
+  if value == "F" then
+    return "Quote Condition: Slow Quote Due To Lrp Or Gap Quote On The Offer Side (F)"
+  end
+  if value == "H" then
+    return "Quote Condition: Slow Quote On The Bid And Offer Sides (H)"
+  end
+  if value == "L" then
+    return "Quote Condition: Closed Market Maker (L)"
+  end
+  if value == "N" then
+    return "Quote Condition: Non Firm Quote (N)"
+  end
+  if value == "O" then
+    return "Quote Condition: Opening Quote (O)"
+  end
+  if value == "R" then
+    return "Quote Condition: Regular Finra Open (R)"
+  end
+  if value == "U" then
+    return "Quote Condition: Slow Quote Due To Liquidity Replenishment Point Or Gap Quote On Both The Bid And Offer Sides (U)"
+  end
+  if value == "W" then
+    return "Quote Condition: Slow Quote Due To Set Slow List On Both The Bid And Offer Sides (W)"
+  end
+  if value == "4" then
+    return "Quote Condition: On Demand Intra Day Auction (4)"
+  end
+
+  return "Quote Condition: Unknown("..value..")"
 end
 
 -- Dissect: Quote Condition
@@ -862,7 +1789,20 @@ size_of.instrument_type = 1
 
 -- Display: Instrument Type
 display.instrument_type = function(value)
-  return "Instrument Type: "..value
+  if value == "0" then
+    return "Instrument Type: Cta Eligible Equity (0)"
+  end
+  if value == "1" then
+    return "Instrument Type: Local Issue (1)"
+  end
+  if value == "2" then
+    return "Instrument Type: Corporate Bond (2)"
+  end
+  if value == "3" then
+    return "Instrument Type: Government Bond (3)"
+  end
+
+  return "Instrument Type: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Type
@@ -953,46 +1893,6 @@ dissect.message_id = function(buffer, offset, packet, parent)
   local display = display.message_id(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.message_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Nanoseconds
-size_of.nanoseconds = 4
-
--- Display: Nanoseconds
-display.nanoseconds = function(value)
-  return "Nanoseconds: "..value
-end
-
--- Dissect: Nanoseconds
-dissect.nanoseconds = function(buffer, offset, packet, parent)
-  local length = size_of.nanoseconds
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = display.nanoseconds(value, buffer, offset, packet, parent)
-
-  parent:add(siac_cqs_output_cta_v1_91.fields.nanoseconds, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Seconds
-size_of.seconds = 4
-
--- Display: Seconds
-display.seconds = function(value)
-  return "Seconds: "..value
-end
-
--- Dissect: Seconds
-dissect.seconds = function(buffer, offset, packet, parent)
-  local length = size_of.seconds
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = display.seconds(value, buffer, offset, packet, parent)
-
-  parent:add(siac_cqs_output_cta_v1_91.fields.seconds, range, value, display)
 
   return offset + length, value
 end
@@ -1129,13 +2029,13 @@ dissect.special_long_quote_message_fields = function(buffer, offset, packet, par
   -- Security Symbol Long: 11 Byte Ascii String
   index, security_symbol_long = dissect.security_symbol_long(buffer, index, packet, parent)
 
-  -- Instrument Type: 1 Byte Ascii String
+  -- Instrument Type: 1 Byte Ascii String Enum with 4 values
   index, instrument_type = dissect.instrument_type(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String
+  -- Quote Condition: 1 Byte Ascii String Enum with 14 values
   index, quote_condition = dissect.quote_condition(buffer, index, packet, parent)
 
-  -- Security Status Indicator: 1 Byte Ascii String
+  -- Security Status Indicator: 1 Byte Ascii String Enum with 15 values
   index, security_status_indicator = dissect.security_status_indicator(buffer, index, packet, parent)
 
   -- Bid Price Long: 8 Byte Unsigned Fixed Width Integer
@@ -1150,13 +2050,13 @@ dissect.special_long_quote_message_fields = function(buffer, offset, packet, par
   -- Offer Size Long: 4 Byte Unsigned Fixed Width Integer
   index, offer_size_long = dissect.offer_size_long(buffer, index, packet, parent)
 
-  -- Retail Interest Indicator: 1 Byte Ascii String
+  -- Retail Interest Indicator: 1 Byte Ascii String Enum with 4 values
   index, retail_interest_indicator = dissect.retail_interest_indicator(buffer, index, packet, parent)
 
-  -- Settlement Condition: 1 Byte Ascii String
+  -- Settlement Condition: 1 Byte Ascii String Enum with 3 values
   index, settlement_condition = dissect.settlement_condition(buffer, index, packet, parent)
 
-  -- Market Condition: 1 Byte Ascii String
+  -- Market Condition: 1 Byte Ascii String Enum with 3 values
   index, market_condition = dissect.market_condition(buffer, index, packet, parent)
 
   -- Finra Market Maker Id: 4 Byte Ascii String
@@ -1186,29 +2086,61 @@ dissect.special_long_quote_message_fields = function(buffer, offset, packet, par
   -- Finra Best Offer Market Maker Id: 4 Byte Ascii String
   index, finra_best_offer_market_maker_id = dissect.finra_best_offer_market_maker_id(buffer, index, packet, parent)
 
-  -- Timestamp 2
-  index, timestamp_2 = dissect.timestamp_2(buffer, index, packet, parent)
+  -- Adf Timestamp: Struct of 2 fields
+  index, adf_timestamp = dissect.adf_timestamp(buffer, index, packet, parent)
 
-  -- Short Sale Restriction Indicator: 1 Byte Ascii String
+  -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
   index, short_sale_restriction_indicator = dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
 
-  -- Primary Listing Market Participant Id: 1 Byte Ascii String
+  -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 17 values
   index, primary_listing_market_participant_id = dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
 
-  -- Financial Status Indicator: 1 Byte Ascii String
+  -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
   index, financial_status_indicator = dissect.financial_status_indicator(buffer, index, packet, parent)
 
-  -- Sip Generated Message Identifier: 1 Byte Ascii String
+  -- Sip Generated Message Identifier: 1 Byte Ascii String Enum with 2 values
   index, sip_generated_message_identifier = dissect.sip_generated_message_identifier(buffer, index, packet, parent)
 
-  -- Finra Bbo Luld Indicator: 1 Byte Ascii String
+  -- Finra Bbo Luld Indicator: 1 Byte Ascii String Enum with 5 values
   index, finra_bbo_luld_indicator = dissect.finra_bbo_luld_indicator(buffer, index, packet, parent)
 
-  -- National Bbo Luld Indicator: 1 Byte Ascii String
+  -- National Bbo Luld Indicator: 1 Byte Ascii String Enum with 10 values
   index, national_bbo_luld_indicator = dissect.national_bbo_luld_indicator(buffer, index, packet, parent)
 
-  -- National Bbo Indicator: 1 Byte Ascii String Enum with 2 values
+  -- National Bbo Indicator: 1 Byte Ascii String Enum with 24 values
   index, national_bbo_indicator = dissect.national_bbo_indicator(buffer, index, packet, parent)
+
+  -- Runtime optional field exists: National Best Bid Long Appendage
+  local national_best_bid_long_appendage_exists = national_bbo_indicator == "U"
+
+  -- Runtime optional field: National Best Bid Long Appendage
+  if national_best_bid_long_appendage_exists then
+    index = dissect.national_best_bid_long_appendage(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field exists: National Best Offer Long Appendage
+  local national_best_offer_long_appendage_exists = national_bbo_indicator == "U"
+
+  -- Runtime optional field: National Best Offer Long Appendage
+  if national_best_offer_long_appendage_exists then
+    index = dissect.national_best_offer_long_appendage(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field exists: National Best Bid Short Appendage
+  local national_best_bid_short_appendage_exists = national_bbo_indicator == "T"
+
+  -- Runtime optional field: National Best Bid Short Appendage
+  if national_best_bid_short_appendage_exists then
+    index = dissect.national_best_bid_short_appendage(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field exists: National Best Offer Short Appendage
+  local national_best_offer_short_appendage_exists = national_bbo_indicator == "T"
+
+  -- Runtime optional field: National Best Offer Short Appendage
+  if national_best_offer_short_appendage_exists then
+    index = dissect.national_best_offer_short_appendage(buffer, index, packet, parent)
+  end
 
   return index
 end
@@ -1353,11 +2285,43 @@ dissect.short_quote_message_fields = function(buffer, offset, packet, parent, si
   -- Offer Size Short: 2 Byte Unsigned Fixed Width Integer
   index, offer_size_short = dissect.offer_size_short(buffer, index, packet, parent)
 
-  -- Primary Listing Market Participant Id: 1 Byte Ascii String
+  -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 17 values
   index, primary_listing_market_participant_id = dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
 
-  -- National Bbo Indicator: 1 Byte Ascii String Enum with 2 values
+  -- National Bbo Indicator: 1 Byte Ascii String Enum with 24 values
   index, national_bbo_indicator = dissect.national_bbo_indicator(buffer, index, packet, parent)
+
+  -- Runtime optional field exists: National Best Bid Long Appendage
+  local national_best_bid_long_appendage_exists = national_bbo_indicator == "U"
+
+  -- Runtime optional field: National Best Bid Long Appendage
+  if national_best_bid_long_appendage_exists then
+    index = dissect.national_best_bid_long_appendage(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field exists: National Best Offer Long Appendage
+  local national_best_offer_long_appendage_exists = national_bbo_indicator == "U"
+
+  -- Runtime optional field: National Best Offer Long Appendage
+  if national_best_offer_long_appendage_exists then
+    index = dissect.national_best_offer_long_appendage(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field exists: National Best Bid Short Appendage
+  local national_best_bid_short_appendage_exists = national_bbo_indicator == "T"
+
+  -- Runtime optional field: National Best Bid Short Appendage
+  if national_best_bid_short_appendage_exists then
+    index = dissect.national_best_bid_short_appendage(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field exists: National Best Offer Short Appendage
+  local national_best_offer_short_appendage_exists = national_bbo_indicator == "T"
+
+  -- Runtime optional field: National Best Offer Short Appendage
+  if national_best_offer_short_appendage_exists then
+    index = dissect.national_best_offer_short_appendage(buffer, index, packet, parent)
+  end
 
   return index
 end
@@ -1383,224 +2347,6 @@ dissect.short_quote_message = function(buffer, offset, packet, parent)
   return offset + size_of_short_quote_message
 end
 
--- Size: Best Offer Size Long
-size_of.best_offer_size_long = 4
-
--- Display: Best Offer Size Long
-display.best_offer_size_long = function(value)
-  return "Best Offer Size Long: "..value
-end
-
--- Dissect: Best Offer Size Long
-dissect.best_offer_size_long = function(buffer, offset, packet, parent)
-  local length = size_of.best_offer_size_long
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = display.best_offer_size_long(value, buffer, offset, packet, parent)
-
-  parent:add(siac_cqs_output_cta_v1_91.fields.best_offer_size_long, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Best Offer Price Long
-size_of.best_offer_price_long = 8
-
--- Display: Best Offer Price Long
-display.best_offer_price_long = function(value)
-  return "Best Offer Price Long: "..value
-end
-
--- Dissect: Best Offer Price Long
-dissect.best_offer_price_long = function(buffer, offset, packet, parent)
-  local length = size_of.best_offer_price_long
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = display.best_offer_price_long(value, buffer, offset, packet, parent)
-
-  parent:add(siac_cqs_output_cta_v1_91.fields.best_offer_price_long, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Best Offer Quote Condition
-size_of.best_offer_quote_condition = 1
-
--- Display: Best Offer Quote Condition
-display.best_offer_quote_condition = function(value)
-  return "Best Offer Quote Condition: "..value
-end
-
--- Dissect: Best Offer Quote Condition
-dissect.best_offer_quote_condition = function(buffer, offset, packet, parent)
-  local length = size_of.best_offer_quote_condition
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.best_offer_quote_condition(value, buffer, offset, packet, parent)
-
-  parent:add(siac_cqs_output_cta_v1_91.fields.best_offer_quote_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Display: National Best Offer Long Appendage
-display.national_best_offer_long_appendage = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: National Best Offer Long Appendage
-dissect.national_best_offer_long_appendage_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Best Offer Participant Id
-  index, best_offer_participant_id = dissect.best_offer_participant_id(buffer, index, packet, parent)
-
-  -- Best Offer Quote Condition: 1 Byte Ascii String
-  index, best_offer_quote_condition = dissect.best_offer_quote_condition(buffer, index, packet, parent)
-
-  -- Best Offer Price Long: 8 Byte Unsigned Fixed Width Integer
-  index, best_offer_price_long = dissect.best_offer_price_long(buffer, index, packet, parent)
-
-  -- Best Offer Size Long: 4 Byte Unsigned Fixed Width Integer
-  index, best_offer_size_long = dissect.best_offer_size_long(buffer, index, packet, parent)
-
-  -- Finra Best Offer Market Maker Id: 4 Byte Ascii String
-  index, finra_best_offer_market_maker_id = dissect.finra_best_offer_market_maker_id(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: National Best Offer Long Appendage
-dissect.national_best_offer_long_appendage = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.national_best_offer_long_appendage then
-    local range = buffer(offset, 17)
-    local display = display.national_best_offer_long_appendage(buffer, packet, parent)
-    parent = parent:add(siac_cqs_output_cta_v1_91.fields.national_best_offer_long_appendage, range, display)
-  end
-
-  return dissect.national_best_offer_long_appendage_fields(buffer, offset, packet, parent)
-end
-
--- Size: Best Bid Size Long
-size_of.best_bid_size_long = 4
-
--- Display: Best Bid Size Long
-display.best_bid_size_long = function(value)
-  return "Best Bid Size Long: "..value
-end
-
--- Dissect: Best Bid Size Long
-dissect.best_bid_size_long = function(buffer, offset, packet, parent)
-  local length = size_of.best_bid_size_long
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = display.best_bid_size_long(value, buffer, offset, packet, parent)
-
-  parent:add(siac_cqs_output_cta_v1_91.fields.best_bid_size_long, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Best Bid Price Long
-size_of.best_bid_price_long = 8
-
--- Display: Best Bid Price Long
-display.best_bid_price_long = function(value)
-  return "Best Bid Price Long: "..value
-end
-
--- Dissect: Best Bid Price Long
-dissect.best_bid_price_long = function(buffer, offset, packet, parent)
-  local length = size_of.best_bid_price_long
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = display.best_bid_price_long(value, buffer, offset, packet, parent)
-
-  parent:add(siac_cqs_output_cta_v1_91.fields.best_bid_price_long, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Best Bid Quote Condition
-size_of.best_bid_quote_condition = 1
-
--- Display: Best Bid Quote Condition
-display.best_bid_quote_condition = function(value)
-  return "Best Bid Quote Condition: "..value
-end
-
--- Dissect: Best Bid Quote Condition
-dissect.best_bid_quote_condition = function(buffer, offset, packet, parent)
-  local length = size_of.best_bid_quote_condition
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.best_bid_quote_condition(value, buffer, offset, packet, parent)
-
-  parent:add(siac_cqs_output_cta_v1_91.fields.best_bid_quote_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Best Bid Participant Id
-size_of.best_bid_participant_id = 1
-
--- Display: Best Bid Participant Id
-display.best_bid_participant_id = function(value)
-  return "Best Bid Participant Id: "..value
-end
-
--- Dissect: Best Bid Participant Id
-dissect.best_bid_participant_id = function(buffer, offset, packet, parent)
-  local length = size_of.best_bid_participant_id
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.best_bid_participant_id(value, buffer, offset, packet, parent)
-
-  parent:add(siac_cqs_output_cta_v1_91.fields.best_bid_participant_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Display: National Best Bid Long Appendage
-display.national_best_bid_long_appendage = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: National Best Bid Long Appendage
-dissect.national_best_bid_long_appendage_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Best Bid Participant Id: 1 Byte Ascii String
-  index, best_bid_participant_id = dissect.best_bid_participant_id(buffer, index, packet, parent)
-
-  -- Best Bid Quote Condition: 1 Byte Ascii String
-  index, best_bid_quote_condition = dissect.best_bid_quote_condition(buffer, index, packet, parent)
-
-  -- Best Bid Price Long: 8 Byte Unsigned Fixed Width Integer
-  index, best_bid_price_long = dissect.best_bid_price_long(buffer, index, packet, parent)
-
-  -- Best Bid Size Long: 4 Byte Unsigned Fixed Width Integer
-  index, best_bid_size_long = dissect.best_bid_size_long(buffer, index, packet, parent)
-
-  -- Finra Best Bid Market Maker Id: 4 Byte Ascii String
-  index, finra_best_bid_market_maker_id = dissect.finra_best_bid_market_maker_id(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: National Best Bid Long Appendage
-dissect.national_best_bid_long_appendage = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.national_best_bid_long_appendage then
-    local range = buffer(offset, 18)
-    local display = display.national_best_bid_long_appendage(buffer, packet, parent)
-    parent = parent:add(siac_cqs_output_cta_v1_91.fields.national_best_bid_long_appendage, range, display)
-  end
-
-  return dissect.national_best_bid_long_appendage_fields(buffer, offset, packet, parent)
-end
-
 -- Size: Luld Indicator
 size_of.luld_indicator = 1
 
@@ -1621,42 +2367,22 @@ dissect.luld_indicator = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Display: Adf Timestamp
-display.adf_timestamp = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Adf Timestamp
-dissect.adf_timestamp_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index, seconds = dissect.seconds(buffer, index, packet, parent)
-
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Adf Timestamp
-dissect.adf_timestamp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.adf_timestamp then
-    local range = buffer(offset, 8)
-    local display = display.adf_timestamp(buffer, packet, parent)
-    parent = parent:add(siac_cqs_output_cta_v1_91.fields.adf_timestamp, range, display)
-  end
-
-  return dissect.adf_timestamp_fields(buffer, offset, packet, parent)
-end
-
 -- Size: Finra Bbo Indicator
 size_of.finra_bbo_indicator = 1
 
 -- Display: Finra Bbo Indicator
 display.finra_bbo_indicator = function(value)
-  return "Finra Bbo Indicator: "..value
+  if value == " " then
+    return "Finra Bbo Indicator: Not Applicable (<whitespace>)"
+  end
+  if value == "A" then
+    return "Finra Bbo Indicator: No Finra Bbo Change (A)"
+  end
+  if value == "B" then
+    return "Finra Bbo Indicator: No Finra Bbo Exists (B)"
+  end
+
+  return "Finra Bbo Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Finra Bbo Indicator
@@ -1738,13 +2464,13 @@ dissect.long_quote_message_fields = function(buffer, offset, packet, parent, siz
   -- Security Symbol Long: 11 Byte Ascii String
   index, security_symbol_long = dissect.security_symbol_long(buffer, index, packet, parent)
 
-  -- Instrument Type: 1 Byte Ascii String
+  -- Instrument Type: 1 Byte Ascii String Enum with 4 values
   index, instrument_type = dissect.instrument_type(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String
+  -- Quote Condition: 1 Byte Ascii String Enum with 14 values
   index, quote_condition = dissect.quote_condition(buffer, index, packet, parent)
 
-  -- Security Status Indicator: 1 Byte Ascii String
+  -- Security Status Indicator: 1 Byte Ascii String Enum with 15 values
   index, security_status_indicator = dissect.security_status_indicator(buffer, index, packet, parent)
 
   -- Bid Price Lower Limit Price Band: 8 Byte Unsigned Fixed Width Integer
@@ -1759,43 +2485,43 @@ dissect.long_quote_message_fields = function(buffer, offset, packet, parent, siz
   -- Offer Size Long: 4 Byte Unsigned Fixed Width Integer
   index, offer_size_long = dissect.offer_size_long(buffer, index, packet, parent)
 
-  -- Retail Interest Indicator: 1 Byte Ascii String
+  -- Retail Interest Indicator: 1 Byte Ascii String Enum with 4 values
   index, retail_interest_indicator = dissect.retail_interest_indicator(buffer, index, packet, parent)
 
-  -- Settlement Condition: 1 Byte Ascii String
+  -- Settlement Condition: 1 Byte Ascii String Enum with 3 values
   index, settlement_condition = dissect.settlement_condition(buffer, index, packet, parent)
 
-  -- Market Condition: 1 Byte Ascii String
+  -- Market Condition: 1 Byte Ascii String Enum with 3 values
   index, market_condition = dissect.market_condition(buffer, index, packet, parent)
 
   -- Finra Market Maker Id: 4 Byte Ascii String
   index, finra_market_maker_id = dissect.finra_market_maker_id(buffer, index, packet, parent)
 
-  -- Finra Bbo Indicator: 1 Byte Ascii String
+  -- Finra Bbo Indicator: 1 Byte Ascii String Enum with 3 values
   index, finra_bbo_indicator = dissect.finra_bbo_indicator(buffer, index, packet, parent)
 
   -- Adf Timestamp: Struct of 2 fields
   index, adf_timestamp = dissect.adf_timestamp(buffer, index, packet, parent)
 
-  -- Short Sale Restriction Indicator: 1 Byte Ascii String
+  -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
   index, short_sale_restriction_indicator = dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
 
-  -- Primary Listing Market Participant Id: 1 Byte Ascii String
+  -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 17 values
   index, primary_listing_market_participant_id = dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
 
-  -- Financial Status Indicator: 1 Byte Ascii String
+  -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
   index, financial_status_indicator = dissect.financial_status_indicator(buffer, index, packet, parent)
 
-  -- Sip Generated Message Identifier: 1 Byte Ascii String
+  -- Sip Generated Message Identifier: 1 Byte Ascii String Enum with 2 values
   index, sip_generated_message_identifier = dissect.sip_generated_message_identifier(buffer, index, packet, parent)
 
   -- Luld Indicator: 1 Byte Ascii String
   index, luld_indicator = dissect.luld_indicator(buffer, index, packet, parent)
 
-  -- National Bbo Luld Indicator: 1 Byte Ascii String
+  -- National Bbo Luld Indicator: 1 Byte Ascii String Enum with 10 values
   index, national_bbo_luld_indicator = dissect.national_bbo_luld_indicator(buffer, index, packet, parent)
 
-  -- National Bbo Indicator: 1 Byte Ascii String Enum with 2 values
+  -- National Bbo Indicator: 1 Byte Ascii String Enum with 24 values
   index, national_bbo_indicator = dissect.national_bbo_indicator(buffer, index, packet, parent)
 
   -- Runtime optional field exists: National Best Bid Long Appendage
@@ -1806,8 +2532,29 @@ dissect.long_quote_message_fields = function(buffer, offset, packet, parent, siz
     index = dissect.national_best_bid_long_appendage(buffer, index, packet, parent)
   end
 
-  -- National Best Offer Long Appendage: Struct of 5 fields
-  index, national_best_offer_long_appendage = dissect.national_best_offer_long_appendage(buffer, index, packet, parent)
+  -- Runtime optional field exists: National Best Offer Long Appendage
+  local national_best_offer_long_appendage_exists = national_bbo_indicator == "U"
+
+  -- Runtime optional field: National Best Offer Long Appendage
+  if national_best_offer_long_appendage_exists then
+    index = dissect.national_best_offer_long_appendage(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field exists: National Best Bid Short Appendage
+  local national_best_bid_short_appendage_exists = national_bbo_indicator == "T"
+
+  -- Runtime optional field: National Best Bid Short Appendage
+  if national_best_bid_short_appendage_exists then
+    index = dissect.national_best_bid_short_appendage(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field exists: National Best Offer Short Appendage
+  local national_best_offer_short_appendage_exists = national_bbo_indicator == "T"
+
+  -- Runtime optional field: National Best Offer Short Appendage
+  if national_best_offer_short_appendage_exists then
+    index = dissect.national_best_offer_short_appendage(buffer, index, packet, parent)
+  end
 
   return index
 end
@@ -1900,7 +2647,7 @@ dissect.auction_status_message_fields = function(buffer, offset, packet, parent,
   -- Security Symbol Long: 11 Byte Ascii String
   index, security_symbol_long = dissect.security_symbol_long(buffer, index, packet, parent)
 
-  -- Instrument Type: 1 Byte Ascii String
+  -- Instrument Type: 1 Byte Ascii String Enum with 4 values
   index, instrument_type = dissect.instrument_type(buffer, index, packet, parent)
 
   -- Auction Collar Reference Price
@@ -1915,13 +2662,13 @@ dissect.auction_status_message_fields = function(buffer, offset, packet, parent,
   -- Number Of Extensions: 1 Byte Unsigned Fixed Width Integer
   index, number_of_extensions = dissect.number_of_extensions(buffer, index, packet, parent)
 
-  -- Short Sale Restriction Indicator: 1 Byte Ascii String
+  -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
   index, short_sale_restriction_indicator = dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
 
-  -- Primary Listing Market Participant Id: 1 Byte Ascii String
+  -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 17 values
   index, primary_listing_market_participant_id = dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
 
-  -- Financial Status Indicator: 1 Byte Ascii String
+  -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
   index, financial_status_indicator = dissect.financial_status_indicator(buffer, index, packet, parent)
 
   -- Future: 1 Byte Ascii String
