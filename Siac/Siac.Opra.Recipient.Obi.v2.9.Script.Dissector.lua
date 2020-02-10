@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Opra Options Recipient Obdi 2.9 Protocol
-local opra_options_recipient_obdi_v2_9 = Proto("Opra.Options.Recipient.Obdi.v2.9.Lua", "Opra Options Recipient Obdi 2.9")
+-- Siac Opra Recipient Obi 2.9 Protocol
+local siac_opra_recipient_obi_v2_9 = Proto("Siac.Opra.Recipient.Obi.v2.9.Lua", "Siac Opra Recipient Obi 2.9")
 
 -- Component Tables
 local show = {}
@@ -19,129 +19,129 @@ local verify = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Opra Options Recipient Obdi 2.9 Fields
-opra_options_recipient_obdi_v2_9.fields.administrative_category = ProtoField.new("ADMINISTRATIVE Category", "opra.options.recipient.obdi.v2.9.administrativecategory", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.administrative_message = ProtoField.new("Administrative Message", "opra.options.recipient.obdi.v2.9.administrativemessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.administrative_payload_ = ProtoField.new("Administrative Payload ", "opra.options.recipient.obdi.v2.9.administrativepayload", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.best_bid_denominator_code = ProtoField.new("Best Bid Denominator Code", "opra.options.recipient.obdi.v2.9.bestbiddenominatorcode", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.best_bid_participant_id = ProtoField.new("Best Bid Participant Id", "opra.options.recipient.obdi.v2.9.bestbidparticipantid", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.best_bid_price = ProtoField.new("Best Bid Price", "opra.options.recipient.obdi.v2.9.bestbidprice", ftypes.INT32)
-opra_options_recipient_obdi_v2_9.fields.best_bid_size = ProtoField.new("Best Bid Size", "opra.options.recipient.obdi.v2.9.bestbidsize", ftypes.UINT32)
-opra_options_recipient_obdi_v2_9.fields.best_offer_denominator_code = ProtoField.new("Best Offer Denominator Code", "opra.options.recipient.obdi.v2.9.bestofferdenominatorcode", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.best_offer_participant_id = ProtoField.new("Best Offer Participant Id", "opra.options.recipient.obdi.v2.9.bestofferparticipantid", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.best_offer_price = ProtoField.new("Best Offer Price", "opra.options.recipient.obdi.v2.9.bestofferprice", ftypes.INT32)
-opra_options_recipient_obdi_v2_9.fields.best_offer_size = ProtoField.new("Best Offer Size", "opra.options.recipient.obdi.v2.9.bestoffersize", ftypes.UINT32)
-opra_options_recipient_obdi_v2_9.fields.bid_price_2 = ProtoField.new("Bid Price 2", "opra.options.recipient.obdi.v2.9.bidprice2", ftypes.INT16)
-opra_options_recipient_obdi_v2_9.fields.bid_price_4 = ProtoField.new("Bid Price 4", "opra.options.recipient.obdi.v2.9.bidprice4", ftypes.INT32)
-opra_options_recipient_obdi_v2_9.fields.bid_size_2 = ProtoField.new("Bid Size 2", "opra.options.recipient.obdi.v2.9.bidsize2", ftypes.UINT16)
-opra_options_recipient_obdi_v2_9.fields.bid_size_4 = ProtoField.new("Bid Size 4", "opra.options.recipient.obdi.v2.9.bidsize4", ftypes.UINT32)
-opra_options_recipient_obdi_v2_9.fields.block_seq_num = ProtoField.new("Block Seq Num", "opra.options.recipient.obdi.v2.9.blockseqnum", ftypes.UINT32)
-opra_options_recipient_obdi_v2_9.fields.category_data = ProtoField.new("Category Data", "opra.options.recipient.obdi.v2.9.categorydata", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.checksum = ProtoField.new("Checksum", "opra.options.recipient.obdi.v2.9.checksum", ftypes.UINT16)
-opra_options_recipient_obdi_v2_9.fields.control_category = ProtoField.new("CONTROL Category", "opra.options.recipient.obdi.v2.9.controlcategory", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.control_message = ProtoField.new("Control Message", "opra.options.recipient.obdi.v2.9.controlmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.control_payload_ = ProtoField.new("CONTROL Payload ", "opra.options.recipient.obdi.v2.9.controlpayload", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.data_feed_indicator = ProtoField.new("Data Feed Indicator", "opra.options.recipient.obdi.v2.9.datafeedindicator", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.denominator_code = ProtoField.new("Denominator Code", "opra.options.recipient.obdi.v2.9.denominatorcode", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.equity_and_index_last_sale_message = ProtoField.new("Equity And Index Last Sale Message", "opra.options.recipient.obdi.v2.9.equityandindexlastsalemessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.equity_eod_category = ProtoField.new("Equity EOD Category", "opra.options.recipient.obdi.v2.9.equityeodcategory", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.equity_eod_message = ProtoField.new("Equity Eod Message", "opra.options.recipient.obdi.v2.9.equityeodmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.equity_eod_payload_ = ProtoField.new("Equity EOD Payload ", "opra.options.recipient.obdi.v2.9.equityeodpayload", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.equity_index_last_sale_category = ProtoField.new("Equity Index Last Sale Category", "opra.options.recipient.obdi.v2.9.equityindexlastsalecategory", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.equity_index_last_sale_payload_ = ProtoField.new("Equity Index Last Sale Payload ", "opra.options.recipient.obdi.v2.9.equityindexlastsalepayload", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.expiration_day = ProtoField.new("Expiration Day", "opra.options.recipient.obdi.v2.9.expirationday", ftypes.UINT8)
-opra_options_recipient_obdi_v2_9.fields.expiration_month = ProtoField.new("Expiration Month", "opra.options.recipient.obdi.v2.9.expirationmonth", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.expiration_year = ProtoField.new("Expiration Year", "opra.options.recipient.obdi.v2.9.expirationyear", ftypes.UINT8)
-opra_options_recipient_obdi_v2_9.fields.high_price = ProtoField.new("High Price", "opra.options.recipient.obdi.v2.9.highprice", ftypes.INT32)
-opra_options_recipient_obdi_v2_9.fields.index_value = ProtoField.new("Index Value", "opra.options.recipient.obdi.v2.9.indexvalue", ftypes.INT32)
-opra_options_recipient_obdi_v2_9.fields.index_value_denominator_code = ProtoField.new("Index Value Denominator Code", "opra.options.recipient.obdi.v2.9.indexvaluedenominatorcode", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.last_price = ProtoField.new("Last Price", "opra.options.recipient.obdi.v2.9.lastprice", ftypes.INT32)
-opra_options_recipient_obdi_v2_9.fields.long_quote_a_message = ProtoField.new("Long Quote A Message", "opra.options.recipient.obdi.v2.9.longquoteamessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.long_quote_b_message = ProtoField.new("Long Quote B Message", "opra.options.recipient.obdi.v2.9.longquotebmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.long_quote_c_message = ProtoField.new("Long Quote C Message", "opra.options.recipient.obdi.v2.9.longquotecmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.long_quote_category = ProtoField.new("Long Quote Category", "opra.options.recipient.obdi.v2.9.longquotecategory", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.long_quote_d_message = ProtoField.new("Long Quote D Message", "opra.options.recipient.obdi.v2.9.longquotedmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.long_quote_e_message = ProtoField.new("Long Quote E Message", "opra.options.recipient.obdi.v2.9.longquoteemessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.long_quote_f_message = ProtoField.new("Long Quote F Message", "opra.options.recipient.obdi.v2.9.longquotefmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.long_quote_g_message = ProtoField.new("Long Quote G Message", "opra.options.recipient.obdi.v2.9.longquotegmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.long_quote_h_message = ProtoField.new("Long Quote H Message", "opra.options.recipient.obdi.v2.9.longquotehmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.long_quote_i_message = ProtoField.new("Long Quote I Message", "opra.options.recipient.obdi.v2.9.longquoteimessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.long_quote_j_message = ProtoField.new("Long Quote J Message", "opra.options.recipient.obdi.v2.9.longquotejmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.long_quote_k_message = ProtoField.new("Long Quote K Message", "opra.options.recipient.obdi.v2.9.longquotekmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.long_quote_l_message = ProtoField.new("Long Quote L Message", "opra.options.recipient.obdi.v2.9.longquotelmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.long_quote_m_message = ProtoField.new("Long Quote M Message", "opra.options.recipient.obdi.v2.9.longquotemmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.long_quote_message_ = ProtoField.new("Long Quote Message ", "opra.options.recipient.obdi.v2.9.longquotemessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.long_quote_n_message = ProtoField.new("Long Quote N Message", "opra.options.recipient.obdi.v2.9.longquotenmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.long_quote_o_message = ProtoField.new("Long Quote O Message", "opra.options.recipient.obdi.v2.9.longquoteomessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.long_quote_p_message = ProtoField.new("Long Quote P Message", "opra.options.recipient.obdi.v2.9.longquotepmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.long_quote_space_message = ProtoField.new("Long Quote Space Message", "opra.options.recipient.obdi.v2.9.longquotespacemessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.low_price = ProtoField.new("Low Price", "opra.options.recipient.obdi.v2.9.lowprice", ftypes.INT32)
-opra_options_recipient_obdi_v2_9.fields.message = ProtoField.new("Message", "opra.options.recipient.obdi.v2.9.message", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.message_category = ProtoField.new("Message Category", "opra.options.recipient.obdi.v2.9.messagecategory", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.message_count = ProtoField.new("Message Count", "opra.options.recipient.obdi.v2.9.messagecount", ftypes.UINT8)
-opra_options_recipient_obdi_v2_9.fields.message_data = ProtoField.new("Message Data", "opra.options.recipient.obdi.v2.9.messagedata", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.message_data_length = ProtoField.new("Message Data Length", "opra.options.recipient.obdi.v2.9.messagedatalength", ftypes.UINT16)
-opra_options_recipient_obdi_v2_9.fields.message_header = ProtoField.new("Message Header", "opra.options.recipient.obdi.v2.9.messageheader", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.net_change = ProtoField.new("Net Change", "opra.options.recipient.obdi.v2.9.netchange", ftypes.INT32)
-opra_options_recipient_obdi_v2_9.fields.offer_price_2 = ProtoField.new("Offer Price 2", "opra.options.recipient.obdi.v2.9.offerprice2", ftypes.INT16)
-opra_options_recipient_obdi_v2_9.fields.offer_price_4 = ProtoField.new("Offer Price 4", "opra.options.recipient.obdi.v2.9.offerprice4", ftypes.INT32)
-opra_options_recipient_obdi_v2_9.fields.offer_size_2 = ProtoField.new("Offer Size 2", "opra.options.recipient.obdi.v2.9.offersize2", ftypes.UINT16)
-opra_options_recipient_obdi_v2_9.fields.offer_size_4 = ProtoField.new("Offer Size 4", "opra.options.recipient.obdi.v2.9.offersize4", ftypes.UINT32)
-opra_options_recipient_obdi_v2_9.fields.open_interest_category = ProtoField.new("Open Interest Category", "opra.options.recipient.obdi.v2.9.openinterestcategory", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.open_interest_message = ProtoField.new("Open Interest Message", "opra.options.recipient.obdi.v2.9.openinterestmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.open_interest_payload_ = ProtoField.new("Open Interest Payload ", "opra.options.recipient.obdi.v2.9.openinterestpayload", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.open_interest_volume = ProtoField.new("Open Interest Volume", "opra.options.recipient.obdi.v2.9.openinterestvolume", ftypes.UINT32)
-opra_options_recipient_obdi_v2_9.fields.open_price = ProtoField.new("Open Price", "opra.options.recipient.obdi.v2.9.openprice", ftypes.INT32)
-opra_options_recipient_obdi_v2_9.fields.packet = ProtoField.new("Packet", "opra.options.recipient.obdi.v2.9.packet", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.packet_header = ProtoField.new("Packet Header", "opra.options.recipient.obdi.v2.9.packetheader", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.participant_id = ProtoField.new("Participant Id", "opra.options.recipient.obdi.v2.9.participantid", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.premium_price = ProtoField.new("Premium Price", "opra.options.recipient.obdi.v2.9.premiumprice", ftypes.INT32)
-opra_options_recipient_obdi_v2_9.fields.premium_price_denominator_code = ProtoField.new("Premium Price Denominator Code", "opra.options.recipient.obdi.v2.9.premiumpricedenominatorcode", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.price = ProtoField.new("Price", "opra.options.recipient.obdi.v2.9.price", ftypes.UINT32)
-opra_options_recipient_obdi_v2_9.fields.reserved_1 = ProtoField.new("Reserved 1", "opra.options.recipient.obdi.v2.9.reserved1", ftypes.BYTES)
-opra_options_recipient_obdi_v2_9.fields.reserved_4 = ProtoField.new("Reserved 4", "opra.options.recipient.obdi.v2.9.reserved4", ftypes.BYTES)
-opra_options_recipient_obdi_v2_9.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "opra.options.recipient.obdi.v2.9.retransmissionindicator", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.security_symbol_4 = ProtoField.new("Security Symbol 4", "opra.options.recipient.obdi.v2.9.securitysymbol4", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.security_symbol_5 = ProtoField.new("Security Symbol 5", "opra.options.recipient.obdi.v2.9.securitysymbol5", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.session_indicator = ProtoField.new("Session Indicator", "opra.options.recipient.obdi.v2.9.sessionindicator", ftypes.UINT8)
-opra_options_recipient_obdi_v2_9.fields.short_quote_a_message = ProtoField.new("Short Quote A Message", "opra.options.recipient.obdi.v2.9.shortquoteamessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.short_quote_b_message = ProtoField.new("Short Quote B Message", "opra.options.recipient.obdi.v2.9.shortquotebmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.short_quote_c_message = ProtoField.new("Short Quote C Message", "opra.options.recipient.obdi.v2.9.shortquotecmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.short_quote_category = ProtoField.new("Short Quote Category", "opra.options.recipient.obdi.v2.9.shortquotecategory", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.short_quote_d_message = ProtoField.new("Short Quote D Message", "opra.options.recipient.obdi.v2.9.shortquotedmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.short_quote_e_message = ProtoField.new("Short Quote E Message", "opra.options.recipient.obdi.v2.9.shortquoteemessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.short_quote_f_message = ProtoField.new("Short Quote F Message", "opra.options.recipient.obdi.v2.9.shortquotefmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.short_quote_g_message = ProtoField.new("Short Quote G Message", "opra.options.recipient.obdi.v2.9.shortquotegmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.short_quote_h_message = ProtoField.new("Short Quote H Message", "opra.options.recipient.obdi.v2.9.shortquotehmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.short_quote_i_message = ProtoField.new("Short Quote I Message", "opra.options.recipient.obdi.v2.9.shortquoteimessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.short_quote_j_message = ProtoField.new("Short Quote J Message", "opra.options.recipient.obdi.v2.9.shortquotejmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.short_quote_k_message = ProtoField.new("Short Quote K Message", "opra.options.recipient.obdi.v2.9.shortquotekmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.short_quote_l_message = ProtoField.new("Short Quote L Message", "opra.options.recipient.obdi.v2.9.shortquotelmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.short_quote_m_message = ProtoField.new("Short Quote M Message", "opra.options.recipient.obdi.v2.9.shortquotemmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.short_quote_message_ = ProtoField.new("Short Quote Message ", "opra.options.recipient.obdi.v2.9.shortquotemessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.short_quote_n_message = ProtoField.new("Short Quote N Message", "opra.options.recipient.obdi.v2.9.shortquotenmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.short_quote_o_message = ProtoField.new("Short Quote O Message", "opra.options.recipient.obdi.v2.9.shortquoteomessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.short_quote_p_message = ProtoField.new("Short Quote P Message", "opra.options.recipient.obdi.v2.9.shortquotepmessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.short_quote_space_message = ProtoField.new("Short Quote Space Message", "opra.options.recipient.obdi.v2.9.shortquotespacemessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.size = ProtoField.new("Size", "opra.options.recipient.obdi.v2.9.size", ftypes.UINT16)
-opra_options_recipient_obdi_v2_9.fields.strike_price_2 = ProtoField.new("Strike Price 2", "opra.options.recipient.obdi.v2.9.strikeprice2", ftypes.UINT16)
-opra_options_recipient_obdi_v2_9.fields.strike_price_4 = ProtoField.new("Strike Price 4", "opra.options.recipient.obdi.v2.9.strikeprice4", ftypes.UINT32)
-opra_options_recipient_obdi_v2_9.fields.strike_price_denominator_code = ProtoField.new("Strike Price Denominator Code", "opra.options.recipient.obdi.v2.9.strikepricedenominatorcode", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.trade_identifier = ProtoField.new("Trade Identifier", "opra.options.recipient.obdi.v2.9.tradeidentifier", ftypes.UINT32)
-opra_options_recipient_obdi_v2_9.fields.transaction_id_ = ProtoField.new("Transaction ID ", "opra.options.recipient.obdi.v2.9.transactionid", ftypes.UINT64)
-opra_options_recipient_obdi_v2_9.fields.underlying_price = ProtoField.new("Underlying Price", "opra.options.recipient.obdi.v2.9.underlyingprice", ftypes.INT64)
-opra_options_recipient_obdi_v2_9.fields.underlying_price_denominator_code = ProtoField.new("Underlying Price Denominator Code", "opra.options.recipient.obdi.v2.9.underlyingpricedenominatorcode", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.underlying_value_category = ProtoField.new("UNDERLYING VALUE Category", "opra.options.recipient.obdi.v2.9.underlyingvaluecategory", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.underlying_value_message = ProtoField.new("Underlying Value Message", "opra.options.recipient.obdi.v2.9.underlyingvaluemessage", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.underlying_value_payload_ = ProtoField.new("UNDERLYING VALUE Payload ", "opra.options.recipient.obdi.v2.9.underlyingvaluepayload", ftypes.STRING)
-opra_options_recipient_obdi_v2_9.fields.version = ProtoField.new("Version", "opra.options.recipient.obdi.v2.9.version", ftypes.UINT8)
-opra_options_recipient_obdi_v2_9.fields.volume = ProtoField.new("Volume", "opra.options.recipient.obdi.v2.9.volume", ftypes.UINT32)
+-- Siac Opra Recipient Obi 2.9 Fields
+siac_opra_recipient_obi_v2_9.fields.administrative_category = ProtoField.new("ADMINISTRATIVE Category", "siac.opra.recipient.obi.v2.9.administrativecategory", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.administrative_message = ProtoField.new("Administrative Message", "siac.opra.recipient.obi.v2.9.administrativemessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.administrative_payload_ = ProtoField.new("Administrative Payload ", "siac.opra.recipient.obi.v2.9.administrativepayload", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.best_bid_denominator_code = ProtoField.new("Best Bid Denominator Code", "siac.opra.recipient.obi.v2.9.bestbiddenominatorcode", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.best_bid_participant_id = ProtoField.new("Best Bid Participant Id", "siac.opra.recipient.obi.v2.9.bestbidparticipantid", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.best_bid_price = ProtoField.new("Best Bid Price", "siac.opra.recipient.obi.v2.9.bestbidprice", ftypes.INT32)
+siac_opra_recipient_obi_v2_9.fields.best_bid_size = ProtoField.new("Best Bid Size", "siac.opra.recipient.obi.v2.9.bestbidsize", ftypes.UINT32)
+siac_opra_recipient_obi_v2_9.fields.best_offer_denominator_code = ProtoField.new("Best Offer Denominator Code", "siac.opra.recipient.obi.v2.9.bestofferdenominatorcode", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.best_offer_participant_id = ProtoField.new("Best Offer Participant Id", "siac.opra.recipient.obi.v2.9.bestofferparticipantid", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.best_offer_price = ProtoField.new("Best Offer Price", "siac.opra.recipient.obi.v2.9.bestofferprice", ftypes.INT32)
+siac_opra_recipient_obi_v2_9.fields.best_offer_size = ProtoField.new("Best Offer Size", "siac.opra.recipient.obi.v2.9.bestoffersize", ftypes.UINT32)
+siac_opra_recipient_obi_v2_9.fields.bid_price_2 = ProtoField.new("Bid Price 2", "siac.opra.recipient.obi.v2.9.bidprice2", ftypes.INT16)
+siac_opra_recipient_obi_v2_9.fields.bid_price_4 = ProtoField.new("Bid Price 4", "siac.opra.recipient.obi.v2.9.bidprice4", ftypes.INT32)
+siac_opra_recipient_obi_v2_9.fields.bid_size_2 = ProtoField.new("Bid Size 2", "siac.opra.recipient.obi.v2.9.bidsize2", ftypes.UINT16)
+siac_opra_recipient_obi_v2_9.fields.bid_size_4 = ProtoField.new("Bid Size 4", "siac.opra.recipient.obi.v2.9.bidsize4", ftypes.UINT32)
+siac_opra_recipient_obi_v2_9.fields.block_seq_num = ProtoField.new("Block Seq Num", "siac.opra.recipient.obi.v2.9.blockseqnum", ftypes.UINT32)
+siac_opra_recipient_obi_v2_9.fields.category_data = ProtoField.new("Category Data", "siac.opra.recipient.obi.v2.9.categorydata", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.checksum = ProtoField.new("Checksum", "siac.opra.recipient.obi.v2.9.checksum", ftypes.UINT16)
+siac_opra_recipient_obi_v2_9.fields.control_category = ProtoField.new("CONTROL Category", "siac.opra.recipient.obi.v2.9.controlcategory", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.control_message = ProtoField.new("Control Message", "siac.opra.recipient.obi.v2.9.controlmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.control_payload_ = ProtoField.new("CONTROL Payload ", "siac.opra.recipient.obi.v2.9.controlpayload", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.data_feed_indicator = ProtoField.new("Data Feed Indicator", "siac.opra.recipient.obi.v2.9.datafeedindicator", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.denominator_code = ProtoField.new("Denominator Code", "siac.opra.recipient.obi.v2.9.denominatorcode", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.equity_and_index_last_sale_message = ProtoField.new("Equity And Index Last Sale Message", "siac.opra.recipient.obi.v2.9.equityandindexlastsalemessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.equity_eod_category = ProtoField.new("Equity EOD Category", "siac.opra.recipient.obi.v2.9.equityeodcategory", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.equity_eod_message = ProtoField.new("Equity Eod Message", "siac.opra.recipient.obi.v2.9.equityeodmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.equity_eod_payload_ = ProtoField.new("Equity EOD Payload ", "siac.opra.recipient.obi.v2.9.equityeodpayload", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.equity_index_last_sale_category = ProtoField.new("Equity Index Last Sale Category", "siac.opra.recipient.obi.v2.9.equityindexlastsalecategory", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.equity_index_last_sale_payload_ = ProtoField.new("Equity Index Last Sale Payload ", "siac.opra.recipient.obi.v2.9.equityindexlastsalepayload", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.expiration_day = ProtoField.new("Expiration Day", "siac.opra.recipient.obi.v2.9.expirationday", ftypes.UINT8)
+siac_opra_recipient_obi_v2_9.fields.expiration_month = ProtoField.new("Expiration Month", "siac.opra.recipient.obi.v2.9.expirationmonth", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.expiration_year = ProtoField.new("Expiration Year", "siac.opra.recipient.obi.v2.9.expirationyear", ftypes.UINT8)
+siac_opra_recipient_obi_v2_9.fields.high_price = ProtoField.new("High Price", "siac.opra.recipient.obi.v2.9.highprice", ftypes.INT32)
+siac_opra_recipient_obi_v2_9.fields.index_value = ProtoField.new("Index Value", "siac.opra.recipient.obi.v2.9.indexvalue", ftypes.INT32)
+siac_opra_recipient_obi_v2_9.fields.index_value_denominator_code = ProtoField.new("Index Value Denominator Code", "siac.opra.recipient.obi.v2.9.indexvaluedenominatorcode", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.last_price = ProtoField.new("Last Price", "siac.opra.recipient.obi.v2.9.lastprice", ftypes.INT32)
+siac_opra_recipient_obi_v2_9.fields.long_quote_a_message = ProtoField.new("Long Quote A Message", "siac.opra.recipient.obi.v2.9.longquoteamessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.long_quote_b_message = ProtoField.new("Long Quote B Message", "siac.opra.recipient.obi.v2.9.longquotebmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.long_quote_c_message = ProtoField.new("Long Quote C Message", "siac.opra.recipient.obi.v2.9.longquotecmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.long_quote_category = ProtoField.new("Long Quote Category", "siac.opra.recipient.obi.v2.9.longquotecategory", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.long_quote_d_message = ProtoField.new("Long Quote D Message", "siac.opra.recipient.obi.v2.9.longquotedmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.long_quote_e_message = ProtoField.new("Long Quote E Message", "siac.opra.recipient.obi.v2.9.longquoteemessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.long_quote_f_message = ProtoField.new("Long Quote F Message", "siac.opra.recipient.obi.v2.9.longquotefmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.long_quote_g_message = ProtoField.new("Long Quote G Message", "siac.opra.recipient.obi.v2.9.longquotegmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.long_quote_h_message = ProtoField.new("Long Quote H Message", "siac.opra.recipient.obi.v2.9.longquotehmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.long_quote_i_message = ProtoField.new("Long Quote I Message", "siac.opra.recipient.obi.v2.9.longquoteimessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.long_quote_j_message = ProtoField.new("Long Quote J Message", "siac.opra.recipient.obi.v2.9.longquotejmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.long_quote_k_message = ProtoField.new("Long Quote K Message", "siac.opra.recipient.obi.v2.9.longquotekmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.long_quote_l_message = ProtoField.new("Long Quote L Message", "siac.opra.recipient.obi.v2.9.longquotelmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.long_quote_m_message = ProtoField.new("Long Quote M Message", "siac.opra.recipient.obi.v2.9.longquotemmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.long_quote_message_ = ProtoField.new("Long Quote Message ", "siac.opra.recipient.obi.v2.9.longquotemessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.long_quote_n_message = ProtoField.new("Long Quote N Message", "siac.opra.recipient.obi.v2.9.longquotenmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.long_quote_o_message = ProtoField.new("Long Quote O Message", "siac.opra.recipient.obi.v2.9.longquoteomessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.long_quote_p_message = ProtoField.new("Long Quote P Message", "siac.opra.recipient.obi.v2.9.longquotepmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.long_quote_space_message = ProtoField.new("Long Quote Space Message", "siac.opra.recipient.obi.v2.9.longquotespacemessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.low_price = ProtoField.new("Low Price", "siac.opra.recipient.obi.v2.9.lowprice", ftypes.INT32)
+siac_opra_recipient_obi_v2_9.fields.message = ProtoField.new("Message", "siac.opra.recipient.obi.v2.9.message", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.message_category = ProtoField.new("Message Category", "siac.opra.recipient.obi.v2.9.messagecategory", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.message_count = ProtoField.new("Message Count", "siac.opra.recipient.obi.v2.9.messagecount", ftypes.UINT8)
+siac_opra_recipient_obi_v2_9.fields.message_data = ProtoField.new("Message Data", "siac.opra.recipient.obi.v2.9.messagedata", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.message_data_length = ProtoField.new("Message Data Length", "siac.opra.recipient.obi.v2.9.messagedatalength", ftypes.UINT16)
+siac_opra_recipient_obi_v2_9.fields.message_header = ProtoField.new("Message Header", "siac.opra.recipient.obi.v2.9.messageheader", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.net_change = ProtoField.new("Net Change", "siac.opra.recipient.obi.v2.9.netchange", ftypes.INT32)
+siac_opra_recipient_obi_v2_9.fields.offer_price_2 = ProtoField.new("Offer Price 2", "siac.opra.recipient.obi.v2.9.offerprice2", ftypes.INT16)
+siac_opra_recipient_obi_v2_9.fields.offer_price_4 = ProtoField.new("Offer Price 4", "siac.opra.recipient.obi.v2.9.offerprice4", ftypes.INT32)
+siac_opra_recipient_obi_v2_9.fields.offer_size_2 = ProtoField.new("Offer Size 2", "siac.opra.recipient.obi.v2.9.offersize2", ftypes.UINT16)
+siac_opra_recipient_obi_v2_9.fields.offer_size_4 = ProtoField.new("Offer Size 4", "siac.opra.recipient.obi.v2.9.offersize4", ftypes.UINT32)
+siac_opra_recipient_obi_v2_9.fields.open_interest_category = ProtoField.new("Open Interest Category", "siac.opra.recipient.obi.v2.9.openinterestcategory", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.open_interest_message = ProtoField.new("Open Interest Message", "siac.opra.recipient.obi.v2.9.openinterestmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.open_interest_payload_ = ProtoField.new("Open Interest Payload ", "siac.opra.recipient.obi.v2.9.openinterestpayload", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.open_interest_volume = ProtoField.new("Open Interest Volume", "siac.opra.recipient.obi.v2.9.openinterestvolume", ftypes.UINT32)
+siac_opra_recipient_obi_v2_9.fields.open_price = ProtoField.new("Open Price", "siac.opra.recipient.obi.v2.9.openprice", ftypes.INT32)
+siac_opra_recipient_obi_v2_9.fields.packet = ProtoField.new("Packet", "siac.opra.recipient.obi.v2.9.packet", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.packet_header = ProtoField.new("Packet Header", "siac.opra.recipient.obi.v2.9.packetheader", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.participant_id = ProtoField.new("Participant Id", "siac.opra.recipient.obi.v2.9.participantid", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.premium_price = ProtoField.new("Premium Price", "siac.opra.recipient.obi.v2.9.premiumprice", ftypes.INT32)
+siac_opra_recipient_obi_v2_9.fields.premium_price_denominator_code = ProtoField.new("Premium Price Denominator Code", "siac.opra.recipient.obi.v2.9.premiumpricedenominatorcode", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.price = ProtoField.new("Price", "siac.opra.recipient.obi.v2.9.price", ftypes.UINT32)
+siac_opra_recipient_obi_v2_9.fields.reserved_1 = ProtoField.new("Reserved 1", "siac.opra.recipient.obi.v2.9.reserved1", ftypes.BYTES)
+siac_opra_recipient_obi_v2_9.fields.reserved_4 = ProtoField.new("Reserved 4", "siac.opra.recipient.obi.v2.9.reserved4", ftypes.BYTES)
+siac_opra_recipient_obi_v2_9.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "siac.opra.recipient.obi.v2.9.retransmissionindicator", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.security_symbol_4 = ProtoField.new("Security Symbol 4", "siac.opra.recipient.obi.v2.9.securitysymbol4", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.security_symbol_5 = ProtoField.new("Security Symbol 5", "siac.opra.recipient.obi.v2.9.securitysymbol5", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.session_indicator = ProtoField.new("Session Indicator", "siac.opra.recipient.obi.v2.9.sessionindicator", ftypes.UINT8)
+siac_opra_recipient_obi_v2_9.fields.short_quote_a_message = ProtoField.new("Short Quote A Message", "siac.opra.recipient.obi.v2.9.shortquoteamessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.short_quote_b_message = ProtoField.new("Short Quote B Message", "siac.opra.recipient.obi.v2.9.shortquotebmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.short_quote_c_message = ProtoField.new("Short Quote C Message", "siac.opra.recipient.obi.v2.9.shortquotecmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.short_quote_category = ProtoField.new("Short Quote Category", "siac.opra.recipient.obi.v2.9.shortquotecategory", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.short_quote_d_message = ProtoField.new("Short Quote D Message", "siac.opra.recipient.obi.v2.9.shortquotedmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.short_quote_e_message = ProtoField.new("Short Quote E Message", "siac.opra.recipient.obi.v2.9.shortquoteemessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.short_quote_f_message = ProtoField.new("Short Quote F Message", "siac.opra.recipient.obi.v2.9.shortquotefmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.short_quote_g_message = ProtoField.new("Short Quote G Message", "siac.opra.recipient.obi.v2.9.shortquotegmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.short_quote_h_message = ProtoField.new("Short Quote H Message", "siac.opra.recipient.obi.v2.9.shortquotehmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.short_quote_i_message = ProtoField.new("Short Quote I Message", "siac.opra.recipient.obi.v2.9.shortquoteimessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.short_quote_j_message = ProtoField.new("Short Quote J Message", "siac.opra.recipient.obi.v2.9.shortquotejmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.short_quote_k_message = ProtoField.new("Short Quote K Message", "siac.opra.recipient.obi.v2.9.shortquotekmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.short_quote_l_message = ProtoField.new("Short Quote L Message", "siac.opra.recipient.obi.v2.9.shortquotelmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.short_quote_m_message = ProtoField.new("Short Quote M Message", "siac.opra.recipient.obi.v2.9.shortquotemmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.short_quote_message_ = ProtoField.new("Short Quote Message ", "siac.opra.recipient.obi.v2.9.shortquotemessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.short_quote_n_message = ProtoField.new("Short Quote N Message", "siac.opra.recipient.obi.v2.9.shortquotenmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.short_quote_o_message = ProtoField.new("Short Quote O Message", "siac.opra.recipient.obi.v2.9.shortquoteomessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.short_quote_p_message = ProtoField.new("Short Quote P Message", "siac.opra.recipient.obi.v2.9.shortquotepmessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.short_quote_space_message = ProtoField.new("Short Quote Space Message", "siac.opra.recipient.obi.v2.9.shortquotespacemessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.size = ProtoField.new("Size", "siac.opra.recipient.obi.v2.9.size", ftypes.UINT16)
+siac_opra_recipient_obi_v2_9.fields.strike_price_2 = ProtoField.new("Strike Price 2", "siac.opra.recipient.obi.v2.9.strikeprice2", ftypes.UINT16)
+siac_opra_recipient_obi_v2_9.fields.strike_price_4 = ProtoField.new("Strike Price 4", "siac.opra.recipient.obi.v2.9.strikeprice4", ftypes.UINT32)
+siac_opra_recipient_obi_v2_9.fields.strike_price_denominator_code = ProtoField.new("Strike Price Denominator Code", "siac.opra.recipient.obi.v2.9.strikepricedenominatorcode", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.trade_identifier = ProtoField.new("Trade Identifier", "siac.opra.recipient.obi.v2.9.tradeidentifier", ftypes.UINT32)
+siac_opra_recipient_obi_v2_9.fields.transaction_id_ = ProtoField.new("Transaction ID ", "siac.opra.recipient.obi.v2.9.transactionid", ftypes.UINT64)
+siac_opra_recipient_obi_v2_9.fields.underlying_price = ProtoField.new("Underlying Price", "siac.opra.recipient.obi.v2.9.underlyingprice", ftypes.INT64)
+siac_opra_recipient_obi_v2_9.fields.underlying_price_denominator_code = ProtoField.new("Underlying Price Denominator Code", "siac.opra.recipient.obi.v2.9.underlyingpricedenominatorcode", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.underlying_value_category = ProtoField.new("UNDERLYING VALUE Category", "siac.opra.recipient.obi.v2.9.underlyingvaluecategory", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.underlying_value_message = ProtoField.new("Underlying Value Message", "siac.opra.recipient.obi.v2.9.underlyingvaluemessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.underlying_value_payload_ = ProtoField.new("UNDERLYING VALUE Payload ", "siac.opra.recipient.obi.v2.9.underlyingvaluepayload", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.version = ProtoField.new("Version", "siac.opra.recipient.obi.v2.9.version", ftypes.UINT8)
+siac_opra_recipient_obi_v2_9.fields.volume = ProtoField.new("Volume", "siac.opra.recipient.obi.v2.9.volume", ftypes.UINT32)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Opra Options Recipient Obdi 2.9 Element Dissection Options
+-- Siac Opra Recipient Obi 2.9 Element Dissection Options
 show.administrative_category = true
 show.administrative_message = true
 show.control_category = true
@@ -204,316 +204,316 @@ show.open_interest_payload_ = false
 show.short_quote_message_ = false
 show.underlying_value_payload_ = false
 
--- Register Opra Options Recipient Obdi 2.9 Show Options
-opra_options_recipient_obdi_v2_9.prefs.show_administrative_category = Pref.bool("Show ADMINISTRATIVE Category", show.administrative_category, "Parse and add ADMINISTRATIVE Category to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_administrative_message = Pref.bool("Show Administrative Message", show.administrative_message, "Parse and add Administrative Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_control_category = Pref.bool("Show CONTROL Category", show.control_category, "Parse and add CONTROL Category to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_control_message = Pref.bool("Show Control Message", show.control_message, "Parse and add Control Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_equity_and_index_last_sale_message = Pref.bool("Show Equity And Index Last Sale Message", show.equity_and_index_last_sale_message, "Parse and add Equity And Index Last Sale Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_equity_eod_category = Pref.bool("Show Equity EOD Category", show.equity_eod_category, "Parse and add Equity EOD Category to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_equity_eod_message = Pref.bool("Show Equity Eod Message", show.equity_eod_message, "Parse and add Equity Eod Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_equity_index_last_sale_category = Pref.bool("Show Equity Index Last Sale Category", show.equity_index_last_sale_category, "Parse and add Equity Index Last Sale Category to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_long_quote_a_message = Pref.bool("Show Long Quote A Message", show.long_quote_a_message, "Parse and add Long Quote A Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_long_quote_b_message = Pref.bool("Show Long Quote B Message", show.long_quote_b_message, "Parse and add Long Quote B Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_long_quote_c_message = Pref.bool("Show Long Quote C Message", show.long_quote_c_message, "Parse and add Long Quote C Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_long_quote_category = Pref.bool("Show Long Quote Category", show.long_quote_category, "Parse and add Long Quote Category to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_long_quote_d_message = Pref.bool("Show Long Quote D Message", show.long_quote_d_message, "Parse and add Long Quote D Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_long_quote_e_message = Pref.bool("Show Long Quote E Message", show.long_quote_e_message, "Parse and add Long Quote E Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_long_quote_f_message = Pref.bool("Show Long Quote F Message", show.long_quote_f_message, "Parse and add Long Quote F Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_long_quote_g_message = Pref.bool("Show Long Quote G Message", show.long_quote_g_message, "Parse and add Long Quote G Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_long_quote_h_message = Pref.bool("Show Long Quote H Message", show.long_quote_h_message, "Parse and add Long Quote H Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_long_quote_i_message = Pref.bool("Show Long Quote I Message", show.long_quote_i_message, "Parse and add Long Quote I Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_long_quote_j_message = Pref.bool("Show Long Quote J Message", show.long_quote_j_message, "Parse and add Long Quote J Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_long_quote_k_message = Pref.bool("Show Long Quote K Message", show.long_quote_k_message, "Parse and add Long Quote K Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_long_quote_l_message = Pref.bool("Show Long Quote L Message", show.long_quote_l_message, "Parse and add Long Quote L Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_long_quote_m_message = Pref.bool("Show Long Quote M Message", show.long_quote_m_message, "Parse and add Long Quote M Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_long_quote_n_message = Pref.bool("Show Long Quote N Message", show.long_quote_n_message, "Parse and add Long Quote N Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_long_quote_o_message = Pref.bool("Show Long Quote O Message", show.long_quote_o_message, "Parse and add Long Quote O Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_long_quote_p_message = Pref.bool("Show Long Quote P Message", show.long_quote_p_message, "Parse and add Long Quote P Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_long_quote_space_message = Pref.bool("Show Long Quote Space Message", show.long_quote_space_message, "Parse and add Long Quote Space Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_open_interest_category = Pref.bool("Show Open Interest Category", show.open_interest_category, "Parse and add Open Interest Category to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_open_interest_message = Pref.bool("Show Open Interest Message", show.open_interest_message, "Parse and add Open Interest Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_short_quote_a_message = Pref.bool("Show Short Quote A Message", show.short_quote_a_message, "Parse and add Short Quote A Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_short_quote_b_message = Pref.bool("Show Short Quote B Message", show.short_quote_b_message, "Parse and add Short Quote B Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_short_quote_c_message = Pref.bool("Show Short Quote C Message", show.short_quote_c_message, "Parse and add Short Quote C Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_short_quote_category = Pref.bool("Show Short Quote Category", show.short_quote_category, "Parse and add Short Quote Category to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_short_quote_d_message = Pref.bool("Show Short Quote D Message", show.short_quote_d_message, "Parse and add Short Quote D Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_short_quote_e_message = Pref.bool("Show Short Quote E Message", show.short_quote_e_message, "Parse and add Short Quote E Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_short_quote_f_message = Pref.bool("Show Short Quote F Message", show.short_quote_f_message, "Parse and add Short Quote F Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_short_quote_g_message = Pref.bool("Show Short Quote G Message", show.short_quote_g_message, "Parse and add Short Quote G Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_short_quote_h_message = Pref.bool("Show Short Quote H Message", show.short_quote_h_message, "Parse and add Short Quote H Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_short_quote_i_message = Pref.bool("Show Short Quote I Message", show.short_quote_i_message, "Parse and add Short Quote I Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_short_quote_j_message = Pref.bool("Show Short Quote J Message", show.short_quote_j_message, "Parse and add Short Quote J Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_short_quote_k_message = Pref.bool("Show Short Quote K Message", show.short_quote_k_message, "Parse and add Short Quote K Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_short_quote_l_message = Pref.bool("Show Short Quote L Message", show.short_quote_l_message, "Parse and add Short Quote L Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_short_quote_m_message = Pref.bool("Show Short Quote M Message", show.short_quote_m_message, "Parse and add Short Quote M Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_short_quote_n_message = Pref.bool("Show Short Quote N Message", show.short_quote_n_message, "Parse and add Short Quote N Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_short_quote_o_message = Pref.bool("Show Short Quote O Message", show.short_quote_o_message, "Parse and add Short Quote O Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_short_quote_p_message = Pref.bool("Show Short Quote P Message", show.short_quote_p_message, "Parse and add Short Quote P Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_short_quote_space_message = Pref.bool("Show Short Quote Space Message", show.short_quote_space_message, "Parse and add Short Quote Space Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_underlying_value_category = Pref.bool("Show UNDERLYING VALUE Category", show.underlying_value_category, "Parse and add UNDERLYING VALUE Category to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_underlying_value_message = Pref.bool("Show Underlying Value Message", show.underlying_value_message, "Parse and add Underlying Value Message to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_administrative_payload_ = Pref.bool("Show Administrative Payload ", show.administrative_payload_, "Parse and add Administrative Payload  to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_category_data = Pref.bool("Show Category Data", show.category_data, "Parse and add Category Data to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_control_payload_ = Pref.bool("Show CONTROL Payload ", show.control_payload_, "Parse and add CONTROL Payload  to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_equity_eod_payload_ = Pref.bool("Show Equity EOD Payload ", show.equity_eod_payload_, "Parse and add Equity EOD Payload  to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_equity_index_last_sale_payload_ = Pref.bool("Show Equity Index Last Sale Payload ", show.equity_index_last_sale_payload_, "Parse and add Equity Index Last Sale Payload  to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_long_quote_message_ = Pref.bool("Show Long Quote Message ", show.long_quote_message_, "Parse and add Long Quote Message  to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_open_interest_payload_ = Pref.bool("Show Open Interest Payload ", show.open_interest_payload_, "Parse and add Open Interest Payload  to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_short_quote_message_ = Pref.bool("Show Short Quote Message ", show.short_quote_message_, "Parse and add Short Quote Message  to protocol tree")
-opra_options_recipient_obdi_v2_9.prefs.show_underlying_value_payload_ = Pref.bool("Show UNDERLYING VALUE Payload ", show.underlying_value_payload_, "Parse and add UNDERLYING VALUE Payload  to protocol tree")
+-- Register Siac Opra Recipient Obi 2.9 Show Options
+siac_opra_recipient_obi_v2_9.prefs.show_administrative_category = Pref.bool("Show ADMINISTRATIVE Category", show.administrative_category, "Parse and add ADMINISTRATIVE Category to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_administrative_message = Pref.bool("Show Administrative Message", show.administrative_message, "Parse and add Administrative Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_control_category = Pref.bool("Show CONTROL Category", show.control_category, "Parse and add CONTROL Category to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_control_message = Pref.bool("Show Control Message", show.control_message, "Parse and add Control Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_equity_and_index_last_sale_message = Pref.bool("Show Equity And Index Last Sale Message", show.equity_and_index_last_sale_message, "Parse and add Equity And Index Last Sale Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_equity_eod_category = Pref.bool("Show Equity EOD Category", show.equity_eod_category, "Parse and add Equity EOD Category to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_equity_eod_message = Pref.bool("Show Equity Eod Message", show.equity_eod_message, "Parse and add Equity Eod Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_equity_index_last_sale_category = Pref.bool("Show Equity Index Last Sale Category", show.equity_index_last_sale_category, "Parse and add Equity Index Last Sale Category to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_long_quote_a_message = Pref.bool("Show Long Quote A Message", show.long_quote_a_message, "Parse and add Long Quote A Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_long_quote_b_message = Pref.bool("Show Long Quote B Message", show.long_quote_b_message, "Parse and add Long Quote B Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_long_quote_c_message = Pref.bool("Show Long Quote C Message", show.long_quote_c_message, "Parse and add Long Quote C Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_long_quote_category = Pref.bool("Show Long Quote Category", show.long_quote_category, "Parse and add Long Quote Category to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_long_quote_d_message = Pref.bool("Show Long Quote D Message", show.long_quote_d_message, "Parse and add Long Quote D Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_long_quote_e_message = Pref.bool("Show Long Quote E Message", show.long_quote_e_message, "Parse and add Long Quote E Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_long_quote_f_message = Pref.bool("Show Long Quote F Message", show.long_quote_f_message, "Parse and add Long Quote F Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_long_quote_g_message = Pref.bool("Show Long Quote G Message", show.long_quote_g_message, "Parse and add Long Quote G Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_long_quote_h_message = Pref.bool("Show Long Quote H Message", show.long_quote_h_message, "Parse and add Long Quote H Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_long_quote_i_message = Pref.bool("Show Long Quote I Message", show.long_quote_i_message, "Parse and add Long Quote I Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_long_quote_j_message = Pref.bool("Show Long Quote J Message", show.long_quote_j_message, "Parse and add Long Quote J Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_long_quote_k_message = Pref.bool("Show Long Quote K Message", show.long_quote_k_message, "Parse and add Long Quote K Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_long_quote_l_message = Pref.bool("Show Long Quote L Message", show.long_quote_l_message, "Parse and add Long Quote L Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_long_quote_m_message = Pref.bool("Show Long Quote M Message", show.long_quote_m_message, "Parse and add Long Quote M Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_long_quote_n_message = Pref.bool("Show Long Quote N Message", show.long_quote_n_message, "Parse and add Long Quote N Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_long_quote_o_message = Pref.bool("Show Long Quote O Message", show.long_quote_o_message, "Parse and add Long Quote O Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_long_quote_p_message = Pref.bool("Show Long Quote P Message", show.long_quote_p_message, "Parse and add Long Quote P Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_long_quote_space_message = Pref.bool("Show Long Quote Space Message", show.long_quote_space_message, "Parse and add Long Quote Space Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_open_interest_category = Pref.bool("Show Open Interest Category", show.open_interest_category, "Parse and add Open Interest Category to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_open_interest_message = Pref.bool("Show Open Interest Message", show.open_interest_message, "Parse and add Open Interest Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_short_quote_a_message = Pref.bool("Show Short Quote A Message", show.short_quote_a_message, "Parse and add Short Quote A Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_short_quote_b_message = Pref.bool("Show Short Quote B Message", show.short_quote_b_message, "Parse and add Short Quote B Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_short_quote_c_message = Pref.bool("Show Short Quote C Message", show.short_quote_c_message, "Parse and add Short Quote C Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_short_quote_category = Pref.bool("Show Short Quote Category", show.short_quote_category, "Parse and add Short Quote Category to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_short_quote_d_message = Pref.bool("Show Short Quote D Message", show.short_quote_d_message, "Parse and add Short Quote D Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_short_quote_e_message = Pref.bool("Show Short Quote E Message", show.short_quote_e_message, "Parse and add Short Quote E Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_short_quote_f_message = Pref.bool("Show Short Quote F Message", show.short_quote_f_message, "Parse and add Short Quote F Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_short_quote_g_message = Pref.bool("Show Short Quote G Message", show.short_quote_g_message, "Parse and add Short Quote G Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_short_quote_h_message = Pref.bool("Show Short Quote H Message", show.short_quote_h_message, "Parse and add Short Quote H Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_short_quote_i_message = Pref.bool("Show Short Quote I Message", show.short_quote_i_message, "Parse and add Short Quote I Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_short_quote_j_message = Pref.bool("Show Short Quote J Message", show.short_quote_j_message, "Parse and add Short Quote J Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_short_quote_k_message = Pref.bool("Show Short Quote K Message", show.short_quote_k_message, "Parse and add Short Quote K Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_short_quote_l_message = Pref.bool("Show Short Quote L Message", show.short_quote_l_message, "Parse and add Short Quote L Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_short_quote_m_message = Pref.bool("Show Short Quote M Message", show.short_quote_m_message, "Parse and add Short Quote M Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_short_quote_n_message = Pref.bool("Show Short Quote N Message", show.short_quote_n_message, "Parse and add Short Quote N Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_short_quote_o_message = Pref.bool("Show Short Quote O Message", show.short_quote_o_message, "Parse and add Short Quote O Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_short_quote_p_message = Pref.bool("Show Short Quote P Message", show.short_quote_p_message, "Parse and add Short Quote P Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_short_quote_space_message = Pref.bool("Show Short Quote Space Message", show.short_quote_space_message, "Parse and add Short Quote Space Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_underlying_value_category = Pref.bool("Show UNDERLYING VALUE Category", show.underlying_value_category, "Parse and add UNDERLYING VALUE Category to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_underlying_value_message = Pref.bool("Show Underlying Value Message", show.underlying_value_message, "Parse and add Underlying Value Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_administrative_payload_ = Pref.bool("Show Administrative Payload ", show.administrative_payload_, "Parse and add Administrative Payload  to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_category_data = Pref.bool("Show Category Data", show.category_data, "Parse and add Category Data to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_control_payload_ = Pref.bool("Show CONTROL Payload ", show.control_payload_, "Parse and add CONTROL Payload  to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_equity_eod_payload_ = Pref.bool("Show Equity EOD Payload ", show.equity_eod_payload_, "Parse and add Equity EOD Payload  to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_equity_index_last_sale_payload_ = Pref.bool("Show Equity Index Last Sale Payload ", show.equity_index_last_sale_payload_, "Parse and add Equity Index Last Sale Payload  to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_long_quote_message_ = Pref.bool("Show Long Quote Message ", show.long_quote_message_, "Parse and add Long Quote Message  to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_open_interest_payload_ = Pref.bool("Show Open Interest Payload ", show.open_interest_payload_, "Parse and add Open Interest Payload  to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_short_quote_message_ = Pref.bool("Show Short Quote Message ", show.short_quote_message_, "Parse and add Short Quote Message  to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_underlying_value_payload_ = Pref.bool("Show UNDERLYING VALUE Payload ", show.underlying_value_payload_, "Parse and add UNDERLYING VALUE Payload  to protocol tree")
 
 -- Handle changed preferences
-function opra_options_recipient_obdi_v2_9.prefs_changed()
+function siac_opra_recipient_obi_v2_9.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.administrative_category ~= opra_options_recipient_obdi_v2_9.prefs.show_administrative_category then
-    show.administrative_category = opra_options_recipient_obdi_v2_9.prefs.show_administrative_category
+  if show.administrative_category ~= siac_opra_recipient_obi_v2_9.prefs.show_administrative_category then
+    show.administrative_category = siac_opra_recipient_obi_v2_9.prefs.show_administrative_category
     changed = true
   end
-  if show.administrative_message ~= opra_options_recipient_obdi_v2_9.prefs.show_administrative_message then
-    show.administrative_message = opra_options_recipient_obdi_v2_9.prefs.show_administrative_message
+  if show.administrative_message ~= siac_opra_recipient_obi_v2_9.prefs.show_administrative_message then
+    show.administrative_message = siac_opra_recipient_obi_v2_9.prefs.show_administrative_message
     changed = true
   end
-  if show.control_category ~= opra_options_recipient_obdi_v2_9.prefs.show_control_category then
-    show.control_category = opra_options_recipient_obdi_v2_9.prefs.show_control_category
+  if show.control_category ~= siac_opra_recipient_obi_v2_9.prefs.show_control_category then
+    show.control_category = siac_opra_recipient_obi_v2_9.prefs.show_control_category
     changed = true
   end
-  if show.control_message ~= opra_options_recipient_obdi_v2_9.prefs.show_control_message then
-    show.control_message = opra_options_recipient_obdi_v2_9.prefs.show_control_message
+  if show.control_message ~= siac_opra_recipient_obi_v2_9.prefs.show_control_message then
+    show.control_message = siac_opra_recipient_obi_v2_9.prefs.show_control_message
     changed = true
   end
-  if show.equity_and_index_last_sale_message ~= opra_options_recipient_obdi_v2_9.prefs.show_equity_and_index_last_sale_message then
-    show.equity_and_index_last_sale_message = opra_options_recipient_obdi_v2_9.prefs.show_equity_and_index_last_sale_message
+  if show.equity_and_index_last_sale_message ~= siac_opra_recipient_obi_v2_9.prefs.show_equity_and_index_last_sale_message then
+    show.equity_and_index_last_sale_message = siac_opra_recipient_obi_v2_9.prefs.show_equity_and_index_last_sale_message
     changed = true
   end
-  if show.equity_eod_category ~= opra_options_recipient_obdi_v2_9.prefs.show_equity_eod_category then
-    show.equity_eod_category = opra_options_recipient_obdi_v2_9.prefs.show_equity_eod_category
+  if show.equity_eod_category ~= siac_opra_recipient_obi_v2_9.prefs.show_equity_eod_category then
+    show.equity_eod_category = siac_opra_recipient_obi_v2_9.prefs.show_equity_eod_category
     changed = true
   end
-  if show.equity_eod_message ~= opra_options_recipient_obdi_v2_9.prefs.show_equity_eod_message then
-    show.equity_eod_message = opra_options_recipient_obdi_v2_9.prefs.show_equity_eod_message
+  if show.equity_eod_message ~= siac_opra_recipient_obi_v2_9.prefs.show_equity_eod_message then
+    show.equity_eod_message = siac_opra_recipient_obi_v2_9.prefs.show_equity_eod_message
     changed = true
   end
-  if show.equity_index_last_sale_category ~= opra_options_recipient_obdi_v2_9.prefs.show_equity_index_last_sale_category then
-    show.equity_index_last_sale_category = opra_options_recipient_obdi_v2_9.prefs.show_equity_index_last_sale_category
+  if show.equity_index_last_sale_category ~= siac_opra_recipient_obi_v2_9.prefs.show_equity_index_last_sale_category then
+    show.equity_index_last_sale_category = siac_opra_recipient_obi_v2_9.prefs.show_equity_index_last_sale_category
     changed = true
   end
-  if show.long_quote_a_message ~= opra_options_recipient_obdi_v2_9.prefs.show_long_quote_a_message then
-    show.long_quote_a_message = opra_options_recipient_obdi_v2_9.prefs.show_long_quote_a_message
+  if show.long_quote_a_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_a_message then
+    show.long_quote_a_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_a_message
     changed = true
   end
-  if show.long_quote_b_message ~= opra_options_recipient_obdi_v2_9.prefs.show_long_quote_b_message then
-    show.long_quote_b_message = opra_options_recipient_obdi_v2_9.prefs.show_long_quote_b_message
+  if show.long_quote_b_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_b_message then
+    show.long_quote_b_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_b_message
     changed = true
   end
-  if show.long_quote_c_message ~= opra_options_recipient_obdi_v2_9.prefs.show_long_quote_c_message then
-    show.long_quote_c_message = opra_options_recipient_obdi_v2_9.prefs.show_long_quote_c_message
+  if show.long_quote_c_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_c_message then
+    show.long_quote_c_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_c_message
     changed = true
   end
-  if show.long_quote_category ~= opra_options_recipient_obdi_v2_9.prefs.show_long_quote_category then
-    show.long_quote_category = opra_options_recipient_obdi_v2_9.prefs.show_long_quote_category
+  if show.long_quote_category ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_category then
+    show.long_quote_category = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_category
     changed = true
   end
-  if show.long_quote_d_message ~= opra_options_recipient_obdi_v2_9.prefs.show_long_quote_d_message then
-    show.long_quote_d_message = opra_options_recipient_obdi_v2_9.prefs.show_long_quote_d_message
+  if show.long_quote_d_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_d_message then
+    show.long_quote_d_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_d_message
     changed = true
   end
-  if show.long_quote_e_message ~= opra_options_recipient_obdi_v2_9.prefs.show_long_quote_e_message then
-    show.long_quote_e_message = opra_options_recipient_obdi_v2_9.prefs.show_long_quote_e_message
+  if show.long_quote_e_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_e_message then
+    show.long_quote_e_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_e_message
     changed = true
   end
-  if show.long_quote_f_message ~= opra_options_recipient_obdi_v2_9.prefs.show_long_quote_f_message then
-    show.long_quote_f_message = opra_options_recipient_obdi_v2_9.prefs.show_long_quote_f_message
+  if show.long_quote_f_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_f_message then
+    show.long_quote_f_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_f_message
     changed = true
   end
-  if show.long_quote_g_message ~= opra_options_recipient_obdi_v2_9.prefs.show_long_quote_g_message then
-    show.long_quote_g_message = opra_options_recipient_obdi_v2_9.prefs.show_long_quote_g_message
+  if show.long_quote_g_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_g_message then
+    show.long_quote_g_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_g_message
     changed = true
   end
-  if show.long_quote_h_message ~= opra_options_recipient_obdi_v2_9.prefs.show_long_quote_h_message then
-    show.long_quote_h_message = opra_options_recipient_obdi_v2_9.prefs.show_long_quote_h_message
+  if show.long_quote_h_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_h_message then
+    show.long_quote_h_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_h_message
     changed = true
   end
-  if show.long_quote_i_message ~= opra_options_recipient_obdi_v2_9.prefs.show_long_quote_i_message then
-    show.long_quote_i_message = opra_options_recipient_obdi_v2_9.prefs.show_long_quote_i_message
+  if show.long_quote_i_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_i_message then
+    show.long_quote_i_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_i_message
     changed = true
   end
-  if show.long_quote_j_message ~= opra_options_recipient_obdi_v2_9.prefs.show_long_quote_j_message then
-    show.long_quote_j_message = opra_options_recipient_obdi_v2_9.prefs.show_long_quote_j_message
+  if show.long_quote_j_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_j_message then
+    show.long_quote_j_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_j_message
     changed = true
   end
-  if show.long_quote_k_message ~= opra_options_recipient_obdi_v2_9.prefs.show_long_quote_k_message then
-    show.long_quote_k_message = opra_options_recipient_obdi_v2_9.prefs.show_long_quote_k_message
+  if show.long_quote_k_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_k_message then
+    show.long_quote_k_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_k_message
     changed = true
   end
-  if show.long_quote_l_message ~= opra_options_recipient_obdi_v2_9.prefs.show_long_quote_l_message then
-    show.long_quote_l_message = opra_options_recipient_obdi_v2_9.prefs.show_long_quote_l_message
+  if show.long_quote_l_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_l_message then
+    show.long_quote_l_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_l_message
     changed = true
   end
-  if show.long_quote_m_message ~= opra_options_recipient_obdi_v2_9.prefs.show_long_quote_m_message then
-    show.long_quote_m_message = opra_options_recipient_obdi_v2_9.prefs.show_long_quote_m_message
+  if show.long_quote_m_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_m_message then
+    show.long_quote_m_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_m_message
     changed = true
   end
-  if show.long_quote_n_message ~= opra_options_recipient_obdi_v2_9.prefs.show_long_quote_n_message then
-    show.long_quote_n_message = opra_options_recipient_obdi_v2_9.prefs.show_long_quote_n_message
+  if show.long_quote_n_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_n_message then
+    show.long_quote_n_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_n_message
     changed = true
   end
-  if show.long_quote_o_message ~= opra_options_recipient_obdi_v2_9.prefs.show_long_quote_o_message then
-    show.long_quote_o_message = opra_options_recipient_obdi_v2_9.prefs.show_long_quote_o_message
+  if show.long_quote_o_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_o_message then
+    show.long_quote_o_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_o_message
     changed = true
   end
-  if show.long_quote_p_message ~= opra_options_recipient_obdi_v2_9.prefs.show_long_quote_p_message then
-    show.long_quote_p_message = opra_options_recipient_obdi_v2_9.prefs.show_long_quote_p_message
+  if show.long_quote_p_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_p_message then
+    show.long_quote_p_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_p_message
     changed = true
   end
-  if show.long_quote_space_message ~= opra_options_recipient_obdi_v2_9.prefs.show_long_quote_space_message then
-    show.long_quote_space_message = opra_options_recipient_obdi_v2_9.prefs.show_long_quote_space_message
+  if show.long_quote_space_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_space_message then
+    show.long_quote_space_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_space_message
     changed = true
   end
-  if show.message ~= opra_options_recipient_obdi_v2_9.prefs.show_message then
-    show.message = opra_options_recipient_obdi_v2_9.prefs.show_message
+  if show.message ~= siac_opra_recipient_obi_v2_9.prefs.show_message then
+    show.message = siac_opra_recipient_obi_v2_9.prefs.show_message
     changed = true
   end
-  if show.message_header ~= opra_options_recipient_obdi_v2_9.prefs.show_message_header then
-    show.message_header = opra_options_recipient_obdi_v2_9.prefs.show_message_header
+  if show.message_header ~= siac_opra_recipient_obi_v2_9.prefs.show_message_header then
+    show.message_header = siac_opra_recipient_obi_v2_9.prefs.show_message_header
     changed = true
   end
-  if show.open_interest_category ~= opra_options_recipient_obdi_v2_9.prefs.show_open_interest_category then
-    show.open_interest_category = opra_options_recipient_obdi_v2_9.prefs.show_open_interest_category
+  if show.open_interest_category ~= siac_opra_recipient_obi_v2_9.prefs.show_open_interest_category then
+    show.open_interest_category = siac_opra_recipient_obi_v2_9.prefs.show_open_interest_category
     changed = true
   end
-  if show.open_interest_message ~= opra_options_recipient_obdi_v2_9.prefs.show_open_interest_message then
-    show.open_interest_message = opra_options_recipient_obdi_v2_9.prefs.show_open_interest_message
+  if show.open_interest_message ~= siac_opra_recipient_obi_v2_9.prefs.show_open_interest_message then
+    show.open_interest_message = siac_opra_recipient_obi_v2_9.prefs.show_open_interest_message
     changed = true
   end
-  if show.packet ~= opra_options_recipient_obdi_v2_9.prefs.show_packet then
-    show.packet = opra_options_recipient_obdi_v2_9.prefs.show_packet
+  if show.packet ~= siac_opra_recipient_obi_v2_9.prefs.show_packet then
+    show.packet = siac_opra_recipient_obi_v2_9.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= opra_options_recipient_obdi_v2_9.prefs.show_packet_header then
-    show.packet_header = opra_options_recipient_obdi_v2_9.prefs.show_packet_header
+  if show.packet_header ~= siac_opra_recipient_obi_v2_9.prefs.show_packet_header then
+    show.packet_header = siac_opra_recipient_obi_v2_9.prefs.show_packet_header
     changed = true
   end
-  if show.short_quote_a_message ~= opra_options_recipient_obdi_v2_9.prefs.show_short_quote_a_message then
-    show.short_quote_a_message = opra_options_recipient_obdi_v2_9.prefs.show_short_quote_a_message
+  if show.short_quote_a_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_a_message then
+    show.short_quote_a_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_a_message
     changed = true
   end
-  if show.short_quote_b_message ~= opra_options_recipient_obdi_v2_9.prefs.show_short_quote_b_message then
-    show.short_quote_b_message = opra_options_recipient_obdi_v2_9.prefs.show_short_quote_b_message
+  if show.short_quote_b_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_b_message then
+    show.short_quote_b_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_b_message
     changed = true
   end
-  if show.short_quote_c_message ~= opra_options_recipient_obdi_v2_9.prefs.show_short_quote_c_message then
-    show.short_quote_c_message = opra_options_recipient_obdi_v2_9.prefs.show_short_quote_c_message
+  if show.short_quote_c_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_c_message then
+    show.short_quote_c_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_c_message
     changed = true
   end
-  if show.short_quote_category ~= opra_options_recipient_obdi_v2_9.prefs.show_short_quote_category then
-    show.short_quote_category = opra_options_recipient_obdi_v2_9.prefs.show_short_quote_category
+  if show.short_quote_category ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_category then
+    show.short_quote_category = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_category
     changed = true
   end
-  if show.short_quote_d_message ~= opra_options_recipient_obdi_v2_9.prefs.show_short_quote_d_message then
-    show.short_quote_d_message = opra_options_recipient_obdi_v2_9.prefs.show_short_quote_d_message
+  if show.short_quote_d_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_d_message then
+    show.short_quote_d_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_d_message
     changed = true
   end
-  if show.short_quote_e_message ~= opra_options_recipient_obdi_v2_9.prefs.show_short_quote_e_message then
-    show.short_quote_e_message = opra_options_recipient_obdi_v2_9.prefs.show_short_quote_e_message
+  if show.short_quote_e_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_e_message then
+    show.short_quote_e_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_e_message
     changed = true
   end
-  if show.short_quote_f_message ~= opra_options_recipient_obdi_v2_9.prefs.show_short_quote_f_message then
-    show.short_quote_f_message = opra_options_recipient_obdi_v2_9.prefs.show_short_quote_f_message
+  if show.short_quote_f_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_f_message then
+    show.short_quote_f_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_f_message
     changed = true
   end
-  if show.short_quote_g_message ~= opra_options_recipient_obdi_v2_9.prefs.show_short_quote_g_message then
-    show.short_quote_g_message = opra_options_recipient_obdi_v2_9.prefs.show_short_quote_g_message
+  if show.short_quote_g_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_g_message then
+    show.short_quote_g_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_g_message
     changed = true
   end
-  if show.short_quote_h_message ~= opra_options_recipient_obdi_v2_9.prefs.show_short_quote_h_message then
-    show.short_quote_h_message = opra_options_recipient_obdi_v2_9.prefs.show_short_quote_h_message
+  if show.short_quote_h_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_h_message then
+    show.short_quote_h_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_h_message
     changed = true
   end
-  if show.short_quote_i_message ~= opra_options_recipient_obdi_v2_9.prefs.show_short_quote_i_message then
-    show.short_quote_i_message = opra_options_recipient_obdi_v2_9.prefs.show_short_quote_i_message
+  if show.short_quote_i_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_i_message then
+    show.short_quote_i_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_i_message
     changed = true
   end
-  if show.short_quote_j_message ~= opra_options_recipient_obdi_v2_9.prefs.show_short_quote_j_message then
-    show.short_quote_j_message = opra_options_recipient_obdi_v2_9.prefs.show_short_quote_j_message
+  if show.short_quote_j_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_j_message then
+    show.short_quote_j_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_j_message
     changed = true
   end
-  if show.short_quote_k_message ~= opra_options_recipient_obdi_v2_9.prefs.show_short_quote_k_message then
-    show.short_quote_k_message = opra_options_recipient_obdi_v2_9.prefs.show_short_quote_k_message
+  if show.short_quote_k_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_k_message then
+    show.short_quote_k_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_k_message
     changed = true
   end
-  if show.short_quote_l_message ~= opra_options_recipient_obdi_v2_9.prefs.show_short_quote_l_message then
-    show.short_quote_l_message = opra_options_recipient_obdi_v2_9.prefs.show_short_quote_l_message
+  if show.short_quote_l_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_l_message then
+    show.short_quote_l_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_l_message
     changed = true
   end
-  if show.short_quote_m_message ~= opra_options_recipient_obdi_v2_9.prefs.show_short_quote_m_message then
-    show.short_quote_m_message = opra_options_recipient_obdi_v2_9.prefs.show_short_quote_m_message
+  if show.short_quote_m_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_m_message then
+    show.short_quote_m_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_m_message
     changed = true
   end
-  if show.short_quote_n_message ~= opra_options_recipient_obdi_v2_9.prefs.show_short_quote_n_message then
-    show.short_quote_n_message = opra_options_recipient_obdi_v2_9.prefs.show_short_quote_n_message
+  if show.short_quote_n_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_n_message then
+    show.short_quote_n_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_n_message
     changed = true
   end
-  if show.short_quote_o_message ~= opra_options_recipient_obdi_v2_9.prefs.show_short_quote_o_message then
-    show.short_quote_o_message = opra_options_recipient_obdi_v2_9.prefs.show_short_quote_o_message
+  if show.short_quote_o_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_o_message then
+    show.short_quote_o_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_o_message
     changed = true
   end
-  if show.short_quote_p_message ~= opra_options_recipient_obdi_v2_9.prefs.show_short_quote_p_message then
-    show.short_quote_p_message = opra_options_recipient_obdi_v2_9.prefs.show_short_quote_p_message
+  if show.short_quote_p_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_p_message then
+    show.short_quote_p_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_p_message
     changed = true
   end
-  if show.short_quote_space_message ~= opra_options_recipient_obdi_v2_9.prefs.show_short_quote_space_message then
-    show.short_quote_space_message = opra_options_recipient_obdi_v2_9.prefs.show_short_quote_space_message
+  if show.short_quote_space_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_space_message then
+    show.short_quote_space_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_space_message
     changed = true
   end
-  if show.underlying_value_category ~= opra_options_recipient_obdi_v2_9.prefs.show_underlying_value_category then
-    show.underlying_value_category = opra_options_recipient_obdi_v2_9.prefs.show_underlying_value_category
+  if show.underlying_value_category ~= siac_opra_recipient_obi_v2_9.prefs.show_underlying_value_category then
+    show.underlying_value_category = siac_opra_recipient_obi_v2_9.prefs.show_underlying_value_category
     changed = true
   end
-  if show.underlying_value_message ~= opra_options_recipient_obdi_v2_9.prefs.show_underlying_value_message then
-    show.underlying_value_message = opra_options_recipient_obdi_v2_9.prefs.show_underlying_value_message
+  if show.underlying_value_message ~= siac_opra_recipient_obi_v2_9.prefs.show_underlying_value_message then
+    show.underlying_value_message = siac_opra_recipient_obi_v2_9.prefs.show_underlying_value_message
     changed = true
   end
-  if show.administrative_payload_ ~= opra_options_recipient_obdi_v2_9.prefs.show_administrative_payload_ then
-    show.administrative_payload_ = opra_options_recipient_obdi_v2_9.prefs.show_administrative_payload_
+  if show.administrative_payload_ ~= siac_opra_recipient_obi_v2_9.prefs.show_administrative_payload_ then
+    show.administrative_payload_ = siac_opra_recipient_obi_v2_9.prefs.show_administrative_payload_
     changed = true
   end
-  if show.category_data ~= opra_options_recipient_obdi_v2_9.prefs.show_category_data then
-    show.category_data = opra_options_recipient_obdi_v2_9.prefs.show_category_data
+  if show.category_data ~= siac_opra_recipient_obi_v2_9.prefs.show_category_data then
+    show.category_data = siac_opra_recipient_obi_v2_9.prefs.show_category_data
     changed = true
   end
-  if show.control_payload_ ~= opra_options_recipient_obdi_v2_9.prefs.show_control_payload_ then
-    show.control_payload_ = opra_options_recipient_obdi_v2_9.prefs.show_control_payload_
+  if show.control_payload_ ~= siac_opra_recipient_obi_v2_9.prefs.show_control_payload_ then
+    show.control_payload_ = siac_opra_recipient_obi_v2_9.prefs.show_control_payload_
     changed = true
   end
-  if show.equity_eod_payload_ ~= opra_options_recipient_obdi_v2_9.prefs.show_equity_eod_payload_ then
-    show.equity_eod_payload_ = opra_options_recipient_obdi_v2_9.prefs.show_equity_eod_payload_
+  if show.equity_eod_payload_ ~= siac_opra_recipient_obi_v2_9.prefs.show_equity_eod_payload_ then
+    show.equity_eod_payload_ = siac_opra_recipient_obi_v2_9.prefs.show_equity_eod_payload_
     changed = true
   end
-  if show.equity_index_last_sale_payload_ ~= opra_options_recipient_obdi_v2_9.prefs.show_equity_index_last_sale_payload_ then
-    show.equity_index_last_sale_payload_ = opra_options_recipient_obdi_v2_9.prefs.show_equity_index_last_sale_payload_
+  if show.equity_index_last_sale_payload_ ~= siac_opra_recipient_obi_v2_9.prefs.show_equity_index_last_sale_payload_ then
+    show.equity_index_last_sale_payload_ = siac_opra_recipient_obi_v2_9.prefs.show_equity_index_last_sale_payload_
     changed = true
   end
-  if show.long_quote_message_ ~= opra_options_recipient_obdi_v2_9.prefs.show_long_quote_message_ then
-    show.long_quote_message_ = opra_options_recipient_obdi_v2_9.prefs.show_long_quote_message_
+  if show.long_quote_message_ ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_message_ then
+    show.long_quote_message_ = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_message_
     changed = true
   end
-  if show.open_interest_payload_ ~= opra_options_recipient_obdi_v2_9.prefs.show_open_interest_payload_ then
-    show.open_interest_payload_ = opra_options_recipient_obdi_v2_9.prefs.show_open_interest_payload_
+  if show.open_interest_payload_ ~= siac_opra_recipient_obi_v2_9.prefs.show_open_interest_payload_ then
+    show.open_interest_payload_ = siac_opra_recipient_obi_v2_9.prefs.show_open_interest_payload_
     changed = true
   end
-  if show.short_quote_message_ ~= opra_options_recipient_obdi_v2_9.prefs.show_short_quote_message_ then
-    show.short_quote_message_ = opra_options_recipient_obdi_v2_9.prefs.show_short_quote_message_
+  if show.short_quote_message_ ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_message_ then
+    show.short_quote_message_ = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_message_
     changed = true
   end
-  if show.underlying_value_payload_ ~= opra_options_recipient_obdi_v2_9.prefs.show_underlying_value_payload_ then
-    show.underlying_value_payload_ = opra_options_recipient_obdi_v2_9.prefs.show_underlying_value_payload_
+  if show.underlying_value_payload_ ~= siac_opra_recipient_obi_v2_9.prefs.show_underlying_value_payload_ then
+    show.underlying_value_payload_ = siac_opra_recipient_obi_v2_9.prefs.show_underlying_value_payload_
     changed = true
   end
 
@@ -525,7 +525,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Opra Options Recipient Obdi 2.9
+-- Dissect Siac Opra Recipient Obi 2.9
 -----------------------------------------------------------------------
 
 -- Size: Reserved 4
@@ -543,7 +543,7 @@ dissect.reserved_4 = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved_4(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.reserved_4, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.reserved_4, range, value, display)
 
   return offset + length, value
 end
@@ -563,7 +563,7 @@ dissect.index_value = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.index_value(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.index_value, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.index_value, range, value, display)
 
   return offset + length, value
 end
@@ -583,7 +583,7 @@ dissect.index_value_denominator_code = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.index_value_denominator_code(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.index_value_denominator_code, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.index_value_denominator_code, range, value, display)
 
   return offset + length, value
 end
@@ -603,7 +603,7 @@ dissect.reserved_1 = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved_1(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.reserved_1, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -623,7 +623,7 @@ dissect.security_symbol_5 = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_symbol_5(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.security_symbol_5, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.security_symbol_5, range, value, display)
 
   return offset + length, value
 end
@@ -661,7 +661,7 @@ dissect.underlying_value_message = function(buffer, offset, packet, parent)
   if show.underlying_value_message then
     local range = buffer(offset, 15)
     local display = display.underlying_value_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.underlying_value_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.underlying_value_message, range, display)
   end
 
   return dissect.underlying_value_message_fields(buffer, offset, packet, parent)
@@ -707,7 +707,7 @@ dissect.underlying_value_payload_ = function(buffer, offset, packet, parent, und
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.underlying_value_payload_(buffer, packet, parent)
-  local element = parent:add(opra_options_recipient_obdi_v2_9.fields.underlying_value_payload_, range, display)
+  local element = parent:add(siac_opra_recipient_obi_v2_9.fields.underlying_value_payload_, range, display)
 
   return dissect.underlying_value_payload__branches(buffer, offset, packet, parent, underlying_value_message_indicator_)
 end
@@ -727,7 +727,7 @@ dissect.transaction_id_ = function(buffer, offset, packet, parent)
   local value = range:uint64()
   local display = display.transaction_id_(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.transaction_id_, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.transaction_id_, range, value, display)
 
   return offset + length, value
 end
@@ -777,7 +777,7 @@ dissect.underlying_value_category = function(buffer, offset, packet, parent)
     local length = size_of.underlying_value_category(buffer, offset)
     local range = buffer(offset, length)
     local display = display.underlying_value_category(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.underlying_value_category, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.underlying_value_category, range, display)
   end
 
   return dissect.underlying_value_category_fields(buffer, offset, packet, parent)
@@ -794,7 +794,7 @@ dissect.message_data = function(buffer, offset, packet, parent, size)
   local value = range:string()
   local display = display.message_data(value, buffer, offset, packet, parent, size)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.message_data, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.message_data, range, value, display)
 
   return offset + size
 end
@@ -814,7 +814,7 @@ dissect.message_data_length = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.message_data_length(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.message_data_length, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.message_data_length, range, value, display)
 
   return offset + length, value
 end
@@ -856,7 +856,7 @@ dissect.control_message = function(buffer, offset, packet, parent)
     local length = size_of.control_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.control_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.control_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.control_message, range, display)
   end
 
   return dissect.control_message_fields(buffer, offset, packet, parent)
@@ -902,7 +902,7 @@ dissect.control_payload_ = function(buffer, offset, packet, parent, control_mess
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.control_payload_(buffer, packet, parent)
-  local element = parent:add(opra_options_recipient_obdi_v2_9.fields.control_payload_, range, display)
+  local element = parent:add(siac_opra_recipient_obi_v2_9.fields.control_payload_, range, display)
 
   return dissect.control_payload__branches(buffer, offset, packet, parent, control_message_indicator_)
 end
@@ -952,7 +952,7 @@ dissect.control_category = function(buffer, offset, packet, parent)
     local length = size_of.control_category(buffer, offset)
     local range = buffer(offset, length)
     local display = display.control_category(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.control_category, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.control_category, range, display)
   end
 
   return dissect.control_category_fields(buffer, offset, packet, parent)
@@ -995,7 +995,7 @@ dissect.administrative_message = function(buffer, offset, packet, parent)
     local length = size_of.administrative_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.administrative_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.administrative_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.administrative_message, range, display)
   end
 
   return dissect.administrative_message_fields(buffer, offset, packet, parent)
@@ -1041,7 +1041,7 @@ dissect.administrative_payload_ = function(buffer, offset, packet, parent, admin
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.administrative_payload_(buffer, packet, parent)
-  local element = parent:add(opra_options_recipient_obdi_v2_9.fields.administrative_payload_, range, display)
+  local element = parent:add(siac_opra_recipient_obi_v2_9.fields.administrative_payload_, range, display)
 
   return dissect.administrative_payload__branches(buffer, offset, packet, parent, administrative_message_indicator_)
 end
@@ -1091,7 +1091,7 @@ dissect.administrative_category = function(buffer, offset, packet, parent)
     local length = size_of.administrative_category(buffer, offset)
     local range = buffer(offset, length)
     local display = display.administrative_category(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.administrative_category, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.administrative_category, range, display)
   end
 
   return dissect.administrative_category_fields(buffer, offset, packet, parent)
@@ -1112,7 +1112,7 @@ dissect.offer_size_2 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.offer_size_2(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.offer_size_2, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.offer_size_2, range, value, display)
 
   return offset + length, value
 end
@@ -1132,7 +1132,7 @@ dissect.offer_price_2 = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.offer_price_2(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.offer_price_2, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.offer_price_2, range, value, display)
 
   return offset + length, value
 end
@@ -1152,7 +1152,7 @@ dissect.bid_size_2 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.bid_size_2(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.bid_size_2, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.bid_size_2, range, value, display)
 
   return offset + length, value
 end
@@ -1172,7 +1172,7 @@ dissect.bid_price_2 = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.bid_price_2(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.bid_price_2, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.bid_price_2, range, value, display)
 
   return offset + length, value
 end
@@ -1192,7 +1192,7 @@ dissect.strike_price_2 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.strike_price_2(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.strike_price_2, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.strike_price_2, range, value, display)
 
   return offset + length, value
 end
@@ -1212,7 +1212,7 @@ dissect.expiration_year = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.expiration_year(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.expiration_year, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.expiration_year, range, value, display)
 
   return offset + length, value
 end
@@ -1232,7 +1232,7 @@ dissect.expiration_day = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.expiration_day(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.expiration_day, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.expiration_day, range, value, display)
 
   return offset + length, value
 end
@@ -1325,7 +1325,7 @@ dissect.expiration_month = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.expiration_month(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.expiration_month, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.expiration_month, range, value, display)
 
   return offset + length, value
 end
@@ -1345,7 +1345,7 @@ dissect.security_symbol_4 = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_symbol_4(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.security_symbol_4, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.security_symbol_4, range, value, display)
 
   return offset + length, value
 end
@@ -1395,7 +1395,7 @@ dissect.short_quote_space_message = function(buffer, offset, packet, parent)
   if show.short_quote_space_message then
     local range = buffer(offset, 17)
     local display = display.short_quote_space_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.short_quote_space_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_space_message, range, display)
   end
 
   return dissect.short_quote_space_message_fields(buffer, offset, packet, parent)
@@ -1416,7 +1416,7 @@ dissect.best_offer_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.best_offer_size(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.best_offer_size, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.best_offer_size, range, value, display)
 
   return offset + length, value
 end
@@ -1436,7 +1436,7 @@ dissect.best_offer_price = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.best_offer_price(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.best_offer_price, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.best_offer_price, range, value, display)
 
   return offset + length, value
 end
@@ -1456,7 +1456,7 @@ dissect.best_offer_denominator_code = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.best_offer_denominator_code(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.best_offer_denominator_code, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.best_offer_denominator_code, range, value, display)
 
   return offset + length, value
 end
@@ -1476,7 +1476,7 @@ dissect.best_offer_participant_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.best_offer_participant_id(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.best_offer_participant_id, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.best_offer_participant_id, range, value, display)
 
   return offset + length, value
 end
@@ -1496,7 +1496,7 @@ dissect.best_bid_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.best_bid_size(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.best_bid_size, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.best_bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -1516,7 +1516,7 @@ dissect.best_bid_price = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.best_bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.best_bid_price, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.best_bid_price, range, value, display)
 
   return offset + length, value
 end
@@ -1536,7 +1536,7 @@ dissect.best_bid_denominator_code = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.best_bid_denominator_code(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.best_bid_denominator_code, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.best_bid_denominator_code, range, value, display)
 
   return offset + length, value
 end
@@ -1556,7 +1556,7 @@ dissect.best_bid_participant_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.best_bid_participant_id(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.best_bid_participant_id, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.best_bid_participant_id, range, value, display)
 
   return offset + length, value
 end
@@ -1630,7 +1630,7 @@ dissect.short_quote_p_message = function(buffer, offset, packet, parent)
   if show.short_quote_p_message then
     local range = buffer(offset, 37)
     local display = display.short_quote_p_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.short_quote_p_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_p_message, range, display)
   end
 
   return dissect.short_quote_p_message_fields(buffer, offset, packet, parent)
@@ -1681,7 +1681,7 @@ dissect.short_quote_o_message = function(buffer, offset, packet, parent)
   if show.short_quote_o_message then
     local range = buffer(offset, 17)
     local display = display.short_quote_o_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.short_quote_o_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_o_message, range, display)
   end
 
   return dissect.short_quote_o_message_fields(buffer, offset, packet, parent)
@@ -1756,7 +1756,7 @@ dissect.short_quote_n_message = function(buffer, offset, packet, parent)
   if show.short_quote_n_message then
     local range = buffer(offset, 35)
     local display = display.short_quote_n_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.short_quote_n_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_n_message, range, display)
   end
 
   return dissect.short_quote_n_message_fields(buffer, offset, packet, parent)
@@ -1831,7 +1831,7 @@ dissect.short_quote_m_message = function(buffer, offset, packet, parent)
   if show.short_quote_m_message then
     local range = buffer(offset, 37)
     local display = display.short_quote_m_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.short_quote_m_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_m_message, range, display)
   end
 
   return dissect.short_quote_m_message_fields(buffer, offset, packet, parent)
@@ -1882,7 +1882,7 @@ dissect.short_quote_l_message = function(buffer, offset, packet, parent)
   if show.short_quote_l_message then
     local range = buffer(offset, 17)
     local display = display.short_quote_l_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.short_quote_l_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_l_message, range, display)
   end
 
   return dissect.short_quote_l_message_fields(buffer, offset, packet, parent)
@@ -1903,7 +1903,7 @@ dissect.size = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.size(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.size, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.size, range, value, display)
 
   return offset + length, value
 end
@@ -1923,7 +1923,7 @@ dissect.price = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.price(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.price, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -1943,7 +1943,7 @@ dissect.denominator_code = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.denominator_code(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.denominator_code, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.denominator_code, range, value, display)
 
   return offset + length, value
 end
@@ -2015,7 +2015,7 @@ dissect.participant_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.participant_id(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.participant_id, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.participant_id, range, value, display)
 
   return offset + length, value
 end
@@ -2077,7 +2077,7 @@ dissect.short_quote_k_message = function(buffer, offset, packet, parent)
   if show.short_quote_k_message then
     local range = buffer(offset, 25)
     local display = display.short_quote_k_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.short_quote_k_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_k_message, range, display)
   end
 
   return dissect.short_quote_k_message_fields(buffer, offset, packet, parent)
@@ -2128,7 +2128,7 @@ dissect.short_quote_j_message = function(buffer, offset, packet, parent)
   if show.short_quote_j_message then
     local range = buffer(offset, 17)
     local display = display.short_quote_j_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.short_quote_j_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_j_message, range, display)
   end
 
   return dissect.short_quote_j_message_fields(buffer, offset, packet, parent)
@@ -2179,7 +2179,7 @@ dissect.short_quote_i_message = function(buffer, offset, packet, parent)
   if show.short_quote_i_message then
     local range = buffer(offset, 17)
     local display = display.short_quote_i_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.short_quote_i_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_i_message, range, display)
   end
 
   return dissect.short_quote_i_message_fields(buffer, offset, packet, parent)
@@ -2230,7 +2230,7 @@ dissect.short_quote_h_message = function(buffer, offset, packet, parent)
   if show.short_quote_h_message then
     local range = buffer(offset, 17)
     local display = display.short_quote_h_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.short_quote_h_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_h_message, range, display)
   end
 
   return dissect.short_quote_h_message_fields(buffer, offset, packet, parent)
@@ -2293,7 +2293,7 @@ dissect.short_quote_g_message = function(buffer, offset, packet, parent)
   if show.short_quote_g_message then
     local range = buffer(offset, 25)
     local display = display.short_quote_g_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.short_quote_g_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_g_message, range, display)
   end
 
   return dissect.short_quote_g_message_fields(buffer, offset, packet, parent)
@@ -2344,7 +2344,7 @@ dissect.short_quote_f_message = function(buffer, offset, packet, parent)
   if show.short_quote_f_message then
     local range = buffer(offset, 17)
     local display = display.short_quote_f_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.short_quote_f_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_f_message, range, display)
   end
 
   return dissect.short_quote_f_message_fields(buffer, offset, packet, parent)
@@ -2395,7 +2395,7 @@ dissect.short_quote_e_message = function(buffer, offset, packet, parent)
   if show.short_quote_e_message then
     local range = buffer(offset, 17)
     local display = display.short_quote_e_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.short_quote_e_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_e_message, range, display)
   end
 
   return dissect.short_quote_e_message_fields(buffer, offset, packet, parent)
@@ -2446,7 +2446,7 @@ dissect.short_quote_d_message = function(buffer, offset, packet, parent)
   if show.short_quote_d_message then
     local range = buffer(offset, 17)
     local display = display.short_quote_d_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.short_quote_d_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_d_message, range, display)
   end
 
   return dissect.short_quote_d_message_fields(buffer, offset, packet, parent)
@@ -2509,7 +2509,7 @@ dissect.short_quote_c_message = function(buffer, offset, packet, parent)
   if show.short_quote_c_message then
     local range = buffer(offset, 25)
     local display = display.short_quote_c_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.short_quote_c_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_c_message, range, display)
   end
 
   return dissect.short_quote_c_message_fields(buffer, offset, packet, parent)
@@ -2560,7 +2560,7 @@ dissect.short_quote_b_message = function(buffer, offset, packet, parent)
   if show.short_quote_b_message then
     local range = buffer(offset, 17)
     local display = display.short_quote_b_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.short_quote_b_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_b_message, range, display)
   end
 
   return dissect.short_quote_b_message_fields(buffer, offset, packet, parent)
@@ -2611,7 +2611,7 @@ dissect.short_quote_a_message = function(buffer, offset, packet, parent)
   if show.short_quote_a_message then
     local range = buffer(offset, 17)
     local display = display.short_quote_a_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.short_quote_a_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_a_message, range, display)
   end
 
   return dissect.short_quote_a_message_fields(buffer, offset, packet, parent)
@@ -2785,7 +2785,7 @@ dissect.short_quote_message_ = function(buffer, offset, packet, parent, short_qu
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.short_quote_message_(buffer, packet, parent)
-  local element = parent:add(opra_options_recipient_obdi_v2_9.fields.short_quote_message_, range, display)
+  local element = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_message_, range, display)
 
   return dissect.short_quote_message__branches(buffer, offset, packet, parent, short_quote_message_indicator_)
 end
@@ -2835,7 +2835,7 @@ dissect.short_quote_category = function(buffer, offset, packet, parent)
     local length = size_of.short_quote_category(buffer, offset)
     local range = buffer(offset, length)
     local display = display.short_quote_category(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.short_quote_category, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_category, range, display)
   end
 
   return dissect.short_quote_category_fields(buffer, offset, packet, parent)
@@ -2856,7 +2856,7 @@ dissect.offer_size_4 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.offer_size_4(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.offer_size_4, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.offer_size_4, range, value, display)
 
   return offset + length, value
 end
@@ -2876,7 +2876,7 @@ dissect.offer_price_4 = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.offer_price_4(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.offer_price_4, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.offer_price_4, range, value, display)
 
   return offset + length, value
 end
@@ -2896,7 +2896,7 @@ dissect.bid_size_4 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.bid_size_4(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.bid_size_4, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.bid_size_4, range, value, display)
 
   return offset + length, value
 end
@@ -2916,7 +2916,7 @@ dissect.bid_price_4 = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.bid_price_4(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.bid_price_4, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.bid_price_4, range, value, display)
 
   return offset + length, value
 end
@@ -2936,7 +2936,7 @@ dissect.premium_price_denominator_code = function(buffer, offset, packet, parent
   local value = range:string()
   local display = display.premium_price_denominator_code(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.premium_price_denominator_code, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.premium_price_denominator_code, range, value, display)
 
   return offset + length, value
 end
@@ -2956,7 +2956,7 @@ dissect.strike_price_4 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.strike_price_4(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.strike_price_4, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.strike_price_4, range, value, display)
 
   return offset + length, value
 end
@@ -2976,7 +2976,7 @@ dissect.strike_price_denominator_code = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.strike_price_denominator_code(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.strike_price_denominator_code, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.strike_price_denominator_code, range, value, display)
 
   return offset + length, value
 end
@@ -3035,7 +3035,7 @@ dissect.long_quote_space_message = function(buffer, offset, packet, parent)
   if show.long_quote_space_message then
     local range = buffer(offset, 31)
     local display = display.long_quote_space_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.long_quote_space_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_space_message, range, display)
   end
 
   return dissect.long_quote_space_message_fields(buffer, offset, packet, parent)
@@ -3119,7 +3119,7 @@ dissect.long_quote_p_message = function(buffer, offset, packet, parent)
   if show.long_quote_p_message then
     local range = buffer(offset, 51)
     local display = display.long_quote_p_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.long_quote_p_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_p_message, range, display)
   end
 
   return dissect.long_quote_p_message_fields(buffer, offset, packet, parent)
@@ -3179,7 +3179,7 @@ dissect.long_quote_o_message = function(buffer, offset, packet, parent)
   if show.long_quote_o_message then
     local range = buffer(offset, 31)
     local display = display.long_quote_o_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.long_quote_o_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_o_message, range, display)
   end
 
   return dissect.long_quote_o_message_fields(buffer, offset, packet, parent)
@@ -3263,7 +3263,7 @@ dissect.long_quote_n_message = function(buffer, offset, packet, parent)
   if show.long_quote_n_message then
     local range = buffer(offset, 51)
     local display = display.long_quote_n_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.long_quote_n_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_n_message, range, display)
   end
 
   return dissect.long_quote_n_message_fields(buffer, offset, packet, parent)
@@ -3347,7 +3347,7 @@ dissect.long_quote_m_message = function(buffer, offset, packet, parent)
   if show.long_quote_m_message then
     local range = buffer(offset, 47)
     local display = display.long_quote_m_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.long_quote_m_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_m_message, range, display)
   end
 
   return dissect.long_quote_m_message_fields(buffer, offset, packet, parent)
@@ -3407,7 +3407,7 @@ dissect.long_quote_l_message = function(buffer, offset, packet, parent)
   if show.long_quote_l_message then
     local range = buffer(offset, 31)
     local display = display.long_quote_l_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.long_quote_l_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_l_message, range, display)
   end
 
   return dissect.long_quote_l_message_fields(buffer, offset, packet, parent)
@@ -3479,7 +3479,7 @@ dissect.long_quote_k_message = function(buffer, offset, packet, parent)
   if show.long_quote_k_message then
     local range = buffer(offset, 39)
     local display = display.long_quote_k_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.long_quote_k_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_k_message, range, display)
   end
 
   return dissect.long_quote_k_message_fields(buffer, offset, packet, parent)
@@ -3539,7 +3539,7 @@ dissect.long_quote_j_message = function(buffer, offset, packet, parent)
   if show.long_quote_j_message then
     local range = buffer(offset, 31)
     local display = display.long_quote_j_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.long_quote_j_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_j_message, range, display)
   end
 
   return dissect.long_quote_j_message_fields(buffer, offset, packet, parent)
@@ -3599,7 +3599,7 @@ dissect.long_quote_i_message = function(buffer, offset, packet, parent)
   if show.long_quote_i_message then
     local range = buffer(offset, 31)
     local display = display.long_quote_i_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.long_quote_i_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_i_message, range, display)
   end
 
   return dissect.long_quote_i_message_fields(buffer, offset, packet, parent)
@@ -3659,7 +3659,7 @@ dissect.long_quote_h_message = function(buffer, offset, packet, parent)
   if show.long_quote_h_message then
     local range = buffer(offset, 31)
     local display = display.long_quote_h_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.long_quote_h_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_h_message, range, display)
   end
 
   return dissect.long_quote_h_message_fields(buffer, offset, packet, parent)
@@ -3731,7 +3731,7 @@ dissect.long_quote_g_message = function(buffer, offset, packet, parent)
   if show.long_quote_g_message then
     local range = buffer(offset, 39)
     local display = display.long_quote_g_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.long_quote_g_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_g_message, range, display)
   end
 
   return dissect.long_quote_g_message_fields(buffer, offset, packet, parent)
@@ -3791,7 +3791,7 @@ dissect.long_quote_f_message = function(buffer, offset, packet, parent)
   if show.long_quote_f_message then
     local range = buffer(offset, 31)
     local display = display.long_quote_f_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.long_quote_f_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_f_message, range, display)
   end
 
   return dissect.long_quote_f_message_fields(buffer, offset, packet, parent)
@@ -3851,7 +3851,7 @@ dissect.long_quote_e_message = function(buffer, offset, packet, parent)
   if show.long_quote_e_message then
     local range = buffer(offset, 31)
     local display = display.long_quote_e_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.long_quote_e_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_e_message, range, display)
   end
 
   return dissect.long_quote_e_message_fields(buffer, offset, packet, parent)
@@ -3911,7 +3911,7 @@ dissect.long_quote_d_message = function(buffer, offset, packet, parent)
   if show.long_quote_d_message then
     local range = buffer(offset, 31)
     local display = display.long_quote_d_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.long_quote_d_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_d_message, range, display)
   end
 
   return dissect.long_quote_d_message_fields(buffer, offset, packet, parent)
@@ -3983,7 +3983,7 @@ dissect.long_quote_c_message = function(buffer, offset, packet, parent)
   if show.long_quote_c_message then
     local range = buffer(offset, 39)
     local display = display.long_quote_c_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.long_quote_c_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_c_message, range, display)
   end
 
   return dissect.long_quote_c_message_fields(buffer, offset, packet, parent)
@@ -4043,7 +4043,7 @@ dissect.long_quote_b_message = function(buffer, offset, packet, parent)
   if show.long_quote_b_message then
     local range = buffer(offset, 31)
     local display = display.long_quote_b_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.long_quote_b_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_b_message, range, display)
   end
 
   return dissect.long_quote_b_message_fields(buffer, offset, packet, parent)
@@ -4103,7 +4103,7 @@ dissect.long_quote_a_message = function(buffer, offset, packet, parent)
   if show.long_quote_a_message then
     local range = buffer(offset, 31)
     local display = display.long_quote_a_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.long_quote_a_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_a_message, range, display)
   end
 
   return dissect.long_quote_a_message_fields(buffer, offset, packet, parent)
@@ -4277,7 +4277,7 @@ dissect.long_quote_message_ = function(buffer, offset, packet, parent, long_quot
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.long_quote_message_(buffer, packet, parent)
-  local element = parent:add(opra_options_recipient_obdi_v2_9.fields.long_quote_message_, range, display)
+  local element = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_message_, range, display)
 
   return dissect.long_quote_message__branches(buffer, offset, packet, parent, long_quote_message_indicator_)
 end
@@ -4327,7 +4327,7 @@ dissect.long_quote_category = function(buffer, offset, packet, parent)
     local length = size_of.long_quote_category(buffer, offset)
     local range = buffer(offset, length)
     local display = display.long_quote_category(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.long_quote_category, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_category, range, display)
   end
 
   return dissect.long_quote_category_fields(buffer, offset, packet, parent)
@@ -4348,7 +4348,7 @@ dissect.underlying_price = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.underlying_price(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.underlying_price, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.underlying_price, range, value, display)
 
   return offset + length, value
 end
@@ -4368,7 +4368,7 @@ dissect.underlying_price_denominator_code = function(buffer, offset, packet, par
   local value = range:string()
   local display = display.underlying_price_denominator_code(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.underlying_price_denominator_code, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.underlying_price_denominator_code, range, value, display)
 
   return offset + length, value
 end
@@ -4388,7 +4388,7 @@ dissect.net_change = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.net_change(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.net_change, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.net_change, range, value, display)
 
   return offset + length, value
 end
@@ -4408,7 +4408,7 @@ dissect.last_price = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.last_price(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.last_price, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.last_price, range, value, display)
 
   return offset + length, value
 end
@@ -4428,7 +4428,7 @@ dissect.low_price = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.low_price(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.low_price, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.low_price, range, value, display)
 
   return offset + length, value
 end
@@ -4448,7 +4448,7 @@ dissect.high_price = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.high_price(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.high_price, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.high_price, range, value, display)
 
   return offset + length, value
 end
@@ -4468,7 +4468,7 @@ dissect.open_price = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.open_price(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.open_price, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.open_price, range, value, display)
 
   return offset + length, value
 end
@@ -4488,7 +4488,7 @@ dissect.open_interest_volume = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.open_interest_volume(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.open_interest_volume, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.open_interest_volume, range, value, display)
 
   return offset + length, value
 end
@@ -4557,7 +4557,7 @@ dissect.volume = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.volume(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.volume, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.volume, range, value, display)
 
   return offset + length, value
 end
@@ -4637,7 +4637,7 @@ dissect.equity_eod_message = function(buffer, offset, packet, parent)
   if show.equity_eod_message then
     local range = buffer(offset, 60)
     local display = display.equity_eod_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.equity_eod_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.equity_eod_message, range, display)
   end
 
   return dissect.equity_eod_message_fields(buffer, offset, packet, parent)
@@ -4683,7 +4683,7 @@ dissect.equity_eod_payload_ = function(buffer, offset, packet, parent, equity_eo
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.equity_eod_payload_(buffer, packet, parent)
-  local element = parent:add(opra_options_recipient_obdi_v2_9.fields.equity_eod_payload_, range, display)
+  local element = parent:add(siac_opra_recipient_obi_v2_9.fields.equity_eod_payload_, range, display)
 
   return dissect.equity_eod_payload__branches(buffer, offset, packet, parent, equity_eod_message_indicator_)
 end
@@ -4733,7 +4733,7 @@ dissect.equity_eod_category = function(buffer, offset, packet, parent)
     local length = size_of.equity_eod_category(buffer, offset)
     local range = buffer(offset, length)
     local display = display.equity_eod_category(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.equity_eod_category, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.equity_eod_category, range, display)
   end
 
   return dissect.equity_eod_category_fields(buffer, offset, packet, parent)
@@ -4781,7 +4781,7 @@ dissect.open_interest_message = function(buffer, offset, packet, parent)
   if show.open_interest_message then
     local range = buffer(offset, 18)
     local display = display.open_interest_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.open_interest_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.open_interest_message, range, display)
   end
 
   return dissect.open_interest_message_fields(buffer, offset, packet, parent)
@@ -4827,7 +4827,7 @@ dissect.open_interest_payload_ = function(buffer, offset, packet, parent, open_i
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.open_interest_payload_(buffer, packet, parent)
-  local element = parent:add(opra_options_recipient_obdi_v2_9.fields.open_interest_payload_, range, display)
+  local element = parent:add(siac_opra_recipient_obi_v2_9.fields.open_interest_payload_, range, display)
 
   return dissect.open_interest_payload__branches(buffer, offset, packet, parent, open_interest_message_indicator_)
 end
@@ -4877,7 +4877,7 @@ dissect.open_interest_category = function(buffer, offset, packet, parent)
     local length = size_of.open_interest_category(buffer, offset)
     local range = buffer(offset, length)
     local display = display.open_interest_category(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.open_interest_category, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.open_interest_category, range, display)
   end
 
   return dissect.open_interest_category_fields(buffer, offset, packet, parent)
@@ -4898,7 +4898,7 @@ dissect.trade_identifier = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.trade_identifier(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.trade_identifier, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.trade_identifier, range, value, display)
 
   return offset + length, value
 end
@@ -4918,7 +4918,7 @@ dissect.premium_price = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.premium_price(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.premium_price, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.premium_price, range, value, display)
 
   return offset + length, value
 end
@@ -4977,7 +4977,7 @@ dissect.equity_and_index_last_sale_message = function(buffer, offset, packet, pa
   if show.equity_and_index_last_sale_message then
     local range = buffer(offset, 31)
     local display = display.equity_and_index_last_sale_message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.equity_and_index_last_sale_message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.equity_and_index_last_sale_message, range, display)
   end
 
   return dissect.equity_and_index_last_sale_message_fields(buffer, offset, packet, parent)
@@ -5023,7 +5023,7 @@ dissect.equity_index_last_sale_payload_ = function(buffer, offset, packet, paren
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.equity_index_last_sale_payload_(buffer, packet, parent)
-  local element = parent:add(opra_options_recipient_obdi_v2_9.fields.equity_index_last_sale_payload_, range, display)
+  local element = parent:add(siac_opra_recipient_obi_v2_9.fields.equity_index_last_sale_payload_, range, display)
 
   return dissect.equity_index_last_sale_payload__branches(buffer, offset, packet, parent, equity_index_last_sale_message_indicator_)
 end
@@ -5073,7 +5073,7 @@ dissect.equity_index_last_sale_category = function(buffer, offset, packet, paren
     local length = size_of.equity_index_last_sale_category(buffer, offset)
     local range = buffer(offset, length)
     local display = display.equity_index_last_sale_category(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.equity_index_last_sale_category, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.equity_index_last_sale_category, range, display)
   end
 
   return dissect.equity_index_last_sale_category_fields(buffer, offset, packet, parent)
@@ -5175,7 +5175,7 @@ dissect.category_data = function(buffer, offset, packet, parent, message_categor
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.category_data(buffer, packet, parent)
-  local element = parent:add(opra_options_recipient_obdi_v2_9.fields.category_data, range, display)
+  local element = parent:add(siac_opra_recipient_obi_v2_9.fields.category_data, range, display)
 
   return dissect.category_data_branches(buffer, offset, packet, parent, message_category)
 end
@@ -5316,7 +5316,7 @@ dissect.message_category = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.message_category(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.message_category, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.message_category, range, value, display)
 
   return offset + length, value
 end
@@ -5345,7 +5345,7 @@ dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     local range = buffer(offset, 2)
     local display = display.message_header(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.message_header, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.message_header, range, display)
   end
 
   return dissect.message_header_fields(buffer, offset, packet, parent)
@@ -5393,7 +5393,7 @@ dissect.message = function(buffer, offset, packet, parent)
     local length = size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.message(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.message, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.message, range, display)
   end
 
   return dissect.message_fields(buffer, offset, packet, parent)
@@ -5414,7 +5414,7 @@ dissect.checksum = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.checksum(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.checksum, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.checksum, range, value, display)
 
   return offset + length, value
 end
@@ -5434,7 +5434,7 @@ dissect.message_count = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.message_count, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -5454,7 +5454,7 @@ dissect.block_seq_num = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.block_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.block_seq_num, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.block_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -5481,7 +5481,7 @@ dissect.session_indicator = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.session_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.session_indicator, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.session_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -5501,7 +5501,7 @@ dissect.retransmission_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.retransmission_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.retransmission_indicator, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.retransmission_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -5521,7 +5521,7 @@ dissect.data_feed_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.data_feed_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.data_feed_indicator, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.data_feed_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -5541,7 +5541,7 @@ dissect.version = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.version(value, buffer, offset, packet, parent)
 
-  parent:add(opra_options_recipient_obdi_v2_9.fields.version, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -5591,7 +5591,7 @@ dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     local range = buffer(offset, 13)
     local display = display.packet_header(buffer, packet, parent)
-    parent = parent:add(opra_options_recipient_obdi_v2_9.fields.packet_header, range, display)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.packet_header, range, display)
   end
 
   return dissect.packet_header_fields(buffer, offset, packet, parent)
@@ -5621,23 +5621,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function opra_options_recipient_obdi_v2_9.init()
+function siac_opra_recipient_obi_v2_9.init()
 end
 
--- Dissector for Opra Options Recipient Obdi 2.9
-function opra_options_recipient_obdi_v2_9.dissector(buffer, packet, parent)
+-- Dissector for Siac Opra Recipient Obi 2.9
+function siac_opra_recipient_obi_v2_9.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = opra_options_recipient_obdi_v2_9.name
+  packet.cols.protocol = siac_opra_recipient_obi_v2_9.name
 
   -- Dissect protocol
-  local protocol = parent:add(opra_options_recipient_obdi_v2_9, buffer(), opra_options_recipient_obdi_v2_9.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(siac_opra_recipient_obi_v2_9, buffer(), siac_opra_recipient_obi_v2_9.description, "("..buffer:len().." Bytes)")
   local protocol_size = dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, opra_options_recipient_obdi_v2_9)
+udp_table:add(65333, siac_opra_recipient_obi_v2_9)
 
 
 -----------------------------------------------------------------------
@@ -5645,25 +5645,25 @@ udp_table:add(65333, opra_options_recipient_obdi_v2_9)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.opra_options_recipient_obdi_v2_9_packet_size = function(buffer)
+verify.siac_opra_recipient_obi_v2_9_packet_size = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Opra Options Recipient Obdi 2.9
-local function opra_options_recipient_obdi_v2_9_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Siac Opra Recipient Obi 2.9
+local function siac_opra_recipient_obi_v2_9_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.opra_options_recipient_obdi_v2_9_packet_size(buffer) then return false end
+  if not verify.siac_opra_recipient_obi_v2_9_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = opra_options_recipient_obdi_v2_9
-  opra_options_recipient_obdi_v2_9.dissector(buffer, packet, parent)
+  packet.conversation = siac_opra_recipient_obi_v2_9
+  siac_opra_recipient_obi_v2_9.dissector(buffer, packet, parent)
 
   return true
 end
 
--- Register Heuristic for Opra Options Recipient Obdi 2.9
-opra_options_recipient_obdi_v2_9:register_heuristic("udp", opra_options_recipient_obdi_v2_9_heuristic)
+-- Register Heuristic for Siac Opra Recipient Obi 2.9
+siac_opra_recipient_obi_v2_9:register_heuristic("udp", siac_opra_recipient_obi_v2_9_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.
@@ -5671,7 +5671,7 @@ opra_options_recipient_obdi_v2_9:register_heuristic("udp", opra_options_recipien
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Options Price Reporting Authority
+--   Organization: Securities Industry Automation Corporation
 --   Version: 2.9
 --   Date: Wednesday, October 24, 2018
 --   Specification: opra_output_binary_dr_spec.pdf
