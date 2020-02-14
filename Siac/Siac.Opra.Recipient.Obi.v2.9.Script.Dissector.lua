@@ -20,372 +20,138 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Siac Opra Recipient Obi 2.9 Fields
-siac_opra_recipient_obi_v2_9.fields.administrative_category = ProtoField.new("ADMINISTRATIVE Category", "siac.opra.recipient.obi.v2.9.administrativecategory", ftypes.STRING)
 siac_opra_recipient_obi_v2_9.fields.administrative_message = ProtoField.new("Administrative Message", "siac.opra.recipient.obi.v2.9.administrativemessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.administrative_payload_ = ProtoField.new("Administrative Payload ", "siac.opra.recipient.obi.v2.9.administrativepayload", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.best_bid_denominator_code = ProtoField.new("Best Bid Denominator Code", "siac.opra.recipient.obi.v2.9.bestbiddenominatorcode", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.best_bid_participant_id = ProtoField.new("Best Bid Participant Id", "siac.opra.recipient.obi.v2.9.bestbidparticipantid", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.best_bid_price = ProtoField.new("Best Bid Price", "siac.opra.recipient.obi.v2.9.bestbidprice", ftypes.INT32)
-siac_opra_recipient_obi_v2_9.fields.best_bid_size = ProtoField.new("Best Bid Size", "siac.opra.recipient.obi.v2.9.bestbidsize", ftypes.UINT32)
-siac_opra_recipient_obi_v2_9.fields.best_offer_denominator_code = ProtoField.new("Best Offer Denominator Code", "siac.opra.recipient.obi.v2.9.bestofferdenominatorcode", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.best_offer_participant_id = ProtoField.new("Best Offer Participant Id", "siac.opra.recipient.obi.v2.9.bestofferparticipantid", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.best_offer_price = ProtoField.new("Best Offer Price", "siac.opra.recipient.obi.v2.9.bestofferprice", ftypes.INT32)
-siac_opra_recipient_obi_v2_9.fields.best_offer_size = ProtoField.new("Best Offer Size", "siac.opra.recipient.obi.v2.9.bestoffersize", ftypes.UINT32)
-siac_opra_recipient_obi_v2_9.fields.bid_price_2 = ProtoField.new("Bid Price 2", "siac.opra.recipient.obi.v2.9.bidprice2", ftypes.INT16)
-siac_opra_recipient_obi_v2_9.fields.bid_price_4 = ProtoField.new("Bid Price 4", "siac.opra.recipient.obi.v2.9.bidprice4", ftypes.INT32)
-siac_opra_recipient_obi_v2_9.fields.bid_size_2 = ProtoField.new("Bid Size 2", "siac.opra.recipient.obi.v2.9.bidsize2", ftypes.UINT16)
-siac_opra_recipient_obi_v2_9.fields.bid_size_4 = ProtoField.new("Bid Size 4", "siac.opra.recipient.obi.v2.9.bidsize4", ftypes.UINT32)
-siac_opra_recipient_obi_v2_9.fields.block_seq_num = ProtoField.new("Block Seq Num", "siac.opra.recipient.obi.v2.9.blockseqnum", ftypes.UINT32)
-siac_opra_recipient_obi_v2_9.fields.category_data = ProtoField.new("Category Data", "siac.opra.recipient.obi.v2.9.categorydata", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.checksum = ProtoField.new("Checksum", "siac.opra.recipient.obi.v2.9.checksum", ftypes.UINT16)
-siac_opra_recipient_obi_v2_9.fields.control_category = ProtoField.new("CONTROL Category", "siac.opra.recipient.obi.v2.9.controlcategory", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.bid_price_2 = ProtoField.new("Bid Price 2", "siac.opra.recipient.obi.v2.9.bidprice2", ftypes.BYTES)
+siac_opra_recipient_obi_v2_9.fields.bid_price_4 = ProtoField.new("Bid Price 4", "siac.opra.recipient.obi.v2.9.bidprice4", ftypes.BYTES)
+siac_opra_recipient_obi_v2_9.fields.bid_size_2 = ProtoField.new("Bid Size 2", "siac.opra.recipient.obi.v2.9.bidsize2", ftypes.BYTES)
+siac_opra_recipient_obi_v2_9.fields.bid_size_4 = ProtoField.new("Bid Size 4", "siac.opra.recipient.obi.v2.9.bidsize4", ftypes.BYTES)
+siac_opra_recipient_obi_v2_9.fields.block_checksum = ProtoField.new("Block Checksum", "siac.opra.recipient.obi.v2.9.blockchecksum", ftypes.UINT16)
+siac_opra_recipient_obi_v2_9.fields.block_header = ProtoField.new("Block Header", "siac.opra.recipient.obi.v2.9.blockheader", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.opra.recipient.obi.v2.9.blocksequencenumber", ftypes.UINT32)
+siac_opra_recipient_obi_v2_9.fields.block_size = ProtoField.new("Block Size", "siac.opra.recipient.obi.v2.9.blocksize", ftypes.UINT16)
+siac_opra_recipient_obi_v2_9.fields.block_timestamp = ProtoField.new("Block Timestamp", "siac.opra.recipient.obi.v2.9.blocktimestamp", ftypes.STRING)
 siac_opra_recipient_obi_v2_9.fields.control_message = ProtoField.new("Control Message", "siac.opra.recipient.obi.v2.9.controlmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.control_payload_ = ProtoField.new("CONTROL Payload ", "siac.opra.recipient.obi.v2.9.controlpayload", ftypes.STRING)
 siac_opra_recipient_obi_v2_9.fields.data_feed_indicator = ProtoField.new("Data Feed Indicator", "siac.opra.recipient.obi.v2.9.datafeedindicator", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.denominator_code = ProtoField.new("Denominator Code", "siac.opra.recipient.obi.v2.9.denominatorcode", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.equity_and_index_end_of_day_summary_message = ProtoField.new("Equity And Index End Of Day Summary Message", "siac.opra.recipient.obi.v2.9.equityandindexendofdaysummarymessage", ftypes.STRING)
 siac_opra_recipient_obi_v2_9.fields.equity_and_index_last_sale_message = ProtoField.new("Equity And Index Last Sale Message", "siac.opra.recipient.obi.v2.9.equityandindexlastsalemessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.equity_eod_category = ProtoField.new("Equity EOD Category", "siac.opra.recipient.obi.v2.9.equityeodcategory", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.equity_eod_message = ProtoField.new("Equity Eod Message", "siac.opra.recipient.obi.v2.9.equityeodmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.equity_eod_payload_ = ProtoField.new("Equity EOD Payload ", "siac.opra.recipient.obi.v2.9.equityeodpayload", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.equity_index_last_sale_category = ProtoField.new("Equity Index Last Sale Category", "siac.opra.recipient.obi.v2.9.equityindexlastsalecategory", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.equity_index_last_sale_payload_ = ProtoField.new("Equity Index Last Sale Payload ", "siac.opra.recipient.obi.v2.9.equityindexlastsalepayload", ftypes.STRING)
 siac_opra_recipient_obi_v2_9.fields.expiration_day = ProtoField.new("Expiration Day", "siac.opra.recipient.obi.v2.9.expirationday", ftypes.UINT8)
 siac_opra_recipient_obi_v2_9.fields.expiration_month = ProtoField.new("Expiration Month", "siac.opra.recipient.obi.v2.9.expirationmonth", ftypes.STRING)
 siac_opra_recipient_obi_v2_9.fields.expiration_year = ProtoField.new("Expiration Year", "siac.opra.recipient.obi.v2.9.expirationyear", ftypes.UINT8)
-siac_opra_recipient_obi_v2_9.fields.high_price = ProtoField.new("High Price", "siac.opra.recipient.obi.v2.9.highprice", ftypes.INT32)
-siac_opra_recipient_obi_v2_9.fields.index_value = ProtoField.new("Index Value", "siac.opra.recipient.obi.v2.9.indexvalue", ftypes.INT32)
+siac_opra_recipient_obi_v2_9.fields.high_price = ProtoField.new("High Price", "siac.opra.recipient.obi.v2.9.highprice", ftypes.BYTES)
+siac_opra_recipient_obi_v2_9.fields.index_value = ProtoField.new("Index Value", "siac.opra.recipient.obi.v2.9.indexvalue", ftypes.BYTES)
 siac_opra_recipient_obi_v2_9.fields.index_value_denominator_code = ProtoField.new("Index Value Denominator Code", "siac.opra.recipient.obi.v2.9.indexvaluedenominatorcode", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.last_price = ProtoField.new("Last Price", "siac.opra.recipient.obi.v2.9.lastprice", ftypes.INT32)
-siac_opra_recipient_obi_v2_9.fields.long_quote_a_message = ProtoField.new("Long Quote A Message", "siac.opra.recipient.obi.v2.9.longquoteamessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.long_quote_b_message = ProtoField.new("Long Quote B Message", "siac.opra.recipient.obi.v2.9.longquotebmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.long_quote_c_message = ProtoField.new("Long Quote C Message", "siac.opra.recipient.obi.v2.9.longquotecmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.long_quote_category = ProtoField.new("Long Quote Category", "siac.opra.recipient.obi.v2.9.longquotecategory", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.long_quote_d_message = ProtoField.new("Long Quote D Message", "siac.opra.recipient.obi.v2.9.longquotedmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.long_quote_e_message = ProtoField.new("Long Quote E Message", "siac.opra.recipient.obi.v2.9.longquoteemessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.long_quote_f_message = ProtoField.new("Long Quote F Message", "siac.opra.recipient.obi.v2.9.longquotefmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.long_quote_g_message = ProtoField.new("Long Quote G Message", "siac.opra.recipient.obi.v2.9.longquotegmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.long_quote_h_message = ProtoField.new("Long Quote H Message", "siac.opra.recipient.obi.v2.9.longquotehmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.long_quote_i_message = ProtoField.new("Long Quote I Message", "siac.opra.recipient.obi.v2.9.longquoteimessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.long_quote_j_message = ProtoField.new("Long Quote J Message", "siac.opra.recipient.obi.v2.9.longquotejmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.long_quote_k_message = ProtoField.new("Long Quote K Message", "siac.opra.recipient.obi.v2.9.longquotekmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.long_quote_l_message = ProtoField.new("Long Quote L Message", "siac.opra.recipient.obi.v2.9.longquotelmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.long_quote_m_message = ProtoField.new("Long Quote M Message", "siac.opra.recipient.obi.v2.9.longquotemmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.long_quote_message_ = ProtoField.new("Long Quote Message ", "siac.opra.recipient.obi.v2.9.longquotemessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.long_quote_n_message = ProtoField.new("Long Quote N Message", "siac.opra.recipient.obi.v2.9.longquotenmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.long_quote_o_message = ProtoField.new("Long Quote O Message", "siac.opra.recipient.obi.v2.9.longquoteomessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.long_quote_p_message = ProtoField.new("Long Quote P Message", "siac.opra.recipient.obi.v2.9.longquotepmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.long_quote_space_message = ProtoField.new("Long Quote Space Message", "siac.opra.recipient.obi.v2.9.longquotespacemessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.low_price = ProtoField.new("Low Price", "siac.opra.recipient.obi.v2.9.lowprice", ftypes.INT32)
+siac_opra_recipient_obi_v2_9.fields.last_price = ProtoField.new("Last Price", "siac.opra.recipient.obi.v2.9.lastprice", ftypes.BYTES)
+siac_opra_recipient_obi_v2_9.fields.long_equity_and_index_quote_message = ProtoField.new("Long Equity And Index Quote Message", "siac.opra.recipient.obi.v2.9.longequityandindexquotemessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.low_price = ProtoField.new("Low Price", "siac.opra.recipient.obi.v2.9.lowprice", ftypes.BYTES)
 siac_opra_recipient_obi_v2_9.fields.message = ProtoField.new("Message", "siac.opra.recipient.obi.v2.9.message", ftypes.STRING)
 siac_opra_recipient_obi_v2_9.fields.message_category = ProtoField.new("Message Category", "siac.opra.recipient.obi.v2.9.messagecategory", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.message_count = ProtoField.new("Message Count", "siac.opra.recipient.obi.v2.9.messagecount", ftypes.UINT8)
 siac_opra_recipient_obi_v2_9.fields.message_data = ProtoField.new("Message Data", "siac.opra.recipient.obi.v2.9.messagedata", ftypes.STRING)
 siac_opra_recipient_obi_v2_9.fields.message_data_length = ProtoField.new("Message Data Length", "siac.opra.recipient.obi.v2.9.messagedatalength", ftypes.UINT16)
-siac_opra_recipient_obi_v2_9.fields.message_header = ProtoField.new("Message Header", "siac.opra.recipient.obi.v2.9.messageheader", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.net_change = ProtoField.new("Net Change", "siac.opra.recipient.obi.v2.9.netchange", ftypes.INT32)
-siac_opra_recipient_obi_v2_9.fields.offer_price_2 = ProtoField.new("Offer Price 2", "siac.opra.recipient.obi.v2.9.offerprice2", ftypes.INT16)
-siac_opra_recipient_obi_v2_9.fields.offer_price_4 = ProtoField.new("Offer Price 4", "siac.opra.recipient.obi.v2.9.offerprice4", ftypes.INT32)
-siac_opra_recipient_obi_v2_9.fields.offer_size_2 = ProtoField.new("Offer Size 2", "siac.opra.recipient.obi.v2.9.offersize2", ftypes.UINT16)
-siac_opra_recipient_obi_v2_9.fields.offer_size_4 = ProtoField.new("Offer Size 4", "siac.opra.recipient.obi.v2.9.offersize4", ftypes.UINT32)
-siac_opra_recipient_obi_v2_9.fields.open_interest_category = ProtoField.new("Open Interest Category", "siac.opra.recipient.obi.v2.9.openinterestcategory", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.message_indicator = ProtoField.new("Message Indicator", "siac.opra.recipient.obi.v2.9.messageindicator", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.message_type = ProtoField.new("Message Type", "siac.opra.recipient.obi.v2.9.messagetype", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.opra.recipient.obi.v2.9.messagesinblock", ftypes.UINT8)
+siac_opra_recipient_obi_v2_9.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.opra.recipient.obi.v2.9.nanoseconds", ftypes.UINT32)
+siac_opra_recipient_obi_v2_9.fields.net_change = ProtoField.new("Net Change", "siac.opra.recipient.obi.v2.9.netchange", ftypes.BYTES)
+siac_opra_recipient_obi_v2_9.fields.offer_price_2 = ProtoField.new("Offer Price 2", "siac.opra.recipient.obi.v2.9.offerprice2", ftypes.BYTES)
+siac_opra_recipient_obi_v2_9.fields.offer_price_4 = ProtoField.new("Offer Price 4", "siac.opra.recipient.obi.v2.9.offerprice4", ftypes.BYTES)
+siac_opra_recipient_obi_v2_9.fields.offer_size_2 = ProtoField.new("Offer Size 2", "siac.opra.recipient.obi.v2.9.offersize2", ftypes.BYTES)
+siac_opra_recipient_obi_v2_9.fields.offer_size_4 = ProtoField.new("Offer Size 4", "siac.opra.recipient.obi.v2.9.offersize4", ftypes.BYTES)
 siac_opra_recipient_obi_v2_9.fields.open_interest_message = ProtoField.new("Open Interest Message", "siac.opra.recipient.obi.v2.9.openinterestmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.open_interest_payload_ = ProtoField.new("Open Interest Payload ", "siac.opra.recipient.obi.v2.9.openinterestpayload", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.open_interest_volume = ProtoField.new("Open Interest Volume", "siac.opra.recipient.obi.v2.9.openinterestvolume", ftypes.UINT32)
-siac_opra_recipient_obi_v2_9.fields.open_price = ProtoField.new("Open Price", "siac.opra.recipient.obi.v2.9.openprice", ftypes.INT32)
+siac_opra_recipient_obi_v2_9.fields.open_interest_volume = ProtoField.new("Open Interest Volume", "siac.opra.recipient.obi.v2.9.openinterestvolume", ftypes.BYTES)
+siac_opra_recipient_obi_v2_9.fields.open_price = ProtoField.new("Open Price", "siac.opra.recipient.obi.v2.9.openprice", ftypes.BYTES)
 siac_opra_recipient_obi_v2_9.fields.packet = ProtoField.new("Packet", "siac.opra.recipient.obi.v2.9.packet", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.packet_header = ProtoField.new("Packet Header", "siac.opra.recipient.obi.v2.9.packetheader", ftypes.STRING)
 siac_opra_recipient_obi_v2_9.fields.participant_id = ProtoField.new("Participant Id", "siac.opra.recipient.obi.v2.9.participantid", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.premium_price = ProtoField.new("Premium Price", "siac.opra.recipient.obi.v2.9.premiumprice", ftypes.INT32)
+siac_opra_recipient_obi_v2_9.fields.payload = ProtoField.new("Payload", "siac.opra.recipient.obi.v2.9.payload", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.premium_price = ProtoField.new("Premium Price", "siac.opra.recipient.obi.v2.9.premiumprice", ftypes.BYTES)
 siac_opra_recipient_obi_v2_9.fields.premium_price_denominator_code = ProtoField.new("Premium Price Denominator Code", "siac.opra.recipient.obi.v2.9.premiumpricedenominatorcode", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.price = ProtoField.new("Price", "siac.opra.recipient.obi.v2.9.price", ftypes.UINT32)
 siac_opra_recipient_obi_v2_9.fields.reserved_1 = ProtoField.new("Reserved 1", "siac.opra.recipient.obi.v2.9.reserved1", ftypes.BYTES)
 siac_opra_recipient_obi_v2_9.fields.reserved_4 = ProtoField.new("Reserved 4", "siac.opra.recipient.obi.v2.9.reserved4", ftypes.BYTES)
 siac_opra_recipient_obi_v2_9.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "siac.opra.recipient.obi.v2.9.retransmissionindicator", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.seconds = ProtoField.new("Seconds", "siac.opra.recipient.obi.v2.9.seconds", ftypes.UINT32)
 siac_opra_recipient_obi_v2_9.fields.security_symbol_4 = ProtoField.new("Security Symbol 4", "siac.opra.recipient.obi.v2.9.securitysymbol4", ftypes.STRING)
 siac_opra_recipient_obi_v2_9.fields.security_symbol_5 = ProtoField.new("Security Symbol 5", "siac.opra.recipient.obi.v2.9.securitysymbol5", ftypes.STRING)
 siac_opra_recipient_obi_v2_9.fields.session_indicator = ProtoField.new("Session Indicator", "siac.opra.recipient.obi.v2.9.sessionindicator", ftypes.UINT8)
-siac_opra_recipient_obi_v2_9.fields.short_quote_a_message = ProtoField.new("Short Quote A Message", "siac.opra.recipient.obi.v2.9.shortquoteamessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.short_quote_b_message = ProtoField.new("Short Quote B Message", "siac.opra.recipient.obi.v2.9.shortquotebmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.short_quote_c_message = ProtoField.new("Short Quote C Message", "siac.opra.recipient.obi.v2.9.shortquotecmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.short_quote_category = ProtoField.new("Short Quote Category", "siac.opra.recipient.obi.v2.9.shortquotecategory", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.short_quote_d_message = ProtoField.new("Short Quote D Message", "siac.opra.recipient.obi.v2.9.shortquotedmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.short_quote_e_message = ProtoField.new("Short Quote E Message", "siac.opra.recipient.obi.v2.9.shortquoteemessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.short_quote_f_message = ProtoField.new("Short Quote F Message", "siac.opra.recipient.obi.v2.9.shortquotefmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.short_quote_g_message = ProtoField.new("Short Quote G Message", "siac.opra.recipient.obi.v2.9.shortquotegmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.short_quote_h_message = ProtoField.new("Short Quote H Message", "siac.opra.recipient.obi.v2.9.shortquotehmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.short_quote_i_message = ProtoField.new("Short Quote I Message", "siac.opra.recipient.obi.v2.9.shortquoteimessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.short_quote_j_message = ProtoField.new("Short Quote J Message", "siac.opra.recipient.obi.v2.9.shortquotejmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.short_quote_k_message = ProtoField.new("Short Quote K Message", "siac.opra.recipient.obi.v2.9.shortquotekmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.short_quote_l_message = ProtoField.new("Short Quote L Message", "siac.opra.recipient.obi.v2.9.shortquotelmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.short_quote_m_message = ProtoField.new("Short Quote M Message", "siac.opra.recipient.obi.v2.9.shortquotemmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.short_quote_message_ = ProtoField.new("Short Quote Message ", "siac.opra.recipient.obi.v2.9.shortquotemessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.short_quote_n_message = ProtoField.new("Short Quote N Message", "siac.opra.recipient.obi.v2.9.shortquotenmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.short_quote_o_message = ProtoField.new("Short Quote O Message", "siac.opra.recipient.obi.v2.9.shortquoteomessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.short_quote_p_message = ProtoField.new("Short Quote P Message", "siac.opra.recipient.obi.v2.9.shortquotepmessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.short_quote_space_message = ProtoField.new("Short Quote Space Message", "siac.opra.recipient.obi.v2.9.shortquotespacemessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.size = ProtoField.new("Size", "siac.opra.recipient.obi.v2.9.size", ftypes.UINT16)
-siac_opra_recipient_obi_v2_9.fields.strike_price_2 = ProtoField.new("Strike Price 2", "siac.opra.recipient.obi.v2.9.strikeprice2", ftypes.UINT16)
-siac_opra_recipient_obi_v2_9.fields.strike_price_4 = ProtoField.new("Strike Price 4", "siac.opra.recipient.obi.v2.9.strikeprice4", ftypes.UINT32)
+siac_opra_recipient_obi_v2_9.fields.short_equity_and_index_quote_message = ProtoField.new("Short Equity And Index Quote Message", "siac.opra.recipient.obi.v2.9.shortequityandindexquotemessage", ftypes.STRING)
+siac_opra_recipient_obi_v2_9.fields.strike_price_2 = ProtoField.new("Strike Price 2", "siac.opra.recipient.obi.v2.9.strikeprice2", ftypes.BYTES)
+siac_opra_recipient_obi_v2_9.fields.strike_price_4 = ProtoField.new("Strike Price 4", "siac.opra.recipient.obi.v2.9.strikeprice4", ftypes.BYTES)
 siac_opra_recipient_obi_v2_9.fields.strike_price_denominator_code = ProtoField.new("Strike Price Denominator Code", "siac.opra.recipient.obi.v2.9.strikepricedenominatorcode", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.trade_identifier = ProtoField.new("Trade Identifier", "siac.opra.recipient.obi.v2.9.tradeidentifier", ftypes.UINT32)
-siac_opra_recipient_obi_v2_9.fields.transaction_id_ = ProtoField.new("Transaction ID ", "siac.opra.recipient.obi.v2.9.transactionid", ftypes.UINT64)
-siac_opra_recipient_obi_v2_9.fields.underlying_price = ProtoField.new("Underlying Price", "siac.opra.recipient.obi.v2.9.underlyingprice", ftypes.INT64)
+siac_opra_recipient_obi_v2_9.fields.trade_identifier = ProtoField.new("Trade Identifier", "siac.opra.recipient.obi.v2.9.tradeidentifier", ftypes.BYTES)
+siac_opra_recipient_obi_v2_9.fields.transaction_id = ProtoField.new("Transaction Id", "siac.opra.recipient.obi.v2.9.transactionid", ftypes.UINT64)
+siac_opra_recipient_obi_v2_9.fields.underlying_price = ProtoField.new("Underlying Price", "siac.opra.recipient.obi.v2.9.underlyingprice", ftypes.BYTES)
 siac_opra_recipient_obi_v2_9.fields.underlying_price_denominator_code = ProtoField.new("Underlying Price Denominator Code", "siac.opra.recipient.obi.v2.9.underlyingpricedenominatorcode", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.underlying_value_category = ProtoField.new("UNDERLYING VALUE Category", "siac.opra.recipient.obi.v2.9.underlyingvaluecategory", ftypes.STRING)
 siac_opra_recipient_obi_v2_9.fields.underlying_value_message = ProtoField.new("Underlying Value Message", "siac.opra.recipient.obi.v2.9.underlyingvaluemessage", ftypes.STRING)
-siac_opra_recipient_obi_v2_9.fields.underlying_value_payload_ = ProtoField.new("UNDERLYING VALUE Payload ", "siac.opra.recipient.obi.v2.9.underlyingvaluepayload", ftypes.STRING)
 siac_opra_recipient_obi_v2_9.fields.version = ProtoField.new("Version", "siac.opra.recipient.obi.v2.9.version", ftypes.UINT8)
-siac_opra_recipient_obi_v2_9.fields.volume = ProtoField.new("Volume", "siac.opra.recipient.obi.v2.9.volume", ftypes.UINT32)
+siac_opra_recipient_obi_v2_9.fields.volume = ProtoField.new("Volume", "siac.opra.recipient.obi.v2.9.volume", ftypes.BYTES)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
 -- Siac Opra Recipient Obi 2.9 Element Dissection Options
-show.administrative_category = true
 show.administrative_message = true
-show.control_category = true
+show.block_header = true
+show.block_timestamp = true
 show.control_message = true
+show.equity_and_index_end_of_day_summary_message = true
 show.equity_and_index_last_sale_message = true
-show.equity_eod_category = true
-show.equity_eod_message = true
-show.equity_index_last_sale_category = true
-show.long_quote_a_message = true
-show.long_quote_b_message = true
-show.long_quote_c_message = true
-show.long_quote_category = true
-show.long_quote_d_message = true
-show.long_quote_e_message = true
-show.long_quote_f_message = true
-show.long_quote_g_message = true
-show.long_quote_h_message = true
-show.long_quote_i_message = true
-show.long_quote_j_message = true
-show.long_quote_k_message = true
-show.long_quote_l_message = true
-show.long_quote_m_message = true
-show.long_quote_n_message = true
-show.long_quote_o_message = true
-show.long_quote_p_message = true
-show.long_quote_space_message = true
+show.long_equity_and_index_quote_message = true
 show.message = true
-show.message_header = true
-show.open_interest_category = true
 show.open_interest_message = true
 show.packet = true
-show.packet_header = true
-show.short_quote_a_message = true
-show.short_quote_b_message = true
-show.short_quote_c_message = true
-show.short_quote_category = true
-show.short_quote_d_message = true
-show.short_quote_e_message = true
-show.short_quote_f_message = true
-show.short_quote_g_message = true
-show.short_quote_h_message = true
-show.short_quote_i_message = true
-show.short_quote_j_message = true
-show.short_quote_k_message = true
-show.short_quote_l_message = true
-show.short_quote_m_message = true
-show.short_quote_n_message = true
-show.short_quote_o_message = true
-show.short_quote_p_message = true
-show.short_quote_space_message = true
-show.underlying_value_category = true
+show.short_equity_and_index_quote_message = true
 show.underlying_value_message = true
-show.administrative_payload_ = false
-show.category_data = false
-show.control_payload_ = false
-show.equity_eod_payload_ = false
-show.equity_index_last_sale_payload_ = false
-show.long_quote_message_ = false
-show.open_interest_payload_ = false
-show.short_quote_message_ = false
-show.underlying_value_payload_ = false
+show.payload = false
 
 -- Register Siac Opra Recipient Obi 2.9 Show Options
-siac_opra_recipient_obi_v2_9.prefs.show_administrative_category = Pref.bool("Show ADMINISTRATIVE Category", show.administrative_category, "Parse and add ADMINISTRATIVE Category to protocol tree")
 siac_opra_recipient_obi_v2_9.prefs.show_administrative_message = Pref.bool("Show Administrative Message", show.administrative_message, "Parse and add Administrative Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_control_category = Pref.bool("Show CONTROL Category", show.control_category, "Parse and add CONTROL Category to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_block_header = Pref.bool("Show Block Header", show.block_header, "Parse and add Block Header to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_block_timestamp = Pref.bool("Show Block Timestamp", show.block_timestamp, "Parse and add Block Timestamp to protocol tree")
 siac_opra_recipient_obi_v2_9.prefs.show_control_message = Pref.bool("Show Control Message", show.control_message, "Parse and add Control Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_equity_and_index_end_of_day_summary_message = Pref.bool("Show Equity And Index End Of Day Summary Message", show.equity_and_index_end_of_day_summary_message, "Parse and add Equity And Index End Of Day Summary Message to protocol tree")
 siac_opra_recipient_obi_v2_9.prefs.show_equity_and_index_last_sale_message = Pref.bool("Show Equity And Index Last Sale Message", show.equity_and_index_last_sale_message, "Parse and add Equity And Index Last Sale Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_equity_eod_category = Pref.bool("Show Equity EOD Category", show.equity_eod_category, "Parse and add Equity EOD Category to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_equity_eod_message = Pref.bool("Show Equity Eod Message", show.equity_eod_message, "Parse and add Equity Eod Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_equity_index_last_sale_category = Pref.bool("Show Equity Index Last Sale Category", show.equity_index_last_sale_category, "Parse and add Equity Index Last Sale Category to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_long_quote_a_message = Pref.bool("Show Long Quote A Message", show.long_quote_a_message, "Parse and add Long Quote A Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_long_quote_b_message = Pref.bool("Show Long Quote B Message", show.long_quote_b_message, "Parse and add Long Quote B Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_long_quote_c_message = Pref.bool("Show Long Quote C Message", show.long_quote_c_message, "Parse and add Long Quote C Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_long_quote_category = Pref.bool("Show Long Quote Category", show.long_quote_category, "Parse and add Long Quote Category to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_long_quote_d_message = Pref.bool("Show Long Quote D Message", show.long_quote_d_message, "Parse and add Long Quote D Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_long_quote_e_message = Pref.bool("Show Long Quote E Message", show.long_quote_e_message, "Parse and add Long Quote E Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_long_quote_f_message = Pref.bool("Show Long Quote F Message", show.long_quote_f_message, "Parse and add Long Quote F Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_long_quote_g_message = Pref.bool("Show Long Quote G Message", show.long_quote_g_message, "Parse and add Long Quote G Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_long_quote_h_message = Pref.bool("Show Long Quote H Message", show.long_quote_h_message, "Parse and add Long Quote H Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_long_quote_i_message = Pref.bool("Show Long Quote I Message", show.long_quote_i_message, "Parse and add Long Quote I Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_long_quote_j_message = Pref.bool("Show Long Quote J Message", show.long_quote_j_message, "Parse and add Long Quote J Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_long_quote_k_message = Pref.bool("Show Long Quote K Message", show.long_quote_k_message, "Parse and add Long Quote K Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_long_quote_l_message = Pref.bool("Show Long Quote L Message", show.long_quote_l_message, "Parse and add Long Quote L Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_long_quote_m_message = Pref.bool("Show Long Quote M Message", show.long_quote_m_message, "Parse and add Long Quote M Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_long_quote_n_message = Pref.bool("Show Long Quote N Message", show.long_quote_n_message, "Parse and add Long Quote N Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_long_quote_o_message = Pref.bool("Show Long Quote O Message", show.long_quote_o_message, "Parse and add Long Quote O Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_long_quote_p_message = Pref.bool("Show Long Quote P Message", show.long_quote_p_message, "Parse and add Long Quote P Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_long_quote_space_message = Pref.bool("Show Long Quote Space Message", show.long_quote_space_message, "Parse and add Long Quote Space Message to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_long_equity_and_index_quote_message = Pref.bool("Show Long Equity And Index Quote Message", show.long_equity_and_index_quote_message, "Parse and add Long Equity And Index Quote Message to protocol tree")
 siac_opra_recipient_obi_v2_9.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_open_interest_category = Pref.bool("Show Open Interest Category", show.open_interest_category, "Parse and add Open Interest Category to protocol tree")
 siac_opra_recipient_obi_v2_9.prefs.show_open_interest_message = Pref.bool("Show Open Interest Message", show.open_interest_message, "Parse and add Open Interest Message to protocol tree")
 siac_opra_recipient_obi_v2_9.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_short_quote_a_message = Pref.bool("Show Short Quote A Message", show.short_quote_a_message, "Parse and add Short Quote A Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_short_quote_b_message = Pref.bool("Show Short Quote B Message", show.short_quote_b_message, "Parse and add Short Quote B Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_short_quote_c_message = Pref.bool("Show Short Quote C Message", show.short_quote_c_message, "Parse and add Short Quote C Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_short_quote_category = Pref.bool("Show Short Quote Category", show.short_quote_category, "Parse and add Short Quote Category to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_short_quote_d_message = Pref.bool("Show Short Quote D Message", show.short_quote_d_message, "Parse and add Short Quote D Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_short_quote_e_message = Pref.bool("Show Short Quote E Message", show.short_quote_e_message, "Parse and add Short Quote E Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_short_quote_f_message = Pref.bool("Show Short Quote F Message", show.short_quote_f_message, "Parse and add Short Quote F Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_short_quote_g_message = Pref.bool("Show Short Quote G Message", show.short_quote_g_message, "Parse and add Short Quote G Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_short_quote_h_message = Pref.bool("Show Short Quote H Message", show.short_quote_h_message, "Parse and add Short Quote H Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_short_quote_i_message = Pref.bool("Show Short Quote I Message", show.short_quote_i_message, "Parse and add Short Quote I Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_short_quote_j_message = Pref.bool("Show Short Quote J Message", show.short_quote_j_message, "Parse and add Short Quote J Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_short_quote_k_message = Pref.bool("Show Short Quote K Message", show.short_quote_k_message, "Parse and add Short Quote K Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_short_quote_l_message = Pref.bool("Show Short Quote L Message", show.short_quote_l_message, "Parse and add Short Quote L Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_short_quote_m_message = Pref.bool("Show Short Quote M Message", show.short_quote_m_message, "Parse and add Short Quote M Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_short_quote_n_message = Pref.bool("Show Short Quote N Message", show.short_quote_n_message, "Parse and add Short Quote N Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_short_quote_o_message = Pref.bool("Show Short Quote O Message", show.short_quote_o_message, "Parse and add Short Quote O Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_short_quote_p_message = Pref.bool("Show Short Quote P Message", show.short_quote_p_message, "Parse and add Short Quote P Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_short_quote_space_message = Pref.bool("Show Short Quote Space Message", show.short_quote_space_message, "Parse and add Short Quote Space Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_underlying_value_category = Pref.bool("Show UNDERLYING VALUE Category", show.underlying_value_category, "Parse and add UNDERLYING VALUE Category to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_short_equity_and_index_quote_message = Pref.bool("Show Short Equity And Index Quote Message", show.short_equity_and_index_quote_message, "Parse and add Short Equity And Index Quote Message to protocol tree")
 siac_opra_recipient_obi_v2_9.prefs.show_underlying_value_message = Pref.bool("Show Underlying Value Message", show.underlying_value_message, "Parse and add Underlying Value Message to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_administrative_payload_ = Pref.bool("Show Administrative Payload ", show.administrative_payload_, "Parse and add Administrative Payload  to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_category_data = Pref.bool("Show Category Data", show.category_data, "Parse and add Category Data to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_control_payload_ = Pref.bool("Show CONTROL Payload ", show.control_payload_, "Parse and add CONTROL Payload  to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_equity_eod_payload_ = Pref.bool("Show Equity EOD Payload ", show.equity_eod_payload_, "Parse and add Equity EOD Payload  to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_equity_index_last_sale_payload_ = Pref.bool("Show Equity Index Last Sale Payload ", show.equity_index_last_sale_payload_, "Parse and add Equity Index Last Sale Payload  to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_long_quote_message_ = Pref.bool("Show Long Quote Message ", show.long_quote_message_, "Parse and add Long Quote Message  to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_open_interest_payload_ = Pref.bool("Show Open Interest Payload ", show.open_interest_payload_, "Parse and add Open Interest Payload  to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_short_quote_message_ = Pref.bool("Show Short Quote Message ", show.short_quote_message_, "Parse and add Short Quote Message  to protocol tree")
-siac_opra_recipient_obi_v2_9.prefs.show_underlying_value_payload_ = Pref.bool("Show UNDERLYING VALUE Payload ", show.underlying_value_payload_, "Parse and add UNDERLYING VALUE Payload  to protocol tree")
+siac_opra_recipient_obi_v2_9.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function siac_opra_recipient_obi_v2_9.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.administrative_category ~= siac_opra_recipient_obi_v2_9.prefs.show_administrative_category then
-    show.administrative_category = siac_opra_recipient_obi_v2_9.prefs.show_administrative_category
-    changed = true
-  end
   if show.administrative_message ~= siac_opra_recipient_obi_v2_9.prefs.show_administrative_message then
     show.administrative_message = siac_opra_recipient_obi_v2_9.prefs.show_administrative_message
     changed = true
   end
-  if show.control_category ~= siac_opra_recipient_obi_v2_9.prefs.show_control_category then
-    show.control_category = siac_opra_recipient_obi_v2_9.prefs.show_control_category
+  if show.block_header ~= siac_opra_recipient_obi_v2_9.prefs.show_block_header then
+    show.block_header = siac_opra_recipient_obi_v2_9.prefs.show_block_header
+    changed = true
+  end
+  if show.block_timestamp ~= siac_opra_recipient_obi_v2_9.prefs.show_block_timestamp then
+    show.block_timestamp = siac_opra_recipient_obi_v2_9.prefs.show_block_timestamp
     changed = true
   end
   if show.control_message ~= siac_opra_recipient_obi_v2_9.prefs.show_control_message then
     show.control_message = siac_opra_recipient_obi_v2_9.prefs.show_control_message
     changed = true
   end
+  if show.equity_and_index_end_of_day_summary_message ~= siac_opra_recipient_obi_v2_9.prefs.show_equity_and_index_end_of_day_summary_message then
+    show.equity_and_index_end_of_day_summary_message = siac_opra_recipient_obi_v2_9.prefs.show_equity_and_index_end_of_day_summary_message
+    changed = true
+  end
   if show.equity_and_index_last_sale_message ~= siac_opra_recipient_obi_v2_9.prefs.show_equity_and_index_last_sale_message then
     show.equity_and_index_last_sale_message = siac_opra_recipient_obi_v2_9.prefs.show_equity_and_index_last_sale_message
     changed = true
   end
-  if show.equity_eod_category ~= siac_opra_recipient_obi_v2_9.prefs.show_equity_eod_category then
-    show.equity_eod_category = siac_opra_recipient_obi_v2_9.prefs.show_equity_eod_category
-    changed = true
-  end
-  if show.equity_eod_message ~= siac_opra_recipient_obi_v2_9.prefs.show_equity_eod_message then
-    show.equity_eod_message = siac_opra_recipient_obi_v2_9.prefs.show_equity_eod_message
-    changed = true
-  end
-  if show.equity_index_last_sale_category ~= siac_opra_recipient_obi_v2_9.prefs.show_equity_index_last_sale_category then
-    show.equity_index_last_sale_category = siac_opra_recipient_obi_v2_9.prefs.show_equity_index_last_sale_category
-    changed = true
-  end
-  if show.long_quote_a_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_a_message then
-    show.long_quote_a_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_a_message
-    changed = true
-  end
-  if show.long_quote_b_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_b_message then
-    show.long_quote_b_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_b_message
-    changed = true
-  end
-  if show.long_quote_c_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_c_message then
-    show.long_quote_c_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_c_message
-    changed = true
-  end
-  if show.long_quote_category ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_category then
-    show.long_quote_category = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_category
-    changed = true
-  end
-  if show.long_quote_d_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_d_message then
-    show.long_quote_d_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_d_message
-    changed = true
-  end
-  if show.long_quote_e_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_e_message then
-    show.long_quote_e_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_e_message
-    changed = true
-  end
-  if show.long_quote_f_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_f_message then
-    show.long_quote_f_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_f_message
-    changed = true
-  end
-  if show.long_quote_g_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_g_message then
-    show.long_quote_g_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_g_message
-    changed = true
-  end
-  if show.long_quote_h_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_h_message then
-    show.long_quote_h_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_h_message
-    changed = true
-  end
-  if show.long_quote_i_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_i_message then
-    show.long_quote_i_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_i_message
-    changed = true
-  end
-  if show.long_quote_j_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_j_message then
-    show.long_quote_j_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_j_message
-    changed = true
-  end
-  if show.long_quote_k_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_k_message then
-    show.long_quote_k_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_k_message
-    changed = true
-  end
-  if show.long_quote_l_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_l_message then
-    show.long_quote_l_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_l_message
-    changed = true
-  end
-  if show.long_quote_m_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_m_message then
-    show.long_quote_m_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_m_message
-    changed = true
-  end
-  if show.long_quote_n_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_n_message then
-    show.long_quote_n_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_n_message
-    changed = true
-  end
-  if show.long_quote_o_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_o_message then
-    show.long_quote_o_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_o_message
-    changed = true
-  end
-  if show.long_quote_p_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_p_message then
-    show.long_quote_p_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_p_message
-    changed = true
-  end
-  if show.long_quote_space_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_space_message then
-    show.long_quote_space_message = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_space_message
+  if show.long_equity_and_index_quote_message ~= siac_opra_recipient_obi_v2_9.prefs.show_long_equity_and_index_quote_message then
+    show.long_equity_and_index_quote_message = siac_opra_recipient_obi_v2_9.prefs.show_long_equity_and_index_quote_message
     changed = true
   end
   if show.message ~= siac_opra_recipient_obi_v2_9.prefs.show_message then
     show.message = siac_opra_recipient_obi_v2_9.prefs.show_message
-    changed = true
-  end
-  if show.message_header ~= siac_opra_recipient_obi_v2_9.prefs.show_message_header then
-    show.message_header = siac_opra_recipient_obi_v2_9.prefs.show_message_header
-    changed = true
-  end
-  if show.open_interest_category ~= siac_opra_recipient_obi_v2_9.prefs.show_open_interest_category then
-    show.open_interest_category = siac_opra_recipient_obi_v2_9.prefs.show_open_interest_category
     changed = true
   end
   if show.open_interest_message ~= siac_opra_recipient_obi_v2_9.prefs.show_open_interest_message then
@@ -396,124 +162,16 @@ function siac_opra_recipient_obi_v2_9.prefs_changed()
     show.packet = siac_opra_recipient_obi_v2_9.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= siac_opra_recipient_obi_v2_9.prefs.show_packet_header then
-    show.packet_header = siac_opra_recipient_obi_v2_9.prefs.show_packet_header
-    changed = true
-  end
-  if show.short_quote_a_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_a_message then
-    show.short_quote_a_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_a_message
-    changed = true
-  end
-  if show.short_quote_b_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_b_message then
-    show.short_quote_b_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_b_message
-    changed = true
-  end
-  if show.short_quote_c_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_c_message then
-    show.short_quote_c_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_c_message
-    changed = true
-  end
-  if show.short_quote_category ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_category then
-    show.short_quote_category = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_category
-    changed = true
-  end
-  if show.short_quote_d_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_d_message then
-    show.short_quote_d_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_d_message
-    changed = true
-  end
-  if show.short_quote_e_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_e_message then
-    show.short_quote_e_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_e_message
-    changed = true
-  end
-  if show.short_quote_f_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_f_message then
-    show.short_quote_f_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_f_message
-    changed = true
-  end
-  if show.short_quote_g_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_g_message then
-    show.short_quote_g_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_g_message
-    changed = true
-  end
-  if show.short_quote_h_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_h_message then
-    show.short_quote_h_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_h_message
-    changed = true
-  end
-  if show.short_quote_i_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_i_message then
-    show.short_quote_i_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_i_message
-    changed = true
-  end
-  if show.short_quote_j_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_j_message then
-    show.short_quote_j_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_j_message
-    changed = true
-  end
-  if show.short_quote_k_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_k_message then
-    show.short_quote_k_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_k_message
-    changed = true
-  end
-  if show.short_quote_l_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_l_message then
-    show.short_quote_l_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_l_message
-    changed = true
-  end
-  if show.short_quote_m_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_m_message then
-    show.short_quote_m_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_m_message
-    changed = true
-  end
-  if show.short_quote_n_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_n_message then
-    show.short_quote_n_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_n_message
-    changed = true
-  end
-  if show.short_quote_o_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_o_message then
-    show.short_quote_o_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_o_message
-    changed = true
-  end
-  if show.short_quote_p_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_p_message then
-    show.short_quote_p_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_p_message
-    changed = true
-  end
-  if show.short_quote_space_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_space_message then
-    show.short_quote_space_message = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_space_message
-    changed = true
-  end
-  if show.underlying_value_category ~= siac_opra_recipient_obi_v2_9.prefs.show_underlying_value_category then
-    show.underlying_value_category = siac_opra_recipient_obi_v2_9.prefs.show_underlying_value_category
+  if show.short_equity_and_index_quote_message ~= siac_opra_recipient_obi_v2_9.prefs.show_short_equity_and_index_quote_message then
+    show.short_equity_and_index_quote_message = siac_opra_recipient_obi_v2_9.prefs.show_short_equity_and_index_quote_message
     changed = true
   end
   if show.underlying_value_message ~= siac_opra_recipient_obi_v2_9.prefs.show_underlying_value_message then
     show.underlying_value_message = siac_opra_recipient_obi_v2_9.prefs.show_underlying_value_message
     changed = true
   end
-  if show.administrative_payload_ ~= siac_opra_recipient_obi_v2_9.prefs.show_administrative_payload_ then
-    show.administrative_payload_ = siac_opra_recipient_obi_v2_9.prefs.show_administrative_payload_
-    changed = true
-  end
-  if show.category_data ~= siac_opra_recipient_obi_v2_9.prefs.show_category_data then
-    show.category_data = siac_opra_recipient_obi_v2_9.prefs.show_category_data
-    changed = true
-  end
-  if show.control_payload_ ~= siac_opra_recipient_obi_v2_9.prefs.show_control_payload_ then
-    show.control_payload_ = siac_opra_recipient_obi_v2_9.prefs.show_control_payload_
-    changed = true
-  end
-  if show.equity_eod_payload_ ~= siac_opra_recipient_obi_v2_9.prefs.show_equity_eod_payload_ then
-    show.equity_eod_payload_ = siac_opra_recipient_obi_v2_9.prefs.show_equity_eod_payload_
-    changed = true
-  end
-  if show.equity_index_last_sale_payload_ ~= siac_opra_recipient_obi_v2_9.prefs.show_equity_index_last_sale_payload_ then
-    show.equity_index_last_sale_payload_ = siac_opra_recipient_obi_v2_9.prefs.show_equity_index_last_sale_payload_
-    changed = true
-  end
-  if show.long_quote_message_ ~= siac_opra_recipient_obi_v2_9.prefs.show_long_quote_message_ then
-    show.long_quote_message_ = siac_opra_recipient_obi_v2_9.prefs.show_long_quote_message_
-    changed = true
-  end
-  if show.open_interest_payload_ ~= siac_opra_recipient_obi_v2_9.prefs.show_open_interest_payload_ then
-    show.open_interest_payload_ = siac_opra_recipient_obi_v2_9.prefs.show_open_interest_payload_
-    changed = true
-  end
-  if show.short_quote_message_ ~= siac_opra_recipient_obi_v2_9.prefs.show_short_quote_message_ then
-    show.short_quote_message_ = siac_opra_recipient_obi_v2_9.prefs.show_short_quote_message_
-    changed = true
-  end
-  if show.underlying_value_payload_ ~= siac_opra_recipient_obi_v2_9.prefs.show_underlying_value_payload_ then
-    show.underlying_value_payload_ = siac_opra_recipient_obi_v2_9.prefs.show_underlying_value_payload_
+  if show.payload ~= siac_opra_recipient_obi_v2_9.prefs.show_payload then
+    show.payload = siac_opra_recipient_obi_v2_9.prefs.show_payload
     changed = true
   end
 
@@ -549,7 +207,7 @@ dissect.reserved_4 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Index Value
-size_of.index_value = 4
+size_of.index_value = 10
 
 -- Display: Index Value
 display.index_value = function(value)
@@ -560,7 +218,7 @@ end
 dissect.index_value = function(buffer, offset, packet, parent)
   local length = size_of.index_value
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:bytes():tohex(false, " ")
   local display = display.index_value(value, buffer, offset, packet, parent)
 
   parent:add(siac_opra_recipient_obi_v2_9.fields.index_value, range, value, display)
@@ -609,7 +267,7 @@ dissect.reserved_1 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Security Symbol 5
-size_of.security_symbol_5 = 5
+size_of.security_symbol_5 = 10
 
 -- Display: Security Symbol 5
 display.security_symbol_5 = function(value)
@@ -628,6 +286,66 @@ dissect.security_symbol_5 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Transaction Id
+size_of.transaction_id = 8
+
+-- Display: Transaction Id
+display.transaction_id = function(value)
+  return "Transaction Id: "..value
+end
+
+-- Dissect: Transaction Id
+dissect.transaction_id = function(buffer, offset, packet, parent)
+  local length = size_of.transaction_id
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = display.transaction_id(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v2_9.fields.transaction_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Message Indicator
+size_of.message_indicator = 1
+
+-- Display: Message Indicator
+display.message_indicator = function(value)
+  return "Message Indicator: "..value
+end
+
+-- Dissect: Message Indicator
+dissect.message_indicator = function(buffer, offset, packet, parent)
+  local length = size_of.message_indicator
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.message_indicator(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v2_9.fields.message_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Message Type
+size_of.message_type = 1
+
+-- Display: Message Type
+display.message_type = function(value)
+  return "Message Type: "..value
+end
+
+-- Dissect: Message Type
+dissect.message_type = function(buffer, offset, packet, parent)
+  local length = size_of.message_type
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.message_type(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v2_9.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Display: Underlying Value Message
 display.underlying_value_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -637,7 +355,16 @@ end
 dissect.underlying_value_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Symbol 5: 5 Byte Ascii String
+  -- Message Type: 1 Byte Ascii String
+  index, message_type = dissect.message_type(buffer, index, packet, parent)
+
+  -- Message Indicator: 1 Byte Ascii String
+  index, message_indicator = dissect.message_indicator(buffer, index, packet, parent)
+
+  -- Transaction Id: 8 Byte Unsigned Fixed Width Integer
+  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+
+  -- Security Symbol 5: 10 Byte Ascii String
   index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
@@ -646,7 +373,7 @@ dissect.underlying_value_message_fields = function(buffer, offset, packet, paren
   -- Index Value Denominator Code: 1 Byte Ascii String
   index, index_value_denominator_code = dissect.index_value_denominator_code(buffer, index, packet, parent)
 
-  -- Index Value: 4 Byte Signed Fixed Width Integer
+  -- Index Value: 10 Byte Signed Fixed Width Integer
   index, index_value = dissect.index_value(buffer, index, packet, parent)
 
   -- Reserved 4: 4 Byte
@@ -659,7 +386,7 @@ end
 dissect.underlying_value_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.underlying_value_message then
-    local range = buffer(offset, 15)
+    local range = buffer(offset, 36)
     local display = display.underlying_value_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v2_9.fields.underlying_value_message, range, display)
   end
@@ -667,136 +394,24 @@ dissect.underlying_value_message = function(buffer, offset, packet, parent)
   return dissect.underlying_value_message_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size of: UNDERLYING VALUE Payload
-size_of.underlying_value_payload_ = function(buffer, offset, underlying_value_message_indicator_)
-  -- Size of Underlying Value Message
-  if underlying_value_message_indicator_ == " " then
-    return 15
-  end
-
-  return 0
-end
-
--- Display: UNDERLYING VALUE Payload
-display.underlying_value_payload_ = function(buffer, offset, packet, parent)
-  return ""
-end
-
--- Dissect Branches: UNDERLYING VALUE Payload
-dissect.underlying_value_payload__branches = function(buffer, offset, packet, parent, underlying_value_message_indicator_)
-  -- Dissect Underlying Value Message
-  if underlying_value_message_indicator_ == " " then
-    return dissect.underlying_value_message(buffer, offset, packet, parent)
-  end
-
-  return offset
-end
-
--- Dissect: UNDERLYING VALUE Payload
-dissect.underlying_value_payload_ = function(buffer, offset, packet, parent, underlying_value_message_indicator_)
-  if not show.underlying_value_payload_ then
-    return dissect.underlying_value_payload__branches(buffer, offset, packet, parent, underlying_value_message_indicator_)
-  end
-
-  -- Calculate size and check that branch is not empty
-  local size = size_of.underlying_value_payload_(buffer, offset, underlying_value_message_indicator_)
-  if size == 0 then
-    return offset
-  end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = display.underlying_value_payload_(buffer, packet, parent)
-  local element = parent:add(siac_opra_recipient_obi_v2_9.fields.underlying_value_payload_, range, display)
-
-  return dissect.underlying_value_payload__branches(buffer, offset, packet, parent, underlying_value_message_indicator_)
-end
-
--- Size: Transaction ID
-size_of.transaction_id_ = 8
-
--- Display: Transaction ID
-display.transaction_id_ = function(value)
-  return "Transaction ID : "..value
-end
-
--- Dissect: Transaction ID
-dissect.transaction_id_ = function(buffer, offset, packet, parent)
-  local length = size_of.transaction_id_
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = display.transaction_id_(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v2_9.fields.transaction_id_, range, value, display)
-
-  return offset + length, value
-end
-
--- Calculate runtime size: UNDERLYING VALUE Category
-size_of.underlying_value_category = function(buffer, offset)
-  local index = 0
-
-  index = index + 8
-
-  -- Calculate runtime size of UNDERLYING VALUE Payload  field
-  local underlying_value_payload__offset = offset + index
-  local underlying_value_payload__type = buffer(underlying_value_payload__offset - 8, 0):bytes():tohex(false, " ")
-  index = index + size_of.underlying_value_payload_(buffer, underlying_value_payload__offset, underlying_value_payload__type)
-
-  return index
-end
-
--- Display: UNDERLYING VALUE Category
-display.underlying_value_category = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: UNDERLYING VALUE Category
-dissect.underlying_value_category_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- UNDERLYING VALUE Message Type
-  index, underlying_value_message_type = dissect.underlying_value_message_type(buffer, index, packet, parent)
-
-  -- UNDERLYING VALUE Message Indicator
-  index, underlying_value_message_indicator_ = dissect.underlying_value_message_indicator_(buffer, index, packet, parent)
-
-  -- Transaction ID : 8 Byte Unsigned Fixed Width Integer
-  index, transaction_id_ = dissect.transaction_id_(buffer, index, packet, parent)
-
-  -- UNDERLYING VALUE Payload : Runtime Type with 1 branches
-  index = dissect.underlying_value_payload_(buffer, index, packet, parent, underlying_value_message_indicator_)
-
-  return index
-end
-
--- Dissect: UNDERLYING VALUE Category
-dissect.underlying_value_category = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
-  if show.underlying_value_category then
-    local length = size_of.underlying_value_category(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.underlying_value_category(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.underlying_value_category, range, display)
-  end
-
-  return dissect.underlying_value_category_fields(buffer, offset, packet, parent)
-end
+-- Size: Message Data
+size_of.message_data = 10
 
 -- Display: Message Data
 display.message_data = function(value)
   return "Message Data: "..value
 end
 
--- Dissect runtime sized field: Message Data
-dissect.message_data = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
+-- Dissect: Message Data
+dissect.message_data = function(buffer, offset, packet, parent)
+  local length = size_of.message_data
+  local range = buffer(offset, length)
   local value = range:string()
-  local display = display.message_data(value, buffer, offset, packet, parent, size)
+  local display = display.message_data(value, buffer, offset, packet, parent)
 
   parent:add(siac_opra_recipient_obi_v2_9.fields.message_data, range, value, display)
 
-  return offset + size
+  return offset + length, value
 end
 
 -- Size: Message Data Length
@@ -819,18 +434,6 @@ dissect.message_data_length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Control Message
-size_of.control_message = function(buffer, offset)
-  local index = 0
-
-  index = index + 2
-
-  -- Parse runtime size of: Message Data
-  index = index + buffer(offset + index - 2, 2):le_uint()
-
-  return index
-end
-
 -- Display: Control Message
 display.control_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -840,134 +443,34 @@ end
 dissect.control_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
+  -- Message Type: 1 Byte Ascii String
+  index, message_type = dissect.message_type(buffer, index, packet, parent)
+
+  -- Message Indicator: 1 Byte Ascii String
+  index, message_indicator = dissect.message_indicator(buffer, index, packet, parent)
+
+  -- Transaction Id: 8 Byte Unsigned Fixed Width Integer
+  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+
   -- Message Data Length: 2 Byte Unsigned Fixed Width Integer
   index, message_data_length = dissect.message_data_length(buffer, index, packet, parent)
 
-  -- Message Data: 4 Byte Ascii String
-  index = dissect.message_data(buffer, index, packet, parent, message_data_length)
+  -- Message Data: 10 Byte Ascii String
+  index, message_data = dissect.message_data(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Control Message
 dissect.control_message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  -- Optionally add struct element to protocol tree
   if show.control_message then
-    local length = size_of.control_message(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, 22)
     local display = display.control_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v2_9.fields.control_message, range, display)
   end
 
   return dissect.control_message_fields(buffer, offset, packet, parent)
-end
-
--- Calculate runtime size of: CONTROL Payload
-size_of.control_payload_ = function(buffer, offset, control_message_indicator_)
-  -- Size of Control Message
-  if control_message_indicator_ == " " then
-    return size_of.control_message(buffer, offset)
-  end
-
-  return 0
-end
-
--- Display: CONTROL Payload
-display.control_payload_ = function(buffer, offset, packet, parent)
-  return ""
-end
-
--- Dissect Branches: CONTROL Payload
-dissect.control_payload__branches = function(buffer, offset, packet, parent, control_message_indicator_)
-  -- Dissect Control Message
-  if control_message_indicator_ == " " then
-    return dissect.control_message(buffer, offset, packet, parent)
-  end
-
-  return offset
-end
-
--- Dissect: CONTROL Payload
-dissect.control_payload_ = function(buffer, offset, packet, parent, control_message_indicator_)
-  if not show.control_payload_ then
-    return dissect.control_payload__branches(buffer, offset, packet, parent, control_message_indicator_)
-  end
-
-  -- Calculate size and check that branch is not empty
-  local size = size_of.control_payload_(buffer, offset, control_message_indicator_)
-  if size == 0 then
-    return offset
-  end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = display.control_payload_(buffer, packet, parent)
-  local element = parent:add(siac_opra_recipient_obi_v2_9.fields.control_payload_, range, display)
-
-  return dissect.control_payload__branches(buffer, offset, packet, parent, control_message_indicator_)
-end
-
--- Calculate runtime size: CONTROL Category
-size_of.control_category = function(buffer, offset)
-  local index = 0
-
-  index = index + 8
-
-  -- Calculate runtime size of CONTROL Payload  field
-  local control_payload__offset = offset + index
-  local control_payload__type = buffer(control_payload__offset - 8, 0):bytes():tohex(false, " ")
-  index = index + size_of.control_payload_(buffer, control_payload__offset, control_payload__type)
-
-  return index
-end
-
--- Display: CONTROL Category
-display.control_category = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: CONTROL Category
-dissect.control_category_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- CONTROL Message Type
-  index, control_message_type = dissect.control_message_type(buffer, index, packet, parent)
-
-  -- CONTROL Message Indicator
-  index, control_message_indicator_ = dissect.control_message_indicator_(buffer, index, packet, parent)
-
-  -- Transaction ID : 8 Byte Unsigned Fixed Width Integer
-  index, transaction_id_ = dissect.transaction_id_(buffer, index, packet, parent)
-
-  -- CONTROL Payload : Runtime Type with 1 branches
-  index = dissect.control_payload_(buffer, index, packet, parent, control_message_indicator_)
-
-  return index
-end
-
--- Dissect: CONTROL Category
-dissect.control_category = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
-  if show.control_category then
-    local length = size_of.control_category(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.control_category(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.control_category, range, display)
-  end
-
-  return dissect.control_category_fields(buffer, offset, packet, parent)
-end
-
--- Calculate runtime size: Administrative Message
-size_of.administrative_message = function(buffer, offset)
-  local index = 0
-
-  index = index + 2
-
-  -- Parse runtime size of: Message Data
-  index = index + buffer(offset + index - 2, 2):le_uint()
-
-  return index
 end
 
 -- Display: Administrative Message
@@ -979,21 +482,29 @@ end
 dissect.administrative_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
+  -- Message Type: 1 Byte Ascii String
+  index, message_type = dissect.message_type(buffer, index, packet, parent)
+
+  -- Message Indicator: 1 Byte Ascii String
+  index, message_indicator = dissect.message_indicator(buffer, index, packet, parent)
+
+  -- Transaction Id: 8 Byte Unsigned Fixed Width Integer
+  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+
   -- Message Data Length: 2 Byte Unsigned Fixed Width Integer
   index, message_data_length = dissect.message_data_length(buffer, index, packet, parent)
 
-  -- Message Data: 4 Byte Ascii String
-  index = dissect.message_data(buffer, index, packet, parent, message_data_length)
+  -- Message Data: 10 Byte Ascii String
+  index, message_data = dissect.message_data(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Administrative Message
 dissect.administrative_message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  -- Optionally add struct element to protocol tree
   if show.administrative_message then
-    local length = size_of.administrative_message(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, 22)
     local display = display.administrative_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v2_9.fields.administrative_message, range, display)
   end
@@ -1001,104 +512,8 @@ dissect.administrative_message = function(buffer, offset, packet, parent)
   return dissect.administrative_message_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size of: Administrative Payload
-size_of.administrative_payload_ = function(buffer, offset, administrative_message_indicator_)
-  -- Size of Administrative Message
-  if administrative_message_indicator_ == " " then
-    return size_of.administrative_message(buffer, offset)
-  end
-
-  return 0
-end
-
--- Display: Administrative Payload
-display.administrative_payload_ = function(buffer, offset, packet, parent)
-  return ""
-end
-
--- Dissect Branches: Administrative Payload
-dissect.administrative_payload__branches = function(buffer, offset, packet, parent, administrative_message_indicator_)
-  -- Dissect Administrative Message
-  if administrative_message_indicator_ == " " then
-    return dissect.administrative_message(buffer, offset, packet, parent)
-  end
-
-  return offset
-end
-
--- Dissect: Administrative Payload
-dissect.administrative_payload_ = function(buffer, offset, packet, parent, administrative_message_indicator_)
-  if not show.administrative_payload_ then
-    return dissect.administrative_payload__branches(buffer, offset, packet, parent, administrative_message_indicator_)
-  end
-
-  -- Calculate size and check that branch is not empty
-  local size = size_of.administrative_payload_(buffer, offset, administrative_message_indicator_)
-  if size == 0 then
-    return offset
-  end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = display.administrative_payload_(buffer, packet, parent)
-  local element = parent:add(siac_opra_recipient_obi_v2_9.fields.administrative_payload_, range, display)
-
-  return dissect.administrative_payload__branches(buffer, offset, packet, parent, administrative_message_indicator_)
-end
-
--- Calculate runtime size: ADMINISTRATIVE Category
-size_of.administrative_category = function(buffer, offset)
-  local index = 0
-
-  index = index + 8
-
-  -- Calculate runtime size of Administrative Payload  field
-  local administrative_payload__offset = offset + index
-  local administrative_payload__type = buffer(administrative_payload__offset - 8, 0):bytes():tohex(false, " ")
-  index = index + size_of.administrative_payload_(buffer, administrative_payload__offset, administrative_payload__type)
-
-  return index
-end
-
--- Display: ADMINISTRATIVE Category
-display.administrative_category = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: ADMINISTRATIVE Category
-dissect.administrative_category_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Administrative Message Type
-  index, administrative_message_type = dissect.administrative_message_type(buffer, index, packet, parent)
-
-  -- Administrative Message Indicator
-  index, administrative_message_indicator_ = dissect.administrative_message_indicator_(buffer, index, packet, parent)
-
-  -- Transaction ID : 8 Byte Unsigned Fixed Width Integer
-  index, transaction_id_ = dissect.transaction_id_(buffer, index, packet, parent)
-
-  -- Administrative Payload : Runtime Type with 1 branches
-  index = dissect.administrative_payload_(buffer, index, packet, parent, administrative_message_indicator_)
-
-  return index
-end
-
--- Dissect: ADMINISTRATIVE Category
-dissect.administrative_category = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
-  if show.administrative_category then
-    local length = size_of.administrative_category(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.administrative_category(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.administrative_category, range, display)
-  end
-
-  return dissect.administrative_category_fields(buffer, offset, packet, parent)
-end
-
 -- Size: Offer Size 2
-size_of.offer_size_2 = 2
+size_of.offer_size_2 = 10
 
 -- Display: Offer Size 2
 display.offer_size_2 = function(value)
@@ -1109,7 +524,7 @@ end
 dissect.offer_size_2 = function(buffer, offset, packet, parent)
   local length = size_of.offer_size_2
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = display.offer_size_2(value, buffer, offset, packet, parent)
 
   parent:add(siac_opra_recipient_obi_v2_9.fields.offer_size_2, range, value, display)
@@ -1118,7 +533,7 @@ dissect.offer_size_2 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Offer Price 2
-size_of.offer_price_2 = 2
+size_of.offer_price_2 = 10
 
 -- Display: Offer Price 2
 display.offer_price_2 = function(value)
@@ -1129,7 +544,7 @@ end
 dissect.offer_price_2 = function(buffer, offset, packet, parent)
   local length = size_of.offer_price_2
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:bytes():tohex(false, " ")
   local display = display.offer_price_2(value, buffer, offset, packet, parent)
 
   parent:add(siac_opra_recipient_obi_v2_9.fields.offer_price_2, range, value, display)
@@ -1138,7 +553,7 @@ dissect.offer_price_2 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Bid Size 2
-size_of.bid_size_2 = 2
+size_of.bid_size_2 = 10
 
 -- Display: Bid Size 2
 display.bid_size_2 = function(value)
@@ -1149,7 +564,7 @@ end
 dissect.bid_size_2 = function(buffer, offset, packet, parent)
   local length = size_of.bid_size_2
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = display.bid_size_2(value, buffer, offset, packet, parent)
 
   parent:add(siac_opra_recipient_obi_v2_9.fields.bid_size_2, range, value, display)
@@ -1158,7 +573,7 @@ dissect.bid_size_2 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Bid Price 2
-size_of.bid_price_2 = 2
+size_of.bid_price_2 = 10
 
 -- Display: Bid Price 2
 display.bid_price_2 = function(value)
@@ -1169,7 +584,7 @@ end
 dissect.bid_price_2 = function(buffer, offset, packet, parent)
   local length = size_of.bid_price_2
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:bytes():tohex(false, " ")
   local display = display.bid_price_2(value, buffer, offset, packet, parent)
 
   parent:add(siac_opra_recipient_obi_v2_9.fields.bid_price_2, range, value, display)
@@ -1178,7 +593,7 @@ dissect.bid_price_2 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Strike Price 2
-size_of.strike_price_2 = 2
+size_of.strike_price_2 = 10
 
 -- Display: Strike Price 2
 display.strike_price_2 = function(value)
@@ -1189,7 +604,7 @@ end
 dissect.strike_price_2 = function(buffer, offset, packet, parent)
   local length = size_of.strike_price_2
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = display.strike_price_2(value, buffer, offset, packet, parent)
 
   parent:add(siac_opra_recipient_obi_v2_9.fields.strike_price_2, range, value, display)
@@ -1331,7 +746,7 @@ dissect.expiration_month = function(buffer, offset, packet, parent)
 end
 
 -- Size: Security Symbol 4
-size_of.security_symbol_4 = 4
+size_of.security_symbol_4 = 10
 
 -- Display: Security Symbol 4
 display.security_symbol_4 = function(value)
@@ -1350,16 +765,25 @@ dissect.security_symbol_4 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Display: Short Quote Space Message
-display.short_quote_space_message = function(buffer, offset, size, packet, parent)
+-- Display: Short Equity And Index Quote Message
+display.short_equity_and_index_quote_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Short Quote Space Message
-dissect.short_quote_space_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Short Equity And Index Quote Message
+dissect.short_equity_and_index_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Symbol 4: 4 Byte Ascii String
+  -- Message Type: 1 Byte Ascii String
+  index, message_type = dissect.message_type(buffer, index, packet, parent)
+
+  -- Message Indicator: 1 Byte Ascii String
+  index, message_indicator = dissect.message_indicator(buffer, index, packet, parent)
+
+  -- Transaction Id: 8 Byte Unsigned Fixed Width Integer
+  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+
+  -- Security Symbol 4: 10 Byte Ascii String
   index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
@@ -1371,207 +795,199 @@ dissect.short_quote_space_message_fields = function(buffer, offset, packet, pare
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
   index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
-  -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
+  -- Strike Price 2: 10 Byte Unsigned Fixed Width Integer
   index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
 
-  -- Bid Price 2: 2 Byte Signed Fixed Width Integer
+  -- Bid Price 2: 10 Byte Signed Fixed Width Integer
   index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
 
-  -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Size 2: 10 Byte Unsigned Fixed Width Integer
   index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
 
-  -- Offer Price 2: 2 Byte Signed Fixed Width Integer
+  -- Offer Price 2: 10 Byte Signed Fixed Width Integer
   index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
 
-  -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
+  -- Offer Size 2: 10 Byte Unsigned Fixed Width Integer
   index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Short Quote Space Message
-dissect.short_quote_space_message = function(buffer, offset, packet, parent)
+-- Dissect: Short Equity And Index Quote Message
+dissect.short_equity_and_index_quote_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.short_quote_space_message then
-    local range = buffer(offset, 17)
-    local display = display.short_quote_space_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_space_message, range, display)
+  if show.short_equity_and_index_quote_message then
+    local range = buffer(offset, 73)
+    local display = display.short_equity_and_index_quote_message(buffer, packet, parent)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_equity_and_index_quote_message, range, display)
   end
 
-  return dissect.short_quote_space_message_fields(buffer, offset, packet, parent)
+  return dissect.short_equity_and_index_quote_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Best Offer Size
-size_of.best_offer_size = 4
+-- Size: Offer Size 4
+size_of.offer_size_4 = 10
 
--- Display: Best Offer Size
-display.best_offer_size = function(value)
-  return "Best Offer Size: "..value
+-- Display: Offer Size 4
+display.offer_size_4 = function(value)
+  return "Offer Size 4: "..value
 end
 
--- Dissect: Best Offer Size
-dissect.best_offer_size = function(buffer, offset, packet, parent)
-  local length = size_of.best_offer_size
+-- Dissect: Offer Size 4
+dissect.offer_size_4 = function(buffer, offset, packet, parent)
+  local length = size_of.offer_size_4
   local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = display.best_offer_size(value, buffer, offset, packet, parent)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.offer_size_4(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v2_9.fields.best_offer_size, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.offer_size_4, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Best Offer Price
-size_of.best_offer_price = 4
+-- Size: Offer Price 4
+size_of.offer_price_4 = 10
 
--- Display: Best Offer Price
-display.best_offer_price = function(value)
-  return "Best Offer Price: "..value
+-- Display: Offer Price 4
+display.offer_price_4 = function(value)
+  return "Offer Price 4: "..value
 end
 
--- Dissect: Best Offer Price
-dissect.best_offer_price = function(buffer, offset, packet, parent)
-  local length = size_of.best_offer_price
+-- Dissect: Offer Price 4
+dissect.offer_price_4 = function(buffer, offset, packet, parent)
+  local length = size_of.offer_price_4
   local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.best_offer_price(value, buffer, offset, packet, parent)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.offer_price_4(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v2_9.fields.best_offer_price, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.offer_price_4, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Best Offer Denominator Code
-size_of.best_offer_denominator_code = 1
+-- Size: Bid Size 4
+size_of.bid_size_4 = 10
 
--- Display: Best Offer Denominator Code
-display.best_offer_denominator_code = function(value)
-  return "Best Offer Denominator Code: "..value
+-- Display: Bid Size 4
+display.bid_size_4 = function(value)
+  return "Bid Size 4: "..value
 end
 
--- Dissect: Best Offer Denominator Code
-dissect.best_offer_denominator_code = function(buffer, offset, packet, parent)
-  local length = size_of.best_offer_denominator_code
+-- Dissect: Bid Size 4
+dissect.bid_size_4 = function(buffer, offset, packet, parent)
+  local length = size_of.bid_size_4
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.best_offer_denominator_code(value, buffer, offset, packet, parent)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.bid_size_4(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v2_9.fields.best_offer_denominator_code, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.bid_size_4, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Best Offer Participant Id
-size_of.best_offer_participant_id = 1
+-- Size: Bid Price 4
+size_of.bid_price_4 = 10
 
--- Display: Best Offer Participant Id
-display.best_offer_participant_id = function(value)
-  return "Best Offer Participant Id: "..value
+-- Display: Bid Price 4
+display.bid_price_4 = function(value)
+  return "Bid Price 4: "..value
 end
 
--- Dissect: Best Offer Participant Id
-dissect.best_offer_participant_id = function(buffer, offset, packet, parent)
-  local length = size_of.best_offer_participant_id
+-- Dissect: Bid Price 4
+dissect.bid_price_4 = function(buffer, offset, packet, parent)
+  local length = size_of.bid_price_4
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.best_offer_participant_id(value, buffer, offset, packet, parent)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.bid_price_4(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v2_9.fields.best_offer_participant_id, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.bid_price_4, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Best Bid Size
-size_of.best_bid_size = 4
+-- Size: Premium Price Denominator Code
+size_of.premium_price_denominator_code = 1
 
--- Display: Best Bid Size
-display.best_bid_size = function(value)
-  return "Best Bid Size: "..value
+-- Display: Premium Price Denominator Code
+display.premium_price_denominator_code = function(value)
+  return "Premium Price Denominator Code: "..value
 end
 
--- Dissect: Best Bid Size
-dissect.best_bid_size = function(buffer, offset, packet, parent)
-  local length = size_of.best_bid_size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = display.best_bid_size(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v2_9.fields.best_bid_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Best Bid Price
-size_of.best_bid_price = 4
-
--- Display: Best Bid Price
-display.best_bid_price = function(value)
-  return "Best Bid Price: "..value
-end
-
--- Dissect: Best Bid Price
-dissect.best_bid_price = function(buffer, offset, packet, parent)
-  local length = size_of.best_bid_price
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.best_bid_price(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v2_9.fields.best_bid_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Best Bid Denominator Code
-size_of.best_bid_denominator_code = 1
-
--- Display: Best Bid Denominator Code
-display.best_bid_denominator_code = function(value)
-  return "Best Bid Denominator Code: "..value
-end
-
--- Dissect: Best Bid Denominator Code
-dissect.best_bid_denominator_code = function(buffer, offset, packet, parent)
-  local length = size_of.best_bid_denominator_code
+-- Dissect: Premium Price Denominator Code
+dissect.premium_price_denominator_code = function(buffer, offset, packet, parent)
+  local length = size_of.premium_price_denominator_code
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.best_bid_denominator_code(value, buffer, offset, packet, parent)
+  local display = display.premium_price_denominator_code(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v2_9.fields.best_bid_denominator_code, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.premium_price_denominator_code, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Best Bid Participant Id
-size_of.best_bid_participant_id = 1
+-- Size: Strike Price 4
+size_of.strike_price_4 = 10
 
--- Display: Best Bid Participant Id
-display.best_bid_participant_id = function(value)
-  return "Best Bid Participant Id: "..value
+-- Display: Strike Price 4
+display.strike_price_4 = function(value)
+  return "Strike Price 4: "..value
 end
 
--- Dissect: Best Bid Participant Id
-dissect.best_bid_participant_id = function(buffer, offset, packet, parent)
-  local length = size_of.best_bid_participant_id
+-- Dissect: Strike Price 4
+dissect.strike_price_4 = function(buffer, offset, packet, parent)
+  local length = size_of.strike_price_4
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.strike_price_4(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v2_9.fields.strike_price_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Strike Price Denominator Code
+size_of.strike_price_denominator_code = 10
+
+-- Display: Strike Price Denominator Code
+display.strike_price_denominator_code = function(value)
+  return "Strike Price Denominator Code: "..value
+end
+
+-- Dissect: Strike Price Denominator Code
+dissect.strike_price_denominator_code = function(buffer, offset, packet, parent)
+  local length = size_of.strike_price_denominator_code
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.best_bid_participant_id(value, buffer, offset, packet, parent)
+  local display = display.strike_price_denominator_code(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v2_9.fields.best_bid_participant_id, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.strike_price_denominator_code, range, value, display)
 
   return offset + length, value
 end
 
--- Display: Short Quote P Message
-display.short_quote_p_message = function(buffer, offset, size, packet, parent)
+-- Display: Long Equity And Index Quote Message
+display.long_equity_and_index_quote_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Short Quote P Message
-dissect.short_quote_p_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Long Equity And Index Quote Message
+dissect.long_equity_and_index_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Symbol 4: 4 Byte Ascii String
-  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
+  -- Message Type: 1 Byte Ascii String
+  index, message_type = dissect.message_type(buffer, index, packet, parent)
+
+  -- Message Indicator: 1 Byte Ascii String
+  index, message_indicator = dissect.message_indicator(buffer, index, packet, parent)
+
+  -- Transaction Id: 8 Byte Unsigned Fixed Width Integer
+  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+
+  -- Security Symbol 5: 10 Byte Ascii String
+  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
+
+  -- Reserved 1: 1 Byte
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Ascii String Enum with 24 values
   index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
@@ -1582,368 +998,669 @@ dissect.short_quote_p_message_fields = function(buffer, offset, packet, parent)
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
   index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
 
-  -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
+  -- Strike Price Denominator Code: 10 Byte Ascii String
+  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
-  -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
+  -- Strike Price 4: 10 Byte Unsigned Fixed Width Integer
+  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
 
-  -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
+  -- Premium Price Denominator Code: 1 Byte Ascii String
+  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
-  -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
+  -- Bid Price 4: 10 Byte Signed Fixed Width Integer
+  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
 
-  -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
+  -- Bid Size 4: 10 Byte Unsigned Fixed Width Integer
+  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
 
-  -- Best Bid Participant Id: 1 Byte Ascii String
-  index, best_bid_participant_id = dissect.best_bid_participant_id(buffer, index, packet, parent)
+  -- Offer Price 4: 10 Byte Signed Fixed Width Integer
+  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
 
-  -- Best Bid Denominator Code: 1 Byte Ascii String
-  index, best_bid_denominator_code = dissect.best_bid_denominator_code(buffer, index, packet, parent)
-
-  -- Best Bid Price: 4 Byte Signed Fixed Width Integer
-  index, best_bid_price = dissect.best_bid_price(buffer, index, packet, parent)
-
-  -- Best Bid Size: 4 Byte Unsigned Fixed Width Integer
-  index, best_bid_size = dissect.best_bid_size(buffer, index, packet, parent)
-
-  -- Best Offer Participant Id: 1 Byte Ascii String
-  index, best_offer_participant_id = dissect.best_offer_participant_id(buffer, index, packet, parent)
-
-  -- Best Offer Denominator Code: 1 Byte Ascii String
-  index, best_offer_denominator_code = dissect.best_offer_denominator_code(buffer, index, packet, parent)
-
-  -- Best Offer Price: 4 Byte Signed Fixed Width Integer
-  index, best_offer_price = dissect.best_offer_price(buffer, index, packet, parent)
-
-  -- Best Offer Size: 4 Byte Unsigned Fixed Width Integer
-  index, best_offer_size = dissect.best_offer_size(buffer, index, packet, parent)
+  -- Offer Size 4: 10 Byte Unsigned Fixed Width Integer
+  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Short Quote P Message
-dissect.short_quote_p_message = function(buffer, offset, packet, parent)
+-- Dissect: Long Equity And Index Quote Message
+dissect.long_equity_and_index_quote_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.short_quote_p_message then
-    local range = buffer(offset, 37)
-    local display = display.short_quote_p_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_p_message, range, display)
+  if show.long_equity_and_index_quote_message then
+    local range = buffer(offset, 85)
+    local display = display.long_equity_and_index_quote_message(buffer, packet, parent)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_equity_and_index_quote_message, range, display)
   end
 
-  return dissect.short_quote_p_message_fields(buffer, offset, packet, parent)
+  return dissect.long_equity_and_index_quote_message_fields(buffer, offset, packet, parent)
 end
 
--- Display: Short Quote O Message
-display.short_quote_o_message = function(buffer, offset, size, packet, parent)
-  return ""
+-- Size: Underlying Price
+size_of.underlying_price = 10
+
+-- Display: Underlying Price
+display.underlying_price = function(value)
+  return "Underlying Price: "..value
 end
 
--- Dissect Fields: Short Quote O Message
-dissect.short_quote_o_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 4: 4 Byte Ascii String
-  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
-
-  -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
-
-  -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
-
-  -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
-
-  -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Short Quote O Message
-dissect.short_quote_o_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.short_quote_o_message then
-    local range = buffer(offset, 17)
-    local display = display.short_quote_o_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_o_message, range, display)
-  end
-
-  return dissect.short_quote_o_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Short Quote N Message
-display.short_quote_n_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Short Quote N Message
-dissect.short_quote_n_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 4: 4 Byte Ascii String
-  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
-
-  -- Bid Price
-  index, bid_price = dissect.bid_price(buffer, index, packet, parent)
-
-  -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
-
-  -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
-
-  -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
-
-  -- Best Bid Participant Id: 1 Byte Ascii String
-  index, best_bid_participant_id = dissect.best_bid_participant_id(buffer, index, packet, parent)
-
-  -- Best Bid Denominator Code: 1 Byte Ascii String
-  index, best_bid_denominator_code = dissect.best_bid_denominator_code(buffer, index, packet, parent)
-
-  -- Best Bid Price: 4 Byte Signed Fixed Width Integer
-  index, best_bid_price = dissect.best_bid_price(buffer, index, packet, parent)
-
-  -- Best Bid Size: 4 Byte Unsigned Fixed Width Integer
-  index, best_bid_size = dissect.best_bid_size(buffer, index, packet, parent)
-
-  -- Best Offer Participant Id: 1 Byte Ascii String
-  index, best_offer_participant_id = dissect.best_offer_participant_id(buffer, index, packet, parent)
-
-  -- Best Offer Denominator Code: 1 Byte Ascii String
-  index, best_offer_denominator_code = dissect.best_offer_denominator_code(buffer, index, packet, parent)
-
-  -- Best Offer Price: 4 Byte Signed Fixed Width Integer
-  index, best_offer_price = dissect.best_offer_price(buffer, index, packet, parent)
-
-  -- Best Offer Size: 4 Byte Unsigned Fixed Width Integer
-  index, best_offer_size = dissect.best_offer_size(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Short Quote N Message
-dissect.short_quote_n_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.short_quote_n_message then
-    local range = buffer(offset, 35)
-    local display = display.short_quote_n_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_n_message, range, display)
-  end
-
-  return dissect.short_quote_n_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Short Quote M Message
-display.short_quote_m_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Short Quote M Message
-dissect.short_quote_m_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 4: 4 Byte Ascii String
-  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
-
-  -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
-
-  -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
-
-  -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
-
-  -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
-
-  -- Best Bid Participant Id: 1 Byte Ascii String
-  index, best_bid_participant_id = dissect.best_bid_participant_id(buffer, index, packet, parent)
-
-  -- Best Bid Denominator Code: 1 Byte Ascii String
-  index, best_bid_denominator_code = dissect.best_bid_denominator_code(buffer, index, packet, parent)
-
-  -- Best Bid Price: 4 Byte Signed Fixed Width Integer
-  index, best_bid_price = dissect.best_bid_price(buffer, index, packet, parent)
-
-  -- Best Bid Size: 4 Byte Unsigned Fixed Width Integer
-  index, best_bid_size = dissect.best_bid_size(buffer, index, packet, parent)
-
-  -- Best Offer Participant Id: 1 Byte Ascii String
-  index, best_offer_participant_id = dissect.best_offer_participant_id(buffer, index, packet, parent)
-
-  -- Best Offer Denominator Code: 1 Byte Ascii String
-  index, best_offer_denominator_code = dissect.best_offer_denominator_code(buffer, index, packet, parent)
-
-  -- Best Offer Price: 4 Byte Signed Fixed Width Integer
-  index, best_offer_price = dissect.best_offer_price(buffer, index, packet, parent)
-
-  -- Best Offer Size: 4 Byte Unsigned Fixed Width Integer
-  index, best_offer_size = dissect.best_offer_size(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Short Quote M Message
-dissect.short_quote_m_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.short_quote_m_message then
-    local range = buffer(offset, 37)
-    local display = display.short_quote_m_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_m_message, range, display)
-  end
-
-  return dissect.short_quote_m_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Short Quote L Message
-display.short_quote_l_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Short Quote L Message
-dissect.short_quote_l_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 4: 4 Byte Ascii String
-  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
-
-  -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
-
-  -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
-
-  -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
-
-  -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Short Quote L Message
-dissect.short_quote_l_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.short_quote_l_message then
-    local range = buffer(offset, 17)
-    local display = display.short_quote_l_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_l_message, range, display)
-  end
-
-  return dissect.short_quote_l_message_fields(buffer, offset, packet, parent)
-end
-
--- Size: Size
-size_of.size = 2
-
--- Display: Size
-display.size = function(value)
-  return "Size: "..value
-end
-
--- Dissect: Size
-dissect.size = function(buffer, offset, packet, parent)
-  local length = size_of.size
+-- Dissect: Underlying Price
+dissect.underlying_price = function(buffer, offset, packet, parent)
+  local length = size_of.underlying_price
   local range = buffer(offset, length)
-  local value = range:uint()
-  local display = display.size(value, buffer, offset, packet, parent)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.underlying_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v2_9.fields.size, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.underlying_price, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Price
-size_of.price = 4
+-- Size: Underlying Price Denominator Code
+size_of.underlying_price_denominator_code = 1
 
--- Display: Price
-display.price = function(value)
-  return "Price: "..value
+-- Display: Underlying Price Denominator Code
+display.underlying_price_denominator_code = function(value)
+  return "Underlying Price Denominator Code: "..value
 end
 
--- Dissect: Price
-dissect.price = function(buffer, offset, packet, parent)
-  local length = size_of.price
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = display.price(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v2_9.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Denominator Code
-size_of.denominator_code = 1
-
--- Display: Denominator Code
-display.denominator_code = function(value)
-  return "Denominator Code: "..value
-end
-
--- Dissect: Denominator Code
-dissect.denominator_code = function(buffer, offset, packet, parent)
-  local length = size_of.denominator_code
+-- Dissect: Underlying Price Denominator Code
+dissect.underlying_price_denominator_code = function(buffer, offset, packet, parent)
+  local length = size_of.underlying_price_denominator_code
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.denominator_code(value, buffer, offset, packet, parent)
+  local display = display.underlying_price_denominator_code(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v2_9.fields.denominator_code, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.underlying_price_denominator_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Net Change
+size_of.net_change = 10
+
+-- Display: Net Change
+display.net_change = function(value)
+  return "Net Change: "..value
+end
+
+-- Dissect: Net Change
+dissect.net_change = function(buffer, offset, packet, parent)
+  local length = size_of.net_change
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.net_change(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v2_9.fields.net_change, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Last Price
+size_of.last_price = 10
+
+-- Display: Last Price
+display.last_price = function(value)
+  return "Last Price: "..value
+end
+
+-- Dissect: Last Price
+dissect.last_price = function(buffer, offset, packet, parent)
+  local length = size_of.last_price
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.last_price(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v2_9.fields.last_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Low Price
+size_of.low_price = 10
+
+-- Display: Low Price
+display.low_price = function(value)
+  return "Low Price: "..value
+end
+
+-- Dissect: Low Price
+dissect.low_price = function(buffer, offset, packet, parent)
+  local length = size_of.low_price
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.low_price(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v2_9.fields.low_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: High Price
+size_of.high_price = 10
+
+-- Display: High Price
+display.high_price = function(value)
+  return "High Price: "..value
+end
+
+-- Dissect: High Price
+dissect.high_price = function(buffer, offset, packet, parent)
+  local length = size_of.high_price
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.high_price(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v2_9.fields.high_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Open Price
+size_of.open_price = 10
+
+-- Display: Open Price
+display.open_price = function(value)
+  return "Open Price: "..value
+end
+
+-- Dissect: Open Price
+dissect.open_price = function(buffer, offset, packet, parent)
+  local length = size_of.open_price
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.open_price(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v2_9.fields.open_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Open Interest Volume
+size_of.open_interest_volume = 10
+
+-- Display: Open Interest Volume
+display.open_interest_volume = function(value)
+  return "Open Interest Volume: "..value
+end
+
+-- Dissect: Open Interest Volume
+dissect.open_interest_volume = function(buffer, offset, packet, parent)
+  local length = size_of.open_interest_volume
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.open_interest_volume(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v2_9.fields.open_interest_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Volume
+size_of.volume = 10
+
+-- Display: Volume
+display.volume = function(value)
+  if value == A then
+    return "Volume: Nyse American (A)"
+  end
+  if value == B then
+    return "Volume: Box (B)"
+  end
+  if value == C then
+    return "Volume: Cboe (C)"
+  end
+  if value == E then
+    return "Volume: Edgx (E)"
+  end
+  if value == H then
+    return "Volume: Gemini (H)"
+  end
+  if value == I then
+    return "Volume: Ise (I)"
+  end
+  if value == J then
+    return "Volume: Mercury (J)"
+  end
+  if value == M then
+    return "Volume: Miax (M)"
+  end
+  if value == N then
+    return "Volume: Nyse Arca (N)"
+  end
+  if value == O then
+    return "Volume: Opra (O)"
+  end
+  if value == P then
+    return "Volume: Miax Pearl (P)"
+  end
+  if value == Q then
+    return "Volume: Nasdaq (Q)"
+  end
+  if value == W then
+    return "Volume: C 2 (W)"
+  end
+  if value == T then
+    return "Volume: Nasdaq Bx (T)"
+  end
+  if value == X then
+    return "Volume: Nasdaq Phlx (X)"
+  end
+  if value == Z then
+    return "Volume: Bats (Z)"
+  end
+
+  return "Volume: Unknown("..value..")"
+end
+
+-- Dissect: Volume
+dissect.volume = function(buffer, offset, packet, parent)
+  local length = size_of.volume
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.volume(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v2_9.fields.volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display: Equity And Index End Of Day Summary Message
+display.equity_and_index_end_of_day_summary_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Equity And Index End Of Day Summary Message
+dissect.equity_and_index_end_of_day_summary_message_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Type: 1 Byte Ascii String
+  index, message_type = dissect.message_type(buffer, index, packet, parent)
+
+  -- Message Indicator: 1 Byte Ascii String
+  index, message_indicator = dissect.message_indicator(buffer, index, packet, parent)
+
+  -- Transaction Id: 8 Byte Unsigned Fixed Width Integer
+  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+
+  -- Security Symbol 5: 10 Byte Ascii String
+  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
+
+  -- Reserved 1: 1 Byte
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
+
+  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
+
+  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
+
+  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
+
+  -- Strike Price Denominator Code: 10 Byte Ascii String
+  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
+
+  -- Strike Price 4: 10 Byte Unsigned Fixed Width Integer
+  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
+
+  -- Volume: 10 Byte Unsigned Fixed Width Integer Enum with 16 values
+  index, volume = dissect.volume(buffer, index, packet, parent)
+
+  -- Open Interest Volume: 10 Byte Unsigned Fixed Width Integer
+  index, open_interest_volume = dissect.open_interest_volume(buffer, index, packet, parent)
+
+  -- Premium Price Denominator Code: 1 Byte Ascii String
+  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
+
+  -- Open Price: 10 Byte Signed Fixed Width Integer
+  index, open_price = dissect.open_price(buffer, index, packet, parent)
+
+  -- High Price: 10 Byte Signed Fixed Width Integer
+  index, high_price = dissect.high_price(buffer, index, packet, parent)
+
+  -- Low Price: 10 Byte Signed Fixed Width Integer
+  index, low_price = dissect.low_price(buffer, index, packet, parent)
+
+  -- Last Price: 10 Byte Signed Fixed Width Integer
+  index, last_price = dissect.last_price(buffer, index, packet, parent)
+
+  -- Net Change: 10 Byte Signed Fixed Width Integer
+  index, net_change = dissect.net_change(buffer, index, packet, parent)
+
+  -- Underlying Price Denominator Code: 1 Byte Ascii String
+  index, underlying_price_denominator_code = dissect.underlying_price_denominator_code(buffer, index, packet, parent)
+
+  -- Underlying Price: 10 Byte Signed Fixed Width Integer
+  index, underlying_price = dissect.underlying_price(buffer, index, packet, parent)
+
+  -- Bid Price 4: 10 Byte Signed Fixed Width Integer
+  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
+
+  -- Offer Price 4: 10 Byte Signed Fixed Width Integer
+  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Equity And Index End Of Day Summary Message
+dissect.equity_and_index_end_of_day_summary_message = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.equity_and_index_end_of_day_summary_message then
+    local range = buffer(offset, 146)
+    local display = display.equity_and_index_end_of_day_summary_message(buffer, packet, parent)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.equity_and_index_end_of_day_summary_message, range, display)
+  end
+
+  return dissect.equity_and_index_end_of_day_summary_message_fields(buffer, offset, packet, parent)
+end
+
+-- Display: Open Interest Message
+display.open_interest_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Open Interest Message
+dissect.open_interest_message_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Type: 1 Byte Ascii String
+  index, message_type = dissect.message_type(buffer, index, packet, parent)
+
+  -- Message Indicator: 1 Byte Ascii String
+  index, message_indicator = dissect.message_indicator(buffer, index, packet, parent)
+
+  -- Transaction Id: 8 Byte Unsigned Fixed Width Integer
+  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+
+  -- Security Symbol 5: 10 Byte Ascii String
+  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
+
+  -- Reserved 1: 1 Byte
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
+
+  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
+
+  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
+
+  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
+
+  -- Strike Price Denominator Code: 10 Byte Ascii String
+  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
+
+  -- Strike Price 4: 10 Byte Unsigned Fixed Width Integer
+  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
+
+  -- Open Interest Volume: 10 Byte Unsigned Fixed Width Integer
+  index, open_interest_volume = dissect.open_interest_volume(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Open Interest Message
+dissect.open_interest_message = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.open_interest_message then
+    local range = buffer(offset, 54)
+    local display = display.open_interest_message(buffer, packet, parent)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.open_interest_message, range, display)
+  end
+
+  return dissect.open_interest_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Trade Identifier
+size_of.trade_identifier = 10
+
+-- Display: Trade Identifier
+display.trade_identifier = function(value)
+  return "Trade Identifier: "..value
+end
+
+-- Dissect: Trade Identifier
+dissect.trade_identifier = function(buffer, offset, packet, parent)
+  local length = size_of.trade_identifier
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.trade_identifier(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v2_9.fields.trade_identifier, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Premium Price
+size_of.premium_price = 10
+
+-- Display: Premium Price
+display.premium_price = function(value)
+  return "Premium Price: "..value
+end
+
+-- Dissect: Premium Price
+dissect.premium_price = function(buffer, offset, packet, parent)
+  local length = size_of.premium_price
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.premium_price(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v2_9.fields.premium_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display: Equity And Index Last Sale Message
+display.equity_and_index_last_sale_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Equity And Index Last Sale Message
+dissect.equity_and_index_last_sale_message_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Type: 1 Byte Ascii String
+  index, message_type = dissect.message_type(buffer, index, packet, parent)
+
+  -- Message Indicator: 1 Byte Ascii String
+  index, message_indicator = dissect.message_indicator(buffer, index, packet, parent)
+
+  -- Transaction Id: 8 Byte Unsigned Fixed Width Integer
+  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+
+  -- Security Symbol 5: 10 Byte Ascii String
+  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
+
+  -- Reserved 1: 1 Byte
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
+
+  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
+  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
+
+  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
+  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
+
+  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
+  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
+
+  -- Strike Price Denominator Code: 10 Byte Ascii String
+  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
+
+  -- Strike Price 4: 10 Byte Unsigned Fixed Width Integer
+  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
+
+  -- Volume: 10 Byte Unsigned Fixed Width Integer Enum with 16 values
+  index, volume = dissect.volume(buffer, index, packet, parent)
+
+  -- Premium Price Denominator Code: 1 Byte Ascii String
+  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
+
+  -- Premium Price: 10 Byte Signed Fixed Width Integer
+  index, premium_price = dissect.premium_price(buffer, index, packet, parent)
+
+  -- Trade Identifier: 10 Byte Unsigned Fixed Width Integer
+  index, trade_identifier = dissect.trade_identifier(buffer, index, packet, parent)
+
+  -- Reserved 4: 4 Byte
+  index, reserved_4 = dissect.reserved_4(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Equity And Index Last Sale Message
+dissect.equity_and_index_last_sale_message = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.equity_and_index_last_sale_message then
+    local range = buffer(offset, 79)
+    local display = display.equity_and_index_last_sale_message(buffer, packet, parent)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.equity_and_index_last_sale_message, range, display)
+  end
+
+  return dissect.equity_and_index_last_sale_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate runtime size of: Payload
+size_of.payload = function(buffer, offset, message_category)
+  -- Size of Equity And Index Last Sale Message
+  if message_category == "a" then
+    return 79
+  end
+  -- Size of Open Interest Message
+  if message_category == "d" then
+    return 54
+  end
+  -- Size of Equity And Index End Of Day Summary Message
+  if message_category == "f" then
+    return 146
+  end
+  -- Size of Long Equity And Index Quote Message
+  if message_category == "k" then
+    return 85
+  end
+  -- Size of Short Equity And Index Quote Message
+  if message_category == "q" then
+    return 73
+  end
+  -- Size of Administrative Message
+  if message_category == "C" then
+    return 22
+  end
+  -- Size of Control Message
+  if message_category == "H" then
+    return 22
+  end
+  -- Size of Underlying Value Message
+  if message_category == "Y" then
+    return 36
+  end
+
+  return 0
+end
+
+-- Display: Payload
+display.payload = function(buffer, offset, packet, parent)
+  return ""
+end
+
+-- Dissect Branches: Payload
+dissect.payload_branches = function(buffer, offset, packet, parent, message_category)
+  -- Dissect Equity And Index Last Sale Message
+  if message_category == "a" then
+    return dissect.equity_and_index_last_sale_message(buffer, offset, packet, parent)
+  end
+  -- Dissect Open Interest Message
+  if message_category == "d" then
+    return dissect.open_interest_message(buffer, offset, packet, parent)
+  end
+  -- Dissect Equity And Index End Of Day Summary Message
+  if message_category == "f" then
+    return dissect.equity_and_index_end_of_day_summary_message(buffer, offset, packet, parent)
+  end
+  -- Dissect Long Equity And Index Quote Message
+  if message_category == "k" then
+    return dissect.long_equity_and_index_quote_message(buffer, offset, packet, parent)
+  end
+  -- Dissect Short Equity And Index Quote Message
+  if message_category == "q" then
+    return dissect.short_equity_and_index_quote_message(buffer, offset, packet, parent)
+  end
+  -- Dissect Administrative Message
+  if message_category == "C" then
+    return dissect.administrative_message(buffer, offset, packet, parent)
+  end
+  -- Dissect Control Message
+  if message_category == "H" then
+    return dissect.control_message(buffer, offset, packet, parent)
+  end
+  -- Dissect Underlying Value Message
+  if message_category == "Y" then
+    return dissect.underlying_value_message(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Dissect: Payload
+dissect.payload = function(buffer, offset, packet, parent, message_category)
+  if not show.payload then
+    return dissect.payload_branches(buffer, offset, packet, parent, message_category)
+  end
+
+  -- Calculate size and check that branch is not empty
+  local size = size_of.payload(buffer, offset, message_category)
+  if size == 0 then
+    return offset
+  end
+
+  -- Dissect Element
+  local range = buffer(offset, size)
+  local display = display.payload(buffer, packet, parent)
+  local element = parent:add(siac_opra_recipient_obi_v2_9.fields.payload, range, display)
+
+  return dissect.payload_branches(buffer, offset, packet, parent, message_category)
+end
+
+-- Size: Message Category
+size_of.message_category = 1
+
+-- Display: Message Category
+display.message_category = function(value)
+  if value == "a" then
+    return "Message Category: Equity And Index Last Sale Message (a)"
+  end
+  if value == "d" then
+    return "Message Category: Open Interest Message (d)"
+  end
+  if value == "f" then
+    return "Message Category: Equity And Index End Of Day Summary Message (f)"
+  end
+  if value == "k" then
+    return "Message Category: Long Equity And Index Quote Message (k)"
+  end
+  if value == "q" then
+    return "Message Category: Short Equity And Index Quote Message (q)"
+  end
+  if value == "C" then
+    return "Message Category: Administrative Message (C)"
+  end
+  if value == "H" then
+    return "Message Category: Control Message (H)"
+  end
+  if value == "Y" then
+    return "Message Category: Underlying Value Message (Y)"
+  end
+
+  return "Message Category: Unknown("..value..")"
+end
+
+-- Dissect: Message Category
+dissect.message_category = function(buffer, offset, packet, parent)
+  local length = size_of.message_category
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.message_category(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v2_9.fields.message_category, range, value, display)
 
   return offset + length, value
 end
@@ -2020,3347 +1737,16 @@ dissect.participant_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Display: Short Quote K Message
-display.short_quote_k_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Short Quote K Message
-dissect.short_quote_k_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 4: 4 Byte Ascii String
-  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
-
-  -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
-
-  -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
-
-  -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
-
-  -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
-
-  -- Participant Id: 1 Byte Ascii String Enum with 17 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
-
-  -- Denominator Code: 1 Byte Ascii String
-  index, denominator_code = dissect.denominator_code(buffer, index, packet, parent)
-
-  -- Price: 4 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
-
-  -- Size: 2 Byte Unsigned Fixed Width Integer
-  index, size = dissect.size(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Short Quote K Message
-dissect.short_quote_k_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.short_quote_k_message then
-    local range = buffer(offset, 25)
-    local display = display.short_quote_k_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_k_message, range, display)
-  end
-
-  return dissect.short_quote_k_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Short Quote J Message
-display.short_quote_j_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Short Quote J Message
-dissect.short_quote_j_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 4: 4 Byte Ascii String
-  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
-
-  -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
-
-  -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
-
-  -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
-
-  -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Short Quote J Message
-dissect.short_quote_j_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.short_quote_j_message then
-    local range = buffer(offset, 17)
-    local display = display.short_quote_j_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_j_message, range, display)
-  end
-
-  return dissect.short_quote_j_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Short Quote I Message
-display.short_quote_i_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Short Quote I Message
-dissect.short_quote_i_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 4: 4 Byte Ascii String
-  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
-
-  -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
-
-  -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
-
-  -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
-
-  -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Short Quote I Message
-dissect.short_quote_i_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.short_quote_i_message then
-    local range = buffer(offset, 17)
-    local display = display.short_quote_i_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_i_message, range, display)
-  end
-
-  return dissect.short_quote_i_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Short Quote H Message
-display.short_quote_h_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Short Quote H Message
-dissect.short_quote_h_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 4: 4 Byte Ascii String
-  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
-
-  -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
-
-  -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
-
-  -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
-
-  -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Short Quote H Message
-dissect.short_quote_h_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.short_quote_h_message then
-    local range = buffer(offset, 17)
-    local display = display.short_quote_h_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_h_message, range, display)
-  end
-
-  return dissect.short_quote_h_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Short Quote G Message
-display.short_quote_g_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Short Quote G Message
-dissect.short_quote_g_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 4: 4 Byte Ascii String
-  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
-
-  -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
-
-  -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
-
-  -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
-
-  -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
-
-  -- Participant Id: 1 Byte Ascii String Enum with 17 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
-
-  -- Denominator Code: 1 Byte Ascii String
-  index, denominator_code = dissect.denominator_code(buffer, index, packet, parent)
-
-  -- Price: 4 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
-
-  -- Size: 2 Byte Unsigned Fixed Width Integer
-  index, size = dissect.size(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Short Quote G Message
-dissect.short_quote_g_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.short_quote_g_message then
-    local range = buffer(offset, 25)
-    local display = display.short_quote_g_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_g_message, range, display)
-  end
-
-  return dissect.short_quote_g_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Short Quote F Message
-display.short_quote_f_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Short Quote F Message
-dissect.short_quote_f_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 4: 4 Byte Ascii String
-  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
-
-  -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
-
-  -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
-
-  -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
-
-  -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Short Quote F Message
-dissect.short_quote_f_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.short_quote_f_message then
-    local range = buffer(offset, 17)
-    local display = display.short_quote_f_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_f_message, range, display)
-  end
-
-  return dissect.short_quote_f_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Short Quote E Message
-display.short_quote_e_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Short Quote E Message
-dissect.short_quote_e_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 4: 4 Byte Ascii String
-  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
-
-  -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
-
-  -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
-
-  -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
-
-  -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Short Quote E Message
-dissect.short_quote_e_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.short_quote_e_message then
-    local range = buffer(offset, 17)
-    local display = display.short_quote_e_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_e_message, range, display)
-  end
-
-  return dissect.short_quote_e_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Short Quote D Message
-display.short_quote_d_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Short Quote D Message
-dissect.short_quote_d_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 4: 4 Byte Ascii String
-  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
-
-  -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
-
-  -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
-
-  -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
-
-  -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Short Quote D Message
-dissect.short_quote_d_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.short_quote_d_message then
-    local range = buffer(offset, 17)
-    local display = display.short_quote_d_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_d_message, range, display)
-  end
-
-  return dissect.short_quote_d_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Short Quote C Message
-display.short_quote_c_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Short Quote C Message
-dissect.short_quote_c_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 4: 4 Byte Ascii String
-  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
-
-  -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
-
-  -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
-
-  -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
-
-  -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
-
-  -- Participant Id: 1 Byte Ascii String Enum with 17 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
-
-  -- Denominator Code: 1 Byte Ascii String
-  index, denominator_code = dissect.denominator_code(buffer, index, packet, parent)
-
-  -- Price: 4 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
-
-  -- Size: 2 Byte Unsigned Fixed Width Integer
-  index, size = dissect.size(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Short Quote C Message
-dissect.short_quote_c_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.short_quote_c_message then
-    local range = buffer(offset, 25)
-    local display = display.short_quote_c_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_c_message, range, display)
-  end
-
-  return dissect.short_quote_c_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Short Quote B Message
-display.short_quote_b_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Short Quote B Message
-dissect.short_quote_b_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 4: 4 Byte Ascii String
-  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
-
-  -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
-
-  -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
-
-  -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
-
-  -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Short Quote B Message
-dissect.short_quote_b_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.short_quote_b_message then
-    local range = buffer(offset, 17)
-    local display = display.short_quote_b_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_b_message, range, display)
-  end
-
-  return dissect.short_quote_b_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Short Quote A Message
-display.short_quote_a_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Short Quote A Message
-dissect.short_quote_a_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 4: 4 Byte Ascii String
-  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price 2: 2 Byte Unsigned Fixed Width Integer
-  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
-
-  -- Bid Price 2: 2 Byte Signed Fixed Width Integer
-  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
-
-  -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
-
-  -- Offer Price 2: 2 Byte Signed Fixed Width Integer
-  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
-
-  -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Short Quote A Message
-dissect.short_quote_a_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.short_quote_a_message then
-    local range = buffer(offset, 17)
-    local display = display.short_quote_a_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_a_message, range, display)
-  end
-
-  return dissect.short_quote_a_message_fields(buffer, offset, packet, parent)
-end
-
--- Calculate runtime size of: Short Quote Message
-size_of.short_quote_message_ = function(buffer, offset, short_quote_message_indicator_)
-  -- Size of Short Quote A Message
-  if short_quote_message_indicator_ == A then
-    return 17
-  end
-  -- Size of Short Quote B Message
-  if short_quote_message_indicator_ == B then
-    return 17
-  end
-  -- Size of Short Quote C Message
-  if short_quote_message_indicator_ == C then
-    return 25
-  end
-  -- Size of Short Quote D Message
-  if short_quote_message_indicator_ == D then
-    return 17
-  end
-  -- Size of Short Quote E Message
-  if short_quote_message_indicator_ == E then
-    return 17
-  end
-  -- Size of Short Quote F Message
-  if short_quote_message_indicator_ == F then
-    return 17
-  end
-  -- Size of Short Quote G Message
-  if short_quote_message_indicator_ == G then
-    return 25
-  end
-  -- Size of Short Quote H Message
-  if short_quote_message_indicator_ == H then
-    return 17
-  end
-  -- Size of Short Quote I Message
-  if short_quote_message_indicator_ == I then
-    return 17
-  end
-  -- Size of Short Quote J Message
-  if short_quote_message_indicator_ == J then
-    return 17
-  end
-  -- Size of Short Quote K Message
-  if short_quote_message_indicator_ == K then
-    return 25
-  end
-  -- Size of Short Quote L Message
-  if short_quote_message_indicator_ == L then
-    return 17
-  end
-  -- Size of Short Quote M Message
-  if short_quote_message_indicator_ == M then
-    return 37
-  end
-  -- Size of Short Quote N Message
-  if short_quote_message_indicator_ == N then
-    return 35
-  end
-  -- Size of Short Quote O Message
-  if short_quote_message_indicator_ == O then
-    return 17
-  end
-  -- Size of Short Quote P Message
-  if short_quote_message_indicator_ == P then
-    return 37
-  end
-  -- Size of Short Quote Space Message
-  if short_quote_message_indicator_ == " " then
-    return 17
-  end
-
-  return 0
-end
-
--- Display: Short Quote Message
-display.short_quote_message_ = function(buffer, offset, packet, parent)
-  return ""
-end
-
--- Dissect Branches: Short Quote Message
-dissect.short_quote_message__branches = function(buffer, offset, packet, parent, short_quote_message_indicator_)
-  -- Dissect Short Quote A Message
-  if short_quote_message_indicator_ == A then
-    return dissect.short_quote_a_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Quote B Message
-  if short_quote_message_indicator_ == B then
-    return dissect.short_quote_b_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Quote C Message
-  if short_quote_message_indicator_ == C then
-    return dissect.short_quote_c_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Quote D Message
-  if short_quote_message_indicator_ == D then
-    return dissect.short_quote_d_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Quote E Message
-  if short_quote_message_indicator_ == E then
-    return dissect.short_quote_e_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Quote F Message
-  if short_quote_message_indicator_ == F then
-    return dissect.short_quote_f_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Quote G Message
-  if short_quote_message_indicator_ == G then
-    return dissect.short_quote_g_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Quote H Message
-  if short_quote_message_indicator_ == H then
-    return dissect.short_quote_h_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Quote I Message
-  if short_quote_message_indicator_ == I then
-    return dissect.short_quote_i_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Quote J Message
-  if short_quote_message_indicator_ == J then
-    return dissect.short_quote_j_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Quote K Message
-  if short_quote_message_indicator_ == K then
-    return dissect.short_quote_k_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Quote L Message
-  if short_quote_message_indicator_ == L then
-    return dissect.short_quote_l_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Quote M Message
-  if short_quote_message_indicator_ == M then
-    return dissect.short_quote_m_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Quote N Message
-  if short_quote_message_indicator_ == N then
-    return dissect.short_quote_n_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Quote O Message
-  if short_quote_message_indicator_ == O then
-    return dissect.short_quote_o_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Quote P Message
-  if short_quote_message_indicator_ == P then
-    return dissect.short_quote_p_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Quote Space Message
-  if short_quote_message_indicator_ == " " then
-    return dissect.short_quote_space_message(buffer, offset, packet, parent)
-  end
-
-  return offset
-end
-
--- Dissect: Short Quote Message
-dissect.short_quote_message_ = function(buffer, offset, packet, parent, short_quote_message_indicator_)
-  if not show.short_quote_message_ then
-    return dissect.short_quote_message__branches(buffer, offset, packet, parent, short_quote_message_indicator_)
-  end
-
-  -- Calculate size and check that branch is not empty
-  local size = size_of.short_quote_message_(buffer, offset, short_quote_message_indicator_)
-  if size == 0 then
-    return offset
-  end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = display.short_quote_message_(buffer, packet, parent)
-  local element = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_message_, range, display)
-
-  return dissect.short_quote_message__branches(buffer, offset, packet, parent, short_quote_message_indicator_)
-end
-
--- Calculate runtime size: Short Quote Category
-size_of.short_quote_category = function(buffer, offset)
-  local index = 0
-
-  index = index + 8
-
-  -- Calculate runtime size of Short Quote Message  field
-  local short_quote_message__offset = offset + index
-  local short_quote_message__type = buffer(short_quote_message__offset - 8, 0):bytes():tohex(false, " ")
-  index = index + size_of.short_quote_message_(buffer, short_quote_message__offset, short_quote_message__type)
-
-  return index
-end
-
--- Display: Short Quote Category
-display.short_quote_category = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Short Quote Category
-dissect.short_quote_category_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Short Quote Message Type
-  index, short_quote_message_type = dissect.short_quote_message_type(buffer, index, packet, parent)
-
-  -- Short Quote Message Indicator
-  index, short_quote_message_indicator_ = dissect.short_quote_message_indicator_(buffer, index, packet, parent)
-
-  -- Transaction ID : 8 Byte Unsigned Fixed Width Integer
-  index, transaction_id_ = dissect.transaction_id_(buffer, index, packet, parent)
-
-  -- Short Quote Message : Runtime Type with 17 branches
-  index = dissect.short_quote_message_(buffer, index, packet, parent, short_quote_message_indicator_)
-
-  return index
-end
-
--- Dissect: Short Quote Category
-dissect.short_quote_category = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
-  if show.short_quote_category then
-    local length = size_of.short_quote_category(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.short_quote_category(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.short_quote_category, range, display)
-  end
-
-  return dissect.short_quote_category_fields(buffer, offset, packet, parent)
-end
-
--- Size: Offer Size 4
-size_of.offer_size_4 = 4
-
--- Display: Offer Size 4
-display.offer_size_4 = function(value)
-  return "Offer Size 4: "..value
-end
-
--- Dissect: Offer Size 4
-dissect.offer_size_4 = function(buffer, offset, packet, parent)
-  local length = size_of.offer_size_4
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = display.offer_size_4(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v2_9.fields.offer_size_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Offer Price 4
-size_of.offer_price_4 = 4
-
--- Display: Offer Price 4
-display.offer_price_4 = function(value)
-  return "Offer Price 4: "..value
-end
-
--- Dissect: Offer Price 4
-dissect.offer_price_4 = function(buffer, offset, packet, parent)
-  local length = size_of.offer_price_4
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.offer_price_4(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v2_9.fields.offer_price_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Bid Size 4
-size_of.bid_size_4 = 4
-
--- Display: Bid Size 4
-display.bid_size_4 = function(value)
-  return "Bid Size 4: "..value
-end
-
--- Dissect: Bid Size 4
-dissect.bid_size_4 = function(buffer, offset, packet, parent)
-  local length = size_of.bid_size_4
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = display.bid_size_4(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v2_9.fields.bid_size_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Bid Price 4
-size_of.bid_price_4 = 4
-
--- Display: Bid Price 4
-display.bid_price_4 = function(value)
-  return "Bid Price 4: "..value
-end
-
--- Dissect: Bid Price 4
-dissect.bid_price_4 = function(buffer, offset, packet, parent)
-  local length = size_of.bid_price_4
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.bid_price_4(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v2_9.fields.bid_price_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Premium Price Denominator Code
-size_of.premium_price_denominator_code = 1
-
--- Display: Premium Price Denominator Code
-display.premium_price_denominator_code = function(value)
-  return "Premium Price Denominator Code: "..value
-end
-
--- Dissect: Premium Price Denominator Code
-dissect.premium_price_denominator_code = function(buffer, offset, packet, parent)
-  local length = size_of.premium_price_denominator_code
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.premium_price_denominator_code(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v2_9.fields.premium_price_denominator_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Strike Price 4
-size_of.strike_price_4 = 4
-
--- Display: Strike Price 4
-display.strike_price_4 = function(value)
-  return "Strike Price 4: "..value
-end
-
--- Dissect: Strike Price 4
-dissect.strike_price_4 = function(buffer, offset, packet, parent)
-  local length = size_of.strike_price_4
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = display.strike_price_4(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v2_9.fields.strike_price_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Strike Price Denominator Code
-size_of.strike_price_denominator_code = 1
-
--- Display: Strike Price Denominator Code
-display.strike_price_denominator_code = function(value)
-  return "Strike Price Denominator Code: "..value
-end
-
--- Dissect: Strike Price Denominator Code
-dissect.strike_price_denominator_code = function(buffer, offset, packet, parent)
-  local length = size_of.strike_price_denominator_code
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.strike_price_denominator_code(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v2_9.fields.strike_price_denominator_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Display: Long Quote Space Message
-display.long_quote_space_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Long Quote Space Message
-dissect.long_quote_space_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 5: 5 Byte Ascii String
-  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
-
-  -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price Denominator Code: 1 Byte Ascii String
-  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
-
-  -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
-
-  -- Premium Price Denominator Code: 1 Byte Ascii String
-  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
-
-  -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
-
-  -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
-
-  -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
-
-  -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Long Quote Space Message
-dissect.long_quote_space_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.long_quote_space_message then
-    local range = buffer(offset, 31)
-    local display = display.long_quote_space_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_space_message, range, display)
-  end
-
-  return dissect.long_quote_space_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Long Quote P Message
-display.long_quote_p_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Long Quote P Message
-dissect.long_quote_p_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 5: 5 Byte Ascii String
-  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
-
-  -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price Denominator Code: 1 Byte Ascii String
-  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
-
-  -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
-
-  -- Premium Price Denominator Code: 1 Byte Ascii String
-  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
-
-  -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
-
-  -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
-
-  -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
-
-  -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
-
-  -- Best Bid Participant Id: 1 Byte Ascii String
-  index, best_bid_participant_id = dissect.best_bid_participant_id(buffer, index, packet, parent)
-
-  -- Best Bid Denominator Code: 1 Byte Ascii String
-  index, best_bid_denominator_code = dissect.best_bid_denominator_code(buffer, index, packet, parent)
-
-  -- Best Bid Price: 4 Byte Signed Fixed Width Integer
-  index, best_bid_price = dissect.best_bid_price(buffer, index, packet, parent)
-
-  -- Best Bid Size: 4 Byte Unsigned Fixed Width Integer
-  index, best_bid_size = dissect.best_bid_size(buffer, index, packet, parent)
-
-  -- Best Offer Participant Id: 1 Byte Ascii String
-  index, best_offer_participant_id = dissect.best_offer_participant_id(buffer, index, packet, parent)
-
-  -- Best Offer Denominator Code: 1 Byte Ascii String
-  index, best_offer_denominator_code = dissect.best_offer_denominator_code(buffer, index, packet, parent)
-
-  -- Best Offer Price: 4 Byte Signed Fixed Width Integer
-  index, best_offer_price = dissect.best_offer_price(buffer, index, packet, parent)
-
-  -- Best Offer Size: 4 Byte Unsigned Fixed Width Integer
-  index, best_offer_size = dissect.best_offer_size(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Long Quote P Message
-dissect.long_quote_p_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.long_quote_p_message then
-    local range = buffer(offset, 51)
-    local display = display.long_quote_p_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_p_message, range, display)
-  end
-
-  return dissect.long_quote_p_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Long Quote O Message
-display.long_quote_o_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Long Quote O Message
-dissect.long_quote_o_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 5: 5 Byte Ascii String
-  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
-
-  -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price Denominator Code: 1 Byte Ascii String
-  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
-
-  -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
-
-  -- Premium Price Denominator Code: 1 Byte Ascii String
-  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
-
-  -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
-
-  -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
-
-  -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
-
-  -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Long Quote O Message
-dissect.long_quote_o_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.long_quote_o_message then
-    local range = buffer(offset, 31)
-    local display = display.long_quote_o_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_o_message, range, display)
-  end
-
-  return dissect.long_quote_o_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Long Quote N Message
-display.long_quote_n_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Long Quote N Message
-dissect.long_quote_n_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 5: 5 Byte Ascii String
-  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
-
-  -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price Denominator Code: 1 Byte Ascii String
-  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
-
-  -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
-
-  -- Premium Price Denominator Code: 1 Byte Ascii String
-  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
-
-  -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
-
-  -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
-
-  -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
-
-  -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
-
-  -- Best Bid Participant Id: 1 Byte Ascii String
-  index, best_bid_participant_id = dissect.best_bid_participant_id(buffer, index, packet, parent)
-
-  -- Best Bid Denominator Code: 1 Byte Ascii String
-  index, best_bid_denominator_code = dissect.best_bid_denominator_code(buffer, index, packet, parent)
-
-  -- Best Bid Price: 4 Byte Signed Fixed Width Integer
-  index, best_bid_price = dissect.best_bid_price(buffer, index, packet, parent)
-
-  -- Best Bid Size: 4 Byte Unsigned Fixed Width Integer
-  index, best_bid_size = dissect.best_bid_size(buffer, index, packet, parent)
-
-  -- Best Offer Participant Id: 1 Byte Ascii String
-  index, best_offer_participant_id = dissect.best_offer_participant_id(buffer, index, packet, parent)
-
-  -- Best Offer Denominator Code: 1 Byte Ascii String
-  index, best_offer_denominator_code = dissect.best_offer_denominator_code(buffer, index, packet, parent)
-
-  -- Best Offer Price: 4 Byte Signed Fixed Width Integer
-  index, best_offer_price = dissect.best_offer_price(buffer, index, packet, parent)
-
-  -- Best Offer Size: 4 Byte Unsigned Fixed Width Integer
-  index, best_offer_size = dissect.best_offer_size(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Long Quote N Message
-dissect.long_quote_n_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.long_quote_n_message then
-    local range = buffer(offset, 51)
-    local display = display.long_quote_n_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_n_message, range, display)
-  end
-
-  return dissect.long_quote_n_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Long Quote M Message
-display.long_quote_m_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Long Quote M Message
-dissect.long_quote_m_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 5: 5 Byte Ascii String
-  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
-
-  -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price Denominator Code: 1 Byte Ascii String
-  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
-
-  -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
-
-  -- Premium Price Denominator Code: 1 Byte Ascii String
-  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
-
-  -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
-
-  -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
-
-  -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
-
-  -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
-
-  -- Best Bid Participant Id: 1 Byte Ascii String
-  index, best_bid_participant_id = dissect.best_bid_participant_id(buffer, index, packet, parent)
-
-  -- Best Bid Denominator Code: 1 Byte Ascii String
-  index, best_bid_denominator_code = dissect.best_bid_denominator_code(buffer, index, packet, parent)
-
-  -- Best Bid Price 4
-  index, best_bid_price_4 = dissect.best_bid_price_4(buffer, index, packet, parent)
-
-  -- Best Bid Size: 4 Byte Unsigned Fixed Width Integer
-  index, best_bid_size = dissect.best_bid_size(buffer, index, packet, parent)
-
-  -- Best Offer Participant Id: 1 Byte Ascii String
-  index, best_offer_participant_id = dissect.best_offer_participant_id(buffer, index, packet, parent)
-
-  -- Best Offer Denominator Code: 1 Byte Ascii String
-  index, best_offer_denominator_code = dissect.best_offer_denominator_code(buffer, index, packet, parent)
-
-  -- Best Offer Price: 4 Byte Signed Fixed Width Integer
-  index, best_offer_price = dissect.best_offer_price(buffer, index, packet, parent)
-
-  -- Best Offer Size: 4 Byte Unsigned Fixed Width Integer
-  index, best_offer_size = dissect.best_offer_size(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Long Quote M Message
-dissect.long_quote_m_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.long_quote_m_message then
-    local range = buffer(offset, 47)
-    local display = display.long_quote_m_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_m_message, range, display)
-  end
-
-  return dissect.long_quote_m_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Long Quote L Message
-display.long_quote_l_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Long Quote L Message
-dissect.long_quote_l_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 5: 5 Byte Ascii String
-  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
-
-  -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price Denominator Code: 1 Byte Ascii String
-  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
-
-  -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
-
-  -- Premium Price Denominator Code: 1 Byte Ascii String
-  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
-
-  -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
-
-  -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
-
-  -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
-
-  -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Long Quote L Message
-dissect.long_quote_l_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.long_quote_l_message then
-    local range = buffer(offset, 31)
-    local display = display.long_quote_l_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_l_message, range, display)
-  end
-
-  return dissect.long_quote_l_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Long Quote K Message
-display.long_quote_k_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Long Quote K Message
-dissect.long_quote_k_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 5: 5 Byte Ascii String
-  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
-
-  -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price Denominator Code: 1 Byte Ascii String
-  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
-
-  -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
-
-  -- Premium Price Denominator Code: 1 Byte Ascii String
-  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
-
-  -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
-
-  -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
-
-  -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
-
-  -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
-
-  -- Participant Id: 1 Byte Ascii String Enum with 17 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
-
-  -- Denominator Code: 1 Byte Ascii String
-  index, denominator_code = dissect.denominator_code(buffer, index, packet, parent)
-
-  -- Price: 4 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
-
-  -- Size: 2 Byte Unsigned Fixed Width Integer
-  index, size = dissect.size(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Long Quote K Message
-dissect.long_quote_k_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.long_quote_k_message then
-    local range = buffer(offset, 39)
-    local display = display.long_quote_k_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_k_message, range, display)
-  end
-
-  return dissect.long_quote_k_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Long Quote J Message
-display.long_quote_j_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Long Quote J Message
-dissect.long_quote_j_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 5: 5 Byte Ascii String
-  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
-
-  -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price Denominator Code: 1 Byte Ascii String
-  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
-
-  -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
-
-  -- Premium Price Denominator Code: 1 Byte Ascii String
-  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
-
-  -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
-
-  -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
-
-  -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
-
-  -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Long Quote J Message
-dissect.long_quote_j_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.long_quote_j_message then
-    local range = buffer(offset, 31)
-    local display = display.long_quote_j_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_j_message, range, display)
-  end
-
-  return dissect.long_quote_j_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Long Quote I Message
-display.long_quote_i_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Long Quote I Message
-dissect.long_quote_i_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 5: 5 Byte Ascii String
-  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
-
-  -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price Denominator Code: 1 Byte Ascii String
-  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
-
-  -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
-
-  -- Premium Price Denominator Code: 1 Byte Ascii String
-  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
-
-  -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
-
-  -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
-
-  -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
-
-  -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Long Quote I Message
-dissect.long_quote_i_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.long_quote_i_message then
-    local range = buffer(offset, 31)
-    local display = display.long_quote_i_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_i_message, range, display)
-  end
-
-  return dissect.long_quote_i_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Long Quote H Message
-display.long_quote_h_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Long Quote H Message
-dissect.long_quote_h_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 5: 5 Byte Ascii String
-  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
-
-  -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price Denominator Code: 1 Byte Ascii String
-  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
-
-  -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
-
-  -- Premium Price Denominator Code: 1 Byte Ascii String
-  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
-
-  -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
-
-  -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
-
-  -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
-
-  -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Long Quote H Message
-dissect.long_quote_h_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.long_quote_h_message then
-    local range = buffer(offset, 31)
-    local display = display.long_quote_h_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_h_message, range, display)
-  end
-
-  return dissect.long_quote_h_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Long Quote G Message
-display.long_quote_g_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Long Quote G Message
-dissect.long_quote_g_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 5: 5 Byte Ascii String
-  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
-
-  -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price Denominator Code: 1 Byte Ascii String
-  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
-
-  -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
-
-  -- Premium Price Denominator Code: 1 Byte Ascii String
-  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
-
-  -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
-
-  -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
-
-  -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
-
-  -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
-
-  -- Participant Id: 1 Byte Ascii String Enum with 17 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
-
-  -- Denominator Code: 1 Byte Ascii String
-  index, denominator_code = dissect.denominator_code(buffer, index, packet, parent)
-
-  -- Price: 4 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
-
-  -- Size: 2 Byte Unsigned Fixed Width Integer
-  index, size = dissect.size(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Long Quote G Message
-dissect.long_quote_g_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.long_quote_g_message then
-    local range = buffer(offset, 39)
-    local display = display.long_quote_g_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_g_message, range, display)
-  end
-
-  return dissect.long_quote_g_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Long Quote F Message
-display.long_quote_f_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Long Quote F Message
-dissect.long_quote_f_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 5: 5 Byte Ascii String
-  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
-
-  -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price Denominator Code: 1 Byte Ascii String
-  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
-
-  -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
-
-  -- Premium Price Denominator Code: 1 Byte Ascii String
-  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
-
-  -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
-
-  -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
-
-  -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
-
-  -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Long Quote F Message
-dissect.long_quote_f_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.long_quote_f_message then
-    local range = buffer(offset, 31)
-    local display = display.long_quote_f_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_f_message, range, display)
-  end
-
-  return dissect.long_quote_f_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Long Quote E Message
-display.long_quote_e_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Long Quote E Message
-dissect.long_quote_e_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 5: 5 Byte Ascii String
-  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
-
-  -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price Denominator Code: 1 Byte Ascii String
-  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
-
-  -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
-
-  -- Premium Price Denominator Code: 1 Byte Ascii String
-  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
-
-  -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
-
-  -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
-
-  -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
-
-  -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Long Quote E Message
-dissect.long_quote_e_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.long_quote_e_message then
-    local range = buffer(offset, 31)
-    local display = display.long_quote_e_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_e_message, range, display)
-  end
-
-  return dissect.long_quote_e_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Long Quote D Message
-display.long_quote_d_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Long Quote D Message
-dissect.long_quote_d_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 5: 5 Byte Ascii String
-  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
-
-  -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price Denominator Code: 1 Byte Ascii String
-  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
-
-  -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
-
-  -- Premium Price Denominator Code: 1 Byte Ascii String
-  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
-
-  -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
-
-  -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
-
-  -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
-
-  -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Long Quote D Message
-dissect.long_quote_d_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.long_quote_d_message then
-    local range = buffer(offset, 31)
-    local display = display.long_quote_d_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_d_message, range, display)
-  end
-
-  return dissect.long_quote_d_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Long Quote C Message
-display.long_quote_c_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Long Quote C Message
-dissect.long_quote_c_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 5: 5 Byte Ascii String
-  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
-
-  -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price Denominator Code: 1 Byte Ascii String
-  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
-
-  -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
-
-  -- Premium Price Denominator Code: 1 Byte Ascii String
-  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
-
-  -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
-
-  -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
-
-  -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
-
-  -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
-
-  -- Participant Id: 1 Byte Ascii String Enum with 17 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
-
-  -- Denominator Code: 1 Byte Ascii String
-  index, denominator_code = dissect.denominator_code(buffer, index, packet, parent)
-
-  -- Price: 4 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
-
-  -- Size: 2 Byte Unsigned Fixed Width Integer
-  index, size = dissect.size(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Long Quote C Message
-dissect.long_quote_c_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.long_quote_c_message then
-    local range = buffer(offset, 39)
-    local display = display.long_quote_c_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_c_message, range, display)
-  end
-
-  return dissect.long_quote_c_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Long Quote B Message
-display.long_quote_b_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Long Quote B Message
-dissect.long_quote_b_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 5: 5 Byte Ascii String
-  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
-
-  -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price Denominator Code: 1 Byte Ascii String
-  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
-
-  -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
-
-  -- Premium Price Denominator Code: 1 Byte Ascii String
-  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
-
-  -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
-
-  -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
-
-  -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
-
-  -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Long Quote B Message
-dissect.long_quote_b_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.long_quote_b_message then
-    local range = buffer(offset, 31)
-    local display = display.long_quote_b_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_b_message, range, display)
-  end
-
-  return dissect.long_quote_b_message_fields(buffer, offset, packet, parent)
-end
-
--- Display: Long Quote A Message
-display.long_quote_a_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Long Quote A Message
-dissect.long_quote_a_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 5: 5 Byte Ascii String
-  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
-
-  -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price Denominator Code: 1 Byte Ascii String
-  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
-
-  -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
-
-  -- Premium Price Denominator Code: 1 Byte Ascii String
-  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
-
-  -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
-
-  -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
-
-  -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
-
-  -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Long Quote A Message
-dissect.long_quote_a_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.long_quote_a_message then
-    local range = buffer(offset, 31)
-    local display = display.long_quote_a_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_a_message, range, display)
-  end
-
-  return dissect.long_quote_a_message_fields(buffer, offset, packet, parent)
-end
-
--- Calculate runtime size of: Long Quote Message
-size_of.long_quote_message_ = function(buffer, offset, long_quote_message_indicator_)
-  -- Size of Long Quote A Message
-  if long_quote_message_indicator_ == A then
-    return 31
-  end
-  -- Size of Long Quote B Message
-  if long_quote_message_indicator_ == B then
-    return 31
-  end
-  -- Size of Long Quote C Message
-  if long_quote_message_indicator_ == C then
-    return 39
-  end
-  -- Size of Long Quote D Message
-  if long_quote_message_indicator_ == D then
-    return 31
-  end
-  -- Size of Long Quote E Message
-  if long_quote_message_indicator_ == E then
-    return 31
-  end
-  -- Size of Long Quote F Message
-  if long_quote_message_indicator_ == F then
-    return 31
-  end
-  -- Size of Long Quote G Message
-  if long_quote_message_indicator_ == G then
-    return 39
-  end
-  -- Size of Long Quote H Message
-  if long_quote_message_indicator_ == H then
-    return 31
-  end
-  -- Size of Long Quote I Message
-  if long_quote_message_indicator_ == I then
-    return 31
-  end
-  -- Size of Long Quote J Message
-  if long_quote_message_indicator_ == J then
-    return 31
-  end
-  -- Size of Long Quote K Message
-  if long_quote_message_indicator_ == K then
-    return 39
-  end
-  -- Size of Long Quote L Message
-  if long_quote_message_indicator_ == L then
-    return 31
-  end
-  -- Size of Long Quote M Message
-  if long_quote_message_indicator_ == M then
-    return 47
-  end
-  -- Size of Long Quote N Message
-  if long_quote_message_indicator_ == N then
-    return 51
-  end
-  -- Size of Long Quote O Message
-  if long_quote_message_indicator_ == O then
-    return 31
-  end
-  -- Size of Long Quote P Message
-  if long_quote_message_indicator_ == P then
-    return 51
-  end
-  -- Size of Long Quote Space Message
-  if long_quote_message_indicator_ == " " then
-    return 31
-  end
-
-  return 0
-end
-
--- Display: Long Quote Message
-display.long_quote_message_ = function(buffer, offset, packet, parent)
-  return ""
-end
-
--- Dissect Branches: Long Quote Message
-dissect.long_quote_message__branches = function(buffer, offset, packet, parent, long_quote_message_indicator_)
-  -- Dissect Long Quote A Message
-  if long_quote_message_indicator_ == A then
-    return dissect.long_quote_a_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Quote B Message
-  if long_quote_message_indicator_ == B then
-    return dissect.long_quote_b_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Quote C Message
-  if long_quote_message_indicator_ == C then
-    return dissect.long_quote_c_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Quote D Message
-  if long_quote_message_indicator_ == D then
-    return dissect.long_quote_d_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Quote E Message
-  if long_quote_message_indicator_ == E then
-    return dissect.long_quote_e_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Quote F Message
-  if long_quote_message_indicator_ == F then
-    return dissect.long_quote_f_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Quote G Message
-  if long_quote_message_indicator_ == G then
-    return dissect.long_quote_g_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Quote H Message
-  if long_quote_message_indicator_ == H then
-    return dissect.long_quote_h_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Quote I Message
-  if long_quote_message_indicator_ == I then
-    return dissect.long_quote_i_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Quote J Message
-  if long_quote_message_indicator_ == J then
-    return dissect.long_quote_j_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Quote K Message
-  if long_quote_message_indicator_ == K then
-    return dissect.long_quote_k_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Quote L Message
-  if long_quote_message_indicator_ == L then
-    return dissect.long_quote_l_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Quote M Message
-  if long_quote_message_indicator_ == M then
-    return dissect.long_quote_m_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Quote N Message
-  if long_quote_message_indicator_ == N then
-    return dissect.long_quote_n_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Quote O Message
-  if long_quote_message_indicator_ == O then
-    return dissect.long_quote_o_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Quote P Message
-  if long_quote_message_indicator_ == P then
-    return dissect.long_quote_p_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Quote Space Message
-  if long_quote_message_indicator_ == " " then
-    return dissect.long_quote_space_message(buffer, offset, packet, parent)
-  end
-
-  return offset
-end
-
--- Dissect: Long Quote Message
-dissect.long_quote_message_ = function(buffer, offset, packet, parent, long_quote_message_indicator_)
-  if not show.long_quote_message_ then
-    return dissect.long_quote_message__branches(buffer, offset, packet, parent, long_quote_message_indicator_)
-  end
-
-  -- Calculate size and check that branch is not empty
-  local size = size_of.long_quote_message_(buffer, offset, long_quote_message_indicator_)
-  if size == 0 then
-    return offset
-  end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = display.long_quote_message_(buffer, packet, parent)
-  local element = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_message_, range, display)
-
-  return dissect.long_quote_message__branches(buffer, offset, packet, parent, long_quote_message_indicator_)
-end
-
--- Calculate runtime size: Long Quote Category
-size_of.long_quote_category = function(buffer, offset)
-  local index = 0
-
-  index = index + 8
-
-  -- Calculate runtime size of Long Quote Message  field
-  local long_quote_message__offset = offset + index
-  local long_quote_message__type = buffer(long_quote_message__offset - 8, 0):bytes():tohex(false, " ")
-  index = index + size_of.long_quote_message_(buffer, long_quote_message__offset, long_quote_message__type)
-
-  return index
-end
-
--- Display: Long Quote Category
-display.long_quote_category = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Long Quote Category
-dissect.long_quote_category_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Long Quote Message Type
-  index, long_quote_message_type = dissect.long_quote_message_type(buffer, index, packet, parent)
-
-  -- Long Quote Message Indicator
-  index, long_quote_message_indicator_ = dissect.long_quote_message_indicator_(buffer, index, packet, parent)
-
-  -- Transaction ID : 8 Byte Unsigned Fixed Width Integer
-  index, transaction_id_ = dissect.transaction_id_(buffer, index, packet, parent)
-
-  -- Long Quote Message : Runtime Type with 17 branches
-  index = dissect.long_quote_message_(buffer, index, packet, parent, long_quote_message_indicator_)
-
-  return index
-end
-
--- Dissect: Long Quote Category
-dissect.long_quote_category = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
-  if show.long_quote_category then
-    local length = size_of.long_quote_category(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.long_quote_category(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.long_quote_category, range, display)
-  end
-
-  return dissect.long_quote_category_fields(buffer, offset, packet, parent)
-end
-
--- Size: Underlying Price
-size_of.underlying_price = 8
-
--- Display: Underlying Price
-display.underlying_price = function(value)
-  return "Underlying Price: "..value
-end
-
--- Dissect: Underlying Price
-dissect.underlying_price = function(buffer, offset, packet, parent)
-  local length = size_of.underlying_price
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.underlying_price(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v2_9.fields.underlying_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlying Price Denominator Code
-size_of.underlying_price_denominator_code = 1
-
--- Display: Underlying Price Denominator Code
-display.underlying_price_denominator_code = function(value)
-  return "Underlying Price Denominator Code: "..value
-end
-
--- Dissect: Underlying Price Denominator Code
-dissect.underlying_price_denominator_code = function(buffer, offset, packet, parent)
-  local length = size_of.underlying_price_denominator_code
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.underlying_price_denominator_code(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v2_9.fields.underlying_price_denominator_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Net Change
-size_of.net_change = 4
-
--- Display: Net Change
-display.net_change = function(value)
-  return "Net Change: "..value
-end
-
--- Dissect: Net Change
-dissect.net_change = function(buffer, offset, packet, parent)
-  local length = size_of.net_change
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.net_change(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v2_9.fields.net_change, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Last Price
-size_of.last_price = 4
-
--- Display: Last Price
-display.last_price = function(value)
-  return "Last Price: "..value
-end
-
--- Dissect: Last Price
-dissect.last_price = function(buffer, offset, packet, parent)
-  local length = size_of.last_price
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.last_price(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v2_9.fields.last_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Low Price
-size_of.low_price = 4
-
--- Display: Low Price
-display.low_price = function(value)
-  return "Low Price: "..value
-end
-
--- Dissect: Low Price
-dissect.low_price = function(buffer, offset, packet, parent)
-  local length = size_of.low_price
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.low_price(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v2_9.fields.low_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: High Price
-size_of.high_price = 4
-
--- Display: High Price
-display.high_price = function(value)
-  return "High Price: "..value
-end
-
--- Dissect: High Price
-dissect.high_price = function(buffer, offset, packet, parent)
-  local length = size_of.high_price
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.high_price(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v2_9.fields.high_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Open Price
-size_of.open_price = 4
-
--- Display: Open Price
-display.open_price = function(value)
-  return "Open Price: "..value
-end
-
--- Dissect: Open Price
-dissect.open_price = function(buffer, offset, packet, parent)
-  local length = size_of.open_price
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.open_price(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v2_9.fields.open_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Open Interest Volume
-size_of.open_interest_volume = 4
-
--- Display: Open Interest Volume
-display.open_interest_volume = function(value)
-  return "Open Interest Volume: "..value
-end
-
--- Dissect: Open Interest Volume
-dissect.open_interest_volume = function(buffer, offset, packet, parent)
-  local length = size_of.open_interest_volume
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = display.open_interest_volume(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v2_9.fields.open_interest_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Volume
-size_of.volume = 4
-
--- Display: Volume
-display.volume = function(value)
-  if value == A then
-    return "Volume: Nyse American (A)"
-  end
-  if value == B then
-    return "Volume: Box (B)"
-  end
-  if value == C then
-    return "Volume: Cboe (C)"
-  end
-  if value == E then
-    return "Volume: Edgx (E)"
-  end
-  if value == H then
-    return "Volume: Gemini (H)"
-  end
-  if value == I then
-    return "Volume: Ise (I)"
-  end
-  if value == J then
-    return "Volume: Mercury (J)"
-  end
-  if value == M then
-    return "Volume: Miax (M)"
-  end
-  if value == N then
-    return "Volume: Nyse Arca (N)"
-  end
-  if value == O then
-    return "Volume: Opra (O)"
-  end
-  if value == P then
-    return "Volume: Miax Pearl (P)"
-  end
-  if value == Q then
-    return "Volume: Nasdaq (Q)"
-  end
-  if value == W then
-    return "Volume: C 2 (W)"
-  end
-  if value == T then
-    return "Volume: Nasdaq Bx (T)"
-  end
-  if value == X then
-    return "Volume: Nasdaq Phlx (X)"
-  end
-  if value == Z then
-    return "Volume: Bats (Z)"
-  end
-
-  return "Volume: Unknown("..value..")"
-end
-
--- Dissect: Volume
-dissect.volume = function(buffer, offset, packet, parent)
-  local length = size_of.volume
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = display.volume(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v2_9.fields.volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Display: Equity Eod Message
-display.equity_eod_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Equity Eod Message
-dissect.equity_eod_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 5: 5 Byte Ascii String
-  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
-
-  -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price Denominator Code: 1 Byte Ascii String
-  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
-
-  -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
-
-  -- Volume: 4 Byte Unsigned Fixed Width Integer Enum with 16 values
-  index, volume = dissect.volume(buffer, index, packet, parent)
-
-  -- Open Interest Volume: 4 Byte Unsigned Fixed Width Integer
-  index, open_interest_volume = dissect.open_interest_volume(buffer, index, packet, parent)
-
-  -- Premium Price Denominator Code: 1 Byte Ascii String
-  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
-
-  -- Open Price: 4 Byte Signed Fixed Width Integer
-  index, open_price = dissect.open_price(buffer, index, packet, parent)
-
-  -- High Price: 4 Byte Signed Fixed Width Integer
-  index, high_price = dissect.high_price(buffer, index, packet, parent)
-
-  -- Low Price: 4 Byte Signed Fixed Width Integer
-  index, low_price = dissect.low_price(buffer, index, packet, parent)
-
-  -- Last Price: 4 Byte Signed Fixed Width Integer
-  index, last_price = dissect.last_price(buffer, index, packet, parent)
-
-  -- Net Change: 4 Byte Signed Fixed Width Integer
-  index, net_change = dissect.net_change(buffer, index, packet, parent)
-
-  -- Underlying Price Denominator Code: 1 Byte Ascii String
-  index, underlying_price_denominator_code = dissect.underlying_price_denominator_code(buffer, index, packet, parent)
-
-  -- Underlying Price: 8 Byte Signed Fixed Width Integer
-  index, underlying_price = dissect.underlying_price(buffer, index, packet, parent)
-
-  -- Bid Price 4: 4 Byte Signed Fixed Width Integer
-  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
-
-  -- Offer Price 4: 4 Byte Signed Fixed Width Integer
-  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Equity Eod Message
-dissect.equity_eod_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.equity_eod_message then
-    local range = buffer(offset, 60)
-    local display = display.equity_eod_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.equity_eod_message, range, display)
-  end
-
-  return dissect.equity_eod_message_fields(buffer, offset, packet, parent)
-end
-
--- Calculate runtime size of: Equity EOD Payload
-size_of.equity_eod_payload_ = function(buffer, offset, equity_eod_message_indicator_)
-  -- Size of Equity Eod Message
-  if equity_eod_message_indicator_ == " " then
-    return 60
-  end
-
-  return 0
-end
-
--- Display: Equity EOD Payload
-display.equity_eod_payload_ = function(buffer, offset, packet, parent)
-  return ""
-end
-
--- Dissect Branches: Equity EOD Payload
-dissect.equity_eod_payload__branches = function(buffer, offset, packet, parent, equity_eod_message_indicator_)
-  -- Dissect Equity Eod Message
-  if equity_eod_message_indicator_ == " " then
-    return dissect.equity_eod_message(buffer, offset, packet, parent)
-  end
-
-  return offset
-end
-
--- Dissect: Equity EOD Payload
-dissect.equity_eod_payload_ = function(buffer, offset, packet, parent, equity_eod_message_indicator_)
-  if not show.equity_eod_payload_ then
-    return dissect.equity_eod_payload__branches(buffer, offset, packet, parent, equity_eod_message_indicator_)
-  end
-
-  -- Calculate size and check that branch is not empty
-  local size = size_of.equity_eod_payload_(buffer, offset, equity_eod_message_indicator_)
-  if size == 0 then
-    return offset
-  end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = display.equity_eod_payload_(buffer, packet, parent)
-  local element = parent:add(siac_opra_recipient_obi_v2_9.fields.equity_eod_payload_, range, display)
-
-  return dissect.equity_eod_payload__branches(buffer, offset, packet, parent, equity_eod_message_indicator_)
-end
-
--- Calculate runtime size: Equity EOD Category
-size_of.equity_eod_category = function(buffer, offset)
-  local index = 0
-
-  index = index + 8
-
-  -- Calculate runtime size of Equity EOD Payload  field
-  local equity_eod_payload__offset = offset + index
-  local equity_eod_payload__type = buffer(equity_eod_payload__offset - 8, 0):bytes():tohex(false, " ")
-  index = index + size_of.equity_eod_payload_(buffer, equity_eod_payload__offset, equity_eod_payload__type)
-
-  return index
-end
-
--- Display: Equity EOD Category
-display.equity_eod_category = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Equity EOD Category
-dissect.equity_eod_category_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Equity EOD Message Type
-  index, equity_eod_message_type = dissect.equity_eod_message_type(buffer, index, packet, parent)
-
-  -- Equity EOD Message Indicator
-  index, equity_eod_message_indicator_ = dissect.equity_eod_message_indicator_(buffer, index, packet, parent)
-
-  -- Transaction ID : 8 Byte Unsigned Fixed Width Integer
-  index, transaction_id_ = dissect.transaction_id_(buffer, index, packet, parent)
-
-  -- Equity EOD Payload : Runtime Type with 1 branches
-  index = dissect.equity_eod_payload_(buffer, index, packet, parent, equity_eod_message_indicator_)
-
-  return index
-end
-
--- Dissect: Equity EOD Category
-dissect.equity_eod_category = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
-  if show.equity_eod_category then
-    local length = size_of.equity_eod_category(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.equity_eod_category(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.equity_eod_category, range, display)
-  end
-
-  return dissect.equity_eod_category_fields(buffer, offset, packet, parent)
-end
-
--- Display: Open Interest Message
-display.open_interest_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Open Interest Message
-dissect.open_interest_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 5: 5 Byte Ascii String
-  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
-
-  -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price Denominator Code: 1 Byte Ascii String
-  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
-
-  -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
-
-  -- Open Interest Volume: 4 Byte Unsigned Fixed Width Integer
-  index, open_interest_volume = dissect.open_interest_volume(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Open Interest Message
-dissect.open_interest_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.open_interest_message then
-    local range = buffer(offset, 18)
-    local display = display.open_interest_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.open_interest_message, range, display)
-  end
-
-  return dissect.open_interest_message_fields(buffer, offset, packet, parent)
-end
-
--- Calculate runtime size of: Open Interest Payload
-size_of.open_interest_payload_ = function(buffer, offset, open_interest_message_indicator_)
-  -- Size of Open Interest Message
-  if open_interest_message_indicator_ == " " then
-    return 18
-  end
-
-  return 0
-end
-
--- Display: Open Interest Payload
-display.open_interest_payload_ = function(buffer, offset, packet, parent)
-  return ""
-end
-
--- Dissect Branches: Open Interest Payload
-dissect.open_interest_payload__branches = function(buffer, offset, packet, parent, open_interest_message_indicator_)
-  -- Dissect Open Interest Message
-  if open_interest_message_indicator_ == " " then
-    return dissect.open_interest_message(buffer, offset, packet, parent)
-  end
-
-  return offset
-end
-
--- Dissect: Open Interest Payload
-dissect.open_interest_payload_ = function(buffer, offset, packet, parent, open_interest_message_indicator_)
-  if not show.open_interest_payload_ then
-    return dissect.open_interest_payload__branches(buffer, offset, packet, parent, open_interest_message_indicator_)
-  end
-
-  -- Calculate size and check that branch is not empty
-  local size = size_of.open_interest_payload_(buffer, offset, open_interest_message_indicator_)
-  if size == 0 then
-    return offset
-  end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = display.open_interest_payload_(buffer, packet, parent)
-  local element = parent:add(siac_opra_recipient_obi_v2_9.fields.open_interest_payload_, range, display)
-
-  return dissect.open_interest_payload__branches(buffer, offset, packet, parent, open_interest_message_indicator_)
-end
-
--- Calculate runtime size: Open Interest Category
-size_of.open_interest_category = function(buffer, offset)
-  local index = 0
-
-  index = index + 8
-
-  -- Calculate runtime size of Open Interest Payload  field
-  local open_interest_payload__offset = offset + index
-  local open_interest_payload__type = buffer(open_interest_payload__offset - 8, 0):bytes():tohex(false, " ")
-  index = index + size_of.open_interest_payload_(buffer, open_interest_payload__offset, open_interest_payload__type)
-
-  return index
-end
-
--- Display: Open Interest Category
-display.open_interest_category = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Open Interest Category
-dissect.open_interest_category_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Open Interest Message Type
-  index, open_interest_message_type = dissect.open_interest_message_type(buffer, index, packet, parent)
-
-  -- Open Interest Message Indicator
-  index, open_interest_message_indicator_ = dissect.open_interest_message_indicator_(buffer, index, packet, parent)
-
-  -- Transaction ID : 8 Byte Unsigned Fixed Width Integer
-  index, transaction_id_ = dissect.transaction_id_(buffer, index, packet, parent)
-
-  -- Open Interest Payload : Runtime Type with 1 branches
-  index = dissect.open_interest_payload_(buffer, index, packet, parent, open_interest_message_indicator_)
-
-  return index
-end
-
--- Dissect: Open Interest Category
-dissect.open_interest_category = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
-  if show.open_interest_category then
-    local length = size_of.open_interest_category(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.open_interest_category(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.open_interest_category, range, display)
-  end
-
-  return dissect.open_interest_category_fields(buffer, offset, packet, parent)
-end
-
--- Size: Trade Identifier
-size_of.trade_identifier = 4
-
--- Display: Trade Identifier
-display.trade_identifier = function(value)
-  return "Trade Identifier: "..value
-end
-
--- Dissect: Trade Identifier
-dissect.trade_identifier = function(buffer, offset, packet, parent)
-  local length = size_of.trade_identifier
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = display.trade_identifier(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v2_9.fields.trade_identifier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Premium Price
-size_of.premium_price = 4
-
--- Display: Premium Price
-display.premium_price = function(value)
-  return "Premium Price: "..value
-end
-
--- Dissect: Premium Price
-dissect.premium_price = function(buffer, offset, packet, parent)
-  local length = size_of.premium_price
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.premium_price(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v2_9.fields.premium_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Display: Equity And Index Last Sale Message
-display.equity_and_index_last_sale_message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Equity And Index Last Sale Message
-dissect.equity_and_index_last_sale_message_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Symbol 5: 5 Byte Ascii String
-  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
-
-  -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
-
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
-
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
-
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
-
-  -- Strike Price Denominator Code: 1 Byte Ascii String
-  index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
-
-  -- Strike Price 4: 4 Byte Unsigned Fixed Width Integer
-  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
-
-  -- Volume: 4 Byte Unsigned Fixed Width Integer Enum with 16 values
-  index, volume = dissect.volume(buffer, index, packet, parent)
-
-  -- Premium Price Denominator Code: 1 Byte Ascii String
-  index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
-
-  -- Premium Price: 4 Byte Signed Fixed Width Integer
-  index, premium_price = dissect.premium_price(buffer, index, packet, parent)
-
-  -- Trade Identifier: 4 Byte Unsigned Fixed Width Integer
-  index, trade_identifier = dissect.trade_identifier(buffer, index, packet, parent)
-
-  -- Reserved 4: 4 Byte
-  index, reserved_4 = dissect.reserved_4(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Equity And Index Last Sale Message
-dissect.equity_and_index_last_sale_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.equity_and_index_last_sale_message then
-    local range = buffer(offset, 31)
-    local display = display.equity_and_index_last_sale_message(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.equity_and_index_last_sale_message, range, display)
-  end
-
-  return dissect.equity_and_index_last_sale_message_fields(buffer, offset, packet, parent)
-end
-
--- Calculate runtime size of: Equity Index Last Sale Payload
-size_of.equity_index_last_sale_payload_ = function(buffer, offset, equity_index_last_sale_message_indicator_)
-  -- Size of Equity And Index Last Sale Message
-  if equity_index_last_sale_message_indicator_ == " " then
-    return 31
-  end
-
-  return 0
-end
-
--- Display: Equity Index Last Sale Payload
-display.equity_index_last_sale_payload_ = function(buffer, offset, packet, parent)
-  return ""
-end
-
--- Dissect Branches: Equity Index Last Sale Payload
-dissect.equity_index_last_sale_payload__branches = function(buffer, offset, packet, parent, equity_index_last_sale_message_indicator_)
-  -- Dissect Equity And Index Last Sale Message
-  if equity_index_last_sale_message_indicator_ == " " then
-    return dissect.equity_and_index_last_sale_message(buffer, offset, packet, parent)
-  end
-
-  return offset
-end
-
--- Dissect: Equity Index Last Sale Payload
-dissect.equity_index_last_sale_payload_ = function(buffer, offset, packet, parent, equity_index_last_sale_message_indicator_)
-  if not show.equity_index_last_sale_payload_ then
-    return dissect.equity_index_last_sale_payload__branches(buffer, offset, packet, parent, equity_index_last_sale_message_indicator_)
-  end
-
-  -- Calculate size and check that branch is not empty
-  local size = size_of.equity_index_last_sale_payload_(buffer, offset, equity_index_last_sale_message_indicator_)
-  if size == 0 then
-    return offset
-  end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = display.equity_index_last_sale_payload_(buffer, packet, parent)
-  local element = parent:add(siac_opra_recipient_obi_v2_9.fields.equity_index_last_sale_payload_, range, display)
-
-  return dissect.equity_index_last_sale_payload__branches(buffer, offset, packet, parent, equity_index_last_sale_message_indicator_)
-end
-
--- Calculate runtime size: Equity Index Last Sale Category
-size_of.equity_index_last_sale_category = function(buffer, offset)
-  local index = 0
-
-  index = index + 8
-
-  -- Calculate runtime size of Equity Index Last Sale Payload  field
-  local equity_index_last_sale_payload__offset = offset + index
-  local equity_index_last_sale_payload__type = buffer(equity_index_last_sale_payload__offset - 8, 0):bytes():tohex(false, " ")
-  index = index + size_of.equity_index_last_sale_payload_(buffer, equity_index_last_sale_payload__offset, equity_index_last_sale_payload__type)
-
-  return index
-end
-
--- Display: Equity Index Last Sale Category
-display.equity_index_last_sale_category = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Equity Index Last Sale Category
-dissect.equity_index_last_sale_category_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Equity Index Last Sale Message Type
-  index, equity_index_last_sale_message_type = dissect.equity_index_last_sale_message_type(buffer, index, packet, parent)
-
-  -- Equity Index Last Sale Message Indicator
-  index, equity_index_last_sale_message_indicator_ = dissect.equity_index_last_sale_message_indicator_(buffer, index, packet, parent)
-
-  -- Transaction ID : 8 Byte Unsigned Fixed Width Integer
-  index, transaction_id_ = dissect.transaction_id_(buffer, index, packet, parent)
-
-  -- Equity Index Last Sale Payload : Runtime Type with 1 branches
-  index = dissect.equity_index_last_sale_payload_(buffer, index, packet, parent, equity_index_last_sale_message_indicator_)
-
-  return index
-end
-
--- Dissect: Equity Index Last Sale Category
-dissect.equity_index_last_sale_category = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
-  if show.equity_index_last_sale_category then
-    local length = size_of.equity_index_last_sale_category(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.equity_index_last_sale_category(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.equity_index_last_sale_category, range, display)
-  end
-
-  return dissect.equity_index_last_sale_category_fields(buffer, offset, packet, parent)
-end
-
--- Calculate runtime size of: Category Data
-size_of.category_data = function(buffer, offset, message_category)
-  -- Size of Equity Index Last Sale Category
-  if message_category == "a" then
-    return size_of.equity_index_last_sale_category(buffer, offset)
-  end
-  -- Size of Open Interest Category
-  if message_category == "d" then
-    return size_of.open_interest_category(buffer, offset)
-  end
-  -- Size of Equity EOD Category
-  if message_category == "f" then
-    return size_of.equity_eod_category(buffer, offset)
-  end
-  -- Size of Long Quote Category
-  if message_category == "k" then
-    return size_of.long_quote_category(buffer, offset)
-  end
-  -- Size of Short Quote Category
-  if message_category == "q" then
-    return size_of.short_quote_category(buffer, offset)
-  end
-  -- Size of ADMINISTRATIVE Category
-  if message_category == "C" then
-    return size_of.administrative_category(buffer, offset)
-  end
-  -- Size of CONTROL Category
-  if message_category == "H" then
-    return size_of.control_category(buffer, offset)
-  end
-  -- Size of UNDERLYING VALUE Category
-  if message_category == "Y" then
-    return size_of.underlying_value_category(buffer, offset)
-  end
-
-  return 0
-end
-
--- Display: Category Data
-display.category_data = function(buffer, offset, packet, parent)
-  return ""
-end
-
--- Dissect Branches: Category Data
-dissect.category_data_branches = function(buffer, offset, packet, parent, message_category)
-  -- Dissect Equity Index Last Sale Category
-  if message_category == "a" then
-    return dissect.equity_index_last_sale_category(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Interest Category
-  if message_category == "d" then
-    return dissect.open_interest_category(buffer, offset, packet, parent)
-  end
-  -- Dissect Equity EOD Category
-  if message_category == "f" then
-    return dissect.equity_eod_category(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Quote Category
-  if message_category == "k" then
-    return dissect.long_quote_category(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Quote Category
-  if message_category == "q" then
-    return dissect.short_quote_category(buffer, offset, packet, parent)
-  end
-  -- Dissect ADMINISTRATIVE Category
-  if message_category == "C" then
-    return dissect.administrative_category(buffer, offset, packet, parent)
-  end
-  -- Dissect CONTROL Category
-  if message_category == "H" then
-    return dissect.control_category(buffer, offset, packet, parent)
-  end
-  -- Dissect UNDERLYING VALUE Category
-  if message_category == "Y" then
-    return dissect.underlying_value_category(buffer, offset, packet, parent)
-  end
-
-  return offset
-end
-
--- Dissect: Category Data
-dissect.category_data = function(buffer, offset, packet, parent, message_category)
-  if not show.category_data then
-    return dissect.category_data_branches(buffer, offset, packet, parent, message_category)
-  end
-
-  -- Calculate size and check that branch is not empty
-  local size = size_of.category_data(buffer, offset, message_category)
-  if size == 0 then
-    return offset
-  end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = display.category_data(buffer, packet, parent)
-  local element = parent:add(siac_opra_recipient_obi_v2_9.fields.category_data, range, display)
-
-  return dissect.category_data_branches(buffer, offset, packet, parent, message_category)
-end
-
--- Size: Message Category
-size_of.message_category = 1
-
--- Display: Message Category
-display.message_category = function(value)
-  if value == "a" then
-    return "Message Category: Equity And Index Last Sale Message (a)"
-  end
-  if value == "d" then
-    return "Message Category: Open Interest Message (d)"
-  end
-  if value == "f" then
-    return "Message Category: Equity Eod Message (f)"
-  end
-  if value == "k" then
-    return "Message Category: Long Quote A Message (k)"
-  end
-  if value == "k" then
-    return "Message Category: Long Quote B Message (k)"
-  end
-  if value == "k" then
-    return "Message Category: Long Quote C Message (k)"
-  end
-  if value == "k" then
-    return "Message Category: Long Quote D Message (k)"
-  end
-  if value == "k" then
-    return "Message Category: Long Quote E Message (k)"
-  end
-  if value == "k" then
-    return "Message Category: Long Quote F Message (k)"
-  end
-  if value == "k" then
-    return "Message Category: Long Quote G Message (k)"
-  end
-  if value == "k" then
-    return "Message Category: Long Quote H Message (k)"
-  end
-  if value == "k" then
-    return "Message Category: Long Quote I Message (k)"
-  end
-  if value == "k" then
-    return "Message Category: Long Quote J Message (k)"
-  end
-  if value == "k" then
-    return "Message Category: Long Quote K Message (k)"
-  end
-  if value == "k" then
-    return "Message Category: Long Quote L Message (k)"
-  end
-  if value == "k" then
-    return "Message Category: Long Quote M Message (k)"
-  end
-  if value == "k" then
-    return "Message Category: Long Quote N Message (k)"
-  end
-  if value == "k" then
-    return "Message Category: Long Quote O Message (k)"
-  end
-  if value == "k" then
-    return "Message Category: Long Quote P Message (k)"
-  end
-  if value == "k" then
-    return "Message Category: Long Quote Space Message (k)"
-  end
-  if value == "q" then
-    return "Message Category: Short Quote A Message (q)"
-  end
-  if value == "q" then
-    return "Message Category: Short Quote B Message (q)"
-  end
-  if value == "q" then
-    return "Message Category: Short Quote C Message (q)"
-  end
-  if value == "q" then
-    return "Message Category: Short Quote D Message (q)"
-  end
-  if value == "q" then
-    return "Message Category: Short Quote E Message (q)"
-  end
-  if value == "q" then
-    return "Message Category: Short Quote F Message (q)"
-  end
-  if value == "q" then
-    return "Message Category: Short Quote G Message (q)"
-  end
-  if value == "q" then
-    return "Message Category: Short Quote H Message (q)"
-  end
-  if value == "q" then
-    return "Message Category: Short Quote I Message (q)"
-  end
-  if value == "q" then
-    return "Message Category: Short Quote J Message (q)"
-  end
-  if value == "q" then
-    return "Message Category: Short Quote K Message (q)"
-  end
-  if value == "q" then
-    return "Message Category: Short Quote L Message (q)"
-  end
-  if value == "q" then
-    return "Message Category: Short Quote M Message (q)"
-  end
-  if value == "q" then
-    return "Message Category: Short Quote N Message (q)"
-  end
-  if value == "q" then
-    return "Message Category: Short Quote O Message (q)"
-  end
-  if value == "q" then
-    return "Message Category: Short Quote P Message (q)"
-  end
-  if value == "q" then
-    return "Message Category: Short Quote Space Message (q)"
-  end
-  if value == "C" then
-    return "Message Category: Administrative Message (C)"
-  end
-  if value == "H" then
-    return "Message Category: Control Message (H)"
-  end
-  if value == "Y" then
-    return "Message Category: Underlying Value Message (Y)"
-  end
-
-  return "Message Category: Unknown("..value..")"
-end
-
--- Dissect: Message Category
-dissect.message_category = function(buffer, offset, packet, parent)
-  local length = size_of.message_category
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.message_category(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v2_9.fields.message_category, range, value, display)
-
-  return offset + length, value
-end
-
--- Display: Message Header
-display.message_header = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Message Header
-dissect.message_header_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Participant Id: 1 Byte Ascii String Enum with 17 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
-
-  -- Message Category: 1 Byte Ascii String Enum with 40 values
-  index, message_category = dissect.message_category(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Message Header
-dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.message_header then
-    local range = buffer(offset, 2)
-    local display = display.message_header(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.message_header, range, display)
-  end
-
-  return dissect.message_header_fields(buffer, offset, packet, parent)
-end
-
 -- Calculate runtime size: Message
 size_of.message = function(buffer, offset)
   local index = 0
 
   index = index + 2
 
-  -- Calculate runtime size of Category Data field
-  local category_data_offset = offset + index
-  local category_data_type = buffer(category_data_offset - 1, 1):string()
-  index = index + size_of.category_data(buffer, category_data_offset, category_data_type)
+  -- Calculate runtime size of Payload field
+  local payload_offset = offset + index
+  local payload_type = buffer(payload_offset - 1, 1):string()
+  index = index + size_of.payload(buffer, payload_offset, payload_type)
 
   return index
 end
@@ -5374,14 +1760,14 @@ end
 dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 2 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  -- Participant Id: 1 Byte Ascii String Enum with 17 values
+  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
 
-  -- Dependency element: Message Category
-  local message_category = buffer(index - 1, 1):string()
+  -- Message Category: 1 Byte Ascii String Enum with 8 values
+  index, message_category = dissect.message_category(buffer, index, packet, parent)
 
-  -- Category Data: Runtime Type with 8 branches
-  index = dissect.category_data(buffer, index, packet, parent, message_category)
+  -- Payload: Runtime Type with 8 branches
+  index = dissect.payload(buffer, index, packet, parent, message_category)
 
   return index
 end
@@ -5399,62 +1785,132 @@ dissect.message = function(buffer, offset, packet, parent)
   return dissect.message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Checksum
-size_of.checksum = 2
+-- Size: Block Checksum
+size_of.block_checksum = 2
 
--- Display: Checksum
-display.checksum = function(value)
-  return "Checksum: "..value
+-- Display: Block Checksum
+display.block_checksum = function(value)
+  return "Block Checksum: "..value
 end
 
--- Dissect: Checksum
-dissect.checksum = function(buffer, offset, packet, parent)
-  local length = size_of.checksum
+-- Dissect: Block Checksum
+dissect.block_checksum = function(buffer, offset, packet, parent)
+  local length = size_of.block_checksum
   local range = buffer(offset, length)
-  local value = range:uint()
-  local display = display.checksum(value, buffer, offset, packet, parent)
+  local value = range:le_uint()
+  local display = display.block_checksum(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v2_9.fields.checksum, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.block_checksum, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Message Count
-size_of.message_count = 1
+-- Size: Nanoseconds
+size_of.nanoseconds = 4
 
--- Display: Message Count
-display.message_count = function(value)
-  return "Message Count: "..value
+-- Display: Nanoseconds
+display.nanoseconds = function(value)
+  return "Nanoseconds: "..value
 end
 
--- Dissect: Message Count
-dissect.message_count = function(buffer, offset, packet, parent)
-  local length = size_of.message_count
+-- Dissect: Nanoseconds
+dissect.nanoseconds = function(buffer, offset, packet, parent)
+  local length = size_of.nanoseconds
   local range = buffer(offset, length)
-  local value = range:uint()
-  local display = display.message_count(value, buffer, offset, packet, parent)
+  local value = range:le_uint()
+  local display = display.nanoseconds(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v2_9.fields.message_count, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.nanoseconds, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Block Seq Num
-size_of.block_seq_num = 4
+-- Size: Seconds
+size_of.seconds = 4
 
--- Display: Block Seq Num
-display.block_seq_num = function(value)
-  return "Block Seq Num: "..value
+-- Display: Seconds
+display.seconds = function(value)
+  return "Seconds: "..value
 end
 
--- Dissect: Block Seq Num
-dissect.block_seq_num = function(buffer, offset, packet, parent)
-  local length = size_of.block_seq_num
+-- Dissect: Seconds
+dissect.seconds = function(buffer, offset, packet, parent)
+  local length = size_of.seconds
   local range = buffer(offset, length)
-  local value = range:uint()
-  local display = display.block_seq_num(value, buffer, offset, packet, parent)
+  local value = range:le_uint()
+  local display = display.seconds(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v2_9.fields.block_seq_num, range, value, display)
+  parent:add(siac_opra_recipient_obi_v2_9.fields.seconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display: Block Timestamp
+display.block_timestamp = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Block Timestamp
+dissect.block_timestamp_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Seconds: 4 Byte Unsigned Fixed Width Integer
+  index, seconds = dissect.seconds(buffer, index, packet, parent)
+
+  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Block Timestamp
+dissect.block_timestamp = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.block_timestamp then
+    local range = buffer(offset, 8)
+    local display = display.block_timestamp(buffer, packet, parent)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.block_timestamp, range, display)
+  end
+
+  return dissect.block_timestamp_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Messages In Block
+size_of.messages_in_block = 1
+
+-- Display: Messages In Block
+display.messages_in_block = function(value)
+  return "Messages In Block: "..value
+end
+
+-- Dissect: Messages In Block
+dissect.messages_in_block = function(buffer, offset, packet, parent)
+  local length = size_of.messages_in_block
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.messages_in_block(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v2_9.fields.messages_in_block, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Block Sequence Number
+size_of.block_sequence_number = 4
+
+-- Display: Block Sequence Number
+display.block_sequence_number = function(value)
+  return "Block Sequence Number: "..value
+end
+
+-- Dissect: Block Sequence Number
+dissect.block_sequence_number = function(buffer, offset, packet, parent)
+  local length = size_of.block_sequence_number
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.block_sequence_number(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v2_9.fields.block_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -5478,7 +1934,7 @@ end
 dissect.session_indicator = function(buffer, offset, packet, parent)
   local length = size_of.session_indicator
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:le_uint()
   local display = display.session_indicator(value, buffer, offset, packet, parent)
 
   parent:add(siac_opra_recipient_obi_v2_9.fields.session_indicator, range, value, display)
@@ -5526,6 +1982,26 @@ dissect.data_feed_indicator = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Block Size
+size_of.block_size = 2
+
+-- Display: Block Size
+display.block_size = function(value)
+  return "Block Size: "..value
+end
+
+-- Dissect: Block Size
+dissect.block_size = function(buffer, offset, packet, parent)
+  local length = size_of.block_size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.block_size(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v2_9.fields.block_size, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Version
 size_of.version = 1
 
@@ -5538,7 +2014,7 @@ end
 dissect.version = function(buffer, offset, packet, parent)
   local length = size_of.version
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:le_uint()
   local display = display.version(value, buffer, offset, packet, parent)
 
   parent:add(siac_opra_recipient_obi_v2_9.fields.version, range, value, display)
@@ -5546,20 +2022,20 @@ dissect.version = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Display: Packet Header
-display.packet_header = function(buffer, offset, size, packet, parent)
+-- Display: Block Header
+display.block_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Packet Header
-dissect.packet_header_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Block Header
+dissect.block_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Version: 1 Byte Unsigned Fixed Width Integer
   index, version = dissect.version(buffer, index, packet, parent)
 
-  -- Size: 2 Byte Unsigned Fixed Width Integer
-  index, size = dissect.size(buffer, index, packet, parent)
+  -- Block Size: 2 Byte Unsigned Fixed Width Integer
+  index, block_size = dissect.block_size(buffer, index, packet, parent)
 
   -- Data Feed Indicator: 1 Byte Ascii String
   index, data_feed_indicator = dissect.data_feed_indicator(buffer, index, packet, parent)
@@ -5570,45 +2046,45 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   -- Session Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, session_indicator = dissect.session_indicator(buffer, index, packet, parent)
 
-  -- Block Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, block_seq_num = dissect.block_seq_num(buffer, index, packet, parent)
+  -- Block Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index, block_sequence_number = dissect.block_sequence_number(buffer, index, packet, parent)
 
-  -- Message Count: 1 Byte Unsigned Fixed Width Integer
-  index, message_count = dissect.message_count(buffer, index, packet, parent)
+  -- Messages In Block: 1 Byte Unsigned Fixed Width Integer
+  index, messages_in_block = dissect.messages_in_block(buffer, index, packet, parent)
 
-  -- Block Timestamp
+  -- Block Timestamp: Struct of 2 fields
   index, block_timestamp = dissect.block_timestamp(buffer, index, packet, parent)
 
-  -- Checksum: 2 Byte Unsigned Fixed Width Integer
-  index, checksum = dissect.checksum(buffer, index, packet, parent)
+  -- Block Checksum: 2 Byte Unsigned Fixed Width Integer
+  index, block_checksum = dissect.block_checksum(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Packet Header
-dissect.packet_header = function(buffer, offset, packet, parent)
+-- Dissect: Block Header
+dissect.block_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.packet_header then
-    local range = buffer(offset, 13)
-    local display = display.packet_header(buffer, packet, parent)
-    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.packet_header, range, display)
+  if show.block_header then
+    local range = buffer(offset, 21)
+    local display = display.block_header(buffer, packet, parent)
+    parent = parent:add(siac_opra_recipient_obi_v2_9.fields.block_header, range, display)
   end
 
-  return dissect.packet_header_fields(buffer, offset, packet, parent)
+  return dissect.block_header_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
 dissect.packet = function(buffer, packet, parent)
   local index = 0
 
-  -- Packet Header: Struct of 9 fields
-  index, packet_header = dissect.packet_header(buffer, index, packet, parent)
+  -- Block Header: Struct of 9 fields
+  index, block_header = dissect.block_header(buffer, index, packet, parent)
 
-  -- Dependency element: Message Count
-  local message_count = buffer(index - 3, 1):uint()
+  -- Dependency element: Messages In Block
+  local messages_in_block = buffer(index - 11, 1):le_uint()
 
-  -- Message: Struct of 2 fields
-  for i = 1, message_count do
+  -- Message: Struct of 3 fields
+  for i = 1, messages_in_block do
     index = dissect.message(buffer, index, packet, parent)
   end
 
