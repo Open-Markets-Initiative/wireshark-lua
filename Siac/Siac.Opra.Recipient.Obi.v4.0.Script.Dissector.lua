@@ -23,6 +23,8 @@ local verify = {}
 siac_opra_recipient_obi_v4_0.fields.administrative_message = ProtoField.new("Administrative Message", "siac.opra.recipient.obi.v4.0.administrativemessage", ftypes.STRING)
 siac_opra_recipient_obi_v4_0.fields.bid_price = ProtoField.new("Bid Price", "siac.opra.recipient.obi.v4.0.bidprice", ftypes.INT32)
 siac_opra_recipient_obi_v4_0.fields.bid_price_short = ProtoField.new("Bid Price Short", "siac.opra.recipient.obi.v4.0.bidpriceshort", ftypes.INT16)
+siac_opra_recipient_obi_v4_0.fields.bid_size = ProtoField.new("Bid Size", "siac.opra.recipient.obi.v4.0.bidsize", ftypes.UINT32)
+siac_opra_recipient_obi_v4_0.fields.bid_size_short = ProtoField.new("Bid Size Short", "siac.opra.recipient.obi.v4.0.bidsizeshort", ftypes.UINT16)
 siac_opra_recipient_obi_v4_0.fields.block_checksum = ProtoField.new("Block Checksum", "siac.opra.recipient.obi.v4.0.blockchecksum", ftypes.UINT16)
 siac_opra_recipient_obi_v4_0.fields.block_header = ProtoField.new("Block Header", "siac.opra.recipient.obi.v4.0.blockheader", ftypes.STRING)
 siac_opra_recipient_obi_v4_0.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.opra.recipient.obi.v4.0.blocksequencenumber", ftypes.UINT32)
@@ -35,9 +37,9 @@ siac_opra_recipient_obi_v4_0.fields.equity_and_index_last_sale_message = ProtoFi
 siac_opra_recipient_obi_v4_0.fields.high_price = ProtoField.new("High Price", "siac.opra.recipient.obi.v4.0.highprice", ftypes.INT32)
 siac_opra_recipient_obi_v4_0.fields.index_value = ProtoField.new("Index Value", "siac.opra.recipient.obi.v4.0.indexvalue", ftypes.INT32)
 siac_opra_recipient_obi_v4_0.fields.index_value_denominator_code = ProtoField.new("Index Value Denominator Code", "siac.opra.recipient.obi.v4.0.indexvaluedenominatorcode", ftypes.STRING)
-siac_opra_recipient_obi_v4_0.fields.last_price = ProtoField.new("Last Price", "siac.opra.recipient.obi.v4.0.lastprice", ftypes.INT64)
+siac_opra_recipient_obi_v4_0.fields.last_price = ProtoField.new("Last Price", "siac.opra.recipient.obi.v4.0.lastprice", ftypes.INT32)
 siac_opra_recipient_obi_v4_0.fields.long_equity_and_index_quote_message = ProtoField.new("Long Equity And Index Quote Message", "siac.opra.recipient.obi.v4.0.longequityandindexquotemessage", ftypes.STRING)
-siac_opra_recipient_obi_v4_0.fields.low_price = ProtoField.new("Low Price", "siac.opra.recipient.obi.v4.0.lowprice", ftypes.INT64)
+siac_opra_recipient_obi_v4_0.fields.low_price = ProtoField.new("Low Price", "siac.opra.recipient.obi.v4.0.lowprice", ftypes.INT32)
 siac_opra_recipient_obi_v4_0.fields.message = ProtoField.new("Message", "siac.opra.recipient.obi.v4.0.message", ftypes.STRING)
 siac_opra_recipient_obi_v4_0.fields.message_category = ProtoField.new("Message Category", "siac.opra.recipient.obi.v4.0.messagecategory", ftypes.STRING)
 siac_opra_recipient_obi_v4_0.fields.message_data = ProtoField.new("Message Data", "siac.opra.recipient.obi.v4.0.messagedata", ftypes.STRING)
@@ -46,37 +48,37 @@ siac_opra_recipient_obi_v4_0.fields.message_indicator = ProtoField.new("Message 
 siac_opra_recipient_obi_v4_0.fields.message_type = ProtoField.new("Message Type", "siac.opra.recipient.obi.v4.0.messagetype", ftypes.STRING)
 siac_opra_recipient_obi_v4_0.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.opra.recipient.obi.v4.0.messagesinblock", ftypes.UINT8)
 siac_opra_recipient_obi_v4_0.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.opra.recipient.obi.v4.0.nanoseconds", ftypes.UINT32)
-siac_opra_recipient_obi_v4_0.fields.net_change = ProtoField.new("Net Change", "siac.opra.recipient.obi.v4.0.netchange", ftypes.INT64)
-siac_opra_recipient_obi_v4_0.fields.offer_price_2 = ProtoField.new("Offer Price 2", "siac.opra.recipient.obi.v4.0.offerprice2", ftypes.INT64)
-siac_opra_recipient_obi_v4_0.fields.offer_price_4 = ProtoField.new("Offer Price 4", "siac.opra.recipient.obi.v4.0.offerprice4", ftypes.INT64)
-siac_opra_recipient_obi_v4_0.fields.offer_size_2 = ProtoField.new("Offer Size 2", "siac.opra.recipient.obi.v4.0.offersize2", ftypes.UINT64)
-siac_opra_recipient_obi_v4_0.fields.offer_size_4 = ProtoField.new("Offer Size 4", "siac.opra.recipient.obi.v4.0.offersize4", ftypes.UINT64)
+siac_opra_recipient_obi_v4_0.fields.net_change = ProtoField.new("Net Change", "siac.opra.recipient.obi.v4.0.netchange", ftypes.INT32)
+siac_opra_recipient_obi_v4_0.fields.offer_price = ProtoField.new("Offer Price", "siac.opra.recipient.obi.v4.0.offerprice", ftypes.INT32)
+siac_opra_recipient_obi_v4_0.fields.offer_price_short = ProtoField.new("Offer Price Short", "siac.opra.recipient.obi.v4.0.offerpriceshort", ftypes.INT16)
+siac_opra_recipient_obi_v4_0.fields.offer_size = ProtoField.new("Offer Size", "siac.opra.recipient.obi.v4.0.offersize", ftypes.UINT32)
+siac_opra_recipient_obi_v4_0.fields.offer_size_short = ProtoField.new("Offer Size Short", "siac.opra.recipient.obi.v4.0.offersizeshort", ftypes.UINT16)
 siac_opra_recipient_obi_v4_0.fields.open_interest_message = ProtoField.new("Open Interest Message", "siac.opra.recipient.obi.v4.0.openinterestmessage", ftypes.STRING)
-siac_opra_recipient_obi_v4_0.fields.open_interest_volume = ProtoField.new("Open Interest Volume", "siac.opra.recipient.obi.v4.0.openinterestvolume", ftypes.UINT64)
-siac_opra_recipient_obi_v4_0.fields.open_price = ProtoField.new("Open Price", "siac.opra.recipient.obi.v4.0.openprice", ftypes.INT64)
+siac_opra_recipient_obi_v4_0.fields.open_interest_volume = ProtoField.new("Open Interest Volume", "siac.opra.recipient.obi.v4.0.openinterestvolume", ftypes.UINT32)
+siac_opra_recipient_obi_v4_0.fields.open_price = ProtoField.new("Open Price", "siac.opra.recipient.obi.v4.0.openprice", ftypes.INT32)
 siac_opra_recipient_obi_v4_0.fields.packet = ProtoField.new("Packet", "siac.opra.recipient.obi.v4.0.packet", ftypes.STRING)
 siac_opra_recipient_obi_v4_0.fields.participant_id = ProtoField.new("Participant Id", "siac.opra.recipient.obi.v4.0.participantid", ftypes.STRING)
 siac_opra_recipient_obi_v4_0.fields.payload = ProtoField.new("Payload", "siac.opra.recipient.obi.v4.0.payload", ftypes.STRING)
-siac_opra_recipient_obi_v4_0.fields.premium_price = ProtoField.new("Premium Price", "siac.opra.recipient.obi.v4.0.premiumprice", ftypes.INT64)
+siac_opra_recipient_obi_v4_0.fields.premium_price = ProtoField.new("Premium Price", "siac.opra.recipient.obi.v4.0.premiumprice", ftypes.INT32)
 siac_opra_recipient_obi_v4_0.fields.premium_price_denominator_code = ProtoField.new("Premium Price Denominator Code", "siac.opra.recipient.obi.v4.0.premiumpricedenominatorcode", ftypes.STRING)
 siac_opra_recipient_obi_v4_0.fields.reserved_1 = ProtoField.new("Reserved 1", "siac.opra.recipient.obi.v4.0.reserved1", ftypes.BYTES)
 siac_opra_recipient_obi_v4_0.fields.reserved_4 = ProtoField.new("Reserved 4", "siac.opra.recipient.obi.v4.0.reserved4", ftypes.BYTES)
 siac_opra_recipient_obi_v4_0.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "siac.opra.recipient.obi.v4.0.retransmissionindicator", ftypes.STRING)
 siac_opra_recipient_obi_v4_0.fields.seconds = ProtoField.new("Seconds", "siac.opra.recipient.obi.v4.0.seconds", ftypes.UINT32)
-siac_opra_recipient_obi_v4_0.fields.security_symbol_4 = ProtoField.new("Security Symbol 4", "siac.opra.recipient.obi.v4.0.securitysymbol4", ftypes.STRING)
-siac_opra_recipient_obi_v4_0.fields.security_symbol_5 = ProtoField.new("Security Symbol 5", "siac.opra.recipient.obi.v4.0.securitysymbol5", ftypes.STRING)
+siac_opra_recipient_obi_v4_0.fields.security_symbol = ProtoField.new("Security Symbol", "siac.opra.recipient.obi.v4.0.securitysymbol", ftypes.STRING)
+siac_opra_recipient_obi_v4_0.fields.security_symbol_short = ProtoField.new("Security Symbol Short", "siac.opra.recipient.obi.v4.0.securitysymbolshort", ftypes.STRING)
 siac_opra_recipient_obi_v4_0.fields.session_indicator = ProtoField.new("Session Indicator", "siac.opra.recipient.obi.v4.0.sessionindicator", ftypes.UINT8)
 siac_opra_recipient_obi_v4_0.fields.short_equity_and_index_quote_message = ProtoField.new("Short Equity And Index Quote Message", "siac.opra.recipient.obi.v4.0.shortequityandindexquotemessage", ftypes.STRING)
-siac_opra_recipient_obi_v4_0.fields.strike_price_2 = ProtoField.new("Strike Price 2", "siac.opra.recipient.obi.v4.0.strikeprice2", ftypes.UINT64)
-siac_opra_recipient_obi_v4_0.fields.strike_price_4 = ProtoField.new("Strike Price 4", "siac.opra.recipient.obi.v4.0.strikeprice4", ftypes.UINT64)
+siac_opra_recipient_obi_v4_0.fields.strike_price = ProtoField.new("Strike Price", "siac.opra.recipient.obi.v4.0.strikeprice", ftypes.UINT32)
 siac_opra_recipient_obi_v4_0.fields.strike_price_denominator_code = ProtoField.new("Strike Price Denominator Code", "siac.opra.recipient.obi.v4.0.strikepricedenominatorcode", ftypes.STRING)
-siac_opra_recipient_obi_v4_0.fields.trade_identifier = ProtoField.new("Trade Identifier", "siac.opra.recipient.obi.v4.0.tradeidentifier", ftypes.UINT64)
+siac_opra_recipient_obi_v4_0.fields.strike_price_short = ProtoField.new("Strike Price Short", "siac.opra.recipient.obi.v4.0.strikepriceshort", ftypes.UINT16)
+siac_opra_recipient_obi_v4_0.fields.trade_identifier = ProtoField.new("Trade Identifier", "siac.opra.recipient.obi.v4.0.tradeidentifier", ftypes.UINT32)
 siac_opra_recipient_obi_v4_0.fields.transaction_id = ProtoField.new("Transaction Id", "siac.opra.recipient.obi.v4.0.transactionid", ftypes.UINT64)
 siac_opra_recipient_obi_v4_0.fields.underlying_price = ProtoField.new("Underlying Price", "siac.opra.recipient.obi.v4.0.underlyingprice", ftypes.INT64)
 siac_opra_recipient_obi_v4_0.fields.underlying_price_denominator_code = ProtoField.new("Underlying Price Denominator Code", "siac.opra.recipient.obi.v4.0.underlyingpricedenominatorcode", ftypes.STRING)
 siac_opra_recipient_obi_v4_0.fields.underlying_value_message = ProtoField.new("Underlying Value Message", "siac.opra.recipient.obi.v4.0.underlyingvaluemessage", ftypes.STRING)
 siac_opra_recipient_obi_v4_0.fields.version = ProtoField.new("Version", "siac.opra.recipient.obi.v4.0.version", ftypes.UINT8)
-siac_opra_recipient_obi_v4_0.fields.volume = ProtoField.new("Volume", "siac.opra.recipient.obi.v4.0.volume", ftypes.UINT64)
+siac_opra_recipient_obi_v4_0.fields.volume = ProtoField.new("Volume", "siac.opra.recipient.obi.v4.0.volume", ftypes.UINT32)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -261,22 +263,22 @@ dissect.reserved_1 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Security Symbol 5
-size_of.security_symbol_5 = 8
+-- Size: Security Symbol
+size_of.security_symbol = 5
 
--- Display: Security Symbol 5
-display.security_symbol_5 = function(value)
-  return "Security Symbol 5: "..value
+-- Display: Security Symbol
+display.security_symbol = function(value)
+  return "Security Symbol: "..value
 end
 
--- Dissect: Security Symbol 5
-dissect.security_symbol_5 = function(buffer, offset, packet, parent)
-  local length = size_of.security_symbol_5
+-- Dissect: Security Symbol
+dissect.security_symbol = function(buffer, offset, packet, parent)
+  local length = size_of.security_symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.security_symbol_5(value, buffer, offset, packet, parent)
+  local display = display.security_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v4_0.fields.security_symbol_5, range, value, display)
+  parent:add(siac_opra_recipient_obi_v4_0.fields.security_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -359,8 +361,8 @@ dissect.underlying_value_message_fields = function(buffer, offset, packet, paren
   -- Transaction Id: 8 Byte Unsigned Fixed Width Integer
   index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
 
-  -- Security Symbol 5: 8 Byte Ascii String
-  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
+  -- Security Symbol: 5 Byte Ascii String
+  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
   index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
@@ -381,7 +383,7 @@ end
 dissect.underlying_value_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.underlying_value_message then
-    local range = buffer(offset, 28)
+    local range = buffer(offset, 25)
     local display = display.underlying_value_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v4_0.fields.underlying_value_message, range, display)
   end
@@ -390,7 +392,7 @@ dissect.underlying_value_message = function(buffer, offset, packet, parent)
 end
 
 -- Size: Message Data
-size_of.message_data = 8
+size_of.message_data = 1
 
 -- Display: Message Data
 display.message_data = function(value)
@@ -450,7 +452,7 @@ dissect.control_message_fields = function(buffer, offset, packet, parent)
   -- Message Data Length: 2 Byte Unsigned Fixed Width Integer
   index, message_data_length = dissect.message_data_length(buffer, index, packet, parent)
 
-  -- Message Data: 8 Byte Ascii String
+  -- Message Data: 1 Byte Ascii String
   index, message_data = dissect.message_data(buffer, index, packet, parent)
 
   return index
@@ -460,7 +462,7 @@ end
 dissect.control_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.control_message then
-    local range = buffer(offset, 20)
+    local range = buffer(offset, 13)
     local display = display.control_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v4_0.fields.control_message, range, display)
   end
@@ -489,7 +491,7 @@ dissect.administrative_message_fields = function(buffer, offset, packet, parent)
   -- Message Data Length: 2 Byte Unsigned Fixed Width Integer
   index, message_data_length = dissect.message_data_length(buffer, index, packet, parent)
 
-  -- Message Data: 8 Byte Ascii String
+  -- Message Data: 1 Byte Ascii String
   index, message_data = dissect.message_data(buffer, index, packet, parent)
 
   return index
@@ -499,7 +501,7 @@ end
 dissect.administrative_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.administrative_message then
-    local range = buffer(offset, 20)
+    local range = buffer(offset, 13)
     local display = display.administrative_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v4_0.fields.administrative_message, range, display)
   end
@@ -507,42 +509,62 @@ dissect.administrative_message = function(buffer, offset, packet, parent)
   return dissect.administrative_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Offer Size 2
-size_of.offer_size_2 = 8
+-- Size: Offer Size Short
+size_of.offer_size_short = 2
 
--- Display: Offer Size 2
-display.offer_size_2 = function(value)
-  return "Offer Size 2: "..value
+-- Display: Offer Size Short
+display.offer_size_short = function(value)
+  return "Offer Size Short: "..value
 end
 
--- Dissect: Offer Size 2
-dissect.offer_size_2 = function(buffer, offset, packet, parent)
-  local length = size_of.offer_size_2
+-- Dissect: Offer Size Short
+dissect.offer_size_short = function(buffer, offset, packet, parent)
+  local length = size_of.offer_size_short
   local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = display.offer_size_2(value, buffer, offset, packet, parent)
+  local value = range:le_uint()
+  local display = display.offer_size_short(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v4_0.fields.offer_size_2, range, value, display)
+  parent:add(siac_opra_recipient_obi_v4_0.fields.offer_size_short, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Offer Price 2
-size_of.offer_price_2 = 8
+-- Size: Offer Price Short
+size_of.offer_price_short = 2
 
--- Display: Offer Price 2
-display.offer_price_2 = function(value)
-  return "Offer Price 2: "..value
+-- Display: Offer Price Short
+display.offer_price_short = function(value)
+  return "Offer Price Short: "..value
 end
 
--- Dissect: Offer Price 2
-dissect.offer_price_2 = function(buffer, offset, packet, parent)
-  local length = size_of.offer_price_2
+-- Dissect: Offer Price Short
+dissect.offer_price_short = function(buffer, offset, packet, parent)
+  local length = size_of.offer_price_short
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.offer_price_2(value, buffer, offset, packet, parent)
+  local value = range:le_int()
+  local display = display.offer_price_short(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v4_0.fields.offer_price_2, range, value, display)
+  parent:add(siac_opra_recipient_obi_v4_0.fields.offer_price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Bid Size Short
+size_of.bid_size_short = 2
+
+-- Display: Bid Size Short
+display.bid_size_short = function(value)
+  return "Bid Size Short: "..value
+end
+
+-- Dissect: Bid Size Short
+dissect.bid_size_short = function(buffer, offset, packet, parent)
+  local length = size_of.bid_size_short
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.bid_size_short(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v4_0.fields.bid_size_short, range, value, display)
 
   return offset + length, value
 end
@@ -567,42 +589,42 @@ dissect.bid_price_short = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Strike Price 2
-size_of.strike_price_2 = 8
+-- Size: Strike Price Short
+size_of.strike_price_short = 2
 
--- Display: Strike Price 2
-display.strike_price_2 = function(value)
-  return "Strike Price 2: "..value
+-- Display: Strike Price Short
+display.strike_price_short = function(value)
+  return "Strike Price Short: "..value
 end
 
--- Dissect: Strike Price 2
-dissect.strike_price_2 = function(buffer, offset, packet, parent)
-  local length = size_of.strike_price_2
+-- Dissect: Strike Price Short
+dissect.strike_price_short = function(buffer, offset, packet, parent)
+  local length = size_of.strike_price_short
   local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = display.strike_price_2(value, buffer, offset, packet, parent)
+  local value = range:le_uint()
+  local display = display.strike_price_short(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v4_0.fields.strike_price_2, range, value, display)
+  parent:add(siac_opra_recipient_obi_v4_0.fields.strike_price_short, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Security Symbol 4
-size_of.security_symbol_4 = 8
+-- Size: Security Symbol Short
+size_of.security_symbol_short = 4
 
--- Display: Security Symbol 4
-display.security_symbol_4 = function(value)
-  return "Security Symbol 4: "..value
+-- Display: Security Symbol Short
+display.security_symbol_short = function(value)
+  return "Security Symbol Short: "..value
 end
 
--- Dissect: Security Symbol 4
-dissect.security_symbol_4 = function(buffer, offset, packet, parent)
-  local length = size_of.security_symbol_4
+-- Dissect: Security Symbol Short
+dissect.security_symbol_short = function(buffer, offset, packet, parent)
+  local length = size_of.security_symbol_short
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.security_symbol_4(value, buffer, offset, packet, parent)
+  local display = display.security_symbol_short(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v4_0.fields.security_symbol_4, range, value, display)
+  parent:add(siac_opra_recipient_obi_v4_0.fields.security_symbol_short, range, value, display)
 
   return offset + length, value
 end
@@ -625,26 +647,26 @@ dissect.short_equity_and_index_quote_message_fields = function(buffer, offset, p
   -- Transaction Id: 8 Byte Unsigned Fixed Width Integer
   index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
 
-  -- Security Symbol 4: 8 Byte Ascii String
-  index, security_symbol_4 = dissect.security_symbol_4(buffer, index, packet, parent)
+  -- Security Symbol Short: 4 Byte Ascii String
+  index, security_symbol_short = dissect.security_symbol_short(buffer, index, packet, parent)
 
   -- Expiration Block
   index, expiration_block = dissect.expiration_block(buffer, index, packet, parent)
 
-  -- Strike Price 2: 8 Byte Unsigned Fixed Width Integer
-  index, strike_price_2 = dissect.strike_price_2(buffer, index, packet, parent)
+  -- Strike Price Short: 2 Byte Unsigned Fixed Width Integer
+  index, strike_price_short = dissect.strike_price_short(buffer, index, packet, parent)
 
   -- Bid Price Short: 2 Byte Signed Fixed Width Integer
   index, bid_price_short = dissect.bid_price_short(buffer, index, packet, parent)
 
-  -- Bid Size 2
-  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
+  -- Bid Size Short: 2 Byte Unsigned Fixed Width Integer
+  index, bid_size_short = dissect.bid_size_short(buffer, index, packet, parent)
 
-  -- Offer Price 2: 8 Byte Signed Fixed Width Integer
-  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
+  -- Offer Price Short: 2 Byte Signed Fixed Width Integer
+  index, offer_price_short = dissect.offer_price_short(buffer, index, packet, parent)
 
-  -- Offer Size 2: 8 Byte Unsigned Fixed Width Integer
-  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
+  -- Offer Size Short: 2 Byte Unsigned Fixed Width Integer
+  index, offer_size_short = dissect.offer_size_short(buffer, index, packet, parent)
 
   return index
 end
@@ -653,7 +675,7 @@ end
 dissect.short_equity_and_index_quote_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.short_equity_and_index_quote_message then
-    local range = buffer(offset, 44)
+    local range = buffer(offset, 24)
     local display = display.short_equity_and_index_quote_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v4_0.fields.short_equity_and_index_quote_message, range, display)
   end
@@ -661,42 +683,62 @@ dissect.short_equity_and_index_quote_message = function(buffer, offset, packet, 
   return dissect.short_equity_and_index_quote_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Offer Size 4
-size_of.offer_size_4 = 8
+-- Size: Offer Size
+size_of.offer_size = 4
 
--- Display: Offer Size 4
-display.offer_size_4 = function(value)
-  return "Offer Size 4: "..value
+-- Display: Offer Size
+display.offer_size = function(value)
+  return "Offer Size: "..value
 end
 
--- Dissect: Offer Size 4
-dissect.offer_size_4 = function(buffer, offset, packet, parent)
-  local length = size_of.offer_size_4
+-- Dissect: Offer Size
+dissect.offer_size = function(buffer, offset, packet, parent)
+  local length = size_of.offer_size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = display.offer_size_4(value, buffer, offset, packet, parent)
+  local value = range:le_uint()
+  local display = display.offer_size(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v4_0.fields.offer_size_4, range, value, display)
+  parent:add(siac_opra_recipient_obi_v4_0.fields.offer_size, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Offer Price 4
-size_of.offer_price_4 = 8
+-- Size: Offer Price
+size_of.offer_price = 4
 
--- Display: Offer Price 4
-display.offer_price_4 = function(value)
-  return "Offer Price 4: "..value
+-- Display: Offer Price
+display.offer_price = function(value)
+  return "Offer Price: "..value
 end
 
--- Dissect: Offer Price 4
-dissect.offer_price_4 = function(buffer, offset, packet, parent)
-  local length = size_of.offer_price_4
+-- Dissect: Offer Price
+dissect.offer_price = function(buffer, offset, packet, parent)
+  local length = size_of.offer_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.offer_price_4(value, buffer, offset, packet, parent)
+  local value = range:le_int()
+  local display = display.offer_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v4_0.fields.offer_price_4, range, value, display)
+  parent:add(siac_opra_recipient_obi_v4_0.fields.offer_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Bid Size
+size_of.bid_size = 4
+
+-- Display: Bid Size
+display.bid_size = function(value)
+  return "Bid Size: "..value
+end
+
+-- Dissect: Bid Size
+dissect.bid_size = function(buffer, offset, packet, parent)
+  local length = size_of.bid_size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.bid_size(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v4_0.fields.bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -741,28 +783,28 @@ dissect.premium_price_denominator_code = function(buffer, offset, packet, parent
   return offset + length, value
 end
 
--- Size: Strike Price 4
-size_of.strike_price_4 = 8
+-- Size: Strike Price
+size_of.strike_price = 4
 
--- Display: Strike Price 4
-display.strike_price_4 = function(value)
-  return "Strike Price 4: "..value
+-- Display: Strike Price
+display.strike_price = function(value)
+  return "Strike Price: "..value
 end
 
--- Dissect: Strike Price 4
-dissect.strike_price_4 = function(buffer, offset, packet, parent)
-  local length = size_of.strike_price_4
+-- Dissect: Strike Price
+dissect.strike_price = function(buffer, offset, packet, parent)
+  local length = size_of.strike_price
   local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = display.strike_price_4(value, buffer, offset, packet, parent)
+  local value = range:le_uint()
+  local display = display.strike_price(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v4_0.fields.strike_price_4, range, value, display)
+  parent:add(siac_opra_recipient_obi_v4_0.fields.strike_price, range, value, display)
 
   return offset + length, value
 end
 
 -- Size: Strike Price Denominator Code
-size_of.strike_price_denominator_code = 8
+size_of.strike_price_denominator_code = 1
 
 -- Display: Strike Price Denominator Code
 display.strike_price_denominator_code = function(value)
@@ -799,8 +841,8 @@ dissect.long_equity_and_index_quote_message_fields = function(buffer, offset, pa
   -- Transaction Id: 8 Byte Unsigned Fixed Width Integer
   index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
 
-  -- Security Symbol 5: 8 Byte Ascii String
-  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
+  -- Security Symbol: 5 Byte Ascii String
+  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
   index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
@@ -808,11 +850,11 @@ dissect.long_equity_and_index_quote_message_fields = function(buffer, offset, pa
   -- Expiration Block
   index, expiration_block = dissect.expiration_block(buffer, index, packet, parent)
 
-  -- Strike Price Denominator Code: 8 Byte Ascii String
+  -- Strike Price Denominator Code: 1 Byte Ascii String
   index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
-  -- Strike Price 4: 8 Byte Unsigned Fixed Width Integer
-  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
+  -- Strike Price: 4 Byte Unsigned Fixed Width Integer
+  index, strike_price = dissect.strike_price(buffer, index, packet, parent)
 
   -- Premium Price Denominator Code: 1 Byte Ascii String
   index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
@@ -820,14 +862,14 @@ dissect.long_equity_and_index_quote_message_fields = function(buffer, offset, pa
   -- Bid Price: 4 Byte Signed Fixed Width Integer
   index, bid_price = dissect.bid_price(buffer, index, packet, parent)
 
-  -- Bid Size 4
-  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
+  -- Bid Size: 4 Byte Unsigned Fixed Width Integer
+  index, bid_size = dissect.bid_size(buffer, index, packet, parent)
 
-  -- Offer Price 4: 8 Byte Signed Fixed Width Integer
-  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
+  -- Offer Price: 4 Byte Signed Fixed Width Integer
+  index, offer_price = dissect.offer_price(buffer, index, packet, parent)
 
-  -- Offer Size 4: 8 Byte Unsigned Fixed Width Integer
-  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
+  -- Offer Size: 4 Byte Unsigned Fixed Width Integer
+  index, offer_size = dissect.offer_size(buffer, index, packet, parent)
 
   return index
 end
@@ -836,7 +878,7 @@ end
 dissect.long_equity_and_index_quote_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.long_equity_and_index_quote_message then
-    local range = buffer(offset, 56)
+    local range = buffer(offset, 38)
     local display = display.long_equity_and_index_quote_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v4_0.fields.long_equity_and_index_quote_message, range, display)
   end
@@ -885,7 +927,7 @@ dissect.underlying_price_denominator_code = function(buffer, offset, packet, par
 end
 
 -- Size: Net Change
-size_of.net_change = 8
+size_of.net_change = 4
 
 -- Display: Net Change
 display.net_change = function(value)
@@ -896,7 +938,7 @@ end
 dissect.net_change = function(buffer, offset, packet, parent)
   local length = size_of.net_change
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local value = range:le_int()
   local display = display.net_change(value, buffer, offset, packet, parent)
 
   parent:add(siac_opra_recipient_obi_v4_0.fields.net_change, range, value, display)
@@ -905,7 +947,7 @@ dissect.net_change = function(buffer, offset, packet, parent)
 end
 
 -- Size: Last Price
-size_of.last_price = 8
+size_of.last_price = 4
 
 -- Display: Last Price
 display.last_price = function(value)
@@ -916,7 +958,7 @@ end
 dissect.last_price = function(buffer, offset, packet, parent)
   local length = size_of.last_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local value = range:le_int()
   local display = display.last_price(value, buffer, offset, packet, parent)
 
   parent:add(siac_opra_recipient_obi_v4_0.fields.last_price, range, value, display)
@@ -925,7 +967,7 @@ dissect.last_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Low Price
-size_of.low_price = 8
+size_of.low_price = 4
 
 -- Display: Low Price
 display.low_price = function(value)
@@ -936,7 +978,7 @@ end
 dissect.low_price = function(buffer, offset, packet, parent)
   local length = size_of.low_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local value = range:le_int()
   local display = display.low_price(value, buffer, offset, packet, parent)
 
   parent:add(siac_opra_recipient_obi_v4_0.fields.low_price, range, value, display)
@@ -965,7 +1007,7 @@ dissect.high_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Open Price
-size_of.open_price = 8
+size_of.open_price = 4
 
 -- Display: Open Price
 display.open_price = function(value)
@@ -976,7 +1018,7 @@ end
 dissect.open_price = function(buffer, offset, packet, parent)
   local length = size_of.open_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local value = range:le_int()
   local display = display.open_price(value, buffer, offset, packet, parent)
 
   parent:add(siac_opra_recipient_obi_v4_0.fields.open_price, range, value, display)
@@ -985,7 +1027,7 @@ dissect.open_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Open Interest Volume
-size_of.open_interest_volume = 8
+size_of.open_interest_volume = 4
 
 -- Display: Open Interest Volume
 display.open_interest_volume = function(value)
@@ -996,7 +1038,7 @@ end
 dissect.open_interest_volume = function(buffer, offset, packet, parent)
   local length = size_of.open_interest_volume
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local value = range:le_uint()
   local display = display.open_interest_volume(value, buffer, offset, packet, parent)
 
   parent:add(siac_opra_recipient_obi_v4_0.fields.open_interest_volume, range, value, display)
@@ -1005,7 +1047,7 @@ dissect.open_interest_volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Volume
-size_of.volume = 8
+size_of.volume = 4
 
 -- Display: Volume
 display.volume = function(value)
@@ -1065,7 +1107,7 @@ end
 dissect.volume = function(buffer, offset, packet, parent)
   local length = size_of.volume
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local value = range:le_uint()
   local display = display.volume(value, buffer, offset, packet, parent)
 
   parent:add(siac_opra_recipient_obi_v4_0.fields.volume, range, value, display)
@@ -1091,8 +1133,8 @@ dissect.equity_and_index_end_of_day_summary_message_fields = function(buffer, of
   -- Transaction Id: 8 Byte Unsigned Fixed Width Integer
   index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
 
-  -- Security Symbol 5: 8 Byte Ascii String
-  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
+  -- Security Symbol: 5 Byte Ascii String
+  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
   index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
@@ -1100,34 +1142,34 @@ dissect.equity_and_index_end_of_day_summary_message_fields = function(buffer, of
   -- Expiration Block
   index, expiration_block = dissect.expiration_block(buffer, index, packet, parent)
 
-  -- Strike Price Denominator Code: 8 Byte Ascii String
+  -- Strike Price Denominator Code: 1 Byte Ascii String
   index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
-  -- Strike Price 4: 8 Byte Unsigned Fixed Width Integer
-  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
+  -- Strike Price: 4 Byte Unsigned Fixed Width Integer
+  index, strike_price = dissect.strike_price(buffer, index, packet, parent)
 
-  -- Volume: 8 Byte Unsigned Fixed Width Integer Enum with 16 values
+  -- Volume: 4 Byte Unsigned Fixed Width Integer Enum with 16 values
   index, volume = dissect.volume(buffer, index, packet, parent)
 
-  -- Open Interest Volume: 8 Byte Unsigned Fixed Width Integer
+  -- Open Interest Volume: 4 Byte Unsigned Fixed Width Integer
   index, open_interest_volume = dissect.open_interest_volume(buffer, index, packet, parent)
 
   -- Premium Price Denominator Code: 1 Byte Ascii String
   index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
-  -- Open Price: 8 Byte Signed Fixed Width Integer
+  -- Open Price: 4 Byte Signed Fixed Width Integer
   index, open_price = dissect.open_price(buffer, index, packet, parent)
 
   -- High Price: 4 Byte Signed Fixed Width Integer
   index, high_price = dissect.high_price(buffer, index, packet, parent)
 
-  -- Low Price: 8 Byte Signed Fixed Width Integer
+  -- Low Price: 4 Byte Signed Fixed Width Integer
   index, low_price = dissect.low_price(buffer, index, packet, parent)
 
-  -- Last Price: 8 Byte Signed Fixed Width Integer
+  -- Last Price: 4 Byte Signed Fixed Width Integer
   index, last_price = dissect.last_price(buffer, index, packet, parent)
 
-  -- Net Change: 8 Byte Signed Fixed Width Integer
+  -- Net Change: 4 Byte Signed Fixed Width Integer
   index, net_change = dissect.net_change(buffer, index, packet, parent)
 
   -- Underlying Price Denominator Code: 1 Byte Ascii String
@@ -1139,8 +1181,8 @@ dissect.equity_and_index_end_of_day_summary_message_fields = function(buffer, of
   -- Bid Price: 4 Byte Signed Fixed Width Integer
   index, bid_price = dissect.bid_price(buffer, index, packet, parent)
 
-  -- Offer Price 4: 8 Byte Signed Fixed Width Integer
-  index, offer_price_4 = dissect.offer_price_4(buffer, index, packet, parent)
+  -- Offer Price: 4 Byte Signed Fixed Width Integer
+  index, offer_price = dissect.offer_price(buffer, index, packet, parent)
 
   return index
 end
@@ -1149,7 +1191,7 @@ end
 dissect.equity_and_index_end_of_day_summary_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.equity_and_index_end_of_day_summary_message then
-    local range = buffer(offset, 109)
+    local range = buffer(offset, 67)
     local display = display.equity_and_index_end_of_day_summary_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v4_0.fields.equity_and_index_end_of_day_summary_message, range, display)
   end
@@ -1175,8 +1217,8 @@ dissect.open_interest_message_fields = function(buffer, offset, packet, parent)
   -- Transaction Id: 8 Byte Unsigned Fixed Width Integer
   index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
 
-  -- Security Symbol 5: 8 Byte Ascii String
-  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
+  -- Security Symbol: 5 Byte Ascii String
+  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
   index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
@@ -1184,13 +1226,13 @@ dissect.open_interest_message_fields = function(buffer, offset, packet, parent)
   -- Expiration Block
   index, expiration_block = dissect.expiration_block(buffer, index, packet, parent)
 
-  -- Strike Price Denominator Code: 8 Byte Ascii String
+  -- Strike Price Denominator Code: 1 Byte Ascii String
   index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
-  -- Strike Price 4: 8 Byte Unsigned Fixed Width Integer
-  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
+  -- Strike Price: 4 Byte Unsigned Fixed Width Integer
+  index, strike_price = dissect.strike_price(buffer, index, packet, parent)
 
-  -- Open Interest Volume: 8 Byte Unsigned Fixed Width Integer
+  -- Open Interest Volume: 4 Byte Unsigned Fixed Width Integer
   index, open_interest_volume = dissect.open_interest_volume(buffer, index, packet, parent)
 
   return index
@@ -1200,7 +1242,7 @@ end
 dissect.open_interest_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.open_interest_message then
-    local range = buffer(offset, 43)
+    local range = buffer(offset, 25)
     local display = display.open_interest_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v4_0.fields.open_interest_message, range, display)
   end
@@ -1209,7 +1251,7 @@ dissect.open_interest_message = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Identifier
-size_of.trade_identifier = 8
+size_of.trade_identifier = 4
 
 -- Display: Trade Identifier
 display.trade_identifier = function(value)
@@ -1220,7 +1262,7 @@ end
 dissect.trade_identifier = function(buffer, offset, packet, parent)
   local length = size_of.trade_identifier
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local value = range:le_uint()
   local display = display.trade_identifier(value, buffer, offset, packet, parent)
 
   parent:add(siac_opra_recipient_obi_v4_0.fields.trade_identifier, range, value, display)
@@ -1229,7 +1271,7 @@ dissect.trade_identifier = function(buffer, offset, packet, parent)
 end
 
 -- Size: Premium Price
-size_of.premium_price = 8
+size_of.premium_price = 4
 
 -- Display: Premium Price
 display.premium_price = function(value)
@@ -1240,7 +1282,7 @@ end
 dissect.premium_price = function(buffer, offset, packet, parent)
   local length = size_of.premium_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local value = range:le_int()
   local display = display.premium_price(value, buffer, offset, packet, parent)
 
   parent:add(siac_opra_recipient_obi_v4_0.fields.premium_price, range, value, display)
@@ -1266,8 +1308,8 @@ dissect.equity_and_index_last_sale_message_fields = function(buffer, offset, pac
   -- Transaction Id: 8 Byte Unsigned Fixed Width Integer
   index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
 
-  -- Security Symbol 5: 8 Byte Ascii String
-  index, security_symbol_5 = dissect.security_symbol_5(buffer, index, packet, parent)
+  -- Security Symbol: 5 Byte Ascii String
+  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
   index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
@@ -1275,22 +1317,22 @@ dissect.equity_and_index_last_sale_message_fields = function(buffer, offset, pac
   -- Expiration Block
   index, expiration_block = dissect.expiration_block(buffer, index, packet, parent)
 
-  -- Strike Price Denominator Code: 8 Byte Ascii String
+  -- Strike Price Denominator Code: 1 Byte Ascii String
   index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
-  -- Strike Price 4: 8 Byte Unsigned Fixed Width Integer
-  index, strike_price_4 = dissect.strike_price_4(buffer, index, packet, parent)
+  -- Strike Price: 4 Byte Unsigned Fixed Width Integer
+  index, strike_price = dissect.strike_price(buffer, index, packet, parent)
 
-  -- Volume: 8 Byte Unsigned Fixed Width Integer Enum with 16 values
+  -- Volume: 4 Byte Unsigned Fixed Width Integer Enum with 16 values
   index, volume = dissect.volume(buffer, index, packet, parent)
 
   -- Premium Price Denominator Code: 1 Byte Ascii String
   index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
-  -- Premium Price: 8 Byte Signed Fixed Width Integer
+  -- Premium Price: 4 Byte Signed Fixed Width Integer
   index, premium_price = dissect.premium_price(buffer, index, packet, parent)
 
-  -- Trade Identifier: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Identifier: 4 Byte Unsigned Fixed Width Integer
   index, trade_identifier = dissect.trade_identifier(buffer, index, packet, parent)
 
   -- Reserved 4: 4 Byte
@@ -1303,7 +1345,7 @@ end
 dissect.equity_and_index_last_sale_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.equity_and_index_last_sale_message then
-    local range = buffer(offset, 64)
+    local range = buffer(offset, 38)
     local display = display.equity_and_index_last_sale_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v4_0.fields.equity_and_index_last_sale_message, range, display)
   end
@@ -1315,35 +1357,35 @@ end
 size_of.payload = function(buffer, offset, message_category)
   -- Size of Equity And Index Last Sale Message
   if message_category == "a" then
-    return 64
+    return 38
   end
   -- Size of Open Interest Message
   if message_category == "d" then
-    return 43
+    return 25
   end
   -- Size of Equity And Index End Of Day Summary Message
   if message_category == "f" then
-    return 109
+    return 67
   end
   -- Size of Long Equity And Index Quote Message
   if message_category == "k" then
-    return 56
+    return 38
   end
   -- Size of Short Equity And Index Quote Message
   if message_category == "q" then
-    return 44
+    return 24
   end
   -- Size of Administrative Message
   if message_category == "C" then
-    return 20
+    return 13
   end
   -- Size of Control Message
   if message_category == "H" then
-    return 20
+    return 13
   end
   -- Size of Underlying Value Message
   if message_category == "Y" then
-    return 28
+    return 25
   end
 
   return 0
