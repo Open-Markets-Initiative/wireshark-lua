@@ -21,6 +21,8 @@ local verify = {}
 
 -- Siac Opra Recipient Obi 4.0 Fields
 siac_opra_recipient_obi_v4_0.fields.administrative_message = ProtoField.new("Administrative Message", "siac.opra.recipient.obi.v4.0.administrativemessage", ftypes.STRING)
+siac_opra_recipient_obi_v4_0.fields.bbo_indicator = ProtoField.new("Bbo Indicator", "siac.opra.recipient.obi.v4.0.bboindicator", ftypes.STRING)
+siac_opra_recipient_obi_v4_0.fields.bid_index_value = ProtoField.new("Bid Index Value", "siac.opra.recipient.obi.v4.0.bidindexvalue", ftypes.INT32)
 siac_opra_recipient_obi_v4_0.fields.bid_price = ProtoField.new("Bid Price", "siac.opra.recipient.obi.v4.0.bidprice", ftypes.INT32)
 siac_opra_recipient_obi_v4_0.fields.bid_price_short = ProtoField.new("Bid Price Short", "siac.opra.recipient.obi.v4.0.bidpriceshort", ftypes.INT16)
 siac_opra_recipient_obi_v4_0.fields.bid_size = ProtoField.new("Bid Size", "siac.opra.recipient.obi.v4.0.bidsize", ftypes.UINT32)
@@ -49,6 +51,7 @@ siac_opra_recipient_obi_v4_0.fields.message_type = ProtoField.new("Message Type"
 siac_opra_recipient_obi_v4_0.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.opra.recipient.obi.v4.0.messagesinblock", ftypes.UINT8)
 siac_opra_recipient_obi_v4_0.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.opra.recipient.obi.v4.0.nanoseconds", ftypes.UINT32)
 siac_opra_recipient_obi_v4_0.fields.net_change = ProtoField.new("Net Change", "siac.opra.recipient.obi.v4.0.netchange", ftypes.INT32)
+siac_opra_recipient_obi_v4_0.fields.offer_index_value = ProtoField.new("Offer Index Value", "siac.opra.recipient.obi.v4.0.offerindexvalue", ftypes.INT64)
 siac_opra_recipient_obi_v4_0.fields.offer_price = ProtoField.new("Offer Price", "siac.opra.recipient.obi.v4.0.offerprice", ftypes.INT32)
 siac_opra_recipient_obi_v4_0.fields.offer_price_short = ProtoField.new("Offer Price Short", "siac.opra.recipient.obi.v4.0.offerpriceshort", ftypes.INT16)
 siac_opra_recipient_obi_v4_0.fields.offer_size = ProtoField.new("Offer Size", "siac.opra.recipient.obi.v4.0.offersize", ftypes.UINT32)
@@ -76,7 +79,11 @@ siac_opra_recipient_obi_v4_0.fields.trade_identifier = ProtoField.new("Trade Ide
 siac_opra_recipient_obi_v4_0.fields.transaction_id = ProtoField.new("Transaction Id", "siac.opra.recipient.obi.v4.0.transactionid", ftypes.UINT64)
 siac_opra_recipient_obi_v4_0.fields.underlying_price = ProtoField.new("Underlying Price", "siac.opra.recipient.obi.v4.0.underlyingprice", ftypes.INT64)
 siac_opra_recipient_obi_v4_0.fields.underlying_price_denominator_code = ProtoField.new("Underlying Price Denominator Code", "siac.opra.recipient.obi.v4.0.underlyingpricedenominatorcode", ftypes.STRING)
+siac_opra_recipient_obi_v4_0.fields.underlying_value_bid_and_offer_message = ProtoField.new("Underlying Value Bid And Offer Message", "siac.opra.recipient.obi.v4.0.underlyingvaluebidandoffermessage", ftypes.STRING)
+siac_opra_recipient_obi_v4_0.fields.underlying_value_last_sale_message = ProtoField.new("Underlying Value Last Sale Message", "siac.opra.recipient.obi.v4.0.underlyingvaluelastsalemessage", ftypes.STRING)
 siac_opra_recipient_obi_v4_0.fields.underlying_value_message = ProtoField.new("Underlying Value Message", "siac.opra.recipient.obi.v4.0.underlyingvaluemessage", ftypes.STRING)
+siac_opra_recipient_obi_v4_0.fields.underlying_value_message_payload = ProtoField.new("Underlying Value Message Payload", "siac.opra.recipient.obi.v4.0.underlyingvaluemessagepayload", ftypes.STRING)
+siac_opra_recipient_obi_v4_0.fields.underlying_value_message_type = ProtoField.new("Underlying Value Message Type", "siac.opra.recipient.obi.v4.0.underlyingvaluemessagetype", ftypes.STRING)
 siac_opra_recipient_obi_v4_0.fields.version = ProtoField.new("Version", "siac.opra.recipient.obi.v4.0.version", ftypes.UINT8)
 siac_opra_recipient_obi_v4_0.fields.volume = ProtoField.new("Volume", "siac.opra.recipient.obi.v4.0.volume", ftypes.UINT32)
 
@@ -96,8 +103,11 @@ show.message = true
 show.open_interest_message = true
 show.packet = true
 show.short_equity_and_index_quote_message = true
+show.underlying_value_bid_and_offer_message = true
+show.underlying_value_last_sale_message = true
 show.underlying_value_message = true
 show.payload = false
+show.underlying_value_message_payload = false
 
 -- Register Siac Opra Recipient Obi 4.0 Show Options
 siac_opra_recipient_obi_v4_0.prefs.show_administrative_message = Pref.bool("Show Administrative Message", show.administrative_message, "Parse and add Administrative Message to protocol tree")
@@ -111,8 +121,11 @@ siac_opra_recipient_obi_v4_0.prefs.show_message = Pref.bool("Show Message", show
 siac_opra_recipient_obi_v4_0.prefs.show_open_interest_message = Pref.bool("Show Open Interest Message", show.open_interest_message, "Parse and add Open Interest Message to protocol tree")
 siac_opra_recipient_obi_v4_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 siac_opra_recipient_obi_v4_0.prefs.show_short_equity_and_index_quote_message = Pref.bool("Show Short Equity And Index Quote Message", show.short_equity_and_index_quote_message, "Parse and add Short Equity And Index Quote Message to protocol tree")
+siac_opra_recipient_obi_v4_0.prefs.show_underlying_value_bid_and_offer_message = Pref.bool("Show Underlying Value Bid And Offer Message", show.underlying_value_bid_and_offer_message, "Parse and add Underlying Value Bid And Offer Message to protocol tree")
+siac_opra_recipient_obi_v4_0.prefs.show_underlying_value_last_sale_message = Pref.bool("Show Underlying Value Last Sale Message", show.underlying_value_last_sale_message, "Parse and add Underlying Value Last Sale Message to protocol tree")
 siac_opra_recipient_obi_v4_0.prefs.show_underlying_value_message = Pref.bool("Show Underlying Value Message", show.underlying_value_message, "Parse and add Underlying Value Message to protocol tree")
 siac_opra_recipient_obi_v4_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+siac_opra_recipient_obi_v4_0.prefs.show_underlying_value_message_payload = Pref.bool("Show Underlying Value Message Payload", show.underlying_value_message_payload, "Parse and add Underlying Value Message Payload to protocol tree")
 
 -- Handle changed preferences
 function siac_opra_recipient_obi_v4_0.prefs_changed()
@@ -163,12 +176,24 @@ function siac_opra_recipient_obi_v4_0.prefs_changed()
     show.short_equity_and_index_quote_message = siac_opra_recipient_obi_v4_0.prefs.show_short_equity_and_index_quote_message
     changed = true
   end
+  if show.underlying_value_bid_and_offer_message ~= siac_opra_recipient_obi_v4_0.prefs.show_underlying_value_bid_and_offer_message then
+    show.underlying_value_bid_and_offer_message = siac_opra_recipient_obi_v4_0.prefs.show_underlying_value_bid_and_offer_message
+    changed = true
+  end
+  if show.underlying_value_last_sale_message ~= siac_opra_recipient_obi_v4_0.prefs.show_underlying_value_last_sale_message then
+    show.underlying_value_last_sale_message = siac_opra_recipient_obi_v4_0.prefs.show_underlying_value_last_sale_message
+    changed = true
+  end
   if show.underlying_value_message ~= siac_opra_recipient_obi_v4_0.prefs.show_underlying_value_message then
     show.underlying_value_message = siac_opra_recipient_obi_v4_0.prefs.show_underlying_value_message
     changed = true
   end
   if show.payload ~= siac_opra_recipient_obi_v4_0.prefs.show_payload then
     show.payload = siac_opra_recipient_obi_v4_0.prefs.show_payload
+    changed = true
+  end
+  if show.underlying_value_message_payload ~= siac_opra_recipient_obi_v4_0.prefs.show_underlying_value_message_payload then
+    show.underlying_value_message_payload = siac_opra_recipient_obi_v4_0.prefs.show_underlying_value_message_payload
     changed = true
   end
 
@@ -183,42 +208,42 @@ end
 -- Dissect Siac Opra Recipient Obi 4.0
 -----------------------------------------------------------------------
 
--- Size: Reserved 4
-size_of.reserved_4 = 4
+-- Size: Offer Index Value
+size_of.offer_index_value = 8
 
--- Display: Reserved 4
-display.reserved_4 = function(value)
-  return "Reserved 4: "..value
+-- Display: Offer Index Value
+display.offer_index_value = function(value)
+  return "Offer Index Value: "..value
 end
 
--- Dissect: Reserved 4
-dissect.reserved_4 = function(buffer, offset, packet, parent)
-  local length = size_of.reserved_4
+-- Dissect: Offer Index Value
+dissect.offer_index_value = function(buffer, offset, packet, parent)
+  local length = size_of.offer_index_value
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = display.reserved_4(value, buffer, offset, packet, parent)
+  local value = range:le_int64()
+  local display = display.offer_index_value(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v4_0.fields.reserved_4, range, value, display)
+  parent:add(siac_opra_recipient_obi_v4_0.fields.offer_index_value, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Index Value
-size_of.index_value = 4
+-- Size: Bid Index Value
+size_of.bid_index_value = 4
 
--- Display: Index Value
-display.index_value = function(value)
-  return "Index Value: "..value
+-- Display: Bid Index Value
+display.bid_index_value = function(value)
+  return "Bid Index Value: "..value
 end
 
--- Dissect: Index Value
-dissect.index_value = function(buffer, offset, packet, parent)
-  local length = size_of.index_value
+-- Dissect: Bid Index Value
+dissect.bid_index_value = function(buffer, offset, packet, parent)
+  local length = size_of.bid_index_value
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = display.index_value(value, buffer, offset, packet, parent)
+  local display = display.bid_index_value(value, buffer, offset, packet, parent)
 
-  parent:add(siac_opra_recipient_obi_v4_0.fields.index_value, range, value, display)
+  parent:add(siac_opra_recipient_obi_v4_0.fields.bid_index_value, range, value, display)
 
   return offset + length, value
 end
@@ -228,7 +253,32 @@ size_of.index_value_denominator_code = 1
 
 -- Display: Index Value Denominator Code
 display.index_value_denominator_code = function(value)
-  return "Index Value Denominator Code: "..value
+  if value == "A" then
+    return "Index Value Denominator Code: Ten (A)"
+  end
+  if value == "B" then
+    return "Index Value Denominator Code: Hundred (B)"
+  end
+  if value == "C" then
+    return "Index Value Denominator Code: Thousand (C)"
+  end
+  if value == "D" then
+    return "Index Value Denominator Code: Ten Thousand (D)"
+  end
+  if value == "E" then
+    return "Index Value Denominator Code: Hundred Thousand (E)"
+  end
+  if value == "F" then
+    return "Index Value Denominator Code: Million (F)"
+  end
+  if value == "G" then
+    return "Index Value Denominator Code: Ten Million (G)"
+  end
+  if value == "I" then
+    return "Index Value Denominator Code: No Fraction (I)"
+  end
+
+  return "Index Value Denominator Code: Unknown("..value..")"
 end
 
 -- Dissect: Index Value Denominator Code
@@ -323,37 +373,14 @@ dissect.message_indicator = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Message Type
-size_of.message_type = 1
-
--- Display: Message Type
-display.message_type = function(value)
-  return "Message Type: "..value
-end
-
--- Dissect: Message Type
-dissect.message_type = function(buffer, offset, packet, parent)
-  local length = size_of.message_type
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.message_type(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v4_0.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Display: Underlying Value Message
-display.underlying_value_message = function(buffer, offset, size, packet, parent)
+-- Display: Underlying Value Bid And Offer Message
+display.underlying_value_bid_and_offer_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Underlying Value Message
-dissect.underlying_value_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Underlying Value Bid And Offer Message
+dissect.underlying_value_bid_and_offer_message_fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Message Type: 1 Byte Ascii String
-  index, message_type = dissect.message_type(buffer, index, packet, parent)
 
   -- Message Indicator: 1 Byte Ascii String
   index, message_indicator = dissect.message_indicator(buffer, index, packet, parent)
@@ -367,7 +394,92 @@ dissect.underlying_value_message_fields = function(buffer, offset, packet, paren
   -- Reserved 1: 1 Byte
   index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
-  -- Index Value Denominator Code: 1 Byte Ascii String
+  -- Index Value Denominator Code: 1 Byte Ascii String Enum with 8 values
+  index, index_value_denominator_code = dissect.index_value_denominator_code(buffer, index, packet, parent)
+
+  -- Bid Index Value: 4 Byte Signed Fixed Width Integer
+  index, bid_index_value = dissect.bid_index_value(buffer, index, packet, parent)
+
+  -- Offer Index Value: 8 Byte Signed Fixed Width Integer
+  index, offer_index_value = dissect.offer_index_value(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Underlying Value Bid And Offer Message
+dissect.underlying_value_bid_and_offer_message = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.underlying_value_bid_and_offer_message then
+    local range = buffer(offset, 28)
+    local display = display.underlying_value_bid_and_offer_message(buffer, packet, parent)
+    parent = parent:add(siac_opra_recipient_obi_v4_0.fields.underlying_value_bid_and_offer_message, range, display)
+  end
+
+  return dissect.underlying_value_bid_and_offer_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Reserved 4
+size_of.reserved_4 = 4
+
+-- Display: Reserved 4
+display.reserved_4 = function(value)
+  return "Reserved 4: "..value
+end
+
+-- Dissect: Reserved 4
+dissect.reserved_4 = function(buffer, offset, packet, parent)
+  local length = size_of.reserved_4
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.reserved_4(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v4_0.fields.reserved_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Index Value
+size_of.index_value = 4
+
+-- Display: Index Value
+display.index_value = function(value)
+  return "Index Value: "..value
+end
+
+-- Dissect: Index Value
+dissect.index_value = function(buffer, offset, packet, parent)
+  local length = size_of.index_value
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = display.index_value(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v4_0.fields.index_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display: Underlying Value Last Sale Message
+display.underlying_value_last_sale_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Underlying Value Last Sale Message
+dissect.underlying_value_last_sale_message_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Indicator: 1 Byte Ascii String
+  index, message_indicator = dissect.message_indicator(buffer, index, packet, parent)
+
+  -- Transaction Id: 8 Byte Unsigned Fixed Width Integer
+  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+
+  -- Security Symbol: 5 Byte Ascii String
+  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
+
+  -- Reserved 1: 1 Byte
+  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
+
+  -- Index Value Denominator Code: 1 Byte Ascii String Enum with 8 values
   index, index_value_denominator_code = dissect.index_value_denominator_code(buffer, index, packet, parent)
 
   -- Index Value: 4 Byte Signed Fixed Width Integer
@@ -379,11 +491,136 @@ dissect.underlying_value_message_fields = function(buffer, offset, packet, paren
   return index
 end
 
+-- Dissect: Underlying Value Last Sale Message
+dissect.underlying_value_last_sale_message = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.underlying_value_last_sale_message then
+    local range = buffer(offset, 24)
+    local display = display.underlying_value_last_sale_message(buffer, packet, parent)
+    parent = parent:add(siac_opra_recipient_obi_v4_0.fields.underlying_value_last_sale_message, range, display)
+  end
+
+  return dissect.underlying_value_last_sale_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate runtime size of: Underlying Value Message Payload
+size_of.underlying_value_message_payload = function(buffer, offset, underlying_value_message_type)
+  -- Size of Underlying Value Last Sale Message
+  if underlying_value_message_type == " " then
+    return 24
+  end
+  -- Size of Underlying Value Bid And Offer Message
+  if underlying_value_message_type == "I" then
+    return 28
+  end
+
+  return 0
+end
+
+-- Display: Underlying Value Message Payload
+display.underlying_value_message_payload = function(buffer, offset, packet, parent)
+  return ""
+end
+
+-- Dissect Branches: Underlying Value Message Payload
+dissect.underlying_value_message_payload_branches = function(buffer, offset, packet, parent, underlying_value_message_type)
+  -- Dissect Underlying Value Last Sale Message
+  if underlying_value_message_type == " " then
+    return dissect.underlying_value_last_sale_message(buffer, offset, packet, parent)
+  end
+  -- Dissect Underlying Value Bid And Offer Message
+  if underlying_value_message_type == "I" then
+    return dissect.underlying_value_bid_and_offer_message(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Dissect: Underlying Value Message Payload
+dissect.underlying_value_message_payload = function(buffer, offset, packet, parent, underlying_value_message_type)
+  if not show.underlying_value_message_payload then
+    return dissect.underlying_value_message_payload_branches(buffer, offset, packet, parent, underlying_value_message_type)
+  end
+
+  -- Calculate size and check that branch is not empty
+  local size = size_of.underlying_value_message_payload(buffer, offset, underlying_value_message_type)
+  if size == 0 then
+    return offset
+  end
+
+  -- Dissect Element
+  local range = buffer(offset, size)
+  local display = display.underlying_value_message_payload(buffer, packet, parent)
+  local element = parent:add(siac_opra_recipient_obi_v4_0.fields.underlying_value_message_payload, range, display)
+
+  return dissect.underlying_value_message_payload_branches(buffer, offset, packet, parent, underlying_value_message_type)
+end
+
+-- Size: Underlying Value Message Type
+size_of.underlying_value_message_type = 1
+
+-- Display: Underlying Value Message Type
+display.underlying_value_message_type = function(value)
+  if value == " " then
+    return "Underlying Value Message Type: Underlying Value Last Sale Message (<whitespace>)"
+  end
+  if value == "I" then
+    return "Underlying Value Message Type: Underlying Value Bid And Offer Message (I)"
+  end
+
+  return "Underlying Value Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Underlying Value Message Type
+dissect.underlying_value_message_type = function(buffer, offset, packet, parent)
+  local length = size_of.underlying_value_message_type
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.underlying_value_message_type(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v4_0.fields.underlying_value_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate runtime size: Underlying Value Message
+size_of.underlying_value_message = function(buffer, offset)
+  local index = 0
+
+  index = index + 1
+
+  -- Calculate runtime size of Underlying Value Message Payload field
+  local underlying_value_message_payload_offset = offset + index
+  local underlying_value_message_payload_type = buffer(underlying_value_message_payload_offset - 1, 1):string()
+  index = index + size_of.underlying_value_message_payload(buffer, underlying_value_message_payload_offset, underlying_value_message_payload_type)
+
+  return index
+end
+
+-- Display: Underlying Value Message
+display.underlying_value_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Underlying Value Message
+dissect.underlying_value_message_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Underlying Value Message Type: 1 Byte Ascii String Enum with 2 values
+  index, underlying_value_message_type = dissect.underlying_value_message_type(buffer, index, packet, parent)
+
+  -- Underlying Value Message Payload: Runtime Type with 2 branches
+  index = dissect.underlying_value_message_payload(buffer, index, packet, parent, underlying_value_message_type)
+
+  return index
+end
+
 -- Dissect: Underlying Value Message
 dissect.underlying_value_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.underlying_value_message then
-    local range = buffer(offset, 25)
+    local length = size_of.underlying_value_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.underlying_value_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v4_0.fields.underlying_value_message, range, display)
   end
@@ -391,24 +628,20 @@ dissect.underlying_value_message = function(buffer, offset, packet, parent)
   return dissect.underlying_value_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Message Data
-size_of.message_data = 1
-
 -- Display: Message Data
 display.message_data = function(value)
   return "Message Data: "..value
 end
 
--- Dissect: Message Data
-dissect.message_data = function(buffer, offset, packet, parent)
-  local length = size_of.message_data
-  local range = buffer(offset, length)
+-- Dissect runtime sized field: Message Data
+dissect.message_data = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
   local value = range:string()
-  local display = display.message_data(value, buffer, offset, packet, parent)
+  local display = display.message_data(value, buffer, offset, packet, parent, size)
 
   parent:add(siac_opra_recipient_obi_v4_0.fields.message_data, range, value, display)
 
-  return offset + length, value
+  return offset + size
 end
 
 -- Size: Message Data Length
@@ -431,6 +664,18 @@ dissect.message_data_length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate runtime size: Control Message
+size_of.control_message = function(buffer, offset)
+  local index = 0
+
+  index = index + 11
+
+  -- Parse runtime size of: Message Data
+  index = index + buffer(offset + index - 2, 2):le_uint()
+
+  return index
+end
+
 -- Display: Control Message
 display.control_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -440,8 +685,8 @@ end
 dissect.control_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Type: 1 Byte Ascii String
-  index, message_type = dissect.message_type(buffer, index, packet, parent)
+  -- Control Message Type
+  index, control_message_type = dissect.control_message_type(buffer, index, packet, parent)
 
   -- Message Indicator: 1 Byte Ascii String
   index, message_indicator = dissect.message_indicator(buffer, index, packet, parent)
@@ -453,21 +698,54 @@ dissect.control_message_fields = function(buffer, offset, packet, parent)
   index, message_data_length = dissect.message_data_length(buffer, index, packet, parent)
 
   -- Message Data: 1 Byte Ascii String
-  index, message_data = dissect.message_data(buffer, index, packet, parent)
+  index = dissect.message_data(buffer, index, packet, parent, message_data_length)
 
   return index
 end
 
 -- Dissect: Control Message
 dissect.control_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.control_message then
-    local range = buffer(offset, 13)
+    local length = size_of.control_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.control_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v4_0.fields.control_message, range, display)
   end
 
   return dissect.control_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Message Type
+size_of.message_type = 1
+
+-- Display: Message Type
+display.message_type = function(value)
+  return "Message Type: "..value
+end
+
+-- Dissect: Message Type
+dissect.message_type = function(buffer, offset, packet, parent)
+  local length = size_of.message_type
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.message_type(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v4_0.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate runtime size: Administrative Message
+size_of.administrative_message = function(buffer, offset)
+  local index = 0
+
+  index = index + 12
+
+  -- Parse runtime size of: Message Data
+  index = index + buffer(offset + index - 2, 2):le_uint()
+
+  return index
 end
 
 -- Display: Administrative Message
@@ -492,16 +770,17 @@ dissect.administrative_message_fields = function(buffer, offset, packet, parent)
   index, message_data_length = dissect.message_data_length(buffer, index, packet, parent)
 
   -- Message Data: 1 Byte Ascii String
-  index, message_data = dissect.message_data(buffer, index, packet, parent)
+  index = dissect.message_data(buffer, index, packet, parent, message_data_length)
 
   return index
 end
 
 -- Dissect: Administrative Message
 dissect.administrative_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.administrative_message then
-    local range = buffer(offset, 13)
+    local length = size_of.administrative_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.administrative_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v4_0.fields.administrative_message, range, display)
   end
@@ -629,6 +908,78 @@ dissect.security_symbol_short = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Bbo Indicator
+size_of.bbo_indicator = 1
+
+-- Display: Bbo Indicator
+display.bbo_indicator = function(value)
+  if value == "A" then
+    return "Bbo Indicator: No Best Bid Change Or Best Offer Change (A)"
+  end
+  if value == "B" then
+    return "Bbo Indicator: No Best Bid Change Quote Contains Best Offer (B)"
+  end
+  if value == "C" then
+    return "Bbo Indicator: No Best Bid Change Best Offer Appendage (C)"
+  end
+  if value == "D" then
+    return "Bbo Indicator: No Best Bid Change No Best Offer (D)"
+  end
+  if value == "E" then
+    return "Bbo Indicator: Quote Contains Best Bid No Best Offer Change (E)"
+  end
+  if value == "F" then
+    return "Bbo Indicator: Quote Contains Best Bid Quote Contains Best Offer (F)"
+  end
+  if value == "G" then
+    return "Bbo Indicator: Quote Contains Best Bid Best Offer Appendage (G)"
+  end
+  if value == "H" then
+    return "Bbo Indicator: Quote Contains Best Bid No Best Offer (H)"
+  end
+  if value == "I" then
+    return "Bbo Indicator: No Best Bid No Best Offer Change (I)"
+  end
+  if value == "J" then
+    return "Bbo Indicator: No Best Bid Quote Contains Best Offer (J)"
+  end
+  if value == "K" then
+    return "Bbo Indicator: No Best Bid Best Offer Appendage (K)"
+  end
+  if value == "L" then
+    return "Bbo Indicator: No Best Bid No Best Offer (L)"
+  end
+  if value == "M" then
+    return "Bbo Indicator: Best Bid Appendage No Best Offer Change (M)"
+  end
+  if value == "N" then
+    return "Bbo Indicator: Best Bid Appendage Quote Contains Best Offer (N)"
+  end
+  if value == "O" then
+    return "Bbo Indicator: Best Bid Appendage Best Offer Appendage (O)"
+  end
+  if value == "P" then
+    return "Bbo Indicator: Best Bid Appendage No Best Offer (P)"
+  end
+  if value == " " then
+    return "Bbo Indicator: Not Included In The Bbo (<whitespace>)"
+  end
+
+  return "Bbo Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Bbo Indicator
+dissect.bbo_indicator = function(buffer, offset, packet, parent)
+  local length = size_of.bbo_indicator
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.bbo_indicator(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v4_0.fields.bbo_indicator, range, value, display)
+
+  return offset + length, value
+end
+
 -- Display: Short Equity And Index Quote Message
 display.short_equity_and_index_quote_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -638,11 +989,11 @@ end
 dissect.short_equity_and_index_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Type: 1 Byte Ascii String
-  index, message_type = dissect.message_type(buffer, index, packet, parent)
+  -- Quote Message Type
+  index, quote_message_type = dissect.quote_message_type(buffer, index, packet, parent)
 
-  -- Message Indicator: 1 Byte Ascii String
-  index, message_indicator = dissect.message_indicator(buffer, index, packet, parent)
+  -- Bbo Indicator: 1 Byte Ascii String Enum with 17 values
+  index, bbo_indicator = dissect.bbo_indicator(buffer, index, packet, parent)
 
   -- Transaction Id: 8 Byte Unsigned Fixed Width Integer
   index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
@@ -675,7 +1026,7 @@ end
 dissect.short_equity_and_index_quote_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.short_equity_and_index_quote_message then
-    local range = buffer(offset, 24)
+    local range = buffer(offset, 23)
     local display = display.short_equity_and_index_quote_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v4_0.fields.short_equity_and_index_quote_message, range, display)
   end
@@ -768,7 +1119,32 @@ size_of.premium_price_denominator_code = 1
 
 -- Display: Premium Price Denominator Code
 display.premium_price_denominator_code = function(value)
-  return "Premium Price Denominator Code: "..value
+  if value == "A" then
+    return "Premium Price Denominator Code: Ten (A)"
+  end
+  if value == "B" then
+    return "Premium Price Denominator Code: Hundred (B)"
+  end
+  if value == "C" then
+    return "Premium Price Denominator Code: Thousand (C)"
+  end
+  if value == "D" then
+    return "Premium Price Denominator Code: Ten Thousand (D)"
+  end
+  if value == "E" then
+    return "Premium Price Denominator Code: Hundred Thousand (E)"
+  end
+  if value == "F" then
+    return "Premium Price Denominator Code: Million (F)"
+  end
+  if value == "G" then
+    return "Premium Price Denominator Code: Ten Million (G)"
+  end
+  if value == "I" then
+    return "Premium Price Denominator Code: No Fraction (I)"
+  end
+
+  return "Premium Price Denominator Code: Unknown("..value..")"
 end
 
 -- Dissect: Premium Price Denominator Code
@@ -808,7 +1184,26 @@ size_of.strike_price_denominator_code = 1
 
 -- Display: Strike Price Denominator Code
 display.strike_price_denominator_code = function(value)
-  return "Strike Price Denominator Code: "..value
+  if value == "A" then
+    return "Strike Price Denominator Code: Ten (A)"
+  end
+  if value == "B" then
+    return "Strike Price Denominator Code: Hundred (B)"
+  end
+  if value == "C" then
+    return "Strike Price Denominator Code: Thousand (C)"
+  end
+  if value == "D" then
+    return "Strike Price Denominator Code: Ten Thousand (D)"
+  end
+  if value == "E" then
+    return "Strike Price Denominator Code: Hundred Thousand (E)"
+  end
+  if value == "I" then
+    return "Strike Price Denominator Code: No Fraction (I)"
+  end
+
+  return "Strike Price Denominator Code: Unknown("..value..")"
 end
 
 -- Dissect: Strike Price Denominator Code
@@ -832,11 +1227,11 @@ end
 dissect.long_equity_and_index_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Type: 1 Byte Ascii String
-  index, message_type = dissect.message_type(buffer, index, packet, parent)
+  -- Quote Message Type
+  index, quote_message_type = dissect.quote_message_type(buffer, index, packet, parent)
 
-  -- Message Indicator: 1 Byte Ascii String
-  index, message_indicator = dissect.message_indicator(buffer, index, packet, parent)
+  -- Bbo Indicator: 1 Byte Ascii String Enum with 17 values
+  index, bbo_indicator = dissect.bbo_indicator(buffer, index, packet, parent)
 
   -- Transaction Id: 8 Byte Unsigned Fixed Width Integer
   index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
@@ -850,13 +1245,13 @@ dissect.long_equity_and_index_quote_message_fields = function(buffer, offset, pa
   -- Expiration Block
   index, expiration_block = dissect.expiration_block(buffer, index, packet, parent)
 
-  -- Strike Price Denominator Code: 1 Byte Ascii String
+  -- Strike Price Denominator Code: 1 Byte Ascii String Enum with 6 values
   index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
   -- Strike Price: 4 Byte Unsigned Fixed Width Integer
   index, strike_price = dissect.strike_price(buffer, index, packet, parent)
 
-  -- Premium Price Denominator Code: 1 Byte Ascii String
+  -- Premium Price Denominator Code: 1 Byte Ascii String Enum with 8 values
   index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
   -- Bid Price: 4 Byte Signed Fixed Width Integer
@@ -878,7 +1273,7 @@ end
 dissect.long_equity_and_index_quote_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.long_equity_and_index_quote_message then
-    local range = buffer(offset, 38)
+    local range = buffer(offset, 37)
     local display = display.long_equity_and_index_quote_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v4_0.fields.long_equity_and_index_quote_message, range, display)
   end
@@ -911,7 +1306,35 @@ size_of.underlying_price_denominator_code = 1
 
 -- Display: Underlying Price Denominator Code
 display.underlying_price_denominator_code = function(value)
-  return "Underlying Price Denominator Code: "..value
+  if value == "A" then
+    return "Underlying Price Denominator Code: Ten (A)"
+  end
+  if value == "B" then
+    return "Underlying Price Denominator Code: Hundred (B)"
+  end
+  if value == "C" then
+    return "Underlying Price Denominator Code: Thousand (C)"
+  end
+  if value == "D" then
+    return "Underlying Price Denominator Code: Ten Thousand (D)"
+  end
+  if value == "E" then
+    return "Underlying Price Denominator Code: Hundred Thousand (E)"
+  end
+  if value == "F" then
+    return "Underlying Price Denominator Code: Million (F)"
+  end
+  if value == "G" then
+    return "Underlying Price Denominator Code: Ten Million (G)"
+  end
+  if value == "H" then
+    return "Underlying Price Denominator Code: Hundred Million (H)"
+  end
+  if value == "I" then
+    return "Underlying Price Denominator Code: No Fraction (I)"
+  end
+
+  return "Underlying Price Denominator Code: Unknown("..value..")"
 end
 
 -- Dissect: Underlying Price Denominator Code
@@ -1051,56 +1474,7 @@ size_of.volume = 4
 
 -- Display: Volume
 display.volume = function(value)
-  if value == A then
-    return "Volume: Nyse American (A)"
-  end
-  if value == B then
-    return "Volume: Box (B)"
-  end
-  if value == C then
-    return "Volume: Cboe (C)"
-  end
-  if value == E then
-    return "Volume: Edgx (E)"
-  end
-  if value == H then
-    return "Volume: Gemini (H)"
-  end
-  if value == I then
-    return "Volume: Ise (I)"
-  end
-  if value == J then
-    return "Volume: Mercury (J)"
-  end
-  if value == M then
-    return "Volume: Miax (M)"
-  end
-  if value == N then
-    return "Volume: Nyse Arca (N)"
-  end
-  if value == O then
-    return "Volume: Opra (O)"
-  end
-  if value == P then
-    return "Volume: Miax Pearl (P)"
-  end
-  if value == Q then
-    return "Volume: Nasdaq (Q)"
-  end
-  if value == W then
-    return "Volume: C 2 (W)"
-  end
-  if value == T then
-    return "Volume: Nasdaq Bx (T)"
-  end
-  if value == X then
-    return "Volume: Nasdaq Phlx (X)"
-  end
-  if value == Z then
-    return "Volume: Bats (Z)"
-  end
-
-  return "Volume: Unknown("..value..")"
+  return "Volume: "..value
 end
 
 -- Dissect: Volume
@@ -1142,19 +1516,19 @@ dissect.equity_and_index_end_of_day_summary_message_fields = function(buffer, of
   -- Expiration Block
   index, expiration_block = dissect.expiration_block(buffer, index, packet, parent)
 
-  -- Strike Price Denominator Code: 1 Byte Ascii String
+  -- Strike Price Denominator Code: 1 Byte Ascii String Enum with 6 values
   index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
   -- Strike Price: 4 Byte Unsigned Fixed Width Integer
   index, strike_price = dissect.strike_price(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer Enum with 16 values
+  -- Volume: 4 Byte Unsigned Fixed Width Integer
   index, volume = dissect.volume(buffer, index, packet, parent)
 
   -- Open Interest Volume: 4 Byte Unsigned Fixed Width Integer
   index, open_interest_volume = dissect.open_interest_volume(buffer, index, packet, parent)
 
-  -- Premium Price Denominator Code: 1 Byte Ascii String
+  -- Premium Price Denominator Code: 1 Byte Ascii String Enum with 8 values
   index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
   -- Open Price: 4 Byte Signed Fixed Width Integer
@@ -1172,7 +1546,7 @@ dissect.equity_and_index_end_of_day_summary_message_fields = function(buffer, of
   -- Net Change: 4 Byte Signed Fixed Width Integer
   index, net_change = dissect.net_change(buffer, index, packet, parent)
 
-  -- Underlying Price Denominator Code: 1 Byte Ascii String
+  -- Underlying Price Denominator Code: 1 Byte Ascii String Enum with 9 values
   index, underlying_price_denominator_code = dissect.underlying_price_denominator_code(buffer, index, packet, parent)
 
   -- Underlying Price: 8 Byte Signed Fixed Width Integer
@@ -1226,7 +1600,7 @@ dissect.open_interest_message_fields = function(buffer, offset, packet, parent)
   -- Expiration Block
   index, expiration_block = dissect.expiration_block(buffer, index, packet, parent)
 
-  -- Strike Price Denominator Code: 1 Byte Ascii String
+  -- Strike Price Denominator Code: 1 Byte Ascii String Enum with 6 values
   index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
   -- Strike Price: 4 Byte Unsigned Fixed Width Integer
@@ -1299,8 +1673,8 @@ end
 dissect.equity_and_index_last_sale_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Type: 1 Byte Ascii String
-  index, message_type = dissect.message_type(buffer, index, packet, parent)
+  -- Trade Message Type
+  index, trade_message_type = dissect.trade_message_type(buffer, index, packet, parent)
 
   -- Message Indicator: 1 Byte Ascii String
   index, message_indicator = dissect.message_indicator(buffer, index, packet, parent)
@@ -1317,16 +1691,16 @@ dissect.equity_and_index_last_sale_message_fields = function(buffer, offset, pac
   -- Expiration Block
   index, expiration_block = dissect.expiration_block(buffer, index, packet, parent)
 
-  -- Strike Price Denominator Code: 1 Byte Ascii String
+  -- Strike Price Denominator Code: 1 Byte Ascii String Enum with 6 values
   index, strike_price_denominator_code = dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
   -- Strike Price: 4 Byte Unsigned Fixed Width Integer
   index, strike_price = dissect.strike_price(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer Enum with 16 values
+  -- Volume: 4 Byte Unsigned Fixed Width Integer
   index, volume = dissect.volume(buffer, index, packet, parent)
 
-  -- Premium Price Denominator Code: 1 Byte Ascii String
+  -- Premium Price Denominator Code: 1 Byte Ascii String Enum with 8 values
   index, premium_price_denominator_code = dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
   -- Premium Price: 4 Byte Signed Fixed Width Integer
@@ -1345,7 +1719,7 @@ end
 dissect.equity_and_index_last_sale_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.equity_and_index_last_sale_message then
-    local range = buffer(offset, 38)
+    local range = buffer(offset, 37)
     local display = display.equity_and_index_last_sale_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v4_0.fields.equity_and_index_last_sale_message, range, display)
   end
@@ -1357,7 +1731,7 @@ end
 size_of.payload = function(buffer, offset, message_category)
   -- Size of Equity And Index Last Sale Message
   if message_category == "a" then
-    return 38
+    return 37
   end
   -- Size of Open Interest Message
   if message_category == "d" then
@@ -1369,23 +1743,23 @@ size_of.payload = function(buffer, offset, message_category)
   end
   -- Size of Long Equity And Index Quote Message
   if message_category == "k" then
-    return 38
+    return 37
   end
   -- Size of Short Equity And Index Quote Message
   if message_category == "q" then
-    return 24
+    return 23
   end
   -- Size of Administrative Message
   if message_category == "C" then
-    return 13
+    return size_of.administrative_message(buffer, offset)
   end
   -- Size of Control Message
   if message_category == "H" then
-    return 13
+    return size_of.control_message(buffer, offset)
   end
   -- Size of Underlying Value Message
   if message_category == "Y" then
-    return 25
+    return size_of.underlying_value_message(buffer, offset)
   end
 
   return 0
@@ -1511,22 +1885,22 @@ display.participant_id = function(value)
     return "Participant Id: Boston Options Exchange (B)"
   end
   if value == "C" then
-    return "Participant Id: Chicago Board Options Exchange (C)"
+    return "Participant Id: Cboe Options Exchange (C)"
   end
   if value == "D" then
     return "Participant Id: Miax Emerald (D)"
   end
   if value == "E" then
-    return "Participant Id: Edgx Options (E)"
+    return "Participant Id: Cboe Edgx Options (E)"
   end
   if value == "H" then
-    return "Participant Id: Ise Gemini (H)"
+    return "Participant Id: Nasdaq Gemx (H)"
   end
   if value == "I" then
-    return "Participant Id: International Securities Exchange (I)"
+    return "Participant Id: Nasdaq Ise (I)"
   end
   if value == "J" then
-    return "Participant Id: Ise Mercury Exchange (J)"
+    return "Participant Id: Nasdaq Mrx (J)"
   end
   if value == "M" then
     return "Participant Id: Miami International Securities Exchange (M)"
@@ -1541,19 +1915,19 @@ display.participant_id = function(value)
     return "Participant Id: Miax Pearl (P)"
   end
   if value == "Q" then
-    return "Participant Id: Nasdaq Stock Market (Q)"
+    return "Participant Id: Nasdaq Options Market (Q)"
   end
   if value == "T" then
-    return "Participant Id: Nasdaq Omx Bx Options (T)"
+    return "Participant Id: Nasdaq Bx Options (T)"
   end
   if value == "W" then
-    return "Participant Id: C 2 (W)"
+    return "Participant Id: Cboe C 2 Options (W)"
   end
   if value == "X" then
-    return "Participant Id: Nasdaq Omx Phlx (X)"
+    return "Participant Id: Nasdaq Phlx (X)"
   end
   if value == "Z" then
-    return "Participant Id: Bats (Z)"
+    return "Participant Id: Cboe Bzx Options Exchange (Z)"
   end
 
   return "Participant Id: Unknown("..value..")"
@@ -1865,13 +2239,13 @@ end
 dissect.block_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Version: 1 Byte Unsigned Fixed Width Integer
+  -- Version: 1 Byte Unsigned Fixed Width Integer Static
   index, version = dissect.version(buffer, index, packet, parent)
 
   -- Block Size: 2 Byte Unsigned Fixed Width Integer
   index, block_size = dissect.block_size(buffer, index, packet, parent)
 
-  -- Data Feed Indicator: 1 Byte Ascii String
+  -- Data Feed Indicator: 1 Byte Ascii String Static
   index, data_feed_indicator = dissect.data_feed_indicator(buffer, index, packet, parent)
 
   -- Retransmission Indicator: 1 Byte Ascii String
@@ -1960,10 +2334,34 @@ verify.siac_opra_recipient_obi_v4_0_packet_size = function(buffer)
   return true
 end
 
+-- Verify Version Field
+verify.version = function(buffer)
+  if 5 == buffer(0, 1):le_uint() then
+    return true
+  end
+
+  return false
+end
+
+-- Verify Data Feed Indicator Field
+verify.data_feed_indicator = function(buffer)
+  if O == buffer(3, 1):string() then
+    return true
+  end
+
+  return false
+end
+
 -- Dissector Heuristic for Siac Opra Recipient Obi 4.0
 local function siac_opra_recipient_obi_v4_0_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not verify.siac_opra_recipient_obi_v4_0_packet_size(buffer) then return false end
+
+  -- Verify Version
+  if not verify.version(buffer) then return false end
+
+  -- Verify Data Feed Indicator
+  if not verify.data_feed_indicator(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = siac_opra_recipient_obi_v4_0

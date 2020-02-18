@@ -6,7 +6,7 @@
 |Division | Data | Protocol | Version | Date | Size | Testing | Specification|
 |--- | --- | --- | --- | --- | --- | --- | ---|
 |Cqs | Output | Cta | [1.91][Siac.Cqs.Output.Cta.v1.91.Dissector] | 1/2/2020 | 4428 | Tested | [url][Siac.Cqs.Output.Cta.v1.91.Url] - [pdf][Siac.Cqs.Output.Cta.v1.91.Pdf]|
-|Opra | Recipient | Obi | [4.0][Siac.Opra.Recipient.Obi.v4.0.Dissector] | 1/17/2020 | 1999 | Untested | [url][Siac.Opra.Recipient.Obi.v4.0.Url] - [pdf][Siac.Opra.Recipient.Obi.v4.0.Pdf]|
+|Opra | Recipient | Obi | [4.0][Siac.Opra.Recipient.Obi.v4.0.Dissector] | 1/17/2020 | 2397 | Untested | [url][Siac.Opra.Recipient.Obi.v4.0.Url] - [pdf][Siac.Opra.Recipient.Obi.v4.0.Pdf]|
 
 
 Siac: [website](https://en.wikipedia.org/wiki/Securities_Industry_Automation_Corporation "Go to Securities Industry Automation Corporation")
