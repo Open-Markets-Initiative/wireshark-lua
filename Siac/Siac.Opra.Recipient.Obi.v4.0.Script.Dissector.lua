@@ -22,6 +22,8 @@ local verify = {}
 -- Siac Opra Recipient Obi 4.0 Fields
 siac_opra_recipient_obi_v4_0.fields.administrative_message = ProtoField.new("Administrative Message", "siac.opra.recipient.obi.v4.0.administrativemessage", ftypes.STRING)
 siac_opra_recipient_obi_v4_0.fields.bbo_indicator = ProtoField.new("Bbo Indicator", "siac.opra.recipient.obi.v4.0.bboindicator", ftypes.STRING)
+siac_opra_recipient_obi_v4_0.fields.best_bid_appendage = ProtoField.new("Best Bid Appendage", "siac.opra.recipient.obi.v4.0.bestbidappendage", ftypes.STRING)
+siac_opra_recipient_obi_v4_0.fields.best_offer_appendage = ProtoField.new("Best Offer Appendage", "siac.opra.recipient.obi.v4.0.bestofferappendage", ftypes.STRING)
 siac_opra_recipient_obi_v4_0.fields.bid_index_value = ProtoField.new("Bid Index Value", "siac.opra.recipient.obi.v4.0.bidindexvalue", ftypes.INT32)
 siac_opra_recipient_obi_v4_0.fields.bid_price = ProtoField.new("Bid Price", "siac.opra.recipient.obi.v4.0.bidprice", ftypes.INT32)
 siac_opra_recipient_obi_v4_0.fields.bid_price_short = ProtoField.new("Bid Price Short", "siac.opra.recipient.obi.v4.0.bidpriceshort", ftypes.INT16)
@@ -34,6 +36,7 @@ siac_opra_recipient_obi_v4_0.fields.block_size = ProtoField.new("Block Size", "s
 siac_opra_recipient_obi_v4_0.fields.block_timestamp = ProtoField.new("Block Timestamp", "siac.opra.recipient.obi.v4.0.blocktimestamp", ftypes.STRING)
 siac_opra_recipient_obi_v4_0.fields.control_message = ProtoField.new("Control Message", "siac.opra.recipient.obi.v4.0.controlmessage", ftypes.STRING)
 siac_opra_recipient_obi_v4_0.fields.data_feed_indicator = ProtoField.new("Data Feed Indicator", "siac.opra.recipient.obi.v4.0.datafeedindicator", ftypes.STRING)
+siac_opra_recipient_obi_v4_0.fields.denominator_code = ProtoField.new("Denominator Code", "siac.opra.recipient.obi.v4.0.denominatorcode", ftypes.STRING)
 siac_opra_recipient_obi_v4_0.fields.equity_and_index_end_of_day_summary_message = ProtoField.new("Equity And Index End Of Day Summary Message", "siac.opra.recipient.obi.v4.0.equityandindexendofdaysummarymessage", ftypes.STRING)
 siac_opra_recipient_obi_v4_0.fields.equity_and_index_last_sale_message = ProtoField.new("Equity And Index Last Sale Message", "siac.opra.recipient.obi.v4.0.equityandindexlastsalemessage", ftypes.STRING)
 siac_opra_recipient_obi_v4_0.fields.high_price = ProtoField.new("High Price", "siac.opra.recipient.obi.v4.0.highprice", ftypes.INT32)
@@ -64,6 +67,7 @@ siac_opra_recipient_obi_v4_0.fields.participant_id = ProtoField.new("Participant
 siac_opra_recipient_obi_v4_0.fields.payload = ProtoField.new("Payload", "siac.opra.recipient.obi.v4.0.payload", ftypes.STRING)
 siac_opra_recipient_obi_v4_0.fields.premium_price = ProtoField.new("Premium Price", "siac.opra.recipient.obi.v4.0.premiumprice", ftypes.INT32)
 siac_opra_recipient_obi_v4_0.fields.premium_price_denominator_code = ProtoField.new("Premium Price Denominator Code", "siac.opra.recipient.obi.v4.0.premiumpricedenominatorcode", ftypes.STRING)
+siac_opra_recipient_obi_v4_0.fields.price = ProtoField.new("Price", "siac.opra.recipient.obi.v4.0.price", ftypes.UINT32)
 siac_opra_recipient_obi_v4_0.fields.reserved_1 = ProtoField.new("Reserved 1", "siac.opra.recipient.obi.v4.0.reserved1", ftypes.BYTES)
 siac_opra_recipient_obi_v4_0.fields.reserved_4 = ProtoField.new("Reserved 4", "siac.opra.recipient.obi.v4.0.reserved4", ftypes.BYTES)
 siac_opra_recipient_obi_v4_0.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "siac.opra.recipient.obi.v4.0.retransmissionindicator", ftypes.STRING)
@@ -93,6 +97,8 @@ siac_opra_recipient_obi_v4_0.fields.volume = ProtoField.new("Volume", "siac.opra
 
 -- Siac Opra Recipient Obi 4.0 Element Dissection Options
 show.administrative_message = true
+show.best_bid_appendage = true
+show.best_offer_appendage = true
 show.block_header = true
 show.block_timestamp = true
 show.control_message = true
@@ -111,6 +117,8 @@ show.underlying_value_message_payload = false
 
 -- Register Siac Opra Recipient Obi 4.0 Show Options
 siac_opra_recipient_obi_v4_0.prefs.show_administrative_message = Pref.bool("Show Administrative Message", show.administrative_message, "Parse and add Administrative Message to protocol tree")
+siac_opra_recipient_obi_v4_0.prefs.show_best_bid_appendage = Pref.bool("Show Best Bid Appendage", show.best_bid_appendage, "Parse and add Best Bid Appendage to protocol tree")
+siac_opra_recipient_obi_v4_0.prefs.show_best_offer_appendage = Pref.bool("Show Best Offer Appendage", show.best_offer_appendage, "Parse and add Best Offer Appendage to protocol tree")
 siac_opra_recipient_obi_v4_0.prefs.show_block_header = Pref.bool("Show Block Header", show.block_header, "Parse and add Block Header to protocol tree")
 siac_opra_recipient_obi_v4_0.prefs.show_block_timestamp = Pref.bool("Show Block Timestamp", show.block_timestamp, "Parse and add Block Timestamp to protocol tree")
 siac_opra_recipient_obi_v4_0.prefs.show_control_message = Pref.bool("Show Control Message", show.control_message, "Parse and add Control Message to protocol tree")
@@ -134,6 +142,14 @@ function siac_opra_recipient_obi_v4_0.prefs_changed()
   -- Check if show options have changed
   if show.administrative_message ~= siac_opra_recipient_obi_v4_0.prefs.show_administrative_message then
     show.administrative_message = siac_opra_recipient_obi_v4_0.prefs.show_administrative_message
+    changed = true
+  end
+  if show.best_bid_appendage ~= siac_opra_recipient_obi_v4_0.prefs.show_best_bid_appendage then
+    show.best_bid_appendage = siac_opra_recipient_obi_v4_0.prefs.show_best_bid_appendage
+    changed = true
+  end
+  if show.best_offer_appendage ~= siac_opra_recipient_obi_v4_0.prefs.show_best_offer_appendage then
+    show.best_offer_appendage = siac_opra_recipient_obi_v4_0.prefs.show_best_offer_appendage
     changed = true
   end
   if show.block_header ~= siac_opra_recipient_obi_v4_0.prefs.show_block_header then
@@ -844,6 +860,222 @@ dissect.administrative_message = function(buffer, offset, packet, parent)
   return dissect.administrative_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Price
+size_of.price = 4
+
+-- Display: Price
+display.price = function(value)
+  return "Price: "..value
+end
+
+-- Dissect: Price
+dissect.price = function(buffer, offset, packet, parent)
+  local length = size_of.price
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.price(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v4_0.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Denominator Code
+size_of.denominator_code = 1
+
+-- Display: Denominator Code
+display.denominator_code = function(value)
+  return "Denominator Code: "..value
+end
+
+-- Dissect: Denominator Code
+dissect.denominator_code = function(buffer, offset, packet, parent)
+  local length = size_of.denominator_code
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.denominator_code(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v4_0.fields.denominator_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Participant Id
+size_of.participant_id = 1
+
+-- Display: Participant Id
+display.participant_id = function(value)
+  if value == "A" then
+    return "Participant Id: Nyse American (A)"
+  end
+  if value == "B" then
+    return "Participant Id: Boston Options Exchange (B)"
+  end
+  if value == "C" then
+    return "Participant Id: Cboe Options Exchange (C)"
+  end
+  if value == "D" then
+    return "Participant Id: Miax Emerald (D)"
+  end
+  if value == "E" then
+    return "Participant Id: Cboe Edgx Options (E)"
+  end
+  if value == "H" then
+    return "Participant Id: Nasdaq Gemx (H)"
+  end
+  if value == "I" then
+    return "Participant Id: Nasdaq Ise (I)"
+  end
+  if value == "J" then
+    return "Participant Id: Nasdaq Mrx (J)"
+  end
+  if value == "M" then
+    return "Participant Id: Miami International Securities Exchange (M)"
+  end
+  if value == "N" then
+    return "Participant Id: Nyse Arca (N)"
+  end
+  if value == "O" then
+    return "Participant Id: Options Price Reporting Authority (O)"
+  end
+  if value == "P" then
+    return "Participant Id: Miax Pearl (P)"
+  end
+  if value == "Q" then
+    return "Participant Id: Nasdaq Options Market (Q)"
+  end
+  if value == "T" then
+    return "Participant Id: Nasdaq Bx Options (T)"
+  end
+  if value == "W" then
+    return "Participant Id: Cboe C 2 Options (W)"
+  end
+  if value == "X" then
+    return "Participant Id: Nasdaq Phlx (X)"
+  end
+  if value == "Z" then
+    return "Participant Id: Cboe Bzx Options Exchange (Z)"
+  end
+
+  return "Participant Id: Unknown("..value..")"
+end
+
+-- Dissect: Participant Id
+dissect.participant_id = function(buffer, offset, packet, parent)
+  local length = size_of.participant_id
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.participant_id(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v4_0.fields.participant_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate size of: Best Offer Appendage
+size_of.best_offer_appendage = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.participant_id
+
+  index = index + size_of.denominator_code
+
+  index = index + size_of.price
+
+  index = index + size_of.size
+
+  return index
+end
+
+-- Display: Best Offer Appendage
+display.best_offer_appendage = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Best Offer Appendage
+dissect.best_offer_appendage_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Participant Id: 1 Byte Ascii String Enum with 17 values
+  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+
+  -- Denominator Code: 1 Byte Ascii String
+  index, denominator_code = dissect.denominator_code(buffer, index, packet, parent)
+
+  -- Price: 4 Byte Unsigned Fixed Width Integer
+  index, price = dissect.price(buffer, index, packet, parent)
+
+  -- Size
+  index, size = dissect.size(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Best Offer Appendage
+dissect.best_offer_appendage = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.best_offer_appendage then
+    local length = size_of.best_offer_appendage(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.best_offer_appendage(buffer, packet, parent)
+    parent = parent:add(siac_opra_recipient_obi_v4_0.fields.best_offer_appendage, range, display)
+  end
+
+  return dissect.best_offer_appendage_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Best Bid Appendage
+size_of.best_bid_appendage = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.participant_id
+
+  index = index + size_of.denominator_code
+
+  index = index + size_of.price
+
+  index = index + size_of.size
+
+  return index
+end
+
+-- Display: Best Bid Appendage
+display.best_bid_appendage = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Best Bid Appendage
+dissect.best_bid_appendage_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Participant Id: 1 Byte Ascii String Enum with 17 values
+  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+
+  -- Denominator Code: 1 Byte Ascii String
+  index, denominator_code = dissect.denominator_code(buffer, index, packet, parent)
+
+  -- Price: 4 Byte Unsigned Fixed Width Integer
+  index, price = dissect.price(buffer, index, packet, parent)
+
+  -- Size
+  index, size = dissect.size(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Best Bid Appendage
+dissect.best_bid_appendage = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.best_bid_appendage then
+    local length = size_of.best_bid_appendage(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.best_bid_appendage(buffer, packet, parent)
+    parent = parent:add(siac_opra_recipient_obi_v4_0.fields.best_bid_appendage, range, display)
+  end
+
+  return dissect.best_bid_appendage_fields(buffer, offset, packet, parent)
+end
+
 -- Size: Offer Size Short
 size_of.offer_size_short = 2
 
@@ -1060,6 +1292,16 @@ size_of.short_equity_and_index_quote_message = function(buffer, offset)
 
   index = index + size_of.offer_size_short
 
+  if bbo_indicator == "M" or bbo_indicator == "N" or bbo_indicator == "P" then
+    index = index + size_of.best_bid_appendage(buffer, offset + index)
+
+  end
+
+  if bbo_indicator == "C" or bbo_indicator == "G" or bbo_indicator == "K" then
+    index = index + size_of.best_offer_appendage(buffer, offset + index)
+
+  end
+
   return index
 end
 
@@ -1102,12 +1344,28 @@ dissect.short_equity_and_index_quote_message_fields = function(buffer, offset, p
   -- Offer Size Short: 2 Byte Unsigned Fixed Width Integer
   index, offer_size_short = dissect.offer_size_short(buffer, index, packet, parent)
 
+  -- Runtime optional field exists: Best Bid Appendage
+  local best_bid_appendage_exists = bbo_indicator == "M" or bbo_indicator == "N" or bbo_indicator == "P"
+
+  -- Runtime optional field: Best Bid Appendage
+  if best_bid_appendage_exists then
+    index = dissect.best_bid_appendage(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field exists: Best Offer Appendage
+  local best_offer_appendage_exists = bbo_indicator == "C" or bbo_indicator == "G" or bbo_indicator == "K"
+
+  -- Runtime optional field: Best Offer Appendage
+  if best_offer_appendage_exists then
+    index = dissect.best_offer_appendage(buffer, index, packet, parent)
+  end
+
   return index
 end
 
 -- Dissect: Short Equity And Index Quote Message
 dissect.short_equity_and_index_quote_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.short_equity_and_index_quote_message then
     local length = size_of.short_equity_and_index_quote_message(buffer, offset)
     local range = buffer(offset, length)
@@ -1332,6 +1590,21 @@ size_of.long_equity_and_index_quote_message = function(buffer, offset)
 
   index = index + size_of.offer_size
 
+  if bbo_indicator == "M" or bbo_indicator == "N" or bbo_indicator == "P" then
+    index = index + size_of.best_bid_appendage(buffer, offset + index)
+
+  end
+
+  if bbo_indicator == "C" or bbo_indicator == "G" or bbo_indicator == "K" then
+    index = index + size_of.best_offer_appendage(buffer, offset + index)
+
+  end
+
+  if bbo_indicator == "O" then
+    index = index + size_of.best_bid_and_offer_appendage
+
+  end
+
   return index
 end
 
@@ -1383,12 +1656,36 @@ dissect.long_equity_and_index_quote_message_fields = function(buffer, offset, pa
   -- Offer Size: 4 Byte Unsigned Fixed Width Integer
   index, offer_size = dissect.offer_size(buffer, index, packet, parent)
 
+  -- Runtime optional field exists: Best Bid Appendage
+  local best_bid_appendage_exists = bbo_indicator == "M" or bbo_indicator == "N" or bbo_indicator == "P"
+
+  -- Runtime optional field: Best Bid Appendage
+  if best_bid_appendage_exists then
+    index = dissect.best_bid_appendage(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field exists: Best Offer Appendage
+  local best_offer_appendage_exists = bbo_indicator == "C" or bbo_indicator == "G" or bbo_indicator == "K"
+
+  -- Runtime optional field: Best Offer Appendage
+  if best_offer_appendage_exists then
+    index = dissect.best_offer_appendage(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field exists: Best Bid And Offer Appendage
+  local best_bid_and_offer_appendage_exists = bbo_indicator == "O"
+
+  -- Runtime optional field: Best Bid And Offer Appendage
+  if best_bid_and_offer_appendage_exists then
+    index = dissect.best_bid_and_offer_appendage(buffer, index, packet, parent)
+  end
+
   return index
 end
 
 -- Dissect: Long Equity And Index Quote Message
 dissect.long_equity_and_index_quote_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.long_equity_and_index_quote_message then
     local length = size_of.long_equity_and_index_quote_message(buffer, offset)
     local range = buffer(offset, length)
@@ -2095,78 +2392,6 @@ dissect.message_category = function(buffer, offset, packet, parent)
   local display = display.message_category(value, buffer, offset, packet, parent)
 
   parent:add(siac_opra_recipient_obi_v4_0.fields.message_category, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Participant Id
-size_of.participant_id = 1
-
--- Display: Participant Id
-display.participant_id = function(value)
-  if value == "A" then
-    return "Participant Id: Nyse American (A)"
-  end
-  if value == "B" then
-    return "Participant Id: Boston Options Exchange (B)"
-  end
-  if value == "C" then
-    return "Participant Id: Cboe Options Exchange (C)"
-  end
-  if value == "D" then
-    return "Participant Id: Miax Emerald (D)"
-  end
-  if value == "E" then
-    return "Participant Id: Cboe Edgx Options (E)"
-  end
-  if value == "H" then
-    return "Participant Id: Nasdaq Gemx (H)"
-  end
-  if value == "I" then
-    return "Participant Id: Nasdaq Ise (I)"
-  end
-  if value == "J" then
-    return "Participant Id: Nasdaq Mrx (J)"
-  end
-  if value == "M" then
-    return "Participant Id: Miami International Securities Exchange (M)"
-  end
-  if value == "N" then
-    return "Participant Id: Nyse Arca (N)"
-  end
-  if value == "O" then
-    return "Participant Id: Options Price Reporting Authority (O)"
-  end
-  if value == "P" then
-    return "Participant Id: Miax Pearl (P)"
-  end
-  if value == "Q" then
-    return "Participant Id: Nasdaq Options Market (Q)"
-  end
-  if value == "T" then
-    return "Participant Id: Nasdaq Bx Options (T)"
-  end
-  if value == "W" then
-    return "Participant Id: Cboe C 2 Options (W)"
-  end
-  if value == "X" then
-    return "Participant Id: Nasdaq Phlx (X)"
-  end
-  if value == "Z" then
-    return "Participant Id: Cboe Bzx Options Exchange (Z)"
-  end
-
-  return "Participant Id: Unknown("..value..")"
-end
-
--- Dissect: Participant Id
-dissect.participant_id = function(buffer, offset, packet, parent)
-  local length = size_of.participant_id
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.participant_id(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v4_0.fields.participant_id, range, value, display)
 
   return offset + length, value
 end
