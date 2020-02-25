@@ -435,6 +435,15 @@ dissect.md_control_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Market Data Control Message
+size_of.market_data_control_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.md_control_type
+
+  return index
+end
+
 -- Display: Market Data Control Message
 display.market_data_control_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -454,7 +463,8 @@ end
 dissect.market_data_control_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.market_data_control_message then
-    local range = buffer(offset, 1)
+    local length = size_of.market_data_control_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.market_data_control_message(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.market_data_control_message, range, display)
   end
@@ -502,6 +512,17 @@ dissect.md_entry_px_exponent = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Md Entry Px
+size_of.md_entry_px = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.md_entry_px_exponent
+
+  index = index + size_of.md_entry_px_mantissa
+
+  return index
+end
+
 -- Display: Md Entry Px
 display.md_entry_px = function(buffer, offset, size, packet, parent)
   return ""
@@ -524,7 +545,8 @@ end
 dissect.md_entry_px = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.md_entry_px then
-    local range = buffer(offset, 5)
+    local length = size_of.md_entry_px(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.md_entry_px(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.md_entry_px, range, display)
   end
@@ -577,6 +599,17 @@ dissect.md_entry_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Summary Md Entry
+size_of.summary_md_entry = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.md_entry_type
+
+  index = index + size_of.md_entry_px(buffer, offset + index)
+
+  return index
+end
+
 -- Display: Summary Md Entry
 display.summary_md_entry = function(buffer, offset, size, packet, parent)
   return ""
@@ -599,7 +632,8 @@ end
 dissect.summary_md_entry = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.summary_md_entry then
-    local range = buffer(offset, 6)
+    local length = size_of.summary_md_entry(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.summary_md_entry(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.summary_md_entry, range, display)
   end
@@ -667,6 +701,17 @@ dissect.underlying_px_exponent = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Underlying Px
+size_of.underlying_px = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.underlying_px_exponent
+
+  index = index + size_of.underlying_px_mantissa
+
+  return index
+end
+
 -- Display: Underlying Px
 display.underlying_px = function(buffer, offset, size, packet, parent)
   return ""
@@ -689,7 +734,8 @@ end
 dissect.underlying_px = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.underlying_px then
-    local range = buffer(offset, 5)
+    local length = size_of.underlying_px(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.underlying_px(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_px, range, display)
   end
@@ -737,6 +783,17 @@ dissect.net_chg_prev_day_exponent = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Net Chg Prev Day
+size_of.net_chg_prev_day = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.net_chg_prev_day_exponent
+
+  index = index + size_of.net_chg_prev_day_mantissa
+
+  return index
+end
+
 -- Display: Net Chg Prev Day
 display.net_chg_prev_day = function(buffer, offset, size, packet, parent)
   return ""
@@ -759,7 +816,8 @@ end
 dissect.net_chg_prev_day = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.net_chg_prev_day then
-    local range = buffer(offset, 5)
+    local length = size_of.net_chg_prev_day(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.net_chg_prev_day(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.net_chg_prev_day, range, display)
   end
@@ -867,11 +925,25 @@ dissect.class_key = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Summary Message
+-- Calculate size of: Summary Message
 size_of.summary_message = function(buffer, offset)
   local index = 0
 
-  index = index + 28
+  index = index + size_of.class_key
+
+  index = index + size_of.security_id
+
+  index = index + size_of.price_type
+
+  index = index + size_of.trade_volume
+
+  index = index + size_of.open_interest
+
+  index = index + size_of.net_chg_prev_day(buffer, offset + index)
+
+  index = index + size_of.underlying_px(buffer, offset + index)
+
+  index = index + size_of.no_entries
 
   -- Calculate field size from count
   local summary_md_entry_count = buffer(offset + index - 1, 1):uint()
@@ -934,6 +1006,17 @@ dissect.summary_message = function(buffer, offset, packet, parent)
   return dissect.summary_message_fields(buffer, offset, packet, parent)
 end
 
+-- Calculate size of: Settlement Value Md Entry
+size_of.settlement_value_md_entry = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.md_entry_type
+
+  index = index + size_of.md_entry_px(buffer, offset + index)
+
+  return index
+end
+
 -- Display: Settlement Value Md Entry
 display.settlement_value_md_entry = function(buffer, offset, size, packet, parent)
   return ""
@@ -956,7 +1039,8 @@ end
 dissect.settlement_value_md_entry = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.settlement_value_md_entry then
-    local range = buffer(offset, 6)
+    local length = size_of.settlement_value_md_entry(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.settlement_value_md_entry(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.settlement_value_md_entry, range, display)
   end
@@ -964,11 +1048,17 @@ dissect.settlement_value_md_entry = function(buffer, offset, packet, parent)
   return dissect.settlement_value_md_entry_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Settlement Value Message
+-- Calculate size of: Settlement Value Message
 size_of.settlement_value_message = function(buffer, offset)
   local index = 0
 
-  index = index + 10
+  index = index + size_of.class_key
+
+  index = index + size_of.security_id
+
+  index = index + size_of.price_type
+
+  index = index + size_of.no_entries
 
   -- Calculate field size from count
   local settlement_value_md_entry_count = buffer(offset + index - 1, 1):uint()
@@ -1019,6 +1109,17 @@ dissect.settlement_value_message = function(buffer, offset, packet, parent)
   return dissect.settlement_value_message_fields(buffer, offset, packet, parent)
 end
 
+-- Calculate size of: Index Value Md Entry
+size_of.index_value_md_entry = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.md_entry_type
+
+  index = index + size_of.md_entry_px(buffer, offset + index)
+
+  return index
+end
+
 -- Display: Index Value Md Entry
 display.index_value_md_entry = function(buffer, offset, size, packet, parent)
   return ""
@@ -1041,7 +1142,8 @@ end
 dissect.index_value_md_entry = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.index_value_md_entry then
-    local range = buffer(offset, 6)
+    local length = size_of.index_value_md_entry(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.index_value_md_entry(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.index_value_md_entry, range, display)
   end
@@ -1085,11 +1187,11 @@ dissect.symbol_length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Symbol
+-- Calculate size of: Symbol
 size_of.symbol = function(buffer, offset)
   local index = 0
 
-  index = index + 1
+  index = index + size_of.symbol_length
 
   -- Parse runtime size of: Symbol Text
   index = index + buffer(offset + index - 1, 1):uint()
@@ -1128,13 +1230,13 @@ dissect.symbol = function(buffer, offset, packet, parent)
   return dissect.symbol_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Index Value Message
+-- Calculate size of: Index Value Message
 size_of.index_value_message = function(buffer, offset)
   local index = 0
 
   index = index + size_of.symbol(buffer, offset + index)
 
-  index = index + 1
+  index = index + size_of.no_entries
 
   -- Calculate field size from count
   local index_value_md_entry_count = buffer(offset + index - 1, 1):uint()
@@ -1320,6 +1422,17 @@ dissect.eop_exponent = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Eop
+size_of.eop = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.eop_exponent
+
+  index = index + size_of.eop_mantissa
+
+  return index
+end
+
 -- Display: Eop
 display.eop = function(buffer, offset, size, packet, parent)
   return ""
@@ -1342,12 +1455,32 @@ end
 dissect.eop = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.eop then
-    local range = buffer(offset, 5)
+    local length = size_of.eop(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.eop(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.eop, range, display)
   end
 
   return dissect.eop_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Expected Opening Price And Size Message
+size_of.expected_opening_price_and_size_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.class_key
+
+  index = index + size_of.security_id
+
+  index = index + size_of.eop(buffer, offset + index)
+
+  index = index + size_of.eos
+
+  index = index + size_of.eop_type
+
+  index = index + size_of.legal_market
+
+  return index
 end
 
 -- Display: Expected Opening Price And Size Message
@@ -1384,7 +1517,8 @@ end
 dissect.expected_opening_price_and_size_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.expected_opening_price_and_size_message then
-    local range = buffer(offset, 19)
+    local length = size_of.expected_opening_price_and_size_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.expected_opening_price_and_size_message(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.expected_opening_price_and_size_message, range, display)
   end
@@ -1428,11 +1562,11 @@ dissect.trade_condition_length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Trade Condition
+-- Calculate size of: Trade Condition
 size_of.trade_condition = function(buffer, offset)
   local index = 0
 
-  index = index + 1
+  index = index + size_of.trade_condition_length
 
   -- Parse runtime size of: Trade Condition Text
   index = index + buffer(offset + index - 1, 1):uint()
@@ -1491,11 +1625,15 @@ dissect.md_entry_size = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Ticker Md Entry
+-- Calculate size of: Ticker Md Entry
 size_of.ticker_md_entry = function(buffer, offset)
   local index = 0
 
-  index = index + 10
+  index = index + size_of.md_entry_type
+
+  index = index + size_of.md_entry_px(buffer, offset + index)
+
+  index = index + size_of.md_entry_size
 
   index = index + size_of.trade_condition(buffer, offset + index)
 
@@ -1539,11 +1677,17 @@ dissect.ticker_md_entry = function(buffer, offset, packet, parent)
   return dissect.ticker_md_entry_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Ticker Message
+-- Calculate size of: Ticker Message
 size_of.ticker_message = function(buffer, offset)
   local index = 0
 
-  index = index + 10
+  index = index + size_of.class_key
+
+  index = index + size_of.security_id
+
+  index = index + size_of.price_type
+
+  index = index + size_of.no_entries
 
   -- Calculate field size from count
   local ticker_md_entry_count = buffer(offset + index - 1, 1):uint()
@@ -1595,6 +1739,19 @@ dissect.ticker_message = function(buffer, offset, packet, parent)
   return dissect.ticker_message_fields(buffer, offset, packet, parent)
 end
 
+-- Calculate size of: Recap Update Md Entry
+size_of.recap_update_md_entry = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.md_entry_type
+
+  index = index + size_of.md_entry_px(buffer, offset + index)
+
+  index = index + size_of.md_entry_size
+
+  return index
+end
+
 -- Display: Recap Update Md Entry
 display.recap_update_md_entry = function(buffer, offset, size, packet, parent)
   return ""
@@ -1620,7 +1777,8 @@ end
 dissect.recap_update_md_entry = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.recap_update_md_entry then
-    local range = buffer(offset, 10)
+    local length = size_of.recap_update_md_entry(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.recap_update_md_entry(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.recap_update_md_entry, range, display)
   end
@@ -1668,6 +1826,17 @@ dissect.prev_close_px_exponent = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Prev Close Px
+size_of.prev_close_px = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.prev_close_px_exponent
+
+  index = index + size_of.prev_close_px_mantissa
+
+  return index
+end
+
 -- Display: Prev Close Px
 display.prev_close_px = function(buffer, offset, size, packet, parent)
   return ""
@@ -1690,7 +1859,8 @@ end
 dissect.prev_close_px = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.prev_close_px then
-    local range = buffer(offset, 5)
+    local length = size_of.prev_close_px(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.prev_close_px(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.prev_close_px, range, display)
   end
@@ -1698,11 +1868,21 @@ dissect.prev_close_px = function(buffer, offset, packet, parent)
   return dissect.prev_close_px_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Recap Update Message
+-- Calculate size of: Recap Update Message
 size_of.recap_update_message = function(buffer, offset)
   local index = 0
 
-  index = index + 19
+  index = index + size_of.class_key
+
+  index = index + size_of.security_id
+
+  index = index + size_of.price_type
+
+  index = index + size_of.prev_close_px(buffer, offset + index)
+
+  index = index + size_of.trade_volume
+
+  index = index + size_of.no_entries
 
   -- Calculate field size from count
   local recap_update_md_entry_count = buffer(offset + index - 1, 1):uint()
@@ -1792,6 +1972,21 @@ dissect.md_volume_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Md Entry
+size_of.md_entry = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.md_entry_type
+
+  index = index + size_of.md_entry_px(buffer, offset + index)
+
+  index = index + size_of.md_entry_size
+
+  index = index + size_of.md_volume_type
+
+  return index
+end
+
 -- Display: Md Entry
 display.md_entry = function(buffer, offset, size, packet, parent)
   return ""
@@ -1820,7 +2015,8 @@ end
 dissect.md_entry = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.md_entry then
-    local range = buffer(offset, 11)
+    local length = size_of.md_entry(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.md_entry(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.md_entry, range, display)
   end
@@ -1876,11 +2072,19 @@ dissect.security_trading_status = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Current Market Update Message
+-- Calculate size of: Current Market Update Message
 size_of.current_market_update_message = function(buffer, offset)
   local index = 0
 
-  index = index + 11
+  index = index + size_of.class_key
+
+  index = index + size_of.security_id
+
+  index = index + size_of.security_trading_status
+
+  index = index + size_of.price_type
+
+  index = index + size_of.no_entries
 
   -- Calculate field size from count
   local md_entry_count = buffer(offset + index - 1, 1):uint()
@@ -1954,11 +2158,25 @@ dissect.appl_seq_num = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Market Data Refresh Message
+-- Calculate size of: Market Data Refresh Message
 size_of.market_data_refresh_message = function(buffer, offset)
   local index = 0
 
-  index = index + 24
+  index = index + size_of.class_key
+
+  index = index + size_of.security_id
+
+  index = index + size_of.security_trading_status
+
+  index = index + size_of.price_type
+
+  index = index + size_of.appl_seq_num
+
+  index = index + size_of.prev_close_px(buffer, offset + index)
+
+  index = index + size_of.trade_volume
+
+  index = index + size_of.no_entries
 
   -- Calculate field size from count
   local md_entry_count = buffer(offset + index - 1, 1):uint()
@@ -2021,11 +2239,21 @@ dissect.market_data_refresh_message = function(buffer, offset, packet, parent)
   return dissect.market_data_refresh_message_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Current Market Refresh Message
+-- Calculate size of: Current Market Refresh Message
 size_of.current_market_refresh_message = function(buffer, offset)
   local index = 0
 
-  index = index + 15
+  index = index + size_of.class_key
+
+  index = index + size_of.security_id
+
+  index = index + size_of.security_trading_status
+
+  index = index + size_of.price_type
+
+  index = index + size_of.appl_seq_num
+
+  index = index + size_of.no_entries
 
   -- Calculate field size from count
   local md_entry_count = buffer(offset + index - 1, 1):uint()
@@ -2149,6 +2377,19 @@ dissect.leg_ratio_qty = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Security Definition Leg
+size_of.security_definition_leg = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.leg_ratio_qty
+
+  index = index + size_of.leg_security_id
+
+  index = index + size_of.leg_side
+
+  return index
+end
+
 -- Display: Security Definition Leg
 display.security_definition_leg = function(buffer, offset, size, packet, parent)
   return ""
@@ -2174,7 +2415,8 @@ end
 dissect.security_definition_leg = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.security_definition_leg then
-    local range = buffer(offset, 9)
+    local length = size_of.security_definition_leg(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.security_definition_leg(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.security_definition_leg, range, display)
   end
@@ -2258,11 +2500,11 @@ dissect.underlying_type_length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Underlying Type
+-- Calculate size of: Underlying Type
 size_of.underlying_type = function(buffer, offset)
   local index = 0
 
-  index = index + 1
+  index = index + size_of.underlying_type_length
 
   -- Parse runtime size of: Underlying Type Text
   index = index + buffer(offset + index - 1, 1):uint()
@@ -2337,11 +2579,11 @@ dissect.underlying_symbol_length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Underlying Symbol
+-- Calculate size of: Underlying Symbol
 size_of.underlying_symbol = function(buffer, offset)
   local index = 0
 
-  index = index + 1
+  index = index + size_of.underlying_symbol_length
 
   -- Parse runtime size of: Underlying Symbol Text
   index = index + buffer(offset + index - 1, 1):uint()
@@ -2416,11 +2658,11 @@ dissect.currency_code_length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Currency Code
+-- Calculate size of: Currency Code
 size_of.currency_code = function(buffer, offset)
   local index = 0
 
-  index = index + 1
+  index = index + size_of.currency_code_length
 
   -- Parse runtime size of: Currency Code Text
   index = index + buffer(offset + index - 1, 1):uint()
@@ -2526,6 +2768,17 @@ dissect.minimum_below_premium_fraction_exponent = function(buffer, offset, packe
   return offset + length, value
 end
 
+-- Calculate size of: Minimum Below Premium Fraction
+size_of.minimum_below_premium_fraction = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.minimum_below_premium_fraction_exponent
+
+  index = index + size_of.minimum_below_premium_fraction_mantissa
+
+  return index
+end
+
 -- Display: Minimum Below Premium Fraction
 display.minimum_below_premium_fraction = function(buffer, offset, size, packet, parent)
   return ""
@@ -2548,7 +2801,8 @@ end
 dissect.minimum_below_premium_fraction = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.minimum_below_premium_fraction then
-    local range = buffer(offset, 5)
+    local length = size_of.minimum_below_premium_fraction(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.minimum_below_premium_fraction(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_below_premium_fraction, range, display)
   end
@@ -2596,6 +2850,17 @@ dissect.minimum_above_premium_fraction_exponent = function(buffer, offset, packe
   return offset + length, value
 end
 
+-- Calculate size of: Minimum Above Premium Fraction
+size_of.minimum_above_premium_fraction = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.minimum_above_premium_fraction_exponent
+
+  index = index + size_of.minimum_above_premium_fraction_mantissa
+
+  return index
+end
+
 -- Display: Minimum Above Premium Fraction
 display.minimum_above_premium_fraction = function(buffer, offset, size, packet, parent)
   return ""
@@ -2618,7 +2883,8 @@ end
 dissect.minimum_above_premium_fraction = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.minimum_above_premium_fraction then
-    local range = buffer(offset, 5)
+    local length = size_of.minimum_above_premium_fraction(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.minimum_above_premium_fraction(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_above_premium_fraction, range, display)
   end
@@ -2666,6 +2932,17 @@ dissect.premium_break_point_exponent = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Premium Break Point
+size_of.premium_break_point = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.premium_break_point_exponent
+
+  index = index + size_of.premium_break_point_mantissa
+
+  return index
+end
+
 -- Display: Premium Break Point
 display.premium_break_point = function(buffer, offset, size, packet, parent)
   return ""
@@ -2688,7 +2965,8 @@ end
 dissect.premium_break_point = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.premium_break_point then
-    local range = buffer(offset, 5)
+    local length = size_of.premium_break_point(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.premium_break_point(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.premium_break_point, range, display)
   end
@@ -2736,6 +3014,17 @@ dissect.max_strike_price_exponent = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Max Strike Price
+size_of.max_strike_price = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.max_strike_price_exponent
+
+  index = index + size_of.max_strike_price_mantissa
+
+  return index
+end
+
 -- Display: Max Strike Price
 display.max_strike_price = function(buffer, offset, size, packet, parent)
   return ""
@@ -2758,7 +3047,8 @@ end
 dissect.max_strike_price = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.max_strike_price then
-    local range = buffer(offset, 5)
+    local length = size_of.max_strike_price(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.max_strike_price(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.max_strike_price, range, display)
   end
@@ -2806,6 +3096,17 @@ dissect.minimum_strike_price_fraction_exponent = function(buffer, offset, packet
   return offset + length, value
 end
 
+-- Calculate size of: Minimum Strike Price Fraction
+size_of.minimum_strike_price_fraction = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.minimum_strike_price_fraction_exponent
+
+  index = index + size_of.minimum_strike_price_fraction_mantissa
+
+  return index
+end
+
 -- Display: Minimum Strike Price Fraction
 display.minimum_strike_price_fraction = function(buffer, offset, size, packet, parent)
   return ""
@@ -2828,7 +3129,8 @@ end
 dissect.minimum_strike_price_fraction = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.minimum_strike_price_fraction then
-    local range = buffer(offset, 5)
+    local length = size_of.minimum_strike_price_fraction(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.minimum_strike_price_fraction(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_strike_price_fraction, range, display)
   end
@@ -2903,6 +3205,17 @@ dissect.strike_price_exponent = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Strike Price
+size_of.strike_price = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.strike_price_exponent
+
+  index = index + size_of.strike_price_mantissa
+
+  return index
+end
+
 -- Display: Strike Price
 display.strike_price = function(buffer, offset, size, packet, parent)
   return ""
@@ -2925,7 +3238,8 @@ end
 dissect.strike_price = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.strike_price then
-    local range = buffer(offset, 5)
+    local length = size_of.strike_price(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.strike_price(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.strike_price, range, display)
   end
@@ -2989,11 +3303,11 @@ dissect.target_location_id_length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Target Location Id
+-- Calculate size of: Target Location Id
 size_of.target_location_id = function(buffer, offset)
   local index = 0
 
-  index = index + 1
+  index = index + size_of.target_location_id_length
 
   -- Parse runtime size of: Target Location Id Text
   index = index + buffer(offset + index - 1, 1):uint()
@@ -3104,11 +3418,11 @@ dissect.security_type_length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Security Type
+-- Calculate size of: Security Type
 size_of.security_type = function(buffer, offset)
   local index = 0
 
-  index = index + 1
+  index = index + size_of.security_type_length
 
   -- Parse runtime size of: Security Type Text
   index = index + buffer(offset + index - 1, 1):uint()
@@ -3147,19 +3461,41 @@ dissect.security_type = function(buffer, offset, packet, parent)
   return dissect.security_type_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Security Definition Message
+-- Calculate size of: Security Definition Message
 size_of.security_definition_message = function(buffer, offset)
   local index = 0
 
   index = index + size_of.security_type(buffer, offset + index)
 
-  index = index + 1
+  index = index + size_of.security_exchange
 
   index = index + size_of.symbol(buffer, offset + index)
 
   index = index + size_of.target_location_id(buffer, offset + index)
 
-  index = index + 49
+  index = index + size_of.class_key
+
+  index = index + size_of.security_id
+
+  index = index + size_of.maturity_date
+
+  index = index + size_of.price_type
+
+  index = index + size_of.strike_price(buffer, offset + index)
+
+  index = index + size_of.put_or_call
+
+  index = index + size_of.minimum_strike_price_fraction(buffer, offset + index)
+
+  index = index + size_of.max_strike_price(buffer, offset + index)
+
+  index = index + size_of.premium_break_point(buffer, offset + index)
+
+  index = index + size_of.minimum_above_premium_fraction(buffer, offset + index)
+
+  index = index + size_of.minimum_below_premium_fraction(buffer, offset + index)
+
+  index = index + size_of.exercise_style
 
   index = index + size_of.currency_code(buffer, offset + index)
 
@@ -3167,7 +3503,9 @@ size_of.security_definition_message = function(buffer, offset)
 
   index = index + size_of.underlying_type(buffer, offset + index)
 
-  index = index + 5
+  index = index + size_of.contract_size
+
+  index = index + size_of.no_legs
 
   -- Calculate field size from count
   local security_definition_leg_count = buffer(offset + index - 1, 1):uint()
@@ -3297,7 +3635,7 @@ size_of.payload = function(buffer, offset, template_id)
   end
   -- Size of Expected Opening Price And Size Message
   if template_id == 15 then
-    return 19
+    return size_of.expected_opening_price_and_size_message(buffer, offset)
   end
   -- Size of Index Value Message
   if template_id == 22 then
@@ -3313,11 +3651,11 @@ size_of.payload = function(buffer, offset, template_id)
   end
   -- Size of Market Data Control Message
   if template_id == 25 then
-    return 1
+    return size_of.market_data_control_message(buffer, offset)
   end
   -- Size of Heartbeat Message
   if template_id == 16 then
-    return 0
+    return size_of.heartbeat_message(buffer, offset)
   end
 
   return 0
@@ -3518,6 +3856,21 @@ dissect.message_length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Message Header
+size_of.message_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.message_length
+
+  index = index + size_of.template_id
+
+  index = index + size_of.message_type
+
+  index = index + size_of.message_sequence_number
+
+  return index
+end
+
 -- Display: Message Header
 display.message_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -3546,7 +3899,8 @@ end
 dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local range = buffer(offset, 8)
+    local length = size_of.message_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.message_header, range, display)
   end
@@ -3554,11 +3908,11 @@ dissect.message_header = function(buffer, offset, packet, parent)
   return dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Message
+-- Calculate size of: Message
 size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + 8
+  index = index + size_of.message_header(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -3702,6 +4056,23 @@ dissect.version = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Packet Header
+size_of.packet_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.version
+
+  index = index + size_of.packet_length
+
+  index = index + size_of.sending_time
+
+  index = index + size_of.message_count
+
+  index = index + size_of.first_msg_seq_num
+
+  return index
+end
+
 -- Display: Packet Header
 display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -3733,7 +4104,8 @@ end
 dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local range = buffer(offset, 16)
+    local length = size_of.packet_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.packet_header(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.packet_header, range, display)
   end

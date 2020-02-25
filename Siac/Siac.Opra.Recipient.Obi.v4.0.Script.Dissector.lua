@@ -373,6 +373,27 @@ dissect.message_indicator = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Underlying Value Bid And Offer Message
+size_of.underlying_value_bid_and_offer_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.message_indicator
+
+  index = index + size_of.transaction_id
+
+  index = index + size_of.security_symbol
+
+  index = index + size_of.reserved_1
+
+  index = index + size_of.index_value_denominator_code
+
+  index = index + size_of.bid_index_value
+
+  index = index + size_of.offer_index_value
+
+  return index
+end
+
 -- Display: Underlying Value Bid And Offer Message
 display.underlying_value_bid_and_offer_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -410,7 +431,8 @@ end
 dissect.underlying_value_bid_and_offer_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.underlying_value_bid_and_offer_message then
-    local range = buffer(offset, 28)
+    local length = size_of.underlying_value_bid_and_offer_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.underlying_value_bid_and_offer_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v4_0.fields.underlying_value_bid_and_offer_message, range, display)
   end
@@ -458,6 +480,27 @@ dissect.index_value = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Underlying Value Last Sale Message
+size_of.underlying_value_last_sale_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.message_indicator
+
+  index = index + size_of.transaction_id
+
+  index = index + size_of.security_symbol
+
+  index = index + size_of.reserved_1
+
+  index = index + size_of.index_value_denominator_code
+
+  index = index + size_of.index_value
+
+  index = index + size_of.reserved_4
+
+  return index
+end
+
 -- Display: Underlying Value Last Sale Message
 display.underlying_value_last_sale_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -495,7 +538,8 @@ end
 dissect.underlying_value_last_sale_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.underlying_value_last_sale_message then
-    local range = buffer(offset, 24)
+    local length = size_of.underlying_value_last_sale_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.underlying_value_last_sale_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v4_0.fields.underlying_value_last_sale_message, range, display)
   end
@@ -507,11 +551,11 @@ end
 size_of.underlying_value_message_payload = function(buffer, offset, underlying_value_message_type)
   -- Size of Underlying Value Last Sale Message
   if underlying_value_message_type == " " then
-    return 24
+    return size_of.underlying_value_last_sale_message(buffer, offset)
   end
   -- Size of Underlying Value Bid And Offer Message
   if underlying_value_message_type == "I" then
-    return 28
+    return size_of.underlying_value_bid_and_offer_message(buffer, offset)
   end
 
   return 0
@@ -583,11 +627,11 @@ dissect.underlying_value_message_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Underlying Value Message
+-- Calculate size of: Underlying Value Message
 size_of.underlying_value_message = function(buffer, offset)
   local index = 0
 
-  index = index + 1
+  index = index + size_of.underlying_value_message_type
 
   -- Calculate runtime size of Underlying Value Message Payload field
   local underlying_value_message_payload_offset = offset + index
@@ -664,11 +708,17 @@ dissect.message_data_length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Control Message
+-- Calculate size of: Control Message
 size_of.control_message = function(buffer, offset)
   local index = 0
 
-  index = index + 11
+  index = index + size_of.control_message_type
+
+  index = index + size_of.message_indicator
+
+  index = index + size_of.transaction_id
+
+  index = index + size_of.message_data_length
 
   -- Parse runtime size of: Message Data
   index = index + buffer(offset + index - 2, 2):le_uint()
@@ -736,11 +786,17 @@ dissect.message_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Administrative Message
+-- Calculate size of: Administrative Message
 size_of.administrative_message = function(buffer, offset)
   local index = 0
 
-  index = index + 12
+  index = index + size_of.message_type
+
+  index = index + size_of.message_indicator
+
+  index = index + size_of.transaction_id
+
+  index = index + size_of.message_data_length
 
   -- Parse runtime size of: Message Data
   index = index + buffer(offset + index - 2, 2):le_uint()
@@ -980,6 +1036,33 @@ dissect.bbo_indicator = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Short Equity And Index Quote Message
+size_of.short_equity_and_index_quote_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.quote_message_type
+
+  index = index + size_of.bbo_indicator
+
+  index = index + size_of.transaction_id
+
+  index = index + size_of.security_symbol_short
+
+  index = index + size_of.expiration_block
+
+  index = index + size_of.strike_price_short
+
+  index = index + size_of.bid_price_short
+
+  index = index + size_of.bid_size_short
+
+  index = index + size_of.offer_price_short
+
+  index = index + size_of.offer_size_short
+
+  return index
+end
+
 -- Display: Short Equity And Index Quote Message
 display.short_equity_and_index_quote_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1026,7 +1109,8 @@ end
 dissect.short_equity_and_index_quote_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.short_equity_and_index_quote_message then
-    local range = buffer(offset, 23)
+    local length = size_of.short_equity_and_index_quote_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.short_equity_and_index_quote_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v4_0.fields.short_equity_and_index_quote_message, range, display)
   end
@@ -1218,6 +1302,39 @@ dissect.strike_price_denominator_code = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Long Equity And Index Quote Message
+size_of.long_equity_and_index_quote_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.quote_message_type
+
+  index = index + size_of.bbo_indicator
+
+  index = index + size_of.transaction_id
+
+  index = index + size_of.security_symbol
+
+  index = index + size_of.reserved_1
+
+  index = index + size_of.expiration_block
+
+  index = index + size_of.strike_price_denominator_code
+
+  index = index + size_of.strike_price
+
+  index = index + size_of.premium_price_denominator_code
+
+  index = index + size_of.bid_price
+
+  index = index + size_of.bid_size
+
+  index = index + size_of.offer_price
+
+  index = index + size_of.offer_size
+
+  return index
+end
+
 -- Display: Long Equity And Index Quote Message
 display.long_equity_and_index_quote_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1273,7 +1390,8 @@ end
 dissect.long_equity_and_index_quote_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.long_equity_and_index_quote_message then
-    local range = buffer(offset, 37)
+    local length = size_of.long_equity_and_index_quote_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.long_equity_and_index_quote_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v4_0.fields.long_equity_and_index_quote_message, range, display)
   end
@@ -1489,6 +1607,53 @@ dissect.volume = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Equity And Index End Of Day Summary Message
+size_of.equity_and_index_end_of_day_summary_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.message_type
+
+  index = index + size_of.message_indicator
+
+  index = index + size_of.transaction_id
+
+  index = index + size_of.security_symbol
+
+  index = index + size_of.reserved_1
+
+  index = index + size_of.expiration_block
+
+  index = index + size_of.strike_price_denominator_code
+
+  index = index + size_of.strike_price
+
+  index = index + size_of.volume
+
+  index = index + size_of.open_interest_volume
+
+  index = index + size_of.premium_price_denominator_code
+
+  index = index + size_of.open_price
+
+  index = index + size_of.high_price
+
+  index = index + size_of.low_price
+
+  index = index + size_of.last_price
+
+  index = index + size_of.net_change
+
+  index = index + size_of.underlying_price_denominator_code
+
+  index = index + size_of.underlying_price
+
+  index = index + size_of.bid_price
+
+  index = index + size_of.offer_price
+
+  return index
+end
+
 -- Display: Equity And Index End Of Day Summary Message
 display.equity_and_index_end_of_day_summary_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1565,12 +1730,38 @@ end
 dissect.equity_and_index_end_of_day_summary_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.equity_and_index_end_of_day_summary_message then
-    local range = buffer(offset, 67)
+    local length = size_of.equity_and_index_end_of_day_summary_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.equity_and_index_end_of_day_summary_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v4_0.fields.equity_and_index_end_of_day_summary_message, range, display)
   end
 
   return dissect.equity_and_index_end_of_day_summary_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Open Interest Message
+size_of.open_interest_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.message_type
+
+  index = index + size_of.message_indicator
+
+  index = index + size_of.transaction_id
+
+  index = index + size_of.security_symbol
+
+  index = index + size_of.reserved_1
+
+  index = index + size_of.expiration_block
+
+  index = index + size_of.strike_price_denominator_code
+
+  index = index + size_of.strike_price
+
+  index = index + size_of.open_interest_volume
+
+  return index
 end
 
 -- Display: Open Interest Message
@@ -1616,7 +1807,8 @@ end
 dissect.open_interest_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.open_interest_message then
-    local range = buffer(offset, 25)
+    local length = size_of.open_interest_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.open_interest_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v4_0.fields.open_interest_message, range, display)
   end
@@ -1662,6 +1854,39 @@ dissect.premium_price = function(buffer, offset, packet, parent)
   parent:add(siac_opra_recipient_obi_v4_0.fields.premium_price, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Equity And Index Last Sale Message
+size_of.equity_and_index_last_sale_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.trade_message_type
+
+  index = index + size_of.message_indicator
+
+  index = index + size_of.transaction_id
+
+  index = index + size_of.security_symbol
+
+  index = index + size_of.reserved_1
+
+  index = index + size_of.expiration_block
+
+  index = index + size_of.strike_price_denominator_code
+
+  index = index + size_of.strike_price
+
+  index = index + size_of.volume
+
+  index = index + size_of.premium_price_denominator_code
+
+  index = index + size_of.premium_price
+
+  index = index + size_of.trade_identifier
+
+  index = index + size_of.reserved_4
+
+  return index
 end
 
 -- Display: Equity And Index Last Sale Message
@@ -1719,7 +1944,8 @@ end
 dissect.equity_and_index_last_sale_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.equity_and_index_last_sale_message then
-    local range = buffer(offset, 37)
+    local length = size_of.equity_and_index_last_sale_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.equity_and_index_last_sale_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v4_0.fields.equity_and_index_last_sale_message, range, display)
   end
@@ -1731,23 +1957,23 @@ end
 size_of.payload = function(buffer, offset, message_category)
   -- Size of Equity And Index Last Sale Message
   if message_category == "a" then
-    return 37
+    return size_of.equity_and_index_last_sale_message(buffer, offset)
   end
   -- Size of Open Interest Message
   if message_category == "d" then
-    return 25
+    return size_of.open_interest_message(buffer, offset)
   end
   -- Size of Equity And Index End Of Day Summary Message
   if message_category == "f" then
-    return 67
+    return size_of.equity_and_index_end_of_day_summary_message(buffer, offset)
   end
   -- Size of Long Equity And Index Quote Message
   if message_category == "k" then
-    return 37
+    return size_of.long_equity_and_index_quote_message(buffer, offset)
   end
   -- Size of Short Equity And Index Quote Message
   if message_category == "q" then
-    return 23
+    return size_of.short_equity_and_index_quote_message(buffer, offset)
   end
   -- Size of Administrative Message
   if message_category == "C" then
@@ -1945,11 +2171,13 @@ dissect.participant_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Message
+-- Calculate size of: Message
 size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + 2
+  index = index + size_of.participant_id
+
+  index = index + size_of.message_category
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -2053,6 +2281,17 @@ dissect.seconds = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Block Timestamp
+size_of.block_timestamp = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.seconds
+
+  index = index + size_of.nanoseconds
+
+  return index
+end
+
 -- Display: Block Timestamp
 display.block_timestamp = function(buffer, offset, size, packet, parent)
   return ""
@@ -2075,7 +2314,8 @@ end
 dissect.block_timestamp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.block_timestamp then
-    local range = buffer(offset, 8)
+    local length = size_of.block_timestamp(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.block_timestamp(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v4_0.fields.block_timestamp, range, display)
   end
@@ -2230,6 +2470,31 @@ dissect.version = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Block Header
+size_of.block_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.version
+
+  index = index + size_of.block_size
+
+  index = index + size_of.data_feed_indicator
+
+  index = index + size_of.retransmission_indicator
+
+  index = index + size_of.session_indicator
+
+  index = index + size_of.block_sequence_number
+
+  index = index + size_of.messages_in_block
+
+  index = index + size_of.block_timestamp(buffer, offset + index)
+
+  index = index + size_of.block_checksum
+
+  return index
+end
+
 -- Display: Block Header
 display.block_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -2273,7 +2538,8 @@ end
 dissect.block_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.block_header then
-    local range = buffer(offset, 21)
+    local length = size_of.block_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.block_header(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v4_0.fields.block_header, range, display)
   end

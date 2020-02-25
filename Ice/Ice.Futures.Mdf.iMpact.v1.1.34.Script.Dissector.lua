@@ -957,6 +957,45 @@ dissect.underlying_market_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Old Style Options Trade And Market Stats Message
+size_of.old_style_options_trade_and_market_stats_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.underlying_market_id
+
+  index = index + size_of.trade_id
+
+  index = index + size_of.price
+
+  index = index + size_of.quantity
+
+  index = index + size_of.off_market_trade_indicator
+
+  index = index + size_of.transact_date_time
+
+  index = index + size_of.option_type
+
+  index = index + size_of.strike_price
+
+  index = index + size_of.event_code
+
+  index = index + size_of.total_volume
+
+  index = index + size_of.block_volume
+
+  index = index + size_of.efs_volume
+
+  index = index + size_of.efp_volume
+
+  index = index + size_of.high
+
+  index = index + size_of.low
+
+  index = index + size_of.vwap
+
+  return index
+end
+
 -- Display: Old Style Options Trade And Market Stats Message
 display.old_style_options_trade_and_market_stats_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1021,7 +1060,8 @@ end
 dissect.old_style_options_trade_and_market_stats_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.old_style_options_trade_and_market_stats_message then
-    local range = buffer(offset, 83)
+    local length = size_of.old_style_options_trade_and_market_stats_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.old_style_options_trade_and_market_stats_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.old_style_options_trade_and_market_stats_message, range, display)
   end
@@ -1196,6 +1236,29 @@ dissect.market_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Option Settlement Price Message
+size_of.option_settlement_price_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.settlement_price_with_deal_price_precision
+
+  index = index + size_of.date_time
+
+  index = index + size_of.is_official
+
+  index = index + size_of.valuation_date_time
+
+  index = index + size_of.volatility
+
+  index = index + size_of.settlement_price
+
+  index = index + size_of.delta
+
+  return index
+end
+
 -- Display: Option Settlement Price Message
 display.option_settlement_price_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1236,7 +1299,8 @@ end
 dissect.option_settlement_price_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.option_settlement_price_message then
-    local range = buffer(offset, 53)
+    local length = size_of.option_settlement_price_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.option_settlement_price_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.option_settlement_price_message, range, display)
   end
@@ -1284,6 +1348,21 @@ dissect.open_interest = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Option Open Interest Message
+size_of.option_open_interest_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.open_interest
+
+  index = index + size_of.date_time
+
+  index = index + size_of.open_interest_date
+
+  return index
+end
+
 -- Display: Option Open Interest Message
 display.option_open_interest_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1312,7 +1391,8 @@ end
 dissect.option_open_interest_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.option_open_interest_message then
-    local range = buffer(offset, 26)
+    local length = size_of.option_open_interest_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.option_open_interest_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.option_open_interest_message, range, display)
   end
@@ -1831,6 +1911,27 @@ dissect.message_timestamp = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Rfq Message
+size_of.rfq_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.message_timestamp
+
+  index = index + size_of.rfq_system_id
+
+  index = index + size_of.market_type_id
+
+  index = index + size_of.underlying_market_id
+
+  index = index + size_of.quantity
+
+  index = index + size_of.side
+
+  return index
+end
+
 -- Display: Rfq Message
 display.rfq_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1868,7 +1969,8 @@ end
 dissect.rfq_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.rfq_message then
-    local range = buffer(offset, 31)
+    local length = size_of.rfq_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.rfq_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.rfq_message, range, display)
   end
@@ -2644,6 +2746,89 @@ dissect.futures_contract_symbol = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: New Options Market Definition Message
+size_of.new_options_market_definition_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.underlying_market_id
+
+  index = index + size_of.futures_contract_symbol
+
+  index = index + size_of.trading_status
+
+  index = index + size_of.order_price_denominator
+
+  index = index + size_of.increment_qty
+
+  index = index + size_of.lot_size
+
+  index = index + size_of.market_desc
+
+  index = index + size_of.option_type
+
+  index = index + size_of.strike_price
+
+  index = index + size_of.deal_price_denominator
+
+  index = index + size_of.min_qty
+
+  index = index + size_of.currency
+
+  index = index + size_of.num_decimals_strike_price
+
+  index = index + size_of.min_options_price
+
+  index = index + size_of.max_options_price
+
+  index = index + size_of.increment_premium_price
+
+  index = index + size_of.options_expiration_year
+
+  index = index + size_of.options_expiration_month
+
+  index = index + size_of.options_expiration_day
+
+  index = index + size_of.options_style
+
+  index = index + size_of.options_expiration_type
+
+  index = index + size_of.hedge_market_id
+
+  index = index + size_of.settle_price_denominator
+
+  index = index + size_of.unit_qty_denominator
+
+  index = index + size_of.tick_value
+
+  index = index + size_of.flex_allowed
+
+  index = index + size_of.settlement_type
+
+  index = index + size_of.is_block_only
+
+  index = index + size_of.gt_allowed
+
+  index = index + size_of.cross_order_supported
+
+  index = index + size_of.guaranteed_cross_supported
+
+  index = index + size_of.unit_of_measure
+
+  index = index + size_of.mifid_regulated_market
+
+  index = index + size_of.screen_last_trade_year
+
+  index = index + size_of.screen_last_trade_month
+
+  index = index + size_of.screen_last_trade_day
+
+  index = index + size_of.is_tradable
+
+  return index
+end
+
 -- Display: New Options Market Definition Message
 display.new_options_market_definition_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -2774,7 +2959,8 @@ end
 dissect.new_options_market_definition_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.new_options_market_definition_message then
-    local range = buffer(offset, 329)
+    local length = size_of.new_options_market_definition_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.new_options_market_definition_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.new_options_market_definition_message, range, display)
   end
@@ -3407,6 +3593,29 @@ dissect.hedge_body_length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Hedge Definition
+size_of.hedge_definition = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.hedge_body_length
+
+  index = index + size_of.hedge_market_id
+
+  index = index + size_of.hedge_security_type
+
+  index = index + size_of.hedge_side
+
+  index = index + size_of.hedge_price
+
+  index = index + size_of.hedge_price_denominator
+
+  index = index + size_of.hedge_delta
+
+  index = index + size_of.hedge_strategy_code
+
+  return index
+end
+
 -- Display: Hedge Definition
 display.hedge_definition = function(buffer, offset, size, packet, parent)
   return ""
@@ -3447,7 +3656,8 @@ end
 dissect.hedge_definition = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.hedge_definition then
-    local range = buffer(offset, 20)
+    local length = size_of.hedge_definition(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.hedge_definition(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.hedge_definition, range, display)
   end
@@ -3685,6 +3895,33 @@ dissect.leg_body_length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Strategy Leg Definition
+size_of.strategy_leg_definition = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.leg_body_length
+
+  index = index + size_of.leg_market_id
+
+  index = index + size_of.leg_underlying_market_id
+
+  index = index + size_of.leg_ratio
+
+  index = index + size_of.leg_side
+
+  index = index + size_of.leg_strategy_code
+
+  index = index + size_of.leg_ratio_qty_numerator
+
+  index = index + size_of.leg_ratio_qty_denominator
+
+  index = index + size_of.leg_ratio_price_numerator
+
+  index = index + size_of.leg_ratio_price_denominator
+
+  return index
+end
+
 -- Display: Strategy Leg Definition
 display.strategy_leg_definition = function(buffer, offset, size, packet, parent)
   return ""
@@ -3731,7 +3968,8 @@ end
 dissect.strategy_leg_definition = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.strategy_leg_definition then
-    local range = buffer(offset, 30)
+    local length = size_of.strategy_leg_definition(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.strategy_leg_definition(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.strategy_leg_definition, range, display)
   end
@@ -3799,21 +4037,61 @@ dissect.contract_symbol = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: New Options Strategy Definition Message
+-- Calculate size of: New Options Strategy Definition Message
 size_of.new_options_strategy_definition_message = function(buffer, offset)
   local index = 0
 
-  index = index + 58
+  index = index + size_of.market_id
+
+  index = index + size_of.underlying_market_id
+
+  index = index + size_of.contract_symbol
+
+  index = index + size_of.trading_status
+
+  index = index + size_of.order_price_denominator
+
+  index = index + size_of.increment_price
+
+  index = index + size_of.increment_qty
+
+  index = index + size_of.min_qty
+
+  index = index + size_of.number_of_strategy_leg_definitions
 
   -- Calculate field size from count
   local strategy_leg_definition_count = buffer(offset + index - 1, 1):int()
   index = index + strategy_leg_definition_count * 30
 
-  index = index + 1
+  index = index + size_of.number_of_hedge_definitions
 
   -- Calculate field size from count
   local hedge_definition_count = buffer(offset + index - 1, 1):int()
   index = index + hedge_definition_count * 20
+
+  index = index + size_of.security_sub_type
+
+  index = index + size_of.is_block_only
+
+  index = index + size_of.strategy_symbol
+
+  index = index + size_of.gt_allowed
+
+  index = index + size_of.mifid_regulated_market
+
+  index = index + size_of.deal_price_denominator
+
+  index = index + size_of.settle_price_denominator
+
+  index = index + size_of.unit_qty_denominator
+
+  index = index + size_of.test_market_indicator
+
+  index = index + size_of.contract_symbol_extra
+
+  index = index + size_of.leg_deal_suppressed
+
+  index = index + size_of.is_tradable
 
   return index
 end
@@ -3959,6 +4237,21 @@ dissect.price_level_position = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Delete Price Level Message
+size_of.delete_price_level_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.side
+
+  index = index + size_of.price_level_position
+
+  index = index + size_of.timestamp
+
+  return index
+end
+
 -- Display: Delete Price Level Message
 display.delete_price_level_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -3987,7 +4280,8 @@ end
 dissect.delete_price_level_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.delete_price_level_message then
-    local range = buffer(offset, 14)
+    local length = size_of.delete_price_level_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.delete_price_level_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.delete_price_level_message, range, display)
   end
@@ -4055,6 +4349,31 @@ dissect.order_count = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Change Price Level Message
+size_of.change_price_level_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.side
+
+  index = index + size_of.price_level_position
+
+  index = index + size_of.price
+
+  index = index + size_of.quantity
+
+  index = index + size_of.order_count
+
+  index = index + size_of.implied_quantity
+
+  index = index + size_of.implied_order_count
+
+  index = index + size_of.timestamp
+
+  return index
+end
+
 -- Display: Change Price Level Message
 display.change_price_level_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -4098,12 +4417,38 @@ end
 dissect.change_price_level_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.change_price_level_message then
-    local range = buffer(offset, 34)
+    local length = size_of.change_price_level_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.change_price_level_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.change_price_level_message, range, display)
   end
 
   return dissect.change_price_level_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Add Price Level Message
+size_of.add_price_level_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.side
+
+  index = index + size_of.price_level_position
+
+  index = index + size_of.price
+
+  index = index + size_of.quantity
+
+  index = index + size_of.order_count
+
+  index = index + size_of.implied_quantity
+
+  index = index + size_of.implied_order_count
+
+  index = index + size_of.timestamp
+
+  return index
 end
 
 -- Display: Add Price Level Message
@@ -4149,12 +4494,36 @@ end
 dissect.add_price_level_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.add_price_level_message then
-    local range = buffer(offset, 34)
+    local length = size_of.add_price_level_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.add_price_level_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.add_price_level_message, range, display)
   end
 
   return dissect.add_price_level_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Market Snapshot Price Level Message
+size_of.market_snapshot_price_level_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.side
+
+  index = index + size_of.price_level_position
+
+  index = index + size_of.price
+
+  index = index + size_of.quantity
+
+  index = index + size_of.order_count
+
+  index = index + size_of.implied_quantity
+
+  index = index + size_of.implied_order_count
+
+  return index
 end
 
 -- Display: Market Snapshot Price Level Message
@@ -4197,7 +4566,8 @@ end
 dissect.market_snapshot_price_level_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.market_snapshot_price_level_message then
-    local range = buffer(offset, 26)
+    local length = size_of.market_snapshot_price_level_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.market_snapshot_price_level_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.market_snapshot_price_level_message, range, display)
   end
@@ -4225,6 +4595,15 @@ dissect.trade_transaction_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Transaction End Marker For Empty Last Bundle Message
+size_of.transaction_end_marker_for_empty_last_bundle_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.trade_transaction_id
+
+  return index
+end
+
 -- Display: Transaction End Marker For Empty Last Bundle Message
 display.transaction_end_marker_for_empty_last_bundle_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -4244,7 +4623,8 @@ end
 dissect.transaction_end_marker_for_empty_last_bundle_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.transaction_end_marker_for_empty_last_bundle_message then
-    local range = buffer(offset, 8)
+    local length = size_of.transaction_end_marker_for_empty_last_bundle_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.transaction_end_marker_for_empty_last_bundle_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.transaction_end_marker_for_empty_last_bundle_message, range, display)
   end
@@ -4332,6 +4712,25 @@ dissect.iba_currency = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Fixing Indicative Price Message Message
+size_of.fixing_indicative_price_message_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.iba_currency
+
+  index = index + size_of.price
+
+  index = index + size_of.price_in_gram
+
+  index = index + size_of.num_decimals_price
+
+  index = index + size_of.num_decimals_price_in_gram
+
+  return index
+end
+
 -- Display: Fixing Indicative Price Message Message
 display.fixing_indicative_price_message_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -4366,7 +4765,8 @@ end
 dissect.fixing_indicative_price_message_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.fixing_indicative_price_message_message then
-    local range = buffer(offset, 25)
+    local length = size_of.fixing_indicative_price_message_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.fixing_indicative_price_message_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.fixing_indicative_price_message_message, range, display)
   end
@@ -4608,6 +5008,37 @@ dissect.auction_date = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Fixing Lockdown Message
+size_of.fixing_lockdown_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.auction_date
+
+  index = index + size_of.time
+
+  index = index + size_of.description
+
+  index = index + size_of.round
+
+  index = index + size_of.agg_bid_qty
+
+  index = index + size_of.agg_offer_qty
+
+  index = index + size_of.usd_price
+
+  index = index + size_of.is_balanced
+
+  index = index + size_of.is_final
+
+  index = index + size_of.gbp_price
+
+  index = index + size_of.eur_price
+
+  return index
+end
+
 -- Display: Fixing Lockdown Message
 display.fixing_lockdown_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -4660,7 +5091,8 @@ end
 dissect.fixing_lockdown_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.fixing_lockdown_message then
-    local range = buffer(offset, 78)
+    local length = size_of.fixing_lockdown_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.fixing_lockdown_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.fixing_lockdown_message, range, display)
   end
@@ -4738,6 +5170,23 @@ dissect.status = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Fixing Transition Message
+size_of.fixing_transition_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.status
+
+  index = index + size_of.auction_end_time
+
+  index = index + size_of.threshold_imbalance_qty
+
+  index = index + size_of.date_time
+
+  return index
+end
+
 -- Display: Fixing Transition Message
 display.fixing_transition_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -4769,7 +5218,8 @@ end
 dissect.fixing_transition_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.fixing_transition_message then
-    local range = buffer(offset, 25)
+    local length = size_of.fixing_transition_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.fixing_transition_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.fixing_transition_message, range, display)
   end
@@ -4831,6 +5281,19 @@ dissect.start_or_end = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Message Bundle Marker
+size_of.message_bundle_marker = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.start_or_end
+
+  index = index + size_of.trade_transaction_id
+
+  index = index + size_of.is_transaction_end
+
+  return index
+end
+
 -- Display: Message Bundle Marker
 display.message_bundle_marker = function(buffer, offset, size, packet, parent)
   return ""
@@ -4856,7 +5319,8 @@ end
 dissect.message_bundle_marker = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_bundle_marker then
-    local range = buffer(offset, 10)
+    local length = size_of.message_bundle_marker(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.message_bundle_marker(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.message_bundle_marker, range, display)
   end
@@ -4904,6 +5368,21 @@ dissect.order_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Delete Order Message
+size_of.delete_order_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.order_id
+
+  index = index + size_of.date_time
+
+  index = index + size_of.sequence_within_millis
+
+  return index
+end
+
 -- Display: Delete Order Message
 display.delete_order_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -4932,7 +5411,8 @@ end
 dissect.delete_order_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.delete_order_message then
-    local range = buffer(offset, 24)
+    local length = size_of.delete_order_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.delete_order_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.delete_order_message, range, display)
   end
@@ -5060,6 +5540,37 @@ dissect.order_sequence_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Add Or Modify Order Message
+size_of.add_or_modify_order_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.order_id
+
+  index = index + size_of.order_sequence_id
+
+  index = index + size_of.side
+
+  index = index + size_of.price
+
+  index = index + size_of.quantity
+
+  index = index + size_of.is_implied
+
+  index = index + size_of.is_rfq
+
+  index = index + size_of.order_entry_date_time
+
+  index = index + size_of.extra_flags
+
+  index = index + size_of.sequence_within_millis
+
+  index = index + size_of.modification_timestamp
+
+  return index
+end
+
 -- Display: Add Or Modify Order Message
 display.add_or_modify_order_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -5112,12 +5623,40 @@ end
 dissect.add_or_modify_order_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.add_or_modify_order_message then
-    local range = buffer(offset, 50)
+    local length = size_of.add_or_modify_order_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.add_or_modify_order_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.add_or_modify_order_message, range, display)
   end
 
   return dissect.add_or_modify_order_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Market Snapshot Order Message
+size_of.market_snapshot_order_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.order_id
+
+  index = index + size_of.order_sequence_id
+
+  index = index + size_of.side
+
+  index = index + size_of.price
+
+  index = index + size_of.quantity
+
+  index = index + size_of.is_implied
+
+  index = index + size_of.is_rfq
+
+  index = index + size_of.order_entry_date_time
+
+  index = index + size_of.sequence_within_millis
+
+  return index
 end
 
 -- Display: Market Snapshot Order Message
@@ -5166,7 +5705,8 @@ end
 dissect.market_snapshot_order_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.market_snapshot_order_message then
-    local range = buffer(offset, 41)
+    local length = size_of.market_snapshot_order_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.market_snapshot_order_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.market_snapshot_order_message, range, display)
   end
@@ -5230,11 +5770,13 @@ dissect.special_field_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Special Field
+-- Calculate size of: Special Field
 size_of.special_field = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.special_field_id
+
+  index = index + size_of.special_field_length
 
   -- Parse runtime size of: Special Field Value
   index = index + buffer(offset + index - 2, 2):uint()
@@ -5296,11 +5838,11 @@ dissect.number_of_special_fields = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Special Field Message
+-- Calculate size of: Special Field Message
 size_of.special_field_message = function(buffer, offset)
   local index = 0
 
-  index = index + 1
+  index = index + size_of.number_of_special_fields
 
   -- Calculate field size from count
   local special_field_count = buffer(offset + index - 1, 1):int()
@@ -5743,6 +6285,97 @@ dissect.maturity_year = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: New Expiry Message
+size_of.new_expiry_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.market_type_id
+
+  index = index + size_of.order_price_denominator
+
+  index = index + size_of.increment_price
+
+  index = index + size_of.increment_qty
+
+  index = index + size_of.lot_size
+
+  index = index + size_of.market_desc
+
+  index = index + size_of.maturity_year
+
+  index = index + size_of.maturity_month
+
+  index = index + size_of.maturity_day
+
+  index = index + size_of.deal_price_denominator
+
+  index = index + size_of.min_qty
+
+  index = index + size_of.unit_quantity
+
+  index = index + size_of.currency
+
+  index = index + size_of.cleared_alias
+
+  index = index + size_of.min_price
+
+  index = index + size_of.max_price
+
+  index = index + size_of.product_id
+
+  index = index + size_of.product_name
+
+  index = index + size_of.hub_id
+
+  index = index + size_of.hub_alias
+
+  index = index + size_of.strip_id
+
+  index = index + size_of.strip_name
+
+  index = index + size_of.settle_price_denominator
+
+  index = index + size_of.mic_code
+
+  index = index + size_of.unit_qty_denominator
+
+  index = index + size_of.off_exchange_increment_qty_denominator
+
+  index = index + size_of.off_exchange_increment_qty
+
+  index = index + size_of.off_exchange_increment_price
+
+  index = index + size_of.off_exchange_increment_option_price
+
+  index = index + size_of.contract_symbol
+
+  index = index + size_of.isin
+
+  index = index + size_of.num_decimals_options_price
+
+  index = index + size_of.hedge_market_id
+
+  index = index + size_of.settlement_type
+
+  index = index + size_of.gt_allowed
+
+  index = index + size_of.cross_order_supported
+
+  index = index + size_of.unit_of_measure
+
+  index = index + size_of.mifid_regulated_market
+
+  index = index + size_of.screen_last_trade_year
+
+  index = index + size_of.screen_last_trade_month
+
+  index = index + size_of.screen_last_trade_day
+
+  return index
+end
+
 -- Display: New Expiry Message
 display.new_expiry_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -5885,7 +6518,8 @@ end
 dissect.new_expiry_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.new_expiry_message then
-    local range = buffer(offset, 509)
+    local length = size_of.new_expiry_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.new_expiry_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.new_expiry_message, range, display)
   end
@@ -6044,6 +6678,31 @@ dissect.reserved_bytes_4 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Leg Definition
+size_of.leg_definition = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.leg_body_length
+
+  index = index + size_of.leg_market_id
+
+  index = index + size_of.leg_ratio
+
+  index = index + size_of.leg_side
+
+  index = index + size_of.leg_strategy_code
+
+  index = index + size_of.leg_ratio_qty_numerator
+
+  index = index + size_of.leg_ratio_qty_denominator
+
+  index = index + size_of.leg_ratio_price_numerator
+
+  index = index + size_of.leg_ratio_price_denominator
+
+  return index
+end
+
 -- Display: Leg Definition
 display.leg_definition = function(buffer, offset, size, packet, parent)
   return ""
@@ -6087,7 +6746,8 @@ end
 dissect.leg_definition = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.leg_definition then
-    local range = buffer(offset, 26)
+    local length = size_of.leg_definition(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.leg_definition(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.leg_definition, range, display)
   end
@@ -6115,15 +6775,103 @@ dissect.number_of_leg_definitions = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: New Futures Strategy Definition Message
+-- Calculate size of: New Futures Strategy Definition Message
 size_of.new_futures_strategy_definition_message = function(buffer, offset)
   local index = 0
 
-  index = index + 89
+  index = index + size_of.market_id
+
+  index = index + size_of.futures_contract_symbol
+
+  index = index + size_of.trading_status
+
+  index = index + size_of.order_price_denominator
+
+  index = index + size_of.increment_price
+
+  index = index + size_of.increment_qty
+
+  index = index + size_of.min_qty
+
+  index = index + size_of.number_of_leg_definitions
 
   -- Calculate field size from count
   local leg_definition_count = buffer(offset + index - 1, 1):int()
   index = index + leg_definition_count * 26
+
+  index = index + size_of.security_sub_type
+
+  index = index + size_of.is_block_only
+
+  index = index + size_of.strategy_symbol
+
+  index = index + size_of.gt_allowed
+
+  index = index + size_of.reserved_bytes_4
+
+  index = index + size_of.mifid_regulated_market
+
+  index = index + size_of.market_desc
+
+  index = index + size_of.maturity_year
+
+  index = index + size_of.maturity_month
+
+  index = index + size_of.maturity_day
+
+  index = index + size_of.deal_price_denominator
+
+  index = index + size_of.unit_quantity
+
+  index = index + size_of.num_decimals_options_price
+
+  index = index + size_of.allow_options
+
+  index = index + size_of.cleared_alias
+
+  index = index + size_of.allows_implied
+
+  index = index + size_of.min_price
+
+  index = index + size_of.max_price
+
+  index = index + size_of.product_name
+
+  index = index + size_of.hub_alias
+
+  index = index + size_of.strip_name
+
+  index = index + size_of.is_tradable
+
+  index = index + size_of.settle_price_denominator
+
+  index = index + size_of.mic_code
+
+  index = index + size_of.unit_qty_denominator
+
+  index = index + size_of.hedge_only
+
+  index = index + size_of.exchange_silo
+
+  index = index + size_of.off_exchange_increment_qty_denominator
+
+  index = index + size_of.off_exchange_increment_qty
+
+  index = index + size_of.off_exchange_increment_price
+
+  index = index + size_of.off_exchange_increment_option_price
+
+  index = index + size_of.product_id
+
+  index = index + size_of.hub_id
+
+  index = index + size_of.strip_id
+
+  index = index + size_of.underlying_isin
+
+  index = index + size_of.test_market_indicator
+
+  index = index + size_of.leg_deal_suppressed
 
   return index
 end
@@ -6433,6 +7181,27 @@ dissect.ipl_hold_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Interval Price Limit Notification Message
+size_of.interval_price_limit_notification_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.ipl_hold_type
+
+  index = index + size_of.notification_date_time
+
+  index = index + size_of.is_up
+
+  index = index + size_of.ipl_hold_duration
+
+  index = index + size_of.ipl_up
+
+  index = index + size_of.ipl_down
+
+  return index
+end
+
 -- Display: Interval Price Limit Notification Message
 display.interval_price_limit_notification_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -6470,7 +7239,8 @@ end
 dissect.interval_price_limit_notification_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.interval_price_limit_notification_message then
-    local range = buffer(offset, 34)
+    local length = size_of.interval_price_limit_notification_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.interval_price_limit_notification_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.interval_price_limit_notification_message, range, display)
   end
@@ -6658,6 +7428,33 @@ dissect.old_strip_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Strip Info Message
+size_of.strip_info_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.old_strip_id
+
+  index = index + size_of.strip_type
+
+  index = index + size_of.begin_year
+
+  index = index + size_of.begin_month
+
+  index = index + size_of.begin_day
+
+  index = index + size_of.end_year
+
+  index = index + size_of.end_month
+
+  index = index + size_of.end_day
+
+  index = index + size_of.strip_info
+
+  index = index + size_of.strip_id
+
+  return index
+end
+
 -- Display: Strip Info Message
 display.strip_info_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -6704,7 +7501,8 @@ end
 dissect.strip_info_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.strip_info_message then
-    local range = buffer(offset, 88)
+    local length = size_of.strip_info_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.strip_info_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.strip_info_message, range, display)
   end
@@ -6772,6 +7570,23 @@ dissect.pre_open_price = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Pre Open Price Indicator Message
+size_of.pre_open_price_indicator_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.pre_open_price
+
+  index = index + size_of.date_time
+
+  index = index + size_of.has_pre_open_volume
+
+  index = index + size_of.pre_open_volume
+
+  return index
+end
+
 -- Display: Pre Open Price Indicator Message
 display.pre_open_price_indicator_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -6803,7 +7618,8 @@ end
 dissect.pre_open_price_indicator_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.pre_open_price_indicator_message then
-    local range = buffer(offset, 25)
+    local length = size_of.pre_open_price_indicator_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.pre_open_price_indicator_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.pre_open_price_indicator_message, range, display)
   end
@@ -6831,6 +7647,19 @@ dissect.event_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Market Event Message
+size_of.market_event_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.event_type
+
+  index = index + size_of.date_time
+
+  return index
+end
+
 -- Display: Market Event Message
 display.market_event_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -6856,7 +7685,8 @@ end
 dissect.market_event_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.market_event_message then
-    local range = buffer(offset, 13)
+    local length = size_of.market_event_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.market_event_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.market_event_message, range, display)
   end
@@ -6902,6 +7732,39 @@ dissect.volume = function(buffer, offset, packet, parent)
   parent:add(ice_futures_mdf_impact_v1_1_34.fields.volume, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: End Of Day Market Summary Message
+size_of.end_of_day_market_summary_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.volume
+
+  index = index + size_of.block_volume
+
+  index = index + size_of.efs_volume
+
+  index = index + size_of.efp_volume
+
+  index = index + size_of.opening_price
+
+  index = index + size_of.high
+
+  index = index + size_of.low
+
+  index = index + size_of.vwap
+
+  index = index + size_of.settlement_price_with_deal_price_precision
+
+  index = index + size_of.open_interest
+
+  index = index + size_of.date_time
+
+  index = index + size_of.settlement_price
+
+  return index
 end
 
 -- Display: End Of Day Market Summary Message
@@ -6959,7 +7822,8 @@ end
 dissect.end_of_day_market_summary_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.end_of_day_market_summary_message then
-    local range = buffer(offset, 80)
+    local length = size_of.end_of_day_market_summary_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.end_of_day_market_summary_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.end_of_day_market_summary_message, range, display)
   end
@@ -7027,6 +7891,27 @@ dissect.short_name = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Index Prices Message
+size_of.index_prices_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.price
+
+  index = index + size_of.short_name
+
+  index = index + size_of.published_date_time
+
+  index = index + size_of.valuation_date
+
+  index = index + size_of.status
+
+  index = index + size_of.quantity
+
+  return index
+end
+
 -- Display: Index Prices Message
 display.index_prices_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -7064,12 +7949,32 @@ end
 dissect.index_prices_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.index_prices_message then
-    local range = buffer(offset, 65)
+    local length = size_of.index_prices_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.index_prices_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.index_prices_message, range, display)
   end
 
   return dissect.index_prices_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Settlement Price Message
+size_of.settlement_price_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.settlement_price_with_deal_price_precision
+
+  index = index + size_of.date_time
+
+  index = index + size_of.is_official
+
+  index = index + size_of.valuation_date_time
+
+  index = index + size_of.settlement_price
+
+  return index
 end
 
 -- Display: Settlement Price Message
@@ -7106,7 +8011,8 @@ end
 dissect.settlement_price_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.settlement_price_message then
-    local range = buffer(offset, 37)
+    local length = size_of.settlement_price_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.settlement_price_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.settlement_price_message, range, display)
   end
@@ -7134,6 +8040,19 @@ dissect.close_price = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Close Price Message
+size_of.close_price_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.close_price
+
+  index = index + size_of.date_time
+
+  return index
+end
+
 -- Display: Close Price Message
 display.close_price_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -7159,7 +8078,8 @@ end
 dissect.close_price_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.close_price_message then
-    local range = buffer(offset, 20)
+    local length = size_of.close_price_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.close_price_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.close_price_message, range, display)
   end
@@ -7187,6 +8107,19 @@ dissect.open_price = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Open Price Message
+size_of.open_price_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.open_price
+
+  index = index + size_of.date_time
+
+  return index
+end
+
 -- Display: Open Price Message
 display.open_price_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -7212,7 +8145,8 @@ end
 dissect.open_price_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.open_price_message then
-    local range = buffer(offset, 20)
+    local length = size_of.open_price_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.open_price_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.open_price_message, range, display)
   end
@@ -7238,6 +8172,23 @@ dissect.open_interest_change = function(buffer, offset, packet, parent)
   parent:add(ice_futures_mdf_impact_v1_1_34.fields.open_interest_change, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Open Interest Message
+size_of.open_interest_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.open_interest
+
+  index = index + size_of.open_interest_change
+
+  index = index + size_of.date_time
+
+  index = index + size_of.open_interest_date
+
+  return index
 end
 
 -- Display: Open Interest Message
@@ -7271,7 +8222,8 @@ end
 dissect.open_interest_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.open_interest_message then
-    local range = buffer(offset, 30)
+    local length = size_of.open_interest_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.open_interest_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.open_interest_message, range, display)
   end
@@ -7319,6 +8271,19 @@ dissect.text_message = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: System Text Message
+size_of.system_text_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.text_message
+
+  index = index + size_of.date_time
+
+  index = index + size_of.text_message_extra_fld
+
+  return index
+end
+
 -- Display: System Text Message
 display.system_text_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -7344,12 +8309,26 @@ end
 dissect.system_text_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.system_text_message then
-    local range = buffer(offset, 1008)
+    local length = size_of.system_text_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.system_text_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.system_text_message, range, display)
   end
 
   return dissect.system_text_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Market State Change Message
+size_of.market_state_change_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.trading_status
+
+  index = index + size_of.date_time
+
+  return index
 end
 
 -- Display: Market State Change Message
@@ -7377,12 +8356,38 @@ end
 dissect.market_state_change_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.market_state_change_message then
-    local range = buffer(offset, 13)
+    local length = size_of.market_state_change_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.market_state_change_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.market_state_change_message, range, display)
   end
 
   return dissect.market_state_change_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Market Statistics Message
+size_of.market_statistics_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.volume
+
+  index = index + size_of.block_volume
+
+  index = index + size_of.efs_volume
+
+  index = index + size_of.efp_volume
+
+  index = index + size_of.high
+
+  index = index + size_of.low
+
+  index = index + size_of.vwap
+
+  index = index + size_of.date_time
+
+  return index
 end
 
 -- Display: Market Statistics Message
@@ -7428,7 +8433,8 @@ end
 dissect.market_statistics_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.market_statistics_message then
-    local range = buffer(offset, 52)
+    local length = size_of.market_statistics_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.market_statistics_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.market_statistics_message, range, display)
   end
@@ -7487,6 +8493,27 @@ dissect.off_market_trade_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Cancelled Trade Message
+size_of.cancelled_trade_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.trade_id
+
+  index = index + size_of.price
+
+  index = index + size_of.quantity
+
+  index = index + size_of.off_market_trade_indicator
+
+  index = index + size_of.date_time
+
+  index = index + size_of.off_market_trade_type
+
+  return index
+end
+
 -- Display: Cancelled Trade Message
 display.cancelled_trade_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -7524,7 +8551,8 @@ end
 dissect.cancelled_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cancelled_trade_message then
-    local range = buffer(offset, 36)
+    local length = size_of.cancelled_trade_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.cancelled_trade_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.cancelled_trade_message, range, display)
   end
@@ -7579,6 +8607,29 @@ dissect.ff_market_trade_indicator = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Investigated Trade Message
+size_of.investigated_trade_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.trade_id
+
+  index = index + size_of.price
+
+  index = index + size_of.quantity
+
+  index = index + size_of.ff_market_trade_indicator
+
+  index = index + size_of.date_time
+
+  index = index + size_of.investigation_status
+
+  index = index + size_of.off_market_trade_type
+
+  return index
+end
+
 -- Display: Investigated Trade Message
 display.investigated_trade_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -7619,7 +8670,8 @@ end
 dissect.investigated_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.investigated_trade_message then
-    local range = buffer(offset, 37)
+    local length = size_of.investigated_trade_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.investigated_trade_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.investigated_trade_message, range, display)
   end
@@ -7694,6 +8746,31 @@ dissect.delivery_begin_date_time = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Spot Market Trade Message
+size_of.spot_market_trade_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.trade_id
+
+  index = index + size_of.price
+
+  index = index + size_of.quantity
+
+  index = index + size_of.transact_date_time
+
+  index = index + size_of.extra_flags
+
+  index = index + size_of.delivery_begin_date_time
+
+  index = index + size_of.delivery_end_date_time
+
+  index = index + size_of.is_system_priced_leg
+
+  return index
+end
+
 -- Display: Spot Market Trade Message
 display.spot_market_trade_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -7737,7 +8814,8 @@ end
 dissect.spot_market_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.spot_market_trade_message then
-    local range = buffer(offset, 50)
+    local length = size_of.spot_market_trade_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.spot_market_trade_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.spot_market_trade_message, range, display)
   end
@@ -7842,6 +8920,41 @@ dissect.system_priced_leg_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Trade Message
+size_of.trade_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.trade_id
+
+  index = index + size_of.is_system_priced_leg
+
+  index = index + size_of.price
+
+  index = index + size_of.quantity
+
+  index = index + size_of.off_market_trade_indicator
+
+  index = index + size_of.transact_date_time
+
+  index = index + size_of.system_priced_leg_type
+
+  index = index + size_of.is_implied_spread_at_market_open
+
+  index = index + size_of.is_adjusted_trade
+
+  index = index + size_of.aggressor_side
+
+  index = index + size_of.extra_flags
+
+  index = index + size_of.off_market_trade_type
+
+  index = index + size_of.sequence_within_millis
+
+  return index
+end
+
 -- Display: Trade Message
 display.trade_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -7900,7 +9013,8 @@ end
 dissect.trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_message then
-    local range = buffer(offset, 46)
+    local length = size_of.trade_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.trade_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.trade_message, range, display)
   end
@@ -8142,6 +9256,63 @@ dissect.market_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Market Snapshot Message
+size_of.market_snapshot_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_id
+
+  index = index + size_of.market_type
+
+  index = index + size_of.trading_status
+
+  index = index + size_of.volume
+
+  index = index + size_of.block_volume
+
+  index = index + size_of.efs_volume
+
+  index = index + size_of.efp_volume
+
+  index = index + size_of.open_interest
+
+  index = index + size_of.opening_price
+
+  index = index + size_of.settlement_price_with_deal_price_precision
+
+  index = index + size_of.high
+
+  index = index + size_of.low
+
+  index = index + size_of.vwap
+
+  index = index + size_of.num_of_book_entries
+
+  index = index + size_of.last_trade_price
+
+  index = index + size_of.last_trade_quantity
+
+  index = index + size_of.last_trade_date_time
+
+  index = index + size_of.settle_price_date_time
+
+  index = index + size_of.last_message_sequence_id
+
+  index = index + size_of.reserved_2_bytes
+
+  index = index + size_of.open_interest_date
+
+  index = index + size_of.is_settle_price_official
+
+  index = index + size_of.settlement_price
+
+  index = index + size_of.has_previous_day_settlement_price
+
+  index = index + size_of.previous_day_settlement_price
+
+  return index
+end
+
 -- Display: Market Snapshot Message
 display.market_snapshot_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -8233,7 +9404,8 @@ end
 dissect.market_snapshot_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.market_snapshot_message then
-    local range = buffer(offset, 133)
+    local length = size_of.market_snapshot_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.market_snapshot_message(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.market_snapshot_message, range, display)
   end
@@ -8245,75 +9417,75 @@ end
 size_of.payload = function(buffer, offset, message_type)
   -- Size of Market Snapshot Message
   if message_type == "C" then
-    return 133
+    return size_of.market_snapshot_message(buffer, offset)
   end
   -- Size of Trade Message
   if message_type == "G" then
-    return 46
+    return size_of.trade_message(buffer, offset)
   end
   -- Size of Spot Market Trade Message
   if message_type == "Y" then
-    return 50
+    return size_of.spot_market_trade_message(buffer, offset)
   end
   -- Size of Investigated Trade Message
   if message_type == "H" then
-    return 37
+    return size_of.investigated_trade_message(buffer, offset)
   end
   -- Size of Cancelled Trade Message
   if message_type == "I" then
-    return 36
+    return size_of.cancelled_trade_message(buffer, offset)
   end
   -- Size of Market Statistics Message
   if message_type == "J" then
-    return 52
+    return size_of.market_statistics_message(buffer, offset)
   end
   -- Size of Market State Change Message
   if message_type == "K" then
-    return 13
+    return size_of.market_state_change_message(buffer, offset)
   end
   -- Size of System Text Message
   if message_type == "L" then
-    return 1008
+    return size_of.system_text_message(buffer, offset)
   end
   -- Size of Open Interest Message
   if message_type == "M" then
-    return 30
+    return size_of.open_interest_message(buffer, offset)
   end
   -- Size of Open Price Message
   if message_type == "N" then
-    return 20
+    return size_of.open_price_message(buffer, offset)
   end
   -- Size of Close Price Message
   if message_type == "c" then
-    return 20
+    return size_of.close_price_message(buffer, offset)
   end
   -- Size of Settlement Price Message
   if message_type == "O" then
-    return 37
+    return size_of.settlement_price_message(buffer, offset)
   end
   -- Size of Index Prices Message
   if message_type == "z" then
-    return 65
+    return size_of.index_prices_message(buffer, offset)
   end
   -- Size of End Of Day Market Summary Message
   if message_type == "u" then
-    return 80
+    return size_of.end_of_day_market_summary_message(buffer, offset)
   end
   -- Size of Market Event Message
   if message_type == "f" then
-    return 13
+    return size_of.market_event_message(buffer, offset)
   end
   -- Size of Pre Open Price Indicator Message
   if message_type == "g" then
-    return 25
+    return size_of.pre_open_price_indicator_message(buffer, offset)
   end
   -- Size of Strip Info Message
   if message_type == "i" then
-    return 88
+    return size_of.strip_info_message(buffer, offset)
   end
   -- Size of Interval Price Limit Notification Message
   if message_type == "V" then
-    return 34
+    return size_of.interval_price_limit_notification_message(buffer, offset)
   end
   -- Size of New Futures Strategy Definition Message
   if message_type == "9" then
@@ -8321,7 +9493,7 @@ size_of.payload = function(buffer, offset, message_type)
   end
   -- Size of New Expiry Message
   if message_type == "R" then
-    return 509
+    return size_of.new_expiry_message(buffer, offset)
   end
   -- Size of Special Field Message
   if message_type == "b" then
@@ -8329,51 +9501,51 @@ size_of.payload = function(buffer, offset, message_type)
   end
   -- Size of Market Snapshot Order Message
   if message_type == "D" then
-    return 41
+    return size_of.market_snapshot_order_message(buffer, offset)
   end
   -- Size of Add Or Modify Order Message
   if message_type == "E" then
-    return 50
+    return size_of.add_or_modify_order_message(buffer, offset)
   end
   -- Size of Delete Order Message
   if message_type == "F" then
-    return 24
+    return size_of.delete_order_message(buffer, offset)
   end
   -- Size of Message Bundle Marker
   if message_type == "T" then
-    return 10
+    return size_of.message_bundle_marker(buffer, offset)
   end
   -- Size of Fixing Transition Message
   if message_type == "3" then
-    return 25
+    return size_of.fixing_transition_message(buffer, offset)
   end
   -- Size of Fixing Lockdown Message
   if message_type == "4" then
-    return 78
+    return size_of.fixing_lockdown_message(buffer, offset)
   end
   -- Size of Fixing Indicative Price Message Message
   if message_type == "0" then
-    return 25
+    return size_of.fixing_indicative_price_message_message(buffer, offset)
   end
   -- Size of Transaction End Marker For Empty Last Bundle Message
   if message_type == "e" then
-    return 8
+    return size_of.transaction_end_marker_for_empty_last_bundle_message(buffer, offset)
   end
   -- Size of Market Snapshot Price Level Message
   if message_type == "m" then
-    return 26
+    return size_of.market_snapshot_price_level_message(buffer, offset)
   end
   -- Size of Add Price Level Message
   if message_type == "t" then
-    return 34
+    return size_of.add_price_level_message(buffer, offset)
   end
   -- Size of Change Price Level Message
   if message_type == "s" then
-    return 34
+    return size_of.change_price_level_message(buffer, offset)
   end
   -- Size of Delete Price Level Message
   if message_type == "r" then
-    return 14
+    return size_of.delete_price_level_message(buffer, offset)
   end
   -- Size of New Options Strategy Definition Message
   if message_type == "U" then
@@ -8381,23 +9553,23 @@ size_of.payload = function(buffer, offset, message_type)
   end
   -- Size of New Options Market Definition Message
   if message_type == "l" then
-    return 329
+    return size_of.new_options_market_definition_message(buffer, offset)
   end
   -- Size of Rfq Message
   if message_type == "k" then
-    return 31
+    return size_of.rfq_message(buffer, offset)
   end
   -- Size of Option Open Interest Message
   if message_type == "v" then
-    return 26
+    return size_of.option_open_interest_message(buffer, offset)
   end
   -- Size of Option Settlement Price Message
   if message_type == "w" then
-    return 53
+    return size_of.option_settlement_price_message(buffer, offset)
   end
   -- Size of Old Style Options Trade And Market Stats Message
   if message_type == "W" then
-    return 83
+    return size_of.old_style_options_trade_and_market_stats_message(buffer, offset)
   end
 
   return 0
@@ -8748,6 +9920,17 @@ dissect.message_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Message Header
+size_of.message_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.message_type
+
+  index = index + size_of.length
+
+  return index
+end
+
 -- Display: Message Header
 display.message_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -8770,7 +9953,8 @@ end
 dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local range = buffer(offset, 3)
+    local length = size_of.message_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.message_header, range, display)
   end
@@ -8778,11 +9962,11 @@ dissect.message_header = function(buffer, offset, packet, parent)
   return dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Message
+-- Calculate size of: Message
 size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.message_header(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -8886,6 +10070,21 @@ dissect.session = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Packet Header
+size_of.packet_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.session
+
+  index = index + size_of.sequence
+
+  index = index + size_of.count
+
+  index = index + size_of.timestamp
+
+  return index
+end
+
 -- Display: Packet Header
 display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -8914,7 +10113,8 @@ end
 dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local range = buffer(offset, 16)
+    local length = size_of.packet_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.packet_header(buffer, packet, parent)
     parent = parent:add(ice_futures_mdf_impact_v1_1_34.fields.packet_header, range, display)
   end

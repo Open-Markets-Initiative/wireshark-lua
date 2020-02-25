@@ -938,6 +938,25 @@ dissect.leg_exec_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Legs Group
+size_of.legs_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.leg_exec_id
+
+  index = index + size_of.leg_last_px
+
+  index = index + size_of.leg_security_id
+
+  index = index + size_of.leg_trade_id
+
+  index = index + size_of.leg_last_qty
+
+  index = index + size_of.leg_side
+
+  return index
+end
+
 -- Display: Legs Group
 display.legs_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -972,7 +991,8 @@ end
 dissect.legs_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.legs_group then
-    local range = buffer(offset, 29)
+    local length = size_of.legs_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.legs_group(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.legs_group, range, display)
   end
@@ -1020,6 +1040,17 @@ dissect.block_length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Group Size
+size_of.group_size = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.block_length
+
+  index = index + size_of.num_in_group
+
+  return index
+end
+
 -- Display: Group Size
 display.group_size = function(buffer, offset, size, packet, parent)
   return ""
@@ -1042,7 +1073,8 @@ end
 dissect.group_size = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.group_size then
-    local range = buffer(offset, 3)
+    local length = size_of.group_size(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.group_size(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.group_size, range, display)
   end
@@ -1050,11 +1082,11 @@ dissect.group_size = function(buffer, offset, packet, parent)
   return dissect.group_size_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Legs Groups
+-- Calculate size of: Legs Groups
 size_of.legs_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local legs_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -1477,6 +1509,21 @@ dissect.year = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Maturity Month Year
+size_of.maturity_month_year = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.year
+
+  index = index + size_of.month
+
+  index = index + size_of.day
+
+  index = index + size_of.week
+
+  return index
+end
+
 -- Display: Maturity Month Year
 display.maturity_month_year = function(buffer, offset, size, packet, parent)
   return ""
@@ -1505,7 +1552,8 @@ end
 dissect.maturity_month_year = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.maturity_month_year then
-    local range = buffer(offset, 5)
+    local length = size_of.maturity_month_year(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.maturity_month_year(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.maturity_month_year, range, display)
   end
@@ -1823,11 +1871,65 @@ dissect.seq_num = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Security Definition Response 561
+-- Calculate size of: Security Definition Response 561
 size_of.security_definition_response_561 = function(buffer, offset)
   local index = 0
 
-  index = index + 429
+  index = index + size_of.seq_num
+
+  index = index + size_of.uuid
+
+  index = index + size_of.text
+
+  index = index + size_of.financial_instrument_full_name
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.symbol
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.security_req_id
+
+  index = index + size_of.security_response_id
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.security_group
+
+  index = index + size_of.security_type
+
+  index = index + size_of.location
+
+  index = index + size_of.security_id
+
+  index = index + size_of.currency
+
+  index = index + size_of.maturity_month_year(buffer, offset + index)
+
+  index = index + size_of.delay_duration
+
+  index = index + size_of.start_date
+
+  index = index + size_of.end_date
+
+  index = index + size_of.max_no_of_substitutions
+
+  index = index + size_of.source_repo_id
+
+  index = index + size_of.termination_type
+
+  index = index + size_of.security_response_type
+
+  index = index + size_of.expiration_cycle
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.split_msg
+
+  index = index + size_of.auto_quote_request
+
+  index = index + size_of.poss_retrans_flag
 
   index = index + size_of.legs_groups(buffer, offset + index)
 
@@ -1966,11 +2068,33 @@ dissect.security_sub_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Security Definition Request 560
+-- Calculate size of: Security Definition Request 560
 size_of.security_definition_request_560 = function(buffer, offset)
   local index = 0
 
-  index = index + 71
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.security_req_id
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.seq_num
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.security_sub_type
+
+  index = index + size_of.location
+
+  index = index + size_of.start_date
+
+  index = index + size_of.end_date
+
+  index = index + size_of.max_no_of_substitutions
+
+  index = index + size_of.source_repo_id
 
   index = index + size_of.legs_groups(buffer, offset + index)
 
@@ -2101,6 +2225,19 @@ dissect.orig_ci_ord_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Affected Orders Group
+size_of.affected_orders_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.orig_ci_ord_id
+
+  index = index + size_of.affected_order_id
+
+  index = index + size_of.cxl_quantity
+
+  return index
+end
+
 -- Display: Affected Orders Group
 display.affected_orders_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -2126,7 +2263,8 @@ end
 dissect.affected_orders_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.affected_orders_group then
-    local range = buffer(offset, 32)
+    local length = size_of.affected_orders_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.affected_orders_group(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.affected_orders_group, range, display)
   end
@@ -2134,11 +2272,11 @@ dissect.affected_orders_group = function(buffer, offset, packet, parent)
   return dissect.affected_orders_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Affected Orders Groups
+-- Calculate size of: Affected Orders Groups
 size_of.affected_orders_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local affected_orders_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -2512,11 +2650,61 @@ dissect.transact_time = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Order Mass Action Report 558
+-- Calculate size of: Order Mass Action Report 558
 size_of.order_mass_action_report_558 = function(buffer, offset)
   local index = 0
 
-  index = index + 103
+  index = index + size_of.seq_num
+
+  index = index + size_of.uuid
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.transact_time
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.order_request_id
+
+  index = index + size_of.mass_action_report_id
+
+  index = index + size_of.security_group
+
+  index = index + size_of.location
+
+  index = index + size_of.security_id
+
+  index = index + size_of.delay_duration
+
+  index = index + size_of.mass_action_response
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.mass_action_scope
+
+  index = index + size_of.total_affected_orders
+
+  index = index + size_of.last_fragment
+
+  index = index + size_of.mass_action_reject_reason
+
+  index = index + size_of.market_segment_id
+
+  index = index + size_of.mass_cancel_request_type
+
+  index = index + size_of.side
+
+  index = index + size_of.ord_type
+
+  index = index + size_of.time_in_force
+
+  index = index + size_of.split_msg
+
+  index = index + size_of.liquidity_flag
+
+  index = index + size_of.poss_retrans_flag
 
   index = index + size_of.affected_orders_groups(buffer, offset + index)
 
@@ -2760,6 +2948,25 @@ dissect.order_event_px = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Order Events Group
+size_of.order_events_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.order_event_px
+
+  index = index + size_of.order_event_text
+
+  index = index + size_of.order_event_exec_id
+
+  index = index + size_of.order_event_qty
+
+  index = index + size_of.order_event_type
+
+  index = index + size_of.order_event_reason
+
+  return index
+end
+
 -- Display: Order Events Group
 display.order_events_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -2794,7 +3001,8 @@ end
 dissect.order_events_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_events_group then
-    local range = buffer(offset, 23)
+    local length = size_of.order_events_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_events_group(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_events_group, range, display)
   end
@@ -2802,11 +3010,11 @@ dissect.order_events_group = function(buffer, offset, packet, parent)
   return dissect.order_events_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Order Events Groups
+-- Calculate size of: Order Events Groups
 size_of.order_events_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local order_events_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -2932,6 +3140,21 @@ dissect.fill_px = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Fills Group
+size_of.fills_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.fill_px
+
+  index = index + size_of.fill_qty
+
+  index = index + size_of.fill_exec_id
+
+  index = index + size_of.fill_yield_type
+
+  return index
+end
+
 -- Display: Fills Group
 display.fills_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -2960,7 +3183,8 @@ end
 dissect.fills_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.fills_group then
-    local range = buffer(offset, 15)
+    local length = size_of.fills_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.fills_group(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.fills_group, range, display)
   end
@@ -2968,11 +3192,11 @@ dissect.fills_group = function(buffer, offset, packet, parent)
   return dissect.fills_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Fills Groups
+-- Calculate size of: Fills Groups
 size_of.fills_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local fills_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -3273,11 +3497,53 @@ dissect.exec_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Execution Report Trade Addendum Spread Leg 550
+-- Calculate size of: Execution Report Trade Addendum Spread Leg 550
 size_of.execution_report_trade_addendum_spread_leg_550 = function(buffer, offset)
   local index = 0
 
-  index = index + 175
+  index = index + size_of.seq_num
+
+  index = index + size_of.uuid
+
+  index = index + size_of.exec_id
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.cl_ord_id
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.last_px
+
+  index = index + size_of.order_id
+
+  index = index + size_of.transact_time
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.sec_exec_id
+
+  index = index + size_of.orig_secondary_execution_id
+
+  index = index + size_of.location
+
+  index = index + size_of.security_id
+
+  index = index + size_of.last_qty
+
+  index = index + size_of.side_trade_id
+
+  index = index + size_of.orig_side_trade_id
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.ord_status
+
+  index = index + size_of.exec_type
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.poss_retrans_flag
 
   index = index + size_of.fills_groups(buffer, offset + index)
 
@@ -3459,6 +3725,9 @@ dissect.execution_mode = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Exec Inst
+size_of.exec_inst = 1
+
 -- Display: Exec Inst
 display.exec_inst = function(buffer, packet, parent)
   local display = ""
@@ -3581,11 +3850,71 @@ dissect.md_trade_entry_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Execution Report Trade Addendum Spread 549
+-- Calculate size of: Execution Report Trade Addendum Spread 549
 size_of.execution_report_trade_addendum_spread_549 = function(buffer, offset)
   local index = 0
 
-  index = index + 187
+  index = index + size_of.seq_num
+
+  index = index + size_of.uuid
+
+  index = index + size_of.exec_id
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.cl_ord_id
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.last_px
+
+  index = index + size_of.order_id
+
+  index = index + size_of.transact_time
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.sec_exec_id
+
+  index = index + size_of.orig_secondary_execution_id
+
+  index = index + size_of.location
+
+  index = index + size_of.security_id
+
+  index = index + size_of.md_trade_entry_id
+
+  index = index + size_of.last_qty
+
+  index = index + size_of.side_trade_id
+
+  index = index + size_of.orig_side_trade_id
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.ord_status
+
+  index = index + size_of.exec_type
+
+  index = index + size_of.ord_type
+
+  index = index + size_of.side
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.poss_retrans_flag
+
+  index = index + size_of.total_num_securities
+
+  index = index + size_of.exec_inst
+
+  index = index + size_of.execution_mode
+
+  index = index + size_of.liquidity_flag
+
+  index = index + size_of.managed_order
+
+  index = index + size_of.short_sale_type
 
   index = index + size_of.fills_groups(buffer, offset + index)
 
@@ -3723,11 +4052,65 @@ dissect.execution_report_trade_addendum_spread_549 = function(buffer, offset, pa
   return dissect.execution_report_trade_addendum_spread_549_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Execution Report Trade Addendum Outright 548
+-- Calculate size of: Execution Report Trade Addendum Outright 548
 size_of.execution_report_trade_addendum_outright_548 = function(buffer, offset)
   local index = 0
 
-  index = index + 181
+  index = index + size_of.seq_num
+
+  index = index + size_of.uuid
+
+  index = index + size_of.exec_id
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.cl_ord_id
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.last_px
+
+  index = index + size_of.order_id
+
+  index = index + size_of.transact_time
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.sec_exec_id
+
+  index = index + size_of.orig_secondary_execution_id
+
+  index = index + size_of.location
+
+  index = index + size_of.security_id
+
+  index = index + size_of.last_qty
+
+  index = index + size_of.side_trade_id
+
+  index = index + size_of.orig_side_trade_id
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.ord_status
+
+  index = index + size_of.exec_type
+
+  index = index + size_of.side
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.poss_retrans_flag
+
+  index = index + size_of.exec_inst
+
+  index = index + size_of.execution_mode
+
+  index = index + size_of.liquidity_flag
+
+  index = index + size_of.managed_order
+
+  index = index + size_of.short_sale_type
 
   index = index + size_of.fills_groups(buffer, offset + index)
 
@@ -3921,6 +4304,19 @@ dissect.bid_size = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Quote Sets Group
+size_of.quote_sets_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.bid_size
+
+  index = index + size_of.offer_size
+
+  index = index + size_of.quote_set_id
+
+  return index
+end
+
 -- Display: Quote Sets Group
 display.quote_sets_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -3946,7 +4342,8 @@ end
 dissect.quote_sets_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.quote_sets_group then
-    local range = buffer(offset, 10)
+    local length = size_of.quote_sets_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.quote_sets_group(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.quote_sets_group, range, display)
   end
@@ -3954,11 +4351,11 @@ dissect.quote_sets_group = function(buffer, offset, packet, parent)
   return dissect.quote_sets_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Quote Sets Groups
+-- Calculate size of: Quote Sets Groups
 size_of.quote_sets_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local quote_sets_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -4090,6 +4487,29 @@ dissect.bid_px = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Quote Entries Group
+size_of.quote_entries_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.bid_px
+
+  index = index + size_of.offer_px
+
+  index = index + size_of.quote_entry_id
+
+  index = index + size_of.security_id
+
+  index = index + size_of.bid_size
+
+  index = index + size_of.offer_size
+
+  index = index + size_of.underlying_security_id
+
+  index = index + size_of.quote_set_id
+
+  return index
+end
+
 -- Display: Quote Entries Group
 display.quote_entries_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -4130,7 +4550,8 @@ end
 dissect.quote_entries_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.quote_entries_group then
-    local range = buffer(offset, 38)
+    local length = size_of.quote_entries_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.quote_entries_group(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.quote_entries_group, range, display)
   end
@@ -4138,11 +4559,11 @@ dissect.quote_entries_group = function(buffer, offset, packet, parent)
   return dissect.quote_entries_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Quote Entries Groups
+-- Calculate size of: Quote Entries Groups
 size_of.quote_entries_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local quote_entries_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -4382,11 +4803,51 @@ dissect.request_time = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Quote Cancel Ack 547
+-- Calculate size of: Quote Cancel Ack 547
 size_of.quote_cancel_ack_547 = function(buffer, offset)
   local index = 0
 
-  index = index + 340
+  index = index + size_of.seq_num
+
+  index = index + size_of.uuid
+
+  index = index + size_of.text
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.request_time
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.cancelled_symbol
+
+  index = index + size_of.location
+
+  index = index + size_of.quote_id
+
+  index = index + size_of.quote_reject_reason
+
+  index = index + size_of.delay_duration
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.quote_status
+
+  index = index + size_of.no_processed_entries
+
+  index = index + size_of.mm_protection_reset
+
+  index = index + size_of.unsolicited_cancel_type
+
+  index = index + size_of.split_msg
+
+  index = index + size_of.tot_no_quote_entries
+
+  index = index + size_of.liquidity_flag
+
+  index = index + size_of.poss_retrans_flag
 
   index = index + size_of.quote_entries_groups(buffer, offset + index)
 
@@ -4534,6 +4995,45 @@ dissect.exchange_quote_req_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Request For Quote Ack 546
+size_of.request_for_quote_ack_546 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.seq_num
+
+  index = index + size_of.uuid
+
+  index = index + size_of.text
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.exchange_quote_req_id
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.request_time
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.quote_req_id
+
+  index = index + size_of.location
+
+  index = index + size_of.quote_reject_reason
+
+  index = index + size_of.delay_duration
+
+  index = index + size_of.quote_status
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.split_msg
+
+  index = index + size_of.poss_retrans_flag
+
+  return index
+end
+
 -- Display: Request For Quote Ack 546
 display.request_for_quote_ack_546 = function(buffer, offset, size, packet, parent)
   return ""
@@ -4598,7 +5098,8 @@ end
 dissect.request_for_quote_ack_546 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.request_for_quote_ack_546 then
-    local range = buffer(offset, 350)
+    local length = size_of.request_for_quote_ack_546(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.request_for_quote_ack_546(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.request_for_quote_ack_546, range, display)
   end
@@ -4606,11 +5107,51 @@ dissect.request_for_quote_ack_546 = function(buffer, offset, packet, parent)
   return dissect.request_for_quote_ack_546_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Mass Quote Ack 545
+-- Calculate size of: Mass Quote Ack 545
 size_of.mass_quote_ack_545 = function(buffer, offset)
   local index = 0
 
-  index = index + 342
+  index = index + size_of.seq_num
+
+  index = index + size_of.uuid
+
+  index = index + size_of.text
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.request_time
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.quote_req_id
+
+  index = index + size_of.location
+
+  index = index + size_of.quote_id
+
+  index = index + size_of.quote_reject_reason
+
+  index = index + size_of.delay_duration
+
+  index = index + size_of.quote_status
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.no_processed_entries
+
+  index = index + size_of.mm_protection_reset
+
+  index = index + size_of.split_msg
+
+  index = index + size_of.liquidity_flag
+
+  index = index + size_of.short_sale_type
+
+  index = index + size_of.tot_no_quote_entries
+
+  index = index + size_of.poss_retrans_flag
 
   index = index + size_of.quote_entries_groups(buffer, offset + index)
 
@@ -4760,6 +5301,23 @@ dissect.order_qty = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Sides Group
+size_of.sides_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.cl_ord_id
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.order_qty
+
+  index = index + size_of.side
+
+  index = index + size_of.side_time_in_force
+
+  return index
+end
+
 -- Display: Sides Group
 display.sides_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -4791,7 +5349,8 @@ end
 dissect.sides_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.sides_group then
-    local range = buffer(offset, 34)
+    local length = size_of.sides_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.sides_group(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.sides_group, range, display)
   end
@@ -4799,11 +5358,11 @@ dissect.sides_group = function(buffer, offset, packet, parent)
   return dissect.sides_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Sides Groups
+-- Calculate size of: Sides Groups
 size_of.sides_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local sides_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -4914,11 +5473,29 @@ dissect.cross_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: New Order Cross 544
+-- Calculate size of: New Order Cross 544
 size_of.new_order_cross_544 = function(buffer, offset)
   local index = 0
 
-  index = index + 74
+  index = index + size_of.cross_id
+
+  index = index + size_of.order_request_id
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.seq_num
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.price
+
+  index = index + size_of.trans_bkd_time
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.location
+
+  index = index + size_of.security_id
 
   index = index + size_of.sides_groups(buffer, offset + index)
 
@@ -4983,6 +5560,19 @@ dissect.new_order_cross_544 = function(buffer, offset, packet, parent)
   return dissect.new_order_cross_544_fields(buffer, offset, packet, parent)
 end
 
+-- Calculate size of: Related Sym Group
+size_of.related_sym_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.security_id
+
+  index = index + size_of.order_qty
+
+  index = index + size_of.side
+
+  return index
+end
+
 -- Display: Related Sym Group
 display.related_sym_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -5008,7 +5598,8 @@ end
 dissect.related_sym_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.related_sym_group then
-    local range = buffer(offset, 9)
+    local length = size_of.related_sym_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.related_sym_group(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.related_sym_group, range, display)
   end
@@ -5016,11 +5607,11 @@ dissect.related_sym_group = function(buffer, offset, packet, parent)
   return dissect.related_sym_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Related Sym Groups
+-- Calculate size of: Related Sym Groups
 size_of.related_sym_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local related_sym_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -5085,11 +5676,25 @@ dissect.quote_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Request For Quote 543
+-- Calculate size of: Request For Quote 543
 size_of.request_for_quote_543 = function(buffer, offset)
   local index = 0
 
-  index = index + 55
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.quote_req_id
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.seq_num
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.location
+
+  index = index + size_of.quote_type
 
   index = index + size_of.related_sym_groups(buffer, offset + index)
 
@@ -5223,6 +5828,35 @@ dissect.exec_ack_status = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Execution Ack 539
+size_of.execution_ack_539 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.order_id
+
+  index = index + size_of.exec_ack_status
+
+  index = index + size_of.seq_num
+
+  index = index + size_of.cl_ord_id
+
+  index = index + size_of.sec_exec_id
+
+  index = index + size_of.last_px
+
+  index = index + size_of.security_id
+
+  index = index + size_of.last_qty
+
+  index = index + size_of.dk_reason
+
+  index = index + size_of.side
+
+  return index
+end
+
 -- Display: Execution Ack 539
 display.execution_ack_539 = function(buffer, offset, size, packet, parent)
   return ""
@@ -5272,7 +5906,8 @@ end
 dissect.execution_ack_539 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.execution_ack_539 then
-    local range = buffer(offset, 67)
+    local length = size_of.execution_ack_539(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.execution_ack_539(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.execution_ack_539, range, display)
   end
@@ -5320,6 +5955,17 @@ dissect.trd_reg_publication_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Trd Reg Publications Group
+size_of.trd_reg_publications_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.trd_reg_publication_type
+
+  index = index + size_of.trd_reg_publication_reason
+
+  return index
+end
+
 -- Display: Trd Reg Publications Group
 display.trd_reg_publications_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -5342,7 +5988,8 @@ end
 dissect.trd_reg_publications_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trd_reg_publications_group then
-    local range = buffer(offset, 2)
+    local length = size_of.trd_reg_publications_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.trd_reg_publications_group(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.trd_reg_publications_group, range, display)
   end
@@ -5350,11 +5997,11 @@ dissect.trd_reg_publications_group = function(buffer, offset, packet, parent)
   return dissect.trd_reg_publications_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Trd Reg Publications Groups
+-- Calculate size of: Trd Reg Publications Groups
 size_of.trd_reg_publications_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local trd_reg_publications_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -5455,6 +6102,17 @@ dissect.party_detail_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Party Details Group
+size_of.party_details_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.party_detail_id
+
+  index = index + size_of.party_detail_role
+
+  return index
+end
+
 -- Display: Party Details Group
 display.party_details_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -5477,7 +6135,8 @@ end
 dissect.party_details_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.party_details_group then
-    local range = buffer(offset, 22)
+    local length = size_of.party_details_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.party_details_group(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.party_details_group, range, display)
   end
@@ -5485,11 +6144,11 @@ dissect.party_details_group = function(buffer, offset, packet, parent)
   return dissect.party_details_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Party Details Groups
+-- Calculate size of: Party Details Groups
 size_of.party_details_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local party_details_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -5855,11 +6514,51 @@ dissect.avg_px_group_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Party Details List Report 538
+-- Calculate size of: Party Details List Report 538
 size_of.party_details_list_report_538 = function(buffer, offset)
   local index = 0
 
-  index = index + 93
+  index = index + size_of.seq_num
+
+  index = index + size_of.uuid
+
+  index = index + size_of.avg_px_group_id
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.party_details_list_report_id
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.self_match_prevention_id
+
+  index = index + size_of.tot_num_parties
+
+  index = index + size_of.request_result
+
+  index = index + size_of.last_fragment
+
+  index = index + size_of.cust_order_capacity
+
+  index = index + size_of.clearing_account_type
+
+  index = index + size_of.self_match_prevention_instruction
+
+  index = index + size_of.avg_px_indicator
+
+  index = index + size_of.clearing_trade_price_type
+
+  index = index + size_of.cmta_giveup_cd
+
+  index = index + size_of.cust_order_handling_inst
+
+  index = index + size_of.executor
+
+  index = index + size_of.idm_short_code
+
+  index = index + size_of.poss_retrans_flag
+
+  index = index + size_of.split_msg
 
   index = index + size_of.party_details_groups(buffer, offset + index)
 
@@ -6022,6 +6721,19 @@ dissect.party_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Party I Ds Group
+size_of.party_i_ds_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.party_id
+
+  index = index + size_of.party_id_source
+
+  index = index + size_of.party_role
+
+  return index
+end
+
 -- Display: Party I Ds Group
 display.party_i_ds_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -6047,7 +6759,8 @@ end
 dissect.party_i_ds_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.party_i_ds_group then
-    local range = buffer(offset, 11)
+    local length = size_of.party_i_ds_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.party_i_ds_group(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.party_i_ds_group, range, display)
   end
@@ -6055,11 +6768,11 @@ dissect.party_i_ds_group = function(buffer, offset, packet, parent)
   return dissect.party_i_ds_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Party I Ds Groups
+-- Calculate size of: Party I Ds Groups
 size_of.party_i_ds_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local party_i_ds_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -6164,6 +6877,19 @@ dissect.requesting_party_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Requesting Party I Ds Group
+size_of.requesting_party_i_ds_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.requesting_party_id
+
+  index = index + size_of.requesting_party_id_source
+
+  index = index + size_of.requesting_party_role
+
+  return index
+end
+
 -- Display: Requesting Party I Ds Group
 display.requesting_party_i_ds_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -6189,7 +6915,8 @@ end
 dissect.requesting_party_i_ds_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.requesting_party_i_ds_group then
-    local range = buffer(offset, 7)
+    local length = size_of.requesting_party_i_ds_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.requesting_party_i_ds_group(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.requesting_party_i_ds_group, range, display)
   end
@@ -6197,11 +6924,11 @@ dissect.requesting_party_i_ds_group = function(buffer, offset, packet, parent)
   return dissect.requesting_party_i_ds_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Requesting Party I Ds Groups
+-- Calculate size of: Requesting Party I Ds Groups
 size_of.requesting_party_i_ds_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local requesting_party_i_ds_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -6246,11 +6973,15 @@ dissect.requesting_party_i_ds_groups = function(buffer, offset, packet, parent)
   return dissect.requesting_party_i_ds_groups_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Party Details List Request 537
+-- Calculate size of: Party Details List Request 537
 size_of.party_details_list_request_537 = function(buffer, offset)
   local index = 0
 
-  index = index + 20
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.seq_num
 
   index = index + size_of.requesting_party_i_ds_groups(buffer, offset + index)
 
@@ -6317,6 +7048,49 @@ dissect.cxl_rej_reason = function(buffer, offset, packet, parent)
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.cxl_rej_reason, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Order Cancel Replace Reject 536
+size_of.order_cancel_replace_reject_536 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.seq_num
+
+  index = index + size_of.uuid
+
+  index = index + size_of.text
+
+  index = index + size_of.exec_id
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.cl_ord_id
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.order_id
+
+  index = index + size_of.transact_time
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.order_request_id
+
+  index = index + size_of.location
+
+  index = index + size_of.cxl_rej_reason
+
+  index = index + size_of.delay_duration
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.poss_retrans_flag
+
+  index = index + size_of.split_msg
+
+  index = index + size_of.liquidity_flag
+
+  return index
 end
 
 -- Display: Order Cancel Replace Reject 536
@@ -6389,12 +7163,56 @@ end
 dissect.order_cancel_replace_reject_536 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_cancel_replace_reject_536 then
-    local range = buffer(offset, 401)
+    local length = size_of.order_cancel_replace_reject_536(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_cancel_replace_reject_536(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_cancel_replace_reject_536, range, display)
   end
 
   return dissect.order_cancel_replace_reject_536_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Order Cancel Reject 535
+size_of.order_cancel_reject_535 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.seq_num
+
+  index = index + size_of.uuid
+
+  index = index + size_of.text
+
+  index = index + size_of.exec_id
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.cl_ord_id
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.order_id
+
+  index = index + size_of.transact_time
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.order_request_id
+
+  index = index + size_of.location
+
+  index = index + size_of.cxl_rej_reason
+
+  index = index + size_of.delay_duration
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.poss_retrans_flag
+
+  index = index + size_of.split_msg
+
+  index = index + size_of.liquidity_flag
+
+  return index
 end
 
 -- Display: Order Cancel Reject 535
@@ -6467,7 +7285,8 @@ end
 dissect.order_cancel_reject_535 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_cancel_reject_535 then
-    local range = buffer(offset, 401)
+    local length = size_of.order_cancel_reject_535(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_cancel_reject_535(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_cancel_reject_535, range, display)
   end
@@ -6661,6 +7480,83 @@ dissect.stop_px = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Execution Report Cancel 534
+size_of.execution_report_cancel_534 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.seq_num
+
+  index = index + size_of.uuid
+
+  index = index + size_of.exec_id
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.cl_ord_id
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.order_id
+
+  index = index + size_of.price
+
+  index = index + size_of.stop_px
+
+  index = index + size_of.transact_time
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.order_request_id
+
+  index = index + size_of.cross_id
+
+  index = index + size_of.host_cross_id
+
+  index = index + size_of.location
+
+  index = index + size_of.security_id
+
+  index = index + size_of.order_qty
+
+  index = index + size_of.cum_qty
+
+  index = index + size_of.min_qty
+
+  index = index + size_of.display_qty
+
+  index = index + size_of.expire_date
+
+  index = index + size_of.delay_duration
+
+  index = index + size_of.ord_type
+
+  index = index + size_of.side
+
+  index = index + size_of.time_in_force
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.poss_retrans_flag
+
+  index = index + size_of.split_msg
+
+  index = index + size_of.exec_restatement_reason
+
+  index = index + size_of.cross_type
+
+  index = index + size_of.exec_inst
+
+  index = index + size_of.execution_mode
+
+  index = index + size_of.liquidity_flag
+
+  index = index + size_of.managed_order
+
+  index = index + size_of.short_sale_type
+
+  return index
+end
+
 -- Display: Execution Report Cancel 534
 display.execution_report_cancel_534 = function(buffer, offset, size, packet, parent)
   return ""
@@ -6782,7 +7678,8 @@ end
 dissect.execution_report_cancel_534 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.execution_report_cancel_534 then
-    local range = buffer(offset, 206)
+    local length = size_of.execution_report_cancel_534(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.execution_report_cancel_534(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.execution_report_cancel_534, range, display)
   end
@@ -6813,6 +7710,29 @@ dissect.ord_status_req_id = function(buffer, offset, packet, parent)
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.ord_status_req_id, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Order Status Request 533
+size_of.order_status_request_533 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.ord_status_req_id
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.seq_num
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.order_id
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.location
+
+  return index
 end
 
 -- Display: Order Status Request 533
@@ -6855,7 +7775,8 @@ end
 dissect.order_status_request_533 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_status_request_533 then
-    local range = buffer(offset, 62)
+    local length = size_of.order_status_request_533(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_status_request_533(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_status_request_533, range, display)
   end
@@ -6926,6 +7847,89 @@ dissect.mass_status_req_id = function(buffer, offset, packet, parent)
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.mass_status_req_id, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Execution Report Status 532
+size_of.execution_report_status_532 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.seq_num
+
+  index = index + size_of.uuid
+
+  index = index + size_of.text
+
+  index = index + size_of.exec_id
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.cl_ord_id
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.order_id
+
+  index = index + size_of.price
+
+  index = index + size_of.stop_px
+
+  index = index + size_of.transact_time
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.order_request_id
+
+  index = index + size_of.ord_status_req_id
+
+  index = index + size_of.mass_status_req_id
+
+  index = index + size_of.cross_id
+
+  index = index + size_of.host_cross_id
+
+  index = index + size_of.location
+
+  index = index + size_of.security_id
+
+  index = index + size_of.order_qty
+
+  index = index + size_of.cum_qty
+
+  index = index + size_of.leaves_qty
+
+  index = index + size_of.min_qty
+
+  index = index + size_of.display_qty
+
+  index = index + size_of.expire_date
+
+  index = index + size_of.ord_status
+
+  index = index + size_of.ord_type
+
+  index = index + size_of.side
+
+  index = index + size_of.time_in_force
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.poss_retrans_flag
+
+  index = index + size_of.last_rpt_requested
+
+  index = index + size_of.cross_type
+
+  index = index + size_of.exec_inst
+
+  index = index + size_of.execution_mode
+
+  index = index + size_of.liquidity_flag
+
+  index = index + size_of.managed_order
+
+  index = index + size_of.short_sale_type
+
+  return index
 end
 
 -- Display: Execution Report Status 532
@@ -7058,12 +8062,90 @@ end
 dissect.execution_report_status_532 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.execution_report_status_532 then
-    local range = buffer(offset, 480)
+    local length = size_of.execution_report_status_532(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.execution_report_status_532(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.execution_report_status_532, range, display)
   end
 
   return dissect.execution_report_status_532_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Execution Report Modify 531
+size_of.execution_report_modify_531 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.seq_num
+
+  index = index + size_of.uuid
+
+  index = index + size_of.exec_id
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.cl_ord_id
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.order_id
+
+  index = index + size_of.price
+
+  index = index + size_of.stop_px
+
+  index = index + size_of.transact_time
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.order_request_id
+
+  index = index + size_of.cross_id
+
+  index = index + size_of.host_cross_id
+
+  index = index + size_of.location
+
+  index = index + size_of.security_id
+
+  index = index + size_of.order_qty
+
+  index = index + size_of.cum_qty
+
+  index = index + size_of.leaves_qty
+
+  index = index + size_of.min_qty
+
+  index = index + size_of.display_qty
+
+  index = index + size_of.expire_date
+
+  index = index + size_of.delay_duration
+
+  index = index + size_of.ord_type
+
+  index = index + size_of.side
+
+  index = index + size_of.time_in_force
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.poss_retrans_flag
+
+  index = index + size_of.split_msg
+
+  index = index + size_of.cross_type
+
+  index = index + size_of.exec_inst
+
+  index = index + size_of.execution_mode
+
+  index = index + size_of.liquidity_flag
+
+  index = index + size_of.managed_order
+
+  index = index + size_of.short_sale_type
+
+  return index
 end
 
 -- Display: Execution Report Modify 531
@@ -7187,7 +8269,8 @@ end
 dissect.execution_report_modify_531 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.execution_report_modify_531 then
-    local range = buffer(offset, 209)
+    local length = size_of.execution_report_modify_531(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.execution_report_modify_531(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.execution_report_modify_531, range, display)
   end
@@ -7233,6 +8316,39 @@ dissect.mass_status_req_type = function(buffer, offset, packet, parent)
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.mass_status_req_type, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Order Mass Status Request 530
+size_of.order_mass_status_request_530 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.mass_status_req_id
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.seq_num
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.security_group
+
+  index = index + size_of.location
+
+  index = index + size_of.security_id
+
+  index = index + size_of.mass_status_req_type
+
+  index = index + size_of.ord_status_req_type
+
+  index = index + size_of.time_in_force
+
+  index = index + size_of.market_segment_id
+
+  return index
 end
 
 -- Display: Order Mass Status Request 530
@@ -7290,12 +8406,52 @@ end
 dissect.order_mass_status_request_530 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_mass_status_request_530 then
-    local range = buffer(offset, 68)
+    local length = size_of.order_mass_status_request_530(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_mass_status_request_530(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_mass_status_request_530, range, display)
   end
 
   return dissect.order_mass_status_request_530_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Order Mass Action Request 529
+size_of.order_mass_action_request_529 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.order_request_id
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.seq_num
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.security_group
+
+  index = index + size_of.location
+
+  index = index + size_of.security_id
+
+  index = index + size_of.mass_action_scope
+
+  index = index + size_of.market_segment_id
+
+  index = index + size_of.mass_cancel_request_type
+
+  index = index + size_of.side
+
+  index = index + size_of.ord_type
+
+  index = index + size_of.time_in_force
+
+  index = index + size_of.liquidity_flag
+
+  return index
 end
 
 -- Display: Order Mass Action Request 529
@@ -7362,7 +8518,8 @@ end
 dissect.order_mass_action_request_529 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_mass_action_request_529 then
-    local range = buffer(offset, 71)
+    local length = size_of.order_mass_action_request_529(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_mass_action_request_529(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_mass_action_request_529, range, display)
   end
@@ -7390,11 +8547,27 @@ dissect.quote_cancel_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Quote Cancel 528
+-- Calculate size of: Quote Cancel 528
 size_of.quote_cancel_528 = function(buffer, offset)
   local index = 0
 
-  index = index + 52
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.seq_num
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.location
+
+  index = index + size_of.quote_id
+
+  index = index + size_of.quote_cancel_type
+
+  index = index + size_of.liquidity_flag
 
   index = index + size_of.quote_entries_groups(buffer, offset + index)
 
@@ -7562,11 +8735,61 @@ dissect.volatility = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Execution Report Trade Spread Leg 527
+-- Calculate size of: Execution Report Trade Spread Leg 527
 size_of.execution_report_trade_spread_leg_527 = function(buffer, offset)
   local index = 0
 
-  index = index + 195
+  index = index + size_of.seq_num
+
+  index = index + size_of.uuid
+
+  index = index + size_of.exec_id
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.cl_ord_id
+
+  index = index + size_of.volatility
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.last_px
+
+  index = index + size_of.order_id
+
+  index = index + size_of.underlying_px
+
+  index = index + size_of.transact_time
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.sec_exec_id
+
+  index = index + size_of.location
+
+  index = index + size_of.option_delta
+
+  index = index + size_of.time_to_expiration
+
+  index = index + size_of.risk_free_rate
+
+  index = index + size_of.security_id
+
+  index = index + size_of.last_qty
+
+  index = index + size_of.cum_qty
+
+  index = index + size_of.side_trade_id
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.ord_status
+
+  index = index + size_of.ord_type
+
+  index = index + size_of.side
+
+  index = index + size_of.poss_retrans_flag
 
   index = index + size_of.fills_groups(buffer, offset + index)
 
@@ -7704,11 +8927,87 @@ dissect.aggressor_indicator = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Execution Report Trade Spread 526
+-- Calculate size of: Execution Report Trade Spread 526
 size_of.execution_report_trade_spread_526 = function(buffer, offset)
   local index = 0
 
-  index = index + 230
+  index = index + size_of.seq_num
+
+  index = index + size_of.uuid
+
+  index = index + size_of.exec_id
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.cl_ord_id
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.last_px
+
+  index = index + size_of.order_id
+
+  index = index + size_of.price
+
+  index = index + size_of.stop_px
+
+  index = index + size_of.transact_time
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.order_request_id
+
+  index = index + size_of.sec_exec_id
+
+  index = index + size_of.cross_id
+
+  index = index + size_of.host_cross_id
+
+  index = index + size_of.location
+
+  index = index + size_of.security_id
+
+  index = index + size_of.order_qty
+
+  index = index + size_of.last_qty
+
+  index = index + size_of.cum_qty
+
+  index = index + size_of.md_trade_entry_id
+
+  index = index + size_of.side_trade_id
+
+  index = index + size_of.leaves_qty
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.expire_date
+
+  index = index + size_of.ord_status
+
+  index = index + size_of.ord_type
+
+  index = index + size_of.side
+
+  index = index + size_of.time_in_force
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.poss_retrans_flag
+
+  index = index + size_of.aggressor_indicator
+
+  index = index + size_of.cross_type
+
+  index = index + size_of.total_num_securities
+
+  index = index + size_of.exec_inst
+
+  index = index + size_of.execution_mode
+
+  index = index + size_of.liquidity_flag
+
+  index = index + size_of.short_sale_type
 
   index = index + size_of.fills_groups(buffer, offset + index)
 
@@ -7915,11 +9214,91 @@ dissect.trade_link_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Execution Report Trade Outright 525
+-- Calculate size of: Execution Report Trade Outright 525
 size_of.execution_report_trade_outright_525 = function(buffer, offset)
   local index = 0
 
-  index = index + 235
+  index = index + size_of.seq_num
+
+  index = index + size_of.uuid
+
+  index = index + size_of.exec_id
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.cl_ord_id
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.last_px
+
+  index = index + size_of.order_id
+
+  index = index + size_of.price
+
+  index = index + size_of.stop_px
+
+  index = index + size_of.transact_time
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.order_request_id
+
+  index = index + size_of.sec_exec_id
+
+  index = index + size_of.cross_id
+
+  index = index + size_of.host_cross_id
+
+  index = index + size_of.location
+
+  index = index + size_of.security_id
+
+  index = index + size_of.order_qty
+
+  index = index + size_of.last_qty
+
+  index = index + size_of.cum_qty
+
+  index = index + size_of.md_trade_entry_id
+
+  index = index + size_of.side_trade_id
+
+  index = index + size_of.trade_link_id
+
+  index = index + size_of.leaves_qty
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.expire_date
+
+  index = index + size_of.ord_status
+
+  index = index + size_of.ord_type
+
+  index = index + size_of.side
+
+  index = index + size_of.time_in_force
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.poss_retrans_flag
+
+  index = index + size_of.aggressor_indicator
+
+  index = index + size_of.cross_type
+
+  index = index + size_of.exec_inst
+
+  index = index + size_of.execution_mode
+
+  index = index + size_of.liquidity_flag
+
+  index = index + size_of.managed_order
+
+  index = index + size_of.short_sale_type
+
+  index = index + size_of.ownership
 
   index = index + size_of.fills_groups(buffer, offset + index)
 
@@ -8082,6 +9461,77 @@ dissect.execution_report_trade_outright_525 = function(buffer, offset, packet, p
   return dissect.execution_report_trade_outright_525_fields(buffer, offset, packet, parent)
 end
 
+-- Calculate size of: Execution Report Elimination 524
+size_of.execution_report_elimination_524 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.seq_num
+
+  index = index + size_of.uuid
+
+  index = index + size_of.exec_id
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.cl_ord_id
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.order_id
+
+  index = index + size_of.price
+
+  index = index + size_of.stop_px
+
+  index = index + size_of.transact_time
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.order_request_id
+
+  index = index + size_of.cross_id
+
+  index = index + size_of.host_cross_id
+
+  index = index + size_of.location
+
+  index = index + size_of.security_id
+
+  index = index + size_of.cum_qty
+
+  index = index + size_of.order_qty
+
+  index = index + size_of.min_qty
+
+  index = index + size_of.display_qty
+
+  index = index + size_of.expire_date
+
+  index = index + size_of.ord_type
+
+  index = index + size_of.side
+
+  index = index + size_of.time_in_force
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.poss_retrans_flag
+
+  index = index + size_of.cross_type
+
+  index = index + size_of.exec_inst
+
+  index = index + size_of.execution_mode
+
+  index = index + size_of.liquidity_flag
+
+  index = index + size_of.managed_order
+
+  index = index + size_of.short_sale_type
+
+  return index
+end
+
 -- Display: Execution Report Elimination 524
 display.execution_report_elimination_524 = function(buffer, offset, size, packet, parent)
   return ""
@@ -8194,7 +9644,8 @@ end
 dissect.execution_report_elimination_524 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.execution_report_elimination_524 then
-    local range = buffer(offset, 202)
+    local length = size_of.execution_report_elimination_524(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.execution_report_elimination_524(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.execution_report_elimination_524, range, display)
   end
@@ -8220,6 +9671,83 @@ dissect.ord_rej_reason = function(buffer, offset, packet, parent)
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.ord_rej_reason, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Execution Report Reject 523
+size_of.execution_report_reject_523 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.seq_num
+
+  index = index + size_of.uuid
+
+  index = index + size_of.text
+
+  index = index + size_of.exec_id
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.cl_ord_id
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.order_id
+
+  index = index + size_of.price
+
+  index = index + size_of.stop_px
+
+  index = index + size_of.transact_time
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.order_request_id
+
+  index = index + size_of.cross_id
+
+  index = index + size_of.host_cross_id
+
+  index = index + size_of.location
+
+  index = index + size_of.security_id
+
+  index = index + size_of.order_qty
+
+  index = index + size_of.min_qty
+
+  index = index + size_of.display_qty
+
+  index = index + size_of.ord_rej_reason
+
+  index = index + size_of.expire_date
+
+  index = index + size_of.delay_duration
+
+  index = index + size_of.ord_type
+
+  index = index + size_of.side
+
+  index = index + size_of.time_in_force
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.poss_retrans_flag
+
+  index = index + size_of.split_msg
+
+  index = index + size_of.cross_type
+
+  index = index + size_of.exec_inst
+
+  index = index + size_of.execution_mode
+
+  index = index + size_of.liquidity_flag
+
+  index = index + size_of.managed_order
+
+  index = index + size_of.short_sale_type
+
+  return index
 end
 
 -- Display: Execution Report Reject 523
@@ -8343,12 +9871,86 @@ end
 dissect.execution_report_reject_523 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.execution_report_reject_523 then
-    local range = buffer(offset, 459)
+    local length = size_of.execution_report_reject_523(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.execution_report_reject_523(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.execution_report_reject_523, range, display)
   end
 
   return dissect.execution_report_reject_523_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Execution Report New 522
+size_of.execution_report_new_522 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.seq_num
+
+  index = index + size_of.uuid
+
+  index = index + size_of.exec_id
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.cl_ord_id
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.order_id
+
+  index = index + size_of.price
+
+  index = index + size_of.stop_px
+
+  index = index + size_of.transact_time
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.order_request_id
+
+  index = index + size_of.cross_id
+
+  index = index + size_of.host_cross_id
+
+  index = index + size_of.location
+
+  index = index + size_of.security_id
+
+  index = index + size_of.order_qty
+
+  index = index + size_of.min_qty
+
+  index = index + size_of.display_qty
+
+  index = index + size_of.expire_date
+
+  index = index + size_of.delay_duration
+
+  index = index + size_of.ord_type
+
+  index = index + size_of.side
+
+  index = index + size_of.time_in_force
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.poss_retrans_flag
+
+  index = index + size_of.split_msg
+
+  index = index + size_of.cross_type
+
+  index = index + size_of.exec_inst
+
+  index = index + size_of.execution_mode
+
+  index = index + size_of.liquidity_flag
+
+  index = index + size_of.managed_order
+
+  index = index + size_of.short_sale_type
+
+  return index
 end
 
 -- Display: Execution Report New 522
@@ -8466,7 +10068,8 @@ end
 dissect.execution_report_new_522 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.execution_report_new_522 then
-    local range = buffer(offset, 201)
+    local length = size_of.execution_report_new_522(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.execution_report_new_522(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.execution_report_new_522, range, display)
   end
@@ -8589,6 +10192,43 @@ dissect.business_reject_ref_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Business Reject 521
+size_of.business_reject_521 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.seq_num
+
+  index = index + size_of.uuid
+
+  index = index + size_of.text
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.business_reject_ref_id
+
+  index = index + size_of.location
+
+  index = index + size_of.ref_seq_num
+
+  index = index + size_of.ref_tag_id
+
+  index = index + size_of.business_reject_reason
+
+  index = index + size_of.ref_msg_type
+
+  index = index + size_of.poss_retrans_flag
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.split_msg
+
+  return index
+end
+
 -- Display: Business Reject 521
 display.business_reject_521 = function(buffer, offset, size, packet, parent)
   return ""
@@ -8650,7 +10290,8 @@ end
 dissect.business_reject_521 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.business_reject_521 then
-    local range = buffer(offset, 330)
+    local length = size_of.business_reject_521(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.business_reject_521(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.business_reject_521, range, display)
   end
@@ -8738,11 +10379,51 @@ dissect.memo = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Party Details Definition Request Ack 519
+-- Calculate size of: Party Details Definition Request Ack 519
 size_of.party_details_definition_request_ack_519 = function(buffer, offset)
   local index = 0
 
-  index = index + 159
+  index = index + size_of.seq_num
+
+  index = index + size_of.uuid
+
+  index = index + size_of.memo
+
+  index = index + size_of.avg_px_group_id
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.self_match_prevention_id
+
+  index = index + size_of.party_detail_request_status
+
+  index = index + size_of.cust_order_capacity
+
+  index = index + size_of.clearing_account_type
+
+  index = index + size_of.self_match_prevention_instruction
+
+  index = index + size_of.avg_px_indicator
+
+  index = index + size_of.clearing_trade_price_type
+
+  index = index + size_of.cmta_giveup_cd
+
+  index = index + size_of.cust_order_handling_inst
+
+  index = index + size_of.list_update_action
+
+  index = index + size_of.party_detail_definition_status
+
+  index = index + size_of.executor
+
+  index = index + size_of.idm_short_code
+
+  index = index + size_of.poss_retrans_flag
+
+  index = index + size_of.split_msg
 
   index = index + size_of.party_details_groups(buffer, offset + index)
 
@@ -8845,11 +10526,43 @@ dissect.party_details_definition_request_ack_519 = function(buffer, offset, pack
   return dissect.party_details_definition_request_ack_519_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Party Details Definition Request 518
+-- Calculate size of: Party Details Definition Request 518
 size_of.party_details_definition_request_518 = function(buffer, offset)
   local index = 0
 
-  index = index + 147
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.list_update_action
+
+  index = index + size_of.seq_num
+
+  index = index + size_of.memo
+
+  index = index + size_of.avg_px_group_id
+
+  index = index + size_of.self_match_prevention_id
+
+  index = index + size_of.cmta_giveup_cd
+
+  index = index + size_of.cust_order_capacity
+
+  index = index + size_of.clearing_account_type
+
+  index = index + size_of.self_match_prevention_instruction
+
+  index = index + size_of.avg_px_indicator
+
+  index = index + size_of.clearing_trade_price_type
+
+  index = index + size_of.cust_order_handling_inst
+
+  index = index + size_of.executor
+
+  index = index + size_of.idm_short_code
+
+  index = index + size_of.padding_272
 
   index = index + size_of.party_details_groups(buffer, offset + index)
 
@@ -8940,11 +10653,33 @@ dissect.party_details_definition_request_518 = function(buffer, offset, packet, 
   return dissect.party_details_definition_request_518_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Mass Quote 517
+-- Calculate size of: Mass Quote 517
 size_of.mass_quote_517 = function(buffer, offset)
   local index = 0
 
-  index = index + 62
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.seq_num
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.quote_req_id
+
+  index = index + size_of.location
+
+  index = index + size_of.quote_id
+
+  index = index + size_of.tot_no_quote_entries
+
+  index = index + size_of.mm_protection_reset
+
+  index = index + size_of.liquidity_flag
+
+  index = index + size_of.short_sale_type
 
   index = index + size_of.quote_entries_groups(buffer, offset + index)
 
@@ -9015,6 +10750,37 @@ dissect.mass_quote_517 = function(buffer, offset, packet, parent)
   return dissect.mass_quote_517_fields(buffer, offset, packet, parent)
 end
 
+-- Calculate size of: Order Cancel Request 516
+size_of.order_cancel_request_516 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.order_id
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.seq_num
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.cl_ord_id
+
+  index = index + size_of.order_request_id
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.location
+
+  index = index + size_of.security_id
+
+  index = index + size_of.side
+
+  index = index + size_of.liquidity_flag
+
+  return index
+end
+
 -- Display: Order Cancel Request 516
 display.order_cancel_request_516 = function(buffer, offset, size, packet, parent)
   return ""
@@ -9067,7 +10833,8 @@ end
 dissect.order_cancel_request_516 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_cancel_request_516 then
-    local range = buffer(offset, 88)
+    local length = size_of.order_cancel_request_516(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_cancel_request_516(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_cancel_request_516, range, display)
   end
@@ -9093,6 +10860,63 @@ dissect.ofm_override = function(buffer, offset, packet, parent)
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.ofm_override, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Order Cancel Replace Request 515
+size_of.order_cancel_replace_request_515 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.price
+
+  index = index + size_of.order_qty
+
+  index = index + size_of.security_id
+
+  index = index + size_of.side
+
+  index = index + size_of.seq_num
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.cl_ord_id
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.order_id
+
+  index = index + size_of.stop_px
+
+  index = index + size_of.order_request_id
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.location
+
+  index = index + size_of.min_qty
+
+  index = index + size_of.display_qty
+
+  index = index + size_of.expire_date
+
+  index = index + size_of.ord_type
+
+  index = index + size_of.time_in_force
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.ofm_override
+
+  index = index + size_of.exec_inst
+
+  index = index + size_of.execution_mode
+
+  index = index + size_of.liquidity_flag
+
+  index = index + size_of.managed_order
+
+  index = index + size_of.short_sale_type
+
+  return index
 end
 
 -- Display: Order Cancel Replace Request 515
@@ -9186,12 +11010,66 @@ end
 dissect.order_cancel_replace_request_515 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_cancel_replace_request_515 then
-    local range = buffer(offset, 125)
+    local length = size_of.order_cancel_replace_request_515(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_cancel_replace_request_515(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_cancel_replace_request_515, range, display)
   end
 
   return dissect.order_cancel_replace_request_515_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: New Order Single 514
+size_of.new_order_single_514 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.price
+
+  index = index + size_of.order_qty
+
+  index = index + size_of.security_id
+
+  index = index + size_of.side
+
+  index = index + size_of.seq_num
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.cl_ord_id
+
+  index = index + size_of.party_details_list_req_id
+
+  index = index + size_of.order_request_id
+
+  index = index + size_of.sending_time_epoch
+
+  index = index + size_of.stop_px
+
+  index = index + size_of.location
+
+  index = index + size_of.min_qty
+
+  index = index + size_of.display_qty
+
+  index = index + size_of.expire_date
+
+  index = index + size_of.ord_type
+
+  index = index + size_of.time_in_force
+
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.exec_inst
+
+  index = index + size_of.execution_mode
+
+  index = index + size_of.liquidity_flag
+
+  index = index + size_of.managed_order
+
+  index = index + size_of.short_sale_type
+
+  return index
 end
 
 -- Display: New Order Single 514
@@ -9279,7 +11157,8 @@ end
 dissect.new_order_single_514 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.new_order_single_514 then
-    local range = buffer(offset, 116)
+    local length = size_of.new_order_single_514(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.new_order_single_514(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.new_order_single_514, range, display)
   end
@@ -9327,6 +11206,21 @@ dissect.from_seq_no = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Not Applied 513
+size_of.not_applied_513 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.uuid
+
+  index = index + size_of.from_seq_no
+
+  index = index + size_of.msg_count
+
+  index = index + size_of.split_msg
+
+  return index
+end
+
 -- Display: Not Applied 513
 display.not_applied_513 = function(buffer, offset, size, packet, parent)
   return ""
@@ -9355,7 +11249,8 @@ end
 dissect.not_applied_513 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.not_applied_513 then
-    local range = buffer(offset, 15)
+    local length = size_of.not_applied_513(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.not_applied_513(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.not_applied_513, range, display)
   end
@@ -9448,6 +11343,25 @@ dissect.reason = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Retransmit Reject 510
+size_of.retransmit_reject_510 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.reason
+
+  index = index + size_of.uuid
+
+  index = index + size_of.last_uuid
+
+  index = index + size_of.request_timestamp
+
+  index = index + size_of.error_codes
+
+  index = index + size_of.split_msg
+
+  return index
+end
+
 -- Display: Retransmit Reject 510
 display.retransmit_reject_510 = function(buffer, offset, size, packet, parent)
   return ""
@@ -9482,12 +11396,32 @@ end
 dissect.retransmit_reject_510 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.retransmit_reject_510 then
-    local range = buffer(offset, 75)
+    local length = size_of.retransmit_reject_510(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.retransmit_reject_510(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.retransmit_reject_510, range, display)
   end
 
   return dissect.retransmit_reject_510_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Retransmission 509
+size_of.retransmission_509 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.uuid
+
+  index = index + size_of.last_uuid
+
+  index = index + size_of.request_timestamp
+
+  index = index + size_of.from_seq_no
+
+  index = index + size_of.msg_count
+
+  index = index + size_of.split_msg
+
+  return index
 end
 
 -- Display: Retransmission 509
@@ -9524,12 +11458,30 @@ end
 dissect.retransmission_509 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.retransmission_509 then
-    local range = buffer(offset, 31)
+    local length = size_of.retransmission_509(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.retransmission_509(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.retransmission_509, range, display)
   end
 
   return dissect.retransmission_509_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Retransmit Request 508
+size_of.retransmit_request_508 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.uuid
+
+  index = index + size_of.last_uuid
+
+  index = index + size_of.request_timestamp
+
+  index = index + size_of.from_seq_no
+
+  index = index + size_of.msg_count
+
+  return index
 end
 
 -- Display: Retransmit Request 508
@@ -9563,12 +11515,30 @@ end
 dissect.retransmit_request_508 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.retransmit_request_508 then
-    local range = buffer(offset, 30)
+    local length = size_of.retransmit_request_508(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.retransmit_request_508(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.retransmit_request_508, range, display)
   end
 
   return dissect.retransmit_request_508_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Terminate 507
+size_of.terminate_507 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.reason
+
+  index = index + size_of.uuid
+
+  index = index + size_of.request_timestamp
+
+  index = index + size_of.error_codes
+
+  index = index + size_of.split_msg
+
+  return index
 end
 
 -- Display: Terminate 507
@@ -9602,7 +11572,8 @@ end
 dissect.terminate_507 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.terminate_507 then
-    local range = buffer(offset, 67)
+    local length = size_of.terminate_507(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.terminate_507(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.terminate_507, range, display)
   end
@@ -9670,6 +11641,21 @@ dissect.next_seq_no = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Sequence 506
+size_of.sequence_506 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.uuid
+
+  index = index + size_of.next_seq_no
+
+  index = index + size_of.fault_tolerance_indicator
+
+  index = index + size_of.keep_alive_interval_lapsed
+
+  return index
+end
+
 -- Display: Sequence 506
 display.sequence_506 = function(buffer, offset, size, packet, parent)
   return ""
@@ -9698,12 +11684,34 @@ end
 dissect.sequence_506 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.sequence_506 then
-    local range = buffer(offset, 14)
+    local length = size_of.sequence_506(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.sequence_506(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.sequence_506, range, display)
   end
 
   return dissect.sequence_506_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Establishment Reject 505
+size_of.establishment_reject_505 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.reason
+
+  index = index + size_of.uuid
+
+  index = index + size_of.request_timestamp
+
+  index = index + size_of.next_seq_no
+
+  index = index + size_of.error_codes
+
+  index = index + size_of.fault_tolerance_indicator
+
+  index = index + size_of.split_msg
+
+  return index
 end
 
 -- Display: Establishment Reject 505
@@ -9743,7 +11751,8 @@ end
 dissect.establishment_reject_505 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.establishment_reject_505 then
-    local range = buffer(offset, 72)
+    local length = size_of.establishment_reject_505(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.establishment_reject_505(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.establishment_reject_505, range, display)
   end
@@ -9836,6 +11845,31 @@ dissect.previous_seq_no = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Establishment Ack 504
+size_of.establishment_ack_504 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.uuid
+
+  index = index + size_of.request_timestamp
+
+  index = index + size_of.next_seq_no
+
+  index = index + size_of.previous_seq_no
+
+  index = index + size_of.previous_uuid
+
+  index = index + size_of.keep_alive_interval
+
+  index = index + size_of.secret_key_secure_id_expiration
+
+  index = index + size_of.fault_tolerance_indicator
+
+  index = index + size_of.split_msg
+
+  return index
+end
+
 -- Display: Establishment Ack 504
 display.establishment_ack_504 = function(buffer, offset, size, packet, parent)
   return ""
@@ -9879,7 +11913,8 @@ end
 dissect.establishment_ack_504 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.establishment_ack_504 then
-    local range = buffer(offset, 38)
+    local length = size_of.establishment_ack_504(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.establishment_ack_504(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.establishment_ack_504, range, display)
   end
@@ -9923,11 +11958,11 @@ dissect.length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Credentials
+-- Calculate size of: Credentials
 size_of.credentials = function(buffer, offset)
   local index = 0
 
-  index = index + 2
+  index = index + size_of.length
 
   -- Parse runtime size of: Var Data
   index = index + buffer(offset + index - 2, 2):le_uint()
@@ -10106,11 +12141,31 @@ dissect.hmac_signature = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Establish 503
+-- Calculate size of: Establish 503
 size_of.establish_503 = function(buffer, offset)
   local index = 0
 
-  index = index + 132
+  index = index + size_of.hmac_signature
+
+  index = index + size_of.access_key_id
+
+  index = index + size_of.trading_system_name
+
+  index = index + size_of.trading_system_version
+
+  index = index + size_of.trading_system_vendor
+
+  index = index + size_of.uuid
+
+  index = index + size_of.request_timestamp
+
+  index = index + size_of.next_seq_no
+
+  index = index + size_of.session
+
+  index = index + size_of.firm
+
+  index = index + size_of.keep_alive_interval
 
   index = index + size_of.credentials(buffer, offset + index)
 
@@ -10178,6 +12233,25 @@ dissect.establish_503 = function(buffer, offset, packet, parent)
   return dissect.establish_503_fields(buffer, offset, packet, parent)
 end
 
+-- Calculate size of: Negotiation Reject 502
+size_of.negotiation_reject_502 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.reason
+
+  index = index + size_of.uuid
+
+  index = index + size_of.request_timestamp
+
+  index = index + size_of.error_codes
+
+  index = index + size_of.fault_tolerance_indicator
+
+  index = index + size_of.split_msg
+
+  return index
+end
+
 -- Display: Negotiation Reject 502
 display.negotiation_reject_502 = function(buffer, offset, size, packet, parent)
   return ""
@@ -10212,7 +12286,8 @@ end
 dissect.negotiation_reject_502 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.negotiation_reject_502 then
-    local range = buffer(offset, 68)
+    local length = size_of.negotiation_reject_502(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.negotiation_reject_502(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.negotiation_reject_502, range, display)
   end
@@ -10220,11 +12295,23 @@ dissect.negotiation_reject_502 = function(buffer, offset, packet, parent)
   return dissect.negotiation_reject_502_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Negotiation Response 501
+-- Calculate size of: Negotiation Response 501
 size_of.negotiation_response_501 = function(buffer, offset)
   local index = 0
 
-  index = index + 32
+  index = index + size_of.uuid
+
+  index = index + size_of.request_timestamp
+
+  index = index + size_of.secret_key_secure_id_expiration
+
+  index = index + size_of.fault_tolerance_indicator
+
+  index = index + size_of.split_msg
+
+  index = index + size_of.previous_seq_no
+
+  index = index + size_of.previous_uuid
 
   index = index + size_of.credentials(buffer, offset + index)
 
@@ -10280,11 +12367,21 @@ dissect.negotiation_response_501 = function(buffer, offset, packet, parent)
   return dissect.negotiation_response_501_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Negotiate 500
+-- Calculate size of: Negotiate 500
 size_of.negotiate_500 = function(buffer, offset)
   local index = 0
 
-  index = index + 76
+  index = index + size_of.hmac_signature
+
+  index = index + size_of.access_key_id
+
+  index = index + size_of.uuid
+
+  index = index + size_of.request_timestamp
+
+  index = index + size_of.session
+
+  index = index + size_of.firm
 
   index = index + size_of.credentials(buffer, offset + index)
 
@@ -10349,7 +12446,7 @@ size_of.payload = function(buffer, offset, template_id)
   end
   -- Size of Negotiation Reject 502
   if template_id == 502 then
-    return 68
+    return size_of.negotiation_reject_502(buffer, offset)
   end
   -- Size of Establish 503
   if template_id == 503 then
@@ -10357,47 +12454,47 @@ size_of.payload = function(buffer, offset, template_id)
   end
   -- Size of Establishment Ack 504
   if template_id == 504 then
-    return 38
+    return size_of.establishment_ack_504(buffer, offset)
   end
   -- Size of Establishment Reject 505
   if template_id == 505 then
-    return 72
+    return size_of.establishment_reject_505(buffer, offset)
   end
   -- Size of Sequence 506
   if template_id == 506 then
-    return 14
+    return size_of.sequence_506(buffer, offset)
   end
   -- Size of Terminate 507
   if template_id == 507 then
-    return 67
+    return size_of.terminate_507(buffer, offset)
   end
   -- Size of Retransmit Request 508
   if template_id == 508 then
-    return 30
+    return size_of.retransmit_request_508(buffer, offset)
   end
   -- Size of Retransmission 509
   if template_id == 509 then
-    return 31
+    return size_of.retransmission_509(buffer, offset)
   end
   -- Size of Retransmit Reject 510
   if template_id == 510 then
-    return 75
+    return size_of.retransmit_reject_510(buffer, offset)
   end
   -- Size of Not Applied 513
   if template_id == 513 then
-    return 15
+    return size_of.not_applied_513(buffer, offset)
   end
   -- Size of New Order Single 514
   if template_id == 514 then
-    return 116
+    return size_of.new_order_single_514(buffer, offset)
   end
   -- Size of Order Cancel Replace Request 515
   if template_id == 515 then
-    return 125
+    return size_of.order_cancel_replace_request_515(buffer, offset)
   end
   -- Size of Order Cancel Request 516
   if template_id == 516 then
-    return 88
+    return size_of.order_cancel_request_516(buffer, offset)
   end
   -- Size of Mass Quote 517
   if template_id == 517 then
@@ -10413,19 +12510,19 @@ size_of.payload = function(buffer, offset, template_id)
   end
   -- Size of Business Reject 521
   if template_id == 521 then
-    return 330
+    return size_of.business_reject_521(buffer, offset)
   end
   -- Size of Execution Report New 522
   if template_id == 522 then
-    return 201
+    return size_of.execution_report_new_522(buffer, offset)
   end
   -- Size of Execution Report Reject 523
   if template_id == 523 then
-    return 459
+    return size_of.execution_report_reject_523(buffer, offset)
   end
   -- Size of Execution Report Elimination 524
   if template_id == 524 then
-    return 202
+    return size_of.execution_report_elimination_524(buffer, offset)
   end
   -- Size of Execution Report Trade Outright 525
   if template_id == 525 then
@@ -10445,35 +12542,35 @@ size_of.payload = function(buffer, offset, template_id)
   end
   -- Size of Order Mass Action Request 529
   if template_id == 529 then
-    return 71
+    return size_of.order_mass_action_request_529(buffer, offset)
   end
   -- Size of Order Mass Status Request 530
   if template_id == 530 then
-    return 68
+    return size_of.order_mass_status_request_530(buffer, offset)
   end
   -- Size of Execution Report Modify 531
   if template_id == 531 then
-    return 209
+    return size_of.execution_report_modify_531(buffer, offset)
   end
   -- Size of Execution Report Status 532
   if template_id == 532 then
-    return 480
+    return size_of.execution_report_status_532(buffer, offset)
   end
   -- Size of Order Status Request 533
   if template_id == 533 then
-    return 62
+    return size_of.order_status_request_533(buffer, offset)
   end
   -- Size of Execution Report Cancel 534
   if template_id == 534 then
-    return 206
+    return size_of.execution_report_cancel_534(buffer, offset)
   end
   -- Size of Order Cancel Reject 535
   if template_id == 535 then
-    return 401
+    return size_of.order_cancel_reject_535(buffer, offset)
   end
   -- Size of Order Cancel Replace Reject 536
   if template_id == 536 then
-    return 401
+    return size_of.order_cancel_replace_reject_536(buffer, offset)
   end
   -- Size of Party Details List Request 537
   if template_id == 537 then
@@ -10485,7 +12582,7 @@ size_of.payload = function(buffer, offset, template_id)
   end
   -- Size of Execution Ack 539
   if template_id == 539 then
-    return 67
+    return size_of.execution_ack_539(buffer, offset)
   end
   -- Size of Request For Quote 543
   if template_id == 543 then
@@ -10501,7 +12598,7 @@ size_of.payload = function(buffer, offset, template_id)
   end
   -- Size of Request For Quote Ack 546
   if template_id == 546 then
-    return 350
+    return size_of.request_for_quote_ack_546(buffer, offset)
   end
   -- Size of Quote Cancel Ack 547
   if template_id == 547 then
@@ -10963,6 +13060,21 @@ dissect.template_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Message Header
+size_of.message_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.block_length
+
+  index = index + size_of.template_id
+
+  index = index + size_of.schema_id
+
+  index = index + size_of.version
+
+  return index
+end
+
 -- Display: Message Header
 display.message_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -10991,7 +13103,8 @@ end
 dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local range = buffer(offset, 8)
+    local length = size_of.message_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.message_header, range, display)
   end
@@ -11039,6 +13152,17 @@ dissect.message_length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Simple Open Framing Header
+size_of.simple_open_framing_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.message_length
+
+  index = index + size_of.encoding_type
+
+  return index
+end
+
 -- Display: Simple Open Framing Header
 display.simple_open_framing_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -11061,7 +13185,8 @@ end
 dissect.simple_open_framing_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.simple_open_framing_header then
-    local range = buffer(offset, 4)
+    local length = size_of.simple_open_framing_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.simple_open_framing_header(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.simple_open_framing_header, range, display)
   end
@@ -11069,11 +13194,13 @@ dissect.simple_open_framing_header = function(buffer, offset, packet, parent)
   return dissect.simple_open_framing_header_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Frame
+-- Calculate size of: Frame
 size_of.frame = function(buffer, offset)
   local index = 0
 
-  index = index + 12
+  index = index + size_of.simple_open_framing_header(buffer, offset + index)
+
+  index = index + size_of.message_header(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index

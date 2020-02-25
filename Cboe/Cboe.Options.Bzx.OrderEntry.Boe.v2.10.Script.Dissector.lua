@@ -2561,6 +2561,9 @@ dissect.reset_risk_acknowledgment_message = function(buffer, offset, packet, par
   return offset + size_of_reset_risk_acknowledgment_message
 end
 
+-- Size: Purge Rejected Byte 17
+size_of.purge_rejected_byte_17 = 1
+
 -- Display: Purge Rejected Byte 17
 display.purge_rejected_byte_17 = function(buffer, packet, parent)
   local display = ""
@@ -2642,6 +2645,9 @@ dissect.purge_rejected_byte_17 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Purge Rejected Byte 16
+size_of.purge_rejected_byte_16 = 1
 
 -- Display: Purge Rejected Byte 16
 display.purge_rejected_byte_16 = function(buffer, packet, parent)
@@ -2725,6 +2731,9 @@ dissect.purge_rejected_byte_16 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Purge Rejected Byte 15
+size_of.purge_rejected_byte_15 = 1
+
 -- Display: Purge Rejected Byte 15
 display.purge_rejected_byte_15 = function(buffer, packet, parent)
   local display = ""
@@ -2806,6 +2815,9 @@ dissect.purge_rejected_byte_15 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Purge Rejected Byte 14
+size_of.purge_rejected_byte_14 = 1
 
 -- Display: Purge Rejected Byte 14
 display.purge_rejected_byte_14 = function(buffer, packet, parent)
@@ -2889,6 +2901,9 @@ dissect.purge_rejected_byte_14 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Purge Rejected Byte 13
+size_of.purge_rejected_byte_13 = 1
+
 -- Display: Purge Rejected Byte 13
 display.purge_rejected_byte_13 = function(buffer, packet, parent)
   local display = ""
@@ -2970,6 +2985,9 @@ dissect.purge_rejected_byte_13 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Purge Rejected Byte 12
+size_of.purge_rejected_byte_12 = 1
 
 -- Display: Purge Rejected Byte 12
 display.purge_rejected_byte_12 = function(buffer, packet, parent)
@@ -3053,6 +3071,9 @@ dissect.purge_rejected_byte_12 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Purge Rejected Byte 11
+size_of.purge_rejected_byte_11 = 1
+
 -- Display: Purge Rejected Byte 11
 display.purge_rejected_byte_11 = function(buffer, packet, parent)
   local display = ""
@@ -3134,6 +3155,9 @@ dissect.purge_rejected_byte_11 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Purge Rejected Byte 10
+size_of.purge_rejected_byte_10 = 1
 
 -- Display: Purge Rejected Byte 10
 display.purge_rejected_byte_10 = function(buffer, packet, parent)
@@ -3217,6 +3241,9 @@ dissect.purge_rejected_byte_10 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Purge Rejected Byte 9
+size_of.purge_rejected_byte_9 = 1
+
 -- Display: Purge Rejected Byte 9
 display.purge_rejected_byte_9 = function(buffer, packet, parent)
   local display = ""
@@ -3298,6 +3325,9 @@ dissect.purge_rejected_byte_9 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Purge Rejected Byte 8
+size_of.purge_rejected_byte_8 = 1
 
 -- Display: Purge Rejected Byte 8
 display.purge_rejected_byte_8 = function(buffer, packet, parent)
@@ -3381,6 +3411,9 @@ dissect.purge_rejected_byte_8 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Purge Rejected Byte 7
+size_of.purge_rejected_byte_7 = 1
+
 -- Display: Purge Rejected Byte 7
 display.purge_rejected_byte_7 = function(buffer, packet, parent)
   local display = ""
@@ -3462,6 +3495,9 @@ dissect.purge_rejected_byte_7 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Purge Rejected Byte 6
+size_of.purge_rejected_byte_6 = 1
 
 -- Display: Purge Rejected Byte 6
 display.purge_rejected_byte_6 = function(buffer, packet, parent)
@@ -3545,6 +3581,9 @@ dissect.purge_rejected_byte_6 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Purge Rejected Byte 5
+size_of.purge_rejected_byte_5 = 1
+
 -- Display: Purge Rejected Byte 5
 display.purge_rejected_byte_5 = function(buffer, packet, parent)
   local display = ""
@@ -3626,6 +3665,9 @@ dissect.purge_rejected_byte_5 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Purge Rejected Byte 4
+size_of.purge_rejected_byte_4 = 1
 
 -- Display: Purge Rejected Byte 4
 display.purge_rejected_byte_4 = function(buffer, packet, parent)
@@ -3709,6 +3751,9 @@ dissect.purge_rejected_byte_4 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Purge Rejected Byte 3
+size_of.purge_rejected_byte_3 = 1
+
 -- Display: Purge Rejected Byte 3
 display.purge_rejected_byte_3 = function(buffer, packet, parent)
   local display = ""
@@ -3791,6 +3836,9 @@ dissect.purge_rejected_byte_3 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Purge Rejected Byte 2
+size_of.purge_rejected_byte_2 = 1
+
 -- Display: Purge Rejected Byte 2
 display.purge_rejected_byte_2 = function(buffer, packet, parent)
   local display = ""
@@ -3872,6 +3920,9 @@ dissect.purge_rejected_byte_2 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Purge Rejected Byte 1
+size_of.purge_rejected_byte_1 = 1
 
 -- Display: Purge Rejected Byte 1
 display.purge_rejected_byte_1 = function(buffer, packet, parent)
@@ -4622,6 +4673,9 @@ dissect.symbol = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Trade Cancel Or Correct Byte 17
+size_of.trade_cancel_or_correct_byte_17 = 1
+
 -- Display: Trade Cancel Or Correct Byte 17
 display.trade_cancel_or_correct_byte_17 = function(buffer, packet, parent)
   local display = ""
@@ -4703,6 +4757,9 @@ dissect.trade_cancel_or_correct_byte_17 = function(buffer, offset, packet, paren
 
   return offset + 1, range
 end
+
+-- Size: Trade Cancel Or Correct Byte 16
+size_of.trade_cancel_or_correct_byte_16 = 1
 
 -- Display: Trade Cancel Or Correct Byte 16
 display.trade_cancel_or_correct_byte_16 = function(buffer, packet, parent)
@@ -4786,6 +4843,9 @@ dissect.trade_cancel_or_correct_byte_16 = function(buffer, offset, packet, paren
   return offset + 1, range
 end
 
+-- Size: Trade Cancel Or Correct Byte 15
+size_of.trade_cancel_or_correct_byte_15 = 1
+
 -- Display: Trade Cancel Or Correct Byte 15
 display.trade_cancel_or_correct_byte_15 = function(buffer, packet, parent)
   local display = ""
@@ -4867,6 +4927,9 @@ dissect.trade_cancel_or_correct_byte_15 = function(buffer, offset, packet, paren
 
   return offset + 1, range
 end
+
+-- Size: Trade Cancel Or Correct Byte 14
+size_of.trade_cancel_or_correct_byte_14 = 1
 
 -- Display: Trade Cancel Or Correct Byte 14
 display.trade_cancel_or_correct_byte_14 = function(buffer, packet, parent)
@@ -4950,6 +5013,9 @@ dissect.trade_cancel_or_correct_byte_14 = function(buffer, offset, packet, paren
   return offset + 1, range
 end
 
+-- Size: Trade Cancel Or Correct Byte 13
+size_of.trade_cancel_or_correct_byte_13 = 1
+
 -- Display: Trade Cancel Or Correct Byte 13
 display.trade_cancel_or_correct_byte_13 = function(buffer, packet, parent)
   local display = ""
@@ -5031,6 +5097,9 @@ dissect.trade_cancel_or_correct_byte_13 = function(buffer, offset, packet, paren
 
   return offset + 1, range
 end
+
+-- Size: Trade Cancel Or Correct Byte 12
+size_of.trade_cancel_or_correct_byte_12 = 1
 
 -- Display: Trade Cancel Or Correct Byte 12
 display.trade_cancel_or_correct_byte_12 = function(buffer, packet, parent)
@@ -5114,6 +5183,9 @@ dissect.trade_cancel_or_correct_byte_12 = function(buffer, offset, packet, paren
   return offset + 1, range
 end
 
+-- Size: Trade Cancel Or Correct Byte 11
+size_of.trade_cancel_or_correct_byte_11 = 1
+
 -- Display: Trade Cancel Or Correct Byte 11
 display.trade_cancel_or_correct_byte_11 = function(buffer, packet, parent)
   local display = ""
@@ -5195,6 +5267,9 @@ dissect.trade_cancel_or_correct_byte_11 = function(buffer, offset, packet, paren
 
   return offset + 1, range
 end
+
+-- Size: Trade Cancel Or Correct Byte 10
+size_of.trade_cancel_or_correct_byte_10 = 1
 
 -- Display: Trade Cancel Or Correct Byte 10
 display.trade_cancel_or_correct_byte_10 = function(buffer, packet, parent)
@@ -5278,6 +5353,9 @@ dissect.trade_cancel_or_correct_byte_10 = function(buffer, offset, packet, paren
   return offset + 1, range
 end
 
+-- Size: Trade Cancel Or Correct Byte 9
+size_of.trade_cancel_or_correct_byte_9 = 1
+
 -- Display: Trade Cancel Or Correct Byte 9
 display.trade_cancel_or_correct_byte_9 = function(buffer, packet, parent)
   local display = ""
@@ -5359,6 +5437,9 @@ dissect.trade_cancel_or_correct_byte_9 = function(buffer, offset, packet, parent
 
   return offset + 1, range
 end
+
+-- Size: Trade Cancel Or Correct Byte 8
+size_of.trade_cancel_or_correct_byte_8 = 1
 
 -- Display: Trade Cancel Or Correct Byte 8
 display.trade_cancel_or_correct_byte_8 = function(buffer, packet, parent)
@@ -5442,6 +5523,9 @@ dissect.trade_cancel_or_correct_byte_8 = function(buffer, offset, packet, parent
   return offset + 1, range
 end
 
+-- Size: Trade Cancel Or Correct Byte 7
+size_of.trade_cancel_or_correct_byte_7 = 1
+
 -- Display: Trade Cancel Or Correct Byte 7
 display.trade_cancel_or_correct_byte_7 = function(buffer, packet, parent)
   local display = ""
@@ -5523,6 +5607,9 @@ dissect.trade_cancel_or_correct_byte_7 = function(buffer, offset, packet, parent
 
   return offset + 1, range
 end
+
+-- Size: Trade Cancel Or Correct Byte 6
+size_of.trade_cancel_or_correct_byte_6 = 1
 
 -- Display: Trade Cancel Or Correct Byte 6
 display.trade_cancel_or_correct_byte_6 = function(buffer, packet, parent)
@@ -5606,6 +5693,9 @@ dissect.trade_cancel_or_correct_byte_6 = function(buffer, offset, packet, parent
   return offset + 1, range
 end
 
+-- Size: Trade Cancel Or Correct Byte 5
+size_of.trade_cancel_or_correct_byte_5 = 1
+
 -- Display: Trade Cancel Or Correct Byte 5
 display.trade_cancel_or_correct_byte_5 = function(buffer, packet, parent)
   local display = ""
@@ -5687,6 +5777,9 @@ dissect.trade_cancel_or_correct_byte_5 = function(buffer, offset, packet, parent
 
   return offset + 1, range
 end
+
+-- Size: Trade Cancel Or Correct Byte 4
+size_of.trade_cancel_or_correct_byte_4 = 1
 
 -- Display: Trade Cancel Or Correct Byte 4
 display.trade_cancel_or_correct_byte_4 = function(buffer, packet, parent)
@@ -5770,6 +5863,9 @@ dissect.trade_cancel_or_correct_byte_4 = function(buffer, offset, packet, parent
   return offset + 1, range
 end
 
+-- Size: Trade Cancel Or Correct Byte 3
+size_of.trade_cancel_or_correct_byte_3 = 1
+
 -- Display: Trade Cancel Or Correct Byte 3
 display.trade_cancel_or_correct_byte_3 = function(buffer, packet, parent)
   local display = ""
@@ -5852,6 +5948,9 @@ dissect.trade_cancel_or_correct_byte_3 = function(buffer, offset, packet, parent
   return offset + 1, range
 end
 
+-- Size: Trade Cancel Or Correct Byte 2
+size_of.trade_cancel_or_correct_byte_2 = 1
+
 -- Display: Trade Cancel Or Correct Byte 2
 display.trade_cancel_or_correct_byte_2 = function(buffer, packet, parent)
   local display = ""
@@ -5933,6 +6032,9 @@ dissect.trade_cancel_or_correct_byte_2 = function(buffer, offset, packet, parent
 
   return offset + 1, range
 end
+
+-- Size: Trade Cancel Or Correct Byte 1
+size_of.trade_cancel_or_correct_byte_1 = 1
 
 -- Display: Trade Cancel Or Correct Byte 1
 display.trade_cancel_or_correct_byte_1 = function(buffer, packet, parent)
@@ -7056,6 +7158,9 @@ dissect.price = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Cancel Rejected Byte 17
+size_of.cancel_rejected_byte_17 = 1
+
 -- Display: Cancel Rejected Byte 17
 display.cancel_rejected_byte_17 = function(buffer, packet, parent)
   local display = ""
@@ -7137,6 +7242,9 @@ dissect.cancel_rejected_byte_17 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Cancel Rejected Byte 16
+size_of.cancel_rejected_byte_16 = 1
 
 -- Display: Cancel Rejected Byte 16
 display.cancel_rejected_byte_16 = function(buffer, packet, parent)
@@ -7220,6 +7328,9 @@ dissect.cancel_rejected_byte_16 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Cancel Rejected Byte 15
+size_of.cancel_rejected_byte_15 = 1
+
 -- Display: Cancel Rejected Byte 15
 display.cancel_rejected_byte_15 = function(buffer, packet, parent)
   local display = ""
@@ -7301,6 +7412,9 @@ dissect.cancel_rejected_byte_15 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Cancel Rejected Byte 14
+size_of.cancel_rejected_byte_14 = 1
 
 -- Display: Cancel Rejected Byte 14
 display.cancel_rejected_byte_14 = function(buffer, packet, parent)
@@ -7384,6 +7498,9 @@ dissect.cancel_rejected_byte_14 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Cancel Rejected Byte 13
+size_of.cancel_rejected_byte_13 = 1
+
 -- Display: Cancel Rejected Byte 13
 display.cancel_rejected_byte_13 = function(buffer, packet, parent)
   local display = ""
@@ -7465,6 +7582,9 @@ dissect.cancel_rejected_byte_13 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Cancel Rejected Byte 12
+size_of.cancel_rejected_byte_12 = 1
 
 -- Display: Cancel Rejected Byte 12
 display.cancel_rejected_byte_12 = function(buffer, packet, parent)
@@ -7548,6 +7668,9 @@ dissect.cancel_rejected_byte_12 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Cancel Rejected Byte 11
+size_of.cancel_rejected_byte_11 = 1
+
 -- Display: Cancel Rejected Byte 11
 display.cancel_rejected_byte_11 = function(buffer, packet, parent)
   local display = ""
@@ -7629,6 +7752,9 @@ dissect.cancel_rejected_byte_11 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Cancel Rejected Byte 10
+size_of.cancel_rejected_byte_10 = 1
 
 -- Display: Cancel Rejected Byte 10
 display.cancel_rejected_byte_10 = function(buffer, packet, parent)
@@ -7712,6 +7838,9 @@ dissect.cancel_rejected_byte_10 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Cancel Rejected Byte 9
+size_of.cancel_rejected_byte_9 = 1
+
 -- Display: Cancel Rejected Byte 9
 display.cancel_rejected_byte_9 = function(buffer, packet, parent)
   local display = ""
@@ -7793,6 +7922,9 @@ dissect.cancel_rejected_byte_9 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Cancel Rejected Byte 8
+size_of.cancel_rejected_byte_8 = 1
 
 -- Display: Cancel Rejected Byte 8
 display.cancel_rejected_byte_8 = function(buffer, packet, parent)
@@ -7876,6 +8008,9 @@ dissect.cancel_rejected_byte_8 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Cancel Rejected Byte 7
+size_of.cancel_rejected_byte_7 = 1
+
 -- Display: Cancel Rejected Byte 7
 display.cancel_rejected_byte_7 = function(buffer, packet, parent)
   local display = ""
@@ -7957,6 +8092,9 @@ dissect.cancel_rejected_byte_7 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Cancel Rejected Byte 6
+size_of.cancel_rejected_byte_6 = 1
 
 -- Display: Cancel Rejected Byte 6
 display.cancel_rejected_byte_6 = function(buffer, packet, parent)
@@ -8040,6 +8178,9 @@ dissect.cancel_rejected_byte_6 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Cancel Rejected Byte 5
+size_of.cancel_rejected_byte_5 = 1
+
 -- Display: Cancel Rejected Byte 5
 display.cancel_rejected_byte_5 = function(buffer, packet, parent)
   local display = ""
@@ -8121,6 +8262,9 @@ dissect.cancel_rejected_byte_5 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Cancel Rejected Byte 4
+size_of.cancel_rejected_byte_4 = 1
 
 -- Display: Cancel Rejected Byte 4
 display.cancel_rejected_byte_4 = function(buffer, packet, parent)
@@ -8204,6 +8348,9 @@ dissect.cancel_rejected_byte_4 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Cancel Rejected Byte 3
+size_of.cancel_rejected_byte_3 = 1
+
 -- Display: Cancel Rejected Byte 3
 display.cancel_rejected_byte_3 = function(buffer, packet, parent)
   local display = ""
@@ -8286,6 +8433,9 @@ dissect.cancel_rejected_byte_3 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Cancel Rejected Byte 2
+size_of.cancel_rejected_byte_2 = 1
+
 -- Display: Cancel Rejected Byte 2
 display.cancel_rejected_byte_2 = function(buffer, packet, parent)
   local display = ""
@@ -8367,6 +8517,9 @@ dissect.cancel_rejected_byte_2 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Cancel Rejected Byte 1
+size_of.cancel_rejected_byte_1 = 1
 
 -- Display: Cancel Rejected Byte 1
 display.cancel_rejected_byte_1 = function(buffer, packet, parent)
@@ -9524,6 +9677,9 @@ dissect.account = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Order Cancelled Byte 17
+size_of.order_cancelled_byte_17 = 1
+
 -- Display: Order Cancelled Byte 17
 display.order_cancelled_byte_17 = function(buffer, packet, parent)
   local display = ""
@@ -9605,6 +9761,9 @@ dissect.order_cancelled_byte_17 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Cancelled Byte 16
+size_of.order_cancelled_byte_16 = 1
 
 -- Display: Order Cancelled Byte 16
 display.order_cancelled_byte_16 = function(buffer, packet, parent)
@@ -9688,6 +9847,9 @@ dissect.order_cancelled_byte_16 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Cancelled Byte 15
+size_of.order_cancelled_byte_15 = 1
+
 -- Display: Order Cancelled Byte 15
 display.order_cancelled_byte_15 = function(buffer, packet, parent)
   local display = ""
@@ -9769,6 +9931,9 @@ dissect.order_cancelled_byte_15 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Cancelled Byte 14
+size_of.order_cancelled_byte_14 = 1
 
 -- Display: Order Cancelled Byte 14
 display.order_cancelled_byte_14 = function(buffer, packet, parent)
@@ -9852,6 +10017,9 @@ dissect.order_cancelled_byte_14 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Cancelled Byte 13
+size_of.order_cancelled_byte_13 = 1
+
 -- Display: Order Cancelled Byte 13
 display.order_cancelled_byte_13 = function(buffer, packet, parent)
   local display = ""
@@ -9933,6 +10101,9 @@ dissect.order_cancelled_byte_13 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Cancelled Byte 12
+size_of.order_cancelled_byte_12 = 1
 
 -- Display: Order Cancelled Byte 12
 display.order_cancelled_byte_12 = function(buffer, packet, parent)
@@ -10016,6 +10187,9 @@ dissect.order_cancelled_byte_12 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Cancelled Byte 11
+size_of.order_cancelled_byte_11 = 1
+
 -- Display: Order Cancelled Byte 11
 display.order_cancelled_byte_11 = function(buffer, packet, parent)
   local display = ""
@@ -10097,6 +10271,9 @@ dissect.order_cancelled_byte_11 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Cancelled Byte 10
+size_of.order_cancelled_byte_10 = 1
 
 -- Display: Order Cancelled Byte 10
 display.order_cancelled_byte_10 = function(buffer, packet, parent)
@@ -10180,6 +10357,9 @@ dissect.order_cancelled_byte_10 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Cancelled Byte 9
+size_of.order_cancelled_byte_9 = 1
+
 -- Display: Order Cancelled Byte 9
 display.order_cancelled_byte_9 = function(buffer, packet, parent)
   local display = ""
@@ -10261,6 +10441,9 @@ dissect.order_cancelled_byte_9 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Cancelled Byte 8
+size_of.order_cancelled_byte_8 = 1
 
 -- Display: Order Cancelled Byte 8
 display.order_cancelled_byte_8 = function(buffer, packet, parent)
@@ -10344,6 +10527,9 @@ dissect.order_cancelled_byte_8 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Cancelled Byte 7
+size_of.order_cancelled_byte_7 = 1
+
 -- Display: Order Cancelled Byte 7
 display.order_cancelled_byte_7 = function(buffer, packet, parent)
   local display = ""
@@ -10425,6 +10611,9 @@ dissect.order_cancelled_byte_7 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Cancelled Byte 6
+size_of.order_cancelled_byte_6 = 1
 
 -- Display: Order Cancelled Byte 6
 display.order_cancelled_byte_6 = function(buffer, packet, parent)
@@ -10508,6 +10697,9 @@ dissect.order_cancelled_byte_6 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Cancelled Byte 5
+size_of.order_cancelled_byte_5 = 1
+
 -- Display: Order Cancelled Byte 5
 display.order_cancelled_byte_5 = function(buffer, packet, parent)
   local display = ""
@@ -10589,6 +10781,9 @@ dissect.order_cancelled_byte_5 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Cancelled Byte 4
+size_of.order_cancelled_byte_4 = 1
 
 -- Display: Order Cancelled Byte 4
 display.order_cancelled_byte_4 = function(buffer, packet, parent)
@@ -10672,6 +10867,9 @@ dissect.order_cancelled_byte_4 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Cancelled Byte 3
+size_of.order_cancelled_byte_3 = 1
+
 -- Display: Order Cancelled Byte 3
 display.order_cancelled_byte_3 = function(buffer, packet, parent)
   local display = ""
@@ -10754,6 +10952,9 @@ dissect.order_cancelled_byte_3 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Cancelled Byte 2
+size_of.order_cancelled_byte_2 = 1
+
 -- Display: Order Cancelled Byte 2
 display.order_cancelled_byte_2 = function(buffer, packet, parent)
   local display = ""
@@ -10835,6 +11036,9 @@ dissect.order_cancelled_byte_2 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Cancelled Byte 1
+size_of.order_cancelled_byte_1 = 1
 
 -- Display: Order Cancelled Byte 1
 display.order_cancelled_byte_1 = function(buffer, packet, parent)
@@ -11539,6 +11743,9 @@ dissect.order_cancelled_message = function(buffer, offset, packet, parent)
   return offset + size_of_order_cancelled_message
 end
 
+-- Size: User Modify Rejected Byte 17
+size_of.user_modify_rejected_byte_17 = 1
+
 -- Display: User Modify Rejected Byte 17
 display.user_modify_rejected_byte_17 = function(buffer, packet, parent)
   local display = ""
@@ -11620,6 +11827,9 @@ dissect.user_modify_rejected_byte_17 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: User Modify Rejected Byte 16
+size_of.user_modify_rejected_byte_16 = 1
 
 -- Display: User Modify Rejected Byte 16
 display.user_modify_rejected_byte_16 = function(buffer, packet, parent)
@@ -11703,6 +11913,9 @@ dissect.user_modify_rejected_byte_16 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: User Modify Rejected Byte 15
+size_of.user_modify_rejected_byte_15 = 1
+
 -- Display: User Modify Rejected Byte 15
 display.user_modify_rejected_byte_15 = function(buffer, packet, parent)
   local display = ""
@@ -11784,6 +11997,9 @@ dissect.user_modify_rejected_byte_15 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: User Modify Rejected Byte 14
+size_of.user_modify_rejected_byte_14 = 1
 
 -- Display: User Modify Rejected Byte 14
 display.user_modify_rejected_byte_14 = function(buffer, packet, parent)
@@ -11867,6 +12083,9 @@ dissect.user_modify_rejected_byte_14 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: User Modify Rejected Byte 13
+size_of.user_modify_rejected_byte_13 = 1
+
 -- Display: User Modify Rejected Byte 13
 display.user_modify_rejected_byte_13 = function(buffer, packet, parent)
   local display = ""
@@ -11948,6 +12167,9 @@ dissect.user_modify_rejected_byte_13 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: User Modify Rejected Byte 12
+size_of.user_modify_rejected_byte_12 = 1
 
 -- Display: User Modify Rejected Byte 12
 display.user_modify_rejected_byte_12 = function(buffer, packet, parent)
@@ -12031,6 +12253,9 @@ dissect.user_modify_rejected_byte_12 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: User Modify Rejected Byte 11
+size_of.user_modify_rejected_byte_11 = 1
+
 -- Display: User Modify Rejected Byte 11
 display.user_modify_rejected_byte_11 = function(buffer, packet, parent)
   local display = ""
@@ -12112,6 +12337,9 @@ dissect.user_modify_rejected_byte_11 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: User Modify Rejected Byte 10
+size_of.user_modify_rejected_byte_10 = 1
 
 -- Display: User Modify Rejected Byte 10
 display.user_modify_rejected_byte_10 = function(buffer, packet, parent)
@@ -12195,6 +12423,9 @@ dissect.user_modify_rejected_byte_10 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: User Modify Rejected Byte 9
+size_of.user_modify_rejected_byte_9 = 1
+
 -- Display: User Modify Rejected Byte 9
 display.user_modify_rejected_byte_9 = function(buffer, packet, parent)
   local display = ""
@@ -12276,6 +12507,9 @@ dissect.user_modify_rejected_byte_9 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: User Modify Rejected Byte 8
+size_of.user_modify_rejected_byte_8 = 1
 
 -- Display: User Modify Rejected Byte 8
 display.user_modify_rejected_byte_8 = function(buffer, packet, parent)
@@ -12359,6 +12593,9 @@ dissect.user_modify_rejected_byte_8 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: User Modify Rejected Byte 7
+size_of.user_modify_rejected_byte_7 = 1
+
 -- Display: User Modify Rejected Byte 7
 display.user_modify_rejected_byte_7 = function(buffer, packet, parent)
   local display = ""
@@ -12440,6 +12677,9 @@ dissect.user_modify_rejected_byte_7 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: User Modify Rejected Byte 6
+size_of.user_modify_rejected_byte_6 = 1
 
 -- Display: User Modify Rejected Byte 6
 display.user_modify_rejected_byte_6 = function(buffer, packet, parent)
@@ -12523,6 +12763,9 @@ dissect.user_modify_rejected_byte_6 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: User Modify Rejected Byte 5
+size_of.user_modify_rejected_byte_5 = 1
+
 -- Display: User Modify Rejected Byte 5
 display.user_modify_rejected_byte_5 = function(buffer, packet, parent)
   local display = ""
@@ -12604,6 +12847,9 @@ dissect.user_modify_rejected_byte_5 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: User Modify Rejected Byte 4
+size_of.user_modify_rejected_byte_4 = 1
 
 -- Display: User Modify Rejected Byte 4
 display.user_modify_rejected_byte_4 = function(buffer, packet, parent)
@@ -12687,6 +12933,9 @@ dissect.user_modify_rejected_byte_4 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: User Modify Rejected Byte 3
+size_of.user_modify_rejected_byte_3 = 1
+
 -- Display: User Modify Rejected Byte 3
 display.user_modify_rejected_byte_3 = function(buffer, packet, parent)
   local display = ""
@@ -12769,6 +13018,9 @@ dissect.user_modify_rejected_byte_3 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: User Modify Rejected Byte 2
+size_of.user_modify_rejected_byte_2 = 1
+
 -- Display: User Modify Rejected Byte 2
 display.user_modify_rejected_byte_2 = function(buffer, packet, parent)
   local display = ""
@@ -12850,6 +13102,9 @@ dissect.user_modify_rejected_byte_2 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: User Modify Rejected Byte 1
+size_of.user_modify_rejected_byte_1 = 1
 
 -- Display: User Modify Rejected Byte 1
 display.user_modify_rejected_byte_1 = function(buffer, packet, parent)
@@ -13428,6 +13683,9 @@ dissect.client_id_attr = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Order Restated Byte 17
+size_of.order_restated_byte_17 = 1
+
 -- Display: Order Restated Byte 17
 display.order_restated_byte_17 = function(buffer, packet, parent)
   local display = ""
@@ -13509,6 +13767,9 @@ dissect.order_restated_byte_17 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Restated Byte 16
+size_of.order_restated_byte_16 = 1
 
 -- Display: Order Restated Byte 16
 display.order_restated_byte_16 = function(buffer, packet, parent)
@@ -13592,6 +13853,9 @@ dissect.order_restated_byte_16 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Restated Byte 15
+size_of.order_restated_byte_15 = 1
+
 -- Display: Order Restated Byte 15
 display.order_restated_byte_15 = function(buffer, packet, parent)
   local display = ""
@@ -13673,6 +13937,9 @@ dissect.order_restated_byte_15 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Restated Byte 14
+size_of.order_restated_byte_14 = 1
 
 -- Display: Order Restated Byte 14
 display.order_restated_byte_14 = function(buffer, packet, parent)
@@ -13756,6 +14023,9 @@ dissect.order_restated_byte_14 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Restated Byte 13
+size_of.order_restated_byte_13 = 1
+
 -- Display: Order Restated Byte 13
 display.order_restated_byte_13 = function(buffer, packet, parent)
   local display = ""
@@ -13837,6 +14107,9 @@ dissect.order_restated_byte_13 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Restated Byte 12
+size_of.order_restated_byte_12 = 1
 
 -- Display: Order Restated Byte 12
 display.order_restated_byte_12 = function(buffer, packet, parent)
@@ -13920,6 +14193,9 @@ dissect.order_restated_byte_12 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Restated Byte 11
+size_of.order_restated_byte_11 = 1
+
 -- Display: Order Restated Byte 11
 display.order_restated_byte_11 = function(buffer, packet, parent)
   local display = ""
@@ -14001,6 +14277,9 @@ dissect.order_restated_byte_11 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Restated Byte 10
+size_of.order_restated_byte_10 = 1
 
 -- Display: Order Restated Byte 10
 display.order_restated_byte_10 = function(buffer, packet, parent)
@@ -14084,6 +14363,9 @@ dissect.order_restated_byte_10 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Restated Byte 9
+size_of.order_restated_byte_9 = 1
+
 -- Display: Order Restated Byte 9
 display.order_restated_byte_9 = function(buffer, packet, parent)
   local display = ""
@@ -14165,6 +14447,9 @@ dissect.order_restated_byte_9 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Restated Byte 8
+size_of.order_restated_byte_8 = 1
 
 -- Display: Order Restated Byte 8
 display.order_restated_byte_8 = function(buffer, packet, parent)
@@ -14248,6 +14533,9 @@ dissect.order_restated_byte_8 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Restated Byte 7
+size_of.order_restated_byte_7 = 1
+
 -- Display: Order Restated Byte 7
 display.order_restated_byte_7 = function(buffer, packet, parent)
   local display = ""
@@ -14329,6 +14617,9 @@ dissect.order_restated_byte_7 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Restated Byte 6
+size_of.order_restated_byte_6 = 1
 
 -- Display: Order Restated Byte 6
 display.order_restated_byte_6 = function(buffer, packet, parent)
@@ -14412,6 +14703,9 @@ dissect.order_restated_byte_6 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Restated Byte 5
+size_of.order_restated_byte_5 = 1
+
 -- Display: Order Restated Byte 5
 display.order_restated_byte_5 = function(buffer, packet, parent)
   local display = ""
@@ -14493,6 +14787,9 @@ dissect.order_restated_byte_5 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Restated Byte 4
+size_of.order_restated_byte_4 = 1
 
 -- Display: Order Restated Byte 4
 display.order_restated_byte_4 = function(buffer, packet, parent)
@@ -14576,6 +14873,9 @@ dissect.order_restated_byte_4 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Restated Byte 3
+size_of.order_restated_byte_3 = 1
+
 -- Display: Order Restated Byte 3
 display.order_restated_byte_3 = function(buffer, packet, parent)
   local display = ""
@@ -14658,6 +14958,9 @@ dissect.order_restated_byte_3 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Restated Byte 2
+size_of.order_restated_byte_2 = 1
+
 -- Display: Order Restated Byte 2
 display.order_restated_byte_2 = function(buffer, packet, parent)
   local display = ""
@@ -14739,6 +15042,9 @@ dissect.order_restated_byte_2 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Restated Byte 1
+size_of.order_restated_byte_1 = 1
 
 -- Display: Order Restated Byte 1
 display.order_restated_byte_1 = function(buffer, packet, parent)
@@ -15526,6 +15832,9 @@ dissect.clearing_optional_data = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Order Modified Byte 17
+size_of.order_modified_byte_17 = 1
+
 -- Display: Order Modified Byte 17
 display.order_modified_byte_17 = function(buffer, packet, parent)
   local display = ""
@@ -15607,6 +15916,9 @@ dissect.order_modified_byte_17 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Modified Byte 16
+size_of.order_modified_byte_16 = 1
 
 -- Display: Order Modified Byte 16
 display.order_modified_byte_16 = function(buffer, packet, parent)
@@ -15690,6 +16002,9 @@ dissect.order_modified_byte_16 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Modified Byte 15
+size_of.order_modified_byte_15 = 1
+
 -- Display: Order Modified Byte 15
 display.order_modified_byte_15 = function(buffer, packet, parent)
   local display = ""
@@ -15771,6 +16086,9 @@ dissect.order_modified_byte_15 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Modified Byte 14
+size_of.order_modified_byte_14 = 1
 
 -- Display: Order Modified Byte 14
 display.order_modified_byte_14 = function(buffer, packet, parent)
@@ -15854,6 +16172,9 @@ dissect.order_modified_byte_14 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Modified Byte 13
+size_of.order_modified_byte_13 = 1
+
 -- Display: Order Modified Byte 13
 display.order_modified_byte_13 = function(buffer, packet, parent)
   local display = ""
@@ -15935,6 +16256,9 @@ dissect.order_modified_byte_13 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Modified Byte 12
+size_of.order_modified_byte_12 = 1
 
 -- Display: Order Modified Byte 12
 display.order_modified_byte_12 = function(buffer, packet, parent)
@@ -16018,6 +16342,9 @@ dissect.order_modified_byte_12 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Modified Byte 11
+size_of.order_modified_byte_11 = 1
+
 -- Display: Order Modified Byte 11
 display.order_modified_byte_11 = function(buffer, packet, parent)
   local display = ""
@@ -16099,6 +16426,9 @@ dissect.order_modified_byte_11 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Modified Byte 10
+size_of.order_modified_byte_10 = 1
 
 -- Display: Order Modified Byte 10
 display.order_modified_byte_10 = function(buffer, packet, parent)
@@ -16182,6 +16512,9 @@ dissect.order_modified_byte_10 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Modified Byte 9
+size_of.order_modified_byte_9 = 1
+
 -- Display: Order Modified Byte 9
 display.order_modified_byte_9 = function(buffer, packet, parent)
   local display = ""
@@ -16263,6 +16596,9 @@ dissect.order_modified_byte_9 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Modified Byte 8
+size_of.order_modified_byte_8 = 1
 
 -- Display: Order Modified Byte 8
 display.order_modified_byte_8 = function(buffer, packet, parent)
@@ -16346,6 +16682,9 @@ dissect.order_modified_byte_8 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Modified Byte 7
+size_of.order_modified_byte_7 = 1
+
 -- Display: Order Modified Byte 7
 display.order_modified_byte_7 = function(buffer, packet, parent)
   local display = ""
@@ -16427,6 +16766,9 @@ dissect.order_modified_byte_7 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Modified Byte 6
+size_of.order_modified_byte_6 = 1
 
 -- Display: Order Modified Byte 6
 display.order_modified_byte_6 = function(buffer, packet, parent)
@@ -16510,6 +16852,9 @@ dissect.order_modified_byte_6 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Modified Byte 5
+size_of.order_modified_byte_5 = 1
+
 -- Display: Order Modified Byte 5
 display.order_modified_byte_5 = function(buffer, packet, parent)
   local display = ""
@@ -16591,6 +16936,9 @@ dissect.order_modified_byte_5 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Modified Byte 4
+size_of.order_modified_byte_4 = 1
 
 -- Display: Order Modified Byte 4
 display.order_modified_byte_4 = function(buffer, packet, parent)
@@ -16674,6 +17022,9 @@ dissect.order_modified_byte_4 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Modified Byte 3
+size_of.order_modified_byte_3 = 1
+
 -- Display: Order Modified Byte 3
 display.order_modified_byte_3 = function(buffer, packet, parent)
   local display = ""
@@ -16756,6 +17107,9 @@ dissect.order_modified_byte_3 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Modified Byte 2
+size_of.order_modified_byte_2 = 1
+
 -- Display: Order Modified Byte 2
 display.order_modified_byte_2 = function(buffer, packet, parent)
   local display = ""
@@ -16837,6 +17191,9 @@ dissect.order_modified_byte_2 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Modified Byte 1
+size_of.order_modified_byte_1 = 1
 
 -- Display: Order Modified Byte 1
 display.order_modified_byte_1 = function(buffer, packet, parent)
@@ -17871,6 +18228,9 @@ dissect.cross_order_rejected_message = function(buffer, offset, packet, parent)
   return offset + size_of_cross_order_rejected_message
 end
 
+-- Size: Order Rejected Byte 17
+size_of.order_rejected_byte_17 = 1
+
 -- Display: Order Rejected Byte 17
 display.order_rejected_byte_17 = function(buffer, packet, parent)
   local display = ""
@@ -17952,6 +18312,9 @@ dissect.order_rejected_byte_17 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Rejected Byte 16
+size_of.order_rejected_byte_16 = 1
 
 -- Display: Order Rejected Byte 16
 display.order_rejected_byte_16 = function(buffer, packet, parent)
@@ -18035,6 +18398,9 @@ dissect.order_rejected_byte_16 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Rejected Byte 15
+size_of.order_rejected_byte_15 = 1
+
 -- Display: Order Rejected Byte 15
 display.order_rejected_byte_15 = function(buffer, packet, parent)
   local display = ""
@@ -18116,6 +18482,9 @@ dissect.order_rejected_byte_15 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Rejected Byte 14
+size_of.order_rejected_byte_14 = 1
 
 -- Display: Order Rejected Byte 14
 display.order_rejected_byte_14 = function(buffer, packet, parent)
@@ -18199,6 +18568,9 @@ dissect.order_rejected_byte_14 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Rejected Byte 13
+size_of.order_rejected_byte_13 = 1
+
 -- Display: Order Rejected Byte 13
 display.order_rejected_byte_13 = function(buffer, packet, parent)
   local display = ""
@@ -18280,6 +18652,9 @@ dissect.order_rejected_byte_13 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Rejected Byte 12
+size_of.order_rejected_byte_12 = 1
 
 -- Display: Order Rejected Byte 12
 display.order_rejected_byte_12 = function(buffer, packet, parent)
@@ -18363,6 +18738,9 @@ dissect.order_rejected_byte_12 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Rejected Byte 11
+size_of.order_rejected_byte_11 = 1
+
 -- Display: Order Rejected Byte 11
 display.order_rejected_byte_11 = function(buffer, packet, parent)
   local display = ""
@@ -18444,6 +18822,9 @@ dissect.order_rejected_byte_11 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Rejected Byte 10
+size_of.order_rejected_byte_10 = 1
 
 -- Display: Order Rejected Byte 10
 display.order_rejected_byte_10 = function(buffer, packet, parent)
@@ -18527,6 +18908,9 @@ dissect.order_rejected_byte_10 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Rejected Byte 9
+size_of.order_rejected_byte_9 = 1
+
 -- Display: Order Rejected Byte 9
 display.order_rejected_byte_9 = function(buffer, packet, parent)
   local display = ""
@@ -18608,6 +18992,9 @@ dissect.order_rejected_byte_9 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Rejected Byte 8
+size_of.order_rejected_byte_8 = 1
 
 -- Display: Order Rejected Byte 8
 display.order_rejected_byte_8 = function(buffer, packet, parent)
@@ -18691,6 +19078,9 @@ dissect.order_rejected_byte_8 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Rejected Byte 7
+size_of.order_rejected_byte_7 = 1
+
 -- Display: Order Rejected Byte 7
 display.order_rejected_byte_7 = function(buffer, packet, parent)
   local display = ""
@@ -18772,6 +19162,9 @@ dissect.order_rejected_byte_7 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Rejected Byte 6
+size_of.order_rejected_byte_6 = 1
 
 -- Display: Order Rejected Byte 6
 display.order_rejected_byte_6 = function(buffer, packet, parent)
@@ -18855,6 +19248,9 @@ dissect.order_rejected_byte_6 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Rejected Byte 5
+size_of.order_rejected_byte_5 = 1
+
 -- Display: Order Rejected Byte 5
 display.order_rejected_byte_5 = function(buffer, packet, parent)
   local display = ""
@@ -18936,6 +19332,9 @@ dissect.order_rejected_byte_5 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Rejected Byte 4
+size_of.order_rejected_byte_4 = 1
 
 -- Display: Order Rejected Byte 4
 display.order_rejected_byte_4 = function(buffer, packet, parent)
@@ -19019,6 +19418,9 @@ dissect.order_rejected_byte_4 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Rejected Byte 3
+size_of.order_rejected_byte_3 = 1
+
 -- Display: Order Rejected Byte 3
 display.order_rejected_byte_3 = function(buffer, packet, parent)
   local display = ""
@@ -19101,6 +19503,9 @@ dissect.order_rejected_byte_3 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Rejected Byte 2
+size_of.order_rejected_byte_2 = 1
+
 -- Display: Order Rejected Byte 2
 display.order_rejected_byte_2 = function(buffer, packet, parent)
   local display = ""
@@ -19182,6 +19587,9 @@ dissect.order_rejected_byte_2 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Rejected Byte 1
+size_of.order_rejected_byte_1 = 1
 
 -- Display: Order Rejected Byte 1
 display.order_rejected_byte_1 = function(buffer, packet, parent)
@@ -19957,6 +20365,21 @@ dissect.quote_result = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Quote Result Group
+size_of.quote_result_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.order_id
+
+  index = index + size_of.quote_result
+
+  index = index + size_of.quote_liquidity_indicator
+
+  index = index + size_of.reserved_6
+
+  return index
+end
+
 -- Display: Quote Result Group
 display.quote_result_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -19985,7 +20408,8 @@ end
 dissect.quote_result_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.quote_result_group then
-    local range = buffer(offset, 16)
+    local length = size_of.quote_result_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.quote_result_group(buffer, packet, parent)
     parent = parent:add(cboe_options_bzx_orderentry_boe_v2_10.fields.quote_result_group, range, display)
   end
@@ -20065,6 +20489,9 @@ dissect.quote_update_acknowledgment_message = function(buffer, offset, packet, p
 
   return offset + size_of_quote_update_acknowledgment_message
 end
+
+-- Size: Order Acknowledgment Byte 17
+size_of.order_acknowledgment_byte_17 = 1
 
 -- Display: Order Acknowledgment Byte 17
 display.order_acknowledgment_byte_17 = function(buffer, packet, parent)
@@ -20148,6 +20575,9 @@ dissect.order_acknowledgment_byte_17 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Acknowledgment Byte 16
+size_of.order_acknowledgment_byte_16 = 1
+
 -- Display: Order Acknowledgment Byte 16
 display.order_acknowledgment_byte_16 = function(buffer, packet, parent)
   local display = ""
@@ -20229,6 +20659,9 @@ dissect.order_acknowledgment_byte_16 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Acknowledgment Byte 15
+size_of.order_acknowledgment_byte_15 = 1
 
 -- Display: Order Acknowledgment Byte 15
 display.order_acknowledgment_byte_15 = function(buffer, packet, parent)
@@ -20312,6 +20745,9 @@ dissect.order_acknowledgment_byte_15 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Acknowledgment Byte 14
+size_of.order_acknowledgment_byte_14 = 1
+
 -- Display: Order Acknowledgment Byte 14
 display.order_acknowledgment_byte_14 = function(buffer, packet, parent)
   local display = ""
@@ -20393,6 +20829,9 @@ dissect.order_acknowledgment_byte_14 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Acknowledgment Byte 13
+size_of.order_acknowledgment_byte_13 = 1
 
 -- Display: Order Acknowledgment Byte 13
 display.order_acknowledgment_byte_13 = function(buffer, packet, parent)
@@ -20476,6 +20915,9 @@ dissect.order_acknowledgment_byte_13 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Acknowledgment Byte 12
+size_of.order_acknowledgment_byte_12 = 1
+
 -- Display: Order Acknowledgment Byte 12
 display.order_acknowledgment_byte_12 = function(buffer, packet, parent)
   local display = ""
@@ -20557,6 +20999,9 @@ dissect.order_acknowledgment_byte_12 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Acknowledgment Byte 11
+size_of.order_acknowledgment_byte_11 = 1
 
 -- Display: Order Acknowledgment Byte 11
 display.order_acknowledgment_byte_11 = function(buffer, packet, parent)
@@ -20640,6 +21085,9 @@ dissect.order_acknowledgment_byte_11 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Acknowledgment Byte 10
+size_of.order_acknowledgment_byte_10 = 1
+
 -- Display: Order Acknowledgment Byte 10
 display.order_acknowledgment_byte_10 = function(buffer, packet, parent)
   local display = ""
@@ -20721,6 +21169,9 @@ dissect.order_acknowledgment_byte_10 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Acknowledgment Byte 9
+size_of.order_acknowledgment_byte_9 = 1
 
 -- Display: Order Acknowledgment Byte 9
 display.order_acknowledgment_byte_9 = function(buffer, packet, parent)
@@ -20804,6 +21255,9 @@ dissect.order_acknowledgment_byte_9 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Acknowledgment Byte 8
+size_of.order_acknowledgment_byte_8 = 1
+
 -- Display: Order Acknowledgment Byte 8
 display.order_acknowledgment_byte_8 = function(buffer, packet, parent)
   local display = ""
@@ -20885,6 +21339,9 @@ dissect.order_acknowledgment_byte_8 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Acknowledgment Byte 7
+size_of.order_acknowledgment_byte_7 = 1
 
 -- Display: Order Acknowledgment Byte 7
 display.order_acknowledgment_byte_7 = function(buffer, packet, parent)
@@ -20968,6 +21425,9 @@ dissect.order_acknowledgment_byte_7 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Acknowledgment Byte 6
+size_of.order_acknowledgment_byte_6 = 1
+
 -- Display: Order Acknowledgment Byte 6
 display.order_acknowledgment_byte_6 = function(buffer, packet, parent)
   local display = ""
@@ -21049,6 +21509,9 @@ dissect.order_acknowledgment_byte_6 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Acknowledgment Byte 5
+size_of.order_acknowledgment_byte_5 = 1
 
 -- Display: Order Acknowledgment Byte 5
 display.order_acknowledgment_byte_5 = function(buffer, packet, parent)
@@ -21132,6 +21595,9 @@ dissect.order_acknowledgment_byte_5 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Acknowledgment Byte 4
+size_of.order_acknowledgment_byte_4 = 1
+
 -- Display: Order Acknowledgment Byte 4
 display.order_acknowledgment_byte_4 = function(buffer, packet, parent)
   local display = ""
@@ -21213,6 +21679,9 @@ dissect.order_acknowledgment_byte_4 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Acknowledgment Byte 3
+size_of.order_acknowledgment_byte_3 = 1
 
 -- Display: Order Acknowledgment Byte 3
 display.order_acknowledgment_byte_3 = function(buffer, packet, parent)
@@ -21296,6 +21765,9 @@ dissect.order_acknowledgment_byte_3 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Acknowledgment Byte 2
+size_of.order_acknowledgment_byte_2 = 1
+
 -- Display: Order Acknowledgment Byte 2
 display.order_acknowledgment_byte_2 = function(buffer, packet, parent)
   local display = ""
@@ -21377,6 +21849,9 @@ dissect.order_acknowledgment_byte_2 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Acknowledgment Byte 1
+size_of.order_acknowledgment_byte_1 = 1
 
 -- Display: Order Acknowledgment Byte 1
 display.order_acknowledgment_byte_1 = function(buffer, packet, parent)
@@ -22243,6 +22718,9 @@ dissect.cancel_orig_on_reject = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Modify Order Byte 2
+size_of.modify_order_byte_2 = 1
+
 -- Display: Modify Order Byte 2
 display.modify_order_byte_2 = function(buffer, packet, parent)
   local display = ""
@@ -22324,6 +22802,9 @@ dissect.modify_order_byte_2 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Modify Order Byte 1
+size_of.modify_order_byte_1 = 1
 
 -- Display: Modify Order Byte 1
 display.modify_order_byte_1 = function(buffer, packet, parent)
@@ -22625,6 +23106,25 @@ dissect.reserved_2 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Short Quote Update
+size_of.short_quote_update = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.symbol
+
+  index = index + size_of.side
+
+  index = index + size_of.open_close
+
+  index = index + size_of.price
+
+  index = index + size_of.order_qty
+
+  index = index + size_of.reserved_2
+
+  return index
+end
+
 -- Display: Short Quote Update
 display.short_quote_update = function(buffer, offset, size, packet, parent)
   return ""
@@ -22659,7 +23159,8 @@ end
 dissect.short_quote_update = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.short_quote_update then
-    local range = buffer(offset, 22)
+    local length = size_of.short_quote_update(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.short_quote_update(buffer, packet, parent)
     parent = parent:add(cboe_options_bzx_orderentry_boe_v2_10.fields.short_quote_update, range, display)
   end
@@ -22848,6 +23349,25 @@ dissect.reserved_12 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Quote Update
+size_of.quote_update = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.symbol
+
+  index = index + size_of.side
+
+  index = index + size_of.open_close
+
+  index = index + size_of.price
+
+  index = index + size_of.order_qty
+
+  index = index + size_of.reserved_12
+
+  return index
+end
+
 -- Display: Quote Update
 display.quote_update = function(buffer, offset, size, packet, parent)
   return ""
@@ -22882,7 +23402,8 @@ end
 dissect.quote_update = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.quote_update then
-    local range = buffer(offset, 32)
+    local length = size_of.quote_update(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.quote_update(buffer, packet, parent)
     parent = parent:add(cboe_options_bzx_orderentry_boe_v2_10.fields.quote_update, range, display)
   end
@@ -23099,6 +23620,9 @@ dissect.mass_cancel_lockout = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Cancel Order Byte 2
+size_of.cancel_order_byte_2 = 1
+
 -- Display: Cancel Order Byte 2
 display.cancel_order_byte_2 = function(buffer, packet, parent)
   local display = ""
@@ -23180,6 +23704,9 @@ dissect.cancel_order_byte_2 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Cancel Order Byte 1
+size_of.cancel_order_byte_1 = 1
 
 -- Display: Cancel Order Byte 1
 display.cancel_order_byte_1 = function(buffer, packet, parent)
@@ -23445,6 +23972,9 @@ dissect.display_range = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: New Order Byte 9
+size_of.new_order_byte_9 = 1
+
 -- Display: New Order Byte 9
 display.new_order_byte_9 = function(buffer, packet, parent)
   local display = ""
@@ -23526,6 +24056,9 @@ dissect.new_order_byte_9 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: New Order Byte 8
+size_of.new_order_byte_8 = 1
 
 -- Display: New Order Byte 8
 display.new_order_byte_8 = function(buffer, packet, parent)
@@ -23609,6 +24142,9 @@ dissect.new_order_byte_8 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: New Order Byte 7
+size_of.new_order_byte_7 = 1
+
 -- Display: New Order Byte 7
 display.new_order_byte_7 = function(buffer, packet, parent)
   local display = ""
@@ -23690,6 +24226,9 @@ dissect.new_order_byte_7 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: New Order Byte 6
+size_of.new_order_byte_6 = 1
 
 -- Display: New Order Byte 6
 display.new_order_byte_6 = function(buffer, packet, parent)
@@ -23773,6 +24312,9 @@ dissect.new_order_byte_6 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: New Order Byte 5
+size_of.new_order_byte_5 = 1
+
 -- Display: New Order Byte 5
 display.new_order_byte_5 = function(buffer, packet, parent)
   local display = ""
@@ -23854,6 +24396,9 @@ dissect.new_order_byte_5 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: New Order Byte 4
+size_of.new_order_byte_4 = 1
 
 -- Display: New Order Byte 4
 display.new_order_byte_4 = function(buffer, packet, parent)
@@ -23937,6 +24482,9 @@ dissect.new_order_byte_4 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: New Order Byte 3
+size_of.new_order_byte_3 = 1
+
 -- Display: New Order Byte 3
 display.new_order_byte_3 = function(buffer, packet, parent)
   local display = ""
@@ -24019,6 +24567,9 @@ dissect.new_order_byte_3 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: New Order Byte 2
+size_of.new_order_byte_2 = 1
+
 -- Display: New Order Byte 2
 display.new_order_byte_2 = function(buffer, packet, parent)
   local display = ""
@@ -24100,6 +24651,9 @@ dissect.new_order_byte_2 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: New Order Byte 1
+size_of.new_order_byte_1 = 1
 
 -- Display: New Order Byte 1
 display.new_order_byte_1 = function(buffer, packet, parent)
@@ -24669,6 +25223,17 @@ dissect.unit_number = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Unit Sequence
+size_of.unit_sequence = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.unit_number
+
+  index = index + size_of.sequence_number
+
+  return index
+end
+
 -- Display: Unit Sequence
 display.unit_sequence = function(buffer, offset, size, packet, parent)
   return ""
@@ -24691,7 +25256,8 @@ end
 dissect.unit_sequence = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.unit_sequence then
-    local range = buffer(offset, 5)
+    local length = size_of.unit_sequence(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.unit_sequence(buffer, packet, parent)
     parent = parent:add(cboe_options_bzx_orderentry_boe_v2_10.fields.unit_sequence, range, display)
   end
@@ -25254,6 +25820,9 @@ dissect.trade_cancel_or_correct_return_bitfields = function(buffer, offset, pack
   return offset + size_of_trade_cancel_or_correct_return_bitfields
 end
 
+-- Size: Order Execution Byte 17
+size_of.order_execution_byte_17 = 1
+
 -- Display: Order Execution Byte 17
 display.order_execution_byte_17 = function(buffer, packet, parent)
   local display = ""
@@ -25335,6 +25904,9 @@ dissect.order_execution_byte_17 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Execution Byte 16
+size_of.order_execution_byte_16 = 1
 
 -- Display: Order Execution Byte 16
 display.order_execution_byte_16 = function(buffer, packet, parent)
@@ -25418,6 +25990,9 @@ dissect.order_execution_byte_16 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Execution Byte 15
+size_of.order_execution_byte_15 = 1
+
 -- Display: Order Execution Byte 15
 display.order_execution_byte_15 = function(buffer, packet, parent)
   local display = ""
@@ -25499,6 +26074,9 @@ dissect.order_execution_byte_15 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Execution Byte 14
+size_of.order_execution_byte_14 = 1
 
 -- Display: Order Execution Byte 14
 display.order_execution_byte_14 = function(buffer, packet, parent)
@@ -25582,6 +26160,9 @@ dissect.order_execution_byte_14 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Execution Byte 13
+size_of.order_execution_byte_13 = 1
+
 -- Display: Order Execution Byte 13
 display.order_execution_byte_13 = function(buffer, packet, parent)
   local display = ""
@@ -25663,6 +26244,9 @@ dissect.order_execution_byte_13 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Execution Byte 12
+size_of.order_execution_byte_12 = 1
 
 -- Display: Order Execution Byte 12
 display.order_execution_byte_12 = function(buffer, packet, parent)
@@ -25746,6 +26330,9 @@ dissect.order_execution_byte_12 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Execution Byte 11
+size_of.order_execution_byte_11 = 1
+
 -- Display: Order Execution Byte 11
 display.order_execution_byte_11 = function(buffer, packet, parent)
   local display = ""
@@ -25827,6 +26414,9 @@ dissect.order_execution_byte_11 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Execution Byte 10
+size_of.order_execution_byte_10 = 1
 
 -- Display: Order Execution Byte 10
 display.order_execution_byte_10 = function(buffer, packet, parent)
@@ -25910,6 +26500,9 @@ dissect.order_execution_byte_10 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Execution Byte 9
+size_of.order_execution_byte_9 = 1
+
 -- Display: Order Execution Byte 9
 display.order_execution_byte_9 = function(buffer, packet, parent)
   local display = ""
@@ -25991,6 +26584,9 @@ dissect.order_execution_byte_9 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Execution Byte 8
+size_of.order_execution_byte_8 = 1
 
 -- Display: Order Execution Byte 8
 display.order_execution_byte_8 = function(buffer, packet, parent)
@@ -26074,6 +26670,9 @@ dissect.order_execution_byte_8 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Execution Byte 7
+size_of.order_execution_byte_7 = 1
+
 -- Display: Order Execution Byte 7
 display.order_execution_byte_7 = function(buffer, packet, parent)
   local display = ""
@@ -26155,6 +26754,9 @@ dissect.order_execution_byte_7 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Execution Byte 6
+size_of.order_execution_byte_6 = 1
 
 -- Display: Order Execution Byte 6
 display.order_execution_byte_6 = function(buffer, packet, parent)
@@ -26238,6 +26840,9 @@ dissect.order_execution_byte_6 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Execution Byte 5
+size_of.order_execution_byte_5 = 1
+
 -- Display: Order Execution Byte 5
 display.order_execution_byte_5 = function(buffer, packet, parent)
   local display = ""
@@ -26319,6 +26924,9 @@ dissect.order_execution_byte_5 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Execution Byte 4
+size_of.order_execution_byte_4 = 1
 
 -- Display: Order Execution Byte 4
 display.order_execution_byte_4 = function(buffer, packet, parent)
@@ -26402,6 +27010,9 @@ dissect.order_execution_byte_4 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Execution Byte 3
+size_of.order_execution_byte_3 = 1
+
 -- Display: Order Execution Byte 3
 display.order_execution_byte_3 = function(buffer, packet, parent)
   local display = ""
@@ -26484,6 +27095,9 @@ dissect.order_execution_byte_3 = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Size: Order Execution Byte 2
+size_of.order_execution_byte_2 = 1
+
 -- Display: Order Execution Byte 2
 display.order_execution_byte_2 = function(buffer, packet, parent)
   local display = ""
@@ -26565,6 +27179,9 @@ dissect.order_execution_byte_2 = function(buffer, offset, packet, parent)
 
   return offset + 1, range
 end
+
+-- Size: Order Execution Byte 1
+size_of.order_execution_byte_1 = 1
 
 -- Display: Order Execution Byte 1
 display.order_execution_byte_1 = function(buffer, packet, parent)
@@ -28553,11 +29170,13 @@ dissect.no_unspecified_unit_replay = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Unit Sequences
+-- Calculate size of: Unit Sequences
 size_of.unit_sequences = function(buffer, offset)
   local index = 0
 
-  index = index + 2
+  index = index + size_of.no_unspecified_unit_replay
+
+  index = index + size_of.number_of_units
 
   -- Calculate field size from count
   local unit_sequence_count = buffer(offset + index - 1, 1):le_uint()
@@ -28702,6 +29321,17 @@ dissect.param_group_length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Param Header
+size_of.param_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.param_group_length
+
+  index = index + size_of.param_group_type
+
+  return index
+end
+
 -- Display: Param Header
 display.param_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -28724,7 +29354,8 @@ end
 dissect.param_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.param_header then
-    local range = buffer(offset, 3)
+    local length = size_of.param_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.param_header(buffer, packet, parent)
     parent = parent:add(cboe_options_bzx_orderentry_boe_v2_10.fields.param_header, range, display)
   end
@@ -29491,6 +30122,23 @@ dissect.start_of_message = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Message Header
+size_of.message_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.start_of_message
+
+  index = index + size_of.message_length
+
+  index = index + size_of.message_type
+
+  index = index + size_of.matching_unit
+
+  index = index + size_of.sequence_number
+
+  return index
+end
+
 -- Display: Message Header
 display.message_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -29522,7 +30170,8 @@ end
 dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local range = buffer(offset, 10)
+    local length = size_of.message_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
     parent = parent:add(cboe_options_bzx_orderentry_boe_v2_10.fields.message_header, range, display)
   end

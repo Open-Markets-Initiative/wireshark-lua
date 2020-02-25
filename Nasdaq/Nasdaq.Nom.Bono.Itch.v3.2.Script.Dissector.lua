@@ -315,6 +315,23 @@ dissect.nanoseconds = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Broken Trade Report Message
+size_of.broken_trade_report_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.nanoseconds
+
+  index = index + size_of.option_id
+
+  index = index + size_of.original_cross_id
+
+  index = index + size_of.original_price
+
+  index = index + size_of.original_volume
+
+  return index
+end
+
 -- Display: Broken Trade Report Message
 display.broken_trade_report_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -346,7 +363,8 @@ end
 dissect.broken_trade_report_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.broken_trade_report_message then
-    local range = buffer(offset, 20)
+    local length = size_of.broken_trade_report_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.broken_trade_report_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_bono_itch_v3_2.fields.broken_trade_report_message, range, display)
   end
@@ -434,6 +452,25 @@ dissect.cross_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Trade Report Message
+size_of.trade_report_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.nanoseconds
+
+  index = index + size_of.option_id
+
+  index = index + size_of.cross_id
+
+  index = index + size_of.trade_condition
+
+  index = index + size_of.price_4
+
+  index = index + size_of.volume
+
+  return index
+end
+
 -- Display: Trade Report Message
 display.trade_report_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -468,7 +505,8 @@ end
 dissect.trade_report_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_report_message then
-    local range = buffer(offset, 21)
+    local length = size_of.trade_report_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.trade_report_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_bono_itch_v3_2.fields.trade_report_message, range, display)
   end
@@ -529,6 +567,23 @@ dissect.quote_condition = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Long Best Bid Update Message
+size_of.long_best_bid_update_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.nanoseconds
+
+  index = index + size_of.option_id
+
+  index = index + size_of.quote_condition
+
+  index = index + size_of.price_4
+
+  index = index + size_of.size_4
+
+  return index
+end
+
 -- Display: Long Best Bid Update Message
 display.long_best_bid_update_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -560,12 +615,30 @@ end
 dissect.long_best_bid_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.long_best_bid_update_message then
-    local range = buffer(offset, 17)
+    local length = size_of.long_best_bid_update_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.long_best_bid_update_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_bono_itch_v3_2.fields.long_best_bid_update_message, range, display)
   end
 
   return dissect.long_best_bid_update_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Long Best Ask Update Message
+size_of.long_best_ask_update_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.nanoseconds
+
+  index = index + size_of.option_id
+
+  index = index + size_of.quote_condition
+
+  index = index + size_of.price_4
+
+  index = index + size_of.size_4
+
+  return index
 end
 
 -- Display: Long Best Ask Update Message
@@ -599,7 +672,8 @@ end
 dissect.long_best_ask_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.long_best_ask_update_message then
-    local range = buffer(offset, 17)
+    local length = size_of.long_best_ask_update_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.long_best_ask_update_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_bono_itch_v3_2.fields.long_best_ask_update_message, range, display)
   end
@@ -647,6 +721,23 @@ dissect.price_2 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Short Best Bid Update Message
+size_of.short_best_bid_update_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.nanoseconds
+
+  index = index + size_of.option_id
+
+  index = index + size_of.quote_condition
+
+  index = index + size_of.price_2
+
+  index = index + size_of.size_2
+
+  return index
+end
+
 -- Display: Short Best Bid Update Message
 display.short_best_bid_update_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -678,12 +769,30 @@ end
 dissect.short_best_bid_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.short_best_bid_update_message then
-    local range = buffer(offset, 13)
+    local length = size_of.short_best_bid_update_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.short_best_bid_update_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_bono_itch_v3_2.fields.short_best_bid_update_message, range, display)
   end
 
   return dissect.short_best_bid_update_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Short Best Ask Update Message
+size_of.short_best_ask_update_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.nanoseconds
+
+  index = index + size_of.option_id
+
+  index = index + size_of.quote_condition
+
+  index = index + size_of.price_2
+
+  index = index + size_of.size_2
+
+  return index
 end
 
 -- Display: Short Best Ask Update Message
@@ -717,7 +826,8 @@ end
 dissect.short_best_ask_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.short_best_ask_update_message then
-    local range = buffer(offset, 13)
+    local length = size_of.short_best_ask_update_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.short_best_ask_update_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_bono_itch_v3_2.fields.short_best_ask_update_message, range, display)
   end
@@ -805,6 +915,27 @@ dissect.bid_price_4 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Long Best Bid And Ask Update Message
+size_of.long_best_bid_and_ask_update_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.nanoseconds
+
+  index = index + size_of.option_id
+
+  index = index + size_of.quote_condition
+
+  index = index + size_of.bid_price_4
+
+  index = index + size_of.bid_size_4
+
+  index = index + size_of.ask_price_4
+
+  index = index + size_of.ask_size_4
+
+  return index
+end
+
 -- Display: Long Best Bid And Ask Update Message
 display.long_best_bid_and_ask_update_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -842,7 +973,8 @@ end
 dissect.long_best_bid_and_ask_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.long_best_bid_and_ask_update_message then
-    local range = buffer(offset, 25)
+    local length = size_of.long_best_bid_and_ask_update_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.long_best_bid_and_ask_update_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_bono_itch_v3_2.fields.long_best_bid_and_ask_update_message, range, display)
   end
@@ -930,6 +1062,27 @@ dissect.bid_price_2 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Short Best Bid And Ask Update Message
+size_of.short_best_bid_and_ask_update_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.nanoseconds
+
+  index = index + size_of.option_id
+
+  index = index + size_of.quote_condition
+
+  index = index + size_of.bid_price_2
+
+  index = index + size_of.bid_size_2
+
+  index = index + size_of.ask_price_2
+
+  index = index + size_of.ask_size_2
+
+  return index
+end
+
 -- Display: Short Best Bid And Ask Update Message
 display.short_best_bid_and_ask_update_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -967,7 +1120,8 @@ end
 dissect.short_best_bid_and_ask_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.short_best_bid_and_ask_update_message then
-    local range = buffer(offset, 17)
+    local length = size_of.short_best_bid_and_ask_update_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.short_best_bid_and_ask_update_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_bono_itch_v3_2.fields.short_best_bid_and_ask_update_message, range, display)
   end
@@ -1002,6 +1156,19 @@ dissect.open_state = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Security Open Closed Message
+size_of.security_open_closed_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.nanoseconds
+
+  index = index + size_of.option_id
+
+  index = index + size_of.open_state
+
+  return index
+end
+
 -- Display: Security Open Closed Message
 display.security_open_closed_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1027,7 +1194,8 @@ end
 dissect.security_open_closed_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.security_open_closed_message then
-    local range = buffer(offset, 9)
+    local length = size_of.security_open_closed_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.security_open_closed_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_bono_itch_v3_2.fields.security_open_closed_message, range, display)
   end
@@ -1062,6 +1230,19 @@ dissect.current_trading_state = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Trading Action Message
+size_of.trading_action_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.nanoseconds
+
+  index = index + size_of.option_id
+
+  index = index + size_of.current_trading_state
+
+  return index
+end
+
 -- Display: Trading Action Message
 display.trading_action_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1087,7 +1268,8 @@ end
 dissect.trading_action_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trading_action_message then
-    local range = buffer(offset, 9)
+    local length = size_of.trading_action_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.trading_action_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_bono_itch_v3_2.fields.trading_action_message, range, display)
   end
@@ -1346,6 +1528,39 @@ dissect.security_symbol = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Options Directory Message
+size_of.options_directory_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.nanoseconds
+
+  index = index + size_of.option_id
+
+  index = index + size_of.security_symbol
+
+  index = index + size_of.expiration_year
+
+  index = index + size_of.expiration_month
+
+  index = index + size_of.expiration_day
+
+  index = index + size_of.strike_price
+
+  index = index + size_of.option_type
+
+  index = index + size_of.source
+
+  index = index + size_of.underlying_symbol
+
+  index = index + size_of.option_closing_type
+
+  index = index + size_of.tradable
+
+  index = index + size_of.mpv
+
+  return index
+end
+
 -- Display: Options Directory Message
 display.options_directory_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1401,7 +1616,8 @@ end
 dissect.options_directory_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.options_directory_message then
-    local range = buffer(offset, 39)
+    local length = size_of.options_directory_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.options_directory_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_bono_itch_v3_2.fields.options_directory_message, range, display)
   end
@@ -1491,6 +1707,21 @@ dissect.event_code = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: System Event Message
+size_of.system_event_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.nanoseconds
+
+  index = index + size_of.event_code
+
+  index = index + size_of.version
+
+  index = index + size_of.subversion
+
+  return index
+end
+
 -- Display: System Event Message
 display.system_event_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1519,7 +1750,8 @@ end
 dissect.system_event_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.system_event_message then
-    local range = buffer(offset, 7)
+    local length = size_of.system_event_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.system_event_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_bono_itch_v3_2.fields.system_event_message, range, display)
   end
@@ -1547,6 +1779,15 @@ dissect.seconds = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Timestamp Message
+size_of.timestamp_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.seconds
+
+  return index
+end
+
 -- Display: Timestamp Message
 display.timestamp_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1566,7 +1807,8 @@ end
 dissect.timestamp_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.timestamp_message then
-    local range = buffer(offset, 4)
+    local length = size_of.timestamp_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.timestamp_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_bono_itch_v3_2.fields.timestamp_message, range, display)
   end
@@ -1578,55 +1820,55 @@ end
 size_of.payload = function(buffer, offset, message_type)
   -- Size of Timestamp Message
   if message_type == "T" then
-    return 4
+    return size_of.timestamp_message(buffer, offset)
   end
   -- Size of System Event Message
   if message_type == "S" then
-    return 7
+    return size_of.system_event_message(buffer, offset)
   end
   -- Size of Options Directory Message
   if message_type == "D" then
-    return 39
+    return size_of.options_directory_message(buffer, offset)
   end
   -- Size of Trading Action Message
   if message_type == "H" then
-    return 9
+    return size_of.trading_action_message(buffer, offset)
   end
   -- Size of Security Open Closed Message
   if message_type == "O" then
-    return 9
+    return size_of.security_open_closed_message(buffer, offset)
   end
   -- Size of Short Best Bid And Ask Update Message
   if message_type == "q" then
-    return 17
+    return size_of.short_best_bid_and_ask_update_message(buffer, offset)
   end
   -- Size of Long Best Bid And Ask Update Message
   if message_type == "Q" then
-    return 25
+    return size_of.long_best_bid_and_ask_update_message(buffer, offset)
   end
   -- Size of Short Best Ask Update Message
   if message_type == "a" then
-    return 13
+    return size_of.short_best_ask_update_message(buffer, offset)
   end
   -- Size of Short Best Bid Update Message
   if message_type == "b" then
-    return 13
+    return size_of.short_best_bid_update_message(buffer, offset)
   end
   -- Size of Long Best Ask Update Message
   if message_type == "A" then
-    return 17
+    return size_of.long_best_ask_update_message(buffer, offset)
   end
   -- Size of Long Best Bid Update Message
   if message_type == "B" then
-    return 17
+    return size_of.long_best_bid_update_message(buffer, offset)
   end
   -- Size of Trade Report Message
   if message_type == "R" then
-    return 21
+    return size_of.trade_report_message(buffer, offset)
   end
   -- Size of Broken Trade Report Message
   if message_type == "X" then
-    return 20
+    return size_of.broken_trade_report_message(buffer, offset)
   end
 
   return 0
@@ -1795,6 +2037,17 @@ dissect.length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Message Header
+size_of.message_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.length
+
+  index = index + size_of.message_type
+
+  return index
+end
+
 -- Display: Message Header
 display.message_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -1817,7 +2070,8 @@ end
 dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local range = buffer(offset, 3)
+    local length = size_of.message_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_bono_itch_v3_2.fields.message_header, range, display)
   end
@@ -1825,11 +2079,11 @@ dissect.message_header = function(buffer, offset, packet, parent)
   return dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Message
+-- Calculate size of: Message
 size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.message_header(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -1933,6 +2187,19 @@ dissect.session = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Packet Header
+size_of.packet_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.session
+
+  index = index + size_of.sequence
+
+  index = index + size_of.count
+
+  return index
+end
+
 -- Display: Packet Header
 display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -1958,7 +2225,8 @@ end
 dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local range = buffer(offset, 20)
+    local length = size_of.packet_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.packet_header(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_bono_itch_v3_2.fields.packet_header, range, display)
   end

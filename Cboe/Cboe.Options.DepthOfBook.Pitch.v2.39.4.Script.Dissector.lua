@@ -390,6 +390,19 @@ dissect.time_offset = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Retail Price Improvement Message
+size_of.retail_price_improvement_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.time_offset
+
+  index = index + size_of.expanded_symbol
+
+  index = index + size_of.retail_price_improvement
+
+  return index
+end
+
 -- Display: Retail Price Improvement Message
 display.retail_price_improvement_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -415,7 +428,8 @@ end
 dissect.retail_price_improvement_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.retail_price_improvement_message then
-    local range = buffer(offset, 13)
+    local length = size_of.retail_price_improvement_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.retail_price_improvement_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.retail_price_improvement_message, range, display)
   end
@@ -503,6 +517,23 @@ dissect.auction_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Auction Trade Message
+size_of.auction_trade_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.time_offset
+
+  index = index + size_of.auction_id
+
+  index = index + size_of.execution_id
+
+  index = index + size_of.long_price
+
+  index = index + size_of.contracts
+
+  return index
+end
+
 -- Display: Auction Trade Message
 display.auction_trade_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -534,12 +565,24 @@ end
 dissect.auction_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.auction_trade_message then
-    local range = buffer(offset, 32)
+    local length = size_of.auction_trade_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.auction_trade_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.auction_trade_message, range, display)
   end
 
   return dissect.auction_trade_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Auction Cancel Message
+size_of.auction_cancel_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.time_offset
+
+  index = index + size_of.auction_id
+
+  return index
 end
 
 -- Display: Auction Cancel Message
@@ -564,7 +607,8 @@ end
 dissect.auction_cancel_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.auction_cancel_message then
-    local range = buffer(offset, 12)
+    local length = size_of.auction_cancel_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.auction_cancel_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.auction_cancel_message, range, display)
   end
@@ -728,6 +772,33 @@ dissect.symbol = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Auction Notification Message
+size_of.auction_notification_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.time_offset
+
+  index = index + size_of.symbol
+
+  index = index + size_of.auction_id
+
+  index = index + size_of.auction_type
+
+  index = index + size_of.side_indicator
+
+  index = index + size_of.long_price
+
+  index = index + size_of.contracts
+
+  index = index + size_of.customer_indicator
+
+  index = index + size_of.participant_id
+
+  index = index + size_of.auction_end_offset
+
+  return index
+end
+
 -- Display: Auction Notification Message
 display.auction_notification_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -774,7 +845,8 @@ end
 dissect.auction_notification_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.auction_notification_message then
-    local range = buffer(offset, 41)
+    local length = size_of.auction_notification_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.auction_notification_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.auction_notification_message, range, display)
   end
@@ -822,6 +894,23 @@ dissect.stock_symbol = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Auction Summary Message
+size_of.auction_summary_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.time_offset
+
+  index = index + size_of.stock_symbol
+
+  index = index + size_of.auction_type
+
+  index = index + size_of.long_price
+
+  index = index + size_of.shares
+
+  return index
+end
+
 -- Display: Auction Summary Message
 display.auction_summary_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -853,7 +942,8 @@ end
 dissect.auction_summary_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.auction_summary_message then
-    local range = buffer(offset, 25)
+    local length = size_of.auction_summary_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.auction_summary_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.auction_summary_message, range, display)
   end
@@ -961,6 +1051,29 @@ dissect.reference_price = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Auction Update Message
+size_of.auction_update_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.time_offset
+
+  index = index + size_of.stock_symbol
+
+  index = index + size_of.auction_type
+
+  index = index + size_of.reference_price
+
+  index = index + size_of.buy_shares
+
+  index = index + size_of.sell_shares
+
+  index = index + size_of.indicative_price
+
+  index = index + size_of.auction_only_price
+
+  return index
+end
+
 -- Display: Auction Update Message
 display.auction_update_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1001,7 +1114,8 @@ end
 dissect.auction_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.auction_update_message then
-    local range = buffer(offset, 45)
+    local length = size_of.auction_update_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.auction_update_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.auction_update_message, range, display)
   end
@@ -1112,6 +1226,25 @@ dissect.trading_status = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Trading Status Message
+size_of.trading_status_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.time_offset
+
+  index = index + size_of.expanded_symbol
+
+  index = index + size_of.trading_status
+
+  index = index + size_of.reg_sho_action
+
+  index = index + size_of.reserved_1
+
+  index = index + size_of.reserved_2
+
+  return index
+end
+
 -- Display: Trading Status Message
 display.trading_status_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1146,7 +1279,8 @@ end
 dissect.trading_status_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trading_status_message then
-    local range = buffer(offset, 16)
+    local length = size_of.trading_status_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.trading_status_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.trading_status_message, range, display)
   end
@@ -1221,6 +1355,19 @@ dissect.feed_symbol = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Symbol Mapping Message
+size_of.symbol_mapping_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.feed_symbol
+
+  index = index + size_of.osi_symbol
+
+  index = index + size_of.symbol_condition
+
+  return index
+end
+
 -- Display: Symbol Mapping Message
 display.symbol_mapping_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1246,12 +1393,22 @@ end
 dissect.symbol_mapping_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.symbol_mapping_message then
-    local range = buffer(offset, 28)
+    local length = size_of.symbol_mapping_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.symbol_mapping_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.symbol_mapping_message, range, display)
   end
 
   return dissect.symbol_mapping_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: End Of Session Message
+size_of.end_of_session_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.time_offset
+
+  return index
 end
 
 -- Display: End Of Session Message
@@ -1273,12 +1430,24 @@ end
 dissect.end_of_session_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.end_of_session_message then
-    local range = buffer(offset, 4)
+    local length = size_of.end_of_session_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.end_of_session_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.end_of_session_message, range, display)
   end
 
   return dissect.end_of_session_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Trade Break Message
+size_of.trade_break_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.time_offset
+
+  index = index + size_of.execution_id
+
+  return index
 end
 
 -- Display: Trade Break Message
@@ -1303,7 +1472,8 @@ end
 dissect.trade_break_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_break_message then
-    local range = buffer(offset, 12)
+    local length = size_of.trade_break_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.trade_break_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.trade_break_message, range, display)
   end
@@ -1378,6 +1548,29 @@ dissect.order_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Trade Expanded Message
+size_of.trade_expanded_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.time_offset
+
+  index = index + size_of.order_id
+
+  index = index + size_of.side_indicator
+
+  index = index + size_of.long_quantity
+
+  index = index + size_of.expanded_symbol
+
+  index = index + size_of.long_price
+
+  index = index + size_of.execution_id
+
+  index = index + size_of.trade_condition
+
+  return index
+end
+
 -- Display: Trade Expanded Message
 display.trade_expanded_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1418,7 +1611,8 @@ end
 dissect.trade_expanded_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_expanded_message then
-    local range = buffer(offset, 42)
+    local length = size_of.trade_expanded_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.trade_expanded_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.trade_expanded_message, range, display)
   end
@@ -1466,6 +1660,29 @@ dissect.short_quantity = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Trade Short Message
+size_of.trade_short_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.time_offset
+
+  index = index + size_of.order_id
+
+  index = index + size_of.side_indicator
+
+  index = index + size_of.short_quantity
+
+  index = index + size_of.symbol
+
+  index = index + size_of.short_price
+
+  index = index + size_of.execution_id
+
+  index = index + size_of.trade_condition
+
+  return index
+end
+
 -- Display: Trade Short Message
 display.trade_short_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1506,12 +1723,36 @@ end
 dissect.trade_short_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_short_message then
-    local range = buffer(offset, 32)
+    local length = size_of.trade_short_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.trade_short_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.trade_short_message, range, display)
   end
 
   return dissect.trade_short_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Trade Long Message
+size_of.trade_long_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.time_offset
+
+  index = index + size_of.order_id
+
+  index = index + size_of.side_indicator
+
+  index = index + size_of.long_quantity
+
+  index = index + size_of.symbol
+
+  index = index + size_of.long_price
+
+  index = index + size_of.execution_id
+
+  index = index + size_of.trade_condition
+
+  return index
 end
 
 -- Display: Trade Long Message
@@ -1554,12 +1795,24 @@ end
 dissect.trade_long_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_long_message then
-    local range = buffer(offset, 40)
+    local length = size_of.trade_long_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.trade_long_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.trade_long_message, range, display)
   end
 
   return dissect.trade_long_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Delete Order Message
+size_of.delete_order_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.time_offset
+
+  index = index + size_of.order_id
+
+  return index
 end
 
 -- Display: Delete Order Message
@@ -1584,13 +1837,17 @@ end
 dissect.delete_order_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.delete_order_message then
-    local range = buffer(offset, 12)
+    local length = size_of.delete_order_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.delete_order_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.delete_order_message, range, display)
   end
 
   return dissect.delete_order_message_fields(buffer, offset, packet, parent)
 end
+
+-- Size: Modify Flags
+size_of.modify_flags = 1
 
 -- Display: Modify Flags
 display.modify_flags = function(buffer, packet, parent)
@@ -1635,6 +1892,23 @@ dissect.modify_flags = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
+-- Calculate size of: Modify Order Short Message
+size_of.modify_order_short_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.time_offset
+
+  index = index + size_of.order_id
+
+  index = index + size_of.short_quantity
+
+  index = index + size_of.short_price
+
+  index = index + size_of.modify_flags
+
+  return index
+end
+
 -- Display: Modify Order Short Message
 display.modify_order_short_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1666,12 +1940,30 @@ end
 dissect.modify_order_short_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.modify_order_short_message then
-    local range = buffer(offset, 17)
+    local length = size_of.modify_order_short_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.modify_order_short_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.modify_order_short_message, range, display)
   end
 
   return dissect.modify_order_short_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Modify Order Long Message
+size_of.modify_order_long_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.time_offset
+
+  index = index + size_of.order_id
+
+  index = index + size_of.long_quantity
+
+  index = index + size_of.long_price
+
+  index = index + size_of.modify_flags
+
+  return index
 end
 
 -- Display: Modify Order Long Message
@@ -1705,7 +1997,8 @@ end
 dissect.modify_order_long_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.modify_order_long_message then
-    local range = buffer(offset, 25)
+    local length = size_of.modify_order_long_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.modify_order_long_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.modify_order_long_message, range, display)
   end
@@ -1733,6 +2026,19 @@ dissect.canceled_short_quantity = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Reduce Size Short Message
+size_of.reduce_size_short_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.time_offset
+
+  index = index + size_of.order_id
+
+  index = index + size_of.canceled_short_quantity
+
+  return index
+end
+
 -- Display: Reduce Size Short Message
 display.reduce_size_short_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1758,7 +2064,8 @@ end
 dissect.reduce_size_short_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.reduce_size_short_message then
-    local range = buffer(offset, 14)
+    local length = size_of.reduce_size_short_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.reduce_size_short_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.reduce_size_short_message, range, display)
   end
@@ -1786,6 +2093,19 @@ dissect.canceled_long_quantity = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Reduce Size Long Message
+size_of.reduce_size_long_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.time_offset
+
+  index = index + size_of.order_id
+
+  index = index + size_of.canceled_long_quantity
+
+  return index
+end
+
 -- Display: Reduce Size Long Message
 display.reduce_size_long_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1811,7 +2131,8 @@ end
 dissect.reduce_size_long_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.reduce_size_long_message then
-    local range = buffer(offset, 16)
+    local length = size_of.reduce_size_long_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.reduce_size_long_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.reduce_size_long_message, range, display)
   end
@@ -1859,6 +2180,27 @@ dissect.executed_quantity = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Order Executed At Price Size Message
+size_of.order_executed_at_price_size_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.time_offset
+
+  index = index + size_of.order_id
+
+  index = index + size_of.executed_quantity
+
+  index = index + size_of.remaining_quantity
+
+  index = index + size_of.execution_id
+
+  index = index + size_of.long_price
+
+  index = index + size_of.trade_condition
+
+  return index
+end
+
 -- Display: Order Executed At Price Size Message
 display.order_executed_at_price_size_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1896,12 +2238,30 @@ end
 dissect.order_executed_at_price_size_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_executed_at_price_size_message then
-    local range = buffer(offset, 37)
+    local length = size_of.order_executed_at_price_size_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_executed_at_price_size_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.order_executed_at_price_size_message, range, display)
   end
 
   return dissect.order_executed_at_price_size_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Order Executed Message
+size_of.order_executed_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.time_offset
+
+  index = index + size_of.order_id
+
+  index = index + size_of.executed_quantity
+
+  index = index + size_of.execution_id
+
+  index = index + size_of.trade_condition
+
+  return index
 end
 
 -- Display: Order Executed Message
@@ -1935,13 +2295,17 @@ end
 dissect.order_executed_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_executed_message then
-    local range = buffer(offset, 25)
+    local length = size_of.order_executed_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_executed_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.order_executed_message, range, display)
   end
 
   return dissect.order_executed_message_fields(buffer, offset, packet, parent)
 end
+
+-- Size: Add Flags
+size_of.add_flags = 1
 
 -- Display: Add Flags
 display.add_flags = function(buffer, packet, parent)
@@ -1977,6 +2341,31 @@ dissect.add_flags = function(buffer, offset, packet, parent)
   end
 
   return offset + 1, range
+end
+
+-- Calculate size of: Add Order Expanded Message
+size_of.add_order_expanded_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.time_offset
+
+  index = index + size_of.order_id
+
+  index = index + size_of.side_indicator
+
+  index = index + size_of.long_quantity
+
+  index = index + size_of.expanded_symbol
+
+  index = index + size_of.long_price
+
+  index = index + size_of.add_flags
+
+  index = index + size_of.participant_id
+
+  index = index + size_of.customer_indicator
+
+  return index
 end
 
 -- Display: Add Order Expanded Message
@@ -2022,12 +2411,34 @@ end
 dissect.add_order_expanded_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.add_order_expanded_message then
-    local range = buffer(offset, 39)
+    local length = size_of.add_order_expanded_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.add_order_expanded_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.add_order_expanded_message, range, display)
   end
 
   return dissect.add_order_expanded_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Add Order Short Message
+size_of.add_order_short_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.time_offset
+
+  index = index + size_of.order_id
+
+  index = index + size_of.side_indicator
+
+  index = index + size_of.short_quantity
+
+  index = index + size_of.symbol
+
+  index = index + size_of.short_price
+
+  index = index + size_of.add_flags
+
+  return index
 end
 
 -- Display: Add Order Short Message
@@ -2067,12 +2478,34 @@ end
 dissect.add_order_short_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.add_order_short_message then
-    local range = buffer(offset, 24)
+    local length = size_of.add_order_short_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.add_order_short_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.add_order_short_message, range, display)
   end
 
   return dissect.add_order_short_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Add Order Long Message
+size_of.add_order_long_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.time_offset
+
+  index = index + size_of.order_id
+
+  index = index + size_of.side_indicator
+
+  index = index + size_of.long_quantity
+
+  index = index + size_of.symbol
+
+  index = index + size_of.long_price
+
+  index = index + size_of.add_flags
+
+  return index
 end
 
 -- Display: Add Order Long Message
@@ -2112,12 +2545,22 @@ end
 dissect.add_order_long_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.add_order_long_message then
-    local range = buffer(offset, 32)
+    local length = size_of.add_order_long_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.add_order_long_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.add_order_long_message, range, display)
   end
 
   return dissect.add_order_long_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Unit Clear Message
+size_of.unit_clear_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.time_offset
+
+  return index
 end
 
 -- Display: Unit Clear Message
@@ -2139,7 +2582,8 @@ end
 dissect.unit_clear_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.unit_clear_message then
-    local range = buffer(offset, 4)
+    local length = size_of.unit_clear_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.unit_clear_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.unit_clear_message, range, display)
   end
@@ -2167,6 +2611,15 @@ dissect.time = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Time Message
+size_of.time_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.time
+
+  return index
+end
+
 -- Display: Time Message
 display.time_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -2186,7 +2639,8 @@ end
 dissect.time_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.time_message then
-    local range = buffer(offset, 4)
+    local length = size_of.time_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.time_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.time_message, range, display)
   end
@@ -2198,103 +2652,103 @@ end
 size_of.payload = function(buffer, offset, message_type)
   -- Size of Time Message
   if message_type == 0x20 then
-    return 4
+    return size_of.time_message(buffer, offset)
   end
   -- Size of Unit Clear Message
   if message_type == 0x97 then
-    return 4
+    return size_of.unit_clear_message(buffer, offset)
   end
   -- Size of Add Order Long Message
   if message_type == 0x21 then
-    return 32
+    return size_of.add_order_long_message(buffer, offset)
   end
   -- Size of Add Order Short Message
   if message_type == 0x22 then
-    return 24
+    return size_of.add_order_short_message(buffer, offset)
   end
   -- Size of Add Order Expanded Message
   if message_type == 0x2F then
-    return 39
+    return size_of.add_order_expanded_message(buffer, offset)
   end
   -- Size of Order Executed Message
   if message_type == 0x23 then
-    return 25
+    return size_of.order_executed_message(buffer, offset)
   end
   -- Size of Order Executed At Price Size Message
   if message_type == 0x24 then
-    return 37
+    return size_of.order_executed_at_price_size_message(buffer, offset)
   end
   -- Size of Reduce Size Long Message
   if message_type == 0x25 then
-    return 16
+    return size_of.reduce_size_long_message(buffer, offset)
   end
   -- Size of Reduce Size Short Message
   if message_type == 0x26 then
-    return 14
+    return size_of.reduce_size_short_message(buffer, offset)
   end
   -- Size of Modify Order Long Message
   if message_type == 0x27 then
-    return 25
+    return size_of.modify_order_long_message(buffer, offset)
   end
   -- Size of Modify Order Short Message
   if message_type == 0x28 then
-    return 17
+    return size_of.modify_order_short_message(buffer, offset)
   end
   -- Size of Delete Order Message
   if message_type == 0x29 then
-    return 12
+    return size_of.delete_order_message(buffer, offset)
   end
   -- Size of Trade Long Message
   if message_type == 0x2A then
-    return 40
+    return size_of.trade_long_message(buffer, offset)
   end
   -- Size of Trade Short Message
   if message_type == 0x2B then
-    return 32
+    return size_of.trade_short_message(buffer, offset)
   end
   -- Size of Trade Expanded Message
   if message_type == 0x30 then
-    return 42
+    return size_of.trade_expanded_message(buffer, offset)
   end
   -- Size of Trade Break Message
   if message_type == 0x2C then
-    return 12
+    return size_of.trade_break_message(buffer, offset)
   end
   -- Size of End Of Session Message
   if message_type == 0x2D then
-    return 4
+    return size_of.end_of_session_message(buffer, offset)
   end
   -- Size of Symbol Mapping Message
   if message_type == 0x2E then
-    return 28
+    return size_of.symbol_mapping_message(buffer, offset)
   end
   -- Size of Trading Status Message
   if message_type == 0x31 then
-    return 16
+    return size_of.trading_status_message(buffer, offset)
   end
   -- Size of Auction Update Message
   if message_type == 0x95 then
-    return 45
+    return size_of.auction_update_message(buffer, offset)
   end
   -- Size of Auction Summary Message
   if message_type == 0x96 then
-    return 25
+    return size_of.auction_summary_message(buffer, offset)
   end
   -- Size of Auction Notification Message
   if message_type == 0xAD then
-    return 41
+    return size_of.auction_notification_message(buffer, offset)
   end
   -- Size of Auction Cancel Message
   if message_type == 0xAE then
-    return 12
+    return size_of.auction_cancel_message(buffer, offset)
   end
   -- Size of Auction Trade Message
   if message_type == 0xAF then
-    return 32
+    return size_of.auction_trade_message(buffer, offset)
   end
   -- Size of Retail Price Improvement Message
   if message_type == 0x98 then
-    return 13
+    return size_of.retail_price_improvement_message(buffer, offset)
   end
 
   return 0
@@ -2547,6 +3001,17 @@ dissect.message_length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Message Header
+size_of.message_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.message_length
+
+  index = index + size_of.message_type
+
+  return index
+end
+
 -- Display: Message Header
 display.message_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -2569,7 +3034,8 @@ end
 dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local range = buffer(offset, 2)
+    local length = size_of.message_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.message_header, range, display)
   end
@@ -2577,11 +3043,11 @@ dissect.message_header = function(buffer, offset, packet, parent)
   return dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Message
+-- Calculate size of: Message
 size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + 2
+  index = index + size_of.message_header(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -2705,6 +3171,21 @@ dissect.length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Packet Header
+size_of.packet_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.length
+
+  index = index + size_of.count
+
+  index = index + size_of.unit
+
+  index = index + size_of.sequence
+
+  return index
+end
+
 -- Display: Packet Header
 display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -2733,7 +3214,8 @@ end
 dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local range = buffer(offset, 8)
+    local length = size_of.packet_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.packet_header(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.packet_header, range, display)
   end

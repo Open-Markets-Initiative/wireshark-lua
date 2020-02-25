@@ -361,6 +361,25 @@ dissect.timestamp = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Underlying Trading Status Message
+size_of.underlying_trading_status_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.underlying_symbol
+
+  index = index + size_of.trading_status
+
+  index = index + size_of.event_reason
+
+  index = index + size_of.seconds_part
+
+  index = index + size_of.expected_event_time_nano_seconds_part
+
+  return index
+end
+
 -- Display: Underlying Trading Status Message
 display.underlying_trading_status_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -395,7 +414,8 @@ end
 dissect.underlying_trading_status_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.underlying_trading_status_message then
-    local range = buffer(offset, 25)
+    local length = size_of.underlying_trading_status_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.underlying_trading_status_message(buffer, packet, parent)
     parent = parent:add(miax_options_tom_mach_v1_9.fields.underlying_trading_status_message, range, display)
   end
@@ -527,6 +547,27 @@ dissect.product_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Trade Cancel Message
+size_of.trade_cancel_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.product_id
+
+  index = index + size_of.trade_id
+
+  index = index + size_of.correction_number
+
+  index = index + size_of.trade_price
+
+  index = index + size_of.trade_size
+
+  index = index + size_of.trade_condition
+
+  return index
+end
+
 -- Display: Trade Cancel Message
 display.trade_cancel_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -564,7 +605,8 @@ end
 dissect.trade_cancel_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_cancel_message then
-    local range = buffer(offset, 22)
+    local length = size_of.trade_cancel_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.trade_cancel_message(buffer, packet, parent)
     parent = parent:add(miax_options_tom_mach_v1_9.fields.trade_cancel_message, range, display)
   end
@@ -612,6 +654,31 @@ dissect.reference_trade_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Trade Message
+size_of.trade_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.product_id
+
+  index = index + size_of.trade_id
+
+  index = index + size_of.correction_number
+
+  index = index + size_of.reference_trade_id
+
+  index = index + size_of.reference_correction_number
+
+  index = index + size_of.trade_price
+
+  index = index + size_of.trade_size
+
+  index = index + size_of.trade_condition
+
+  return index
+end
+
 -- Display: Trade Message
 display.trade_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -655,7 +722,8 @@ end
 dissect.trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_message then
-    local range = buffer(offset, 27)
+    local length = size_of.trade_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.trade_message(buffer, packet, parent)
     parent = parent:add(miax_options_tom_mach_v1_9.fields.trade_message, range, display)
   end
@@ -849,6 +917,33 @@ dissect.bid_price_4 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Wide Double Sided Top Of Market Message
+size_of.wide_double_sided_top_of_market_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.product_id
+
+  index = index + size_of.bid_price_4
+
+  index = index + size_of.bid_size_4
+
+  index = index + size_of.bid_priority_customer_size_4
+
+  index = index + size_of.bid_condition
+
+  index = index + size_of.offer_price_4
+
+  index = index + size_of.offer_size_4
+
+  index = index + size_of.offer_priority_customer_size_4
+
+  index = index + size_of.offer_condition
+
+  return index
+end
+
 -- Display: Wide Double Sided Top Of Market Message
 display.wide_double_sided_top_of_market_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -895,7 +990,8 @@ end
 dissect.wide_double_sided_top_of_market_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.wide_double_sided_top_of_market_message then
-    local range = buffer(offset, 34)
+    local length = size_of.wide_double_sided_top_of_market_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.wide_double_sided_top_of_market_message(buffer, packet, parent)
     parent = parent:add(miax_options_tom_mach_v1_9.fields.wide_double_sided_top_of_market_message, range, display)
   end
@@ -1023,6 +1119,33 @@ dissect.bid_price_2 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Double Sided Top Of Market Compact Message
+size_of.double_sided_top_of_market_compact_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.product_id
+
+  index = index + size_of.bid_price_2
+
+  index = index + size_of.bid_size_2
+
+  index = index + size_of.bid_priority_customer_size_2
+
+  index = index + size_of.bid_condition
+
+  index = index + size_of.offer_price_2
+
+  index = index + size_of.offer_size_2
+
+  index = index + size_of.offer_priority_customer_size_2
+
+  index = index + size_of.offer_condition
+
+  return index
+end
+
 -- Display: Double Sided Top Of Market Compact Message
 display.double_sided_top_of_market_compact_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1069,7 +1192,8 @@ end
 dissect.double_sided_top_of_market_compact_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.double_sided_top_of_market_compact_message then
-    local range = buffer(offset, 22)
+    local length = size_of.double_sided_top_of_market_compact_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.double_sided_top_of_market_compact_message(buffer, packet, parent)
     parent = parent:add(miax_options_tom_mach_v1_9.fields.double_sided_top_of_market_compact_message, range, display)
   end
@@ -1170,6 +1294,25 @@ dissect.mbbo_price_4 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Wide Top Of Market Offer Message
+size_of.wide_top_of_market_offer_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.product_id
+
+  index = index + size_of.mbbo_price_4
+
+  index = index + size_of.mbbo_size_4
+
+  index = index + size_of.mbbo_priority_customer_size_4
+
+  index = index + size_of.mbbo_condition
+
+  return index
+end
+
 -- Display: Wide Top Of Market Offer Message
 display.wide_top_of_market_offer_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1204,12 +1347,32 @@ end
 dissect.wide_top_of_market_offer_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.wide_top_of_market_offer_message then
-    local range = buffer(offset, 21)
+    local length = size_of.wide_top_of_market_offer_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.wide_top_of_market_offer_message(buffer, packet, parent)
     parent = parent:add(miax_options_tom_mach_v1_9.fields.wide_top_of_market_offer_message, range, display)
   end
 
   return dissect.wide_top_of_market_offer_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Wide Top Of Market Bid Message
+size_of.wide_top_of_market_bid_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.product_id
+
+  index = index + size_of.mbbo_price_4
+
+  index = index + size_of.mbbo_size_4
+
+  index = index + size_of.mbbo_priority_customer_size_4
+
+  index = index + size_of.mbbo_condition
+
+  return index
 end
 
 -- Display: Wide Top Of Market Bid Message
@@ -1246,7 +1409,8 @@ end
 dissect.wide_top_of_market_bid_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.wide_top_of_market_bid_message then
-    local range = buffer(offset, 21)
+    local length = size_of.wide_top_of_market_bid_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.wide_top_of_market_bid_message(buffer, packet, parent)
     parent = parent:add(miax_options_tom_mach_v1_9.fields.wide_top_of_market_bid_message, range, display)
   end
@@ -1314,6 +1478,25 @@ dissect.mbbo_price_2 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Top Of Market Offer Compact Message
+size_of.top_of_market_offer_compact_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.product_id
+
+  index = index + size_of.mbbo_price_2
+
+  index = index + size_of.mbbo_size_2
+
+  index = index + size_of.mbbo_priority_customer_size_2
+
+  index = index + size_of.mbbo_condition
+
+  return index
+end
+
 -- Display: Top Of Market Offer Compact Message
 display.top_of_market_offer_compact_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1348,12 +1531,32 @@ end
 dissect.top_of_market_offer_compact_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.top_of_market_offer_compact_message then
-    local range = buffer(offset, 15)
+    local length = size_of.top_of_market_offer_compact_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.top_of_market_offer_compact_message(buffer, packet, parent)
     parent = parent:add(miax_options_tom_mach_v1_9.fields.top_of_market_offer_compact_message, range, display)
   end
 
   return dissect.top_of_market_offer_compact_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Top Of Market Bid Compact Message
+size_of.top_of_market_bid_compact_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.product_id
+
+  index = index + size_of.mbbo_price_2
+
+  index = index + size_of.mbbo_size_2
+
+  index = index + size_of.mbbo_priority_customer_size_2
+
+  index = index + size_of.mbbo_condition
+
+  return index
 end
 
 -- Display: Top Of Market Bid Compact Message
@@ -1390,7 +1593,8 @@ end
 dissect.top_of_market_bid_compact_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.top_of_market_bid_compact_message then
-    local range = buffer(offset, 15)
+    local length = size_of.top_of_market_bid_compact_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.top_of_market_bid_compact_message(buffer, packet, parent)
     parent = parent:add(miax_options_tom_mach_v1_9.fields.top_of_market_bid_compact_message, range, display)
   end
@@ -1497,6 +1701,21 @@ dissect.notification_time = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: System State Message
+size_of.system_state_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.notification_time
+
+  index = index + size_of.to_m_version
+
+  index = index + size_of.session_id
+
+  index = index + size_of.system_status
+
+  return index
+end
+
 -- Display: System State Message
 display.system_state_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1525,7 +1744,8 @@ end
 dissect.system_state_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.system_state_message then
-    local range = buffer(offset, 17)
+    local length = size_of.system_state_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.system_state_message(buffer, packet, parent)
     parent = parent:add(miax_options_tom_mach_v1_9.fields.system_state_message, range, display)
   end
@@ -1905,6 +2125,47 @@ dissect.product_add_update_time = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Series Update
+size_of.series_update = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.product_add_update_time
+
+  index = index + size_of.product_id
+
+  index = index + size_of.underlying_symbol
+
+  index = index + size_of.security_symbol
+
+  index = index + size_of.expiration_date
+
+  index = index + size_of.strike_price
+
+  index = index + size_of.call_or_put
+
+  index = index + size_of.opening_time
+
+  index = index + size_of.closing_time
+
+  index = index + size_of.restricted_option
+
+  index = index + size_of.long_term_option
+
+  index = index + size_of.active_on_miax
+
+  index = index + size_of.miax_bbo_posting_increment_indicator
+
+  index = index + size_of.liquidity_acceptance_increment_indicator
+
+  index = index + size_of.opening_underlying_market_code
+
+  index = index + size_of.priority_quote_width
+
+  index = index + size_of.reserved
+
+  return index
+end
+
 -- Display: Series Update
 display.series_update = function(buffer, offset, size, packet, parent)
   return ""
@@ -1972,12 +2233,22 @@ end
 dissect.series_update = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.series_update then
-    local range = buffer(offset, 72)
+    local length = size_of.series_update(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.series_update(buffer, packet, parent)
     parent = parent:add(miax_options_tom_mach_v1_9.fields.series_update, range, display)
   end
 
   return dissect.series_update_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: System Time Message
+size_of.system_time_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  return index
 end
 
 -- Display: System Time Message
@@ -1999,7 +2270,8 @@ end
 dissect.system_time_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.system_time_message then
-    local range = buffer(offset, 4)
+    local length = size_of.system_time_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.system_time_message(buffer, packet, parent)
     parent = parent:add(miax_options_tom_mach_v1_9.fields.system_time_message, range, display)
   end
@@ -2011,51 +2283,51 @@ end
 size_of.data = function(buffer, offset, message_type)
   -- Size of System Time Message
   if message_type == "1" then
-    return 4
+    return size_of.system_time_message(buffer, offset)
   end
   -- Size of Series Update
   if message_type == "P" then
-    return 72
+    return size_of.series_update(buffer, offset)
   end
   -- Size of System State Message
   if message_type == "S" then
-    return 17
+    return size_of.system_state_message(buffer, offset)
   end
   -- Size of Top Of Market Bid Compact Message
   if message_type == "B" then
-    return 15
+    return size_of.top_of_market_bid_compact_message(buffer, offset)
   end
   -- Size of Top Of Market Offer Compact Message
   if message_type == "O" then
-    return 15
+    return size_of.top_of_market_offer_compact_message(buffer, offset)
   end
   -- Size of Wide Top Of Market Bid Message
   if message_type == "W" then
-    return 21
+    return size_of.wide_top_of_market_bid_message(buffer, offset)
   end
   -- Size of Wide Top Of Market Offer Message
   if message_type == "A" then
-    return 21
+    return size_of.wide_top_of_market_offer_message(buffer, offset)
   end
   -- Size of Double Sided Top Of Market Compact Message
   if message_type == "d" then
-    return 22
+    return size_of.double_sided_top_of_market_compact_message(buffer, offset)
   end
   -- Size of Wide Double Sided Top Of Market Message
   if message_type == "D" then
-    return 34
+    return size_of.wide_double_sided_top_of_market_message(buffer, offset)
   end
   -- Size of Trade Message
   if message_type == "T" then
-    return 27
+    return size_of.trade_message(buffer, offset)
   end
   -- Size of Trade Cancel Message
   if message_type == "X" then
-    return 22
+    return size_of.trade_cancel_message(buffer, offset)
   end
   -- Size of Underlying Trading Status Message
   if message_type == "H" then
-    return 25
+    return size_of.underlying_trading_status_message(buffer, offset)
   end
 
   return 0
@@ -2197,11 +2469,11 @@ dissect.message_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Application Message
+-- Calculate size of: Application Message
 size_of.application_message = function(buffer, offset)
   local index = 0
 
-  index = index + 1
+  index = index + size_of.message_type
 
   -- Calculate runtime size of Data field
   local data_offset = offset + index
@@ -2380,11 +2652,17 @@ dissect.sequence_number = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Message
+-- Calculate size of: Message
 size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + 12
+  index = index + size_of.sequence_number
+
+  index = index + size_of.packet_length
+
+  index = index + size_of.packet_type
+
+  index = index + size_of.session_number
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index

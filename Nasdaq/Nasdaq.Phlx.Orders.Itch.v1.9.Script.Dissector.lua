@@ -449,6 +449,31 @@ dissect.seconds = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Complex Auction Notification Message
+size_of.complex_auction_notification_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.seconds
+
+  index = index + size_of.nanoseconds
+
+  index = index + size_of.strategy_id
+
+  index = index + size_of.auction_id
+
+  index = index + size_of.auction_type
+
+  index = index + size_of.price
+
+  index = index + size_of.auction_side
+
+  index = index + size_of.debit_or_credit
+
+  index = index + size_of.volume
+
+  return index
+end
+
 -- Display: Complex Auction Notification Message
 display.complex_auction_notification_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -492,7 +517,8 @@ end
 dissect.complex_auction_notification_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.complex_auction_notification_message then
-    local range = buffer(offset, 27)
+    local length = size_of.complex_auction_notification_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.complex_auction_notification_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.complex_auction_notification_message, range, display)
   end
@@ -610,6 +636,9 @@ dissect.explicit_strike_price = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Expiration
+size_of.expiration = 2
+
 -- Display: Expiration
 display.expiration = function(buffer, packet, parent)
   local display = ""
@@ -685,6 +714,41 @@ dissect.option_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Auction Notification Message
+size_of.auction_notification_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.seconds
+
+  index = index + size_of.nanoseconds
+
+  index = index + size_of.option_id
+
+  index = index + size_of.security_symbol
+
+  index = index + size_of.expiration
+
+  index = index + size_of.explicit_strike_price
+
+  index = index + size_of.option_type
+
+  index = index + size_of.auction_id
+
+  index = index + size_of.auction_type
+
+  index = index + size_of.price
+
+  index = index + size_of.auction_side
+
+  index = index + size_of.matched_volume
+
+  index = index + size_of.imbalance_volume
+
+  index = index + size_of.reserved
+
+  return index
+end
+
 -- Display: Auction Notification Message
 display.auction_notification_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -743,7 +807,8 @@ end
 dissect.auction_notification_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.auction_notification_message then
-    local range = buffer(offset, 46)
+    local length = size_of.auction_notification_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.auction_notification_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.auction_notification_message, range, display)
   end
@@ -831,6 +896,29 @@ dissect.leg_open_close_indicator = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Complex Order Leg
+size_of.complex_order_leg = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.leg_open_close_indicator
+
+  index = index + size_of.option_id
+
+  index = index + size_of.security_symbol
+
+  index = index + size_of.expiration
+
+  index = index + size_of.explicit_strike_price
+
+  index = index + size_of.option_type
+
+  index = index + size_of.side
+
+  index = index + size_of.leg_ratio
+
+  return index
+end
+
 -- Display: Complex Order Leg
 display.complex_order_leg = function(buffer, offset, size, packet, parent)
   return ""
@@ -871,7 +959,8 @@ end
 dissect.complex_order_leg = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.complex_order_leg then
-    local range = buffer(offset, 22)
+    local length = size_of.complex_order_leg(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.complex_order_leg(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.complex_order_leg, range, display)
   end
@@ -1158,11 +1247,41 @@ dissect.order_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Complex Order Message
+-- Calculate size of: Complex Order Message
 size_of.complex_order_message = function(buffer, offset)
   local index = 0
 
-  index = index + 49
+  index = index + size_of.seconds
+
+  index = index + size_of.nanoseconds
+
+  index = index + size_of.strategy_id
+
+  index = index + size_of.order_id
+
+  index = index + size_of.side
+
+  index = index + size_of.original_order_volume
+
+  index = index + size_of.executable_order_volume
+
+  index = index + size_of.order_status
+
+  index = index + size_of.order_type
+
+  index = index + size_of.limit_price
+
+  index = index + size_of.debit_or_credit
+
+  index = index + size_of.all_or_none
+
+  index = index + size_of.time_in_force
+
+  index = index + size_of.customer_firm_indicator
+
+  index = index + size_of.underlying_symbol
+
+  index = index + size_of.number_of_legs
 
   -- Calculate field size from count
   local complex_order_leg_count = buffer(offset + index - 1, 1):uint()
@@ -1309,6 +1428,51 @@ dissect.market_qualifier = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Simple Order Message
+size_of.simple_order_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.seconds
+
+  index = index + size_of.nanoseconds
+
+  index = index + size_of.option_id
+
+  index = index + size_of.security_symbol
+
+  index = index + size_of.expiration
+
+  index = index + size_of.explicit_strike_price
+
+  index = index + size_of.option_type
+
+  index = index + size_of.order_id
+
+  index = index + size_of.side
+
+  index = index + size_of.original_order_volume
+
+  index = index + size_of.executable_order_volume
+
+  index = index + size_of.order_status
+
+  index = index + size_of.order_type
+
+  index = index + size_of.market_qualifier
+
+  index = index + size_of.limit_price
+
+  index = index + size_of.all_or_none
+
+  index = index + size_of.time_in_force
+
+  index = index + size_of.customer_firm_indicator
+
+  index = index + size_of.open_close_indicator
+
+  return index
+end
+
 -- Display: Simple Order Message
 display.simple_order_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1382,7 +1546,8 @@ end
 dissect.simple_order_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.simple_order_message then
-    local range = buffer(offset, 48)
+    local length = size_of.simple_order_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.simple_order_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.simple_order_message, range, display)
   end
@@ -1417,6 +1582,21 @@ dissect.open_state = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Strategy Open Closed Message
+size_of.strategy_open_closed_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.seconds
+
+  index = index + size_of.nanoseconds
+
+  index = index + size_of.strategy_id
+
+  index = index + size_of.open_state
+
+  return index
+end
+
 -- Display: Strategy Open Closed Message
 display.strategy_open_closed_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1445,12 +1625,36 @@ end
 dissect.strategy_open_closed_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.strategy_open_closed_message then
-    local range = buffer(offset, 13)
+    local length = size_of.strategy_open_closed_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.strategy_open_closed_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.strategy_open_closed_message, range, display)
   end
 
   return dissect.strategy_open_closed_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Security Open Closed Message
+size_of.security_open_closed_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.seconds
+
+  index = index + size_of.nanoseconds
+
+  index = index + size_of.option_id
+
+  index = index + size_of.security_symbol
+
+  index = index + size_of.expiration
+
+  index = index + size_of.explicit_strike_price
+
+  index = index + size_of.option_type
+
+  index = index + size_of.open_state
+
+  return index
 end
 
 -- Display: Security Open Closed Message
@@ -1493,7 +1697,8 @@ end
 dissect.security_open_closed_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.security_open_closed_message then
-    local range = buffer(offset, 25)
+    local length = size_of.security_open_closed_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.security_open_closed_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.security_open_closed_message, range, display)
   end
@@ -1528,6 +1733,21 @@ dissect.current_trading_state = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Complex Trading Action Message
+size_of.complex_trading_action_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.seconds
+
+  index = index + size_of.nanoseconds
+
+  index = index + size_of.strategy_id
+
+  index = index + size_of.current_trading_state
+
+  return index
+end
+
 -- Display: Complex Trading Action Message
 display.complex_trading_action_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1556,12 +1776,36 @@ end
 dissect.complex_trading_action_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.complex_trading_action_message then
-    local range = buffer(offset, 13)
+    local length = size_of.complex_trading_action_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.complex_trading_action_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.complex_trading_action_message, range, display)
   end
 
   return dissect.complex_trading_action_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Security Trading Action Message
+size_of.security_trading_action_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.seconds
+
+  index = index + size_of.nanoseconds
+
+  index = index + size_of.option_id
+
+  index = index + size_of.security_symbol
+
+  index = index + size_of.expiration
+
+  index = index + size_of.explicit_strike_price
+
+  index = index + size_of.option_type
+
+  index = index + size_of.current_trading_state
+
+  return index
 end
 
 -- Display: Security Trading Action Message
@@ -1604,12 +1848,34 @@ end
 dissect.security_trading_action_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.security_trading_action_message then
-    local range = buffer(offset, 25)
+    local length = size_of.security_trading_action_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.security_trading_action_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.security_trading_action_message, range, display)
   end
 
   return dissect.security_trading_action_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Complex Order Strategy Leg
+size_of.complex_order_strategy_leg = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.option_id
+
+  index = index + size_of.security_symbol
+
+  index = index + size_of.expiration
+
+  index = index + size_of.explicit_strike_price
+
+  index = index + size_of.option_type
+
+  index = index + size_of.side
+
+  index = index + size_of.leg_ratio
+
+  return index
 end
 
 -- Display: Complex Order Strategy Leg
@@ -1649,7 +1915,8 @@ end
 dissect.complex_order_strategy_leg = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.complex_order_strategy_leg then
-    local range = buffer(offset, 21)
+    local length = size_of.complex_order_strategy_leg(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.complex_order_strategy_leg(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.complex_order_strategy_leg, range, display)
   end
@@ -1704,11 +1971,23 @@ dissect.source = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Complex Order Strategy Message
+-- Calculate size of: Complex Order Strategy Message
 size_of.complex_order_strategy_message = function(buffer, offset)
   local index = 0
 
-  index = index + 28
+  index = index + size_of.seconds
+
+  index = index + size_of.nanoseconds
+
+  index = index + size_of.strategy_id
+
+  index = index + size_of.source
+
+  index = index + size_of.underlying_symbol
+
+  index = index + size_of.action
+
+  index = index + size_of.number_of_legs
 
   -- Calculate field size from count
   local complex_order_strategy_leg_count = buffer(offset + index - 1, 1):uint()
@@ -1825,6 +2104,35 @@ dissect.option_closing_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Options Directory Message
+size_of.options_directory_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.seconds
+
+  index = index + size_of.nanoseconds
+
+  index = index + size_of.option_id
+
+  index = index + size_of.security_symbol
+
+  index = index + size_of.expiration
+
+  index = index + size_of.explicit_strike_price
+
+  index = index + size_of.option_type
+
+  index = index + size_of.source
+
+  index = index + size_of.underlying_symbol
+
+  index = index + size_of.option_closing_type
+
+  index = index + size_of.phlx_tradable
+
+  return index
+end
+
 -- Display: Options Directory Message
 display.options_directory_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1874,7 +2182,8 @@ end
 dissect.options_directory_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.options_directory_message then
-    local range = buffer(offset, 40)
+    local length = size_of.options_directory_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.options_directory_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.options_directory_message, range, display)
   end
@@ -1947,6 +2256,21 @@ dissect.event_code = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: System Event Message
+size_of.system_event_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.seconds
+
+  index = index + size_of.nanoseconds
+
+  index = index + size_of.event_code
+
+  index = index + size_of.version
+
+  return index
+end
+
 -- Display: System Event Message
 display.system_event_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1975,7 +2299,8 @@ end
 dissect.system_event_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.system_event_message then
-    local range = buffer(offset, 10)
+    local length = size_of.system_event_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.system_event_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.system_event_message, range, display)
   end
@@ -1987,11 +2312,11 @@ end
 size_of.payload = function(buffer, offset, message_type)
   -- Size of System Event Message
   if message_type == "S" then
-    return 10
+    return size_of.system_event_message(buffer, offset)
   end
   -- Size of Options Directory Message
   if message_type == "D" then
-    return 40
+    return size_of.options_directory_message(buffer, offset)
   end
   -- Size of Complex Order Strategy Message
   if message_type == "R" then
@@ -1999,23 +2324,23 @@ size_of.payload = function(buffer, offset, message_type)
   end
   -- Size of Security Trading Action Message
   if message_type == "H" then
-    return 25
+    return size_of.security_trading_action_message(buffer, offset)
   end
   -- Size of Complex Trading Action Message
   if message_type == "I" then
-    return 13
+    return size_of.complex_trading_action_message(buffer, offset)
   end
   -- Size of Security Open Closed Message
   if message_type == "P" then
-    return 25
+    return size_of.security_open_closed_message(buffer, offset)
   end
   -- Size of Strategy Open Closed Message
   if message_type == "Q" then
-    return 13
+    return size_of.strategy_open_closed_message(buffer, offset)
   end
   -- Size of Simple Order Message
   if message_type == "O" then
-    return 48
+    return size_of.simple_order_message(buffer, offset)
   end
   -- Size of Complex Order Message
   if message_type == "X" then
@@ -2023,11 +2348,11 @@ size_of.payload = function(buffer, offset, message_type)
   end
   -- Size of Auction Notification Message
   if message_type == "A" then
-    return 46
+    return size_of.auction_notification_message(buffer, offset)
   end
   -- Size of Complex Auction Notification Message
   if message_type == "C" then
-    return 27
+    return size_of.complex_auction_notification_message(buffer, offset)
   end
 
   return 0
@@ -2182,6 +2507,17 @@ dissect.length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Message Header
+size_of.message_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.length
+
+  index = index + size_of.message_type
+
+  return index
+end
+
 -- Display: Message Header
 display.message_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -2204,7 +2540,8 @@ end
 dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local range = buffer(offset, 3)
+    local length = size_of.message_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.message_header, range, display)
   end
@@ -2212,11 +2549,11 @@ dissect.message_header = function(buffer, offset, packet, parent)
   return dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Message
+-- Calculate size of: Message
 size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.message_header(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -2320,6 +2657,19 @@ dissect.session = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Packet Header
+size_of.packet_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.session
+
+  index = index + size_of.sequence
+
+  index = index + size_of.count
+
+  return index
+end
+
 -- Display: Packet Header
 display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -2345,7 +2695,8 @@ end
 dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local range = buffer(offset, 16)
+    local length = size_of.packet_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.packet_header(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_orders_itch_v1_9.fields.packet_header, range, display)
   end

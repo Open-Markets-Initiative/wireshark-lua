@@ -323,6 +323,15 @@ dissect.interest_flag = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Retail Interest Message
+size_of.retail_interest_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.interest_flag
+
+  return index
+end
+
 -- Display: Retail Interest Message
 display.retail_interest_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -342,7 +351,8 @@ end
 dissect.retail_interest_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.retail_interest_message then
-    local range = buffer(offset, 1)
+    local length = size_of.retail_interest_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.retail_interest_message(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.retail_interest_message, range, display)
   end
@@ -659,6 +669,37 @@ dissect.stock_locate = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Net Order Imbalance Indicator Message
+size_of.net_order_imbalance_indicator_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.stock_locate
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.paired_shares
+
+  index = index + size_of.imbalance_shares
+
+  index = index + size_of.imbalance_direction
+
+  index = index + size_of.stock
+
+  index = index + size_of.far_price
+
+  index = index + size_of.near_price
+
+  index = index + size_of.current_reference_price
+
+  index = index + size_of.cross_type
+
+  index = index + size_of.price_variation_indicator
+
+  return index
+end
+
 -- Display: Net Order Imbalance Indicator Message
 display.net_order_imbalance_indicator_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -711,7 +752,8 @@ end
 dissect.net_order_imbalance_indicator_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.net_order_imbalance_indicator_message then
-    local range = buffer(offset, 49)
+    local length = size_of.net_order_imbalance_indicator_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.net_order_imbalance_indicator_message(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.net_order_imbalance_indicator_message, range, display)
   end
@@ -737,6 +779,21 @@ dissect.match_number = function(buffer, offset, packet, parent)
   parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.match_number, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Broken Trade Message
+size_of.broken_trade_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.stock_locate
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.match_number
+
+  return index
 end
 
 -- Display: Broken Trade Message
@@ -767,7 +824,8 @@ end
 dissect.broken_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.broken_trade_message then
-    local range = buffer(offset, 18)
+    local length = size_of.broken_trade_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.broken_trade_message(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.broken_trade_message, range, display)
   end
@@ -815,6 +873,29 @@ dissect.shares = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Cross Trade Message
+size_of.cross_trade_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.stock_locate
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.shares
+
+  index = index + size_of.stock
+
+  index = index + size_of.cross_price
+
+  index = index + size_of.match_number
+
+  index = index + size_of.cross_type
+
+  return index
+end
+
 -- Display: Cross Trade Message
 display.cross_trade_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -855,7 +936,8 @@ end
 dissect.cross_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cross_trade_message then
-    local range = buffer(offset, 35)
+    local length = size_of.cross_trade_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.cross_trade_message(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.cross_trade_message, range, display)
   end
@@ -930,6 +1012,31 @@ dissect.order_reference_number = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Non Cross Trade Message
+size_of.non_cross_trade_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.stock_locate
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.order_reference_number
+
+  index = index + size_of.buy_sell_indicator
+
+  index = index + size_of.shares
+
+  index = index + size_of.stock
+
+  index = index + size_of.price
+
+  index = index + size_of.match_number
+
+  return index
+end
+
 -- Display: Non Cross Trade Message
 display.non_cross_trade_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -973,7 +1080,8 @@ end
 dissect.non_cross_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.non_cross_trade_message then
-    local range = buffer(offset, 43)
+    local length = size_of.non_cross_trade_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.non_cross_trade_message(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.non_cross_trade_message, range, display)
   end
@@ -1021,6 +1129,27 @@ dissect.original_order_reference_number = function(buffer, offset, packet, paren
   return offset + length, value
 end
 
+-- Calculate size of: Order Replace Message
+size_of.order_replace_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.stock_locate
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.original_order_reference_number
+
+  index = index + size_of.new_order_reference_number
+
+  index = index + size_of.shares
+
+  index = index + size_of.price
+
+  return index
+end
+
 -- Display: Order Replace Message
 display.order_replace_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1058,12 +1187,28 @@ end
 dissect.order_replace_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_replace_message then
-    local range = buffer(offset, 34)
+    local length = size_of.order_replace_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_replace_message(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.order_replace_message, range, display)
   end
 
   return dissect.order_replace_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Order Delete Message
+size_of.order_delete_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.stock_locate
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.order_reference_number
+
+  return index
 end
 
 -- Display: Order Delete Message
@@ -1094,7 +1239,8 @@ end
 dissect.order_delete_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_delete_message then
-    local range = buffer(offset, 18)
+    local length = size_of.order_delete_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_delete_message(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.order_delete_message, range, display)
   end
@@ -1120,6 +1266,23 @@ dissect.cancelled_shares = function(buffer, offset, packet, parent)
   parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.cancelled_shares, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Order Cancel Message
+size_of.order_cancel_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.stock_locate
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.order_reference_number
+
+  index = index + size_of.cancelled_shares
+
+  return index
 end
 
 -- Display: Order Cancel Message
@@ -1153,7 +1316,8 @@ end
 dissect.order_cancel_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_cancel_message then
-    local range = buffer(offset, 22)
+    local length = size_of.order_cancel_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_cancel_message(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.order_cancel_message, range, display)
   end
@@ -1228,6 +1392,29 @@ dissect.executed_shares = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Order Executed With Price Message
+size_of.order_executed_with_price_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.stock_locate
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.order_reference_number
+
+  index = index + size_of.executed_shares
+
+  index = index + size_of.match_number
+
+  index = index + size_of.printable
+
+  index = index + size_of.execution_price
+
+  return index
+end
+
 -- Display: Order Executed With Price Message
 display.order_executed_with_price_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1268,12 +1455,32 @@ end
 dissect.order_executed_with_price_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_executed_with_price_message then
-    local range = buffer(offset, 35)
+    local length = size_of.order_executed_with_price_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_executed_with_price_message(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.order_executed_with_price_message, range, display)
   end
 
   return dissect.order_executed_with_price_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Order Executed Message
+size_of.order_executed_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.stock_locate
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.order_reference_number
+
+  index = index + size_of.executed_shares
+
+  index = index + size_of.match_number
+
+  return index
 end
 
 -- Display: Order Executed Message
@@ -1310,12 +1517,36 @@ end
 dissect.order_executed_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_executed_message then
-    local range = buffer(offset, 30)
+    local length = size_of.order_executed_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_executed_message(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.order_executed_message, range, display)
   end
 
   return dissect.order_executed_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Add Order Mpid Attribution Message
+size_of.add_order_mpid_attribution_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.stock_locate
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.order_reference_number
+
+  index = index + size_of.buy_sell_indicator
+
+  index = index + size_of.shares
+
+  index = index + size_of.stock
+
+  index = index + size_of.price
+
+  return index
 end
 
 -- Display: Add Order Mpid Attribution Message
@@ -1358,12 +1589,36 @@ end
 dissect.add_order_mpid_attribution_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.add_order_mpid_attribution_message then
-    local range = buffer(offset, 35)
+    local length = size_of.add_order_mpid_attribution_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.add_order_mpid_attribution_message(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.add_order_mpid_attribution_message, range, display)
   end
 
   return dissect.add_order_mpid_attribution_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Add Order No Mpid Attribution Message
+size_of.add_order_no_mpid_attribution_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.stock_locate
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.order_reference_number
+
+  index = index + size_of.buy_sell_indicator
+
+  index = index + size_of.shares
+
+  index = index + size_of.stock
+
+  index = index + size_of.price
+
+  return index
 end
 
 -- Display: Add Order No Mpid Attribution Message
@@ -1406,7 +1661,8 @@ end
 dissect.add_order_no_mpid_attribution_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.add_order_no_mpid_attribution_message then
-    local range = buffer(offset, 35)
+    local length = size_of.add_order_no_mpid_attribution_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.add_order_no_mpid_attribution_message(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.add_order_no_mpid_attribution_message, range, display)
   end
@@ -1471,6 +1727,25 @@ dissect.market_code = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Operational Halt Message
+size_of.operational_halt_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.stock_locate
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.stock
+
+  index = index + size_of.market_code
+
+  index = index + size_of.operational_halt_action
+
+  return index
+end
+
 -- Display: Operational Halt Message
 display.operational_halt_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1505,7 +1780,8 @@ end
 dissect.operational_halt_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.operational_halt_message then
-    local range = buffer(offset, 20)
+    local length = size_of.operational_halt_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.operational_halt_message(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.operational_halt_message, range, display)
   end
@@ -1593,6 +1869,29 @@ dissect.auction_collar_reference_price = function(buffer, offset, packet, parent
   return offset + length, value
 end
 
+-- Calculate size of: Luld Auction Collar Message
+size_of.luld_auction_collar_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.stock_locate
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.stock
+
+  index = index + size_of.auction_collar_reference_price
+
+  index = index + size_of.upper_auction_collar_price
+
+  index = index + size_of.lower_auction_collar_price
+
+  index = index + size_of.auction_collar_extension
+
+  return index
+end
+
 -- Display: Luld Auction Collar Message
 display.luld_auction_collar_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1633,7 +1932,8 @@ end
 dissect.luld_auction_collar_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.luld_auction_collar_message then
-    local range = buffer(offset, 34)
+    local length = size_of.luld_auction_collar_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.luld_auction_collar_message(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.luld_auction_collar_message, range, display)
   end
@@ -1671,6 +1971,21 @@ dissect.breached_level = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Mwcb Status Message
+size_of.mwcb_status_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.stock_locate
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.breached_level
+
+  return index
+end
+
 -- Display: Mwcb Status Message
 display.mwcb_status_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1699,7 +2014,8 @@ end
 dissect.mwcb_status_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.mwcb_status_message then
-    local range = buffer(offset, 11)
+    local length = size_of.mwcb_status_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.mwcb_status_message(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.mwcb_status_message, range, display)
   end
@@ -1767,6 +2083,25 @@ dissect.level_1 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Mwcb Decline Level Message
+size_of.mwcb_decline_level_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.stock_locate
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.level_1
+
+  index = index + size_of.level_2
+
+  index = index + size_of.level_3
+
+  return index
+end
+
 -- Display: Mwcb Decline Level Message
 display.mwcb_decline_level_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1801,7 +2136,8 @@ end
 dissect.mwcb_decline_level_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.mwcb_decline_level_message then
-    local range = buffer(offset, 34)
+    local length = size_of.mwcb_decline_level_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.mwcb_decline_level_message(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.mwcb_decline_level_message, range, display)
   end
@@ -1928,6 +2264,29 @@ dissect.mpid = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Market Participant Position Message
+size_of.market_participant_position_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.stock_locate
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.mpid
+
+  index = index + size_of.stock
+
+  index = index + size_of.primary_market_maker
+
+  index = index + size_of.market_maker_mode
+
+  index = index + size_of.market_participant_state
+
+  return index
+end
+
 -- Display: Market Participant Position Message
 display.market_participant_position_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1968,7 +2327,8 @@ end
 dissect.market_participant_position_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.market_participant_position_message then
-    local range = buffer(offset, 25)
+    local length = size_of.market_participant_position_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.market_participant_position_message(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.market_participant_position_message, range, display)
   end
@@ -2006,6 +2366,19 @@ dissect.reg_sho_action = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Reg Sho Restriction Message
+size_of.reg_sho_restriction_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.stock
+
+  index = index + size_of.reg_sho_action
+
+  return index
+end
+
 -- Display: Reg Sho Restriction Message
 display.reg_sho_restriction_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -2031,7 +2404,8 @@ end
 dissect.reg_sho_restriction_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.reg_sho_restriction_message then
-    local range = buffer(offset, 15)
+    local length = size_of.reg_sho_restriction_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.reg_sho_restriction_message(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.reg_sho_restriction_message, range, display)
   end
@@ -2112,6 +2486,27 @@ dissect.trading_state = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Stock Trading Action Message
+size_of.stock_trading_action_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.stock_locate
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.stock
+
+  index = index + size_of.trading_state
+
+  index = index + size_of.reserved
+
+  index = index + size_of.reason
+
+  return index
+end
+
 -- Display: Stock Trading Action Message
 display.stock_trading_action_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -2149,7 +2544,8 @@ end
 dissect.stock_trading_action_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.stock_trading_action_message then
-    local range = buffer(offset, 24)
+    local length = size_of.stock_trading_action_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.stock_trading_action_message(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.stock_trading_action_message, range, display)
   end
@@ -2537,6 +2933,47 @@ dissect.market_category = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Stock Directory Message
+size_of.stock_directory_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.stock_locate
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.stock
+
+  index = index + size_of.market_category
+
+  index = index + size_of.financial_status_indicator
+
+  index = index + size_of.round_lot_size
+
+  index = index + size_of.round_lots_only
+
+  index = index + size_of.issue_classification
+
+  index = index + size_of.issue_sub_type
+
+  index = index + size_of.authenticity
+
+  index = index + size_of.short_sale_threshold_indicator
+
+  index = index + size_of.ipo_flag
+
+  index = index + size_of.luld_reference_price_tier
+
+  index = index + size_of.etp_flag
+
+  index = index + size_of.etp_leverage_factor
+
+  index = index + size_of.inverse_indicator
+
+  return index
+end
+
 -- Display: Stock Directory Message
 display.stock_directory_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -2604,7 +3041,8 @@ end
 dissect.stock_directory_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.stock_directory_message then
-    local range = buffer(offset, 38)
+    local length = size_of.stock_directory_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.stock_directory_message(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.stock_directory_message, range, display)
   end
@@ -2651,6 +3089,21 @@ dissect.event_code = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: System Event Message
+size_of.system_event_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.stock_locate
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.event_code
+
+  return index
+end
+
 -- Display: System Event Message
 display.system_event_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -2679,7 +3132,8 @@ end
 dissect.system_event_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.system_event_message then
-    local range = buffer(offset, 11)
+    local length = size_of.system_event_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.system_event_message(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.system_event_message, range, display)
   end
@@ -2691,87 +3145,87 @@ end
 size_of.payload = function(buffer, offset, message_type)
   -- Size of System Event Message
   if message_type == "S" then
-    return 11
+    return size_of.system_event_message(buffer, offset)
   end
   -- Size of Stock Directory Message
   if message_type == "R" then
-    return 38
+    return size_of.stock_directory_message(buffer, offset)
   end
   -- Size of Stock Trading Action Message
   if message_type == "H" then
-    return 24
+    return size_of.stock_trading_action_message(buffer, offset)
   end
   -- Size of Reg Sho Restriction Message
   if message_type == "Y" then
-    return 15
+    return size_of.reg_sho_restriction_message(buffer, offset)
   end
   -- Size of Market Participant Position Message
   if message_type == "L" then
-    return 25
+    return size_of.market_participant_position_message(buffer, offset)
   end
   -- Size of Mwcb Decline Level Message
   if message_type == "V" then
-    return 34
+    return size_of.mwcb_decline_level_message(buffer, offset)
   end
   -- Size of Mwcb Status Message
   if message_type == "W" then
-    return 11
+    return size_of.mwcb_status_message(buffer, offset)
   end
   -- Size of Luld Auction Collar Message
   if message_type == "J" then
-    return 34
+    return size_of.luld_auction_collar_message(buffer, offset)
   end
   -- Size of Operational Halt Message
   if message_type == "h" then
-    return 20
+    return size_of.operational_halt_message(buffer, offset)
   end
   -- Size of Add Order No Mpid Attribution Message
   if message_type == "A" then
-    return 35
+    return size_of.add_order_no_mpid_attribution_message(buffer, offset)
   end
   -- Size of Add Order Mpid Attribution Message
   if message_type == "F" then
-    return 35
+    return size_of.add_order_mpid_attribution_message(buffer, offset)
   end
   -- Size of Order Executed Message
   if message_type == "E" then
-    return 30
+    return size_of.order_executed_message(buffer, offset)
   end
   -- Size of Order Executed With Price Message
   if message_type == "C" then
-    return 35
+    return size_of.order_executed_with_price_message(buffer, offset)
   end
   -- Size of Order Cancel Message
   if message_type == "X" then
-    return 22
+    return size_of.order_cancel_message(buffer, offset)
   end
   -- Size of Order Delete Message
   if message_type == "D" then
-    return 18
+    return size_of.order_delete_message(buffer, offset)
   end
   -- Size of Order Replace Message
   if message_type == "U" then
-    return 34
+    return size_of.order_replace_message(buffer, offset)
   end
   -- Size of Non Cross Trade Message
   if message_type == "P" then
-    return 43
+    return size_of.non_cross_trade_message(buffer, offset)
   end
   -- Size of Cross Trade Message
   if message_type == "Q" then
-    return 35
+    return size_of.cross_trade_message(buffer, offset)
   end
   -- Size of Broken Trade Message
   if message_type == "B" then
-    return 18
+    return size_of.broken_trade_message(buffer, offset)
   end
   -- Size of Net Order Imbalance Indicator Message
   if message_type == "I" then
-    return 49
+    return size_of.net_order_imbalance_indicator_message(buffer, offset)
   end
   -- Size of Retail Interest Message
   if message_type == "N" then
-    return 1
+    return size_of.retail_interest_message(buffer, offset)
   end
 
   return 0
@@ -2996,6 +3450,17 @@ dissect.length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Message Header
+size_of.message_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.length
+
+  index = index + size_of.message_type
+
+  return index
+end
+
 -- Display: Message Header
 display.message_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -3018,7 +3483,8 @@ end
 dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local range = buffer(offset, 3)
+    local length = size_of.message_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.message_header, range, display)
   end
@@ -3026,11 +3492,11 @@ dissect.message_header = function(buffer, offset, packet, parent)
   return dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Message
+-- Calculate size of: Message
 size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.message_header(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -3134,6 +3600,19 @@ dissect.session = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Packet Header
+size_of.packet_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.session
+
+  index = index + size_of.sequence
+
+  index = index + size_of.count
+
+  return index
+end
+
 -- Display: Packet Header
 display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -3159,7 +3638,8 @@ end
 dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local range = buffer(offset, 20)
+    local length = size_of.packet_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.packet_header(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.packet_header, range, display)
   end

@@ -381,6 +381,31 @@ dissect.timestamp = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Complex Strategy Ticker Message
+size_of.complex_strategy_ticker_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.strategy_id
+
+  index = index + size_of.last_price
+
+  index = index + size_of.size
+
+  index = index + size_of.volume
+
+  index = index + size_of.high
+
+  index = index + size_of.low
+
+  index = index + size_of.first
+
+  index = index + size_of.trade_condition
+
+  return index
+end
+
 -- Display: Complex Strategy Ticker Message
 display.complex_strategy_ticker_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -424,7 +449,8 @@ end
 dissect.complex_strategy_ticker_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.complex_strategy_ticker_message then
-    local range = buffer(offset, 51)
+    local length = size_of.complex_strategy_ticker_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.complex_strategy_ticker_message(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.complex_strategy_ticker_message, range, display)
   end
@@ -579,6 +605,33 @@ dissect.quote_condition = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Strategy Best Ask Update
+size_of.strategy_best_ask_update = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.strategy_id
+
+  index = index + size_of.quote_condition
+
+  index = index + size_of.price
+
+  index = index + size_of.size
+
+  index = index + size_of.cust_size
+
+  index = index + size_of.pro_cust_size
+
+  index = index + size_of.ntt_size
+
+  index = index + size_of.market_size
+
+  index = index + size_of.ntt_market_size
+
+  return index
+end
+
 -- Display: Strategy Best Ask Update
 display.strategy_best_ask_update = function(buffer, offset, size, packet, parent)
   return ""
@@ -625,12 +678,40 @@ end
 dissect.strategy_best_ask_update = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.strategy_best_ask_update then
-    local range = buffer(offset, 39)
+    local length = size_of.strategy_best_ask_update(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.strategy_best_ask_update(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.strategy_best_ask_update, range, display)
   end
 
   return dissect.strategy_best_ask_update_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Strategy Best Bid Update
+size_of.strategy_best_bid_update = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.strategy_id
+
+  index = index + size_of.quote_condition
+
+  index = index + size_of.price
+
+  index = index + size_of.size
+
+  index = index + size_of.cust_size
+
+  index = index + size_of.pro_cust_size
+
+  index = index + size_of.ntt_size
+
+  index = index + size_of.market_size
+
+  index = index + size_of.ntt_market_size
+
+  return index
 end
 
 -- Display: Strategy Best Bid Update
@@ -679,7 +760,8 @@ end
 dissect.strategy_best_bid_update = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.strategy_best_bid_update then
-    local range = buffer(offset, 39)
+    local length = size_of.strategy_best_bid_update(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.strategy_best_bid_update(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.strategy_best_bid_update, range, display)
   end
@@ -967,6 +1049,47 @@ dissect.bid_price = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Strategy Best Bid And Ask Update
+size_of.strategy_best_bid_and_ask_update = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.strategy_id
+
+  index = index + size_of.quote_condition
+
+  index = index + size_of.bid_price
+
+  index = index + size_of.bid_size
+
+  index = index + size_of.bid_cust_size
+
+  index = index + size_of.bid_pro_cust_size
+
+  index = index + size_of.bid_ntt_size
+
+  index = index + size_of.bid_market_size
+
+  index = index + size_of.bid_ntt_market_size
+
+  index = index + size_of.ask_price
+
+  index = index + size_of.ask_size
+
+  index = index + size_of.ask_cust_size
+
+  index = index + size_of.ask_pro_cust_size
+
+  index = index + size_of.ask_ntt_size
+
+  index = index + size_of.ask_market_size
+
+  index = index + size_of.ask_ntt_market_size
+
+  return index
+end
+
 -- Display: Strategy Best Bid And Ask Update
 display.strategy_best_bid_and_ask_update = function(buffer, offset, size, packet, parent)
   return ""
@@ -1034,7 +1157,8 @@ end
 dissect.strategy_best_bid_and_ask_update = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.strategy_best_bid_and_ask_update then
-    local range = buffer(offset, 67)
+    local length = size_of.strategy_best_bid_and_ask_update(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.strategy_best_bid_and_ask_update(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.strategy_best_bid_and_ask_update, range, display)
   end
@@ -1069,6 +1193,19 @@ dissect.current_trading_state = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Strategy Trading Action Message
+size_of.strategy_trading_action_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.strategy_id
+
+  index = index + size_of.current_trading_state
+
+  return index
+end
+
 -- Display: Strategy Trading Action Message
 display.strategy_trading_action_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1094,7 +1231,8 @@ end
 dissect.strategy_trading_action_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.strategy_trading_action_message then
-    local range = buffer(offset, 11)
+    local length = size_of.strategy_trading_action_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.strategy_trading_action_message(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.strategy_trading_action_message, range, display)
   end
@@ -1129,6 +1267,19 @@ dissect.open_state = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Strategy Open Closed Message
+size_of.strategy_open_closed_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.strategy_id
+
+  index = index + size_of.open_state
+
+  return index
+end
+
 -- Display: Strategy Open Closed Message
 display.strategy_open_closed_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1154,7 +1305,8 @@ end
 dissect.strategy_open_closed_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.strategy_open_closed_message then
-    local range = buffer(offset, 11)
+    local length = size_of.strategy_open_closed_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.strategy_open_closed_message(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.strategy_open_closed_message, range, display)
   end
@@ -1382,6 +1534,33 @@ dissect.option_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Leg Information
+size_of.leg_information = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.option_id
+
+  index = index + size_of.security_symbol
+
+  index = index + size_of.leg_id
+
+  index = index + size_of.expiration_year
+
+  index = index + size_of.expiration_month
+
+  index = index + size_of.expiration_day
+
+  index = index + size_of.explicit_strike_price
+
+  index = index + size_of.option_type
+
+  index = index + size_of.side
+
+  index = index + size_of.leg_ratio
+
+  return index
+end
+
 -- Display: Leg Information
 display.leg_information = function(buffer, offset, size, packet, parent)
   return ""
@@ -1428,7 +1607,8 @@ end
 dissect.leg_information = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.leg_information then
-    local range = buffer(offset, 28)
+    local length = size_of.leg_information(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.leg_information(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.leg_information, range, display)
   end
@@ -1544,11 +1724,21 @@ dissect.strategy_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Complex Strategy Directory Message
+-- Calculate size of: Complex Strategy Directory Message
 size_of.complex_strategy_directory_message = function(buffer, offset)
   local index = 0
 
-  index = index + 26
+  index = index + size_of.timestamp
+
+  index = index + size_of.strategy_id
+
+  index = index + size_of.strategy_type
+
+  index = index + size_of.source
+
+  index = index + size_of.underlying_symbol
+
+  index = index + size_of.number_of_legs
 
   -- Calculate field size from count
   local leg_information_count = buffer(offset + index - 1, 1):uint()
@@ -1750,6 +1940,27 @@ dissect.event_code = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: System Event Message
+size_of.system_event_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.event_code
+
+  index = index + size_of.current_year
+
+  index = index + size_of.current_month
+
+  index = index + size_of.current_day
+
+  index = index + size_of.version
+
+  index = index + size_of.subversion
+
+  return index
+end
+
 -- Display: System Event Message
 display.system_event_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1787,7 +1998,8 @@ end
 dissect.system_event_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.system_event_message then
-    local range = buffer(offset, 13)
+    local length = size_of.system_event_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.system_event_message(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.system_event_message, range, display)
   end
@@ -1799,7 +2011,7 @@ end
 size_of.payload = function(buffer, offset, message_type)
   -- Size of System Event Message
   if message_type == "S" then
-    return 13
+    return size_of.system_event_message(buffer, offset)
   end
   -- Size of Complex Strategy Directory Message
   if message_type == "R" then
@@ -1807,27 +2019,27 @@ size_of.payload = function(buffer, offset, message_type)
   end
   -- Size of Strategy Open Closed Message
   if message_type == "O" then
-    return 11
+    return size_of.strategy_open_closed_message(buffer, offset)
   end
   -- Size of Strategy Trading Action Message
   if message_type == "H" then
-    return 11
+    return size_of.strategy_trading_action_message(buffer, offset)
   end
   -- Size of Strategy Best Bid And Ask Update
   if message_type == "C" then
-    return 67
+    return size_of.strategy_best_bid_and_ask_update(buffer, offset)
   end
   -- Size of Strategy Best Bid Update
   if message_type == "D" then
-    return 39
+    return size_of.strategy_best_bid_update(buffer, offset)
   end
   -- Size of Strategy Best Ask Update
   if message_type == "E" then
-    return 39
+    return size_of.strategy_best_ask_update(buffer, offset)
   end
   -- Size of Complex Strategy Ticker Message
   if message_type == "t" then
-    return 51
+    return size_of.complex_strategy_ticker_message(buffer, offset)
   end
 
   return 0
@@ -1961,6 +2173,17 @@ dissect.length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Message Header
+size_of.message_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.length
+
+  index = index + size_of.message_type
+
+  return index
+end
+
 -- Display: Message Header
 display.message_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -1983,7 +2206,8 @@ end
 dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local range = buffer(offset, 3)
+    local length = size_of.message_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.message_header, range, display)
   end
@@ -1991,11 +2215,11 @@ dissect.message_header = function(buffer, offset, packet, parent)
   return dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Message
+-- Calculate size of: Message
 size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.message_header(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -2099,6 +2323,19 @@ dissect.session = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Packet Header
+size_of.packet_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.session
+
+  index = index + size_of.sequence
+
+  index = index + size_of.count
+
+  return index
+end
+
 -- Display: Packet Header
 display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -2124,7 +2361,8 @@ end
 dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local range = buffer(offset, 20)
+    local length = size_of.packet_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.packet_header(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.packet_header, range, display)
   end

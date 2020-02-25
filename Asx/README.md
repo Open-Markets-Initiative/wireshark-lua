@@ -5,7 +5,7 @@
 
 |Division | Data | Protocol | Version | Date | Size | Testing | Specification|
 |--- | --- | --- | --- | --- | --- | --- | ---|
-|Securities | T24 | Itch | [1.13][Asx.Securities.T24.Itch.v1.13.Dissector] | 7/15/2014 | 5199 | Untested | [pdf][Asx.Securities.T24.Itch.v1.13.Pdf]|
+|Securities | T24 | Itch | [1.13][Asx.Securities.T24.Itch.v1.13.Dissector] | 7/15/2014 | 6048 | Untested | [pdf][Asx.Securities.T24.Itch.v1.13.Pdf]|
 
 
 Asx: [website](https://www.asx.com.au "Go to Australian Securities Exchange")

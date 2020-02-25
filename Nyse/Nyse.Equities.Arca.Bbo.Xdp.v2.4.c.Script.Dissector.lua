@@ -464,6 +464,33 @@ dissect.source_time_ns = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Quote Message
+size_of.quote_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time_ns
+
+  index = index + size_of.symbol_index
+
+  index = index + size_of.symbol_seq_num
+
+  index = index + size_of.ask_price
+
+  index = index + size_of.ask_volume
+
+  index = index + size_of.bid_price
+
+  index = index + size_of.bid_volume
+
+  index = index + size_of.quote_condition
+
+  index = index + size_of.rpi_indicator
+
+  index = index + size_of.reserved_4
+
+  return index
+end
+
 -- Display: Quote Message
 display.quote_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -510,7 +537,8 @@ end
 dissect.quote_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.quote_message then
-    local range = buffer(offset, 34)
+    local length = size_of.quote_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.quote_message(buffer, packet, parent)
     parent = parent:add(nyse_equities_arca_bbo_xdp_v2_4_c.fields.quote_message, range, display)
   end
@@ -598,6 +626,21 @@ dissect.current_refresh_pkt = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Refresh Header Message
+size_of.refresh_header_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.current_refresh_pkt
+
+  index = index + size_of.total_refresh_pkts
+
+  index = index + size_of.last_seq_num
+
+  index = index + size_of.last_symbol_seq_num
+
+  return index
+end
+
 -- Display: Refresh Header Message
 display.refresh_header_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -626,7 +669,8 @@ end
 dissect.refresh_header_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.refresh_header_message then
-    local range = buffer(offset, 12)
+    local length = size_of.refresh_header_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.refresh_header_message(buffer, packet, parent)
     parent = parent:add(nyse_equities_arca_bbo_xdp_v2_4_c.fields.refresh_header_message, range, display)
   end
@@ -995,6 +1039,43 @@ dissect.source_time = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Security Status Message
+size_of.security_status_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_time_ns
+
+  index = index + size_of.symbol_index
+
+  index = index + size_of.symbol_seq_num
+
+  index = index + size_of.security_status
+
+  index = index + size_of.halt_condition
+
+  index = index + size_of.reserved_4
+
+  index = index + size_of.price_1
+
+  index = index + size_of.price_2
+
+  index = index + size_of.ssr_triggering_exchange_id
+
+  index = index + size_of.ssr_triggering_volume
+
+  index = index + size_of.time
+
+  index = index + size_of.ssr_state
+
+  index = index + size_of.market_state
+
+  index = index + size_of.session_state
+
+  return index
+end
+
 -- Display: Security Status Message
 display.security_status_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1056,7 +1137,8 @@ end
 dissect.security_status_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.security_status_message then
-    local range = buffer(offset, 42)
+    local length = size_of.security_status_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.security_status_message(buffer, packet, parent)
     parent = parent:add(nyse_equities_arca_bbo_xdp_v2_4_c.fields.security_status_message, range, display)
   end
@@ -1082,6 +1164,23 @@ dissect.trading_session = function(buffer, offset, packet, parent)
   parent:add(nyse_equities_arca_bbo_xdp_v2_4_c.fields.trading_session, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Trading Session Change Message
+size_of.trading_session_change_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_time_ns
+
+  index = index + size_of.symbol_index
+
+  index = index + size_of.symbol_seq_num
+
+  index = index + size_of.trading_session
+
+  return index
 end
 
 -- Display: Trading Session Change Message
@@ -1115,7 +1214,8 @@ end
 dissect.trading_session_change_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trading_session_change_message then
-    local range = buffer(offset, 17)
+    local length = size_of.trading_session_change_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.trading_session_change_message(buffer, packet, parent)
     parent = parent:add(nyse_equities_arca_bbo_xdp_v2_4_c.fields.trading_session_change_message, range, display)
   end
@@ -1141,6 +1241,21 @@ dissect.next_source_seq_num = function(buffer, offset, packet, parent)
   parent:add(nyse_equities_arca_bbo_xdp_v2_4_c.fields.next_source_seq_num, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Symbol Clear Message
+size_of.symbol_clear_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_time_ns
+
+  index = index + size_of.symbol_index
+
+  index = index + size_of.next_source_seq_num
+
+  return index
 end
 
 -- Display: Symbol Clear Message
@@ -1171,7 +1286,8 @@ end
 dissect.symbol_clear_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.symbol_clear_message then
-    local range = buffer(offset, 16)
+    local length = size_of.symbol_clear_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.symbol_clear_message(buffer, packet, parent)
     parent = parent:add(nyse_equities_arca_bbo_xdp_v2_4_c.fields.symbol_clear_message, range, display)
   end
@@ -1259,6 +1375,21 @@ dissect.begin_seq_num = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Message Unavailable Message
+size_of.message_unavailable_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.begin_seq_num
+
+  index = index + size_of.end_seq_num
+
+  index = index + size_of.product_id
+
+  index = index + size_of.channel_id
+
+  return index
+end
+
 -- Display: Message Unavailable Message
 display.message_unavailable_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1287,7 +1418,8 @@ end
 dissect.message_unavailable_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_unavailable_message then
-    local range = buffer(offset, 10)
+    local length = size_of.message_unavailable_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.message_unavailable_message(buffer, packet, parent)
     parent = parent:add(nyse_equities_arca_bbo_xdp_v2_4_c.fields.message_unavailable_message, range, display)
   end
@@ -1313,6 +1445,21 @@ dissect.source_id = function(buffer, offset, packet, parent)
   parent:add(nyse_equities_arca_bbo_xdp_v2_4_c.fields.source_id, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Refresh Request Message
+size_of.refresh_request_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.symbol_index
+
+  index = index + size_of.source_id
+
+  index = index + size_of.product_id
+
+  index = index + size_of.channel_id
+
+  return index
 end
 
 -- Display: Refresh Request Message
@@ -1343,7 +1490,8 @@ end
 dissect.refresh_request_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.refresh_request_message then
-    local range = buffer(offset, 16)
+    local length = size_of.refresh_request_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.refresh_request_message(buffer, packet, parent)
     parent = parent:add(nyse_equities_arca_bbo_xdp_v2_4_c.fields.refresh_request_message, range, display)
   end
@@ -1373,6 +1521,23 @@ dissect.retransmit_method = function(buffer, offset, packet, parent)
   parent:add(nyse_equities_arca_bbo_xdp_v2_4_c.fields.retransmit_method, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Symbol Index Mapping Request Message
+size_of.symbol_index_mapping_request_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.symbol_index
+
+  index = index + size_of.source_id
+
+  index = index + size_of.product_id
+
+  index = index + size_of.channel_id
+
+  index = index + size_of.retransmit_method
+
+  return index
 end
 
 -- Display: Symbol Index Mapping Request Message
@@ -1406,12 +1571,22 @@ end
 dissect.symbol_index_mapping_request_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.symbol_index_mapping_request_message then
-    local range = buffer(offset, 17)
+    local length = size_of.symbol_index_mapping_request_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.symbol_index_mapping_request_message(buffer, packet, parent)
     parent = parent:add(nyse_equities_arca_bbo_xdp_v2_4_c.fields.symbol_index_mapping_request_message, range, display)
   end
 
   return dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Heartbeat Response Message
+size_of.heartbeat_response_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_id
+
+  return index
 end
 
 -- Display: Heartbeat Response Message
@@ -1433,7 +1608,8 @@ end
 dissect.heartbeat_response_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.heartbeat_response_message then
-    local range = buffer(offset, 10)
+    local length = size_of.heartbeat_response_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.heartbeat_response_message(buffer, packet, parent)
     parent = parent:add(nyse_equities_arca_bbo_xdp_v2_4_c.fields.heartbeat_response_message, range, display)
   end
@@ -1481,6 +1657,27 @@ dissect.request_seq_num = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Request Response Message
+size_of.request_response_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.request_seq_num
+
+  index = index + size_of.begin_seq_num
+
+  index = index + size_of.end_seq_num
+
+  index = index + size_of.source_id
+
+  index = index + size_of.product_id
+
+  index = index + size_of.channel_id
+
+  index = index + size_of.status
+
+  return index
+end
+
 -- Display: Request Response Message
 display.request_response_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1518,12 +1715,30 @@ end
 dissect.request_response_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.request_response_message then
-    local range = buffer(offset, 25)
+    local length = size_of.request_response_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.request_response_message(buffer, packet, parent)
     parent = parent:add(nyse_equities_arca_bbo_xdp_v2_4_c.fields.request_response_message, range, display)
   end
 
   return dissect.request_response_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Retransmission Request Message
+size_of.retransmission_request_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.begin_seq_num
+
+  index = index + size_of.end_seq_num
+
+  index = index + size_of.source_id
+
+  index = index + size_of.product_id
+
+  index = index + size_of.channel_id
+
+  return index
 end
 
 -- Display: Retransmission Request Message
@@ -1557,7 +1772,8 @@ end
 dissect.retransmission_request_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.retransmission_request_message then
-    local range = buffer(offset, 20)
+    local length = size_of.retransmission_request_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.retransmission_request_message(buffer, packet, parent)
     parent = parent:add(nyse_equities_arca_bbo_xdp_v2_4_c.fields.retransmission_request_message, range, display)
   end
@@ -1970,6 +2186,45 @@ dissect.symbol = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Symbol Index Mapping Message
+size_of.symbol_index_mapping_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.symbol_index
+
+  index = index + size_of.symbol
+
+  index = index + size_of.reserved_1
+
+  index = index + size_of.market_id
+
+  index = index + size_of.system_id
+
+  index = index + size_of.exchange_code
+
+  index = index + size_of.price_scale_code
+
+  index = index + size_of.security_type
+
+  index = index + size_of.lot_size
+
+  index = index + size_of.prev_close_price
+
+  index = index + size_of.prev_close_volume
+
+  index = index + size_of.price_resolution
+
+  index = index + size_of.round_lot
+
+  index = index + size_of.mpv
+
+  index = index + size_of.unit_of_trade
+
+  index = index + size_of.reserved_2
+
+  return index
+end
+
 -- Display: Symbol Index Mapping Message
 display.symbol_index_mapping_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -2034,7 +2289,8 @@ end
 dissect.symbol_index_mapping_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.symbol_index_mapping_message then
-    local range = buffer(offset, 40)
+    local length = size_of.symbol_index_mapping_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.symbol_index_mapping_message(buffer, packet, parent)
     parent = parent:add(nyse_equities_arca_bbo_xdp_v2_4_c.fields.symbol_index_mapping_message, range, display)
   end
@@ -2062,6 +2318,19 @@ dissect.id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Source Time Reference Message
+size_of.source_time_reference_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.id
+
+  index = index + size_of.symbol_seq_num
+
+  index = index + size_of.source_time
+
+  return index
+end
+
 -- Display: Source Time Reference Message
 display.source_time_reference_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -2087,12 +2356,28 @@ end
 dissect.source_time_reference_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.source_time_reference_message then
-    local range = buffer(offset, 12)
+    local length = size_of.source_time_reference_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.source_time_reference_message(buffer, packet, parent)
     parent = parent:add(nyse_equities_arca_bbo_xdp_v2_4_c.fields.source_time_reference_message, range, display)
   end
 
   return dissect.source_time_reference_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Sequence Number Reset Message
+size_of.sequence_number_reset_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_time_ns
+
+  index = index + size_of.product_id
+
+  index = index + size_of.channel_id
+
+  return index
 end
 
 -- Display: Sequence Number Reset Message
@@ -2123,7 +2408,8 @@ end
 dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.sequence_number_reset_message then
-    local range = buffer(offset, 10)
+    local length = size_of.sequence_number_reset_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.sequence_number_reset_message(buffer, packet, parent)
     parent = parent:add(nyse_equities_arca_bbo_xdp_v2_4_c.fields.sequence_number_reset_message, range, display)
   end
@@ -2135,59 +2421,59 @@ end
 size_of.payload = function(buffer, offset, message_type)
   -- Size of Sequence Number Reset Message
   if message_type == 1 then
-    return 10
+    return size_of.sequence_number_reset_message(buffer, offset)
   end
   -- Size of Source Time Reference Message
   if message_type == 2 then
-    return 12
+    return size_of.source_time_reference_message(buffer, offset)
   end
   -- Size of Symbol Index Mapping Message
   if message_type == 3 then
-    return 40
+    return size_of.symbol_index_mapping_message(buffer, offset)
   end
   -- Size of Retransmission Request Message
   if message_type == 10 then
-    return 20
+    return size_of.retransmission_request_message(buffer, offset)
   end
   -- Size of Request Response Message
   if message_type == 11 then
-    return 25
+    return size_of.request_response_message(buffer, offset)
   end
   -- Size of Heartbeat Response Message
   if message_type == 12 then
-    return 10
+    return size_of.heartbeat_response_message(buffer, offset)
   end
   -- Size of Symbol Index Mapping Request Message
   if message_type == 13 then
-    return 17
+    return size_of.symbol_index_mapping_request_message(buffer, offset)
   end
   -- Size of Refresh Request Message
   if message_type == 15 then
-    return 16
+    return size_of.refresh_request_message(buffer, offset)
   end
   -- Size of Message Unavailable Message
   if message_type == 31 then
-    return 10
+    return size_of.message_unavailable_message(buffer, offset)
   end
   -- Size of Symbol Clear Message
   if message_type == 32 then
-    return 16
+    return size_of.symbol_clear_message(buffer, offset)
   end
   -- Size of Trading Session Change Message
   if message_type == 33 then
-    return 17
+    return size_of.trading_session_change_message(buffer, offset)
   end
   -- Size of Security Status Message
   if message_type == 34 then
-    return 42
+    return size_of.security_status_message(buffer, offset)
   end
   -- Size of Refresh Header Message
   if message_type == 35 then
-    return 12
+    return size_of.refresh_header_message(buffer, offset)
   end
   -- Size of Quote Message
   if message_type == 140 then
-    return 34
+    return size_of.quote_message(buffer, offset)
   end
 
   return 0
@@ -2363,6 +2649,17 @@ dissect.message_size = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Message Header
+size_of.message_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.message_size
+
+  index = index + size_of.message_type
+
+  return index
+end
+
 -- Display: Message Header
 display.message_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -2385,7 +2682,8 @@ end
 dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local range = buffer(offset, 4)
+    local length = size_of.message_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
     parent = parent:add(nyse_equities_arca_bbo_xdp_v2_4_c.fields.message_header, range, display)
   end
@@ -2393,11 +2691,11 @@ dissect.message_header = function(buffer, offset, packet, parent)
   return dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Message
+-- Calculate size of: Message
 size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + 4
+  index = index + size_of.message_header(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -2595,6 +2893,25 @@ dissect.packet_size = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Packet Header
+size_of.packet_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.packet_size
+
+  index = index + size_of.delivery_flag
+
+  index = index + size_of.message_count
+
+  index = index + size_of.sequence_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.nanoseconds
+
+  return index
+end
+
 -- Display: Packet Header
 display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -2629,7 +2946,8 @@ end
 dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local range = buffer(offset, 16)
+    local length = size_of.packet_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.packet_header(buffer, packet, parent)
     parent = parent:add(nyse_equities_arca_bbo_xdp_v2_4_c.fields.packet_header, range, display)
   end

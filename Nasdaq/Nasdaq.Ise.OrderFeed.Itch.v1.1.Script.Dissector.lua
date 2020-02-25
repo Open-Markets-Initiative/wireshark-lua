@@ -224,6 +224,17 @@ dissect.response_price = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Auction Response
+size_of.auction_response = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.response_price
+
+  index = index + size_of.response_size
+
+  return index
+end
+
 -- Display: Auction Response
 display.auction_response = function(buffer, offset, size, packet, parent)
   return ""
@@ -246,7 +257,8 @@ end
 dissect.auction_response = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.auction_response then
-    local range = buffer(offset, 8)
+    local length = size_of.auction_response(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.auction_response(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_orderfeed_itch_v1_1.fields.auction_response, range, display)
   end
@@ -596,11 +608,37 @@ dissect.timestamp = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Auction Message
+-- Calculate size of: Auction Message
 size_of.auction_message = function(buffer, offset)
   local index = 0
 
-  index = index + 46
+  index = index + size_of.timestamp
+
+  index = index + size_of.option_id
+
+  index = index + size_of.auction_id
+
+  index = index + size_of.order_type
+
+  index = index + size_of.side
+
+  index = index + size_of.price
+
+  index = index + size_of.size
+
+  index = index + size_of.exec_flag
+
+  index = index + size_of.order_capacity
+
+  index = index + size_of.owner_id
+
+  index = index + size_of.giveup
+
+  index = index + size_of.cmta
+
+  index = index + size_of.auction_event
+
+  index = index + size_of.number_of_responses
 
   -- Calculate field size from count
   local auction_response_count = buffer(offset + index - 1, 1):uint()
@@ -681,6 +719,35 @@ dissect.auction_message = function(buffer, offset, packet, parent)
   return dissect.auction_message_fields(buffer, offset, packet, parent)
 end
 
+-- Calculate size of: Order On Book Message
+size_of.order_on_book_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.option_id
+
+  index = index + size_of.order_type
+
+  index = index + size_of.side
+
+  index = index + size_of.price
+
+  index = index + size_of.size
+
+  index = index + size_of.exec_flag
+
+  index = index + size_of.order_capacity
+
+  index = index + size_of.owner_id
+
+  index = index + size_of.giveup
+
+  index = index + size_of.cmta
+
+  return index
+end
+
 -- Display: Order On Book Message
 display.order_on_book_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -730,7 +797,8 @@ end
 dissect.order_on_book_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_on_book_message then
-    local range = buffer(offset, 40)
+    local length = size_of.order_on_book_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_on_book_message(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_orderfeed_itch_v1_1.fields.order_on_book_message, range, display)
   end
@@ -825,6 +893,25 @@ dissect.paired_contracts = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Opening Imbalance Message
+size_of.opening_imbalance_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.option_id
+
+  index = index + size_of.paired_contracts
+
+  index = index + size_of.imbalance_direction
+
+  index = index + size_of.imbalance_price
+
+  index = index + size_of.imbalance_volume
+
+  return index
+end
+
 -- Display: Opening Imbalance Message
 display.opening_imbalance_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -859,7 +946,8 @@ end
 dissect.opening_imbalance_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.opening_imbalance_message then
-    local range = buffer(offset, 23)
+    local length = size_of.opening_imbalance_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.opening_imbalance_message(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_orderfeed_itch_v1_1.fields.opening_imbalance_message, range, display)
   end
@@ -894,6 +982,19 @@ dissect.open_state = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Security Open Closed Message
+size_of.security_open_closed_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.option_id
+
+  index = index + size_of.open_state
+
+  return index
+end
+
 -- Display: Security Open Closed Message
 display.security_open_closed_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -919,7 +1020,8 @@ end
 dissect.security_open_closed_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.security_open_closed_message then
-    local range = buffer(offset, 11)
+    local length = size_of.security_open_closed_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.security_open_closed_message(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_orderfeed_itch_v1_1.fields.security_open_closed_message, range, display)
   end
@@ -954,6 +1056,19 @@ dissect.current_trading_state = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Trading Action Message
+size_of.trading_action_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.option_id
+
+  index = index + size_of.current_trading_state
+
+  return index
+end
+
 -- Display: Trading Action Message
 display.trading_action_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -979,7 +1094,8 @@ end
 dissect.trading_action_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trading_action_message then
-    local range = buffer(offset, 11)
+    local length = size_of.trading_action_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.trading_action_message(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_orderfeed_itch_v1_1.fields.trading_action_message, range, display)
   end
@@ -1318,6 +1434,45 @@ dissect.security_symbol = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Option Directory Message
+size_of.option_directory_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.option_id
+
+  index = index + size_of.security_symbol
+
+  index = index + size_of.expiration_year
+
+  index = index + size_of.expiration_month
+
+  index = index + size_of.expiration_day
+
+  index = index + size_of.strike_price
+
+  index = index + size_of.option_type
+
+  index = index + size_of.source
+
+  index = index + size_of.underlying_symbol
+
+  index = index + size_of.trading_type
+
+  index = index + size_of.contract_size
+
+  index = index + size_of.option_closing_type
+
+  index = index + size_of.tradable
+
+  index = index + size_of.mpv
+
+  index = index + size_of.closing_only
+
+  return index
+end
+
 -- Display: Option Directory Message
 display.option_directory_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1382,7 +1537,8 @@ end
 dissect.option_directory_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.option_directory_message then
-    local range = buffer(offset, 49)
+    local length = size_of.option_directory_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.option_directory_message(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_orderfeed_itch_v1_1.fields.option_directory_message, range, display)
   end
@@ -1535,6 +1691,27 @@ dissect.event_code = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: System Event Message
+size_of.system_event_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.event_code
+
+  index = index + size_of.current_year
+
+  index = index + size_of.current_month
+
+  index = index + size_of.current_day
+
+  index = index + size_of.version
+
+  index = index + size_of.subversion
+
+  return index
+end
+
 -- Display: System Event Message
 display.system_event_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1572,7 +1749,8 @@ end
 dissect.system_event_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.system_event_message then
-    local range = buffer(offset, 13)
+    local length = size_of.system_event_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.system_event_message(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_orderfeed_itch_v1_1.fields.system_event_message, range, display)
   end
@@ -1584,27 +1762,27 @@ end
 size_of.payload = function(buffer, offset, message_type)
   -- Size of System Event Message
   if message_type == "S" then
-    return 13
+    return size_of.system_event_message(buffer, offset)
   end
   -- Size of Option Directory Message
   if message_type == "D" then
-    return 49
+    return size_of.option_directory_message(buffer, offset)
   end
   -- Size of Trading Action Message
   if message_type == "H" then
-    return 11
+    return size_of.trading_action_message(buffer, offset)
   end
   -- Size of Security Open Closed Message
   if message_type == "O" then
-    return 11
+    return size_of.security_open_closed_message(buffer, offset)
   end
   -- Size of Opening Imbalance Message
   if message_type == "N" then
-    return 23
+    return size_of.opening_imbalance_message(buffer, offset)
   end
   -- Size of Order On Book Message
   if message_type == "B" then
-    return 40
+    return size_of.order_on_book_message(buffer, offset)
   end
   -- Size of Auction Message
   if message_type == "A" then
@@ -1735,6 +1913,17 @@ dissect.length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Message Header
+size_of.message_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.length
+
+  index = index + size_of.message_type
+
+  return index
+end
+
 -- Display: Message Header
 display.message_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -1757,7 +1946,8 @@ end
 dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local range = buffer(offset, 3)
+    local length = size_of.message_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_orderfeed_itch_v1_1.fields.message_header, range, display)
   end
@@ -1765,11 +1955,11 @@ dissect.message_header = function(buffer, offset, packet, parent)
   return dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Message
+-- Calculate size of: Message
 size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.message_header(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -1873,6 +2063,19 @@ dissect.session = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Packet Header
+size_of.packet_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.session
+
+  index = index + size_of.sequence
+
+  index = index + size_of.count
+
+  return index
+end
+
 -- Display: Packet Header
 display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -1898,7 +2101,8 @@ end
 dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local range = buffer(offset, 20)
+    local length = size_of.packet_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.packet_header(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_orderfeed_itch_v1_1.fields.packet_header, range, display)
   end

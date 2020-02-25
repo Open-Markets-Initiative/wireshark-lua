@@ -671,6 +671,19 @@ dissect.order_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: M D Incremental Refresh Trade Summary Order Group
+size_of.m_d_incremental_refresh_trade_summary_order_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.order_id
+
+  index = index + size_of.last_qty
+
+  index = index + size_of.padding_4
+
+  return index
+end
+
 -- Display: M D Incremental Refresh Trade Summary Order Group
 display.m_d_incremental_refresh_trade_summary_order_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -696,7 +709,8 @@ end
 dissect.m_d_incremental_refresh_trade_summary_order_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.m_d_incremental_refresh_trade_summary_order_group then
-    local range = buffer(offset, 16)
+    local length = size_of.m_d_incremental_refresh_trade_summary_order_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_trade_summary_order_group(buffer, packet, parent)
     parent = parent:add(cme_futures_mdp3_sbe_v1_5.fields.m_d_incremental_refresh_trade_summary_order_group, range, display)
   end
@@ -764,6 +778,19 @@ dissect.block_length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Group Size 8 Byte
+size_of.group_size_8_byte = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.block_length
+
+  index = index + size_of.padding_5
+
+  index = index + size_of.num_in_group
+
+  return index
+end
+
 -- Display: Group Size 8 Byte
 display.group_size_8_byte = function(buffer, offset, size, packet, parent)
   return ""
@@ -789,7 +816,8 @@ end
 dissect.group_size_8_byte = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.group_size_8_byte then
-    local range = buffer(offset, 8)
+    local length = size_of.group_size_8_byte(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.group_size_8_byte(buffer, packet, parent)
     parent = parent:add(cme_futures_mdp3_sbe_v1_5.fields.group_size_8_byte, range, display)
   end
@@ -797,11 +825,11 @@ dissect.group_size_8_byte = function(buffer, offset, packet, parent)
   return dissect.group_size_8_byte_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: M D Incremental Refresh Trade Summary Order Groups
+-- Calculate size of: M D Incremental Refresh Trade Summary Order Groups
 size_of.m_d_incremental_refresh_trade_summary_order_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 8
+  index = index + size_of.group_size_8_byte(buffer, offset + index)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_trade_summary_order_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -1054,6 +1082,29 @@ dissect.md_entry_px = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: M D Incremental Refresh Trade Summary Group
+size_of.m_d_incremental_refresh_trade_summary_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.md_entry_px
+
+  index = index + size_of.md_entry_size
+
+  index = index + size_of.security_id
+
+  index = index + size_of.rpt_seq
+
+  index = index + size_of.number_of_orders
+
+  index = index + size_of.aggressor_side
+
+  index = index + size_of.md_update_action
+
+  index = index + size_of.padding_6
+
+  return index
+end
+
 -- Display: M D Incremental Refresh Trade Summary Group
 display.m_d_incremental_refresh_trade_summary_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -1094,12 +1145,24 @@ end
 dissect.m_d_incremental_refresh_trade_summary_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.m_d_incremental_refresh_trade_summary_group then
-    local range = buffer(offset, 32)
+    local length = size_of.m_d_incremental_refresh_trade_summary_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_trade_summary_group(buffer, packet, parent)
     parent = parent:add(cme_futures_mdp3_sbe_v1_5.fields.m_d_incremental_refresh_trade_summary_group, range, display)
   end
 
   return dissect.m_d_incremental_refresh_trade_summary_group_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Group Size
+size_of.group_size = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.block_length
+
+  index = index + size_of.num_in_group
+
+  return index
 end
 
 -- Display: Group Size
@@ -1124,7 +1187,8 @@ end
 dissect.group_size = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.group_size then
-    local range = buffer(offset, 3)
+    local length = size_of.group_size(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.group_size(buffer, packet, parent)
     parent = parent:add(cme_futures_mdp3_sbe_v1_5.fields.group_size, range, display)
   end
@@ -1132,11 +1196,11 @@ dissect.group_size = function(buffer, offset, packet, parent)
   return dissect.group_size_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: M D Incremental Refresh Trade Summary Groups
+-- Calculate size of: M D Incremental Refresh Trade Summary Groups
 size_of.m_d_incremental_refresh_trade_summary_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_trade_summary_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -1200,6 +1264,9 @@ dissect.padding_2 = function(buffer, offset, packet, parent)
 
   return offset + length, value
 end
+
+-- Size: Match Event Indicator
+size_of.match_event_indicator = 1
 
 -- Display: Match Event Indicator
 display.match_event_indicator = function(buffer, packet, parent)
@@ -1303,11 +1370,15 @@ dissect.transact_time = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Md Incremental Refresh Trade Summary 42
+-- Calculate size of: Md Incremental Refresh Trade Summary 42
 size_of.md_incremental_refresh_trade_summary_42 = function(buffer, offset)
   local index = 0
 
-  index = index + 11
+  index = index + size_of.transact_time
+
+  index = index + size_of.match_event_indicator
+
+  index = index + size_of.padding_2
 
   index = index + size_of.m_d_incremental_refresh_trade_summary_groups(buffer, offset + index)
 
@@ -1396,6 +1467,17 @@ dissect.underlying_security_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Underlyings Group
+size_of.underlyings_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.underlying_security_id
+
+  index = index + size_of.underlying_symbol
+
+  return index
+end
+
 -- Display: Underlyings Group
 display.underlyings_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -1418,7 +1500,8 @@ end
 dissect.underlyings_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.underlyings_group then
-    local range = buffer(offset, 24)
+    local length = size_of.underlyings_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.underlyings_group(buffer, packet, parent)
     parent = parent:add(cme_futures_mdp3_sbe_v1_5.fields.underlyings_group, range, display)
   end
@@ -1426,11 +1509,11 @@ dissect.underlyings_group = function(buffer, offset, packet, parent)
   return dissect.underlyings_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Underlyings Groups
+-- Calculate size of: Underlyings Groups
 size_of.underlyings_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local underlyings_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -1516,6 +1599,17 @@ dissect.lot_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Lot Type Rules Group
+size_of.lot_type_rules_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.lot_type
+
+  index = index + size_of.min_lot_size
+
+  return index
+end
+
 -- Display: Lot Type Rules Group
 display.lot_type_rules_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -1538,7 +1632,8 @@ end
 dissect.lot_type_rules_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.lot_type_rules_group then
-    local range = buffer(offset, 5)
+    local length = size_of.lot_type_rules_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.lot_type_rules_group(buffer, packet, parent)
     parent = parent:add(cme_futures_mdp3_sbe_v1_5.fields.lot_type_rules_group, range, display)
   end
@@ -1546,11 +1641,11 @@ dissect.lot_type_rules_group = function(buffer, offset, packet, parent)
   return dissect.lot_type_rules_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Lot Type Rules Groups
+-- Calculate size of: Lot Type Rules Groups
 size_of.lot_type_rules_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local lot_type_rules_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -1594,6 +1689,9 @@ dissect.lot_type_rules_groups = function(buffer, offset, packet, parent)
 
   return dissect.lot_type_rules_groups_fields(buffer, offset, packet, parent)
 end
+
+-- Size: Inst Attrib Value
+size_of.inst_attrib_value = 4
 
 -- Display: Inst Attrib Value
 display.inst_attrib_value = function(buffer, packet, parent)
@@ -1764,6 +1862,15 @@ dissect.inst_attrib_value = function(buffer, offset, packet, parent)
   return offset + 4, range
 end
 
+-- Calculate size of: Inst Attrib Group
+size_of.inst_attrib_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.inst_attrib_value
+
+  return index
+end
+
 -- Display: Inst Attrib Group
 display.inst_attrib_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -1783,7 +1890,8 @@ end
 dissect.inst_attrib_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.inst_attrib_group then
-    local range = buffer(offset, 4)
+    local length = size_of.inst_attrib_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.inst_attrib_group(buffer, packet, parent)
     parent = parent:add(cme_futures_mdp3_sbe_v1_5.fields.inst_attrib_group, range, display)
   end
@@ -1791,11 +1899,11 @@ dissect.inst_attrib_group = function(buffer, offset, packet, parent)
   return dissect.inst_attrib_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Inst Attrib Groups
+-- Calculate size of: Inst Attrib Groups
 size_of.inst_attrib_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local inst_attrib_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -1880,6 +1988,17 @@ dissect.md_feed_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: M D Feed Types Group
+size_of.m_d_feed_types_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.md_feed_type
+
+  index = index + size_of.market_depth
+
+  return index
+end
+
 -- Display: M D Feed Types Group
 display.m_d_feed_types_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -1902,7 +2021,8 @@ end
 dissect.m_d_feed_types_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.m_d_feed_types_group then
-    local range = buffer(offset, 4)
+    local length = size_of.m_d_feed_types_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.m_d_feed_types_group(buffer, packet, parent)
     parent = parent:add(cme_futures_mdp3_sbe_v1_5.fields.m_d_feed_types_group, range, display)
   end
@@ -1910,11 +2030,11 @@ dissect.m_d_feed_types_group = function(buffer, offset, packet, parent)
   return dissect.m_d_feed_types_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: M D Feed Types Groups
+-- Calculate size of: M D Feed Types Groups
 size_of.m_d_feed_types_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local m_d_feed_types_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -2006,6 +2126,17 @@ dissect.event_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Events Group
+size_of.events_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.event_type
+
+  index = index + size_of.event_time
+
+  return index
+end
+
 -- Display: Events Group
 display.events_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -2028,7 +2159,8 @@ end
 dissect.events_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.events_group then
-    local range = buffer(offset, 9)
+    local length = size_of.events_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.events_group(buffer, packet, parent)
     parent = parent:add(cme_futures_mdp3_sbe_v1_5.fields.events_group, range, display)
   end
@@ -2036,11 +2168,11 @@ dissect.events_group = function(buffer, offset, packet, parent)
   return dissect.events_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Events Groups
+-- Calculate size of: Events Groups
 size_of.events_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local events_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -2196,6 +2328,9 @@ dissect.cleared_volume = function(buffer, offset, packet, parent)
 
   return offset + length, value
 end
+
+-- Size: Settl Price Type
+size_of.settl_price_type = 1
 
 -- Display: Settl Price Type
 display.settl_price_type = function(buffer, packet, parent)
@@ -2748,6 +2883,21 @@ dissect.year = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Maturity Month Year
+size_of.maturity_month_year = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.year
+
+  index = index + size_of.month
+
+  index = index + size_of.day
+
+  index = index + size_of.week
+
+  return index
+end
+
 -- Display: Maturity Month Year
 display.maturity_month_year = function(buffer, offset, size, packet, parent)
   return ""
@@ -2776,7 +2926,8 @@ end
 dissect.maturity_month_year = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.maturity_month_year then
-    local range = buffer(offset, 5)
+    local length = size_of.maturity_month_year(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.maturity_month_year(buffer, packet, parent)
     parent = parent:add(cme_futures_mdp3_sbe_v1_5.fields.maturity_month_year, range, display)
   end
@@ -3091,11 +3242,91 @@ dissect.tot_num_reports = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Md Instrument Definition Option 41
+-- Calculate size of: Md Instrument Definition Option 41
 size_of.md_instrument_definition_option_41 = function(buffer, offset)
   local index = 0
 
-  index = index + 211
+  index = index + size_of.match_event_indicator
+
+  index = index + size_of.tot_num_reports
+
+  index = index + size_of.security_update_action
+
+  index = index + size_of.last_update_time
+
+  index = index + size_of.md_security_trading_status
+
+  index = index + size_of.appl_id
+
+  index = index + size_of.market_segment_id
+
+  index = index + size_of.underlying_product
+
+  index = index + size_of.security_exchange
+
+  index = index + size_of.security_group
+
+  index = index + size_of.asset
+
+  index = index + size_of.symbol
+
+  index = index + size_of.security_id
+
+  index = index + size_of.security_type
+
+  index = index + size_of.cfi_code
+
+  index = index + size_of.put_or_call
+
+  index = index + size_of.maturity_month_year(buffer, offset + index)
+
+  index = index + size_of.currency
+
+  index = index + size_of.strike_price
+
+  index = index + size_of.strike_currency
+
+  index = index + size_of.settl_currency
+
+  index = index + size_of.min_cab_price
+
+  index = index + size_of.match_algorithm
+
+  index = index + size_of.min_trade_vol
+
+  index = index + size_of.max_trade_vol
+
+  index = index + size_of.min_price_increment
+
+  index = index + size_of.min_price_increment_amount
+
+  index = index + size_of.display_factor
+
+  index = index + size_of.tick_rule
+
+  index = index + size_of.main_fraction
+
+  index = index + size_of.sub_fraction
+
+  index = index + size_of.price_display_format
+
+  index = index + size_of.unit_of_measure
+
+  index = index + size_of.unit_of_measure_qty
+
+  index = index + size_of.trading_reference_price
+
+  index = index + size_of.settl_price_type
+
+  index = index + size_of.cleared_volume
+
+  index = index + size_of.open_interest_qty
+
+  index = index + size_of.low_limit_price
+
+  index = index + size_of.high_limit_price
+
+  index = index + size_of.user_defined_instrument
 
   index = index + size_of.events_groups(buffer, offset + index)
 
@@ -3343,6 +3574,25 @@ dissect.order_qty = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Related Sym Group
+size_of.related_sym_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.symbol
+
+  index = index + size_of.security_id
+
+  index = index + size_of.order_qty
+
+  index = index + size_of.quote_type
+
+  index = index + size_of.side
+
+  index = index + size_of.padding_2
+
+  return index
+end
+
 -- Display: Related Sym Group
 display.related_sym_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -3377,7 +3627,8 @@ end
 dissect.related_sym_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.related_sym_group then
-    local range = buffer(offset, 32)
+    local length = size_of.related_sym_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.related_sym_group(buffer, packet, parent)
     parent = parent:add(cme_futures_mdp3_sbe_v1_5.fields.related_sym_group, range, display)
   end
@@ -3385,11 +3636,11 @@ dissect.related_sym_group = function(buffer, offset, packet, parent)
   return dissect.related_sym_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Related Sym Groups
+-- Calculate size of: Related Sym Groups
 size_of.related_sym_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local related_sym_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -3474,11 +3725,17 @@ dissect.quote_req_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Quote Request 39
+-- Calculate size of: Quote Request 39
 size_of.quote_request_39 = function(buffer, offset)
   local index = 0
 
-  index = index + 35
+  index = index + size_of.transact_time
+
+  index = index + size_of.quote_req_id
+
+  index = index + size_of.match_event_indicator
+
+  index = index + size_of.padding_3
 
   index = index + size_of.related_sym_groups(buffer, offset + index)
 
@@ -3677,6 +3934,29 @@ dissect.md_price_level = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Snapshot Full Refresh Group
+size_of.snapshot_full_refresh_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.md_entry_px
+
+  index = index + size_of.md_entry_size
+
+  index = index + size_of.number_of_orders
+
+  index = index + size_of.md_price_level
+
+  index = index + size_of.trading_reference_date
+
+  index = index + size_of.open_close_settl_flag
+
+  index = index + size_of.settl_price_type
+
+  index = index + size_of.md_entry_type
+
+  return index
+end
+
 -- Display: Snapshot Full Refresh Group
 display.snapshot_full_refresh_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -3717,7 +3997,8 @@ end
 dissect.snapshot_full_refresh_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.snapshot_full_refresh_group then
-    local range = buffer(offset, 22)
+    local length = size_of.snapshot_full_refresh_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.snapshot_full_refresh_group(buffer, packet, parent)
     parent = parent:add(cme_futures_mdp3_sbe_v1_5.fields.snapshot_full_refresh_group, range, display)
   end
@@ -3725,11 +4006,11 @@ dissect.snapshot_full_refresh_group = function(buffer, offset, packet, parent)
   return dissect.snapshot_full_refresh_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Snapshot Full Refresh Groups
+-- Calculate size of: Snapshot Full Refresh Groups
 size_of.snapshot_full_refresh_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local snapshot_full_refresh_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -3840,11 +4121,31 @@ dissect.last_msg_seq_num_processed = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Snapshot Full Refresh 38
+-- Calculate size of: Snapshot Full Refresh 38
 size_of.snapshot_full_refresh_38 = function(buffer, offset)
   local index = 0
 
-  index = index + 59
+  index = index + size_of.last_msg_seq_num_processed
+
+  index = index + size_of.tot_num_reports
+
+  index = index + size_of.security_id
+
+  index = index + size_of.rpt_seq
+
+  index = index + size_of.transact_time
+
+  index = index + size_of.last_update_time
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.md_security_trading_status
+
+  index = index + size_of.high_limit_price
+
+  index = index + size_of.low_limit_price
+
+  index = index + size_of.max_price_variation
 
   index = index + size_of.snapshot_full_refresh_groups(buffer, offset + index)
 
@@ -3912,6 +4213,23 @@ dissect.snapshot_full_refresh_38 = function(buffer, offset, packet, parent)
   return dissect.snapshot_full_refresh_38_fields(buffer, offset, packet, parent)
 end
 
+-- Calculate size of: M D Incremental Refresh Volume Group
+size_of.m_d_incremental_refresh_volume_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.md_entry_size
+
+  index = index + size_of.security_id
+
+  index = index + size_of.rpt_seq
+
+  index = index + size_of.md_update_action
+
+  index = index + size_of.padding_3
+
+  return index
+end
+
 -- Display: M D Incremental Refresh Volume Group
 display.m_d_incremental_refresh_volume_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -3943,7 +4261,8 @@ end
 dissect.m_d_incremental_refresh_volume_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.m_d_incremental_refresh_volume_group then
-    local range = buffer(offset, 16)
+    local length = size_of.m_d_incremental_refresh_volume_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_volume_group(buffer, packet, parent)
     parent = parent:add(cme_futures_mdp3_sbe_v1_5.fields.m_d_incremental_refresh_volume_group, range, display)
   end
@@ -3951,11 +4270,11 @@ dissect.m_d_incremental_refresh_volume_group = function(buffer, offset, packet, 
   return dissect.m_d_incremental_refresh_volume_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: M D Incremental Refresh Volume Groups
+-- Calculate size of: M D Incremental Refresh Volume Groups
 size_of.m_d_incremental_refresh_volume_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_volume_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -4000,11 +4319,15 @@ dissect.m_d_incremental_refresh_volume_groups = function(buffer, offset, packet,
   return dissect.m_d_incremental_refresh_volume_groups_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Md Incremental Refresh Volume 37
+-- Calculate size of: Md Incremental Refresh Volume 37
 size_of.md_incremental_refresh_volume_37 = function(buffer, offset)
   local index = 0
 
-  index = index + 11
+  index = index + size_of.transact_time
+
+  index = index + size_of.match_event_indicator
+
+  index = index + size_of.padding_2
 
   index = index + size_of.m_d_incremental_refresh_volume_groups(buffer, offset + index)
 
@@ -4068,6 +4391,31 @@ dissect.trade_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: M D Incremental Refresh Trade Group
+size_of.m_d_incremental_refresh_trade_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.md_entry_px
+
+  index = index + size_of.md_entry_size
+
+  index = index + size_of.security_id
+
+  index = index + size_of.rpt_seq
+
+  index = index + size_of.number_of_orders
+
+  index = index + size_of.trade_id
+
+  index = index + size_of.aggressor_side
+
+  index = index + size_of.md_update_action
+
+  index = index + size_of.padding_2
+
+  return index
+end
+
 -- Display: M D Incremental Refresh Trade Group
 display.m_d_incremental_refresh_trade_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -4111,7 +4459,8 @@ end
 dissect.m_d_incremental_refresh_trade_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.m_d_incremental_refresh_trade_group then
-    local range = buffer(offset, 32)
+    local length = size_of.m_d_incremental_refresh_trade_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_trade_group(buffer, packet, parent)
     parent = parent:add(cme_futures_mdp3_sbe_v1_5.fields.m_d_incremental_refresh_trade_group, range, display)
   end
@@ -4119,11 +4468,11 @@ dissect.m_d_incremental_refresh_trade_group = function(buffer, offset, packet, p
   return dissect.m_d_incremental_refresh_trade_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: M D Incremental Refresh Trade Groups
+-- Calculate size of: M D Incremental Refresh Trade Groups
 size_of.m_d_incremental_refresh_trade_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_trade_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -4168,11 +4517,15 @@ dissect.m_d_incremental_refresh_trade_groups = function(buffer, offset, packet, 
   return dissect.m_d_incremental_refresh_trade_groups_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Md Incremental Refresh Trade 36
+-- Calculate size of: Md Incremental Refresh Trade 36
 size_of.md_incremental_refresh_trade_36 = function(buffer, offset)
   local index = 0
 
-  index = index + 11
+  index = index + size_of.transact_time
+
+  index = index + size_of.match_event_indicator
+
+  index = index + size_of.padding_2
 
   index = index + size_of.m_d_incremental_refresh_trade_groups(buffer, offset + index)
 
@@ -4216,6 +4569,27 @@ dissect.md_incremental_refresh_trade_36 = function(buffer, offset, packet, paren
   return dissect.md_incremental_refresh_trade_36_fields(buffer, offset, packet, parent)
 end
 
+-- Calculate size of: M D Incremental Refresh Session Statistics Group
+size_of.m_d_incremental_refresh_session_statistics_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.md_entry_px
+
+  index = index + size_of.security_id
+
+  index = index + size_of.rpt_seq
+
+  index = index + size_of.open_close_settl_flag
+
+  index = index + size_of.md_update_action
+
+  index = index + size_of.md_entry_type
+
+  index = index + size_of.padding_5
+
+  return index
+end
+
 -- Display: M D Incremental Refresh Session Statistics Group
 display.m_d_incremental_refresh_session_statistics_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -4253,7 +4627,8 @@ end
 dissect.m_d_incremental_refresh_session_statistics_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.m_d_incremental_refresh_session_statistics_group then
-    local range = buffer(offset, 24)
+    local length = size_of.m_d_incremental_refresh_session_statistics_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_session_statistics_group(buffer, packet, parent)
     parent = parent:add(cme_futures_mdp3_sbe_v1_5.fields.m_d_incremental_refresh_session_statistics_group, range, display)
   end
@@ -4261,11 +4636,11 @@ dissect.m_d_incremental_refresh_session_statistics_group = function(buffer, offs
   return dissect.m_d_incremental_refresh_session_statistics_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: M D Incremental Refresh Session Statistics Groups
+-- Calculate size of: M D Incremental Refresh Session Statistics Groups
 size_of.m_d_incremental_refresh_session_statistics_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_session_statistics_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -4310,11 +4685,15 @@ dissect.m_d_incremental_refresh_session_statistics_groups = function(buffer, off
   return dissect.m_d_incremental_refresh_session_statistics_groups_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Md Incremental Refresh Session Statistics 35
+-- Calculate size of: Md Incremental Refresh Session Statistics 35
 size_of.md_incremental_refresh_session_statistics_35 = function(buffer, offset)
   local index = 0
 
-  index = index + 11
+  index = index + size_of.transact_time
+
+  index = index + size_of.match_event_indicator
+
+  index = index + size_of.padding_2
 
   index = index + size_of.m_d_incremental_refresh_session_statistics_groups(buffer, offset + index)
 
@@ -4358,6 +4737,23 @@ dissect.md_incremental_refresh_session_statistics_35 = function(buffer, offset, 
   return dissect.md_incremental_refresh_session_statistics_35_fields(buffer, offset, packet, parent)
 end
 
+-- Calculate size of: M D Incremental Refresh Limits Banding Group
+size_of.m_d_incremental_refresh_limits_banding_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.high_limit_price
+
+  index = index + size_of.low_limit_price
+
+  index = index + size_of.max_price_variation
+
+  index = index + size_of.security_id
+
+  index = index + size_of.rpt_seq
+
+  return index
+end
+
 -- Display: M D Incremental Refresh Limits Banding Group
 display.m_d_incremental_refresh_limits_banding_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -4389,7 +4785,8 @@ end
 dissect.m_d_incremental_refresh_limits_banding_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.m_d_incremental_refresh_limits_banding_group then
-    local range = buffer(offset, 32)
+    local length = size_of.m_d_incremental_refresh_limits_banding_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_limits_banding_group(buffer, packet, parent)
     parent = parent:add(cme_futures_mdp3_sbe_v1_5.fields.m_d_incremental_refresh_limits_banding_group, range, display)
   end
@@ -4397,11 +4794,11 @@ dissect.m_d_incremental_refresh_limits_banding_group = function(buffer, offset, 
   return dissect.m_d_incremental_refresh_limits_banding_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: M D Incremental Refresh Limits Banding Groups
+-- Calculate size of: M D Incremental Refresh Limits Banding Groups
 size_of.m_d_incremental_refresh_limits_banding_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_limits_banding_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -4446,11 +4843,15 @@ dissect.m_d_incremental_refresh_limits_banding_groups = function(buffer, offset,
   return dissect.m_d_incremental_refresh_limits_banding_groups_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Md Incremental Refresh Limits Banding 34
+-- Calculate size of: Md Incremental Refresh Limits Banding 34
 size_of.md_incremental_refresh_limits_banding_34 = function(buffer, offset)
   local index = 0
 
-  index = index + 11
+  index = index + size_of.transact_time
+
+  index = index + size_of.match_event_indicator
+
+  index = index + size_of.padding_2
 
   index = index + size_of.m_d_incremental_refresh_limits_banding_groups(buffer, offset + index)
 
@@ -4514,6 +4915,31 @@ dissect.padding_7 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: M D Incremental Refresh Daily Statistics Group
+size_of.m_d_incremental_refresh_daily_statistics_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.md_entry_px
+
+  index = index + size_of.md_entry_size
+
+  index = index + size_of.security_id
+
+  index = index + size_of.rpt_seq
+
+  index = index + size_of.trading_reference_date
+
+  index = index + size_of.settl_price_type
+
+  index = index + size_of.md_update_action
+
+  index = index + size_of.md_entry_type
+
+  index = index + size_of.padding_7
+
+  return index
+end
+
 -- Display: M D Incremental Refresh Daily Statistics Group
 display.m_d_incremental_refresh_daily_statistics_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -4557,7 +4983,8 @@ end
 dissect.m_d_incremental_refresh_daily_statistics_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.m_d_incremental_refresh_daily_statistics_group then
-    local range = buffer(offset, 32)
+    local length = size_of.m_d_incremental_refresh_daily_statistics_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_daily_statistics_group(buffer, packet, parent)
     parent = parent:add(cme_futures_mdp3_sbe_v1_5.fields.m_d_incremental_refresh_daily_statistics_group, range, display)
   end
@@ -4565,11 +4992,11 @@ dissect.m_d_incremental_refresh_daily_statistics_group = function(buffer, offset
   return dissect.m_d_incremental_refresh_daily_statistics_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: M D Incremental Refresh Daily Statistics Groups
+-- Calculate size of: M D Incremental Refresh Daily Statistics Groups
 size_of.m_d_incremental_refresh_daily_statistics_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_daily_statistics_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -4614,11 +5041,15 @@ dissect.m_d_incremental_refresh_daily_statistics_groups = function(buffer, offse
   return dissect.m_d_incremental_refresh_daily_statistics_groups_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Md Incremental Refresh Daily Statistics 33
+-- Calculate size of: Md Incremental Refresh Daily Statistics 33
 size_of.md_incremental_refresh_daily_statistics_33 = function(buffer, offset)
   local index = 0
 
-  index = index + 11
+  index = index + size_of.transact_time
+
+  index = index + size_of.match_event_indicator
+
+  index = index + size_of.padding_2
 
   index = index + size_of.m_d_incremental_refresh_daily_statistics_groups(buffer, offset + index)
 
@@ -4660,6 +5091,31 @@ dissect.md_incremental_refresh_daily_statistics_33 = function(buffer, offset, pa
   end
 
   return dissect.md_incremental_refresh_daily_statistics_33_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: M D Incremental Refresh Book Group
+size_of.m_d_incremental_refresh_book_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.md_entry_px
+
+  index = index + size_of.md_entry_size
+
+  index = index + size_of.security_id
+
+  index = index + size_of.rpt_seq
+
+  index = index + size_of.number_of_orders
+
+  index = index + size_of.md_price_level
+
+  index = index + size_of.md_update_action
+
+  index = index + size_of.md_entry_type
+
+  index = index + size_of.padding_5
+
+  return index
 end
 
 -- Display: M D Incremental Refresh Book Group
@@ -4705,7 +5161,8 @@ end
 dissect.m_d_incremental_refresh_book_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.m_d_incremental_refresh_book_group then
-    local range = buffer(offset, 32)
+    local length = size_of.m_d_incremental_refresh_book_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_book_group(buffer, packet, parent)
     parent = parent:add(cme_futures_mdp3_sbe_v1_5.fields.m_d_incremental_refresh_book_group, range, display)
   end
@@ -4713,11 +5170,11 @@ dissect.m_d_incremental_refresh_book_group = function(buffer, offset, packet, pa
   return dissect.m_d_incremental_refresh_book_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: M D Incremental Refresh Book Groups
+-- Calculate size of: M D Incremental Refresh Book Groups
 size_of.m_d_incremental_refresh_book_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_book_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -4762,11 +5219,15 @@ dissect.m_d_incremental_refresh_book_groups = function(buffer, offset, packet, p
   return dissect.m_d_incremental_refresh_book_groups_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Md Incremental Refresh Book 32
+-- Calculate size of: Md Incremental Refresh Book 32
 size_of.md_incremental_refresh_book_32 = function(buffer, offset)
   local index = 0
 
-  index = index + 11
+  index = index + size_of.transact_time
+
+  index = index + size_of.match_event_indicator
+
+  index = index + size_of.padding_2
 
   index = index + size_of.m_d_incremental_refresh_book_groups(buffer, offset + index)
 
@@ -4945,6 +5406,31 @@ dissect.security_trading_status = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Security Status 30
+size_of.security_status_30 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.transact_time
+
+  index = index + size_of.security_group
+
+  index = index + size_of.asset
+
+  index = index + size_of.security_id
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.match_event_indicator
+
+  index = index + size_of.security_trading_status
+
+  index = index + size_of.halt_reason
+
+  index = index + size_of.security_trading_event
+
+  return index
+end
+
 -- Display: Security Status 30
 display.security_status_30 = function(buffer, offset, size, packet, parent)
   return ""
@@ -4988,7 +5474,8 @@ end
 dissect.security_status_30 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.security_status_30 then
-    local range = buffer(offset, 30)
+    local length = size_of.security_status_30(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.security_status_30(buffer, packet, parent)
     parent = parent:add(cme_futures_mdp3_sbe_v1_5.fields.security_status_30, range, display)
   end
@@ -5105,6 +5592,23 @@ dissect.leg_security_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Legs Group
+size_of.legs_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.leg_security_id
+
+  index = index + size_of.leg_side
+
+  index = index + size_of.leg_ratio_qty
+
+  index = index + size_of.leg_price
+
+  index = index + size_of.leg_option_delta
+
+  return index
+end
+
 -- Display: Legs Group
 display.legs_group = function(buffer, offset, size, packet, parent)
   return ""
@@ -5136,7 +5640,8 @@ end
 dissect.legs_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.legs_group then
-    local range = buffer(offset, 18)
+    local length = size_of.legs_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.legs_group(buffer, packet, parent)
     parent = parent:add(cme_futures_mdp3_sbe_v1_5.fields.legs_group, range, display)
   end
@@ -5144,11 +5649,11 @@ dissect.legs_group = function(buffer, offset, packet, parent)
   return dissect.legs_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Legs Groups
+-- Calculate size of: Legs Groups
 size_of.legs_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local legs_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -5234,11 +5739,83 @@ dissect.security_sub_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Md Instrument Definition Spread 29
+-- Calculate size of: Md Instrument Definition Spread 29
 size_of.md_instrument_definition_spread_29 = function(buffer, offset)
   local index = 0
 
-  index = index + 193
+  index = index + size_of.match_event_indicator
+
+  index = index + size_of.tot_num_reports
+
+  index = index + size_of.security_update_action
+
+  index = index + size_of.last_update_time
+
+  index = index + size_of.md_security_trading_status
+
+  index = index + size_of.appl_id
+
+  index = index + size_of.market_segment_id
+
+  index = index + size_of.underlying_product
+
+  index = index + size_of.security_exchange
+
+  index = index + size_of.security_group
+
+  index = index + size_of.asset
+
+  index = index + size_of.symbol
+
+  index = index + size_of.security_id
+
+  index = index + size_of.security_type
+
+  index = index + size_of.cfi_code
+
+  index = index + size_of.maturity_month_year(buffer, offset + index)
+
+  index = index + size_of.currency
+
+  index = index + size_of.security_sub_type
+
+  index = index + size_of.user_defined_instrument
+
+  index = index + size_of.match_algorithm
+
+  index = index + size_of.min_trade_vol
+
+  index = index + size_of.max_trade_vol
+
+  index = index + size_of.min_price_increment
+
+  index = index + size_of.display_factor
+
+  index = index + size_of.price_display_format
+
+  index = index + size_of.price_ratio
+
+  index = index + size_of.tick_rule
+
+  index = index + size_of.unit_of_measure
+
+  index = index + size_of.trading_reference_price
+
+  index = index + size_of.settl_price_type
+
+  index = index + size_of.open_interest_qty
+
+  index = index + size_of.cleared_volume
+
+  index = index + size_of.high_limit_price
+
+  index = index + size_of.low_limit_price
+
+  index = index + size_of.max_price_variation
+
+  index = index + size_of.main_fraction
+
+  index = index + size_of.sub_fraction
 
   index = index + size_of.events_groups(buffer, offset + index)
 
@@ -5554,11 +6131,95 @@ dissect.decay_quantity = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Md Instrument Definition Future 27
+-- Calculate size of: Md Instrument Definition Future 27
 size_of.md_instrument_definition_future_27 = function(buffer, offset)
   local index = 0
 
-  index = index + 214
+  index = index + size_of.match_event_indicator
+
+  index = index + size_of.tot_num_reports
+
+  index = index + size_of.security_update_action
+
+  index = index + size_of.last_update_time
+
+  index = index + size_of.md_security_trading_status
+
+  index = index + size_of.appl_id
+
+  index = index + size_of.market_segment_id
+
+  index = index + size_of.underlying_product
+
+  index = index + size_of.security_exchange
+
+  index = index + size_of.security_group
+
+  index = index + size_of.asset
+
+  index = index + size_of.symbol
+
+  index = index + size_of.security_id
+
+  index = index + size_of.security_type
+
+  index = index + size_of.cfi_code
+
+  index = index + size_of.maturity_month_year(buffer, offset + index)
+
+  index = index + size_of.currency
+
+  index = index + size_of.settl_currency
+
+  index = index + size_of.match_algorithm
+
+  index = index + size_of.min_trade_vol
+
+  index = index + size_of.max_trade_vol
+
+  index = index + size_of.min_price_increment
+
+  index = index + size_of.display_factor
+
+  index = index + size_of.main_fraction
+
+  index = index + size_of.sub_fraction
+
+  index = index + size_of.price_display_format
+
+  index = index + size_of.unit_of_measure
+
+  index = index + size_of.unit_of_measure_qty
+
+  index = index + size_of.trading_reference_price
+
+  index = index + size_of.settl_price_type
+
+  index = index + size_of.open_interest_qty
+
+  index = index + size_of.cleared_volume
+
+  index = index + size_of.high_limit_price
+
+  index = index + size_of.low_limit_price
+
+  index = index + size_of.max_price_variation
+
+  index = index + size_of.decay_quantity
+
+  index = index + size_of.decay_start_date
+
+  index = index + size_of.original_contract_size
+
+  index = index + size_of.contract_multiplier
+
+  index = index + size_of.contract_multiplier_unit
+
+  index = index + size_of.flow_schedule_type
+
+  index = index + size_of.min_price_increment_amount
+
+  index = index + size_of.user_defined_instrument
 
   index = index + size_of.events_groups(buffer, offset + index)
 
@@ -5757,6 +6418,15 @@ dissect.text = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Admin Logout 16
+size_of.admin_logout_16 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.text
+
+  return index
+end
+
 -- Display: Admin Logout 16
 display.admin_logout_16 = function(buffer, offset, size, packet, parent)
   return ""
@@ -5776,7 +6446,8 @@ end
 dissect.admin_logout_16 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.admin_logout_16 then
-    local range = buffer(offset, 180)
+    local length = size_of.admin_logout_16(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.admin_logout_16(buffer, packet, parent)
     parent = parent:add(cme_futures_mdp3_sbe_v1_5.fields.admin_logout_16, range, display)
   end
@@ -5804,6 +6475,15 @@ dissect.heart_bt_int = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Admin Login 15
+size_of.admin_login_15 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.heart_bt_int
+
+  return index
+end
+
 -- Display: Admin Login 15
 display.admin_login_15 = function(buffer, offset, size, packet, parent)
   return ""
@@ -5823,12 +6503,22 @@ end
 dissect.admin_login_15 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.admin_login_15 then
-    local range = buffer(offset, 1)
+    local length = size_of.admin_login_15(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.admin_login_15(buffer, packet, parent)
     parent = parent:add(cme_futures_mdp3_sbe_v1_5.fields.admin_login_15, range, display)
   end
 
   return dissect.admin_login_15_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Channel Reset Group
+size_of.channel_reset_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.appl_id
+
+  return index
 end
 
 -- Display: Channel Reset Group
@@ -5850,7 +6540,8 @@ end
 dissect.channel_reset_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.channel_reset_group then
-    local range = buffer(offset, 2)
+    local length = size_of.channel_reset_group(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.channel_reset_group(buffer, packet, parent)
     parent = parent:add(cme_futures_mdp3_sbe_v1_5.fields.channel_reset_group, range, display)
   end
@@ -5858,11 +6549,11 @@ dissect.channel_reset_group = function(buffer, offset, packet, parent)
   return dissect.channel_reset_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Channel Reset Groups
+-- Calculate size of: Channel Reset Groups
 size_of.channel_reset_groups = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
   local channel_reset_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -5907,11 +6598,13 @@ dissect.channel_reset_groups = function(buffer, offset, packet, parent)
   return dissect.channel_reset_groups_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Channel Reset 4
+-- Calculate size of: Channel Reset 4
 size_of.channel_reset_4 = function(buffer, offset)
   local index = 0
 
-  index = index + 9
+  index = index + size_of.transact_time
+
+  index = index + size_of.match_event_indicator
 
   index = index + size_of.channel_reset_groups(buffer, offset + index)
 
@@ -5960,15 +6653,15 @@ size_of.payload = function(buffer, offset, template_id)
   end
   -- Size of Admin Heartbeat 12
   if template_id == 12 then
-    return 0
+    return size_of.admin_heartbeat_12(buffer, offset)
   end
   -- Size of Admin Login 15
   if template_id == 15 then
-    return 1
+    return size_of.admin_login_15(buffer, offset)
   end
   -- Size of Admin Logout 16
   if template_id == 16 then
-    return 180
+    return size_of.admin_logout_16(buffer, offset)
   end
   -- Size of Md Instrument Definition Future 27
   if template_id == 27 then
@@ -5980,7 +6673,7 @@ size_of.payload = function(buffer, offset, template_id)
   end
   -- Size of Security Status 30
   if template_id == 30 then
-    return 30
+    return size_of.security_status_30(buffer, offset)
   end
   -- Size of Md Incremental Refresh Book 32
   if template_id == 32 then
@@ -6236,6 +6929,21 @@ dissect.template_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Message Header
+size_of.message_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.block_length
+
+  index = index + size_of.template_id
+
+  index = index + size_of.schema_id
+
+  index = index + size_of.version
+
+  return index
+end
+
 -- Display: Message Header
 display.message_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -6264,7 +6972,8 @@ end
 dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local range = buffer(offset, 8)
+    local length = size_of.message_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
     parent = parent:add(cme_futures_mdp3_sbe_v1_5.fields.message_header, range, display)
   end
@@ -6292,11 +7001,13 @@ dissect.message_size = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Message
+-- Calculate size of: Message
 size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + 10
+  index = index + size_of.message_size
+
+  index = index + size_of.message_header(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -6383,6 +7094,17 @@ dissect.message_sequence_number = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Binary Packet Header
+size_of.binary_packet_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.message_sequence_number
+
+  index = index + size_of.sending_time
+
+  return index
+end
+
 -- Display: Binary Packet Header
 display.binary_packet_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -6405,7 +7127,8 @@ end
 dissect.binary_packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.binary_packet_header then
-    local range = buffer(offset, 12)
+    local length = size_of.binary_packet_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.binary_packet_header(buffer, packet, parent)
     parent = parent:add(cme_futures_mdp3_sbe_v1_5.fields.binary_packet_header, range, display)
   end

@@ -461,6 +461,21 @@ dissect.md_entry_px = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Md Trade Entry Grp
+size_of.md_trade_entry_grp = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.md_entry_px
+
+  index = index + size_of.md_entry_size
+
+  index = index + size_of.md_entry_type
+
+  index = index + size_of.pad_3
+
+  return index
+end
+
 -- Display: Md Trade Entry Grp
 display.md_trade_entry_grp = function(buffer, offset, size, packet, parent)
   return ""
@@ -489,7 +504,8 @@ end
 dissect.md_trade_entry_grp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.md_trade_entry_grp then
-    local range = buffer(offset, 16)
+    local length = size_of.md_trade_entry_grp(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.md_trade_entry_grp(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.md_trade_entry_grp, range, display)
   end
@@ -688,11 +704,27 @@ dissect.security_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Trade Reversal
+-- Calculate size of: Trade Reversal
 size_of.trade_reversal = function(buffer, offset)
   local index = 0
 
-  index = index + 48
+  index = index + size_of.security_id
+
+  index = index + size_of.transact_time
+
+  index = index + size_of.trd_match_id
+
+  index = index + size_of.last_qty
+
+  index = index + size_of.last_px
+
+  index = index + size_of.trd_reg_ts_execution_time
+
+  index = index + size_of.trade_condition
+
+  index = index + size_of.pad_6
+
+  index = index + size_of.no_md_entries
 
   -- Calculate field size from count
   local md_trade_entry_grp_count = buffer(offset + index - 1, 1):le_uint()
@@ -868,6 +900,33 @@ dissect.match_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Trade Report
+size_of.trade_report = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.security_id
+
+  index = index + size_of.transact_time
+
+  index = index + size_of.trd_match_id
+
+  index = index + size_of.last_qty
+
+  index = index + size_of.last_px
+
+  index = index + size_of.match_type
+
+  index = index + size_of.match_sub_type
+
+  index = index + size_of.algorithmic_trade_indicator
+
+  index = index + size_of.trade_condition
+
+  index = index + size_of.pad_4
+
+  return index
+end
+
 -- Display: Trade Report
 display.trade_report = function(buffer, offset, size, packet, parent)
   return ""
@@ -914,7 +973,8 @@ end
 dissect.trade_report = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_report then
-    local range = buffer(offset, 40)
+    local length = size_of.trade_report(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.trade_report(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.trade_report, range, display)
   end
@@ -964,6 +1024,21 @@ dissect.bid_px = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Top Of Book
+size_of.top_of_book = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.transact_time
+
+  index = index + size_of.security_id
+
+  index = index + size_of.bid_px
+
+  index = index + size_of.offer_px
+
+  return index
+end
+
 -- Display: Top Of Book
 display.top_of_book = function(buffer, offset, size, packet, parent)
   return ""
@@ -992,7 +1067,8 @@ end
 dissect.top_of_book = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.top_of_book then
-    local range = buffer(offset, 32)
+    local length = size_of.top_of_book(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.top_of_book(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.top_of_book, range, display)
   end
@@ -1132,6 +1208,25 @@ dissect.trd_reg_ts_time_priority = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Order Details
+size_of.order_details = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.trd_reg_ts_time_priority
+
+  index = index + size_of.display_qty
+
+  index = index + size_of.side
+
+  index = index + size_of.ord_type
+
+  index = index + size_of.pad_2
+
+  index = index + size_of.price
+
+  return index
+end
+
 -- Display: Order Details
 display.order_details = function(buffer, offset, size, packet, parent)
   return ""
@@ -1166,12 +1261,22 @@ end
 dissect.order_details = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_details then
-    local range = buffer(offset, 24)
+    local length = size_of.order_details(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_details(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.order_details, range, display)
   end
 
   return dissect.order_details_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Snapshot Order
+size_of.snapshot_order = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.order_details(buffer, offset + index)
+
+  return index
 end
 
 -- Display: Snapshot Order
@@ -1193,12 +1298,30 @@ end
 dissect.snapshot_order = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.snapshot_order then
-    local range = buffer(offset, 24)
+    local length = size_of.snapshot_order(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.snapshot_order(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.snapshot_order, range, display)
   end
 
   return dissect.snapshot_order_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Quote Request
+size_of.quote_request = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.security_id
+
+  index = index + size_of.last_qty
+
+  index = index + size_of.side
+
+  index = index + size_of.pad_3
+
+  index = index + size_of.transact_time
+
+  return index
 end
 
 -- Display: Quote Request
@@ -1232,7 +1355,8 @@ end
 dissect.quote_request = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.quote_request then
-    local range = buffer(offset, 24)
+    local length = size_of.quote_request(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.quote_request(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.quote_request, range, display)
   end
@@ -1436,6 +1560,27 @@ dissect.last_msg_seq_num_processed = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Product Summary
+size_of.product_summary = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.last_msg_seq_num_processed
+
+  index = index + size_of.trading_session_id
+
+  index = index + size_of.trading_session_sub_id
+
+  index = index + size_of.trad_ses_status
+
+  index = index + size_of.market_condition
+
+  index = index + size_of.fast_market_indicator
+
+  index = index + size_of.pad_7
+
+  return index
+end
+
 -- Display: Product Summary
 display.product_summary = function(buffer, offset, size, packet, parent)
   return ""
@@ -1473,12 +1618,34 @@ end
 dissect.product_summary = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.product_summary then
-    local range = buffer(offset, 16)
+    local length = size_of.product_summary(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.product_summary(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.product_summary, range, display)
   end
 
   return dissect.product_summary_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Product State Change
+size_of.product_state_change = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.trading_session_id
+
+  index = index + size_of.trading_session_sub_id
+
+  index = index + size_of.trad_ses_status
+
+  index = index + size_of.market_condition
+
+  index = index + size_of.fast_market_indicator
+
+  index = index + size_of.pad_3
+
+  index = index + size_of.transact_time
+
+  return index
 end
 
 -- Display: Product State Change
@@ -1518,7 +1685,8 @@ end
 dissect.product_state_change = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.product_state_change then
-    local range = buffer(offset, 16)
+    local length = size_of.product_state_change(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.product_state_change(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.product_state_change, range, display)
   end
@@ -1544,6 +1712,33 @@ dissect.pad_5 = function(buffer, offset, packet, parent)
   parent:add(eurex_derivatives_eobi_t7_v6_0.fields.pad_5, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Partial Order Execution
+size_of.partial_order_execution = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.side
+
+  index = index + size_of.ord_type
+
+  index = index + size_of.algorithmic_trade_indicator
+
+  index = index + size_of.pad_5
+
+  index = index + size_of.price
+
+  index = index + size_of.trd_reg_ts_time_priority
+
+  index = index + size_of.security_id
+
+  index = index + size_of.trd_match_id
+
+  index = index + size_of.last_qty
+
+  index = index + size_of.last_px
+
+  return index
 end
 
 -- Display: Partial Order Execution
@@ -1592,7 +1787,8 @@ end
 dissect.partial_order_execution = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.partial_order_execution then
-    local range = buffer(offset, 48)
+    local length = size_of.partial_order_execution(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.partial_order_execution(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.partial_order_execution, range, display)
   end
@@ -1640,6 +1836,25 @@ dissect.trd_reg_ts_time_in = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Order Modify Same Prio
+size_of.order_modify_same_prio = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.trd_reg_ts_time_in
+
+  index = index + size_of.transact_time
+
+  index = index + size_of.prev_display_qty
+
+  index = index + size_of.pad_4
+
+  index = index + size_of.security_id
+
+  index = index + size_of.order_details(buffer, offset + index)
+
+  return index
+end
+
 -- Display: Order Modify Same Prio
 display.order_modify_same_prio = function(buffer, offset, size, packet, parent)
   return ""
@@ -1674,7 +1889,8 @@ end
 dissect.order_modify_same_prio = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_modify_same_prio then
-    local range = buffer(offset, 56)
+    local length = size_of.order_modify_same_prio(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_modify_same_prio(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.order_modify_same_prio, range, display)
   end
@@ -1723,6 +1939,27 @@ dissect.trd_reg_ts_prev_time_priority = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Order Modify
+size_of.order_modify = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.trd_reg_ts_time_in
+
+  index = index + size_of.trd_reg_ts_prev_time_priority
+
+  index = index + size_of.prev_price
+
+  index = index + size_of.prev_display_qty
+
+  index = index + size_of.pad_4
+
+  index = index + size_of.security_id
+
+  index = index + size_of.order_details(buffer, offset + index)
+
+  return index
+end
+
 -- Display: Order Modify
 display.order_modify = function(buffer, offset, size, packet, parent)
   return ""
@@ -1760,12 +1997,24 @@ end
 dissect.order_modify = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_modify then
-    local range = buffer(offset, 64)
+    local length = size_of.order_modify(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_modify(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.order_modify, range, display)
   end
 
   return dissect.order_modify_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Order Mass Delete
+size_of.order_mass_delete = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.security_id
+
+  index = index + size_of.transact_time
+
+  return index
 end
 
 -- Display: Order Mass Delete
@@ -1790,12 +2039,28 @@ end
 dissect.order_mass_delete = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_mass_delete then
-    local range = buffer(offset, 16)
+    local length = size_of.order_mass_delete(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_mass_delete(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.order_mass_delete, range, display)
   end
 
   return dissect.order_mass_delete_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Order Delete
+size_of.order_delete = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.trd_reg_ts_time_in
+
+  index = index + size_of.transact_time
+
+  index = index + size_of.security_id
+
+  index = index + size_of.order_details(buffer, offset + index)
+
+  return index
 end
 
 -- Display: Order Delete
@@ -1826,12 +2091,26 @@ end
 dissect.order_delete = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_delete then
-    local range = buffer(offset, 48)
+    local length = size_of.order_delete(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_delete(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.order_delete, range, display)
   end
 
   return dissect.order_delete_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Order Add
+size_of.order_add = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.trd_reg_ts_time_in
+
+  index = index + size_of.security_id
+
+  index = index + size_of.order_details(buffer, offset + index)
+
+  return index
 end
 
 -- Display: Order Add
@@ -1859,12 +2138,30 @@ end
 dissect.order_add = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_add then
-    local range = buffer(offset, 40)
+    local length = size_of.order_add(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_add(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.order_add, range, display)
   end
 
   return dissect.order_add_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Md Instrument Entry Grp
+size_of.md_instrument_entry_grp = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.md_entry_px
+
+  index = index + size_of.md_entry_size
+
+  index = index + size_of.md_entry_type
+
+  index = index + size_of.trade_condition
+
+  index = index + size_of.pad_2
+
+  return index
 end
 
 -- Display: Md Instrument Entry Grp
@@ -1898,7 +2195,8 @@ end
 dissect.md_instrument_entry_grp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.md_instrument_entry_grp then
-    local range = buffer(offset, 16)
+    local length = size_of.md_instrument_entry_grp(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.md_instrument_entry_grp(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.md_instrument_entry_grp, range, display)
   end
@@ -2078,11 +2376,29 @@ dissect.last_update_time = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Instrument Summary
+-- Calculate size of: Instrument Summary
 size_of.instrument_summary = function(buffer, offset)
   local index = 0
 
-  index = index + 32
+  index = index + size_of.security_id
+
+  index = index + size_of.last_update_time
+
+  index = index + size_of.trd_reg_ts_execution_time
+
+  index = index + size_of.tot_no_orders
+
+  index = index + size_of.security_status
+
+  index = index + size_of.security_trading_status
+
+  index = index + size_of.market_condition
+
+  index = index + size_of.fast_market_indicator
+
+  index = index + size_of.security_trading_event
+
+  index = index + size_of.no_md_entries
 
   -- Calculate field size from count
   local md_instrument_entry_grp_count = buffer(offset + index - 1, 1):le_uint()
@@ -2151,6 +2467,29 @@ dissect.instrument_summary = function(buffer, offset, packet, parent)
   return dissect.instrument_summary_fields(buffer, offset, packet, parent)
 end
 
+-- Calculate size of: Instrument State Change
+size_of.instrument_state_change = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.security_id
+
+  index = index + size_of.security_status
+
+  index = index + size_of.security_trading_status
+
+  index = index + size_of.market_condition
+
+  index = index + size_of.fast_market_indicator
+
+  index = index + size_of.security_trading_event
+
+  index = index + size_of.pad_3
+
+  index = index + size_of.transact_time
+
+  return index
+end
+
 -- Display: Instrument State Change
 display.instrument_state_change = function(buffer, offset, size, packet, parent)
   return ""
@@ -2191,12 +2530,24 @@ end
 dissect.instrument_state_change = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.instrument_state_change then
-    local range = buffer(offset, 24)
+    local length = size_of.instrument_state_change(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.instrument_state_change(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.instrument_state_change, range, display)
   end
 
   return dissect.instrument_state_change_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Heartbeat
+size_of.heartbeat = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.last_msg_seq_num_processed
+
+  index = index + size_of.pad_4
+
+  return index
 end
 
 -- Display: Heartbeat
@@ -2221,12 +2572,40 @@ end
 dissect.heartbeat = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.heartbeat then
-    local range = buffer(offset, 8)
+    local length = size_of.heartbeat(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.heartbeat(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.heartbeat, range, display)
   end
 
   return dissect.heartbeat_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Full Order Execution
+size_of.full_order_execution = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.side
+
+  index = index + size_of.ord_type
+
+  index = index + size_of.algorithmic_trade_indicator
+
+  index = index + size_of.pad_5
+
+  index = index + size_of.price
+
+  index = index + size_of.trd_reg_ts_time_priority
+
+  index = index + size_of.security_id
+
+  index = index + size_of.trd_match_id
+
+  index = index + size_of.last_qty
+
+  index = index + size_of.last_px
+
+  return index
 end
 
 -- Display: Full Order Execution
@@ -2275,7 +2654,8 @@ end
 dissect.full_order_execution = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.full_order_execution then
-    local range = buffer(offset, 48)
+    local length = size_of.full_order_execution(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.full_order_execution(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.full_order_execution, range, display)
   end
@@ -2410,6 +2790,35 @@ dissect.aggressor_time = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Execution Summary
+size_of.execution_summary = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.security_id
+
+  index = index + size_of.aggressor_time
+
+  index = index + size_of.request_time
+
+  index = index + size_of.exec_id
+
+  index = index + size_of.last_qty
+
+  index = index + size_of.aggressor_side
+
+  index = index + size_of.trade_condition
+
+  index = index + size_of.pad_2
+
+  index = index + size_of.last_px
+
+  index = index + size_of.resting_hidden_qty
+
+  index = index + size_of.resting_cxl_qty
+
+  return index
+end
+
 -- Display: Execution Summary
 display.execution_summary = function(buffer, offset, size, packet, parent)
   return ""
@@ -2459,12 +2868,28 @@ end
 dissect.execution_summary = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.execution_summary then
-    local range = buffer(offset, 56)
+    local length = size_of.execution_summary(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.execution_summary(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.execution_summary, range, display)
   end
 
   return dissect.execution_summary_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Cross Request
+size_of.cross_request = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.security_id
+
+  index = index + size_of.last_qty
+
+  index = index + size_of.pad_4
+
+  index = index + size_of.transact_time
+
+  return index
 end
 
 -- Display: Cross Request
@@ -2495,7 +2920,8 @@ end
 dissect.cross_request = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cross_request then
-    local range = buffer(offset, 24)
+    local length = size_of.cross_request(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.cross_request(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.cross_request, range, display)
   end
@@ -2550,6 +2976,29 @@ dissect.imbalance_qty = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Auction Clearing Price
+size_of.auction_clearing_price = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.transact_time
+
+  index = index + size_of.security_id
+
+  index = index + size_of.last_px
+
+  index = index + size_of.last_qty
+
+  index = index + size_of.imbalance_qty
+
+  index = index + size_of.security_trading_status
+
+  index = index + size_of.potential_security_trading_event
+
+  index = index + size_of.pad_6
+
+  return index
+end
+
 -- Display: Auction Clearing Price
 display.auction_clearing_price = function(buffer, offset, size, packet, parent)
   return ""
@@ -2590,7 +3039,8 @@ end
 dissect.auction_clearing_price = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.auction_clearing_price then
-    local range = buffer(offset, 40)
+    local length = size_of.auction_clearing_price(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.auction_clearing_price(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.auction_clearing_price, range, display)
   end
@@ -2638,6 +3088,29 @@ dissect.bid_size = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Auction Bbo
+size_of.auction_bbo = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.transact_time
+
+  index = index + size_of.security_id
+
+  index = index + size_of.bid_px
+
+  index = index + size_of.offer_px
+
+  index = index + size_of.bid_size
+
+  index = index + size_of.offer_size
+
+  index = index + size_of.potential_security_trading_event
+
+  index = index + size_of.pad_7
+
+  return index
+end
+
 -- Display: Auction Bbo
 display.auction_bbo = function(buffer, offset, size, packet, parent)
   return ""
@@ -2678,7 +3151,8 @@ end
 dissect.auction_bbo = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.auction_bbo then
-    local range = buffer(offset, 48)
+    local length = size_of.auction_bbo(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.auction_bbo(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.auction_bbo, range, display)
   end
@@ -2773,6 +3247,25 @@ dissect.leg_symbol = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Instrmt Leg Grp
+size_of.instrmt_leg_grp = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.leg_symbol
+
+  index = index + size_of.pad_4
+
+  index = index + size_of.leg_security_id
+
+  index = index + size_of.leg_ratio_qty
+
+  index = index + size_of.leg_side
+
+  index = index + size_of.pad_3
+
+  return index
+end
+
 -- Display: Instrmt Leg Grp
 display.instrmt_leg_grp = function(buffer, offset, size, packet, parent)
   return ""
@@ -2807,7 +3300,8 @@ end
 dissect.instrmt_leg_grp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.instrmt_leg_grp then
-    local range = buffer(offset, 24)
+    local length = size_of.instrmt_leg_grp(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.instrmt_leg_grp(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.instrmt_leg_grp, range, display)
   end
@@ -2947,11 +3441,23 @@ dissect.security_sub_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Add Complex Instrument
+-- Calculate size of: Add Complex Instrument
 size_of.add_complex_instrument = function(buffer, offset)
   local index = 0
 
-  index = index + 24
+  index = index + size_of.security_id
+
+  index = index + size_of.transact_time
+
+  index = index + size_of.security_sub_type
+
+  index = index + size_of.product_complex
+
+  index = index + size_of.implied_market_indicator
+
+  index = index + size_of.no_legs
+
+  index = index + size_of.pad_1
 
   -- Calculate field size from count
   local instrmt_leg_grp_count = buffer(offset + index - 2, 1):le_uint()
@@ -3019,31 +3525,31 @@ size_of.payload = function(buffer, offset, template_id)
   end
   -- Size of Auction Bbo
   if template_id == 13500 then
-    return 48
+    return size_of.auction_bbo(buffer, offset)
   end
   -- Size of Auction Clearing Price
   if template_id == 13501 then
-    return 40
+    return size_of.auction_clearing_price(buffer, offset)
   end
   -- Size of Cross Request
   if template_id == 13502 then
-    return 24
+    return size_of.cross_request(buffer, offset)
   end
   -- Size of Execution Summary
   if template_id == 13202 then
-    return 56
+    return size_of.execution_summary(buffer, offset)
   end
   -- Size of Full Order Execution
   if template_id == 13104 then
-    return 48
+    return size_of.full_order_execution(buffer, offset)
   end
   -- Size of Heartbeat
   if template_id == 13001 then
-    return 8
+    return size_of.heartbeat(buffer, offset)
   end
   -- Size of Instrument State Change
   if template_id == 13301 then
-    return 24
+    return size_of.instrument_state_change(buffer, offset)
   end
   -- Size of Instrument Summary
   if template_id == 13601 then
@@ -3051,51 +3557,51 @@ size_of.payload = function(buffer, offset, template_id)
   end
   -- Size of Order Add
   if template_id == 13100 then
-    return 40
+    return size_of.order_add(buffer, offset)
   end
   -- Size of Order Delete
   if template_id == 13102 then
-    return 48
+    return size_of.order_delete(buffer, offset)
   end
   -- Size of Order Mass Delete
   if template_id == 13103 then
-    return 16
+    return size_of.order_mass_delete(buffer, offset)
   end
   -- Size of Order Modify
   if template_id == 13101 then
-    return 64
+    return size_of.order_modify(buffer, offset)
   end
   -- Size of Order Modify Same Prio
   if template_id == 13106 then
-    return 56
+    return size_of.order_modify_same_prio(buffer, offset)
   end
   -- Size of Partial Order Execution
   if template_id == 13105 then
-    return 48
+    return size_of.partial_order_execution(buffer, offset)
   end
   -- Size of Product State Change
   if template_id == 13300 then
-    return 16
+    return size_of.product_state_change(buffer, offset)
   end
   -- Size of Product Summary
   if template_id == 13600 then
-    return 16
+    return size_of.product_summary(buffer, offset)
   end
   -- Size of Quote Request
   if template_id == 13503 then
-    return 24
+    return size_of.quote_request(buffer, offset)
   end
   -- Size of Snapshot Order
   if template_id == 13602 then
-    return 24
+    return size_of.snapshot_order(buffer, offset)
   end
   -- Size of Top Of Book
   if template_id == 13504 then
-    return 32
+    return size_of.top_of_book(buffer, offset)
   end
   -- Size of Trade Report
   if template_id == 13201 then
-    return 40
+    return size_of.trade_report(buffer, offset)
   end
   -- Size of Trade Reversal
   if template_id == 13200 then
@@ -3284,6 +3790,19 @@ dissect.body_len = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Message Header
+size_of.message_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.body_len
+
+  index = index + size_of.template_id
+
+  index = index + size_of.msg_seq_num
+
+  return index
+end
+
 -- Display: Message Header
 display.message_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -3309,7 +3828,8 @@ end
 dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local range = buffer(offset, 8)
+    local length = size_of.message_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.message_header, range, display)
   end
@@ -3546,6 +4066,19 @@ dissect.header_length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Packet Info
+size_of.packet_info = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.header_length
+
+  index = index + size_of.packet_id
+
+  index = index + size_of.packet_seq_num
+
+  return index
+end
+
 -- Display: Packet Info
 display.packet_info = function(buffer, offset, size, packet, parent)
   return ""
@@ -3571,12 +4104,36 @@ end
 dissect.packet_info = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_info then
-    local range = buffer(offset, 8)
+    local length = size_of.packet_info(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.packet_info(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.packet_info, range, display)
   end
 
   return dissect.packet_info_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Packet Header
+size_of.packet_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.packet_info(buffer, offset + index)
+
+  index = index + size_of.application_sequence_number
+
+  index = index + size_of.market_segment_id
+
+  index = index + size_of.partition_id
+
+  index = index + size_of.completion_indicator
+
+  index = index + size_of.application_sequence_reset_indicator
+
+  index = index + size_of.pad5
+
+  index = index + size_of.transact_time
+
+  return index
 end
 
 -- Display: Packet Header
@@ -3619,7 +4176,8 @@ end
 dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local range = buffer(offset, 32)
+    local length = size_of.packet_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.packet_header(buffer, packet, parent)
     parent = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.packet_header, range, display)
   end

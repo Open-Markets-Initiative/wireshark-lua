@@ -348,6 +348,21 @@ dissect.source_time = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Sequence Number Reset Message
+size_of.sequence_number_reset_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_time_ns
+
+  index = index + size_of.product_id
+
+  index = index + size_of.channel_id
+
+  return index
+end
+
 -- Display: Sequence Number Reset Message
 display.sequence_number_reset_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -376,7 +391,8 @@ end
 dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.sequence_number_reset_message then
-    local range = buffer(offset, 10)
+    local length = size_of.sequence_number_reset_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.sequence_number_reset_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.sequence_number_reset_message, range, display)
   end
@@ -424,6 +440,17 @@ dissect.stream_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Stream Id Message
+size_of.stream_id_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.stream_id
+
+  index = index + size_of.reserved_2
+
+  return index
+end
+
 -- Display: Stream Id Message
 display.stream_id_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -446,7 +473,8 @@ end
 dissect.stream_id_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.stream_id_message then
-    local range = buffer(offset, 4)
+    local length = size_of.stream_id_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.stream_id_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.stream_id_message, range, display)
   end
@@ -769,6 +797,45 @@ dissect.series_index = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Series Index Mapping Message
+size_of.series_index_mapping_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.series_index
+
+  index = index + size_of.channel_id
+
+  index = index + size_of.reserved_a_1
+
+  index = index + size_of.market_id
+
+  index = index + size_of.system_id
+
+  index = index + size_of.reserved_b_1
+
+  index = index + size_of.stream_id
+
+  index = index + size_of.underlying_index
+
+  index = index + size_of.contract_multiplier
+
+  index = index + size_of.maturity_date
+
+  index = index + size_of.put_or_call
+
+  index = index + size_of.strike_price
+
+  index = index + size_of.price_scale_code
+
+  index = index + size_of.underlying_symbol
+
+  index = index + size_of.option_symbol_root
+
+  index = index + size_of.group_id
+
+  return index
+end
+
 -- Display: Series Index Mapping Message
 display.series_index_mapping_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -833,7 +900,8 @@ end
 dissect.series_index_mapping_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.series_index_mapping_message then
-    local range = buffer(offset, 56)
+    local length = size_of.series_index_mapping_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.series_index_mapping_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.series_index_mapping_message, range, display)
   end
@@ -999,6 +1067,33 @@ dissect.exchange_code = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Underlying Index Mapping Message
+size_of.underlying_index_mapping_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.underlying_index
+
+  index = index + size_of.underlying_symbol
+
+  index = index + size_of.channel_id
+
+  index = index + size_of.market_id
+
+  index = index + size_of.system_id
+
+  index = index + size_of.exchange_code
+
+  index = index + size_of.price_scale_code
+
+  index = index + size_of.security_type
+
+  index = index + size_of.price_resolution
+
+  index = index + size_of.reserved_1
+
+  return index
+end
+
 -- Display: Underlying Index Mapping Message
 display.underlying_index_mapping_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1045,7 +1140,8 @@ end
 dissect.underlying_index_mapping_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.underlying_index_mapping_message then
-    local range = buffer(offset, 24)
+    local length = size_of.underlying_index_mapping_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.underlying_index_mapping_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.underlying_index_mapping_message, range, display)
   end
@@ -1260,6 +1356,37 @@ dissect.symbol_seq_num = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Refresh Outright Imbalance Message
+size_of.refresh_outright_imbalance_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_time_ns
+
+  index = index + size_of.series_index
+
+  index = index + size_of.symbol_seq_num
+
+  index = index + size_of.reference_price
+
+  index = index + size_of.paired_qty
+
+  index = index + size_of.total_imbalance_qty
+
+  index = index + size_of.market_imbalance_qty
+
+  index = index + size_of.auction_type
+
+  index = index + size_of.imbalance_side
+
+  index = index + size_of.market_imbalance_side
+
+  index = index + size_of.reserved_3
+
+  return index
+end
+
 -- Display: Refresh Outright Imbalance Message
 display.refresh_outright_imbalance_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1312,7 +1439,8 @@ end
 dissect.refresh_outright_imbalance_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.refresh_outright_imbalance_message then
-    local range = buffer(offset, 32)
+    local length = size_of.refresh_outright_imbalance_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.refresh_outright_imbalance_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.refresh_outright_imbalance_message, range, display)
   end
@@ -1440,6 +1568,33 @@ dissect.trade_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Refresh Outright Trade Message
+size_of.refresh_outright_trade_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_time_ns
+
+  index = index + size_of.series_index
+
+  index = index + size_of.symbol_seq_num
+
+  index = index + size_of.trade_id
+
+  index = index + size_of.price
+
+  index = index + size_of.volume_4
+
+  index = index + size_of.trade_cond_1
+
+  index = index + size_of.trade_cond_2
+
+  index = index + size_of.reserved_2
+
+  return index
+end
+
 -- Display: Refresh Outright Trade Message
 display.refresh_outright_trade_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1486,7 +1641,8 @@ end
 dissect.refresh_outright_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.refresh_outright_trade_message then
-    local range = buffer(offset, 32)
+    local length = size_of.refresh_outright_trade_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.refresh_outright_trade_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.refresh_outright_trade_message, range, display)
   end
@@ -1650,6 +1806,39 @@ dissect.ask_price = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Refresh Outright Quote Message
+size_of.refresh_outright_quote_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_time_ns
+
+  index = index + size_of.series_index
+
+  index = index + size_of.symbol_seq_num
+
+  index = index + size_of.ask_price
+
+  index = index + size_of.bid_price
+
+  index = index + size_of.ask_volume
+
+  index = index + size_of.bid_volume
+
+  index = index + size_of.ask_customer_volume
+
+  index = index + size_of.bid_customer_volume
+
+  index = index + size_of.quote_condition
+
+  index = index + size_of.reserved_1
+
+  index = index + size_of.reserved_2
+
+  return index
+end
+
 -- Display: Refresh Outright Quote Message
 display.refresh_outright_quote_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1705,7 +1894,8 @@ end
 dissect.refresh_outright_quote_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.refresh_outright_quote_message then
-    local range = buffer(offset, 36)
+    local length = size_of.refresh_outright_quote_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.refresh_outright_quote_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.refresh_outright_quote_message, range, display)
   end
@@ -1778,6 +1968,27 @@ dissect.security_status = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Outright Series Status Message
+size_of.outright_series_status_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_time_ns
+
+  index = index + size_of.series_index
+
+  index = index + size_of.symbol_seq_num
+
+  index = index + size_of.security_status
+
+  index = index + size_of.halt_condition
+
+  index = index + size_of.reserved_2
+
+  return index
+end
+
 -- Display: Outright Series Status Message
 display.outright_series_status_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1815,7 +2026,8 @@ end
 dissect.outright_series_status_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.outright_series_status_message then
-    local range = buffer(offset, 20)
+    local length = size_of.outright_series_status_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.outright_series_status_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_series_status_message, range, display)
   end
@@ -1841,6 +2053,27 @@ dissect.underlying_seq_num = function(buffer, offset, packet, parent)
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.underlying_seq_num, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Underlying Status Message
+size_of.underlying_status_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_time_ns
+
+  index = index + size_of.underlying_index
+
+  index = index + size_of.underlying_seq_num
+
+  index = index + size_of.security_status
+
+  index = index + size_of.halt_condition
+
+  index = index + size_of.reserved_2
+
+  return index
 end
 
 -- Display: Underlying Status Message
@@ -1880,7 +2113,8 @@ end
 dissect.underlying_status_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.underlying_status_message then
-    local range = buffer(offset, 20)
+    local length = size_of.underlying_status_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.underlying_status_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.underlying_status_message, range, display)
   end
@@ -1988,6 +2222,31 @@ dissect.high_price = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Outright Summary Message
+size_of.outright_summary_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_time_ns
+
+  index = index + size_of.series_index
+
+  index = index + size_of.symbol_seq_num
+
+  index = index + size_of.high_price
+
+  index = index + size_of.low_price
+
+  index = index + size_of.open
+
+  index = index + size_of.close
+
+  index = index + size_of.total_volume
+
+  return index
+end
+
 -- Display: Outright Summary Message
 display.outright_summary_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -2031,7 +2290,8 @@ end
 dissect.outright_summary_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.outright_summary_message then
-    local range = buffer(offset, 36)
+    local length = size_of.outright_summary_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.outright_summary_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_summary_message, range, display)
   end
@@ -2165,6 +2425,31 @@ dissect.source_ns = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Outright Bold Rfq Message
+size_of.outright_bold_rfq_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_ns
+
+  index = index + size_of.series_index
+
+  index = index + size_of.symbol_seq_num
+
+  index = index + size_of.side
+
+  index = index + size_of.capacity
+
+  index = index + size_of.contracts
+
+  index = index + size_of.price
+
+  index = index + size_of.participant
+
+  return index
+end
+
 -- Display: Outright Bold Rfq Message
 display.outright_bold_rfq_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -2208,7 +2493,8 @@ end
 dissect.outright_bold_rfq_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.outright_bold_rfq_message then
-    local range = buffer(offset, 28)
+    local length = size_of.outright_bold_rfq_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.outright_bold_rfq_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_bold_rfq_message, range, display)
   end
@@ -2234,6 +2520,29 @@ dissect.volume_2 = function(buffer, offset, packet, parent)
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.volume_2, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Outright Crossing Rfq Message
+size_of.outright_crossing_rfq_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_ns
+
+  index = index + size_of.series_index
+
+  index = index + size_of.symbol_seq_num
+
+  index = index + size_of.side
+
+  index = index + size_of.reserved_1
+
+  index = index + size_of.volume_2
+
+  index = index + size_of.price
+
+  return index
 end
 
 -- Display: Outright Crossing Rfq Message
@@ -2276,12 +2585,44 @@ end
 dissect.outright_crossing_rfq_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.outright_crossing_rfq_message then
-    local range = buffer(offset, 24)
+    local length = size_of.outright_crossing_rfq_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.outright_crossing_rfq_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_crossing_rfq_message, range, display)
   end
 
   return dissect.outright_crossing_rfq_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Outright Imbalance Message
+size_of.outright_imbalance_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_time_ns
+
+  index = index + size_of.series_index
+
+  index = index + size_of.symbol_seq_num
+
+  index = index + size_of.reference_price
+
+  index = index + size_of.paired_qty
+
+  index = index + size_of.total_imbalance_qty
+
+  index = index + size_of.market_imbalance_qty
+
+  index = index + size_of.auction_type
+
+  index = index + size_of.imbalance_side
+
+  index = index + size_of.market_imbalance_side
+
+  index = index + size_of.reserved_3
+
+  return index
 end
 
 -- Display: Outright Imbalance Message
@@ -2336,7 +2677,8 @@ end
 dissect.outright_imbalance_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.outright_imbalance_message then
-    local range = buffer(offset, 32)
+    local length = size_of.outright_imbalance_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.outright_imbalance_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_imbalance_message, range, display)
   end
@@ -2362,6 +2704,35 @@ dissect.original_trade_id = function(buffer, offset, packet, parent)
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.original_trade_id, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Outright Trade Correction Message
+size_of.outright_trade_correction_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_time_ns
+
+  index = index + size_of.series_index
+
+  index = index + size_of.symbol_seq_num
+
+  index = index + size_of.original_trade_id
+
+  index = index + size_of.trade_id
+
+  index = index + size_of.price
+
+  index = index + size_of.volume_4
+
+  index = index + size_of.trade_cond_1
+
+  index = index + size_of.trade_cond_2
+
+  index = index + size_of.reserved_2
+
+  return index
 end
 
 -- Display: Outright Trade Correction Message
@@ -2413,12 +2784,30 @@ end
 dissect.outright_trade_correction_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.outright_trade_correction_message then
-    local range = buffer(offset, 36)
+    local length = size_of.outright_trade_correction_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.outright_trade_correction_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_trade_correction_message, range, display)
   end
 
   return dissect.outright_trade_correction_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Outright Trade Cancel Message
+size_of.outright_trade_cancel_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_time_ns
+
+  index = index + size_of.series_index
+
+  index = index + size_of.symbol_seq_num
+
+  index = index + size_of.original_trade_id
+
+  return index
 end
 
 -- Display: Outright Trade Cancel Message
@@ -2452,12 +2841,40 @@ end
 dissect.outright_trade_cancel_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.outright_trade_cancel_message then
-    local range = buffer(offset, 20)
+    local length = size_of.outright_trade_cancel_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.outright_trade_cancel_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_trade_cancel_message, range, display)
   end
 
   return dissect.outright_trade_cancel_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Outright Trade Message
+size_of.outright_trade_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_time_ns
+
+  index = index + size_of.series_index
+
+  index = index + size_of.symbol_seq_num
+
+  index = index + size_of.trade_id
+
+  index = index + size_of.price
+
+  index = index + size_of.volume_4
+
+  index = index + size_of.trade_cond_1
+
+  index = index + size_of.trade_cond_2
+
+  index = index + size_of.reserved_2
+
+  return index
 end
 
 -- Display: Outright Trade Message
@@ -2506,12 +2923,46 @@ end
 dissect.outright_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.outright_trade_message then
-    local range = buffer(offset, 32)
+    local length = size_of.outright_trade_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.outright_trade_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_trade_message, range, display)
   end
 
   return dissect.outright_trade_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Outright Quote Message
+size_of.outright_quote_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_time_ns
+
+  index = index + size_of.series_index
+
+  index = index + size_of.symbol_seq_num
+
+  index = index + size_of.ask_price
+
+  index = index + size_of.bid_price
+
+  index = index + size_of.ask_volume
+
+  index = index + size_of.bid_volume
+
+  index = index + size_of.ask_customer_volume
+
+  index = index + size_of.bid_customer_volume
+
+  index = index + size_of.quote_condition
+
+  index = index + size_of.reserved_1
+
+  index = index + size_of.reserved_2
+
+  return index
 end
 
 -- Display: Outright Quote Message
@@ -2569,7 +3020,8 @@ end
 dissect.outright_quote_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.outright_quote_message then
-    local range = buffer(offset, 36)
+    local length = size_of.outright_quote_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.outright_quote_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_quote_message, range, display)
   end
@@ -2581,71 +3033,71 @@ end
 size_of.payload = function(buffer, offset, message_type)
   -- Size of Outright Quote Message
   if message_type == 401 then
-    return 36
+    return size_of.outright_quote_message(buffer, offset)
   end
   -- Size of Outright Trade Message
   if message_type == 407 then
-    return 32
+    return size_of.outright_trade_message(buffer, offset)
   end
   -- Size of Outright Trade Cancel Message
   if message_type == 409 then
-    return 20
+    return size_of.outright_trade_cancel_message(buffer, offset)
   end
   -- Size of Outright Trade Correction Message
   if message_type == 411 then
-    return 36
+    return size_of.outright_trade_correction_message(buffer, offset)
   end
   -- Size of Outright Imbalance Message
   if message_type == 413 then
-    return 32
+    return size_of.outright_imbalance_message(buffer, offset)
   end
   -- Size of Outright Crossing Rfq Message
   if message_type == 415 then
-    return 24
+    return size_of.outright_crossing_rfq_message(buffer, offset)
   end
   -- Size of Outright Bold Rfq Message
   if message_type == 471 then
-    return 28
+    return size_of.outright_bold_rfq_message(buffer, offset)
   end
   -- Size of Outright Summary Message
   if message_type == 417 then
-    return 36
+    return size_of.outright_summary_message(buffer, offset)
   end
   -- Size of Underlying Status Message
   if message_type == 419 then
-    return 20
+    return size_of.underlying_status_message(buffer, offset)
   end
   -- Size of Outright Series Status Message
   if message_type == 421 then
-    return 20
+    return size_of.outright_series_status_message(buffer, offset)
   end
   -- Size of Refresh Outright Quote Message
   if message_type == 501 then
-    return 36
+    return size_of.refresh_outright_quote_message(buffer, offset)
   end
   -- Size of Refresh Outright Trade Message
   if message_type == 507 then
-    return 32
+    return size_of.refresh_outright_trade_message(buffer, offset)
   end
   -- Size of Refresh Outright Imbalance Message
   if message_type == 509 then
-    return 32
+    return size_of.refresh_outright_imbalance_message(buffer, offset)
   end
   -- Size of Underlying Index Mapping Message
   if message_type == 435 then
-    return 24
+    return size_of.underlying_index_mapping_message(buffer, offset)
   end
   -- Size of Series Index Mapping Message
   if message_type == 437 then
-    return 56
+    return size_of.series_index_mapping_message(buffer, offset)
   end
   -- Size of Stream Id Message
   if message_type == 455 then
-    return 4
+    return size_of.stream_id_message(buffer, offset)
   end
   -- Size of Sequence Number Reset Message
   if message_type == 1 then
-    return 10
+    return size_of.sequence_number_reset_message(buffer, offset)
   end
 
   return 0
@@ -2842,6 +3294,17 @@ dissect.message_size = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Message Header
+size_of.message_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.message_size
+
+  index = index + size_of.message_type
+
+  return index
+end
+
 -- Display: Message Header
 display.message_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -2864,7 +3327,8 @@ end
 dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local range = buffer(offset, 4)
+    local length = size_of.message_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.message_header, range, display)
   end
@@ -2872,11 +3336,11 @@ dissect.message_header = function(buffer, offset, packet, parent)
   return dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Message
+-- Calculate size of: Message
 size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + 4
+  index = index + size_of.message_header(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -3074,6 +3538,25 @@ dissect.packet_size = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Packet Header
+size_of.packet_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.packet_size
+
+  index = index + size_of.delivery_flag
+
+  index = index + size_of.message_count
+
+  index = index + size_of.sequence_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.nanoseconds
+
+  return index
+end
+
 -- Display: Packet Header
 display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -3108,7 +3591,8 @@ end
 dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local range = buffer(offset, 16)
+    local length = size_of.packet_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.packet_header(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.packet_header, range, display)
   end

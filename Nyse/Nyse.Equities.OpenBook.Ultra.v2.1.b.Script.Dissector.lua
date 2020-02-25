@@ -168,6 +168,15 @@ dissect.next_sequence_number = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Sequence Number Reset Message
+size_of.sequence_number_reset_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.next_sequence_number
+
+  return index
+end
+
 -- Display: Sequence Number Reset Message
 display.sequence_number_reset_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -187,7 +196,8 @@ end
 dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.sequence_number_reset_message then
-    local range = buffer(offset, 4)
+    local length = size_of.sequence_number_reset_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.sequence_number_reset_message(buffer, packet, parent)
     parent = parent:add(nyse_equities_openbook_ultra_v2_1_b.fields.sequence_number_reset_message, range, display)
   end
@@ -395,6 +405,31 @@ dissect.price_numerator = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Delta Price Point
+size_of.delta_price_point = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.price_numerator
+
+  index = index + size_of.volume
+
+  index = index + size_of.chg_qty
+
+  index = index + size_of.num_orders
+
+  index = index + size_of.side
+
+  index = index + size_of.reason_code
+
+  index = index + size_of.link_id_1
+
+  index = index + size_of.link_id_2
+
+  index = index + size_of.link_id_3
+
+  return index
+end
+
 -- Display: Delta Price Point
 display.delta_price_point = function(buffer, offset, size, packet, parent)
   return ""
@@ -438,7 +473,8 @@ end
 dissect.delta_price_point = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.delta_price_point then
-    local range = buffer(offset, 28)
+    local length = size_of.delta_price_point(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.delta_price_point(buffer, packet, parent)
     parent = parent:add(nyse_equities_openbook_ultra_v2_1_b.fields.delta_price_point, range, display)
   end
@@ -770,6 +806,23 @@ dissect.reserved_1 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Full Price Point
+size_of.full_price_point = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.price_numerator
+
+  index = index + size_of.volume
+
+  index = index + size_of.num_orders
+
+  index = index + size_of.side
+
+  index = index + size_of.reserved_1
+
+  return index
+end
+
 -- Display: Full Price Point
 display.full_price_point = function(buffer, offset, size, packet, parent)
   return ""
@@ -801,7 +854,8 @@ end
 dissect.full_price_point = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.full_price_point then
-    local range = buffer(offset, 12)
+    local length = size_of.full_price_point(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.full_price_point(buffer, packet, parent)
     parent = parent:add(nyse_equities_openbook_ultra_v2_1_b.fields.full_price_point, range, display)
   end
@@ -1014,11 +1068,11 @@ size_of.payload = function(buffer, offset, message_type)
   end
   -- Size of Sequence Number Reset Message
   if message_type == 1 then
-    return 4
+    return size_of.sequence_number_reset_message(buffer, offset)
   end
   -- Size of Heartbeat Message
   if message_type == 2 then
-    return 0
+    return size_of.heartbeat_message(buffer, offset)
   end
 
   return 0
@@ -1243,6 +1297,29 @@ dissect.packet_size = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Packet Header
+size_of.packet_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.packet_size
+
+  index = index + size_of.message_type
+
+  index = index + size_of.sequence_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.product_id
+
+  index = index + size_of.retransmission_flag
+
+  index = index + size_of.message_count
+
+  index = index + size_of.link_flag
+
+  return index
+end
+
 -- Display: Packet Header
 display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -1283,7 +1360,8 @@ end
 dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local range = buffer(offset, 16)
+    local length = size_of.packet_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.packet_header(buffer, packet, parent)
     parent = parent:add(nyse_equities_openbook_ultra_v2_1_b.fields.packet_header, range, display)
   end

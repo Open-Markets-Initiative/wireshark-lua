@@ -550,6 +550,25 @@ dissect.timestamp = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Volume And Open Interest
+size_of.volume_and_open_interest = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.contract_number
+
+  index = index + size_of.cumulative_volume
+
+  index = index + size_of.open_interest
+
+  index = index + size_of.voi_trade_date
+
+  return index
+end
+
 -- Display: Volume And Open Interest
 display.volume_and_open_interest = function(buffer, offset, size, packet, parent)
   return ""
@@ -584,7 +603,8 @@ end
 dissect.volume_and_open_interest = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.volume_and_open_interest then
-    local range = buffer(offset, 20)
+    local length = size_of.volume_and_open_interest(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.volume_and_open_interest(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.volume_and_open_interest, range, display)
   end
@@ -712,6 +732,31 @@ dissect.aot_price = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Anomalous Order Threshold Publish
+size_of.anomalous_order_threshold_publish = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.contract_number
+
+  index = index + size_of.aot_price
+
+  index = index + size_of.aot_upper_price
+
+  index = index + size_of.aot_lower_price
+
+  index = index + size_of.etr_price
+
+  index = index + size_of.etr_upper_price
+
+  index = index + size_of.etr_lower_price
+
+  return index
+end
+
 -- Display: Anomalous Order Threshold Publish
 display.anomalous_order_threshold_publish = function(buffer, offset, size, packet, parent)
   return ""
@@ -755,7 +800,8 @@ end
 dissect.anomalous_order_threshold_publish = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.anomalous_order_threshold_publish then
-    local range = buffer(offset, 34)
+    local length = size_of.anomalous_order_threshold_publish(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.anomalous_order_threshold_publish(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.anomalous_order_threshold_publish, range, display)
   end
@@ -803,6 +849,23 @@ dissect.price = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Request For Quote
+size_of.request_for_quote = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.contract_number
+
+  index = index + size_of.price
+
+  index = index + size_of.quantity
+
+  return index
+end
+
 -- Display: Request For Quote
 display.request_for_quote = function(buffer, offset, size, packet, parent)
   return ""
@@ -834,7 +897,8 @@ end
 dissect.request_for_quote = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.request_for_quote then
-    local range = buffer(offset, 18)
+    local length = size_of.request_for_quote(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.request_for_quote(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.request_for_quote, range, display)
   end
@@ -882,6 +946,21 @@ dissect.source_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Ad Hoc Text
+size_of.ad_hoc_text = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.source_id
+
+  index = index + size_of.text_message
+
+  return index
+end
+
 -- Display: Ad Hoc Text
 display.ad_hoc_text = function(buffer, offset, size, packet, parent)
   return ""
@@ -910,7 +989,8 @@ end
 dissect.ad_hoc_text = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.ad_hoc_text then
-    local range = buffer(offset, 112)
+    local length = size_of.ad_hoc_text(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.ad_hoc_text(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.ad_hoc_text, range, display)
   end
@@ -978,6 +1058,25 @@ dissect.settlement_price = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Market Settlement
+size_of.market_settlement = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.contract_number
+
+  index = index + size_of.settlement_price
+
+  index = index + size_of.volatility
+
+  index = index + size_of.settlement_type
+
+  return index
+end
+
 -- Display: Market Settlement
 display.market_settlement = function(buffer, offset, size, packet, parent)
   return ""
@@ -1012,13 +1111,17 @@ end
 dissect.market_settlement = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.market_settlement then
-    local range = buffer(offset, 19)
+    local length = size_of.market_settlement(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.market_settlement(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.market_settlement, range, display)
   end
 
   return dissect.market_settlement_fields(buffer, offset, packet, parent)
 end
+
+-- Size: Market Updates
+size_of.market_updates = 1
 
 -- Display: Market Updates
 display.market_updates = function(buffer, packet, parent)
@@ -1231,6 +1334,35 @@ dissect.opening_trade = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Open High Low Last Trade Adjustment
+size_of.open_high_low_last_trade_adjustment = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.contract_number
+
+  index = index + size_of.opening_trade
+
+  index = index + size_of.highest_trade
+
+  index = index + size_of.lowest_trade
+
+  index = index + size_of.last_trade
+
+  index = index + size_of.last_volume
+
+  index = index + size_of.total_traded_volume
+
+  index = index + size_of.total_trades
+
+  index = index + size_of.market_updates
+
+  return index
+end
+
 -- Display: Open High Low Last Trade Adjustment
 display.open_high_low_last_trade_adjustment = function(buffer, offset, size, packet, parent)
   return ""
@@ -1280,7 +1412,8 @@ end
 dissect.open_high_low_last_trade_adjustment = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.open_high_low_last_trade_adjustment then
-    local range = buffer(offset, 39)
+    local length = size_of.open_high_low_last_trade_adjustment(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.open_high_low_last_trade_adjustment(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.open_high_low_last_trade_adjustment, range, display)
   end
@@ -1388,6 +1521,29 @@ dissect.equilibrium_price = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Equilibrium Price Auction Info
+size_of.equilibrium_price_auction_info = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.contract_number
+
+  index = index + size_of.equilibrium_price
+
+  index = index + size_of.best_bid_price
+
+  index = index + size_of.best_ask_price
+
+  index = index + size_of.best_bid_quantity
+
+  index = index + size_of.best_ask_quantity
+
+  return index
+end
+
 -- Display: Equilibrium Price Auction Info
 display.equilibrium_price_auction_info = function(buffer, offset, size, packet, parent)
   return ""
@@ -1428,7 +1584,8 @@ end
 dissect.equilibrium_price_auction_info = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.equilibrium_price_auction_info then
-    local range = buffer(offset, 30)
+    local length = size_of.equilibrium_price_auction_info(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.equilibrium_price_auction_info(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.equilibrium_price_auction_info, range, display)
   end
@@ -1456,6 +1613,19 @@ dissect.match_number = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Trade Cancellation
+size_of.trade_cancellation = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.match_number
+
+  return index
+end
+
 -- Display: Trade Cancellation
 display.trade_cancellation = function(buffer, offset, size, packet, parent)
   return ""
@@ -1481,7 +1651,8 @@ end
 dissect.trade_cancellation = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_cancellation then
-    local range = buffer(offset, 10)
+    local length = size_of.trade_cancellation(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.trade_cancellation(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.trade_cancellation, range, display)
   end
@@ -1766,6 +1937,43 @@ dissect.side = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Custom Market Trade
+size_of.custom_market_trade = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.contract_number
+
+  index = index + size_of.side
+
+  index = index + size_of.order_number
+
+  index = index + size_of.quantity_remaining
+
+  index = index + size_of.custom_market_order_number
+
+  index = index + size_of.custom_market_quantity_remaining
+
+  index = index + size_of.trade_type
+
+  index = index + size_of.match_number
+
+  index = index + size_of.executed_quantity
+
+  index = index + size_of.trade_price
+
+  index = index + size_of.traded_contract_number
+
+  index = index + size_of.trade_side_of_non_custom_order
+
+  index = index + size_of.printable
+
+  return index
+end
+
 -- Display: Custom Market Trade
 display.custom_market_trade = function(buffer, offset, size, packet, parent)
   return ""
@@ -1827,7 +2035,8 @@ end
 dissect.custom_market_trade = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.custom_market_trade then
-    local range = buffer(offset, 54)
+    local length = size_of.custom_market_trade(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.custom_market_trade(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.custom_market_trade, range, display)
   end
@@ -1853,6 +2062,35 @@ dissect.trade_side_of_leg = function(buffer, offset, packet, parent)
   parent:add(asx_securities_t24_itch_v1_13.fields.trade_side_of_leg, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Custom Market Executed
+size_of.custom_market_executed = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.order_number
+
+  index = index + size_of.quantity_remaining
+
+  index = index + size_of.trade_type
+
+  index = index + size_of.match_number
+
+  index = index + size_of.executed_quantity
+
+  index = index + size_of.trade_price
+
+  index = index + size_of.traded_contract_number
+
+  index = index + size_of.trade_side_of_leg
+
+  index = index + size_of.printable
+
+  return index
 end
 
 -- Display: Custom Market Executed
@@ -1904,7 +2142,8 @@ end
 dissect.custom_market_executed = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.custom_market_executed then
-    local range = buffer(offset, 37)
+    local length = size_of.custom_market_executed(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.custom_market_executed(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.custom_market_executed, range, display)
   end
@@ -2092,6 +2331,47 @@ dissect.buyer = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Trade Spread Execution Chain
+size_of.trade_spread_execution_chain = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.buyer
+
+  index = index + size_of.side_of_buyer
+
+  index = index + size_of.buyer_order_number
+
+  index = index + size_of.buyer_quantity_remaining
+
+  index = index + size_of.seller_contract_number
+
+  index = index + size_of.side_of_seller
+
+  index = index + size_of.selling_order_number
+
+  index = index + size_of.seller_quantity_remaining
+
+  index = index + size_of.trade_type
+
+  index = index + size_of.match_number
+
+  index = index + size_of.executed_quantity
+
+  index = index + size_of.trade_price
+
+  index = index + size_of.traded_contract_number
+
+  index = index + size_of.spread_trade_price
+
+  index = index + size_of.printable
+
+  return index
+end
+
 -- Display: Trade Spread Execution Chain
 display.trade_spread_execution_chain = function(buffer, offset, size, packet, parent)
   return ""
@@ -2159,12 +2439,48 @@ end
 dissect.trade_spread_execution_chain = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_spread_execution_chain then
-    local range = buffer(offset, 62)
+    local length = size_of.trade_spread_execution_chain(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.trade_spread_execution_chain(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.trade_spread_execution_chain, range, display)
   end
 
   return dissect.trade_spread_execution_chain_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Spread Executed
+size_of.spread_executed = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.contract_number
+
+  index = index + size_of.side
+
+  index = index + size_of.order_number
+
+  index = index + size_of.quantity_remaining
+
+  index = index + size_of.trade_type
+
+  index = index + size_of.match_number
+
+  index = index + size_of.executed_quantity
+
+  index = index + size_of.trade_price
+
+  index = index + size_of.traded_contract_number
+
+  index = index + size_of.spread_trade_price
+
+  index = index + size_of.trade_side_of_leg
+
+  index = index + size_of.printable
+
+  return index
 end
 
 -- Display: Spread Executed
@@ -2225,7 +2541,8 @@ end
 dissect.spread_executed = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.spread_executed then
-    local range = buffer(offset, 46)
+    local length = size_of.spread_executed(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.spread_executed(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.spread_executed, range, display)
   end
@@ -2251,6 +2568,35 @@ dissect.buying_order_number = function(buffer, offset, packet, parent)
   parent:add(asx_securities_t24_itch_v1_13.fields.buying_order_number, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Order Executed With Price
+size_of.order_executed_with_price = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.contract_number
+
+  index = index + size_of.buying_order_number
+
+  index = index + size_of.buyer_quantity_remaining
+
+  index = index + size_of.selling_order_number
+
+  index = index + size_of.seller_quantity_remaining
+
+  index = index + size_of.trade_type
+
+  index = index + size_of.match_number
+
+  index = index + size_of.executed_quantity
+
+  index = index + size_of.trade_price
+
+  return index
 end
 
 -- Display: Order Executed With Price
@@ -2302,12 +2648,40 @@ end
 dissect.order_executed_with_price = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_executed_with_price then
-    local range = buffer(offset, 47)
+    local length = size_of.order_executed_with_price(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_executed_with_price(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.order_executed_with_price, range, display)
   end
 
   return dissect.order_executed_with_price_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Order Executed
+size_of.order_executed = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.contract_number
+
+  index = index + size_of.side
+
+  index = index + size_of.order_number
+
+  index = index + size_of.quantity_remaining
+
+  index = index + size_of.trade_type
+
+  index = index + size_of.match_number
+
+  index = index + size_of.executed_quantity
+
+  index = index + size_of.trade_price
+
+  return index
 end
 
 -- Display: Order Executed
@@ -2356,12 +2730,26 @@ end
 dissect.order_executed = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_executed then
-    local range = buffer(offset, 36)
+    local length = size_of.order_executed(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_executed(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.order_executed, range, display)
   end
 
   return dissect.order_executed_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Custom Market Order Deleted
+size_of.custom_market_order_deleted = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.order_number
+
+  return index
 end
 
 -- Display: Custom Market Order Deleted
@@ -2389,7 +2777,8 @@ end
 dissect.custom_market_order_deleted = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.custom_market_order_deleted then
-    local range = buffer(offset, 14)
+    local length = size_of.custom_market_order_deleted(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.custom_market_order_deleted(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.custom_market_order_deleted, range, display)
   end
@@ -2415,6 +2804,23 @@ dissect.order_book_priority = function(buffer, offset, packet, parent)
   parent:add(asx_securities_t24_itch_v1_13.fields.order_book_priority, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Custom Market Order Replaced
+size_of.custom_market_order_replaced = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.order_number
+
+  index = index + size_of.order_book_priority
+
+  index = index + size_of.quantity
+
+  return index
 end
 
 -- Display: Custom Market Order Replaced
@@ -2448,7 +2854,8 @@ end
 dissect.custom_market_order_replaced = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.custom_market_order_replaced then
-    local range = buffer(offset, 22)
+    local length = size_of.custom_market_order_replaced(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.custom_market_order_replaced(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.custom_market_order_replaced, range, display)
   end
@@ -2956,6 +3363,73 @@ dissect.legs = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Custom Market Order Added
+size_of.custom_market_order_added = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.order_number
+
+  index = index + size_of.order_book_priority
+
+  index = index + size_of.quantity
+
+  index = index + size_of.legs
+
+  index = index + size_of.contract_number_leg_1
+
+  index = index + size_of.side_leg_1
+
+  index = index + size_of.ratio_leg_1
+
+  index = index + size_of.price_leg_1
+
+  index = index + size_of.contract_number_leg_2
+
+  index = index + size_of.side_leg_2
+
+  index = index + size_of.ratio_leg_2
+
+  index = index + size_of.price_leg_2
+
+  index = index + size_of.contract_number_leg_3
+
+  index = index + size_of.side_leg_3
+
+  index = index + size_of.ratio_leg_3
+
+  index = index + size_of.price_leg_3
+
+  index = index + size_of.contract_number_leg_4
+
+  index = index + size_of.side_leg_4
+
+  index = index + size_of.ratio_leg_4
+
+  index = index + size_of.price_leg_4
+
+  index = index + size_of.contract_number_leg_5
+
+  index = index + size_of.side_leg_5
+
+  index = index + size_of.ratio_leg_5
+
+  index = index + size_of.price_leg_5
+
+  index = index + size_of.contract_number_leg_6
+
+  index = index + size_of.side_leg_6
+
+  index = index + size_of.ratio_leg_6
+
+  index = index + size_of.price_leg_6
+
+  return index
+end
+
 -- Display: Custom Market Order Added
 display.custom_market_order_added = function(buffer, offset, size, packet, parent)
   return ""
@@ -3062,12 +3536,30 @@ end
 dissect.custom_market_order_added = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.custom_market_order_added then
-    local range = buffer(offset, 89)
+    local length = size_of.custom_market_order_added(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.custom_market_order_added(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.custom_market_order_added, range, display)
   end
 
   return dissect.custom_market_order_added_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Implied Order Deleted
+size_of.implied_order_deleted = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.contract_number
+
+  index = index + size_of.side
+
+  index = index + size_of.order_number
+
+  return index
 end
 
 -- Display: Implied Order Deleted
@@ -3101,12 +3593,36 @@ end
 dissect.implied_order_deleted = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.implied_order_deleted then
-    local range = buffer(offset, 19)
+    local length = size_of.implied_order_deleted(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.implied_order_deleted(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.implied_order_deleted, range, display)
   end
 
   return dissect.implied_order_deleted_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Implied Order Replaced
+size_of.implied_order_replaced = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.contract_number
+
+  index = index + size_of.side
+
+  index = index + size_of.order_number
+
+  index = index + size_of.order_book_priority
+
+  index = index + size_of.quantity
+
+  index = index + size_of.price
+
+  return index
 end
 
 -- Display: Implied Order Replaced
@@ -3149,12 +3665,36 @@ end
 dissect.implied_order_replaced = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.implied_order_replaced then
-    local range = buffer(offset, 31)
+    local length = size_of.implied_order_replaced(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.implied_order_replaced(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.implied_order_replaced, range, display)
   end
 
   return dissect.implied_order_replaced_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Implied Order Added
+size_of.implied_order_added = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.contract_number
+
+  index = index + size_of.side
+
+  index = index + size_of.order_number
+
+  index = index + size_of.order_book_priority
+
+  index = index + size_of.quantity
+
+  index = index + size_of.price
+
+  return index
 end
 
 -- Display: Implied Order Added
@@ -3197,12 +3737,30 @@ end
 dissect.implied_order_added = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.implied_order_added then
-    local range = buffer(offset, 31)
+    local length = size_of.implied_order_added(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.implied_order_added(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.implied_order_added, range, display)
   end
 
   return dissect.implied_order_added_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Order Deleted
+size_of.order_deleted = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.contract_number
+
+  index = index + size_of.side
+
+  index = index + size_of.order_number
+
+  return index
 end
 
 -- Display: Order Deleted
@@ -3236,12 +3794,32 @@ end
 dissect.order_deleted = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_deleted then
-    local range = buffer(offset, 19)
+    local length = size_of.order_deleted(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_deleted(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.order_deleted, range, display)
   end
 
   return dissect.order_deleted_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Order Volume Cancelled
+size_of.order_volume_cancelled = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.contract_number
+
+  index = index + size_of.side
+
+  index = index + size_of.order_number
+
+  index = index + size_of.quantity
+
+  return index
 end
 
 -- Display: Order Volume Cancelled
@@ -3278,12 +3856,36 @@ end
 dissect.order_volume_cancelled = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_volume_cancelled then
-    local range = buffer(offset, 23)
+    local length = size_of.order_volume_cancelled(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_volume_cancelled(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.order_volume_cancelled, range, display)
   end
 
   return dissect.order_volume_cancelled_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Order Replaced
+size_of.order_replaced = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.contract_number
+
+  index = index + size_of.side
+
+  index = index + size_of.order_number
+
+  index = index + size_of.order_book_priority
+
+  index = index + size_of.quantity
+
+  index = index + size_of.price
+
+  return index
 end
 
 -- Display: Order Replaced
@@ -3326,12 +3928,36 @@ end
 dissect.order_replaced = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_replaced then
-    local range = buffer(offset, 31)
+    local length = size_of.order_replaced(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_replaced(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.order_replaced, range, display)
   end
 
   return dissect.order_replaced_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Order Added
+size_of.order_added = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.contract_number
+
+  index = index + size_of.side
+
+  index = index + size_of.order_number
+
+  index = index + size_of.order_book_priority
+
+  index = index + size_of.quantity
+
+  index = index + size_of.price
+
+  return index
 end
 
 -- Display: Order Added
@@ -3374,7 +4000,8 @@ end
 dissect.order_added = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_added then
-    local range = buffer(offset, 31)
+    local length = size_of.order_added(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_added(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.order_added, range, display)
   end
@@ -3442,6 +4069,21 @@ dissect.trading_status = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Order Book State
+size_of.order_book_state = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.contract_number
+
+  index = index + size_of.trading_status
+
+  return index
+end
+
 -- Display: Order Book State
 display.order_book_state = function(buffer, offset, size, packet, parent)
   return ""
@@ -3470,7 +4112,8 @@ end
 dissect.order_book_state = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_book_state then
-    local range = buffer(offset, 11)
+    local length = size_of.order_book_state(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_book_state(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.order_book_state, range, display)
   end
@@ -3990,6 +4633,67 @@ dissect.exchange = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Option Symbol Directory
+size_of.option_symbol_directory = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.contract_number
+
+  index = index + size_of.exchange
+
+  index = index + size_of.instrument
+
+  index = index + size_of.contract_type
+
+  index = index + size_of.expiry_year
+
+  index = index + size_of.expiry_month
+
+  index = index + size_of.option_type
+
+  index = index + size_of.strike
+
+  index = index + size_of.underlying_contract_number
+
+  index = index + size_of.price_decimal_position
+
+  index = index + size_of.price_fractional_denominator
+
+  index = index + size_of.price_minimum_tick
+
+  index = index + size_of.strike_price_decimal_position
+
+  index = index + size_of.strike_price_fractional_denominator
+
+  index = index + size_of.strike_price_minimum_tick
+
+  index = index + size_of.last_trading_date
+
+  index = index + size_of.prior_day_settlement
+
+  index = index + size_of.volatility
+
+  index = index + size_of.financial_type
+
+  index = index + size_of.currency
+
+  index = index + size_of.lot_size_or_face_value
+
+  index = index + size_of.maturity_value
+
+  index = index + size_of.coupon_rate
+
+  index = index + size_of.payments_per_year
+
+  index = index + size_of.activated
+
+  return index
+end
+
 -- Display: Option Symbol Directory
 display.option_symbol_directory = function(buffer, offset, size, packet, parent)
   return ""
@@ -4087,7 +4791,8 @@ end
 dissect.option_symbol_directory = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.option_symbol_directory then
-    local range = buffer(offset, 74)
+    local length = size_of.option_symbol_directory(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.option_symbol_directory(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.option_symbol_directory, range, display)
   end
@@ -4175,6 +4880,37 @@ dissect.first_leg_contract_number = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Spread Symbol Directory
+size_of.spread_symbol_directory = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.contract_number
+
+  index = index + size_of.exchange
+
+  index = index + size_of.contract_type
+
+  index = index + size_of.first_leg_contract_number
+
+  index = index + size_of.second_leg_contract_number
+
+  index = index + size_of.primary_ratio
+
+  index = index + size_of.secondary_ratio
+
+  index = index + size_of.price_decimal_position
+
+  index = index + size_of.price_fractional_denominator
+
+  index = index + size_of.price_minimum_tick
+
+  return index
+end
+
 -- Display: Spread Symbol Directory
 display.spread_symbol_directory = function(buffer, offset, size, packet, parent)
   return ""
@@ -4227,12 +4963,58 @@ end
 dissect.spread_symbol_directory = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.spread_symbol_directory then
-    local range = buffer(offset, 34)
+    local length = size_of.spread_symbol_directory(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.spread_symbol_directory(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.spread_symbol_directory, range, display)
   end
 
   return dissect.spread_symbol_directory_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Future Symbol Directory
+size_of.future_symbol_directory = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.contract_number
+
+  index = index + size_of.exchange
+
+  index = index + size_of.instrument
+
+  index = index + size_of.contract_type
+
+  index = index + size_of.expiry_year
+
+  index = index + size_of.expiry_month
+
+  index = index + size_of.price_decimal_position
+
+  index = index + size_of.price_fractional_denominator
+
+  index = index + size_of.price_minimum_tick
+
+  index = index + size_of.last_trading_date
+
+  index = index + size_of.prior_day_settlement
+
+  index = index + size_of.financial_type
+
+  index = index + size_of.currency
+
+  index = index + size_of.lot_size_or_face_value
+
+  index = index + size_of.maturity_value
+
+  index = index + size_of.coupon_rate
+
+  index = index + size_of.payments_per_year
+
+  return index
 end
 
 -- Display: Future Symbol Directory
@@ -4308,7 +5090,8 @@ end
 dissect.future_symbol_directory = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.future_symbol_directory then
-    local range = buffer(offset, 53)
+    local length = size_of.future_symbol_directory(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.future_symbol_directory(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.future_symbol_directory, range, display)
   end
@@ -4352,6 +5135,19 @@ dissect.event_code = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: System Event
+size_of.system_event = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.trade_date
+
+  index = index + size_of.event_code
+
+  return index
+end
+
 -- Display: System Event
 display.system_event = function(buffer, offset, size, packet, parent)
   return ""
@@ -4377,7 +5173,8 @@ end
 dissect.system_event = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.system_event then
-    local range = buffer(offset, 7)
+    local length = size_of.system_event(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.system_event(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.system_event, range, display)
   end
@@ -4405,6 +5202,15 @@ dissect.second = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Time Message
+size_of.time_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.second
+
+  return index
+end
+
 -- Display: Time Message
 display.time_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -4424,7 +5230,8 @@ end
 dissect.time_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.time_message then
-    local range = buffer(offset, 4)
+    local length = size_of.time_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.time_message(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.time_message, range, display)
   end
@@ -4436,123 +5243,123 @@ end
 size_of.payload = function(buffer, offset, message_type)
   -- Size of Time Message
   if message_type == "T" then
-    return 4
+    return size_of.time_message(buffer, offset)
   end
   -- Size of System Event
   if message_type == "S" then
-    return 7
+    return size_of.system_event(buffer, offset)
   end
   -- Size of Future Symbol Directory
   if message_type == "f" then
-    return 53
+    return size_of.future_symbol_directory(buffer, offset)
   end
   -- Size of Spread Symbol Directory
   if message_type == "g" then
-    return 34
+    return size_of.spread_symbol_directory(buffer, offset)
   end
   -- Size of Option Symbol Directory
   if message_type == "h" then
-    return 74
+    return size_of.option_symbol_directory(buffer, offset)
   end
   -- Size of Order Book State
   if message_type == "O" then
-    return 11
+    return size_of.order_book_state(buffer, offset)
   end
   -- Size of Order Added
   if message_type == "A" then
-    return 31
+    return size_of.order_added(buffer, offset)
   end
   -- Size of Order Replaced
   if message_type == "U" then
-    return 31
+    return size_of.order_replaced(buffer, offset)
   end
   -- Size of Order Volume Cancelled
   if message_type == "X" then
-    return 23
+    return size_of.order_volume_cancelled(buffer, offset)
   end
   -- Size of Order Deleted
   if message_type == "D" then
-    return 19
+    return size_of.order_deleted(buffer, offset)
   end
   -- Size of Implied Order Added
   if message_type == "j" then
-    return 31
+    return size_of.implied_order_added(buffer, offset)
   end
   -- Size of Implied Order Replaced
   if message_type == "l" then
-    return 31
+    return size_of.implied_order_replaced(buffer, offset)
   end
   -- Size of Implied Order Deleted
   if message_type == "k" then
-    return 19
+    return size_of.implied_order_deleted(buffer, offset)
   end
   -- Size of Custom Market Order Added
   if message_type == "m" then
-    return 89
+    return size_of.custom_market_order_added(buffer, offset)
   end
   -- Size of Custom Market Order Replaced
   if message_type == "n" then
-    return 22
+    return size_of.custom_market_order_replaced(buffer, offset)
   end
   -- Size of Custom Market Order Deleted
   if message_type == "r" then
-    return 14
+    return size_of.custom_market_order_deleted(buffer, offset)
   end
   -- Size of Order Executed
   if message_type == "E" then
-    return 36
+    return size_of.order_executed(buffer, offset)
   end
   -- Size of Order Executed With Price
   if message_type == "C" then
-    return 47
+    return size_of.order_executed_with_price(buffer, offset)
   end
   -- Size of Spread Executed
   if message_type == "e" then
-    return 46
+    return size_of.spread_executed(buffer, offset)
   end
   -- Size of Trade Spread Execution Chain
   if message_type == "P" then
-    return 62
+    return size_of.trade_spread_execution_chain(buffer, offset)
   end
   -- Size of Custom Market Executed
   if message_type == "u" then
-    return 37
+    return size_of.custom_market_executed(buffer, offset)
   end
   -- Size of Custom Market Trade
   if message_type == "p" then
-    return 54
+    return size_of.custom_market_trade(buffer, offset)
   end
   -- Size of Trade Cancellation
   if message_type == "B" then
-    return 10
+    return size_of.trade_cancellation(buffer, offset)
   end
   -- Size of Equilibrium Price Auction Info
   if message_type == "Z" then
-    return 30
+    return size_of.equilibrium_price_auction_info(buffer, offset)
   end
   -- Size of Open High Low Last Trade Adjustment
   if message_type == "t" then
-    return 39
+    return size_of.open_high_low_last_trade_adjustment(buffer, offset)
   end
   -- Size of Market Settlement
   if message_type == "Y" then
-    return 19
+    return size_of.market_settlement(buffer, offset)
   end
   -- Size of Ad Hoc Text
   if message_type == "x" then
-    return 112
+    return size_of.ad_hoc_text(buffer, offset)
   end
   -- Size of Request For Quote
   if message_type == "q" then
-    return 18
+    return size_of.request_for_quote(buffer, offset)
   end
   -- Size of Anomalous Order Threshold Publish
   if message_type == "W" then
-    return 34
+    return size_of.anomalous_order_threshold_publish(buffer, offset)
   end
   -- Size of Volume And Open Interest
   if message_type == "V" then
-    return 20
+    return size_of.volume_and_open_interest(buffer, offset)
   end
 
   return 0
@@ -4840,6 +5647,17 @@ dissect.length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Message Header
+size_of.message_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.length
+
+  index = index + size_of.message_type
+
+  return index
+end
+
 -- Display: Message Header
 display.message_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -4862,7 +5680,8 @@ end
 dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local range = buffer(offset, 3)
+    local length = size_of.message_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.message_header, range, display)
   end
@@ -4870,11 +5689,11 @@ dissect.message_header = function(buffer, offset, packet, parent)
   return dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Message
+-- Calculate size of: Message
 size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.message_header(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -5038,6 +5857,21 @@ dissect.protocol_version = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Session
+size_of.session = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.protocol_version
+
+  index = index + size_of.session_year
+
+  index = index + size_of.session_week
+
+  index = index + size_of.trading_service
+
+  return index
+end
+
 -- Display: Session
 display.session = function(buffer, packet, parent)
   return buffer(0, 10):string()
@@ -5066,12 +5900,26 @@ end
 dissect.session = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.session then
-    local range = buffer(offset, 10)
+    local length = size_of.session(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.session(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.session, range, display)
   end
 
   return dissect.session_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Packet Header
+size_of.packet_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.session(buffer, offset + index)
+
+  index = index + size_of.sequence
+
+  index = index + size_of.count
+
+  return index
 end
 
 -- Display: Packet Header
@@ -5099,7 +5947,8 @@ end
 dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local range = buffer(offset, 20)
+    local length = size_of.packet_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.packet_header(buffer, packet, parent)
     parent = parent:add(asx_securities_t24_itch_v1_13.fields.packet_header, range, display)
   end

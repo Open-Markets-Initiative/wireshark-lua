@@ -303,6 +303,19 @@ dissect.stock = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Operational Halt Message
+size_of.operational_halt_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.stock
+
+  index = index + size_of.market_code
+
+  index = index + size_of.operational_halt_action
+
+  return index
+end
+
 -- Display: Operational Halt Message
 display.operational_halt_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -328,7 +341,8 @@ end
 dissect.operational_halt_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.operational_halt_message then
-    local range = buffer(offset, 10)
+    local length = size_of.operational_halt_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.operational_halt_message(buffer, packet, parent)
     parent = parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.operational_halt_message, range, display)
   end
@@ -366,6 +380,15 @@ dissect.breached_level = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Mwcb Breach Message
+size_of.mwcb_breach_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.breached_level
+
+  return index
+end
+
 -- Display: Mwcb Breach Message
 display.mwcb_breach_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -385,7 +408,8 @@ end
 dissect.mwcb_breach_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.mwcb_breach_message then
-    local range = buffer(offset, 1)
+    local length = size_of.mwcb_breach_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.mwcb_breach_message(buffer, packet, parent)
     parent = parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.mwcb_breach_message, range, display)
   end
@@ -453,6 +477,19 @@ dissect.level_1 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Mwcb Decline Level Message
+size_of.mwcb_decline_level_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.level_1
+
+  index = index + size_of.level_2
+
+  index = index + size_of.level_3
+
+  return index
+end
+
 -- Display: Mwcb Decline Level Message
 display.mwcb_decline_level_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -478,7 +515,8 @@ end
 dissect.mwcb_decline_level_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.mwcb_decline_level_message then
-    local range = buffer(offset, 24)
+    local length = size_of.mwcb_decline_level_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.mwcb_decline_level_message(buffer, packet, parent)
     parent = parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.mwcb_decline_level_message, range, display)
   end
@@ -1093,6 +1131,41 @@ dissect.market_category = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Stock Directory Message
+size_of.stock_directory_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.stock
+
+  index = index + size_of.market_category
+
+  index = index + size_of.financial_status_indicator
+
+  index = index + size_of.round_lot_size
+
+  index = index + size_of.round_lots_only
+
+  index = index + size_of.issue_classification
+
+  index = index + size_of.issue_sub_type
+
+  index = index + size_of.authenticity
+
+  index = index + size_of.short_sale_threshold_indicator
+
+  index = index + size_of.ipo_flag
+
+  index = index + size_of.luld_reference_price_tier
+
+  index = index + size_of.etp_flag
+
+  index = index + size_of.etp_leverage_factor
+
+  index = index + size_of.inverse_indicator
+
+  return index
+end
+
 -- Display: Stock Directory Message
 display.stock_directory_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1151,7 +1224,8 @@ end
 dissect.stock_directory_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.stock_directory_message then
-    local range = buffer(offset, 28)
+    local length = size_of.stock_directory_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.stock_directory_message(buffer, packet, parent)
     parent = parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.stock_directory_message, range, display)
   end
@@ -1189,6 +1263,17 @@ dissect.reg_sho_action = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Reg Sho Short Sale Price Test Restricted Indicator Message
+size_of.reg_sho_short_sale_price_test_restricted_indicator_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.stock
+
+  index = index + size_of.reg_sho_action
+
+  return index
+end
+
 -- Display: Reg Sho Short Sale Price Test Restricted Indicator Message
 display.reg_sho_short_sale_price_test_restricted_indicator_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1211,7 +1296,8 @@ end
 dissect.reg_sho_short_sale_price_test_restricted_indicator_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.reg_sho_short_sale_price_test_restricted_indicator_message then
-    local range = buffer(offset, 9)
+    local length = size_of.reg_sho_short_sale_price_test_restricted_indicator_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.reg_sho_short_sale_price_test_restricted_indicator_message(buffer, packet, parent)
     parent = parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.reg_sho_short_sale_price_test_restricted_indicator_message, range, display)
   end
@@ -1431,6 +1517,21 @@ dissect.issue_symbol = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Trading Action Message
+size_of.trading_action_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.issue_symbol
+
+  index = index + size_of.security_class
+
+  index = index + size_of.current_trading_state
+
+  index = index + size_of.trading_action_reason
+
+  return index
+end
+
 -- Display: Trading Action Message
 display.trading_action_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1459,7 +1560,8 @@ end
 dissect.trading_action_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trading_action_message then
-    local range = buffer(offset, 14)
+    local length = size_of.trading_action_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.trading_action_message(buffer, packet, parent)
     parent = parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.trading_action_message, range, display)
   end
@@ -1694,6 +1796,39 @@ dissect.market_center_identifier = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Trade Correction For Next Shares Message
+size_of.trade_correction_for_next_shares_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_center_identifier
+
+  index = index + size_of.issue_symbol
+
+  index = index + size_of.security_class
+
+  index = index + size_of.original_trade_control_number
+
+  index = index + size_of.original_trade_price
+
+  index = index + size_of.original_nav_premium_discount_amount
+
+  index = index + size_of.original_trade_size
+
+  index = index + size_of.original_sale_condition_modifier
+
+  index = index + size_of.corrected_trade_control_number
+
+  index = index + size_of.corrected_trade_price
+
+  index = index + size_of.corrected_nav_premium_discount_amount
+
+  index = index + size_of.corrected_trade_size
+
+  index = index + size_of.corrected_sale_condition_modifier
+
+  return index
+end
+
 -- Display: Trade Correction For Next Shares Message
 display.trade_correction_for_next_shares_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1749,12 +1884,42 @@ end
 dissect.trade_correction_for_next_shares_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_correction_for_next_shares_message then
-    local range = buffer(offset, 62)
+    local length = size_of.trade_correction_for_next_shares_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.trade_correction_for_next_shares_message(buffer, packet, parent)
     parent = parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.trade_correction_for_next_shares_message, range, display)
   end
 
   return dissect.trade_correction_for_next_shares_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Trade Correction Message
+size_of.trade_correction_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_center_identifier
+
+  index = index + size_of.issue_symbol
+
+  index = index + size_of.security_class
+
+  index = index + size_of.original_trade_control_number
+
+  index = index + size_of.original_trade_price
+
+  index = index + size_of.original_trade_size
+
+  index = index + size_of.original_sale_condition_modifier
+
+  index = index + size_of.corrected_trade_control_number
+
+  index = index + size_of.corrected_trade_price
+
+  index = index + size_of.corrected_trade_size
+
+  index = index + size_of.corrected_sale_condition_modifier
+
+  return index
 end
 
 -- Display: Trade Correction Message
@@ -1806,12 +1971,36 @@ end
 dissect.trade_correction_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_correction_message then
-    local range = buffer(offset, 54)
+    local length = size_of.trade_correction_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.trade_correction_message(buffer, packet, parent)
     parent = parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.trade_correction_message, range, display)
   end
 
   return dissect.trade_correction_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Trade Cancel Error For Next Shares Message
+size_of.trade_cancel_error_for_next_shares_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_center_identifier
+
+  index = index + size_of.issue_symbol
+
+  index = index + size_of.security_class
+
+  index = index + size_of.original_trade_control_number
+
+  index = index + size_of.original_trade_price
+
+  index = index + size_of.original_nav_premium_discount_amount
+
+  index = index + size_of.original_trade_size
+
+  index = index + size_of.original_sale_condition_modifier
+
+  return index
 end
 
 -- Display: Trade Cancel Error For Next Shares Message
@@ -1854,12 +2043,34 @@ end
 dissect.trade_cancel_error_for_next_shares_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_cancel_error_for_next_shares_message then
-    local range = buffer(offset, 36)
+    local length = size_of.trade_cancel_error_for_next_shares_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.trade_cancel_error_for_next_shares_message(buffer, packet, parent)
     parent = parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.trade_cancel_error_for_next_shares_message, range, display)
   end
 
   return dissect.trade_cancel_error_for_next_shares_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Trade Cancel Error Message
+size_of.trade_cancel_error_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_center_identifier
+
+  index = index + size_of.issue_symbol
+
+  index = index + size_of.security_class
+
+  index = index + size_of.original_trade_control_number
+
+  index = index + size_of.original_trade_price
+
+  index = index + size_of.original_trade_size
+
+  index = index + size_of.original_sale_condition_modifier
+
+  return index
 end
 
 -- Display: Trade Cancel Error Message
@@ -1899,7 +2110,8 @@ end
 dissect.trade_cancel_error_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_cancel_error_message then
-    local range = buffer(offset, 32)
+    local length = size_of.trade_cancel_error_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.trade_cancel_error_message(buffer, packet, parent)
     parent = parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.trade_cancel_error_message, range, display)
   end
@@ -2178,6 +2390,35 @@ dissect.next_shares_symbol = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Next Shares Trade Report Message
+size_of.next_shares_trade_report_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_center_identifier
+
+  index = index + size_of.next_shares_symbol
+
+  index = index + size_of.security_class
+
+  index = index + size_of.trade_control_number
+
+  index = index + size_of.proxy_price
+
+  index = index + size_of.trade_size
+
+  index = index + size_of.nav_premium_discount_amount
+
+  index = index + size_of.sale_condition_modifier_level_1
+
+  index = index + size_of.sale_condition_modifier_level_2
+
+  index = index + size_of.sale_condition_modifier_level_3
+
+  index = index + size_of.sale_condition_modifier_level_4
+
+  return index
+end
+
 -- Display: Next Shares Trade Report Message
 display.next_shares_trade_report_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -2227,7 +2468,8 @@ end
 dissect.next_shares_trade_report_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.next_shares_trade_report_message then
-    local range = buffer(offset, 36)
+    local length = size_of.next_shares_trade_report_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.next_shares_trade_report_message(buffer, packet, parent)
     parent = parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.next_shares_trade_report_message, range, display)
   end
@@ -2253,6 +2495,33 @@ dissect.trade_price = function(buffer, offset, packet, parent)
   parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.trade_price, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Trade Report Message
+size_of.trade_report_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.market_center_identifier
+
+  index = index + size_of.issue_symbol
+
+  index = index + size_of.security_class
+
+  index = index + size_of.trade_control_number
+
+  index = index + size_of.trade_price
+
+  index = index + size_of.trade_size
+
+  index = index + size_of.sale_condition_modifier_level_1
+
+  index = index + size_of.sale_condition_modifier_level_2
+
+  index = index + size_of.sale_condition_modifier_level_3
+
+  index = index + size_of.sale_condition_modifier_level_4
+
+  return index
 end
 
 -- Display: Trade Report Message
@@ -2301,7 +2570,8 @@ end
 dissect.trade_report_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_report_message then
-    local range = buffer(offset, 32)
+    local length = size_of.trade_report_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.trade_report_message(buffer, packet, parent)
     parent = parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.trade_report_message, range, display)
   end
@@ -2348,6 +2618,15 @@ dissect.event_code = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: System Event Message
+size_of.system_event_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.event_code
+
+  return index
+end
+
 -- Display: System Event Message
 display.system_event_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -2367,7 +2646,8 @@ end
 dissect.system_event_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.system_event_message then
-    local range = buffer(offset, 1)
+    local length = size_of.system_event_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.system_event_message(buffer, packet, parent)
     parent = parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.system_event_message, range, display)
   end
@@ -2379,55 +2659,55 @@ end
 size_of.payload = function(buffer, offset, message_type)
   -- Size of System Event Message
   if message_type == "S" then
-    return 1
+    return size_of.system_event_message(buffer, offset)
   end
   -- Size of Trade Report Message
   if message_type == "T" then
-    return 32
+    return size_of.trade_report_message(buffer, offset)
   end
   -- Size of Next Shares Trade Report Message
   if message_type == "M" then
-    return 36
+    return size_of.next_shares_trade_report_message(buffer, offset)
   end
   -- Size of Trade Cancel Error Message
   if message_type == "X" then
-    return 32
+    return size_of.trade_cancel_error_message(buffer, offset)
   end
   -- Size of Trade Cancel Error For Next Shares Message
   if message_type == "O" then
-    return 36
+    return size_of.trade_cancel_error_for_next_shares_message(buffer, offset)
   end
   -- Size of Trade Correction Message
   if message_type == "C" then
-    return 54
+    return size_of.trade_correction_message(buffer, offset)
   end
   -- Size of Trade Correction For Next Shares Message
   if message_type == "Z" then
-    return 62
+    return size_of.trade_correction_for_next_shares_message(buffer, offset)
   end
   -- Size of Trading Action Message
   if message_type == "H" then
-    return 14
+    return size_of.trading_action_message(buffer, offset)
   end
   -- Size of Reg Sho Short Sale Price Test Restricted Indicator Message
   if message_type == "Y" then
-    return 9
+    return size_of.reg_sho_short_sale_price_test_restricted_indicator_message(buffer, offset)
   end
   -- Size of Stock Directory Message
   if message_type == "R" then
-    return 28
+    return size_of.stock_directory_message(buffer, offset)
   end
   -- Size of Mwcb Decline Level Message
   if message_type == "V" then
-    return 24
+    return size_of.mwcb_decline_level_message(buffer, offset)
   end
   -- Size of Mwcb Breach Message
   if message_type == "W" then
-    return 1
+    return size_of.mwcb_breach_message(buffer, offset)
   end
   -- Size of Operational Halt Message
   if message_type == "h" then
-    return 10
+    return size_of.operational_halt_message(buffer, offset)
   end
 
   return 0
@@ -2636,6 +2916,21 @@ dissect.length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Message Header
+size_of.message_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.length
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.message_type
+
+  return index
+end
+
 -- Display: Message Header
 display.message_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -2664,7 +2959,8 @@ end
 dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local range = buffer(offset, 11)
+    local length = size_of.message_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
     parent = parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.message_header, range, display)
   end
@@ -2672,11 +2968,11 @@ dissect.message_header = function(buffer, offset, packet, parent)
   return dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Message
+-- Calculate size of: Message
 size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + 11
+  index = index + size_of.message_header(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -2780,6 +3076,19 @@ dissect.session = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Packet Header
+size_of.packet_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.session
+
+  index = index + size_of.sequence
+
+  index = index + size_of.count
+
+  return index
+end
+
 -- Display: Packet Header
 display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -2805,7 +3114,8 @@ end
 dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local range = buffer(offset, 20)
+    local length = size_of.packet_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.packet_header(buffer, packet, parent)
     parent = parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.packet_header, range, display)
   end

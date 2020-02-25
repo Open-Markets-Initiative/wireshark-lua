@@ -484,6 +484,19 @@ dissect.best_offer_participant_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: National Best Offer Short Appendage
+size_of.national_best_offer_short_appendage = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.best_offer_participant_id
+
+  index = index + size_of.best_offer_price_short
+
+  index = index + size_of.best_offer_size_short
+
+  return index
+end
+
 -- Display: National Best Offer Short Appendage
 display.national_best_offer_short_appendage = function(buffer, offset, size, packet, parent)
   return ""
@@ -509,7 +522,8 @@ end
 dissect.national_best_offer_short_appendage = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.national_best_offer_short_appendage then
-    local range = buffer(offset, 5)
+    local length = size_of.national_best_offer_short_appendage(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.national_best_offer_short_appendage(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.national_best_offer_short_appendage, range, display)
   end
@@ -632,6 +646,19 @@ dissect.best_bid_participant_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: National Best Bid Short Appendage
+size_of.national_best_bid_short_appendage = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.best_bid_participant_id
+
+  index = index + size_of.best_bid_price_short
+
+  index = index + size_of.best_bid_size_short
+
+  return index
+end
+
 -- Display: National Best Bid Short Appendage
 display.national_best_bid_short_appendage = function(buffer, offset, size, packet, parent)
   return ""
@@ -657,7 +684,8 @@ end
 dissect.national_best_bid_short_appendage = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.national_best_bid_short_appendage then
-    local range = buffer(offset, 5)
+    local length = size_of.national_best_bid_short_appendage(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.national_best_bid_short_appendage(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.national_best_bid_short_appendage, range, display)
   end
@@ -745,6 +773,23 @@ dissect.best_offer_quote_condition = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: National Best Offer Long Appendage
+size_of.national_best_offer_long_appendage = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.best_offer_participant_id
+
+  index = index + size_of.best_offer_quote_condition
+
+  index = index + size_of.best_offer_price_long
+
+  index = index + size_of.best_offer_size_long
+
+  index = index + size_of.finra_best_offer_market_maker_id
+
+  return index
+end
+
 -- Display: National Best Offer Long Appendage
 display.national_best_offer_long_appendage = function(buffer, offset, size, packet, parent)
   return ""
@@ -776,7 +821,8 @@ end
 dissect.national_best_offer_long_appendage = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.national_best_offer_long_appendage then
-    local range = buffer(offset, 18)
+    local length = size_of.national_best_offer_long_appendage(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.national_best_offer_long_appendage(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.national_best_offer_long_appendage, range, display)
   end
@@ -864,6 +910,23 @@ dissect.best_bid_quote_condition = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: National Best Bid Long Appendage
+size_of.national_best_bid_long_appendage = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.best_bid_participant_id
+
+  index = index + size_of.best_bid_quote_condition
+
+  index = index + size_of.best_bid_price_long
+
+  index = index + size_of.best_bid_size_long
+
+  index = index + size_of.finra_best_bid_market_maker_id
+
+  return index
+end
+
 -- Display: National Best Bid Long Appendage
 display.national_best_bid_long_appendage = function(buffer, offset, size, packet, parent)
   return ""
@@ -895,7 +958,8 @@ end
 dissect.national_best_bid_long_appendage = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.national_best_bid_long_appendage then
-    local range = buffer(offset, 18)
+    local length = size_of.national_best_bid_long_appendage(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.national_best_bid_long_appendage(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.national_best_bid_long_appendage, range, display)
   end
@@ -1312,6 +1376,17 @@ dissect.seconds = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Adf Timestamp
+size_of.adf_timestamp = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.seconds
+
+  index = index + size_of.nanoseconds
+
+  return index
+end
+
 -- Display: Adf Timestamp
 display.adf_timestamp = function(buffer, offset, size, packet, parent)
   return ""
@@ -1334,7 +1409,8 @@ end
 dissect.adf_timestamp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.adf_timestamp then
-    local range = buffer(offset, 8)
+    local length = size_of.adf_timestamp(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.adf_timestamp(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.adf_timestamp, range, display)
   end
@@ -1897,6 +1973,17 @@ dissect.message_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Participant Timestamp
+size_of.participant_timestamp = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.seconds
+
+  index = index + size_of.nanoseconds
+
+  return index
+end
+
 -- Display: Participant Timestamp
 display.participant_timestamp = function(buffer, offset, size, packet, parent)
   return ""
@@ -1919,7 +2006,8 @@ end
 dissect.participant_timestamp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.participant_timestamp then
-    local range = buffer(offset, 8)
+    local length = size_of.participant_timestamp(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.participant_timestamp(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.participant_timestamp, range, display)
   end
@@ -4041,6 +4129,17 @@ dissect.message_length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Message Header
+size_of.message_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.message_length
+
+  index = index + size_of.message_category
+
+  return index
+end
+
 -- Display: Message Header
 display.message_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -4063,7 +4162,8 @@ end
 dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local range = buffer(offset, 3)
+    local length = size_of.message_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.message_header, range, display)
   end
@@ -4126,6 +4226,17 @@ dissect.block_checksum = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Sip Block Timestamp
+size_of.sip_block_timestamp = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.seconds
+
+  index = index + size_of.nanoseconds
+
+  return index
+end
+
 -- Display: Sip Block Timestamp
 display.sip_block_timestamp = function(buffer, offset, size, packet, parent)
   return ""
@@ -4148,7 +4259,8 @@ end
 dissect.sip_block_timestamp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.sip_block_timestamp then
-    local range = buffer(offset, 8)
+    local length = size_of.sip_block_timestamp(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.sip_block_timestamp(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.sip_block_timestamp, range, display)
   end
@@ -4283,6 +4395,29 @@ dissect.version = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Block Header
+size_of.block_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.version
+
+  index = index + size_of.block_size
+
+  index = index + size_of.data_feed_indicator
+
+  index = index + size_of.retransmission_indicator
+
+  index = index + size_of.block_sequence_number
+
+  index = index + size_of.messages_in_block
+
+  index = index + size_of.sip_block_timestamp(buffer, offset + index)
+
+  index = index + size_of.block_checksum
+
+  return index
+end
+
 -- Display: Block Header
 display.block_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -4323,7 +4458,8 @@ end
 dissect.block_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.block_header then
-    local range = buffer(offset, 20)
+    local length = size_of.block_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.block_header(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.block_header, range, display)
   end

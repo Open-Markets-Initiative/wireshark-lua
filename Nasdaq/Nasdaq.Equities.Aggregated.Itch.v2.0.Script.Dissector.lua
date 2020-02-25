@@ -311,6 +311,21 @@ dissect.tracking_number = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Rpii Message
+size_of.rpii_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.stock
+
+  index = index + size_of.interest_flag
+
+  return index
+end
+
 -- Display: Rpii Message
 display.rpii_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -339,7 +354,8 @@ end
 dissect.rpii_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.rpii_message then
-    local range = buffer(offset, 17)
+    local length = size_of.rpii_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.rpii_message(buffer, packet, parent)
     parent = parent:add(nasdaq_equities_aggregated_itch_v2_0.fields.rpii_message, range, display)
   end
@@ -576,6 +592,35 @@ dissect.paired_shares = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Noii Message
+size_of.noii_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.paired_shares
+
+  index = index + size_of.imbalance_shares
+
+  index = index + size_of.imbalance_direction
+
+  index = index + size_of.stock
+
+  index = index + size_of.far_price
+
+  index = index + size_of.near_price
+
+  index = index + size_of.current_reference_price
+
+  index = index + size_of.cross_type
+
+  index = index + size_of.price_variation_indicator
+
+  return index
+end
+
 -- Display: Noii Message
 display.noii_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -625,7 +670,8 @@ end
 dissect.noii_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.noii_message then
-    local range = buffer(offset, 47)
+    local length = size_of.noii_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.noii_message(buffer, packet, parent)
     parent = parent:add(nasdaq_equities_aggregated_itch_v2_0.fields.noii_message, range, display)
   end
@@ -740,6 +786,29 @@ dissect.market_side = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Price Level Update Message
+size_of.price_level_update_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.market_side
+
+  index = index + size_of.participant_shares
+
+  index = index + size_of.aggregate_shares
+
+  index = index + size_of.stock
+
+  index = index + size_of.price
+
+  index = index + size_of.mpid
+
+  return index
+end
+
 -- Display: Price Level Update Message
 display.price_level_update_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -780,7 +849,8 @@ end
 dissect.price_level_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.price_level_update_message then
-    local range = buffer(offset, 33)
+    local length = size_of.price_level_update_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.price_level_update_message(buffer, packet, parent)
     parent = parent:add(nasdaq_equities_aggregated_itch_v2_0.fields.price_level_update_message, range, display)
   end
@@ -868,6 +938,27 @@ dissect.auction_collar_reference_price = function(buffer, offset, packet, parent
   return offset + length, value
 end
 
+-- Calculate size of: Luld Auction Collar Message
+size_of.luld_auction_collar_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.stock
+
+  index = index + size_of.auction_collar_reference_price
+
+  index = index + size_of.upper_auction_collar_price
+
+  index = index + size_of.lower_auction_collar_price
+
+  index = index + size_of.auction_collar_extension
+
+  return index
+end
+
 -- Display: Luld Auction Collar Message
 display.luld_auction_collar_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -905,7 +996,8 @@ end
 dissect.luld_auction_collar_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.luld_auction_collar_message then
-    local range = buffer(offset, 32)
+    local length = size_of.luld_auction_collar_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.luld_auction_collar_message(buffer, packet, parent)
     parent = parent:add(nasdaq_equities_aggregated_itch_v2_0.fields.luld_auction_collar_message, range, display)
   end
@@ -980,6 +1072,25 @@ dissect.ipo_quotation_release_time = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Ipo Quoting Period Update Message
+size_of.ipo_quoting_period_update_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.stock
+
+  index = index + size_of.ipo_quotation_release_time
+
+  index = index + size_of.ipo_quotation_release_qualifier
+
+  index = index + size_of.ipo_price
+
+  return index
+end
+
 -- Display: Ipo Quoting Period Update Message
 display.ipo_quoting_period_update_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1014,7 +1125,8 @@ end
 dissect.ipo_quoting_period_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.ipo_quoting_period_update_message then
-    local range = buffer(offset, 25)
+    local length = size_of.ipo_quoting_period_update_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.ipo_quoting_period_update_message(buffer, packet, parent)
     parent = parent:add(nasdaq_equities_aggregated_itch_v2_0.fields.ipo_quoting_period_update_message, range, display)
   end
@@ -1052,6 +1164,19 @@ dissect.breached_level = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Mwcb Status Message
+size_of.mwcb_status_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.breached_level
+
+  return index
+end
+
 -- Display: Mwcb Status Message
 display.mwcb_status_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1077,7 +1202,8 @@ end
 dissect.mwcb_status_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.mwcb_status_message then
-    local range = buffer(offset, 9)
+    local length = size_of.mwcb_status_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.mwcb_status_message(buffer, packet, parent)
     parent = parent:add(nasdaq_equities_aggregated_itch_v2_0.fields.mwcb_status_message, range, display)
   end
@@ -1145,6 +1271,23 @@ dissect.level_1 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Mwcb Decline Level Message
+size_of.mwcb_decline_level_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.level_1
+
+  index = index + size_of.level_2
+
+  index = index + size_of.level_3
+
+  return index
+end
+
 -- Display: Mwcb Decline Level Message
 display.mwcb_decline_level_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1176,7 +1319,8 @@ end
 dissect.mwcb_decline_level_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.mwcb_decline_level_message then
-    local range = buffer(offset, 32)
+    local length = size_of.mwcb_decline_level_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.mwcb_decline_level_message(buffer, packet, parent)
     parent = parent:add(nasdaq_equities_aggregated_itch_v2_0.fields.mwcb_decline_level_message, range, display)
   end
@@ -1283,6 +1427,27 @@ dissect.primary_market_maker = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Market Participant Position Message
+size_of.market_participant_position_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.mpid
+
+  index = index + size_of.stock
+
+  index = index + size_of.primary_market_maker
+
+  index = index + size_of.market_maker_mode
+
+  index = index + size_of.market_participant_state
+
+  return index
+end
+
 -- Display: Market Participant Position Message
 display.market_participant_position_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1320,7 +1485,8 @@ end
 dissect.market_participant_position_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.market_participant_position_message then
-    local range = buffer(offset, 23)
+    local length = size_of.market_participant_position_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.market_participant_position_message(buffer, packet, parent)
     parent = parent:add(nasdaq_equities_aggregated_itch_v2_0.fields.market_participant_position_message, range, display)
   end
@@ -1358,6 +1524,21 @@ dissect.reg_sho_action = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Reg Sho Restriction Message
+size_of.reg_sho_restriction_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.stock
+
+  index = index + size_of.reg_sho_action
+
+  return index
+end
+
 -- Display: Reg Sho Restriction Message
 display.reg_sho_restriction_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1386,7 +1567,8 @@ end
 dissect.reg_sho_restriction_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.reg_sho_restriction_message then
-    local range = buffer(offset, 17)
+    local length = size_of.reg_sho_restriction_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.reg_sho_restriction_message(buffer, packet, parent)
     parent = parent:add(nasdaq_equities_aggregated_itch_v2_0.fields.reg_sho_restriction_message, range, display)
   end
@@ -1550,6 +1732,23 @@ dissect.trading_state = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Stock Trading Action Message
+size_of.stock_trading_action_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.stock
+
+  index = index + size_of.trading_state
+
+  index = index + size_of.trading_action_reason
+
+  return index
+end
+
 -- Display: Stock Trading Action Message
 display.stock_trading_action_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1581,7 +1780,8 @@ end
 dissect.stock_trading_action_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.stock_trading_action_message then
-    local range = buffer(offset, 21)
+    local length = size_of.stock_trading_action_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.stock_trading_action_message(buffer, packet, parent)
     parent = parent:add(nasdaq_equities_aggregated_itch_v2_0.fields.stock_trading_action_message, range, display)
   end
@@ -2196,6 +2396,45 @@ dissect.market_category = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Stock Directory Message
+size_of.stock_directory_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.stock
+
+  index = index + size_of.market_category
+
+  index = index + size_of.financial_status_indicator
+
+  index = index + size_of.round_lot_size
+
+  index = index + size_of.round_lots_only
+
+  index = index + size_of.issue_classification
+
+  index = index + size_of.issue_sub_type
+
+  index = index + size_of.authenticity
+
+  index = index + size_of.short_sale_threshold_indicator
+
+  index = index + size_of.ipo_flag
+
+  index = index + size_of.luld_reference_price_tier
+
+  index = index + size_of.etp_flag
+
+  index = index + size_of.etp_leverage_factor
+
+  index = index + size_of.inverse_indicator
+
+  return index
+end
+
 -- Display: Stock Directory Message
 display.stock_directory_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -2260,7 +2499,8 @@ end
 dissect.stock_directory_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.stock_directory_message then
-    local range = buffer(offset, 36)
+    local length = size_of.stock_directory_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.stock_directory_message(buffer, packet, parent)
     parent = parent:add(nasdaq_equities_aggregated_itch_v2_0.fields.stock_directory_message, range, display)
   end
@@ -2310,6 +2550,19 @@ dissect.event_code = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: System Event Message
+size_of.system_event_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.event_code
+
+  return index
+end
+
 -- Display: System Event Message
 display.system_event_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -2335,7 +2588,8 @@ end
 dissect.system_event_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.system_event_message then
-    local range = buffer(offset, 9)
+    local length = size_of.system_event_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.system_event_message(buffer, packet, parent)
     parent = parent:add(nasdaq_equities_aggregated_itch_v2_0.fields.system_event_message, range, display)
   end
@@ -2347,51 +2601,51 @@ end
 size_of.payload = function(buffer, offset, message_type)
   -- Size of System Event Message
   if message_type == "S" then
-    return 9
+    return size_of.system_event_message(buffer, offset)
   end
   -- Size of Stock Directory Message
   if message_type == "R" then
-    return 36
+    return size_of.stock_directory_message(buffer, offset)
   end
   -- Size of Stock Trading Action Message
   if message_type == "H" then
-    return 21
+    return size_of.stock_trading_action_message(buffer, offset)
   end
   -- Size of Reg Sho Restriction Message
   if message_type == "Y" then
-    return 17
+    return size_of.reg_sho_restriction_message(buffer, offset)
   end
   -- Size of Market Participant Position Message
   if message_type == "P" then
-    return 23
+    return size_of.market_participant_position_message(buffer, offset)
   end
   -- Size of Mwcb Decline Level Message
   if message_type == "V" then
-    return 32
+    return size_of.mwcb_decline_level_message(buffer, offset)
   end
   -- Size of Mwcb Status Message
   if message_type == "W" then
-    return 9
+    return size_of.mwcb_status_message(buffer, offset)
   end
   -- Size of Ipo Quoting Period Update Message
   if message_type == "K" then
-    return 25
+    return size_of.ipo_quoting_period_update_message(buffer, offset)
   end
   -- Size of Luld Auction Collar Message
   if message_type == "J" then
-    return 32
+    return size_of.luld_auction_collar_message(buffer, offset)
   end
   -- Size of Price Level Update Message
   if message_type == "U" then
-    return 33
+    return size_of.price_level_update_message(buffer, offset)
   end
   -- Size of Noii Message
   if message_type == "I" then
-    return 47
+    return size_of.noii_message(buffer, offset)
   end
   -- Size of Rpii Message
   if message_type == "N" then
-    return 17
+    return size_of.rpii_message(buffer, offset)
   end
 
   return 0
@@ -2553,6 +2807,17 @@ dissect.length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Message Header
+size_of.message_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.length
+
+  index = index + size_of.message_type
+
+  return index
+end
+
 -- Display: Message Header
 display.message_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -2575,7 +2840,8 @@ end
 dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local range = buffer(offset, 3)
+    local length = size_of.message_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
     parent = parent:add(nasdaq_equities_aggregated_itch_v2_0.fields.message_header, range, display)
   end
@@ -2583,11 +2849,11 @@ dissect.message_header = function(buffer, offset, packet, parent)
   return dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Message
+-- Calculate size of: Message
 size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.message_header(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -2691,6 +2957,19 @@ dissect.session = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Packet Header
+size_of.packet_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.session
+
+  index = index + size_of.sequence
+
+  index = index + size_of.count
+
+  return index
+end
+
 -- Display: Packet Header
 display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -2716,7 +2995,8 @@ end
 dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local range = buffer(offset, 20)
+    local length = size_of.packet_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.packet_header(buffer, packet, parent)
     parent = parent:add(nasdaq_equities_aggregated_itch_v2_0.fields.packet_header, range, display)
   end

@@ -279,6 +279,21 @@ dissect.source_time = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Sequence Number Reset Message
+size_of.sequence_number_reset_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_time_ns
+
+  index = index + size_of.product_id
+
+  index = index + size_of.channel_id
+
+  return index
+end
+
 -- Display: Sequence Number Reset Message
 display.sequence_number_reset_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -307,7 +322,8 @@ end
 dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.sequence_number_reset_message then
-    local range = buffer(offset, 10)
+    local length = size_of.sequence_number_reset_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.sequence_number_reset_message(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.sequence_number_reset_message, range, display)
   end
@@ -355,6 +371,17 @@ dissect.stream_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Stream Id Message
+size_of.stream_id_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.stream_id
+
+  index = index + size_of.reserved_2
+
+  return index
+end
+
 -- Display: Stream Id Message
 display.stream_id_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -377,7 +404,8 @@ end
 dissect.stream_id_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.stream_id_message then
-    local range = buffer(offset, 4)
+    local length = size_of.stream_id_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.stream_id_message(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.stream_id_message, range, display)
   end
@@ -479,6 +507,21 @@ dissect.symbol_index = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Leg Definition
+size_of.leg_definition = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.symbol_index
+
+  index = index + size_of.leg_ratio_qty
+
+  index = index + size_of.side
+
+  index = index + size_of.leg_security_type
+
+  return index
+end
+
 -- Display: Leg Definition
 display.leg_definition = function(buffer, offset, size, packet, parent)
   return ""
@@ -507,7 +550,8 @@ end
 dissect.leg_definition = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.leg_definition then
-    local range = buffer(offset, 8)
+    local length = size_of.leg_definition(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.leg_definition(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.leg_definition, range, display)
   end
@@ -663,11 +707,27 @@ dissect.complex_index = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate runtime size: Complex Symbol Definition Message
+-- Calculate size of: Complex Symbol Definition Message
 size_of.complex_symbol_definition_message = function(buffer, offset)
   local index = 0
 
-  index = index + 36
+  index = index + size_of.complex_index
+
+  index = index + size_of.complex_symbol
+
+  index = index + size_of.channel_id
+
+  index = index + size_of.market_id
+
+  index = index + size_of.system_id
+
+  index = index + size_of.reserved_1
+
+  index = index + size_of.stream_id
+
+  index = index + size_of.no_of_legs
+
+  index = index + size_of.reserved_2
 
   -- Calculate field size from count
   local leg_definition_count = buffer(offset + index - 4, 2):le_uint()
@@ -873,6 +933,33 @@ dissect.symbol_seq_num = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Refresh Complex Trade Message
+size_of.refresh_complex_trade_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_time_ns
+
+  index = index + size_of.complex_index
+
+  index = index + size_of.symbol_seq_num
+
+  index = index + size_of.trade_id
+
+  index = index + size_of.price
+
+  index = index + size_of.volume_4
+
+  index = index + size_of.trade_cond_1
+
+  index = index + size_of.trade_cond_2
+
+  index = index + size_of.reserved_2
+
+  return index
+end
+
 -- Display: Refresh Complex Trade Message
 display.refresh_complex_trade_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -919,7 +1006,8 @@ end
 dissect.refresh_complex_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.refresh_complex_trade_message then
-    local range = buffer(offset, 32)
+    local length = size_of.refresh_complex_trade_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.refresh_complex_trade_message(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.refresh_complex_trade_message, range, display)
   end
@@ -1083,6 +1171,39 @@ dissect.ask_price = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Refresh Complex Quote Message
+size_of.refresh_complex_quote_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_time_ns
+
+  index = index + size_of.complex_index
+
+  index = index + size_of.symbol_seq_num
+
+  index = index + size_of.ask_price
+
+  index = index + size_of.bid_price
+
+  index = index + size_of.ask_volume
+
+  index = index + size_of.bid_volume
+
+  index = index + size_of.ask_customer_volume
+
+  index = index + size_of.bid_customer_volume
+
+  index = index + size_of.quote_condition
+
+  index = index + size_of.reserved_1
+
+  index = index + size_of.reserved_2
+
+  return index
+end
+
 -- Display: Refresh Complex Quote Message
 display.refresh_complex_quote_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1138,7 +1259,8 @@ end
 dissect.refresh_complex_quote_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.refresh_complex_quote_message then
-    local range = buffer(offset, 36)
+    local length = size_of.refresh_complex_quote_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.refresh_complex_quote_message(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.refresh_complex_quote_message, range, display)
   end
@@ -1211,6 +1333,27 @@ dissect.security_status = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Complex Status Message
+size_of.complex_status_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_time_ns
+
+  index = index + size_of.complex_index
+
+  index = index + size_of.symbol_seq_num
+
+  index = index + size_of.security_status
+
+  index = index + size_of.halt_condition
+
+  index = index + size_of.reserved_2
+
+  return index
+end
+
 -- Display: Complex Status Message
 display.complex_status_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1248,7 +1391,8 @@ end
 dissect.complex_status_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.complex_status_message then
-    local range = buffer(offset, 20)
+    local length = size_of.complex_status_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.complex_status_message(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_status_message, range, display)
   end
@@ -1296,6 +1440,29 @@ dissect.source_ns = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Complex Cube Rfq Message
+size_of.complex_cube_rfq_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_ns
+
+  index = index + size_of.complex_index
+
+  index = index + size_of.symbol_seq_num
+
+  index = index + size_of.side
+
+  index = index + size_of.reserved_1
+
+  index = index + size_of.volume_2
+
+  index = index + size_of.price
+
+  return index
+end
+
 -- Display: Complex Cube Rfq Message
 display.complex_cube_rfq_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1336,12 +1503,36 @@ end
 dissect.complex_cube_rfq_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.complex_cube_rfq_message then
-    local range = buffer(offset, 24)
+    local length = size_of.complex_cube_rfq_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.complex_cube_rfq_message(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_cube_rfq_message, range, display)
   end
 
   return dissect.complex_cube_rfq_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Complex Crossing Rfq Message
+size_of.complex_crossing_rfq_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_ns
+
+  index = index + size_of.complex_index
+
+  index = index + size_of.symbol_seq_num
+
+  index = index + size_of.side
+
+  index = index + size_of.reserved_1
+
+  index = index + size_of.volume_2
+
+  index = index + size_of.price
+
+  return index
 end
 
 -- Display: Complex Crossing Rfq Message
@@ -1384,12 +1575,40 @@ end
 dissect.complex_crossing_rfq_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.complex_crossing_rfq_message then
-    local range = buffer(offset, 24)
+    local length = size_of.complex_crossing_rfq_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.complex_crossing_rfq_message(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_crossing_rfq_message, range, display)
   end
 
   return dissect.complex_crossing_rfq_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Complex Trade Message
+size_of.complex_trade_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_time_ns
+
+  index = index + size_of.complex_index
+
+  index = index + size_of.symbol_seq_num
+
+  index = index + size_of.trade_id
+
+  index = index + size_of.price
+
+  index = index + size_of.volume_4
+
+  index = index + size_of.trade_cond_1
+
+  index = index + size_of.trade_cond_2
+
+  index = index + size_of.reserved_2
+
+  return index
 end
 
 -- Display: Complex Trade Message
@@ -1438,12 +1657,46 @@ end
 dissect.complex_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.complex_trade_message then
-    local range = buffer(offset, 32)
+    local length = size_of.complex_trade_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.complex_trade_message(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_trade_message, range, display)
   end
 
   return dissect.complex_trade_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Complex Quote Message
+size_of.complex_quote_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.source_time
+
+  index = index + size_of.source_time_ns
+
+  index = index + size_of.complex_index
+
+  index = index + size_of.symbol_seq_num
+
+  index = index + size_of.ask_price
+
+  index = index + size_of.bid_price
+
+  index = index + size_of.ask_volume
+
+  index = index + size_of.bid_volume
+
+  index = index + size_of.ask_customer_volume
+
+  index = index + size_of.bid_customer_volume
+
+  index = index + size_of.quote_condition
+
+  index = index + size_of.reserved_1
+
+  index = index + size_of.reserved_2
+
+  return index
 end
 
 -- Display: Complex Quote Message
@@ -1501,7 +1754,8 @@ end
 dissect.complex_quote_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.complex_quote_message then
-    local range = buffer(offset, 36)
+    local length = size_of.complex_quote_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.complex_quote_message(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_quote_message, range, display)
   end
@@ -1513,31 +1767,31 @@ end
 size_of.payload = function(buffer, offset, message_type)
   -- Size of Complex Quote Message
   if message_type == 423 then
-    return 36
+    return size_of.complex_quote_message(buffer, offset)
   end
   -- Size of Complex Trade Message
   if message_type == 425 then
-    return 32
+    return size_of.complex_trade_message(buffer, offset)
   end
   -- Size of Complex Crossing Rfq Message
   if message_type == 429 then
-    return 24
+    return size_of.complex_crossing_rfq_message(buffer, offset)
   end
   -- Size of Complex Cube Rfq Message
   if message_type == 472 then
-    return 24
+    return size_of.complex_cube_rfq_message(buffer, offset)
   end
   -- Size of Complex Status Message
   if message_type == 433 then
-    return 20
+    return size_of.complex_status_message(buffer, offset)
   end
   -- Size of Refresh Complex Quote Message
   if message_type == 511 then
-    return 36
+    return size_of.refresh_complex_quote_message(buffer, offset)
   end
   -- Size of Refresh Complex Trade Message
   if message_type == 513 then
-    return 32
+    return size_of.refresh_complex_trade_message(buffer, offset)
   end
   -- Size of Complex Symbol Definition Message
   if message_type == 439 then
@@ -1545,11 +1799,11 @@ size_of.payload = function(buffer, offset, message_type)
   end
   -- Size of Stream Id Message
   if message_type == 455 then
-    return 4
+    return size_of.stream_id_message(buffer, offset)
   end
   -- Size of Sequence Number Reset Message
   if message_type == 1 then
-    return 10
+    return size_of.sequence_number_reset_message(buffer, offset)
   end
 
   return 0
@@ -1697,6 +1951,17 @@ dissect.message_size = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Message Header
+size_of.message_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.message_size
+
+  index = index + size_of.message_type
+
+  return index
+end
+
 -- Display: Message Header
 display.message_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -1719,7 +1984,8 @@ end
 dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local range = buffer(offset, 4)
+    local length = size_of.message_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.message_header, range, display)
   end
@@ -1727,11 +1993,11 @@ dissect.message_header = function(buffer, offset, packet, parent)
   return dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Message
+-- Calculate size of: Message
 size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + 4
+  index = index + size_of.message_header(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -1929,6 +2195,25 @@ dissect.packet_size = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Packet Header
+size_of.packet_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.packet_size
+
+  index = index + size_of.delivery_flag
+
+  index = index + size_of.message_count
+
+  index = index + size_of.sequence_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.nanoseconds
+
+  return index
+end
+
 -- Display: Packet Header
 display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -1963,7 +2248,8 @@ end
 dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local range = buffer(offset, 16)
+    local length = size_of.packet_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.packet_header(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.packet_header, range, display)
   end

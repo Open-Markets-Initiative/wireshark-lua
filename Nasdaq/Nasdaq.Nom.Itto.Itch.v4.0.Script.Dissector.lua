@@ -546,6 +546,35 @@ dissect.tracking_number = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Noii Message
+size_of.noii_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.auction_id
+
+  index = index + size_of.auction_type
+
+  index = index + size_of.paired_contracts
+
+  index = index + size_of.imbalance_direction
+
+  index = index + size_of.option_id
+
+  index = index + size_of.imbalance_price
+
+  index = index + size_of.imbalance_volume
+
+  index = index + size_of.customer_firm_indicator
+
+  index = index + size_of.reserved
+
+  return index
+end
+
 -- Display: Noii Message
 display.noii_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -595,7 +624,8 @@ end
 dissect.noii_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.noii_message then
-    local range = buffer(offset, 34)
+    local length = size_of.noii_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.noii_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.noii_message, range, display)
   end
@@ -643,6 +673,21 @@ dissect.cross_number = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Broken Trade Order Executed Message
+size_of.broken_trade_order_executed_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.cross_number
+
+  index = index + size_of.match_number
+
+  return index
+end
+
 -- Display: Broken Trade Order Executed Message
 display.broken_trade_order_executed_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -671,7 +716,8 @@ end
 dissect.broken_trade_order_executed_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.broken_trade_order_executed_message then
-    local range = buffer(offset, 16)
+    local length = size_of.broken_trade_order_executed_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.broken_trade_order_executed_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.broken_trade_order_executed_message, range, display)
   end
@@ -746,6 +792,29 @@ dissect.cross_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Options Cross Trade Message
+size_of.options_cross_trade_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.option_id
+
+  index = index + size_of.cross_number
+
+  index = index + size_of.match_number
+
+  index = index + size_of.cross_type
+
+  index = index + size_of.price
+
+  index = index + size_of.volume
+
+  return index
+end
+
 -- Display: Options Cross Trade Message
 display.options_cross_trade_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -786,7 +855,8 @@ end
 dissect.options_cross_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.options_cross_trade_message then
-    local range = buffer(offset, 25)
+    local length = size_of.options_cross_trade_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.options_cross_trade_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.options_cross_trade_message, range, display)
   end
@@ -819,6 +889,29 @@ dissect.buy_sell_indicator = function(buffer, offset, packet, parent)
   parent:add(nasdaq_nom_itto_itch_v4_0.fields.buy_sell_indicator, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Options Trade Messages Non Auction
+size_of.options_trade_messages_non_auction = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.buy_sell_indicator
+
+  index = index + size_of.option_id
+
+  index = index + size_of.cross_number
+
+  index = index + size_of.match_number
+
+  index = index + size_of.price
+
+  index = index + size_of.volume
+
+  return index
 end
 
 -- Display: Options Trade Messages Non Auction
@@ -861,7 +954,8 @@ end
 dissect.options_trade_messages_non_auction = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.options_trade_messages_non_auction then
-    local range = buffer(offset, 25)
+    local length = size_of.options_trade_messages_non_auction(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.options_trade_messages_non_auction(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.options_trade_messages_non_auction, range, display)
   end
@@ -909,6 +1003,21 @@ dissect.bid_reference_number = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Quote Delete Message
+size_of.quote_delete_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.bid_reference_number
+
+  index = index + size_of.ask_reference_number
+
+  return index
+end
+
 -- Display: Quote Delete Message
 display.quote_delete_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -937,7 +1046,8 @@ end
 dissect.quote_delete_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.quote_delete_message then
-    local range = buffer(offset, 24)
+    local length = size_of.quote_delete_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.quote_delete_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.quote_delete_message, range, display)
   end
@@ -1065,6 +1175,33 @@ dissect.original_bid_reference_number = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Quote Replace Message Long Form
+size_of.quote_replace_message_long_form = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.original_bid_reference_number
+
+  index = index + size_of.bid_reference_number
+
+  index = index + size_of.original_ask_reference_number
+
+  index = index + size_of.ask_reference_number
+
+  index = index + size_of.bid_price
+
+  index = index + size_of.bid_size
+
+  index = index + size_of.ask_price
+
+  index = index + size_of.ask_size
+
+  return index
+end
+
 -- Display: Quote Replace Message Long Form
 display.quote_replace_message_long_form = function(buffer, offset, size, packet, parent)
   return ""
@@ -1111,12 +1248,40 @@ end
 dissect.quote_replace_message_long_form = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.quote_replace_message_long_form then
-    local range = buffer(offset, 48)
+    local length = size_of.quote_replace_message_long_form(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.quote_replace_message_long_form(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.quote_replace_message_long_form, range, display)
   end
 
   return dissect.quote_replace_message_long_form_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Quote Replace Message Short Form
+size_of.quote_replace_message_short_form = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.original_bid_reference_number
+
+  index = index + size_of.bid_reference_number
+
+  index = index + size_of.original_ask_reference_number
+
+  index = index + size_of.ask_reference_number
+
+  index = index + size_of.bid_price
+
+  index = index + size_of.bid_size
+
+  index = index + size_of.ask_price
+
+  index = index + size_of.ask_size
+
+  return index
 end
 
 -- Display: Quote Replace Message Short Form
@@ -1165,7 +1330,8 @@ end
 dissect.quote_replace_message_short_form = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.quote_replace_message_short_form then
-    local range = buffer(offset, 48)
+    local length = size_of.quote_replace_message_short_form(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.quote_replace_message_short_form(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.quote_replace_message_short_form, range, display)
   end
@@ -1223,6 +1389,25 @@ dissect.reference_number = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Single Side Change Message
+size_of.single_side_change_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.reference_number
+
+  index = index + size_of.change_reason
+
+  index = index + size_of.price
+
+  index = index + size_of.volume
+
+  return index
+end
+
 -- Display: Single Side Change Message
 display.single_side_change_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1257,12 +1442,26 @@ end
 dissect.single_side_change_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.single_side_change_message then
-    local range = buffer(offset, 21)
+    local length = size_of.single_side_change_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.single_side_change_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.single_side_change_message, range, display)
   end
 
   return dissect.single_side_change_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Single Side Delete Message
+size_of.single_side_delete_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.reference_number
+
+  return index
 end
 
 -- Display: Single Side Delete Message
@@ -1290,7 +1489,8 @@ end
 dissect.single_side_delete_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.single_side_delete_message then
-    local range = buffer(offset, 16)
+    local length = size_of.single_side_delete_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.single_side_delete_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.single_side_delete_message, range, display)
   end
@@ -1338,6 +1538,25 @@ dissect.original_reference_number = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Single Side Replace Message Long Form
+size_of.single_side_replace_message_long_form = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.original_reference_number
+
+  index = index + size_of.new_reference_number
+
+  index = index + size_of.price
+
+  index = index + size_of.volume
+
+  return index
+end
+
 -- Display: Single Side Replace Message Long Form
 display.single_side_replace_message_long_form = function(buffer, offset, size, packet, parent)
   return ""
@@ -1372,12 +1591,32 @@ end
 dissect.single_side_replace_message_long_form = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.single_side_replace_message_long_form then
-    local range = buffer(offset, 28)
+    local length = size_of.single_side_replace_message_long_form(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.single_side_replace_message_long_form(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.single_side_replace_message_long_form, range, display)
   end
 
   return dissect.single_side_replace_message_long_form_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Single Side Replace Message Short Form
+size_of.single_side_replace_message_short_form = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.original_reference_number
+
+  index = index + size_of.new_reference_number
+
+  index = index + size_of.price
+
+  index = index + size_of.volume
+
+  return index
 end
 
 -- Display: Single Side Replace Message Short Form
@@ -1414,7 +1653,8 @@ end
 dissect.single_side_replace_message_short_form = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.single_side_replace_message_short_form then
-    local range = buffer(offset, 28)
+    local length = size_of.single_side_replace_message_short_form(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.single_side_replace_message_short_form(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.single_side_replace_message_short_form, range, display)
   end
@@ -1462,6 +1702,21 @@ dissect.order_reference_number = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Order Cancel Message
+size_of.order_cancel_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.order_reference_number
+
+  index = index + size_of.cancelled_contracts
+
+  return index
+end
+
 -- Display: Order Cancel Message
 display.order_cancel_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1490,7 +1745,8 @@ end
 dissect.order_cancel_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_cancel_message then
-    local range = buffer(offset, 20)
+    local length = size_of.order_cancel_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.order_cancel_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.order_cancel_message, range, display)
   end
@@ -1523,6 +1779,29 @@ dissect.printable = function(buffer, offset, packet, parent)
   parent:add(nasdaq_nom_itto_itch_v4_0.fields.printable, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Single Side Executed With Price Message
+size_of.single_side_executed_with_price_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.reference_number
+
+  index = index + size_of.cross_number
+
+  index = index + size_of.match_number
+
+  index = index + size_of.printable
+
+  index = index + size_of.price
+
+  index = index + size_of.volume
+
+  return index
 end
 
 -- Display: Single Side Executed With Price Message
@@ -1565,7 +1844,8 @@ end
 dissect.single_side_executed_with_price_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.single_side_executed_with_price_message then
-    local range = buffer(offset, 29)
+    local length = size_of.single_side_executed_with_price_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.single_side_executed_with_price_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.single_side_executed_with_price_message, range, display)
   end
@@ -1591,6 +1871,25 @@ dissect.executed_contracts = function(buffer, offset, packet, parent)
   parent:add(nasdaq_nom_itto_itch_v4_0.fields.executed_contracts, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Single Side Executed Message
+size_of.single_side_executed_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.reference_number
+
+  index = index + size_of.executed_contracts
+
+  index = index + size_of.cross_number
+
+  index = index + size_of.match_number
+
+  return index
 end
 
 -- Display: Single Side Executed Message
@@ -1627,7 +1926,8 @@ end
 dissect.single_side_executed_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.single_side_executed_message then
-    local range = buffer(offset, 28)
+    local length = size_of.single_side_executed_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.single_side_executed_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.single_side_executed_message, range, display)
   end
@@ -1675,6 +1975,31 @@ dissect.bid = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Add Quote Message Long Form Message
+size_of.add_quote_message_long_form_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.bid_reference_number
+
+  index = index + size_of.ask_reference_number
+
+  index = index + size_of.option_id
+
+  index = index + size_of.bid
+
+  index = index + size_of.bid_size
+
+  index = index + size_of.ask
+
+  index = index + size_of.ask_size
+
+  return index
+end
+
 -- Display: Add Quote Message Long Form Message
 display.add_quote_message_long_form_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1718,12 +2043,38 @@ end
 dissect.add_quote_message_long_form_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.add_quote_message_long_form_message then
-    local range = buffer(offset, 40)
+    local length = size_of.add_quote_message_long_form_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.add_quote_message_long_form_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.add_quote_message_long_form_message, range, display)
   end
 
   return dissect.add_quote_message_long_form_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Add Quote Message Short Form Message
+size_of.add_quote_message_short_form_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.bid_reference_number
+
+  index = index + size_of.ask_reference_number
+
+  index = index + size_of.option_id
+
+  index = index + size_of.bid_price
+
+  index = index + size_of.bid_size
+
+  index = index + size_of.ask_price
+
+  index = index + size_of.ask_size
+
+  return index
 end
 
 -- Display: Add Quote Message Short Form Message
@@ -1769,7 +2120,8 @@ end
 dissect.add_quote_message_short_form_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.add_quote_message_short_form_message then
-    local range = buffer(offset, 36)
+    local length = size_of.add_quote_message_short_form_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.add_quote_message_short_form_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.add_quote_message_short_form_message, range, display)
   end
@@ -1802,6 +2154,27 @@ dissect.market_side = function(buffer, offset, packet, parent)
   parent:add(nasdaq_nom_itto_itch_v4_0.fields.market_side, range, value, display)
 
   return offset + length, value
+end
+
+-- Calculate size of: Add Order Message Long Form Message
+size_of.add_order_message_long_form_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.order_reference_number
+
+  index = index + size_of.market_side
+
+  index = index + size_of.option_id
+
+  index = index + size_of.price
+
+  index = index + size_of.volume
+
+  return index
 end
 
 -- Display: Add Order Message Long Form Message
@@ -1841,12 +2214,34 @@ end
 dissect.add_order_message_long_form_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.add_order_message_long_form_message then
-    local range = buffer(offset, 25)
+    local length = size_of.add_order_message_long_form_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.add_order_message_long_form_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.add_order_message_long_form_message, range, display)
   end
 
   return dissect.add_order_message_long_form_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Add Order Message Short Message Form
+size_of.add_order_message_short_message_form = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.order_reference_number
+
+  index = index + size_of.market_side
+
+  index = index + size_of.option_id
+
+  index = index + size_of.price
+
+  index = index + size_of.volume
+
+  return index
 end
 
 -- Display: Add Order Message Short Message Form
@@ -1886,7 +2281,8 @@ end
 dissect.add_order_message_short_message_form = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.add_order_message_short_message_form then
-    local range = buffer(offset, 25)
+    local length = size_of.add_order_message_short_message_form(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.add_order_message_short_message_form(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.add_order_message_short_message_form, range, display)
   end
@@ -1921,6 +2317,21 @@ dissect.open_state = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Security Open Message
+size_of.security_open_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.option_id
+
+  index = index + size_of.open_state
+
+  return index
+end
+
 -- Display: Security Open Message
 display.security_open_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1949,7 +2360,8 @@ end
 dissect.security_open_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.security_open_message then
-    local range = buffer(offset, 13)
+    local length = size_of.security_open_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.security_open_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.security_open_message, range, display)
   end
@@ -1990,6 +2402,21 @@ dissect.current_trading_state = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Trading Action Message
+size_of.trading_action_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.option_id
+
+  index = index + size_of.current_trading_state
+
+  return index
+end
+
 -- Display: Trading Action Message
 display.trading_action_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -2018,7 +2445,8 @@ end
 dissect.trading_action_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trading_action_message then
-    local range = buffer(offset, 13)
+    local length = size_of.trading_action_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.trading_action_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.trading_action_message, range, display)
   end
@@ -2277,6 +2705,41 @@ dissect.security_symbol = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Options Directory Message
+size_of.options_directory_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.option_id
+
+  index = index + size_of.security_symbol
+
+  index = index + size_of.expiration_year
+
+  index = index + size_of.expiration_month
+
+  index = index + size_of.expiration_date
+
+  index = index + size_of.explicit_strike_price
+
+  index = index + size_of.option_type
+
+  index = index + size_of.source
+
+  index = index + size_of.underlying_symbol
+
+  index = index + size_of.options_closing_type
+
+  index = index + size_of.tradable
+
+  index = index + size_of.mpv
+
+  return index
+end
+
 -- Display: Options Directory Message
 display.options_directory_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -2335,7 +2798,8 @@ end
 dissect.options_directory_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.options_directory_message then
-    local range = buffer(offset, 43)
+    local length = size_of.options_directory_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.options_directory_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.options_directory_message, range, display)
   end
@@ -2385,6 +2849,19 @@ dissect.event_code = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: System Event Message
+size_of.system_event_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.event_code
+
+  return index
+end
+
 -- Display: System Event Message
 display.system_event_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -2410,7 +2887,8 @@ end
 dissect.system_event_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.system_event_message then
-    local range = buffer(offset, 9)
+    local length = size_of.system_event_message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.system_event_message(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.system_event_message, range, display)
   end
@@ -2422,91 +2900,91 @@ end
 size_of.payload = function(buffer, offset, message_type)
   -- Size of System Event Message
   if message_type == "S" then
-    return 9
+    return size_of.system_event_message(buffer, offset)
   end
   -- Size of Options Directory Message
   if message_type == "R" then
-    return 43
+    return size_of.options_directory_message(buffer, offset)
   end
   -- Size of Trading Action Message
   if message_type == "H" then
-    return 13
+    return size_of.trading_action_message(buffer, offset)
   end
   -- Size of Security Open Message
   if message_type == "O" then
-    return 13
+    return size_of.security_open_message(buffer, offset)
   end
   -- Size of Add Order Message Short Message Form
   if message_type == "a" then
-    return 25
+    return size_of.add_order_message_short_message_form(buffer, offset)
   end
   -- Size of Add Order Message Long Form Message
   if message_type == "A" then
-    return 25
+    return size_of.add_order_message_long_form_message(buffer, offset)
   end
   -- Size of Add Quote Message Short Form Message
   if message_type == "j" then
-    return 36
+    return size_of.add_quote_message_short_form_message(buffer, offset)
   end
   -- Size of Add Quote Message Long Form Message
   if message_type == "J" then
-    return 40
+    return size_of.add_quote_message_long_form_message(buffer, offset)
   end
   -- Size of Single Side Executed Message
   if message_type == "E" then
-    return 28
+    return size_of.single_side_executed_message(buffer, offset)
   end
   -- Size of Single Side Executed With Price Message
   if message_type == "C" then
-    return 29
+    return size_of.single_side_executed_with_price_message(buffer, offset)
   end
   -- Size of Order Cancel Message
   if message_type == "X" then
-    return 20
+    return size_of.order_cancel_message(buffer, offset)
   end
   -- Size of Single Side Replace Message Short Form
   if message_type == "u" then
-    return 28
+    return size_of.single_side_replace_message_short_form(buffer, offset)
   end
   -- Size of Single Side Replace Message Long Form
   if message_type == "U" then
-    return 28
+    return size_of.single_side_replace_message_long_form(buffer, offset)
   end
   -- Size of Single Side Delete Message
   if message_type == "D" then
-    return 16
+    return size_of.single_side_delete_message(buffer, offset)
   end
   -- Size of Single Side Change Message
   if message_type == "G" then
-    return 21
+    return size_of.single_side_change_message(buffer, offset)
   end
   -- Size of Quote Replace Message Short Form
   if message_type == "k" then
-    return 48
+    return size_of.quote_replace_message_short_form(buffer, offset)
   end
   -- Size of Quote Replace Message Long Form
   if message_type == "K" then
-    return 48
+    return size_of.quote_replace_message_long_form(buffer, offset)
   end
   -- Size of Quote Delete Message
   if message_type == "Y" then
-    return 24
+    return size_of.quote_delete_message(buffer, offset)
   end
   -- Size of Options Trade Messages Non Auction
   if message_type == "P" then
-    return 25
+    return size_of.options_trade_messages_non_auction(buffer, offset)
   end
   -- Size of Options Cross Trade Message
   if message_type == "Q" then
-    return 25
+    return size_of.options_cross_trade_message(buffer, offset)
   end
   -- Size of Broken Trade Order Executed Message
   if message_type == "B" then
-    return 16
+    return size_of.broken_trade_order_executed_message(buffer, offset)
   end
   -- Size of Noii Message
   if message_type == "I" then
-    return 34
+    return size_of.noii_message(buffer, offset)
   end
 
   return 0
@@ -2738,6 +3216,17 @@ dissect.length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Message Header
+size_of.message_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.length
+
+  index = index + size_of.message_type
+
+  return index
+end
+
 -- Display: Message Header
 display.message_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -2760,7 +3249,8 @@ end
 dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local range = buffer(offset, 3)
+    local length = size_of.message_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.message_header, range, display)
   end
@@ -2768,11 +3258,11 @@ dissect.message_header = function(buffer, offset, packet, parent)
   return dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
--- Calculate runtime size: Message
+-- Calculate size of: Message
 size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + 3
+  index = index + size_of.message_header(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
@@ -2876,6 +3366,19 @@ dissect.session = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Calculate size of: Packet Header
+size_of.packet_header = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.session
+
+  index = index + size_of.sequence
+
+  index = index + size_of.count
+
+  return index
+end
+
 -- Display: Packet Header
 display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
@@ -2901,7 +3404,8 @@ end
 dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local range = buffer(offset, 20)
+    local length = size_of.packet_header(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.packet_header(buffer, packet, parent)
     parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.packet_header, range, display)
   end
