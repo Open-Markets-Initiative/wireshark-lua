@@ -13,6 +13,6 @@ install:
 
 before_script:
   - export PATH=/usr/local/bin:$PATH
-  - git clone --depth=1 https://github.com/Open-Markets-Initiative/Directory.git
+  - git clone --depth=1 https://github.com/Open-Markets-Initiative/Data.git
 
 script: bash -x Test.sh
