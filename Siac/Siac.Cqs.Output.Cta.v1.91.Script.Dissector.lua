@@ -45,6 +45,7 @@ siac_cqs_output_cta_v1_91.fields.bid_size_long = ProtoField.new("Bid Size Long",
 siac_cqs_output_cta_v1_91.fields.bid_size_short = ProtoField.new("Bid Size Short", "siac.cqs.output.cta.v1.91.bidsizeshort", ftypes.UINT16)
 siac_cqs_output_cta_v1_91.fields.block_checksum = ProtoField.new("Block Checksum", "siac.cqs.output.cta.v1.91.blockchecksum", ftypes.UINT16)
 siac_cqs_output_cta_v1_91.fields.block_header = ProtoField.new("Block Header", "siac.cqs.output.cta.v1.91.blockheader", ftypes.STRING)
+siac_cqs_output_cta_v1_91.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.cqs.output.cta.v1.91.blockpadbyte", ftypes.UINT8)
 siac_cqs_output_cta_v1_91.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.cqs.output.cta.v1.91.blocksequencenumber", ftypes.UINT32)
 siac_cqs_output_cta_v1_91.fields.block_size = ProtoField.new("Block Size", "siac.cqs.output.cta.v1.91.blocksize", ftypes.UINT16)
 siac_cqs_output_cta_v1_91.fields.control = ProtoField.new("Control", "siac.cqs.output.cta.v1.91.control", ftypes.STRING)
@@ -366,8 +367,38 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- Is value not even?
+uneven = function(value)
+  return (value % 2 == 1)
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Siac Cqs Output Cta 1.91
 -----------------------------------------------------------------------
+
+-- Size: Block Pad Byte
+size_of.block_pad_byte = 1
+
+-- Display: Block Pad Byte
+display.block_pad_byte = function(value)
+  return "Block Pad Byte: "..value
+end
+
+-- Dissect: Block Pad Byte
+dissect.block_pad_byte = function(buffer, offset, packet, parent)
+  local length = size_of.block_pad_byte
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = display.block_pad_byte(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cqs_output_cta_v1_91.fields.block_pad_byte, range, value, display)
+
+  return offset + length, value
+end
 
 -- Size: Best Offer Size Short
 size_of.best_offer_size_short = 2
@@ -4485,6 +4516,14 @@ dissect.packet = function(buffer, packet, parent)
 
     -- Message: Struct of 2 fields
     index = dissect.message(buffer, index, packet, parent, message_length)
+  end
+
+  -- Runtime optional field exists: Block Pad Byte
+  local block_pad_byte_exists = uneven( index )
+
+  -- Runtime optional field: Block Pad Byte
+  if block_pad_byte_exists then
+    index = dissect.block_pad_byte(buffer, index, packet, parent)
   end
 
   return index

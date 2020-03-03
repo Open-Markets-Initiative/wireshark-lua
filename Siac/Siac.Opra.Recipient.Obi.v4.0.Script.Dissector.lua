@@ -31,6 +31,7 @@ siac_opra_recipient_obi_v4_0.fields.bid_size = ProtoField.new("Bid Size", "siac.
 siac_opra_recipient_obi_v4_0.fields.bid_size_short = ProtoField.new("Bid Size Short", "siac.opra.recipient.obi.v4.0.bidsizeshort", ftypes.UINT16)
 siac_opra_recipient_obi_v4_0.fields.block_checksum = ProtoField.new("Block Checksum", "siac.opra.recipient.obi.v4.0.blockchecksum", ftypes.UINT16)
 siac_opra_recipient_obi_v4_0.fields.block_header = ProtoField.new("Block Header", "siac.opra.recipient.obi.v4.0.blockheader", ftypes.STRING)
+siac_opra_recipient_obi_v4_0.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.opra.recipient.obi.v4.0.blockpadbyte", ftypes.UINT8)
 siac_opra_recipient_obi_v4_0.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.opra.recipient.obi.v4.0.blocksequencenumber", ftypes.UINT32)
 siac_opra_recipient_obi_v4_0.fields.block_size = ProtoField.new("Block Size", "siac.opra.recipient.obi.v4.0.blocksize", ftypes.UINT16)
 siac_opra_recipient_obi_v4_0.fields.block_timestamp = ProtoField.new("Block Timestamp", "siac.opra.recipient.obi.v4.0.blocktimestamp", ftypes.STRING)
@@ -221,8 +222,38 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- Is value not even?
+uneven = function(value)
+  return (value % 2 == 1)
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Siac Opra Recipient Obi 4.0
 -----------------------------------------------------------------------
+
+-- Size: Block Pad Byte
+size_of.block_pad_byte = 1
+
+-- Display: Block Pad Byte
+display.block_pad_byte = function(value)
+  return "Block Pad Byte: "..value
+end
+
+-- Dissect: Block Pad Byte
+dissect.block_pad_byte = function(buffer, offset, packet, parent)
+  local length = size_of.block_pad_byte
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.block_pad_byte(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v4_0.fields.block_pad_byte, range, value, display)
+
+  return offset + length, value
+end
 
 -- Size: Offer Index Value
 size_of.offer_index_value = 8
@@ -2785,6 +2816,14 @@ dissect.packet = function(buffer, packet, parent)
   -- Message: Struct of 3 fields
   for i = 1, messages_in_block do
     index = dissect.message(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field exists: Block Pad Byte
+  local block_pad_byte_exists = uneven( index )
+
+  -- Runtime optional field: Block Pad Byte
+  if block_pad_byte_exists then
+    index = dissect.block_pad_byte(buffer, index, packet, parent)
   end
 
   return index
