@@ -7,6 +7,7 @@
 |--- | --- | --- | --- | --- | --- | --- | ---|
 | Equities | Orders | Ouch | [4.2][Nasdaq.Equities.Orders.Ouch.v4.2.Dissector] | 7/8/2019 | 3215 | Untested | [url][Nasdaq.Equities.Orders.Ouch.v4.2.Url] - [pdf][Nasdaq.Equities.Orders.Ouch.v4.2.Pdf]|
 |Bx Equities | TotalView | Itch | [5.0][Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Dissector] | 5/23/2018 | 3739 | Untested | [url][Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Url] - [pdf][Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Pdf]|
+|Bx Equities | Orders | Ouch | [4.2][Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Dissector] | 7/8/2019 | 3170 | Untested | [url][Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Url] - [pdf][Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Pdf]|
 |Bx Options | DepthOfMarket | Itch | [1.3][Nasdaq.Bx.Options.DepthOfMarket.Itch.v1.3.Dissector] | 11/2/2017 | 3655 | Untested | [url][Nasdaq.Bx.Options.DepthOfMarket.Itch.v1.3.Url] - [pdf][Nasdaq.Bx.Options.DepthOfMarket.Itch.v1.3.Pdf]|
 |Bx Options | TopOfMarket | Itch | [1.2][Nasdaq.Bx.Options.TopOfMarket.Itch.v1.2.Dissector] | 11/2/2017 | 2319 | Untested | [url][Nasdaq.Bx.Options.TopOfMarket.Itch.v1.2.Url] - [pdf][Nasdaq.Bx.Options.TopOfMarket.Itch.v1.2.Pdf]|
 |Equities | Aggregated | Itch | [2.0][Nasdaq.Equities.Aggregated.Itch.v2.0.Dissector] | 9/12/2017 | 3096 | Untested | [url][Nasdaq.Equities.Aggregated.Itch.v2.0.Url] - [pdf][Nasdaq.Equities.Aggregated.Itch.v2.0.Pdf]|
@@ -26,6 +27,7 @@
 |Psx | Bbo | Itch | [2.1][Nasdaq.Psx.Bbo.Itch.v2.1.Dissector] | 5/3/2018 | 2085 | Untested | [url][Nasdaq.Psx.Bbo.Itch.v2.1.Url] - [pdf][Nasdaq.Psx.Bbo.Itch.v2.1.Pdf]|
 |Psx | LastSale | Itch | [2.1][Nasdaq.Psx.LastSale.Itch.v2.1.Dissector] | 5/3/2018 | 3215 | Untested | [url][Nasdaq.Psx.LastSale.Itch.v2.1.Url] - [pdf][Nasdaq.Psx.LastSale.Itch.v2.1.Pdf]|
 |Psx | TotalView | Itch | [5.0][Nasdaq.Psx.TotalView.Itch.v5.0.Dissector] | 5/3/2018 | 3731 | Untested | [url][Nasdaq.Psx.TotalView.Itch.v5.0.Url] - [pdf][Nasdaq.Psx.TotalView.Itch.v5.0.Pdf]|
+|Psx | Orders | Ouch | [4.2][Nasdaq.Psx.Orders.Ouch.v4.2.Dissector] | 7/8/2019 | 3100 | Untested | [url][Nasdaq.Psx.Orders.Ouch.v4.2.Url] - [pdf][Nasdaq.Psx.Orders.Ouch.v4.2.Pdf]|
 
 
 Nasdaq: [website](https://www.nasdaq.com "Go to National Association of Securities Dealers Automated Quotations")
@@ -34,6 +36,9 @@ Nasdaq: [website](https://www.nasdaq.com "Go to National Association of Securiti
 [Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nasdaq/Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Script.Dissector.lua "National Association of Securities Dealers Automated Quotations 5.0 Wireshark Dissector"
 [Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Url]: http://www.nasdaqtrader.com/Trader.aspx?id=dpspecs "Specification url"
 [Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nasdaq/Nasdaq.Bx.Equities.TotalView.Itch.v5.0.pdf "National Association of Securities Dealers Automated Quotations 5.0 Pdf"
+[Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nasdaq/Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Script.Dissector.lua "National Association of Securities Dealers Automated Quotations 4.2 Wireshark Dissector"
+[Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Url]: https://nasdaqtrader.com/Trader.aspx?id=TradingSpecs "Specification url"
+[Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nasdaq/Nasdaq.Bx.Equities.Orders.Ouch.v4.2.pdf "National Association of Securities Dealers Automated Quotations 4.2 Pdf"
 [Nasdaq.Bx.Options.TopOfMarket.Itch.v1.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nasdaq/Nasdaq.Bx.Options.TopOfMarket.Itch.v1.2.Script.Dissector.lua "National Association of Securities Dealers Automated Quotations 1.2 Wireshark Dissector"
 [Nasdaq.Bx.Options.TopOfMarket.Itch.v1.2.Url]: http://www.nasdaqtrader.com/Trader.aspx?id=dpspecs "Specification url"
 [Nasdaq.Bx.Options.TopOfMarket.Itch.v1.2.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nasdaq/Nasdaq.Bx.Options.TopOfMarket.Itch.v1.2.pdf "National Association of Securities Dealers Automated Quotations 1.2 Pdf"
@@ -76,6 +81,9 @@ Nasdaq: [website](https://www.nasdaq.com "Go to National Association of Securiti
 [Nasdaq.Psx.Bbo.Itch.v2.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nasdaq/Nasdaq.Psx.Bbo.Itch.v2.1.Script.Dissector.lua "National Association of Securities Dealers Automated Quotations 2.1 Wireshark Dissector"
 [Nasdaq.Psx.Bbo.Itch.v2.1.Url]: http://nasdaqtrader.com/content/technicalsupport/specifications/dataproducts/PSXbboSpecification2.1.pdf "Specification url"
 [Nasdaq.Psx.Bbo.Itch.v2.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nasdaq/Nasdaq.Psx.Bbo.Itch.v2.1.pdf "National Association of Securities Dealers Automated Quotations 2.1 Pdf"
+[Nasdaq.Psx.Orders.Ouch.v4.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nasdaq/Nasdaq.Psx.Orders.Ouch.v4.2.Script.Dissector.lua "National Association of Securities Dealers Automated Quotations 4.2 Wireshark Dissector"
+[Nasdaq.Psx.Orders.Ouch.v4.2.Url]: https://nasdaqtrader.com/Trader.aspx?id=TradingSpecs "Specification url"
+[Nasdaq.Psx.Orders.Ouch.v4.2.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nasdaq/Nasdaq.Psx.Orders.Ouch.v4.2.pdf "National Association of Securities Dealers Automated Quotations 4.2 Pdf"
 [Nasdaq.Equities.Aggregated.Itch.v2.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nasdaq/Nasdaq.Equities.Aggregated.Itch.v2.0.Script.Dissector.lua "National Association of Securities Dealers Automated Quotations 2.0 Wireshark Dissector"
 [Nasdaq.Equities.Aggregated.Itch.v2.0.Url]: http://www.nasdaqtrader.com/Trader.aspx?id=dpspecs "Specification url"
 [Nasdaq.Equities.Aggregated.Itch.v2.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nasdaq/Nasdaq.Equities.Aggregated.Itch.v2.0.pdf "National Association of Securities Dealers Automated Quotations 2.0 Pdf"

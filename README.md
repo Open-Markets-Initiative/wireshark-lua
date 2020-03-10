@@ -73,6 +73,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 |[Miax][Miax.Pearl.Tom.Mach.v1.0.Organization] | Pearl | Tom | Mach | [1.0][Miax.Pearl.Tom.Mach.v1.0.Dissector] | 2/27/2017 | 2876 | Untested|
 |[Nasdaq][Nasdaq.Equities.Orders.Ouch.v4.2.Organization] |  Equities | Orders | Ouch | [4.2][Nasdaq.Equities.Orders.Ouch.v4.2.Dissector] | 7/8/2019 | 3215 | Untested|
 |[Nasdaq][Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Organization] | Bx Equities | TotalView | Itch | [5.0][Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Dissector] | 5/23/2018 | 3739 | Untested|
+|[Nasdaq][Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Organization] | Bx Equities | Orders | Ouch | [4.2][Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Dissector] | 7/8/2019 | 3170 | Untested|
 |[Nasdaq][Nasdaq.Bx.Options.DepthOfMarket.Itch.v1.3.Organization] | Bx Options | DepthOfMarket | Itch | [1.3][Nasdaq.Bx.Options.DepthOfMarket.Itch.v1.3.Dissector] | 11/2/2017 | 3655 | Untested|
 |[Nasdaq][Nasdaq.Bx.Options.TopOfMarket.Itch.v1.2.Organization] | Bx Options | TopOfMarket | Itch | [1.2][Nasdaq.Bx.Options.TopOfMarket.Itch.v1.2.Dissector] | 11/2/2017 | 2319 | Untested|
 |[Nasdaq][Nasdaq.Equities.Aggregated.Itch.v2.0.Organization] | Equities | Aggregated | Itch | [2.0][Nasdaq.Equities.Aggregated.Itch.v2.0.Dissector] | 9/12/2017 | 3096 | Untested|
@@ -92,6 +93,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 |[Nasdaq][Nasdaq.Psx.Bbo.Itch.v2.1.Organization] | Psx | Bbo | Itch | [2.1][Nasdaq.Psx.Bbo.Itch.v2.1.Dissector] | 5/3/2018 | 2085 | Untested|
 |[Nasdaq][Nasdaq.Psx.LastSale.Itch.v2.1.Organization] | Psx | LastSale | Itch | [2.1][Nasdaq.Psx.LastSale.Itch.v2.1.Dissector] | 5/3/2018 | 3215 | Untested|
 |[Nasdaq][Nasdaq.Psx.TotalView.Itch.v5.0.Organization] | Psx | TotalView | Itch | [5.0][Nasdaq.Psx.TotalView.Itch.v5.0.Dissector] | 5/3/2018 | 3731 | Untested|
+|[Nasdaq][Nasdaq.Psx.Orders.Ouch.v4.2.Organization] | Psx | Orders | Ouch | [4.2][Nasdaq.Psx.Orders.Ouch.v4.2.Dissector] | 7/8/2019 | 3100 | Untested|
 |[Nyse][Nyse.Equities.OpenBook.Ultra.v2.1.b.Organization] |  Equities | OpenBook | Ultra | [2.1.b][Nyse.Equities.OpenBook.Ultra.v2.1.b.Dissector] | 3/9/2018 | 1471 | Verified|
 |[Nyse][Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.Organization] | Amex Equities | OpenBook | Ultra | [2.1.b][Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.Dissector] | 3/9/2018 | 1477 | Verified|
 |[Nyse][Nyse.Equities.Bbo.Xdp.v2.4.g.Organization] | Equities | Bbo | Xdp | [2.4.g][Nyse.Equities.Bbo.Xdp.v2.4.g.Dissector] | 1/29/2018 | 3042 | Verified|
@@ -114,7 +116,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 |Protocol Count | Generated Lines|
 |--- | ---|
-|76 | 453,896|
+|78 | 460,166|
 
 Note: Our dissector model is still under rapid development.
 
@@ -218,6 +220,8 @@ Enjoy.
 [Miax.Pearl.Tom.Mach.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Pearl.Tom.Mach.v1.0.Script.Dissector.lua "Miami International Securities Exchange 1.0 Wireshark Dissector"
 [Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nasdaq "National Association of Securities Dealers Automated Quotations"
 [Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nasdaq/Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Script.Dissector.lua "National Association of Securities Dealers Automated Quotations 5.0 Wireshark Dissector"
+[Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nasdaq "National Association of Securities Dealers Automated Quotations"
+[Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nasdaq/Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Script.Dissector.lua "National Association of Securities Dealers Automated Quotations 4.2 Wireshark Dissector"
 [Nasdaq.Bx.Options.TopOfMarket.Itch.v1.2.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nasdaq "National Association of Securities Dealers Automated Quotations"
 [Nasdaq.Bx.Options.TopOfMarket.Itch.v1.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nasdaq/Nasdaq.Bx.Options.TopOfMarket.Itch.v1.2.Script.Dissector.lua "National Association of Securities Dealers Automated Quotations 1.2 Wireshark Dissector"
 [Nasdaq.Bx.Options.DepthOfMarket.Itch.v1.3.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nasdaq "National Association of Securities Dealers Automated Quotations"
@@ -246,6 +250,8 @@ Enjoy.
 [Nasdaq.Psx.TotalView.Itch.v5.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nasdaq/Nasdaq.Psx.TotalView.Itch.v5.0.Script.Dissector.lua "National Association of Securities Dealers Automated Quotations 5.0 Wireshark Dissector"
 [Nasdaq.Psx.Bbo.Itch.v2.1.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nasdaq "National Association of Securities Dealers Automated Quotations"
 [Nasdaq.Psx.Bbo.Itch.v2.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nasdaq/Nasdaq.Psx.Bbo.Itch.v2.1.Script.Dissector.lua "National Association of Securities Dealers Automated Quotations 2.1 Wireshark Dissector"
+[Nasdaq.Psx.Orders.Ouch.v4.2.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nasdaq "National Association of Securities Dealers Automated Quotations"
+[Nasdaq.Psx.Orders.Ouch.v4.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nasdaq/Nasdaq.Psx.Orders.Ouch.v4.2.Script.Dissector.lua "National Association of Securities Dealers Automated Quotations 4.2 Wireshark Dissector"
 [Nasdaq.Equities.Aggregated.Itch.v2.0.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nasdaq "National Association of Securities Dealers Automated Quotations"
 [Nasdaq.Equities.Aggregated.Itch.v2.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nasdaq/Nasdaq.Equities.Aggregated.Itch.v2.0.Script.Dissector.lua "National Association of Securities Dealers Automated Quotations 2.0 Wireshark Dissector"
 [Nasdaq.Equities.Level2.Itch.v2.0.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nasdaq "National Association of Securities Dealers Automated Quotations"
