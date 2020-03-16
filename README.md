@@ -4,7 +4,7 @@
 <a href="https://travis-ci.org/Open-Markets-Initiative/wireshark-lua"><img src = "https://img.shields.io/travis/Open-Markets-Initiative/wireshark-lua.svg?style=flat-square" /></a>
 </p>
 
-Lua wireshark dissector scripts provide an easily customized cross platform dissection solution for viewing common binary exchange protocols.
+Omi Lua Wireshark dissector scripts provide easily customized cross platform dissection solutions for viewing common binary exchange protocols.
 
 For more information on lua dissectors: [How Lua fits into Wireshark](https://wiki.wireshark.org/Lua "Wireshark Lua Documentation")
 
@@ -12,12 +12,12 @@ For more information on lua dissectors: [How Lua fits into Wireshark](https://wi
 
 To dissect packets, place lua script(s) in the wireshark plugins directory.
 
-The standard path on a windows install:
+The standard user path on a windows install (please create the plugins directory):
 
 ```
-C:\Program Files\Wireshark\plugins\[version]\
+%APPDATA%\Wireshark\plugins\
 ```
-The standard path on a linux install:
+On a linux install use:
 
 ```
 //usr/share/wireshark/plugins
@@ -31,7 +31,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 
 |Organization | Division | Data | Protocol | Version | Date | Size | Testing|
 |--- | --- | --- | --- | --- | --- | --- | ---|
-|[Asx][Asx.Securities.T24.Itch.v1.13.Organization] | Securities | T24 | Itch | [1.13][Asx.Securities.T24.Itch.v1.13.Dissector] | 7/15/2014 | 6048 | Untested|
+|[Asx][Asx.Securities.T24.Itch.v1.13.Organization] | Securities | T24 | Itch | [1.13][Asx.Securities.T24.Itch.v1.13.Dissector] | 7/15/2014 | 6049 | Untested|
 |[Cboe][Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Organization] | Futures | DepthOfBook | Pitch | [1.1.6][Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Dissector] | 4/8/2019 | 3453 | Verified|
 |[Cboe][Cboe.Options.MarketDataFeed.Csm.v1.4.2.Organization] | Options | MarketDataFeed | Csm | [1.4.2][Cboe.Options.MarketDataFeed.Csm.v1.4.2.Dissector] | 5/8/2018 | 4205 | Verified|
 |[Cboe][Cboe.Options.MarketLevel2.Csm.v1.0.4.Organization] | Options | MarketLevel2 | Csm | [1.0.4][Cboe.Options.MarketLevel2.Csm.v1.0.4.Dissector] | 5/8/2018 | 2939 | Verified|
@@ -112,11 +112,11 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 
 ## Development
 
-Updates are greatly appreciated; however, this entire repository is source generated...including the words you are reading right now. Code generation requires a different workflow.  The recommended process is to create an issue with suggested script edits and explanation.  If the changes are applicable to some or all protocols, we will update the model and regenerate.
+Updates are greatly appreciated; however, this entire repository is source generated...including the words you are reading right now. If you wish to suggest script updates, the recommended process is to create an issue with changes and explanation.  Time permitting, we will update the models and regenerate.
 
 |Protocol Count | Generated Lines|
 |--- | ---|
-|78 | 460,166|
+|78 | 460,167|
 
 Note: Our dissector model is still under rapid development.
 
@@ -124,13 +124,12 @@ Note: Our dissector model is still under rapid development.
 
 Please report any dissection errors as issues.  Include a small note on the protocol and version, and a minimal capture demonstrating the problem. Also consider including a link or pdf specification documenting the correct behavior.
 
-Production captures are required for protocol verification.  If your organization has the rights to donate captures, and you wish to make the world a better place, please contact us.
-
+Production packet captures are required for protocol verification.  If your organization has the rights to packet captures, and you wish to make the world a better place, please post captures to this project. [Untested Protocols](https://github.com/Open-Markets-Initiative/wireshark-lua/wiki/Data "Unverified Protocol Data List")
 ## Open Markets Initiative
 
 The Open Markets Initiative (Omi) is a group of technologists dedicated to enhancing the stability of electronic financial markets using modern development methods.
 
-Please check out our other projects: [Omi Directory](https://github.com/Open-Markets-Initiative/Directory "Open Markets Initiative Repository Directory")
+For full list of OMI projects, rules and regulations: [Omi Directory](https://github.com/Open-Markets-Initiative/Directory "Open Markets Initiative Directory")
 
 ## Disclaimer
 

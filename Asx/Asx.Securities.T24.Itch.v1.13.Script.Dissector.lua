@@ -5873,8 +5873,8 @@ size_of.session = function(buffer, offset)
 end
 
 -- Display: Session
-display.session = function(buffer, packet, parent)
-  return buffer(0, 10):string()
+display.session = function(buffer, offset, value, packet, parent)
+  return "Session: "..value
 end
 
 -- Dissect Fields: Session
@@ -5902,8 +5902,9 @@ dissect.session = function(buffer, offset, packet, parent)
   if show.session then
     local length = size_of.session(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.session(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.session, range, display)
+    local value = range:string()
+    local display = display.session(buffer, offset, value, packet, parent)
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.session, range, value, display)
   end
 
   return dissect.session_fields(buffer, offset, packet, parent)
