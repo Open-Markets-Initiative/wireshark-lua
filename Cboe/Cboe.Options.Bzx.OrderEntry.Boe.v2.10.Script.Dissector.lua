@@ -29675,11 +29675,11 @@ size_of.message = function(buffer, offset, message_type)
   end
   -- Size of Logout Request Message
   if message_type == 0x02 then
-    return size_of.logout_request_message(buffer, offset)
+    return 0
   end
   -- Size of Client Heartbeat Message
   if message_type == 0x03 then
-    return size_of.client_heartbeat_message(buffer, offset)
+    return 0
   end
   -- Size of Login Response Message
   if message_type == 0x24 then
@@ -29691,11 +29691,11 @@ size_of.message = function(buffer, offset, message_type)
   end
   -- Size of Server Heartbeat Message
   if message_type == 0x09 then
-    return size_of.server_heartbeat_message(buffer, offset)
+    return 0
   end
   -- Size of Replay Complete Message
   if message_type == 0x13 then
-    return size_of.replay_complete_message(buffer, offset)
+    return 0
   end
   -- Size of New Order Message
   if message_type == 0x38 then

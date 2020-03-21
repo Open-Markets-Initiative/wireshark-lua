@@ -3655,7 +3655,7 @@ size_of.payload = function(buffer, offset, template_id)
   end
   -- Size of Heartbeat Message
   if template_id == 16 then
-    return size_of.heartbeat_message(buffer, offset)
+    return 0
   end
 
   return 0

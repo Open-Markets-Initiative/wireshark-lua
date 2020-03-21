@@ -1078,7 +1078,7 @@ size_of.payload = function(buffer, offset, message_type)
   end
   -- Size of Heartbeat Message
   if message_type == 2 then
-    return size_of.heartbeat_message(buffer, offset)
+    return 0
   end
 
   return 0

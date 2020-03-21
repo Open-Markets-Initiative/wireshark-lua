@@ -8696,7 +8696,7 @@ size_of.payload = function(buffer, offset, template_id)
   end
   -- Size of Admin Heartbeat 12
   if template_id == 12 then
-    return size_of.admin_heartbeat_12(buffer, offset)
+    return 0
   end
   -- Size of Admin Login 15
   if template_id == 15 then
