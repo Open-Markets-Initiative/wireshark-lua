@@ -5,6 +5,7 @@
 
 |Division | Data | Protocol | Version | Date | Size | Testing | Specification|
 |--- | --- | --- | --- | --- | --- | --- | ---|
+|Equities Bzx | OrderEntry | Boe | [2.3][Cboe.Equities.Bzx.OrderEntry.Boe.v2.3.Dissector] | 3/11/2019 | 28397 | Untested | [url][Cboe.Equities.Bzx.OrderEntry.Boe.v2.3.Url] - [pdf][Cboe.Equities.Bzx.OrderEntry.Boe.v2.3.Pdf]|
 |Futures | DepthOfBook | Pitch | [1.1.6][Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Dissector] | 4/8/2019 | 3453 | Verified | [url][Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Url] - [pdf][Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Pdf]|
 |Options | MarketDataFeed | Csm | [1.4.2][Cboe.Options.MarketDataFeed.Csm.v1.4.2.Dissector] | 5/8/2018 | 4205 | Verified | [url][Cboe.Options.MarketDataFeed.Csm.v1.4.2.Url] - [pdf][Cboe.Options.MarketDataFeed.Csm.v1.4.2.Pdf]|
 |Options | MarketLevel2 | Csm | [1.0.4][Cboe.Options.MarketLevel2.Csm.v1.0.4.Dissector] | 5/8/2018 | 2939 | Verified | [url][Cboe.Options.MarketLevel2.Csm.v1.0.4.Url] - [pdf][Cboe.Options.MarketLevel2.Csm.v1.0.4.Pdf]|
@@ -20,6 +21,9 @@
 Cboe: [website](https://www.cboe.com "Go to Chicago Board Options Exchange")
 
 
+[Cboe.Equities.Bzx.OrderEntry.Boe.v2.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Equities.Bzx.OrderEntry.Boe.v2.3.Script.Dissector.lua "Chicago Board Options Exchange 2.3 Wireshark Dissector"
+[Cboe.Equities.Bzx.OrderEntry.Boe.v2.3.Url]: http://markets.cboe.com/us/equities/support/technical/ "Specification url"
+[Cboe.Equities.Bzx.OrderEntry.Boe.v2.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Cboe/Cboe.Equities.Bzx.OrderEntry.Boe.v2.3.pdf "Chicago Board Options Exchange 2.3 Pdf"
 [Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Script.Dissector.lua "Chicago Board Options Exchange 1.1.6 Wireshark Dissector"
 [Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Url]: http://markets.cboe.com/us/futures/support/technical "Specification url"
 [Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Cboe/Cboe.Futures.DepthOfBook.Pitch.v1.1.6.pdf "Chicago Board Options Exchange 1.1.6 Pdf"
