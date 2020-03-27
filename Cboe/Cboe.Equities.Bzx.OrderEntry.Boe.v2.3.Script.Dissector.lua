@@ -64,7 +64,6 @@ cboe_equities_bzx_orderentry_boe_v2_3.fields.cancel_rejected_byte_9 = ProtoField
 cboe_equities_bzx_orderentry_boe_v2_3.fields.cancel_rejected_capacity_exists = ProtoField.new("Cancel Rejected Capacity Exists", "cboe.equities.bzx.orderentry.boe.v2.3.cancelrejectedcapacityexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.cancel_rejected_echo_text_exists = ProtoField.new("Cancel Rejected Echo Text Exists", "cboe.equities.bzx.orderentry.boe.v2.3.cancelrejectedechotextexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.cancel_rejected_exec_inst_exists = ProtoField.new("Cancel Rejected Exec Inst Exists", "cboe.equities.bzx.orderentry.boe.v2.3.cancelrejectedexecinstexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
-cboe_equities_bzx_orderentry_boe_v2_3.fields.cancel_rejected_max_remove_pct_exists = ProtoField.new("Cancel Rejected Max Remove Pct Exists", "cboe.equities.bzx.orderentry.boe.v2.3.cancelrejectedmaxremovepctexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.cancel_rejected_message = ProtoField.new("Cancel Rejected Message", "cboe.equities.bzx.orderentry.boe.v2.3.cancelrejectedmessage", ftypes.STRING)
 cboe_equities_bzx_orderentry_boe_v2_3.fields.cancel_rejected_min_qty_exists = ProtoField.new("Cancel Rejected Min Qty Exists", "cboe.equities.bzx.orderentry.boe.v2.3.cancelrejectedminqtyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.cancel_rejected_optional_fields = ProtoField.new("Cancel Rejected Optional Fields", "cboe.equities.bzx.orderentry.boe.v2.3.cancelrejectedoptionalfields", ftypes.STRING)
@@ -80,7 +79,7 @@ cboe_equities_bzx_orderentry_boe_v2_3.fields.cancel_rejected_reserved_bit_6_exis
 cboe_equities_bzx_orderentry_boe_v2_3.fields.cancel_rejected_reserved_bit_7_exists = ProtoField.new("Cancel Rejected Reserved Bit 7 Exists", "cboe.equities.bzx.orderentry.boe.v2.3.cancelrejectedreservedbit7exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.cancel_rejected_reserved_bit_8_exists = ProtoField.new("Cancel Rejected Reserved Bit 8 Exists", "cboe.equities.bzx.orderentry.boe.v2.3.cancelrejectedreservedbit8exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.cancel_rejected_return_bitfields = ProtoField.new("Cancel Rejected Return Bitfields", "cboe.equities.bzx.orderentry.boe.v2.3.cancelrejectedreturnbitfields", ftypes.STRING)
-cboe_equities_bzx_orderentry_boe_v2_3.fields.cancel_rejected_route_strategy_exists = ProtoField.new("Cancel Rejected Route Strategy Exists", "cboe.equities.bzx.orderentry.boe.v2.3.cancelrejectedroutestrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
+cboe_equities_bzx_orderentry_boe_v2_3.fields.cancel_rejected_rout_strategy_exists = ProtoField.new("Cancel Rejected Rout Strategy Exists", "cboe.equities.bzx.orderentry.boe.v2.3.cancelrejectedroutstrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.cancel_rejected_side_exists = ProtoField.new("Cancel Rejected Side Exists", "cboe.equities.bzx.orderentry.boe.v2.3.cancelrejectedsideexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.cancel_rejected_stop_px_exists = ProtoField.new("Cancel Rejected Stop Px Exists", "cboe.equities.bzx.orderentry.boe.v2.3.cancelrejectedstoppxexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.cancel_rejected_symbol_exists = ProtoField.new("Cancel Rejected Symbol Exists", "cboe.equities.bzx.orderentry.boe.v2.3.cancelrejectedsymbolexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
@@ -123,7 +122,6 @@ cboe_equities_bzx_orderentry_boe_v2_3.fields.mass_cancel_id = ProtoField.new("Ma
 cboe_equities_bzx_orderentry_boe_v2_3.fields.mass_cancel_inst = ProtoField.new("Mass Cancel Inst", "cboe.equities.bzx.orderentry.boe.v2.3.masscancelinst", ftypes.STRING)
 cboe_equities_bzx_orderentry_boe_v2_3.fields.matching_unit = ProtoField.new("Matching Unit", "cboe.equities.bzx.orderentry.boe.v2.3.matchingunit", ftypes.UINT8)
 cboe_equities_bzx_orderentry_boe_v2_3.fields.max_floor = ProtoField.new("Max Floor", "cboe.equities.bzx.orderentry.boe.v2.3.maxfloor", ftypes.UINT32)
-cboe_equities_bzx_orderentry_boe_v2_3.fields.max_remove_pct = ProtoField.new("Max Remove Pct", "cboe.equities.bzx.orderentry.boe.v2.3.maxremovepct", ftypes.UINT8)
 cboe_equities_bzx_orderentry_boe_v2_3.fields.message = ProtoField.new("Message", "cboe.equities.bzx.orderentry.boe.v2.3.message", ftypes.STRING)
 cboe_equities_bzx_orderentry_boe_v2_3.fields.message_header = ProtoField.new("Message Header", "cboe.equities.bzx.orderentry.boe.v2.3.messageheader", ftypes.STRING)
 cboe_equities_bzx_orderentry_boe_v2_3.fields.message_length = ProtoField.new("Message Length", "cboe.equities.bzx.orderentry.boe.v2.3.messagelength", ftypes.UINT16)
@@ -176,7 +174,6 @@ cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_expire_time_exists = Prot
 cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_ext_exec_inst_exists = ProtoField.new("New Order Ext Exec Inst Exists", "cboe.equities.bzx.orderentry.boe.v2.3.neworderextexecinstexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_locate_reqd_exists = ProtoField.new("New Order Locate Reqd Exists", "cboe.equities.bzx.orderentry.boe.v2.3.neworderlocatereqdexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_max_floor_exists = ProtoField.new("New Order Max Floor Exists", "cboe.equities.bzx.orderentry.boe.v2.3.newordermaxfloorexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
-cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_max_remove_pct_exists = ProtoField.new("New Order Max Remove Pct Exists", "cboe.equities.bzx.orderentry.boe.v2.3.newordermaxremovepctexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_message = ProtoField.new("New Order Message", "cboe.equities.bzx.orderentry.boe.v2.3.newordermessage", ftypes.STRING)
 cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_min_qty_exists = ProtoField.new("New Order Min Qty Exists", "cboe.equities.bzx.orderentry.boe.v2.3.neworderminqtyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_optional_fields = ProtoField.new("New Order Optional Fields", "cboe.equities.bzx.orderentry.boe.v2.3.neworderoptionalfields", ftypes.STRING)
@@ -194,8 +191,8 @@ cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_reserved_bit_7_exists = P
 cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_reserved_bit_8_exists = ProtoField.new("New Order Reserved Bit 8 Exists", "cboe.equities.bzx.orderentry.boe.v2.3.neworderreservedbit8exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_return_bitfields = ProtoField.new("New Order Return Bitfields", "cboe.equities.bzx.orderentry.boe.v2.3.neworderreturnbitfields", ftypes.STRING)
 cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_risk_reset_exists = ProtoField.new("New Order Risk Reset Exists", "cboe.equities.bzx.orderentry.boe.v2.3.neworderriskresetexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
+cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_rout_strategy_exists = ProtoField.new("New Order Rout Strategy Exists", "cboe.equities.bzx.orderentry.boe.v2.3.neworderroutstrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_route_delivery_method_exists = ProtoField.new("New Order Route Delivery Method Exists", "cboe.equities.bzx.orderentry.boe.v2.3.neworderroutedeliverymethodexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
-cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_route_strategy_exists = ProtoField.new("New Order Route Strategy Exists", "cboe.equities.bzx.orderentry.boe.v2.3.neworderroutestrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_routing_inst_exists = ProtoField.new("New Order Routing Inst Exists", "cboe.equities.bzx.orderentry.boe.v2.3.neworderroutinginstexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_stop_px_exists = ProtoField.new("New Order Stop Px Exists", "cboe.equities.bzx.orderentry.boe.v2.3.neworderstoppxexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_symbol_exists = ProtoField.new("New Order Symbol Exists", "cboe.equities.bzx.orderentry.boe.v2.3.newordersymbolexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
@@ -243,7 +240,6 @@ cboe_equities_bzx_orderentry_boe_v2_3.fields.order_acknowledgment_last_shares_ex
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_acknowledgment_leaves_qty_exists = ProtoField.new("Order Acknowledgment Leaves Qty Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderacknowledgmentleavesqtyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_acknowledgment_mass_cancelled_exists = ProtoField.new("Order Acknowledgment Mass Cancelled Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderacknowledgmentmasscancelledexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_acknowledgment_max_floor_exists = ProtoField.new("Order Acknowledgment Max Floor Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderacknowledgmentmaxfloorexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
-cboe_equities_bzx_orderentry_boe_v2_3.fields.order_acknowledgment_max_remove_pct_exists = ProtoField.new("Order Acknowledgment Max Remove Pct Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderacknowledgmentmaxremovepctexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_acknowledgment_message = ProtoField.new("Order Acknowledgment Message", "cboe.equities.bzx.orderentry.boe.v2.3.orderacknowledgmentmessage", ftypes.STRING)
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_acknowledgment_min_qty_exists = ProtoField.new("Order Acknowledgment Min Qty Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderacknowledgmentminqtyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_acknowledgment_optional_fields = ProtoField.new("Order Acknowledgment Optional Fields", "cboe.equities.bzx.orderentry.boe.v2.3.orderacknowledgmentoptionalfields", ftypes.STRING)
@@ -262,8 +258,8 @@ cboe_equities_bzx_orderentry_boe_v2_3.fields.order_acknowledgment_reserved_bit_6
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_acknowledgment_reserved_bit_7_exists = ProtoField.new("Order Acknowledgment Reserved Bit 7 Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderacknowledgmentreservedbit7exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_acknowledgment_reserved_bit_8_exists = ProtoField.new("Order Acknowledgment Reserved Bit 8 Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderacknowledgmentreservedbit8exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_acknowledgment_return_bitfields = ProtoField.new("Order Acknowledgment Return Bitfields", "cboe.equities.bzx.orderentry.boe.v2.3.orderacknowledgmentreturnbitfields", ftypes.STRING)
+cboe_equities_bzx_orderentry_boe_v2_3.fields.order_acknowledgment_rout_strategy_exists = ProtoField.new("Order Acknowledgment Rout Strategy Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderacknowledgmentroutstrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_acknowledgment_route_delivery_method_exists = ProtoField.new("Order Acknowledgment Route Delivery Method Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderacknowledgmentroutedeliverymethodexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
-cboe_equities_bzx_orderentry_boe_v2_3.fields.order_acknowledgment_route_strategy_exists = ProtoField.new("Order Acknowledgment Route Strategy Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderacknowledgmentroutestrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_acknowledgment_routing_inst_exists = ProtoField.new("Order Acknowledgment Routing Inst Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderacknowledgmentroutinginstexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_acknowledgment_secondary_order_id_exists = ProtoField.new("Order Acknowledgment Secondary Order Id Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderacknowledgmentsecondaryorderidexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_acknowledgment_side_exists = ProtoField.new("Order Acknowledgment Side Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderacknowledgmentsideexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
@@ -310,7 +306,6 @@ cboe_equities_bzx_orderentry_boe_v2_3.fields.order_cancelled_last_shares_exists 
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_cancelled_leaves_qty_exists = ProtoField.new("Order Cancelled Leaves Qty Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordercancelledleavesqtyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_cancelled_mass_cancelled_exists = ProtoField.new("Order Cancelled Mass Cancelled Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordercancelledmasscancelledexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_cancelled_max_floor_exists = ProtoField.new("Order Cancelled Max Floor Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordercancelledmaxfloorexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
-cboe_equities_bzx_orderentry_boe_v2_3.fields.order_cancelled_max_remove_pct_exists = ProtoField.new("Order Cancelled Max Remove Pct Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordercancelledmaxremovepctexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_cancelled_message = ProtoField.new("Order Cancelled Message", "cboe.equities.bzx.orderentry.boe.v2.3.ordercancelledmessage", ftypes.STRING)
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_cancelled_min_qty_exists = ProtoField.new("Order Cancelled Min Qty Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordercancelledminqtyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_cancelled_optional_fields = ProtoField.new("Order Cancelled Optional Fields", "cboe.equities.bzx.orderentry.boe.v2.3.ordercancelledoptionalfields", ftypes.STRING)
@@ -329,8 +324,8 @@ cboe_equities_bzx_orderentry_boe_v2_3.fields.order_cancelled_reserved_bit_6_exis
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_cancelled_reserved_bit_7_exists = ProtoField.new("Order Cancelled Reserved Bit 7 Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordercancelledreservedbit7exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_cancelled_reserved_bit_8_exists = ProtoField.new("Order Cancelled Reserved Bit 8 Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordercancelledreservedbit8exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_cancelled_return_bitfields = ProtoField.new("Order Cancelled Return Bitfields", "cboe.equities.bzx.orderentry.boe.v2.3.ordercancelledreturnbitfields", ftypes.STRING)
+cboe_equities_bzx_orderentry_boe_v2_3.fields.order_cancelled_rout_strategy_exists = ProtoField.new("Order Cancelled Rout Strategy Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordercancelledroutstrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_cancelled_route_delivery_method_exists = ProtoField.new("Order Cancelled Route Delivery Method Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordercancelledroutedeliverymethodexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
-cboe_equities_bzx_orderentry_boe_v2_3.fields.order_cancelled_route_strategy_exists = ProtoField.new("Order Cancelled Route Strategy Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordercancelledroutestrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_cancelled_routing_inst_exists = ProtoField.new("Order Cancelled Routing Inst Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordercancelledroutinginstexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_cancelled_secondary_order_id_exists = ProtoField.new("Order Cancelled Secondary Order Id Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordercancelledsecondaryorderidexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_cancelled_side_exists = ProtoField.new("Order Cancelled Side Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordercancelledsideexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
@@ -370,7 +365,6 @@ cboe_equities_bzx_orderentry_boe_v2_3.fields.order_execution_exec_inst_exists = 
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_execution_ext_exec_inst_exists = ProtoField.new("Order Execution Ext Exec Inst Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderexecutionextexecinstexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_execution_fee_code_exists = ProtoField.new("Order Execution Fee Code Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderexecutionfeecodeexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_execution_max_floor_exists = ProtoField.new("Order Execution Max Floor Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderexecutionmaxfloorexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
-cboe_equities_bzx_orderentry_boe_v2_3.fields.order_execution_max_remove_pct_exists = ProtoField.new("Order Execution Max Remove Pct Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderexecutionmaxremovepctexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_execution_message = ProtoField.new("Order Execution Message", "cboe.equities.bzx.orderentry.boe.v2.3.orderexecutionmessage", ftypes.STRING)
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_execution_min_qty_exists = ProtoField.new("Order Execution Min Qty Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderexecutionminqtyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_execution_optional_fields = ProtoField.new("Order Execution Optional Fields", "cboe.equities.bzx.orderentry.boe.v2.3.orderexecutionoptionalfields", ftypes.STRING)
@@ -388,8 +382,8 @@ cboe_equities_bzx_orderentry_boe_v2_3.fields.order_execution_reserved_bit_6_exis
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_execution_reserved_bit_7_exists = ProtoField.new("Order Execution Reserved Bit 7 Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderexecutionreservedbit7exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_execution_reserved_bit_8_exists = ProtoField.new("Order Execution Reserved Bit 8 Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderexecutionreservedbit8exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_execution_return_bitfields = ProtoField.new("Order Execution Return Bitfields", "cboe.equities.bzx.orderentry.boe.v2.3.orderexecutionreturnbitfields", ftypes.STRING)
+cboe_equities_bzx_orderentry_boe_v2_3.fields.order_execution_rout_strategy_exists = ProtoField.new("Order Execution Rout Strategy Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderexecutionroutstrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_execution_route_delivery_method_exists = ProtoField.new("Order Execution Route Delivery Method Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderexecutionroutedeliverymethodexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
-cboe_equities_bzx_orderentry_boe_v2_3.fields.order_execution_route_strategy_exists = ProtoField.new("Order Execution Route Strategy Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderexecutionroutestrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_execution_routing_inst_exists = ProtoField.new("Order Execution Routing Inst Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderexecutionroutinginstexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_execution_side_exists = ProtoField.new("Order Execution Side Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderexecutionsideexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_execution_stop_px_exists = ProtoField.new("Order Execution Stop Px Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderexecutionstoppxexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
@@ -434,7 +428,6 @@ cboe_equities_bzx_orderentry_boe_v2_3.fields.order_modified_last_shares_exists =
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_modified_leaves_qty_exists = ProtoField.new("Order Modified Leaves Qty Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordermodifiedleavesqtyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_modified_mass_cancelled_exists = ProtoField.new("Order Modified Mass Cancelled Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordermodifiedmasscancelledexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_modified_max_floor_exists = ProtoField.new("Order Modified Max Floor Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordermodifiedmaxfloorexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
-cboe_equities_bzx_orderentry_boe_v2_3.fields.order_modified_max_remove_pct_exists = ProtoField.new("Order Modified Max Remove Pct Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordermodifiedmaxremovepctexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_modified_message = ProtoField.new("Order Modified Message", "cboe.equities.bzx.orderentry.boe.v2.3.ordermodifiedmessage", ftypes.STRING)
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_modified_min_qty_exists = ProtoField.new("Order Modified Min Qty Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordermodifiedminqtyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_modified_optional_fields = ProtoField.new("Order Modified Optional Fields", "cboe.equities.bzx.orderentry.boe.v2.3.ordermodifiedoptionalfields", ftypes.STRING)
@@ -453,8 +446,8 @@ cboe_equities_bzx_orderentry_boe_v2_3.fields.order_modified_reserved_bit_6_exist
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_modified_reserved_bit_7_exists = ProtoField.new("Order Modified Reserved Bit 7 Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordermodifiedreservedbit7exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_modified_reserved_bit_8_exists = ProtoField.new("Order Modified Reserved Bit 8 Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordermodifiedreservedbit8exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_modified_return_bitfields = ProtoField.new("Order Modified Return Bitfields", "cboe.equities.bzx.orderentry.boe.v2.3.ordermodifiedreturnbitfields", ftypes.STRING)
+cboe_equities_bzx_orderentry_boe_v2_3.fields.order_modified_rout_strategy_exists = ProtoField.new("Order Modified Rout Strategy Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordermodifiedroutstrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_modified_route_delivery_method_exists = ProtoField.new("Order Modified Route Delivery Method Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordermodifiedroutedeliverymethodexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
-cboe_equities_bzx_orderentry_boe_v2_3.fields.order_modified_route_strategy_exists = ProtoField.new("Order Modified Route Strategy Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordermodifiedroutestrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_modified_routing_inst_exists = ProtoField.new("Order Modified Routing Inst Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordermodifiedroutinginstexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_modified_secondary_order_id_exists = ProtoField.new("Order Modified Secondary Order Id Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordermodifiedsecondaryorderidexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_modified_side_exists = ProtoField.new("Order Modified Side Exists", "cboe.equities.bzx.orderentry.boe.v2.3.ordermodifiedsideexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
@@ -495,7 +488,6 @@ cboe_equities_bzx_orderentry_boe_v2_3.fields.order_rejected_ex_destination_exist
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_rejected_exec_inst_exists = ProtoField.new("Order Rejected Exec Inst Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrejectedexecinstexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_rejected_ext_exec_inst_exists = ProtoField.new("Order Rejected Ext Exec Inst Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrejectedextexecinstexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_rejected_max_floor_exists = ProtoField.new("Order Rejected Max Floor Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrejectedmaxfloorexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
-cboe_equities_bzx_orderentry_boe_v2_3.fields.order_rejected_max_remove_pct_exists = ProtoField.new("Order Rejected Max Remove Pct Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrejectedmaxremovepctexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_rejected_message = ProtoField.new("Order Rejected Message", "cboe.equities.bzx.orderentry.boe.v2.3.orderrejectedmessage", ftypes.STRING)
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_rejected_min_qty_exists = ProtoField.new("Order Rejected Min Qty Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrejectedminqtyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_rejected_optional_fields = ProtoField.new("Order Rejected Optional Fields", "cboe.equities.bzx.orderentry.boe.v2.3.orderrejectedoptionalfields", ftypes.STRING)
@@ -513,8 +505,8 @@ cboe_equities_bzx_orderentry_boe_v2_3.fields.order_rejected_reserved_bit_6_exist
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_rejected_reserved_bit_7_exists = ProtoField.new("Order Rejected Reserved Bit 7 Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrejectedreservedbit7exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_rejected_reserved_bit_8_exists = ProtoField.new("Order Rejected Reserved Bit 8 Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrejectedreservedbit8exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_rejected_return_bitfields = ProtoField.new("Order Rejected Return Bitfields", "cboe.equities.bzx.orderentry.boe.v2.3.orderrejectedreturnbitfields", ftypes.STRING)
+cboe_equities_bzx_orderentry_boe_v2_3.fields.order_rejected_rout_strategy_exists = ProtoField.new("Order Rejected Rout Strategy Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrejectedroutstrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_rejected_route_delivery_method_exists = ProtoField.new("Order Rejected Route Delivery Method Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrejectedroutedeliverymethodexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
-cboe_equities_bzx_orderentry_boe_v2_3.fields.order_rejected_route_strategy_exists = ProtoField.new("Order Rejected Route Strategy Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrejectedroutestrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_rejected_routing_inst_exists = ProtoField.new("Order Rejected Routing Inst Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrejectedroutinginstexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_rejected_secondary_order_id_exists = ProtoField.new("Order Rejected Secondary Order Id Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrejectedsecondaryorderidexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_rejected_side_exists = ProtoField.new("Order Rejected Side Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrejectedsideexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
@@ -559,7 +551,6 @@ cboe_equities_bzx_orderentry_boe_v2_3.fields.order_restated_last_shares_exists =
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_restated_leaves_qty_exists = ProtoField.new("Order Restated Leaves Qty Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrestatedleavesqtyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_restated_mass_cancelled_exists = ProtoField.new("Order Restated Mass Cancelled Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrestatedmasscancelledexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_restated_max_floor_exists = ProtoField.new("Order Restated Max Floor Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrestatedmaxfloorexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
-cboe_equities_bzx_orderentry_boe_v2_3.fields.order_restated_max_remove_pct_exists = ProtoField.new("Order Restated Max Remove Pct Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrestatedmaxremovepctexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_restated_message = ProtoField.new("Order Restated Message", "cboe.equities.bzx.orderentry.boe.v2.3.orderrestatedmessage", ftypes.STRING)
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_restated_min_qty_exists = ProtoField.new("Order Restated Min Qty Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrestatedminqtyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_restated_optional_fields = ProtoField.new("Order Restated Optional Fields", "cboe.equities.bzx.orderentry.boe.v2.3.orderrestatedoptionalfields", ftypes.STRING)
@@ -578,8 +569,8 @@ cboe_equities_bzx_orderentry_boe_v2_3.fields.order_restated_reserved_bit_6_exist
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_restated_reserved_bit_7_exists = ProtoField.new("Order Restated Reserved Bit 7 Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrestatedreservedbit7exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_restated_reserved_bit_8_exists = ProtoField.new("Order Restated Reserved Bit 8 Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrestatedreservedbit8exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_restated_return_bitfields = ProtoField.new("Order Restated Return Bitfields", "cboe.equities.bzx.orderentry.boe.v2.3.orderrestatedreturnbitfields", ftypes.STRING)
+cboe_equities_bzx_orderentry_boe_v2_3.fields.order_restated_rout_strategy_exists = ProtoField.new("Order Restated Rout Strategy Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrestatedroutstrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_restated_route_delivery_method_exists = ProtoField.new("Order Restated Route Delivery Method Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrestatedroutedeliverymethodexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
-cboe_equities_bzx_orderentry_boe_v2_3.fields.order_restated_route_strategy_exists = ProtoField.new("Order Restated Route Strategy Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrestatedroutestrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_restated_routing_inst_exists = ProtoField.new("Order Restated Routing Inst Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrestatedroutinginstexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_restated_secondary_order_id_exists = ProtoField.new("Order Restated Secondary Order Id Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrestatedsecondaryorderidexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_equities_bzx_orderentry_boe_v2_3.fields.order_restated_side_exists = ProtoField.new("Order Restated Side Exists", "cboe.equities.bzx.orderentry.boe.v2.3.orderrestatedsideexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
@@ -654,6 +645,7 @@ cboe_equities_bzx_orderentry_boe_v2_3.fields.reserved_internal = ProtoField.new(
 cboe_equities_bzx_orderentry_boe_v2_3.fields.restatement_reason = ProtoField.new("Restatement Reason", "cboe.equities.bzx.orderentry.boe.v2.3.restatementreason", ftypes.STRING)
 cboe_equities_bzx_orderentry_boe_v2_3.fields.return_bitfields = ProtoField.new("Return Bitfields", "cboe.equities.bzx.orderentry.boe.v2.3.returnbitfields", ftypes.STRING)
 cboe_equities_bzx_orderentry_boe_v2_3.fields.risk_reset = ProtoField.new("Risk Reset", "cboe.equities.bzx.orderentry.boe.v2.3.riskreset", ftypes.STRING)
+cboe_equities_bzx_orderentry_boe_v2_3.fields.rout_strategy = ProtoField.new("Rout Strategy", "cboe.equities.bzx.orderentry.boe.v2.3.routstrategy", ftypes.STRING)
 cboe_equities_bzx_orderentry_boe_v2_3.fields.route_delivery_method = ProtoField.new("Route Delivery Method", "cboe.equities.bzx.orderentry.boe.v2.3.routedeliverymethod", ftypes.STRING)
 cboe_equities_bzx_orderentry_boe_v2_3.fields.routing_inst = ProtoField.new("Routing Inst", "cboe.equities.bzx.orderentry.boe.v2.3.routinginst", ftypes.STRING)
 cboe_equities_bzx_orderentry_boe_v2_3.fields.secondary_order_id = ProtoField.new("Secondary Order Id", "cboe.equities.bzx.orderentry.boe.v2.3.secondaryorderid", ftypes.UINT64)
@@ -2222,20 +2214,41 @@ size_of.sub_liquidity_indicator = 1
 
 -- Display: Sub Liquidity Indicator
 display.sub_liquidity_indicator = function(value)
-  if value == "N" then
-    return "Sub Liquidity Indicator: Normal (N)"
+  if value == "E" then
+    return "Sub Liquidity Indicator: Trade Added Rpi Liquidity (E)"
   end
-  if value == "S" then
-    return "Sub Liquidity Indicator: Nbbo Setter (S)"
+  if value == "H" then
+    return "Sub Liquidity Indicator: Trade Added Hidden Liquidity (H)"
+  end
+  if value == "I" then
+    return "Sub Liquidity Indicator: Trade Added Hidden Liquidity That Was Price Improved (I)"
+  end
+  if value == "m" then
+    return "Sub Liquidity Indicator: Midpoint Peg (m)"
   end
   if value == "J" then
-    return "Sub Liquidity Indicator: Nbbo Joiner (J)"
+    return "Sub Liquidity Indicator: Execution From First Order To Join The Nbbo (J)"
   end
-  if value == "U" then
-    return "Sub Liquidity Indicator: Market Turner (U)"
+  if value == "S" then
+    return "Sub Liquidity Indicator: Execution From First Order That Set The Nbbo (S)"
   end
-  if value == " " then
-    return "Sub Liquidity Indicator: No Quote On Book (<whitespace>)"
+  if value == "V" then
+    return "Sub Liquidity Indicator: Visisble Liquidity Add Trade That Was Price Improved (V)"
+  end
+  if value == "H" then
+    return "Sub Liquidity Indicator: Traded Added Liquidity (H)"
+  end
+  if value == "I" then
+    return "Sub Liquidity Indicator: Traded Added Liquidity That Was Price Improved (I)"
+  end
+  if value == "S" then
+    return "Sub Liquidity Indicator: Execution From Order That Set The Nbbo (S)"
+  end
+  if value == "V" then
+    return "Sub Liquidity Indicator: Visible Liquidity Add Trade That Was Price Improved (V)"
+  end
+  if value == "m" then
+    return "Sub Liquidity Indicator: Midpoint Peg Order (m)"
   end
 
   return "Sub Liquidity Indicator: Unknown("..value..")"
@@ -3978,7 +3991,104 @@ size_of.purge_reject_reason = 1
 
 -- Display: Purge Reject Reason
 display.purge_reject_reason = function(value)
-  return "Purge Reject Reason: "..value
+  if value == "A" then
+    return "Purge Reject Reason: Admin (A)"
+  end
+  if value == "D" then
+    return "Purge Reject Reason: Duplicate Identifier (D)"
+  end
+  if value == "E" then
+    return "Purge Reject Reason: Size Reduction Due To Swp Restatement (E)"
+  end
+  if value == "F" then
+    return "Purge Reject Reason: Failed To Quote (F)"
+  end
+  if value == "H" then
+    return "Purge Reject Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Purge Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Purge Reject Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Purge Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "L" then
+    return "Purge Reject Reason: Order Would Lock Or Cross Nbbo (L)"
+  end
+  if value == "M" then
+    return "Purge Reject Reason: Order Size Exceeded (M)"
+  end
+  if value == "N" then
+    return "Purge Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Purge Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Purge Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "Q" then
+    return "Purge Reject Reason: Waiting For First Trade (Q)"
+  end
+  if value == "R" then
+    return "Purge Reject Reason: Routing Unavailable (R)"
+  end
+  if value == "S" then
+    return "Purge Reject Reason: Short Sale Price Violation (S)"
+  end
+  if value == "T" then
+    return "Purge Reject Reason: Fill Would Trade Through The Nbbo (T)"
+  end
+  if value == "U" then
+    return "Purge Reject Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Purge Reject Reason: Would Wash (V)"
+  end
+  if value == "W" then
+    return "Purge Reject Reason: Add Liquidity Only Order Would Remove (W)"
+  end
+  if value == "X" then
+    return "Purge Reject Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Purge Reject Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Purge Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "f" then
+    return "Purge Reject Reason: Risk Management Mpid Or Custom Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Purge Reject Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "o" then
+    return "Purge Reject Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "r" then
+    return "Purge Reject Reason: Reserve Reload (r)"
+  end
+  if value == "s" then
+    return "Purge Reject Reason: Risk Management Risk Root Level (s)"
+  end
+  if value == "u" then
+    return "Purge Reject Reason: Limit Up Limit Down (u)"
+  end
+  if value == "w" then
+    return "Purge Reject Reason: Would Remove On Unslide (w)"
+  end
+  if value == "x" then
+    return "Purge Reject Reason: Crossed Market (x)"
+  end
+  if value == "y" then
+    return "Purge Reject Reason: Order Received By Cboe During Replay (y)"
+  end
+
+  return "Purge Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Purge Reject Reason
@@ -4025,7 +4135,7 @@ dissect.purge_rejected_message_fields = function(buffer, offset, packet, parent,
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
   index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Purge Reject Reason: 1 Byte Ascii String
+  -- Purge Reject Reason: 1 Byte Ascii String Enum with 32 values
   index, purge_reject_reason = dissect.purge_reject_reason(buffer, index, packet, parent)
 
   -- Text: 60 Byte Ascii String
@@ -4137,29 +4247,14 @@ size_of.capacity = 1
 
 -- Display: Capacity
 display.capacity = function(value)
-  if value == "C" then
-    return "Capacity: Customer (C)"
+  if value == "A" then
+    return "Capacity: Agency (A)"
   end
-  if value == "M" then
-    return "Capacity: Market Maker (M)"
+  if value == "P" then
+    return "Capacity: Principal (P)"
   end
-  if value == "F" then
-    return "Capacity: Firm (F)"
-  end
-  if value == "U" then
-    return "Capacity: Professional Customer (U)"
-  end
-  if value == "N" then
-    return "Capacity: Non Cboe Market Maker (N)"
-  end
-  if value == "B" then
-    return "Capacity: Broker Dealer (B)"
-  end
-  if value == "J" then
-    return "Capacity: Joint Back Office (J)"
-  end
-  if value == "L" then
-    return "Capacity: Non Trading Permit Holder Affiliate (L)"
+  if value == "R" then
+    return "Capacity: Riskless Principal (R)"
   end
 
   return "Capacity: Unknown("..value..")"
@@ -6077,14 +6172,11 @@ display.side = function(value)
   if value == "2" then
     return "Side: Sell (2)"
   end
-  if value == "1" then
-    return "Side: Aim (1)"
+  if value == "5" then
+    return "Side: Short Sell (5)"
   end
-  if value == "2" then
-    return "Side: Qcc (2)"
-  end
-  if value == "3" then
-    return "Side: Sam (3)"
+  if value == "5" then
+    return "Side: Short Sell Exempt (5)"
   end
 
   return "Side: Unknown("..value..")"
@@ -6183,7 +6275,7 @@ dissect.trade_cancel_or_correct_message_fields = function(buffer, offset, packet
   -- Exec Ref Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_ref_id = dissect.exec_ref_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 5 values
+  -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = dissect.side(buffer, index, packet, parent)
 
   -- Base Liquidity Indicator: 1 Byte Ascii String Enum with 4 values
@@ -6248,7 +6340,56 @@ size_of.ex_destination = 1
 
 -- Display: Ex Destination
 display.ex_destination = function(value)
-  return "Ex Destination: "..value
+  if value == "A" then
+    return "Ex Destination: Nyse American (A)"
+  end
+  if value == "B" then
+    return "Ex Destination: Nasdaq Bx (B)"
+  end
+  if value == "C" then
+    return "Ex Destination: Nyse National (C)"
+  end
+  if value == "H" then
+    return "Ex Destination: Miax Pearl (H)"
+  end
+  if value == "I" then
+    return "Ex Destination: Investors Exchange (I)"
+  end
+  if value == "J" then
+    return "Ex Destination: Edga (J)"
+  end
+  if value == "K" then
+    return "Ex Destination: Edgx (K)"
+  end
+  if value == "L" then
+    return "Ex Destination: Long Term Stock Exchange (L)"
+  end
+  if value == "M" then
+    return "Ex Destination: Chx (M)"
+  end
+  if value == "N" then
+    return "Ex Destination: Nyse (N)"
+  end
+  if value == "U" then
+    return "Ex Destination: Nyse Arca (U)"
+  end
+  if value == "Q" then
+    return "Ex Destination: Nasdaq (Q)"
+  end
+  if value == "Q" then
+    return "Ex Destination: Memx (Q)"
+  end
+  if value == "X" then
+    return "Ex Destination: Nasdaq Psx (X)"
+  end
+  if value == "Y" then
+    return "Ex Destination: Byx (Y)"
+  end
+  if value == "Y" then
+    return "Ex Destination: Bzx (Y)"
+  end
+
+  return "Ex Destination: Unknown("..value..")"
 end
 
 -- Dissect: Ex Destination
@@ -6279,6 +6420,26 @@ dissect.route_delivery_method = function(buffer, offset, packet, parent)
   local display = display.route_delivery_method(value, buffer, offset, packet, parent)
 
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.route_delivery_method, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Rout Strategy
+size_of.rout_strategy = 6
+
+-- Display: Rout Strategy
+display.rout_strategy = function(value)
+  return "Rout Strategy: "..value
+end
+
+-- Dissect: Rout Strategy
+dissect.rout_strategy = function(buffer, offset, packet, parent)
+  local length = size_of.rout_strategy
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.rout_strategy(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.rout_strategy, range, value, display)
 
   return offset + length, value
 end
@@ -6368,7 +6529,14 @@ size_of.ext_exec_inst = 1
 
 -- Display: Ext Exec Inst
 display.ext_exec_inst = function(value)
-  return "Ext Exec Inst: "..value
+  if value == "N" then
+    return "Ext Exec Inst: None (N)"
+  end
+  if value == "R" then
+    return "Ext Exec Inst: Order Eligible For Retail Rebate (R)"
+  end
+
+  return "Ext Exec Inst: Unknown("..value..")"
 end
 
 -- Dissect: Ext Exec Inst
@@ -6388,7 +6556,17 @@ size_of.attributed_quote = 1
 
 -- Display: Attributed Quote
 display.attributed_quote = function(value)
-  return "Attributed Quote: "..value
+  if value == "N" then
+    return "Attributed Quote: Do Not Attribute Firm Mpid (N)"
+  end
+  if value == "Y" then
+    return "Attributed Quote: Attribute Firm Mpid (Y)"
+  end
+  if value == "R" then
+    return "Attributed Quote: Attribute Rtal (R)"
+  end
+
+  return "Attributed Quote: Unknown("..value..")"
 end
 
 -- Dissect: Attributed Quote
@@ -6488,7 +6666,44 @@ size_of.display_indicator = 1
 
 -- Display: Display Indicator
 display.display_indicator = function(value)
-  return "Display Indicator: "..value
+  if value == "V" then
+    return "Display Indicator: Determined By Port Level Setting (V)"
+  end
+  if value == "P" then
+    return "Display Indicator: Price Adjust (P)"
+  end
+  if value == "m" then
+    return "Display Indicator: Multiple Price Adjust (m)"
+  end
+  if value == "m" then
+    return "Display Indicator: Reject The Order If It Cannot Be Booked And Displayed Without Adjustment (m)"
+  end
+  if value == "R" then
+    return "Display Indicator: Cancel Back The Order If It Cannot Be Booked And Displayed Without Adjustment (R)"
+  end
+  if value == "r" then
+    return "Display Indicator: Hidden Cancel Back The Order If It Cannot Be Booked Without Adjustment (r)"
+  end
+  if value == "S" then
+    return "Display Indicator: Display Price Sliding (S)"
+  end
+  if value == "L" then
+    return "Display Indicator: Display Price Sliding But Reject If Order Crosses The Nbbo On Entry (L)"
+  end
+  if value == "M" then
+    return "Display Indicator: Multiple Display Price Sliding (M)"
+  end
+  if value == "v" then
+    return "Display Indicator: Visible (v)"
+  end
+  if value == "I" then
+    return "Display Indicator: Invisible (I)"
+  end
+  if value == "N" then
+    return "Display Indicator: No Rescrape At Limit (N)"
+  end
+
+  return "Display Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Display Indicator
@@ -6523,26 +6738,6 @@ dissect.account = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Max Remove Pct
-size_of.max_remove_pct = 1
-
--- Display: Max Remove Pct
-display.max_remove_pct = function(value)
-  return "Max Remove Pct: "..value
-end
-
--- Dissect: Max Remove Pct
-dissect.max_remove_pct = function(buffer, offset, packet, parent)
-  local length = size_of.max_remove_pct
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = display.max_remove_pct(value, buffer, offset, packet, parent)
-
-  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.max_remove_pct, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Min Qty
 size_of.min_qty = 4
 
@@ -6568,7 +6763,44 @@ size_of.time_in_force = 1
 
 -- Display: Time In Force
 display.time_in_force = function(value)
-  return "Time In Force: "..value
+  if value == "0" then
+    return "Time In Force: Day (0)"
+  end
+  if value == "1" then
+    return "Time In Force: Gtc (1)"
+  end
+  if value == "2" then
+    return "Time In Force: At The Open (2)"
+  end
+  if value == "3" then
+    return "Time In Force: Ioc (3)"
+  end
+  if value == "4" then
+    return "Time In Force: Fok (4)"
+  end
+  if value == "5" then
+    return "Time In Force: Gtx (5)"
+  end
+  if value == "6" then
+    return "Time In Force: Gtd (6)"
+  end
+  if value == "7" then
+    return "Time In Force: At The Close (7)"
+  end
+  if value == "E" then
+    return "Time In Force: Pre (E)"
+  end
+  if value == "R" then
+    return "Time In Force: Rho (R)"
+  end
+  if value == "T" then
+    return "Time In Force: Ptd (T)"
+  end
+  if value == "X" then
+    return "Time In Force: Ptx (X)"
+  end
+
+  return "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force
@@ -6588,7 +6820,23 @@ size_of.ord_type = 1
 
 -- Display: Ord Type
 display.ord_type = function(value)
-  return "Ord Type: "..value
+  if value == "1" then
+    return "Ord Type: Market (1)"
+  end
+  if value == "2" then
+    return "Ord Type: Limit (2)"
+  end
+  if value == "3" then
+    return "Ord Type: Stop (3)"
+  end
+  if value == "4" then
+    return "Ord Type: Stop Limit (4)"
+  end
+  if value == "P" then
+    return "Ord Type: Pegged (P)"
+  end
+
+  return "Ord Type: Unknown("..value..")"
 end
 
 -- Dissect: Ord Type
@@ -6608,7 +6856,44 @@ size_of.exec_inst = 1
 
 -- Display: Exec Inst
 display.exec_inst = function(value)
-  return "Exec Inst: "..value
+  if value == "f" then
+    return "Exec Inst: Intermarket Sweep (f)"
+  end
+  if value == "P" then
+    return "Exec Inst: Market Peg (P)"
+  end
+  if value == "Q" then
+    return "Exec Inst: Market Marker Peg (Q)"
+  end
+  if value == "Q" then
+    return "Exec Inst: Primary Peg (Q)"
+  end
+  if value == "U" then
+    return "Exec Inst: Supplemental Peg Order (U)"
+  end
+  if value == "M" then
+    return "Exec Inst: Midpoint Peg (M)"
+  end
+  if value == "m" then
+    return "Exec Inst: Midpoint Peg But No Match On Nbbo Lock (m)"
+  end
+  if value == "L" then
+    return "Exec Inst: Alternate Midpoint (L)"
+  end
+  if value == "r" then
+    return "Exec Inst: Late (r)"
+  end
+  if value == "o" then
+    return "Exec Inst: Listing Market Opening (o)"
+  end
+  if value == "c" then
+    return "Exec Inst: Listing Market Close (c)"
+  end
+  if value == "a" then
+    return "Exec Inst: Both Listing Market Open And Close (a)"
+  end
+
+  return "Exec Inst: Unknown("..value..")"
 end
 
 -- Dissect: Exec Inst
@@ -7447,9 +7732,9 @@ display.order_execution_byte_8 = function(buffer, packet, parent)
   if buffer:bitfield(2) > 0 then
     display = display.."Order Execution Route Delivery Method Exists|"
   end
-  -- Is Order Execution Route Strategy Exists flag set?
+  -- Is Order Execution Rout Strategy Exists flag set?
   if buffer:bitfield(3) > 0 then
-    display = display.."Order Execution Route Strategy Exists|"
+    display = display.."Order Execution Rout Strategy Exists|"
   end
   -- Is Order Execution Routing Inst Exists flag set?
   if buffer:bitfield(4) > 0 then
@@ -7483,8 +7768,8 @@ dissect.order_execution_byte_8_bits = function(buffer, offset, packet, parent)
   -- Order Execution Route Delivery Method Exists: 1 Bit
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_execution_route_delivery_method_exists, buffer(offset, 1))
 
-  -- Order Execution Route Strategy Exists: 1 Bit
-  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_execution_route_strategy_exists, buffer(offset, 1))
+  -- Order Execution Rout Strategy Exists: 1 Bit
+  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_execution_rout_strategy_exists, buffer(offset, 1))
 
   -- Order Execution Routing Inst Exists: 1 Bit
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_execution_routing_inst_exists, buffer(offset, 1))
@@ -8030,9 +8315,9 @@ size_of.order_execution_byte_1 = 1
 display.order_execution_byte_1 = function(buffer, packet, parent)
   local display = ""
 
-  -- Is Order Execution Max Remove Pct Exists flag set?
+  -- Is Order Execution Reserved Bit 8 Exists flag set?
   if buffer:bitfield(0) > 0 then
-    display = display.."Order Execution Max Remove Pct Exists|"
+    display = display.."Order Execution Reserved Bit 8 Exists|"
   end
   -- Is Order Execution Min Qty Exists flag set?
   if buffer:bitfield(1) > 0 then
@@ -8069,8 +8354,8 @@ end
 -- Dissect Bit Fields: Order Execution Byte 1
 dissect.order_execution_byte_1_bits = function(buffer, offset, packet, parent)
 
-  -- Order Execution Max Remove Pct Exists: 1 Bit
-  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_execution_max_remove_pct_exists, buffer(offset, 1))
+  -- Order Execution Reserved Bit 8 Exists: 1 Bit
+  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_execution_reserved_bit_8_exists, buffer(offset, 1))
 
   -- Order Execution Min Qty Exists: 1 Bit
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_execution_min_qty_exists, buffer(offset, 1))
@@ -8366,14 +8651,6 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
     index = dissect.min_qty(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Max Remove Pct
-  local max_remove_pct_exists = order_execution_bitfield_count >= 1 and order_execution_byte_1:bitfield(0) > 0
-
-  -- Runtime optional field: Max Remove Pct
-  if max_remove_pct_exists then
-    index = dissect.max_remove_pct(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field exists: Symbol
   local symbol_exists = order_execution_bitfield_count >= 2 and order_execution_byte_2:bitfield(7) > 0
 
@@ -8510,12 +8787,12 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
     index = dissect.routing_inst(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Route Strategy
-  local route_strategy_exists = order_execution_bitfield_count >= 8 and order_execution_byte_8:bitfield(3) > 0
+  -- Runtime optional field exists: Rout Strategy
+  local rout_strategy_exists = order_execution_bitfield_count >= 8 and order_execution_byte_8:bitfield(3) > 0
 
-  -- Runtime optional field: Route Strategy
-  if route_strategy_exists then
-    index = dissect.route_strategy(buffer, index, packet, parent)
+  -- Runtime optional field: Rout Strategy
+  if rout_strategy_exists then
+    index = dissect.rout_strategy(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Route Delivery Method
@@ -8641,7 +8918,7 @@ dissect.order_execution_message_fields = function(buffer, offset, packet, parent
   -- Base Liquidity Indicator: 1 Byte Ascii String Enum with 4 values
   index, base_liquidity_indicator = dissect.base_liquidity_indicator(buffer, index, packet, parent)
 
-  -- Sub Liquidity Indicator: 1 Byte Ascii String Enum with 5 values
+  -- Sub Liquidity Indicator: 1 Byte Ascii String Enum with 12 values
   index, sub_liquidity_indicator = dissect.sub_liquidity_indicator(buffer, index, packet, parent)
 
   -- Contra Broker: 4 Byte Ascii String
@@ -8656,7 +8933,7 @@ dissect.order_execution_message_fields = function(buffer, offset, packet, parent
   -- Runtime Size Of: Order Execution Optional Fields
   local size_of_order_execution_optional_fields = message_length - (index - offset) - 8
 
-  -- Order Execution Optional Fields: Struct of 46 fields
+  -- Order Execution Optional Fields: Struct of 45 fields
   index = dissect.order_execution_optional_fields(buffer, index, packet, parent, size_of_order_execution_optional_fields)
 
   return index
@@ -9467,9 +9744,9 @@ display.cancel_rejected_byte_8 = function(buffer, packet, parent)
   if buffer:bitfield(2) > 0 then
     display = display.."Cancel Rejected Reserved Bit 6 Exists|"
   end
-  -- Is Cancel Rejected Route Strategy Exists flag set?
+  -- Is Cancel Rejected Rout Strategy Exists flag set?
   if buffer:bitfield(3) > 0 then
-    display = display.."Cancel Rejected Route Strategy Exists|"
+    display = display.."Cancel Rejected Rout Strategy Exists|"
   end
   -- Is Cancel Rejected Reserved Bit 4 Exists flag set?
   if buffer:bitfield(4) > 0 then
@@ -9503,8 +9780,8 @@ dissect.cancel_rejected_byte_8_bits = function(buffer, offset, packet, parent)
   -- Cancel Rejected Reserved Bit 6 Exists: 1 Bit
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.cancel_rejected_reserved_bit_6_exists, buffer(offset, 1))
 
-  -- Cancel Rejected Route Strategy Exists: 1 Bit
-  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.cancel_rejected_route_strategy_exists, buffer(offset, 1))
+  -- Cancel Rejected Rout Strategy Exists: 1 Bit
+  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.cancel_rejected_rout_strategy_exists, buffer(offset, 1))
 
   -- Cancel Rejected Reserved Bit 4 Exists: 1 Bit
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.cancel_rejected_reserved_bit_4_exists, buffer(offset, 1))
@@ -10050,9 +10327,9 @@ size_of.cancel_rejected_byte_1 = 1
 display.cancel_rejected_byte_1 = function(buffer, packet, parent)
   local display = ""
 
-  -- Is Cancel Rejected Max Remove Pct Exists flag set?
+  -- Is Cancel Rejected Reserved Bit 8 Exists flag set?
   if buffer:bitfield(0) > 0 then
-    display = display.."Cancel Rejected Max Remove Pct Exists|"
+    display = display.."Cancel Rejected Reserved Bit 8 Exists|"
   end
   -- Is Cancel Rejected Min Qty Exists flag set?
   if buffer:bitfield(1) > 0 then
@@ -10089,8 +10366,8 @@ end
 -- Dissect Bit Fields: Cancel Rejected Byte 1
 dissect.cancel_rejected_byte_1_bits = function(buffer, offset, packet, parent)
 
-  -- Cancel Rejected Max Remove Pct Exists: 1 Bit
-  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.cancel_rejected_max_remove_pct_exists, buffer(offset, 1))
+  -- Cancel Rejected Reserved Bit 8 Exists: 1 Bit
+  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.cancel_rejected_reserved_bit_8_exists, buffer(offset, 1))
 
   -- Cancel Rejected Min Qty Exists: 1 Bit
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.cancel_rejected_min_qty_exists, buffer(offset, 1))
@@ -10386,14 +10663,6 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
     index = dissect.min_qty(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Max Remove Pct
-  local max_remove_pct_exists = cancel_rejected_bitfield_count >= 1 and cancel_rejected_byte_1:bitfield(0) > 0
-
-  -- Runtime optional field: Max Remove Pct
-  if max_remove_pct_exists then
-    index = dissect.max_remove_pct(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field exists: Symbol
   local symbol_exists = cancel_rejected_bitfield_count >= 2 and cancel_rejected_byte_2:bitfield(7) > 0
 
@@ -10434,12 +10703,12 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
     index = dissect.stop_px(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Route Strategy
-  local route_strategy_exists = cancel_rejected_bitfield_count >= 8 and cancel_rejected_byte_8:bitfield(3) > 0
+  -- Runtime optional field exists: Rout Strategy
+  local rout_strategy_exists = cancel_rejected_bitfield_count >= 8 and cancel_rejected_byte_8:bitfield(3) > 0
 
-  -- Runtime optional field: Route Strategy
-  if route_strategy_exists then
-    index = dissect.route_strategy(buffer, index, packet, parent)
+  -- Runtime optional field: Rout Strategy
+  if rout_strategy_exists then
+    index = dissect.rout_strategy(buffer, index, packet, parent)
   end
 
   return index
@@ -10464,7 +10733,104 @@ size_of.cancel_reject_reason = 1
 
 -- Display: Cancel Reject Reason
 display.cancel_reject_reason = function(value)
-  return "Cancel Reject Reason: "..value
+  if value == "A" then
+    return "Cancel Reject Reason: Admin (A)"
+  end
+  if value == "D" then
+    return "Cancel Reject Reason: Duplicate Identifier (D)"
+  end
+  if value == "E" then
+    return "Cancel Reject Reason: Size Reduction Due To Swp Restatement (E)"
+  end
+  if value == "F" then
+    return "Cancel Reject Reason: Failed To Quote (F)"
+  end
+  if value == "H" then
+    return "Cancel Reject Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Cancel Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Cancel Reject Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Cancel Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "L" then
+    return "Cancel Reject Reason: Order Would Lock Or Cross Nbbo (L)"
+  end
+  if value == "M" then
+    return "Cancel Reject Reason: Order Size Exceeded (M)"
+  end
+  if value == "N" then
+    return "Cancel Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Cancel Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Cancel Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "Q" then
+    return "Cancel Reject Reason: Waiting For First Trade (Q)"
+  end
+  if value == "R" then
+    return "Cancel Reject Reason: Routing Unavailable (R)"
+  end
+  if value == "S" then
+    return "Cancel Reject Reason: Short Sale Price Violation (S)"
+  end
+  if value == "T" then
+    return "Cancel Reject Reason: Fill Would Trade Through The Nbbo (T)"
+  end
+  if value == "U" then
+    return "Cancel Reject Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Cancel Reject Reason: Would Wash (V)"
+  end
+  if value == "W" then
+    return "Cancel Reject Reason: Add Liquidity Only Order Would Remove (W)"
+  end
+  if value == "X" then
+    return "Cancel Reject Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Cancel Reject Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Cancel Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "f" then
+    return "Cancel Reject Reason: Risk Management Mpid Or Custom Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Cancel Reject Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "o" then
+    return "Cancel Reject Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "r" then
+    return "Cancel Reject Reason: Reserve Reload (r)"
+  end
+  if value == "s" then
+    return "Cancel Reject Reason: Risk Management Risk Root Level (s)"
+  end
+  if value == "u" then
+    return "Cancel Reject Reason: Limit Up Limit Down (u)"
+  end
+  if value == "w" then
+    return "Cancel Reject Reason: Would Remove On Unslide (w)"
+  end
+  if value == "x" then
+    return "Cancel Reject Reason: Crossed Market (x)"
+  end
+  if value == "y" then
+    return "Cancel Reject Reason: Order Received By Cboe During Replay (y)"
+  end
+
+  return "Cancel Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reject Reason
@@ -10494,7 +10860,7 @@ dissect.cancel_rejected_message_fields = function(buffer, offset, packet, parent
   -- Cl Ord Id: 20 Byte Ascii String
   index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Cancel Reject Reason: 1 Byte Ascii String
+  -- Cancel Reject Reason: 1 Byte Ascii String Enum with 32 values
   index, cancel_reject_reason = dissect.cancel_reject_reason(buffer, index, packet, parent)
 
   -- Text: 60 Byte Ascii String
@@ -10509,7 +10875,7 @@ dissect.cancel_rejected_message_fields = function(buffer, offset, packet, parent
   -- Runtime Size Of: Cancel Rejected Optional Fields
   local size_of_cancel_rejected_optional_fields = message_length - (index - offset) - 8
 
-  -- Cancel Rejected Optional Fields: Struct of 32 fields
+  -- Cancel Rejected Optional Fields: Struct of 31 fields
   index = dissect.cancel_rejected_optional_fields(buffer, index, packet, parent, size_of_cancel_rejected_optional_fields)
 
   return index
@@ -11420,9 +11786,9 @@ display.order_cancelled_byte_8 = function(buffer, packet, parent)
   if buffer:bitfield(2) > 0 then
     display = display.."Order Cancelled Route Delivery Method Exists|"
   end
-  -- Is Order Cancelled Route Strategy Exists flag set?
+  -- Is Order Cancelled Rout Strategy Exists flag set?
   if buffer:bitfield(3) > 0 then
-    display = display.."Order Cancelled Route Strategy Exists|"
+    display = display.."Order Cancelled Rout Strategy Exists|"
   end
   -- Is Order Cancelled Routing Inst Exists flag set?
   if buffer:bitfield(4) > 0 then
@@ -11456,8 +11822,8 @@ dissect.order_cancelled_byte_8_bits = function(buffer, offset, packet, parent)
   -- Order Cancelled Route Delivery Method Exists: 1 Bit
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_cancelled_route_delivery_method_exists, buffer(offset, 1))
 
-  -- Order Cancelled Route Strategy Exists: 1 Bit
-  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_cancelled_route_strategy_exists, buffer(offset, 1))
+  -- Order Cancelled Rout Strategy Exists: 1 Bit
+  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_cancelled_rout_strategy_exists, buffer(offset, 1))
 
   -- Order Cancelled Routing Inst Exists: 1 Bit
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_cancelled_routing_inst_exists, buffer(offset, 1))
@@ -12003,9 +12369,9 @@ size_of.order_cancelled_byte_1 = 1
 display.order_cancelled_byte_1 = function(buffer, packet, parent)
   local display = ""
 
-  -- Is Order Cancelled Max Remove Pct Exists flag set?
+  -- Is Order Cancelled Reserved Bit 8 Exists flag set?
   if buffer:bitfield(0) > 0 then
-    display = display.."Order Cancelled Max Remove Pct Exists|"
+    display = display.."Order Cancelled Reserved Bit 8 Exists|"
   end
   -- Is Order Cancelled Min Qty Exists flag set?
   if buffer:bitfield(1) > 0 then
@@ -12042,8 +12408,8 @@ end
 -- Dissect Bit Fields: Order Cancelled Byte 1
 dissect.order_cancelled_byte_1_bits = function(buffer, offset, packet, parent)
 
-  -- Order Cancelled Max Remove Pct Exists: 1 Bit
-  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_cancelled_max_remove_pct_exists, buffer(offset, 1))
+  -- Order Cancelled Reserved Bit 8 Exists: 1 Bit
+  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_cancelled_reserved_bit_8_exists, buffer(offset, 1))
 
   -- Order Cancelled Min Qty Exists: 1 Bit
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_cancelled_min_qty_exists, buffer(offset, 1))
@@ -12339,14 +12705,6 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
     index = dissect.min_qty(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Max Remove Pct
-  local max_remove_pct_exists = order_cancelled_bitfield_count >= 1 and order_cancelled_byte_1:bitfield(0) > 0
-
-  -- Runtime optional field: Max Remove Pct
-  if max_remove_pct_exists then
-    index = dissect.max_remove_pct(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field exists: Symbol
   local symbol_exists = order_cancelled_bitfield_count >= 2 and order_cancelled_byte_2:bitfield(7) > 0
 
@@ -12547,12 +12905,12 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
     index = dissect.routing_inst(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Route Strategy
-  local route_strategy_exists = order_cancelled_bitfield_count >= 8 and order_cancelled_byte_8:bitfield(3) > 0
+  -- Runtime optional field exists: Rout Strategy
+  local rout_strategy_exists = order_cancelled_bitfield_count >= 8 and order_cancelled_byte_8:bitfield(3) > 0
 
-  -- Runtime optional field: Route Strategy
-  if route_strategy_exists then
-    index = dissect.route_strategy(buffer, index, packet, parent)
+  -- Runtime optional field: Rout Strategy
+  if rout_strategy_exists then
+    index = dissect.rout_strategy(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Route Delivery Method
@@ -12593,7 +12951,104 @@ size_of.cancel_reason = 1
 
 -- Display: Cancel Reason
 display.cancel_reason = function(value)
-  return "Cancel Reason: "..value
+  if value == "A" then
+    return "Cancel Reason: Admin (A)"
+  end
+  if value == "D" then
+    return "Cancel Reason: Duplicate Identifier (D)"
+  end
+  if value == "E" then
+    return "Cancel Reason: Size Reduction Due To Swp Restatement (E)"
+  end
+  if value == "F" then
+    return "Cancel Reason: Failed To Quote (F)"
+  end
+  if value == "H" then
+    return "Cancel Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Cancel Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Cancel Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Cancel Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "L" then
+    return "Cancel Reason: Order Would Lock Or Cross Nbbo (L)"
+  end
+  if value == "M" then
+    return "Cancel Reason: Order Size Exceeded (M)"
+  end
+  if value == "N" then
+    return "Cancel Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Cancel Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Cancel Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "Q" then
+    return "Cancel Reason: Waiting For First Trade (Q)"
+  end
+  if value == "R" then
+    return "Cancel Reason: Routing Unavailable (R)"
+  end
+  if value == "S" then
+    return "Cancel Reason: Short Sale Price Violation (S)"
+  end
+  if value == "T" then
+    return "Cancel Reason: Fill Would Trade Through The Nbbo (T)"
+  end
+  if value == "U" then
+    return "Cancel Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Cancel Reason: Would Wash (V)"
+  end
+  if value == "W" then
+    return "Cancel Reason: Add Liquidity Only Order Would Remove (W)"
+  end
+  if value == "X" then
+    return "Cancel Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Cancel Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Cancel Reason: Unforeseen Reason (Z)"
+  end
+  if value == "f" then
+    return "Cancel Reason: Risk Management Mpid Or Custom Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Cancel Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "o" then
+    return "Cancel Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "r" then
+    return "Cancel Reason: Reserve Reload (r)"
+  end
+  if value == "s" then
+    return "Cancel Reason: Risk Management Risk Root Level (s)"
+  end
+  if value == "u" then
+    return "Cancel Reason: Limit Up Limit Down (u)"
+  end
+  if value == "w" then
+    return "Cancel Reason: Would Remove On Unslide (w)"
+  end
+  if value == "x" then
+    return "Cancel Reason: Crossed Market (x)"
+  end
+  if value == "y" then
+    return "Cancel Reason: Order Received By Cboe During Replay (y)"
+  end
+
+  return "Cancel Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reason
@@ -12643,7 +13098,7 @@ dissect.order_cancelled_message_fields = function(buffer, offset, packet, parent
   -- Cl Ord Id: 20 Byte Ascii String
   index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Cancel Reason: 1 Byte Ascii String
+  -- Cancel Reason: 1 Byte Ascii String Enum with 32 values
   index, cancel_reason = dissect.cancel_reason(buffer, index, packet, parent)
 
   -- Reserved Internal: 1 Byte Ascii String
@@ -12655,7 +13110,7 @@ dissect.order_cancelled_message_fields = function(buffer, offset, packet, parent
   -- Runtime Size Of: Order Cancelled Optional Fields
   local size_of_order_cancelled_optional_fields = message_length - (index - offset) - 8
 
-  -- Order Cancelled Optional Fields: Struct of 54 fields
+  -- Order Cancelled Optional Fields: Struct of 53 fields
   index = dissect.order_cancelled_optional_fields(buffer, index, packet, parent, size_of_order_cancelled_optional_fields)
 
   return index
@@ -14359,7 +14814,104 @@ size_of.modify_reject_reason = 1
 
 -- Display: Modify Reject Reason
 display.modify_reject_reason = function(value)
-  return "Modify Reject Reason: "..value
+  if value == "A" then
+    return "Modify Reject Reason: Admin (A)"
+  end
+  if value == "D" then
+    return "Modify Reject Reason: Duplicate Identifier (D)"
+  end
+  if value == "E" then
+    return "Modify Reject Reason: Size Reduction Due To Swp Restatement (E)"
+  end
+  if value == "F" then
+    return "Modify Reject Reason: Failed To Quote (F)"
+  end
+  if value == "H" then
+    return "Modify Reject Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Modify Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Modify Reject Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Modify Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "L" then
+    return "Modify Reject Reason: Order Would Lock Or Cross Nbbo (L)"
+  end
+  if value == "M" then
+    return "Modify Reject Reason: Order Size Exceeded (M)"
+  end
+  if value == "N" then
+    return "Modify Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Modify Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Modify Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "Q" then
+    return "Modify Reject Reason: Waiting For First Trade (Q)"
+  end
+  if value == "R" then
+    return "Modify Reject Reason: Routing Unavailable (R)"
+  end
+  if value == "S" then
+    return "Modify Reject Reason: Short Sale Price Violation (S)"
+  end
+  if value == "T" then
+    return "Modify Reject Reason: Fill Would Trade Through The Nbbo (T)"
+  end
+  if value == "U" then
+    return "Modify Reject Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Modify Reject Reason: Would Wash (V)"
+  end
+  if value == "W" then
+    return "Modify Reject Reason: Add Liquidity Only Order Would Remove (W)"
+  end
+  if value == "X" then
+    return "Modify Reject Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Modify Reject Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Modify Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "f" then
+    return "Modify Reject Reason: Risk Management Mpid Or Custom Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Modify Reject Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "o" then
+    return "Modify Reject Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "r" then
+    return "Modify Reject Reason: Reserve Reload (r)"
+  end
+  if value == "s" then
+    return "Modify Reject Reason: Risk Management Risk Root Level (s)"
+  end
+  if value == "u" then
+    return "Modify Reject Reason: Limit Up Limit Down (u)"
+  end
+  if value == "w" then
+    return "Modify Reject Reason: Would Remove On Unslide (w)"
+  end
+  if value == "x" then
+    return "Modify Reject Reason: Crossed Market (x)"
+  end
+  if value == "y" then
+    return "Modify Reject Reason: Order Received By Cboe During Replay (y)"
+  end
+
+  return "Modify Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Modify Reject Reason
@@ -14389,7 +14941,7 @@ dissect.user_modify_rejected_message_fields = function(buffer, offset, packet, p
   -- Cl Ord Id: 20 Byte Ascii String
   index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Modify Reject Reason: 1 Byte Ascii String
+  -- Modify Reject Reason: 1 Byte Ascii String Enum with 32 values
   index, modify_reject_reason = dissect.modify_reject_reason(buffer, index, packet, parent)
 
   -- Text: 60 Byte Ascii String
@@ -15215,9 +15767,9 @@ display.order_restated_byte_8 = function(buffer, packet, parent)
   if buffer:bitfield(2) > 0 then
     display = display.."Order Restated Route Delivery Method Exists|"
   end
-  -- Is Order Restated Route Strategy Exists flag set?
+  -- Is Order Restated Rout Strategy Exists flag set?
   if buffer:bitfield(3) > 0 then
-    display = display.."Order Restated Route Strategy Exists|"
+    display = display.."Order Restated Rout Strategy Exists|"
   end
   -- Is Order Restated Routing Inst Exists flag set?
   if buffer:bitfield(4) > 0 then
@@ -15251,8 +15803,8 @@ dissect.order_restated_byte_8_bits = function(buffer, offset, packet, parent)
   -- Order Restated Route Delivery Method Exists: 1 Bit
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_restated_route_delivery_method_exists, buffer(offset, 1))
 
-  -- Order Restated Route Strategy Exists: 1 Bit
-  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_restated_route_strategy_exists, buffer(offset, 1))
+  -- Order Restated Rout Strategy Exists: 1 Bit
+  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_restated_rout_strategy_exists, buffer(offset, 1))
 
   -- Order Restated Routing Inst Exists: 1 Bit
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_restated_routing_inst_exists, buffer(offset, 1))
@@ -15798,9 +16350,9 @@ size_of.order_restated_byte_1 = 1
 display.order_restated_byte_1 = function(buffer, packet, parent)
   local display = ""
 
-  -- Is Order Restated Max Remove Pct Exists flag set?
+  -- Is Order Restated Reserved Bit 8 Exists flag set?
   if buffer:bitfield(0) > 0 then
-    display = display.."Order Restated Max Remove Pct Exists|"
+    display = display.."Order Restated Reserved Bit 8 Exists|"
   end
   -- Is Order Restated Min Qty Exists flag set?
   if buffer:bitfield(1) > 0 then
@@ -15837,8 +16389,8 @@ end
 -- Dissect Bit Fields: Order Restated Byte 1
 dissect.order_restated_byte_1_bits = function(buffer, offset, packet, parent)
 
-  -- Order Restated Max Remove Pct Exists: 1 Bit
-  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_restated_max_remove_pct_exists, buffer(offset, 1))
+  -- Order Restated Reserved Bit 8 Exists: 1 Bit
+  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_restated_reserved_bit_8_exists, buffer(offset, 1))
 
   -- Order Restated Min Qty Exists: 1 Bit
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_restated_min_qty_exists, buffer(offset, 1))
@@ -16134,14 +16686,6 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
     index = dissect.min_qty(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Max Remove Pct
-  local max_remove_pct_exists = order_restated_bitfield_count >= 1 and order_restated_byte_1:bitfield(0) > 0
-
-  -- Runtime optional field: Max Remove Pct
-  if max_remove_pct_exists then
-    index = dissect.max_remove_pct(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field exists: Symbol
   local symbol_exists = order_restated_bitfield_count >= 2 and order_restated_byte_2:bitfield(7) > 0
 
@@ -16342,12 +16886,12 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
     index = dissect.routing_inst(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Route Strategy
-  local route_strategy_exists = order_restated_bitfield_count >= 8 and order_restated_byte_8:bitfield(3) > 0
+  -- Runtime optional field exists: Rout Strategy
+  local rout_strategy_exists = order_restated_bitfield_count >= 8 and order_restated_byte_8:bitfield(3) > 0
 
-  -- Runtime optional field: Route Strategy
-  if route_strategy_exists then
-    index = dissect.route_strategy(buffer, index, packet, parent)
+  -- Runtime optional field: Rout Strategy
+  if rout_strategy_exists then
+    index = dissect.rout_strategy(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Route Delivery Method
@@ -16388,17 +16932,14 @@ size_of.restatement_reason = 1
 
 -- Display: Restatement Reason
 display.restatement_reason = function(value)
-  if value == "E" then
-    return "Restatement Reason: Reduction Of Ord Qty Due To Equity Leg Reject (E)"
-  end
-  if value == "F" then
-    return "Restatement Reason: Represented On Floor (F)"
+  if value == "C" then
+    return "Restatement Reason: Cboe Market Close (C)"
   end
   if value == "L" then
     return "Restatement Reason: Reload (L)"
   end
   if value == "P" then
-    return "Restatement Reason: Price Sliding Reprice (P)"
+    return "Restatement Reason: Peg Or Price Sliding Reprice (P)"
   end
   if value == "Q" then
     return "Restatement Reason: Liquidity Updated (Q)"
@@ -16407,13 +16948,10 @@ display.restatement_reason = function(value)
     return "Restatement Reason: Reroute (R)"
   end
   if value == "S" then
-    return "Restatement Reason: Ship And Post (S)"
+    return "Restatement Reason: Reduction Of Quantity (S)"
   end
   if value == "W" then
     return "Restatement Reason: Wash (W)"
-  end
-  if value == "f" then
-    return "Restatement Reason: Unsolicited Floor Action (f)"
   end
 
   return "Restatement Reason: Unknown("..value..")"
@@ -16449,7 +16987,7 @@ dissect.order_restated_message_fields = function(buffer, offset, packet, parent,
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Restatement Reason: 1 Byte Ascii String Enum with 9 values
+  -- Restatement Reason: 1 Byte Ascii String Enum with 7 values
   index, restatement_reason = dissect.restatement_reason(buffer, index, packet, parent)
 
   -- Reserved Internal: 1 Byte Ascii String
@@ -16461,7 +16999,7 @@ dissect.order_restated_message_fields = function(buffer, offset, packet, parent,
   -- Runtime Size Of: Order Restated Optional Fields
   local size_of_order_restated_optional_fields = message_length - (index - offset) - 8
 
-  -- Order Restated Optional Fields: Struct of 54 fields
+  -- Order Restated Optional Fields: Struct of 53 fields
   index = dissect.order_restated_optional_fields(buffer, index, packet, parent, size_of_order_restated_optional_fields)
 
   return index
@@ -17272,9 +17810,9 @@ display.order_modified_byte_8 = function(buffer, packet, parent)
   if buffer:bitfield(2) > 0 then
     display = display.."Order Modified Route Delivery Method Exists|"
   end
-  -- Is Order Modified Route Strategy Exists flag set?
+  -- Is Order Modified Rout Strategy Exists flag set?
   if buffer:bitfield(3) > 0 then
-    display = display.."Order Modified Route Strategy Exists|"
+    display = display.."Order Modified Rout Strategy Exists|"
   end
   -- Is Order Modified Routing Inst Exists flag set?
   if buffer:bitfield(4) > 0 then
@@ -17308,8 +17846,8 @@ dissect.order_modified_byte_8_bits = function(buffer, offset, packet, parent)
   -- Order Modified Route Delivery Method Exists: 1 Bit
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_modified_route_delivery_method_exists, buffer(offset, 1))
 
-  -- Order Modified Route Strategy Exists: 1 Bit
-  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_modified_route_strategy_exists, buffer(offset, 1))
+  -- Order Modified Rout Strategy Exists: 1 Bit
+  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_modified_rout_strategy_exists, buffer(offset, 1))
 
   -- Order Modified Routing Inst Exists: 1 Bit
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_modified_routing_inst_exists, buffer(offset, 1))
@@ -17855,9 +18393,9 @@ size_of.order_modified_byte_1 = 1
 display.order_modified_byte_1 = function(buffer, packet, parent)
   local display = ""
 
-  -- Is Order Modified Max Remove Pct Exists flag set?
+  -- Is Order Modified Reserved Bit 8 Exists flag set?
   if buffer:bitfield(0) > 0 then
-    display = display.."Order Modified Max Remove Pct Exists|"
+    display = display.."Order Modified Reserved Bit 8 Exists|"
   end
   -- Is Order Modified Min Qty Exists flag set?
   if buffer:bitfield(1) > 0 then
@@ -17894,8 +18432,8 @@ end
 -- Dissect Bit Fields: Order Modified Byte 1
 dissect.order_modified_byte_1_bits = function(buffer, offset, packet, parent)
 
-  -- Order Modified Max Remove Pct Exists: 1 Bit
-  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_modified_max_remove_pct_exists, buffer(offset, 1))
+  -- Order Modified Reserved Bit 8 Exists: 1 Bit
+  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_modified_reserved_bit_8_exists, buffer(offset, 1))
 
   -- Order Modified Min Qty Exists: 1 Bit
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_modified_min_qty_exists, buffer(offset, 1))
@@ -18191,14 +18729,6 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
     index = dissect.min_qty(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Max Remove Pct
-  local max_remove_pct_exists = order_modified_bitfield_count >= 1 and order_modified_byte_1:bitfield(0) > 0
-
-  -- Runtime optional field: Max Remove Pct
-  if max_remove_pct_exists then
-    index = dissect.max_remove_pct(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field exists: Symbol
   local symbol_exists = order_modified_bitfield_count >= 2 and order_modified_byte_2:bitfield(7) > 0
 
@@ -18391,12 +18921,12 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
     index = dissect.routing_inst(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Route Strategy
-  local route_strategy_exists = order_modified_bitfield_count >= 8 and order_modified_byte_8:bitfield(3) > 0
+  -- Runtime optional field exists: Rout Strategy
+  local rout_strategy_exists = order_modified_bitfield_count >= 8 and order_modified_byte_8:bitfield(3) > 0
 
-  -- Runtime optional field: Route Strategy
-  if route_strategy_exists then
-    index = dissect.route_strategy(buffer, index, packet, parent)
+  -- Runtime optional field: Rout Strategy
+  if rout_strategy_exists then
+    index = dissect.rout_strategy(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Route Delivery Method
@@ -18459,7 +18989,7 @@ dissect.order_modified_message_fields = function(buffer, offset, packet, parent,
   -- Runtime Size Of: Order Modified Optional Fields
   local size_of_order_modified_optional_fields = message_length - (index - offset) - 8
 
-  -- Order Modified Optional Fields: Struct of 53 fields
+  -- Order Modified Optional Fields: Struct of 52 fields
   index = dissect.order_modified_optional_fields(buffer, index, packet, parent, size_of_order_modified_optional_fields)
 
   return index
@@ -19270,9 +19800,9 @@ display.order_rejected_byte_8 = function(buffer, packet, parent)
   if buffer:bitfield(2) > 0 then
     display = display.."Order Rejected Route Delivery Method Exists|"
   end
-  -- Is Order Rejected Route Strategy Exists flag set?
+  -- Is Order Rejected Rout Strategy Exists flag set?
   if buffer:bitfield(3) > 0 then
-    display = display.."Order Rejected Route Strategy Exists|"
+    display = display.."Order Rejected Rout Strategy Exists|"
   end
   -- Is Order Rejected Routing Inst Exists flag set?
   if buffer:bitfield(4) > 0 then
@@ -19306,8 +19836,8 @@ dissect.order_rejected_byte_8_bits = function(buffer, offset, packet, parent)
   -- Order Rejected Route Delivery Method Exists: 1 Bit
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_rejected_route_delivery_method_exists, buffer(offset, 1))
 
-  -- Order Rejected Route Strategy Exists: 1 Bit
-  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_rejected_route_strategy_exists, buffer(offset, 1))
+  -- Order Rejected Rout Strategy Exists: 1 Bit
+  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_rejected_rout_strategy_exists, buffer(offset, 1))
 
   -- Order Rejected Routing Inst Exists: 1 Bit
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_rejected_routing_inst_exists, buffer(offset, 1))
@@ -19853,9 +20383,9 @@ size_of.order_rejected_byte_1 = 1
 display.order_rejected_byte_1 = function(buffer, packet, parent)
   local display = ""
 
-  -- Is Order Rejected Max Remove Pct Exists flag set?
+  -- Is Order Rejected Reserved Bit 8 Exists flag set?
   if buffer:bitfield(0) > 0 then
-    display = display.."Order Rejected Max Remove Pct Exists|"
+    display = display.."Order Rejected Reserved Bit 8 Exists|"
   end
   -- Is Order Rejected Min Qty Exists flag set?
   if buffer:bitfield(1) > 0 then
@@ -19892,8 +20422,8 @@ end
 -- Dissect Bit Fields: Order Rejected Byte 1
 dissect.order_rejected_byte_1_bits = function(buffer, offset, packet, parent)
 
-  -- Order Rejected Max Remove Pct Exists: 1 Bit
-  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_rejected_max_remove_pct_exists, buffer(offset, 1))
+  -- Order Rejected Reserved Bit 8 Exists: 1 Bit
+  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_rejected_reserved_bit_8_exists, buffer(offset, 1))
 
   -- Order Rejected Min Qty Exists: 1 Bit
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_rejected_min_qty_exists, buffer(offset, 1))
@@ -20189,14 +20719,6 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
     index = dissect.min_qty(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Max Remove Pct
-  local max_remove_pct_exists = order_rejected_bitfield_count >= 1 and order_rejected_byte_1:bitfield(0) > 0
-
-  -- Runtime optional field: Max Remove Pct
-  if max_remove_pct_exists then
-    index = dissect.max_remove_pct(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field exists: Symbol
   local symbol_exists = order_rejected_bitfield_count >= 2 and order_rejected_byte_2:bitfield(7) > 0
 
@@ -20333,12 +20855,12 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
     index = dissect.routing_inst(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Route Strategy
-  local route_strategy_exists = order_rejected_bitfield_count >= 8 and order_rejected_byte_8:bitfield(3) > 0
+  -- Runtime optional field exists: Rout Strategy
+  local rout_strategy_exists = order_rejected_bitfield_count >= 8 and order_rejected_byte_8:bitfield(3) > 0
 
-  -- Runtime optional field: Route Strategy
-  if route_strategy_exists then
-    index = dissect.route_strategy(buffer, index, packet, parent)
+  -- Runtime optional field: Rout Strategy
+  if rout_strategy_exists then
+    index = dissect.rout_strategy(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Route Delivery Method
@@ -20379,7 +20901,104 @@ size_of.order_reject_reason = 1
 
 -- Display: Order Reject Reason
 display.order_reject_reason = function(value)
-  return "Order Reject Reason: "..value
+  if value == "A" then
+    return "Order Reject Reason: Admin (A)"
+  end
+  if value == "D" then
+    return "Order Reject Reason: Duplicate Identifier (D)"
+  end
+  if value == "E" then
+    return "Order Reject Reason: Size Reduction Due To Swp Restatement (E)"
+  end
+  if value == "F" then
+    return "Order Reject Reason: Failed To Quote (F)"
+  end
+  if value == "H" then
+    return "Order Reject Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Order Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Order Reject Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Order Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "L" then
+    return "Order Reject Reason: Order Would Lock Or Cross Nbbo (L)"
+  end
+  if value == "M" then
+    return "Order Reject Reason: Order Size Exceeded (M)"
+  end
+  if value == "N" then
+    return "Order Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Order Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Order Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "Q" then
+    return "Order Reject Reason: Waiting For First Trade (Q)"
+  end
+  if value == "R" then
+    return "Order Reject Reason: Routing Unavailable (R)"
+  end
+  if value == "S" then
+    return "Order Reject Reason: Short Sale Price Violation (S)"
+  end
+  if value == "T" then
+    return "Order Reject Reason: Fill Would Trade Through The Nbbo (T)"
+  end
+  if value == "U" then
+    return "Order Reject Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Order Reject Reason: Would Wash (V)"
+  end
+  if value == "W" then
+    return "Order Reject Reason: Add Liquidity Only Order Would Remove (W)"
+  end
+  if value == "X" then
+    return "Order Reject Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Order Reject Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Order Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "f" then
+    return "Order Reject Reason: Risk Management Mpid Or Custom Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Order Reject Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "o" then
+    return "Order Reject Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "r" then
+    return "Order Reject Reason: Reserve Reload (r)"
+  end
+  if value == "s" then
+    return "Order Reject Reason: Risk Management Risk Root Level (s)"
+  end
+  if value == "u" then
+    return "Order Reject Reason: Limit Up Limit Down (u)"
+  end
+  if value == "w" then
+    return "Order Reject Reason: Would Remove On Unslide (w)"
+  end
+  if value == "x" then
+    return "Order Reject Reason: Crossed Market (x)"
+  end
+  if value == "y" then
+    return "Order Reject Reason: Order Received By Cboe During Replay (y)"
+  end
+
+  return "Order Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Order Reject Reason
@@ -20409,7 +21028,7 @@ dissect.order_rejected_message_fields = function(buffer, offset, packet, parent,
   -- Cl Ord Id: 20 Byte Ascii String
   index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Order Reject Reason: 1 Byte Ascii String
+  -- Order Reject Reason: 1 Byte Ascii String Enum with 32 values
   index, order_reject_reason = dissect.order_reject_reason(buffer, index, packet, parent)
 
   -- Text: 60 Byte Ascii String
@@ -20424,7 +21043,7 @@ dissect.order_rejected_message_fields = function(buffer, offset, packet, parent,
   -- Runtime Size Of: Order Rejected Optional Fields
   local size_of_order_rejected_optional_fields = message_length - (index - offset) - 8
 
-  -- Order Rejected Optional Fields: Struct of 46 fields
+  -- Order Rejected Optional Fields: Struct of 45 fields
   index = dissect.order_rejected_optional_fields(buffer, index, packet, parent, size_of_order_rejected_optional_fields)
 
   return index
@@ -21235,9 +21854,9 @@ display.order_acknowledgment_byte_8 = function(buffer, packet, parent)
   if buffer:bitfield(2) > 0 then
     display = display.."Order Acknowledgment Route Delivery Method Exists|"
   end
-  -- Is Order Acknowledgment Route Strategy Exists flag set?
+  -- Is Order Acknowledgment Rout Strategy Exists flag set?
   if buffer:bitfield(3) > 0 then
-    display = display.."Order Acknowledgment Route Strategy Exists|"
+    display = display.."Order Acknowledgment Rout Strategy Exists|"
   end
   -- Is Order Acknowledgment Routing Inst Exists flag set?
   if buffer:bitfield(4) > 0 then
@@ -21271,8 +21890,8 @@ dissect.order_acknowledgment_byte_8_bits = function(buffer, offset, packet, pare
   -- Order Acknowledgment Route Delivery Method Exists: 1 Bit
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_acknowledgment_route_delivery_method_exists, buffer(offset, 1))
 
-  -- Order Acknowledgment Route Strategy Exists: 1 Bit
-  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_acknowledgment_route_strategy_exists, buffer(offset, 1))
+  -- Order Acknowledgment Rout Strategy Exists: 1 Bit
+  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_acknowledgment_rout_strategy_exists, buffer(offset, 1))
 
   -- Order Acknowledgment Routing Inst Exists: 1 Bit
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_acknowledgment_routing_inst_exists, buffer(offset, 1))
@@ -21818,9 +22437,9 @@ size_of.order_acknowledgment_byte_1 = 1
 display.order_acknowledgment_byte_1 = function(buffer, packet, parent)
   local display = ""
 
-  -- Is Order Acknowledgment Max Remove Pct Exists flag set?
+  -- Is Order Acknowledgment Reserved Bit 8 Exists flag set?
   if buffer:bitfield(0) > 0 then
-    display = display.."Order Acknowledgment Max Remove Pct Exists|"
+    display = display.."Order Acknowledgment Reserved Bit 8 Exists|"
   end
   -- Is Order Acknowledgment Min Qty Exists flag set?
   if buffer:bitfield(1) > 0 then
@@ -21857,8 +22476,8 @@ end
 -- Dissect Bit Fields: Order Acknowledgment Byte 1
 dissect.order_acknowledgment_byte_1_bits = function(buffer, offset, packet, parent)
 
-  -- Order Acknowledgment Max Remove Pct Exists: 1 Bit
-  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_acknowledgment_max_remove_pct_exists, buffer(offset, 1))
+  -- Order Acknowledgment Reserved Bit 8 Exists: 1 Bit
+  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_acknowledgment_reserved_bit_8_exists, buffer(offset, 1))
 
   -- Order Acknowledgment Min Qty Exists: 1 Bit
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.order_acknowledgment_min_qty_exists, buffer(offset, 1))
@@ -22154,14 +22773,6 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
     index = dissect.min_qty(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Max Remove Pct
-  local max_remove_pct_exists = order_acknowledgment_bitfield_count >= 1 and order_acknowledgment_byte_1:bitfield(0) > 0
-
-  -- Runtime optional field: Max Remove Pct
-  if max_remove_pct_exists then
-    index = dissect.max_remove_pct(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field exists: Symbol
   local symbol_exists = order_acknowledgment_bitfield_count >= 2 and order_acknowledgment_byte_2:bitfield(7) > 0
 
@@ -22370,12 +22981,12 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
     index = dissect.routing_inst(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Route Strategy
-  local route_strategy_exists = order_acknowledgment_bitfield_count >= 8 and order_acknowledgment_byte_8:bitfield(3) > 0
+  -- Runtime optional field exists: Rout Strategy
+  local rout_strategy_exists = order_acknowledgment_bitfield_count >= 8 and order_acknowledgment_byte_8:bitfield(3) > 0
 
-  -- Runtime optional field: Route Strategy
-  if route_strategy_exists then
-    index = dissect.route_strategy(buffer, index, packet, parent)
+  -- Runtime optional field: Rout Strategy
+  if rout_strategy_exists then
+    index = dissect.rout_strategy(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Route Delivery Method
@@ -22438,7 +23049,7 @@ dissect.order_acknowledgment_message_fields = function(buffer, offset, packet, p
   -- Runtime Size Of: Order Acknowledgment Optional Fields
   local size_of_order_acknowledgment_optional_fields = message_length - (index - offset) - 8
 
-  -- Order Acknowledgment Optional Fields: Struct of 55 fields
+  -- Order Acknowledgment Optional Fields: Struct of 54 fields
   index = dissect.order_acknowledgment_optional_fields(buffer, index, packet, parent, size_of_order_acknowledgment_optional_fields)
 
   return index
@@ -23664,9 +24275,9 @@ display.new_order_byte_6 = function(buffer, packet, parent)
   if buffer:bitfield(4) > 0 then
     display = display.."New Order Route Delivery Method Exists|"
   end
-  -- Is New Order Route Strategy Exists flag set?
+  -- Is New Order Rout Strategy Exists flag set?
   if buffer:bitfield(5) > 0 then
-    display = display.."New Order Route Strategy Exists|"
+    display = display.."New Order Rout Strategy Exists|"
   end
   -- Is New Order Stop Px Exists flag set?
   if buffer:bitfield(6) > 0 then
@@ -23698,8 +24309,8 @@ dissect.new_order_byte_6_bits = function(buffer, offset, packet, parent)
   -- New Order Route Delivery Method Exists: 1 Bit
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_route_delivery_method_exists, buffer(offset, 1))
 
-  -- New Order Route Strategy Exists: 1 Bit
-  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_route_strategy_exists, buffer(offset, 1))
+  -- New Order Rout Strategy Exists: 1 Bit
+  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_rout_strategy_exists, buffer(offset, 1))
 
   -- New Order Stop Px Exists: 1 Bit
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_stop_px_exists, buffer(offset, 1))
@@ -23919,9 +24530,9 @@ display.new_order_byte_3 = function(buffer, packet, parent)
   if buffer:bitfield(4) > 0 then
     display = display.."New Order Discretion Amount Exists|"
   end
-  -- Is New Order Max Remove Pct Exists flag set?
+  -- Is New Order Reserved Bit 3 Exists flag set?
   if buffer:bitfield(5) > 0 then
-    display = display.."New Order Max Remove Pct Exists|"
+    display = display.."New Order Reserved Bit 3 Exists|"
   end
   -- Is New Order Display Indicator Exists flag set?
   if buffer:bitfield(6) > 0 then
@@ -23953,8 +24564,8 @@ dissect.new_order_byte_3_bits = function(buffer, offset, packet, parent)
   -- New Order Discretion Amount Exists: 1 Bit
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_discretion_amount_exists, buffer(offset, 1))
 
-  -- New Order Max Remove Pct Exists: 1 Bit
-  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_max_remove_pct_exists, buffer(offset, 1))
+  -- New Order Reserved Bit 3 Exists: 1 Bit
+  parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_reserved_bit_3_exists, buffer(offset, 1))
 
   -- New Order Display Indicator Exists: 1 Bit
   parent:add(cboe_equities_bzx_orderentry_boe_v2_3.fields.new_order_display_indicator_exists, buffer(offset, 1))
@@ -24361,14 +24972,6 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
     index = dissect.display_indicator(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Max Remove Pct
-  local max_remove_pct_exists = new_order_bitfield_count >= 3 and new_order_byte_3:bitfield(5) > 0
-
-  -- Runtime optional field: Max Remove Pct
-  if max_remove_pct_exists then
-    index = dissect.max_remove_pct(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field exists: Discretion Amount
   local discretion_amount_exists = new_order_bitfield_count >= 3 and new_order_byte_3:bitfield(4) > 0
 
@@ -24449,12 +25052,12 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
     index = dissect.stop_px(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Route Strategy
-  local route_strategy_exists = new_order_bitfield_count >= 6 and new_order_byte_6:bitfield(5) > 0
+  -- Runtime optional field exists: Rout Strategy
+  local rout_strategy_exists = new_order_bitfield_count >= 6 and new_order_byte_6:bitfield(5) > 0
 
-  -- Runtime optional field: Route Strategy
-  if route_strategy_exists then
-    index = dissect.route_strategy(buffer, index, packet, parent)
+  -- Runtime optional field: Rout Strategy
+  if rout_strategy_exists then
+    index = dissect.rout_strategy(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Route Delivery Method
@@ -24518,7 +25121,7 @@ dissect.new_order_message_fields = function(buffer, offset, packet, parent, size
   -- Cl Ord Id: 20 Byte Ascii String
   index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 5 values
+  -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = dissect.side(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer
@@ -24530,7 +25133,7 @@ dissect.new_order_message_fields = function(buffer, offset, packet, parent, size
   -- Runtime Size Of: New Order Optional Fields
   local size_of_new_order_optional_fields = message_length - (index - offset) - 8
 
-  -- New Order Optional Fields: Struct of 38 fields
+  -- New Order Optional Fields: Struct of 37 fields
   index = dissect.new_order_optional_fields(buffer, index, packet, parent, size_of_new_order_optional_fields)
 
   return index
