@@ -2988,7 +2988,7 @@ display.packet_type = function(value)
     return "Packet Type: Server Heartbeat Packet (H)"
   end
   if value == "Z" then
-    return "Packet Type: End of Session Packet (Z)"
+    return "Packet Type: End Of Session Packet (Z)"
   end
   if value == "L" then
     return "Packet Type: Login Request Packet (L)"

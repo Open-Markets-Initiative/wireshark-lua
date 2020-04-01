@@ -56,7 +56,7 @@ eurex_derivatives_eobi_t7_v7_0.fields.leg_security_id = ProtoField.new("Leg Secu
 eurex_derivatives_eobi_t7_v7_0.fields.leg_side = ProtoField.new("Leg Side", "eurex.derivatives.eobi.t7.v7.0.legside", ftypes.UINT8)
 eurex_derivatives_eobi_t7_v7_0.fields.leg_symbol = ProtoField.new("Leg Symbol", "eurex.derivatives.eobi.t7.v7.0.legsymbol", ftypes.INT32)
 eurex_derivatives_eobi_t7_v7_0.fields.market_condition = ProtoField.new("Market Condition", "eurex.derivatives.eobi.t7.v7.0.marketcondition", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v7_0.fields.market_segment_id = ProtoField.new("Market Segment ID", "eurex.derivatives.eobi.t7.v7.0.marketsegmentid", ftypes.INT32)
+eurex_derivatives_eobi_t7_v7_0.fields.market_segment_id = ProtoField.new("Market Segment Id", "eurex.derivatives.eobi.t7.v7.0.marketsegmentid", ftypes.INT32)
 eurex_derivatives_eobi_t7_v7_0.fields.match_sub_type = ProtoField.new("Match Sub Type", "eurex.derivatives.eobi.t7.v7.0.matchsubtype", ftypes.UINT8)
 eurex_derivatives_eobi_t7_v7_0.fields.match_type = ProtoField.new("Match Type", "eurex.derivatives.eobi.t7.v7.0.matchtype", ftypes.UINT8)
 eurex_derivatives_eobi_t7_v7_0.fields.md_entry_px = ProtoField.new("Md Entry Px", "eurex.derivatives.eobi.t7.v7.0.mdentrypx", ftypes.UINT64)
@@ -90,9 +90,8 @@ eurex_derivatives_eobi_t7_v7_0.fields.pad_4 = ProtoField.new("Pad 4", "eurex.der
 eurex_derivatives_eobi_t7_v7_0.fields.pad_5 = ProtoField.new("Pad 5", "eurex.derivatives.eobi.t7.v7.0.pad5", ftypes.BYTES)
 eurex_derivatives_eobi_t7_v7_0.fields.pad_6 = ProtoField.new("Pad 6", "eurex.derivatives.eobi.t7.v7.0.pad6", ftypes.BYTES)
 eurex_derivatives_eobi_t7_v7_0.fields.pad_7 = ProtoField.new("Pad 7", "eurex.derivatives.eobi.t7.v7.0.pad7", ftypes.BYTES)
-eurex_derivatives_eobi_t7_v7_0.fields.pad5 = ProtoField.new("Pad5", "eurex.derivatives.eobi.t7.v7.0.pad5", ftypes.BYTES)
 eurex_derivatives_eobi_t7_v7_0.fields.partial_order_execution = ProtoField.new("Partial Order Execution", "eurex.derivatives.eobi.t7.v7.0.partialorderexecution", ftypes.STRING)
-eurex_derivatives_eobi_t7_v7_0.fields.partition_id = ProtoField.new("Partition ID", "eurex.derivatives.eobi.t7.v7.0.partitionid", ftypes.UINT8)
+eurex_derivatives_eobi_t7_v7_0.fields.partition_id = ProtoField.new("Partition Id", "eurex.derivatives.eobi.t7.v7.0.partitionid", ftypes.UINT8)
 eurex_derivatives_eobi_t7_v7_0.fields.payload = ProtoField.new("Payload", "eurex.derivatives.eobi.t7.v7.0.payload", ftypes.STRING)
 eurex_derivatives_eobi_t7_v7_0.fields.potential_security_trading_event = ProtoField.new("Potential Security Trading Event", "eurex.derivatives.eobi.t7.v7.0.potentialsecuritytradingevent", ftypes.UINT8)
 eurex_derivatives_eobi_t7_v7_0.fields.prev_display_qty = ProtoField.new("Prev Display Qty", "eurex.derivatives.eobi.t7.v7.0.prevdisplayqty", ftypes.UINT64)
@@ -4018,26 +4017,6 @@ dissect.message = function(buffer, offset, packet, parent, size_of_message)
   return offset + size_of_message
 end
 
--- Size: Pad5
-size_of.pad5 = 5
-
--- Display: Pad5
-display.pad5 = function(value)
-  return "Pad5: "..value
-end
-
--- Dissect: Pad5
-dissect.pad5 = function(buffer, offset, packet, parent)
-  local length = size_of.pad5
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = display.pad5(value, buffer, offset, packet, parent)
-
-  parent:add(eurex_derivatives_eobi_t7_v7_0.fields.pad5, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Application Sequence Reset Indicator
 size_of.application_sequence_reset_indicator = 1
 
@@ -4092,15 +4071,15 @@ dissect.completion_indicator = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Partition ID
+-- Size: Partition Id
 size_of.partition_id = 1
 
--- Display: Partition ID
+-- Display: Partition Id
 display.partition_id = function(value)
-  return "Partition ID: "..value
+  return "Partition Id: "..value
 end
 
--- Dissect: Partition ID
+-- Dissect: Partition Id
 dissect.partition_id = function(buffer, offset, packet, parent)
   local length = size_of.partition_id
   local range = buffer(offset, length)
@@ -4112,15 +4091,15 @@ dissect.partition_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Market Segment ID
+-- Size: Market Segment Id
 size_of.market_segment_id = 4
 
--- Display: Market Segment ID
+-- Display: Market Segment Id
 display.market_segment_id = function(value)
-  return "Market Segment ID: "..value
+  return "Market Segment Id: "..value
 end
 
--- Dissect: Market Segment ID
+-- Dissect: Market Segment Id
 dissect.market_segment_id = function(buffer, offset, packet, parent)
   local length = size_of.market_segment_id
   local range = buffer(offset, length)
@@ -4275,7 +4254,7 @@ size_of.packet_header = function(buffer, offset)
 
   index = index + size_of.application_sequence_reset_indicator
 
-  index = index + size_of.pad5
+  index = index + size_of.pad_5
 
   index = index + size_of.transact_time
 
@@ -4297,10 +4276,10 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   -- Application Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, application_sequence_number = dissect.application_sequence_number(buffer, index, packet, parent)
 
-  -- Market Segment ID: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
   index, market_segment_id = dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Partition ID: 1 Byte Unsigned Fixed Width Integer
+  -- Partition Id: 1 Byte Unsigned Fixed Width Integer
   index, partition_id = dissect.partition_id(buffer, index, packet, parent)
 
   -- Completion Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -4309,8 +4288,8 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   -- Application Sequence Reset Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, application_sequence_reset_indicator = dissect.application_sequence_reset_indicator(buffer, index, packet, parent)
 
-  -- Pad5: 5 Byte
-  index, pad5 = dissect.pad5(buffer, index, packet, parent)
+  -- Pad 5: 5 Byte
+  index, pad_5 = dissect.pad_5(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = dissect.transact_time(buffer, index, packet, parent)
