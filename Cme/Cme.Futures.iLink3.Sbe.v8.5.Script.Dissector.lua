@@ -148,6 +148,7 @@ cme_futures_ilink3_sbe_v8_5.fields.new_order_single_514 = ProtoField.new("New Or
 cme_futures_ilink3_sbe_v8_5.fields.next_seq_no = ProtoField.new("Next Seq No", "cme.futures.ilink3.sbe.v8.5.nextseqno", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_5.fields.nh = ProtoField.new("Nh", "cme.futures.ilink3.sbe.v8.5.nh", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
 cme_futures_ilink3_sbe_v8_5.fields.no_processed_entries = ProtoField.new("No Processed Entries", "cme.futures.ilink3.sbe.v8.5.noprocessedentries", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_5.fields.no_processed_entries_563 = ProtoField.new("No Processed Entries - Quote Cancel Ack 563", "cme.futures.ilink3.sbe.v8.5.noprocessedentries563", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_5.fields.not_applied_513 = ProtoField.new("Not Applied 513", "cme.futures.ilink3.sbe.v8.5.notapplied513", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.num_in_group = ProtoField.new("Num In Group", "cme.futures.ilink3.sbe.v8.5.numingroup", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_5.fields.ob = ProtoField.new("Ob", "cme.futures.ilink3.sbe.v8.5.ob", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
@@ -211,17 +212,23 @@ cme_futures_ilink3_sbe_v8_5.fields.quote_cancel_ack_563 = ProtoField.new("Quote 
 cme_futures_ilink3_sbe_v8_5.fields.quote_cancel_type = ProtoField.new("Quote Cancel Type", "cme.futures.ilink3.sbe.v8.5.quotecanceltype", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_5.fields.quote_entries_group = ProtoField.new("Quote Entries Group", "cme.futures.ilink3.sbe.v8.5.quoteentriesgroup", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.quote_entries_group_528 = ProtoField.new("Quote Entries Group - Quote Cancel 528", "cme.futures.ilink3.sbe.v8.5.quoteentriesgroup528", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.quote_entries_group_563 = ProtoField.new("Quote Entries Group - Quote Cancel Ack 563", "cme.futures.ilink3.sbe.v8.5.quoteentriesgroup563", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.quote_entries_groups = ProtoField.new("Quote Entries Groups", "cme.futures.ilink3.sbe.v8.5.quoteentriesgroups", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.quote_entries_groups_528 = ProtoField.new("Quote Entries Groups - Quote Cancel 528", "cme.futures.ilink3.sbe.v8.5.quoteentriesgroups528", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.quote_entries_groups_563 = ProtoField.new("Quote Entries Groups - Quote Cancel Ack 563", "cme.futures.ilink3.sbe.v8.5.quoteentriesgroups563", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.quote_entry_id = ProtoField.new("Quote Entry Id", "cme.futures.ilink3.sbe.v8.5.quoteentryid", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_5.fields.quote_id = ProtoField.new("Quote Id", "cme.futures.ilink3.sbe.v8.5.quoteid", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_5.fields.quote_reject_reason = ProtoField.new("Quote Reject Reason", "cme.futures.ilink3.sbe.v8.5.quoterejectreason", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_5.fields.quote_req_id = ProtoField.new("Quote Req Id", "cme.futures.ilink3.sbe.v8.5.quotereqid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_5.fields.quote_set_id = ProtoField.new("Quote Set Id", "cme.futures.ilink3.sbe.v8.5.quotesetid", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_5.fields.quote_error_code = ProtoField.new("Quote Error Code", "cme.futures.ilink3.sbe.v8.5.quoteerrorcode", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_5.fields.quote_entry_reject_reason = ProtoField.new("Quote Entry Reject Reason", "cme.futures.ilink3.sbe.v8.5.quoteentryrejectreason", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_5.fields.quote_sets_group = ProtoField.new("Quote Sets Group", "cme.futures.ilink3.sbe.v8.5.quotesetsgroup", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.quote_sets_group_528 = ProtoField.new("Quote Sets Group - Quote Cancel 528", "cme.futures.ilink3.sbe.v8.5.quotesetsgroup528", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.quote_sets_group_563 = ProtoField.new("Quote Sets Group - Quote Cancel Ack 563", "cme.futures.ilink3.sbe.v8.5.quotesetsgroup563", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.quote_sets_groups = ProtoField.new("Quote Sets Groups", "cme.futures.ilink3.sbe.v8.5.quotesetsgroups", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.quote_sets_groups_528 = ProtoField.new("Quote Sets Groups - Quote Cancel 528", "cme.futures.ilink3.sbe.v8.5.quotesetsgroups528", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.quote_sets_groups_563 = ProtoField.new("Quote Sets Groups - Quote Cancel Ack 563", "cme.futures.ilink3.sbe.v8.5.quotesetsgroups563", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.quote_status = ProtoField.new("Quote Status", "cme.futures.ilink3.sbe.v8.5.quotestatus", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_5.fields.quote_type = ProtoField.new("Quote Type", "cme.futures.ilink3.sbe.v8.5.quotetype", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_5.fields.reason = ProtoField.new("Reason", "cme.futures.ilink3.sbe.v8.5.reason", ftypes.STRING)
@@ -377,12 +384,16 @@ show.quote_cancel_528 = true
 show.quote_cancel_ack_563 = true
 show.quote_entries_group = true
 show.quote_entries_group_528 = true
+show.quote_entries_group_563 = true
 show.quote_entries_groups = true
 show.quote_entries_groups_528 = true
+show.quote_entries_groups_563 = true
 show.quote_sets_group = true
 show.quote_sets_group_528 = true
+show.quote_sets_group_563 = true
 show.quote_sets_groups = true
 show.quote_sets_groups_528 = true
+show.quote_sets_groups_563 = true
 show.related_sym_group = true
 show.related_sym_groups = true
 show.request_for_quote_543 = true
@@ -464,12 +475,16 @@ cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_528 = Pref.bool("Show Quote 
 cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_ack_563 = Pref.bool("Show Quote Cancel Ack 563", show.quote_cancel_ack_563, "Parse and add Quote Cancel Ack 563 to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_group = Pref.bool("Show Quote Entries Group", show.quote_entries_group, "Parse and add Quote Entries Group to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_group_528 = Pref.bool("Show Quote Entries Group - Quote Cancel 528", show.quote_entries_group_528, "Parse and add Quote Entries Group to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_group_563 = Pref.bool("Show Quote Entries Group - Quote Cancel Ack 563", show.quote_entries_group_563, "Parse and add Quote Entries Group to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_groups = Pref.bool("Show Quote Entries Groups", show.quote_entries_groups, "Parse and add Quote Entries Groups to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_groups_528 = Pref.bool("Show Quote Entries Groups - Quote Cancel 528", show.quote_entries_groups_528, "Parse and add Quote Entries Groups to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_groups_563 = Pref.bool("Show Quote Entries Groups - Quote Cancel Ack 563", show.quote_entries_groups_563, "Parse and add Quote Entries Groups to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_group = Pref.bool("Show Quote Sets Group", show.quote_sets_group, "Parse and add Quote Sets Group to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_group_528 = Pref.bool("Show Quote Sets Group - Quote Cancel 528", show.quote_sets_group_528, "Parse and add Quote Sets Group to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_group_563 = Pref.bool("Show Quote Sets Group - Quote Cancel Ack 563", show.quote_sets_group_563, "Parse and add Quote Sets Group to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_groups = Pref.bool("Show Quote Sets Groups", show.quote_sets_groups, "Parse and add Quote Sets Groups to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_groups_528 = Pref.bool("Show Quote Sets Groups - Quote Cancel 528", show.quote_sets_groups_528, "Parse and add Quote Sets Groups to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_groups_563 = Pref.bool("Show Quote Sets Group - Quote Cancel Ack 563", show.quote_sets_groups_563, "Parse and add Quote Sets Groups to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_related_sym_group = Pref.bool("Show Related Sym Group", show.related_sym_group, "Parse and add Related Sym Group to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_related_sym_groups = Pref.bool("Show Related Sym Groups", show.related_sym_groups, "Parse and add Related Sym Groups to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_request_for_quote_543 = Pref.bool("Show Request For Quote 543", show.request_for_quote_543, "Parse and add Request For Quote 543 to protocol tree")
@@ -735,12 +750,20 @@ function cme_futures_ilink3_sbe_v8_5.prefs_changed()
     show.quote_entries_group_528 = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_group_528
     changed = true
   end
+  if show.quote_entries_group_563 ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_group_563 then
+    show.quote_entries_group_563 = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_group_563
+    changed = true
+  end
   if show.quote_entries_groups ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_groups then
     show.quote_entries_groups = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_groups
     changed = true
   end
   if show.quote_entries_groups_528 ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_groups_528 then
     show.quote_entries_groups_528 = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_groups_528
+    changed = true
+  end
+  if show.quote_entries_groups_563 ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_groups_563 then
+    show.quote_entries_groups_563 = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_groups_563
     changed = true
   end
   if show.quote_sets_group ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_group then
@@ -751,12 +774,20 @@ function cme_futures_ilink3_sbe_v8_5.prefs_changed()
     show.quote_sets_group_528 = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_group_528
     changed = true
   end
+  if show.quote_sets_group_563 ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_group_563 then
+    show.quote_sets_group_563 = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_group_563
+    changed = true
+  end
   if show.quote_sets_groups ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_groups then
     show.quote_sets_groups = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_groups
     changed = true
   end
   if show.quote_sets_groups_528 ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_groups_528 then
     show.quote_sets_groups_528 = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_groups_528
+    changed = true
+  end
+  if show.quote_sets_groups_563 ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_groups_563 then
+    show.quote_sets_groups_563 = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_groups_563
     changed = true
   end
   if show.related_sym_group ~= cme_futures_ilink3_sbe_v8_5.prefs.show_related_sym_group then
@@ -863,6 +894,46 @@ dissect.quote_set_id = function(buffer, offset, packet, parent)
   local display = display.quote_set_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_set_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Quote Error Code
+size_of.quote_error_code = 2
+
+-- Display: Quote Error Code
+display.quote_error_code = function(value)
+  return "Quote Error Code: "..value
+end
+
+-- Dissect: Quote Error Code
+dissect.quote_error_code = function(buffer, offset, packet, parent)
+  local length = size_of.quote_error_code
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.quote_error_code(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_error_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Quote Entry Reject Reason
+size_of.quote_entry_reject_reason = 1
+
+-- Display: Quote Entry Reject Reason
+display.quote_entry_reject_reason = function(value)
+  return "Quote Entry Reject Reason: "..value
+end
+
+-- Dissect: Quote Entry Reject Reason
+dissect.quote_entry_reject_reason = function(buffer, offset, packet, parent)
+  local length = size_of.quote_entry_reject_reason
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.quote_entry_reject_reason(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_entry_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1095,7 +1166,6 @@ dissect.quote_sets_groups = function(buffer, offset, packet, parent)
   return dissect.quote_sets_groups_fields(buffer, offset, packet, parent)
 end
 
--------------------------------------------------------------------------------
 -- Calculate size of: Quote Sets Groups - Quote Cancel 528
 size_of.quote_sets_groups_528 = function(buffer, offset)
   local index = 0
@@ -1193,6 +1263,124 @@ dissect.quote_sets_group_528 = function(buffer, offset, packet, parent)
 end
 
 -------------------------------------------------------------------------------
+
+-- Calculate size of: Quote Sets Groups - Quote Cancel Ack 563
+size_of.quote_sets_groups_563 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.group_size(buffer, offset + index)
+
+  -- Calculate field size from count
+  local quote_sets_group_count = buffer(offset + index - 1, 1):le_uint()
+  
+  index = index + quote_sets_group_count * 4
+
+  return index
+end
+
+-- Display: Quote Sets Groups - Quote Cancel Ack 563
+display.quote_sets_groups_563 = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Calculate size of: Quote Sets Group - Quote Cancel Ack 563
+size_of.quote_sets_group_563 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.quote_set_id
+
+  index = index + size_of.quote_error_code
+
+  return index
+end
+
+-- Dissect: Quote Sets Group - Quote Cancel Ack 563
+dissect.quote_sets_group_563 = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.quote_sets_group_563 then
+    local length = size_of.quote_sets_group_563(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.quote_sets_group_563(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_sets_group_563, range, display)
+  end
+
+  return dissect.quote_sets_group_fields_563(buffer, offset, packet, parent)
+end
+
+-- Dissect Fields: Quote Sets Groups - Quote Cancel Ack 563
+dissect.quote_sets_groups_fields_563 = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Quote Sets Group: Struct of 2 fields
+  for i = 1, num_in_group do
+    index = dissect.quote_sets_group_563(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
+-- Dissect: Quote Sets Groups - Quote Cancel Ack 563
+dissect.quote_sets_groups_563 = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.quote_sets_groups_563 then
+    local length = size_of.quote_sets_groups_563(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.quote_sets_groups_563(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_sets_groups_563, range, display)
+  end
+
+  return dissect.quote_sets_groups_fields_563(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Quote Sets Group - Quote Cancel Ack 563
+size_of.quote_sets_group_528 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.quote_set_id
+
+  index = index + size_of.quote_error_code
+
+  return index
+end
+
+-- Display: Quote Sets Group - Quote Cancel Ack 563
+display.quote_sets_group_563 = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Quote Sets Group - Quote Cancel Ack 563
+dissect.quote_sets_group_fields_563 = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Quote Set Id: 2 Byte Unsigned Fixed Width Integer
+  index, quote_set_id = dissect.quote_set_id(buffer, index, packet, parent)
+
+  -- Quote Error Code: 2 Byte Unsigned Fixed Width Integer 
+  index, quote_error_code = dissect.quote_error_code(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Entries Group - Quote Cancel Ack 563
+dissect.quote_entries_group_563 = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.quote_entries_group_563 then
+    local length = size_of.quote_entries_group_563(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.quote_entries_group_563(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_entries_group_563, range, display)
+  end
+
+  return dissect.quote_entries_group_fields_563(buffer, offset, packet, parent)
+end
+
+---------------------------------------------------------------------------------------------------------
 
 -- Size: Underlying Security Id
 size_of.underlying_security_id = 4
@@ -1429,7 +1617,7 @@ end
 
 ----------------------------------------------------------------------
 
--- Calculate size of: Quote Entries Group - Quote Cancel 528 -  First Group
+-- Calculate size of: Quote Entries Group - Quote Cancel 528
 size_of.quote_entries_group_528 = function(buffer, offset)
   local index = 0
 
@@ -1440,12 +1628,12 @@ size_of.quote_entries_group_528 = function(buffer, offset)
   return index
 end
 
--- Display: Quote Entries Group - Quote Cancel 528 -  First Group
+-- Display: Quote Entries Group - Quote Cancel 528
 display.quote_entries_group_528 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Quote Entries Group - Quote Cancel 528 -  First Group
+-- Dissect Fields: Quote Entries Group - Quote Cancel 528
 dissect.quote_entries_group_fields_528 = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1458,7 +1646,7 @@ dissect.quote_entries_group_fields_528 = function(buffer, offset, packet, parent
   return index
 end
 
--- Dissect: Quote Entries Group - Quote Cancel 528 -  First Group
+-- Dissect: Quote Entries Group - Quote Cancel 528
 dissect.quote_entries_group_528 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.quote_entries_group_528 then
@@ -1471,7 +1659,7 @@ dissect.quote_entries_group_528 = function(buffer, offset, packet, parent)
   return dissect.quote_entries_group_fields_528(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Quote Entries Group - Quote Cancel 528 -  First Group
+-- Calculate size of: Quote Entries Group - Quote Cancel 528
 size_of.quote_entries_group_528 = function(buffer, offset)
   local index = 0
 
@@ -1520,11 +1708,11 @@ end
 -- Dissect: Quote Entries Groups - Quote Cancel 528
 dissect.quote_entries_groups_528 = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.quote_entries_groups then
+  if show.quote_entries_groups_528 then
     local length = size_of.quote_entries_groups_528(buffer, offset)
     local range = buffer(offset, length)
     local display = display.quote_entries_groups_528(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_entries_groups, range, display)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_entries_groups_528, range, display)
   end
 
   return dissect.quote_entries_groups_fields_528(buffer, offset, packet, parent)
@@ -1532,13 +1720,126 @@ end
 
 ----------------------------------------------------------------------
 
+-- Calculate size of: Quote Entries Group - Quote Cancel Ack 563
+size_of.quote_entries_group_563 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.quote_entry_id
+
+  index = index + size_of.security_id
+
+  index = index + size_of.quote_entry_reject_reason
+
+  return index
+end
+
+-- Display: Quote Entries Group - Quote Cancel Ack 563
+display.quote_entries_group_563 = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Quote Entries Group - Quote Cancel Ack 563
+dissect.quote_entries_group_fields_563 = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Security Group: 4 Byte Unsigned Integer
+  index, quote_entry_id = dissect.quote_entry_id(buffer, index, packet, parent)
+
+  -- Security Id: 4 Byte Signed Fixed Width Integer
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
+
+  -- Quote Entry Reject Reason: 1 Byte Unsigned Fixed Width Integer
+  index, quote_entry_reject_reason = dissect.quote_entry_reject_reason(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Entries Group - Quote Cancel Ack 563
+dissect.quote_entries_group_563 = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.quote_entries_group_563 then
+    local length = size_of.quote_entries_group_563(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.quote_entries_group_563(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_entries_group_563, range, display)
+  end
+
+  return dissect.quote_entries_group_fields_563(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Quote Entries Group - Quote Cancel Ack 563
+size_of.quote_entries_group_563 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.quote_entry_id
+
+  index = index + size_of.security_id
+
+  index = index + size_of.quote_entry_reject_reason
+
+  return index
+end
+
+-- Calculate size of: Quote Entries Groups - Quote Cancel Ack 563
+size_of.quote_entries_groups_563 = function(buffer, offset)
+  local index = 0
+
+  -- Calculate first field size from count
+  index = index + size_of.group_size(buffer, offset + index)
+
+  local quote_entries_group_count = buffer(offset + index - 1, 1):le_uint()
+
+  index = index + quote_entries_group_count * 9
+
+  return index
+end
+
+-- Display: Quote Entries Groups - Quote Cancel Ack 563
+display.quote_entries_groups_563 = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Quote Entries Groups  - Quote Cancel Ack 563
+dissect.quote_entries_groups_fields_563 = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Quote Entries Group - Struct of 3 fields
+  for i = 1, num_in_group do
+    index = dissect.quote_entries_group_563(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
+-- Dissect: Quote Entries Groups - Quote Cancel Ack 563
+dissect.quote_entries_groups_563 = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.quote_entries_groups_563 then
+    local length = size_of.quote_entries_groups_563(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.quote_entries_groups_563(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_entries_groups_563, range, display)
+  end
+
+  return dissect.quote_entries_groups_fields_563(buffer, offset, packet, parent)
+end
+
+----------------------------------------------------------------------
+
+
 -- Size: Delay To Time
 size_of.delay_to_time = 8
 
 -- Display: Delay To Time
 display.delay_to_time = function(value)
   -- Check if field has value
-  if value == 18446744073709551615 then
+  if (value > 18446744073709551614) then
     return "Delay To Time: No Value ("..value..")"
   end
 
@@ -1716,6 +2017,26 @@ dissect.no_processed_entries = function(buffer, offset, packet, parent)
   local display = display.no_processed_entries(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_5.fields.no_processed_entries, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: No Processed Entries - Quote Cancel Ack 563
+size_of.no_processed_entries_563 = 4
+
+-- Display: No Processed Entries - Quote Cancel Ack 563
+display.no_processed_entries_563 = function(value)
+  return "No Processed Entries: "..value
+end
+
+-- Dissect: No Processed Entries - Quote Cancel Ack 563
+dissect.no_processed_entries_563 = function(buffer, offset, packet, parent)
+  local length = size_of.no_processed_entries_563
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.no_processed_entries_563(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_5.fields.no_processed_entries_563, range, value, display)
 
   return offset + length, value
 end
@@ -2047,7 +2368,7 @@ size_of.quote_cancel_ack_563 = function(buffer, offset)
 
   index = index + size_of.quote_status
 
-  index = index + size_of.no_processed_entries
+  index = index + size_of.no_processed_entries_563
 
   index = index + size_of.mm_protection_reset
 
@@ -2063,9 +2384,9 @@ size_of.quote_cancel_ack_563 = function(buffer, offset)
 
   index = index + size_of.delay_to_time
 
-  index = index + size_of.quote_entries_groups(buffer, offset + index)
+  index = index + size_of.quote_entries_groups_563(buffer, offset + index)
 
-  index = index + size_of.quote_sets_groups(buffer, offset + index)
+  index = index + size_of.quote_sets_groups_563(buffer, offset + index)
 
   return index
 end
@@ -2121,8 +2442,8 @@ dissect.quote_cancel_ack_563_fields = function(buffer, offset, packet, parent)
   -- Quote Status: 1 Byte Unsigned Fixed Width Integer
   index, quote_status = dissect.quote_status(buffer, index, packet, parent)
 
-  -- No Processed Entries: 1 Byte Unsigned Fixed Width Integer
-  index, no_processed_entries = dissect.no_processed_entries(buffer, index, packet, parent)
+  -- No Processed Entries 563: 4 Byte Unsigned Fixed Width Integer
+  index, no_processed_entries = dissect.no_processed_entries_563(buffer, index, packet, parent)
 
   -- Mm Protection Reset: 1 Byte Unsigned Fixed Width Integer
   index, mm_protection_reset = dissect.mm_protection_reset(buffer, index, packet, parent)
@@ -2145,11 +2466,11 @@ dissect.quote_cancel_ack_563_fields = function(buffer, offset, packet, parent)
   -- Delay To Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, delay_to_time = dissect.delay_to_time(buffer, index, packet, parent)
 
-  -- Quote Entries Groups: Struct of 2 fields
-  index, quote_entries_groups = dissect.quote_entries_groups(buffer, index, packet, parent)
+  -- Quote Entries Groups: Struct of 3 fields
+  index, quote_entries_groups = dissect.quote_entries_groups_563(buffer, index, packet, parent)
 
   -- Quote Sets Groups: Struct of 2 fields
-  index, quote_sets_groups = dissect.quote_sets_groups(buffer, index, packet, parent)
+  index, quote_sets_groups = dissect.quote_sets_groups_563(buffer, index, packet, parent)
 
   return index
 end
