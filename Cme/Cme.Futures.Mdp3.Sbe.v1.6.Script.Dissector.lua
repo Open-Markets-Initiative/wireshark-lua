@@ -81,8 +81,6 @@ cme_futures_mdp3_sbe_v1_6.fields.leg_price = ProtoField.new("Leg Price", "cme.fu
 cme_futures_mdp3_sbe_v1_6.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cme.futures.mdp3.sbe.v1.6.legratioqty", ftypes.INT8)
 cme_futures_mdp3_sbe_v1_6.fields.leg_security_id = ProtoField.new("Leg Security Id", "cme.futures.mdp3.sbe.v1.6.legsecurityid", ftypes.INT32)
 cme_futures_mdp3_sbe_v1_6.fields.leg_side = ProtoField.new("Leg Side", "cme.futures.mdp3.sbe.v1.6.legside", ftypes.UINT8)
-cme_futures_mdp3_sbe_v1_6.fields.legs_group = ProtoField.new("Legs Group", "cme.futures.mdp3.sbe.v1.6.legsgroup", ftypes.STRING)
-cme_futures_mdp3_sbe_v1_6.fields.legs_groups = ProtoField.new("Legs Groups", "cme.futures.mdp3.sbe.v1.6.legsgroups", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_6.fields.lot_type = ProtoField.new("Lot Type", "cme.futures.mdp3.sbe.v1.6.lottype", ftypes.INT8)
 cme_futures_mdp3_sbe_v1_6.fields.lot_type_rules_group = ProtoField.new("Lot Type Rules Group", "cme.futures.mdp3.sbe.v1.6.lottyperulesgroup", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_6.fields.lot_type_rules_groups = ProtoField.new("Lot Type Rules Groups", "cme.futures.mdp3.sbe.v1.6.lottyperulesgroups", ftypes.STRING)
@@ -105,6 +103,8 @@ cme_futures_mdp3_sbe_v1_6.fields.m_d_incremental_refresh_trade_summary_order_gro
 cme_futures_mdp3_sbe_v1_6.fields.m_d_incremental_refresh_trade_summary_order_groups = ProtoField.new("M D Incremental Refresh Trade Summary Order Groups", "cme.futures.mdp3.sbe.v1.6.mdincrementalrefreshtradesummaryordergroups", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_6.fields.m_d_incremental_refresh_volume_group = ProtoField.new("M D Incremental Refresh Volume Group", "cme.futures.mdp3.sbe.v1.6.mdincrementalrefreshvolumegroup", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_6.fields.m_d_incremental_refresh_volume_groups = ProtoField.new("M D Incremental Refresh Volume Groups", "cme.futures.mdp3.sbe.v1.6.mdincrementalrefreshvolumegroups", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_6.fields.m_d_instrument_definition_spread_leg_group = ProtoField.new("M D Instrument Definition Spread Leg Group", "cme.futures.mdp3.sbe.v1.6.mdinstrumentdefinitionspreadleggroup", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_6.fields.m_d_instrument_definition_spread_leg_groups = ProtoField.new("M D Instrument Definition Spread Leg Groups", "cme.futures.mdp3.sbe.v1.6.mdinstrumentdefinitionspreadleggroups", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_6.fields.main_fraction = ProtoField.new("Main Fraction", "cme.futures.mdp3.sbe.v1.6.mainfraction", ftypes.UINT8)
 cme_futures_mdp3_sbe_v1_6.fields.market_depth = ProtoField.new("Market Depth", "cme.futures.mdp3.sbe.v1.6.marketdepth", ftypes.INT8)
 cme_futures_mdp3_sbe_v1_6.fields.market_segment_id = ProtoField.new("Market Segment Id", "cme.futures.mdp3.sbe.v1.6.marketsegmentid", ftypes.UINT8)
@@ -238,8 +238,6 @@ show.group_size_8_byte = true
 show.inst_attrib_group = true
 show.inst_attrib_groups = true
 show.inst_attrib_value = true
-show.legs_group = true
-show.legs_groups = true
 show.lot_type_rules_group = true
 show.lot_type_rules_groups = true
 show.m_d_feed_types_group = true
@@ -260,6 +258,8 @@ show.m_d_incremental_refresh_trade_summary_order_group = true
 show.m_d_incremental_refresh_trade_summary_order_groups = true
 show.m_d_incremental_refresh_volume_group = true
 show.m_d_incremental_refresh_volume_groups = true
+show.m_d_instrument_definition_spread_leg_group = true
+show.m_d_instrument_definition_spread_leg_groups = true
 show.match_event_indicator = true
 show.maturity_month_year = true
 show.md_incremental_refresh_book_32 = true
@@ -301,8 +301,6 @@ cme_futures_mdp3_sbe_v1_6.prefs.show_group_size_8_byte = Pref.bool("Show Group S
 cme_futures_mdp3_sbe_v1_6.prefs.show_inst_attrib_group = Pref.bool("Show Inst Attrib Group", show.inst_attrib_group, "Parse and add Inst Attrib Group to protocol tree")
 cme_futures_mdp3_sbe_v1_6.prefs.show_inst_attrib_groups = Pref.bool("Show Inst Attrib Groups", show.inst_attrib_groups, "Parse and add Inst Attrib Groups to protocol tree")
 cme_futures_mdp3_sbe_v1_6.prefs.show_inst_attrib_value = Pref.bool("Show Inst Attrib Value", show.inst_attrib_value, "Parse and add Inst Attrib Value to protocol tree")
-cme_futures_mdp3_sbe_v1_6.prefs.show_legs_group = Pref.bool("Show Legs Group", show.legs_group, "Parse and add Legs Group to protocol tree")
-cme_futures_mdp3_sbe_v1_6.prefs.show_legs_groups = Pref.bool("Show Legs Groups", show.legs_groups, "Parse and add Legs Groups to protocol tree")
 cme_futures_mdp3_sbe_v1_6.prefs.show_lot_type_rules_group = Pref.bool("Show Lot Type Rules Group", show.lot_type_rules_group, "Parse and add Lot Type Rules Group to protocol tree")
 cme_futures_mdp3_sbe_v1_6.prefs.show_lot_type_rules_groups = Pref.bool("Show Lot Type Rules Groups", show.lot_type_rules_groups, "Parse and add Lot Type Rules Groups to protocol tree")
 cme_futures_mdp3_sbe_v1_6.prefs.show_m_d_feed_types_group = Pref.bool("Show M D Feed Types Group", show.m_d_feed_types_group, "Parse and add M D Feed Types Group to protocol tree")
@@ -323,6 +321,8 @@ cme_futures_mdp3_sbe_v1_6.prefs.show_m_d_incremental_refresh_trade_summary_order
 cme_futures_mdp3_sbe_v1_6.prefs.show_m_d_incremental_refresh_trade_summary_order_groups = Pref.bool("Show M D Incremental Refresh Trade Summary Order Groups", show.m_d_incremental_refresh_trade_summary_order_groups, "Parse and add M D Incremental Refresh Trade Summary Order Groups to protocol tree")
 cme_futures_mdp3_sbe_v1_6.prefs.show_m_d_incremental_refresh_volume_group = Pref.bool("Show M D Incremental Refresh Volume Group", show.m_d_incremental_refresh_volume_group, "Parse and add M D Incremental Refresh Volume Group to protocol tree")
 cme_futures_mdp3_sbe_v1_6.prefs.show_m_d_incremental_refresh_volume_groups = Pref.bool("Show M D Incremental Refresh Volume Groups", show.m_d_incremental_refresh_volume_groups, "Parse and add M D Incremental Refresh Volume Groups to protocol tree")
+cme_futures_mdp3_sbe_v1_6.prefs.show_m_d_instrument_definition_spread_leg_group = Pref.bool("Show M D Instrument Definition Spread Leg Group", show.m_d_instrument_definition_spread_leg_group, "Parse and add M D Instrument Definition Spread Leg Group to protocol tree")
+cme_futures_mdp3_sbe_v1_6.prefs.show_m_d_instrument_definition_spread_leg_groups = Pref.bool("Show M D Instrument Definition Spread Leg Groups", show.m_d_instrument_definition_spread_leg_groups, "Parse and add M D Instrument Definition Spread Leg Groups to protocol tree")
 cme_futures_mdp3_sbe_v1_6.prefs.show_match_event_indicator = Pref.bool("Show Match Event Indicator", show.match_event_indicator, "Parse and add Match Event Indicator to protocol tree")
 cme_futures_mdp3_sbe_v1_6.prefs.show_maturity_month_year = Pref.bool("Show Maturity Month Year", show.maturity_month_year, "Parse and add Maturity Month Year to protocol tree")
 cme_futures_mdp3_sbe_v1_6.prefs.show_md_incremental_refresh_book_32 = Pref.bool("Show Md Incremental Refresh Book 32", show.md_incremental_refresh_book_32, "Parse and add Md Incremental Refresh Book 32 to protocol tree")
@@ -407,14 +407,6 @@ function cme_futures_mdp3_sbe_v1_6.prefs_changed()
     show.inst_attrib_value = cme_futures_mdp3_sbe_v1_6.prefs.show_inst_attrib_value
     changed = true
   end
-  if show.legs_group ~= cme_futures_mdp3_sbe_v1_6.prefs.show_legs_group then
-    show.legs_group = cme_futures_mdp3_sbe_v1_6.prefs.show_legs_group
-    changed = true
-  end
-  if show.legs_groups ~= cme_futures_mdp3_sbe_v1_6.prefs.show_legs_groups then
-    show.legs_groups = cme_futures_mdp3_sbe_v1_6.prefs.show_legs_groups
-    changed = true
-  end
   if show.lot_type_rules_group ~= cme_futures_mdp3_sbe_v1_6.prefs.show_lot_type_rules_group then
     show.lot_type_rules_group = cme_futures_mdp3_sbe_v1_6.prefs.show_lot_type_rules_group
     changed = true
@@ -493,6 +485,14 @@ function cme_futures_mdp3_sbe_v1_6.prefs_changed()
   end
   if show.m_d_incremental_refresh_volume_groups ~= cme_futures_mdp3_sbe_v1_6.prefs.show_m_d_incremental_refresh_volume_groups then
     show.m_d_incremental_refresh_volume_groups = cme_futures_mdp3_sbe_v1_6.prefs.show_m_d_incremental_refresh_volume_groups
+    changed = true
+  end
+  if show.m_d_instrument_definition_spread_leg_group ~= cme_futures_mdp3_sbe_v1_6.prefs.show_m_d_instrument_definition_spread_leg_group then
+    show.m_d_instrument_definition_spread_leg_group = cme_futures_mdp3_sbe_v1_6.prefs.show_m_d_instrument_definition_spread_leg_group
+    changed = true
+  end
+  if show.m_d_instrument_definition_spread_leg_groups ~= cme_futures_mdp3_sbe_v1_6.prefs.show_m_d_instrument_definition_spread_leg_groups then
+    show.m_d_instrument_definition_spread_leg_groups = cme_futures_mdp3_sbe_v1_6.prefs.show_m_d_instrument_definition_spread_leg_groups
     changed = true
   end
   if show.match_event_indicator ~= cme_futures_mdp3_sbe_v1_6.prefs.show_match_event_indicator then
@@ -5597,8 +5597,8 @@ dissect.leg_security_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Legs Group
-size_of.legs_group = function(buffer, offset)
+-- Calculate size of: M D Instrument Definition Spread Leg Group
+size_of.m_d_instrument_definition_spread_leg_group = function(buffer, offset)
   local index = 0
 
   index = index + size_of.leg_security_id
@@ -5614,13 +5614,13 @@ size_of.legs_group = function(buffer, offset)
   return index
 end
 
--- Display: Legs Group
-display.legs_group = function(buffer, offset, size, packet, parent)
+-- Display: M D Instrument Definition Spread Leg Group
+display.m_d_instrument_definition_spread_leg_group = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Legs Group
-dissect.legs_group_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: M D Instrument Definition Spread Leg Group
+dissect.m_d_instrument_definition_spread_leg_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Leg Security Id: 4 Byte Signed Fixed Width Integer
@@ -5641,39 +5641,39 @@ dissect.legs_group_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Legs Group
-dissect.legs_group = function(buffer, offset, packet, parent)
+-- Dissect: M D Instrument Definition Spread Leg Group
+dissect.m_d_instrument_definition_spread_leg_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.legs_group then
-    local length = size_of.legs_group(buffer, offset)
+  if show.m_d_instrument_definition_spread_leg_group then
+    local length = size_of.m_d_instrument_definition_spread_leg_group(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.legs_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_6.fields.legs_group, range, display)
+    local display = display.m_d_instrument_definition_spread_leg_group(buffer, packet, parent)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_6.fields.m_d_instrument_definition_spread_leg_group, range, display)
   end
 
-  return dissect.legs_group_fields(buffer, offset, packet, parent)
+  return dissect.m_d_instrument_definition_spread_leg_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Legs Groups
-size_of.legs_groups = function(buffer, offset)
+-- Calculate size of: M D Instrument Definition Spread Leg Groups
+size_of.m_d_instrument_definition_spread_leg_groups = function(buffer, offset)
   local index = 0
 
   index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
-  local legs_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + legs_group_count * 18
+  local m_d_instrument_definition_spread_leg_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + m_d_instrument_definition_spread_leg_group_count * 18
 
   return index
 end
 
--- Display: Legs Groups
-display.legs_groups = function(buffer, offset, size, packet, parent)
+-- Display: M D Instrument Definition Spread Leg Groups
+display.m_d_instrument_definition_spread_leg_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Legs Groups
-dissect.legs_groups_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: M D Instrument Definition Spread Leg Groups
+dissect.m_d_instrument_definition_spread_leg_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -5682,25 +5682,25 @@ dissect.legs_groups_fields = function(buffer, offset, packet, parent)
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Legs Group: Struct of 5 fields
+  -- M D Instrument Definition Spread Leg Group: Struct of 5 fields
   for i = 1, num_in_group do
-    index = dissect.legs_group(buffer, index, packet, parent)
+    index = dissect.m_d_instrument_definition_spread_leg_group(buffer, index, packet, parent)
   end
 
   return index
 end
 
--- Dissect: Legs Groups
-dissect.legs_groups = function(buffer, offset, packet, parent)
+-- Dissect: M D Instrument Definition Spread Leg Groups
+dissect.m_d_instrument_definition_spread_leg_groups = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.legs_groups then
-    local length = size_of.legs_groups(buffer, offset)
+  if show.m_d_instrument_definition_spread_leg_groups then
+    local length = size_of.m_d_instrument_definition_spread_leg_groups(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.legs_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_6.fields.legs_groups, range, display)
+    local display = display.m_d_instrument_definition_spread_leg_groups(buffer, packet, parent)
+    parent = parent:add(cme_futures_mdp3_sbe_v1_6.fields.m_d_instrument_definition_spread_leg_groups, range, display)
   end
 
-  return dissect.legs_groups_fields(buffer, offset, packet, parent)
+  return dissect.m_d_instrument_definition_spread_leg_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Price Ratio
@@ -5832,7 +5832,7 @@ size_of.md_instrument_definition_spread_29 = function(buffer, offset)
 
   index = index + size_of.lot_type_rules_groups(buffer, offset + index)
 
-  index = index + size_of.legs_groups(buffer, offset + index)
+  index = index + size_of.m_d_instrument_definition_spread_leg_groups(buffer, offset + index)
 
   return index
 end
@@ -5972,8 +5972,8 @@ dissect.md_instrument_definition_spread_29_fields = function(buffer, offset, pac
   -- Lot Type Rules Groups: Struct of 2 fields
   index, lot_type_rules_groups = dissect.lot_type_rules_groups(buffer, index, packet, parent)
 
-  -- Legs Groups: Struct of 2 fields
-  index, legs_groups = dissect.legs_groups(buffer, index, packet, parent)
+  -- M D Instrument Definition Spread Leg Groups: Struct of 2 fields
+  index, m_d_instrument_definition_spread_leg_groups = dissect.m_d_instrument_definition_spread_leg_groups(buffer, index, packet, parent)
 
   return index
 end

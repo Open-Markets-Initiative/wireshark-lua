@@ -75,11 +75,27 @@ cme_futures_ilink3_sbe_v8_5.fields.execution_report_new_522 = ProtoField.new("Ex
 cme_futures_ilink3_sbe_v8_5.fields.execution_report_reject_523 = ProtoField.new("Execution Report Reject 523", "cme.futures.ilink3.sbe.v8.5.executionreportreject523", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.execution_report_status_532 = ProtoField.new("Execution Report Status 532", "cme.futures.ilink3.sbe.v8.5.executionreportstatus532", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_addendum_outright_548 = ProtoField.new("Execution Report Trade Addendum Outright 548", "cme.futures.ilink3.sbe.v8.5.executionreporttradeaddendumoutright548", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_addendum_outright_order_event_group = ProtoField.new("Execution Report Trade Addendum Outright Order Event Group", "cme.futures.ilink3.sbe.v8.5.executionreporttradeaddendumoutrightordereventgroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_addendum_outright_order_event_groups = ProtoField.new("Execution Report Trade Addendum Outright Order Event Groups", "cme.futures.ilink3.sbe.v8.5.executionreporttradeaddendumoutrightordereventgroups", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_addendum_spread_549 = ProtoField.new("Execution Report Trade Addendum Spread 549", "cme.futures.ilink3.sbe.v8.5.executionreporttradeaddendumspread549", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_addendum_spread_leg_550 = ProtoField.new("Execution Report Trade Addendum Spread Leg 550", "cme.futures.ilink3.sbe.v8.5.executionreporttradeaddendumspreadleg550", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_addendum_spread_leg_group = ProtoField.new("Execution Report Trade Addendum Spread Leg Group", "cme.futures.ilink3.sbe.v8.5.executionreporttradeaddendumspreadleggroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_addendum_spread_leg_groups = ProtoField.new("Execution Report Trade Addendum Spread Leg Groups", "cme.futures.ilink3.sbe.v8.5.executionreporttradeaddendumspreadleggroups", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_addendum_spread_leg_order_event_group = ProtoField.new("Execution Report Trade Addendum Spread Leg Order Event Group", "cme.futures.ilink3.sbe.v8.5.executionreporttradeaddendumspreadlegordereventgroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_addendum_spread_leg_order_event_groups = ProtoField.new("Execution Report Trade Addendum Spread Leg Order Event Groups", "cme.futures.ilink3.sbe.v8.5.executionreporttradeaddendumspreadlegordereventgroups", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_addendum_spread_order_event_group = ProtoField.new("Execution Report Trade Addendum Spread Order Event Group", "cme.futures.ilink3.sbe.v8.5.executionreporttradeaddendumspreadordereventgroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_addendum_spread_order_event_groups = ProtoField.new("Execution Report Trade Addendum Spread Order Event Groups", "cme.futures.ilink3.sbe.v8.5.executionreporttradeaddendumspreadordereventgroups", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_outright_525 = ProtoField.new("Execution Report Trade Outright 525", "cme.futures.ilink3.sbe.v8.5.executionreporttradeoutright525", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_outright_order_event_group = ProtoField.new("Execution Report Trade Outright Order Event Group", "cme.futures.ilink3.sbe.v8.5.executionreporttradeoutrightordereventgroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_outright_order_event_groups = ProtoField.new("Execution Report Trade Outright Order Event Groups", "cme.futures.ilink3.sbe.v8.5.executionreporttradeoutrightordereventgroups", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_spread_526 = ProtoField.new("Execution Report Trade Spread 526", "cme.futures.ilink3.sbe.v8.5.executionreporttradespread526", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_spread_leg_527 = ProtoField.new("Execution Report Trade Spread Leg 527", "cme.futures.ilink3.sbe.v8.5.executionreporttradespreadleg527", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_spread_leg_group = ProtoField.new("Execution Report Trade Spread Leg Group", "cme.futures.ilink3.sbe.v8.5.executionreporttradespreadleggroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_spread_leg_groups = ProtoField.new("Execution Report Trade Spread Leg Groups", "cme.futures.ilink3.sbe.v8.5.executionreporttradespreadleggroups", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_spread_leg_order_event_group = ProtoField.new("Execution Report Trade Spread Leg Order Event Group", "cme.futures.ilink3.sbe.v8.5.executionreporttradespreadlegordereventgroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_spread_leg_order_event_groups = ProtoField.new("Execution Report Trade Spread Leg Order Event Groups", "cme.futures.ilink3.sbe.v8.5.executionreporttradespreadlegordereventgroups", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_spread_order_event_group = ProtoField.new("Execution Report Trade Spread Order Event Group", "cme.futures.ilink3.sbe.v8.5.executionreporttradespreadordereventgroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_spread_order_event_groups = ProtoField.new("Execution Report Trade Spread Order Event Groups", "cme.futures.ilink3.sbe.v8.5.executionreporttradespreadordereventgroups", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.executor = ProtoField.new("Executor", "cme.futures.ilink3.sbe.v8.5.executor", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_5.fields.expiration_cycle = ProtoField.new("Expiration Cycle", "cme.futures.ilink3.sbe.v8.5.expirationcycle", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_5.fields.expire_date = ProtoField.new("Expire Date", "cme.futures.ilink3.sbe.v8.5.expiredate", ftypes.UINT16)
@@ -107,13 +123,16 @@ cme_futures_ilink3_sbe_v8_5.fields.last_rpt_requested = ProtoField.new("Last Rpt
 cme_futures_ilink3_sbe_v8_5.fields.last_uuid = ProtoField.new("Last Uuid", "cme.futures.ilink3.sbe.v8.5.lastuuid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_5.fields.leaves_qty = ProtoField.new("Leaves Qty", "cme.futures.ilink3.sbe.v8.5.leavesqty", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_5.fields.leg_exec_id = ProtoField.new("Leg Exec Id", "cme.futures.ilink3.sbe.v8.5.legexecid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_5.fields.leg_exec_ref_id = ProtoField.new("Leg Exec Ref Id", "cme.futures.ilink3.sbe.v8.5.legexecrefid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_5.fields.leg_last_px = ProtoField.new("Leg Last Px", "cme.futures.ilink3.sbe.v8.5.leglastpx", ftypes.INT64)
 cme_futures_ilink3_sbe_v8_5.fields.leg_last_qty = ProtoField.new("Leg Last Qty", "cme.futures.ilink3.sbe.v8.5.leglastqty", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_5.fields.leg_option_delta = ProtoField.new("Leg Option Delta", "cme.futures.ilink3.sbe.v8.5.legoptiondelta", ftypes.INT32)
+cme_futures_ilink3_sbe_v8_5.fields.leg_price = ProtoField.new("Leg Price", "cme.futures.ilink3.sbe.v8.5.legprice", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_5.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cme.futures.ilink3.sbe.v8.5.legratioqty", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_5.fields.leg_security_id = ProtoField.new("Leg Security Id", "cme.futures.ilink3.sbe.v8.5.legsecurityid", ftypes.INT32)
 cme_futures_ilink3_sbe_v8_5.fields.leg_side = ProtoField.new("Leg Side", "cme.futures.ilink3.sbe.v8.5.legside", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_5.fields.leg_trade_id = ProtoField.new("Leg Trade Id", "cme.futures.ilink3.sbe.v8.5.legtradeid", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_5.fields.legs_group = ProtoField.new("Legs Group", "cme.futures.ilink3.sbe.v8.5.legsgroup", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_5.fields.legs_groups = ProtoField.new("Legs Groups", "cme.futures.ilink3.sbe.v8.5.legsgroups", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.leg_trade_ref_id = ProtoField.new("Leg Trade Ref Id", "cme.futures.ilink3.sbe.v8.5.legtraderefid", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_5.fields.length = ProtoField.new("Length", "cme.futures.ilink3.sbe.v8.5.length", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_5.fields.liquidity_flag = ProtoField.new("Liquidity Flag", "cme.futures.ilink3.sbe.v8.5.liquidityflag", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_5.fields.list_update_action = ProtoField.new("List Update Action", "cme.futures.ilink3.sbe.v8.5.listupdateaction", ftypes.STRING)
@@ -128,6 +147,10 @@ cme_futures_ilink3_sbe_v8_5.fields.mass_action_scope = ProtoField.new("Mass Acti
 cme_futures_ilink3_sbe_v8_5.fields.mass_cancel_request_type = ProtoField.new("Mass Cancel Request Type", "cme.futures.ilink3.sbe.v8.5.masscancelrequesttype", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_5.fields.mass_quote_517 = ProtoField.new("Mass Quote 517", "cme.futures.ilink3.sbe.v8.5.massquote517", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.mass_quote_ack_545 = ProtoField.new("Mass Quote Ack 545", "cme.futures.ilink3.sbe.v8.5.massquoteack545", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.mass_quote_ack_entry_group = ProtoField.new("Mass Quote Ack Entry Group", "cme.futures.ilink3.sbe.v8.5.massquoteackentrygroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.mass_quote_ack_entry_groups = ProtoField.new("Mass Quote Ack Entry Groups", "cme.futures.ilink3.sbe.v8.5.massquoteackentrygroups", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.mass_quote_entry_group = ProtoField.new("Mass Quote Entry Group", "cme.futures.ilink3.sbe.v8.5.massquoteentrygroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.mass_quote_entry_groups = ProtoField.new("Mass Quote Entry Groups", "cme.futures.ilink3.sbe.v8.5.massquoteentrygroups", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.mass_status_req_id = ProtoField.new("Mass Status Req Id", "cme.futures.ilink3.sbe.v8.5.massstatusreqid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_5.fields.mass_status_req_type = ProtoField.new("Mass Status Req Type", "cme.futures.ilink3.sbe.v8.5.massstatusreqtype", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_5.fields.maturity_month_year = ProtoField.new("Maturity Month Year", "cme.futures.ilink3.sbe.v8.5.maturitymonthyear", ftypes.STRING)
@@ -148,7 +171,6 @@ cme_futures_ilink3_sbe_v8_5.fields.new_order_single_514 = ProtoField.new("New Or
 cme_futures_ilink3_sbe_v8_5.fields.next_seq_no = ProtoField.new("Next Seq No", "cme.futures.ilink3.sbe.v8.5.nextseqno", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_5.fields.nh = ProtoField.new("Nh", "cme.futures.ilink3.sbe.v8.5.nh", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
 cme_futures_ilink3_sbe_v8_5.fields.no_processed_entries = ProtoField.new("No Processed Entries", "cme.futures.ilink3.sbe.v8.5.noprocessedentries", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_5.fields.no_processed_entries_563 = ProtoField.new("No Processed Entries - Quote Cancel Ack 563", "cme.futures.ilink3.sbe.v8.5.noprocessedentries563", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_5.fields.not_applied_513 = ProtoField.new("Not Applied 513", "cme.futures.ilink3.sbe.v8.5.notapplied513", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.num_in_group = ProtoField.new("Num In Group", "cme.futures.ilink3.sbe.v8.5.numingroup", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_5.fields.ob = ProtoField.new("Ob", "cme.futures.ilink3.sbe.v8.5.ob", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
@@ -171,8 +193,6 @@ cme_futures_ilink3_sbe_v8_5.fields.order_event_qty = ProtoField.new("Order Event
 cme_futures_ilink3_sbe_v8_5.fields.order_event_reason = ProtoField.new("Order Event Reason", "cme.futures.ilink3.sbe.v8.5.ordereventreason", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_5.fields.order_event_text = ProtoField.new("Order Event Text", "cme.futures.ilink3.sbe.v8.5.ordereventtext", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.order_event_type = ProtoField.new("Order Event Type", "cme.futures.ilink3.sbe.v8.5.ordereventtype", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_5.fields.order_events_group = ProtoField.new("Order Events Group", "cme.futures.ilink3.sbe.v8.5.ordereventsgroup", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_5.fields.order_events_groups = ProtoField.new("Order Events Groups", "cme.futures.ilink3.sbe.v8.5.ordereventsgroups", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.order_id = ProtoField.new("Order Id", "cme.futures.ilink3.sbe.v8.5.orderid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_5.fields.order_mass_action_report_562 = ProtoField.new("Order Mass Action Report 562", "cme.futures.ilink3.sbe.v8.5.ordermassactionreport562", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.order_mass_action_request_529 = ProtoField.new("Order Mass Action Request 529", "cme.futures.ilink3.sbe.v8.5.ordermassactionrequest529", ftypes.STRING)
@@ -183,6 +203,7 @@ cme_futures_ilink3_sbe_v8_5.fields.order_status_request_533 = ProtoField.new("Or
 cme_futures_ilink3_sbe_v8_5.fields.orig_ci_ord_id = ProtoField.new("Orig Ci Ord Id", "cme.futures.ilink3.sbe.v8.5.origciordid", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.orig_secondary_execution_id = ProtoField.new("Orig Secondary Execution Id", "cme.futures.ilink3.sbe.v8.5.origsecondaryexecutionid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_5.fields.orig_side_trade_id = ProtoField.new("Orig Side Trade Id", "cme.futures.ilink3.sbe.v8.5.origsidetradeid", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_5.fields.original_order_event_exec_id = ProtoField.new("Original Order Event Exec Id", "cme.futures.ilink3.sbe.v8.5.originalordereventexecid", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_5.fields.ownership = ProtoField.new("Ownership", "cme.futures.ilink3.sbe.v8.5.ownership", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_5.fields.packet = ProtoField.new("Packet", "cme.futures.ilink3.sbe.v8.5.packet", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.party_detail_definition_status = ProtoField.new("Party Detail Definition Status", "cme.futures.ilink3.sbe.v8.5.partydetaildefinitionstatus", ftypes.UINT8)
@@ -209,26 +230,22 @@ cme_futures_ilink3_sbe_v8_5.fields.previous_uuid = ProtoField.new("Previous Uuid
 cme_futures_ilink3_sbe_v8_5.fields.price = ProtoField.new("Price", "cme.futures.ilink3.sbe.v8.5.price", ftypes.INT64)
 cme_futures_ilink3_sbe_v8_5.fields.quote_cancel_528 = ProtoField.new("Quote Cancel 528", "cme.futures.ilink3.sbe.v8.5.quotecancel528", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.quote_cancel_ack_563 = ProtoField.new("Quote Cancel Ack 563", "cme.futures.ilink3.sbe.v8.5.quotecancelack563", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.quote_cancel_ack_entry_group = ProtoField.new("Quote Cancel Ack Entry Group", "cme.futures.ilink3.sbe.v8.5.quotecancelackentrygroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.quote_cancel_ack_entry_groups = ProtoField.new("Quote Cancel Ack Entry Groups", "cme.futures.ilink3.sbe.v8.5.quotecancelackentrygroups", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.quote_cancel_ack_set_group = ProtoField.new("Quote Cancel Ack Set Group", "cme.futures.ilink3.sbe.v8.5.quotecancelacksetgroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.quote_cancel_ack_set_groups = ProtoField.new("Quote Cancel Ack Set Groups", "cme.futures.ilink3.sbe.v8.5.quotecancelacksetgroups", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.quote_cancel_entry_group = ProtoField.new("Quote Cancel Entry Group", "cme.futures.ilink3.sbe.v8.5.quotecancelentrygroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.quote_cancel_entry_groups = ProtoField.new("Quote Cancel Entry Groups", "cme.futures.ilink3.sbe.v8.5.quotecancelentrygroups", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.quote_cancel_set_group = ProtoField.new("Quote Cancel Set Group", "cme.futures.ilink3.sbe.v8.5.quotecancelsetgroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.quote_cancel_set_groups = ProtoField.new("Quote Cancel Set Groups", "cme.futures.ilink3.sbe.v8.5.quotecancelsetgroups", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.quote_cancel_type = ProtoField.new("Quote Cancel Type", "cme.futures.ilink3.sbe.v8.5.quotecanceltype", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_5.fields.quote_entries_group = ProtoField.new("Quote Entries Group", "cme.futures.ilink3.sbe.v8.5.quoteentriesgroup", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_5.fields.quote_entries_group_528 = ProtoField.new("Quote Entries Group - Quote Cancel 528", "cme.futures.ilink3.sbe.v8.5.quoteentriesgroup528", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_5.fields.quote_entries_group_563 = ProtoField.new("Quote Entries Group - Quote Cancel Ack 563", "cme.futures.ilink3.sbe.v8.5.quoteentriesgroup563", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_5.fields.quote_entries_groups = ProtoField.new("Quote Entries Groups", "cme.futures.ilink3.sbe.v8.5.quoteentriesgroups", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_5.fields.quote_entries_groups_528 = ProtoField.new("Quote Entries Groups - Quote Cancel 528", "cme.futures.ilink3.sbe.v8.5.quoteentriesgroups528", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_5.fields.quote_entries_groups_563 = ProtoField.new("Quote Entries Groups - Quote Cancel Ack 563", "cme.futures.ilink3.sbe.v8.5.quoteentriesgroups563", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.quote_entry_id = ProtoField.new("Quote Entry Id", "cme.futures.ilink3.sbe.v8.5.quoteentryid", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_5.fields.quote_entry_reject_reason = ProtoField.new("Quote Entry Reject Reason", "cme.futures.ilink3.sbe.v8.5.quoteentryrejectreason", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_5.fields.quote_error_code = ProtoField.new("Quote Error Code", "cme.futures.ilink3.sbe.v8.5.quoteerrorcode", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_5.fields.quote_id = ProtoField.new("Quote Id", "cme.futures.ilink3.sbe.v8.5.quoteid", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_5.fields.quote_reject_reason = ProtoField.new("Quote Reject Reason", "cme.futures.ilink3.sbe.v8.5.quoterejectreason", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_5.fields.quote_req_id = ProtoField.new("Quote Req Id", "cme.futures.ilink3.sbe.v8.5.quotereqid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_5.fields.quote_set_id = ProtoField.new("Quote Set Id", "cme.futures.ilink3.sbe.v8.5.quotesetid", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_5.fields.quote_error_code = ProtoField.new("Quote Error Code", "cme.futures.ilink3.sbe.v8.5.quoteerrorcode", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_5.fields.quote_entry_reject_reason = ProtoField.new("Quote Entry Reject Reason", "cme.futures.ilink3.sbe.v8.5.quoteentryrejectreason", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_5.fields.quote_sets_group = ProtoField.new("Quote Sets Group", "cme.futures.ilink3.sbe.v8.5.quotesetsgroup", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_5.fields.quote_sets_group_528 = ProtoField.new("Quote Sets Group - Quote Cancel 528", "cme.futures.ilink3.sbe.v8.5.quotesetsgroup528", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_5.fields.quote_sets_group_563 = ProtoField.new("Quote Sets Group - Quote Cancel Ack 563", "cme.futures.ilink3.sbe.v8.5.quotesetsgroup563", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_5.fields.quote_sets_groups = ProtoField.new("Quote Sets Groups", "cme.futures.ilink3.sbe.v8.5.quotesetsgroups", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_5.fields.quote_sets_groups_528 = ProtoField.new("Quote Sets Groups - Quote Cancel 528", "cme.futures.ilink3.sbe.v8.5.quotesetsgroups528", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_5.fields.quote_sets_groups_563 = ProtoField.new("Quote Sets Groups - Quote Cancel Ack 563", "cme.futures.ilink3.sbe.v8.5.quotesetsgroups563", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.quote_status = ProtoField.new("Quote Status", "cme.futures.ilink3.sbe.v8.5.quotestatus", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_5.fields.quote_type = ProtoField.new("Quote Type", "cme.futures.ilink3.sbe.v8.5.quotetype", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_5.fields.reason = ProtoField.new("Reason", "cme.futures.ilink3.sbe.v8.5.reason", ftypes.STRING)
@@ -261,7 +278,11 @@ cme_futures_ilink3_sbe_v8_5.fields.schema_id = ProtoField.new("Schema Id", "cme.
 cme_futures_ilink3_sbe_v8_5.fields.sec_exec_id = ProtoField.new("Sec Exec Id", "cme.futures.ilink3.sbe.v8.5.secexecid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_5.fields.secret_key_secure_id_expiration = ProtoField.new("Secret Key Secure Id Expiration", "cme.futures.ilink3.sbe.v8.5.secretkeysecureidexpiration", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_5.fields.security_definition_request_560 = ProtoField.new("Security Definition Request 560", "cme.futures.ilink3.sbe.v8.5.securitydefinitionrequest560", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.security_definition_request_leg_group = ProtoField.new("Security Definition Request Leg Group", "cme.futures.ilink3.sbe.v8.5.securitydefinitionrequestleggroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.security_definition_request_leg_groups = ProtoField.new("Security Definition Request Leg Groups", "cme.futures.ilink3.sbe.v8.5.securitydefinitionrequestleggroups", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.security_definition_response_561 = ProtoField.new("Security Definition Response 561", "cme.futures.ilink3.sbe.v8.5.securitydefinitionresponse561", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.security_definition_response_leg_group = ProtoField.new("Security Definition Response Leg Group", "cme.futures.ilink3.sbe.v8.5.securitydefinitionresponseleggroup", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.security_definition_response_leg_groups = ProtoField.new("Security Definition Response Leg Groups", "cme.futures.ilink3.sbe.v8.5.securitydefinitionresponseleggroups", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.security_group = ProtoField.new("Security Group", "cme.futures.ilink3.sbe.v8.5.securitygroup", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.security_id = ProtoField.new("Security Id", "cme.futures.ilink3.sbe.v8.5.securityid", ftypes.INT32)
 cme_futures_ilink3_sbe_v8_5.fields.security_req_id = ProtoField.new("Security Req Id", "cme.futures.ilink3.sbe.v8.5.securityreqid", ftypes.UINT64)
@@ -340,19 +361,37 @@ show.execution_report_new_522 = true
 show.execution_report_reject_523 = true
 show.execution_report_status_532 = true
 show.execution_report_trade_addendum_outright_548 = true
+show.execution_report_trade_addendum_outright_order_event_group = true
+show.execution_report_trade_addendum_outright_order_event_groups = true
 show.execution_report_trade_addendum_spread_549 = true
 show.execution_report_trade_addendum_spread_leg_550 = true
+show.execution_report_trade_addendum_spread_leg_group = true
+show.execution_report_trade_addendum_spread_leg_groups = true
+show.execution_report_trade_addendum_spread_leg_order_event_group = true
+show.execution_report_trade_addendum_spread_leg_order_event_groups = true
+show.execution_report_trade_addendum_spread_order_event_group = true
+show.execution_report_trade_addendum_spread_order_event_groups = true
 show.execution_report_trade_outright_525 = true
+show.execution_report_trade_outright_order_event_group = true
+show.execution_report_trade_outright_order_event_groups = true
 show.execution_report_trade_spread_526 = true
 show.execution_report_trade_spread_leg_527 = true
+show.execution_report_trade_spread_leg_group = true
+show.execution_report_trade_spread_leg_groups = true
+show.execution_report_trade_spread_leg_order_event_group = true
+show.execution_report_trade_spread_leg_order_event_groups = true
+show.execution_report_trade_spread_order_event_group = true
+show.execution_report_trade_spread_order_event_groups = true
 show.fills_group = true
 show.fills_groups = true
 show.frame = true
 show.group_size = true
-show.legs_group = true
-show.legs_groups = true
 show.mass_quote_517 = true
 show.mass_quote_ack_545 = true
+show.mass_quote_ack_entry_group = true
+show.mass_quote_ack_entry_groups = true
+show.mass_quote_entry_group = true
+show.mass_quote_entry_groups = true
 show.maturity_month_year = true
 show.message_header = true
 show.negotiate_500 = true
@@ -365,8 +404,6 @@ show.order_cancel_reject_535 = true
 show.order_cancel_replace_reject_536 = true
 show.order_cancel_replace_request_515 = true
 show.order_cancel_request_516 = true
-show.order_events_group = true
-show.order_events_groups = true
 show.order_mass_action_report_562 = true
 show.order_mass_action_request_529 = true
 show.order_mass_status_request_530 = true
@@ -382,18 +419,14 @@ show.party_i_ds_group = true
 show.party_i_ds_groups = true
 show.quote_cancel_528 = true
 show.quote_cancel_ack_563 = true
-show.quote_entries_group = true
-show.quote_entries_group_528 = true
-show.quote_entries_group_563 = true
-show.quote_entries_groups = true
-show.quote_entries_groups_528 = true
-show.quote_entries_groups_563 = true
-show.quote_sets_group = true
-show.quote_sets_group_528 = true
-show.quote_sets_group_563 = true
-show.quote_sets_groups = true
-show.quote_sets_groups_528 = true
-show.quote_sets_groups_563 = true
+show.quote_cancel_ack_entry_group = true
+show.quote_cancel_ack_entry_groups = true
+show.quote_cancel_ack_set_group = true
+show.quote_cancel_ack_set_groups = true
+show.quote_cancel_entry_group = true
+show.quote_cancel_entry_groups = true
+show.quote_cancel_set_group = true
+show.quote_cancel_set_groups = true
 show.related_sym_group = true
 show.related_sym_groups = true
 show.request_for_quote_543 = true
@@ -404,7 +437,11 @@ show.retransmission_509 = true
 show.retransmit_reject_510 = true
 show.retransmit_request_508 = true
 show.security_definition_request_560 = true
+show.security_definition_request_leg_group = true
+show.security_definition_request_leg_groups = true
 show.security_definition_response_561 = true
+show.security_definition_response_leg_group = true
+show.security_definition_response_leg_groups = true
 show.sequence_506 = true
 show.sides_group = true
 show.sides_groups = true
@@ -431,19 +468,37 @@ cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_new_522 = Pref.bool("Sho
 cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_reject_523 = Pref.bool("Show Execution Report Reject 523", show.execution_report_reject_523, "Parse and add Execution Report Reject 523 to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_status_532 = Pref.bool("Show Execution Report Status 532", show.execution_report_status_532, "Parse and add Execution Report Status 532 to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_outright_548 = Pref.bool("Show Execution Report Trade Addendum Outright 548", show.execution_report_trade_addendum_outright_548, "Parse and add Execution Report Trade Addendum Outright 548 to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_outright_order_event_group = Pref.bool("Show Execution Report Trade Addendum Outright Order Event Group", show.execution_report_trade_addendum_outright_order_event_group, "Parse and add Execution Report Trade Addendum Outright Order Event Group to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_outright_order_event_groups = Pref.bool("Show Execution Report Trade Addendum Outright Order Event Groups", show.execution_report_trade_addendum_outright_order_event_groups, "Parse and add Execution Report Trade Addendum Outright Order Event Groups to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_spread_549 = Pref.bool("Show Execution Report Trade Addendum Spread 549", show.execution_report_trade_addendum_spread_549, "Parse and add Execution Report Trade Addendum Spread 549 to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_spread_leg_550 = Pref.bool("Show Execution Report Trade Addendum Spread Leg 550", show.execution_report_trade_addendum_spread_leg_550, "Parse and add Execution Report Trade Addendum Spread Leg 550 to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_spread_leg_group = Pref.bool("Show Execution Report Trade Addendum Spread Leg Group", show.execution_report_trade_addendum_spread_leg_group, "Parse and add Execution Report Trade Addendum Spread Leg Group to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_spread_leg_groups = Pref.bool("Show Execution Report Trade Addendum Spread Leg Groups", show.execution_report_trade_addendum_spread_leg_groups, "Parse and add Execution Report Trade Addendum Spread Leg Groups to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_spread_leg_order_event_group = Pref.bool("Show Execution Report Trade Addendum Spread Leg Order Event Group", show.execution_report_trade_addendum_spread_leg_order_event_group, "Parse and add Execution Report Trade Addendum Spread Leg Order Event Group to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_spread_leg_order_event_groups = Pref.bool("Show Execution Report Trade Addendum Spread Leg Order Event Groups", show.execution_report_trade_addendum_spread_leg_order_event_groups, "Parse and add Execution Report Trade Addendum Spread Leg Order Event Groups to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_spread_order_event_group = Pref.bool("Show Execution Report Trade Addendum Spread Order Event Group", show.execution_report_trade_addendum_spread_order_event_group, "Parse and add Execution Report Trade Addendum Spread Order Event Group to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_spread_order_event_groups = Pref.bool("Show Execution Report Trade Addendum Spread Order Event Groups", show.execution_report_trade_addendum_spread_order_event_groups, "Parse and add Execution Report Trade Addendum Spread Order Event Groups to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_outright_525 = Pref.bool("Show Execution Report Trade Outright 525", show.execution_report_trade_outright_525, "Parse and add Execution Report Trade Outright 525 to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_outright_order_event_group = Pref.bool("Show Execution Report Trade Outright Order Event Group", show.execution_report_trade_outright_order_event_group, "Parse and add Execution Report Trade Outright Order Event Group to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_outright_order_event_groups = Pref.bool("Show Execution Report Trade Outright Order Event Groups", show.execution_report_trade_outright_order_event_groups, "Parse and add Execution Report Trade Outright Order Event Groups to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_spread_526 = Pref.bool("Show Execution Report Trade Spread 526", show.execution_report_trade_spread_526, "Parse and add Execution Report Trade Spread 526 to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_spread_leg_527 = Pref.bool("Show Execution Report Trade Spread Leg 527", show.execution_report_trade_spread_leg_527, "Parse and add Execution Report Trade Spread Leg 527 to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_spread_leg_group = Pref.bool("Show Execution Report Trade Spread Leg Group", show.execution_report_trade_spread_leg_group, "Parse and add Execution Report Trade Spread Leg Group to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_spread_leg_groups = Pref.bool("Show Execution Report Trade Spread Leg Groups", show.execution_report_trade_spread_leg_groups, "Parse and add Execution Report Trade Spread Leg Groups to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_spread_leg_order_event_group = Pref.bool("Show Execution Report Trade Spread Leg Order Event Group", show.execution_report_trade_spread_leg_order_event_group, "Parse and add Execution Report Trade Spread Leg Order Event Group to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_spread_leg_order_event_groups = Pref.bool("Show Execution Report Trade Spread Leg Order Event Groups", show.execution_report_trade_spread_leg_order_event_groups, "Parse and add Execution Report Trade Spread Leg Order Event Groups to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_spread_order_event_group = Pref.bool("Show Execution Report Trade Spread Order Event Group", show.execution_report_trade_spread_order_event_group, "Parse and add Execution Report Trade Spread Order Event Group to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_spread_order_event_groups = Pref.bool("Show Execution Report Trade Spread Order Event Groups", show.execution_report_trade_spread_order_event_groups, "Parse and add Execution Report Trade Spread Order Event Groups to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_fills_group = Pref.bool("Show Fills Group", show.fills_group, "Parse and add Fills Group to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_fills_groups = Pref.bool("Show Fills Groups", show.fills_groups, "Parse and add Fills Groups to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_frame = Pref.bool("Show Frame", show.frame, "Parse and add Frame to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_group_size = Pref.bool("Show Group Size", show.group_size, "Parse and add Group Size to protocol tree")
-cme_futures_ilink3_sbe_v8_5.prefs.show_legs_group = Pref.bool("Show Legs Group", show.legs_group, "Parse and add Legs Group to protocol tree")
-cme_futures_ilink3_sbe_v8_5.prefs.show_legs_groups = Pref.bool("Show Legs Groups", show.legs_groups, "Parse and add Legs Groups to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_mass_quote_517 = Pref.bool("Show Mass Quote 517", show.mass_quote_517, "Parse and add Mass Quote 517 to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_mass_quote_ack_545 = Pref.bool("Show Mass Quote Ack 545", show.mass_quote_ack_545, "Parse and add Mass Quote Ack 545 to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_mass_quote_ack_entry_group = Pref.bool("Show Mass Quote Ack Entry Group", show.mass_quote_ack_entry_group, "Parse and add Mass Quote Ack Entry Group to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_mass_quote_ack_entry_groups = Pref.bool("Show Mass Quote Ack Entry Groups", show.mass_quote_ack_entry_groups, "Parse and add Mass Quote Ack Entry Groups to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_mass_quote_entry_group = Pref.bool("Show Mass Quote Entry Group", show.mass_quote_entry_group, "Parse and add Mass Quote Entry Group to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_mass_quote_entry_groups = Pref.bool("Show Mass Quote Entry Groups", show.mass_quote_entry_groups, "Parse and add Mass Quote Entry Groups to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_maturity_month_year = Pref.bool("Show Maturity Month Year", show.maturity_month_year, "Parse and add Maturity Month Year to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_negotiate_500 = Pref.bool("Show Negotiate 500", show.negotiate_500, "Parse and add Negotiate 500 to protocol tree")
@@ -456,8 +511,6 @@ cme_futures_ilink3_sbe_v8_5.prefs.show_order_cancel_reject_535 = Pref.bool("Show
 cme_futures_ilink3_sbe_v8_5.prefs.show_order_cancel_replace_reject_536 = Pref.bool("Show Order Cancel Replace Reject 536", show.order_cancel_replace_reject_536, "Parse and add Order Cancel Replace Reject 536 to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_order_cancel_replace_request_515 = Pref.bool("Show Order Cancel Replace Request 515", show.order_cancel_replace_request_515, "Parse and add Order Cancel Replace Request 515 to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_order_cancel_request_516 = Pref.bool("Show Order Cancel Request 516", show.order_cancel_request_516, "Parse and add Order Cancel Request 516 to protocol tree")
-cme_futures_ilink3_sbe_v8_5.prefs.show_order_events_group = Pref.bool("Show Order Events Group", show.order_events_group, "Parse and add Order Events Group to protocol tree")
-cme_futures_ilink3_sbe_v8_5.prefs.show_order_events_groups = Pref.bool("Show Order Events Groups", show.order_events_groups, "Parse and add Order Events Groups to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_order_mass_action_report_562 = Pref.bool("Show Order Mass Action Report 562", show.order_mass_action_report_562, "Parse and add Order Mass Action Report 562 to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_order_mass_action_request_529 = Pref.bool("Show Order Mass Action Request 529", show.order_mass_action_request_529, "Parse and add Order Mass Action Request 529 to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_order_mass_status_request_530 = Pref.bool("Show Order Mass Status Request 530", show.order_mass_status_request_530, "Parse and add Order Mass Status Request 530 to protocol tree")
@@ -473,18 +526,14 @@ cme_futures_ilink3_sbe_v8_5.prefs.show_party_i_ds_group = Pref.bool("Show Party 
 cme_futures_ilink3_sbe_v8_5.prefs.show_party_i_ds_groups = Pref.bool("Show Party I Ds Groups", show.party_i_ds_groups, "Parse and add Party I Ds Groups to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_528 = Pref.bool("Show Quote Cancel 528", show.quote_cancel_528, "Parse and add Quote Cancel 528 to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_ack_563 = Pref.bool("Show Quote Cancel Ack 563", show.quote_cancel_ack_563, "Parse and add Quote Cancel Ack 563 to protocol tree")
-cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_group = Pref.bool("Show Quote Entries Group", show.quote_entries_group, "Parse and add Quote Entries Group to protocol tree")
-cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_group_528 = Pref.bool("Show Quote Entries Group - Quote Cancel 528", show.quote_entries_group_528, "Parse and add Quote Entries Group to protocol tree")
-cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_group_563 = Pref.bool("Show Quote Entries Group - Quote Cancel Ack 563", show.quote_entries_group_563, "Parse and add Quote Entries Group to protocol tree")
-cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_groups = Pref.bool("Show Quote Entries Groups", show.quote_entries_groups, "Parse and add Quote Entries Groups to protocol tree")
-cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_groups_528 = Pref.bool("Show Quote Entries Groups - Quote Cancel 528", show.quote_entries_groups_528, "Parse and add Quote Entries Groups to protocol tree")
-cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_groups_563 = Pref.bool("Show Quote Entries Groups - Quote Cancel Ack 563", show.quote_entries_groups_563, "Parse and add Quote Entries Groups to protocol tree")
-cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_group = Pref.bool("Show Quote Sets Group", show.quote_sets_group, "Parse and add Quote Sets Group to protocol tree")
-cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_group_528 = Pref.bool("Show Quote Sets Group - Quote Cancel 528", show.quote_sets_group_528, "Parse and add Quote Sets Group to protocol tree")
-cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_group_563 = Pref.bool("Show Quote Sets Group - Quote Cancel Ack 563", show.quote_sets_group_563, "Parse and add Quote Sets Group to protocol tree")
-cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_groups = Pref.bool("Show Quote Sets Groups", show.quote_sets_groups, "Parse and add Quote Sets Groups to protocol tree")
-cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_groups_528 = Pref.bool("Show Quote Sets Groups - Quote Cancel 528", show.quote_sets_groups_528, "Parse and add Quote Sets Groups to protocol tree")
-cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_groups_563 = Pref.bool("Show Quote Sets Group - Quote Cancel Ack 563", show.quote_sets_groups_563, "Parse and add Quote Sets Groups to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_ack_entry_group = Pref.bool("Show Quote Cancel Ack Entry Group", show.quote_cancel_ack_entry_group, "Parse and add Quote Cancel Ack Entry Group to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_ack_entry_groups = Pref.bool("Show Quote Cancel Ack Entry Groups", show.quote_cancel_ack_entry_groups, "Parse and add Quote Cancel Ack Entry Groups to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_ack_set_group = Pref.bool("Show Quote Cancel Ack Set Group", show.quote_cancel_ack_set_group, "Parse and add Quote Cancel Ack Set Group to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_ack_set_groups = Pref.bool("Show Quote Cancel Ack Set Groups", show.quote_cancel_ack_set_groups, "Parse and add Quote Cancel Ack Set Groups to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_entry_group = Pref.bool("Show Quote Cancel Entry Group", show.quote_cancel_entry_group, "Parse and add Quote Cancel Entry Group to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_entry_groups = Pref.bool("Show Quote Cancel Entry Groups", show.quote_cancel_entry_groups, "Parse and add Quote Cancel Entry Groups to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_set_group = Pref.bool("Show Quote Cancel Set Group", show.quote_cancel_set_group, "Parse and add Quote Cancel Set Group to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_set_groups = Pref.bool("Show Quote Cancel Set Groups", show.quote_cancel_set_groups, "Parse and add Quote Cancel Set Groups to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_related_sym_group = Pref.bool("Show Related Sym Group", show.related_sym_group, "Parse and add Related Sym Group to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_related_sym_groups = Pref.bool("Show Related Sym Groups", show.related_sym_groups, "Parse and add Related Sym Groups to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_request_for_quote_543 = Pref.bool("Show Request For Quote 543", show.request_for_quote_543, "Parse and add Request For Quote 543 to protocol tree")
@@ -495,7 +544,11 @@ cme_futures_ilink3_sbe_v8_5.prefs.show_retransmission_509 = Pref.bool("Show Retr
 cme_futures_ilink3_sbe_v8_5.prefs.show_retransmit_reject_510 = Pref.bool("Show Retransmit Reject 510", show.retransmit_reject_510, "Parse and add Retransmit Reject 510 to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_retransmit_request_508 = Pref.bool("Show Retransmit Request 508", show.retransmit_request_508, "Parse and add Retransmit Request 508 to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_security_definition_request_560 = Pref.bool("Show Security Definition Request 560", show.security_definition_request_560, "Parse and add Security Definition Request 560 to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_security_definition_request_leg_group = Pref.bool("Show Security Definition Request Leg Group", show.security_definition_request_leg_group, "Parse and add Security Definition Request Leg Group to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_security_definition_request_leg_groups = Pref.bool("Show Security Definition Request Leg Groups", show.security_definition_request_leg_groups, "Parse and add Security Definition Request Leg Groups to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_security_definition_response_561 = Pref.bool("Show Security Definition Response 561", show.security_definition_response_561, "Parse and add Security Definition Response 561 to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_security_definition_response_leg_group = Pref.bool("Show Security Definition Response Leg Group", show.security_definition_response_leg_group, "Parse and add Security Definition Response Leg Group to protocol tree")
+cme_futures_ilink3_sbe_v8_5.prefs.show_security_definition_response_leg_groups = Pref.bool("Show Security Definition Response Leg Groups", show.security_definition_response_leg_groups, "Parse and add Security Definition Response Leg Groups to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_sequence_506 = Pref.bool("Show Sequence 506", show.sequence_506, "Parse and add Sequence 506 to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_sides_group = Pref.bool("Show Sides Group", show.sides_group, "Parse and add Sides Group to protocol tree")
 cme_futures_ilink3_sbe_v8_5.prefs.show_sides_groups = Pref.bool("Show Sides Groups", show.sides_groups, "Parse and add Sides Groups to protocol tree")
@@ -574,6 +627,14 @@ function cme_futures_ilink3_sbe_v8_5.prefs_changed()
     show.execution_report_trade_addendum_outright_548 = cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_outright_548
     changed = true
   end
+  if show.execution_report_trade_addendum_outright_order_event_group ~= cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_outright_order_event_group then
+    show.execution_report_trade_addendum_outright_order_event_group = cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_outright_order_event_group
+    changed = true
+  end
+  if show.execution_report_trade_addendum_outright_order_event_groups ~= cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_outright_order_event_groups then
+    show.execution_report_trade_addendum_outright_order_event_groups = cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_outright_order_event_groups
+    changed = true
+  end
   if show.execution_report_trade_addendum_spread_549 ~= cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_spread_549 then
     show.execution_report_trade_addendum_spread_549 = cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_spread_549
     changed = true
@@ -582,8 +643,40 @@ function cme_futures_ilink3_sbe_v8_5.prefs_changed()
     show.execution_report_trade_addendum_spread_leg_550 = cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_spread_leg_550
     changed = true
   end
+  if show.execution_report_trade_addendum_spread_leg_group ~= cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_spread_leg_group then
+    show.execution_report_trade_addendum_spread_leg_group = cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_spread_leg_group
+    changed = true
+  end
+  if show.execution_report_trade_addendum_spread_leg_groups ~= cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_spread_leg_groups then
+    show.execution_report_trade_addendum_spread_leg_groups = cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_spread_leg_groups
+    changed = true
+  end
+  if show.execution_report_trade_addendum_spread_leg_order_event_group ~= cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_spread_leg_order_event_group then
+    show.execution_report_trade_addendum_spread_leg_order_event_group = cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_spread_leg_order_event_group
+    changed = true
+  end
+  if show.execution_report_trade_addendum_spread_leg_order_event_groups ~= cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_spread_leg_order_event_groups then
+    show.execution_report_trade_addendum_spread_leg_order_event_groups = cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_spread_leg_order_event_groups
+    changed = true
+  end
+  if show.execution_report_trade_addendum_spread_order_event_group ~= cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_spread_order_event_group then
+    show.execution_report_trade_addendum_spread_order_event_group = cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_spread_order_event_group
+    changed = true
+  end
+  if show.execution_report_trade_addendum_spread_order_event_groups ~= cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_spread_order_event_groups then
+    show.execution_report_trade_addendum_spread_order_event_groups = cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_addendum_spread_order_event_groups
+    changed = true
+  end
   if show.execution_report_trade_outright_525 ~= cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_outright_525 then
     show.execution_report_trade_outright_525 = cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_outright_525
+    changed = true
+  end
+  if show.execution_report_trade_outright_order_event_group ~= cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_outright_order_event_group then
+    show.execution_report_trade_outright_order_event_group = cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_outright_order_event_group
+    changed = true
+  end
+  if show.execution_report_trade_outright_order_event_groups ~= cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_outright_order_event_groups then
+    show.execution_report_trade_outright_order_event_groups = cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_outright_order_event_groups
     changed = true
   end
   if show.execution_report_trade_spread_526 ~= cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_spread_526 then
@@ -592,6 +685,30 @@ function cme_futures_ilink3_sbe_v8_5.prefs_changed()
   end
   if show.execution_report_trade_spread_leg_527 ~= cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_spread_leg_527 then
     show.execution_report_trade_spread_leg_527 = cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_spread_leg_527
+    changed = true
+  end
+  if show.execution_report_trade_spread_leg_group ~= cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_spread_leg_group then
+    show.execution_report_trade_spread_leg_group = cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_spread_leg_group
+    changed = true
+  end
+  if show.execution_report_trade_spread_leg_groups ~= cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_spread_leg_groups then
+    show.execution_report_trade_spread_leg_groups = cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_spread_leg_groups
+    changed = true
+  end
+  if show.execution_report_trade_spread_leg_order_event_group ~= cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_spread_leg_order_event_group then
+    show.execution_report_trade_spread_leg_order_event_group = cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_spread_leg_order_event_group
+    changed = true
+  end
+  if show.execution_report_trade_spread_leg_order_event_groups ~= cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_spread_leg_order_event_groups then
+    show.execution_report_trade_spread_leg_order_event_groups = cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_spread_leg_order_event_groups
+    changed = true
+  end
+  if show.execution_report_trade_spread_order_event_group ~= cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_spread_order_event_group then
+    show.execution_report_trade_spread_order_event_group = cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_spread_order_event_group
+    changed = true
+  end
+  if show.execution_report_trade_spread_order_event_groups ~= cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_spread_order_event_groups then
+    show.execution_report_trade_spread_order_event_groups = cme_futures_ilink3_sbe_v8_5.prefs.show_execution_report_trade_spread_order_event_groups
     changed = true
   end
   if show.fills_group ~= cme_futures_ilink3_sbe_v8_5.prefs.show_fills_group then
@@ -610,20 +727,28 @@ function cme_futures_ilink3_sbe_v8_5.prefs_changed()
     show.group_size = cme_futures_ilink3_sbe_v8_5.prefs.show_group_size
     changed = true
   end
-  if show.legs_group ~= cme_futures_ilink3_sbe_v8_5.prefs.show_legs_group then
-    show.legs_group = cme_futures_ilink3_sbe_v8_5.prefs.show_legs_group
-    changed = true
-  end
-  if show.legs_groups ~= cme_futures_ilink3_sbe_v8_5.prefs.show_legs_groups then
-    show.legs_groups = cme_futures_ilink3_sbe_v8_5.prefs.show_legs_groups
-    changed = true
-  end
   if show.mass_quote_517 ~= cme_futures_ilink3_sbe_v8_5.prefs.show_mass_quote_517 then
     show.mass_quote_517 = cme_futures_ilink3_sbe_v8_5.prefs.show_mass_quote_517
     changed = true
   end
   if show.mass_quote_ack_545 ~= cme_futures_ilink3_sbe_v8_5.prefs.show_mass_quote_ack_545 then
     show.mass_quote_ack_545 = cme_futures_ilink3_sbe_v8_5.prefs.show_mass_quote_ack_545
+    changed = true
+  end
+  if show.mass_quote_ack_entry_group ~= cme_futures_ilink3_sbe_v8_5.prefs.show_mass_quote_ack_entry_group then
+    show.mass_quote_ack_entry_group = cme_futures_ilink3_sbe_v8_5.prefs.show_mass_quote_ack_entry_group
+    changed = true
+  end
+  if show.mass_quote_ack_entry_groups ~= cme_futures_ilink3_sbe_v8_5.prefs.show_mass_quote_ack_entry_groups then
+    show.mass_quote_ack_entry_groups = cme_futures_ilink3_sbe_v8_5.prefs.show_mass_quote_ack_entry_groups
+    changed = true
+  end
+  if show.mass_quote_entry_group ~= cme_futures_ilink3_sbe_v8_5.prefs.show_mass_quote_entry_group then
+    show.mass_quote_entry_group = cme_futures_ilink3_sbe_v8_5.prefs.show_mass_quote_entry_group
+    changed = true
+  end
+  if show.mass_quote_entry_groups ~= cme_futures_ilink3_sbe_v8_5.prefs.show_mass_quote_entry_groups then
+    show.mass_quote_entry_groups = cme_futures_ilink3_sbe_v8_5.prefs.show_mass_quote_entry_groups
     changed = true
   end
   if show.maturity_month_year ~= cme_futures_ilink3_sbe_v8_5.prefs.show_maturity_month_year then
@@ -672,14 +797,6 @@ function cme_futures_ilink3_sbe_v8_5.prefs_changed()
   end
   if show.order_cancel_request_516 ~= cme_futures_ilink3_sbe_v8_5.prefs.show_order_cancel_request_516 then
     show.order_cancel_request_516 = cme_futures_ilink3_sbe_v8_5.prefs.show_order_cancel_request_516
-    changed = true
-  end
-  if show.order_events_group ~= cme_futures_ilink3_sbe_v8_5.prefs.show_order_events_group then
-    show.order_events_group = cme_futures_ilink3_sbe_v8_5.prefs.show_order_events_group
-    changed = true
-  end
-  if show.order_events_groups ~= cme_futures_ilink3_sbe_v8_5.prefs.show_order_events_groups then
-    show.order_events_groups = cme_futures_ilink3_sbe_v8_5.prefs.show_order_events_groups
     changed = true
   end
   if show.order_mass_action_report_562 ~= cme_futures_ilink3_sbe_v8_5.prefs.show_order_mass_action_report_562 then
@@ -742,52 +859,36 @@ function cme_futures_ilink3_sbe_v8_5.prefs_changed()
     show.quote_cancel_ack_563 = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_ack_563
     changed = true
   end
-  if show.quote_entries_group ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_group then
-    show.quote_entries_group = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_group
+  if show.quote_cancel_ack_entry_group ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_ack_entry_group then
+    show.quote_cancel_ack_entry_group = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_ack_entry_group
     changed = true
   end
-  if show.quote_entries_group_528 ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_group_528 then
-    show.quote_entries_group_528 = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_group_528
+  if show.quote_cancel_ack_entry_groups ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_ack_entry_groups then
+    show.quote_cancel_ack_entry_groups = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_ack_entry_groups
     changed = true
   end
-  if show.quote_entries_group_563 ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_group_563 then
-    show.quote_entries_group_563 = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_group_563
+  if show.quote_cancel_ack_set_group ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_ack_set_group then
+    show.quote_cancel_ack_set_group = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_ack_set_group
     changed = true
   end
-  if show.quote_entries_groups ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_groups then
-    show.quote_entries_groups = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_groups
+  if show.quote_cancel_ack_set_groups ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_ack_set_groups then
+    show.quote_cancel_ack_set_groups = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_ack_set_groups
     changed = true
   end
-  if show.quote_entries_groups_528 ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_groups_528 then
-    show.quote_entries_groups_528 = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_groups_528
+  if show.quote_cancel_entry_group ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_entry_group then
+    show.quote_cancel_entry_group = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_entry_group
     changed = true
   end
-  if show.quote_entries_groups_563 ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_groups_563 then
-    show.quote_entries_groups_563 = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_entries_groups_563
+  if show.quote_cancel_entry_groups ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_entry_groups then
+    show.quote_cancel_entry_groups = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_entry_groups
     changed = true
   end
-  if show.quote_sets_group ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_group then
-    show.quote_sets_group = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_group
+  if show.quote_cancel_set_group ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_set_group then
+    show.quote_cancel_set_group = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_set_group
     changed = true
   end
-  if show.quote_sets_group_528 ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_group_528 then
-    show.quote_sets_group_528 = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_group_528
-    changed = true
-  end
-  if show.quote_sets_group_563 ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_group_563 then
-    show.quote_sets_group_563 = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_group_563
-    changed = true
-  end
-  if show.quote_sets_groups ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_groups then
-    show.quote_sets_groups = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_groups
-    changed = true
-  end
-  if show.quote_sets_groups_528 ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_groups_528 then
-    show.quote_sets_groups_528 = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_groups_528
-    changed = true
-  end
-  if show.quote_sets_groups_563 ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_groups_563 then
-    show.quote_sets_groups_563 = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_sets_groups_563
+  if show.quote_cancel_set_groups ~= cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_set_groups then
+    show.quote_cancel_set_groups = cme_futures_ilink3_sbe_v8_5.prefs.show_quote_cancel_set_groups
     changed = true
   end
   if show.related_sym_group ~= cme_futures_ilink3_sbe_v8_5.prefs.show_related_sym_group then
@@ -830,8 +931,24 @@ function cme_futures_ilink3_sbe_v8_5.prefs_changed()
     show.security_definition_request_560 = cme_futures_ilink3_sbe_v8_5.prefs.show_security_definition_request_560
     changed = true
   end
+  if show.security_definition_request_leg_group ~= cme_futures_ilink3_sbe_v8_5.prefs.show_security_definition_request_leg_group then
+    show.security_definition_request_leg_group = cme_futures_ilink3_sbe_v8_5.prefs.show_security_definition_request_leg_group
+    changed = true
+  end
+  if show.security_definition_request_leg_groups ~= cme_futures_ilink3_sbe_v8_5.prefs.show_security_definition_request_leg_groups then
+    show.security_definition_request_leg_groups = cme_futures_ilink3_sbe_v8_5.prefs.show_security_definition_request_leg_groups
+    changed = true
+  end
   if show.security_definition_response_561 ~= cme_futures_ilink3_sbe_v8_5.prefs.show_security_definition_response_561 then
     show.security_definition_response_561 = cme_futures_ilink3_sbe_v8_5.prefs.show_security_definition_response_561
+    changed = true
+  end
+  if show.security_definition_response_leg_group ~= cme_futures_ilink3_sbe_v8_5.prefs.show_security_definition_response_leg_group then
+    show.security_definition_response_leg_group = cme_futures_ilink3_sbe_v8_5.prefs.show_security_definition_response_leg_group
+    changed = true
+  end
+  if show.security_definition_response_leg_groups ~= cme_futures_ilink3_sbe_v8_5.prefs.show_security_definition_response_leg_groups then
+    show.security_definition_response_leg_groups = cme_futures_ilink3_sbe_v8_5.prefs.show_security_definition_response_leg_groups
     changed = true
   end
   if show.sequence_506 ~= cme_futures_ilink3_sbe_v8_5.prefs.show_sequence_506 then
@@ -878,26 +995,6 @@ end
 -- Dissect Cme Futures iLink3 Sbe 8.5
 -----------------------------------------------------------------------
 
--- Size: Quote Set Id
-size_of.quote_set_id = 2
-
--- Display: Quote Set Id
-display.quote_set_id = function(value)
-  return "Quote Set Id: "..value
-end
-
--- Dissect: Quote Set Id
-dissect.quote_set_id = function(buffer, offset, packet, parent)
-  local length = size_of.quote_set_id
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = display.quote_set_id(value, buffer, offset, packet, parent)
-
-  parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_set_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Quote Error Code
 size_of.quote_error_code = 2
 
@@ -918,121 +1015,66 @@ dissect.quote_error_code = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Quote Entry Reject Reason
-size_of.quote_entry_reject_reason = 1
+-- Size: Quote Set Id
+size_of.quote_set_id = 2
 
--- Display: Quote Entry Reject Reason
-display.quote_entry_reject_reason = function(value)
-  return "Quote Entry Reject Reason: "..value
+-- Display: Quote Set Id
+display.quote_set_id = function(value)
+  return "Quote Set Id: "..value
 end
 
--- Dissect: Quote Entry Reject Reason
-dissect.quote_entry_reject_reason = function(buffer, offset, packet, parent)
-  local length = size_of.quote_entry_reject_reason
+-- Dissect: Quote Set Id
+dissect.quote_set_id = function(buffer, offset, packet, parent)
+  local length = size_of.quote_set_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.quote_entry_reject_reason(value, buffer, offset, packet, parent)
+  local display = display.quote_set_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_entry_reject_reason, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_set_id, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Offer Size
-size_of.offer_size = 4
-
--- Display: Offer Size
-display.offer_size = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
-    return "Offer Size: No Value ("..value..")"
-  end
-
-  return "Offer Size: "..value
-end
-
--- Dissect: Offer Size
-dissect.offer_size = function(buffer, offset, packet, parent)
-  local length = size_of.offer_size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = display.offer_size(value, buffer, offset, packet, parent)
-
-  parent:add(cme_futures_ilink3_sbe_v8_5.fields.offer_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Bid Size
-size_of.bid_size = 4
-
--- Display: Bid Size
-display.bid_size = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
-    return "Bid Size: No Value ("..value..")"
-  end
-
-  return "Bid Size: "..value
-end
-
--- Dissect: Bid Size
-dissect.bid_size = function(buffer, offset, packet, parent)
-  local length = size_of.bid_size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = display.bid_size(value, buffer, offset, packet, parent)
-
-  parent:add(cme_futures_ilink3_sbe_v8_5.fields.bid_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Calculate size of: Quote Sets Group
-size_of.quote_sets_group = function(buffer, offset)
+-- Calculate size of: Quote Cancel Ack Set Group
+size_of.quote_cancel_ack_set_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.bid_size
-
-  index = index + size_of.offer_size
-
   index = index + size_of.quote_set_id
+
+  index = index + size_of.quote_error_code
 
   return index
 end
 
--- Display: Quote Sets Group
-display.quote_sets_group = function(buffer, offset, size, packet, parent)
+-- Display: Quote Cancel Ack Set Group
+display.quote_cancel_ack_set_group = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Quote Sets Group
-dissect.quote_sets_group_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Cancel Ack Set Group
+dissect.quote_cancel_ack_set_group_fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Bid Size: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, bid_size = dissect.bid_size(buffer, index, packet, parent)
-
-  -- Offer Size: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, offer_size = dissect.offer_size(buffer, index, packet, parent)
 
   -- Quote Set Id: 2 Byte Unsigned Fixed Width Integer
   index, quote_set_id = dissect.quote_set_id(buffer, index, packet, parent)
 
+  -- Quote Error Code: 2 Byte Unsigned Fixed Width Integer
+  index, quote_error_code = dissect.quote_error_code(buffer, index, packet, parent)
+
   return index
 end
 
--- Dissect: Quote Sets Group
-dissect.quote_sets_group = function(buffer, offset, packet, parent)
+-- Dissect: Quote Cancel Ack Set Group
+dissect.quote_cancel_ack_set_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.quote_sets_group then
-    local length = size_of.quote_sets_group(buffer, offset)
+  if show.quote_cancel_ack_set_group then
+    local length = size_of.quote_cancel_ack_set_group(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.quote_sets_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_sets_group, range, display)
+    local display = display.quote_cancel_ack_set_group(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_cancel_ack_set_group, range, display)
   end
 
-  return dissect.quote_sets_group_fields(buffer, offset, packet, parent)
+  return dissect.quote_cancel_ack_set_group_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Num In Group
@@ -1117,26 +1159,26 @@ dissect.group_size = function(buffer, offset, packet, parent)
   return dissect.group_size_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Quote Sets Groups
-size_of.quote_sets_groups = function(buffer, offset)
+-- Calculate size of: Quote Cancel Ack Set Groups
+size_of.quote_cancel_ack_set_groups = function(buffer, offset)
   local index = 0
 
   index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
-  local quote_sets_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + quote_sets_group_count * 10
+  local quote_cancel_ack_set_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + quote_cancel_ack_set_group_count * 4
 
   return index
 end
 
--- Display: Quote Sets Groups
-display.quote_sets_groups = function(buffer, offset, size, packet, parent)
+-- Display: Quote Cancel Ack Set Groups
+display.quote_cancel_ack_set_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Quote Sets Groups
-dissect.quote_sets_groups_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Cancel Ack Set Groups
+dissect.quote_cancel_ack_set_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -1145,264 +1187,43 @@ dissect.quote_sets_groups_fields = function(buffer, offset, packet, parent)
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Quote Sets Group: Struct of 3 fields
+  -- Quote Cancel Ack Set Group: Struct of 2 fields
   for i = 1, num_in_group do
-    index = dissect.quote_sets_group(buffer, index, packet, parent)
+    index = dissect.quote_cancel_ack_set_group(buffer, index, packet, parent)
   end
 
   return index
 end
 
--- Dissect: Quote Sets Groups
-dissect.quote_sets_groups = function(buffer, offset, packet, parent)
+-- Dissect: Quote Cancel Ack Set Groups
+dissect.quote_cancel_ack_set_groups = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.quote_sets_groups then
-    local length = size_of.quote_sets_groups(buffer, offset)
+  if show.quote_cancel_ack_set_groups then
+    local length = size_of.quote_cancel_ack_set_groups(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.quote_sets_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_sets_groups, range, display)
+    local display = display.quote_cancel_ack_set_groups(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_cancel_ack_set_groups, range, display)
   end
 
-  return dissect.quote_sets_groups_fields(buffer, offset, packet, parent)
+  return dissect.quote_cancel_ack_set_groups_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Quote Sets Groups - Quote Cancel 528
-size_of.quote_sets_groups_528 = function(buffer, offset)
-  local index = 0
+-- Size: Quote Entry Reject Reason
+size_of.quote_entry_reject_reason = 1
 
-  index = index + size_of.group_size(buffer, offset + index)
-
-  -- Calculate field size from count
-  local quote_sets_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + quote_sets_group_count * 10
-
-  return index
+-- Display: Quote Entry Reject Reason
+display.quote_entry_reject_reason = function(value)
+  return "Quote Entry Reject Reason: "..value
 end
 
--- Display: Quote Sets Groups - Quote Cancel 528
-display.quote_sets_groups_528 = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Quote Sets Groups - Quote Cancel 528
-dissect.quote_sets_groups_fields_528 = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = dissect.group_size(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Quote Sets Group: Struct of 3 fields
-  for i = 1, num_in_group do
-    index = dissect.quote_sets_group_528(buffer, index, packet, parent)
-  end
-
-  return index
-end
-
--- Dissect: Quote Sets Groups - Quote Cancel 528
-dissect.quote_sets_groups_528 = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
-  if show.quote_sets_groups_528 then
-    local length = size_of.quote_sets_groups_528(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.quote_sets_groups_528(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_sets_groups_528, range, display)
-  end
-
-  return dissect.quote_sets_groups_fields(buffer, offset, packet, parent)
-end
-
--- Calculate size of: Quote Sets Group - Quote Cancel 528
-size_of.quote_sets_group_528 = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.bid_size
-
-  index = index + size_of.offer_size
-
-  index = index + size_of.quote_set_id
-
-  return index
-end
-
--- Display: Quote Sets Group - Quote Cancel 528
-display.quote_sets_group_528 = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Quote Sets Group - Quote Cancel 528
-dissect.quote_sets_group_fields_528 = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Bid Size: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, bid_size = dissect.bid_size(buffer, index, packet, parent)
-
-  -- Offer Size: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, offer_size = dissect.offer_size(buffer, index, packet, parent)
-
-  -- Quote Set Id: 2 Byte Unsigned Fixed Width Integer
-  index, quote_set_id = dissect.quote_set_id(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Quote Sets Group - Quote Cancel 528
-dissect.quote_sets_group_528 = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.quote_sets_group_528 then
-    local length = size_of.quote_sets_group_528(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.quote_sets_group_528(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_sets_group_528, range, display)
-  end
-
-  return dissect.quote_sets_group_fields_528(buffer, offset, packet, parent)
-end
-
--------------------------------------------------------------------------------
-
--- Calculate size of: Quote Sets Groups - Quote Cancel Ack 563
-size_of.quote_sets_groups_563 = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.group_size(buffer, offset + index)
-
-  -- Calculate field size from count
-  local quote_sets_group_count = buffer(offset + index - 1, 1):le_uint()
-  
-  index = index + quote_sets_group_count * 4
-
-  return index
-end
-
--- Display: Quote Sets Groups - Quote Cancel Ack 563
-display.quote_sets_groups_563 = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Calculate size of: Quote Sets Group - Quote Cancel Ack 563
-size_of.quote_sets_group_563 = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.quote_set_id
-
-  index = index + size_of.quote_error_code
-
-  return index
-end
-
--- Dissect: Quote Sets Group - Quote Cancel Ack 563
-dissect.quote_sets_group_563 = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.quote_sets_group_563 then
-    local length = size_of.quote_sets_group_563(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.quote_sets_group_563(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_sets_group_563, range, display)
-  end
-
-  return dissect.quote_sets_group_fields_563(buffer, offset, packet, parent)
-end
-
--- Dissect Fields: Quote Sets Groups - Quote Cancel Ack 563
-dissect.quote_sets_groups_fields_563 = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = dissect.group_size(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Quote Sets Group: Struct of 2 fields
-  for i = 1, num_in_group do
-    index = dissect.quote_sets_group_563(buffer, index, packet, parent)
-  end
-
-  return index
-end
-
--- Dissect: Quote Sets Groups - Quote Cancel Ack 563
-dissect.quote_sets_groups_563 = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
-  if show.quote_sets_groups_563 then
-    local length = size_of.quote_sets_groups_563(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.quote_sets_groups_563(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_sets_groups_563, range, display)
-  end
-
-  return dissect.quote_sets_groups_fields_563(buffer, offset, packet, parent)
-end
-
--- Calculate size of: Quote Sets Group - Quote Cancel Ack 563
-size_of.quote_sets_group_528 = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.quote_set_id
-
-  index = index + size_of.quote_error_code
-
-  return index
-end
-
--- Display: Quote Sets Group - Quote Cancel Ack 563
-display.quote_sets_group_563 = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Quote Sets Group - Quote Cancel Ack 563
-dissect.quote_sets_group_fields_563 = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Quote Set Id: 2 Byte Unsigned Fixed Width Integer
-  index, quote_set_id = dissect.quote_set_id(buffer, index, packet, parent)
-
-  -- Quote Error Code: 2 Byte Unsigned Fixed Width Integer 
-  index, quote_error_code = dissect.quote_error_code(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Quote Entries Group - Quote Cancel Ack 563
-dissect.quote_entries_group_563 = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.quote_entries_group_563 then
-    local length = size_of.quote_entries_group_563(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.quote_entries_group_563(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_entries_group_563, range, display)
-  end
-
-  return dissect.quote_entries_group_fields_563(buffer, offset, packet, parent)
-end
-
----------------------------------------------------------------------------------------------------------
-
--- Size: Underlying Security Id
-size_of.underlying_security_id = 4
-
--- Display: Underlying Security Id
-display.underlying_security_id = function(value)
-  -- Check if field has value
-  if value == 2147483647 then
-    return "Underlying Security Id: No Value ("..value..")"
-  end
-
-  return "Underlying Security Id: "..value
-end
-
--- Dissect: Underlying Security Id
-dissect.underlying_security_id = function(buffer, offset, packet, parent)
-  local length = size_of.underlying_security_id
+-- Dissect: Quote Entry Reject Reason
+dissect.quote_entry_reject_reason = function(buffer, offset, packet, parent)
+  local length = size_of.quote_entry_reject_reason
   local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.underlying_security_id(value, buffer, offset, packet, parent)
+  local value = range:le_uint()
+  local display = display.quote_entry_reject_reason(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_5.fields.underlying_security_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_entry_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1452,276 +1273,8 @@ dissect.quote_entry_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Offer Px
-size_of.offer_px = 8
-
--- Display: Offer Px
-display.offer_px = function(value)
-  local factor = 1000000000
-  return "Offer Px: "..value:tonumber()/factor
-end
-
--- Dissect: Offer Px
-dissect.offer_px = function(buffer, offset, packet, parent)
-  local length = size_of.offer_px
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.offer_px(value, buffer, offset, packet, parent)
-
-  parent:add(cme_futures_ilink3_sbe_v8_5.fields.offer_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Bid Px
-size_of.bid_px = 8
-
--- Display: Bid Px
-display.bid_px = function(value)
-  local factor = 1000000000
-  return "Bid Px: "..value:tonumber()/factor
-end
-
--- Dissect: Bid Px
-dissect.bid_px = function(buffer, offset, packet, parent)
-  local length = size_of.bid_px
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.bid_px(value, buffer, offset, packet, parent)
-
-  parent:add(cme_futures_ilink3_sbe_v8_5.fields.bid_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Calculate size of: Quote Entries Group
-size_of.quote_entries_group = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.bid_px
-
-  index = index + size_of.offer_px
-
-  index = index + size_of.quote_entry_id
-
-  index = index + size_of.security_id
-
-  index = index + size_of.bid_size
-
-  index = index + size_of.offer_size
-
-  index = index + size_of.underlying_security_id
-
-  index = index + size_of.quote_set_id
-
-  return index
-end
-
--- Display: Quote Entries Group
-display.quote_entries_group = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Quote Entries Group
-dissect.quote_entries_group_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Bid Px: 8 Byte Signed Fixed Width Integer
-  index, bid_px = dissect.bid_px(buffer, index, packet, parent)
-
-  -- Offer Px: 8 Byte Signed Fixed Width Integer
-  index, offer_px = dissect.offer_px(buffer, index, packet, parent)
-
-  -- Quote Entry Id: 4 Byte Unsigned Fixed Width Integer
-  index, quote_entry_id = dissect.quote_entry_id(buffer, index, packet, parent)
-
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, security_id = dissect.security_id(buffer, index, packet, parent)
-
-  -- Bid Size: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, bid_size = dissect.bid_size(buffer, index, packet, parent)
-
-  -- Offer Size: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, offer_size = dissect.offer_size(buffer, index, packet, parent)
-
-  -- Underlying Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, underlying_security_id = dissect.underlying_security_id(buffer, index, packet, parent)
-
-  -- Quote Set Id: 2 Byte Unsigned Fixed Width Integer
-  index, quote_set_id = dissect.quote_set_id(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Quote Entries Group
-dissect.quote_entries_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.quote_entries_group then
-    local length = size_of.quote_entries_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.quote_entries_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_entries_group, range, display)
-  end
-
-  return dissect.quote_entries_group_fields(buffer, offset, packet, parent)
-end
-
--- Calculate size of: Quote Entries Groups
-size_of.quote_entries_groups = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.group_size(buffer, offset + index)
-
-  -- Calculate field size from count
-  local quote_entries_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + quote_entries_group_count * 38
-
-  return index
-end
-
--- Display: Quote Entries Groups
-display.quote_entries_groups = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Quote Entries Groups
-dissect.quote_entries_groups_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = dissect.group_size(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Quote Entries Group: Struct of 8 fields
-  for i = 1, num_in_group do
-    index = dissect.quote_entries_group(buffer, index, packet, parent)
-  end
-
-  return index
-end
-
--- Dissect: Quote Entries Groups
-dissect.quote_entries_groups = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
-  if show.quote_entries_groups then
-    local length = size_of.quote_entries_groups(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.quote_entries_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_entries_groups, range, display)
-  end
-
-  return dissect.quote_entries_groups_fields(buffer, offset, packet, parent)
-end
-
-----------------------------------------------------------------------
-
--- Calculate size of: Quote Entries Group - Quote Cancel 528
-size_of.quote_entries_group_528 = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.security_group
-
-  index = index + size_of.security_id
-
-  return index
-end
-
--- Display: Quote Entries Group - Quote Cancel 528
-display.quote_entries_group_528 = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Quote Entries Group - Quote Cancel 528
-dissect.quote_entries_group_fields_528 = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Security Group: 6 Byte Ascii String
-  index, security_group = dissect.security_group(buffer, index, packet, parent)
-
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, security_id = dissect.security_id(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Quote Entries Group - Quote Cancel 528
-dissect.quote_entries_group_528 = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.quote_entries_group_528 then
-    local length = size_of.quote_entries_group_528(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.quote_entries_group_528(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_entries_group_528, range, display)
-  end
-
-  return dissect.quote_entries_group_fields_528(buffer, offset, packet, parent)
-end
-
--- Calculate size of: Quote Entries Group - Quote Cancel 528
-size_of.quote_entries_group_528 = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.security_group
-
-  index = index + size_of.security_id
-
-  return index
-end
-
-size_of.quote_entries_groups_528 = function(buffer, offset)
-  local index = 0
-
-  -- Calculate first field size from count
-  index = index + size_of.group_size(buffer, offset + index)
-
-  local quote_entries_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + quote_entries_group_count * 10
-
-  return index
-end
-
--- Display: Quote Entries Groups - Quote Cancel 528
-display.quote_entries_groups_528 = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Quote Entries Groups  - Quote Cancel 528
-dissect.quote_entries_groups_fields_528 = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = dissect.group_size(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Quote Entries Group - Struct of 2 fields
-  for i = 1, num_in_group do
-    index = dissect.quote_entries_group_528(buffer, index, packet, parent)
-  end
-
-  return index
-end
-
--- Dissect: Quote Entries Groups - Quote Cancel 528
-dissect.quote_entries_groups_528 = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
-  if show.quote_entries_groups_528 then
-    local length = size_of.quote_entries_groups_528(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.quote_entries_groups_528(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_entries_groups_528, range, display)
-  end
-
-  return dissect.quote_entries_groups_fields_528(buffer, offset, packet, parent)
-end
-
-----------------------------------------------------------------------
-
--- Calculate size of: Quote Entries Group - Quote Cancel Ack 563
-size_of.quote_entries_group_563 = function(buffer, offset)
+-- Calculate size of: Quote Cancel Ack Entry Group
+size_of.quote_cancel_ack_entry_group = function(buffer, offset)
   local index = 0
 
   index = index + size_of.quote_entry_id
@@ -1733,19 +1286,19 @@ size_of.quote_entries_group_563 = function(buffer, offset)
   return index
 end
 
--- Display: Quote Entries Group - Quote Cancel Ack 563
-display.quote_entries_group_563 = function(buffer, offset, size, packet, parent)
+-- Display: Quote Cancel Ack Entry Group
+display.quote_cancel_ack_entry_group = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Quote Entries Group - Quote Cancel Ack 563
-dissect.quote_entries_group_fields_563 = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Cancel Ack Entry Group
+dissect.quote_cancel_ack_entry_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Group: 4 Byte Unsigned Integer
+  -- Quote Entry Id: 4 Byte Unsigned Fixed Width Integer
   index, quote_entry_id = dissect.quote_entry_id(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer
+  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Quote Entry Reject Reason: 1 Byte Unsigned Fixed Width Integer
@@ -1754,53 +1307,39 @@ dissect.quote_entries_group_fields_563 = function(buffer, offset, packet, parent
   return index
 end
 
--- Dissect: Quote Entries Group - Quote Cancel Ack 563
-dissect.quote_entries_group_563 = function(buffer, offset, packet, parent)
+-- Dissect: Quote Cancel Ack Entry Group
+dissect.quote_cancel_ack_entry_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.quote_entries_group_563 then
-    local length = size_of.quote_entries_group_563(buffer, offset)
+  if show.quote_cancel_ack_entry_group then
+    local length = size_of.quote_cancel_ack_entry_group(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.quote_entries_group_563(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_entries_group_563, range, display)
+    local display = display.quote_cancel_ack_entry_group(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_cancel_ack_entry_group, range, display)
   end
 
-  return dissect.quote_entries_group_fields_563(buffer, offset, packet, parent)
+  return dissect.quote_cancel_ack_entry_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Quote Entries Group - Quote Cancel Ack 563
-size_of.quote_entries_group_563 = function(buffer, offset)
+-- Calculate size of: Quote Cancel Ack Entry Groups
+size_of.quote_cancel_ack_entry_groups = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.quote_entry_id
-
-  index = index + size_of.security_id
-
-  index = index + size_of.quote_entry_reject_reason
-
-  return index
-end
-
--- Calculate size of: Quote Entries Groups - Quote Cancel Ack 563
-size_of.quote_entries_groups_563 = function(buffer, offset)
-  local index = 0
-
-  -- Calculate first field size from count
   index = index + size_of.group_size(buffer, offset + index)
 
-  local quote_entries_group_count = buffer(offset + index - 1, 1):le_uint()
-
-  index = index + quote_entries_group_count * 9
+  -- Calculate field size from count
+  local quote_cancel_ack_entry_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + quote_cancel_ack_entry_group_count * 9
 
   return index
 end
 
--- Display: Quote Entries Groups - Quote Cancel Ack 563
-display.quote_entries_groups_563 = function(buffer, offset, size, packet, parent)
+-- Display: Quote Cancel Ack Entry Groups
+display.quote_cancel_ack_entry_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Quote Entries Groups  - Quote Cancel Ack 563
-dissect.quote_entries_groups_fields_563 = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Cancel Ack Entry Groups
+dissect.quote_cancel_ack_entry_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -1809,29 +1348,26 @@ dissect.quote_entries_groups_fields_563 = function(buffer, offset, packet, paren
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Quote Entries Group - Struct of 3 fields
+  -- Quote Cancel Ack Entry Group: Struct of 3 fields
   for i = 1, num_in_group do
-    index = dissect.quote_entries_group_563(buffer, index, packet, parent)
+    index = dissect.quote_cancel_ack_entry_group(buffer, index, packet, parent)
   end
 
   return index
 end
 
--- Dissect: Quote Entries Groups - Quote Cancel Ack 563
-dissect.quote_entries_groups_563 = function(buffer, offset, packet, parent)
+-- Dissect: Quote Cancel Ack Entry Groups
+dissect.quote_cancel_ack_entry_groups = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.quote_entries_groups_563 then
-    local length = size_of.quote_entries_groups_563(buffer, offset)
+  if show.quote_cancel_ack_entry_groups then
+    local length = size_of.quote_cancel_ack_entry_groups(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.quote_entries_groups_563(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_entries_groups_563, range, display)
+    local display = display.quote_cancel_ack_entry_groups(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_cancel_ack_entry_groups, range, display)
   end
 
-  return dissect.quote_entries_groups_fields_563(buffer, offset, packet, parent)
+  return dissect.quote_cancel_ack_entry_groups_fields(buffer, offset, packet, parent)
 end
-
-----------------------------------------------------------------------
-
 
 -- Size: Delay To Time
 size_of.delay_to_time = 8
@@ -1839,7 +1375,7 @@ size_of.delay_to_time = 8
 -- Display: Delay To Time
 display.delay_to_time = function(value)
   -- Check if field has value
-  if (value > 18446744073709551614) then
+  if value == 18446744073709551615 then
     return "Delay To Time: No Value ("..value..")"
   end
 
@@ -2017,26 +1553,6 @@ dissect.no_processed_entries = function(buffer, offset, packet, parent)
   local display = display.no_processed_entries(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_5.fields.no_processed_entries, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: No Processed Entries - Quote Cancel Ack 563
-size_of.no_processed_entries_563 = 4
-
--- Display: No Processed Entries - Quote Cancel Ack 563
-display.no_processed_entries_563 = function(value)
-  return "No Processed Entries: "..value
-end
-
--- Dissect: No Processed Entries - Quote Cancel Ack 563
-dissect.no_processed_entries_563 = function(buffer, offset, packet, parent)
-  local length = size_of.no_processed_entries_563
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = display.no_processed_entries_563(value, buffer, offset, packet, parent)
-
-  parent:add(cme_futures_ilink3_sbe_v8_5.fields.no_processed_entries_563, range, value, display)
 
   return offset + length, value
 end
@@ -2368,7 +1884,7 @@ size_of.quote_cancel_ack_563 = function(buffer, offset)
 
   index = index + size_of.quote_status
 
-  index = index + size_of.no_processed_entries_563
+  index = index + size_of.no_processed_entries
 
   index = index + size_of.mm_protection_reset
 
@@ -2384,9 +1900,9 @@ size_of.quote_cancel_ack_563 = function(buffer, offset)
 
   index = index + size_of.delay_to_time
 
-  index = index + size_of.quote_entries_groups_563(buffer, offset + index)
+  index = index + size_of.quote_cancel_ack_entry_groups(buffer, offset + index)
 
-  index = index + size_of.quote_sets_groups_563(buffer, offset + index)
+  index = index + size_of.quote_cancel_ack_set_groups(buffer, offset + index)
 
   return index
 end
@@ -2442,8 +1958,8 @@ dissect.quote_cancel_ack_563_fields = function(buffer, offset, packet, parent)
   -- Quote Status: 1 Byte Unsigned Fixed Width Integer
   index, quote_status = dissect.quote_status(buffer, index, packet, parent)
 
-  -- No Processed Entries 563: 4 Byte Unsigned Fixed Width Integer
-  index, no_processed_entries = dissect.no_processed_entries_563(buffer, index, packet, parent)
+  -- No Processed Entries: 1 Byte Unsigned Fixed Width Integer
+  index, no_processed_entries = dissect.no_processed_entries(buffer, index, packet, parent)
 
   -- Mm Protection Reset: 1 Byte Unsigned Fixed Width Integer
   index, mm_protection_reset = dissect.mm_protection_reset(buffer, index, packet, parent)
@@ -2466,11 +1982,11 @@ dissect.quote_cancel_ack_563_fields = function(buffer, offset, packet, parent)
   -- Delay To Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, delay_to_time = dissect.delay_to_time(buffer, index, packet, parent)
 
-  -- Quote Entries Groups: Struct of 3 fields
-  index, quote_entries_groups = dissect.quote_entries_groups_563(buffer, index, packet, parent)
+  -- Quote Cancel Ack Entry Groups: Struct of 2 fields
+  index, quote_cancel_ack_entry_groups = dissect.quote_cancel_ack_entry_groups(buffer, index, packet, parent)
 
-  -- Quote Sets Groups: Struct of 2 fields
-  index, quote_sets_groups = dissect.quote_sets_groups_563(buffer, index, packet, parent)
+  -- Quote Cancel Ack Set Groups: Struct of 2 fields
+  index, quote_cancel_ack_set_groups = dissect.quote_cancel_ack_set_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -3145,6 +2661,31 @@ dissect.order_mass_action_report_562 = function(buffer, offset, packet, parent)
   return dissect.order_mass_action_report_562_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Leg Ratio Qty
+size_of.leg_ratio_qty = 1
+
+-- Display: Leg Ratio Qty
+display.leg_ratio_qty = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Leg Ratio Qty: No Value ("..value..")"
+  end
+
+  return "Leg Ratio Qty: "..value
+end
+
+-- Dissect: Leg Ratio Qty
+dissect.leg_ratio_qty = function(buffer, offset, packet, parent)
+  local length = size_of.leg_ratio_qty
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.leg_ratio_qty(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_5.fields.leg_ratio_qty, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Leg Side
 size_of.leg_side = 1
 
@@ -3161,46 +2702,6 @@ dissect.leg_side = function(buffer, offset, packet, parent)
   local display = display.leg_side(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_5.fields.leg_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Leg Last Qty
-size_of.leg_last_qty = 4
-
--- Display: Leg Last Qty
-display.leg_last_qty = function(value)
-  return "Leg Last Qty: "..value
-end
-
--- Dissect: Leg Last Qty
-dissect.leg_last_qty = function(buffer, offset, packet, parent)
-  local length = size_of.leg_last_qty
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = display.leg_last_qty(value, buffer, offset, packet, parent)
-
-  parent:add(cme_futures_ilink3_sbe_v8_5.fields.leg_last_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Leg Trade Id
-size_of.leg_trade_id = 4
-
--- Display: Leg Trade Id
-display.leg_trade_id = function(value)
-  return "Leg Trade Id: "..value
-end
-
--- Dissect: Leg Trade Id
-dissect.leg_trade_id = function(buffer, offset, packet, parent)
-  local length = size_of.leg_trade_id
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = display.leg_trade_id(value, buffer, offset, packet, parent)
-
-  parent:add(cme_futures_ilink3_sbe_v8_5.fields.leg_trade_id, range, value, display)
 
   return offset + length, value
 end
@@ -3225,129 +2726,124 @@ dissect.leg_security_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Leg Last Px
-size_of.leg_last_px = 8
+-- Size: Leg Option Delta
+size_of.leg_option_delta = 4
 
--- Display: Leg Last Px
-display.leg_last_px = function(value)
-  local factor = 1000000000
-  return "Leg Last Px: "..value:tonumber()/factor
+-- Display: Leg Option Delta
+display.leg_option_delta = function(value)
+  return "Leg Option Delta: "..value
 end
 
--- Dissect: Leg Last Px
-dissect.leg_last_px = function(buffer, offset, packet, parent)
-  local length = size_of.leg_last_px
+-- Dissect: Leg Option Delta
+dissect.leg_option_delta = function(buffer, offset, packet, parent)
+  local length = size_of.leg_option_delta
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = display.leg_option_delta(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_5.fields.leg_option_delta, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Leg Price
+size_of.leg_price = 8
+
+-- Display: Leg Price
+display.leg_price = function(value)
+  local factor = 1000000000
+  return "Leg Price: "..value:tonumber()/factor
+end
+
+-- Dissect: Leg Price
+dissect.leg_price = function(buffer, offset, packet, parent)
+  local length = size_of.leg_price
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.leg_last_px(value, buffer, offset, packet, parent)
+  local display = display.leg_price(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_5.fields.leg_last_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Leg Exec Id
-size_of.leg_exec_id = 8
-
--- Display: Leg Exec Id
-display.leg_exec_id = function(value)
-  return "Leg Exec Id: "..value
-end
-
--- Dissect: Leg Exec Id
-dissect.leg_exec_id = function(buffer, offset, packet, parent)
-  local length = size_of.leg_exec_id
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = display.leg_exec_id(value, buffer, offset, packet, parent)
-
-  parent:add(cme_futures_ilink3_sbe_v8_5.fields.leg_exec_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_5.fields.leg_price, range, value, display)
 
   return offset + length, value
 end
 
--- Calculate size of: Legs Group
-size_of.legs_group = function(buffer, offset)
+-- Calculate size of: Security Definition Response Leg Group
+size_of.security_definition_response_leg_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.leg_exec_id
+  index = index + size_of.leg_price
 
-  index = index + size_of.leg_last_px
+  index = index + size_of.leg_option_delta
 
   index = index + size_of.leg_security_id
 
-  index = index + size_of.leg_trade_id
-
-  index = index + size_of.leg_last_qty
-
   index = index + size_of.leg_side
+
+  index = index + size_of.leg_ratio_qty
 
   return index
 end
 
--- Display: Legs Group
-display.legs_group = function(buffer, offset, size, packet, parent)
+-- Display: Security Definition Response Leg Group
+display.security_definition_response_leg_group = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Legs Group
-dissect.legs_group_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Security Definition Response Leg Group
+dissect.security_definition_response_leg_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Leg Exec Id: 8 Byte Unsigned Fixed Width Integer
-  index, leg_exec_id = dissect.leg_exec_id(buffer, index, packet, parent)
+  -- Leg Price: 8 Byte Signed Fixed Width Integer
+  index, leg_price = dissect.leg_price(buffer, index, packet, parent)
 
-  -- Leg Last Px: 8 Byte Signed Fixed Width Integer
-  index, leg_last_px = dissect.leg_last_px(buffer, index, packet, parent)
+  -- Leg Option Delta: 4 Byte Signed Fixed Width Integer
+  index, leg_option_delta = dissect.leg_option_delta(buffer, index, packet, parent)
 
   -- Leg Security Id: 4 Byte Signed Fixed Width Integer
   index, leg_security_id = dissect.leg_security_id(buffer, index, packet, parent)
 
-  -- Leg Trade Id: 4 Byte Unsigned Fixed Width Integer
-  index, leg_trade_id = dissect.leg_trade_id(buffer, index, packet, parent)
-
-  -- Leg Last Qty: 4 Byte Unsigned Fixed Width Integer
-  index, leg_last_qty = dissect.leg_last_qty(buffer, index, packet, parent)
-
   -- Leg Side: 1 Byte Unsigned Fixed Width Integer
   index, leg_side = dissect.leg_side(buffer, index, packet, parent)
+
+  -- Leg Ratio Qty: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, leg_ratio_qty = dissect.leg_ratio_qty(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Legs Group
-dissect.legs_group = function(buffer, offset, packet, parent)
+-- Dissect: Security Definition Response Leg Group
+dissect.security_definition_response_leg_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.legs_group then
-    local length = size_of.legs_group(buffer, offset)
+  if show.security_definition_response_leg_group then
+    local length = size_of.security_definition_response_leg_group(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.legs_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.legs_group, range, display)
+    local display = display.security_definition_response_leg_group(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.security_definition_response_leg_group, range, display)
   end
 
-  return dissect.legs_group_fields(buffer, offset, packet, parent)
+  return dissect.security_definition_response_leg_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Legs Groups
-size_of.legs_groups = function(buffer, offset)
+-- Calculate size of: Security Definition Response Leg Groups
+size_of.security_definition_response_leg_groups = function(buffer, offset)
   local index = 0
 
   index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
-  local legs_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + legs_group_count * 29
+  local security_definition_response_leg_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + security_definition_response_leg_group_count * 18
 
   return index
 end
 
--- Display: Legs Groups
-display.legs_groups = function(buffer, offset, size, packet, parent)
+-- Display: Security Definition Response Leg Groups
+display.security_definition_response_leg_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Legs Groups
-dissect.legs_groups_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Security Definition Response Leg Groups
+dissect.security_definition_response_leg_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -3356,25 +2852,25 @@ dissect.legs_groups_fields = function(buffer, offset, packet, parent)
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Legs Group: Struct of 6 fields
+  -- Security Definition Response Leg Group: Struct of 5 fields
   for i = 1, num_in_group do
-    index = dissect.legs_group(buffer, index, packet, parent)
+    index = dissect.security_definition_response_leg_group(buffer, index, packet, parent)
   end
 
   return index
 end
 
--- Dissect: Legs Groups
-dissect.legs_groups = function(buffer, offset, packet, parent)
+-- Dissect: Security Definition Response Leg Groups
+dissect.security_definition_response_leg_groups = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.legs_groups then
-    local length = size_of.legs_groups(buffer, offset)
+  if show.security_definition_response_leg_groups then
+    local length = size_of.security_definition_response_leg_groups(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.legs_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.legs_groups, range, display)
+    local display = display.security_definition_response_leg_groups(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.security_definition_response_leg_groups, range, display)
   end
 
-  return dissect.legs_groups_fields(buffer, offset, packet, parent)
+  return dissect.security_definition_response_leg_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Auto Quote Request
@@ -3889,7 +3385,7 @@ size_of.security_definition_response_561 = function(buffer, offset)
 
   index = index + size_of.poss_retrans_flag
 
-  index = index + size_of.legs_groups(buffer, offset + index)
+  index = index + size_of.security_definition_response_leg_groups(buffer, offset + index)
 
   return index
 end
@@ -3987,8 +3483,8 @@ dissect.security_definition_response_561_fields = function(buffer, offset, packe
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer
   index, poss_retrans_flag = dissect.poss_retrans_flag(buffer, index, packet, parent)
 
-  -- Legs Groups: Struct of 2 fields
-  index, legs_groups = dissect.legs_groups(buffer, index, packet, parent)
+  -- Security Definition Response Leg Groups: Struct of 2 fields
+  index, security_definition_response_leg_groups = dissect.security_definition_response_leg_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -4004,6 +3500,112 @@ dissect.security_definition_response_561 = function(buffer, offset, packet, pare
   end
 
   return dissect.security_definition_response_561_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Security Definition Request Leg Group
+size_of.security_definition_request_leg_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.leg_price
+
+  index = index + size_of.leg_security_id
+
+  index = index + size_of.leg_option_delta
+
+  index = index + size_of.leg_side
+
+  index = index + size_of.leg_ratio_qty
+
+  return index
+end
+
+-- Display: Security Definition Request Leg Group
+display.security_definition_request_leg_group = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Security Definition Request Leg Group
+dissect.security_definition_request_leg_group_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Leg Price: 8 Byte Signed Fixed Width Integer
+  index, leg_price = dissect.leg_price(buffer, index, packet, parent)
+
+  -- Leg Security Id: 4 Byte Signed Fixed Width Integer
+  index, leg_security_id = dissect.leg_security_id(buffer, index, packet, parent)
+
+  -- Leg Option Delta: 4 Byte Signed Fixed Width Integer
+  index, leg_option_delta = dissect.leg_option_delta(buffer, index, packet, parent)
+
+  -- Leg Side: 1 Byte Unsigned Fixed Width Integer
+  index, leg_side = dissect.leg_side(buffer, index, packet, parent)
+
+  -- Leg Ratio Qty: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, leg_ratio_qty = dissect.leg_ratio_qty(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Security Definition Request Leg Group
+dissect.security_definition_request_leg_group = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.security_definition_request_leg_group then
+    local length = size_of.security_definition_request_leg_group(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.security_definition_request_leg_group(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.security_definition_request_leg_group, range, display)
+  end
+
+  return dissect.security_definition_request_leg_group_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Security Definition Request Leg Groups
+size_of.security_definition_request_leg_groups = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.group_size(buffer, offset + index)
+
+  -- Calculate field size from count
+  local security_definition_request_leg_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + security_definition_request_leg_group_count * 18
+
+  return index
+end
+
+-- Display: Security Definition Request Leg Groups
+display.security_definition_request_leg_groups = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Security Definition Request Leg Groups
+dissect.security_definition_request_leg_groups_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Security Definition Request Leg Group: Struct of 5 fields
+  for i = 1, num_in_group do
+    index = dissect.security_definition_request_leg_group(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
+-- Dissect: Security Definition Request Leg Groups
+dissect.security_definition_request_leg_groups = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.security_definition_request_leg_groups then
+    local length = size_of.security_definition_request_leg_groups(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.security_definition_request_leg_groups(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.security_definition_request_leg_groups, range, display)
+  end
+
+  return dissect.security_definition_request_leg_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Security Sub Type
@@ -4054,7 +3656,7 @@ size_of.security_definition_request_560 = function(buffer, offset)
 
   index = index + size_of.source_repo_id
 
-  index = index + size_of.legs_groups(buffer, offset + index)
+  index = index + size_of.security_definition_request_leg_groups(buffer, offset + index)
 
   return index
 end
@@ -4104,8 +3706,8 @@ dissect.security_definition_request_560_fields = function(buffer, offset, packet
   -- Source Repo Id: 4 Byte Signed Fixed Width Integer Nullable
   index, source_repo_id = dissect.source_repo_id(buffer, index, packet, parent)
 
-  -- Legs Groups: Struct of 2 fields
-  index, legs_groups = dissect.legs_groups(buffer, index, packet, parent)
+  -- Security Definition Request Leg Groups: Struct of 2 fields
+  index, security_definition_request_leg_groups = dissect.security_definition_request_leg_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -4121,6 +3723,31 @@ dissect.security_definition_request_560 = function(buffer, offset, packet, paren
   end
 
   return dissect.security_definition_request_560_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Original Order Event Exec Id
+size_of.original_order_event_exec_id = 4
+
+-- Display: Original Order Event Exec Id
+display.original_order_event_exec_id = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Original Order Event Exec Id: No Value ("..value..")"
+  end
+
+  return "Original Order Event Exec Id: "..value
+end
+
+-- Dissect: Original Order Event Exec Id
+dissect.original_order_event_exec_id = function(buffer, offset, packet, parent)
+  local length = size_of.original_order_event_exec_id
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.original_order_event_exec_id(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_5.fields.original_order_event_exec_id, range, value, display)
+
+  return offset + length, value
 end
 
 -- Size: Order Event Reason
@@ -4254,8 +3881,8 @@ dissect.order_event_px = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Order Events Group
-size_of.order_events_group = function(buffer, offset)
+-- Calculate size of: Execution Report Trade Addendum Spread Leg Order Event Group
+size_of.execution_report_trade_addendum_spread_leg_order_event_group = function(buffer, offset)
   local index = 0
 
   index = index + size_of.order_event_px
@@ -4270,16 +3897,18 @@ size_of.order_events_group = function(buffer, offset)
 
   index = index + size_of.order_event_reason
 
+  index = index + size_of.original_order_event_exec_id
+
   return index
 end
 
--- Display: Order Events Group
-display.order_events_group = function(buffer, offset, size, packet, parent)
+-- Display: Execution Report Trade Addendum Spread Leg Order Event Group
+display.execution_report_trade_addendum_spread_leg_order_event_group = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Order Events Group
-dissect.order_events_group_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Execution Report Trade Addendum Spread Leg Order Event Group
+dissect.execution_report_trade_addendum_spread_leg_order_event_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Order Event Px: 8 Byte Signed Fixed Width Integer
@@ -4300,42 +3929,45 @@ dissect.order_events_group_fields = function(buffer, offset, packet, parent)
   -- Order Event Reason: 1 Byte Unsigned Fixed Width Integer
   index, order_event_reason = dissect.order_event_reason(buffer, index, packet, parent)
 
+  -- Original Order Event Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, original_order_event_exec_id = dissect.original_order_event_exec_id(buffer, index, packet, parent)
+
   return index
 end
 
--- Dissect: Order Events Group
-dissect.order_events_group = function(buffer, offset, packet, parent)
+-- Dissect: Execution Report Trade Addendum Spread Leg Order Event Group
+dissect.execution_report_trade_addendum_spread_leg_order_event_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.order_events_group then
-    local length = size_of.order_events_group(buffer, offset)
+  if show.execution_report_trade_addendum_spread_leg_order_event_group then
+    local length = size_of.execution_report_trade_addendum_spread_leg_order_event_group(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_events_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.order_events_group, range, display)
+    local display = display.execution_report_trade_addendum_spread_leg_order_event_group(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_addendum_spread_leg_order_event_group, range, display)
   end
 
-  return dissect.order_events_group_fields(buffer, offset, packet, parent)
+  return dissect.execution_report_trade_addendum_spread_leg_order_event_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Order Events Groups
-size_of.order_events_groups = function(buffer, offset)
+-- Calculate size of: Execution Report Trade Addendum Spread Leg Order Event Groups
+size_of.execution_report_trade_addendum_spread_leg_order_event_groups = function(buffer, offset)
   local index = 0
 
   index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
-  local order_events_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + order_events_group_count * 23
+  local execution_report_trade_addendum_spread_leg_order_event_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + execution_report_trade_addendum_spread_leg_order_event_group_count * 27
 
   return index
 end
 
--- Display: Order Events Groups
-display.order_events_groups = function(buffer, offset, size, packet, parent)
+-- Display: Execution Report Trade Addendum Spread Leg Order Event Groups
+display.execution_report_trade_addendum_spread_leg_order_event_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Order Events Groups
-dissect.order_events_groups_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Execution Report Trade Addendum Spread Leg Order Event Groups
+dissect.execution_report_trade_addendum_spread_leg_order_event_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -4344,25 +3976,25 @@ dissect.order_events_groups_fields = function(buffer, offset, packet, parent)
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Order Events Group: Struct of 6 fields
+  -- Execution Report Trade Addendum Spread Leg Order Event Group: Struct of 7 fields
   for i = 1, num_in_group do
-    index = dissect.order_events_group(buffer, index, packet, parent)
+    index = dissect.execution_report_trade_addendum_spread_leg_order_event_group(buffer, index, packet, parent)
   end
 
   return index
 end
 
--- Dissect: Order Events Groups
-dissect.order_events_groups = function(buffer, offset, packet, parent)
+-- Dissect: Execution Report Trade Addendum Spread Leg Order Event Groups
+dissect.execution_report_trade_addendum_spread_leg_order_event_groups = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.order_events_groups then
-    local length = size_of.order_events_groups(buffer, offset)
+  if show.execution_report_trade_addendum_spread_leg_order_event_groups then
+    local length = size_of.execution_report_trade_addendum_spread_leg_order_event_groups(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_events_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.order_events_groups, range, display)
+    local display = display.execution_report_trade_addendum_spread_leg_order_event_groups(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_addendum_spread_leg_order_event_groups, range, display)
   end
 
-  return dissect.order_events_groups_fields(buffer, offset, packet, parent)
+  return dissect.execution_report_trade_addendum_spread_leg_order_event_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Fill Yield Type
@@ -4855,7 +4487,7 @@ size_of.execution_report_trade_addendum_spread_leg_550 = function(buffer, offset
 
   index = index + size_of.fills_groups(buffer, offset + index)
 
-  index = index + size_of.order_events_groups(buffer, offset + index)
+  index = index + size_of.execution_report_trade_addendum_spread_leg_order_event_groups(buffer, offset + index)
 
   return index
 end
@@ -4941,8 +4573,8 @@ dissect.execution_report_trade_addendum_spread_leg_550_fields = function(buffer,
   -- Fills Groups: Struct of 2 fields
   index, fills_groups = dissect.fills_groups(buffer, index, packet, parent)
 
-  -- Order Events Groups: Struct of 2 fields
-  index, order_events_groups = dissect.order_events_groups(buffer, index, packet, parent)
+  -- Execution Report Trade Addendum Spread Leg Order Event Groups: Struct of 2 fields
+  index, execution_report_trade_addendum_spread_leg_order_event_groups = dissect.execution_report_trade_addendum_spread_leg_order_event_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -4958,6 +4590,374 @@ dissect.execution_report_trade_addendum_spread_leg_550 = function(buffer, offset
   end
 
   return dissect.execution_report_trade_addendum_spread_leg_550_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Execution Report Trade Addendum Spread Order Event Group
+size_of.execution_report_trade_addendum_spread_order_event_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.order_event_px
+
+  index = index + size_of.order_event_text
+
+  index = index + size_of.order_event_exec_id
+
+  index = index + size_of.order_event_qty
+
+  index = index + size_of.order_event_type
+
+  index = index + size_of.order_event_reason
+
+  index = index + size_of.original_order_event_exec_id
+
+  return index
+end
+
+-- Display: Execution Report Trade Addendum Spread Order Event Group
+display.execution_report_trade_addendum_spread_order_event_group = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Execution Report Trade Addendum Spread Order Event Group
+dissect.execution_report_trade_addendum_spread_order_event_group_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Event Px: 8 Byte Signed Fixed Width Integer
+  index, order_event_px = dissect.order_event_px(buffer, index, packet, parent)
+
+  -- Order Event Text: 5 Byte Ascii String
+  index, order_event_text = dissect.order_event_text(buffer, index, packet, parent)
+
+  -- Order Event Exec Id: 4 Byte Unsigned Fixed Width Integer
+  index, order_event_exec_id = dissect.order_event_exec_id(buffer, index, packet, parent)
+
+  -- Order Event Qty: 4 Byte Unsigned Fixed Width Integer
+  index, order_event_qty = dissect.order_event_qty(buffer, index, packet, parent)
+
+  -- Order Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_event_type = dissect.order_event_type(buffer, index, packet, parent)
+
+  -- Order Event Reason: 1 Byte Unsigned Fixed Width Integer
+  index, order_event_reason = dissect.order_event_reason(buffer, index, packet, parent)
+
+  -- Original Order Event Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, original_order_event_exec_id = dissect.original_order_event_exec_id(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Execution Report Trade Addendum Spread Order Event Group
+dissect.execution_report_trade_addendum_spread_order_event_group = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.execution_report_trade_addendum_spread_order_event_group then
+    local length = size_of.execution_report_trade_addendum_spread_order_event_group(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.execution_report_trade_addendum_spread_order_event_group(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_addendum_spread_order_event_group, range, display)
+  end
+
+  return dissect.execution_report_trade_addendum_spread_order_event_group_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Execution Report Trade Addendum Spread Order Event Groups
+size_of.execution_report_trade_addendum_spread_order_event_groups = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.group_size(buffer, offset + index)
+
+  -- Calculate field size from count
+  local execution_report_trade_addendum_spread_order_event_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + execution_report_trade_addendum_spread_order_event_group_count * 27
+
+  return index
+end
+
+-- Display: Execution Report Trade Addendum Spread Order Event Groups
+display.execution_report_trade_addendum_spread_order_event_groups = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Execution Report Trade Addendum Spread Order Event Groups
+dissect.execution_report_trade_addendum_spread_order_event_groups_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Execution Report Trade Addendum Spread Order Event Group: Struct of 7 fields
+  for i = 1, num_in_group do
+    index = dissect.execution_report_trade_addendum_spread_order_event_group(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
+-- Dissect: Execution Report Trade Addendum Spread Order Event Groups
+dissect.execution_report_trade_addendum_spread_order_event_groups = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.execution_report_trade_addendum_spread_order_event_groups then
+    local length = size_of.execution_report_trade_addendum_spread_order_event_groups(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.execution_report_trade_addendum_spread_order_event_groups(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_addendum_spread_order_event_groups, range, display)
+  end
+
+  return dissect.execution_report_trade_addendum_spread_order_event_groups_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Leg Last Qty
+size_of.leg_last_qty = 4
+
+-- Display: Leg Last Qty
+display.leg_last_qty = function(value)
+  return "Leg Last Qty: "..value
+end
+
+-- Dissect: Leg Last Qty
+dissect.leg_last_qty = function(buffer, offset, packet, parent)
+  local length = size_of.leg_last_qty
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.leg_last_qty(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_5.fields.leg_last_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Leg Trade Ref Id
+size_of.leg_trade_ref_id = 4
+
+-- Display: Leg Trade Ref Id
+display.leg_trade_ref_id = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Leg Trade Ref Id: No Value ("..value..")"
+  end
+
+  return "Leg Trade Ref Id: "..value
+end
+
+-- Dissect: Leg Trade Ref Id
+dissect.leg_trade_ref_id = function(buffer, offset, packet, parent)
+  local length = size_of.leg_trade_ref_id
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.leg_trade_ref_id(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_5.fields.leg_trade_ref_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Leg Trade Id
+size_of.leg_trade_id = 4
+
+-- Display: Leg Trade Id
+display.leg_trade_id = function(value)
+  return "Leg Trade Id: "..value
+end
+
+-- Dissect: Leg Trade Id
+dissect.leg_trade_id = function(buffer, offset, packet, parent)
+  local length = size_of.leg_trade_id
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.leg_trade_id(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_5.fields.leg_trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Leg Exec Ref Id
+size_of.leg_exec_ref_id = 8
+
+-- Display: Leg Exec Ref Id
+display.leg_exec_ref_id = function(value)
+  -- Check if field has value
+  if value == 18446744073709551615 then
+    return "Leg Exec Ref Id: No Value ("..value..")"
+  end
+
+  return "Leg Exec Ref Id: "..value
+end
+
+-- Dissect: Leg Exec Ref Id
+dissect.leg_exec_ref_id = function(buffer, offset, packet, parent)
+  local length = size_of.leg_exec_ref_id
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = display.leg_exec_ref_id(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_5.fields.leg_exec_ref_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Leg Last Px
+size_of.leg_last_px = 8
+
+-- Display: Leg Last Px
+display.leg_last_px = function(value)
+  local factor = 1000000000
+  return "Leg Last Px: "..value:tonumber()/factor
+end
+
+-- Dissect: Leg Last Px
+dissect.leg_last_px = function(buffer, offset, packet, parent)
+  local length = size_of.leg_last_px
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = display.leg_last_px(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_5.fields.leg_last_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Leg Exec Id
+size_of.leg_exec_id = 8
+
+-- Display: Leg Exec Id
+display.leg_exec_id = function(value)
+  return "Leg Exec Id: "..value
+end
+
+-- Dissect: Leg Exec Id
+dissect.leg_exec_id = function(buffer, offset, packet, parent)
+  local length = size_of.leg_exec_id
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = display.leg_exec_id(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_5.fields.leg_exec_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate size of: Execution Report Trade Addendum Spread Leg Group
+size_of.execution_report_trade_addendum_spread_leg_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.leg_exec_id
+
+  index = index + size_of.leg_last_px
+
+  index = index + size_of.leg_exec_ref_id
+
+  index = index + size_of.leg_trade_id
+
+  index = index + size_of.leg_trade_ref_id
+
+  index = index + size_of.leg_security_id
+
+  index = index + size_of.leg_last_qty
+
+  index = index + size_of.leg_side
+
+  return index
+end
+
+-- Display: Execution Report Trade Addendum Spread Leg Group
+display.execution_report_trade_addendum_spread_leg_group = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Execution Report Trade Addendum Spread Leg Group
+dissect.execution_report_trade_addendum_spread_leg_group_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Leg Exec Id: 8 Byte Unsigned Fixed Width Integer
+  index, leg_exec_id = dissect.leg_exec_id(buffer, index, packet, parent)
+
+  -- Leg Last Px: 8 Byte Signed Fixed Width Integer
+  index, leg_last_px = dissect.leg_last_px(buffer, index, packet, parent)
+
+  -- Leg Exec Ref Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, leg_exec_ref_id = dissect.leg_exec_ref_id(buffer, index, packet, parent)
+
+  -- Leg Trade Id: 4 Byte Unsigned Fixed Width Integer
+  index, leg_trade_id = dissect.leg_trade_id(buffer, index, packet, parent)
+
+  -- Leg Trade Ref Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, leg_trade_ref_id = dissect.leg_trade_ref_id(buffer, index, packet, parent)
+
+  -- Leg Security Id: 4 Byte Signed Fixed Width Integer
+  index, leg_security_id = dissect.leg_security_id(buffer, index, packet, parent)
+
+  -- Leg Last Qty: 4 Byte Unsigned Fixed Width Integer
+  index, leg_last_qty = dissect.leg_last_qty(buffer, index, packet, parent)
+
+  -- Leg Side: 1 Byte Unsigned Fixed Width Integer
+  index, leg_side = dissect.leg_side(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Execution Report Trade Addendum Spread Leg Group
+dissect.execution_report_trade_addendum_spread_leg_group = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.execution_report_trade_addendum_spread_leg_group then
+    local length = size_of.execution_report_trade_addendum_spread_leg_group(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.execution_report_trade_addendum_spread_leg_group(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_addendum_spread_leg_group, range, display)
+  end
+
+  return dissect.execution_report_trade_addendum_spread_leg_group_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Execution Report Trade Addendum Spread Leg Groups
+size_of.execution_report_trade_addendum_spread_leg_groups = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.group_size(buffer, offset + index)
+
+  -- Calculate field size from count
+  local execution_report_trade_addendum_spread_leg_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + execution_report_trade_addendum_spread_leg_group_count * 41
+
+  return index
+end
+
+-- Display: Execution Report Trade Addendum Spread Leg Groups
+display.execution_report_trade_addendum_spread_leg_groups = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Execution Report Trade Addendum Spread Leg Groups
+dissect.execution_report_trade_addendum_spread_leg_groups_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Execution Report Trade Addendum Spread Leg Group: Struct of 8 fields
+  for i = 1, num_in_group do
+    index = dissect.execution_report_trade_addendum_spread_leg_group(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
+-- Dissect: Execution Report Trade Addendum Spread Leg Groups
+dissect.execution_report_trade_addendum_spread_leg_groups = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.execution_report_trade_addendum_spread_leg_groups then
+    local length = size_of.execution_report_trade_addendum_spread_leg_groups(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.execution_report_trade_addendum_spread_leg_groups(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_addendum_spread_leg_groups, range, display)
+  end
+
+  return dissect.execution_report_trade_addendum_spread_leg_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Short Sale Type
@@ -5229,9 +5229,9 @@ size_of.execution_report_trade_addendum_spread_549 = function(buffer, offset)
 
   index = index + size_of.fills_groups(buffer, offset + index)
 
-  index = index + size_of.legs_groups(buffer, offset + index)
+  index = index + size_of.execution_report_trade_addendum_spread_leg_groups(buffer, offset + index)
 
-  index = index + size_of.order_events_groups(buffer, offset + index)
+  index = index + size_of.execution_report_trade_addendum_spread_order_event_groups(buffer, offset + index)
 
   return index
 end
@@ -5341,11 +5341,11 @@ dissect.execution_report_trade_addendum_spread_549_fields = function(buffer, off
   -- Fills Groups: Struct of 2 fields
   index, fills_groups = dissect.fills_groups(buffer, index, packet, parent)
 
-  -- Legs Groups: Struct of 2 fields
-  index, legs_groups = dissect.legs_groups(buffer, index, packet, parent)
+  -- Execution Report Trade Addendum Spread Leg Groups: Struct of 2 fields
+  index, execution_report_trade_addendum_spread_leg_groups = dissect.execution_report_trade_addendum_spread_leg_groups(buffer, index, packet, parent)
 
-  -- Order Events Groups: Struct of 2 fields
-  index, order_events_groups = dissect.order_events_groups(buffer, index, packet, parent)
+  -- Execution Report Trade Addendum Spread Order Event Groups: Struct of 2 fields
+  index, execution_report_trade_addendum_spread_order_event_groups = dissect.execution_report_trade_addendum_spread_order_event_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -5361,6 +5361,122 @@ dissect.execution_report_trade_addendum_spread_549 = function(buffer, offset, pa
   end
 
   return dissect.execution_report_trade_addendum_spread_549_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Execution Report Trade Addendum Outright Order Event Group
+size_of.execution_report_trade_addendum_outright_order_event_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.order_event_px
+
+  index = index + size_of.order_event_text
+
+  index = index + size_of.order_event_exec_id
+
+  index = index + size_of.order_event_qty
+
+  index = index + size_of.order_event_type
+
+  index = index + size_of.order_event_reason
+
+  index = index + size_of.original_order_event_exec_id
+
+  return index
+end
+
+-- Display: Execution Report Trade Addendum Outright Order Event Group
+display.execution_report_trade_addendum_outright_order_event_group = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Execution Report Trade Addendum Outright Order Event Group
+dissect.execution_report_trade_addendum_outright_order_event_group_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Event Px: 8 Byte Signed Fixed Width Integer
+  index, order_event_px = dissect.order_event_px(buffer, index, packet, parent)
+
+  -- Order Event Text: 5 Byte Ascii String
+  index, order_event_text = dissect.order_event_text(buffer, index, packet, parent)
+
+  -- Order Event Exec Id: 4 Byte Unsigned Fixed Width Integer
+  index, order_event_exec_id = dissect.order_event_exec_id(buffer, index, packet, parent)
+
+  -- Order Event Qty: 4 Byte Unsigned Fixed Width Integer
+  index, order_event_qty = dissect.order_event_qty(buffer, index, packet, parent)
+
+  -- Order Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_event_type = dissect.order_event_type(buffer, index, packet, parent)
+
+  -- Order Event Reason: 1 Byte Unsigned Fixed Width Integer
+  index, order_event_reason = dissect.order_event_reason(buffer, index, packet, parent)
+
+  -- Original Order Event Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, original_order_event_exec_id = dissect.original_order_event_exec_id(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Execution Report Trade Addendum Outright Order Event Group
+dissect.execution_report_trade_addendum_outright_order_event_group = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.execution_report_trade_addendum_outright_order_event_group then
+    local length = size_of.execution_report_trade_addendum_outright_order_event_group(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.execution_report_trade_addendum_outright_order_event_group(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_addendum_outright_order_event_group, range, display)
+  end
+
+  return dissect.execution_report_trade_addendum_outright_order_event_group_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Execution Report Trade Addendum Outright Order Event Groups
+size_of.execution_report_trade_addendum_outright_order_event_groups = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.group_size(buffer, offset + index)
+
+  -- Calculate field size from count
+  local execution_report_trade_addendum_outright_order_event_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + execution_report_trade_addendum_outright_order_event_group_count * 27
+
+  return index
+end
+
+-- Display: Execution Report Trade Addendum Outright Order Event Groups
+display.execution_report_trade_addendum_outright_order_event_groups = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Execution Report Trade Addendum Outright Order Event Groups
+dissect.execution_report_trade_addendum_outright_order_event_groups_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Execution Report Trade Addendum Outright Order Event Group: Struct of 7 fields
+  for i = 1, num_in_group do
+    index = dissect.execution_report_trade_addendum_outright_order_event_group(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
+-- Dissect: Execution Report Trade Addendum Outright Order Event Groups
+dissect.execution_report_trade_addendum_outright_order_event_groups = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.execution_report_trade_addendum_outright_order_event_groups then
+    local length = size_of.execution_report_trade_addendum_outright_order_event_groups(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.execution_report_trade_addendum_outright_order_event_groups(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_addendum_outright_order_event_groups, range, display)
+  end
+
+  return dissect.execution_report_trade_addendum_outright_order_event_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Execution Report Trade Addendum Outright 548
@@ -5425,7 +5541,7 @@ size_of.execution_report_trade_addendum_outright_548 = function(buffer, offset)
 
   index = index + size_of.fills_groups(buffer, offset + index)
 
-  index = index + size_of.order_events_groups(buffer, offset + index)
+  index = index + size_of.execution_report_trade_addendum_outright_order_event_groups(buffer, offset + index)
 
   return index
 end
@@ -5526,8 +5642,8 @@ dissect.execution_report_trade_addendum_outright_548_fields = function(buffer, o
   -- Fills Groups: Struct of 2 fields
   index, fills_groups = dissect.fills_groups(buffer, index, packet, parent)
 
-  -- Order Events Groups: Struct of 2 fields
-  index, order_events_groups = dissect.order_events_groups(buffer, index, packet, parent)
+  -- Execution Report Trade Addendum Outright Order Event Groups: Struct of 2 fields
+  index, execution_report_trade_addendum_outright_order_event_groups = dissect.execution_report_trade_addendum_outright_order_event_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -5707,6 +5823,107 @@ dissect.request_for_quote_ack_546 = function(buffer, offset, packet, parent)
   return dissect.request_for_quote_ack_546_fields(buffer, offset, packet, parent)
 end
 
+-- Calculate size of: Mass Quote Ack Entry Group
+size_of.mass_quote_ack_entry_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.quote_entry_id
+
+  index = index + size_of.security_id
+
+  index = index + size_of.quote_set_id
+
+  index = index + size_of.quote_entry_reject_reason
+
+  return index
+end
+
+-- Display: Mass Quote Ack Entry Group
+display.mass_quote_ack_entry_group = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Mass Quote Ack Entry Group
+dissect.mass_quote_ack_entry_group_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Quote Entry Id: 4 Byte Unsigned Fixed Width Integer
+  index, quote_entry_id = dissect.quote_entry_id(buffer, index, packet, parent)
+
+  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
+
+  -- Quote Set Id: 2 Byte Unsigned Fixed Width Integer
+  index, quote_set_id = dissect.quote_set_id(buffer, index, packet, parent)
+
+  -- Quote Entry Reject Reason: 1 Byte Unsigned Fixed Width Integer
+  index, quote_entry_reject_reason = dissect.quote_entry_reject_reason(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Mass Quote Ack Entry Group
+dissect.mass_quote_ack_entry_group = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.mass_quote_ack_entry_group then
+    local length = size_of.mass_quote_ack_entry_group(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.mass_quote_ack_entry_group(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.mass_quote_ack_entry_group, range, display)
+  end
+
+  return dissect.mass_quote_ack_entry_group_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Mass Quote Ack Entry Groups
+size_of.mass_quote_ack_entry_groups = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.group_size(buffer, offset + index)
+
+  -- Calculate field size from count
+  local mass_quote_ack_entry_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + mass_quote_ack_entry_group_count * 11
+
+  return index
+end
+
+-- Display: Mass Quote Ack Entry Groups
+display.mass_quote_ack_entry_groups = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Mass Quote Ack Entry Groups
+dissect.mass_quote_ack_entry_groups_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Mass Quote Ack Entry Group: Struct of 4 fields
+  for i = 1, num_in_group do
+    index = dissect.mass_quote_ack_entry_group(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
+-- Dissect: Mass Quote Ack Entry Groups
+dissect.mass_quote_ack_entry_groups = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.mass_quote_ack_entry_groups then
+    local length = size_of.mass_quote_ack_entry_groups(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.mass_quote_ack_entry_groups(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.mass_quote_ack_entry_groups, range, display)
+  end
+
+  return dissect.mass_quote_ack_entry_groups_fields(buffer, offset, packet, parent)
+end
+
 -- Calculate size of: Mass Quote Ack 545
 size_of.mass_quote_ack_545 = function(buffer, offset)
   local index = 0
@@ -5755,7 +5972,7 @@ size_of.mass_quote_ack_545 = function(buffer, offset)
 
   index = index + size_of.delay_to_time
 
-  index = index + size_of.quote_entries_groups(buffer, offset + index)
+  index = index + size_of.mass_quote_ack_entry_groups(buffer, offset + index)
 
   return index
 end
@@ -5835,8 +6052,8 @@ dissect.mass_quote_ack_545_fields = function(buffer, offset, packet, parent)
   -- Delay To Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, delay_to_time = dissect.delay_to_time(buffer, index, packet, parent)
 
-  -- Quote Entries Groups: Struct of 2 fields
-  index, quote_entries_groups = dissect.quote_entries_groups(buffer, index, packet, parent)
+  -- Mass Quote Ack Entry Groups: Struct of 2 fields
+  index, mass_quote_ack_entry_groups = dissect.mass_quote_ack_entry_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -9172,6 +9389,243 @@ dissect.order_mass_action_request_529 = function(buffer, offset, packet, parent)
   return dissect.order_mass_action_request_529_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Offer Size
+size_of.offer_size = 4
+
+-- Display: Offer Size
+display.offer_size = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Offer Size: No Value ("..value..")"
+  end
+
+  return "Offer Size: "..value
+end
+
+-- Dissect: Offer Size
+dissect.offer_size = function(buffer, offset, packet, parent)
+  local length = size_of.offer_size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.offer_size(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_5.fields.offer_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Bid Size
+size_of.bid_size = 4
+
+-- Display: Bid Size
+display.bid_size = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Bid Size: No Value ("..value..")"
+  end
+
+  return "Bid Size: "..value
+end
+
+-- Dissect: Bid Size
+dissect.bid_size = function(buffer, offset, packet, parent)
+  local length = size_of.bid_size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.bid_size(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_5.fields.bid_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate size of: Quote Cancel Set Group
+size_of.quote_cancel_set_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.bid_size
+
+  index = index + size_of.offer_size
+
+  index = index + size_of.quote_set_id
+
+  return index
+end
+
+-- Display: Quote Cancel Set Group
+display.quote_cancel_set_group = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Quote Cancel Set Group
+dissect.quote_cancel_set_group_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bid Size: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, bid_size = dissect.bid_size(buffer, index, packet, parent)
+
+  -- Offer Size: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, offer_size = dissect.offer_size(buffer, index, packet, parent)
+
+  -- Quote Set Id: 2 Byte Unsigned Fixed Width Integer
+  index, quote_set_id = dissect.quote_set_id(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Cancel Set Group
+dissect.quote_cancel_set_group = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.quote_cancel_set_group then
+    local length = size_of.quote_cancel_set_group(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.quote_cancel_set_group(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_cancel_set_group, range, display)
+  end
+
+  return dissect.quote_cancel_set_group_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Quote Cancel Set Groups
+size_of.quote_cancel_set_groups = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.group_size(buffer, offset + index)
+
+  -- Calculate field size from count
+  local quote_cancel_set_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + quote_cancel_set_group_count * 10
+
+  return index
+end
+
+-- Display: Quote Cancel Set Groups
+display.quote_cancel_set_groups = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Quote Cancel Set Groups
+dissect.quote_cancel_set_groups_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Quote Cancel Set Group: Struct of 3 fields
+  for i = 1, num_in_group do
+    index = dissect.quote_cancel_set_group(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
+-- Dissect: Quote Cancel Set Groups
+dissect.quote_cancel_set_groups = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.quote_cancel_set_groups then
+    local length = size_of.quote_cancel_set_groups(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.quote_cancel_set_groups(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_cancel_set_groups, range, display)
+  end
+
+  return dissect.quote_cancel_set_groups_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Quote Cancel Entry Group
+size_of.quote_cancel_entry_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.security_group
+
+  index = index + size_of.security_id
+
+  return index
+end
+
+-- Display: Quote Cancel Entry Group
+display.quote_cancel_entry_group = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Quote Cancel Entry Group
+dissect.quote_cancel_entry_group_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Security Group: 6 Byte Ascii String
+  index, security_group = dissect.security_group(buffer, index, packet, parent)
+
+  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Cancel Entry Group
+dissect.quote_cancel_entry_group = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.quote_cancel_entry_group then
+    local length = size_of.quote_cancel_entry_group(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.quote_cancel_entry_group(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_cancel_entry_group, range, display)
+  end
+
+  return dissect.quote_cancel_entry_group_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Quote Cancel Entry Groups
+size_of.quote_cancel_entry_groups = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.group_size(buffer, offset + index)
+
+  -- Calculate field size from count
+  local quote_cancel_entry_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + quote_cancel_entry_group_count * 10
+
+  return index
+end
+
+-- Display: Quote Cancel Entry Groups
+display.quote_cancel_entry_groups = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Quote Cancel Entry Groups
+dissect.quote_cancel_entry_groups_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Quote Cancel Entry Group: Struct of 2 fields
+  for i = 1, num_in_group do
+    index = dissect.quote_cancel_entry_group(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
+-- Dissect: Quote Cancel Entry Groups
+dissect.quote_cancel_entry_groups = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.quote_cancel_entry_groups then
+    local length = size_of.quote_cancel_entry_groups(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.quote_cancel_entry_groups(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_cancel_entry_groups, range, display)
+  end
+
+  return dissect.quote_cancel_entry_groups_fields(buffer, offset, packet, parent)
+end
+
 -- Size: Quote Cancel Type
 size_of.quote_cancel_type = 1
 
@@ -9214,9 +9668,9 @@ size_of.quote_cancel_528 = function(buffer, offset)
 
   index = index + size_of.liquidity_flag
 
-  index = index + size_of.quote_entries_groups_528(buffer, offset + index)
+  index = index + size_of.quote_cancel_entry_groups(buffer, offset + index)
 
-  index = index + size_of.quote_sets_groups_528(buffer, offset + index)
+  index = index + size_of.quote_cancel_set_groups(buffer, offset + index)
 
   return index
 end
@@ -9257,11 +9711,11 @@ dissect.quote_cancel_528_fields = function(buffer, offset, packet, parent)
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer
   index, liquidity_flag = dissect.liquidity_flag(buffer, index, packet, parent)
 
-  -- Quote Entries Groups: Struct of 2 fields
-  index, quote_entries_groups = dissect.quote_entries_groups_528(buffer, index, packet, parent)
+  -- Quote Cancel Entry Groups: Struct of 2 fields
+  index, quote_cancel_entry_groups = dissect.quote_cancel_entry_groups(buffer, index, packet, parent)
 
-  -- Quote Sets Groups: Struct of 2 fields
-  index, quote_sets_groups = dissect.quote_sets_groups_528(buffer, index, packet, parent)
+  -- Quote Cancel Set Groups: Struct of 2 fields
+  index, quote_cancel_set_groups = dissect.quote_cancel_set_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -9277,6 +9731,117 @@ dissect.quote_cancel_528 = function(buffer, offset, packet, parent)
   end
 
   return dissect.quote_cancel_528_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Execution Report Trade Spread Leg Order Event Group
+size_of.execution_report_trade_spread_leg_order_event_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.order_event_px
+
+  index = index + size_of.order_event_text
+
+  index = index + size_of.order_event_exec_id
+
+  index = index + size_of.order_event_qty
+
+  index = index + size_of.order_event_type
+
+  index = index + size_of.order_event_reason
+
+  return index
+end
+
+-- Display: Execution Report Trade Spread Leg Order Event Group
+display.execution_report_trade_spread_leg_order_event_group = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Execution Report Trade Spread Leg Order Event Group
+dissect.execution_report_trade_spread_leg_order_event_group_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Event Px: 8 Byte Signed Fixed Width Integer
+  index, order_event_px = dissect.order_event_px(buffer, index, packet, parent)
+
+  -- Order Event Text: 5 Byte Ascii String
+  index, order_event_text = dissect.order_event_text(buffer, index, packet, parent)
+
+  -- Order Event Exec Id: 4 Byte Unsigned Fixed Width Integer
+  index, order_event_exec_id = dissect.order_event_exec_id(buffer, index, packet, parent)
+
+  -- Order Event Qty: 4 Byte Unsigned Fixed Width Integer
+  index, order_event_qty = dissect.order_event_qty(buffer, index, packet, parent)
+
+  -- Order Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_event_type = dissect.order_event_type(buffer, index, packet, parent)
+
+  -- Order Event Reason: 1 Byte Unsigned Fixed Width Integer
+  index, order_event_reason = dissect.order_event_reason(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Execution Report Trade Spread Leg Order Event Group
+dissect.execution_report_trade_spread_leg_order_event_group = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.execution_report_trade_spread_leg_order_event_group then
+    local length = size_of.execution_report_trade_spread_leg_order_event_group(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.execution_report_trade_spread_leg_order_event_group(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_spread_leg_order_event_group, range, display)
+  end
+
+  return dissect.execution_report_trade_spread_leg_order_event_group_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Execution Report Trade Spread Leg Order Event Groups
+size_of.execution_report_trade_spread_leg_order_event_groups = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.group_size(buffer, offset + index)
+
+  -- Calculate field size from count
+  local execution_report_trade_spread_leg_order_event_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + execution_report_trade_spread_leg_order_event_group_count * 23
+
+  return index
+end
+
+-- Display: Execution Report Trade Spread Leg Order Event Groups
+display.execution_report_trade_spread_leg_order_event_groups = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Execution Report Trade Spread Leg Order Event Groups
+dissect.execution_report_trade_spread_leg_order_event_groups_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Execution Report Trade Spread Leg Order Event Group: Struct of 6 fields
+  for i = 1, num_in_group do
+    index = dissect.execution_report_trade_spread_leg_order_event_group(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
+-- Dissect: Execution Report Trade Spread Leg Order Event Groups
+dissect.execution_report_trade_spread_leg_order_event_groups = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.execution_report_trade_spread_leg_order_event_groups then
+    local length = size_of.execution_report_trade_spread_leg_order_event_groups(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.execution_report_trade_spread_leg_order_event_groups(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_spread_leg_order_event_groups, range, display)
+  end
+
+  return dissect.execution_report_trade_spread_leg_order_event_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Risk Free Rate
@@ -9438,7 +10003,7 @@ size_of.execution_report_trade_spread_leg_527 = function(buffer, offset)
 
   index = index + size_of.fills_groups(buffer, offset + index)
 
-  index = index + size_of.order_events_groups(buffer, offset + index)
+  index = index + size_of.execution_report_trade_spread_leg_order_event_groups(buffer, offset + index)
 
   return index
 end
@@ -9533,8 +10098,8 @@ dissect.execution_report_trade_spread_leg_527_fields = function(buffer, offset, 
   -- Fills Groups: Struct of 2 fields
   index, fills_groups = dissect.fills_groups(buffer, index, packet, parent)
 
-  -- Order Events Groups: Struct of 2 fields
-  index, order_events_groups = dissect.order_events_groups(buffer, index, packet, parent)
+  -- Execution Report Trade Spread Leg Order Event Groups: Struct of 2 fields
+  index, execution_report_trade_spread_leg_order_event_groups = dissect.execution_report_trade_spread_leg_order_event_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -9550,6 +10115,228 @@ dissect.execution_report_trade_spread_leg_527 = function(buffer, offset, packet,
   end
 
   return dissect.execution_report_trade_spread_leg_527_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Execution Report Trade Spread Order Event Group
+size_of.execution_report_trade_spread_order_event_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.order_event_px
+
+  index = index + size_of.order_event_text
+
+  index = index + size_of.order_event_exec_id
+
+  index = index + size_of.order_event_qty
+
+  index = index + size_of.order_event_type
+
+  index = index + size_of.order_event_reason
+
+  return index
+end
+
+-- Display: Execution Report Trade Spread Order Event Group
+display.execution_report_trade_spread_order_event_group = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Execution Report Trade Spread Order Event Group
+dissect.execution_report_trade_spread_order_event_group_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Event Px: 8 Byte Signed Fixed Width Integer
+  index, order_event_px = dissect.order_event_px(buffer, index, packet, parent)
+
+  -- Order Event Text: 5 Byte Ascii String
+  index, order_event_text = dissect.order_event_text(buffer, index, packet, parent)
+
+  -- Order Event Exec Id: 4 Byte Unsigned Fixed Width Integer
+  index, order_event_exec_id = dissect.order_event_exec_id(buffer, index, packet, parent)
+
+  -- Order Event Qty: 4 Byte Unsigned Fixed Width Integer
+  index, order_event_qty = dissect.order_event_qty(buffer, index, packet, parent)
+
+  -- Order Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_event_type = dissect.order_event_type(buffer, index, packet, parent)
+
+  -- Order Event Reason: 1 Byte Unsigned Fixed Width Integer
+  index, order_event_reason = dissect.order_event_reason(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Execution Report Trade Spread Order Event Group
+dissect.execution_report_trade_spread_order_event_group = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.execution_report_trade_spread_order_event_group then
+    local length = size_of.execution_report_trade_spread_order_event_group(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.execution_report_trade_spread_order_event_group(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_spread_order_event_group, range, display)
+  end
+
+  return dissect.execution_report_trade_spread_order_event_group_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Execution Report Trade Spread Order Event Groups
+size_of.execution_report_trade_spread_order_event_groups = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.group_size(buffer, offset + index)
+
+  -- Calculate field size from count
+  local execution_report_trade_spread_order_event_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + execution_report_trade_spread_order_event_group_count * 23
+
+  return index
+end
+
+-- Display: Execution Report Trade Spread Order Event Groups
+display.execution_report_trade_spread_order_event_groups = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Execution Report Trade Spread Order Event Groups
+dissect.execution_report_trade_spread_order_event_groups_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Execution Report Trade Spread Order Event Group: Struct of 6 fields
+  for i = 1, num_in_group do
+    index = dissect.execution_report_trade_spread_order_event_group(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
+-- Dissect: Execution Report Trade Spread Order Event Groups
+dissect.execution_report_trade_spread_order_event_groups = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.execution_report_trade_spread_order_event_groups then
+    local length = size_of.execution_report_trade_spread_order_event_groups(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.execution_report_trade_spread_order_event_groups(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_spread_order_event_groups, range, display)
+  end
+
+  return dissect.execution_report_trade_spread_order_event_groups_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Execution Report Trade Spread Leg Group
+size_of.execution_report_trade_spread_leg_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.leg_exec_id
+
+  index = index + size_of.leg_last_px
+
+  index = index + size_of.leg_security_id
+
+  index = index + size_of.leg_trade_id
+
+  index = index + size_of.leg_last_qty
+
+  index = index + size_of.leg_side
+
+  return index
+end
+
+-- Display: Execution Report Trade Spread Leg Group
+display.execution_report_trade_spread_leg_group = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Execution Report Trade Spread Leg Group
+dissect.execution_report_trade_spread_leg_group_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Leg Exec Id: 8 Byte Unsigned Fixed Width Integer
+  index, leg_exec_id = dissect.leg_exec_id(buffer, index, packet, parent)
+
+  -- Leg Last Px: 8 Byte Signed Fixed Width Integer
+  index, leg_last_px = dissect.leg_last_px(buffer, index, packet, parent)
+
+  -- Leg Security Id: 4 Byte Signed Fixed Width Integer
+  index, leg_security_id = dissect.leg_security_id(buffer, index, packet, parent)
+
+  -- Leg Trade Id: 4 Byte Unsigned Fixed Width Integer
+  index, leg_trade_id = dissect.leg_trade_id(buffer, index, packet, parent)
+
+  -- Leg Last Qty: 4 Byte Unsigned Fixed Width Integer
+  index, leg_last_qty = dissect.leg_last_qty(buffer, index, packet, parent)
+
+  -- Leg Side: 1 Byte Unsigned Fixed Width Integer
+  index, leg_side = dissect.leg_side(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Execution Report Trade Spread Leg Group
+dissect.execution_report_trade_spread_leg_group = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.execution_report_trade_spread_leg_group then
+    local length = size_of.execution_report_trade_spread_leg_group(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.execution_report_trade_spread_leg_group(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_spread_leg_group, range, display)
+  end
+
+  return dissect.execution_report_trade_spread_leg_group_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Execution Report Trade Spread Leg Groups
+size_of.execution_report_trade_spread_leg_groups = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.group_size(buffer, offset + index)
+
+  -- Calculate field size from count
+  local execution_report_trade_spread_leg_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + execution_report_trade_spread_leg_group_count * 29
+
+  return index
+end
+
+-- Display: Execution Report Trade Spread Leg Groups
+display.execution_report_trade_spread_leg_groups = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Execution Report Trade Spread Leg Groups
+dissect.execution_report_trade_spread_leg_groups_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Execution Report Trade Spread Leg Group: Struct of 6 fields
+  for i = 1, num_in_group do
+    index = dissect.execution_report_trade_spread_leg_group(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
+-- Dissect: Execution Report Trade Spread Leg Groups
+dissect.execution_report_trade_spread_leg_groups = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.execution_report_trade_spread_leg_groups then
+    local length = size_of.execution_report_trade_spread_leg_groups(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.execution_report_trade_spread_leg_groups(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_spread_leg_groups, range, display)
+  end
+
+  return dissect.execution_report_trade_spread_leg_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Aggressor Indicator
@@ -9656,9 +10443,9 @@ size_of.execution_report_trade_spread_526 = function(buffer, offset)
 
   index = index + size_of.fills_groups(buffer, offset + index)
 
-  index = index + size_of.legs_groups(buffer, offset + index)
+  index = index + size_of.execution_report_trade_spread_leg_groups(buffer, offset + index)
 
-  index = index + size_of.order_events_groups(buffer, offset + index)
+  index = index + size_of.execution_report_trade_spread_order_event_groups(buffer, offset + index)
 
   return index
 end
@@ -9792,11 +10579,11 @@ dissect.execution_report_trade_spread_526_fields = function(buffer, offset, pack
   -- Fills Groups: Struct of 2 fields
   index, fills_groups = dissect.fills_groups(buffer, index, packet, parent)
 
-  -- Legs Groups: Struct of 2 fields
-  index, legs_groups = dissect.legs_groups(buffer, index, packet, parent)
+  -- Execution Report Trade Spread Leg Groups: Struct of 2 fields
+  index, execution_report_trade_spread_leg_groups = dissect.execution_report_trade_spread_leg_groups(buffer, index, packet, parent)
 
-  -- Order Events Groups: Struct of 2 fields
-  index, order_events_groups = dissect.order_events_groups(buffer, index, packet, parent)
+  -- Execution Report Trade Spread Order Event Groups: Struct of 2 fields
+  index, execution_report_trade_spread_order_event_groups = dissect.execution_report_trade_spread_order_event_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -9812,6 +10599,117 @@ dissect.execution_report_trade_spread_526 = function(buffer, offset, packet, par
   end
 
   return dissect.execution_report_trade_spread_526_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Execution Report Trade Outright Order Event Group
+size_of.execution_report_trade_outright_order_event_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.order_event_px
+
+  index = index + size_of.order_event_text
+
+  index = index + size_of.order_event_exec_id
+
+  index = index + size_of.order_event_qty
+
+  index = index + size_of.order_event_type
+
+  index = index + size_of.order_event_reason
+
+  return index
+end
+
+-- Display: Execution Report Trade Outright Order Event Group
+display.execution_report_trade_outright_order_event_group = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Execution Report Trade Outright Order Event Group
+dissect.execution_report_trade_outright_order_event_group_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Event Px: 8 Byte Signed Fixed Width Integer
+  index, order_event_px = dissect.order_event_px(buffer, index, packet, parent)
+
+  -- Order Event Text: 5 Byte Ascii String
+  index, order_event_text = dissect.order_event_text(buffer, index, packet, parent)
+
+  -- Order Event Exec Id: 4 Byte Unsigned Fixed Width Integer
+  index, order_event_exec_id = dissect.order_event_exec_id(buffer, index, packet, parent)
+
+  -- Order Event Qty: 4 Byte Unsigned Fixed Width Integer
+  index, order_event_qty = dissect.order_event_qty(buffer, index, packet, parent)
+
+  -- Order Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_event_type = dissect.order_event_type(buffer, index, packet, parent)
+
+  -- Order Event Reason: 1 Byte Unsigned Fixed Width Integer
+  index, order_event_reason = dissect.order_event_reason(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Execution Report Trade Outright Order Event Group
+dissect.execution_report_trade_outright_order_event_group = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.execution_report_trade_outright_order_event_group then
+    local length = size_of.execution_report_trade_outright_order_event_group(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.execution_report_trade_outright_order_event_group(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_outright_order_event_group, range, display)
+  end
+
+  return dissect.execution_report_trade_outright_order_event_group_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Execution Report Trade Outright Order Event Groups
+size_of.execution_report_trade_outright_order_event_groups = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.group_size(buffer, offset + index)
+
+  -- Calculate field size from count
+  local execution_report_trade_outright_order_event_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + execution_report_trade_outright_order_event_group_count * 23
+
+  return index
+end
+
+-- Display: Execution Report Trade Outright Order Event Groups
+display.execution_report_trade_outright_order_event_groups = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Execution Report Trade Outright Order Event Groups
+dissect.execution_report_trade_outright_order_event_groups_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Execution Report Trade Outright Order Event Group: Struct of 6 fields
+  for i = 1, num_in_group do
+    index = dissect.execution_report_trade_outright_order_event_group(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
+-- Dissect: Execution Report Trade Outright Order Event Groups
+dissect.execution_report_trade_outright_order_event_groups = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.execution_report_trade_outright_order_event_groups then
+    local length = size_of.execution_report_trade_outright_order_event_groups(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.execution_report_trade_outright_order_event_groups(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_outright_order_event_groups, range, display)
+  end
+
+  return dissect.execution_report_trade_outright_order_event_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Ownership
@@ -9947,7 +10845,7 @@ size_of.execution_report_trade_outright_525 = function(buffer, offset)
 
   index = index + size_of.fills_groups(buffer, offset + index)
 
-  index = index + size_of.order_events_groups(buffer, offset + index)
+  index = index + size_of.execution_report_trade_outright_order_event_groups(buffer, offset + index)
 
   return index
 end
@@ -10087,8 +10985,8 @@ dissect.execution_report_trade_outright_525_fields = function(buffer, offset, pa
   -- Fills Groups: Struct of 2 fields
   index, fills_groups = dissect.fills_groups(buffer, index, packet, parent)
 
-  -- Order Events Groups: Struct of 2 fields
-  index, order_events_groups = dissect.order_events_groups(buffer, index, packet, parent)
+  -- Execution Report Trade Outright Order Event Groups: Struct of 2 fields
+  index, execution_report_trade_outright_order_event_groups = dissect.execution_report_trade_outright_order_event_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -11303,6 +12201,194 @@ dissect.party_details_definition_request_518 = function(buffer, offset, packet, 
   return dissect.party_details_definition_request_518_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Underlying Security Id
+size_of.underlying_security_id = 4
+
+-- Display: Underlying Security Id
+display.underlying_security_id = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Underlying Security Id: No Value ("..value..")"
+  end
+
+  return "Underlying Security Id: "..value
+end
+
+-- Dissect: Underlying Security Id
+dissect.underlying_security_id = function(buffer, offset, packet, parent)
+  local length = size_of.underlying_security_id
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = display.underlying_security_id(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_5.fields.underlying_security_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Offer Px
+size_of.offer_px = 8
+
+-- Display: Offer Px
+display.offer_px = function(value)
+  local factor = 1000000000
+  return "Offer Px: "..value:tonumber()/factor
+end
+
+-- Dissect: Offer Px
+dissect.offer_px = function(buffer, offset, packet, parent)
+  local length = size_of.offer_px
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = display.offer_px(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_5.fields.offer_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Bid Px
+size_of.bid_px = 8
+
+-- Display: Bid Px
+display.bid_px = function(value)
+  local factor = 1000000000
+  return "Bid Px: "..value:tonumber()/factor
+end
+
+-- Dissect: Bid Px
+dissect.bid_px = function(buffer, offset, packet, parent)
+  local length = size_of.bid_px
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = display.bid_px(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_5.fields.bid_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate size of: Mass Quote Entry Group
+size_of.mass_quote_entry_group = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.bid_px
+
+  index = index + size_of.offer_px
+
+  index = index + size_of.quote_entry_id
+
+  index = index + size_of.security_id
+
+  index = index + size_of.bid_size
+
+  index = index + size_of.offer_size
+
+  index = index + size_of.underlying_security_id
+
+  index = index + size_of.quote_set_id
+
+  return index
+end
+
+-- Display: Mass Quote Entry Group
+display.mass_quote_entry_group = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Mass Quote Entry Group
+dissect.mass_quote_entry_group_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bid Px: 8 Byte Signed Fixed Width Integer
+  index, bid_px = dissect.bid_px(buffer, index, packet, parent)
+
+  -- Offer Px: 8 Byte Signed Fixed Width Integer
+  index, offer_px = dissect.offer_px(buffer, index, packet, parent)
+
+  -- Quote Entry Id: 4 Byte Unsigned Fixed Width Integer
+  index, quote_entry_id = dissect.quote_entry_id(buffer, index, packet, parent)
+
+  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, security_id = dissect.security_id(buffer, index, packet, parent)
+
+  -- Bid Size: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, bid_size = dissect.bid_size(buffer, index, packet, parent)
+
+  -- Offer Size: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, offer_size = dissect.offer_size(buffer, index, packet, parent)
+
+  -- Underlying Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, underlying_security_id = dissect.underlying_security_id(buffer, index, packet, parent)
+
+  -- Quote Set Id: 2 Byte Unsigned Fixed Width Integer
+  index, quote_set_id = dissect.quote_set_id(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Mass Quote Entry Group
+dissect.mass_quote_entry_group = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.mass_quote_entry_group then
+    local length = size_of.mass_quote_entry_group(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.mass_quote_entry_group(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.mass_quote_entry_group, range, display)
+  end
+
+  return dissect.mass_quote_entry_group_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Mass Quote Entry Groups
+size_of.mass_quote_entry_groups = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.group_size(buffer, offset + index)
+
+  -- Calculate field size from count
+  local mass_quote_entry_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + mass_quote_entry_group_count * 38
+
+  return index
+end
+
+-- Display: Mass Quote Entry Groups
+display.mass_quote_entry_groups = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Mass Quote Entry Groups
+dissect.mass_quote_entry_groups_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = dissect.group_size(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Mass Quote Entry Group: Struct of 8 fields
+  for i = 1, num_in_group do
+    index = dissect.mass_quote_entry_group(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
+-- Dissect: Mass Quote Entry Groups
+dissect.mass_quote_entry_groups = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.mass_quote_entry_groups then
+    local length = size_of.mass_quote_entry_groups(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.mass_quote_entry_groups(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_5.fields.mass_quote_entry_groups, range, display)
+  end
+
+  return dissect.mass_quote_entry_groups_fields(buffer, offset, packet, parent)
+end
+
 -- Size: Reserved
 size_of.reserved = 30
 
@@ -11353,7 +12439,7 @@ size_of.mass_quote_517 = function(buffer, offset)
 
   index = index + size_of.reserved
 
-  index = index + size_of.quote_entries_groups(buffer, offset + index)
+  index = index + size_of.mass_quote_entry_groups(buffer, offset + index)
 
   return index
 end
@@ -11406,8 +12492,8 @@ dissect.mass_quote_517_fields = function(buffer, offset, packet, parent)
   -- Reserved: 30 Byte Ascii String
   index, reserved = dissect.reserved(buffer, index, packet, parent)
 
-  -- Quote Entries Groups: Struct of 2 fields
-  index, quote_entries_groups = dissect.quote_entries_groups(buffer, index, packet, parent)
+  -- Mass Quote Entry Groups: Struct of 2 fields
+  index, mass_quote_entry_groups = dissect.mass_quote_entry_groups(buffer, index, packet, parent)
 
   return index
 end

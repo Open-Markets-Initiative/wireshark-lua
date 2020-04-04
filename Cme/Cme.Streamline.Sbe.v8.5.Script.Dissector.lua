@@ -78,8 +78,6 @@ cme_streamline_sbe_v8_5.fields.leg_security_group = ProtoField.new("Leg Security
 cme_streamline_sbe_v8_5.fields.leg_security_type = ProtoField.new("Leg Security Type", "cme.streamline.sbe.v8.5.legsecuritytype", ftypes.STRING)
 cme_streamline_sbe_v8_5.fields.leg_side = ProtoField.new("Leg Side", "cme.streamline.sbe.v8.5.legside", ftypes.UINT8)
 cme_streamline_sbe_v8_5.fields.leg_symbol = ProtoField.new("Leg Symbol", "cme.streamline.sbe.v8.5.legsymbol", ftypes.STRING)
-cme_streamline_sbe_v8_5.fields.legs_group = ProtoField.new("Legs Group", "cme.streamline.sbe.v8.5.legsgroup", ftypes.STRING)
-cme_streamline_sbe_v8_5.fields.legs_groups = ProtoField.new("Legs Groups", "cme.streamline.sbe.v8.5.legsgroups", ftypes.STRING)
 cme_streamline_sbe_v8_5.fields.lines_of_text_group = ProtoField.new("Lines Of Text Group", "cme.streamline.sbe.v8.5.linesoftextgroup", ftypes.STRING)
 cme_streamline_sbe_v8_5.fields.lines_of_text_groups = ProtoField.new("Lines Of Text Groups", "cme.streamline.sbe.v8.5.linesoftextgroups", ftypes.STRING)
 cme_streamline_sbe_v8_5.fields.m_d_feed_types_group = ProtoField.new("M D Feed Types Group", "cme.streamline.sbe.v8.5.mdfeedtypesgroup", ftypes.STRING)
@@ -94,6 +92,8 @@ cme_streamline_sbe_v8_5.fields.m_d_incremental_refresh_otc_group = ProtoField.ne
 cme_streamline_sbe_v8_5.fields.m_d_incremental_refresh_otc_groups = ProtoField.new("M D Incremental Refresh Otc Groups", "cme.streamline.sbe.v8.5.mdincrementalrefreshotcgroups", ftypes.STRING)
 cme_streamline_sbe_v8_5.fields.m_d_incremental_refresh_trade_blocks_group = ProtoField.new("M D Incremental Refresh Trade Blocks Group", "cme.streamline.sbe.v8.5.mdincrementalrefreshtradeblocksgroup", ftypes.STRING)
 cme_streamline_sbe_v8_5.fields.m_d_incremental_refresh_trade_blocks_groups = ProtoField.new("M D Incremental Refresh Trade Blocks Groups", "cme.streamline.sbe.v8.5.mdincrementalrefreshtradeblocksgroups", ftypes.STRING)
+cme_streamline_sbe_v8_5.fields.m_d_instrument_definition_eris_leg_group = ProtoField.new("M D Instrument Definition Eris Leg Group", "cme.streamline.sbe.v8.5.mdinstrumentdefinitionerisleggroup", ftypes.STRING)
+cme_streamline_sbe_v8_5.fields.m_d_instrument_definition_eris_leg_groups = ProtoField.new("M D Instrument Definition Eris Leg Groups", "cme.streamline.sbe.v8.5.mdinstrumentdefinitionerisleggroups", ftypes.STRING)
 cme_streamline_sbe_v8_5.fields.market_depth = ProtoField.new("Market Depth", "cme.streamline.sbe.v8.5.marketdepth", ftypes.UINT8)
 cme_streamline_sbe_v8_5.fields.market_sector = ProtoField.new("Market Sector", "cme.streamline.sbe.v8.5.marketsector", ftypes.STRING)
 cme_streamline_sbe_v8_5.fields.match_event_indicator = ProtoField.new("Match Event Indicator", "cme.streamline.sbe.v8.5.matcheventindicator", ftypes.STRING)
@@ -218,8 +218,6 @@ show.group_size = true
 show.group_size_encoding = true
 show.inst_attrib_group = true
 show.inst_attrib_groups = true
-show.legs_group = true
-show.legs_groups = true
 show.lines_of_text_group = true
 show.lines_of_text_groups = true
 show.m_d_feed_types_group = true
@@ -234,6 +232,8 @@ show.m_d_incremental_refresh_otc_group = true
 show.m_d_incremental_refresh_otc_groups = true
 show.m_d_incremental_refresh_trade_blocks_group = true
 show.m_d_incremental_refresh_trade_blocks_groups = true
+show.m_d_instrument_definition_eris_leg_group = true
+show.m_d_instrument_definition_eris_leg_groups = true
 show.match_event_indicator = true
 show.maturity_month_year = true
 show.md_incremental_refresh_eris_351 = true
@@ -267,8 +267,6 @@ cme_streamline_sbe_v8_5.prefs.show_group_size = Pref.bool("Show Group Size", sho
 cme_streamline_sbe_v8_5.prefs.show_group_size_encoding = Pref.bool("Show Group Size Encoding", show.group_size_encoding, "Parse and add Group Size Encoding to protocol tree")
 cme_streamline_sbe_v8_5.prefs.show_inst_attrib_group = Pref.bool("Show Inst Attrib Group", show.inst_attrib_group, "Parse and add Inst Attrib Group to protocol tree")
 cme_streamline_sbe_v8_5.prefs.show_inst_attrib_groups = Pref.bool("Show Inst Attrib Groups", show.inst_attrib_groups, "Parse and add Inst Attrib Groups to protocol tree")
-cme_streamline_sbe_v8_5.prefs.show_legs_group = Pref.bool("Show Legs Group", show.legs_group, "Parse and add Legs Group to protocol tree")
-cme_streamline_sbe_v8_5.prefs.show_legs_groups = Pref.bool("Show Legs Groups", show.legs_groups, "Parse and add Legs Groups to protocol tree")
 cme_streamline_sbe_v8_5.prefs.show_lines_of_text_group = Pref.bool("Show Lines Of Text Group", show.lines_of_text_group, "Parse and add Lines Of Text Group to protocol tree")
 cme_streamline_sbe_v8_5.prefs.show_lines_of_text_groups = Pref.bool("Show Lines Of Text Groups", show.lines_of_text_groups, "Parse and add Lines Of Text Groups to protocol tree")
 cme_streamline_sbe_v8_5.prefs.show_m_d_feed_types_group = Pref.bool("Show M D Feed Types Group", show.m_d_feed_types_group, "Parse and add M D Feed Types Group to protocol tree")
@@ -283,6 +281,8 @@ cme_streamline_sbe_v8_5.prefs.show_m_d_incremental_refresh_otc_group = Pref.bool
 cme_streamline_sbe_v8_5.prefs.show_m_d_incremental_refresh_otc_groups = Pref.bool("Show M D Incremental Refresh Otc Groups", show.m_d_incremental_refresh_otc_groups, "Parse and add M D Incremental Refresh Otc Groups to protocol tree")
 cme_streamline_sbe_v8_5.prefs.show_m_d_incremental_refresh_trade_blocks_group = Pref.bool("Show M D Incremental Refresh Trade Blocks Group", show.m_d_incremental_refresh_trade_blocks_group, "Parse and add M D Incremental Refresh Trade Blocks Group to protocol tree")
 cme_streamline_sbe_v8_5.prefs.show_m_d_incremental_refresh_trade_blocks_groups = Pref.bool("Show M D Incremental Refresh Trade Blocks Groups", show.m_d_incremental_refresh_trade_blocks_groups, "Parse and add M D Incremental Refresh Trade Blocks Groups to protocol tree")
+cme_streamline_sbe_v8_5.prefs.show_m_d_instrument_definition_eris_leg_group = Pref.bool("Show M D Instrument Definition Eris Leg Group", show.m_d_instrument_definition_eris_leg_group, "Parse and add M D Instrument Definition Eris Leg Group to protocol tree")
+cme_streamline_sbe_v8_5.prefs.show_m_d_instrument_definition_eris_leg_groups = Pref.bool("Show M D Instrument Definition Eris Leg Groups", show.m_d_instrument_definition_eris_leg_groups, "Parse and add M D Instrument Definition Eris Leg Groups to protocol tree")
 cme_streamline_sbe_v8_5.prefs.show_match_event_indicator = Pref.bool("Show Match Event Indicator", show.match_event_indicator, "Parse and add Match Event Indicator to protocol tree")
 cme_streamline_sbe_v8_5.prefs.show_maturity_month_year = Pref.bool("Show Maturity Month Year", show.maturity_month_year, "Parse and add Maturity Month Year to protocol tree")
 cme_streamline_sbe_v8_5.prefs.show_md_incremental_refresh_eris_351 = Pref.bool("Show Md Incremental Refresh Eris 351", show.md_incremental_refresh_eris_351, "Parse and add Md Incremental Refresh Eris 351 to protocol tree")
@@ -347,14 +347,6 @@ function cme_streamline_sbe_v8_5.prefs_changed()
     show.inst_attrib_groups = cme_streamline_sbe_v8_5.prefs.show_inst_attrib_groups
     changed = true
   end
-  if show.legs_group ~= cme_streamline_sbe_v8_5.prefs.show_legs_group then
-    show.legs_group = cme_streamline_sbe_v8_5.prefs.show_legs_group
-    changed = true
-  end
-  if show.legs_groups ~= cme_streamline_sbe_v8_5.prefs.show_legs_groups then
-    show.legs_groups = cme_streamline_sbe_v8_5.prefs.show_legs_groups
-    changed = true
-  end
   if show.lines_of_text_group ~= cme_streamline_sbe_v8_5.prefs.show_lines_of_text_group then
     show.lines_of_text_group = cme_streamline_sbe_v8_5.prefs.show_lines_of_text_group
     changed = true
@@ -409,6 +401,14 @@ function cme_streamline_sbe_v8_5.prefs_changed()
   end
   if show.m_d_incremental_refresh_trade_blocks_groups ~= cme_streamline_sbe_v8_5.prefs.show_m_d_incremental_refresh_trade_blocks_groups then
     show.m_d_incremental_refresh_trade_blocks_groups = cme_streamline_sbe_v8_5.prefs.show_m_d_incremental_refresh_trade_blocks_groups
+    changed = true
+  end
+  if show.m_d_instrument_definition_eris_leg_group ~= cme_streamline_sbe_v8_5.prefs.show_m_d_instrument_definition_eris_leg_group then
+    show.m_d_instrument_definition_eris_leg_group = cme_streamline_sbe_v8_5.prefs.show_m_d_instrument_definition_eris_leg_group
+    changed = true
+  end
+  if show.m_d_instrument_definition_eris_leg_groups ~= cme_streamline_sbe_v8_5.prefs.show_m_d_instrument_definition_eris_leg_groups then
+    show.m_d_instrument_definition_eris_leg_groups = cme_streamline_sbe_v8_5.prefs.show_m_d_instrument_definition_eris_leg_groups
     changed = true
   end
   if show.match_event_indicator ~= cme_streamline_sbe_v8_5.prefs.show_match_event_indicator then
@@ -791,8 +791,8 @@ dissect.leg_benchmark_curve_name = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Legs Group
-size_of.legs_group = function(buffer, offset)
+-- Calculate size of: M D Instrument Definition Eris Leg Group
+size_of.m_d_instrument_definition_eris_leg_group = function(buffer, offset)
   local index = 0
 
   index = index + size_of.leg_benchmark_curve_name
@@ -824,13 +824,13 @@ size_of.legs_group = function(buffer, offset)
   return index
 end
 
--- Display: Legs Group
-display.legs_group = function(buffer, offset, size, packet, parent)
+-- Display: M D Instrument Definition Eris Leg Group
+display.m_d_instrument_definition_eris_leg_group = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Legs Group
-dissect.legs_group_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: M D Instrument Definition Eris Leg Group
+dissect.m_d_instrument_definition_eris_leg_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Leg Benchmark Curve Name: 5 Byte Ascii String
@@ -875,17 +875,17 @@ dissect.legs_group_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Legs Group
-dissect.legs_group = function(buffer, offset, packet, parent)
+-- Dissect: M D Instrument Definition Eris Leg Group
+dissect.m_d_instrument_definition_eris_leg_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.legs_group then
-    local length = size_of.legs_group(buffer, offset)
+  if show.m_d_instrument_definition_eris_leg_group then
+    local length = size_of.m_d_instrument_definition_eris_leg_group(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.legs_group(buffer, packet, parent)
-    parent = parent:add(cme_streamline_sbe_v8_5.fields.legs_group, range, display)
+    local display = display.m_d_instrument_definition_eris_leg_group(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v8_5.fields.m_d_instrument_definition_eris_leg_group, range, display)
   end
 
-  return dissect.legs_group_fields(buffer, offset, packet, parent)
+  return dissect.m_d_instrument_definition_eris_leg_group_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Num In Group
@@ -970,26 +970,26 @@ dissect.group_size = function(buffer, offset, packet, parent)
   return dissect.group_size_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Legs Groups
-size_of.legs_groups = function(buffer, offset)
+-- Calculate size of: M D Instrument Definition Eris Leg Groups
+size_of.m_d_instrument_definition_eris_leg_groups = function(buffer, offset)
   local index = 0
 
   index = index + size_of.group_size(buffer, offset + index)
 
   -- Calculate field size from count
-  local legs_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + legs_group_count * 113
+  local m_d_instrument_definition_eris_leg_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + m_d_instrument_definition_eris_leg_group_count * 113
 
   return index
 end
 
--- Display: Legs Groups
-display.legs_groups = function(buffer, offset, size, packet, parent)
+-- Display: M D Instrument Definition Eris Leg Groups
+display.m_d_instrument_definition_eris_leg_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Legs Groups
-dissect.legs_groups_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: M D Instrument Definition Eris Leg Groups
+dissect.m_d_instrument_definition_eris_leg_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -998,25 +998,25 @@ dissect.legs_groups_fields = function(buffer, offset, packet, parent)
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Legs Group: Struct of 13 fields
+  -- M D Instrument Definition Eris Leg Group: Struct of 13 fields
   for i = 1, num_in_group do
-    index = dissect.legs_group(buffer, index, packet, parent)
+    index = dissect.m_d_instrument_definition_eris_leg_group(buffer, index, packet, parent)
   end
 
   return index
 end
 
--- Dissect: Legs Groups
-dissect.legs_groups = function(buffer, offset, packet, parent)
+-- Dissect: M D Instrument Definition Eris Leg Groups
+dissect.m_d_instrument_definition_eris_leg_groups = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.legs_groups then
-    local length = size_of.legs_groups(buffer, offset)
+  if show.m_d_instrument_definition_eris_leg_groups then
+    local length = size_of.m_d_instrument_definition_eris_leg_groups(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.legs_groups(buffer, packet, parent)
-    parent = parent:add(cme_streamline_sbe_v8_5.fields.legs_groups, range, display)
+    local display = display.m_d_instrument_definition_eris_leg_groups(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v8_5.fields.m_d_instrument_definition_eris_leg_groups, range, display)
   end
 
-  return dissect.legs_groups_fields(buffer, offset, packet, parent)
+  return dissect.m_d_instrument_definition_eris_leg_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Security Alt Id Source
@@ -1791,7 +1791,7 @@ size_of.md_instrument_definition_eris_363 = function(buffer, offset)
 
   index = index + size_of.security_alt_id_groups(buffer, offset + index)
 
-  index = index + size_of.legs_groups(buffer, offset + index)
+  index = index + size_of.m_d_instrument_definition_eris_leg_groups(buffer, offset + index)
 
   return index
 end
@@ -1853,8 +1853,8 @@ dissect.md_instrument_definition_eris_363_fields = function(buffer, offset, pack
   -- Security Alt Id Groups: Struct of 2 fields
   index, security_alt_id_groups = dissect.security_alt_id_groups(buffer, index, packet, parent)
 
-  -- Legs Groups: Struct of 2 fields
-  index, legs_groups = dissect.legs_groups(buffer, index, packet, parent)
+  -- M D Instrument Definition Eris Leg Groups: Struct of 2 fields
+  index, m_d_instrument_definition_eris_leg_groups = dissect.m_d_instrument_definition_eris_leg_groups(buffer, index, packet, parent)
 
   return index
 end
