@@ -2837,7 +2837,7 @@ display.delivery_flag = function(value)
     return "Delivery Flag: Sequence Number Reset Message (12)"
   end
   if value == 13 then
-    return "Delivery Flag: One Retransmission Packet  (13)"
+    return "Delivery Flag: One Retransmission Packet (13)"
   end
   if value == 15 then
     return "Delivery Flag: Retransmission Sequence Message (15)"
