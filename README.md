@@ -55,6 +55,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 |[Cme][Cme.Futures.Mdp3.Sbe.v1.6.Organization] | Futures | Mdp3 | Sbe | [1.6][Cme.Futures.Mdp3.Sbe.v1.6.Dissector] | 1/9/2016 | 7266 | Verified|
 |[Cme][Cme.Futures.Mdp3.Sbe.v1.5.Organization] | Futures | Mdp3 | Sbe | [1.5][Cme.Futures.Mdp3.Sbe.v1.5.Dissector] | 8/6/2014 | 7251 | Verified|
 |[Cme][Cme.Futures.Mdp3.Sbe.v1.10.Organization] | Futures | Mdp3 | Sbe | [1.10][Cme.Futures.Mdp3.Sbe.v1.10.Dissector] | 7/26/2019 | 9893 | Untested|
+|[Eurex][Eurex.Derivatives.Eobi.T7.v8.1.Organization] | Derivatives | Eobi | T7 | [8.1][Eurex.Derivatives.Eobi.T7.v8.1.Dissector] | 3/23/2020 | 5076 | Untested|
 |[Eurex][Eurex.Derivatives.Eobi.T7.v8.0.Organization] | Derivatives | Eobi | T7 | [8.0][Eurex.Derivatives.Eobi.T7.v8.0.Dissector] | 9/23/2019 | 5043 | Untested|
 |[Eurex][Eurex.Derivatives.Eobi.T7.v7.1.Organization] | Derivatives | Eobi | T7 | [7.1][Eurex.Derivatives.Eobi.T7.v7.1.Dissector] | 3/14/2019 | 4546 | Untested|
 |[Eurex][Eurex.Derivatives.Eobi.T7.v7.0.Organization] | Derivatives | Eobi | T7 | [7.0][Eurex.Derivatives.Eobi.T7.v7.0.Dissector] | 8/20/2018 | 4419 | Untested|
@@ -118,7 +119,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 |Protocol Count | Generated Lines|
 |--- | ---|
-|80 | 524,502|
+|81 | 529,578|
 
 Note: Our dissector model is still under rapid development.
 
@@ -205,6 +206,8 @@ Enjoy.
 [Eurex.Derivatives.Eobi.T7.v7.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Eurex/Eurex.Derivatives.Eobi.T7.v7.1.Script.Dissector.lua "Eurex Exchange 7.1 Wireshark Dissector"
 [Eurex.Derivatives.Eobi.T7.v8.0.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Eurex "Eurex Exchange"
 [Eurex.Derivatives.Eobi.T7.v8.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Eurex/Eurex.Derivatives.Eobi.T7.v8.0.Script.Dissector.lua "Eurex Exchange 8.0 Wireshark Dissector"
+[Eurex.Derivatives.Eobi.T7.v8.1.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Eurex "Eurex Exchange"
+[Eurex.Derivatives.Eobi.T7.v8.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Eurex/Eurex.Derivatives.Eobi.T7.v8.1.Script.Dissector.lua "Eurex Exchange 8.1 Wireshark Dissector"
 [Ice.Futures.Mdf.iMpact.v1.1.24.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Ice "Intercontinental Exchange"
 [Ice.Futures.Mdf.iMpact.v1.1.24.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Ice/Ice.Futures.Mdf.iMpact.v1.1.24.Script.Dissector.lua "Intercontinental Exchange 1.1.24 Wireshark Dissector"
 [Ice.Futures.Mdf.iMpact.v1.1.33.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Ice "Intercontinental Exchange"

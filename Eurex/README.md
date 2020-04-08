@@ -5,6 +5,7 @@
 
 |Division | Data | Protocol | Version | Date | Size | Testing | Specification|
 |--- | --- | --- | --- | --- | --- | --- | ---|
+|Derivatives | Eobi | T7 | [8.1][Eurex.Derivatives.Eobi.T7.v8.1.Dissector] | 3/23/2020 | 5076 | Untested | [url][Eurex.Derivatives.Eobi.T7.v8.1.Url] - [pdf][Eurex.Derivatives.Eobi.T7.v8.1.Pdf] - [xml][Eurex.Derivatives.Eobi.T7.v8.1.Xml]|
 |Derivatives | Eobi | T7 | [8.0][Eurex.Derivatives.Eobi.T7.v8.0.Dissector] | 9/23/2019 | 5043 | Untested | [url][Eurex.Derivatives.Eobi.T7.v8.0.Url] - [pdf][Eurex.Derivatives.Eobi.T7.v8.0.Pdf] - [xml][Eurex.Derivatives.Eobi.T7.v8.0.Xml]|
 |Derivatives | Eobi | T7 | [7.1][Eurex.Derivatives.Eobi.T7.v7.1.Dissector] | 3/14/2019 | 4546 | Untested | [url][Eurex.Derivatives.Eobi.T7.v7.1.Url] - [pdf][Eurex.Derivatives.Eobi.T7.v7.1.Pdf] - [xml][Eurex.Derivatives.Eobi.T7.v7.1.Xml]|
 |Derivatives | Eobi | T7 | [7.0][Eurex.Derivatives.Eobi.T7.v7.0.Dissector] | 8/20/2018 | 4419 | Untested | [url][Eurex.Derivatives.Eobi.T7.v7.0.Url] - [pdf][Eurex.Derivatives.Eobi.T7.v7.0.Pdf] - [xml][Eurex.Derivatives.Eobi.T7.v7.0.Xml]|
@@ -55,3 +56,7 @@ Eurex: [website](https://www.eurexchange.com "Go to Eurex Exchange")
 [Eurex.Derivatives.Eobi.T7.v8.0.Url]: https://www.eurexchange.com/exchange-en/technology/t7/system-documentation "Specification url"
 [Eurex.Derivatives.Eobi.T7.v8.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Eurex/Eurex.Derivatives.Eobi.T7.v8.0.pdf "Eurex Exchange 8.0 Pdf"
 [Eurex.Derivatives.Eobi.T7.v8.0.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Eurex/Eurex.Derivatives.Eobi.T7.v8.0.xml "Eurex Exchange 8.0 Xml"
+[Eurex.Derivatives.Eobi.T7.v8.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Eurex/Eurex.Derivatives.Eobi.T7.v8.1.Script.Dissector.lua "Eurex Exchange 8.1 Wireshark Dissector"
+[Eurex.Derivatives.Eobi.T7.v8.1.Url]: https://www.eurexchange.com/exchange-en/technology/t7/system-documentation "Specification url"
+[Eurex.Derivatives.Eobi.T7.v8.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Eurex/Eurex.Derivatives.Eobi.T7.v8.1.pdf "Eurex Exchange 8.1 Pdf"
+[Eurex.Derivatives.Eobi.T7.v8.1.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Eurex/Eurex.Derivatives.Eobi.T7.v8.1.xml "Eurex Exchange 8.1 Xml"
