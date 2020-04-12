@@ -15,6 +15,7 @@
 |Derivatives | Eobi | T7 | [4.0][Eurex.Derivatives.Eobi.T7.v4.0.Dissector] | 11/11/2016 | 4161 | Untested | [url][Eurex.Derivatives.Eobi.T7.v4.0.Url] - [pdf][Eurex.Derivatives.Eobi.T7.v4.0.Pdf] - [xml][Eurex.Derivatives.Eobi.T7.v4.0.Xml]|
 |Derivatives | Eobi | T7 | [3.0][Eurex.Derivatives.Eobi.T7.v3.0.Dissector] | 8/3/2015 | 3917 | Verified | [url][Eurex.Derivatives.Eobi.T7.v3.0.Url] - [pdf][Eurex.Derivatives.Eobi.T7.v3.0.Pdf] - [xml][Eurex.Derivatives.Eobi.T7.v3.0.Xml]|
 |Derivatives | Eobi | T7 | [2.5][Eurex.Derivatives.Eobi.T7.v2.5.Dissector] | 11/7/2014 | 3896 | Untested | [url][Eurex.Derivatives.Eobi.T7.v2.5.Url] - [pdf][Eurex.Derivatives.Eobi.T7.v2.5.Pdf] - [xml][Eurex.Derivatives.Eobi.T7.v2.5.Xml]|
+|Derivatives | Eti | T7 | [2.5][Eurex.Derivatives.Eti.T7.v2.5.Dissector] | 7/15/2016 | 15722 | Untested | [url][Eurex.Derivatives.Eti.T7.v2.5.Url] - [pdf][Eurex.Derivatives.Eti.T7.v2.5.Pdf] - [xml][Eurex.Derivatives.Eti.T7.v2.5.Xml]|
 
 
 Eurex: [website](https://www.eurexchange.com "Go to Eurex Exchange")
@@ -60,3 +61,7 @@ Eurex: [website](https://www.eurexchange.com "Go to Eurex Exchange")
 [Eurex.Derivatives.Eobi.T7.v8.1.Url]: https://www.eurexchange.com/exchange-en/technology/t7/system-documentation "Specification url"
 [Eurex.Derivatives.Eobi.T7.v8.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Eurex/Eurex.Derivatives.Eobi.T7.v8.1.pdf "Eurex Exchange 8.1 Pdf"
 [Eurex.Derivatives.Eobi.T7.v8.1.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Eurex/Eurex.Derivatives.Eobi.T7.v8.1.xml "Eurex Exchange 8.1 Xml"
+[Eurex.Derivatives.Eti.T7.v2.5.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Eurex/Eurex.Derivatives.Eti.T7.v2.5.Script.Dissector.lua "Eurex Exchange 2.5 Wireshark Dissector"
+[Eurex.Derivatives.Eti.T7.v2.5.Url]: https://www.eurexchange.com/exchange-en/technology/t7/system-documentation "Specification url"
+[Eurex.Derivatives.Eti.T7.v2.5.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Eurex/Eurex.Derivatives.Eti.T7.v2.5.pdf "Eurex Exchange 2.5 Pdf"
+[Eurex.Derivatives.Eti.T7.v2.5.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Eurex/Eurex.Derivatives.Eti.T7.v2.5.xml "Eurex Exchange 2.5 Xml"
