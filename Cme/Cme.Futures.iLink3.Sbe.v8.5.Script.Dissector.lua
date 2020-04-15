@@ -171,6 +171,7 @@ cme_futures_ilink3_sbe_v8_5.fields.new_order_single_514 = ProtoField.new("New Or
 cme_futures_ilink3_sbe_v8_5.fields.next_seq_no = ProtoField.new("Next Seq No", "cme.futures.ilink3.sbe.v8.5.nextseqno", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_5.fields.nh = ProtoField.new("Nh", "cme.futures.ilink3.sbe.v8.5.nh", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
 cme_futures_ilink3_sbe_v8_5.fields.no_processed_entries = ProtoField.new("No Processed Entries", "cme.futures.ilink3.sbe.v8.5.noprocessedentries", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_5.fields.no_processed_entries_563 = ProtoField.new("No Processed Entries - Quote Cancel Ack 563", "cme.futures.ilink3.sbe.v8.5.noprocessedentries563", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_5.fields.not_applied_513 = ProtoField.new("Not Applied 513", "cme.futures.ilink3.sbe.v8.5.notapplied513", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.num_in_group = ProtoField.new("Num In Group", "cme.futures.ilink3.sbe.v8.5.numingroup", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_5.fields.ob = ProtoField.new("Ob", "cme.futures.ilink3.sbe.v8.5.ob", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
@@ -1557,6 +1558,26 @@ dissect.no_processed_entries = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: No Processed Entries
+size_of.no_processed_entries_563 = 4
+
+-- Display: No Processed Entries
+display.no_processed_entries_563 = function(value)
+  return "No Processed Entries: "..value
+end
+
+-- Dissect: No Processed Entries
+dissect.no_processed_entries_563 = function(buffer, offset, packet, parent)
+  local length = size_of.no_processed_entries_563
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.no_processed_entries_563(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_5.fields.no_processed_entries_563, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Quote Status
 size_of.quote_status = 1
 
@@ -1884,7 +1905,7 @@ size_of.quote_cancel_ack_563 = function(buffer, offset)
 
   index = index + size_of.quote_status
 
-  index = index + size_of.no_processed_entries
+  index = index + size_of.no_processed_entries_563
 
   index = index + size_of.mm_protection_reset
 
@@ -1958,8 +1979,8 @@ dissect.quote_cancel_ack_563_fields = function(buffer, offset, packet, parent)
   -- Quote Status: 1 Byte Unsigned Fixed Width Integer
   index, quote_status = dissect.quote_status(buffer, index, packet, parent)
 
-  -- No Processed Entries: 1 Byte Unsigned Fixed Width Integer
-  index, no_processed_entries = dissect.no_processed_entries(buffer, index, packet, parent)
+  -- No Processed Entries: 4 Byte Unsigned Fixed Width Integer
+  index, no_processed_entries = dissect.no_processed_entries_563(buffer, index, packet, parent)
 
   -- Mm Protection Reset: 1 Byte Unsigned Fixed Width Integer
   index, mm_protection_reset = dissect.mm_protection_reset(buffer, index, packet, parent)
