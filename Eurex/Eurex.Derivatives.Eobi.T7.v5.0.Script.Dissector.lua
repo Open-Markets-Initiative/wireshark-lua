@@ -27,7 +27,7 @@ eurex_derivatives_eobi_t7_v5_0.fields.application_sequence_number = ProtoField.n
 eurex_derivatives_eobi_t7_v5_0.fields.application_sequence_reset_indicator = ProtoField.new("Application Sequence Reset Indicator", "eurex.derivatives.eobi.t7.v5.0.applicationsequenceresetindicator", ftypes.UINT8)
 eurex_derivatives_eobi_t7_v5_0.fields.auction_bbo = ProtoField.new("Auction Bbo", "eurex.derivatives.eobi.t7.v5.0.auctionbbo", ftypes.STRING)
 eurex_derivatives_eobi_t7_v5_0.fields.auction_clearing_price = ProtoField.new("Auction Clearing Price", "eurex.derivatives.eobi.t7.v5.0.auctionclearingprice", ftypes.STRING)
-eurex_derivatives_eobi_t7_v5_0.fields.bid_px = ProtoField.new("Bid Px", "eurex.derivatives.eobi.t7.v5.0.bidpx", ftypes.DOUBLE)
+eurex_derivatives_eobi_t7_v5_0.fields.bid_px = ProtoField.new("Bid Px", "eurex.derivatives.eobi.t7.v5.0.bidpx", ftypes.UINT64)
 eurex_derivatives_eobi_t7_v5_0.fields.bid_size = ProtoField.new("Bid Size", "eurex.derivatives.eobi.t7.v5.0.bidsize", ftypes.INT32)
 eurex_derivatives_eobi_t7_v5_0.fields.body_len = ProtoField.new("Body Len", "eurex.derivatives.eobi.t7.v5.0.bodylen", ftypes.UINT16)
 eurex_derivatives_eobi_t7_v5_0.fields.completion_indicator = ProtoField.new("Completion Indicator", "eurex.derivatives.eobi.t7.v5.0.completionindicator", ftypes.UINT8)
@@ -45,7 +45,7 @@ eurex_derivatives_eobi_t7_v5_0.fields.instrmt_leg_grp = ProtoField.new("Instrmt 
 eurex_derivatives_eobi_t7_v5_0.fields.instrument_state_change = ProtoField.new("Instrument State Change", "eurex.derivatives.eobi.t7.v5.0.instrumentstatechange", ftypes.STRING)
 eurex_derivatives_eobi_t7_v5_0.fields.instrument_summary = ProtoField.new("Instrument Summary", "eurex.derivatives.eobi.t7.v5.0.instrumentsummary", ftypes.STRING)
 eurex_derivatives_eobi_t7_v5_0.fields.last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "eurex.derivatives.eobi.t7.v5.0.lastmsgseqnumprocessed", ftypes.UINT32)
-eurex_derivatives_eobi_t7_v5_0.fields.last_px = ProtoField.new("Last Px", "eurex.derivatives.eobi.t7.v5.0.lastpx", ftypes.DOUBLE)
+eurex_derivatives_eobi_t7_v5_0.fields.last_px = ProtoField.new("Last Px", "eurex.derivatives.eobi.t7.v5.0.lastpx", ftypes.UINT64)
 eurex_derivatives_eobi_t7_v5_0.fields.last_qty = ProtoField.new("Last Qty", "eurex.derivatives.eobi.t7.v5.0.lastqty", ftypes.INT32)
 eurex_derivatives_eobi_t7_v5_0.fields.last_update_time = ProtoField.new("Last Update Time", "eurex.derivatives.eobi.t7.v5.0.lastupdatetime", ftypes.UINT64)
 eurex_derivatives_eobi_t7_v5_0.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "eurex.derivatives.eobi.t7.v5.0.legratioqty", ftypes.INT32)
@@ -55,7 +55,7 @@ eurex_derivatives_eobi_t7_v5_0.fields.leg_symbol = ProtoField.new("Leg Symbol", 
 eurex_derivatives_eobi_t7_v5_0.fields.market_segment_id = ProtoField.new("Market Segment Id", "eurex.derivatives.eobi.t7.v5.0.marketsegmentid", ftypes.INT32)
 eurex_derivatives_eobi_t7_v5_0.fields.match_sub_type = ProtoField.new("Match Sub Type", "eurex.derivatives.eobi.t7.v5.0.matchsubtype", ftypes.UINT8)
 eurex_derivatives_eobi_t7_v5_0.fields.match_type = ProtoField.new("Match Type", "eurex.derivatives.eobi.t7.v5.0.matchtype", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v5_0.fields.md_entry_px = ProtoField.new("Md Entry Px", "eurex.derivatives.eobi.t7.v5.0.mdentrypx", ftypes.DOUBLE)
+eurex_derivatives_eobi_t7_v5_0.fields.md_entry_px = ProtoField.new("Md Entry Px", "eurex.derivatives.eobi.t7.v5.0.mdentrypx", ftypes.UINT64)
 eurex_derivatives_eobi_t7_v5_0.fields.md_entry_size = ProtoField.new("Md Entry Size", "eurex.derivatives.eobi.t7.v5.0.mdentrysize", ftypes.INT32)
 eurex_derivatives_eobi_t7_v5_0.fields.md_entry_type = ProtoField.new("Md Entry Type", "eurex.derivatives.eobi.t7.v5.0.mdentrytype", ftypes.UINT8)
 eurex_derivatives_eobi_t7_v5_0.fields.md_instrument_entry_grp = ProtoField.new("Md Instrument Entry Grp", "eurex.derivatives.eobi.t7.v5.0.mdinstrumententrygrp", ftypes.STRING)
@@ -65,7 +65,7 @@ eurex_derivatives_eobi_t7_v5_0.fields.message_header = ProtoField.new("Message H
 eurex_derivatives_eobi_t7_v5_0.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "eurex.derivatives.eobi.t7.v5.0.msgseqnum", ftypes.UINT32)
 eurex_derivatives_eobi_t7_v5_0.fields.no_legs = ProtoField.new("No Legs", "eurex.derivatives.eobi.t7.v5.0.nolegs", ftypes.UINT8)
 eurex_derivatives_eobi_t7_v5_0.fields.no_md_entries = ProtoField.new("No Md Entries", "eurex.derivatives.eobi.t7.v5.0.nomdentries", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v5_0.fields.offer_px = ProtoField.new("Offer Px", "eurex.derivatives.eobi.t7.v5.0.offerpx", ftypes.DOUBLE)
+eurex_derivatives_eobi_t7_v5_0.fields.offer_px = ProtoField.new("Offer Px", "eurex.derivatives.eobi.t7.v5.0.offerpx", ftypes.UINT64)
 eurex_derivatives_eobi_t7_v5_0.fields.offer_size = ProtoField.new("Offer Size", "eurex.derivatives.eobi.t7.v5.0.offersize", ftypes.INT32)
 eurex_derivatives_eobi_t7_v5_0.fields.ord_type = ProtoField.new("Ord Type", "eurex.derivatives.eobi.t7.v5.0.ordtype", ftypes.UINT8)
 eurex_derivatives_eobi_t7_v5_0.fields.order_add = ProtoField.new("Order Add", "eurex.derivatives.eobi.t7.v5.0.orderadd", ftypes.STRING)
@@ -91,8 +91,8 @@ eurex_derivatives_eobi_t7_v5_0.fields.partition_id = ProtoField.new("Partition I
 eurex_derivatives_eobi_t7_v5_0.fields.payload = ProtoField.new("Payload", "eurex.derivatives.eobi.t7.v5.0.payload", ftypes.STRING)
 eurex_derivatives_eobi_t7_v5_0.fields.potential_security_trading_event = ProtoField.new("Potential Security Trading Event", "eurex.derivatives.eobi.t7.v5.0.potentialsecuritytradingevent", ftypes.UINT8)
 eurex_derivatives_eobi_t7_v5_0.fields.prev_display_qty = ProtoField.new("Prev Display Qty", "eurex.derivatives.eobi.t7.v5.0.prevdisplayqty", ftypes.INT32)
-eurex_derivatives_eobi_t7_v5_0.fields.prev_price = ProtoField.new("Prev Price", "eurex.derivatives.eobi.t7.v5.0.prevprice", ftypes.DOUBLE)
-eurex_derivatives_eobi_t7_v5_0.fields.price = ProtoField.new("Price", "eurex.derivatives.eobi.t7.v5.0.price", ftypes.DOUBLE)
+eurex_derivatives_eobi_t7_v5_0.fields.prev_price = ProtoField.new("Prev Price", "eurex.derivatives.eobi.t7.v5.0.prevprice", ftypes.UINT64)
+eurex_derivatives_eobi_t7_v5_0.fields.price = ProtoField.new("Price", "eurex.derivatives.eobi.t7.v5.0.price", ftypes.UINT64)
 eurex_derivatives_eobi_t7_v5_0.fields.product_complex = ProtoField.new("Product Complex", "eurex.derivatives.eobi.t7.v5.0.productcomplex", ftypes.UINT8)
 eurex_derivatives_eobi_t7_v5_0.fields.product_state_change = ProtoField.new("Product State Change", "eurex.derivatives.eobi.t7.v5.0.productstatechange", ftypes.STRING)
 eurex_derivatives_eobi_t7_v5_0.fields.product_summary = ProtoField.new("Product Summary", "eurex.derivatives.eobi.t7.v5.0.productsummary", ftypes.STRING)
@@ -450,7 +450,7 @@ end
 dissect.md_entry_px = function(buffer, offset, packet, parent)
   local length = size_of.md_entry_px
   local range = buffer(offset, length)
-  local value = range:float()
+  local value = range:le_uint64()
   local display = display.md_entry_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v5_0.fields.md_entry_px, range, value, display)
@@ -482,7 +482,7 @@ end
 dissect.md_trade_entry_grp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Entry Px: 8 Byte Floating Point
+  -- Md Entry Px: 8 Byte Unsigned Fixed Width Integer
   index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Md Entry Size: 4 Byte Signed Fixed Width Integer
@@ -583,7 +583,7 @@ end
 dissect.last_px = function(buffer, offset, packet, parent)
   local length = size_of.last_px
   local range = buffer(offset, length)
-  local value = range:float()
+  local value = range:le_uint64()
   local display = display.last_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v5_0.fields.last_px, range, value, display)
@@ -719,7 +719,7 @@ dissect.trade_reversal_fields = function(buffer, offset, packet, parent)
   -- Last Qty: 4 Byte Signed Fixed Width Integer
   index, last_qty = dissect.last_qty(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Floating Point
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer
   index, last_px = dissect.last_px(buffer, index, packet, parent)
 
   -- Trd Reg Ts Execution Time: 8 Byte Unsigned Fixed Width Integer
@@ -882,7 +882,7 @@ dissect.trade_report_fields = function(buffer, offset, packet, parent)
   -- Last Qty: 4 Byte Signed Fixed Width Integer
   index, last_qty = dissect.last_qty(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Floating Point
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer
   index, last_px = dissect.last_px(buffer, index, packet, parent)
 
   -- Match Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -923,7 +923,7 @@ end
 dissect.offer_px = function(buffer, offset, packet, parent)
   local length = size_of.offer_px
   local range = buffer(offset, length)
-  local value = range:float()
+  local value = range:le_uint64()
   local display = display.offer_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v5_0.fields.offer_px, range, value, display)
@@ -944,7 +944,7 @@ end
 dissect.bid_px = function(buffer, offset, packet, parent)
   local length = size_of.bid_px
   local range = buffer(offset, length)
-  local value = range:float()
+  local value = range:le_uint64()
   local display = display.bid_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v5_0.fields.bid_px, range, value, display)
@@ -982,10 +982,10 @@ dissect.top_of_book_fields = function(buffer, offset, packet, parent)
   -- Security Id: 8 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Floating Point
+  -- Bid Px: 8 Byte Unsigned Fixed Width Integer
   index, bid_px = dissect.bid_px(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Floating Point
+  -- Offer Px: 8 Byte Unsigned Fixed Width Integer
   index, offer_px = dissect.offer_px(buffer, index, packet, parent)
 
   return index
@@ -1017,7 +1017,7 @@ end
 dissect.price = function(buffer, offset, packet, parent)
   local length = size_of.price
   local range = buffer(offset, length)
-  local value = range:float()
+  local value = range:le_uint64()
   local display = display.price(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v5_0.fields.price, range, value, display)
@@ -1179,7 +1179,7 @@ dissect.order_details_fields = function(buffer, offset, packet, parent)
   -- Pad 2: 2 Byte
   index, pad_2 = dissect.pad_2(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Floating Point
+  -- Price: 8 Byte Unsigned Fixed Width Integer
   index, price = dissect.price(buffer, index, packet, parent)
 
   return index
@@ -1623,7 +1623,7 @@ dissect.partial_order_execution_fields = function(buffer, offset, packet, parent
   -- Pad 6: 6 Byte
   index, pad_6 = dissect.pad_6(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Floating Point
+  -- Price: 8 Byte Unsigned Fixed Width Integer
   index, price = dissect.price(buffer, index, packet, parent)
 
   -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer
@@ -1638,7 +1638,7 @@ dissect.partial_order_execution_fields = function(buffer, offset, packet, parent
   -- Last Qty: 4 Byte Signed Fixed Width Integer
   index, last_qty = dissect.last_qty(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Floating Point
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer
   index, last_px = dissect.last_px(buffer, index, packet, parent)
 
   return index
@@ -1772,7 +1772,7 @@ end
 dissect.prev_price = function(buffer, offset, packet, parent)
   local length = size_of.prev_price
   local range = buffer(offset, length)
-  local value = range:float()
+  local value = range:le_uint64()
   local display = display.prev_price(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v5_0.fields.prev_price, range, value, display)
@@ -1836,7 +1836,7 @@ dissect.order_modify_fields = function(buffer, offset, packet, parent)
   -- Trd Reg Ts Prev Time Priority: 8 Byte Unsigned Fixed Width Integer
   index, trd_reg_ts_prev_time_priority = dissect.trd_reg_ts_prev_time_priority(buffer, index, packet, parent)
 
-  -- Prev Price: 8 Byte Floating Point
+  -- Prev Price: 8 Byte Unsigned Fixed Width Integer
   index, prev_price = dissect.prev_price(buffer, index, packet, parent)
 
   -- Prev Display Qty: 4 Byte Signed Fixed Width Integer
@@ -2032,7 +2032,7 @@ end
 dissect.md_instrument_entry_grp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Entry Px: 8 Byte Floating Point
+  -- Md Entry Px: 8 Byte Unsigned Fixed Width Integer
   index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Md Entry Size: 4 Byte Signed Fixed Width Integer
@@ -2495,7 +2495,7 @@ dissect.full_order_execution_fields = function(buffer, offset, packet, parent)
   -- Pad 6: 6 Byte
   index, pad_6 = dissect.pad_6(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Floating Point
+  -- Price: 8 Byte Unsigned Fixed Width Integer
   index, price = dissect.price(buffer, index, packet, parent)
 
   -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer
@@ -2510,7 +2510,7 @@ dissect.full_order_execution_fields = function(buffer, offset, packet, parent)
   -- Last Qty: 4 Byte Signed Fixed Width Integer
   index, last_qty = dissect.last_qty(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Floating Point
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer
   index, last_px = dissect.last_px(buffer, index, packet, parent)
 
   return index
@@ -2742,7 +2742,7 @@ dissect.execution_summary_fields = function(buffer, offset, packet, parent)
   -- Pad 2: 2 Byte
   index, pad_2 = dissect.pad_2(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Floating Point
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer
   index, last_px = dissect.last_px(buffer, index, packet, parent)
 
   -- Resting Hidden Qty: 4 Byte Signed Fixed Width Integer
@@ -2904,7 +2904,7 @@ dissect.auction_clearing_price_fields = function(buffer, offset, packet, parent)
   -- Security Id: 8 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Floating Point
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer
   index, last_px = dissect.last_px(buffer, index, packet, parent)
 
   -- Last Qty: 4 Byte Signed Fixed Width Integer
@@ -3016,10 +3016,10 @@ dissect.auction_bbo_fields = function(buffer, offset, packet, parent)
   -- Security Id: 8 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Floating Point
+  -- Bid Px: 8 Byte Unsigned Fixed Width Integer
   index, bid_px = dissect.bid_px(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Floating Point
+  -- Offer Px: 8 Byte Unsigned Fixed Width Integer
   index, offer_px = dissect.offer_px(buffer, index, packet, parent)
 
   -- Bid Size: 4 Byte Signed Fixed Width Integer
