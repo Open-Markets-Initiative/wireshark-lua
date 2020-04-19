@@ -38,18 +38,19 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 |[Cboe][Cboe.Options.MarketDataFeed.Csm.v1.4.2.Organization] | Options | MarketDataFeed | Csm | [1.4.2][Cboe.Options.MarketDataFeed.Csm.v1.4.2.Dissector] | 5/8/2018 | 4205 | Verified|
 |[Cboe][Cboe.Options.MarketLevel2.Csm.v1.0.4.Organization] | Options | MarketLevel2 | Csm | [1.0.4][Cboe.Options.MarketLevel2.Csm.v1.0.4.Dissector] | 5/8/2018 | 2939 | Verified|
 |[Cboe][Cboe.Options.OpeningAuction.Csm.v1.0.Organization] | Options | OpeningAuction | Csm | [1.0][Cboe.Options.OpeningAuction.Csm.v1.0.Dissector] | 7/18/2018 | 3060 | Verified|
+|[Cboe][Cboe.Options.ComplexDepthOfBook.Pitch.v2.1.18.Organization] | Options | ComplexDepthOfBook | Pitch | [2.1.18][Cboe.Options.ComplexDepthOfBook.Pitch.v2.1.18.Dissector] | 1/31/2020 | 3574 | Untested|
 |[Cboe][Cboe.Options.DepthOfBook.Pitch.v2.39.4.Organization] | Options | DepthOfBook | Pitch | [2.39.4][Cboe.Options.DepthOfBook.Pitch.v2.39.4.Dissector] | 8/21/2018 | 3315 | Verified|
 |[Cboe][Cboe.Options.Bzx.OrderEntry.Boe.v2.10.Organization] | Options Bzx | OrderEntry | Boe | [2.10][Cboe.Options.Bzx.OrderEntry.Boe.v2.10.Dissector] | 12/3/2019 | 30269 | Beta|
 |[Cboe][Cboe.Options.C1.OrderEntry.Boe.v2.10.Organization] | Options C1 | OrderEntry | Boe | [2.10][Cboe.Options.C1.OrderEntry.Boe.v2.10.Dissector] | 12/3/2019 | 46148 | Beta|
 |[Cboe][Cboe.Options.C1.AuctionFeed.Pitch.v1.1.1.Organization] | Options C1 | AuctionFeed | Pitch | [1.1.1][Cboe.Options.C1.AuctionFeed.Pitch.v1.1.1.Dissector] | 12/6/2018 | 1857 | Verified|
 |[Cboe][Cboe.Options.Edgx.OrderEntry.Boe.v2.10.Organization] | Options Edgx | OrderEntry | Boe | [2.10][Cboe.Options.Edgx.OrderEntry.Boe.v2.10.Dissector] | 12/3/2019 | 44998 | Beta|
 |[Cboe][Cboe.Options.Edgx.AuctionFeed.Pitch.v1.1.1.Organization] | Options Edgx | AuctionFeed | Pitch | [1.1.1][Cboe.Options.Edgx.AuctionFeed.Pitch.v1.1.1.Dissector] | 12/6/2018 | 1301 | Verified|
-|[Cme][Cme.Streamline.Sbe.v9.5.Organization] |  | Streamline | Sbe | [9.5][Cme.Streamline.Sbe.v9.5.Dissector] | 4/4/2018 | 6634 | Untested|
-|[Cme][Cme.Streamline.Sbe.v8.5.Organization] |  | Streamline | Sbe | [8.5][Cme.Streamline.Sbe.v8.5.Dissector] | 6/2/2017 | 6484 | Untested|
-|[Cme][Cme.Futures.iLink3.Sbe.v8.5.Organization] | Futures | iLink3 | Sbe | [8.5][Cme.Futures.iLink3.Sbe.v8.5.Dissector] | 2/27/2020 | 15120 | Untested|
-|[Cme][Cme.Futures.iLink3.Sbe.v8.4.Organization] | Futures | iLink3 | Sbe | [8.4][Cme.Futures.iLink3.Sbe.v8.4.Dissector] | 2/11/2020 | 15074 | Untested|
-|[Cme][Cme.Futures.iLink3.Sbe.v8.3.Organization] | Futures | iLink3 | Sbe | [8.3][Cme.Futures.iLink3.Sbe.v8.3.Dissector] | 1/9/2020 | 14993 | Untested|
-|[Cme][Cme.Futures.iLink3.Sbe.v8.2.Organization] | Futures | iLink3 | Sbe | [8.2][Cme.Futures.iLink3.Sbe.v8.2.Dissector] | 11/5/2019 | 14957 | Verified|
+|[Cme][Cme.Streamline.Sbe.v9.5.Organization] |  | Streamline | Sbe | [9.5][Cme.Streamline.Sbe.v9.5.Dissector] | 4/4/2018 | 6067 | Untested|
+|[Cme][Cme.Streamline.Sbe.v8.5.Organization] |  | Streamline | Sbe | [8.5][Cme.Streamline.Sbe.v8.5.Dissector] | 6/2/2017 | 5917 | Untested|
+|[Cme][Cme.Futures.iLink3.Sbe.v8.5.Organization] | Futures | iLink3 | Sbe | [8.5][Cme.Futures.iLink3.Sbe.v8.5.Dissector] | 2/27/2020 | 15036 | Untested|
+|[Cme][Cme.Futures.iLink3.Sbe.v8.4.Organization] | Futures | iLink3 | Sbe | [8.4][Cme.Futures.iLink3.Sbe.v8.4.Dissector] | 2/11/2020 | 14969 | Untested|
+|[Cme][Cme.Futures.iLink3.Sbe.v8.3.Organization] | Futures | iLink3 | Sbe | [8.3][Cme.Futures.iLink3.Sbe.v8.3.Dissector] | 1/9/2020 | 14888 | Untested|
+|[Cme][Cme.Futures.iLink3.Sbe.v8.2.Organization] | Futures | iLink3 | Sbe | [8.2][Cme.Futures.iLink3.Sbe.v8.2.Dissector] | 11/5/2019 | 14852 | Verified|
 |[Cme][Cme.Futures.Mdp3.Sbe.v1.9.Organization] | Futures | Mdp3 | Sbe | [1.9][Cme.Futures.Mdp3.Sbe.v1.9.Dissector] | 3/8/2018 | 9426 | Verified|
 |[Cme][Cme.Futures.Mdp3.Sbe.v1.8.Organization] | Futures | Mdp3 | Sbe | [1.8][Cme.Futures.Mdp3.Sbe.v1.8.Dissector] | 7/1/2016 | 8171 | Verified|
 |[Cme][Cme.Futures.Mdp3.Sbe.v1.6.Organization] | Futures | Mdp3 | Sbe | [1.6][Cme.Futures.Mdp3.Sbe.v1.6.Dissector] | 1/9/2016 | 7266 | Verified|
@@ -134,7 +135,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 |Protocol Count | Generated Lines|
 |--- | ---|
-|96 | 868,783|
+|97 | 870,824|
 
 Note: Our dissector model is still under rapid development.
 
@@ -163,6 +164,8 @@ Enjoy.
 [Cboe.Equities.Edgx.OrderEntry.Boe.v2.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Equities.Edgx.OrderEntry.Boe.v2.3.Script.Dissector.lua "Chicago Board Options Exchange 2.3 Wireshark Dissector"
 [Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cboe "Chicago Board Options Exchange"
 [Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Script.Dissector.lua "Chicago Board Options Exchange 1.1.6 Wireshark Dissector"
+[Cboe.Options.ComplexDepthOfBook.Pitch.v2.1.18.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cboe "Chicago Board Options Exchange"
+[Cboe.Options.ComplexDepthOfBook.Pitch.v2.1.18.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Options.ComplexDepthOfBook.Pitch.v2.1.18.Script.Dissector.lua "Chicago Board Options Exchange 2.1.18 Wireshark Dissector"
 [Cboe.Options.Bzx.OrderEntry.Boe.v2.10.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cboe "Chicago Board Options Exchange"
 [Cboe.Options.Bzx.OrderEntry.Boe.v2.10.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Options.Bzx.OrderEntry.Boe.v2.10.Script.Dissector.lua "Chicago Board Options Exchange 2.10 Wireshark Dissector"
 [Cboe.Options.C1.AuctionFeed.Pitch.v1.1.1.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cboe "Chicago Board Options Exchange"
