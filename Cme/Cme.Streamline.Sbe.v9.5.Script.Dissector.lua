@@ -21,7 +21,7 @@ local verify = {}
 
 -- Cme Streamline Sbe 9.5 Fields
 cme_streamline_sbe_v9_5.fields.accrual_days = ProtoField.new("Accrual Days", "cme.streamline.sbe.v9.5.accrualdays", ftypes.UINT32)
-cme_streamline_sbe_v9_5.fields.accrued_coupons = ProtoField.new("Accrued Coupons", "cme.streamline.sbe.v9.5.accruedcoupons", ftypes.INT64)
+cme_streamline_sbe_v9_5.fields.accrued_coupons = ProtoField.new("Accrued Coupons", "cme.streamline.sbe.v9.5.accruedcoupons", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.actual = ProtoField.new("Actual", "cme.streamline.sbe.v9.5.actual", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
 cme_streamline_sbe_v9_5.fields.admin_login_315 = ProtoField.new("Admin Login 315", "cme.streamline.sbe.v9.5.adminlogin315", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.admin_logout_316 = ProtoField.new("Admin Logout 316", "cme.streamline.sbe.v9.5.adminlogout316", ftypes.STRING)
@@ -30,27 +30,28 @@ cme_streamline_sbe_v9_5.fields.appl_id = ProtoField.new("Appl Id", "cme.streamli
 cme_streamline_sbe_v9_5.fields.batch_total_messages = ProtoField.new("Batch Total Messages", "cme.streamline.sbe.v9.5.batchtotalmessages", ftypes.UINT16)
 cme_streamline_sbe_v9_5.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.streamline.sbe.v9.5.binarypacketheader", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.block_length = ProtoField.new("Block Length", "cme.streamline.sbe.v9.5.blocklength", ftypes.UINT16)
-cme_streamline_sbe_v9_5.fields.cal_fut_px = ProtoField.new("Cal Fut Px", "cme.streamline.sbe.v9.5.calfutpx", ftypes.INT64)
+cme_streamline_sbe_v9_5.fields.cal_fut_px = ProtoField.new("Cal Fut Px", "cme.streamline.sbe.v9.5.calfutpx", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.coupon_rate = ProtoField.new("Coupon Rate", "cme.streamline.sbe.v9.5.couponrate", ftypes.INT32)
 cme_streamline_sbe_v9_5.fields.currency = ProtoField.new("Currency", "cme.streamline.sbe.v9.5.currency", ftypes.STRING)
-cme_streamline_sbe_v9_5.fields.d_v_01 = ProtoField.new("D V 01", "cme.streamline.sbe.v9.5.dv01", ftypes.INT64)
-cme_streamline_sbe_v9_5.fields.daily_incremental_eris_pai = ProtoField.new("Daily Incremental Eris Pai", "cme.streamline.sbe.v9.5.dailyincrementalerispai", ftypes.INT64)
+cme_streamline_sbe_v9_5.fields.d_v_01 = ProtoField.new("D V 01", "cme.streamline.sbe.v9.5.dv01", ftypes.STRING)
+cme_streamline_sbe_v9_5.fields.daily_incremental_eris_pai = ProtoField.new("Daily Incremental Eris Pai", "cme.streamline.sbe.v9.5.dailyincrementalerispai", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.day = ProtoField.new("Day", "cme.streamline.sbe.v9.5.day", ftypes.UINT8)
 cme_streamline_sbe_v9_5.fields.end_of_event = ProtoField.new("End Of Event", "cme.streamline.sbe.v9.5.endofevent", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
-cme_streamline_sbe_v9_5.fields.eris_pai = ProtoField.new("Eris Pai", "cme.streamline.sbe.v9.5.erispai", ftypes.INT64)
+cme_streamline_sbe_v9_5.fields.eris_pai = ProtoField.new("Eris Pai", "cme.streamline.sbe.v9.5.erispai", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.event_time = ProtoField.new("Event Time", "cme.streamline.sbe.v9.5.eventtime", ftypes.UINT64)
 cme_streamline_sbe_v9_5.fields.event_type = ProtoField.new("Event Type", "cme.streamline.sbe.v9.5.eventtype", ftypes.UINT8)
 cme_streamline_sbe_v9_5.fields.events_group = ProtoField.new("Events Group", "cme.streamline.sbe.v9.5.eventsgroup", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.events_groups = ProtoField.new("Events Groups", "cme.streamline.sbe.v9.5.eventsgroups", ftypes.STRING)
-cme_streamline_sbe_v9_5.fields.fair_coupon_pct = ProtoField.new("Fair Coupon Pct", "cme.streamline.sbe.v9.5.faircouponpct", ftypes.INT64)
+cme_streamline_sbe_v9_5.fields.exponent = ProtoField.new("Exponent", "cme.streamline.sbe.v9.5.exponent", ftypes.INT8)
+cme_streamline_sbe_v9_5.fields.fair_coupon_pct = ProtoField.new("Fair Coupon Pct", "cme.streamline.sbe.v9.5.faircouponpct", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.fed_funds_date = ProtoField.new("Fed Funds Date", "cme.streamline.sbe.v9.5.fedfundsdate", ftypes.UINT16)
-cme_streamline_sbe_v9_5.fields.fed_funds_rate = ProtoField.new("Fed Funds Rate", "cme.streamline.sbe.v9.5.fedfundsrate", ftypes.INT64)
+cme_streamline_sbe_v9_5.fields.fed_funds_rate = ProtoField.new("Fed Funds Rate", "cme.streamline.sbe.v9.5.fedfundsrate", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.final_daily = ProtoField.new("Final Daily", "cme.streamline.sbe.v9.5.finaldaily", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
-cme_streamline_sbe_v9_5.fields.final_settlement_futures_price = ProtoField.new("Final Settlement Futures Price", "cme.streamline.sbe.v9.5.finalsettlementfuturesprice", ftypes.INT64)
-cme_streamline_sbe_v9_5.fields.fixed_npv = ProtoField.new("Fixed Npv", "cme.streamline.sbe.v9.5.fixednpv", ftypes.INT64)
-cme_streamline_sbe_v9_5.fields.fixed_payment = ProtoField.new("Fixed Payment", "cme.streamline.sbe.v9.5.fixedpayment", ftypes.INT64)
-cme_streamline_sbe_v9_5.fields.float_npv = ProtoField.new("Float Npv", "cme.streamline.sbe.v9.5.floatnpv", ftypes.INT64)
-cme_streamline_sbe_v9_5.fields.floating_payment = ProtoField.new("Floating Payment", "cme.streamline.sbe.v9.5.floatingpayment", ftypes.INT64)
+cme_streamline_sbe_v9_5.fields.final_settlement_futures_price = ProtoField.new("Final Settlement Futures Price", "cme.streamline.sbe.v9.5.finalsettlementfuturesprice", ftypes.STRING)
+cme_streamline_sbe_v9_5.fields.fixed_npv = ProtoField.new("Fixed Npv", "cme.streamline.sbe.v9.5.fixednpv", ftypes.STRING)
+cme_streamline_sbe_v9_5.fields.fixed_payment = ProtoField.new("Fixed Payment", "cme.streamline.sbe.v9.5.fixedpayment", ftypes.STRING)
+cme_streamline_sbe_v9_5.fields.float_npv = ProtoField.new("Float Npv", "cme.streamline.sbe.v9.5.floatnpv", ftypes.STRING)
+cme_streamline_sbe_v9_5.fields.floating_payment = ProtoField.new("Floating Payment", "cme.streamline.sbe.v9.5.floatingpayment", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.group_size = ProtoField.new("Group Size", "cme.streamline.sbe.v9.5.groupsize", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.group_size_encoding = ProtoField.new("Group Size Encoding", "cme.streamline.sbe.v9.5.groupsizeencoding", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.headline = ProtoField.new("Headline", "cme.streamline.sbe.v9.5.headline", ftypes.STRING)
@@ -59,19 +60,19 @@ cme_streamline_sbe_v9_5.fields.inst_attrib_group = ProtoField.new("Inst Attrib G
 cme_streamline_sbe_v9_5.fields.inst_attrib_groups = ProtoField.new("Inst Attrib Groups", "cme.streamline.sbe.v9.5.instattribgroups", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.inst_attrib_type = ProtoField.new("Inst Attrib Type", "cme.streamline.sbe.v9.5.instattribtype", ftypes.UINT8)
 cme_streamline_sbe_v9_5.fields.inst_attrib_value = ProtoField.new("Inst Attrib Value", "cme.streamline.sbe.v9.5.instattribvalue", ftypes.STRING)
-cme_streamline_sbe_v9_5.fields.interpolation_factor = ProtoField.new("Interpolation Factor", "cme.streamline.sbe.v9.5.interpolationfactor", ftypes.INT64)
+cme_streamline_sbe_v9_5.fields.interpolation_factor = ProtoField.new("Interpolation Factor", "cme.streamline.sbe.v9.5.interpolationfactor", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.last_implied_msg = ProtoField.new("Last Implied Msg", "cme.streamline.sbe.v9.5.lastimpliedmsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cme_streamline_sbe_v9_5.fields.last_quote_msg = ProtoField.new("Last Quote Msg", "cme.streamline.sbe.v9.5.lastquotemsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
 cme_streamline_sbe_v9_5.fields.last_stats_msg = ProtoField.new("Last Stats Msg", "cme.streamline.sbe.v9.5.laststatsmsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cme_streamline_sbe_v9_5.fields.last_trade_msg = ProtoField.new("Last Trade Msg", "cme.streamline.sbe.v9.5.lasttrademsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cme_streamline_sbe_v9_5.fields.last_volume_msg = ProtoField.new("Last Volume Msg", "cme.streamline.sbe.v9.5.lastvolumemsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
 cme_streamline_sbe_v9_5.fields.leg_benchmark_curve_name = ProtoField.new("Leg Benchmark Curve Name", "cme.streamline.sbe.v9.5.legbenchmarkcurvename", ftypes.STRING)
-cme_streamline_sbe_v9_5.fields.leg_contract_multiplier = ProtoField.new("Leg Contract Multiplier", "cme.streamline.sbe.v9.5.legcontractmultiplier", ftypes.INT64)
+cme_streamline_sbe_v9_5.fields.leg_contract_multiplier = ProtoField.new("Leg Contract Multiplier", "cme.streamline.sbe.v9.5.legcontractmultiplier", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.leg_credit_rating = ProtoField.new("Leg Credit Rating", "cme.streamline.sbe.v9.5.legcreditrating", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.leg_currency = ProtoField.new("Leg Currency", "cme.streamline.sbe.v9.5.legcurrency", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.leg_date_offset = ProtoField.new("Leg Date Offset", "cme.streamline.sbe.v9.5.legdateoffset", ftypes.INT8)
 cme_streamline_sbe_v9_5.fields.leg_pay_frequencey = ProtoField.new("Leg Pay Frequencey", "cme.streamline.sbe.v9.5.legpayfrequencey", ftypes.STRING)
-cme_streamline_sbe_v9_5.fields.leg_purchase_rate = ProtoField.new("Leg Purchase Rate", "cme.streamline.sbe.v9.5.legpurchaserate", ftypes.INT64)
+cme_streamline_sbe_v9_5.fields.leg_purchase_rate = ProtoField.new("Leg Purchase Rate", "cme.streamline.sbe.v9.5.legpurchaserate", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cme.streamline.sbe.v9.5.legratioqty", ftypes.INT32)
 cme_streamline_sbe_v9_5.fields.leg_ref_id = ProtoField.new("Leg Ref Id", "cme.streamline.sbe.v9.5.legrefid", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.leg_security_group = ProtoField.new("Leg Security Group", "cme.streamline.sbe.v9.5.legsecuritygroup", ftypes.STRING)
@@ -94,6 +95,7 @@ cme_streamline_sbe_v9_5.fields.m_d_incremental_refresh_trade_blocks_group = Prot
 cme_streamline_sbe_v9_5.fields.m_d_incremental_refresh_trade_blocks_groups = ProtoField.new("M D Incremental Refresh Trade Blocks Groups", "cme.streamline.sbe.v9.5.mdincrementalrefreshtradeblocksgroups", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.m_d_instrument_definition_eris_leg_group = ProtoField.new("M D Instrument Definition Eris Leg Group", "cme.streamline.sbe.v9.5.mdinstrumentdefinitionerisleggroup", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.m_d_instrument_definition_eris_leg_groups = ProtoField.new("M D Instrument Definition Eris Leg Groups", "cme.streamline.sbe.v9.5.mdinstrumentdefinitionerisleggroups", ftypes.STRING)
+cme_streamline_sbe_v9_5.fields.mantissa = ProtoField.new("Mantissa", "cme.streamline.sbe.v9.5.mantissa", ftypes.INT32)
 cme_streamline_sbe_v9_5.fields.market_depth = ProtoField.new("Market Depth", "cme.streamline.sbe.v9.5.marketdepth", ftypes.UINT8)
 cme_streamline_sbe_v9_5.fields.market_sector = ProtoField.new("Market Sector", "cme.streamline.sbe.v9.5.marketsector", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.match_event_indicator = ProtoField.new("Match Event Indicator", "cme.streamline.sbe.v9.5.matcheventindicator", ftypes.STRING)
@@ -125,29 +127,29 @@ cme_streamline_sbe_v9_5.fields.message = ProtoField.new("Message", "cme.streamli
 cme_streamline_sbe_v9_5.fields.message_header = ProtoField.new("Message Header", "cme.streamline.sbe.v9.5.messageheader", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.streamline.sbe.v9.5.messagesequencenumber", ftypes.UINT32)
 cme_streamline_sbe_v9_5.fields.message_size = ProtoField.new("Message Size", "cme.streamline.sbe.v9.5.messagesize", ftypes.UINT16)
-cme_streamline_sbe_v9_5.fields.min_price_increment = ProtoField.new("Min Price Increment", "cme.streamline.sbe.v9.5.minpriceincrement", ftypes.INT64)
+cme_streamline_sbe_v9_5.fields.min_price_increment = ProtoField.new("Min Price Increment", "cme.streamline.sbe.v9.5.minpriceincrement", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.month = ProtoField.new("Month", "cme.streamline.sbe.v9.5.month", ftypes.UINT8)
-cme_streamline_sbe_v9_5.fields.net_chg_prev_day = ProtoField.new("Net Chg Prev Day", "cme.streamline.sbe.v9.5.netchgprevday", ftypes.INT64)
-cme_streamline_sbe_v9_5.fields.net_pct_chg = ProtoField.new("Net Pct Chg", "cme.streamline.sbe.v9.5.netpctchg", ftypes.INT64)
-cme_streamline_sbe_v9_5.fields.next_fixed_payment_amount = ProtoField.new("Next Fixed Payment Amount", "cme.streamline.sbe.v9.5.nextfixedpaymentamount", ftypes.INT64)
+cme_streamline_sbe_v9_5.fields.net_chg_prev_day = ProtoField.new("Net Chg Prev Day", "cme.streamline.sbe.v9.5.netchgprevday", ftypes.STRING)
+cme_streamline_sbe_v9_5.fields.net_pct_chg = ProtoField.new("Net Pct Chg", "cme.streamline.sbe.v9.5.netpctchg", ftypes.STRING)
+cme_streamline_sbe_v9_5.fields.next_fixed_payment_amount = ProtoField.new("Next Fixed Payment Amount", "cme.streamline.sbe.v9.5.nextfixedpaymentamount", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.next_fixed_payment_date = ProtoField.new("Next Fixed Payment Date", "cme.streamline.sbe.v9.5.nextfixedpaymentdate", ftypes.UINT16)
-cme_streamline_sbe_v9_5.fields.next_floating_payment_amount = ProtoField.new("Next Floating Payment Amount", "cme.streamline.sbe.v9.5.nextfloatingpaymentamount", ftypes.INT64)
+cme_streamline_sbe_v9_5.fields.next_floating_payment_amount = ProtoField.new("Next Floating Payment Amount", "cme.streamline.sbe.v9.5.nextfloatingpaymentamount", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.next_floating_payment_date = ProtoField.new("Next Floating Payment Date", "cme.streamline.sbe.v9.5.nextfloatingpaymentdate", ftypes.UINT16)
 cme_streamline_sbe_v9_5.fields.nominal = ProtoField.new("Nominal", "cme.streamline.sbe.v9.5.nominal", ftypes.UINT64)
 cme_streamline_sbe_v9_5.fields.notional_percentage_outstanding = ProtoField.new("Notional Percentage Outstanding", "cme.streamline.sbe.v9.5.notionalpercentageoutstanding", ftypes.INT32)
-cme_streamline_sbe_v9_5.fields.npv = ProtoField.new("Npv", "cme.streamline.sbe.v9.5.npv", ftypes.INT64)
+cme_streamline_sbe_v9_5.fields.npv = ProtoField.new("Npv", "cme.streamline.sbe.v9.5.npv", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.null_value = ProtoField.new("Null Value", "cme.streamline.sbe.v9.5.nullvalue", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cme_streamline_sbe_v9_5.fields.num_in_group = ProtoField.new("Num In Group", "cme.streamline.sbe.v9.5.numingroup", ftypes.UINT8)
 cme_streamline_sbe_v9_5.fields.number_of_orders = ProtoField.new("Number Of Orders", "cme.streamline.sbe.v9.5.numberoforders", ftypes.INT32)
 cme_streamline_sbe_v9_5.fields.open_close_settl_flag = ProtoField.new("Open Close Settl Flag", "cme.streamline.sbe.v9.5.openclosesettlflag", ftypes.UINT8)
 cme_streamline_sbe_v9_5.fields.orig_time = ProtoField.new("Orig Time", "cme.streamline.sbe.v9.5.origtime", ftypes.UINT64)
-cme_streamline_sbe_v9_5.fields.p_v_01 = ProtoField.new("P V 01", "cme.streamline.sbe.v9.5.pv01", ftypes.INT64)
+cme_streamline_sbe_v9_5.fields.p_v_01 = ProtoField.new("P V 01", "cme.streamline.sbe.v9.5.pv01", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.packet = ProtoField.new("Packet", "cme.streamline.sbe.v9.5.packet", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.payload = ProtoField.new("Payload", "cme.streamline.sbe.v9.5.payload", ftypes.STRING)
-cme_streamline_sbe_v9_5.fields.percent_trading = ProtoField.new("Percent Trading", "cme.streamline.sbe.v9.5.percenttrading", ftypes.INT64)
-cme_streamline_sbe_v9_5.fields.previous_eris_pai = ProtoField.new("Previous Eris Pai", "cme.streamline.sbe.v9.5.previouserispai", ftypes.INT64)
+cme_streamline_sbe_v9_5.fields.percent_trading = ProtoField.new("Percent Trading", "cme.streamline.sbe.v9.5.percenttrading", ftypes.STRING)
+cme_streamline_sbe_v9_5.fields.previous_eris_pai = ProtoField.new("Previous Eris Pai", "cme.streamline.sbe.v9.5.previouserispai", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.previous_fixing_date = ProtoField.new("Previous Fixing Date", "cme.streamline.sbe.v9.5.previousfixingdate", ftypes.UINT16)
-cme_streamline_sbe_v9_5.fields.previous_fixing_rate = ProtoField.new("Previous Fixing Rate", "cme.streamline.sbe.v9.5.previousfixingrate", ftypes.INT64)
+cme_streamline_sbe_v9_5.fields.previous_fixing_rate = ProtoField.new("Previous Fixing Rate", "cme.streamline.sbe.v9.5.previousfixingrate", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.price_type = ProtoField.new("Price Type", "cme.streamline.sbe.v9.5.pricetype", ftypes.UINT16)
 cme_streamline_sbe_v9_5.fields.product = ProtoField.new("Product", "cme.streamline.sbe.v9.5.product", ftypes.INT8)
 cme_streamline_sbe_v9_5.fields.product_complex = ProtoField.new("Product Complex", "cme.streamline.sbe.v9.5.productcomplex", ftypes.STRING)
@@ -184,7 +186,7 @@ cme_streamline_sbe_v9_5.fields.sending_time = ProtoField.new("Sending Time", "cm
 cme_streamline_sbe_v9_5.fields.seniority = ProtoField.new("Seniority", "cme.streamline.sbe.v9.5.seniority", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.settl_date = ProtoField.new("Settl Date", "cme.streamline.sbe.v9.5.settldate", ftypes.UINT16)
 cme_streamline_sbe_v9_5.fields.settl_price_type = ProtoField.new("Settl Price Type", "cme.streamline.sbe.v9.5.settlpricetype", ftypes.STRING)
-cme_streamline_sbe_v9_5.fields.settlement_npv = ProtoField.new("Settlement Npv", "cme.streamline.sbe.v9.5.settlementnpv", ftypes.INT64)
+cme_streamline_sbe_v9_5.fields.settlement_npv = ProtoField.new("Settlement Npv", "cme.streamline.sbe.v9.5.settlementnpv", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.strategy_link_id = ProtoField.new("Strategy Link Id", "cme.streamline.sbe.v9.5.strategylinkid", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.strike_price = ProtoField.new("Strike Price", "cme.streamline.sbe.v9.5.strikeprice", ftypes.INT64)
 cme_streamline_sbe_v9_5.fields.symbol = ProtoField.new("Symbol", "cme.streamline.sbe.v9.5.symbol", ftypes.STRING)
@@ -203,7 +205,7 @@ cme_streamline_sbe_v9_5.fields.version = ProtoField.new("Version", "cme.streamli
 cme_streamline_sbe_v9_5.fields.vol_type = ProtoField.new("Vol Type", "cme.streamline.sbe.v9.5.voltype", ftypes.UINT16)
 cme_streamline_sbe_v9_5.fields.week = ProtoField.new("Week", "cme.streamline.sbe.v9.5.week", ftypes.UINT8)
 cme_streamline_sbe_v9_5.fields.year = ProtoField.new("Year", "cme.streamline.sbe.v9.5.year", ftypes.UINT16)
-cme_streamline_sbe_v9_5.fields.yield = ProtoField.new("Yield", "cme.streamline.sbe.v9.5.yield", ftypes.INT64)
+cme_streamline_sbe_v9_5.fields.yield = ProtoField.new("Yield", "cme.streamline.sbe.v9.5.yield", ftypes.STRING)
 cme_streamline_sbe_v9_5.fields.yield_type = ProtoField.new("Yield Type", "cme.streamline.sbe.v9.5.yieldtype", ftypes.STRING)
 
 -----------------------------------------------------------------------
@@ -211,15 +213,31 @@ cme_streamline_sbe_v9_5.fields.yield_type = ProtoField.new("Yield Type", "cme.st
 -----------------------------------------------------------------------
 
 -- Cme Streamline Sbe 9.5 Element Dissection Options
+show.accrued_coupons = true
 show.admin_login_315 = true
 show.admin_logout_316 = true
 show.binary_packet_header = true
+show.cal_fut_px = true
+show.coupon_rate = true
+show.d_v_01 = true
+show.daily_incremental_eris_pai = true
+show.eris_pai = true
 show.events_group = true
 show.events_groups = true
+show.fair_coupon_pct = true
+show.fed_funds_rate = true
+show.final_settlement_futures_price = true
+show.fixed_npv = true
+show.fixed_payment = true
+show.float_npv = true
+show.floating_payment = true
 show.group_size = true
 show.group_size_encoding = true
 show.inst_attrib_group = true
 show.inst_attrib_groups = true
+show.interpolation_factor = true
+show.leg_contract_multiplier = true
+show.leg_purchase_rate = true
 show.lines_of_text_group = true
 show.lines_of_text_groups = true
 show.m_d_feed_types_group = true
@@ -238,6 +256,8 @@ show.m_d_instrument_definition_eris_leg_group = true
 show.m_d_instrument_definition_eris_leg_groups = true
 show.match_event_indicator = true
 show.maturity_month_year = true
+show.md_entry_px = true
+show.md_entry_size = true
 show.md_incremental_refresh_eris_351 = true
 show.md_incremental_refresh_eris_353 = true
 show.md_incremental_refresh_eris_reference_data_and_daily_statistics_333 = true
@@ -252,25 +272,55 @@ show.md_instrument_definition_indices_347 = true
 show.md_news_indices_339 = true
 show.message = true
 show.message_header = true
+show.min_price_increment = true
+show.net_chg_prev_day = true
+show.net_pct_chg = true
+show.next_fixed_payment_amount = true
+show.next_floating_payment_amount = true
+show.npv = true
+show.p_v_01 = true
 show.packet = true
+show.percent_trading = true
+show.previous_eris_pai = true
+show.previous_fixing_rate = true
 show.quote_request_345 = true
 show.related_sym_group = true
 show.related_sym_groups = true
 show.security_alt_id_group = true
 show.security_alt_id_groups = true
 show.settl_price_type = true
+show.settlement_npv = true
+show.strike_price = true
+show.unit_of_measure_qty = true
+show.yield = true
 show.payload = false
 
 -- Register Cme Streamline Sbe 9.5 Show Options
+cme_streamline_sbe_v9_5.prefs.show_accrued_coupons = Pref.bool("Show Accrued Coupons", show.accrued_coupons, "Parse and add Accrued Coupons to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_admin_login_315 = Pref.bool("Show Admin Login 315", show.admin_login_315, "Parse and add Admin Login 315 to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_admin_logout_316 = Pref.bool("Show Admin Logout 316", show.admin_logout_316, "Parse and add Admin Logout 316 to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_binary_packet_header = Pref.bool("Show Binary Packet Header", show.binary_packet_header, "Parse and add Binary Packet Header to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_cal_fut_px = Pref.bool("Show Cal Fut Px", show.cal_fut_px, "Parse and add Cal Fut Px to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_coupon_rate = Pref.bool("Show Coupon Rate", show.coupon_rate, "Parse and add Coupon Rate to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_d_v_01 = Pref.bool("Show D V 01", show.d_v_01, "Parse and add D V 01 to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_daily_incremental_eris_pai = Pref.bool("Show Daily Incremental Eris Pai", show.daily_incremental_eris_pai, "Parse and add Daily Incremental Eris Pai to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_eris_pai = Pref.bool("Show Eris Pai", show.eris_pai, "Parse and add Eris Pai to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_events_group = Pref.bool("Show Events Group", show.events_group, "Parse and add Events Group to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_events_groups = Pref.bool("Show Events Groups", show.events_groups, "Parse and add Events Groups to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_fair_coupon_pct = Pref.bool("Show Fair Coupon Pct", show.fair_coupon_pct, "Parse and add Fair Coupon Pct to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_fed_funds_rate = Pref.bool("Show Fed Funds Rate", show.fed_funds_rate, "Parse and add Fed Funds Rate to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_final_settlement_futures_price = Pref.bool("Show Final Settlement Futures Price", show.final_settlement_futures_price, "Parse and add Final Settlement Futures Price to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_fixed_npv = Pref.bool("Show Fixed Npv", show.fixed_npv, "Parse and add Fixed Npv to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_fixed_payment = Pref.bool("Show Fixed Payment", show.fixed_payment, "Parse and add Fixed Payment to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_float_npv = Pref.bool("Show Float Npv", show.float_npv, "Parse and add Float Npv to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_floating_payment = Pref.bool("Show Floating Payment", show.floating_payment, "Parse and add Floating Payment to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_group_size = Pref.bool("Show Group Size", show.group_size, "Parse and add Group Size to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_group_size_encoding = Pref.bool("Show Group Size Encoding", show.group_size_encoding, "Parse and add Group Size Encoding to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_inst_attrib_group = Pref.bool("Show Inst Attrib Group", show.inst_attrib_group, "Parse and add Inst Attrib Group to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_inst_attrib_groups = Pref.bool("Show Inst Attrib Groups", show.inst_attrib_groups, "Parse and add Inst Attrib Groups to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_interpolation_factor = Pref.bool("Show Interpolation Factor", show.interpolation_factor, "Parse and add Interpolation Factor to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_leg_contract_multiplier = Pref.bool("Show Leg Contract Multiplier", show.leg_contract_multiplier, "Parse and add Leg Contract Multiplier to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_leg_purchase_rate = Pref.bool("Show Leg Purchase Rate", show.leg_purchase_rate, "Parse and add Leg Purchase Rate to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_lines_of_text_group = Pref.bool("Show Lines Of Text Group", show.lines_of_text_group, "Parse and add Lines Of Text Group to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_lines_of_text_groups = Pref.bool("Show Lines Of Text Groups", show.lines_of_text_groups, "Parse and add Lines Of Text Groups to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_m_d_feed_types_group = Pref.bool("Show M D Feed Types Group", show.m_d_feed_types_group, "Parse and add M D Feed Types Group to protocol tree")
@@ -289,6 +339,8 @@ cme_streamline_sbe_v9_5.prefs.show_m_d_instrument_definition_eris_leg_group = Pr
 cme_streamline_sbe_v9_5.prefs.show_m_d_instrument_definition_eris_leg_groups = Pref.bool("Show M D Instrument Definition Eris Leg Groups", show.m_d_instrument_definition_eris_leg_groups, "Parse and add M D Instrument Definition Eris Leg Groups to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_match_event_indicator = Pref.bool("Show Match Event Indicator", show.match_event_indicator, "Parse and add Match Event Indicator to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_maturity_month_year = Pref.bool("Show Maturity Month Year", show.maturity_month_year, "Parse and add Maturity Month Year to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_md_entry_px = Pref.bool("Show Md Entry Px", show.md_entry_px, "Parse and add Md Entry Px to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_md_entry_size = Pref.bool("Show Md Entry Size", show.md_entry_size, "Parse and add Md Entry Size to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_eris_351 = Pref.bool("Show Md Incremental Refresh Eris 351", show.md_incremental_refresh_eris_351, "Parse and add Md Incremental Refresh Eris 351 to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_eris_353 = Pref.bool("Show Md Incremental Refresh Eris 353", show.md_incremental_refresh_eris_353, "Parse and add Md Incremental Refresh Eris 353 to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_eris_reference_data_and_daily_statistics_333 = Pref.bool("Show Md Incremental Refresh Eris Reference Data And Daily Statistics 333", show.md_incremental_refresh_eris_reference_data_and_daily_statistics_333, "Parse and add Md Incremental Refresh Eris Reference Data And Daily Statistics 333 to protocol tree")
@@ -303,13 +355,27 @@ cme_streamline_sbe_v9_5.prefs.show_md_instrument_definition_indices_347 = Pref.b
 cme_streamline_sbe_v9_5.prefs.show_md_news_indices_339 = Pref.bool("Show Md News Indices 339", show.md_news_indices_339, "Parse and add Md News Indices 339 to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_min_price_increment = Pref.bool("Show Min Price Increment", show.min_price_increment, "Parse and add Min Price Increment to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_net_chg_prev_day = Pref.bool("Show Net Chg Prev Day", show.net_chg_prev_day, "Parse and add Net Chg Prev Day to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_net_pct_chg = Pref.bool("Show Net Pct Chg", show.net_pct_chg, "Parse and add Net Pct Chg to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_next_fixed_payment_amount = Pref.bool("Show Next Fixed Payment Amount", show.next_fixed_payment_amount, "Parse and add Next Fixed Payment Amount to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_next_floating_payment_amount = Pref.bool("Show Next Floating Payment Amount", show.next_floating_payment_amount, "Parse and add Next Floating Payment Amount to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_npv = Pref.bool("Show Npv", show.npv, "Parse and add Npv to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_p_v_01 = Pref.bool("Show P V 01", show.p_v_01, "Parse and add P V 01 to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_percent_trading = Pref.bool("Show Percent Trading", show.percent_trading, "Parse and add Percent Trading to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_previous_eris_pai = Pref.bool("Show Previous Eris Pai", show.previous_eris_pai, "Parse and add Previous Eris Pai to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_previous_fixing_rate = Pref.bool("Show Previous Fixing Rate", show.previous_fixing_rate, "Parse and add Previous Fixing Rate to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_quote_request_345 = Pref.bool("Show Quote Request 345", show.quote_request_345, "Parse and add Quote Request 345 to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_related_sym_group = Pref.bool("Show Related Sym Group", show.related_sym_group, "Parse and add Related Sym Group to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_related_sym_groups = Pref.bool("Show Related Sym Groups", show.related_sym_groups, "Parse and add Related Sym Groups to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_security_alt_id_group = Pref.bool("Show Security Alt Id Group", show.security_alt_id_group, "Parse and add Security Alt Id Group to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_security_alt_id_groups = Pref.bool("Show Security Alt Id Groups", show.security_alt_id_groups, "Parse and add Security Alt Id Groups to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_settl_price_type = Pref.bool("Show Settl Price Type", show.settl_price_type, "Parse and add Settl Price Type to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_settlement_npv = Pref.bool("Show Settlement Npv", show.settlement_npv, "Parse and add Settlement Npv to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_strike_price = Pref.bool("Show Strike Price", show.strike_price, "Parse and add Strike Price to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_unit_of_measure_qty = Pref.bool("Show Unit Of Measure Qty", show.unit_of_measure_qty, "Parse and add Unit Of Measure Qty to protocol tree")
+cme_streamline_sbe_v9_5.prefs.show_yield = Pref.bool("Show Yield", show.yield, "Parse and add Yield to protocol tree")
 cme_streamline_sbe_v9_5.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
@@ -317,6 +383,10 @@ function cme_streamline_sbe_v9_5.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
+  if show.accrued_coupons ~= cme_streamline_sbe_v9_5.prefs.show_accrued_coupons then
+    show.accrued_coupons = cme_streamline_sbe_v9_5.prefs.show_accrued_coupons
+    changed = true
+  end
   if show.admin_login_315 ~= cme_streamline_sbe_v9_5.prefs.show_admin_login_315 then
     show.admin_login_315 = cme_streamline_sbe_v9_5.prefs.show_admin_login_315
     changed = true
@@ -329,12 +399,60 @@ function cme_streamline_sbe_v9_5.prefs_changed()
     show.binary_packet_header = cme_streamline_sbe_v9_5.prefs.show_binary_packet_header
     changed = true
   end
+  if show.cal_fut_px ~= cme_streamline_sbe_v9_5.prefs.show_cal_fut_px then
+    show.cal_fut_px = cme_streamline_sbe_v9_5.prefs.show_cal_fut_px
+    changed = true
+  end
+  if show.coupon_rate ~= cme_streamline_sbe_v9_5.prefs.show_coupon_rate then
+    show.coupon_rate = cme_streamline_sbe_v9_5.prefs.show_coupon_rate
+    changed = true
+  end
+  if show.d_v_01 ~= cme_streamline_sbe_v9_5.prefs.show_d_v_01 then
+    show.d_v_01 = cme_streamline_sbe_v9_5.prefs.show_d_v_01
+    changed = true
+  end
+  if show.daily_incremental_eris_pai ~= cme_streamline_sbe_v9_5.prefs.show_daily_incremental_eris_pai then
+    show.daily_incremental_eris_pai = cme_streamline_sbe_v9_5.prefs.show_daily_incremental_eris_pai
+    changed = true
+  end
+  if show.eris_pai ~= cme_streamline_sbe_v9_5.prefs.show_eris_pai then
+    show.eris_pai = cme_streamline_sbe_v9_5.prefs.show_eris_pai
+    changed = true
+  end
   if show.events_group ~= cme_streamline_sbe_v9_5.prefs.show_events_group then
     show.events_group = cme_streamline_sbe_v9_5.prefs.show_events_group
     changed = true
   end
   if show.events_groups ~= cme_streamline_sbe_v9_5.prefs.show_events_groups then
     show.events_groups = cme_streamline_sbe_v9_5.prefs.show_events_groups
+    changed = true
+  end
+  if show.fair_coupon_pct ~= cme_streamline_sbe_v9_5.prefs.show_fair_coupon_pct then
+    show.fair_coupon_pct = cme_streamline_sbe_v9_5.prefs.show_fair_coupon_pct
+    changed = true
+  end
+  if show.fed_funds_rate ~= cme_streamline_sbe_v9_5.prefs.show_fed_funds_rate then
+    show.fed_funds_rate = cme_streamline_sbe_v9_5.prefs.show_fed_funds_rate
+    changed = true
+  end
+  if show.final_settlement_futures_price ~= cme_streamline_sbe_v9_5.prefs.show_final_settlement_futures_price then
+    show.final_settlement_futures_price = cme_streamline_sbe_v9_5.prefs.show_final_settlement_futures_price
+    changed = true
+  end
+  if show.fixed_npv ~= cme_streamline_sbe_v9_5.prefs.show_fixed_npv then
+    show.fixed_npv = cme_streamline_sbe_v9_5.prefs.show_fixed_npv
+    changed = true
+  end
+  if show.fixed_payment ~= cme_streamline_sbe_v9_5.prefs.show_fixed_payment then
+    show.fixed_payment = cme_streamline_sbe_v9_5.prefs.show_fixed_payment
+    changed = true
+  end
+  if show.float_npv ~= cme_streamline_sbe_v9_5.prefs.show_float_npv then
+    show.float_npv = cme_streamline_sbe_v9_5.prefs.show_float_npv
+    changed = true
+  end
+  if show.floating_payment ~= cme_streamline_sbe_v9_5.prefs.show_floating_payment then
+    show.floating_payment = cme_streamline_sbe_v9_5.prefs.show_floating_payment
     changed = true
   end
   if show.group_size ~= cme_streamline_sbe_v9_5.prefs.show_group_size then
@@ -351,6 +469,18 @@ function cme_streamline_sbe_v9_5.prefs_changed()
   end
   if show.inst_attrib_groups ~= cme_streamline_sbe_v9_5.prefs.show_inst_attrib_groups then
     show.inst_attrib_groups = cme_streamline_sbe_v9_5.prefs.show_inst_attrib_groups
+    changed = true
+  end
+  if show.interpolation_factor ~= cme_streamline_sbe_v9_5.prefs.show_interpolation_factor then
+    show.interpolation_factor = cme_streamline_sbe_v9_5.prefs.show_interpolation_factor
+    changed = true
+  end
+  if show.leg_contract_multiplier ~= cme_streamline_sbe_v9_5.prefs.show_leg_contract_multiplier then
+    show.leg_contract_multiplier = cme_streamline_sbe_v9_5.prefs.show_leg_contract_multiplier
+    changed = true
+  end
+  if show.leg_purchase_rate ~= cme_streamline_sbe_v9_5.prefs.show_leg_purchase_rate then
+    show.leg_purchase_rate = cme_streamline_sbe_v9_5.prefs.show_leg_purchase_rate
     changed = true
   end
   if show.lines_of_text_group ~= cme_streamline_sbe_v9_5.prefs.show_lines_of_text_group then
@@ -425,6 +555,14 @@ function cme_streamline_sbe_v9_5.prefs_changed()
     show.maturity_month_year = cme_streamline_sbe_v9_5.prefs.show_maturity_month_year
     changed = true
   end
+  if show.md_entry_px ~= cme_streamline_sbe_v9_5.prefs.show_md_entry_px then
+    show.md_entry_px = cme_streamline_sbe_v9_5.prefs.show_md_entry_px
+    changed = true
+  end
+  if show.md_entry_size ~= cme_streamline_sbe_v9_5.prefs.show_md_entry_size then
+    show.md_entry_size = cme_streamline_sbe_v9_5.prefs.show_md_entry_size
+    changed = true
+  end
   if show.md_incremental_refresh_eris_351 ~= cme_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_eris_351 then
     show.md_incremental_refresh_eris_351 = cme_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_eris_351
     changed = true
@@ -481,8 +619,48 @@ function cme_streamline_sbe_v9_5.prefs_changed()
     show.message_header = cme_streamline_sbe_v9_5.prefs.show_message_header
     changed = true
   end
+  if show.min_price_increment ~= cme_streamline_sbe_v9_5.prefs.show_min_price_increment then
+    show.min_price_increment = cme_streamline_sbe_v9_5.prefs.show_min_price_increment
+    changed = true
+  end
+  if show.net_chg_prev_day ~= cme_streamline_sbe_v9_5.prefs.show_net_chg_prev_day then
+    show.net_chg_prev_day = cme_streamline_sbe_v9_5.prefs.show_net_chg_prev_day
+    changed = true
+  end
+  if show.net_pct_chg ~= cme_streamline_sbe_v9_5.prefs.show_net_pct_chg then
+    show.net_pct_chg = cme_streamline_sbe_v9_5.prefs.show_net_pct_chg
+    changed = true
+  end
+  if show.next_fixed_payment_amount ~= cme_streamline_sbe_v9_5.prefs.show_next_fixed_payment_amount then
+    show.next_fixed_payment_amount = cme_streamline_sbe_v9_5.prefs.show_next_fixed_payment_amount
+    changed = true
+  end
+  if show.next_floating_payment_amount ~= cme_streamline_sbe_v9_5.prefs.show_next_floating_payment_amount then
+    show.next_floating_payment_amount = cme_streamline_sbe_v9_5.prefs.show_next_floating_payment_amount
+    changed = true
+  end
+  if show.npv ~= cme_streamline_sbe_v9_5.prefs.show_npv then
+    show.npv = cme_streamline_sbe_v9_5.prefs.show_npv
+    changed = true
+  end
+  if show.p_v_01 ~= cme_streamline_sbe_v9_5.prefs.show_p_v_01 then
+    show.p_v_01 = cme_streamline_sbe_v9_5.prefs.show_p_v_01
+    changed = true
+  end
   if show.packet ~= cme_streamline_sbe_v9_5.prefs.show_packet then
     show.packet = cme_streamline_sbe_v9_5.prefs.show_packet
+    changed = true
+  end
+  if show.percent_trading ~= cme_streamline_sbe_v9_5.prefs.show_percent_trading then
+    show.percent_trading = cme_streamline_sbe_v9_5.prefs.show_percent_trading
+    changed = true
+  end
+  if show.previous_eris_pai ~= cme_streamline_sbe_v9_5.prefs.show_previous_eris_pai then
+    show.previous_eris_pai = cme_streamline_sbe_v9_5.prefs.show_previous_eris_pai
+    changed = true
+  end
+  if show.previous_fixing_rate ~= cme_streamline_sbe_v9_5.prefs.show_previous_fixing_rate then
+    show.previous_fixing_rate = cme_streamline_sbe_v9_5.prefs.show_previous_fixing_rate
     changed = true
   end
   if show.quote_request_345 ~= cme_streamline_sbe_v9_5.prefs.show_quote_request_345 then
@@ -507,6 +685,22 @@ function cme_streamline_sbe_v9_5.prefs_changed()
   end
   if show.settl_price_type ~= cme_streamline_sbe_v9_5.prefs.show_settl_price_type then
     show.settl_price_type = cme_streamline_sbe_v9_5.prefs.show_settl_price_type
+    changed = true
+  end
+  if show.settlement_npv ~= cme_streamline_sbe_v9_5.prefs.show_settlement_npv then
+    show.settlement_npv = cme_streamline_sbe_v9_5.prefs.show_settlement_npv
+    changed = true
+  end
+  if show.strike_price ~= cme_streamline_sbe_v9_5.prefs.show_strike_price then
+    show.strike_price = cme_streamline_sbe_v9_5.prefs.show_strike_price
+    changed = true
+  end
+  if show.unit_of_measure_qty ~= cme_streamline_sbe_v9_5.prefs.show_unit_of_measure_qty then
+    show.unit_of_measure_qty = cme_streamline_sbe_v9_5.prefs.show_unit_of_measure_qty
+    changed = true
+  end
+  if show.yield ~= cme_streamline_sbe_v9_5.prefs.show_yield then
+    show.yield = cme_streamline_sbe_v9_5.prefs.show_yield
     changed = true
   end
   if show.payload ~= cme_streamline_sbe_v9_5.prefs.show_payload then
@@ -790,25 +984,97 @@ dissect.md_entry_date = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Unit Of Measure Qty
-size_of.unit_of_measure_qty = 8
+-- Size: Exponent
+size_of.exponent = 1
+
+-- Display: Exponent
+display.exponent = function(value)
+  -- Check if field has value
+  if value == 127 then
+    return "Exponent: No Value ("..value..")"
+  end
+
+  return "Exponent: "..value
+end
+
+-- Dissect: Exponent
+dissect.exponent = function(buffer, offset, packet, parent)
+  local length = size_of.exponent
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = display.exponent(value, buffer, offset, packet, parent)
+
+  parent:add(cme_streamline_sbe_v9_5.fields.exponent, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Mantissa
+size_of.mantissa = 4
+
+-- Display: Mantissa
+display.mantissa = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Mantissa: No Value ("..value..")"
+  end
+
+  return "Mantissa: "..value
+end
+
+-- Dissect: Mantissa
+dissect.mantissa = function(buffer, offset, packet, parent)
+  local length = size_of.mantissa
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = display.mantissa(value, buffer, offset, packet, parent)
+
+  parent:add(cme_streamline_sbe_v9_5.fields.mantissa, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate size of: Unit Of Measure Qty
+size_of.unit_of_measure_qty = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Unit Of Measure Qty
-display.unit_of_measure_qty = function(value)
-  local factor = 10000000
-  return "Unit Of Measure Qty: "..value:tonumber()/factor
+display.unit_of_measure_qty = function(buffer, offset, value, packet, parent)
+  return "Unit Of Measure Qty: "..value
+end
+
+-- Dissect Fields: Unit Of Measure Qty
+dissect.unit_of_measure_qty_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Unit Of Measure Qty
 dissect.unit_of_measure_qty = function(buffer, offset, packet, parent)
-  local length = size_of.unit_of_measure_qty
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.unit_of_measure_qty(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.unit_of_measure_qty then
+    local length = size_of.unit_of_measure_qty(buffer, offset)
+    local range = buffer(offset, length)
+    local value = range:le_int64()
+    local display = display.unit_of_measure_qty(buffer, offset, value, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.unit_of_measure_qty, range, value, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.unit_of_measure_qty, range, value, display)
-
-  return offset + length, value
+  return dissect.unit_of_measure_qty_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Unit Of Measure Currency
@@ -851,25 +1117,47 @@ dissect.unit_of_measure = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Strike Price
-size_of.strike_price = 8
+-- Calculate size of: Strike Price
+size_of.strike_price = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Strike Price
-display.strike_price = function(value)
-  local factor = 10000000
-  return "Strike Price: "..value:tonumber()/factor
+display.strike_price = function(buffer, offset, value, packet, parent)
+  return "Strike Price: "..value
+end
+
+-- Dissect Fields: Strike Price
+dissect.strike_price_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Strike Price
 dissect.strike_price = function(buffer, offset, packet, parent)
-  local length = size_of.strike_price
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.strike_price(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.strike_price then
+    local length = size_of.strike_price(buffer, offset)
+    local range = buffer(offset, length)
+    local value = range:le_int64()
+    local display = display.strike_price(buffer, offset, value, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.strike_price, range, value, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.strike_price, range, value, display)
-
-  return offset + length, value
+  return dissect.strike_price_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Put Or Call
@@ -958,25 +1246,47 @@ dissect.restructuring_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Coupon Rate
-size_of.coupon_rate = 4
+-- Calculate size of: Coupon Rate
+size_of.coupon_rate = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Coupon Rate
-display.coupon_rate = function(value)
-  local factor = 10000
-  return "Coupon Rate: "..value/factor
+display.coupon_rate = function(buffer, offset, value, packet, parent)
+  return "Coupon Rate: "..value
+end
+
+-- Dissect Fields: Coupon Rate
+dissect.coupon_rate_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Coupon Rate
 dissect.coupon_rate = function(buffer, offset, packet, parent)
-  local length = size_of.coupon_rate
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.coupon_rate(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.coupon_rate then
+    local length = size_of.coupon_rate(buffer, offset)
+    local range = buffer(offset, length)
+    local value = range:le_int()
+    local display = display.coupon_rate(buffer, offset, value, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.coupon_rate, range, value, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.coupon_rate, range, value, display)
-
-  return offset + length, value
+  return dissect.coupon_rate_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Maturity Date
@@ -1261,50 +1571,90 @@ dissect.symbol = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Md Entry Size
-size_of.md_entry_size = 8
+-- Calculate size of: Md Entry Size
+size_of.md_entry_size = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Md Entry Size
-display.md_entry_size = function(value)
-  -- Check if field has value
-  if value == 18446744073709551615 then
-    return "Md Entry Size: No Value ("..value..")"
-  end
-
+display.md_entry_size = function(buffer, offset, value, packet, parent)
   return "Md Entry Size: "..value
+end
+
+-- Dissect Fields: Md Entry Size
+dissect.md_entry_size_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Md Entry Size
 dissect.md_entry_size = function(buffer, offset, packet, parent)
-  local length = size_of.md_entry_size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = display.md_entry_size(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.md_entry_size then
+    local length = size_of.md_entry_size(buffer, offset)
+    local range = buffer(offset, length)
+    local value = range:le_uint64()
+    local display = display.md_entry_size(buffer, offset, value, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.md_entry_size, range, value, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.md_entry_size, range, value, display)
-
-  return offset + length, value
+  return dissect.md_entry_size_fields(buffer, offset, packet, parent)
 end
 
--- Size: Md Entry Px
-size_of.md_entry_px = 8
+-- Calculate size of: Md Entry Px
+size_of.md_entry_px = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Md Entry Px
-display.md_entry_px = function(value)
-  local factor = 10000000
-  return "Md Entry Px: "..value:tonumber()/factor
+display.md_entry_px = function(buffer, offset, value, packet, parent)
+  return "Md Entry Px: "..value
+end
+
+-- Dissect Fields: Md Entry Px
+dissect.md_entry_px_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Md Entry Px
 dissect.md_entry_px = function(buffer, offset, packet, parent)
-  local length = size_of.md_entry_px
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.md_entry_px(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.md_entry_px then
+    local length = size_of.md_entry_px(buffer, offset)
+    local range = buffer(offset, length)
+    local value = range:le_int64()
+    local display = display.md_entry_px(buffer, offset, value, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.md_entry_px, range, value, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.md_entry_px, range, value, display)
-
-  return offset + length, value
+  return dissect.md_entry_px_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Rpt Seq
@@ -1355,9 +1705,9 @@ size_of.m_d_incremental_refresh_otc_group = function(buffer, offset)
 
   index = index + size_of.rpt_seq
 
-  index = index + size_of.md_entry_px
+  index = index + size_of.md_entry_px(buffer, offset + index)
 
-  index = index + size_of.md_entry_size
+  index = index + size_of.md_entry_size(buffer, offset + index)
 
   index = index + size_of.symbol
 
@@ -1373,7 +1723,7 @@ size_of.m_d_incremental_refresh_otc_group = function(buffer, offset)
 
   index = index + size_of.maturity_date
 
-  index = index + size_of.coupon_rate
+  index = index + size_of.coupon_rate(buffer, offset + index)
 
   index = index + size_of.restructuring_type
 
@@ -1383,13 +1733,13 @@ size_of.m_d_incremental_refresh_otc_group = function(buffer, offset)
 
   index = index + size_of.put_or_call
 
-  index = index + size_of.strike_price
+  index = index + size_of.strike_price(buffer, offset + index)
 
   index = index + size_of.unit_of_measure
 
   index = index + size_of.unit_of_measure_currency
 
-  index = index + size_of.unit_of_measure_qty
+  index = index + size_of.unit_of_measure_qty(buffer, offset + index)
 
   index = index + size_of.md_entry_date
 
@@ -1433,10 +1783,10 @@ dissect.m_d_incremental_refresh_otc_group_fields = function(buffer, offset, pack
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
   index, rpt_seq = dissect.rpt_seq(buffer, index, packet, parent)
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Px: 8 Byte Signed Fixed Width Integer: Struct of 2 fields
   index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
-  -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable: Struct of 2 fields
   index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
 
   -- Symbol: 50 Byte Ascii String
@@ -1460,7 +1810,7 @@ dissect.m_d_incremental_refresh_otc_group_fields = function(buffer, offset, pack
   -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
 
-  -- Coupon Rate: 4 Byte Signed Fixed Width Integer
+  -- Coupon Rate: 4 Byte Signed Fixed Width Integer: Struct of 2 fields
   index, coupon_rate = dissect.coupon_rate(buffer, index, packet, parent)
 
   -- Restructuring Type: 2 Byte Ascii String
@@ -1475,7 +1825,7 @@ dissect.m_d_incremental_refresh_otc_group_fields = function(buffer, offset, pack
   -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Nullable
   index, put_or_call = dissect.put_or_call(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer
+  -- Strike Price: 8 Byte Signed Fixed Width Integer: Struct of 2 fields
   index, strike_price = dissect.strike_price(buffer, index, packet, parent)
 
   -- Unit Of Measure: 5 Byte Ascii String
@@ -1484,7 +1834,7 @@ dissect.m_d_incremental_refresh_otc_group_fields = function(buffer, offset, pack
   -- Unit Of Measure Currency: 3 Byte Ascii String
   index, unit_of_measure_currency = dissect.unit_of_measure_currency(buffer, index, packet, parent)
 
-  -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer
+  -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer: Struct of 2 fields
   index, unit_of_measure_qty = dissect.unit_of_measure_qty(buffer, index, packet, parent)
 
   -- Md Entry Date: 4 Byte Signed Fixed Width Integer Nullable
@@ -1629,7 +1979,7 @@ size_of.m_d_incremental_refresh_otc_groups = function(buffer, offset)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_otc_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_otc_group_count * 280
+  index = index + m_d_incremental_refresh_otc_group_count * 269
 
   return index
 end
@@ -2124,9 +2474,9 @@ size_of.m_d_incremental_refresh_trade_blocks_group = function(buffer, offset)
 
   index = index + size_of.rpt_seq
 
-  index = index + size_of.md_entry_px
+  index = index + size_of.md_entry_px(buffer, offset + index)
 
-  index = index + size_of.md_entry_size
+  index = index + size_of.md_entry_size(buffer, offset + index)
 
   index = index + size_of.number_of_orders
 
@@ -2152,9 +2502,9 @@ size_of.m_d_incremental_refresh_trade_blocks_group = function(buffer, offset)
 
   index = index + size_of.unit_of_measure_currency
 
-  index = index + size_of.unit_of_measure_qty
+  index = index + size_of.unit_of_measure_qty(buffer, offset + index)
 
-  index = index + size_of.coupon_rate
+  index = index + size_of.coupon_rate(buffer, offset + index)
 
   index = index + size_of.price_type
 
@@ -2164,7 +2514,7 @@ size_of.m_d_incremental_refresh_trade_blocks_group = function(buffer, offset)
 
   index = index + size_of.put_or_call
 
-  index = index + size_of.strike_price
+  index = index + size_of.strike_price(buffer, offset + index)
 
   index = index + size_of.restructuring_type
 
@@ -2197,10 +2547,10 @@ dissect.m_d_incremental_refresh_trade_blocks_group_fields = function(buffer, off
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
   index, rpt_seq = dissect.rpt_seq(buffer, index, packet, parent)
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Px: 8 Byte Signed Fixed Width Integer: Struct of 2 fields
   index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
-  -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable: Struct of 2 fields
   index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
 
   -- Number Of Orders: 4 Byte Signed Fixed Width Integer Nullable
@@ -2239,10 +2589,10 @@ dissect.m_d_incremental_refresh_trade_blocks_group_fields = function(buffer, off
   -- Unit Of Measure Currency: 3 Byte Ascii String
   index, unit_of_measure_currency = dissect.unit_of_measure_currency(buffer, index, packet, parent)
 
-  -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer
+  -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer: Struct of 2 fields
   index, unit_of_measure_qty = dissect.unit_of_measure_qty(buffer, index, packet, parent)
 
-  -- Coupon Rate: 4 Byte Signed Fixed Width Integer
+  -- Coupon Rate: 4 Byte Signed Fixed Width Integer: Struct of 2 fields
   index, coupon_rate = dissect.coupon_rate(buffer, index, packet, parent)
 
   -- Price Type: 2 Byte Unsigned Fixed Width Integer Nullable
@@ -2257,7 +2607,7 @@ dissect.m_d_incremental_refresh_trade_blocks_group_fields = function(buffer, off
   -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Nullable
   index, put_or_call = dissect.put_or_call(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer
+  -- Strike Price: 8 Byte Signed Fixed Width Integer: Struct of 2 fields
   index, strike_price = dissect.strike_price(buffer, index, packet, parent)
 
   -- Restructuring Type: 2 Byte Ascii String
@@ -2299,7 +2649,7 @@ size_of.m_d_incremental_refresh_trade_blocks_groups = function(buffer, offset)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_trade_blocks_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_trade_blocks_group_count * 272
+  index = index + m_d_incremental_refresh_trade_blocks_group_count * 261
 
   return index
 end
@@ -2397,24 +2747,46 @@ dissect.md_incremental_refresh_trade_blocks_365 = function(buffer, offset, packe
   return dissect.md_incremental_refresh_trade_blocks_365_fields(buffer, offset, packet, parent)
 end
 
--- Size: Interpolation Factor
-size_of.interpolation_factor = 8
+-- Calculate size of: Interpolation Factor
+size_of.interpolation_factor = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Interpolation Factor
-display.interpolation_factor = function(value)
-  return "Interpolation Factor: "..value
+display.interpolation_factor = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Interpolation Factor
+dissect.interpolation_factor_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Interpolation Factor
 dissect.interpolation_factor = function(buffer, offset, packet, parent)
-  local length = size_of.interpolation_factor
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.interpolation_factor(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.interpolation_factor then
+    local length = size_of.interpolation_factor(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.interpolation_factor(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.interpolation_factor, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.interpolation_factor, range, value, display)
-
-  return offset + length, value
+  return dissect.interpolation_factor_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Leg Date Offset
@@ -2572,24 +2944,46 @@ dissect.leg_symbol = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Previous Fixing Rate
-size_of.previous_fixing_rate = 8
+-- Calculate size of: Previous Fixing Rate
+size_of.previous_fixing_rate = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Previous Fixing Rate
-display.previous_fixing_rate = function(value)
-  return "Previous Fixing Rate: "..value
+display.previous_fixing_rate = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Previous Fixing Rate
+dissect.previous_fixing_rate_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Previous Fixing Rate
 dissect.previous_fixing_rate = function(buffer, offset, packet, parent)
-  local length = size_of.previous_fixing_rate
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.previous_fixing_rate(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.previous_fixing_rate then
+    local length = size_of.previous_fixing_rate(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.previous_fixing_rate(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.previous_fixing_rate, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.previous_fixing_rate, range, value, display)
-
-  return offset + length, value
+  return dissect.previous_fixing_rate_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Leg Pay Frequencey
@@ -2689,7 +3083,7 @@ size_of.m_d_instrument_definition_eris_leg_group = function(buffer, offset)
 
   index = index + size_of.leg_pay_frequencey
 
-  index = index + size_of.previous_fixing_rate
+  index = index + size_of.previous_fixing_rate(buffer, offset + index)
 
   index = index + size_of.leg_symbol
 
@@ -2705,7 +3099,7 @@ size_of.m_d_instrument_definition_eris_leg_group = function(buffer, offset)
 
   index = index + size_of.leg_date_offset
 
-  index = index + size_of.interpolation_factor
+  index = index + size_of.interpolation_factor(buffer, offset + index)
 
   return index
 end
@@ -2731,7 +3125,7 @@ dissect.m_d_instrument_definition_eris_leg_group_fields = function(buffer, offse
   -- Leg Pay Frequencey: 3 Byte Ascii String
   index, leg_pay_frequencey = dissect.leg_pay_frequencey(buffer, index, packet, parent)
 
-  -- Previous Fixing Rate: 8 Byte Signed Fixed Width Integer
+  -- Previous Fixing Rate: Struct of 2 fields
   index, previous_fixing_rate = dissect.previous_fixing_rate(buffer, index, packet, parent)
 
   -- Leg Symbol: 50 Byte Ascii String
@@ -2755,7 +3149,7 @@ dissect.m_d_instrument_definition_eris_leg_group_fields = function(buffer, offse
   -- Leg Date Offset: 1 Byte Signed Fixed Width Integer Nullable
   index, leg_date_offset = dissect.leg_date_offset(buffer, index, packet, parent)
 
-  -- Interpolation Factor: 8 Byte Signed Fixed Width Integer
+  -- Interpolation Factor: Struct of 2 fields
   index, interpolation_factor = dissect.interpolation_factor(buffer, index, packet, parent)
 
   return index
@@ -2782,7 +3176,7 @@ size_of.m_d_instrument_definition_eris_leg_groups = function(buffer, offset)
 
   -- Calculate field size from count
   local m_d_instrument_definition_eris_leg_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_instrument_definition_eris_leg_group_count * 113
+  index = index + m_d_instrument_definition_eris_leg_group_count * 107
 
   return index
 end
@@ -3368,24 +3762,46 @@ dissect.security_update_action = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Min Price Increment
-size_of.min_price_increment = 8
+-- Calculate size of: Min Price Increment
+size_of.min_price_increment = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Min Price Increment
-display.min_price_increment = function(value)
-  return "Min Price Increment: "..value
+display.min_price_increment = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Min Price Increment
+dissect.min_price_increment_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Min Price Increment
 dissect.min_price_increment = function(buffer, offset, packet, parent)
-  local length = size_of.min_price_increment
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.min_price_increment(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.min_price_increment then
+    local length = size_of.min_price_increment(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.min_price_increment(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.min_price_increment, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.min_price_increment, range, value, display)
-
-  return offset + length, value
+  return dissect.min_price_increment_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Currency
@@ -3426,13 +3842,13 @@ size_of.md_instrument_definition_eris_363 = function(buffer, offset)
 
   index = index + size_of.currency
 
-  index = index + size_of.min_price_increment
+  index = index + size_of.min_price_increment(buffer, offset + index)
 
   index = index + size_of.security_update_action
 
   index = index + size_of.rate_type
 
-  index = index + size_of.coupon_rate
+  index = index + size_of.coupon_rate(buffer, offset + index)
 
   index = index + size_of.user_defined_instrument
 
@@ -3479,7 +3895,7 @@ dissect.md_instrument_definition_eris_363_fields = function(buffer, offset, pack
   -- Currency: 3 Byte Ascii String
   index, currency = dissect.currency(buffer, index, packet, parent)
 
-  -- Min Price Increment: 8 Byte Signed Fixed Width Integer
+  -- Min Price Increment: Struct of 2 fields
   index, min_price_increment = dissect.min_price_increment(buffer, index, packet, parent)
 
   -- Security Update Action: 1 Byte Ascii String Enum with 3 values
@@ -3488,7 +3904,7 @@ dissect.md_instrument_definition_eris_363_fields = function(buffer, offset, pack
   -- Rate Type: 2 Byte Ascii String
   index, rate_type = dissect.rate_type(buffer, index, packet, parent)
 
-  -- Coupon Rate: 4 Byte Signed Fixed Width Integer
+  -- Coupon Rate: 4 Byte Signed Fixed Width Integer: Struct of 2 fields
   index, coupon_rate = dissect.coupon_rate(buffer, index, packet, parent)
 
   -- User Defined Instrument: 1 Byte Ascii String
@@ -3607,24 +4023,46 @@ dissect.md_entry_position_no = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Cal Fut Px
-size_of.cal_fut_px = 8
+-- Calculate size of: Cal Fut Px
+size_of.cal_fut_px = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Cal Fut Px
-display.cal_fut_px = function(value)
-  return "Cal Fut Px: "..value
+display.cal_fut_px = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Cal Fut Px
+dissect.cal_fut_px_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Cal Fut Px
 dissect.cal_fut_px = function(buffer, offset, packet, parent)
-  local length = size_of.cal_fut_px
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.cal_fut_px(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.cal_fut_px then
+    local length = size_of.cal_fut_px(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.cal_fut_px(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.cal_fut_px, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.cal_fut_px, range, value, display)
-
-  return offset + length, value
+  return dissect.cal_fut_px_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: M D Incremental Refresh Eris Group
@@ -3637,11 +4075,11 @@ size_of.m_d_incremental_refresh_eris_group = function(buffer, offset)
 
   index = index + size_of.rpt_seq
 
-  index = index + size_of.md_entry_px
+  index = index + size_of.md_entry_px(buffer, offset + index)
 
-  index = index + size_of.md_entry_size
+  index = index + size_of.md_entry_size(buffer, offset + index)
 
-  index = index + size_of.cal_fut_px
+  index = index + size_of.cal_fut_px(buffer, offset + index)
 
   index = index + size_of.md_entry_position_no
 
@@ -3686,13 +4124,13 @@ dissect.m_d_incremental_refresh_eris_group_fields = function(buffer, offset, pac
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
   index, rpt_seq = dissect.rpt_seq(buffer, index, packet, parent)
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Px: 8 Byte Signed Fixed Width Integer: Struct of 2 fields
   index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
-  -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable: Struct of 2 fields
   index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
 
-  -- Cal Fut Px: 8 Byte Signed Fixed Width Integer
+  -- Cal Fut Px: Struct of 2 fields
   index, cal_fut_px = dissect.cal_fut_px(buffer, index, packet, parent)
 
   -- Md Entry Position No: 4 Byte Signed Fixed Width Integer Nullable
@@ -3752,7 +4190,7 @@ size_of.m_d_incremental_refresh_eris_groups = function(buffer, offset)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_eris_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_eris_group_count * 166
+  index = index + m_d_incremental_refresh_eris_group_count * 157
 
   return index
 end
@@ -4018,84 +4456,172 @@ dissect.md_entry_code = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Percent Trading
-size_of.percent_trading = 8
+-- Calculate size of: Percent Trading
+size_of.percent_trading = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Percent Trading
-display.percent_trading = function(value)
-  return "Percent Trading: "..value
+display.percent_trading = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Percent Trading
+dissect.percent_trading_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Percent Trading
 dissect.percent_trading = function(buffer, offset, packet, parent)
-  local length = size_of.percent_trading
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.percent_trading(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.percent_trading then
+    local length = size_of.percent_trading(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.percent_trading(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.percent_trading, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.percent_trading, range, value, display)
-
-  return offset + length, value
+  return dissect.percent_trading_fields(buffer, offset, packet, parent)
 end
 
--- Size: Net Pct Chg
-size_of.net_pct_chg = 8
+-- Calculate size of: Net Pct Chg
+size_of.net_pct_chg = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Net Pct Chg
-display.net_pct_chg = function(value)
-  return "Net Pct Chg: "..value
+display.net_pct_chg = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Net Pct Chg
+dissect.net_pct_chg_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Net Pct Chg
 dissect.net_pct_chg = function(buffer, offset, packet, parent)
-  local length = size_of.net_pct_chg
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.net_pct_chg(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.net_pct_chg then
+    local length = size_of.net_pct_chg(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.net_pct_chg(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.net_pct_chg, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.net_pct_chg, range, value, display)
-
-  return offset + length, value
+  return dissect.net_pct_chg_fields(buffer, offset, packet, parent)
 end
 
--- Size: Net Chg Prev Day
-size_of.net_chg_prev_day = 8
+-- Calculate size of: Net Chg Prev Day
+size_of.net_chg_prev_day = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Net Chg Prev Day
-display.net_chg_prev_day = function(value)
-  return "Net Chg Prev Day: "..value
+display.net_chg_prev_day = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Net Chg Prev Day
+dissect.net_chg_prev_day_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Net Chg Prev Day
 dissect.net_chg_prev_day = function(buffer, offset, packet, parent)
-  local length = size_of.net_chg_prev_day
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.net_chg_prev_day(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.net_chg_prev_day then
+    local length = size_of.net_chg_prev_day(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.net_chg_prev_day(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.net_chg_prev_day, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.net_chg_prev_day, range, value, display)
-
-  return offset + length, value
+  return dissect.net_chg_prev_day_fields(buffer, offset, packet, parent)
 end
 
--- Size: Yield
-size_of.yield = 8
+-- Calculate size of: Yield
+size_of.yield = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Yield
-display.yield = function(value)
-  return "Yield: "..value
+display.yield = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Yield
+dissect.yield_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Yield
 dissect.yield = function(buffer, offset, packet, parent)
-  local length = size_of.yield
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.yield(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.yield then
+    local length = size_of.yield(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.yield(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.yield, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.yield, range, value, display)
-
-  return offset + length, value
+  return dissect.yield_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Yield Type
@@ -4126,9 +4652,9 @@ size_of.m_d_incremental_refresh_indices_group = function(buffer, offset)
 
   index = index + size_of.rpt_seq
 
-  index = index + size_of.md_entry_px
+  index = index + size_of.md_entry_px(buffer, offset + index)
 
-  index = index + size_of.md_entry_size
+  index = index + size_of.md_entry_size(buffer, offset + index)
 
   index = index + size_of.symbol
 
@@ -4136,13 +4662,13 @@ size_of.m_d_incremental_refresh_indices_group = function(buffer, offset)
 
   index = index + size_of.yield_type
 
-  index = index + size_of.yield
+  index = index + size_of.yield(buffer, offset + index)
 
-  index = index + size_of.net_chg_prev_day
+  index = index + size_of.net_chg_prev_day(buffer, offset + index)
 
-  index = index + size_of.net_pct_chg
+  index = index + size_of.net_pct_chg(buffer, offset + index)
 
-  index = index + size_of.percent_trading
+  index = index + size_of.percent_trading(buffer, offset + index)
 
   index = index + size_of.md_entry_code
 
@@ -4170,10 +4696,10 @@ dissect.m_d_incremental_refresh_indices_group_fields = function(buffer, offset, 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
   index, rpt_seq = dissect.rpt_seq(buffer, index, packet, parent)
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Px: 8 Byte Signed Fixed Width Integer: Struct of 2 fields
   index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
-  -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable: Struct of 2 fields
   index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
 
   -- Symbol: 50 Byte Ascii String
@@ -4185,16 +4711,16 @@ dissect.m_d_incremental_refresh_indices_group_fields = function(buffer, offset, 
   -- Yield Type: 8 Byte Ascii String
   index, yield_type = dissect.yield_type(buffer, index, packet, parent)
 
-  -- Yield: 8 Byte Signed Fixed Width Integer
+  -- Yield: Struct of 2 fields
   index, yield = dissect.yield(buffer, index, packet, parent)
 
-  -- Net Chg Prev Day: 8 Byte Signed Fixed Width Integer
+  -- Net Chg Prev Day: Struct of 2 fields
   index, net_chg_prev_day = dissect.net_chg_prev_day(buffer, index, packet, parent)
 
-  -- Net Pct Chg: 8 Byte Signed Fixed Width Integer
+  -- Net Pct Chg: Struct of 2 fields
   index, net_pct_chg = dissect.net_pct_chg(buffer, index, packet, parent)
 
-  -- Percent Trading: 8 Byte Signed Fixed Width Integer
+  -- Percent Trading: Struct of 2 fields
   index, percent_trading = dissect.percent_trading(buffer, index, packet, parent)
 
   -- Md Entry Code: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
@@ -4233,7 +4759,7 @@ size_of.m_d_incremental_refresh_indices_groups = function(buffer, offset)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_indices_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_indices_group_count * 171
+  index = index + m_d_incremental_refresh_indices_group_count * 153
 
   return index
 end
@@ -4977,84 +5503,172 @@ dissect.security_description = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Final Settlement Futures Price
-size_of.final_settlement_futures_price = 8
+-- Calculate size of: Final Settlement Futures Price
+size_of.final_settlement_futures_price = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Final Settlement Futures Price
-display.final_settlement_futures_price = function(value)
-  return "Final Settlement Futures Price: "..value
+display.final_settlement_futures_price = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Final Settlement Futures Price
+dissect.final_settlement_futures_price_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Final Settlement Futures Price
 dissect.final_settlement_futures_price = function(buffer, offset, packet, parent)
-  local length = size_of.final_settlement_futures_price
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.final_settlement_futures_price(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.final_settlement_futures_price then
+    local length = size_of.final_settlement_futures_price(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.final_settlement_futures_price(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.final_settlement_futures_price, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.final_settlement_futures_price, range, value, display)
-
-  return offset + length, value
+  return dissect.final_settlement_futures_price_fields(buffer, offset, packet, parent)
 end
 
--- Size: Settlement Npv
-size_of.settlement_npv = 8
+-- Calculate size of: Settlement Npv
+size_of.settlement_npv = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Settlement Npv
-display.settlement_npv = function(value)
-  return "Settlement Npv: "..value
+display.settlement_npv = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Settlement Npv
+dissect.settlement_npv_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Settlement Npv
 dissect.settlement_npv = function(buffer, offset, packet, parent)
-  local length = size_of.settlement_npv
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.settlement_npv(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.settlement_npv then
+    local length = size_of.settlement_npv(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.settlement_npv(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.settlement_npv, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.settlement_npv, range, value, display)
-
-  return offset + length, value
+  return dissect.settlement_npv_fields(buffer, offset, packet, parent)
 end
 
--- Size: D V 01
-size_of.d_v_01 = 8
+-- Calculate size of: D V 01
+size_of.d_v_01 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: D V 01
-display.d_v_01 = function(value)
-  return "D V 01: "..value
+display.d_v_01 = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: D V 01
+dissect.d_v_01_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: D V 01
 dissect.d_v_01 = function(buffer, offset, packet, parent)
-  local length = size_of.d_v_01
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.d_v_01(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.d_v_01 then
+    local length = size_of.d_v_01(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.d_v_01(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.d_v_01, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.d_v_01, range, value, display)
-
-  return offset + length, value
+  return dissect.d_v_01_fields(buffer, offset, packet, parent)
 end
 
--- Size: P V 01
-size_of.p_v_01 = 8
+-- Calculate size of: P V 01
+size_of.p_v_01 = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: P V 01
-display.p_v_01 = function(value)
-  return "P V 01: "..value
+display.p_v_01 = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: P V 01
+dissect.p_v_01_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: P V 01
 dissect.p_v_01 = function(buffer, offset, packet, parent)
-  local length = size_of.p_v_01
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.p_v_01(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.p_v_01 then
+    local length = size_of.p_v_01(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.p_v_01(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.p_v_01, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.p_v_01, range, value, display)
-
-  return offset + length, value
+  return dissect.p_v_01_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Next Floating Payment Date
@@ -5082,24 +5696,46 @@ dissect.next_floating_payment_date = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Leg Contract Multiplier
-size_of.leg_contract_multiplier = 8
+-- Calculate size of: Leg Contract Multiplier
+size_of.leg_contract_multiplier = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Leg Contract Multiplier
-display.leg_contract_multiplier = function(value)
-  return "Leg Contract Multiplier: "..value
+display.leg_contract_multiplier = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Leg Contract Multiplier
+dissect.leg_contract_multiplier_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Leg Contract Multiplier
 dissect.leg_contract_multiplier = function(buffer, offset, packet, parent)
-  local length = size_of.leg_contract_multiplier
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.leg_contract_multiplier(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.leg_contract_multiplier then
+    local length = size_of.leg_contract_multiplier(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.leg_contract_multiplier(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.leg_contract_multiplier, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.leg_contract_multiplier, range, value, display)
-
-  return offset + length, value
+  return dissect.leg_contract_multiplier_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Leg Credit Rating
@@ -5197,24 +5833,46 @@ dissect.fed_funds_date = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Previous Eris Pai
-size_of.previous_eris_pai = 8
+-- Calculate size of: Previous Eris Pai
+size_of.previous_eris_pai = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Previous Eris Pai
-display.previous_eris_pai = function(value)
-  return "Previous Eris Pai: "..value
+display.previous_eris_pai = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Previous Eris Pai
+dissect.previous_eris_pai_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Previous Eris Pai
 dissect.previous_eris_pai = function(buffer, offset, packet, parent)
-  local length = size_of.previous_eris_pai
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.previous_eris_pai(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.previous_eris_pai then
+    local length = size_of.previous_eris_pai(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.previous_eris_pai(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.previous_eris_pai, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.previous_eris_pai, range, value, display)
-
-  return offset + length, value
+  return dissect.previous_eris_pai_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Trading Reference Date
@@ -5242,44 +5900,88 @@ dissect.trading_reference_date = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Next Floating Payment Amount
-size_of.next_floating_payment_amount = 8
+-- Calculate size of: Next Floating Payment Amount
+size_of.next_floating_payment_amount = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Next Floating Payment Amount
-display.next_floating_payment_amount = function(value)
-  return "Next Floating Payment Amount: "..value
+display.next_floating_payment_amount = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Next Floating Payment Amount
+dissect.next_floating_payment_amount_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Next Floating Payment Amount
 dissect.next_floating_payment_amount = function(buffer, offset, packet, parent)
-  local length = size_of.next_floating_payment_amount
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.next_floating_payment_amount(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.next_floating_payment_amount then
+    local length = size_of.next_floating_payment_amount(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.next_floating_payment_amount(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.next_floating_payment_amount, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.next_floating_payment_amount, range, value, display)
-
-  return offset + length, value
+  return dissect.next_floating_payment_amount_fields(buffer, offset, packet, parent)
 end
 
--- Size: Next Fixed Payment Amount
-size_of.next_fixed_payment_amount = 8
+-- Calculate size of: Next Fixed Payment Amount
+size_of.next_fixed_payment_amount = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Next Fixed Payment Amount
-display.next_fixed_payment_amount = function(value)
-  return "Next Fixed Payment Amount: "..value
+display.next_fixed_payment_amount = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Next Fixed Payment Amount
+dissect.next_fixed_payment_amount_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Next Fixed Payment Amount
 dissect.next_fixed_payment_amount = function(buffer, offset, packet, parent)
-  local length = size_of.next_fixed_payment_amount
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.next_fixed_payment_amount(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.next_fixed_payment_amount then
+    local length = size_of.next_fixed_payment_amount(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.next_fixed_payment_amount(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.next_fixed_payment_amount, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.next_fixed_payment_amount, range, value, display)
-
-  return offset + length, value
+  return dissect.next_fixed_payment_amount_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Next Fixed Payment Date
@@ -5307,224 +6009,466 @@ dissect.next_fixed_payment_date = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Floating Payment
-size_of.floating_payment = 8
+-- Calculate size of: Floating Payment
+size_of.floating_payment = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Floating Payment
-display.floating_payment = function(value)
-  return "Floating Payment: "..value
+display.floating_payment = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Floating Payment
+dissect.floating_payment_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Floating Payment
 dissect.floating_payment = function(buffer, offset, packet, parent)
-  local length = size_of.floating_payment
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.floating_payment(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.floating_payment then
+    local length = size_of.floating_payment(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.floating_payment(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.floating_payment, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.floating_payment, range, value, display)
-
-  return offset + length, value
+  return dissect.floating_payment_fields(buffer, offset, packet, parent)
 end
 
--- Size: Fixed Payment
-size_of.fixed_payment = 8
+-- Calculate size of: Fixed Payment
+size_of.fixed_payment = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Fixed Payment
-display.fixed_payment = function(value)
-  return "Fixed Payment: "..value
+display.fixed_payment = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Fixed Payment
+dissect.fixed_payment_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Fixed Payment
 dissect.fixed_payment = function(buffer, offset, packet, parent)
-  local length = size_of.fixed_payment
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.fixed_payment(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.fixed_payment then
+    local length = size_of.fixed_payment(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.fixed_payment(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.fixed_payment, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.fixed_payment, range, value, display)
-
-  return offset + length, value
+  return dissect.fixed_payment_fields(buffer, offset, packet, parent)
 end
 
--- Size: Fed Funds Rate
-size_of.fed_funds_rate = 8
+-- Calculate size of: Fed Funds Rate
+size_of.fed_funds_rate = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Fed Funds Rate
-display.fed_funds_rate = function(value)
-  return "Fed Funds Rate: "..value
+display.fed_funds_rate = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Fed Funds Rate
+dissect.fed_funds_rate_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Fed Funds Rate
 dissect.fed_funds_rate = function(buffer, offset, packet, parent)
-  local length = size_of.fed_funds_rate
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.fed_funds_rate(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.fed_funds_rate then
+    local length = size_of.fed_funds_rate(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.fed_funds_rate(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.fed_funds_rate, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.fed_funds_rate, range, value, display)
-
-  return offset + length, value
+  return dissect.fed_funds_rate_fields(buffer, offset, packet, parent)
 end
 
--- Size: Eris Pai
-size_of.eris_pai = 8
+-- Calculate size of: Eris Pai
+size_of.eris_pai = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Eris Pai
-display.eris_pai = function(value)
-  return "Eris Pai: "..value
+display.eris_pai = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Eris Pai
+dissect.eris_pai_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Eris Pai
 dissect.eris_pai = function(buffer, offset, packet, parent)
-  local length = size_of.eris_pai
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.eris_pai(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.eris_pai then
+    local length = size_of.eris_pai(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.eris_pai(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.eris_pai, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.eris_pai, range, value, display)
-
-  return offset + length, value
+  return dissect.eris_pai_fields(buffer, offset, packet, parent)
 end
 
--- Size: Daily Incremental Eris Pai
-size_of.daily_incremental_eris_pai = 8
+-- Calculate size of: Daily Incremental Eris Pai
+size_of.daily_incremental_eris_pai = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Daily Incremental Eris Pai
-display.daily_incremental_eris_pai = function(value)
-  return "Daily Incremental Eris Pai: "..value
+display.daily_incremental_eris_pai = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Daily Incremental Eris Pai
+dissect.daily_incremental_eris_pai_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Daily Incremental Eris Pai
 dissect.daily_incremental_eris_pai = function(buffer, offset, packet, parent)
-  local length = size_of.daily_incremental_eris_pai
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.daily_incremental_eris_pai(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.daily_incremental_eris_pai then
+    local length = size_of.daily_incremental_eris_pai(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.daily_incremental_eris_pai(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.daily_incremental_eris_pai, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.daily_incremental_eris_pai, range, value, display)
-
-  return offset + length, value
+  return dissect.daily_incremental_eris_pai_fields(buffer, offset, packet, parent)
 end
 
--- Size: Accrued Coupons
-size_of.accrued_coupons = 8
+-- Calculate size of: Accrued Coupons
+size_of.accrued_coupons = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Accrued Coupons
-display.accrued_coupons = function(value)
-  return "Accrued Coupons: "..value
+display.accrued_coupons = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Accrued Coupons
+dissect.accrued_coupons_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Accrued Coupons
 dissect.accrued_coupons = function(buffer, offset, packet, parent)
-  local length = size_of.accrued_coupons
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.accrued_coupons(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.accrued_coupons then
+    local length = size_of.accrued_coupons(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.accrued_coupons(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.accrued_coupons, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.accrued_coupons, range, value, display)
-
-  return offset + length, value
+  return dissect.accrued_coupons_fields(buffer, offset, packet, parent)
 end
 
--- Size: Npv
-size_of.npv = 8
+-- Calculate size of: Npv
+size_of.npv = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Npv
-display.npv = function(value)
-  return "Npv: "..value
+display.npv = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Npv
+dissect.npv_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Npv
 dissect.npv = function(buffer, offset, packet, parent)
-  local length = size_of.npv
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.npv(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.npv then
+    local length = size_of.npv(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.npv(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.npv, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.npv, range, value, display)
-
-  return offset + length, value
+  return dissect.npv_fields(buffer, offset, packet, parent)
 end
 
--- Size: Float Npv
-size_of.float_npv = 8
+-- Calculate size of: Float Npv
+size_of.float_npv = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Float Npv
-display.float_npv = function(value)
-  return "Float Npv: "..value
+display.float_npv = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Float Npv
+dissect.float_npv_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Float Npv
 dissect.float_npv = function(buffer, offset, packet, parent)
-  local length = size_of.float_npv
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.float_npv(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.float_npv then
+    local length = size_of.float_npv(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.float_npv(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.float_npv, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.float_npv, range, value, display)
-
-  return offset + length, value
+  return dissect.float_npv_fields(buffer, offset, packet, parent)
 end
 
--- Size: Fixed Npv
-size_of.fixed_npv = 8
+-- Calculate size of: Fixed Npv
+size_of.fixed_npv = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Fixed Npv
-display.fixed_npv = function(value)
-  return "Fixed Npv: "..value
+display.fixed_npv = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Fixed Npv
+dissect.fixed_npv_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Fixed Npv
 dissect.fixed_npv = function(buffer, offset, packet, parent)
-  local length = size_of.fixed_npv
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.fixed_npv(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.fixed_npv then
+    local length = size_of.fixed_npv(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.fixed_npv(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.fixed_npv, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.fixed_npv, range, value, display)
-
-  return offset + length, value
+  return dissect.fixed_npv_fields(buffer, offset, packet, parent)
 end
 
--- Size: Leg Purchase Rate
-size_of.leg_purchase_rate = 8
+-- Calculate size of: Leg Purchase Rate
+size_of.leg_purchase_rate = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Leg Purchase Rate
-display.leg_purchase_rate = function(value)
-  return "Leg Purchase Rate: "..value
+display.leg_purchase_rate = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Leg Purchase Rate
+dissect.leg_purchase_rate_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Leg Purchase Rate
 dissect.leg_purchase_rate = function(buffer, offset, packet, parent)
-  local length = size_of.leg_purchase_rate
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.leg_purchase_rate(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.leg_purchase_rate then
+    local length = size_of.leg_purchase_rate(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.leg_purchase_rate(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.leg_purchase_rate, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.leg_purchase_rate, range, value, display)
-
-  return offset + length, value
+  return dissect.leg_purchase_rate_fields(buffer, offset, packet, parent)
 end
 
--- Size: Fair Coupon Pct
-size_of.fair_coupon_pct = 8
+-- Calculate size of: Fair Coupon Pct
+size_of.fair_coupon_pct = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Fair Coupon Pct
-display.fair_coupon_pct = function(value)
-  return "Fair Coupon Pct: "..value
+display.fair_coupon_pct = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Fair Coupon Pct
+dissect.fair_coupon_pct_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Fair Coupon Pct
 dissect.fair_coupon_pct = function(buffer, offset, packet, parent)
-  local length = size_of.fair_coupon_pct
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.fair_coupon_pct(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.fair_coupon_pct then
+    local length = size_of.fair_coupon_pct(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.fair_coupon_pct(buffer, packet, parent)
+    parent = parent:add(cme_streamline_sbe_v9_5.fields.fair_coupon_pct, range, display)
+  end
 
-  parent:add(cme_streamline_sbe_v9_5.fields.fair_coupon_pct, range, value, display)
-
-  return offset + length, value
+  return dissect.fair_coupon_pct_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Settl Price Type
@@ -5597,17 +6541,17 @@ size_of.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group =
 
   index = index + size_of.rpt_seq
 
-  index = index + size_of.md_entry_px
+  index = index + size_of.md_entry_px(buffer, offset + index)
 
   index = index + size_of.open_close_settl_flag
 
   index = index + size_of.settl_price_type
 
-  index = index + size_of.cal_fut_px
+  index = index + size_of.cal_fut_px(buffer, offset + index)
 
   index = index + size_of.reference_id
 
-  index = index + size_of.md_entry_size
+  index = index + size_of.md_entry_size(buffer, offset + index)
 
   index = index + size_of.symbol
 
@@ -5621,43 +6565,43 @@ size_of.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group =
 
   index = index + size_of.maturity_date
 
-  index = index + size_of.coupon_rate
+  index = index + size_of.coupon_rate(buffer, offset + index)
 
   index = index + size_of.trade_date
 
-  index = index + size_of.fair_coupon_pct
+  index = index + size_of.fair_coupon_pct(buffer, offset + index)
 
-  index = index + size_of.leg_purchase_rate
+  index = index + size_of.leg_purchase_rate(buffer, offset + index)
 
-  index = index + size_of.fixed_npv
+  index = index + size_of.fixed_npv(buffer, offset + index)
 
-  index = index + size_of.float_npv
+  index = index + size_of.float_npv(buffer, offset + index)
 
-  index = index + size_of.npv
+  index = index + size_of.npv(buffer, offset + index)
 
-  index = index + size_of.accrued_coupons
+  index = index + size_of.accrued_coupons(buffer, offset + index)
 
-  index = index + size_of.daily_incremental_eris_pai
+  index = index + size_of.daily_incremental_eris_pai(buffer, offset + index)
 
-  index = index + size_of.eris_pai
+  index = index + size_of.eris_pai(buffer, offset + index)
 
-  index = index + size_of.fed_funds_rate
+  index = index + size_of.fed_funds_rate(buffer, offset + index)
 
-  index = index + size_of.min_price_increment
+  index = index + size_of.min_price_increment(buffer, offset + index)
 
-  index = index + size_of.fixed_payment
+  index = index + size_of.fixed_payment(buffer, offset + index)
 
-  index = index + size_of.floating_payment
+  index = index + size_of.floating_payment(buffer, offset + index)
 
   index = index + size_of.next_fixed_payment_date
 
-  index = index + size_of.next_fixed_payment_amount
+  index = index + size_of.next_fixed_payment_amount(buffer, offset + index)
 
-  index = index + size_of.next_floating_payment_amount
+  index = index + size_of.next_floating_payment_amount(buffer, offset + index)
 
   index = index + size_of.trading_reference_date
 
-  index = index + size_of.previous_eris_pai
+  index = index + size_of.previous_eris_pai(buffer, offset + index)
 
   index = index + size_of.fed_funds_date
 
@@ -5667,17 +6611,17 @@ size_of.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group =
 
   index = index + size_of.leg_credit_rating
 
-  index = index + size_of.leg_contract_multiplier
+  index = index + size_of.leg_contract_multiplier(buffer, offset + index)
 
   index = index + size_of.next_floating_payment_date
 
-  index = index + size_of.p_v_01
+  index = index + size_of.p_v_01(buffer, offset + index)
 
-  index = index + size_of.d_v_01
+  index = index + size_of.d_v_01(buffer, offset + index)
 
-  index = index + size_of.settlement_npv
+  index = index + size_of.settlement_npv(buffer, offset + index)
 
-  index = index + size_of.final_settlement_futures_price
+  index = index + size_of.final_settlement_futures_price(buffer, offset + index)
 
   index = index + size_of.security_description
 
@@ -5702,7 +6646,7 @@ dissect.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_f
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
   index, rpt_seq = dissect.rpt_seq(buffer, index, packet, parent)
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Px: 8 Byte Signed Fixed Width Integer: Struct of 2 fields
   index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Nullable
@@ -5711,13 +6655,13 @@ dissect.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_f
   -- Settl Price Type: Struct of 5 fields
   index, settl_price_type = dissect.settl_price_type(buffer, index, packet, parent)
 
-  -- Cal Fut Px: 8 Byte Signed Fixed Width Integer
+  -- Cal Fut Px: Struct of 2 fields
   index, cal_fut_px = dissect.cal_fut_px(buffer, index, packet, parent)
 
   -- Reference Id: 50 Byte Ascii String
   index, reference_id = dissect.reference_id(buffer, index, packet, parent)
 
-  -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable: Struct of 2 fields
   index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
 
   -- Symbol: 50 Byte Ascii String
@@ -5738,61 +6682,61 @@ dissect.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_f
   -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
 
-  -- Coupon Rate: 4 Byte Signed Fixed Width Integer
+  -- Coupon Rate: 4 Byte Signed Fixed Width Integer: Struct of 2 fields
   index, coupon_rate = dissect.coupon_rate(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
-  -- Fair Coupon Pct: 8 Byte Signed Fixed Width Integer
+  -- Fair Coupon Pct: Struct of 2 fields
   index, fair_coupon_pct = dissect.fair_coupon_pct(buffer, index, packet, parent)
 
-  -- Leg Purchase Rate: 8 Byte Signed Fixed Width Integer
+  -- Leg Purchase Rate: Struct of 2 fields
   index, leg_purchase_rate = dissect.leg_purchase_rate(buffer, index, packet, parent)
 
-  -- Fixed Npv: 8 Byte Signed Fixed Width Integer
+  -- Fixed Npv: Struct of 2 fields
   index, fixed_npv = dissect.fixed_npv(buffer, index, packet, parent)
 
-  -- Float Npv: 8 Byte Signed Fixed Width Integer
+  -- Float Npv: Struct of 2 fields
   index, float_npv = dissect.float_npv(buffer, index, packet, parent)
 
-  -- Npv: 8 Byte Signed Fixed Width Integer
+  -- Npv: Struct of 2 fields
   index, npv = dissect.npv(buffer, index, packet, parent)
 
-  -- Accrued Coupons: 8 Byte Signed Fixed Width Integer
+  -- Accrued Coupons: Struct of 2 fields
   index, accrued_coupons = dissect.accrued_coupons(buffer, index, packet, parent)
 
-  -- Daily Incremental Eris Pai: 8 Byte Signed Fixed Width Integer
+  -- Daily Incremental Eris Pai: Struct of 2 fields
   index, daily_incremental_eris_pai = dissect.daily_incremental_eris_pai(buffer, index, packet, parent)
 
-  -- Eris Pai: 8 Byte Signed Fixed Width Integer
+  -- Eris Pai: Struct of 2 fields
   index, eris_pai = dissect.eris_pai(buffer, index, packet, parent)
 
-  -- Fed Funds Rate: 8 Byte Signed Fixed Width Integer
+  -- Fed Funds Rate: Struct of 2 fields
   index, fed_funds_rate = dissect.fed_funds_rate(buffer, index, packet, parent)
 
-  -- Min Price Increment: 8 Byte Signed Fixed Width Integer
+  -- Min Price Increment: Struct of 2 fields
   index, min_price_increment = dissect.min_price_increment(buffer, index, packet, parent)
 
-  -- Fixed Payment: 8 Byte Signed Fixed Width Integer
+  -- Fixed Payment: Struct of 2 fields
   index, fixed_payment = dissect.fixed_payment(buffer, index, packet, parent)
 
-  -- Floating Payment: 8 Byte Signed Fixed Width Integer
+  -- Floating Payment: Struct of 2 fields
   index, floating_payment = dissect.floating_payment(buffer, index, packet, parent)
 
   -- Next Fixed Payment Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, next_fixed_payment_date = dissect.next_fixed_payment_date(buffer, index, packet, parent)
 
-  -- Next Fixed Payment Amount: 8 Byte Signed Fixed Width Integer
+  -- Next Fixed Payment Amount: Struct of 2 fields
   index, next_fixed_payment_amount = dissect.next_fixed_payment_amount(buffer, index, packet, parent)
 
-  -- Next Floating Payment Amount: 8 Byte Signed Fixed Width Integer
+  -- Next Floating Payment Amount: Struct of 2 fields
   index, next_floating_payment_amount = dissect.next_floating_payment_amount(buffer, index, packet, parent)
 
   -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, trading_reference_date = dissect.trading_reference_date(buffer, index, packet, parent)
 
-  -- Previous Eris Pai: 8 Byte Signed Fixed Width Integer
+  -- Previous Eris Pai: Struct of 2 fields
   index, previous_eris_pai = dissect.previous_eris_pai(buffer, index, packet, parent)
 
   -- Fed Funds Date: 2 Byte Unsigned Fixed Width Integer Nullable
@@ -5807,22 +6751,22 @@ dissect.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_f
   -- Leg Credit Rating: 6 Byte Ascii String
   index, leg_credit_rating = dissect.leg_credit_rating(buffer, index, packet, parent)
 
-  -- Leg Contract Multiplier: 8 Byte Signed Fixed Width Integer
+  -- Leg Contract Multiplier: Struct of 2 fields
   index, leg_contract_multiplier = dissect.leg_contract_multiplier(buffer, index, packet, parent)
 
   -- Next Floating Payment Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, next_floating_payment_date = dissect.next_floating_payment_date(buffer, index, packet, parent)
 
-  -- P V 01: 8 Byte Signed Fixed Width Integer
+  -- P V 01: Struct of 2 fields
   index, p_v_01 = dissect.p_v_01(buffer, index, packet, parent)
 
-  -- D V 01: 8 Byte Signed Fixed Width Integer
+  -- D V 01: Struct of 2 fields
   index, d_v_01 = dissect.d_v_01(buffer, index, packet, parent)
 
-  -- Settlement Npv: 8 Byte Signed Fixed Width Integer
+  -- Settlement Npv: Struct of 2 fields
   index, settlement_npv = dissect.settlement_npv(buffer, index, packet, parent)
 
-  -- Final Settlement Futures Price: 8 Byte Signed Fixed Width Integer
+  -- Final Settlement Futures Price: Struct of 2 fields
   index, final_settlement_futures_price = dissect.final_settlement_futures_price(buffer, index, packet, parent)
 
   -- Security Description: 30 Byte Ascii String
@@ -5852,7 +6796,7 @@ size_of.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups 
 
   -- Calculate field size from count
   local m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_count * 377
+  index = index + m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_count * 309
 
   return index
 end

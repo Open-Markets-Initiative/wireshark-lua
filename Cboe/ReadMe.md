@@ -11,6 +11,7 @@
 |Options | MarketDataFeed | Csm | [1.4.2][Cboe.Options.MarketDataFeed.Csm.v1.4.2.Dissector] | 5/8/2018 | 4205 | Verified | [url][Cboe.Options.MarketDataFeed.Csm.v1.4.2.Url] - [pdf][Cboe.Options.MarketDataFeed.Csm.v1.4.2.Pdf]|
 |Options | MarketLevel2 | Csm | [1.0.4][Cboe.Options.MarketLevel2.Csm.v1.0.4.Dissector] | 5/8/2018 | 2939 | Verified | [url][Cboe.Options.MarketLevel2.Csm.v1.0.4.Url] - [pdf][Cboe.Options.MarketLevel2.Csm.v1.0.4.Pdf]|
 |Options | OpeningAuction | Csm | [1.0][Cboe.Options.OpeningAuction.Csm.v1.0.Dissector] | 7/18/2018 | 3060 | Verified | [url][Cboe.Options.OpeningAuction.Csm.v1.0.Url] - [pdf][Cboe.Options.OpeningAuction.Csm.v1.0.Pdf]|
+|Options | ComplexDepthOfBook | Pitch | [2.1.18][Cboe.Options.ComplexDepthOfBook.Pitch.v2.1.18.Dissector] | 1/31/2020 | 3574 | Untested | [url][Cboe.Options.ComplexDepthOfBook.Pitch.v2.1.18.Url] - [pdf][Cboe.Options.ComplexDepthOfBook.Pitch.v2.1.18.Pdf]|
 |Options | DepthOfBook | Pitch | [2.39.4][Cboe.Options.DepthOfBook.Pitch.v2.39.4.Dissector] | 8/21/2018 | 3315 | Verified | [url][Cboe.Options.DepthOfBook.Pitch.v2.39.4.Url] - [pdf][Cboe.Options.DepthOfBook.Pitch.v2.39.4.Pdf]|
 |Options Bzx | OrderEntry | Boe | [2.10][Cboe.Options.Bzx.OrderEntry.Boe.v2.10.Dissector] | 12/3/2019 | 30269 | Beta | [url][Cboe.Options.Bzx.OrderEntry.Boe.v2.10.Url] - [pdf][Cboe.Options.Bzx.OrderEntry.Boe.v2.10.Pdf]|
 |Options C1 | OrderEntry | Boe | [2.10][Cboe.Options.C1.OrderEntry.Boe.v2.10.Dissector] | 12/3/2019 | 46148 | Beta | [url][Cboe.Options.C1.OrderEntry.Boe.v2.10.Url] - [pdf][Cboe.Options.C1.OrderEntry.Boe.v2.10.Pdf]|
@@ -31,6 +32,9 @@ Cboe: [website](https://www.cboe.com "Go to Chicago Board Options Exchange")
 [Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Script.Dissector.lua "Chicago Board Options Exchange 1.1.6 Wireshark Dissector"
 [Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Url]: http://markets.cboe.com/us/futures/support/technical "Specification url"
 [Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Cboe/Cboe.Futures.DepthOfBook.Pitch.v1.1.6.pdf "Chicago Board Options Exchange 1.1.6 Pdf"
+[Cboe.Options.ComplexDepthOfBook.Pitch.v2.1.18.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Options.ComplexDepthOfBook.Pitch.v2.1.18.Script.Dissector.lua "Chicago Board Options Exchange 2.1.18 Wireshark Dissector"
+[Cboe.Options.ComplexDepthOfBook.Pitch.v2.1.18.Url]: http://markets.cboe.com/us/options/support/technical "Specification url"
+[Cboe.Options.ComplexDepthOfBook.Pitch.v2.1.18.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Cboe/Cboe.Options.ComplexDepthOfBook.Pitch.v2.1.8.pdf "Chicago Board Options Exchange 2.1.18 Pdf"
 [Cboe.Options.Bzx.OrderEntry.Boe.v2.10.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Options.Bzx.OrderEntry.Boe.v2.10.Script.Dissector.lua "Chicago Board Options Exchange 2.10 Wireshark Dissector"
 [Cboe.Options.Bzx.OrderEntry.Boe.v2.10.Url]: http://markets.cboe.com/us/options/support/technical/ "Specification url"
 [Cboe.Options.Bzx.OrderEntry.Boe.v2.10.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Cboe/Cboe.Options.OrderEntry.Boe.v2.10.11.pdf "Chicago Board Options Exchange 2.10 Pdf"

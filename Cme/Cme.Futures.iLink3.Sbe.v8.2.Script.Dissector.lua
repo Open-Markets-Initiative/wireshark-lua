@@ -98,6 +98,7 @@ cme_futures_ilink3_sbe_v8_2.fields.execution_report_trade_spread_order_event_gro
 cme_futures_ilink3_sbe_v8_2.fields.executor = ProtoField.new("Executor", "cme.futures.ilink3.sbe.v8.2.executor", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_2.fields.expiration_cycle = ProtoField.new("Expiration Cycle", "cme.futures.ilink3.sbe.v8.2.expirationcycle", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.expire_date = ProtoField.new("Expire Date", "cme.futures.ilink3.sbe.v8.2.expiredate", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.exponent = ProtoField.new("Exponent", "cme.futures.ilink3.sbe.v8.2.exponent", ftypes.INT8)
 cme_futures_ilink3_sbe_v8_2.fields.fault_tolerance_indicator = ProtoField.new("Fault Tolerance Indicator", "cme.futures.ilink3.sbe.v8.2.faulttoleranceindicator", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.fill_exec_id = ProtoField.new("Fill Exec Id", "cme.futures.ilink3.sbe.v8.2.fillexecid", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.fill_px = ProtoField.new("Fill Px", "cme.futures.ilink3.sbe.v8.2.fillpx", ftypes.INT64)
@@ -125,7 +126,7 @@ cme_futures_ilink3_sbe_v8_2.fields.leg_exec_id = ProtoField.new("Leg Exec Id", "
 cme_futures_ilink3_sbe_v8_2.fields.leg_exec_ref_id = ProtoField.new("Leg Exec Ref Id", "cme.futures.ilink3.sbe.v8.2.legexecrefid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_2.fields.leg_last_px = ProtoField.new("Leg Last Px", "cme.futures.ilink3.sbe.v8.2.leglastpx", ftypes.INT64)
 cme_futures_ilink3_sbe_v8_2.fields.leg_last_qty = ProtoField.new("Leg Last Qty", "cme.futures.ilink3.sbe.v8.2.leglastqty", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_2.fields.leg_option_delta = ProtoField.new("Leg Option Delta", "cme.futures.ilink3.sbe.v8.2.legoptiondelta", ftypes.INT32)
+cme_futures_ilink3_sbe_v8_2.fields.leg_option_delta = ProtoField.new("Leg Option Delta", "cme.futures.ilink3.sbe.v8.2.legoptiondelta", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.leg_price = ProtoField.new("Leg Price", "cme.futures.ilink3.sbe.v8.2.legprice", ftypes.INT64)
 cme_futures_ilink3_sbe_v8_2.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cme.futures.ilink3.sbe.v8.2.legratioqty", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.leg_security_id = ProtoField.new("Leg Security Id", "cme.futures.ilink3.sbe.v8.2.legsecurityid", ftypes.INT32)
@@ -137,6 +138,7 @@ cme_futures_ilink3_sbe_v8_2.fields.liquidity_flag = ProtoField.new("Liquidity Fl
 cme_futures_ilink3_sbe_v8_2.fields.list_update_action = ProtoField.new("List Update Action", "cme.futures.ilink3.sbe.v8.2.listupdateaction", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.location = ProtoField.new("Location", "cme.futures.ilink3.sbe.v8.2.location", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.managed_order = ProtoField.new("Managed Order", "cme.futures.ilink3.sbe.v8.2.managedorder", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.mantissa = ProtoField.new("Mantissa", "cme.futures.ilink3.sbe.v8.2.mantissa", ftypes.INT32)
 cme_futures_ilink3_sbe_v8_2.fields.manual_order_indicator = ProtoField.new("Manual Order Indicator", "cme.futures.ilink3.sbe.v8.2.manualorderindicator", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.market_segment_id = ProtoField.new("Market Segment Id", "cme.futures.ilink3.sbe.v8.2.marketsegmentid", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.mass_action_reject_reason = ProtoField.new("Mass Action Reject Reason", "cme.futures.ilink3.sbe.v8.2.massactionrejectreason", ftypes.UINT8)
@@ -176,7 +178,7 @@ cme_futures_ilink3_sbe_v8_2.fields.ob = ProtoField.new("Ob", "cme.futures.ilink3
 cme_futures_ilink3_sbe_v8_2.fields.offer_px = ProtoField.new("Offer Px", "cme.futures.ilink3.sbe.v8.2.offerpx", ftypes.INT64)
 cme_futures_ilink3_sbe_v8_2.fields.offer_size = ProtoField.new("Offer Size", "cme.futures.ilink3.sbe.v8.2.offersize", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_2.fields.ofm_override = ProtoField.new("Ofm Override", "cme.futures.ilink3.sbe.v8.2.ofmoverride", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_2.fields.option_delta = ProtoField.new("Option Delta", "cme.futures.ilink3.sbe.v8.2.optiondelta", ftypes.INT32)
+cme_futures_ilink3_sbe_v8_2.fields.option_delta = ProtoField.new("Option Delta", "cme.futures.ilink3.sbe.v8.2.optiondelta", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.ord_rej_reason = ProtoField.new("Ord Rej Reason", "cme.futures.ilink3.sbe.v8.2.ordrejreason", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_2.fields.ord_status = ProtoField.new("Ord Status", "cme.futures.ilink3.sbe.v8.2.ordstatus", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.ord_status_req_id = ProtoField.new("Ord Status Req Id", "cme.futures.ilink3.sbe.v8.2.ordstatusreqid", ftypes.UINT64)
@@ -270,7 +272,7 @@ cme_futures_ilink3_sbe_v8_2.fields.reserved_5 = ProtoField.new("Reserved 5", "cm
 cme_futures_ilink3_sbe_v8_2.fields.retransmission_509 = ProtoField.new("Retransmission 509", "cme.futures.ilink3.sbe.v8.2.retransmission509", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.retransmit_reject_510 = ProtoField.new("Retransmit Reject 510", "cme.futures.ilink3.sbe.v8.2.retransmitreject510", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.retransmit_request_508 = ProtoField.new("Retransmit Request 508", "cme.futures.ilink3.sbe.v8.2.retransmitrequest508", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_2.fields.risk_free_rate = ProtoField.new("Risk Free Rate", "cme.futures.ilink3.sbe.v8.2.riskfreerate", ftypes.INT32)
+cme_futures_ilink3_sbe_v8_2.fields.risk_free_rate = ProtoField.new("Risk Free Rate", "cme.futures.ilink3.sbe.v8.2.riskfreerate", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.schema_id = ProtoField.new("Schema Id", "cme.futures.ilink3.sbe.v8.2.schemaid", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_2.fields.sec_exec_id = ProtoField.new("Sec Exec Id", "cme.futures.ilink3.sbe.v8.2.secexecid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_2.fields.secret_key_secure_id_expiration = ProtoField.new("Secret Key Secure Id Expiration", "cme.futures.ilink3.sbe.v8.2.secretkeysecureidexpiration", ftypes.UINT16)
@@ -311,7 +313,7 @@ cme_futures_ilink3_sbe_v8_2.fields.terminate_507 = ProtoField.new("Terminate 507
 cme_futures_ilink3_sbe_v8_2.fields.termination_type = ProtoField.new("Termination Type", "cme.futures.ilink3.sbe.v8.2.terminationtype", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.text = ProtoField.new("Text", "cme.futures.ilink3.sbe.v8.2.text", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.time_in_force = ProtoField.new("Time In Force", "cme.futures.ilink3.sbe.v8.2.timeinforce", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_2.fields.time_to_expiration = ProtoField.new("Time To Expiration", "cme.futures.ilink3.sbe.v8.2.timetoexpiration", ftypes.INT32)
+cme_futures_ilink3_sbe_v8_2.fields.time_to_expiration = ProtoField.new("Time To Expiration", "cme.futures.ilink3.sbe.v8.2.timetoexpiration", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.tot_no_quote_entries = ProtoField.new("Tot No Quote Entries", "cme.futures.ilink3.sbe.v8.2.totnoquoteentries", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.tot_num_parties = ProtoField.new("Tot Num Parties", "cme.futures.ilink3.sbe.v8.2.totnumparties", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_2.fields.total_affected_orders = ProtoField.new("Total Affected Orders", "cme.futures.ilink3.sbe.v8.2.totalaffectedorders", ftypes.UINT8)
@@ -333,7 +335,7 @@ cme_futures_ilink3_sbe_v8_2.fields.unsolicited_cancel_type = ProtoField.new("Uns
 cme_futures_ilink3_sbe_v8_2.fields.uuid = ProtoField.new("Uuid", "cme.futures.ilink3.sbe.v8.2.uuid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_2.fields.var_data = ProtoField.new("Var Data", "cme.futures.ilink3.sbe.v8.2.vardata", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.version = ProtoField.new("Version", "cme.futures.ilink3.sbe.v8.2.version", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_2.fields.volatility = ProtoField.new("Volatility", "cme.futures.ilink3.sbe.v8.2.volatility", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_2.fields.volatility = ProtoField.new("Volatility", "cme.futures.ilink3.sbe.v8.2.volatility", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.week = ProtoField.new("Week", "cme.futures.ilink3.sbe.v8.2.week", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.year = ProtoField.new("Year", "cme.futures.ilink3.sbe.v8.2.year", ftypes.UINT16)
 
@@ -383,6 +385,7 @@ show.fills_group = true
 show.fills_groups = true
 show.frame = true
 show.group_size = true
+show.leg_option_delta = true
 show.mass_quote_517 = true
 show.mass_quote_ack_545 = true
 show.mass_quote_ack_entry_group = true
@@ -397,6 +400,7 @@ show.negotiation_response_501 = true
 show.new_order_cross_544 = true
 show.new_order_single_514 = true
 show.not_applied_513 = true
+show.option_delta = true
 show.order_cancel_reject_535 = true
 show.order_cancel_replace_reject_536 = true
 show.order_cancel_replace_request_515 = true
@@ -433,6 +437,7 @@ show.requesting_party_i_ds_groups = true
 show.retransmission_509 = true
 show.retransmit_reject_510 = true
 show.retransmit_request_508 = true
+show.risk_free_rate = true
 show.security_definition_request_560 = true
 show.security_definition_request_leg_group = true
 show.security_definition_request_leg_groups = true
@@ -444,8 +449,10 @@ show.sides_group = true
 show.sides_groups = true
 show.simple_open_framing_header = true
 show.terminate_507 = true
+show.time_to_expiration = true
 show.trd_reg_publications_group = true
 show.trd_reg_publications_groups = true
+show.volatility = true
 show.payload = false
 
 -- Register Cme Futures iLink3 Sbe 8.2 Show Options
@@ -490,6 +497,7 @@ cme_futures_ilink3_sbe_v8_2.prefs.show_fills_group = Pref.bool("Show Fills Group
 cme_futures_ilink3_sbe_v8_2.prefs.show_fills_groups = Pref.bool("Show Fills Groups", show.fills_groups, "Parse and add Fills Groups to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_frame = Pref.bool("Show Frame", show.frame, "Parse and add Frame to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_group_size = Pref.bool("Show Group Size", show.group_size, "Parse and add Group Size to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_leg_option_delta = Pref.bool("Show Leg Option Delta", show.leg_option_delta, "Parse and add Leg Option Delta to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_mass_quote_517 = Pref.bool("Show Mass Quote 517", show.mass_quote_517, "Parse and add Mass Quote 517 to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_mass_quote_ack_545 = Pref.bool("Show Mass Quote Ack 545", show.mass_quote_ack_545, "Parse and add Mass Quote Ack 545 to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_mass_quote_ack_entry_group = Pref.bool("Show Mass Quote Ack Entry Group", show.mass_quote_ack_entry_group, "Parse and add Mass Quote Ack Entry Group to protocol tree")
@@ -504,6 +512,7 @@ cme_futures_ilink3_sbe_v8_2.prefs.show_negotiation_response_501 = Pref.bool("Sho
 cme_futures_ilink3_sbe_v8_2.prefs.show_new_order_cross_544 = Pref.bool("Show New Order Cross 544", show.new_order_cross_544, "Parse and add New Order Cross 544 to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_new_order_single_514 = Pref.bool("Show New Order Single 514", show.new_order_single_514, "Parse and add New Order Single 514 to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_not_applied_513 = Pref.bool("Show Not Applied 513", show.not_applied_513, "Parse and add Not Applied 513 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_option_delta = Pref.bool("Show Option Delta", show.option_delta, "Parse and add Option Delta to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_order_cancel_reject_535 = Pref.bool("Show Order Cancel Reject 535", show.order_cancel_reject_535, "Parse and add Order Cancel Reject 535 to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_order_cancel_replace_reject_536 = Pref.bool("Show Order Cancel Replace Reject 536", show.order_cancel_replace_reject_536, "Parse and add Order Cancel Replace Reject 536 to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_order_cancel_replace_request_515 = Pref.bool("Show Order Cancel Replace Request 515", show.order_cancel_replace_request_515, "Parse and add Order Cancel Replace Request 515 to protocol tree")
@@ -540,6 +549,7 @@ cme_futures_ilink3_sbe_v8_2.prefs.show_requesting_party_i_ds_groups = Pref.bool(
 cme_futures_ilink3_sbe_v8_2.prefs.show_retransmission_509 = Pref.bool("Show Retransmission 509", show.retransmission_509, "Parse and add Retransmission 509 to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_retransmit_reject_510 = Pref.bool("Show Retransmit Reject 510", show.retransmit_reject_510, "Parse and add Retransmit Reject 510 to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_retransmit_request_508 = Pref.bool("Show Retransmit Request 508", show.retransmit_request_508, "Parse and add Retransmit Request 508 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_risk_free_rate = Pref.bool("Show Risk Free Rate", show.risk_free_rate, "Parse and add Risk Free Rate to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_security_definition_request_560 = Pref.bool("Show Security Definition Request 560", show.security_definition_request_560, "Parse and add Security Definition Request 560 to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_security_definition_request_leg_group = Pref.bool("Show Security Definition Request Leg Group", show.security_definition_request_leg_group, "Parse and add Security Definition Request Leg Group to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_security_definition_request_leg_groups = Pref.bool("Show Security Definition Request Leg Groups", show.security_definition_request_leg_groups, "Parse and add Security Definition Request Leg Groups to protocol tree")
@@ -551,8 +561,10 @@ cme_futures_ilink3_sbe_v8_2.prefs.show_sides_group = Pref.bool("Show Sides Group
 cme_futures_ilink3_sbe_v8_2.prefs.show_sides_groups = Pref.bool("Show Sides Groups", show.sides_groups, "Parse and add Sides Groups to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_simple_open_framing_header = Pref.bool("Show Simple Open Framing Header", show.simple_open_framing_header, "Parse and add Simple Open Framing Header to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_terminate_507 = Pref.bool("Show Terminate 507", show.terminate_507, "Parse and add Terminate 507 to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_time_to_expiration = Pref.bool("Show Time To Expiration", show.time_to_expiration, "Parse and add Time To Expiration to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_trd_reg_publications_group = Pref.bool("Show Trd Reg Publications Group", show.trd_reg_publications_group, "Parse and add Trd Reg Publications Group to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_trd_reg_publications_groups = Pref.bool("Show Trd Reg Publications Groups", show.trd_reg_publications_groups, "Parse and add Trd Reg Publications Groups to protocol tree")
+cme_futures_ilink3_sbe_v8_2.prefs.show_volatility = Pref.bool("Show Volatility", show.volatility, "Parse and add Volatility to protocol tree")
 cme_futures_ilink3_sbe_v8_2.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
@@ -724,6 +736,10 @@ function cme_futures_ilink3_sbe_v8_2.prefs_changed()
     show.group_size = cme_futures_ilink3_sbe_v8_2.prefs.show_group_size
     changed = true
   end
+  if show.leg_option_delta ~= cme_futures_ilink3_sbe_v8_2.prefs.show_leg_option_delta then
+    show.leg_option_delta = cme_futures_ilink3_sbe_v8_2.prefs.show_leg_option_delta
+    changed = true
+  end
   if show.mass_quote_517 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_mass_quote_517 then
     show.mass_quote_517 = cme_futures_ilink3_sbe_v8_2.prefs.show_mass_quote_517
     changed = true
@@ -778,6 +794,10 @@ function cme_futures_ilink3_sbe_v8_2.prefs_changed()
   end
   if show.not_applied_513 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_not_applied_513 then
     show.not_applied_513 = cme_futures_ilink3_sbe_v8_2.prefs.show_not_applied_513
+    changed = true
+  end
+  if show.option_delta ~= cme_futures_ilink3_sbe_v8_2.prefs.show_option_delta then
+    show.option_delta = cme_futures_ilink3_sbe_v8_2.prefs.show_option_delta
     changed = true
   end
   if show.order_cancel_reject_535 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_order_cancel_reject_535 then
@@ -924,6 +944,10 @@ function cme_futures_ilink3_sbe_v8_2.prefs_changed()
     show.retransmit_request_508 = cme_futures_ilink3_sbe_v8_2.prefs.show_retransmit_request_508
     changed = true
   end
+  if show.risk_free_rate ~= cme_futures_ilink3_sbe_v8_2.prefs.show_risk_free_rate then
+    show.risk_free_rate = cme_futures_ilink3_sbe_v8_2.prefs.show_risk_free_rate
+    changed = true
+  end
   if show.security_definition_request_560 ~= cme_futures_ilink3_sbe_v8_2.prefs.show_security_definition_request_560 then
     show.security_definition_request_560 = cme_futures_ilink3_sbe_v8_2.prefs.show_security_definition_request_560
     changed = true
@@ -968,12 +992,20 @@ function cme_futures_ilink3_sbe_v8_2.prefs_changed()
     show.terminate_507 = cme_futures_ilink3_sbe_v8_2.prefs.show_terminate_507
     changed = true
   end
+  if show.time_to_expiration ~= cme_futures_ilink3_sbe_v8_2.prefs.show_time_to_expiration then
+    show.time_to_expiration = cme_futures_ilink3_sbe_v8_2.prefs.show_time_to_expiration
+    changed = true
+  end
   if show.trd_reg_publications_group ~= cme_futures_ilink3_sbe_v8_2.prefs.show_trd_reg_publications_group then
     show.trd_reg_publications_group = cme_futures_ilink3_sbe_v8_2.prefs.show_trd_reg_publications_group
     changed = true
   end
   if show.trd_reg_publications_groups ~= cme_futures_ilink3_sbe_v8_2.prefs.show_trd_reg_publications_groups then
     show.trd_reg_publications_groups = cme_futures_ilink3_sbe_v8_2.prefs.show_trd_reg_publications_groups
+    changed = true
+  end
+  if show.volatility ~= cme_futures_ilink3_sbe_v8_2.prefs.show_volatility then
+    show.volatility = cme_futures_ilink3_sbe_v8_2.prefs.show_volatility
     changed = true
   end
   if show.payload ~= cme_futures_ilink3_sbe_v8_2.prefs.show_payload then
@@ -1057,24 +1089,96 @@ dissect.leg_security_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Leg Option Delta
-size_of.leg_option_delta = 4
+-- Size: Exponent
+size_of.exponent = 1
+
+-- Display: Exponent
+display.exponent = function(value)
+  -- Check if field has value
+  if value == 127 then
+    return "Exponent: No Value ("..value..")"
+  end
+
+  return "Exponent: "..value
+end
+
+-- Dissect: Exponent
+dissect.exponent = function(buffer, offset, packet, parent)
+  local length = size_of.exponent
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = display.exponent(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.exponent, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Mantissa
+size_of.mantissa = 4
+
+-- Display: Mantissa
+display.mantissa = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Mantissa: No Value ("..value..")"
+  end
+
+  return "Mantissa: "..value
+end
+
+-- Dissect: Mantissa
+dissect.mantissa = function(buffer, offset, packet, parent)
+  local length = size_of.mantissa
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = display.mantissa(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.mantissa, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate size of: Leg Option Delta
+size_of.leg_option_delta = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Leg Option Delta
-display.leg_option_delta = function(value)
-  return "Leg Option Delta: "..value
+display.leg_option_delta = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Leg Option Delta
+dissect.leg_option_delta_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Leg Option Delta
 dissect.leg_option_delta = function(buffer, offset, packet, parent)
-  local length = size_of.leg_option_delta
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.leg_option_delta(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.leg_option_delta then
+    local length = size_of.leg_option_delta(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.leg_option_delta(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.leg_option_delta, range, display)
+  end
 
-  parent:add(cme_futures_ilink3_sbe_v8_2.fields.leg_option_delta, range, value, display)
-
-  return offset + length, value
+  return dissect.leg_option_delta_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Leg Price
@@ -1104,7 +1208,7 @@ size_of.security_definition_response_leg_group = function(buffer, offset)
 
   index = index + size_of.leg_price
 
-  index = index + size_of.leg_option_delta
+  index = index + size_of.leg_option_delta(buffer, offset + index)
 
   index = index + size_of.leg_security_id
 
@@ -1127,7 +1231,7 @@ dissect.security_definition_response_leg_group_fields = function(buffer, offset,
   -- Leg Price: 8 Byte Signed Fixed Width Integer
   index, leg_price = dissect.leg_price(buffer, index, packet, parent)
 
-  -- Leg Option Delta: 4 Byte Signed Fixed Width Integer
+  -- Leg Option Delta: Struct of 2 fields
   index, leg_option_delta = dissect.leg_option_delta(buffer, index, packet, parent)
 
   -- Leg Security Id: 4 Byte Signed Fixed Width Integer
@@ -1245,7 +1349,7 @@ size_of.security_definition_response_leg_groups = function(buffer, offset)
 
   -- Calculate field size from count
   local security_definition_response_leg_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + security_definition_response_leg_group_count * 18
+  index = index + security_definition_response_leg_group_count * 19
 
   return index
 end
@@ -2211,7 +2315,7 @@ size_of.security_definition_request_leg_group = function(buffer, offset)
 
   index = index + size_of.leg_security_id
 
-  index = index + size_of.leg_option_delta
+  index = index + size_of.leg_option_delta(buffer, offset + index)
 
   index = index + size_of.leg_side
 
@@ -2235,7 +2339,7 @@ dissect.security_definition_request_leg_group_fields = function(buffer, offset, 
   -- Leg Security Id: 4 Byte Signed Fixed Width Integer
   index, leg_security_id = dissect.leg_security_id(buffer, index, packet, parent)
 
-  -- Leg Option Delta: 4 Byte Signed Fixed Width Integer
+  -- Leg Option Delta: Struct of 2 fields
   index, leg_option_delta = dissect.leg_option_delta(buffer, index, packet, parent)
 
   -- Leg Side: 1 Byte Unsigned Fixed Width Integer
@@ -2268,7 +2372,7 @@ size_of.security_definition_request_leg_groups = function(buffer, offset)
 
   -- Calculate field size from count
   local security_definition_request_leg_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + security_definition_request_leg_group_count * 18
+  index = index + security_definition_request_leg_group_count * 19
 
   return index
 end
@@ -9711,64 +9815,130 @@ dissect.execution_report_trade_spread_leg_order_event_groups = function(buffer, 
   return dissect.execution_report_trade_spread_leg_order_event_groups_fields(buffer, offset, packet, parent)
 end
 
--- Size: Risk Free Rate
-size_of.risk_free_rate = 4
+-- Calculate size of: Risk Free Rate
+size_of.risk_free_rate = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Risk Free Rate
-display.risk_free_rate = function(value)
-  return "Risk Free Rate: "..value
+display.risk_free_rate = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Risk Free Rate
+dissect.risk_free_rate_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Risk Free Rate
 dissect.risk_free_rate = function(buffer, offset, packet, parent)
-  local length = size_of.risk_free_rate
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.risk_free_rate(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.risk_free_rate then
+    local length = size_of.risk_free_rate(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.risk_free_rate(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.risk_free_rate, range, display)
+  end
 
-  parent:add(cme_futures_ilink3_sbe_v8_2.fields.risk_free_rate, range, value, display)
-
-  return offset + length, value
+  return dissect.risk_free_rate_fields(buffer, offset, packet, parent)
 end
 
--- Size: Time To Expiration
-size_of.time_to_expiration = 4
+-- Calculate size of: Time To Expiration
+size_of.time_to_expiration = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Time To Expiration
-display.time_to_expiration = function(value)
-  return "Time To Expiration: "..value
+display.time_to_expiration = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Time To Expiration
+dissect.time_to_expiration_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Time To Expiration
 dissect.time_to_expiration = function(buffer, offset, packet, parent)
-  local length = size_of.time_to_expiration
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.time_to_expiration(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.time_to_expiration then
+    local length = size_of.time_to_expiration(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.time_to_expiration(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.time_to_expiration, range, display)
+  end
 
-  parent:add(cme_futures_ilink3_sbe_v8_2.fields.time_to_expiration, range, value, display)
-
-  return offset + length, value
+  return dissect.time_to_expiration_fields(buffer, offset, packet, parent)
 end
 
--- Size: Option Delta
-size_of.option_delta = 4
+-- Calculate size of: Option Delta
+size_of.option_delta = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Option Delta
-display.option_delta = function(value)
-  return "Option Delta: "..value
+display.option_delta = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Option Delta
+dissect.option_delta_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Option Delta
 dissect.option_delta = function(buffer, offset, packet, parent)
-  local length = size_of.option_delta
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.option_delta(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.option_delta then
+    local length = size_of.option_delta(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.option_delta(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.option_delta, range, display)
+  end
 
-  parent:add(cme_futures_ilink3_sbe_v8_2.fields.option_delta, range, value, display)
-
-  return offset + length, value
+  return dissect.option_delta_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Underlying Px
@@ -9792,24 +9962,46 @@ dissect.underlying_px = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Volatility
-size_of.volatility = 8
+-- Calculate size of: Volatility
+size_of.volatility = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.mantissa
+
+  index = index + size_of.exponent
+
+  return index
+end
 
 -- Display: Volatility
-display.volatility = function(value)
-  return "Volatility: "..value
+display.volatility = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Volatility
+dissect.volatility_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+
+  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
+  index, exponent = dissect.exponent(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Volatility
 dissect.volatility = function(buffer, offset, packet, parent)
-  local length = size_of.volatility
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.volatility(value, buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.volatility then
+    local length = size_of.volatility(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.volatility(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_2.fields.volatility, range, display)
+  end
 
-  parent:add(cme_futures_ilink3_sbe_v8_2.fields.volatility, range, value, display)
-
-  return offset + length, value
+  return dissect.volatility_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Execution Report Trade Spread Leg 527
@@ -9826,7 +10018,7 @@ size_of.execution_report_trade_spread_leg_527 = function(buffer, offset)
 
   index = index + size_of.cl_ord_id
 
-  index = index + size_of.volatility
+  index = index + size_of.volatility(buffer, offset + index)
 
   index = index + size_of.party_details_list_req_id
 
@@ -9844,11 +10036,11 @@ size_of.execution_report_trade_spread_leg_527 = function(buffer, offset)
 
   index = index + size_of.location
 
-  index = index + size_of.option_delta
+  index = index + size_of.option_delta(buffer, offset + index)
 
-  index = index + size_of.time_to_expiration
+  index = index + size_of.time_to_expiration(buffer, offset + index)
 
-  index = index + size_of.risk_free_rate
+  index = index + size_of.risk_free_rate(buffer, offset + index)
 
   index = index + size_of.security_id
 
@@ -9899,7 +10091,7 @@ dissect.execution_report_trade_spread_leg_527_fields = function(buffer, offset, 
   -- Cl Ord Id: 20 Byte Ascii String
   index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Volatility: 8 Byte Signed Fixed Width Integer
+  -- Volatility: Struct of 2 fields
   index, volatility = dissect.volatility(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -9926,13 +10118,13 @@ dissect.execution_report_trade_spread_leg_527_fields = function(buffer, offset, 
   -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
-  -- Option Delta: 4 Byte Signed Fixed Width Integer
+  -- Option Delta: Struct of 2 fields
   index, option_delta = dissect.option_delta(buffer, index, packet, parent)
 
-  -- Time To Expiration: 4 Byte Signed Fixed Width Integer
+  -- Time To Expiration: Struct of 2 fields
   index, time_to_expiration = dissect.time_to_expiration(buffer, index, packet, parent)
 
-  -- Risk Free Rate: 4 Byte Signed Fixed Width Integer
+  -- Risk Free Rate: Struct of 2 fields
   index, risk_free_rate = dissect.risk_free_rate(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
