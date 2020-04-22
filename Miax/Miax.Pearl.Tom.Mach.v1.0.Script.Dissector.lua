@@ -2278,7 +2278,7 @@ dissect.series_update_message_fields = function(buffer, offset, packet, parent)
   -- Opening Underlying Market Code: 1 Byte Ascii String Enum with 17 values
   index, opening_underlying_market_code = dissect.opening_underlying_market_code(buffer, index, packet, parent)
 
-  -- Reserved: 12 Byte Unsigned Fixed Width Integer
+  -- Reserved: 12 Byte
   index, reserved = dissect.reserved(buffer, index, packet, parent)
 
   return index

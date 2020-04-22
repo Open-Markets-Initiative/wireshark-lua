@@ -1196,10 +1196,10 @@ cboe_options_c1_orderentry_boe_v2_10.fields.reserved_12 = ProtoField.new("Reserv
 cboe_options_c1_orderentry_boe_v2_10.fields.reserved_15 = ProtoField.new("Reserved 15", "cboe.options.c1.orderentry.boe.v2.10.reserved15", ftypes.BYTES)
 cboe_options_c1_orderentry_boe_v2_10.fields.reserved_16 = ProtoField.new("Reserved 16", "cboe.options.c1.orderentry.boe.v2.10.reserved16", ftypes.BYTES)
 cboe_options_c1_orderentry_boe_v2_10.fields.reserved_17 = ProtoField.new("Reserved 17", "cboe.options.c1.orderentry.boe.v2.10.reserved17", ftypes.BYTES)
-cboe_options_c1_orderentry_boe_v2_10.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.options.c1.orderentry.boe.v2.10.reserved2", ftypes.UINT16)
-cboe_options_c1_orderentry_boe_v2_10.fields.reserved_3 = ProtoField.new("Reserved 3", "cboe.options.c1.orderentry.boe.v2.10.reserved3", ftypes.UINT32)
-cboe_options_c1_orderentry_boe_v2_10.fields.reserved_4 = ProtoField.new("Reserved 4", "cboe.options.c1.orderentry.boe.v2.10.reserved4", ftypes.UINT32)
-cboe_options_c1_orderentry_boe_v2_10.fields.reserved_6 = ProtoField.new("Reserved 6", "cboe.options.c1.orderentry.boe.v2.10.reserved6", ftypes.UINT64)
+cboe_options_c1_orderentry_boe_v2_10.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.options.c1.orderentry.boe.v2.10.reserved2", ftypes.BYTES)
+cboe_options_c1_orderentry_boe_v2_10.fields.reserved_3 = ProtoField.new("Reserved 3", "cboe.options.c1.orderentry.boe.v2.10.reserved3", ftypes.BYTES)
+cboe_options_c1_orderentry_boe_v2_10.fields.reserved_4 = ProtoField.new("Reserved 4", "cboe.options.c1.orderentry.boe.v2.10.reserved4", ftypes.BYTES)
+cboe_options_c1_orderentry_boe_v2_10.fields.reserved_6 = ProtoField.new("Reserved 6", "cboe.options.c1.orderentry.boe.v2.10.reserved6", ftypes.BYTES)
 cboe_options_c1_orderentry_boe_v2_10.fields.reserved_internal = ProtoField.new("Reserved Internal", "cboe.options.c1.orderentry.boe.v2.10.reservedinternal", ftypes.STRING)
 cboe_options_c1_orderentry_boe_v2_10.fields.reset_risk_acknowledgment_message = ProtoField.new("Reset Risk Acknowledgment Message", "cboe.options.c1.orderentry.boe.v2.10.resetriskacknowledgmentmessage", ftypes.STRING)
 cboe_options_c1_orderentry_boe_v2_10.fields.restatement_reason = ProtoField.new("Restatement Reason", "cboe.options.c1.orderentry.boe.v2.10.restatementreason", ftypes.STRING)
@@ -3947,7 +3947,7 @@ dissect.floor_trade_confirmation_rejected_message_fields = function(buffer, offs
   -- Price Type: 1 Byte Ascii String Enum with 4 values
   index, price_type = dissect.price_type(buffer, index, packet, parent)
 
-  -- Reserved 15: 15 Byte Unsigned Fixed Width Integer
+  -- Reserved 15: 15 Byte
   index, reserved_15 = dissect.reserved_15(buffer, index, packet, parent)
 
   -- Reject Text: 60 Byte Ascii String
@@ -4427,7 +4427,7 @@ dissect.floor_trade_notification_message_fields = function(buffer, offset, packe
   -- Price Type: 1 Byte Ascii String Enum with 4 values
   index, price_type = dissect.price_type(buffer, index, packet, parent)
 
-  -- Reserved 15: 15 Byte Unsigned Fixed Width Integer
+  -- Reserved 15: 15 Byte
   index, reserved_15 = dissect.reserved_15(buffer, index, packet, parent)
 
   return index
@@ -26379,7 +26379,7 @@ dissect.quote_update_rejected_message_fields = function(buffer, offset, packet, 
   -- Quote Reject Reason: 1 Byte Ascii String Enum with 23 values
   index, quote_reject_reason = dissect.quote_reject_reason(buffer, index, packet, parent)
 
-  -- Reserved 17: 17 Byte Unsigned Fixed Width Integer
+  -- Reserved 17: 17 Byte
   index, reserved_17 = dissect.reserved_17(buffer, index, packet, parent)
 
   return index
@@ -30404,7 +30404,7 @@ end
 dissect.reserved_6 = function(buffer, offset, packet, parent)
   local length = size_of.reserved_6
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local value = range:bytes():tohex(false, " ")
   local display = display.reserved_6(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_c1_orderentry_boe_v2_10.fields.reserved_6, range, value, display)
@@ -30559,7 +30559,7 @@ dissect.quote_result_group_fields = function(buffer, offset, packet, parent)
   -- Quote Liquidity Indicator: 1 Byte Ascii String Enum with 5 values
   index, quote_liquidity_indicator = dissect.quote_liquidity_indicator(buffer, index, packet, parent)
 
-  -- Reserved 6: 6 Byte Unsigned Fixed Width Integer
+  -- Reserved 6: 6 Byte
   index, reserved_6 = dissect.reserved_6(buffer, index, packet, parent)
 
   return index
@@ -30616,7 +30616,7 @@ dissect.quote_update_acknowledgment_message_fields = function(buffer, offset, pa
   -- Quote Reject Reason: 1 Byte Ascii String Enum with 23 values
   index, quote_reject_reason = dissect.quote_reject_reason(buffer, index, packet, parent)
 
-  -- Reserved 17: 17 Byte Unsigned Fixed Width Integer
+  -- Reserved 17: 17 Byte
   index, reserved_17 = dissect.reserved_17(buffer, index, packet, parent)
 
   -- Number Of Quote Results: 1 Byte Unsigned Fixed Width Integer
@@ -34889,7 +34889,7 @@ dissect.floor_trade_confirmation_message_fields = function(buffer, offset, packe
   -- Price Type: 1 Byte Ascii String Enum with 4 values
   index, price_type = dissect.price_type(buffer, index, packet, parent)
 
-  -- Reserved 15: 15 Byte Unsigned Fixed Width Integer
+  -- Reserved 15: 15 Byte
   index, reserved_15 = dissect.reserved_15(buffer, index, packet, parent)
 
   return index
@@ -35282,7 +35282,7 @@ end
 dissect.reserved_4 = function(buffer, offset, packet, parent)
   local length = size_of.reserved_4
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = display.reserved_4(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_c1_orderentry_boe_v2_10.fields.reserved_4, range, value, display)
@@ -35325,7 +35325,7 @@ dissect.risk_reset_message_fields = function(buffer, offset, packet, parent, siz
   -- Risk Reset: 8 Byte Ascii String
   index, risk_reset = dissect.risk_reset(buffer, index, packet, parent)
 
-  -- Reserved 4: 4 Byte Unsigned Fixed Width Integer
+  -- Reserved 4: 4 Byte
   index, reserved_4 = dissect.reserved_4(buffer, index, packet, parent)
 
   -- Clearing Firm: 4 Byte Ascii String
@@ -35784,7 +35784,7 @@ end
 dissect.reserved_2 = function(buffer, offset, packet, parent)
   local length = size_of.reserved_2
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = display.reserved_2(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_c1_orderentry_boe_v2_10.fields.reserved_2, range, value, display)
@@ -35835,7 +35835,7 @@ dissect.short_quote_update_fields = function(buffer, offset, packet, parent)
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte Unsigned Fixed Width Integer
+  -- Reserved 2: 2 Byte
   index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
 
   return index
@@ -35939,7 +35939,7 @@ end
 dissect.reserved_3 = function(buffer, offset, packet, parent)
   local length = size_of.reserved_3
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = display.reserved_3(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_c1_orderentry_boe_v2_10.fields.reserved_3, range, value, display)
@@ -35971,7 +35971,7 @@ dissect.short_quote_update_message_fields = function(buffer, offset, packet, par
   -- Capacity: 1 Byte Ascii String Enum with 8 values
   index, capacity = dissect.capacity(buffer, index, packet, parent)
 
-  -- Reserved 3: 3 Byte Unsigned Fixed Width Integer
+  -- Reserved 3: 3 Byte
   index, reserved_3 = dissect.reserved_3(buffer, index, packet, parent)
 
   -- Send Time: 8 Byte Unsigned Fixed Width Integer
@@ -36078,7 +36078,7 @@ dissect.quote_update_fields = function(buffer, offset, packet, parent)
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
-  -- Reserved 12: 12 Byte Unsigned Fixed Width Integer
+  -- Reserved 12: 12 Byte
   index, reserved_12 = dissect.reserved_12(buffer, index, packet, parent)
 
   return index
@@ -36147,7 +36147,7 @@ dissect.quote_update_message_fields = function(buffer, offset, packet, parent, s
   -- Capacity: 1 Byte Ascii String Enum with 8 values
   index, capacity = dissect.capacity(buffer, index, packet, parent)
 
-  -- Reserved 15: 15 Byte Unsigned Fixed Width Integer
+  -- Reserved 15: 15 Byte
   index, reserved_15 = dissect.reserved_15(buffer, index, packet, parent)
 
   -- Send Time: 8 Byte Unsigned Fixed Width Integer
