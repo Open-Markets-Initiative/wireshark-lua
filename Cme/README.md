@@ -15,6 +15,7 @@
 |Futures | Mdp3 | Sbe | [1.8][Cme.Futures.Mdp3.Sbe.v1.8.Dissector] | 7/1/2016 | 8171 | Verified | [url][Cme.Futures.Mdp3.Sbe.v1.8.Url] - [xml][Cme.Futures.Mdp3.Sbe.v1.8.Xml] - [ftp][Cme.Futures.Mdp3.Sbe.v1.8.Ftp]|
 |Futures | Mdp3 | Sbe | [1.6][Cme.Futures.Mdp3.Sbe.v1.6.Dissector] | 1/9/2016 | 7266 | Verified | [url][Cme.Futures.Mdp3.Sbe.v1.6.Url] - [xml][Cme.Futures.Mdp3.Sbe.v1.6.Xml] - [ftp][Cme.Futures.Mdp3.Sbe.v1.6.Ftp]|
 |Futures | Mdp3 | Sbe | [1.5][Cme.Futures.Mdp3.Sbe.v1.5.Dissector] | 8/6/2014 | 7251 | Verified | [url][Cme.Futures.Mdp3.Sbe.v1.5.Url] - [xml][Cme.Futures.Mdp3.Sbe.v1.5.Xml] - [ftp][Cme.Futures.Mdp3.Sbe.v1.5.Ftp]|
+|Futures | Mdp3 | Sbe | [1.11][Cme.Futures.Mdp3.Sbe.v1.11.Dissector] | 3/3/2020 | 10258 | Untested | [url][Cme.Futures.Mdp3.Sbe.v1.11.Url] - [xml][Cme.Futures.Mdp3.Sbe.v1.11.Xml] - [ftp][Cme.Futures.Mdp3.Sbe.v1.11.Ftp]|
 |Futures | Mdp3 | Sbe | [1.10][Cme.Futures.Mdp3.Sbe.v1.10.Dissector] | 7/26/2019 | 9893 | Untested | [url][Cme.Futures.Mdp3.Sbe.v1.10.Url] - [xml][Cme.Futures.Mdp3.Sbe.v1.10.Xml] - [ftp][Cme.Futures.Mdp3.Sbe.v1.10.Ftp]|
 
 
@@ -41,6 +42,10 @@ Cme: [website](http://www.cmegroup.com/ "Go to Chicago Mercantile Exchange")
 [Cme.Futures.Mdp3.Sbe.v1.10.Url]: https://www.cmegroup.com/confluence/display/EPICSANDBOX/CME+MDP+3.0+Market+Data "Specification url"
 [Cme.Futures.Mdp3.Sbe.v1.10.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Cme/Cme.Futures.Mdp3.Sbe.v1.10.xml "Chicago Mercantile Exchange 1.10 Xml"
 [Cme.Futures.Mdp3.Sbe.v1.10.Ftp]: ftp://ftp.cmegroup.com/SBEFix/Production/Templates "Specification ftp"
+[Cme.Futures.Mdp3.Sbe.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Futures.Mdp3.Sbe.v1.11.Script.Dissector.lua "Chicago Mercantile Exchange 1.11 Wireshark Dissector"
+[Cme.Futures.Mdp3.Sbe.v1.11.Url]: https://www.cmegroup.com/confluence/display/EPICSANDBOX/CME+MDP+3.0+Market+Data "Specification url"
+[Cme.Futures.Mdp3.Sbe.v1.11.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Cme/Cme.Futures.Mdp3.Sbe.v1.11.xml "Chicago Mercantile Exchange 1.11 Xml"
+[Cme.Futures.Mdp3.Sbe.v1.11.Ftp]: ftp://ftp.cmegroup.com/SBEFix/Production/Templates "Specification ftp"
 [Cme.Streamline.Sbe.v8.5.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Streamline.Sbe.v8.5.Script.Dissector.lua "Chicago Mercantile Exchange 8.5 Wireshark Dissector"
 [Cme.Streamline.Sbe.v8.5.Url]: https://www.cmegroup.com/confluence/display/EPICSANDBOX/SBE+-+Streamlined+Market+Data "Specification url"
 [Cme.Streamline.Sbe.v8.5.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Cme/Cme.Mdp3.Sbe.v9.1.xml "Chicago Mercantile Exchange 8.5 Xml"
