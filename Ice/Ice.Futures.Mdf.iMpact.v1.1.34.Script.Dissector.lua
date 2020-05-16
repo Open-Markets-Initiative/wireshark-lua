@@ -259,7 +259,7 @@ ice_futures_mdf_impact_v1_1_34.fields.text_message_extra_fld = ProtoField.new("T
 ice_futures_mdf_impact_v1_1_34.fields.threshold_imbalance_qty = ProtoField.new("Threshold Imbalance Qty", "ice.futures.mdf.impact.v1.1.34.thresholdimbalanceqty", ftypes.INT32)
 ice_futures_mdf_impact_v1_1_34.fields.tick_value = ProtoField.new("Tick Value", "ice.futures.mdf.impact.v1.1.34.tickvalue", ftypes.INT64)
 ice_futures_mdf_impact_v1_1_34.fields.time = ProtoField.new("Time", "ice.futures.mdf.impact.v1.1.34.time", ftypes.INT64)
-ice_futures_mdf_impact_v1_1_34.fields.timestamp = ProtoField.new("Timestamp", "ice.futures.mdf.impact.v1.1.34.timestamp", ftypes.UINT64)
+ice_futures_mdf_impact_v1_1_34.fields.timestamp = ProtoField.new("Timestamp", "ice.futures.mdf.impact.v1.1.34.timestamp", ftypes.INT64)
 ice_futures_mdf_impact_v1_1_34.fields.total_volume = ProtoField.new("Total Volume", "ice.futures.mdf.impact.v1.1.34.totalvolume", ftypes.INT32)
 ice_futures_mdf_impact_v1_1_34.fields.trade_id = ProtoField.new("Trade Id", "ice.futures.mdf.impact.v1.1.34.tradeid", ftypes.INT64)
 ice_futures_mdf_impact_v1_1_34.fields.trade_message = ProtoField.new("Trade Message", "ice.futures.mdf.impact.v1.1.34.trademessage", ftypes.STRING)
@@ -4209,7 +4209,7 @@ end
 dissect.timestamp = function(buffer, offset, packet, parent)
   local length = size_of.timestamp
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local value = range:int64()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
   parent:add(ice_futures_mdf_impact_v1_1_34.fields.timestamp, range, value, display)
@@ -4270,7 +4270,7 @@ dissect.delete_price_level_message_fields = function(buffer, offset, packet, par
   -- Price Level Position: 1 Byte Signed Fixed Width Integer
   index, price_level_position = dissect.price_level_position(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: 8 Byte Signed Fixed Width Integer
   index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   return index
@@ -4407,7 +4407,7 @@ dissect.change_price_level_message_fields = function(buffer, offset, packet, par
   -- Implied Order Count: 2 Byte Signed Fixed Width Integer
   index, implied_order_count = dissect.implied_order_count(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: 8 Byte Signed Fixed Width Integer
   index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   return index
@@ -4484,7 +4484,7 @@ dissect.add_price_level_message_fields = function(buffer, offset, packet, parent
   -- Implied Order Count: 2 Byte Signed Fixed Width Integer
   index, implied_order_count = dissect.implied_order_count(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: 8 Byte Signed Fixed Width Integer
   index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   return index
@@ -10103,7 +10103,7 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   -- Count: 2 Byte Unsigned Fixed Width Integer
   index, count = dissect.count(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: 8 Byte Signed Fixed Width Integer
   index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   return index

@@ -26,7 +26,7 @@ cboe_options_marketlevel2_csm_v1_0_4.fields.currency_code = ProtoField.new("Curr
 cboe_options_marketlevel2_csm_v1_0_4.fields.currency_code_length = ProtoField.new("Currency Code Length", "cboe.options.marketlevel2.csm.v1.0.4.currencycodelength", ftypes.UINT8)
 cboe_options_marketlevel2_csm_v1_0_4.fields.currency_code_text = ProtoField.new("Currency Code Text", "cboe.options.marketlevel2.csm.v1.0.4.currencycodetext", ftypes.STRING)
 cboe_options_marketlevel2_csm_v1_0_4.fields.exercise_style = ProtoField.new("Exercise Style", "cboe.options.marketlevel2.csm.v1.0.4.exercisestyle", ftypes.UINT8)
-cboe_options_marketlevel2_csm_v1_0_4.fields.first_msg_seq_num = ProtoField.new("first Msg Seq Num", "cboe.options.marketlevel2.csm.v1.0.4.firstmsgseqnum", ftypes.UINT32)
+cboe_options_marketlevel2_csm_v1_0_4.fields.first_msg_seq_num = ProtoField.new("First Msg Seq Num", "cboe.options.marketlevel2.csm.v1.0.4.firstmsgseqnum", ftypes.UINT32)
 cboe_options_marketlevel2_csm_v1_0_4.fields.incremental_refresh_md_entry = ProtoField.new("Incremental Refresh Md Entry", "cboe.options.marketlevel2.csm.v1.0.4.incrementalrefreshmdentry", ftypes.STRING)
 cboe_options_marketlevel2_csm_v1_0_4.fields.incremental_refresh_message = ProtoField.new("Incremental Refresh Message", "cboe.options.marketlevel2.csm.v1.0.4.incrementalrefreshmessage", ftypes.STRING)
 cboe_options_marketlevel2_csm_v1_0_4.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cboe.options.marketlevel2.csm.v1.0.4.legratioqty", ftypes.UINT32)
@@ -2650,13 +2650,27 @@ dissect.message_header = function(buffer, offset, packet, parent)
   return dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
+-- Calculate size of: Message
+size_of.message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.message_header(buffer, offset + index)
+
+  -- Calculate runtime size of Payload field
+  local payload_offset = offset + index
+  local payload_type = buffer(payload_offset - 6, 1):uint()
+  index = index + size_of.payload(buffer, payload_offset, payload_type)
+
+  return index
+end
+
 -- Display: Message
 display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message
-dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
+dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 4 fields
@@ -2672,28 +2686,27 @@ dissect.message_fields = function(buffer, offset, packet, parent, size_of_messag
 end
 
 -- Dissect: Message
-dissect.message = function(buffer, offset, packet, parent, size_of_message)
-  -- Optionally add struct element to protocol tree
+dissect.message = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
   if show.message then
-    local range = buffer(offset, size_of_message)
+    local length = size_of.message(buffer, offset)
+    local range = buffer(offset, length)
     local display = display.message(buffer, packet, parent)
     parent = parent:add(cboe_options_marketlevel2_csm_v1_0_4.fields.message, range, display)
   end
 
-  dissect.message_fields(buffer, offset, packet, parent, size_of_message)
-
-  return offset + size_of_message
+  return dissect.message_fields(buffer, offset, packet, parent)
 end
 
--- Size: first Msg Seq Num
+-- Size: First Msg Seq Num
 size_of.first_msg_seq_num = 4
 
--- Display: first Msg Seq Num
+-- Display: First Msg Seq Num
 display.first_msg_seq_num = function(value)
-  return "first Msg Seq Num: "..value
+  return "First Msg Seq Num: "..value
 end
 
--- Dissect: first Msg Seq Num
+-- Dissect: First Msg Seq Num
 dissect.first_msg_seq_num = function(buffer, offset, packet, parent)
   local length = size_of.first_msg_seq_num
   local range = buffer(offset, length)
@@ -2823,7 +2836,7 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   -- Message Count: 1 Byte Unsigned Fixed Width Integer
   index, message_count = dissect.message_count(buffer, index, packet, parent)
 
-  -- first Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- First Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, first_msg_seq_num = dissect.first_msg_seq_num(buffer, index, packet, parent)
 
   return index
@@ -2854,12 +2867,7 @@ dissect.packet = function(buffer, packet, parent)
 
   -- Message: Struct of 2 fields
   for i = 1, message_count do
-
-    -- Dependency element: Message Length
-    local message_length = buffer(index - 0, 2):uint()
-
-    -- Message: Struct of 2 fields
-    index = dissect.message(buffer, index, packet, parent, message_length)
+    index = dissect.message(buffer, index, packet, parent)
   end
 
   return index

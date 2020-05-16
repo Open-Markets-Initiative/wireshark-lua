@@ -35,7 +35,7 @@ cboe_options_marketdatafeed_csm_v1_4_2.fields.eop_type = ProtoField.new("Eop Typ
 cboe_options_marketdatafeed_csm_v1_4_2.fields.eos = ProtoField.new("Eos", "cboe.options.marketdatafeed.csm.v1.4.2.eos", ftypes.UINT32)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.exercise_style = ProtoField.new("Exercise Style", "cboe.options.marketdatafeed.csm.v1.4.2.exercisestyle", ftypes.UINT8)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.expected_opening_price_and_size_message = ProtoField.new("Expected Opening Price And Size Message", "cboe.options.marketdatafeed.csm.v1.4.2.expectedopeningpriceandsizemessage", ftypes.STRING)
-cboe_options_marketdatafeed_csm_v1_4_2.fields.first_msg_seq_num = ProtoField.new("first Msg Seq Num", "cboe.options.marketdatafeed.csm.v1.4.2.firstmsgseqnum", ftypes.UINT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.first_msg_seq_num = ProtoField.new("First Msg Seq Num", "cboe.options.marketdatafeed.csm.v1.4.2.firstmsgseqnum", ftypes.UINT32)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.index_value_md_entry = ProtoField.new("Index Value Md Entry", "cboe.options.marketdatafeed.csm.v1.4.2.indexvaluemdentry", ftypes.STRING)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.index_value_message = ProtoField.new("Index Value Message", "cboe.options.marketdatafeed.csm.v1.4.2.indexvaluemessage", ftypes.STRING)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cboe.options.marketdatafeed.csm.v1.4.2.legratioqty", ftypes.UINT32)
@@ -3956,15 +3956,15 @@ dissect.message = function(buffer, offset, packet, parent)
   return dissect.message_fields(buffer, offset, packet, parent)
 end
 
--- Size: first Msg Seq Num
+-- Size: First Msg Seq Num
 size_of.first_msg_seq_num = 4
 
--- Display: first Msg Seq Num
+-- Display: First Msg Seq Num
 display.first_msg_seq_num = function(value)
-  return "first Msg Seq Num: "..value
+  return "First Msg Seq Num: "..value
 end
 
--- Dissect: first Msg Seq Num
+-- Dissect: First Msg Seq Num
 dissect.first_msg_seq_num = function(buffer, offset, packet, parent)
   local length = size_of.first_msg_seq_num
   local range = buffer(offset, length)
@@ -4094,7 +4094,7 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   -- Message Count: 1 Byte Unsigned Fixed Width Integer
   index, message_count = dissect.message_count(buffer, index, packet, parent)
 
-  -- first Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- First Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, first_msg_seq_num = dissect.first_msg_seq_num(buffer, index, packet, parent)
 
   return index

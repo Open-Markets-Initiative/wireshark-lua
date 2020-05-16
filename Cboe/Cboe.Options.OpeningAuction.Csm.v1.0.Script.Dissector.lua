@@ -34,7 +34,7 @@ cboe_options_openingauction_csm_v1_0.fields.eop_type = ProtoField.new("Eop Type"
 cboe_options_openingauction_csm_v1_0.fields.eos = ProtoField.new("Eos", "cboe.options.openingauction.csm.v1.0.eos", ftypes.UINT32)
 cboe_options_openingauction_csm_v1_0.fields.exercise_style = ProtoField.new("Exercise Style", "cboe.options.openingauction.csm.v1.0.exercisestyle", ftypes.UINT8)
 cboe_options_openingauction_csm_v1_0.fields.expected_opening_price_and_size_message = ProtoField.new("Expected Opening Price And Size Message", "cboe.options.openingauction.csm.v1.0.expectedopeningpriceandsizemessage", ftypes.STRING)
-cboe_options_openingauction_csm_v1_0.fields.first_msg_seq_num = ProtoField.new("first Msg Seq Num", "cboe.options.openingauction.csm.v1.0.firstmsgseqnum", ftypes.UINT32)
+cboe_options_openingauction_csm_v1_0.fields.first_msg_seq_num = ProtoField.new("First Msg Seq Num", "cboe.options.openingauction.csm.v1.0.firstmsgseqnum", ftypes.UINT32)
 cboe_options_openingauction_csm_v1_0.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cboe.options.openingauction.csm.v1.0.legratioqty", ftypes.UINT32)
 cboe_options_openingauction_csm_v1_0.fields.leg_security_id = ProtoField.new("Leg Security Id", "cboe.options.openingauction.csm.v1.0.legsecurityid", ftypes.UINT32)
 cboe_options_openingauction_csm_v1_0.fields.leg_side = ProtoField.new("Leg Side", "cboe.options.openingauction.csm.v1.0.legside", ftypes.STRING)
@@ -2811,15 +2811,15 @@ dissect.message = function(buffer, offset, packet, parent)
   return dissect.message_fields(buffer, offset, packet, parent)
 end
 
--- Size: first Msg Seq Num
+-- Size: First Msg Seq Num
 size_of.first_msg_seq_num = 4
 
--- Display: first Msg Seq Num
+-- Display: First Msg Seq Num
 display.first_msg_seq_num = function(value)
-  return "first Msg Seq Num: "..value
+  return "First Msg Seq Num: "..value
 end
 
--- Dissect: first Msg Seq Num
+-- Dissect: First Msg Seq Num
 dissect.first_msg_seq_num = function(buffer, offset, packet, parent)
   local length = size_of.first_msg_seq_num
   local range = buffer(offset, length)
@@ -2949,7 +2949,7 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   -- Message Count: 1 Byte Unsigned Fixed Width Integer
   index, message_count = dissect.message_count(buffer, index, packet, parent)
 
-  -- first Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- First Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, first_msg_seq_num = dissect.first_msg_seq_num(buffer, index, packet, parent)
 
   return index
