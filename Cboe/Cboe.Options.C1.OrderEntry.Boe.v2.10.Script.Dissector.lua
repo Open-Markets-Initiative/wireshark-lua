@@ -30481,7 +30481,7 @@ display.quote_result = function(value)
     return "Quote Result: Admin Rejection (a)"
   end
   if value == "P" then
-    return "Quote Result: Rejected Can’ T Post (P)"
+    return "Quote Result: Rejected Cant Post (P)"
   end
   if value == "f" then
     return "Quote Result: Risk Management Firm Or Custom Group Id Level (f)"

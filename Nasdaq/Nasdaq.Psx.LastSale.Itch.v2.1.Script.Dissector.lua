@@ -1110,7 +1110,7 @@ display.market_category = function(value)
     return "Market Category: Bats Z (Z)"
   end
   if value == "V" then
-    return "Market Category: Investors’ Exchange (V)"
+    return "Market Category: Investors Exchange (V)"
   end
   if value == " " then
     return "Market Category: Not Available (<whitespace>)"
