@@ -60,7 +60,6 @@ cboe_options_marketdatafeed_csm_v1_4_2.fields.message = ProtoField.new("Message"
 cboe_options_marketdatafeed_csm_v1_4_2.fields.message_count = ProtoField.new("Message Count", "cboe.options.marketdatafeed.csm.v1.4.2.messagecount", ftypes.UINT8)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.message_header = ProtoField.new("Message Header", "cboe.options.marketdatafeed.csm.v1.4.2.messageheader", ftypes.STRING)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.message_length = ProtoField.new("Message Length", "cboe.options.marketdatafeed.csm.v1.4.2.messagelength", ftypes.UINT16)
-cboe_options_marketdatafeed_csm_v1_4_2.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cboe.options.marketdatafeed.csm.v1.4.2.messagesequencenumber", ftypes.UINT32)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.message_type = ProtoField.new("Message Type", "cboe.options.marketdatafeed.csm.v1.4.2.messagetype", ftypes.STRING)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_above_premium_fraction = ProtoField.new("Minimum Above Premium Fraction", "cboe.options.marketdatafeed.csm.v1.4.2.minimumabovepremiumfraction", ftypes.STRING)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_above_premium_fraction_exponent = ProtoField.new("Minimum Above Premium Fraction Exponent", "cboe.options.marketdatafeed.csm.v1.4.2.minimumabovepremiumfractionexponent", ftypes.INT8)
@@ -71,6 +70,7 @@ cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_below_premium_fraction_man
 cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_strike_price_fraction = ProtoField.new("Minimum Strike Price Fraction", "cboe.options.marketdatafeed.csm.v1.4.2.minimumstrikepricefraction", ftypes.STRING)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_strike_price_fraction_exponent = ProtoField.new("Minimum Strike Price Fraction Exponent", "cboe.options.marketdatafeed.csm.v1.4.2.minimumstrikepricefractionexponent", ftypes.INT8)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_strike_price_fraction_mantissa = ProtoField.new("Minimum Strike Price Fraction Mantissa", "cboe.options.marketdatafeed.csm.v1.4.2.minimumstrikepricefractionmantissa", ftypes.INT32)
+cboe_options_marketdatafeed_csm_v1_4_2.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "cboe.options.marketdatafeed.csm.v1.4.2.msgseqnum", ftypes.UINT32)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.net_chg_prev_day = ProtoField.new("Net Chg Prev Day", "cboe.options.marketdatafeed.csm.v1.4.2.netchgprevday", ftypes.STRING)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.net_chg_prev_day_exponent = ProtoField.new("Net Chg Prev Day Exponent", "cboe.options.marketdatafeed.csm.v1.4.2.netchgprevdayexponent", ftypes.INT8)
 cboe_options_marketdatafeed_csm_v1_4_2.fields.net_chg_prev_day_mantissa = ProtoField.new("Net Chg Prev Day Mantissa", "cboe.options.marketdatafeed.csm.v1.4.2.netchgprevdaymantissa", ftypes.INT32)
@@ -3739,22 +3739,22 @@ dissect.payload = function(buffer, offset, packet, parent, template_id)
   return dissect.payload_branches(buffer, offset, packet, parent, template_id)
 end
 
--- Size: Message Sequence Number
-size_of.message_sequence_number = 4
+-- Size: Msg Seq Num
+size_of.msg_seq_num = 4
 
--- Display: Message Sequence Number
-display.message_sequence_number = function(value)
-  return "Message Sequence Number: "..value
+-- Display: Msg Seq Num
+display.msg_seq_num = function(value)
+  return "Msg Seq Num: "..value
 end
 
--- Dissect: Message Sequence Number
-dissect.message_sequence_number = function(buffer, offset, packet, parent)
-  local length = size_of.message_sequence_number
+-- Dissect: Msg Seq Num
+dissect.msg_seq_num = function(buffer, offset, packet, parent)
+  local length = size_of.msg_seq_num
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.message_sequence_number(value, buffer, offset, packet, parent)
+  local display = display.msg_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.message_sequence_number, range, value, display)
+  parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.msg_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -3866,7 +3866,7 @@ size_of.message_header = function(buffer, offset)
 
   index = index + size_of.message_type
 
-  index = index + size_of.message_sequence_number
+  index = index + size_of.msg_seq_num
 
   return index
 end
@@ -3889,8 +3889,8 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   -- Message Type: 1 Byte Ascii String
   index, message_type = dissect.message_type(buffer, index, packet, parent)
 
-  -- Message Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, message_sequence_number = dissect.message_sequence_number(buffer, index, packet, parent)
+  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
   return index
 end

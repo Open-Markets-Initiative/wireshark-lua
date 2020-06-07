@@ -36,10 +36,10 @@ cme_futures_ilink3_sbe_v8_4.fields.business_reject_521 = ProtoField.new("Busines
 cme_futures_ilink3_sbe_v8_4.fields.business_reject_reason = ProtoField.new("Business Reject Reason", "cme.futures.ilink3.sbe.v8.4.businessrejectreason", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_4.fields.business_reject_ref_id = ProtoField.new("Business Reject Ref Id", "cme.futures.ilink3.sbe.v8.4.businessrejectrefid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_4.fields.cancelled_symbol = ProtoField.new("Cancelled Symbol", "cme.futures.ilink3.sbe.v8.4.cancelledsymbol", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_4.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "cme.futures.ilink3.sbe.v8.4.clordid", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_4.fields.clearing_account_type = ProtoField.new("Clearing Account Type", "cme.futures.ilink3.sbe.v8.4.clearingaccounttype", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_4.fields.clearing_trade_price_type = ProtoField.new("Clearing Trade Price Type", "cme.futures.ilink3.sbe.v8.4.clearingtradepricetype", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_4.fields.cmta_giveup_cd = ProtoField.new("Cmta Giveup Cd", "cme.futures.ilink3.sbe.v8.4.cmtagiveupcd", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_4.fields.clordid = ProtoField.new("ClOrdId", "cme.futures.ilink3.sbe.v8.4.clordid", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_4.fields.cmta_give_up_cd = ProtoField.new("Cmta Give Up Cd", "cme.futures.ilink3.sbe.v8.4.cmtagiveupcd", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_4.fields.credentials = ProtoField.new("Credentials", "cme.futures.ilink3.sbe.v8.4.credentials", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_4.fields.cross_id = ProtoField.new("Cross Id", "cme.futures.ilink3.sbe.v8.4.crossid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_4.fields.cross_type = ProtoField.new("Cross Type", "cme.futures.ilink3.sbe.v8.4.crosstype", ftypes.STRING)
@@ -109,7 +109,6 @@ cme_futures_ilink3_sbe_v8_4.fields.fills_group = ProtoField.new("Fills Group", "
 cme_futures_ilink3_sbe_v8_4.fields.fills_groups = ProtoField.new("Fills Groups", "cme.futures.ilink3.sbe.v8.4.fillsgroups", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_4.fields.financial_instrument_full_name = ProtoField.new("Financial Instrument Full Name", "cme.futures.ilink3.sbe.v8.4.financialinstrumentfullname", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_4.fields.firm = ProtoField.new("Firm", "cme.futures.ilink3.sbe.v8.4.firm", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_4.fields.frame = ProtoField.new("Frame", "cme.futures.ilink3.sbe.v8.4.frame", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_4.fields.from_seq_no = ProtoField.new("From Seq No", "cme.futures.ilink3.sbe.v8.4.fromseqno", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_4.fields.group_size = ProtoField.new("Group Size", "cme.futures.ilink3.sbe.v8.4.groupsize", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_4.fields.hmac_signature = ProtoField.new("Hmac Signature", "cme.futures.ilink3.sbe.v8.4.hmacsignature", ftypes.STRING)
@@ -202,9 +201,9 @@ cme_futures_ilink3_sbe_v8_4.fields.order_mass_status_request_530 = ProtoField.ne
 cme_futures_ilink3_sbe_v8_4.fields.order_qty = ProtoField.new("Order Qty", "cme.futures.ilink3.sbe.v8.4.orderqty", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_4.fields.order_request_id = ProtoField.new("Order Request Id", "cme.futures.ilink3.sbe.v8.4.orderrequestid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_4.fields.order_status_request_533 = ProtoField.new("Order Status Request 533", "cme.futures.ilink3.sbe.v8.4.orderstatusrequest533", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_4.fields.orig_ci_ord_id = ProtoField.new("Orig Ci Ord Id", "cme.futures.ilink3.sbe.v8.4.origciordid", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_4.fields.orig_secondary_execution_id = ProtoField.new("Orig Secondary Execution Id", "cme.futures.ilink3.sbe.v8.4.origsecondaryexecutionid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_4.fields.orig_side_trade_id = ProtoField.new("Orig Side Trade Id", "cme.futures.ilink3.sbe.v8.4.origsidetradeid", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_4.fields.origclordid = ProtoField.new("OrigClOrdId", "cme.futures.ilink3.sbe.v8.4.origclordid", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_4.fields.original_order_event_exec_id = ProtoField.new("Original Order Event Exec Id", "cme.futures.ilink3.sbe.v8.4.originalordereventexecid", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_4.fields.ownership = ProtoField.new("Ownership", "cme.futures.ilink3.sbe.v8.4.ownership", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_4.fields.packet = ProtoField.new("Packet", "cme.futures.ilink3.sbe.v8.4.packet", ftypes.STRING)
@@ -304,6 +303,7 @@ cme_futures_ilink3_sbe_v8_4.fields.side_time_in_force = ProtoField.new("Side Tim
 cme_futures_ilink3_sbe_v8_4.fields.side_trade_id = ProtoField.new("Side Trade Id", "cme.futures.ilink3.sbe.v8.4.sidetradeid", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_4.fields.sides_group = ProtoField.new("Sides Group", "cme.futures.ilink3.sbe.v8.4.sidesgroup", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_4.fields.sides_groups = ProtoField.new("Sides Groups", "cme.futures.ilink3.sbe.v8.4.sidesgroups", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_4.fields.simple_open_frame = ProtoField.new("Simple Open Frame", "cme.futures.ilink3.sbe.v8.4.simpleopenframe", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_4.fields.simple_open_framing_header = ProtoField.new("Simple Open Framing Header", "cme.futures.ilink3.sbe.v8.4.simpleopenframingheader", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_4.fields.source_repo_id = ProtoField.new("Source Repo Id", "cme.futures.ilink3.sbe.v8.4.sourcerepoid", ftypes.INT32)
 cme_futures_ilink3_sbe_v8_4.fields.split_msg = ProtoField.new("Split Msg", "cme.futures.ilink3.sbe.v8.4.splitmsg", ftypes.UINT8)
@@ -385,7 +385,6 @@ show.execution_report_trade_spread_order_event_group = true
 show.execution_report_trade_spread_order_event_groups = true
 show.fills_group = true
 show.fills_groups = true
-show.frame = true
 show.group_size = true
 show.leg_option_delta = true
 show.mass_quote_517 = true
@@ -449,6 +448,7 @@ show.security_definition_response_leg_groups = true
 show.sequence_506 = true
 show.sides_group = true
 show.sides_groups = true
+show.simple_open_frame = true
 show.simple_open_framing_header = true
 show.terminate_507 = true
 show.time_to_expiration = true
@@ -497,7 +497,6 @@ cme_futures_ilink3_sbe_v8_4.prefs.show_execution_report_trade_spread_order_event
 cme_futures_ilink3_sbe_v8_4.prefs.show_execution_report_trade_spread_order_event_groups = Pref.bool("Show Execution Report Trade Spread Order Event Groups", show.execution_report_trade_spread_order_event_groups, "Parse and add Execution Report Trade Spread Order Event Groups to protocol tree")
 cme_futures_ilink3_sbe_v8_4.prefs.show_fills_group = Pref.bool("Show Fills Group", show.fills_group, "Parse and add Fills Group to protocol tree")
 cme_futures_ilink3_sbe_v8_4.prefs.show_fills_groups = Pref.bool("Show Fills Groups", show.fills_groups, "Parse and add Fills Groups to protocol tree")
-cme_futures_ilink3_sbe_v8_4.prefs.show_frame = Pref.bool("Show Frame", show.frame, "Parse and add Frame to protocol tree")
 cme_futures_ilink3_sbe_v8_4.prefs.show_group_size = Pref.bool("Show Group Size", show.group_size, "Parse and add Group Size to protocol tree")
 cme_futures_ilink3_sbe_v8_4.prefs.show_leg_option_delta = Pref.bool("Show Leg Option Delta", show.leg_option_delta, "Parse and add Leg Option Delta to protocol tree")
 cme_futures_ilink3_sbe_v8_4.prefs.show_mass_quote_517 = Pref.bool("Show Mass Quote 517", show.mass_quote_517, "Parse and add Mass Quote 517 to protocol tree")
@@ -561,6 +560,7 @@ cme_futures_ilink3_sbe_v8_4.prefs.show_security_definition_response_leg_groups =
 cme_futures_ilink3_sbe_v8_4.prefs.show_sequence_506 = Pref.bool("Show Sequence 506", show.sequence_506, "Parse and add Sequence 506 to protocol tree")
 cme_futures_ilink3_sbe_v8_4.prefs.show_sides_group = Pref.bool("Show Sides Group", show.sides_group, "Parse and add Sides Group to protocol tree")
 cme_futures_ilink3_sbe_v8_4.prefs.show_sides_groups = Pref.bool("Show Sides Groups", show.sides_groups, "Parse and add Sides Groups to protocol tree")
+cme_futures_ilink3_sbe_v8_4.prefs.show_simple_open_frame = Pref.bool("Show Simple Open Frame", show.simple_open_frame, "Parse and add Simple Open Frame to protocol tree")
 cme_futures_ilink3_sbe_v8_4.prefs.show_simple_open_framing_header = Pref.bool("Show Simple Open Framing Header", show.simple_open_framing_header, "Parse and add Simple Open Framing Header to protocol tree")
 cme_futures_ilink3_sbe_v8_4.prefs.show_terminate_507 = Pref.bool("Show Terminate 507", show.terminate_507, "Parse and add Terminate 507 to protocol tree")
 cme_futures_ilink3_sbe_v8_4.prefs.show_time_to_expiration = Pref.bool("Show Time To Expiration", show.time_to_expiration, "Parse and add Time To Expiration to protocol tree")
@@ -728,10 +728,6 @@ function cme_futures_ilink3_sbe_v8_4.prefs_changed()
   end
   if show.fills_groups ~= cme_futures_ilink3_sbe_v8_4.prefs.show_fills_groups then
     show.fills_groups = cme_futures_ilink3_sbe_v8_4.prefs.show_fills_groups
-    changed = true
-  end
-  if show.frame ~= cme_futures_ilink3_sbe_v8_4.prefs.show_frame then
-    show.frame = cme_futures_ilink3_sbe_v8_4.prefs.show_frame
     changed = true
   end
   if show.group_size ~= cme_futures_ilink3_sbe_v8_4.prefs.show_group_size then
@@ -984,6 +980,10 @@ function cme_futures_ilink3_sbe_v8_4.prefs_changed()
   end
   if show.sides_groups ~= cme_futures_ilink3_sbe_v8_4.prefs.show_sides_groups then
     show.sides_groups = cme_futures_ilink3_sbe_v8_4.prefs.show_sides_groups
+    changed = true
+  end
+  if show.simple_open_frame ~= cme_futures_ilink3_sbe_v8_4.prefs.show_simple_open_frame then
+    show.simple_open_frame = cme_futures_ilink3_sbe_v8_4.prefs.show_simple_open_frame
     changed = true
   end
   if show.simple_open_framing_header ~= cme_futures_ilink3_sbe_v8_4.prefs.show_simple_open_framing_header then
@@ -2572,22 +2572,22 @@ dissect.affected_order_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Orig Ci Ord Id
-size_of.orig_ci_ord_id = 20
+-- Size: OrigClOrdId
+size_of.origclordid = 20
 
--- Display: Orig Ci Ord Id
-display.orig_ci_ord_id = function(value)
-  return "Orig Ci Ord Id: "..value
+-- Display: OrigClOrdId
+display.origclordid = function(value)
+  return "OrigClOrdId: "..value
 end
 
--- Dissect: Orig Ci Ord Id
-dissect.orig_ci_ord_id = function(buffer, offset, packet, parent)
-  local length = size_of.orig_ci_ord_id
+-- Dissect: OrigClOrdId
+dissect.origclordid = function(buffer, offset, packet, parent)
+  local length = size_of.origclordid
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.orig_ci_ord_id(value, buffer, offset, packet, parent)
+  local display = display.origclordid(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_4.fields.orig_ci_ord_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_4.fields.origclordid, range, value, display)
 
   return offset + length, value
 end
@@ -2596,7 +2596,7 @@ end
 size_of.affected_orders_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.orig_ci_ord_id
+  index = index + size_of.origclordid
 
   index = index + size_of.affected_order_id
 
@@ -2614,8 +2614,8 @@ end
 dissect.affected_orders_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Orig Ci Ord Id: 20 Byte Ascii String
-  index, orig_ci_ord_id = dissect.orig_ci_ord_id(buffer, index, packet, parent)
+  -- OrigClOrdId: 20 Byte Ascii String
+  index, origclordid = dissect.origclordid(buffer, index, packet, parent)
 
   -- Affected Order Id: 8 Byte Unsigned Fixed Width Integer
   index, affected_order_id = dissect.affected_order_id(buffer, index, packet, parent)
@@ -3884,22 +3884,22 @@ dissect.last_px = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Cl Ord Id
-size_of.cl_ord_id = 20
+-- Size: ClOrdId
+size_of.clordid = 20
 
--- Display: Cl Ord Id
-display.cl_ord_id = function(value)
-  return "Cl Ord Id: "..value
+-- Display: ClOrdId
+display.clordid = function(value)
+  return "ClOrdId: "..value
 end
 
--- Dissect: Cl Ord Id
-dissect.cl_ord_id = function(buffer, offset, packet, parent)
-  local length = size_of.cl_ord_id
+-- Dissect: ClOrdId
+dissect.clordid = function(buffer, offset, packet, parent)
+  local length = size_of.clordid
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.cl_ord_id(value, buffer, offset, packet, parent)
+  local display = display.clordid(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_4.fields.cl_ord_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_4.fields.clordid, range, value, display)
 
   return offset + length, value
 end
@@ -3936,7 +3936,7 @@ size_of.execution_report_trade_addendum_spread_leg_550 = function(buffer, offset
 
   index = index + size_of.sender_id
 
-  index = index + size_of.cl_ord_id
+  index = index + size_of.clordid
 
   index = index + size_of.party_details_list_req_id
 
@@ -4000,8 +4000,8 @@ dissect.execution_report_trade_addendum_spread_leg_550_fields = function(buffer,
   -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = dissect.clordid(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
@@ -4657,7 +4657,7 @@ size_of.execution_report_trade_addendum_spread_549 = function(buffer, offset)
 
   index = index + size_of.sender_id
 
-  index = index + size_of.cl_ord_id
+  index = index + size_of.clordid
 
   index = index + size_of.party_details_list_req_id
 
@@ -4741,8 +4741,8 @@ dissect.execution_report_trade_addendum_spread_549_fields = function(buffer, off
   -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = dissect.clordid(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
@@ -4975,7 +4975,7 @@ size_of.execution_report_trade_addendum_outright_548 = function(buffer, offset)
 
   index = index + size_of.sender_id
 
-  index = index + size_of.cl_ord_id
+  index = index + size_of.clordid
 
   index = index + size_of.party_details_list_req_id
 
@@ -5051,8 +5051,8 @@ dissect.execution_report_trade_addendum_outright_548_fields = function(buffer, o
   -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = dissect.clordid(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
@@ -6225,7 +6225,7 @@ end
 size_of.sides_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.cl_ord_id
+  index = index + size_of.clordid
 
   index = index + size_of.party_details_list_req_id
 
@@ -6247,8 +6247,8 @@ end
 dissect.sides_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = dissect.clordid(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
@@ -6760,7 +6760,7 @@ size_of.execution_ack_539 = function(buffer, offset)
 
   index = index + size_of.seq_num
 
-  index = index + size_of.cl_ord_id
+  index = index + size_of.clordid
 
   index = index + size_of.sec_exec_id
 
@@ -6800,8 +6800,8 @@ dissect.execution_ack_539_fields = function(buffer, offset, packet, parent)
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = dissect.clordid(buffer, index, packet, parent)
 
   -- Sec Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, sec_exec_id = dissect.sec_exec_id(buffer, index, packet, parent)
@@ -7188,32 +7188,32 @@ dissect.cust_order_handling_inst = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Cmta Giveup Cd
-size_of.cmta_giveup_cd = 1
+-- Size: Cmta Give Up Cd
+size_of.cmta_give_up_cd = 1
 
--- Display: Cmta Giveup Cd
-display.cmta_giveup_cd = function(value)
+-- Display: Cmta Give Up Cd
+display.cmta_give_up_cd = function(value)
   if value == "G" then
-    return "Cmta Giveup Cd: Give Up (G)"
+    return "Cmta Give Up Cd: Give Up (G)"
   end
   if value == "S" then
-    return "Cmta Giveup Cd: Sg Xoffset (S)"
+    return "Cmta Give Up Cd: Sg Xoffset (S)"
   end
   if value == "0" then
-    return "Cmta Giveup Cd: No Value (0)"
+    return "Cmta Give Up Cd: No Value (0)"
   end
 
-  return "Cmta Giveup Cd: Unknown("..value..")"
+  return "Cmta Give Up Cd: Unknown("..value..")"
 end
 
--- Dissect: Cmta Giveup Cd
-dissect.cmta_giveup_cd = function(buffer, offset, packet, parent)
-  local length = size_of.cmta_giveup_cd
+-- Dissect: Cmta Give Up Cd
+dissect.cmta_give_up_cd = function(buffer, offset, packet, parent)
+  local length = size_of.cmta_give_up_cd
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.cmta_giveup_cd(value, buffer, offset, packet, parent)
+  local display = display.cmta_give_up_cd(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_4.fields.cmta_giveup_cd, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_4.fields.cmta_give_up_cd, range, value, display)
 
   return offset + length, value
 end
@@ -7473,7 +7473,7 @@ size_of.party_details_list_report_538 = function(buffer, offset)
 
   index = index + size_of.clearing_trade_price_type
 
-  index = index + size_of.cmta_giveup_cd
+  index = index + size_of.cmta_give_up_cd
 
   index = index + size_of.cust_order_handling_inst
 
@@ -7546,8 +7546,8 @@ dissect.party_details_list_report_538_fields = function(buffer, offset, packet, 
   -- Clearing Trade Price Type: 1 Byte Unsigned Fixed Width Integer
   index, clearing_trade_price_type = dissect.clearing_trade_price_type(buffer, index, packet, parent)
 
-  -- Cmta Giveup Cd: 1 Byte Ascii String Enum with 3 values
-  index, cmta_giveup_cd = dissect.cmta_giveup_cd(buffer, index, packet, parent)
+  -- Cmta Give Up Cd: 1 Byte Ascii String Enum with 3 values
+  index, cmta_give_up_cd = dissect.cmta_give_up_cd(buffer, index, packet, parent)
 
   -- Cust Order Handling Inst: 1 Byte Ascii String
   index, cust_order_handling_inst = dissect.cust_order_handling_inst(buffer, index, packet, parent)
@@ -7989,7 +7989,7 @@ size_of.order_cancel_replace_reject_536 = function(buffer, offset)
 
   index = index + size_of.sender_id
 
-  index = index + size_of.cl_ord_id
+  index = index + size_of.clordid
 
   index = index + size_of.party_details_list_req_id
 
@@ -8044,8 +8044,8 @@ dissect.order_cancel_replace_reject_536_fields = function(buffer, offset, packet
   -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = dissect.clordid(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
@@ -8116,7 +8116,7 @@ size_of.order_cancel_reject_535 = function(buffer, offset)
 
   index = index + size_of.sender_id
 
-  index = index + size_of.cl_ord_id
+  index = index + size_of.clordid
 
   index = index + size_of.party_details_list_req_id
 
@@ -8171,8 +8171,8 @@ dissect.order_cancel_reject_535_fields = function(buffer, offset, packet, parent
   -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = dissect.clordid(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
@@ -8427,7 +8427,7 @@ size_of.execution_report_cancel_534 = function(buffer, offset)
 
   index = index + size_of.sender_id
 
-  index = index + size_of.cl_ord_id
+  index = index + size_of.clordid
 
   index = index + size_of.party_details_list_req_id
 
@@ -8515,8 +8515,8 @@ dissect.execution_report_cancel_534_fields = function(buffer, offset, packet, pa
   -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = dissect.clordid(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
@@ -8803,7 +8803,7 @@ size_of.execution_report_status_532 = function(buffer, offset)
 
   index = index + size_of.sender_id
 
-  index = index + size_of.cl_ord_id
+  index = index + size_of.clordid
 
   index = index + size_of.party_details_list_req_id
 
@@ -8896,8 +8896,8 @@ dissect.execution_report_status_532_fields = function(buffer, offset, packet, pa
   -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = dissect.clordid(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
@@ -9023,7 +9023,7 @@ size_of.execution_report_modify_531 = function(buffer, offset)
 
   index = index + size_of.sender_id
 
-  index = index + size_of.cl_ord_id
+  index = index + size_of.clordid
 
   index = index + size_of.party_details_list_req_id
 
@@ -9111,8 +9111,8 @@ dissect.execution_report_modify_531_fields = function(buffer, offset, packet, pa
   -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = dissect.clordid(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
@@ -10128,7 +10128,7 @@ size_of.execution_report_trade_spread_leg_527 = function(buffer, offset)
 
   index = index + size_of.sender_id
 
-  index = index + size_of.cl_ord_id
+  index = index + size_of.clordid
 
   index = index + size_of.volatility(buffer, offset + index)
 
@@ -10200,8 +10200,8 @@ dissect.execution_report_trade_spread_leg_527_fields = function(buffer, offset, 
   -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = dissect.clordid(buffer, index, packet, parent)
 
   -- Volatility: Struct of 2 fields
   index, volatility = dissect.volatility(buffer, index, packet, parent)
@@ -10542,7 +10542,7 @@ size_of.execution_report_trade_spread_526 = function(buffer, offset)
 
   index = index + size_of.sender_id
 
-  index = index + size_of.cl_ord_id
+  index = index + size_of.clordid
 
   index = index + size_of.party_details_list_req_id
 
@@ -10642,8 +10642,8 @@ dissect.execution_report_trade_spread_526_fields = function(buffer, offset, pack
   -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = dissect.clordid(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
@@ -10940,7 +10940,7 @@ size_of.execution_report_trade_outright_525 = function(buffer, offset)
 
   index = index + size_of.sender_id
 
-  index = index + size_of.cl_ord_id
+  index = index + size_of.clordid
 
   index = index + size_of.party_details_list_req_id
 
@@ -11042,8 +11042,8 @@ dissect.execution_report_trade_outright_525_fields = function(buffer, offset, pa
   -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = dissect.clordid(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
@@ -11187,7 +11187,7 @@ size_of.execution_report_elimination_524 = function(buffer, offset)
 
   index = index + size_of.sender_id
 
-  index = index + size_of.cl_ord_id
+  index = index + size_of.clordid
 
   index = index + size_of.party_details_list_req_id
 
@@ -11267,8 +11267,8 @@ dissect.execution_report_elimination_524_fields = function(buffer, offset, packe
   -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = dissect.clordid(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
@@ -11401,7 +11401,7 @@ size_of.execution_report_reject_523 = function(buffer, offset)
 
   index = index + size_of.sender_id
 
-  index = index + size_of.cl_ord_id
+  index = index + size_of.clordid
 
   index = index + size_of.party_details_list_req_id
 
@@ -11490,8 +11490,8 @@ dissect.execution_report_reject_523_fields = function(buffer, offset, packet, pa
   -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = dissect.clordid(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
@@ -11611,7 +11611,7 @@ size_of.execution_report_new_522 = function(buffer, offset)
 
   index = index + size_of.sender_id
 
-  index = index + size_of.cl_ord_id
+  index = index + size_of.clordid
 
   index = index + size_of.party_details_list_req_id
 
@@ -11695,8 +11695,8 @@ dissect.execution_report_new_522_fields = function(buffer, offset, packet, paren
   -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = dissect.clordid(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
@@ -12133,7 +12133,7 @@ size_of.party_details_definition_request_ack_519 = function(buffer, offset)
 
   index = index + size_of.clearing_trade_price_type
 
-  index = index + size_of.cmta_giveup_cd
+  index = index + size_of.cmta_give_up_cd
 
   index = index + size_of.cust_order_handling_inst
 
@@ -12204,8 +12204,8 @@ dissect.party_details_definition_request_ack_519_fields = function(buffer, offse
   -- Clearing Trade Price Type: 1 Byte Unsigned Fixed Width Integer
   index, clearing_trade_price_type = dissect.clearing_trade_price_type(buffer, index, packet, parent)
 
-  -- Cmta Giveup Cd: 1 Byte Ascii String Enum with 3 values
-  index, cmta_giveup_cd = dissect.cmta_giveup_cd(buffer, index, packet, parent)
+  -- Cmta Give Up Cd: 1 Byte Ascii String Enum with 3 values
+  index, cmta_give_up_cd = dissect.cmta_give_up_cd(buffer, index, packet, parent)
 
   -- Cust Order Handling Inst: 1 Byte Ascii String
   index, cust_order_handling_inst = dissect.cust_order_handling_inst(buffer, index, packet, parent)
@@ -12268,7 +12268,7 @@ size_of.party_details_definition_request_518 = function(buffer, offset)
 
   index = index + size_of.self_match_prevention_id
 
-  index = index + size_of.cmta_giveup_cd
+  index = index + size_of.cmta_give_up_cd
 
   index = index + size_of.cust_order_capacity
 
@@ -12323,8 +12323,8 @@ dissect.party_details_definition_request_518_fields = function(buffer, offset, p
   -- Self Match Prevention Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, self_match_prevention_id = dissect.self_match_prevention_id(buffer, index, packet, parent)
 
-  -- Cmta Giveup Cd: 1 Byte Ascii String Enum with 3 values
-  index, cmta_giveup_cd = dissect.cmta_giveup_cd(buffer, index, packet, parent)
+  -- Cmta Give Up Cd: 1 Byte Ascii String Enum with 3 values
+  index, cmta_give_up_cd = dissect.cmta_give_up_cd(buffer, index, packet, parent)
 
   -- Cust Order Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, cust_order_capacity = dissect.cust_order_capacity(buffer, index, packet, parent)
@@ -12671,7 +12671,7 @@ size_of.order_cancel_request_516 = function(buffer, offset)
 
   index = index + size_of.sender_id
 
-  index = index + size_of.cl_ord_id
+  index = index + size_of.clordid
 
   index = index + size_of.order_request_id
 
@@ -12712,8 +12712,8 @@ dissect.order_cancel_request_516_fields = function(buffer, offset, packet, paren
   -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = dissect.clordid(buffer, index, packet, parent)
 
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
   index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
@@ -12785,7 +12785,7 @@ size_of.order_cancel_replace_request_515 = function(buffer, offset)
 
   index = index + size_of.sender_id
 
-  index = index + size_of.cl_ord_id
+  index = index + size_of.clordid
 
   index = index + size_of.party_details_list_req_id
 
@@ -12853,8 +12853,8 @@ dissect.order_cancel_replace_request_515_fields = function(buffer, offset, packe
   -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = dissect.clordid(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
@@ -12942,7 +12942,7 @@ size_of.new_order_single_514 = function(buffer, offset)
 
   index = index + size_of.sender_id
 
-  index = index + size_of.cl_ord_id
+  index = index + size_of.clordid
 
   index = index + size_of.party_details_list_req_id
 
@@ -13006,8 +13006,8 @@ dissect.new_order_single_514_fields = function(buffer, offset, packet, parent)
   -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = dissect.clordid(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
@@ -15101,8 +15101,8 @@ dissect.simple_open_framing_header = function(buffer, offset, packet, parent)
   return dissect.simple_open_framing_header_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Frame
-size_of.frame = function(buffer, offset)
+-- Calculate size of: Simple Open Frame
+size_of.simple_open_frame = function(buffer, offset)
   local index = 0
 
   index = index + size_of.simple_open_framing_header(buffer, offset + index)
@@ -15117,13 +15117,13 @@ size_of.frame = function(buffer, offset)
   return index
 end
 
--- Display: Frame
-display.frame = function(buffer, offset, size, packet, parent)
+-- Display: Simple Open Frame
+display.simple_open_frame = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Frame
-dissect.frame_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Simple Open Frame
+dissect.simple_open_frame_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Simple Open Framing Header: Struct of 2 fields
@@ -15141,29 +15141,29 @@ dissect.frame_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Frame
-dissect.frame = function(buffer, offset, packet, parent)
+-- Dissect: Simple Open Frame
+dissect.simple_open_frame = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.frame then
-    local length = size_of.frame(buffer, offset)
+  if show.simple_open_frame then
+    local length = size_of.simple_open_frame(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.frame(buffer, packet, parent)
-    parent = parent:add(cme_futures_ilink3_sbe_v8_4.fields.frame, range, display)
+    local display = display.simple_open_frame(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_4.fields.simple_open_frame, range, display)
   end
 
-  return dissect.frame_fields(buffer, offset, packet, parent)
+  return dissect.simple_open_frame_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
 dissect.packet = function(buffer, packet, parent)
   local index = 0
 
-  -- Frame: Struct of 3 fields
+  -- Simple Open Frame: Struct of 3 fields
   local end_of_payload = buffer:len()
 
-  -- Frame: Struct of 3 fields
+  -- Simple Open Frame: Struct of 3 fields
   while index < end_of_payload do
-    index = dissect.frame(buffer, index, packet, parent)
+    index = dissect.simple_open_frame(buffer, index, packet, parent)
   end
 
   return index

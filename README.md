@@ -86,12 +86,12 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 |[Ice][Ice.Futures.Mdf.iMpact.v1.1.34.Organization] | Futures | Mdf | iMpact | [1.1.34][Ice.Futures.Mdf.iMpact.v1.1.34.Dissector] | 9/4/2018 | 10214 | Verified|
 |[Ice][Ice.Futures.Mdf.iMpact.v1.1.33.Organization] | Futures | Mdf | iMpact | [1.1.33][Ice.Futures.Mdf.iMpact.v1.1.33.Dissector] | 8/6/2018 | 9971 | Verified|
 |[Ice][Ice.Futures.Mdf.iMpact.v1.1.24.Organization] | Futures | Mdf | iMpact | [1.1.24][Ice.Futures.Mdf.iMpact.v1.1.24.Dissector] | 3/30/2016 | 9047 | Verified|
-|[Miax][Miax.Options.cTom.Mach.v1.3.Organization] | Options | cTom | Mach | [1.3][Miax.Options.cTom.Mach.v1.3.Dissector] | 3/16/2018 | 3073 | Untested|
-|[Miax][Miax.Options.cTom.Mach.v1.1.Organization] | Options | cTom | Mach | [1.1][Miax.Options.cTom.Mach.v1.1.Dissector] | 7/15/2016 | 3061 | Verified|
+|[Miax][Miax.Options.cTom.Mach.v1.3.Organization] | Options | cTom | Mach | [1.3][Miax.Options.cTom.Mach.v1.3.Dissector] | 3/16/2018 | 3052 | Untested|
+|[Miax][Miax.Options.cTom.Mach.v1.1.Organization] | Options | cTom | Mach | [1.1][Miax.Options.cTom.Mach.v1.1.Dissector] | 7/15/2016 | 3040 | Verified|
 |[Miax][Miax.Options.Tom.Mach.v2.3.Organization] | Options | Tom | Mach | [2.3][Miax.Options.Tom.Mach.v2.3.Dissector] | 6/10/2019 | 2955 | Untested|
 |[Miax][Miax.Options.Tom.Mach.v2.2.Organization] | Options | Tom | Mach | [2.2][Miax.Options.Tom.Mach.v2.2.Dissector] | 3/16/2018 | 2895 | Untested|
 |[Miax][Miax.Options.Tom.Mach.v1.9.Organization] | Options | Tom | Mach | [1.9][Miax.Options.Tom.Mach.v1.9.Dissector] | 1/15/2016 | 2801 | Verified|
-|[Miax][Miax.Pearl.Tom.Mach.v1.0.Organization] | Pearl | Tom | Mach | [1.0][Miax.Pearl.Tom.Mach.v1.0.Dissector] | 2/27/2017 | 2876 | Untested|
+|[Miax][Miax.Pearl.Tom.Mach.v1.0.Organization] | Pearl | Tom | Mach | [1.0][Miax.Pearl.Tom.Mach.v1.0.Dissector] | 2/27/2017 | 2855 | Untested|
 |[Nasdaq][Nasdaq.Equities.Orders.Ouch.v4.2.Organization] |  Equities | Orders | Ouch | [4.2][Nasdaq.Equities.Orders.Ouch.v4.2.Dissector] | 7/8/2019 | 3215 | Untested|
 |[Nasdaq][Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Organization] | Bx Equities | TotalView | Itch | [5.0][Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Dissector] | 5/23/2018 | 3739 | Untested|
 |[Nasdaq][Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Organization] | Bx Equities | Orders | Ouch | [4.2][Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Dissector] | 7/8/2019 | 3170 | Untested|
@@ -138,7 +138,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 |Protocol Count | Generated Lines|
 |--- | ---|
-|100 | 924,114|
+|100 | 924,051|
 
 Note: Our dissector model is still under rapid development.
 

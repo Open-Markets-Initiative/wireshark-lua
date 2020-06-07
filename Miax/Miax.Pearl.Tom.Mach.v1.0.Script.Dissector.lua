@@ -73,7 +73,6 @@ miax_pearl_tom_mach_v1_0.fields.session_number = ProtoField.new("Session Number"
 miax_pearl_tom_mach_v1_0.fields.strike_price = ProtoField.new("Strike Price", "miax.pearl.tom.mach.v1.0.strikeprice", ftypes.UINT32)
 miax_pearl_tom_mach_v1_0.fields.system_state_message = ProtoField.new("System State Message", "miax.pearl.tom.mach.v1.0.systemstatemessage", ftypes.STRING)
 miax_pearl_tom_mach_v1_0.fields.system_status = ProtoField.new("System Status", "miax.pearl.tom.mach.v1.0.systemstatus", ftypes.STRING)
-miax_pearl_tom_mach_v1_0.fields.time_stamp = ProtoField.new("Time Stamp", "miax.pearl.tom.mach.v1.0.timestamp", ftypes.UINT32)
 miax_pearl_tom_mach_v1_0.fields.timestamp = ProtoField.new("Timestamp", "miax.pearl.tom.mach.v1.0.timestamp", ftypes.UINT32)
 miax_pearl_tom_mach_v1_0.fields.to_m_version = ProtoField.new("To M Version", "miax.pearl.tom.mach.v1.0.tomversion", ftypes.STRING)
 miax_pearl_tom_mach_v1_0.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.pearl.tom.mach.v1.0.tradecancelmessage", ftypes.STRING)
@@ -2297,31 +2296,11 @@ dissect.series_update_message = function(buffer, offset, packet, parent)
   return dissect.series_update_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Time Stamp
-size_of.time_stamp = 4
-
--- Display: Time Stamp
-display.time_stamp = function(value)
-  return "Time Stamp: "..value
-end
-
--- Dissect: Time Stamp
-dissect.time_stamp = function(buffer, offset, packet, parent)
-  local length = size_of.time_stamp
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = display.time_stamp(value, buffer, offset, packet, parent)
-
-  parent:add(miax_pearl_tom_mach_v1_0.fields.time_stamp, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Pearl System Time Message
 size_of.pearl_system_time_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_stamp
+  index = index + size_of.timestamp
 
   return index
 end
@@ -2335,8 +2314,8 @@ end
 dissect.pearl_system_time_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Stamp: 4 Byte Unsigned Fixed Width Integer
-  index, time_stamp = dissect.time_stamp(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
   return index
 end

@@ -55,7 +55,6 @@ cboe_options_openingauction_csm_v1_0.fields.message = ProtoField.new("Message", 
 cboe_options_openingauction_csm_v1_0.fields.message_count = ProtoField.new("Message Count", "cboe.options.openingauction.csm.v1.0.messagecount", ftypes.UINT8)
 cboe_options_openingauction_csm_v1_0.fields.message_header = ProtoField.new("Message Header", "cboe.options.openingauction.csm.v1.0.messageheader", ftypes.STRING)
 cboe_options_openingauction_csm_v1_0.fields.message_length = ProtoField.new("Message Length", "cboe.options.openingauction.csm.v1.0.messagelength", ftypes.UINT16)
-cboe_options_openingauction_csm_v1_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cboe.options.openingauction.csm.v1.0.messagesequencenumber", ftypes.UINT32)
 cboe_options_openingauction_csm_v1_0.fields.message_type = ProtoField.new("Message Type", "cboe.options.openingauction.csm.v1.0.messagetype", ftypes.STRING)
 cboe_options_openingauction_csm_v1_0.fields.minimum_above_premium_fraction = ProtoField.new("Minimum Above Premium Fraction", "cboe.options.openingauction.csm.v1.0.minimumabovepremiumfraction", ftypes.STRING)
 cboe_options_openingauction_csm_v1_0.fields.minimum_above_premium_fraction_exponent = ProtoField.new("Minimum Above Premium Fraction Exponent", "cboe.options.openingauction.csm.v1.0.minimumabovepremiumfractionexponent", ftypes.INT8)
@@ -66,6 +65,7 @@ cboe_options_openingauction_csm_v1_0.fields.minimum_below_premium_fraction_manti
 cboe_options_openingauction_csm_v1_0.fields.minimum_strike_price_fraction = ProtoField.new("Minimum Strike Price Fraction", "cboe.options.openingauction.csm.v1.0.minimumstrikepricefraction", ftypes.STRING)
 cboe_options_openingauction_csm_v1_0.fields.minimum_strike_price_fraction_exponent = ProtoField.new("Minimum Strike Price Fraction Exponent", "cboe.options.openingauction.csm.v1.0.minimumstrikepricefractionexponent", ftypes.INT8)
 cboe_options_openingauction_csm_v1_0.fields.minimum_strike_price_fraction_mantissa = ProtoField.new("Minimum Strike Price Fraction Mantissa", "cboe.options.openingauction.csm.v1.0.minimumstrikepricefractionmantissa", ftypes.INT32)
+cboe_options_openingauction_csm_v1_0.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "cboe.options.openingauction.csm.v1.0.msgseqnum", ftypes.UINT32)
 cboe_options_openingauction_csm_v1_0.fields.no_entries = ProtoField.new("No Entries", "cboe.options.openingauction.csm.v1.0.noentries", ftypes.UINT8)
 cboe_options_openingauction_csm_v1_0.fields.no_legs = ProtoField.new("No Legs", "cboe.options.openingauction.csm.v1.0.nolegs", ftypes.UINT8)
 cboe_options_openingauction_csm_v1_0.fields.packet = ProtoField.new("Packet", "cboe.options.openingauction.csm.v1.0.packet", ftypes.STRING)
@@ -2615,22 +2615,22 @@ dissect.payload = function(buffer, offset, packet, parent, template_id)
   return dissect.payload_branches(buffer, offset, packet, parent, template_id)
 end
 
--- Size: Message Sequence Number
-size_of.message_sequence_number = 4
+-- Size: Msg Seq Num
+size_of.msg_seq_num = 4
 
--- Display: Message Sequence Number
-display.message_sequence_number = function(value)
-  return "Message Sequence Number: "..value
+-- Display: Msg Seq Num
+display.msg_seq_num = function(value)
+  return "Msg Seq Num: "..value
 end
 
--- Dissect: Message Sequence Number
-dissect.message_sequence_number = function(buffer, offset, packet, parent)
-  local length = size_of.message_sequence_number
+-- Dissect: Msg Seq Num
+dissect.msg_seq_num = function(buffer, offset, packet, parent)
+  local length = size_of.msg_seq_num
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.message_sequence_number(value, buffer, offset, packet, parent)
+  local display = display.msg_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_openingauction_csm_v1_0.fields.message_sequence_number, range, value, display)
+  parent:add(cboe_options_openingauction_csm_v1_0.fields.msg_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -2721,7 +2721,7 @@ size_of.message_header = function(buffer, offset)
 
   index = index + size_of.message_type
 
-  index = index + size_of.message_sequence_number
+  index = index + size_of.msg_seq_num
 
   return index
 end
@@ -2744,8 +2744,8 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   -- Message Type: 1 Byte Ascii String
   index, message_type = dissect.message_type(buffer, index, packet, parent)
 
-  -- Message Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, message_sequence_number = dissect.message_sequence_number(buffer, index, packet, parent)
+  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
   return index
 end

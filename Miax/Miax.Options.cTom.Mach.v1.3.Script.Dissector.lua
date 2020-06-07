@@ -78,7 +78,6 @@ miax_options_ctom_mach_v1_3.fields.reserved_1 = ProtoField.new("Reserved 1", "mi
 miax_options_ctom_mach_v1_3.fields.reserved_10 = ProtoField.new("Reserved 10", "miax.options.ctom.mach.v1.3.reserved10", ftypes.BYTES)
 miax_options_ctom_mach_v1_3.fields.reserved_16 = ProtoField.new("Reserved 16", "miax.options.ctom.mach.v1.3.reserved16", ftypes.BYTES)
 miax_options_ctom_mach_v1_3.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.options.ctom.mach.v1.3.reserved8", ftypes.UINT64)
-miax_options_ctom_mach_v1_3.fields.reserved8 = ProtoField.new("Reserved8", "miax.options.ctom.mach.v1.3.reserved8", ftypes.UINT64)
 miax_options_ctom_mach_v1_3.fields.restricted_option = ProtoField.new("Restricted Option", "miax.options.ctom.mach.v1.3.restrictedoption", ftypes.STRING)
 miax_options_ctom_mach_v1_3.fields.security_symbol = ProtoField.new("Security Symbol", "miax.options.ctom.mach.v1.3.securitysymbol", ftypes.STRING)
 miax_options_ctom_mach_v1_3.fields.sequence_number = ProtoField.new("Sequence Number", "miax.options.ctom.mach.v1.3.sequencenumber", ftypes.UINT64)
@@ -1674,22 +1673,22 @@ dissect.system_state_message = function(buffer, offset, packet, parent)
   return dissect.system_state_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Reserved8
-size_of.reserved8 = 8
+-- Size: Reserved 8
+size_of.reserved_8 = 8
 
--- Display: Reserved8
-display.reserved8 = function(value)
-  return "Reserved8: "..value
+-- Display: Reserved 8
+display.reserved_8 = function(value)
+  return "Reserved 8: "..value
 end
 
--- Dissect: Reserved8
-dissect.reserved8 = function(buffer, offset, packet, parent)
-  local length = size_of.reserved8
+-- Dissect: Reserved 8
+dissect.reserved_8 = function(buffer, offset, packet, parent)
+  local length = size_of.reserved_8
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.reserved8(value, buffer, offset, packet, parent)
+  local display = display.reserved_8(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_3.fields.reserved8, range, value, display)
+  parent:add(miax_options_ctom_mach_v1_3.fields.reserved_8, range, value, display)
 
   return offset + length, value
 end
@@ -1771,7 +1770,7 @@ size_of.leg_definition = function(buffer, offset)
 
   index = index + size_of.leg_side
 
-  index = index + size_of.reserved8
+  index = index + size_of.reserved_8
 
   return index
 end
@@ -1794,8 +1793,8 @@ dissect.leg_definition_fields = function(buffer, offset, packet, parent)
   -- Leg Side: 1 Byte Unsigned Enum with 2 values
   index, leg_side = dissect.leg_side(buffer, index, packet, parent)
 
-  -- Reserved8: 8 Byte Unsigned Fixed Width Integer
-  index, reserved8 = dissect.reserved8(buffer, index, packet, parent)
+  -- Reserved 8: 8 Byte Unsigned Fixed Width Integer
+  index, reserved_8 = dissect.reserved_8(buffer, index, packet, parent)
 
   return index
 end
@@ -2022,26 +2021,6 @@ dissect.complex_strategy_definition_message = function(buffer, offset, packet, p
   end
 
   return dissect.complex_strategy_definition_message_fields(buffer, offset, packet, parent)
-end
-
--- Size: Reserved 8
-size_of.reserved_8 = 8
-
--- Display: Reserved 8
-display.reserved_8 = function(value)
-  return "Reserved 8: "..value
-end
-
--- Dissect: Reserved 8
-dissect.reserved_8 = function(buffer, offset, packet, parent)
-  local length = size_of.reserved_8
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = display.reserved_8(value, buffer, offset, packet, parent)
-
-  parent:add(miax_options_ctom_mach_v1_3.fields.reserved_8, range, value, display)
-
-  return offset + length, value
 end
 
 -- Size: Priority Quote Width

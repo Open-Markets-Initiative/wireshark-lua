@@ -23,8 +23,8 @@ local verify = {}
 eurex_derivatives_eobi_t7_v4_0.fields.add_complex_instrument = ProtoField.new("Add Complex Instrument", "eurex.derivatives.eobi.t7.v4.0.addcomplexinstrument", ftypes.STRING)
 eurex_derivatives_eobi_t7_v4_0.fields.aggressor_side = ProtoField.new("Aggressor Side", "eurex.derivatives.eobi.t7.v4.0.aggressorside", ftypes.UINT8)
 eurex_derivatives_eobi_t7_v4_0.fields.aggressor_time = ProtoField.new("Aggressor Time", "eurex.derivatives.eobi.t7.v4.0.aggressortime", ftypes.UINT64)
-eurex_derivatives_eobi_t7_v4_0.fields.application_sequence_number = ProtoField.new("Application Sequence Number", "eurex.derivatives.eobi.t7.v4.0.applicationsequencenumber", ftypes.UINT32)
-eurex_derivatives_eobi_t7_v4_0.fields.application_sequence_reset_indicator = ProtoField.new("Application Sequence Reset Indicator", "eurex.derivatives.eobi.t7.v4.0.applicationsequenceresetindicator", ftypes.UINT8)
+eurex_derivatives_eobi_t7_v4_0.fields.appl_seq_num = ProtoField.new("Appl Seq Num", "eurex.derivatives.eobi.t7.v4.0.applseqnum", ftypes.UINT32)
+eurex_derivatives_eobi_t7_v4_0.fields.appl_seq_reset_indicator = ProtoField.new("Appl Seq Reset Indicator", "eurex.derivatives.eobi.t7.v4.0.applseqresetindicator", ftypes.UINT8)
 eurex_derivatives_eobi_t7_v4_0.fields.auction_bbo = ProtoField.new("Auction Bbo", "eurex.derivatives.eobi.t7.v4.0.auctionbbo", ftypes.STRING)
 eurex_derivatives_eobi_t7_v4_0.fields.auction_clearing_price = ProtoField.new("Auction Clearing Price", "eurex.derivatives.eobi.t7.v4.0.auctionclearingprice", ftypes.STRING)
 eurex_derivatives_eobi_t7_v4_0.fields.bid_px = ProtoField.new("Bid Px", "eurex.derivatives.eobi.t7.v4.0.bidpx", ftypes.UINT64)
@@ -41,7 +41,7 @@ eurex_derivatives_eobi_t7_v4_0.fields.header_length = ProtoField.new("Header Len
 eurex_derivatives_eobi_t7_v4_0.fields.heartbeat = ProtoField.new("Heartbeat", "eurex.derivatives.eobi.t7.v4.0.heartbeat", ftypes.STRING)
 eurex_derivatives_eobi_t7_v4_0.fields.imbalance_qty = ProtoField.new("Imbalance Qty", "eurex.derivatives.eobi.t7.v4.0.imbalanceqty", ftypes.INT32)
 eurex_derivatives_eobi_t7_v4_0.fields.implied_market_indicator = ProtoField.new("Implied Market Indicator", "eurex.derivatives.eobi.t7.v4.0.impliedmarketindicator", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v4_0.fields.instrmt_leg_grp = ProtoField.new("Instrmt Leg Grp", "eurex.derivatives.eobi.t7.v4.0.instrmtleggrp", ftypes.STRING)
+eurex_derivatives_eobi_t7_v4_0.fields.instrmt_leg_grp_comp = ProtoField.new("Instrmt Leg Grp Comp", "eurex.derivatives.eobi.t7.v4.0.instrmtleggrpcomp", ftypes.STRING)
 eurex_derivatives_eobi_t7_v4_0.fields.instrument_state_change = ProtoField.new("Instrument State Change", "eurex.derivatives.eobi.t7.v4.0.instrumentstatechange", ftypes.STRING)
 eurex_derivatives_eobi_t7_v4_0.fields.instrument_summary = ProtoField.new("Instrument Summary", "eurex.derivatives.eobi.t7.v4.0.instrumentsummary", ftypes.STRING)
 eurex_derivatives_eobi_t7_v4_0.fields.last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "eurex.derivatives.eobi.t7.v4.0.lastmsgseqnumprocessed", ftypes.UINT32)
@@ -58,10 +58,10 @@ eurex_derivatives_eobi_t7_v4_0.fields.match_type = ProtoField.new("Match Type", 
 eurex_derivatives_eobi_t7_v4_0.fields.md_entry_px = ProtoField.new("Md Entry Px", "eurex.derivatives.eobi.t7.v4.0.mdentrypx", ftypes.UINT64)
 eurex_derivatives_eobi_t7_v4_0.fields.md_entry_size = ProtoField.new("Md Entry Size", "eurex.derivatives.eobi.t7.v4.0.mdentrysize", ftypes.INT32)
 eurex_derivatives_eobi_t7_v4_0.fields.md_entry_type = ProtoField.new("Md Entry Type", "eurex.derivatives.eobi.t7.v4.0.mdentrytype", ftypes.UINT8)
-eurex_derivatives_eobi_t7_v4_0.fields.md_instrument_entry_grp = ProtoField.new("Md Instrument Entry Grp", "eurex.derivatives.eobi.t7.v4.0.mdinstrumententrygrp", ftypes.STRING)
-eurex_derivatives_eobi_t7_v4_0.fields.md_trade_entry_grp = ProtoField.new("Md Trade Entry Grp", "eurex.derivatives.eobi.t7.v4.0.mdtradeentrygrp", ftypes.STRING)
+eurex_derivatives_eobi_t7_v4_0.fields.md_instrument_entry_grp_comp = ProtoField.new("Md Instrument Entry Grp Comp", "eurex.derivatives.eobi.t7.v4.0.mdinstrumententrygrpcomp", ftypes.STRING)
+eurex_derivatives_eobi_t7_v4_0.fields.md_trade_entry_grp_comp = ProtoField.new("Md Trade Entry Grp Comp", "eurex.derivatives.eobi.t7.v4.0.mdtradeentrygrpcomp", ftypes.STRING)
 eurex_derivatives_eobi_t7_v4_0.fields.message = ProtoField.new("Message", "eurex.derivatives.eobi.t7.v4.0.message", ftypes.STRING)
-eurex_derivatives_eobi_t7_v4_0.fields.message_header = ProtoField.new("Message Header", "eurex.derivatives.eobi.t7.v4.0.messageheader", ftypes.STRING)
+eurex_derivatives_eobi_t7_v4_0.fields.message_header_comp = ProtoField.new("Message Header Comp", "eurex.derivatives.eobi.t7.v4.0.messageheadercomp", ftypes.STRING)
 eurex_derivatives_eobi_t7_v4_0.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "eurex.derivatives.eobi.t7.v4.0.msgseqnum", ftypes.UINT32)
 eurex_derivatives_eobi_t7_v4_0.fields.no_legs = ProtoField.new("No Legs", "eurex.derivatives.eobi.t7.v4.0.nolegs", ftypes.UINT8)
 eurex_derivatives_eobi_t7_v4_0.fields.no_md_entries = ProtoField.new("No Md Entries", "eurex.derivatives.eobi.t7.v4.0.nomdentries", ftypes.UINT8)
@@ -70,7 +70,7 @@ eurex_derivatives_eobi_t7_v4_0.fields.offer_size = ProtoField.new("Offer Size", 
 eurex_derivatives_eobi_t7_v4_0.fields.ord_type = ProtoField.new("Ord Type", "eurex.derivatives.eobi.t7.v4.0.ordtype", ftypes.UINT8)
 eurex_derivatives_eobi_t7_v4_0.fields.order_add = ProtoField.new("Order Add", "eurex.derivatives.eobi.t7.v4.0.orderadd", ftypes.STRING)
 eurex_derivatives_eobi_t7_v4_0.fields.order_delete = ProtoField.new("Order Delete", "eurex.derivatives.eobi.t7.v4.0.orderdelete", ftypes.STRING)
-eurex_derivatives_eobi_t7_v4_0.fields.order_details = ProtoField.new("Order Details", "eurex.derivatives.eobi.t7.v4.0.orderdetails", ftypes.STRING)
+eurex_derivatives_eobi_t7_v4_0.fields.order_details_comp = ProtoField.new("Order Details Comp", "eurex.derivatives.eobi.t7.v4.0.orderdetailscomp", ftypes.STRING)
 eurex_derivatives_eobi_t7_v4_0.fields.order_mass_delete = ProtoField.new("Order Mass Delete", "eurex.derivatives.eobi.t7.v4.0.ordermassdelete", ftypes.STRING)
 eurex_derivatives_eobi_t7_v4_0.fields.order_modify = ProtoField.new("Order Modify", "eurex.derivatives.eobi.t7.v4.0.ordermodify", ftypes.STRING)
 eurex_derivatives_eobi_t7_v4_0.fields.order_modify_same_prio = ProtoField.new("Order Modify Same Prio", "eurex.derivatives.eobi.t7.v4.0.ordermodifysameprio", ftypes.STRING)
@@ -78,7 +78,7 @@ eurex_derivatives_eobi_t7_v4_0.fields.packet = ProtoField.new("Packet", "eurex.d
 eurex_derivatives_eobi_t7_v4_0.fields.packet_header = ProtoField.new("Packet Header", "eurex.derivatives.eobi.t7.v4.0.packetheader", ftypes.STRING)
 eurex_derivatives_eobi_t7_v4_0.fields.packet_id = ProtoField.new("Packet Id", "eurex.derivatives.eobi.t7.v4.0.packetid", ftypes.UINT16)
 eurex_derivatives_eobi_t7_v4_0.fields.packet_info = ProtoField.new("Packet Info", "eurex.derivatives.eobi.t7.v4.0.packetinfo", ftypes.STRING)
-eurex_derivatives_eobi_t7_v4_0.fields.packet_seq_num = ProtoField.new("Packet Seq Num", "eurex.derivatives.eobi.t7.v4.0.packetseqnum", ftypes.UINT32)
+eurex_derivatives_eobi_t7_v4_0.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "eurex.derivatives.eobi.t7.v4.0.packetsequencenumber", ftypes.UINT32)
 eurex_derivatives_eobi_t7_v4_0.fields.pad_1 = ProtoField.new("Pad 1", "eurex.derivatives.eobi.t7.v4.0.pad1", ftypes.BYTES)
 eurex_derivatives_eobi_t7_v4_0.fields.pad_2 = ProtoField.new("Pad 2", "eurex.derivatives.eobi.t7.v4.0.pad2", ftypes.BYTES)
 eurex_derivatives_eobi_t7_v4_0.fields.pad_3 = ProtoField.new("Pad 3", "eurex.derivatives.eobi.t7.v4.0.pad3", ftypes.BYTES)
@@ -135,16 +135,16 @@ show.cross_request = true
 show.execution_summary = true
 show.full_order_execution = true
 show.heartbeat = true
-show.instrmt_leg_grp = true
+show.instrmt_leg_grp_comp = true
 show.instrument_state_change = true
 show.instrument_summary = true
-show.md_instrument_entry_grp = true
-show.md_trade_entry_grp = true
+show.md_instrument_entry_grp_comp = true
+show.md_trade_entry_grp_comp = true
 show.message = true
-show.message_header = true
+show.message_header_comp = true
 show.order_add = true
 show.order_delete = true
-show.order_details = true
+show.order_details_comp = true
 show.order_mass_delete = true
 show.order_modify = true
 show.order_modify_same_prio = true
@@ -169,16 +169,16 @@ eurex_derivatives_eobi_t7_v4_0.prefs.show_cross_request = Pref.bool("Show Cross 
 eurex_derivatives_eobi_t7_v4_0.prefs.show_execution_summary = Pref.bool("Show Execution Summary", show.execution_summary, "Parse and add Execution Summary to protocol tree")
 eurex_derivatives_eobi_t7_v4_0.prefs.show_full_order_execution = Pref.bool("Show Full Order Execution", show.full_order_execution, "Parse and add Full Order Execution to protocol tree")
 eurex_derivatives_eobi_t7_v4_0.prefs.show_heartbeat = Pref.bool("Show Heartbeat", show.heartbeat, "Parse and add Heartbeat to protocol tree")
-eurex_derivatives_eobi_t7_v4_0.prefs.show_instrmt_leg_grp = Pref.bool("Show Instrmt Leg Grp", show.instrmt_leg_grp, "Parse and add Instrmt Leg Grp to protocol tree")
+eurex_derivatives_eobi_t7_v4_0.prefs.show_instrmt_leg_grp_comp = Pref.bool("Show Instrmt Leg Grp Comp", show.instrmt_leg_grp_comp, "Parse and add Instrmt Leg Grp Comp to protocol tree")
 eurex_derivatives_eobi_t7_v4_0.prefs.show_instrument_state_change = Pref.bool("Show Instrument State Change", show.instrument_state_change, "Parse and add Instrument State Change to protocol tree")
 eurex_derivatives_eobi_t7_v4_0.prefs.show_instrument_summary = Pref.bool("Show Instrument Summary", show.instrument_summary, "Parse and add Instrument Summary to protocol tree")
-eurex_derivatives_eobi_t7_v4_0.prefs.show_md_instrument_entry_grp = Pref.bool("Show Md Instrument Entry Grp", show.md_instrument_entry_grp, "Parse and add Md Instrument Entry Grp to protocol tree")
-eurex_derivatives_eobi_t7_v4_0.prefs.show_md_trade_entry_grp = Pref.bool("Show Md Trade Entry Grp", show.md_trade_entry_grp, "Parse and add Md Trade Entry Grp to protocol tree")
+eurex_derivatives_eobi_t7_v4_0.prefs.show_md_instrument_entry_grp_comp = Pref.bool("Show Md Instrument Entry Grp Comp", show.md_instrument_entry_grp_comp, "Parse and add Md Instrument Entry Grp Comp to protocol tree")
+eurex_derivatives_eobi_t7_v4_0.prefs.show_md_trade_entry_grp_comp = Pref.bool("Show Md Trade Entry Grp Comp", show.md_trade_entry_grp_comp, "Parse and add Md Trade Entry Grp Comp to protocol tree")
 eurex_derivatives_eobi_t7_v4_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-eurex_derivatives_eobi_t7_v4_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+eurex_derivatives_eobi_t7_v4_0.prefs.show_message_header_comp = Pref.bool("Show Message Header Comp", show.message_header_comp, "Parse and add Message Header Comp to protocol tree")
 eurex_derivatives_eobi_t7_v4_0.prefs.show_order_add = Pref.bool("Show Order Add", show.order_add, "Parse and add Order Add to protocol tree")
 eurex_derivatives_eobi_t7_v4_0.prefs.show_order_delete = Pref.bool("Show Order Delete", show.order_delete, "Parse and add Order Delete to protocol tree")
-eurex_derivatives_eobi_t7_v4_0.prefs.show_order_details = Pref.bool("Show Order Details", show.order_details, "Parse and add Order Details to protocol tree")
+eurex_derivatives_eobi_t7_v4_0.prefs.show_order_details_comp = Pref.bool("Show Order Details Comp", show.order_details_comp, "Parse and add Order Details Comp to protocol tree")
 eurex_derivatives_eobi_t7_v4_0.prefs.show_order_mass_delete = Pref.bool("Show Order Mass Delete", show.order_mass_delete, "Parse and add Order Mass Delete to protocol tree")
 eurex_derivatives_eobi_t7_v4_0.prefs.show_order_modify = Pref.bool("Show Order Modify", show.order_modify, "Parse and add Order Modify to protocol tree")
 eurex_derivatives_eobi_t7_v4_0.prefs.show_order_modify_same_prio = Pref.bool("Show Order Modify Same Prio", show.order_modify_same_prio, "Parse and add Order Modify Same Prio to protocol tree")
@@ -228,8 +228,8 @@ function eurex_derivatives_eobi_t7_v4_0.prefs_changed()
     show.heartbeat = eurex_derivatives_eobi_t7_v4_0.prefs.show_heartbeat
     changed = true
   end
-  if show.instrmt_leg_grp ~= eurex_derivatives_eobi_t7_v4_0.prefs.show_instrmt_leg_grp then
-    show.instrmt_leg_grp = eurex_derivatives_eobi_t7_v4_0.prefs.show_instrmt_leg_grp
+  if show.instrmt_leg_grp_comp ~= eurex_derivatives_eobi_t7_v4_0.prefs.show_instrmt_leg_grp_comp then
+    show.instrmt_leg_grp_comp = eurex_derivatives_eobi_t7_v4_0.prefs.show_instrmt_leg_grp_comp
     changed = true
   end
   if show.instrument_state_change ~= eurex_derivatives_eobi_t7_v4_0.prefs.show_instrument_state_change then
@@ -240,20 +240,20 @@ function eurex_derivatives_eobi_t7_v4_0.prefs_changed()
     show.instrument_summary = eurex_derivatives_eobi_t7_v4_0.prefs.show_instrument_summary
     changed = true
   end
-  if show.md_instrument_entry_grp ~= eurex_derivatives_eobi_t7_v4_0.prefs.show_md_instrument_entry_grp then
-    show.md_instrument_entry_grp = eurex_derivatives_eobi_t7_v4_0.prefs.show_md_instrument_entry_grp
+  if show.md_instrument_entry_grp_comp ~= eurex_derivatives_eobi_t7_v4_0.prefs.show_md_instrument_entry_grp_comp then
+    show.md_instrument_entry_grp_comp = eurex_derivatives_eobi_t7_v4_0.prefs.show_md_instrument_entry_grp_comp
     changed = true
   end
-  if show.md_trade_entry_grp ~= eurex_derivatives_eobi_t7_v4_0.prefs.show_md_trade_entry_grp then
-    show.md_trade_entry_grp = eurex_derivatives_eobi_t7_v4_0.prefs.show_md_trade_entry_grp
+  if show.md_trade_entry_grp_comp ~= eurex_derivatives_eobi_t7_v4_0.prefs.show_md_trade_entry_grp_comp then
+    show.md_trade_entry_grp_comp = eurex_derivatives_eobi_t7_v4_0.prefs.show_md_trade_entry_grp_comp
     changed = true
   end
   if show.message ~= eurex_derivatives_eobi_t7_v4_0.prefs.show_message then
     show.message = eurex_derivatives_eobi_t7_v4_0.prefs.show_message
     changed = true
   end
-  if show.message_header ~= eurex_derivatives_eobi_t7_v4_0.prefs.show_message_header then
-    show.message_header = eurex_derivatives_eobi_t7_v4_0.prefs.show_message_header
+  if show.message_header_comp ~= eurex_derivatives_eobi_t7_v4_0.prefs.show_message_header_comp then
+    show.message_header_comp = eurex_derivatives_eobi_t7_v4_0.prefs.show_message_header_comp
     changed = true
   end
   if show.order_add ~= eurex_derivatives_eobi_t7_v4_0.prefs.show_order_add then
@@ -264,8 +264,8 @@ function eurex_derivatives_eobi_t7_v4_0.prefs_changed()
     show.order_delete = eurex_derivatives_eobi_t7_v4_0.prefs.show_order_delete
     changed = true
   end
-  if show.order_details ~= eurex_derivatives_eobi_t7_v4_0.prefs.show_order_details then
-    show.order_details = eurex_derivatives_eobi_t7_v4_0.prefs.show_order_details
+  if show.order_details_comp ~= eurex_derivatives_eobi_t7_v4_0.prefs.show_order_details_comp then
+    show.order_details_comp = eurex_derivatives_eobi_t7_v4_0.prefs.show_order_details_comp
     changed = true
   end
   if show.order_mass_delete ~= eurex_derivatives_eobi_t7_v4_0.prefs.show_order_mass_delete then
@@ -458,8 +458,8 @@ dissect.md_entry_px = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Md Trade Entry Grp
-size_of.md_trade_entry_grp = function(buffer, offset)
+-- Calculate size of: Md Trade Entry Grp Comp
+size_of.md_trade_entry_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.md_entry_px
@@ -473,13 +473,13 @@ size_of.md_trade_entry_grp = function(buffer, offset)
   return index
 end
 
--- Display: Md Trade Entry Grp
-display.md_trade_entry_grp = function(buffer, offset, size, packet, parent)
+-- Display: Md Trade Entry Grp Comp
+display.md_trade_entry_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Md Trade Entry Grp
-dissect.md_trade_entry_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Md Trade Entry Grp Comp
+dissect.md_trade_entry_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Entry Px: 8 Byte Unsigned Fixed Width Integer
@@ -497,17 +497,17 @@ dissect.md_trade_entry_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Md Trade Entry Grp
-dissect.md_trade_entry_grp = function(buffer, offset, packet, parent)
+-- Dissect: Md Trade Entry Grp Comp
+dissect.md_trade_entry_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.md_trade_entry_grp then
-    local length = size_of.md_trade_entry_grp(buffer, offset)
+  if show.md_trade_entry_grp_comp then
+    local length = size_of.md_trade_entry_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.md_trade_entry_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eobi_t7_v4_0.fields.md_trade_entry_grp, range, display)
+    local display = display.md_trade_entry_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eobi_t7_v4_0.fields.md_trade_entry_grp_comp, range, display)
   end
 
-  return dissect.md_trade_entry_grp_fields(buffer, offset, packet, parent)
+  return dissect.md_trade_entry_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Pad 7
@@ -692,8 +692,8 @@ size_of.trade_reversal = function(buffer, offset)
   index = index + size_of.pad_7
 
   -- Calculate field size from count
-  local md_trade_entry_grp_count = buffer(offset + index - 8, 1):le_uint()
-  index = index + md_trade_entry_grp_count * 16
+  local md_trade_entry_grp_comp_count = buffer(offset + index - 8, 1):le_uint()
+  index = index + md_trade_entry_grp_comp_count * 16
 
   return index
 end
@@ -731,9 +731,9 @@ dissect.trade_reversal_fields = function(buffer, offset, packet, parent)
   -- Pad 7: 7 Byte
   index, pad_7 = dissect.pad_7(buffer, index, packet, parent)
 
-  -- Md Trade Entry Grp: Struct of 4 fields
+  -- Md Trade Entry Grp Comp: Struct of 4 fields
   for i = 1, no_md_entries do
-    index = dissect.md_trade_entry_grp(buffer, index, packet, parent)
+    index = dissect.md_trade_entry_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -1136,8 +1136,8 @@ dissect.trd_reg_ts_time_priority = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Order Details
-size_of.order_details = function(buffer, offset)
+-- Calculate size of: Order Details Comp
+size_of.order_details_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.trd_reg_ts_time_priority
@@ -1155,13 +1155,13 @@ size_of.order_details = function(buffer, offset)
   return index
 end
 
--- Display: Order Details
-display.order_details = function(buffer, offset, size, packet, parent)
+-- Display: Order Details Comp
+display.order_details_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Order Details
-dissect.order_details_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Order Details Comp
+dissect.order_details_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer
@@ -1185,24 +1185,24 @@ dissect.order_details_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Order Details
-dissect.order_details = function(buffer, offset, packet, parent)
+-- Dissect: Order Details Comp
+dissect.order_details_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.order_details then
-    local length = size_of.order_details(buffer, offset)
+  if show.order_details_comp then
+    local length = size_of.order_details_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_details(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eobi_t7_v4_0.fields.order_details, range, display)
+    local display = display.order_details_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eobi_t7_v4_0.fields.order_details_comp, range, display)
   end
 
-  return dissect.order_details_fields(buffer, offset, packet, parent)
+  return dissect.order_details_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Snapshot Order
 size_of.snapshot_order = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.order_details(buffer, offset + index)
+  index = index + size_of.order_details_comp(buffer, offset + index)
 
   return index
 end
@@ -1216,8 +1216,8 @@ end
 dissect.snapshot_order_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Details: Struct of 6 fields
-  index, order_details = dissect.order_details(buffer, index, packet, parent)
+  -- Order Details Comp: Struct of 6 fields
+  index, order_details_comp = dissect.order_details_comp(buffer, index, packet, parent)
 
   return index
 end
@@ -1711,7 +1711,7 @@ size_of.order_modify_same_prio = function(buffer, offset)
 
   index = index + size_of.security_id
 
-  index = index + size_of.order_details(buffer, offset + index)
+  index = index + size_of.order_details_comp(buffer, offset + index)
 
   return index
 end
@@ -1740,8 +1740,8 @@ dissect.order_modify_same_prio_fields = function(buffer, offset, packet, parent)
   -- Security Id: 8 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
-  -- Order Details: Struct of 6 fields
-  index, order_details = dissect.order_details(buffer, index, packet, parent)
+  -- Order Details Comp: Struct of 6 fields
+  index, order_details_comp = dissect.order_details_comp(buffer, index, packet, parent)
 
   return index
 end
@@ -1816,7 +1816,7 @@ size_of.order_modify = function(buffer, offset)
 
   index = index + size_of.security_id
 
-  index = index + size_of.order_details(buffer, offset + index)
+  index = index + size_of.order_details_comp(buffer, offset + index)
 
   return index
 end
@@ -1848,8 +1848,8 @@ dissect.order_modify_fields = function(buffer, offset, packet, parent)
   -- Security Id: 8 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
-  -- Order Details: Struct of 6 fields
-  index, order_details = dissect.order_details(buffer, index, packet, parent)
+  -- Order Details Comp: Struct of 6 fields
+  index, order_details_comp = dissect.order_details_comp(buffer, index, packet, parent)
 
   return index
 end
@@ -1919,7 +1919,7 @@ size_of.order_delete = function(buffer, offset)
 
   index = index + size_of.security_id
 
-  index = index + size_of.order_details(buffer, offset + index)
+  index = index + size_of.order_details_comp(buffer, offset + index)
 
   return index
 end
@@ -1942,8 +1942,8 @@ dissect.order_delete_fields = function(buffer, offset, packet, parent)
   -- Security Id: 8 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
-  -- Order Details: Struct of 6 fields
-  index, order_details = dissect.order_details(buffer, index, packet, parent)
+  -- Order Details Comp: Struct of 6 fields
+  index, order_details_comp = dissect.order_details_comp(buffer, index, packet, parent)
 
   return index
 end
@@ -1969,7 +1969,7 @@ size_of.order_add = function(buffer, offset)
 
   index = index + size_of.security_id
 
-  index = index + size_of.order_details(buffer, offset + index)
+  index = index + size_of.order_details_comp(buffer, offset + index)
 
   return index
 end
@@ -1989,8 +1989,8 @@ dissect.order_add_fields = function(buffer, offset, packet, parent)
   -- Security Id: 8 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
-  -- Order Details: Struct of 6 fields
-  index, order_details = dissect.order_details(buffer, index, packet, parent)
+  -- Order Details Comp: Struct of 6 fields
+  index, order_details_comp = dissect.order_details_comp(buffer, index, packet, parent)
 
   return index
 end
@@ -2008,8 +2008,8 @@ dissect.order_add = function(buffer, offset, packet, parent)
   return dissect.order_add_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Md Instrument Entry Grp
-size_of.md_instrument_entry_grp = function(buffer, offset)
+-- Calculate size of: Md Instrument Entry Grp Comp
+size_of.md_instrument_entry_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.md_entry_px
@@ -2023,13 +2023,13 @@ size_of.md_instrument_entry_grp = function(buffer, offset)
   return index
 end
 
--- Display: Md Instrument Entry Grp
-display.md_instrument_entry_grp = function(buffer, offset, size, packet, parent)
+-- Display: Md Instrument Entry Grp Comp
+display.md_instrument_entry_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Md Instrument Entry Grp
-dissect.md_instrument_entry_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Md Instrument Entry Grp Comp
+dissect.md_instrument_entry_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Entry Px: 8 Byte Unsigned Fixed Width Integer
@@ -2047,17 +2047,17 @@ dissect.md_instrument_entry_grp_fields = function(buffer, offset, packet, parent
   return index
 end
 
--- Dissect: Md Instrument Entry Grp
-dissect.md_instrument_entry_grp = function(buffer, offset, packet, parent)
+-- Dissect: Md Instrument Entry Grp Comp
+dissect.md_instrument_entry_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.md_instrument_entry_grp then
-    local length = size_of.md_instrument_entry_grp(buffer, offset)
+  if show.md_instrument_entry_grp_comp then
+    local length = size_of.md_instrument_entry_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.md_instrument_entry_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eobi_t7_v4_0.fields.md_instrument_entry_grp, range, display)
+    local display = display.md_instrument_entry_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eobi_t7_v4_0.fields.md_instrument_entry_grp_comp, range, display)
   end
 
-  return dissect.md_instrument_entry_grp_fields(buffer, offset, packet, parent)
+  return dissect.md_instrument_entry_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Pad 1
@@ -2274,8 +2274,8 @@ size_of.instrument_summary = function(buffer, offset)
   index = index + size_of.pad_1
 
   -- Calculate field size from count
-  local md_instrument_entry_grp_count = buffer(offset + index - 2, 1):le_uint()
-  index = index + md_instrument_entry_grp_count * 16
+  local md_instrument_entry_grp_comp_count = buffer(offset + index - 2, 1):le_uint()
+  index = index + md_instrument_entry_grp_comp_count * 16
 
   return index
 end
@@ -2319,9 +2319,9 @@ dissect.instrument_summary_fields = function(buffer, offset, packet, parent)
   -- Pad 1: 1 Byte
   index, pad_1 = dissect.pad_1(buffer, index, packet, parent)
 
-  -- Md Instrument Entry Grp: Struct of 4 fields
+  -- Md Instrument Entry Grp Comp: Struct of 4 fields
   for i = 1, no_md_entries do
-    index = dissect.md_instrument_entry_grp(buffer, index, packet, parent)
+    index = dissect.md_instrument_entry_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -3134,8 +3134,8 @@ dissect.leg_symbol = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Instrmt Leg Grp
-size_of.instrmt_leg_grp = function(buffer, offset)
+-- Calculate size of: Instrmt Leg Grp Comp
+size_of.instrmt_leg_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.leg_symbol
@@ -3153,13 +3153,13 @@ size_of.instrmt_leg_grp = function(buffer, offset)
   return index
 end
 
--- Display: Instrmt Leg Grp
-display.instrmt_leg_grp = function(buffer, offset, size, packet, parent)
+-- Display: Instrmt Leg Grp Comp
+display.instrmt_leg_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Instrmt Leg Grp
-dissect.instrmt_leg_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Instrmt Leg Grp Comp
+dissect.instrmt_leg_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Leg Symbol: 4 Byte Signed Fixed Width Integer
@@ -3183,17 +3183,17 @@ dissect.instrmt_leg_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Instrmt Leg Grp
-dissect.instrmt_leg_grp = function(buffer, offset, packet, parent)
+-- Dissect: Instrmt Leg Grp Comp
+dissect.instrmt_leg_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.instrmt_leg_grp then
-    local length = size_of.instrmt_leg_grp(buffer, offset)
+  if show.instrmt_leg_grp_comp then
+    local length = size_of.instrmt_leg_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.instrmt_leg_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eobi_t7_v4_0.fields.instrmt_leg_grp, range, display)
+    local display = display.instrmt_leg_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eobi_t7_v4_0.fields.instrmt_leg_grp_comp, range, display)
   end
 
-  return dissect.instrmt_leg_grp_fields(buffer, offset, packet, parent)
+  return dissect.instrmt_leg_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: No Legs
@@ -3327,8 +3327,8 @@ size_of.add_complex_instrument = function(buffer, offset)
   index = index + size_of.pad_1
 
   -- Calculate field size from count
-  local instrmt_leg_grp_count = buffer(offset + index - 2, 1):le_uint()
-  index = index + instrmt_leg_grp_count * 24
+  local instrmt_leg_grp_comp_count = buffer(offset + index - 2, 1):le_uint()
+  index = index + instrmt_leg_grp_comp_count * 24
 
   return index
 end
@@ -3363,9 +3363,9 @@ dissect.add_complex_instrument_fields = function(buffer, offset, packet, parent)
   -- Pad 1: 1 Byte
   index, pad_1 = dissect.pad_1(buffer, index, packet, parent)
 
-  -- Instrmt Leg Grp: Struct of 6 fields
+  -- Instrmt Leg Grp Comp: Struct of 6 fields
   for i = 1, no_legs do
-    index = dissect.instrmt_leg_grp(buffer, index, packet, parent)
+    index = dissect.instrmt_leg_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -3657,8 +3657,8 @@ dissect.body_len = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Message Header
-size_of.message_header = function(buffer, offset)
+-- Calculate size of: Message Header Comp
+size_of.message_header_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.body_len
@@ -3670,13 +3670,13 @@ size_of.message_header = function(buffer, offset)
   return index
 end
 
--- Display: Message Header
-display.message_header = function(buffer, offset, size, packet, parent)
+-- Display: Message Header Comp
+display.message_header_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Message Header
-dissect.message_header_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Message Header Comp
+dissect.message_header_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Body Len: 2 Byte Unsigned Fixed Width Integer
@@ -3691,17 +3691,17 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Message Header
-dissect.message_header = function(buffer, offset, packet, parent)
+-- Dissect: Message Header Comp
+dissect.message_header_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.message_header then
-    local length = size_of.message_header(buffer, offset)
+  if show.message_header_comp then
+    local length = size_of.message_header_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message_header(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eobi_t7_v4_0.fields.message_header, range, display)
+    local display = display.message_header_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eobi_t7_v4_0.fields.message_header_comp, range, display)
   end
 
-  return dissect.message_header_fields(buffer, offset, packet, parent)
+  return dissect.message_header_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Message
@@ -3713,8 +3713,8 @@ end
 dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
-  -- Message Header: Struct of 3 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  -- Message Header Comp: Struct of 3 fields
+  index, message_header_comp = dissect.message_header_comp(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
   local template_id = buffer(index - 6, 2):le_uint()
@@ -3759,29 +3759,29 @@ dissect.pad_5 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Application Sequence Reset Indicator
-size_of.application_sequence_reset_indicator = 1
+-- Size: Appl Seq Reset Indicator
+size_of.appl_seq_reset_indicator = 1
 
--- Display: Application Sequence Reset Indicator
-display.application_sequence_reset_indicator = function(value)
+-- Display: Appl Seq Reset Indicator
+display.appl_seq_reset_indicator = function(value)
   if value == 0 then
-    return "Application Sequence Reset Indicator: No Reset (0)"
+    return "Appl Seq Reset Indicator: No Reset (0)"
   end
   if value == 1 then
-    return "Application Sequence Reset Indicator: Reset (1)"
+    return "Appl Seq Reset Indicator: Reset (1)"
   end
 
-  return "Application Sequence Reset Indicator: Unknown("..value..")"
+  return "Appl Seq Reset Indicator: Unknown("..value..")"
 end
 
--- Dissect: Application Sequence Reset Indicator
-dissect.application_sequence_reset_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.application_sequence_reset_indicator
+-- Dissect: Appl Seq Reset Indicator
+dissect.appl_seq_reset_indicator = function(buffer, offset, packet, parent)
+  local length = size_of.appl_seq_reset_indicator
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.application_sequence_reset_indicator(value, buffer, offset, packet, parent)
+  local display = display.appl_seq_reset_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v4_0.fields.application_sequence_reset_indicator, range, value, display)
+  parent:add(eurex_derivatives_eobi_t7_v4_0.fields.appl_seq_reset_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -3853,42 +3853,42 @@ dissect.market_segment_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Application Sequence Number
-size_of.application_sequence_number = 4
+-- Size: Appl Seq Num
+size_of.appl_seq_num = 4
 
--- Display: Application Sequence Number
-display.application_sequence_number = function(value)
-  return "Application Sequence Number: "..value
+-- Display: Appl Seq Num
+display.appl_seq_num = function(value)
+  return "Appl Seq Num: "..value
 end
 
--- Dissect: Application Sequence Number
-dissect.application_sequence_number = function(buffer, offset, packet, parent)
-  local length = size_of.application_sequence_number
+-- Dissect: Appl Seq Num
+dissect.appl_seq_num = function(buffer, offset, packet, parent)
+  local length = size_of.appl_seq_num
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.application_sequence_number(value, buffer, offset, packet, parent)
+  local display = display.appl_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v4_0.fields.application_sequence_number, range, value, display)
+  parent:add(eurex_derivatives_eobi_t7_v4_0.fields.appl_seq_num, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Packet Seq Num
-size_of.packet_seq_num = 4
+-- Size: Packet Sequence Number
+size_of.packet_sequence_number = 4
 
--- Display: Packet Seq Num
-display.packet_seq_num = function(value)
-  return "Packet Seq Num: "..value
+-- Display: Packet Sequence Number
+display.packet_sequence_number = function(value)
+  return "Packet Sequence Number: "..value
 end
 
--- Dissect: Packet Seq Num
-dissect.packet_seq_num = function(buffer, offset, packet, parent)
-  local length = size_of.packet_seq_num
+-- Dissect: Packet Sequence Number
+dissect.packet_sequence_number = function(buffer, offset, packet, parent)
+  local length = size_of.packet_sequence_number
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.packet_seq_num(value, buffer, offset, packet, parent)
+  local display = display.packet_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(eurex_derivatives_eobi_t7_v4_0.fields.packet_seq_num, range, value, display)
+  parent:add(eurex_derivatives_eobi_t7_v4_0.fields.packet_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -3941,7 +3941,7 @@ size_of.packet_info = function(buffer, offset)
 
   index = index + size_of.packet_id
 
-  index = index + size_of.packet_seq_num
+  index = index + size_of.packet_sequence_number
 
   return index
 end
@@ -3961,8 +3961,8 @@ dissect.packet_info_fields = function(buffer, offset, packet, parent)
   -- Packet Id: 2 Byte Unsigned Fixed Width Integer Static
   index, packet_id = dissect.packet_id(buffer, index, packet, parent)
 
-  -- Packet Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, packet_seq_num = dissect.packet_seq_num(buffer, index, packet, parent)
+  -- Packet Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index, packet_sequence_number = dissect.packet_sequence_number(buffer, index, packet, parent)
 
   return index
 end
@@ -3986,7 +3986,7 @@ size_of.packet_header = function(buffer, offset)
 
   index = index + size_of.packet_info(buffer, offset + index)
 
-  index = index + size_of.application_sequence_number
+  index = index + size_of.appl_seq_num
 
   index = index + size_of.market_segment_id
 
@@ -3994,7 +3994,7 @@ size_of.packet_header = function(buffer, offset)
 
   index = index + size_of.completion_indicator
 
-  index = index + size_of.application_sequence_reset_indicator
+  index = index + size_of.appl_seq_reset_indicator
 
   index = index + size_of.pad_5
 
@@ -4015,8 +4015,8 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   -- Packet Info: Struct of 3 fields
   index, packet_info = dissect.packet_info(buffer, index, packet, parent)
 
-  -- Application Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, application_sequence_number = dissect.application_sequence_number(buffer, index, packet, parent)
+  -- Appl Seq Num: 4 Byte Unsigned Fixed Width Integer
+  index, appl_seq_num = dissect.appl_seq_num(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer
   index, market_segment_id = dissect.market_segment_id(buffer, index, packet, parent)
@@ -4027,8 +4027,8 @@ dissect.packet_header_fields = function(buffer, offset, packet, parent)
   -- Completion Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, completion_indicator = dissect.completion_indicator(buffer, index, packet, parent)
 
-  -- Application Sequence Reset Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, application_sequence_reset_indicator = dissect.application_sequence_reset_indicator(buffer, index, packet, parent)
+  -- Appl Seq Reset Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  index, appl_seq_reset_indicator = dissect.appl_seq_reset_indicator(buffer, index, packet, parent)
 
   -- Pad 5: 5 Byte
   index, pad_5 = dissect.pad_5(buffer, index, packet, parent)

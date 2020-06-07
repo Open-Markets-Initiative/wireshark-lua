@@ -70,9 +70,9 @@ nyse_equities_bqt_xdp_v2_1_a.fields.mpv = ProtoField.new("Mpv", "nyse.equities.b
 nyse_equities_bqt_xdp_v2_1_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.equities.bqt.xdp.v2.1.a.nanoseconds", ftypes.UINT32)
 nyse_equities_bqt_xdp_v2_1_a.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.equities.bqt.xdp.v2.1.a.nextsourceseqnum", ftypes.UINT32)
 nyse_equities_bqt_xdp_v2_1_a.fields.number_of_close_prices = ProtoField.new("Number Of Close Prices", "nyse.equities.bqt.xdp.v2.1.a.numberofcloseprices", ftypes.UINT8)
-nyse_equities_bqt_xdp_v2_1_a.fields.ok_for_late_hours = ProtoField.new("Ok for late hours", "nyse.equities.bqt.xdp.v2.1.a.okforlatehours", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
-nyse_equities_bqt_xdp_v2_1_a.fields.ok_for_morning_hours = ProtoField.new("Ok for morning hours", "nyse.equities.bqt.xdp.v2.1.a.okformorninghours", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
-nyse_equities_bqt_xdp_v2_1_a.fields.ok_for_national_hours = ProtoField.new("Ok for national hours", "nyse.equities.bqt.xdp.v2.1.a.okfornationalhours", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
+nyse_equities_bqt_xdp_v2_1_a.fields.ok_for_late_hours = ProtoField.new("Ok For Late Hours", "nyse.equities.bqt.xdp.v2.1.a.okforlatehours", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
+nyse_equities_bqt_xdp_v2_1_a.fields.ok_for_morning_hours = ProtoField.new("Ok For Morning Hours", "nyse.equities.bqt.xdp.v2.1.a.okformorninghours", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
+nyse_equities_bqt_xdp_v2_1_a.fields.ok_for_national_hours = ProtoField.new("Ok For National Hours", "nyse.equities.bqt.xdp.v2.1.a.okfornationalhours", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
 nyse_equities_bqt_xdp_v2_1_a.fields.open = ProtoField.new("Open", "nyse.equities.bqt.xdp.v2.1.a.open", ftypes.UINT32)
 nyse_equities_bqt_xdp_v2_1_a.fields.original_trade_id = ProtoField.new("Original Trade Id", "nyse.equities.bqt.xdp.v2.1.a.originaltradeid", ftypes.UINT32)
 nyse_equities_bqt_xdp_v2_1_a.fields.packet = ProtoField.new("Packet", "nyse.equities.bqt.xdp.v2.1.a.packet", ftypes.STRING)
@@ -2614,17 +2614,17 @@ size_of.trade_session = 1
 display.trade_session = function(buffer, packet, parent)
   local display = ""
 
-  -- Is Ok for late hours flag set?
+  -- Is Ok For Late Hours flag set?
   if buffer:bitfield(5) > 0 then
-    display = display.."Ok for late hours|"
+    display = display.."Ok For Late Hours|"
   end
-  -- Is Ok for national hours flag set?
+  -- Is Ok For National Hours flag set?
   if buffer:bitfield(6) > 0 then
-    display = display.."Ok for national hours|"
+    display = display.."Ok For National Hours|"
   end
-  -- Is Ok for morning hours flag set?
+  -- Is Ok For Morning Hours flag set?
   if buffer:bitfield(7) > 0 then
-    display = display.."Ok for morning hours|"
+    display = display.."Ok For Morning Hours|"
   end
 
   return display:sub(1, -2)
@@ -2636,13 +2636,13 @@ dissect.trade_session_bits = function(buffer, offset, packet, parent)
   -- Reserved: 5 Bit
   parent:add(nyse_equities_bqt_xdp_v2_1_a.fields.reserved, buffer(offset, 1))
 
-  -- Ok for late hours: 1 Bit
+  -- Ok For Late Hours: 1 Bit
   parent:add(nyse_equities_bqt_xdp_v2_1_a.fields.ok_for_late_hours, buffer(offset, 1))
 
-  -- Ok for national hours: 1 Bit
+  -- Ok For National Hours: 1 Bit
   parent:add(nyse_equities_bqt_xdp_v2_1_a.fields.ok_for_national_hours, buffer(offset, 1))
 
-  -- Ok for morning hours: 1 Bit
+  -- Ok For Morning Hours: 1 Bit
   parent:add(nyse_equities_bqt_xdp_v2_1_a.fields.ok_for_morning_hours, buffer(offset, 1))
 end
 

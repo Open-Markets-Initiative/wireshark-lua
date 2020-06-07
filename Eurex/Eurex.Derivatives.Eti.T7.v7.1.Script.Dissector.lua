@@ -26,7 +26,7 @@ eurex_derivatives_eti_t7_v7_1.fields.add_complex_instrument_response = ProtoFiel
 eurex_derivatives_eti_t7_v7_1.fields.add_flexible_instrument_request = ProtoField.new("Add Flexible Instrument Request", "eurex.derivatives.eti.t7.v7.1.addflexibleinstrumentrequest", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.add_flexible_instrument_response = ProtoField.new("Add Flexible Instrument Response", "eurex.derivatives.eti.t7.v7.1.addflexibleinstrumentresponse", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.affected_order_request_id = ProtoField.new("Affected Order Request Id", "eurex.derivatives.eti.t7.v7.1.affectedorderrequestid", ftypes.UINT32)
-eurex_derivatives_eti_t7_v7_1.fields.affected_order_requests_grp = ProtoField.new("Affected Order Requests Grp", "eurex.derivatives.eti.t7.v7.1.affectedorderrequestsgrp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.affected_order_requests_grp_comp = ProtoField.new("Affected Order Requests Grp Comp", "eurex.derivatives.eti.t7.v7.1.affectedorderrequestsgrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.alloc_id = ProtoField.new("Alloc Id", "eurex.derivatives.eti.t7.v7.1.allocid", ftypes.UINT32)
 eurex_derivatives_eti_t7_v7_1.fields.alloc_qty = ProtoField.new("Alloc Qty", "eurex.derivatives.eti.t7.v7.1.allocqty", ftypes.UINT64)
 eurex_derivatives_eti_t7_v7_1.fields.amend_basket_trade_request = ProtoField.new("Amend Basket Trade Request", "eurex.derivatives.eti.t7.v7.1.amendbaskettraderequest", ftypes.STRING)
@@ -54,14 +54,14 @@ eurex_derivatives_eti_t7_v7_1.fields.approve_tes_trade_request = ProtoField.new(
 eurex_derivatives_eti_t7_v7_1.fields.basket_approve_broadcast = ProtoField.new("Basket Approve Broadcast", "eurex.derivatives.eti.t7.v7.1.basketapprovebroadcast", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.basket_broadcast = ProtoField.new("Basket Broadcast", "eurex.derivatives.eti.t7.v7.1.basketbroadcast", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.basket_delete_broadcast = ProtoField.new("Basket Delete Broadcast", "eurex.derivatives.eti.t7.v7.1.basketdeletebroadcast", ftypes.STRING)
-eurex_derivatives_eti_t7_v7_1.fields.basket_exec_grp = ProtoField.new("Basket Exec Grp", "eurex.derivatives.eti.t7.v7.1.basketexecgrp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.basket_exec_grp_comp = ProtoField.new("Basket Exec Grp Comp", "eurex.derivatives.eti.t7.v7.1.basketexecgrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.basket_exec_id = ProtoField.new("Basket Exec Id", "eurex.derivatives.eti.t7.v7.1.basketexecid", ftypes.UINT32)
 eurex_derivatives_eti_t7_v7_1.fields.basket_execution_broadcast = ProtoField.new("Basket Execution Broadcast", "eurex.derivatives.eti.t7.v7.1.basketexecutionbroadcast", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.basket_response = ProtoField.new("Basket Response", "eurex.derivatives.eti.t7.v7.1.basketresponse", ftypes.STRING)
-eurex_derivatives_eti_t7_v7_1.fields.basket_root_party_grp = ProtoField.new("Basket Root Party Grp", "eurex.derivatives.eti.t7.v7.1.basketrootpartygrp", ftypes.STRING)
-eurex_derivatives_eti_t7_v7_1.fields.basket_side_alloc_ext_bc_grp = ProtoField.new("Basket Side Alloc Ext Bc Grp", "eurex.derivatives.eti.t7.v7.1.basketsideallocextbcgrp", ftypes.STRING)
-eurex_derivatives_eti_t7_v7_1.fields.basket_side_alloc_ext_grp = ProtoField.new("Basket Side Alloc Ext Grp", "eurex.derivatives.eti.t7.v7.1.basketsideallocextgrp", ftypes.STRING)
-eurex_derivatives_eti_t7_v7_1.fields.basket_side_alloc_grp = ProtoField.new("Basket Side Alloc Grp", "eurex.derivatives.eti.t7.v7.1.basketsideallocgrp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.basket_root_party_grp_comp = ProtoField.new("Basket Root Party Grp Comp", "eurex.derivatives.eti.t7.v7.1.basketrootpartygrpcomp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.basket_side_alloc_ext_bc_grp_comp = ProtoField.new("Basket Side Alloc Ext Bc Grp Comp", "eurex.derivatives.eti.t7.v7.1.basketsideallocextbcgrpcomp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.basket_side_alloc_ext_grp_comp = ProtoField.new("Basket Side Alloc Ext Grp Comp", "eurex.derivatives.eti.t7.v7.1.basketsideallocextgrpcomp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.basket_side_alloc_grp_comp = ProtoField.new("Basket Side Alloc Grp Comp", "eurex.derivatives.eti.t7.v7.1.basketsideallocgrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.basket_side_trade_report_id = ProtoField.new("Basket Side Trade Report Id", "eurex.derivatives.eti.t7.v7.1.basketsidetradereportid", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.basket_trade_report_text = ProtoField.new("Basket Trade Report Text", "eurex.derivatives.eti.t7.v7.1.baskettradereporttext", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.basket_trade_report_type = ProtoField.new("Basket Trade Report Type", "eurex.derivatives.eti.t7.v7.1.baskettradereporttype", ftypes.UINT8)
@@ -84,10 +84,10 @@ eurex_derivatives_eti_t7_v7_1.fields.clip_response = ProtoField.new("Clip Respon
 eurex_derivatives_eti_t7_v7_1.fields.compliance_text = ProtoField.new("Compliance Text", "eurex.derivatives.eti.t7.v7.1.compliancetext", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.cross_id = ProtoField.new("Cross Id", "eurex.derivatives.eti.t7.v7.1.crossid", ftypes.INT32)
 eurex_derivatives_eti_t7_v7_1.fields.cross_request = ProtoField.new("Cross Request", "eurex.derivatives.eti.t7.v7.1.crossrequest", ftypes.STRING)
-eurex_derivatives_eti_t7_v7_1.fields.cross_request_ack_side_grp = ProtoField.new("Cross Request Ack Side Grp", "eurex.derivatives.eti.t7.v7.1.crossrequestacksidegrp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.cross_request_ack_side_grp_comp = ProtoField.new("Cross Request Ack Side Grp Comp", "eurex.derivatives.eti.t7.v7.1.crossrequestacksidegrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.cross_request_id = ProtoField.new("Cross Request Id", "eurex.derivatives.eti.t7.v7.1.crossrequestid", ftypes.INT32)
 eurex_derivatives_eti_t7_v7_1.fields.cross_request_response = ProtoField.new("Cross Request Response", "eurex.derivatives.eti.t7.v7.1.crossrequestresponse", ftypes.STRING)
-eurex_derivatives_eti_t7_v7_1.fields.cross_request_side_grp = ProtoField.new("Cross Request Side Grp", "eurex.derivatives.eti.t7.v7.1.crossrequestsidegrp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.cross_request_side_grp_comp = ProtoField.new("Cross Request Side Grp Comp", "eurex.derivatives.eti.t7.v7.1.crossrequestsidegrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.crossed_indicator = ProtoField.new("Crossed Indicator", "eurex.derivatives.eti.t7.v7.1.crossedindicator", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.cum_qty = ProtoField.new("Cum Qty", "eurex.derivatives.eti.t7.v7.1.cumqty", ftypes.UINT64)
 eurex_derivatives_eti_t7_v7_1.fields.cust_order_handling_inst = ProtoField.new("Cust Order Handling Inst", "eurex.derivatives.eti.t7.v7.1.custorderhandlinginst", ftypes.STRING)
@@ -114,7 +114,7 @@ eurex_derivatives_eti_t7_v7_1.fields.delete_tes_trade_request = ProtoField.new("
 eurex_derivatives_eti_t7_v7_1.fields.delta = ProtoField.new("Delta", "eurex.derivatives.eti.t7.v7.1.delta", ftypes.UINT64)
 eurex_derivatives_eti_t7_v7_1.fields.effect_on_basket = ProtoField.new("Effect On Basket", "eurex.derivatives.eti.t7.v7.1.effectonbasket", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.enrichment_rule_id = ProtoField.new("Enrichment Rule Id", "eurex.derivatives.eti.t7.v7.1.enrichmentruleid", ftypes.UINT16)
-eurex_derivatives_eti_t7_v7_1.fields.enrichment_rules_grp = ProtoField.new("Enrichment Rules Grp", "eurex.derivatives.eti.t7.v7.1.enrichmentrulesgrp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.enrichment_rules_grp_comp = ProtoField.new("Enrichment Rules Grp Comp", "eurex.derivatives.eti.t7.v7.1.enrichmentrulesgrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.enter_basket_trade_request = ProtoField.new("Enter Basket Trade Request", "eurex.derivatives.eti.t7.v7.1.enterbaskettraderequest", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.enter_clip_request = ProtoField.new("Enter Clip Request", "eurex.derivatives.eti.t7.v7.1.entercliprequest", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.enter_tes_trade_request = ProtoField.new("Enter Tes Trade Request", "eurex.derivatives.eti.t7.v7.1.entertestraderequest", ftypes.STRING)
@@ -136,7 +136,7 @@ eurex_derivatives_eti_t7_v7_1.fields.fill_match_id = ProtoField.new("Fill Match 
 eurex_derivatives_eti_t7_v7_1.fields.fill_px = ProtoField.new("Fill Px", "eurex.derivatives.eti.t7.v7.1.fillpx", ftypes.UINT64)
 eurex_derivatives_eti_t7_v7_1.fields.fill_qty = ProtoField.new("Fill Qty", "eurex.derivatives.eti.t7.v7.1.fillqty", ftypes.UINT64)
 eurex_derivatives_eti_t7_v7_1.fields.fill_ref_id = ProtoField.new("Fill Ref Id", "eurex.derivatives.eti.t7.v7.1.fillrefid", ftypes.UINT8)
-eurex_derivatives_eti_t7_v7_1.fields.fills_grp = ProtoField.new("Fills Grp", "eurex.derivatives.eti.t7.v7.1.fillsgrp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.fills_grp_comp = ProtoField.new("Fills Grp Comp", "eurex.derivatives.eti.t7.v7.1.fillsgrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.firm_negotiation_id = ProtoField.new("Firm Negotiation Id", "eurex.derivatives.eti.t7.v7.1.firmnegotiationid", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.firm_trade_id = ProtoField.new("Firm Trade Id", "eurex.derivatives.eti.t7.v7.1.firmtradeid", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.fix_cl_ord_id = ProtoField.new("Fix Cl Ord Id", "eurex.derivatives.eti.t7.v7.1.fixclordid", ftypes.STRING)
@@ -170,12 +170,12 @@ eurex_derivatives_eti_t7_v7_1.fields.inquire_user_request = ProtoField.new("Inqu
 eurex_derivatives_eti_t7_v7_1.fields.inquire_user_response = ProtoField.new("Inquire User Response", "eurex.derivatives.eti.t7.v7.1.inquireuserresponse", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.instr_attrib_type = ProtoField.new("Instr Attrib Type", "eurex.derivatives.eti.t7.v7.1.instrattribtype", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.instr_attrib_value = ProtoField.new("Instr Attrib Value", "eurex.derivatives.eti.t7.v7.1.instrattribvalue", ftypes.STRING)
-eurex_derivatives_eti_t7_v7_1.fields.instrmnt_leg_exec_grp = ProtoField.new("Instrmnt Leg Exec Grp", "eurex.derivatives.eti.t7.v7.1.instrmntlegexecgrp", ftypes.STRING)
-eurex_derivatives_eti_t7_v7_1.fields.instrmt_leg_grp = ProtoField.new("Instrmt Leg Grp", "eurex.derivatives.eti.t7.v7.1.instrmtleggrp", ftypes.STRING)
-eurex_derivatives_eti_t7_v7_1.fields.instrmt_match_side_grp = ProtoField.new("Instrmt Match Side Grp", "eurex.derivatives.eti.t7.v7.1.instrmtmatchsidegrp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.instrmnt_leg_exec_grp_comp = ProtoField.new("Instrmnt Leg Exec Grp Comp", "eurex.derivatives.eti.t7.v7.1.instrmntlegexecgrpcomp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.instrmt_leg_grp_comp = ProtoField.new("Instrmt Leg Grp Comp", "eurex.derivatives.eti.t7.v7.1.instrmtleggrpcomp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.instrmt_match_side_grp_comp = ProtoField.new("Instrmt Match Side Grp Comp", "eurex.derivatives.eti.t7.v7.1.instrmtmatchsidegrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.instrmt_match_side_id = ProtoField.new("Instrmt Match Side Id", "eurex.derivatives.eti.t7.v7.1.instrmtmatchsideid", ftypes.UINT8)
-eurex_derivatives_eti_t7_v7_1.fields.instrument_attribute_grp = ProtoField.new("Instrument Attribute Grp", "eurex.derivatives.eti.t7.v7.1.instrumentattributegrp", ftypes.STRING)
-eurex_derivatives_eti_t7_v7_1.fields.instrument_event_grp = ProtoField.new("Instrument Event Grp", "eurex.derivatives.eti.t7.v7.1.instrumenteventgrp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.instrument_attribute_grp_comp = ProtoField.new("Instrument Attribute Grp Comp", "eurex.derivatives.eti.t7.v7.1.instrumentattributegrpcomp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.instrument_event_grp_comp = ProtoField.new("Instrument Event Grp Comp", "eurex.derivatives.eti.t7.v7.1.instrumenteventgrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.last_entity_processed = ProtoField.new("Last Entity Processed", "eurex.derivatives.eti.t7.v7.1.lastentityprocessed", ftypes.BYTES)
 eurex_derivatives_eti_t7_v7_1.fields.last_fragment = ProtoField.new("Last Fragment", "eurex.derivatives.eti.t7.v7.1.lastfragment", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.last_px = ProtoField.new("Last Px", "eurex.derivatives.eti.t7.v7.1.lastpx", ftypes.UINT64)
@@ -190,7 +190,7 @@ eurex_derivatives_eti_t7_v7_1.fields.leg_exec_id = ProtoField.new("Leg Exec Id",
 eurex_derivatives_eti_t7_v7_1.fields.leg_input_source = ProtoField.new("Leg Input Source", "eurex.derivatives.eti.t7.v7.1.leginputsource", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.leg_last_px = ProtoField.new("Leg Last Px", "eurex.derivatives.eti.t7.v7.1.leglastpx", ftypes.UINT64)
 eurex_derivatives_eti_t7_v7_1.fields.leg_last_qty = ProtoField.new("Leg Last Qty", "eurex.derivatives.eti.t7.v7.1.leglastqty", ftypes.UINT64)
-eurex_derivatives_eti_t7_v7_1.fields.leg_ord_grp = ProtoField.new("Leg Ord Grp", "eurex.derivatives.eti.t7.v7.1.legordgrp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.leg_ord_grp_comp = ProtoField.new("Leg Ord Grp Comp", "eurex.derivatives.eti.t7.v7.1.legordgrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.leg_position_effect = ProtoField.new("Leg Position Effect", "eurex.derivatives.eti.t7.v7.1.legpositioneffect", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.leg_price = ProtoField.new("Leg Price", "eurex.derivatives.eti.t7.v7.1.legprice", ftypes.UINT64)
 eurex_derivatives_eti_t7_v7_1.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "eurex.derivatives.eti.t7.v7.1.legratioqty", ftypes.UINT32)
@@ -225,11 +225,11 @@ eurex_derivatives_eti_t7_v7_1.fields.maximum_price = ProtoField.new("Maximum Pri
 eurex_derivatives_eti_t7_v7_1.fields.md_book_type = ProtoField.new("Md Book Type", "eurex.derivatives.eti.t7.v7.1.mdbooktype", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.md_sub_book_type = ProtoField.new("Md Sub Book Type", "eurex.derivatives.eti.t7.v7.1.mdsubbooktype", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.message_event_source = ProtoField.new("Message Event Source", "eurex.derivatives.eti.t7.v7.1.messageeventsource", ftypes.STRING)
-eurex_derivatives_eti_t7_v7_1.fields.message_header_in = ProtoField.new("Message Header In", "eurex.derivatives.eti.t7.v7.1.messageheaderin", ftypes.STRING)
-eurex_derivatives_eti_t7_v7_1.fields.message_header_out = ProtoField.new("Message Header Out", "eurex.derivatives.eti.t7.v7.1.messageheaderout", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.message_header_in_comp = ProtoField.new("Message Header In Comp", "eurex.derivatives.eti.t7.v7.1.messageheaderincomp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.message_header_out_comp = ProtoField.new("Message Header Out Comp", "eurex.derivatives.eti.t7.v7.1.messageheaderoutcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.mm_parameter_definition_request = ProtoField.new("Mm Parameter Definition Request", "eurex.derivatives.eti.t7.v7.1.mmparameterdefinitionrequest", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.mm_parameter_definition_response = ProtoField.new("Mm Parameter Definition Response", "eurex.derivatives.eti.t7.v7.1.mmparameterdefinitionresponse", ftypes.STRING)
-eurex_derivatives_eti_t7_v7_1.fields.mm_parameter_grp = ProtoField.new("Mm Parameter Grp", "eurex.derivatives.eti.t7.v7.1.mmparametergrp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.mm_parameter_grp_comp = ProtoField.new("Mm Parameter Grp Comp", "eurex.derivatives.eti.t7.v7.1.mmparametergrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.mm_parameter_report_id = ProtoField.new("Mm Parameter Report Id", "eurex.derivatives.eti.t7.v7.1.mmparameterreportid", ftypes.UINT64)
 eurex_derivatives_eti_t7_v7_1.fields.modify_basket_trade_request = ProtoField.new("Modify Basket Trade Request", "eurex.derivatives.eti.t7.v7.1.modifybaskettraderequest", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.modify_order_complex_request = ProtoField.new("Modify Order Complex Request", "eurex.derivatives.eti.t7.v7.1.modifyordercomplexrequest", ftypes.STRING)
@@ -284,13 +284,13 @@ eurex_derivatives_eti_t7_v7_1.fields.no_target_party_i_ds = ProtoField.new("No T
 eurex_derivatives_eti_t7_v7_1.fields.no_underlying_stips = ProtoField.new("No Underlying Stips", "eurex.derivatives.eti.t7.v7.1.nounderlyingstips", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.not_aff_orig_cl_ord_id = ProtoField.new("Not Aff Orig Cl Ord Id", "eurex.derivatives.eti.t7.v7.1.notafforigclordid", ftypes.UINT64)
 eurex_derivatives_eti_t7_v7_1.fields.not_affected_order_id = ProtoField.new("Not Affected Order Id", "eurex.derivatives.eti.t7.v7.1.notaffectedorderid", ftypes.UINT64)
-eurex_derivatives_eti_t7_v7_1.fields.not_affected_orders_grp = ProtoField.new("Not Affected Orders Grp", "eurex.derivatives.eti.t7.v7.1.notaffectedordersgrp", ftypes.STRING)
-eurex_derivatives_eti_t7_v7_1.fields.not_affected_securities_grp = ProtoField.new("Not Affected Securities Grp", "eurex.derivatives.eti.t7.v7.1.notaffectedsecuritiesgrp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.not_affected_orders_grp_comp = ProtoField.new("Not Affected Orders Grp Comp", "eurex.derivatives.eti.t7.v7.1.notaffectedordersgrpcomp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.not_affected_securities_grp_comp = ProtoField.new("Not Affected Securities Grp Comp", "eurex.derivatives.eti.t7.v7.1.notaffectedsecuritiesgrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.not_affected_security_id = ProtoField.new("Not Affected Security Id", "eurex.derivatives.eti.t7.v7.1.notaffectedsecurityid", ftypes.UINT64)
-eurex_derivatives_eti_t7_v7_1.fields.notif_header = ProtoField.new("Notif Header", "eurex.derivatives.eti.t7.v7.1.notifheader", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.notif_header_comp = ProtoField.new("Notif Header Comp", "eurex.derivatives.eti.t7.v7.1.notifheadercomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.notification_in = ProtoField.new("Notification In", "eurex.derivatives.eti.t7.v7.1.notificationin", ftypes.UINT64)
-eurex_derivatives_eti_t7_v7_1.fields.nr_response_header_me = ProtoField.new("Nr Response Header Me", "eurex.derivatives.eti.t7.v7.1.nrresponseheaderme", ftypes.STRING)
-eurex_derivatives_eti_t7_v7_1.fields.nrbc_header = ProtoField.new("Nrbc Header", "eurex.derivatives.eti.t7.v7.1.nrbcheader", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.nr_response_header_me_comp = ProtoField.new("Nr Response Header Me Comp", "eurex.derivatives.eti.t7.v7.1.nrresponseheadermecomp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.nrbc_header_comp = ProtoField.new("Nrbc Header Comp", "eurex.derivatives.eti.t7.v7.1.nrbcheadercomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.number_of_resp_disclosure_instruction = ProtoField.new("Number Of Resp Disclosure Instruction", "eurex.derivatives.eti.t7.v7.1.numberofrespdisclosureinstruction", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.number_of_respondents = ProtoField.new("Number Of Respondents", "eurex.derivatives.eti.t7.v7.1.numberofrespondents", ftypes.UINT32)
 eurex_derivatives_eti_t7_v7_1.fields.number_of_securities = ProtoField.new("Number Of Securities", "eurex.derivatives.eti.t7.v7.1.numberofsecurities", ftypes.INT32)
@@ -302,7 +302,7 @@ eurex_derivatives_eti_t7_v7_1.fields.ord_status = ProtoField.new("Ord Status", "
 eurex_derivatives_eti_t7_v7_1.fields.ord_type = ProtoField.new("Ord Type", "eurex.derivatives.eti.t7.v7.1.ordtype", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.order_attribute_liquidity_provision = ProtoField.new("Order Attribute Liquidity Provision", "eurex.derivatives.eti.t7.v7.1.orderattributeliquidityprovision", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.order_attribute_risk_reduction = ProtoField.new("Order Attribute Risk Reduction", "eurex.derivatives.eti.t7.v7.1.orderattributeriskreduction", ftypes.UINT8)
-eurex_derivatives_eti_t7_v7_1.fields.order_book_item_grp = ProtoField.new("Order Book Item Grp", "eurex.derivatives.eti.t7.v7.1.orderbookitemgrp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.order_book_item_grp_comp = ProtoField.new("Order Book Item Grp Comp", "eurex.derivatives.eti.t7.v7.1.orderbookitemgrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.order_category = ProtoField.new("Order Category", "eurex.derivatives.eti.t7.v7.1.ordercategory", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.order_exec_notification = ProtoField.new("Order Exec Notification", "eurex.derivatives.eti.t7.v7.1.orderexecnotification", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.order_exec_report_broadcast = ProtoField.new("Order Exec Report Broadcast", "eurex.derivatives.eti.t7.v7.1.orderexecreportbroadcast", ftypes.STRING)
@@ -336,7 +336,7 @@ eurex_derivatives_eti_t7_v7_1.fields.party_detail_id_executing_trader = ProtoFie
 eurex_derivatives_eti_t7_v7_1.fields.party_detail_id_executing_unit = ProtoField.new("Party Detail Id Executing Unit", "eurex.derivatives.eti.t7.v7.1.partydetailidexecutingunit", ftypes.UINT32)
 eurex_derivatives_eti_t7_v7_1.fields.party_detail_role_qualifier = ProtoField.new("Party Detail Role Qualifier", "eurex.derivatives.eti.t7.v7.1.partydetailrolequalifier", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.party_detail_status = ProtoField.new("Party Detail Status", "eurex.derivatives.eti.t7.v7.1.partydetailstatus", ftypes.UINT8)
-eurex_derivatives_eti_t7_v7_1.fields.party_details_grp = ProtoField.new("Party Details Grp", "eurex.derivatives.eti.t7.v7.1.partydetailsgrp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.party_details_grp_comp = ProtoField.new("Party Details Grp Comp", "eurex.derivatives.eti.t7.v7.1.partydetailsgrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.party_entering_trader = ProtoField.new("Party Entering Trader", "eurex.derivatives.eti.t7.v7.1.partyenteringtrader", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.party_entitlements_update_report = ProtoField.new("Party Entitlements Update Report", "eurex.derivatives.eti.t7.v7.1.partyentitlementsupdatereport", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.party_executing_firm = ProtoField.new("Party Executing Firm", "eurex.derivatives.eti.t7.v7.1.partyexecutingfirm", ftypes.STRING)
@@ -368,17 +368,17 @@ eurex_derivatives_eti_t7_v7_1.fields.price_disclosure_instruction = ProtoField.n
 eurex_derivatives_eti_t7_v7_1.fields.price_validity_check_type = ProtoField.new("Price Validity Check Type", "eurex.derivatives.eti.t7.v7.1.pricevaliditychecktype", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.product_complex = ProtoField.new("Product Complex", "eurex.derivatives.eti.t7.v7.1.productcomplex", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.put_or_call = ProtoField.new("Put Or Call", "eurex.derivatives.eti.t7.v7.1.putorcall", ftypes.UINT8)
-eurex_derivatives_eti_t7_v7_1.fields.quot_req_legs_grp = ProtoField.new("Quot Req Legs Grp", "eurex.derivatives.eti.t7.v7.1.quotreqlegsgrp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.quot_req_legs_grp_comp = ProtoField.new("Quot Req Legs Grp Comp", "eurex.derivatives.eti.t7.v7.1.quotreqlegsgrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.quote_activation_notification = ProtoField.new("Quote Activation Notification", "eurex.derivatives.eti.t7.v7.1.quoteactivationnotification", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.quote_activation_request = ProtoField.new("Quote Activation Request", "eurex.derivatives.eti.t7.v7.1.quoteactivationrequest", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.quote_activation_response = ProtoField.new("Quote Activation Response", "eurex.derivatives.eti.t7.v7.1.quoteactivationresponse", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.quote_cancel_type = ProtoField.new("Quote Cancel Type", "eurex.derivatives.eti.t7.v7.1.quotecanceltype", ftypes.UINT8)
-eurex_derivatives_eti_t7_v7_1.fields.quote_entry_ack_grp = ProtoField.new("Quote Entry Ack Grp", "eurex.derivatives.eti.t7.v7.1.quoteentryackgrp", ftypes.STRING)
-eurex_derivatives_eti_t7_v7_1.fields.quote_entry_grp = ProtoField.new("Quote Entry Grp", "eurex.derivatives.eti.t7.v7.1.quoteentrygrp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.quote_entry_ack_grp_comp = ProtoField.new("Quote Entry Ack Grp Comp", "eurex.derivatives.eti.t7.v7.1.quoteentryackgrpcomp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.quote_entry_grp_comp = ProtoField.new("Quote Entry Grp Comp", "eurex.derivatives.eti.t7.v7.1.quoteentrygrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.quote_entry_reject_reason = ProtoField.new("Quote Entry Reject Reason", "eurex.derivatives.eti.t7.v7.1.quoteentryrejectreason", ftypes.UINT32)
 eurex_derivatives_eti_t7_v7_1.fields.quote_entry_status = ProtoField.new("Quote Entry Status", "eurex.derivatives.eti.t7.v7.1.quoteentrystatus", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.quote_event_exec_id = ProtoField.new("Quote Event Exec Id", "eurex.derivatives.eti.t7.v7.1.quoteeventexecid", ftypes.INT32)
-eurex_derivatives_eti_t7_v7_1.fields.quote_event_grp = ProtoField.new("Quote Event Grp", "eurex.derivatives.eti.t7.v7.1.quoteeventgrp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.quote_event_grp_comp = ProtoField.new("Quote Event Grp Comp", "eurex.derivatives.eti.t7.v7.1.quoteeventgrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.quote_event_liquidity_ind = ProtoField.new("Quote Event Liquidity Ind", "eurex.derivatives.eti.t7.v7.1.quoteeventliquidityind", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.quote_event_match_id = ProtoField.new("Quote Event Match Id", "eurex.derivatives.eti.t7.v7.1.quoteeventmatchid", ftypes.UINT32)
 eurex_derivatives_eti_t7_v7_1.fields.quote_event_px = ProtoField.new("Quote Event Px", "eurex.derivatives.eti.t7.v7.1.quoteeventpx", ftypes.UINT64)
@@ -389,7 +389,7 @@ eurex_derivatives_eti_t7_v7_1.fields.quote_event_type = ProtoField.new("Quote Ev
 eurex_derivatives_eti_t7_v7_1.fields.quote_execution_report = ProtoField.new("Quote Execution Report", "eurex.derivatives.eti.t7.v7.1.quoteexecutionreport", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.quote_id = ProtoField.new("Quote Id", "eurex.derivatives.eti.t7.v7.1.quoteid", ftypes.UINT64)
 eurex_derivatives_eti_t7_v7_1.fields.quote_instruction = ProtoField.new("Quote Instruction", "eurex.derivatives.eti.t7.v7.1.quoteinstruction", ftypes.UINT8)
-eurex_derivatives_eti_t7_v7_1.fields.quote_leg_exec_grp = ProtoField.new("Quote Leg Exec Grp", "eurex.derivatives.eti.t7.v7.1.quotelegexecgrp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.quote_leg_exec_grp_comp = ProtoField.new("Quote Leg Exec Grp Comp", "eurex.derivatives.eti.t7.v7.1.quotelegexecgrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.quote_msg_id = ProtoField.new("Quote Msg Id", "eurex.derivatives.eti.t7.v7.1.quotemsgid", ftypes.UINT64)
 eurex_derivatives_eti_t7_v7_1.fields.quote_ref_price = ProtoField.new("Quote Ref Price", "eurex.derivatives.eti.t7.v7.1.quoterefprice", ftypes.UINT64)
 eurex_derivatives_eti_t7_v7_1.fields.quote_ref_price_source = ProtoField.new("Quote Ref Price Source", "eurex.derivatives.eti.t7.v7.1.quoterefpricesource", ftypes.UINT8)
@@ -400,8 +400,8 @@ eurex_derivatives_eti_t7_v7_1.fields.quote_status = ProtoField.new("Quote Status
 eurex_derivatives_eti_t7_v7_1.fields.quote_sub_type = ProtoField.new("Quote Sub Type", "eurex.derivatives.eti.t7.v7.1.quotesubtype", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.quote_type = ProtoField.new("Quote Type", "eurex.derivatives.eti.t7.v7.1.quotetype", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.quoting_status = ProtoField.new("Quoting Status", "eurex.derivatives.eti.t7.v7.1.quotingstatus", ftypes.UINT8)
-eurex_derivatives_eti_t7_v7_1.fields.rbc_header = ProtoField.new("Rbc Header", "eurex.derivatives.eti.t7.v7.1.rbcheader", ftypes.STRING)
-eurex_derivatives_eti_t7_v7_1.fields.rbc_header_me = ProtoField.new("Rbc Header Me", "eurex.derivatives.eti.t7.v7.1.rbcheaderme", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.rbc_header_comp = ProtoField.new("Rbc Header Comp", "eurex.derivatives.eti.t7.v7.1.rbcheadercomp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.rbc_header_me_comp = ProtoField.new("Rbc Header Me Comp", "eurex.derivatives.eti.t7.v7.1.rbcheadermecomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.ref_appl_id = ProtoField.new("Ref Appl Id", "eurex.derivatives.eti.t7.v7.1.refapplid", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.ref_appl_last_msg_id = ProtoField.new("Ref Appl Last Msg Id", "eurex.derivatives.eti.t7.v7.1.refappllastmsgid", ftypes.BYTES)
 eurex_derivatives_eti_t7_v7_1.fields.ref_appl_last_seq_num = ProtoField.new("Ref Appl Last Seq Num", "eurex.derivatives.eti.t7.v7.1.refappllastseqnum", ftypes.UINT64)
@@ -415,15 +415,15 @@ eurex_derivatives_eti_t7_v7_1.fields.related_security_id = ProtoField.new("Relat
 eurex_derivatives_eti_t7_v7_1.fields.related_symbol = ProtoField.new("Related Symbol", "eurex.derivatives.eti.t7.v7.1.relatedsymbol", ftypes.INT32)
 eurex_derivatives_eti_t7_v7_1.fields.related_trade_id = ProtoField.new("Related Trade Id", "eurex.derivatives.eti.t7.v7.1.relatedtradeid", ftypes.UINT32)
 eurex_derivatives_eti_t7_v7_1.fields.related_trade_quantity = ProtoField.new("Related Trade Quantity", "eurex.derivatives.eti.t7.v7.1.relatedtradequantity", ftypes.UINT64)
-eurex_derivatives_eti_t7_v7_1.fields.request_header = ProtoField.new("Request Header", "eurex.derivatives.eti.t7.v7.1.requestheader", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.request_header_comp = ProtoField.new("Request Header Comp", "eurex.derivatives.eti.t7.v7.1.requestheadercomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.request_time = ProtoField.new("Request Time", "eurex.derivatives.eti.t7.v7.1.requesttime", ftypes.UINT64)
 eurex_derivatives_eti_t7_v7_1.fields.requesting_party_clearing_firm = ProtoField.new("Requesting Party Clearing Firm", "eurex.derivatives.eti.t7.v7.1.requestingpartyclearingfirm", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.requesting_party_entering_firm = ProtoField.new("Requesting Party Entering Firm", "eurex.derivatives.eti.t7.v7.1.requestingpartyenteringfirm", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.requesting_party_id_entering_firm = ProtoField.new("Requesting Party Id Entering Firm", "eurex.derivatives.eti.t7.v7.1.requestingpartyidenteringfirm", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.requesting_party_id_executing_system = ProtoField.new("Requesting Party Id Executing System", "eurex.derivatives.eti.t7.v7.1.requestingpartyidexecutingsystem", ftypes.UINT32)
 eurex_derivatives_eti_t7_v7_1.fields.requesting_party_id_executing_trader = ProtoField.new("Requesting Party Id Executing Trader", "eurex.derivatives.eti.t7.v7.1.requestingpartyidexecutingtrader", ftypes.UINT32)
-eurex_derivatives_eti_t7_v7_1.fields.response_header = ProtoField.new("Response Header", "eurex.derivatives.eti.t7.v7.1.responseheader", ftypes.STRING)
-eurex_derivatives_eti_t7_v7_1.fields.response_header_me = ProtoField.new("Response Header Me", "eurex.derivatives.eti.t7.v7.1.responseheaderme", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.response_header_comp = ProtoField.new("Response Header Comp", "eurex.derivatives.eti.t7.v7.1.responseheadercomp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.response_header_me_comp = ProtoField.new("Response Header Me Comp", "eurex.derivatives.eti.t7.v7.1.responseheadermecomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.response_in = ProtoField.new("Response In", "eurex.derivatives.eti.t7.v7.1.responsein", ftypes.UINT64)
 eurex_derivatives_eti_t7_v7_1.fields.retransmit_me_message_request = ProtoField.new("Retransmit Me Message Request", "eurex.derivatives.eti.t7.v7.1.retransmitmemessagerequest", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.retransmit_me_message_response = ProtoField.new("Retransmit Me Message Response", "eurex.derivatives.eti.t7.v7.1.retransmitmemessageresponse", ftypes.STRING)
@@ -437,12 +437,12 @@ eurex_derivatives_eti_t7_v7_1.fields.risk_limit_net_position_qty = ProtoField.ne
 eurex_derivatives_eti_t7_v7_1.fields.risk_limit_open_qty = ProtoField.new("Risk Limit Open Qty", "eurex.derivatives.eti.t7.v7.1.risklimitopenqty", ftypes.UINT64)
 eurex_derivatives_eti_t7_v7_1.fields.risk_limit_platform = ProtoField.new("Risk Limit Platform", "eurex.derivatives.eti.t7.v7.1.risklimitplatform", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.risk_limit_qty = ProtoField.new("Risk Limit Qty", "eurex.derivatives.eti.t7.v7.1.risklimitqty", ftypes.UINT64)
-eurex_derivatives_eti_t7_v7_1.fields.risk_limit_qty_grp = ProtoField.new("Risk Limit Qty Grp", "eurex.derivatives.eti.t7.v7.1.risklimitqtygrp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.risk_limit_qty_grp_comp = ProtoField.new("Risk Limit Qty Grp Comp", "eurex.derivatives.eti.t7.v7.1.risklimitqtygrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.risk_limit_report_id = ProtoField.new("Risk Limit Report Id", "eurex.derivatives.eti.t7.v7.1.risklimitreportid", ftypes.UINT64)
 eurex_derivatives_eti_t7_v7_1.fields.risk_limit_requesting_party_role = ProtoField.new("Risk Limit Requesting Party Role", "eurex.derivatives.eti.t7.v7.1.risklimitrequestingpartyrole", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.risk_limit_type = ProtoField.new("Risk Limit Type", "eurex.derivatives.eti.t7.v7.1.risklimittype", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.risk_limit_violation_indicator = ProtoField.new("Risk Limit Violation Indicator", "eurex.derivatives.eti.t7.v7.1.risklimitviolationindicator", ftypes.UINT8)
-eurex_derivatives_eti_t7_v7_1.fields.risk_limits_rpt_grp = ProtoField.new("Risk Limits Rpt Grp", "eurex.derivatives.eti.t7.v7.1.risklimitsrptgrp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.risk_limits_rpt_grp_comp = ProtoField.new("Risk Limits Rpt Grp Comp", "eurex.derivatives.eti.t7.v7.1.risklimitsrptgrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.risk_notification_broadcast = ProtoField.new("Risk Notification Broadcast", "eurex.derivatives.eti.t7.v7.1.risknotificationbroadcast", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.root_party_clearing_firm = ProtoField.new("Root Party Clearing Firm", "eurex.derivatives.eti.t7.v7.1.rootpartyclearingfirm", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.root_party_clearing_organization = ProtoField.new("Root Party Clearing Organization", "eurex.derivatives.eti.t7.v7.1.rootpartyclearingorganization", ftypes.STRING)
@@ -480,14 +480,14 @@ eurex_derivatives_eti_t7_v7_1.fields.session_mode = ProtoField.new("Session Mode
 eurex_derivatives_eti_t7_v7_1.fields.session_reject_reason = ProtoField.new("Session Reject Reason", "eurex.derivatives.eti.t7.v7.1.sessionrejectreason", ftypes.UINT32)
 eurex_derivatives_eti_t7_v7_1.fields.session_status = ProtoField.new("Session Status", "eurex.derivatives.eti.t7.v7.1.sessionstatus", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.session_sub_mode = ProtoField.new("Session Sub Mode", "eurex.derivatives.eti.t7.v7.1.sessionsubmode", ftypes.UINT8)
-eurex_derivatives_eti_t7_v7_1.fields.sessions_grp = ProtoField.new("Sessions Grp", "eurex.derivatives.eti.t7.v7.1.sessionsgrp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.sessions_grp_comp = ProtoField.new("Sessions Grp Comp", "eurex.derivatives.eti.t7.v7.1.sessionsgrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.settl_method = ProtoField.new("Settl Method", "eurex.derivatives.eti.t7.v7.1.settlmethod", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.side = ProtoField.new("Side", "eurex.derivatives.eti.t7.v7.1.side", ftypes.UINT8)
-eurex_derivatives_eti_t7_v7_1.fields.side_alloc_ext_grp = ProtoField.new("Side Alloc Ext Grp", "eurex.derivatives.eti.t7.v7.1.sideallocextgrp", ftypes.STRING)
-eurex_derivatives_eti_t7_v7_1.fields.side_alloc_grp = ProtoField.new("Side Alloc Grp", "eurex.derivatives.eti.t7.v7.1.sideallocgrp", ftypes.STRING)
-eurex_derivatives_eti_t7_v7_1.fields.side_alloc_grp_bc = ProtoField.new("Side Alloc Grp Bc", "eurex.derivatives.eti.t7.v7.1.sideallocgrpbc", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.side_alloc_ext_grp_comp = ProtoField.new("Side Alloc Ext Grp Comp", "eurex.derivatives.eti.t7.v7.1.sideallocextgrpcomp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.side_alloc_grp_bc_comp = ProtoField.new("Side Alloc Grp Bc Comp", "eurex.derivatives.eti.t7.v7.1.sideallocgrpbccomp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.side_alloc_grp_comp = ProtoField.new("Side Alloc Grp Comp", "eurex.derivatives.eti.t7.v7.1.sideallocgrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.side_compliance_text = ProtoField.new("Side Compliance Text", "eurex.derivatives.eti.t7.v7.1.sidecompliancetext", ftypes.STRING)
-eurex_derivatives_eti_t7_v7_1.fields.side_cross_leg_grp = ProtoField.new("Side Cross Leg Grp", "eurex.derivatives.eti.t7.v7.1.sidecrossleggrp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.side_cross_leg_grp_comp = ProtoField.new("Side Cross Leg Grp Comp", "eurex.derivatives.eti.t7.v7.1.sidecrossleggrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.side_disclosure_instruction = ProtoField.new("Side Disclosure Instruction", "eurex.derivatives.eti.t7.v7.1.sidedisclosureinstruction", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.side_last_px = ProtoField.new("Side Last Px", "eurex.derivatives.eti.t7.v7.1.sidelastpx", ftypes.UINT64)
 eurex_derivatives_eti_t7_v7_1.fields.side_last_qty = ProtoField.new("Side Last Qty", "eurex.derivatives.eti.t7.v7.1.sidelastqty", ftypes.UINT64)
@@ -512,7 +512,7 @@ eurex_derivatives_eti_t7_v7_1.fields.srqs_quote_notification = ProtoField.new("S
 eurex_derivatives_eti_t7_v7_1.fields.srqs_quote_response = ProtoField.new("Srqs Quote Response", "eurex.derivatives.eti.t7.v7.1.srqsquoteresponse", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.srqs_quoting_status_request = ProtoField.new("Srqs Quoting Status Request", "eurex.derivatives.eti.t7.v7.1.srqsquotingstatusrequest", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.srqs_related_trade_id = ProtoField.new("Srqs Related Trade Id", "eurex.derivatives.eti.t7.v7.1.srqsrelatedtradeid", ftypes.UINT32)
-eurex_derivatives_eti_t7_v7_1.fields.srqs_related_trade_id_grp = ProtoField.new("Srqs Related Trade Id Grp", "eurex.derivatives.eti.t7.v7.1.srqsrelatedtradeidgrp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.srqs_related_trade_id_grp_comp = ProtoField.new("Srqs Related Trade Id Grp Comp", "eurex.derivatives.eti.t7.v7.1.srqsrelatedtradeidgrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.srqs_status_broadcast = ProtoField.new("Srqs Status Broadcast", "eurex.derivatives.eti.t7.v7.1.srqsstatusbroadcast", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.srqs_update_deal_status_request = ProtoField.new("Srqs Update Deal Status Request", "eurex.derivatives.eti.t7.v7.1.srqsupdatedealstatusrequest", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.srqs_update_negotiation_request = ProtoField.new("Srqs Update Negotiation Request", "eurex.derivatives.eti.t7.v7.1.srqsupdatenegotiationrequest", ftypes.STRING)
@@ -527,7 +527,7 @@ eurex_derivatives_eti_t7_v7_1.fields.t_7_entry_service_rtm_status = ProtoField.n
 eurex_derivatives_eti_t7_v7_1.fields.t_7_entry_service_rtm_trade_date = ProtoField.new("T 7 Entry Service Rtm Trade Date", "eurex.derivatives.eti.t7.v7.1.t7entryservicertmtradedate", ftypes.UINT32)
 eurex_derivatives_eti_t7_v7_1.fields.t_7_entry_service_status = ProtoField.new("T 7 Entry Service Status", "eurex.derivatives.eti.t7.v7.1.t7entryservicestatus", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.t_7_entry_service_trade_date = ProtoField.new("T 7 Entry Service Trade Date", "eurex.derivatives.eti.t7.v7.1.t7entryservicetradedate", ftypes.UINT32)
-eurex_derivatives_eti_t7_v7_1.fields.target_parties = ProtoField.new("Target Parties", "eurex.derivatives.eti.t7.v7.1.targetparties", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.target_parties_comp = ProtoField.new("Target Parties Comp", "eurex.derivatives.eti.t7.v7.1.targetpartiescomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.target_party_entering_trader = ProtoField.new("Target Party Entering Trader", "eurex.derivatives.eti.t7.v7.1.targetpartyenteringtrader", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.target_party_executing_firm = ProtoField.new("Target Party Executing Firm", "eurex.derivatives.eti.t7.v7.1.targetpartyexecutingfirm", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.target_party_executing_trader = ProtoField.new("Target Party Executing Trader", "eurex.derivatives.eti.t7.v7.1.targetpartyexecutingtrader", ftypes.STRING)
@@ -572,7 +572,7 @@ eurex_derivatives_eti_t7_v7_1.fields.trans_bkd_time = ProtoField.new("Trans Bkd 
 eurex_derivatives_eti_t7_v7_1.fields.transact_time = ProtoField.new("Transact Time", "eurex.derivatives.eti.t7.v7.1.transacttime", ftypes.UINT64)
 eurex_derivatives_eti_t7_v7_1.fields.transaction_delay_indicator = ProtoField.new("Transaction Delay Indicator", "eurex.derivatives.eti.t7.v7.1.transactiondelayindicator", ftypes.UINT8)
 eurex_derivatives_eti_t7_v7_1.fields.transfer_reason = ProtoField.new("Transfer Reason", "eurex.derivatives.eti.t7.v7.1.transferreason", ftypes.UINT8)
-eurex_derivatives_eti_t7_v7_1.fields.trd_instrmnt_leg_grp = ProtoField.new("Trd Instrmnt Leg Grp", "eurex.derivatives.eti.t7.v7.1.trdinstrmntleggrp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.trd_instrmnt_leg_grp_comp = ProtoField.new("Trd Instrmnt Leg Grp Comp", "eurex.derivatives.eti.t7.v7.1.trdinstrmntleggrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.trd_match_id = ProtoField.new("Trd Match Id", "eurex.derivatives.eti.t7.v7.1.trdmatchid", ftypes.UINT32)
 eurex_derivatives_eti_t7_v7_1.fields.trd_reg_ts_entry_time = ProtoField.new("Trd Reg Ts Entry Time", "eurex.derivatives.eti.t7.v7.1.trdregtsentrytime", ftypes.UINT64)
 eurex_derivatives_eti_t7_v7_1.fields.trd_reg_ts_execution_time = ProtoField.new("Trd Reg Ts Execution Time", "eurex.derivatives.eti.t7.v7.1.trdregtsexecutiontime", ftypes.UINT64)
@@ -593,7 +593,7 @@ eurex_derivatives_eti_t7_v7_1.fields.underlying_qty = ProtoField.new("Underlying
 eurex_derivatives_eti_t7_v7_1.fields.underlying_security_desc = ProtoField.new("Underlying Security Desc", "eurex.derivatives.eti.t7.v7.1.underlyingsecuritydesc", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "eurex.derivatives.eti.t7.v7.1.underlyingsecurityid", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.underlying_settlement_date = ProtoField.new("Underlying Settlement Date", "eurex.derivatives.eti.t7.v7.1.underlyingsettlementdate", ftypes.UINT32)
-eurex_derivatives_eti_t7_v7_1.fields.underlying_stip_grp = ProtoField.new("Underlying Stip Grp", "eurex.derivatives.eti.t7.v7.1.underlyingstipgrp", ftypes.STRING)
+eurex_derivatives_eti_t7_v7_1.fields.underlying_stip_grp_comp = ProtoField.new("Underlying Stip Grp Comp", "eurex.derivatives.eti.t7.v7.1.underlyingstipgrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.underlying_stip_type = ProtoField.new("Underlying Stip Type", "eurex.derivatives.eti.t7.v7.1.underlyingstiptype", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.underlying_stip_value = ProtoField.new("Underlying Stip Value", "eurex.derivatives.eti.t7.v7.1.underlyingstipvalue", ftypes.STRING)
 eurex_derivatives_eti_t7_v7_1.fields.unsubscribe_request = ProtoField.new("Unsubscribe Request", "eurex.derivatives.eti.t7.v7.1.unsubscriberequest", ftypes.STRING)
@@ -621,28 +621,28 @@ show.add_complex_instrument_request = true
 show.add_complex_instrument_response = true
 show.add_flexible_instrument_request = true
 show.add_flexible_instrument_response = true
-show.affected_order_requests_grp = true
+show.affected_order_requests_grp_comp = true
 show.amend_basket_trade_request = true
 show.approve_basket_trade_request = true
 show.approve_tes_trade_request = true
 show.basket_approve_broadcast = true
 show.basket_broadcast = true
 show.basket_delete_broadcast = true
-show.basket_exec_grp = true
+show.basket_exec_grp_comp = true
 show.basket_execution_broadcast = true
 show.basket_response = true
-show.basket_root_party_grp = true
-show.basket_side_alloc_ext_bc_grp = true
-show.basket_side_alloc_ext_grp = true
-show.basket_side_alloc_grp = true
+show.basket_root_party_grp_comp = true
+show.basket_side_alloc_ext_bc_grp_comp = true
+show.basket_side_alloc_ext_grp_comp = true
+show.basket_side_alloc_grp_comp = true
 show.broadcast_error_notification = true
 show.clip_deletion_notification = true
 show.clip_execution_notification = true
 show.clip_response = true
 show.cross_request = true
-show.cross_request_ack_side_grp = true
+show.cross_request_ack_side_grp_comp = true
 show.cross_request_response = true
-show.cross_request_side_grp = true
+show.cross_request_side_grp_comp = true
 show.delete_all_order_broadcast = true
 show.delete_all_order_nr_response = true
 show.delete_all_order_quote_event_broadcast = true
@@ -659,11 +659,11 @@ show.delete_order_nr_response = true
 show.delete_order_response = true
 show.delete_order_single_request = true
 show.delete_tes_trade_request = true
-show.enrichment_rules_grp = true
+show.enrichment_rules_grp_comp = true
 show.enter_basket_trade_request = true
 show.enter_clip_request = true
 show.enter_tes_trade_request = true
-show.fills_grp = true
+show.fills_grp_comp = true
 show.forced_logout_notification = true
 show.forced_user_logout_notification = true
 show.heartbeat = true
@@ -677,12 +677,12 @@ show.inquire_session_list_request = true
 show.inquire_session_list_response = true
 show.inquire_user_request = true
 show.inquire_user_response = true
-show.instrmnt_leg_exec_grp = true
-show.instrmt_leg_grp = true
-show.instrmt_match_side_grp = true
-show.instrument_attribute_grp = true
-show.instrument_event_grp = true
-show.leg_ord_grp = true
+show.instrmnt_leg_exec_grp_comp = true
+show.instrmt_leg_grp_comp = true
+show.instrmt_match_side_grp_comp = true
+show.instrument_attribute_grp_comp = true
+show.instrument_event_grp_comp = true
+show.leg_ord_grp_comp = true
 show.legal_notification_broadcast = true
 show.logon_request = true
 show.logon_response = true
@@ -690,11 +690,11 @@ show.logout_request = true
 show.logout_response = true
 show.mass_quote_request = true
 show.mass_quote_response = true
-show.message_header_in = true
-show.message_header_out = true
+show.message_header_in_comp = true
+show.message_header_out_comp = true
 show.mm_parameter_definition_request = true
 show.mm_parameter_definition_response = true
-show.mm_parameter_grp = true
+show.mm_parameter_grp_comp = true
 show.modify_basket_trade_request = true
 show.modify_order_complex_request = true
 show.modify_order_complex_short_request = true
@@ -710,51 +710,51 @@ show.new_order_response = true
 show.new_order_single_request = true
 show.new_order_single_short_request = true
 show.news_broadcast = true
-show.not_affected_orders_grp = true
-show.not_affected_securities_grp = true
-show.notif_header = true
-show.nr_response_header_me = true
-show.nrbc_header = true
-show.order_book_item_grp = true
+show.not_affected_orders_grp_comp = true
+show.not_affected_securities_grp_comp = true
+show.notif_header_comp = true
+show.nr_response_header_me_comp = true
+show.nrbc_header_comp = true
+show.order_book_item_grp_comp = true
 show.order_exec_notification = true
 show.order_exec_report_broadcast = true
 show.order_exec_response = true
 show.party_action_report = true
-show.party_details_grp = true
+show.party_details_grp_comp = true
 show.party_entitlements_update_report = true
 show.pre_trade_risk_limit_response = true
 show.pre_trade_risk_limits_definition_request = true
-show.quot_req_legs_grp = true
+show.quot_req_legs_grp_comp = true
 show.quote_activation_notification = true
 show.quote_activation_request = true
 show.quote_activation_response = true
-show.quote_entry_ack_grp = true
-show.quote_entry_grp = true
-show.quote_event_grp = true
+show.quote_entry_ack_grp_comp = true
+show.quote_entry_grp_comp = true
+show.quote_event_grp_comp = true
 show.quote_execution_report = true
-show.quote_leg_exec_grp = true
-show.rbc_header = true
-show.rbc_header_me = true
+show.quote_leg_exec_grp_comp = true
+show.rbc_header_comp = true
+show.rbc_header_me_comp = true
 show.reject = true
-show.request_header = true
-show.response_header = true
-show.response_header_me = true
+show.request_header_comp = true
+show.response_header_comp = true
+show.response_header_me_comp = true
 show.retransmit_me_message_request = true
 show.retransmit_me_message_response = true
 show.retransmit_request = true
 show.retransmit_response = true
 show.rfq_request = true
 show.rfq_response = true
-show.risk_limit_qty_grp = true
-show.risk_limits_rpt_grp = true
+show.risk_limit_qty_grp_comp = true
+show.risk_limits_rpt_grp_comp = true
 show.risk_notification_broadcast = true
 show.service_availability_broadcast = true
 show.service_availability_market_broadcast = true
-show.sessions_grp = true
-show.side_alloc_ext_grp = true
-show.side_alloc_grp = true
-show.side_alloc_grp_bc = true
-show.side_cross_leg_grp = true
+show.sessions_grp_comp = true
+show.side_alloc_ext_grp_comp = true
+show.side_alloc_grp_bc_comp = true
+show.side_alloc_grp_comp = true
+show.side_cross_leg_grp_comp = true
 show.srqs_create_deal_notification = true
 show.srqs_deal_notification = true
 show.srqs_deal_response = true
@@ -769,13 +769,13 @@ show.srqs_open_negotiation_requester_notification = true
 show.srqs_quote_notification = true
 show.srqs_quote_response = true
 show.srqs_quoting_status_request = true
-show.srqs_related_trade_id_grp = true
+show.srqs_related_trade_id_grp_comp = true
 show.srqs_status_broadcast = true
 show.srqs_update_deal_status_request = true
 show.srqs_update_negotiation_request = true
 show.subscribe_request = true
 show.subscribe_response = true
-show.target_parties = true
+show.target_parties_comp = true
 show.tes_approve_broadcast = true
 show.tes_broadcast = true
 show.tes_delete_broadcast = true
@@ -788,8 +788,8 @@ show.throttle_update_notification = true
 show.tm_trading_session_status_broadcast = true
 show.trade_broadcast = true
 show.trading_session_status_broadcast = true
-show.trd_instrmnt_leg_grp = true
-show.underlying_stip_grp = true
+show.trd_instrmnt_leg_grp_comp = true
+show.underlying_stip_grp_comp = true
 show.unsubscribe_request = true
 show.unsubscribe_response = true
 show.upload_tes_trade_request = true
@@ -804,28 +804,28 @@ eurex_derivatives_eti_t7_v7_1.prefs.show_add_complex_instrument_request = Pref.b
 eurex_derivatives_eti_t7_v7_1.prefs.show_add_complex_instrument_response = Pref.bool("Show Add Complex Instrument Response", show.add_complex_instrument_response, "Parse and add Add Complex Instrument Response to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_add_flexible_instrument_request = Pref.bool("Show Add Flexible Instrument Request", show.add_flexible_instrument_request, "Parse and add Add Flexible Instrument Request to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_add_flexible_instrument_response = Pref.bool("Show Add Flexible Instrument Response", show.add_flexible_instrument_response, "Parse and add Add Flexible Instrument Response to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_affected_order_requests_grp = Pref.bool("Show Affected Order Requests Grp", show.affected_order_requests_grp, "Parse and add Affected Order Requests Grp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_affected_order_requests_grp_comp = Pref.bool("Show Affected Order Requests Grp Comp", show.affected_order_requests_grp_comp, "Parse and add Affected Order Requests Grp Comp to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_amend_basket_trade_request = Pref.bool("Show Amend Basket Trade Request", show.amend_basket_trade_request, "Parse and add Amend Basket Trade Request to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_approve_basket_trade_request = Pref.bool("Show Approve Basket Trade Request", show.approve_basket_trade_request, "Parse and add Approve Basket Trade Request to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_approve_tes_trade_request = Pref.bool("Show Approve Tes Trade Request", show.approve_tes_trade_request, "Parse and add Approve Tes Trade Request to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_basket_approve_broadcast = Pref.bool("Show Basket Approve Broadcast", show.basket_approve_broadcast, "Parse and add Basket Approve Broadcast to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_basket_broadcast = Pref.bool("Show Basket Broadcast", show.basket_broadcast, "Parse and add Basket Broadcast to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_basket_delete_broadcast = Pref.bool("Show Basket Delete Broadcast", show.basket_delete_broadcast, "Parse and add Basket Delete Broadcast to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_basket_exec_grp = Pref.bool("Show Basket Exec Grp", show.basket_exec_grp, "Parse and add Basket Exec Grp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_basket_exec_grp_comp = Pref.bool("Show Basket Exec Grp Comp", show.basket_exec_grp_comp, "Parse and add Basket Exec Grp Comp to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_basket_execution_broadcast = Pref.bool("Show Basket Execution Broadcast", show.basket_execution_broadcast, "Parse and add Basket Execution Broadcast to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_basket_response = Pref.bool("Show Basket Response", show.basket_response, "Parse and add Basket Response to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_basket_root_party_grp = Pref.bool("Show Basket Root Party Grp", show.basket_root_party_grp, "Parse and add Basket Root Party Grp to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_basket_side_alloc_ext_bc_grp = Pref.bool("Show Basket Side Alloc Ext Bc Grp", show.basket_side_alloc_ext_bc_grp, "Parse and add Basket Side Alloc Ext Bc Grp to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_basket_side_alloc_ext_grp = Pref.bool("Show Basket Side Alloc Ext Grp", show.basket_side_alloc_ext_grp, "Parse and add Basket Side Alloc Ext Grp to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_basket_side_alloc_grp = Pref.bool("Show Basket Side Alloc Grp", show.basket_side_alloc_grp, "Parse and add Basket Side Alloc Grp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_basket_root_party_grp_comp = Pref.bool("Show Basket Root Party Grp Comp", show.basket_root_party_grp_comp, "Parse and add Basket Root Party Grp Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_basket_side_alloc_ext_bc_grp_comp = Pref.bool("Show Basket Side Alloc Ext Bc Grp Comp", show.basket_side_alloc_ext_bc_grp_comp, "Parse and add Basket Side Alloc Ext Bc Grp Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_basket_side_alloc_ext_grp_comp = Pref.bool("Show Basket Side Alloc Ext Grp Comp", show.basket_side_alloc_ext_grp_comp, "Parse and add Basket Side Alloc Ext Grp Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_basket_side_alloc_grp_comp = Pref.bool("Show Basket Side Alloc Grp Comp", show.basket_side_alloc_grp_comp, "Parse and add Basket Side Alloc Grp Comp to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_broadcast_error_notification = Pref.bool("Show Broadcast Error Notification", show.broadcast_error_notification, "Parse and add Broadcast Error Notification to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_clip_deletion_notification = Pref.bool("Show Clip Deletion Notification", show.clip_deletion_notification, "Parse and add Clip Deletion Notification to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_clip_execution_notification = Pref.bool("Show Clip Execution Notification", show.clip_execution_notification, "Parse and add Clip Execution Notification to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_clip_response = Pref.bool("Show Clip Response", show.clip_response, "Parse and add Clip Response to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_cross_request = Pref.bool("Show Cross Request", show.cross_request, "Parse and add Cross Request to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_cross_request_ack_side_grp = Pref.bool("Show Cross Request Ack Side Grp", show.cross_request_ack_side_grp, "Parse and add Cross Request Ack Side Grp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_cross_request_ack_side_grp_comp = Pref.bool("Show Cross Request Ack Side Grp Comp", show.cross_request_ack_side_grp_comp, "Parse and add Cross Request Ack Side Grp Comp to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_cross_request_response = Pref.bool("Show Cross Request Response", show.cross_request_response, "Parse and add Cross Request Response to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_cross_request_side_grp = Pref.bool("Show Cross Request Side Grp", show.cross_request_side_grp, "Parse and add Cross Request Side Grp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_cross_request_side_grp_comp = Pref.bool("Show Cross Request Side Grp Comp", show.cross_request_side_grp_comp, "Parse and add Cross Request Side Grp Comp to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_delete_all_order_broadcast = Pref.bool("Show Delete All Order Broadcast", show.delete_all_order_broadcast, "Parse and add Delete All Order Broadcast to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_delete_all_order_nr_response = Pref.bool("Show Delete All Order Nr Response", show.delete_all_order_nr_response, "Parse and add Delete All Order Nr Response to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_delete_all_order_quote_event_broadcast = Pref.bool("Show Delete All Order Quote Event Broadcast", show.delete_all_order_quote_event_broadcast, "Parse and add Delete All Order Quote Event Broadcast to protocol tree")
@@ -842,11 +842,11 @@ eurex_derivatives_eti_t7_v7_1.prefs.show_delete_order_nr_response = Pref.bool("S
 eurex_derivatives_eti_t7_v7_1.prefs.show_delete_order_response = Pref.bool("Show Delete Order Response", show.delete_order_response, "Parse and add Delete Order Response to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_delete_order_single_request = Pref.bool("Show Delete Order Single Request", show.delete_order_single_request, "Parse and add Delete Order Single Request to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_delete_tes_trade_request = Pref.bool("Show Delete Tes Trade Request", show.delete_tes_trade_request, "Parse and add Delete Tes Trade Request to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_enrichment_rules_grp = Pref.bool("Show Enrichment Rules Grp", show.enrichment_rules_grp, "Parse and add Enrichment Rules Grp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_enrichment_rules_grp_comp = Pref.bool("Show Enrichment Rules Grp Comp", show.enrichment_rules_grp_comp, "Parse and add Enrichment Rules Grp Comp to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_enter_basket_trade_request = Pref.bool("Show Enter Basket Trade Request", show.enter_basket_trade_request, "Parse and add Enter Basket Trade Request to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_enter_clip_request = Pref.bool("Show Enter Clip Request", show.enter_clip_request, "Parse and add Enter Clip Request to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_enter_tes_trade_request = Pref.bool("Show Enter Tes Trade Request", show.enter_tes_trade_request, "Parse and add Enter Tes Trade Request to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_fills_grp = Pref.bool("Show Fills Grp", show.fills_grp, "Parse and add Fills Grp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_fills_grp_comp = Pref.bool("Show Fills Grp Comp", show.fills_grp_comp, "Parse and add Fills Grp Comp to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_forced_logout_notification = Pref.bool("Show Forced Logout Notification", show.forced_logout_notification, "Parse and add Forced Logout Notification to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_forced_user_logout_notification = Pref.bool("Show Forced User Logout Notification", show.forced_user_logout_notification, "Parse and add Forced User Logout Notification to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_heartbeat = Pref.bool("Show Heartbeat", show.heartbeat, "Parse and add Heartbeat to protocol tree")
@@ -860,12 +860,12 @@ eurex_derivatives_eti_t7_v7_1.prefs.show_inquire_session_list_request = Pref.boo
 eurex_derivatives_eti_t7_v7_1.prefs.show_inquire_session_list_response = Pref.bool("Show Inquire Session List Response", show.inquire_session_list_response, "Parse and add Inquire Session List Response to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_inquire_user_request = Pref.bool("Show Inquire User Request", show.inquire_user_request, "Parse and add Inquire User Request to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_inquire_user_response = Pref.bool("Show Inquire User Response", show.inquire_user_response, "Parse and add Inquire User Response to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_instrmnt_leg_exec_grp = Pref.bool("Show Instrmnt Leg Exec Grp", show.instrmnt_leg_exec_grp, "Parse and add Instrmnt Leg Exec Grp to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_instrmt_leg_grp = Pref.bool("Show Instrmt Leg Grp", show.instrmt_leg_grp, "Parse and add Instrmt Leg Grp to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_instrmt_match_side_grp = Pref.bool("Show Instrmt Match Side Grp", show.instrmt_match_side_grp, "Parse and add Instrmt Match Side Grp to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_instrument_attribute_grp = Pref.bool("Show Instrument Attribute Grp", show.instrument_attribute_grp, "Parse and add Instrument Attribute Grp to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_instrument_event_grp = Pref.bool("Show Instrument Event Grp", show.instrument_event_grp, "Parse and add Instrument Event Grp to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_leg_ord_grp = Pref.bool("Show Leg Ord Grp", show.leg_ord_grp, "Parse and add Leg Ord Grp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_instrmnt_leg_exec_grp_comp = Pref.bool("Show Instrmnt Leg Exec Grp Comp", show.instrmnt_leg_exec_grp_comp, "Parse and add Instrmnt Leg Exec Grp Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_instrmt_leg_grp_comp = Pref.bool("Show Instrmt Leg Grp Comp", show.instrmt_leg_grp_comp, "Parse and add Instrmt Leg Grp Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_instrmt_match_side_grp_comp = Pref.bool("Show Instrmt Match Side Grp Comp", show.instrmt_match_side_grp_comp, "Parse and add Instrmt Match Side Grp Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_instrument_attribute_grp_comp = Pref.bool("Show Instrument Attribute Grp Comp", show.instrument_attribute_grp_comp, "Parse and add Instrument Attribute Grp Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_instrument_event_grp_comp = Pref.bool("Show Instrument Event Grp Comp", show.instrument_event_grp_comp, "Parse and add Instrument Event Grp Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_leg_ord_grp_comp = Pref.bool("Show Leg Ord Grp Comp", show.leg_ord_grp_comp, "Parse and add Leg Ord Grp Comp to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_legal_notification_broadcast = Pref.bool("Show Legal Notification Broadcast", show.legal_notification_broadcast, "Parse and add Legal Notification Broadcast to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_logon_request = Pref.bool("Show Logon Request", show.logon_request, "Parse and add Logon Request to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_logon_response = Pref.bool("Show Logon Response", show.logon_response, "Parse and add Logon Response to protocol tree")
@@ -873,11 +873,11 @@ eurex_derivatives_eti_t7_v7_1.prefs.show_logout_request = Pref.bool("Show Logout
 eurex_derivatives_eti_t7_v7_1.prefs.show_logout_response = Pref.bool("Show Logout Response", show.logout_response, "Parse and add Logout Response to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_mass_quote_request = Pref.bool("Show Mass Quote Request", show.mass_quote_request, "Parse and add Mass Quote Request to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_mass_quote_response = Pref.bool("Show Mass Quote Response", show.mass_quote_response, "Parse and add Mass Quote Response to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_message_header_in = Pref.bool("Show Message Header In", show.message_header_in, "Parse and add Message Header In to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_message_header_out = Pref.bool("Show Message Header Out", show.message_header_out, "Parse and add Message Header Out to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_message_header_in_comp = Pref.bool("Show Message Header In Comp", show.message_header_in_comp, "Parse and add Message Header In Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_message_header_out_comp = Pref.bool("Show Message Header Out Comp", show.message_header_out_comp, "Parse and add Message Header Out Comp to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_mm_parameter_definition_request = Pref.bool("Show Mm Parameter Definition Request", show.mm_parameter_definition_request, "Parse and add Mm Parameter Definition Request to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_mm_parameter_definition_response = Pref.bool("Show Mm Parameter Definition Response", show.mm_parameter_definition_response, "Parse and add Mm Parameter Definition Response to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_mm_parameter_grp = Pref.bool("Show Mm Parameter Grp", show.mm_parameter_grp, "Parse and add Mm Parameter Grp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_mm_parameter_grp_comp = Pref.bool("Show Mm Parameter Grp Comp", show.mm_parameter_grp_comp, "Parse and add Mm Parameter Grp Comp to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_modify_basket_trade_request = Pref.bool("Show Modify Basket Trade Request", show.modify_basket_trade_request, "Parse and add Modify Basket Trade Request to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_modify_order_complex_request = Pref.bool("Show Modify Order Complex Request", show.modify_order_complex_request, "Parse and add Modify Order Complex Request to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_modify_order_complex_short_request = Pref.bool("Show Modify Order Complex Short Request", show.modify_order_complex_short_request, "Parse and add Modify Order Complex Short Request to protocol tree")
@@ -893,51 +893,51 @@ eurex_derivatives_eti_t7_v7_1.prefs.show_new_order_response = Pref.bool("Show Ne
 eurex_derivatives_eti_t7_v7_1.prefs.show_new_order_single_request = Pref.bool("Show New Order Single Request", show.new_order_single_request, "Parse and add New Order Single Request to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_new_order_single_short_request = Pref.bool("Show New Order Single Short Request", show.new_order_single_short_request, "Parse and add New Order Single Short Request to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_news_broadcast = Pref.bool("Show News Broadcast", show.news_broadcast, "Parse and add News Broadcast to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_not_affected_orders_grp = Pref.bool("Show Not Affected Orders Grp", show.not_affected_orders_grp, "Parse and add Not Affected Orders Grp to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_not_affected_securities_grp = Pref.bool("Show Not Affected Securities Grp", show.not_affected_securities_grp, "Parse and add Not Affected Securities Grp to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_notif_header = Pref.bool("Show Notif Header", show.notif_header, "Parse and add Notif Header to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_nr_response_header_me = Pref.bool("Show Nr Response Header Me", show.nr_response_header_me, "Parse and add Nr Response Header Me to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_nrbc_header = Pref.bool("Show Nrbc Header", show.nrbc_header, "Parse and add Nrbc Header to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_order_book_item_grp = Pref.bool("Show Order Book Item Grp", show.order_book_item_grp, "Parse and add Order Book Item Grp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_not_affected_orders_grp_comp = Pref.bool("Show Not Affected Orders Grp Comp", show.not_affected_orders_grp_comp, "Parse and add Not Affected Orders Grp Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_not_affected_securities_grp_comp = Pref.bool("Show Not Affected Securities Grp Comp", show.not_affected_securities_grp_comp, "Parse and add Not Affected Securities Grp Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_notif_header_comp = Pref.bool("Show Notif Header Comp", show.notif_header_comp, "Parse and add Notif Header Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_nr_response_header_me_comp = Pref.bool("Show Nr Response Header Me Comp", show.nr_response_header_me_comp, "Parse and add Nr Response Header Me Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_nrbc_header_comp = Pref.bool("Show Nrbc Header Comp", show.nrbc_header_comp, "Parse and add Nrbc Header Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_order_book_item_grp_comp = Pref.bool("Show Order Book Item Grp Comp", show.order_book_item_grp_comp, "Parse and add Order Book Item Grp Comp to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_order_exec_notification = Pref.bool("Show Order Exec Notification", show.order_exec_notification, "Parse and add Order Exec Notification to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_order_exec_report_broadcast = Pref.bool("Show Order Exec Report Broadcast", show.order_exec_report_broadcast, "Parse and add Order Exec Report Broadcast to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_order_exec_response = Pref.bool("Show Order Exec Response", show.order_exec_response, "Parse and add Order Exec Response to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_party_action_report = Pref.bool("Show Party Action Report", show.party_action_report, "Parse and add Party Action Report to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_party_details_grp = Pref.bool("Show Party Details Grp", show.party_details_grp, "Parse and add Party Details Grp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_party_details_grp_comp = Pref.bool("Show Party Details Grp Comp", show.party_details_grp_comp, "Parse and add Party Details Grp Comp to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_party_entitlements_update_report = Pref.bool("Show Party Entitlements Update Report", show.party_entitlements_update_report, "Parse and add Party Entitlements Update Report to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_pre_trade_risk_limit_response = Pref.bool("Show Pre Trade Risk Limit Response", show.pre_trade_risk_limit_response, "Parse and add Pre Trade Risk Limit Response to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_pre_trade_risk_limits_definition_request = Pref.bool("Show Pre Trade Risk Limits Definition Request", show.pre_trade_risk_limits_definition_request, "Parse and add Pre Trade Risk Limits Definition Request to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_quot_req_legs_grp = Pref.bool("Show Quot Req Legs Grp", show.quot_req_legs_grp, "Parse and add Quot Req Legs Grp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_quot_req_legs_grp_comp = Pref.bool("Show Quot Req Legs Grp Comp", show.quot_req_legs_grp_comp, "Parse and add Quot Req Legs Grp Comp to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_quote_activation_notification = Pref.bool("Show Quote Activation Notification", show.quote_activation_notification, "Parse and add Quote Activation Notification to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_quote_activation_request = Pref.bool("Show Quote Activation Request", show.quote_activation_request, "Parse and add Quote Activation Request to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_quote_activation_response = Pref.bool("Show Quote Activation Response", show.quote_activation_response, "Parse and add Quote Activation Response to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_quote_entry_ack_grp = Pref.bool("Show Quote Entry Ack Grp", show.quote_entry_ack_grp, "Parse and add Quote Entry Ack Grp to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_quote_entry_grp = Pref.bool("Show Quote Entry Grp", show.quote_entry_grp, "Parse and add Quote Entry Grp to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_quote_event_grp = Pref.bool("Show Quote Event Grp", show.quote_event_grp, "Parse and add Quote Event Grp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_quote_entry_ack_grp_comp = Pref.bool("Show Quote Entry Ack Grp Comp", show.quote_entry_ack_grp_comp, "Parse and add Quote Entry Ack Grp Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_quote_entry_grp_comp = Pref.bool("Show Quote Entry Grp Comp", show.quote_entry_grp_comp, "Parse and add Quote Entry Grp Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_quote_event_grp_comp = Pref.bool("Show Quote Event Grp Comp", show.quote_event_grp_comp, "Parse and add Quote Event Grp Comp to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_quote_execution_report = Pref.bool("Show Quote Execution Report", show.quote_execution_report, "Parse and add Quote Execution Report to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_quote_leg_exec_grp = Pref.bool("Show Quote Leg Exec Grp", show.quote_leg_exec_grp, "Parse and add Quote Leg Exec Grp to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_rbc_header = Pref.bool("Show Rbc Header", show.rbc_header, "Parse and add Rbc Header to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_rbc_header_me = Pref.bool("Show Rbc Header Me", show.rbc_header_me, "Parse and add Rbc Header Me to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_quote_leg_exec_grp_comp = Pref.bool("Show Quote Leg Exec Grp Comp", show.quote_leg_exec_grp_comp, "Parse and add Quote Leg Exec Grp Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_rbc_header_comp = Pref.bool("Show Rbc Header Comp", show.rbc_header_comp, "Parse and add Rbc Header Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_rbc_header_me_comp = Pref.bool("Show Rbc Header Me Comp", show.rbc_header_me_comp, "Parse and add Rbc Header Me Comp to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_reject = Pref.bool("Show Reject", show.reject, "Parse and add Reject to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_request_header = Pref.bool("Show Request Header", show.request_header, "Parse and add Request Header to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_response_header = Pref.bool("Show Response Header", show.response_header, "Parse and add Response Header to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_response_header_me = Pref.bool("Show Response Header Me", show.response_header_me, "Parse and add Response Header Me to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_request_header_comp = Pref.bool("Show Request Header Comp", show.request_header_comp, "Parse and add Request Header Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_response_header_comp = Pref.bool("Show Response Header Comp", show.response_header_comp, "Parse and add Response Header Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_response_header_me_comp = Pref.bool("Show Response Header Me Comp", show.response_header_me_comp, "Parse and add Response Header Me Comp to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_retransmit_me_message_request = Pref.bool("Show Retransmit Me Message Request", show.retransmit_me_message_request, "Parse and add Retransmit Me Message Request to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_retransmit_me_message_response = Pref.bool("Show Retransmit Me Message Response", show.retransmit_me_message_response, "Parse and add Retransmit Me Message Response to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_retransmit_request = Pref.bool("Show Retransmit Request", show.retransmit_request, "Parse and add Retransmit Request to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_retransmit_response = Pref.bool("Show Retransmit Response", show.retransmit_response, "Parse and add Retransmit Response to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_rfq_request = Pref.bool("Show Rfq Request", show.rfq_request, "Parse and add Rfq Request to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_rfq_response = Pref.bool("Show Rfq Response", show.rfq_response, "Parse and add Rfq Response to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_risk_limit_qty_grp = Pref.bool("Show Risk Limit Qty Grp", show.risk_limit_qty_grp, "Parse and add Risk Limit Qty Grp to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_risk_limits_rpt_grp = Pref.bool("Show Risk Limits Rpt Grp", show.risk_limits_rpt_grp, "Parse and add Risk Limits Rpt Grp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_risk_limit_qty_grp_comp = Pref.bool("Show Risk Limit Qty Grp Comp", show.risk_limit_qty_grp_comp, "Parse and add Risk Limit Qty Grp Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_risk_limits_rpt_grp_comp = Pref.bool("Show Risk Limits Rpt Grp Comp", show.risk_limits_rpt_grp_comp, "Parse and add Risk Limits Rpt Grp Comp to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_risk_notification_broadcast = Pref.bool("Show Risk Notification Broadcast", show.risk_notification_broadcast, "Parse and add Risk Notification Broadcast to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_service_availability_broadcast = Pref.bool("Show Service Availability Broadcast", show.service_availability_broadcast, "Parse and add Service Availability Broadcast to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_service_availability_market_broadcast = Pref.bool("Show Service Availability Market Broadcast", show.service_availability_market_broadcast, "Parse and add Service Availability Market Broadcast to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_sessions_grp = Pref.bool("Show Sessions Grp", show.sessions_grp, "Parse and add Sessions Grp to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_side_alloc_ext_grp = Pref.bool("Show Side Alloc Ext Grp", show.side_alloc_ext_grp, "Parse and add Side Alloc Ext Grp to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_side_alloc_grp = Pref.bool("Show Side Alloc Grp", show.side_alloc_grp, "Parse and add Side Alloc Grp to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_side_alloc_grp_bc = Pref.bool("Show Side Alloc Grp Bc", show.side_alloc_grp_bc, "Parse and add Side Alloc Grp Bc to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_side_cross_leg_grp = Pref.bool("Show Side Cross Leg Grp", show.side_cross_leg_grp, "Parse and add Side Cross Leg Grp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_sessions_grp_comp = Pref.bool("Show Sessions Grp Comp", show.sessions_grp_comp, "Parse and add Sessions Grp Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_side_alloc_ext_grp_comp = Pref.bool("Show Side Alloc Ext Grp Comp", show.side_alloc_ext_grp_comp, "Parse and add Side Alloc Ext Grp Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_side_alloc_grp_bc_comp = Pref.bool("Show Side Alloc Grp Bc Comp", show.side_alloc_grp_bc_comp, "Parse and add Side Alloc Grp Bc Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_side_alloc_grp_comp = Pref.bool("Show Side Alloc Grp Comp", show.side_alloc_grp_comp, "Parse and add Side Alloc Grp Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_side_cross_leg_grp_comp = Pref.bool("Show Side Cross Leg Grp Comp", show.side_cross_leg_grp_comp, "Parse and add Side Cross Leg Grp Comp to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_srqs_create_deal_notification = Pref.bool("Show Srqs Create Deal Notification", show.srqs_create_deal_notification, "Parse and add Srqs Create Deal Notification to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_srqs_deal_notification = Pref.bool("Show Srqs Deal Notification", show.srqs_deal_notification, "Parse and add Srqs Deal Notification to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_srqs_deal_response = Pref.bool("Show Srqs Deal Response", show.srqs_deal_response, "Parse and add Srqs Deal Response to protocol tree")
@@ -952,13 +952,13 @@ eurex_derivatives_eti_t7_v7_1.prefs.show_srqs_open_negotiation_requester_notific
 eurex_derivatives_eti_t7_v7_1.prefs.show_srqs_quote_notification = Pref.bool("Show Srqs Quote Notification", show.srqs_quote_notification, "Parse and add Srqs Quote Notification to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_srqs_quote_response = Pref.bool("Show Srqs Quote Response", show.srqs_quote_response, "Parse and add Srqs Quote Response to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_srqs_quoting_status_request = Pref.bool("Show Srqs Quoting Status Request", show.srqs_quoting_status_request, "Parse and add Srqs Quoting Status Request to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_srqs_related_trade_id_grp = Pref.bool("Show Srqs Related Trade Id Grp", show.srqs_related_trade_id_grp, "Parse and add Srqs Related Trade Id Grp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_srqs_related_trade_id_grp_comp = Pref.bool("Show Srqs Related Trade Id Grp Comp", show.srqs_related_trade_id_grp_comp, "Parse and add Srqs Related Trade Id Grp Comp to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_srqs_status_broadcast = Pref.bool("Show Srqs Status Broadcast", show.srqs_status_broadcast, "Parse and add Srqs Status Broadcast to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_srqs_update_deal_status_request = Pref.bool("Show Srqs Update Deal Status Request", show.srqs_update_deal_status_request, "Parse and add Srqs Update Deal Status Request to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_srqs_update_negotiation_request = Pref.bool("Show Srqs Update Negotiation Request", show.srqs_update_negotiation_request, "Parse and add Srqs Update Negotiation Request to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_subscribe_request = Pref.bool("Show Subscribe Request", show.subscribe_request, "Parse and add Subscribe Request to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_subscribe_response = Pref.bool("Show Subscribe Response", show.subscribe_response, "Parse and add Subscribe Response to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_target_parties = Pref.bool("Show Target Parties", show.target_parties, "Parse and add Target Parties to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_target_parties_comp = Pref.bool("Show Target Parties Comp", show.target_parties_comp, "Parse and add Target Parties Comp to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_tes_approve_broadcast = Pref.bool("Show Tes Approve Broadcast", show.tes_approve_broadcast, "Parse and add Tes Approve Broadcast to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_tes_broadcast = Pref.bool("Show Tes Broadcast", show.tes_broadcast, "Parse and add Tes Broadcast to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_tes_delete_broadcast = Pref.bool("Show Tes Delete Broadcast", show.tes_delete_broadcast, "Parse and add Tes Delete Broadcast to protocol tree")
@@ -971,8 +971,8 @@ eurex_derivatives_eti_t7_v7_1.prefs.show_throttle_update_notification = Pref.boo
 eurex_derivatives_eti_t7_v7_1.prefs.show_tm_trading_session_status_broadcast = Pref.bool("Show Tm Trading Session Status Broadcast", show.tm_trading_session_status_broadcast, "Parse and add Tm Trading Session Status Broadcast to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_trade_broadcast = Pref.bool("Show Trade Broadcast", show.trade_broadcast, "Parse and add Trade Broadcast to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_trading_session_status_broadcast = Pref.bool("Show Trading Session Status Broadcast", show.trading_session_status_broadcast, "Parse and add Trading Session Status Broadcast to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_trd_instrmnt_leg_grp = Pref.bool("Show Trd Instrmnt Leg Grp", show.trd_instrmnt_leg_grp, "Parse and add Trd Instrmnt Leg Grp to protocol tree")
-eurex_derivatives_eti_t7_v7_1.prefs.show_underlying_stip_grp = Pref.bool("Show Underlying Stip Grp", show.underlying_stip_grp, "Parse and add Underlying Stip Grp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_trd_instrmnt_leg_grp_comp = Pref.bool("Show Trd Instrmnt Leg Grp Comp", show.trd_instrmnt_leg_grp_comp, "Parse and add Trd Instrmnt Leg Grp Comp to protocol tree")
+eurex_derivatives_eti_t7_v7_1.prefs.show_underlying_stip_grp_comp = Pref.bool("Show Underlying Stip Grp Comp", show.underlying_stip_grp_comp, "Parse and add Underlying Stip Grp Comp to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_unsubscribe_request = Pref.bool("Show Unsubscribe Request", show.unsubscribe_request, "Parse and add Unsubscribe Request to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_unsubscribe_response = Pref.bool("Show Unsubscribe Response", show.unsubscribe_response, "Parse and add Unsubscribe Response to protocol tree")
 eurex_derivatives_eti_t7_v7_1.prefs.show_upload_tes_trade_request = Pref.bool("Show Upload Tes Trade Request", show.upload_tes_trade_request, "Parse and add Upload Tes Trade Request to protocol tree")
@@ -1003,8 +1003,8 @@ function eurex_derivatives_eti_t7_v7_1.prefs_changed()
     show.add_flexible_instrument_response = eurex_derivatives_eti_t7_v7_1.prefs.show_add_flexible_instrument_response
     changed = true
   end
-  if show.affected_order_requests_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_affected_order_requests_grp then
-    show.affected_order_requests_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_affected_order_requests_grp
+  if show.affected_order_requests_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_affected_order_requests_grp_comp then
+    show.affected_order_requests_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_affected_order_requests_grp_comp
     changed = true
   end
   if show.amend_basket_trade_request ~= eurex_derivatives_eti_t7_v7_1.prefs.show_amend_basket_trade_request then
@@ -1031,8 +1031,8 @@ function eurex_derivatives_eti_t7_v7_1.prefs_changed()
     show.basket_delete_broadcast = eurex_derivatives_eti_t7_v7_1.prefs.show_basket_delete_broadcast
     changed = true
   end
-  if show.basket_exec_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_basket_exec_grp then
-    show.basket_exec_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_basket_exec_grp
+  if show.basket_exec_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_basket_exec_grp_comp then
+    show.basket_exec_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_basket_exec_grp_comp
     changed = true
   end
   if show.basket_execution_broadcast ~= eurex_derivatives_eti_t7_v7_1.prefs.show_basket_execution_broadcast then
@@ -1043,20 +1043,20 @@ function eurex_derivatives_eti_t7_v7_1.prefs_changed()
     show.basket_response = eurex_derivatives_eti_t7_v7_1.prefs.show_basket_response
     changed = true
   end
-  if show.basket_root_party_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_basket_root_party_grp then
-    show.basket_root_party_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_basket_root_party_grp
+  if show.basket_root_party_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_basket_root_party_grp_comp then
+    show.basket_root_party_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_basket_root_party_grp_comp
     changed = true
   end
-  if show.basket_side_alloc_ext_bc_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_basket_side_alloc_ext_bc_grp then
-    show.basket_side_alloc_ext_bc_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_basket_side_alloc_ext_bc_grp
+  if show.basket_side_alloc_ext_bc_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_basket_side_alloc_ext_bc_grp_comp then
+    show.basket_side_alloc_ext_bc_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_basket_side_alloc_ext_bc_grp_comp
     changed = true
   end
-  if show.basket_side_alloc_ext_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_basket_side_alloc_ext_grp then
-    show.basket_side_alloc_ext_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_basket_side_alloc_ext_grp
+  if show.basket_side_alloc_ext_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_basket_side_alloc_ext_grp_comp then
+    show.basket_side_alloc_ext_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_basket_side_alloc_ext_grp_comp
     changed = true
   end
-  if show.basket_side_alloc_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_basket_side_alloc_grp then
-    show.basket_side_alloc_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_basket_side_alloc_grp
+  if show.basket_side_alloc_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_basket_side_alloc_grp_comp then
+    show.basket_side_alloc_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_basket_side_alloc_grp_comp
     changed = true
   end
   if show.broadcast_error_notification ~= eurex_derivatives_eti_t7_v7_1.prefs.show_broadcast_error_notification then
@@ -1079,16 +1079,16 @@ function eurex_derivatives_eti_t7_v7_1.prefs_changed()
     show.cross_request = eurex_derivatives_eti_t7_v7_1.prefs.show_cross_request
     changed = true
   end
-  if show.cross_request_ack_side_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_cross_request_ack_side_grp then
-    show.cross_request_ack_side_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_cross_request_ack_side_grp
+  if show.cross_request_ack_side_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_cross_request_ack_side_grp_comp then
+    show.cross_request_ack_side_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_cross_request_ack_side_grp_comp
     changed = true
   end
   if show.cross_request_response ~= eurex_derivatives_eti_t7_v7_1.prefs.show_cross_request_response then
     show.cross_request_response = eurex_derivatives_eti_t7_v7_1.prefs.show_cross_request_response
     changed = true
   end
-  if show.cross_request_side_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_cross_request_side_grp then
-    show.cross_request_side_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_cross_request_side_grp
+  if show.cross_request_side_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_cross_request_side_grp_comp then
+    show.cross_request_side_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_cross_request_side_grp_comp
     changed = true
   end
   if show.delete_all_order_broadcast ~= eurex_derivatives_eti_t7_v7_1.prefs.show_delete_all_order_broadcast then
@@ -1155,8 +1155,8 @@ function eurex_derivatives_eti_t7_v7_1.prefs_changed()
     show.delete_tes_trade_request = eurex_derivatives_eti_t7_v7_1.prefs.show_delete_tes_trade_request
     changed = true
   end
-  if show.enrichment_rules_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_enrichment_rules_grp then
-    show.enrichment_rules_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_enrichment_rules_grp
+  if show.enrichment_rules_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_enrichment_rules_grp_comp then
+    show.enrichment_rules_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_enrichment_rules_grp_comp
     changed = true
   end
   if show.enter_basket_trade_request ~= eurex_derivatives_eti_t7_v7_1.prefs.show_enter_basket_trade_request then
@@ -1171,8 +1171,8 @@ function eurex_derivatives_eti_t7_v7_1.prefs_changed()
     show.enter_tes_trade_request = eurex_derivatives_eti_t7_v7_1.prefs.show_enter_tes_trade_request
     changed = true
   end
-  if show.fills_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_fills_grp then
-    show.fills_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_fills_grp
+  if show.fills_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_fills_grp_comp then
+    show.fills_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_fills_grp_comp
     changed = true
   end
   if show.forced_logout_notification ~= eurex_derivatives_eti_t7_v7_1.prefs.show_forced_logout_notification then
@@ -1227,28 +1227,28 @@ function eurex_derivatives_eti_t7_v7_1.prefs_changed()
     show.inquire_user_response = eurex_derivatives_eti_t7_v7_1.prefs.show_inquire_user_response
     changed = true
   end
-  if show.instrmnt_leg_exec_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_instrmnt_leg_exec_grp then
-    show.instrmnt_leg_exec_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_instrmnt_leg_exec_grp
+  if show.instrmnt_leg_exec_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_instrmnt_leg_exec_grp_comp then
+    show.instrmnt_leg_exec_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_instrmnt_leg_exec_grp_comp
     changed = true
   end
-  if show.instrmt_leg_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_instrmt_leg_grp then
-    show.instrmt_leg_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_instrmt_leg_grp
+  if show.instrmt_leg_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_instrmt_leg_grp_comp then
+    show.instrmt_leg_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_instrmt_leg_grp_comp
     changed = true
   end
-  if show.instrmt_match_side_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_instrmt_match_side_grp then
-    show.instrmt_match_side_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_instrmt_match_side_grp
+  if show.instrmt_match_side_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_instrmt_match_side_grp_comp then
+    show.instrmt_match_side_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_instrmt_match_side_grp_comp
     changed = true
   end
-  if show.instrument_attribute_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_instrument_attribute_grp then
-    show.instrument_attribute_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_instrument_attribute_grp
+  if show.instrument_attribute_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_instrument_attribute_grp_comp then
+    show.instrument_attribute_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_instrument_attribute_grp_comp
     changed = true
   end
-  if show.instrument_event_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_instrument_event_grp then
-    show.instrument_event_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_instrument_event_grp
+  if show.instrument_event_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_instrument_event_grp_comp then
+    show.instrument_event_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_instrument_event_grp_comp
     changed = true
   end
-  if show.leg_ord_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_leg_ord_grp then
-    show.leg_ord_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_leg_ord_grp
+  if show.leg_ord_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_leg_ord_grp_comp then
+    show.leg_ord_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_leg_ord_grp_comp
     changed = true
   end
   if show.legal_notification_broadcast ~= eurex_derivatives_eti_t7_v7_1.prefs.show_legal_notification_broadcast then
@@ -1279,12 +1279,12 @@ function eurex_derivatives_eti_t7_v7_1.prefs_changed()
     show.mass_quote_response = eurex_derivatives_eti_t7_v7_1.prefs.show_mass_quote_response
     changed = true
   end
-  if show.message_header_in ~= eurex_derivatives_eti_t7_v7_1.prefs.show_message_header_in then
-    show.message_header_in = eurex_derivatives_eti_t7_v7_1.prefs.show_message_header_in
+  if show.message_header_in_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_message_header_in_comp then
+    show.message_header_in_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_message_header_in_comp
     changed = true
   end
-  if show.message_header_out ~= eurex_derivatives_eti_t7_v7_1.prefs.show_message_header_out then
-    show.message_header_out = eurex_derivatives_eti_t7_v7_1.prefs.show_message_header_out
+  if show.message_header_out_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_message_header_out_comp then
+    show.message_header_out_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_message_header_out_comp
     changed = true
   end
   if show.mm_parameter_definition_request ~= eurex_derivatives_eti_t7_v7_1.prefs.show_mm_parameter_definition_request then
@@ -1295,8 +1295,8 @@ function eurex_derivatives_eti_t7_v7_1.prefs_changed()
     show.mm_parameter_definition_response = eurex_derivatives_eti_t7_v7_1.prefs.show_mm_parameter_definition_response
     changed = true
   end
-  if show.mm_parameter_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_mm_parameter_grp then
-    show.mm_parameter_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_mm_parameter_grp
+  if show.mm_parameter_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_mm_parameter_grp_comp then
+    show.mm_parameter_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_mm_parameter_grp_comp
     changed = true
   end
   if show.modify_basket_trade_request ~= eurex_derivatives_eti_t7_v7_1.prefs.show_modify_basket_trade_request then
@@ -1359,28 +1359,28 @@ function eurex_derivatives_eti_t7_v7_1.prefs_changed()
     show.news_broadcast = eurex_derivatives_eti_t7_v7_1.prefs.show_news_broadcast
     changed = true
   end
-  if show.not_affected_orders_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_not_affected_orders_grp then
-    show.not_affected_orders_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_not_affected_orders_grp
+  if show.not_affected_orders_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_not_affected_orders_grp_comp then
+    show.not_affected_orders_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_not_affected_orders_grp_comp
     changed = true
   end
-  if show.not_affected_securities_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_not_affected_securities_grp then
-    show.not_affected_securities_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_not_affected_securities_grp
+  if show.not_affected_securities_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_not_affected_securities_grp_comp then
+    show.not_affected_securities_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_not_affected_securities_grp_comp
     changed = true
   end
-  if show.notif_header ~= eurex_derivatives_eti_t7_v7_1.prefs.show_notif_header then
-    show.notif_header = eurex_derivatives_eti_t7_v7_1.prefs.show_notif_header
+  if show.notif_header_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_notif_header_comp then
+    show.notif_header_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_notif_header_comp
     changed = true
   end
-  if show.nr_response_header_me ~= eurex_derivatives_eti_t7_v7_1.prefs.show_nr_response_header_me then
-    show.nr_response_header_me = eurex_derivatives_eti_t7_v7_1.prefs.show_nr_response_header_me
+  if show.nr_response_header_me_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_nr_response_header_me_comp then
+    show.nr_response_header_me_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_nr_response_header_me_comp
     changed = true
   end
-  if show.nrbc_header ~= eurex_derivatives_eti_t7_v7_1.prefs.show_nrbc_header then
-    show.nrbc_header = eurex_derivatives_eti_t7_v7_1.prefs.show_nrbc_header
+  if show.nrbc_header_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_nrbc_header_comp then
+    show.nrbc_header_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_nrbc_header_comp
     changed = true
   end
-  if show.order_book_item_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_order_book_item_grp then
-    show.order_book_item_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_order_book_item_grp
+  if show.order_book_item_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_order_book_item_grp_comp then
+    show.order_book_item_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_order_book_item_grp_comp
     changed = true
   end
   if show.order_exec_notification ~= eurex_derivatives_eti_t7_v7_1.prefs.show_order_exec_notification then
@@ -1399,8 +1399,8 @@ function eurex_derivatives_eti_t7_v7_1.prefs_changed()
     show.party_action_report = eurex_derivatives_eti_t7_v7_1.prefs.show_party_action_report
     changed = true
   end
-  if show.party_details_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_party_details_grp then
-    show.party_details_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_party_details_grp
+  if show.party_details_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_party_details_grp_comp then
+    show.party_details_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_party_details_grp_comp
     changed = true
   end
   if show.party_entitlements_update_report ~= eurex_derivatives_eti_t7_v7_1.prefs.show_party_entitlements_update_report then
@@ -1415,8 +1415,8 @@ function eurex_derivatives_eti_t7_v7_1.prefs_changed()
     show.pre_trade_risk_limits_definition_request = eurex_derivatives_eti_t7_v7_1.prefs.show_pre_trade_risk_limits_definition_request
     changed = true
   end
-  if show.quot_req_legs_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_quot_req_legs_grp then
-    show.quot_req_legs_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_quot_req_legs_grp
+  if show.quot_req_legs_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_quot_req_legs_grp_comp then
+    show.quot_req_legs_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_quot_req_legs_grp_comp
     changed = true
   end
   if show.quote_activation_notification ~= eurex_derivatives_eti_t7_v7_1.prefs.show_quote_activation_notification then
@@ -1431,48 +1431,48 @@ function eurex_derivatives_eti_t7_v7_1.prefs_changed()
     show.quote_activation_response = eurex_derivatives_eti_t7_v7_1.prefs.show_quote_activation_response
     changed = true
   end
-  if show.quote_entry_ack_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_quote_entry_ack_grp then
-    show.quote_entry_ack_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_quote_entry_ack_grp
+  if show.quote_entry_ack_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_quote_entry_ack_grp_comp then
+    show.quote_entry_ack_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_quote_entry_ack_grp_comp
     changed = true
   end
-  if show.quote_entry_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_quote_entry_grp then
-    show.quote_entry_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_quote_entry_grp
+  if show.quote_entry_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_quote_entry_grp_comp then
+    show.quote_entry_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_quote_entry_grp_comp
     changed = true
   end
-  if show.quote_event_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_quote_event_grp then
-    show.quote_event_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_quote_event_grp
+  if show.quote_event_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_quote_event_grp_comp then
+    show.quote_event_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_quote_event_grp_comp
     changed = true
   end
   if show.quote_execution_report ~= eurex_derivatives_eti_t7_v7_1.prefs.show_quote_execution_report then
     show.quote_execution_report = eurex_derivatives_eti_t7_v7_1.prefs.show_quote_execution_report
     changed = true
   end
-  if show.quote_leg_exec_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_quote_leg_exec_grp then
-    show.quote_leg_exec_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_quote_leg_exec_grp
+  if show.quote_leg_exec_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_quote_leg_exec_grp_comp then
+    show.quote_leg_exec_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_quote_leg_exec_grp_comp
     changed = true
   end
-  if show.rbc_header ~= eurex_derivatives_eti_t7_v7_1.prefs.show_rbc_header then
-    show.rbc_header = eurex_derivatives_eti_t7_v7_1.prefs.show_rbc_header
+  if show.rbc_header_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_rbc_header_comp then
+    show.rbc_header_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_rbc_header_comp
     changed = true
   end
-  if show.rbc_header_me ~= eurex_derivatives_eti_t7_v7_1.prefs.show_rbc_header_me then
-    show.rbc_header_me = eurex_derivatives_eti_t7_v7_1.prefs.show_rbc_header_me
+  if show.rbc_header_me_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_rbc_header_me_comp then
+    show.rbc_header_me_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_rbc_header_me_comp
     changed = true
   end
   if show.reject ~= eurex_derivatives_eti_t7_v7_1.prefs.show_reject then
     show.reject = eurex_derivatives_eti_t7_v7_1.prefs.show_reject
     changed = true
   end
-  if show.request_header ~= eurex_derivatives_eti_t7_v7_1.prefs.show_request_header then
-    show.request_header = eurex_derivatives_eti_t7_v7_1.prefs.show_request_header
+  if show.request_header_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_request_header_comp then
+    show.request_header_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_request_header_comp
     changed = true
   end
-  if show.response_header ~= eurex_derivatives_eti_t7_v7_1.prefs.show_response_header then
-    show.response_header = eurex_derivatives_eti_t7_v7_1.prefs.show_response_header
+  if show.response_header_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_response_header_comp then
+    show.response_header_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_response_header_comp
     changed = true
   end
-  if show.response_header_me ~= eurex_derivatives_eti_t7_v7_1.prefs.show_response_header_me then
-    show.response_header_me = eurex_derivatives_eti_t7_v7_1.prefs.show_response_header_me
+  if show.response_header_me_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_response_header_me_comp then
+    show.response_header_me_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_response_header_me_comp
     changed = true
   end
   if show.retransmit_me_message_request ~= eurex_derivatives_eti_t7_v7_1.prefs.show_retransmit_me_message_request then
@@ -1499,12 +1499,12 @@ function eurex_derivatives_eti_t7_v7_1.prefs_changed()
     show.rfq_response = eurex_derivatives_eti_t7_v7_1.prefs.show_rfq_response
     changed = true
   end
-  if show.risk_limit_qty_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_risk_limit_qty_grp then
-    show.risk_limit_qty_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_risk_limit_qty_grp
+  if show.risk_limit_qty_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_risk_limit_qty_grp_comp then
+    show.risk_limit_qty_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_risk_limit_qty_grp_comp
     changed = true
   end
-  if show.risk_limits_rpt_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_risk_limits_rpt_grp then
-    show.risk_limits_rpt_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_risk_limits_rpt_grp
+  if show.risk_limits_rpt_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_risk_limits_rpt_grp_comp then
+    show.risk_limits_rpt_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_risk_limits_rpt_grp_comp
     changed = true
   end
   if show.risk_notification_broadcast ~= eurex_derivatives_eti_t7_v7_1.prefs.show_risk_notification_broadcast then
@@ -1519,24 +1519,24 @@ function eurex_derivatives_eti_t7_v7_1.prefs_changed()
     show.service_availability_market_broadcast = eurex_derivatives_eti_t7_v7_1.prefs.show_service_availability_market_broadcast
     changed = true
   end
-  if show.sessions_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_sessions_grp then
-    show.sessions_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_sessions_grp
+  if show.sessions_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_sessions_grp_comp then
+    show.sessions_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_sessions_grp_comp
     changed = true
   end
-  if show.side_alloc_ext_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_side_alloc_ext_grp then
-    show.side_alloc_ext_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_side_alloc_ext_grp
+  if show.side_alloc_ext_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_side_alloc_ext_grp_comp then
+    show.side_alloc_ext_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_side_alloc_ext_grp_comp
     changed = true
   end
-  if show.side_alloc_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_side_alloc_grp then
-    show.side_alloc_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_side_alloc_grp
+  if show.side_alloc_grp_bc_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_side_alloc_grp_bc_comp then
+    show.side_alloc_grp_bc_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_side_alloc_grp_bc_comp
     changed = true
   end
-  if show.side_alloc_grp_bc ~= eurex_derivatives_eti_t7_v7_1.prefs.show_side_alloc_grp_bc then
-    show.side_alloc_grp_bc = eurex_derivatives_eti_t7_v7_1.prefs.show_side_alloc_grp_bc
+  if show.side_alloc_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_side_alloc_grp_comp then
+    show.side_alloc_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_side_alloc_grp_comp
     changed = true
   end
-  if show.side_cross_leg_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_side_cross_leg_grp then
-    show.side_cross_leg_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_side_cross_leg_grp
+  if show.side_cross_leg_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_side_cross_leg_grp_comp then
+    show.side_cross_leg_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_side_cross_leg_grp_comp
     changed = true
   end
   if show.srqs_create_deal_notification ~= eurex_derivatives_eti_t7_v7_1.prefs.show_srqs_create_deal_notification then
@@ -1595,8 +1595,8 @@ function eurex_derivatives_eti_t7_v7_1.prefs_changed()
     show.srqs_quoting_status_request = eurex_derivatives_eti_t7_v7_1.prefs.show_srqs_quoting_status_request
     changed = true
   end
-  if show.srqs_related_trade_id_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_srqs_related_trade_id_grp then
-    show.srqs_related_trade_id_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_srqs_related_trade_id_grp
+  if show.srqs_related_trade_id_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_srqs_related_trade_id_grp_comp then
+    show.srqs_related_trade_id_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_srqs_related_trade_id_grp_comp
     changed = true
   end
   if show.srqs_status_broadcast ~= eurex_derivatives_eti_t7_v7_1.prefs.show_srqs_status_broadcast then
@@ -1619,8 +1619,8 @@ function eurex_derivatives_eti_t7_v7_1.prefs_changed()
     show.subscribe_response = eurex_derivatives_eti_t7_v7_1.prefs.show_subscribe_response
     changed = true
   end
-  if show.target_parties ~= eurex_derivatives_eti_t7_v7_1.prefs.show_target_parties then
-    show.target_parties = eurex_derivatives_eti_t7_v7_1.prefs.show_target_parties
+  if show.target_parties_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_target_parties_comp then
+    show.target_parties_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_target_parties_comp
     changed = true
   end
   if show.tes_approve_broadcast ~= eurex_derivatives_eti_t7_v7_1.prefs.show_tes_approve_broadcast then
@@ -1671,12 +1671,12 @@ function eurex_derivatives_eti_t7_v7_1.prefs_changed()
     show.trading_session_status_broadcast = eurex_derivatives_eti_t7_v7_1.prefs.show_trading_session_status_broadcast
     changed = true
   end
-  if show.trd_instrmnt_leg_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_trd_instrmnt_leg_grp then
-    show.trd_instrmnt_leg_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_trd_instrmnt_leg_grp
+  if show.trd_instrmnt_leg_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_trd_instrmnt_leg_grp_comp then
+    show.trd_instrmnt_leg_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_trd_instrmnt_leg_grp_comp
     changed = true
   end
-  if show.underlying_stip_grp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_underlying_stip_grp then
-    show.underlying_stip_grp = eurex_derivatives_eti_t7_v7_1.prefs.show_underlying_stip_grp
+  if show.underlying_stip_grp_comp ~= eurex_derivatives_eti_t7_v7_1.prefs.show_underlying_stip_grp_comp then
+    show.underlying_stip_grp_comp = eurex_derivatives_eti_t7_v7_1.prefs.show_underlying_stip_grp_comp
     changed = true
   end
   if show.unsubscribe_request ~= eurex_derivatives_eti_t7_v7_1.prefs.show_unsubscribe_request then
@@ -1803,8 +1803,8 @@ dissect.request_time = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Response Header
-size_of.response_header = function(buffer, offset)
+-- Calculate size of: Response Header Comp
+size_of.response_header_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.request_time
@@ -1818,13 +1818,13 @@ size_of.response_header = function(buffer, offset)
   return index
 end
 
--- Display: Response Header
-display.response_header = function(buffer, offset, size, packet, parent)
+-- Display: Response Header Comp
+display.response_header_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Response Header
-dissect.response_header_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Response Header Comp
+dissect.response_header_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Request Time: 8 Byte Unsigned Fixed Width Integer
@@ -1842,17 +1842,17 @@ dissect.response_header_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Response Header
-dissect.response_header = function(buffer, offset, packet, parent)
+-- Dissect: Response Header Comp
+dissect.response_header_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.response_header then
-    local length = size_of.response_header(buffer, offset)
+  if show.response_header_comp then
+    local length = size_of.response_header_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.response_header(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.response_header, range, display)
+    local display = display.response_header_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.response_header_comp, range, display)
   end
 
-  return dissect.response_header_fields(buffer, offset, packet, parent)
+  return dissect.response_header_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Pad 2
@@ -1915,8 +1915,8 @@ dissect.body_len = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Message Header Out
-size_of.message_header_out = function(buffer, offset)
+-- Calculate size of: Message Header Out Comp
+size_of.message_header_out_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.body_len
@@ -1928,13 +1928,13 @@ size_of.message_header_out = function(buffer, offset)
   return index
 end
 
--- Display: Message Header Out
-display.message_header_out = function(buffer, offset, size, packet, parent)
+-- Display: Message Header Out Comp
+display.message_header_out_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Message Header Out
-dissect.message_header_out_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Message Header Out Comp
+dissect.message_header_out_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Body Len: 4 Byte Unsigned Fixed Width Integer
@@ -1949,26 +1949,26 @@ dissect.message_header_out_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Message Header Out
-dissect.message_header_out = function(buffer, offset, packet, parent)
+-- Dissect: Message Header Out Comp
+dissect.message_header_out_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.message_header_out then
-    local length = size_of.message_header_out(buffer, offset)
+  if show.message_header_out_comp then
+    local length = size_of.message_header_out_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message_header_out(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.message_header_out, range, display)
+    local display = display.message_header_out_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.message_header_out_comp, range, display)
   end
 
-  return dissect.message_header_out_fields(buffer, offset, packet, parent)
+  return dissect.message_header_out_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: User Logout Response
 size_of.user_logout_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.response_header(buffer, offset + index)
+  index = index + size_of.response_header_comp(buffer, offset + index)
 
   return index
 end
@@ -1982,11 +1982,11 @@ end
 dissect.user_logout_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Response Header: Struct of 4 fields
-  index, response_header = dissect.response_header(buffer, index, packet, parent)
+  -- Response Header Comp: Struct of 4 fields
+  index, response_header_comp = dissect.response_header_comp(buffer, index, packet, parent)
 
   return index
 end
@@ -2044,8 +2044,8 @@ dissect.sender_sub_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Request Header
-size_of.request_header = function(buffer, offset)
+-- Calculate size of: Request Header Comp
+size_of.request_header_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.msg_seq_num
@@ -2055,13 +2055,13 @@ size_of.request_header = function(buffer, offset)
   return index
 end
 
--- Display: Request Header
-display.request_header = function(buffer, offset, size, packet, parent)
+-- Display: Request Header Comp
+display.request_header_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Request Header
-dissect.request_header_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Request Header Comp
+dissect.request_header_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
@@ -2073,17 +2073,17 @@ dissect.request_header_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Request Header
-dissect.request_header = function(buffer, offset, packet, parent)
+-- Dissect: Request Header Comp
+dissect.request_header_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.request_header then
-    local length = size_of.request_header(buffer, offset)
+  if show.request_header_comp then
+    local length = size_of.request_header_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.request_header(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.request_header, range, display)
+    local display = display.request_header_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.request_header_comp, range, display)
   end
 
-  return dissect.request_header_fields(buffer, offset, packet, parent)
+  return dissect.request_header_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Network Msg Id
@@ -2106,8 +2106,8 @@ dissect.network_msg_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Message Header In
-size_of.message_header_in = function(buffer, offset)
+-- Calculate size of: Message Header In Comp
+size_of.message_header_in_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.body_len
@@ -2121,13 +2121,13 @@ size_of.message_header_in = function(buffer, offset)
   return index
 end
 
--- Display: Message Header In
-display.message_header_in = function(buffer, offset, size, packet, parent)
+-- Display: Message Header In Comp
+display.message_header_in_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Message Header In
-dissect.message_header_in_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Message Header In Comp
+dissect.message_header_in_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Body Len: 4 Byte Unsigned Fixed Width Integer
@@ -2145,26 +2145,26 @@ dissect.message_header_in_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Message Header In
-dissect.message_header_in = function(buffer, offset, packet, parent)
+-- Dissect: Message Header In Comp
+dissect.message_header_in_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.message_header_in then
-    local length = size_of.message_header_in(buffer, offset)
+  if show.message_header_in_comp then
+    local length = size_of.message_header_in_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message_header_in(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.message_header_in, range, display)
+    local display = display.message_header_in_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.message_header_in_comp, range, display)
   end
 
-  return dissect.message_header_in_fields(buffer, offset, packet, parent)
+  return dissect.message_header_in_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: User Logout Request
 size_of.user_logout_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.username
 
@@ -2182,11 +2182,11 @@ end
 dissect.user_logout_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Username: 4 Byte Unsigned Fixed Width Integer
   index, username = dissect.username(buffer, index, packet, parent)
@@ -2214,9 +2214,9 @@ end
 size_of.user_login_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.response_header(buffer, offset + index)
+  index = index + size_of.response_header_comp(buffer, offset + index)
 
   return index
 end
@@ -2230,11 +2230,11 @@ end
 dissect.user_login_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Response Header: Struct of 4 fields
-  index, response_header = dissect.response_header(buffer, index, packet, parent)
+  -- Response Header Comp: Struct of 4 fields
+  index, response_header_comp = dissect.response_header_comp(buffer, index, packet, parent)
 
   return index
 end
@@ -2276,9 +2276,9 @@ end
 size_of.user_login_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.username
 
@@ -2298,11 +2298,11 @@ end
 dissect.user_login_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Username: 4 Byte Unsigned Fixed Width Integer
   index, username = dissect.username(buffer, index, packet, parent)
@@ -2349,8 +2349,8 @@ dissect.srqs_related_trade_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Srqs Related Trade Id Grp
-size_of.srqs_related_trade_id_grp = function(buffer, offset)
+-- Calculate size of: Srqs Related Trade Id Grp Comp
+size_of.srqs_related_trade_id_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.srqs_related_trade_id
@@ -2360,13 +2360,13 @@ size_of.srqs_related_trade_id_grp = function(buffer, offset)
   return index
 end
 
--- Display: Srqs Related Trade Id Grp
-display.srqs_related_trade_id_grp = function(buffer, offset, size, packet, parent)
+-- Display: Srqs Related Trade Id Grp Comp
+display.srqs_related_trade_id_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Srqs Related Trade Id Grp
-dissect.srqs_related_trade_id_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Srqs Related Trade Id Grp Comp
+dissect.srqs_related_trade_id_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Srqs Related Trade Id: 4 Byte Unsigned Fixed Width Integer
@@ -2378,17 +2378,17 @@ dissect.srqs_related_trade_id_grp_fields = function(buffer, offset, packet, pare
   return index
 end
 
--- Dissect: Srqs Related Trade Id Grp
-dissect.srqs_related_trade_id_grp = function(buffer, offset, packet, parent)
+-- Dissect: Srqs Related Trade Id Grp Comp
+dissect.srqs_related_trade_id_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.srqs_related_trade_id_grp then
-    local length = size_of.srqs_related_trade_id_grp(buffer, offset)
+  if show.srqs_related_trade_id_grp_comp then
+    local length = size_of.srqs_related_trade_id_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.srqs_related_trade_id_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.srqs_related_trade_id_grp, range, display)
+    local display = display.srqs_related_trade_id_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.srqs_related_trade_id_grp_comp, range, display)
   end
 
-  return dissect.srqs_related_trade_id_grp_fields(buffer, offset, packet, parent)
+  return dissect.srqs_related_trade_id_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Pad 1
@@ -2455,8 +2455,8 @@ dissect.underlying_stip_value = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Underlying Stip Grp
-size_of.underlying_stip_grp = function(buffer, offset)
+-- Calculate size of: Underlying Stip Grp Comp
+size_of.underlying_stip_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.underlying_stip_value
@@ -2468,13 +2468,13 @@ size_of.underlying_stip_grp = function(buffer, offset)
   return index
 end
 
--- Display: Underlying Stip Grp
-display.underlying_stip_grp = function(buffer, offset, size, packet, parent)
+-- Display: Underlying Stip Grp Comp
+display.underlying_stip_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Underlying Stip Grp
-dissect.underlying_stip_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Underlying Stip Grp Comp
+dissect.underlying_stip_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Underlying Stip Value: 32 Byte Ascii String
@@ -2489,17 +2489,17 @@ dissect.underlying_stip_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Underlying Stip Grp
-dissect.underlying_stip_grp = function(buffer, offset, packet, parent)
+-- Dissect: Underlying Stip Grp Comp
+dissect.underlying_stip_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.underlying_stip_grp then
-    local length = size_of.underlying_stip_grp(buffer, offset)
+  if show.underlying_stip_grp_comp then
+    local length = size_of.underlying_stip_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.underlying_stip_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.underlying_stip_grp, range, display)
+    local display = display.underlying_stip_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.underlying_stip_grp_comp, range, display)
   end
 
-  return dissect.underlying_stip_grp_fields(buffer, offset, packet, parent)
+  return dissect.underlying_stip_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Pad 7
@@ -2581,8 +2581,8 @@ dissect.instr_attrib_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Instrument Attribute Grp
-size_of.instrument_attribute_grp = function(buffer, offset)
+-- Calculate size of: Instrument Attribute Grp Comp
+size_of.instrument_attribute_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.instr_attrib_type
@@ -2594,13 +2594,13 @@ size_of.instrument_attribute_grp = function(buffer, offset)
   return index
 end
 
--- Display: Instrument Attribute Grp
-display.instrument_attribute_grp = function(buffer, offset, size, packet, parent)
+-- Display: Instrument Attribute Grp Comp
+display.instrument_attribute_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Instrument Attribute Grp
-dissect.instrument_attribute_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Instrument Attribute Grp Comp
+dissect.instrument_attribute_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Instr Attrib Type: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
@@ -2615,17 +2615,17 @@ dissect.instrument_attribute_grp_fields = function(buffer, offset, packet, paren
   return index
 end
 
--- Dissect: Instrument Attribute Grp
-dissect.instrument_attribute_grp = function(buffer, offset, packet, parent)
+-- Dissect: Instrument Attribute Grp Comp
+dissect.instrument_attribute_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.instrument_attribute_grp then
-    local length = size_of.instrument_attribute_grp(buffer, offset)
+  if show.instrument_attribute_grp_comp then
+    local length = size_of.instrument_attribute_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.instrument_attribute_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.instrument_attribute_grp, range, display)
+    local display = display.instrument_attribute_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.instrument_attribute_grp_comp, range, display)
   end
 
-  return dissect.instrument_attribute_grp_fields(buffer, offset, packet, parent)
+  return dissect.instrument_attribute_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Pad 3
@@ -2695,8 +2695,8 @@ dissect.event_date = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Instrument Event Grp
-size_of.instrument_event_grp = function(buffer, offset)
+-- Calculate size of: Instrument Event Grp Comp
+size_of.instrument_event_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.event_date
@@ -2708,13 +2708,13 @@ size_of.instrument_event_grp = function(buffer, offset)
   return index
 end
 
--- Display: Instrument Event Grp
-display.instrument_event_grp = function(buffer, offset, size, packet, parent)
+-- Display: Instrument Event Grp Comp
+display.instrument_event_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Instrument Event Grp
-dissect.instrument_event_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Instrument Event Grp Comp
+dissect.instrument_event_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Event Date: 4 Byte Unsigned Fixed Width Integer
@@ -2729,17 +2729,17 @@ dissect.instrument_event_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Instrument Event Grp
-dissect.instrument_event_grp = function(buffer, offset, packet, parent)
+-- Dissect: Instrument Event Grp Comp
+dissect.instrument_event_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.instrument_event_grp then
-    local length = size_of.instrument_event_grp(buffer, offset)
+  if show.instrument_event_grp_comp then
+    local length = size_of.instrument_event_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.instrument_event_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.instrument_event_grp, range, display)
+    local display = display.instrument_event_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.instrument_event_grp_comp, range, display)
   end
 
-  return dissect.instrument_event_grp_fields(buffer, offset, packet, parent)
+  return dissect.instrument_event_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Leg Price
@@ -2783,8 +2783,8 @@ dissect.leg_security_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Trd Instrmnt Leg Grp
-size_of.trd_instrmnt_leg_grp = function(buffer, offset)
+-- Calculate size of: Trd Instrmnt Leg Grp Comp
+size_of.trd_instrmnt_leg_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.leg_security_id
@@ -2794,13 +2794,13 @@ size_of.trd_instrmnt_leg_grp = function(buffer, offset)
   return index
 end
 
--- Display: Trd Instrmnt Leg Grp
-display.trd_instrmnt_leg_grp = function(buffer, offset, size, packet, parent)
+-- Display: Trd Instrmnt Leg Grp Comp
+display.trd_instrmnt_leg_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Trd Instrmnt Leg Grp
-dissect.trd_instrmnt_leg_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Trd Instrmnt Leg Grp Comp
+dissect.trd_instrmnt_leg_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Leg Security Id: 8 Byte Signed Fixed Width Integer
@@ -2812,17 +2812,17 @@ dissect.trd_instrmnt_leg_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Trd Instrmnt Leg Grp
-dissect.trd_instrmnt_leg_grp = function(buffer, offset, packet, parent)
+-- Dissect: Trd Instrmnt Leg Grp Comp
+dissect.trd_instrmnt_leg_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.trd_instrmnt_leg_grp then
-    local length = size_of.trd_instrmnt_leg_grp(buffer, offset)
+  if show.trd_instrmnt_leg_grp_comp then
+    local length = size_of.trd_instrmnt_leg_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trd_instrmnt_leg_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.trd_instrmnt_leg_grp, range, display)
+    local display = display.trd_instrmnt_leg_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.trd_instrmnt_leg_grp_comp, range, display)
   end
 
-  return dissect.trd_instrmnt_leg_grp_fields(buffer, offset, packet, parent)
+  return dissect.trd_instrmnt_leg_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Compliance Text
@@ -3414,8 +3414,8 @@ dissect.alloc_qty = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Side Alloc Ext Grp
-size_of.side_alloc_ext_grp = function(buffer, offset)
+-- Calculate size of: Side Alloc Ext Grp Comp
+size_of.side_alloc_ext_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.alloc_qty
@@ -3475,13 +3475,13 @@ size_of.side_alloc_ext_grp = function(buffer, offset)
   return index
 end
 
--- Display: Side Alloc Ext Grp
-display.side_alloc_ext_grp = function(buffer, offset, size, packet, parent)
+-- Display: Side Alloc Ext Grp Comp
+display.side_alloc_ext_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Side Alloc Ext Grp
-dissect.side_alloc_ext_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Side Alloc Ext Grp Comp
+dissect.side_alloc_ext_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer
@@ -3568,17 +3568,17 @@ dissect.side_alloc_ext_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Side Alloc Ext Grp
-dissect.side_alloc_ext_grp = function(buffer, offset, packet, parent)
+-- Dissect: Side Alloc Ext Grp Comp
+dissect.side_alloc_ext_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.side_alloc_ext_grp then
-    local length = size_of.side_alloc_ext_grp(buffer, offset)
+  if show.side_alloc_ext_grp_comp then
+    local length = size_of.side_alloc_ext_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.side_alloc_ext_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.side_alloc_ext_grp, range, display)
+    local display = display.side_alloc_ext_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.side_alloc_ext_grp_comp, range, display)
   end
 
-  return dissect.side_alloc_ext_grp_fields(buffer, offset, packet, parent)
+  return dissect.side_alloc_ext_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Underlying Issuer
@@ -4423,9 +4423,9 @@ end
 size_of.upload_tes_trade_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.security_id
 
@@ -4500,28 +4500,28 @@ size_of.upload_tes_trade_request = function(buffer, offset)
   index = index + size_of.pad_4
 
   -- Calculate field size from count
-  local side_alloc_ext_grp_count = buffer(offset + index - 129, 1):le_uint()
-  index = index + side_alloc_ext_grp_count * 176
+  local side_alloc_ext_grp_comp_count = buffer(offset + index - 129, 1):le_uint()
+  index = index + side_alloc_ext_grp_comp_count * 176
 
   -- Calculate field size from count
-  local trd_instrmnt_leg_grp_count = buffer(offset + index - 304, 1):le_uint()
-  index = index + trd_instrmnt_leg_grp_count * 16
+  local trd_instrmnt_leg_grp_comp_count = buffer(offset + index - 304, 1):le_uint()
+  index = index + trd_instrmnt_leg_grp_comp_count * 16
 
   -- Calculate field size from count
-  local instrument_event_grp_count = buffer(offset + index - 319, 1):le_uint()
-  index = index + instrument_event_grp_count * 8
+  local instrument_event_grp_comp_count = buffer(offset + index - 319, 1):le_uint()
+  index = index + instrument_event_grp_comp_count * 8
 
   -- Calculate field size from count
-  local instrument_attribute_grp_count = buffer(offset + index - 326, 1):le_uint()
-  index = index + instrument_attribute_grp_count * 40
+  local instrument_attribute_grp_comp_count = buffer(offset + index - 326, 1):le_uint()
+  index = index + instrument_attribute_grp_comp_count * 40
 
   -- Calculate field size from count
-  local underlying_stip_grp_count = buffer(offset + index - 365, 1):le_uint()
-  index = index + underlying_stip_grp_count * 40
+  local underlying_stip_grp_comp_count = buffer(offset + index - 365, 1):le_uint()
+  index = index + underlying_stip_grp_comp_count * 40
 
   -- Calculate field size from count
-  local srqs_related_trade_id_grp_count = buffer(offset + index - 416, 1):le_uint()
-  index = index + srqs_related_trade_id_grp_count * 8
+  local srqs_related_trade_id_grp_comp_count = buffer(offset + index - 416, 1):le_uint()
+  index = index + srqs_related_trade_id_grp_comp_count * 8
 
   return index
 end
@@ -4535,11 +4535,11 @@ end
 dissect.upload_tes_trade_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
@@ -4649,34 +4649,34 @@ dissect.upload_tes_trade_request_fields = function(buffer, offset, packet, paren
   -- Pad 4: 4 Byte
   index, pad_4 = dissect.pad_4(buffer, index, packet, parent)
 
-  -- Side Alloc Ext Grp: Struct of 27 fields
+  -- Side Alloc Ext Grp Comp: Struct of 27 fields
   for i = 1, no_side_allocs do
-    index = dissect.side_alloc_ext_grp(buffer, index, packet, parent)
+    index = dissect.side_alloc_ext_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Trd Instrmnt Leg Grp: Struct of 2 fields
+  -- Trd Instrmnt Leg Grp Comp: Struct of 2 fields
   for i = 1, no_legs do
-    index = dissect.trd_instrmnt_leg_grp(buffer, index, packet, parent)
+    index = dissect.trd_instrmnt_leg_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Instrument Event Grp: Struct of 3 fields
+  -- Instrument Event Grp Comp: Struct of 3 fields
   for i = 1, no_events do
-    index = dissect.instrument_event_grp(buffer, index, packet, parent)
+    index = dissect.instrument_event_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Instrument Attribute Grp: Struct of 3 fields
+  -- Instrument Attribute Grp Comp: Struct of 3 fields
   for i = 1, no_instr_attrib do
-    index = dissect.instrument_attribute_grp(buffer, index, packet, parent)
+    index = dissect.instrument_attribute_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Underlying Stip Grp: Struct of 3 fields
+  -- Underlying Stip Grp Comp: Struct of 3 fields
   for i = 1, no_underlying_stips do
-    index = dissect.underlying_stip_grp(buffer, index, packet, parent)
+    index = dissect.underlying_stip_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Srqs Related Trade Id Grp: Struct of 2 fields
+  -- Srqs Related Trade Id Grp Comp: Struct of 2 fields
   for i = 1, no_srqs_related_trade_i_ds do
-    index = dissect.srqs_related_trade_id_grp(buffer, index, packet, parent)
+    index = dissect.srqs_related_trade_id_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -4699,9 +4699,9 @@ end
 size_of.unsubscribe_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.response_header(buffer, offset + index)
+  index = index + size_of.response_header_comp(buffer, offset + index)
 
   return index
 end
@@ -4715,11 +4715,11 @@ end
 dissect.unsubscribe_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Response Header: Struct of 4 fields
-  index, response_header = dissect.response_header(buffer, index, packet, parent)
+  -- Response Header Comp: Struct of 4 fields
+  index, response_header_comp = dissect.response_header_comp(buffer, index, packet, parent)
 
   return index
 end
@@ -4761,9 +4761,9 @@ end
 size_of.unsubscribe_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.ref_appl_sub_id
 
@@ -4781,11 +4781,11 @@ end
 dissect.unsubscribe_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Ref Appl Sub Id: 4 Byte Unsigned Fixed Width Integer
   index, ref_appl_sub_id = dissect.ref_appl_sub_id(buffer, index, packet, parent)
@@ -5090,8 +5090,8 @@ dissect.trd_reg_ts_time_out = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Rbc Header Me
-size_of.rbc_header_me = function(buffer, offset)
+-- Calculate size of: Rbc Header Me Comp
+size_of.rbc_header_me_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.trd_reg_ts_time_out
@@ -5117,13 +5117,13 @@ size_of.rbc_header_me = function(buffer, offset)
   return index
 end
 
--- Display: Rbc Header Me
-display.rbc_header_me = function(buffer, offset, size, packet, parent)
+-- Display: Rbc Header Me Comp
+display.rbc_header_me_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Rbc Header Me
-dissect.rbc_header_me_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Rbc Header Me Comp
+dissect.rbc_header_me_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Trd Reg Ts Time Out: 8 Byte Unsigned Fixed Width Integer
@@ -5159,26 +5159,26 @@ dissect.rbc_header_me_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Rbc Header Me
-dissect.rbc_header_me = function(buffer, offset, packet, parent)
+-- Dissect: Rbc Header Me Comp
+dissect.rbc_header_me_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.rbc_header_me then
-    local length = size_of.rbc_header_me(buffer, offset)
+  if show.rbc_header_me_comp then
+    local length = size_of.rbc_header_me_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.rbc_header_me(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.rbc_header_me, range, display)
+    local display = display.rbc_header_me_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.rbc_header_me_comp, range, display)
   end
 
-  return dissect.rbc_header_me_fields(buffer, offset, packet, parent)
+  return dissect.rbc_header_me_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trading Session Status Broadcast
 size_of.trading_session_status_broadcast = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header_me(buffer, offset + index)
+  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
 
   index = index + size_of.market_segment_id
 
@@ -5202,11 +5202,11 @@ end
 dissect.trading_session_status_broadcast_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header Me: Struct of 10 fields
-  index, rbc_header_me = dissect.rbc_header_me(buffer, index, packet, parent)
+  -- Rbc Header Me Comp: Struct of 10 fields
+  index, rbc_header_me_comp = dissect.rbc_header_me_comp(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer
   index, market_segment_id = dissect.market_segment_id(buffer, index, packet, parent)
@@ -6305,8 +6305,8 @@ dissect.appl_seq_num = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Rbc Header
-size_of.rbc_header = function(buffer, offset)
+-- Calculate size of: Rbc Header Comp
+size_of.rbc_header_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.sending_time
@@ -6328,13 +6328,13 @@ size_of.rbc_header = function(buffer, offset)
   return index
 end
 
--- Display: Rbc Header
-display.rbc_header = function(buffer, offset, size, packet, parent)
+-- Display: Rbc Header Comp
+display.rbc_header_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Rbc Header
-dissect.rbc_header_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Rbc Header Comp
+dissect.rbc_header_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
@@ -6364,26 +6364,26 @@ dissect.rbc_header_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Rbc Header
-dissect.rbc_header = function(buffer, offset, packet, parent)
+-- Dissect: Rbc Header Comp
+dissect.rbc_header_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.rbc_header then
-    local length = size_of.rbc_header(buffer, offset)
+  if show.rbc_header_comp then
+    local length = size_of.rbc_header_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.rbc_header(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.rbc_header, range, display)
+    local display = display.rbc_header_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.rbc_header_comp, range, display)
   end
 
-  return dissect.rbc_header_fields(buffer, offset, packet, parent)
+  return dissect.rbc_header_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Broadcast
 size_of.trade_broadcast = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.security_id
 
@@ -6523,11 +6523,11 @@ end
 dissect.trade_broadcast_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
@@ -6794,8 +6794,8 @@ dissect.throttle_time_interval = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Notif Header
-size_of.notif_header = function(buffer, offset)
+-- Calculate size of: Notif Header Comp
+size_of.notif_header_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.sending_time
@@ -6803,13 +6803,13 @@ size_of.notif_header = function(buffer, offset)
   return index
 end
 
--- Display: Notif Header
-display.notif_header = function(buffer, offset, size, packet, parent)
+-- Display: Notif Header Comp
+display.notif_header_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Notif Header
-dissect.notif_header_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Notif Header Comp
+dissect.notif_header_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
@@ -6818,26 +6818,26 @@ dissect.notif_header_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Notif Header
-dissect.notif_header = function(buffer, offset, packet, parent)
+-- Dissect: Notif Header Comp
+dissect.notif_header_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.notif_header then
-    local length = size_of.notif_header(buffer, offset)
+  if show.notif_header_comp then
+    local length = size_of.notif_header_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.notif_header(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.notif_header, range, display)
+    local display = display.notif_header_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.notif_header_comp, range, display)
   end
 
-  return dissect.notif_header_fields(buffer, offset, packet, parent)
+  return dissect.notif_header_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Throttle Update Notification
 size_of.throttle_update_notification = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.notif_header(buffer, offset + index)
+  index = index + size_of.notif_header_comp(buffer, offset + index)
 
   index = index + size_of.throttle_time_interval
 
@@ -6857,11 +6857,11 @@ end
 dissect.throttle_update_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Notif Header: Struct of 1 fields
-  index, notif_header = dissect.notif_header(buffer, index, packet, parent)
+  -- Notif Header Comp: Struct of 1 fields
+  index, notif_header_comp = dissect.notif_header_comp(buffer, index, packet, parent)
 
   -- Throttle Time Interval: 8 Byte Signed Fixed Width Integer
   index, throttle_time_interval = dissect.throttle_time_interval(buffer, index, packet, parent)
@@ -6892,9 +6892,9 @@ end
 size_of.tm_trading_session_status_broadcast = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.trad_ses_event
 
@@ -6912,11 +6912,11 @@ end
 dissect.tm_trading_session_status_broadcast_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Trad Ses Event: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, trad_ses_event = dissect.trad_ses_event(buffer, index, packet, parent)
@@ -7037,9 +7037,9 @@ end
 size_of.tes_upload_broadcast = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.security_id
 
@@ -7120,28 +7120,28 @@ size_of.tes_upload_broadcast = function(buffer, offset)
   index = index + size_of.pad_6
 
   -- Calculate field size from count
-  local side_alloc_ext_grp_count = buffer(offset + index - 120, 1):le_uint()
-  index = index + side_alloc_ext_grp_count * 176
+  local side_alloc_ext_grp_comp_count = buffer(offset + index - 120, 1):le_uint()
+  index = index + side_alloc_ext_grp_comp_count * 176
 
   -- Calculate field size from count
-  local trd_instrmnt_leg_grp_count = buffer(offset + index - 295, 1):le_uint()
-  index = index + trd_instrmnt_leg_grp_count * 16
+  local trd_instrmnt_leg_grp_comp_count = buffer(offset + index - 295, 1):le_uint()
+  index = index + trd_instrmnt_leg_grp_comp_count * 16
 
   -- Calculate field size from count
-  local instrument_event_grp_count = buffer(offset + index - 310, 1):le_uint()
-  index = index + instrument_event_grp_count * 8
+  local instrument_event_grp_comp_count = buffer(offset + index - 310, 1):le_uint()
+  index = index + instrument_event_grp_comp_count * 8
 
   -- Calculate field size from count
-  local instrument_attribute_grp_count = buffer(offset + index - 317, 1):le_uint()
-  index = index + instrument_attribute_grp_count * 40
+  local instrument_attribute_grp_comp_count = buffer(offset + index - 317, 1):le_uint()
+  index = index + instrument_attribute_grp_comp_count * 40
 
   -- Calculate field size from count
-  local underlying_stip_grp_count = buffer(offset + index - 356, 1):le_uint()
-  index = index + underlying_stip_grp_count * 40
+  local underlying_stip_grp_comp_count = buffer(offset + index - 356, 1):le_uint()
+  index = index + underlying_stip_grp_comp_count * 40
 
   -- Calculate field size from count
-  local srqs_related_trade_id_grp_count = buffer(offset + index - 408, 1):le_uint()
-  index = index + srqs_related_trade_id_grp_count * 8
+  local srqs_related_trade_id_grp_comp_count = buffer(offset + index - 408, 1):le_uint()
+  index = index + srqs_related_trade_id_grp_comp_count * 8
 
   return index
 end
@@ -7155,11 +7155,11 @@ end
 dissect.tes_upload_broadcast_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
@@ -7278,34 +7278,34 @@ dissect.tes_upload_broadcast_fields = function(buffer, offset, packet, parent)
   -- Pad 6: 6 Byte
   index, pad_6 = dissect.pad_6(buffer, index, packet, parent)
 
-  -- Side Alloc Ext Grp: Struct of 27 fields
+  -- Side Alloc Ext Grp Comp: Struct of 27 fields
   for i = 1, no_side_allocs do
-    index = dissect.side_alloc_ext_grp(buffer, index, packet, parent)
+    index = dissect.side_alloc_ext_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Trd Instrmnt Leg Grp: Struct of 2 fields
+  -- Trd Instrmnt Leg Grp Comp: Struct of 2 fields
   for i = 1, no_legs do
-    index = dissect.trd_instrmnt_leg_grp(buffer, index, packet, parent)
+    index = dissect.trd_instrmnt_leg_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Instrument Event Grp: Struct of 3 fields
+  -- Instrument Event Grp Comp: Struct of 3 fields
   for i = 1, no_events do
-    index = dissect.instrument_event_grp(buffer, index, packet, parent)
+    index = dissect.instrument_event_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Instrument Attribute Grp: Struct of 3 fields
+  -- Instrument Attribute Grp Comp: Struct of 3 fields
   for i = 1, no_instr_attrib do
-    index = dissect.instrument_attribute_grp(buffer, index, packet, parent)
+    index = dissect.instrument_attribute_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Underlying Stip Grp: Struct of 3 fields
+  -- Underlying Stip Grp Comp: Struct of 3 fields
   for i = 1, no_underlying_stips do
-    index = dissect.underlying_stip_grp(buffer, index, packet, parent)
+    index = dissect.underlying_stip_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Srqs Related Trade Id Grp: Struct of 2 fields
+  -- Srqs Related Trade Id Grp Comp: Struct of 2 fields
   for i = 1, no_srqs_related_trade_i_ds do
-    index = dissect.srqs_related_trade_id_grp(buffer, index, packet, parent)
+    index = dissect.srqs_related_trade_id_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -7328,9 +7328,9 @@ end
 size_of.tes_trading_session_status_broadcast = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.trade_date
 
@@ -7350,11 +7350,11 @@ end
 dissect.tes_trading_session_status_broadcast_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Trade Date: 4 Byte Unsigned Fixed Width Integer
   index, trade_date = dissect.trade_date(buffer, index, packet, parent)
@@ -7472,9 +7472,9 @@ end
 size_of.tes_trade_broadcast = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.security_id
 
@@ -7595,8 +7595,8 @@ size_of.tes_trade_broadcast = function(buffer, offset)
   index = index + size_of.pad_21
 
   -- Calculate field size from count
-  local srqs_related_trade_id_grp_count = buffer(offset + index - 208, 1):le_uint()
-  index = index + srqs_related_trade_id_grp_count * 8
+  local srqs_related_trade_id_grp_comp_count = buffer(offset + index - 208, 1):le_uint()
+  index = index + srqs_related_trade_id_grp_comp_count * 8
 
   return index
 end
@@ -7610,11 +7610,11 @@ end
 dissect.tes_trade_broadcast_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
@@ -7793,9 +7793,9 @@ dissect.tes_trade_broadcast_fields = function(buffer, offset, packet, parent)
   -- Pad 21: 2 Byte
   index, pad_21 = dissect.pad_21(buffer, index, packet, parent)
 
-  -- Srqs Related Trade Id Grp: Struct of 2 fields
+  -- Srqs Related Trade Id Grp Comp: Struct of 2 fields
   for i = 1, no_srqs_related_trade_i_ds do
-    index = dissect.srqs_related_trade_id_grp(buffer, index, packet, parent)
+    index = dissect.srqs_related_trade_id_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -7818,9 +7818,9 @@ end
 size_of.tes_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.response_header(buffer, offset + index)
+  index = index + size_of.response_header_comp(buffer, offset + index)
 
   index = index + size_of.tes_exec_id
 
@@ -7838,11 +7838,11 @@ end
 dissect.tes_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Response Header: Struct of 4 fields
-  index, response_header = dissect.response_header(buffer, index, packet, parent)
+  -- Response Header Comp: Struct of 4 fields
+  index, response_header_comp = dissect.response_header_comp(buffer, index, packet, parent)
 
   -- Tes Exec Id: 4 Byte Unsigned Fixed Width Integer
   index, tes_exec_id = dissect.tes_exec_id(buffer, index, packet, parent)
@@ -7890,9 +7890,9 @@ end
 size_of.tes_execution_broadcast = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.transact_time
 
@@ -7926,11 +7926,11 @@ end
 dissect.tes_execution_broadcast_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = dissect.transact_time(buffer, index, packet, parent)
@@ -8027,9 +8027,9 @@ end
 size_of.tes_delete_broadcast = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.transact_time
 
@@ -8063,11 +8063,11 @@ end
 dissect.tes_delete_broadcast_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = dissect.transact_time(buffer, index, packet, parent)
@@ -8115,8 +8115,8 @@ dissect.tes_delete_broadcast = function(buffer, offset, packet, parent)
   return dissect.tes_delete_broadcast_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Side Alloc Grp Bc
-size_of.side_alloc_grp_bc = function(buffer, offset)
+-- Calculate size of: Side Alloc Grp Bc Comp
+size_of.side_alloc_grp_bc_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.alloc_qty
@@ -8136,13 +8136,13 @@ size_of.side_alloc_grp_bc = function(buffer, offset)
   return index
 end
 
--- Display: Side Alloc Grp Bc
-display.side_alloc_grp_bc = function(buffer, offset, size, packet, parent)
+-- Display: Side Alloc Grp Bc Comp
+display.side_alloc_grp_bc_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Side Alloc Grp Bc
-dissect.side_alloc_grp_bc_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Side Alloc Grp Bc Comp
+dissect.side_alloc_grp_bc_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer
@@ -8169,26 +8169,26 @@ dissect.side_alloc_grp_bc_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Side Alloc Grp Bc
-dissect.side_alloc_grp_bc = function(buffer, offset, packet, parent)
+-- Dissect: Side Alloc Grp Bc Comp
+dissect.side_alloc_grp_bc_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.side_alloc_grp_bc then
-    local length = size_of.side_alloc_grp_bc(buffer, offset)
+  if show.side_alloc_grp_bc_comp then
+    local length = size_of.side_alloc_grp_bc_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.side_alloc_grp_bc(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.side_alloc_grp_bc, range, display)
+    local display = display.side_alloc_grp_bc_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.side_alloc_grp_bc_comp, range, display)
   end
 
-  return dissect.side_alloc_grp_bc_fields(buffer, offset, packet, parent)
+  return dissect.side_alloc_grp_bc_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Tes Broadcast
 size_of.tes_broadcast = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.security_id
 
@@ -8269,28 +8269,28 @@ size_of.tes_broadcast = function(buffer, offset)
   index = index + size_of.pad_3
 
   -- Calculate field size from count
-  local side_alloc_grp_bc_count = buffer(offset + index - 134, 1):le_uint()
-  index = index + side_alloc_grp_bc_count * 32
+  local side_alloc_grp_bc_comp_count = buffer(offset + index - 134, 1):le_uint()
+  index = index + side_alloc_grp_bc_comp_count * 32
 
   -- Calculate field size from count
-  local trd_instrmnt_leg_grp_count = buffer(offset + index - 165, 1):le_uint()
-  index = index + trd_instrmnt_leg_grp_count * 16
+  local trd_instrmnt_leg_grp_comp_count = buffer(offset + index - 165, 1):le_uint()
+  index = index + trd_instrmnt_leg_grp_comp_count * 16
 
   -- Calculate field size from count
-  local instrument_event_grp_count = buffer(offset + index - 185, 1):le_uint()
-  index = index + instrument_event_grp_count * 8
+  local instrument_event_grp_comp_count = buffer(offset + index - 185, 1):le_uint()
+  index = index + instrument_event_grp_comp_count * 8
 
   -- Calculate field size from count
-  local instrument_attribute_grp_count = buffer(offset + index - 192, 1):le_uint()
-  index = index + instrument_attribute_grp_count * 40
+  local instrument_attribute_grp_comp_count = buffer(offset + index - 192, 1):le_uint()
+  index = index + instrument_attribute_grp_comp_count * 40
 
   -- Calculate field size from count
-  local underlying_stip_grp_count = buffer(offset + index - 231, 1):le_uint()
-  index = index + underlying_stip_grp_count * 40
+  local underlying_stip_grp_comp_count = buffer(offset + index - 231, 1):le_uint()
+  index = index + underlying_stip_grp_comp_count * 40
 
   -- Calculate field size from count
-  local srqs_related_trade_id_grp_count = buffer(offset + index - 280, 1):le_uint()
-  index = index + srqs_related_trade_id_grp_count * 8
+  local srqs_related_trade_id_grp_comp_count = buffer(offset + index - 280, 1):le_uint()
+  index = index + srqs_related_trade_id_grp_comp_count * 8
 
   return index
 end
@@ -8304,11 +8304,11 @@ end
 dissect.tes_broadcast_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
@@ -8427,34 +8427,34 @@ dissect.tes_broadcast_fields = function(buffer, offset, packet, parent)
   -- Pad 3: 3 Byte
   index, pad_3 = dissect.pad_3(buffer, index, packet, parent)
 
-  -- Side Alloc Grp Bc: Struct of 7 fields
+  -- Side Alloc Grp Bc Comp: Struct of 7 fields
   for i = 1, no_side_allocs do
-    index = dissect.side_alloc_grp_bc(buffer, index, packet, parent)
+    index = dissect.side_alloc_grp_bc_comp(buffer, index, packet, parent)
   end
 
-  -- Trd Instrmnt Leg Grp: Struct of 2 fields
+  -- Trd Instrmnt Leg Grp Comp: Struct of 2 fields
   for i = 1, no_legs do
-    index = dissect.trd_instrmnt_leg_grp(buffer, index, packet, parent)
+    index = dissect.trd_instrmnt_leg_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Instrument Event Grp: Struct of 3 fields
+  -- Instrument Event Grp Comp: Struct of 3 fields
   for i = 1, no_events do
-    index = dissect.instrument_event_grp(buffer, index, packet, parent)
+    index = dissect.instrument_event_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Instrument Attribute Grp: Struct of 3 fields
+  -- Instrument Attribute Grp Comp: Struct of 3 fields
   for i = 1, no_instr_attrib do
-    index = dissect.instrument_attribute_grp(buffer, index, packet, parent)
+    index = dissect.instrument_attribute_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Underlying Stip Grp: Struct of 3 fields
+  -- Underlying Stip Grp Comp: Struct of 3 fields
   for i = 1, no_underlying_stips do
-    index = dissect.underlying_stip_grp(buffer, index, packet, parent)
+    index = dissect.underlying_stip_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Srqs Related Trade Id Grp: Struct of 2 fields
+  -- Srqs Related Trade Id Grp Comp: Struct of 2 fields
   for i = 1, no_srqs_related_trade_i_ds do
-    index = dissect.srqs_related_trade_id_grp(buffer, index, packet, parent)
+    index = dissect.srqs_related_trade_id_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -8524,9 +8524,9 @@ end
 size_of.tes_approve_broadcast = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.security_id
 
@@ -8645,24 +8645,24 @@ size_of.tes_approve_broadcast = function(buffer, offset)
   index = index + size_of.pad_4
 
   -- Calculate field size from count
-  local trd_instrmnt_leg_grp_count = buffer(offset + index - 248, 1):le_uint()
-  index = index + trd_instrmnt_leg_grp_count * 16
+  local trd_instrmnt_leg_grp_comp_count = buffer(offset + index - 248, 1):le_uint()
+  index = index + trd_instrmnt_leg_grp_comp_count * 16
 
   -- Calculate field size from count
-  local instrument_event_grp_count = buffer(offset + index - 263, 1):le_uint()
-  index = index + instrument_event_grp_count * 8
+  local instrument_event_grp_comp_count = buffer(offset + index - 263, 1):le_uint()
+  index = index + instrument_event_grp_comp_count * 8
 
   -- Calculate field size from count
-  local instrument_attribute_grp_count = buffer(offset + index - 270, 1):le_uint()
-  index = index + instrument_attribute_grp_count * 40
+  local instrument_attribute_grp_comp_count = buffer(offset + index - 270, 1):le_uint()
+  index = index + instrument_attribute_grp_comp_count * 40
 
   -- Calculate field size from count
-  local underlying_stip_grp_count = buffer(offset + index - 309, 1):le_uint()
-  index = index + underlying_stip_grp_count * 40
+  local underlying_stip_grp_comp_count = buffer(offset + index - 309, 1):le_uint()
+  index = index + underlying_stip_grp_comp_count * 40
 
   -- Calculate field size from count
-  local srqs_related_trade_id_grp_count = buffer(offset + index - 364, 1):le_uint()
-  index = index + srqs_related_trade_id_grp_count * 8
+  local srqs_related_trade_id_grp_comp_count = buffer(offset + index - 364, 1):le_uint()
+  index = index + srqs_related_trade_id_grp_comp_count * 8
 
   return index
 end
@@ -8676,11 +8676,11 @@ end
 dissect.tes_approve_broadcast_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
@@ -8856,29 +8856,29 @@ dissect.tes_approve_broadcast_fields = function(buffer, offset, packet, parent)
   -- Pad 4: 4 Byte
   index, pad_4 = dissect.pad_4(buffer, index, packet, parent)
 
-  -- Trd Instrmnt Leg Grp: Struct of 2 fields
+  -- Trd Instrmnt Leg Grp Comp: Struct of 2 fields
   for i = 1, no_legs do
-    index = dissect.trd_instrmnt_leg_grp(buffer, index, packet, parent)
+    index = dissect.trd_instrmnt_leg_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Instrument Event Grp: Struct of 3 fields
+  -- Instrument Event Grp Comp: Struct of 3 fields
   for i = 1, no_events do
-    index = dissect.instrument_event_grp(buffer, index, packet, parent)
+    index = dissect.instrument_event_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Instrument Attribute Grp: Struct of 3 fields
+  -- Instrument Attribute Grp Comp: Struct of 3 fields
   for i = 1, no_instr_attrib do
-    index = dissect.instrument_attribute_grp(buffer, index, packet, parent)
+    index = dissect.instrument_attribute_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Underlying Stip Grp: Struct of 3 fields
+  -- Underlying Stip Grp Comp: Struct of 3 fields
   for i = 1, no_underlying_stips do
-    index = dissect.underlying_stip_grp(buffer, index, packet, parent)
+    index = dissect.underlying_stip_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Srqs Related Trade Id Grp: Struct of 2 fields
+  -- Srqs Related Trade Id Grp Comp: Struct of 2 fields
   for i = 1, no_srqs_related_trade_i_ds do
-    index = dissect.srqs_related_trade_id_grp(buffer, index, packet, parent)
+    index = dissect.srqs_related_trade_id_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -8901,9 +8901,9 @@ end
 size_of.subscribe_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.response_header(buffer, offset + index)
+  index = index + size_of.response_header_comp(buffer, offset + index)
 
   index = index + size_of.appl_sub_id
 
@@ -8921,11 +8921,11 @@ end
 dissect.subscribe_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Response Header: Struct of 4 fields
-  index, response_header = dissect.response_header(buffer, index, packet, parent)
+  -- Response Header Comp: Struct of 4 fields
+  index, response_header_comp = dissect.response_header_comp(buffer, index, packet, parent)
 
   -- Appl Sub Id: 4 Byte Unsigned Fixed Width Integer
   index, appl_sub_id = dissect.appl_sub_id(buffer, index, packet, parent)
@@ -9024,9 +9024,9 @@ end
 size_of.subscribe_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.subscription_scope
 
@@ -9046,11 +9046,11 @@ end
 dissect.subscribe_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Subscription Scope: 4 Byte Unsigned Fixed Width Integer
   index, subscription_scope = dissect.subscription_scope(buffer, index, packet, parent)
@@ -9124,8 +9124,8 @@ dissect.selective_request_for_quote_service_trade_date = function(buffer, offset
   return offset + length, value
 end
 
--- Calculate size of: Nrbc Header
-size_of.nrbc_header = function(buffer, offset)
+-- Calculate size of: Nrbc Header Comp
+size_of.nrbc_header_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.sending_time
@@ -9141,13 +9141,13 @@ size_of.nrbc_header = function(buffer, offset)
   return index
 end
 
--- Display: Nrbc Header
-display.nrbc_header = function(buffer, offset, size, packet, parent)
+-- Display: Nrbc Header Comp
+display.nrbc_header_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Nrbc Header
-dissect.nrbc_header_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Nrbc Header Comp
+dissect.nrbc_header_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
@@ -9168,26 +9168,26 @@ dissect.nrbc_header_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Nrbc Header
-dissect.nrbc_header = function(buffer, offset, packet, parent)
+-- Dissect: Nrbc Header Comp
+dissect.nrbc_header_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.nrbc_header then
-    local length = size_of.nrbc_header(buffer, offset)
+  if show.nrbc_header_comp then
+    local length = size_of.nrbc_header_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.nrbc_header(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.nrbc_header, range, display)
+    local display = display.nrbc_header_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.nrbc_header_comp, range, display)
   end
 
-  return dissect.nrbc_header_fields(buffer, offset, packet, parent)
+  return dissect.nrbc_header_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Service Availability Market Broadcast
 size_of.service_availability_market_broadcast = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.nrbc_header(buffer, offset + index)
+  index = index + size_of.nrbc_header_comp(buffer, offset + index)
 
   index = index + size_of.selective_request_for_quote_service_trade_date
 
@@ -9207,11 +9207,11 @@ end
 dissect.service_availability_market_broadcast_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Nrbc Header: Struct of 5 fields
-  index, nrbc_header = dissect.nrbc_header(buffer, index, packet, parent)
+  -- Nrbc Header Comp: Struct of 5 fields
+  index, nrbc_header_comp = dissect.nrbc_header_comp(buffer, index, packet, parent)
 
   -- Selective Request For Quote Service Trade Date: 4 Byte Unsigned Fixed Width Integer
   index, selective_request_for_quote_service_trade_date = dissect.selective_request_for_quote_service_trade_date(buffer, index, packet, parent)
@@ -9497,9 +9497,9 @@ end
 size_of.service_availability_broadcast = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.nrbc_header(buffer, offset + index)
+  index = index + size_of.nrbc_header_comp(buffer, offset + index)
 
   index = index + size_of.matching_engine_trade_date
 
@@ -9537,11 +9537,11 @@ end
 dissect.service_availability_broadcast_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Nrbc Header: Struct of 5 fields
-  index, nrbc_header = dissect.nrbc_header(buffer, index, packet, parent)
+  -- Nrbc Header Comp: Struct of 5 fields
+  index, nrbc_header_comp = dissect.nrbc_header_comp(buffer, index, packet, parent)
 
   -- Matching Engine Trade Date: 4 Byte Unsigned Fixed Width Integer
   index, matching_engine_trade_date = dissect.matching_engine_trade_date(buffer, index, packet, parent)
@@ -9824,8 +9824,8 @@ dissect.side_disclosure_instruction = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Target Parties
-size_of.target_parties = function(buffer, offset)
+-- Calculate size of: Target Parties Comp
+size_of.target_parties_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.side_disclosure_instruction
@@ -9851,13 +9851,13 @@ size_of.target_parties = function(buffer, offset)
   return index
 end
 
--- Display: Target Parties
-display.target_parties = function(buffer, offset, size, packet, parent)
+-- Display: Target Parties Comp
+display.target_parties_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Target Parties
-dissect.target_parties_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Target Parties Comp
+dissect.target_parties_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Side Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -9893,17 +9893,17 @@ dissect.target_parties_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Target Parties
-dissect.target_parties = function(buffer, offset, packet, parent)
+-- Dissect: Target Parties Comp
+dissect.target_parties_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.target_parties then
-    local length = size_of.target_parties(buffer, offset)
+  if show.target_parties_comp then
+    local length = size_of.target_parties_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.target_parties(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.target_parties, range, display)
+    local display = display.target_parties_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.target_parties_comp, range, display)
   end
 
-  return dissect.target_parties_fields(buffer, offset, packet, parent)
+  return dissect.target_parties_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Free Text 5
@@ -10133,9 +10133,9 @@ end
 size_of.srqs_update_negotiation_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.quote_ref_price
 
@@ -10170,8 +10170,8 @@ size_of.srqs_update_negotiation_request = function(buffer, offset)
   index = index + size_of.pad_4
 
   -- Calculate field size from count
-  local target_parties_count = buffer(offset + index - 152, 1):le_uint()
-  index = index + target_parties_count * 24
+  local target_parties_comp_count = buffer(offset + index - 152, 1):le_uint()
+  index = index + target_parties_comp_count * 24
 
   return index
 end
@@ -10185,11 +10185,11 @@ end
 dissect.srqs_update_negotiation_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Quote Ref Price: 8 Byte Unsigned Fixed Width Integer
   index, quote_ref_price = dissect.quote_ref_price(buffer, index, packet, parent)
@@ -10239,9 +10239,9 @@ dissect.srqs_update_negotiation_request_fields = function(buffer, offset, packet
   -- Pad 4: 4 Byte
   index, pad_4 = dissect.pad_4(buffer, index, packet, parent)
 
-  -- Target Parties: Struct of 10 fields
+  -- Target Parties Comp: Struct of 10 fields
   for i = 1, no_target_party_i_ds do
-    index = dissect.target_parties(buffer, index, packet, parent)
+    index = dissect.target_parties_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -10285,9 +10285,9 @@ end
 size_of.srqs_update_deal_status_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.underlying_price_stip_value
 
@@ -10325,11 +10325,11 @@ end
 dissect.srqs_update_deal_status_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Underlying Price Stip Value: 8 Byte Unsigned Fixed Width Integer
   index, underlying_price_stip_value = dissect.underlying_price_stip_value(buffer, index, packet, parent)
@@ -10387,9 +10387,9 @@ end
 size_of.srqs_status_broadcast = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.trade_date
 
@@ -10409,11 +10409,11 @@ end
 dissect.srqs_status_broadcast_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Trade Date: 4 Byte Unsigned Fixed Width Integer
   index, trade_date = dissect.trade_date(buffer, index, packet, parent)
@@ -10474,9 +10474,9 @@ end
 size_of.srqs_quoting_status_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.market_segment_id
 
@@ -10502,11 +10502,11 @@ end
 dissect.srqs_quoting_status_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer
   index, market_segment_id = dissect.market_segment_id(buffer, index, packet, parent)
@@ -10586,9 +10586,9 @@ end
 size_of.srqs_quote_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.response_header(buffer, offset + index)
+  index = index + size_of.response_header_comp(buffer, offset + index)
 
   index = index + size_of.quote_id
 
@@ -10608,11 +10608,11 @@ end
 dissect.srqs_quote_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Response Header: Struct of 4 fields
-  index, response_header = dissect.response_header(buffer, index, packet, parent)
+  -- Response Header Comp: Struct of 4 fields
+  index, response_header_comp = dissect.response_header_comp(buffer, index, packet, parent)
 
   -- Quote Id: 8 Byte Unsigned Fixed Width Integer
   index, quote_id = dissect.quote_id(buffer, index, packet, parent)
@@ -10705,9 +10705,9 @@ end
 size_of.srqs_quote_notification = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.transact_time
 
@@ -10757,11 +10757,11 @@ end
 dissect.srqs_quote_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = dissect.transact_time(buffer, index, packet, parent)
@@ -10927,8 +10927,8 @@ dissect.leg_ratio_qty = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Quot Req Legs Grp
-size_of.quot_req_legs_grp = function(buffer, offset)
+-- Calculate size of: Quot Req Legs Grp Comp
+size_of.quot_req_legs_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.leg_security_id
@@ -10946,13 +10946,13 @@ size_of.quot_req_legs_grp = function(buffer, offset)
   return index
 end
 
--- Display: Quot Req Legs Grp
-display.quot_req_legs_grp = function(buffer, offset, size, packet, parent)
+-- Display: Quot Req Legs Grp Comp
+display.quot_req_legs_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Quot Req Legs Grp
-dissect.quot_req_legs_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quot Req Legs Grp Comp
+dissect.quot_req_legs_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Leg Security Id: 8 Byte Signed Fixed Width Integer
@@ -10976,17 +10976,17 @@ dissect.quot_req_legs_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Quot Req Legs Grp
-dissect.quot_req_legs_grp = function(buffer, offset, packet, parent)
+-- Dissect: Quot Req Legs Grp Comp
+dissect.quot_req_legs_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.quot_req_legs_grp then
-    local length = size_of.quot_req_legs_grp(buffer, offset)
+  if show.quot_req_legs_grp_comp then
+    local length = size_of.quot_req_legs_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.quot_req_legs_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.quot_req_legs_grp, range, display)
+    local display = display.quot_req_legs_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.quot_req_legs_grp_comp, range, display)
   end
 
-  return dissect.quot_req_legs_grp_fields(buffer, offset, packet, parent)
+  return dissect.quot_req_legs_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Firm Negotiation Id
@@ -11191,9 +11191,9 @@ end
 size_of.srqs_open_negotiation_requester_notification = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.transact_time
 
@@ -11256,12 +11256,12 @@ size_of.srqs_open_negotiation_requester_notification = function(buffer, offset)
   index = index + size_of.pad_4
 
   -- Calculate field size from count
-  local quot_req_legs_grp_count = buffer(offset + index - 181, 1):le_uint()
-  index = index + quot_req_legs_grp_count * 24
+  local quot_req_legs_grp_comp_count = buffer(offset + index - 181, 1):le_uint()
+  index = index + quot_req_legs_grp_comp_count * 24
 
   -- Calculate field size from count
-  local target_parties_count = buffer(offset + index - 204, 1):le_uint()
-  index = index + target_parties_count * 24
+  local target_parties_comp_count = buffer(offset + index - 204, 1):le_uint()
+  index = index + target_parties_comp_count * 24
 
   return index
 end
@@ -11275,11 +11275,11 @@ end
 dissect.srqs_open_negotiation_requester_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = dissect.transact_time(buffer, index, packet, parent)
@@ -11371,14 +11371,14 @@ dissect.srqs_open_negotiation_requester_notification_fields = function(buffer, o
   -- Pad 4: 4 Byte
   index, pad_4 = dissect.pad_4(buffer, index, packet, parent)
 
-  -- Quot Req Legs Grp: Struct of 6 fields
+  -- Quot Req Legs Grp Comp: Struct of 6 fields
   for i = 1, no_legs do
-    index = dissect.quot_req_legs_grp(buffer, index, packet, parent)
+    index = dissect.quot_req_legs_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Target Parties: Struct of 10 fields
+  -- Target Parties Comp: Struct of 10 fields
   for i = 1, no_target_party_i_ds do
-    index = dissect.target_parties(buffer, index, packet, parent)
+    index = dissect.target_parties_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -11401,9 +11401,9 @@ end
 size_of.srqs_open_negotiation_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.security_id
 
@@ -11452,12 +11452,12 @@ size_of.srqs_open_negotiation_request = function(buffer, offset)
   index = index + size_of.pad_3
 
   -- Calculate field size from count
-  local quot_req_legs_grp_count = buffer(offset + index - 174, 1):le_uint()
-  index = index + quot_req_legs_grp_count * 24
+  local quot_req_legs_grp_comp_count = buffer(offset + index - 174, 1):le_uint()
+  index = index + quot_req_legs_grp_comp_count * 24
 
   -- Calculate field size from count
-  local target_parties_count = buffer(offset + index - 197, 1):le_uint()
-  index = index + target_parties_count * 24
+  local target_parties_comp_count = buffer(offset + index - 197, 1):le_uint()
+  index = index + target_parties_comp_count * 24
 
   return index
 end
@@ -11471,11 +11471,11 @@ end
 dissect.srqs_open_negotiation_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
@@ -11546,14 +11546,14 @@ dissect.srqs_open_negotiation_request_fields = function(buffer, offset, packet, 
   -- Pad 3: 3 Byte
   index, pad_3 = dissect.pad_3(buffer, index, packet, parent)
 
-  -- Quot Req Legs Grp: Struct of 6 fields
+  -- Quot Req Legs Grp Comp: Struct of 6 fields
   for i = 1, no_legs do
-    index = dissect.quot_req_legs_grp(buffer, index, packet, parent)
+    index = dissect.quot_req_legs_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Target Parties: Struct of 10 fields
+  -- Target Parties Comp: Struct of 10 fields
   for i = 1, no_target_party_i_ds do
-    index = dissect.target_parties(buffer, index, packet, parent)
+    index = dissect.target_parties_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -11596,9 +11596,9 @@ end
 size_of.srqs_open_negotiation_notification = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.transact_time
 
@@ -11663,8 +11663,8 @@ size_of.srqs_open_negotiation_notification = function(buffer, offset)
   index = index + size_of.pad_3
 
   -- Calculate field size from count
-  local quot_req_legs_grp_count = buffer(offset + index - 189, 1):le_uint()
-  index = index + quot_req_legs_grp_count * 24
+  local quot_req_legs_grp_comp_count = buffer(offset + index - 189, 1):le_uint()
+  index = index + quot_req_legs_grp_comp_count * 24
 
   return index
 end
@@ -11678,11 +11678,11 @@ end
 dissect.srqs_open_negotiation_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = dissect.transact_time(buffer, index, packet, parent)
@@ -11777,9 +11777,9 @@ dissect.srqs_open_negotiation_notification_fields = function(buffer, offset, pac
   -- Pad 3: 3 Byte
   index, pad_3 = dissect.pad_3(buffer, index, packet, parent)
 
-  -- Quot Req Legs Grp: Struct of 6 fields
+  -- Quot Req Legs Grp Comp: Struct of 6 fields
   for i = 1, no_legs do
-    index = dissect.quot_req_legs_grp(buffer, index, packet, parent)
+    index = dissect.quot_req_legs_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -11802,9 +11802,9 @@ end
 size_of.srqs_negotiation_status_notification = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.transact_time
 
@@ -11828,11 +11828,11 @@ end
 dissect.srqs_negotiation_status_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = dissect.transact_time(buffer, index, packet, parent)
@@ -11889,9 +11889,9 @@ end
 size_of.srqs_negotiation_requester_notification = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.transact_time
 
@@ -11942,8 +11942,8 @@ size_of.srqs_negotiation_requester_notification = function(buffer, offset)
   index = index + size_of.free_text_5
 
   -- Calculate field size from count
-  local target_parties_count = buffer(offset + index - 173, 1):le_uint()
-  index = index + target_parties_count * 24
+  local target_parties_comp_count = buffer(offset + index - 173, 1):le_uint()
+  index = index + target_parties_comp_count * 24
 
   return index
 end
@@ -11957,11 +11957,11 @@ end
 dissect.srqs_negotiation_requester_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = dissect.transact_time(buffer, index, packet, parent)
@@ -12035,9 +12035,9 @@ dissect.srqs_negotiation_requester_notification_fields = function(buffer, offset
   -- Free Text 5: 132 Byte Ascii String
   index, free_text_5 = dissect.free_text_5(buffer, index, packet, parent)
 
-  -- Target Parties: Struct of 10 fields
+  -- Target Parties Comp: Struct of 10 fields
   for i = 1, no_target_party_i_ds do
-    index = dissect.target_parties(buffer, index, packet, parent)
+    index = dissect.target_parties_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -12060,9 +12060,9 @@ end
 size_of.srqs_negotiation_notification = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.transact_time
 
@@ -12124,11 +12124,11 @@ end
 dissect.srqs_negotiation_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = dissect.transact_time(buffer, index, packet, parent)
@@ -12289,9 +12289,9 @@ end
 size_of.srqs_hit_quote_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.quote_id
 
@@ -12335,11 +12335,11 @@ end
 dissect.srqs_hit_quote_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Quote Id: 8 Byte Unsigned Fixed Width Integer
   index, quote_id = dissect.quote_id(buffer, index, packet, parent)
@@ -12406,9 +12406,9 @@ end
 size_of.srqs_enter_quote_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.bid_px
 
@@ -12450,11 +12450,11 @@ end
 dissect.srqs_enter_quote_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Bid Px: 8 Byte Unsigned Fixed Width Integer
   index, bid_px = dissect.bid_px(buffer, index, packet, parent)
@@ -12538,9 +12538,9 @@ end
 size_of.srqs_deal_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.response_header(buffer, offset + index)
+  index = index + size_of.response_header_comp(buffer, offset + index)
 
   index = index + size_of.security_id
 
@@ -12570,11 +12570,11 @@ end
 dissect.srqs_deal_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Response Header: Struct of 4 fields
-  index, response_header = dissect.response_header(buffer, index, packet, parent)
+  -- Response Header Comp: Struct of 4 fields
+  index, response_header_comp = dissect.response_header_comp(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
@@ -12660,9 +12660,9 @@ end
 size_of.srqs_deal_notification = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.transact_time
 
@@ -12712,11 +12712,11 @@ end
 dissect.srqs_deal_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = dissect.transact_time(buffer, index, packet, parent)
@@ -12926,8 +12926,8 @@ dissect.best_bid_px = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Order Book Item Grp
-size_of.order_book_item_grp = function(buffer, offset)
+-- Calculate size of: Order Book Item Grp Comp
+size_of.order_book_item_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.security_id
@@ -12949,13 +12949,13 @@ size_of.order_book_item_grp = function(buffer, offset)
   return index
 end
 
--- Display: Order Book Item Grp
-display.order_book_item_grp = function(buffer, offset, size, packet, parent)
+-- Display: Order Book Item Grp Comp
+display.order_book_item_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Order Book Item Grp
-dissect.order_book_item_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Order Book Item Grp Comp
+dissect.order_book_item_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
@@ -12985,17 +12985,17 @@ dissect.order_book_item_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Order Book Item Grp
-dissect.order_book_item_grp = function(buffer, offset, packet, parent)
+-- Dissect: Order Book Item Grp Comp
+dissect.order_book_item_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.order_book_item_grp then
-    local length = size_of.order_book_item_grp(buffer, offset)
+  if show.order_book_item_grp_comp then
+    local length = size_of.order_book_item_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_book_item_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.order_book_item_grp, range, display)
+    local display = display.order_book_item_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.order_book_item_grp_comp, range, display)
   end
 
-  return dissect.order_book_item_grp_fields(buffer, offset, packet, parent)
+  return dissect.order_book_item_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: No Order Book Items
@@ -13063,9 +13063,9 @@ end
 size_of.srqs_create_deal_notification = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.transact_time
 
@@ -13126,8 +13126,8 @@ size_of.srqs_create_deal_notification = function(buffer, offset)
   index = index + size_of.pad_3
 
   -- Calculate field size from count
-  local order_book_item_grp_count = buffer(offset + index - 216, 1):le_uint()
-  index = index + order_book_item_grp_count * 48
+  local order_book_item_grp_comp_count = buffer(offset + index - 216, 1):le_uint()
+  index = index + order_book_item_grp_comp_count * 48
 
   return index
 end
@@ -13141,11 +13141,11 @@ end
 dissect.srqs_create_deal_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = dissect.transact_time(buffer, index, packet, parent)
@@ -13234,9 +13234,9 @@ dissect.srqs_create_deal_notification_fields = function(buffer, offset, packet, 
   -- Pad 3: 3 Byte
   index, pad_3 = dissect.pad_3(buffer, index, packet, parent)
 
-  -- Order Book Item Grp: Struct of 8 fields
+  -- Order Book Item Grp Comp: Struct of 8 fields
   for i = 1, no_order_book_items do
-    index = dissect.order_book_item_grp(buffer, index, packet, parent)
+    index = dissect.order_book_item_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -13433,9 +13433,9 @@ end
 size_of.risk_notification_broadcast = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.transact_time
 
@@ -13469,11 +13469,11 @@ end
 dissect.risk_notification_broadcast_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = dissect.transact_time(buffer, index, packet, parent)
@@ -13585,9 +13585,9 @@ end
 size_of.retransmit_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.response_header(buffer, offset + index)
+  index = index + size_of.response_header_comp(buffer, offset + index)
 
   index = index + size_of.appl_end_seq_num
 
@@ -13609,11 +13609,11 @@ end
 dissect.retransmit_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Response Header: Struct of 4 fields
-  index, response_header = dissect.response_header(buffer, index, packet, parent)
+  -- Response Header Comp: Struct of 4 fields
+  index, response_header_comp = dissect.response_header_comp(buffer, index, packet, parent)
 
   -- Appl End Seq Num: 8 Byte Unsigned Fixed Width Integer
   index, appl_end_seq_num = dissect.appl_end_seq_num(buffer, index, packet, parent)
@@ -13667,9 +13667,9 @@ end
 size_of.retransmit_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.appl_beg_seq_num
 
@@ -13693,11 +13693,11 @@ end
 dissect.retransmit_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Appl Beg Seq Num: 8 Byte Unsigned Fixed Width Integer
   index, appl_beg_seq_num = dissect.appl_beg_seq_num(buffer, index, packet, parent)
@@ -13754,9 +13754,9 @@ end
 size_of.retransmit_me_message_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.response_header(buffer, offset + index)
+  index = index + size_of.response_header_comp(buffer, offset + index)
 
   index = index + size_of.appl_total_message_count
 
@@ -13778,11 +13778,11 @@ end
 dissect.retransmit_me_message_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Response Header: Struct of 4 fields
-  index, response_header = dissect.response_header(buffer, index, packet, parent)
+  -- Response Header Comp: Struct of 4 fields
+  index, response_header_comp = dissect.response_header_comp(buffer, index, packet, parent)
 
   -- Appl Total Message Count: 2 Byte Unsigned Fixed Width Integer
   index, appl_total_message_count = dissect.appl_total_message_count(buffer, index, packet, parent)
@@ -13836,9 +13836,9 @@ end
 size_of.retransmit_me_message_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.subscription_scope
 
@@ -13864,11 +13864,11 @@ end
 dissect.retransmit_me_message_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Subscription Scope: 4 Byte Unsigned Fixed Width Integer
   index, subscription_scope = dissect.subscription_scope(buffer, index, packet, parent)
@@ -14127,8 +14127,8 @@ dissect.trd_reg_ts_time_in = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Nr Response Header Me
-size_of.nr_response_header_me = function(buffer, offset)
+-- Calculate size of: Nr Response Header Me Comp
+size_of.nr_response_header_me_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.request_time
@@ -14150,13 +14150,13 @@ size_of.nr_response_header_me = function(buffer, offset)
   return index
 end
 
--- Display: Nr Response Header Me
-display.nr_response_header_me = function(buffer, offset, size, packet, parent)
+-- Display: Nr Response Header Me Comp
+display.nr_response_header_me_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Nr Response Header Me
-dissect.nr_response_header_me_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Nr Response Header Me Comp
+dissect.nr_response_header_me_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Request Time: 8 Byte Unsigned Fixed Width Integer
@@ -14186,26 +14186,26 @@ dissect.nr_response_header_me_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Nr Response Header Me
-dissect.nr_response_header_me = function(buffer, offset, packet, parent)
+-- Dissect: Nr Response Header Me Comp
+dissect.nr_response_header_me_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.nr_response_header_me then
-    local length = size_of.nr_response_header_me(buffer, offset)
+  if show.nr_response_header_me_comp then
+    local length = size_of.nr_response_header_me_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.nr_response_header_me(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.nr_response_header_me, range, display)
+    local display = display.nr_response_header_me_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.nr_response_header_me_comp, range, display)
   end
 
-  return dissect.nr_response_header_me_fields(buffer, offset, packet, parent)
+  return dissect.nr_response_header_me_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Reject
 size_of.reject = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.nr_response_header_me(buffer, offset + index)
+  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
 
   index = index + size_of.session_reject_reason
 
@@ -14230,11 +14230,11 @@ end
 dissect.reject_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Nr Response Header Me: Struct of 8 fields
-  index, nr_response_header_me = dissect.nr_response_header_me(buffer, index, packet, parent)
+  -- Nr Response Header Me Comp: Struct of 8 fields
+  index, nr_response_header_me_comp = dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
   -- Session Reject Reason: 4 Byte Unsigned Fixed Width Integer Enum with 33 values
   index, session_reject_reason = dissect.session_reject_reason(buffer, index, packet, parent)
@@ -14291,9 +14291,9 @@ end
 size_of.rfq_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.nr_response_header_me(buffer, offset + index)
+  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
 
   index = index + size_of.exec_id
 
@@ -14309,11 +14309,11 @@ end
 dissect.rfq_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Nr Response Header Me: Struct of 8 fields
-  index, nr_response_header_me = dissect.nr_response_header_me(buffer, index, packet, parent)
+  -- Nr Response Header Me Comp: Struct of 8 fields
+  index, nr_response_header_me_comp = dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
@@ -14338,9 +14338,9 @@ end
 size_of.rfq_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.security_id
 
@@ -14366,11 +14366,11 @@ end
 dissect.rfq_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
@@ -14488,8 +14488,8 @@ dissect.leg_last_px = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Quote Leg Exec Grp
-size_of.quote_leg_exec_grp = function(buffer, offset)
+-- Calculate size of: Quote Leg Exec Grp Comp
+size_of.quote_leg_exec_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.leg_security_id
@@ -14509,13 +14509,13 @@ size_of.quote_leg_exec_grp = function(buffer, offset)
   return index
 end
 
--- Display: Quote Leg Exec Grp
-display.quote_leg_exec_grp = function(buffer, offset, size, packet, parent)
+-- Display: Quote Leg Exec Grp Comp
+display.quote_leg_exec_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Quote Leg Exec Grp
-dissect.quote_leg_exec_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Leg Exec Grp Comp
+dissect.quote_leg_exec_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Leg Security Id: 8 Byte Signed Fixed Width Integer
@@ -14542,17 +14542,17 @@ dissect.quote_leg_exec_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Quote Leg Exec Grp
-dissect.quote_leg_exec_grp = function(buffer, offset, packet, parent)
+-- Dissect: Quote Leg Exec Grp Comp
+dissect.quote_leg_exec_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.quote_leg_exec_grp then
-    local length = size_of.quote_leg_exec_grp(buffer, offset)
+  if show.quote_leg_exec_grp_comp then
+    local length = size_of.quote_leg_exec_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.quote_leg_exec_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.quote_leg_exec_grp, range, display)
+    local display = display.quote_leg_exec_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.quote_leg_exec_grp_comp, range, display)
   end
 
-  return dissect.quote_leg_exec_grp_fields(buffer, offset, packet, parent)
+  return dissect.quote_leg_exec_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Quote Event Reason
@@ -14783,8 +14783,8 @@ dissect.quote_event_px = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Quote Event Grp
-size_of.quote_event_grp = function(buffer, offset)
+-- Calculate size of: Quote Event Grp Comp
+size_of.quote_event_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.security_id
@@ -14812,13 +14812,13 @@ size_of.quote_event_grp = function(buffer, offset)
   return index
 end
 
--- Display: Quote Event Grp
-display.quote_event_grp = function(buffer, offset, size, packet, parent)
+-- Display: Quote Event Grp Comp
+display.quote_event_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Quote Event Grp
-dissect.quote_event_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Event Grp Comp
+dissect.quote_event_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
@@ -14857,17 +14857,17 @@ dissect.quote_event_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Quote Event Grp
-dissect.quote_event_grp = function(buffer, offset, packet, parent)
+-- Dissect: Quote Event Grp Comp
+dissect.quote_event_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.quote_event_grp then
-    local length = size_of.quote_event_grp(buffer, offset)
+  if show.quote_event_grp_comp then
+    local length = size_of.quote_event_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.quote_event_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.quote_event_grp, range, display)
+    local display = display.quote_event_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.quote_event_grp_comp, range, display)
   end
 
-  return dissect.quote_event_grp_fields(buffer, offset, packet, parent)
+  return dissect.quote_event_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: No Quote Events
@@ -14914,9 +14914,9 @@ end
 size_of.quote_execution_report = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header_me(buffer, offset + index)
+  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
 
   index = index + size_of.exec_id
 
@@ -14929,12 +14929,12 @@ size_of.quote_execution_report = function(buffer, offset)
   index = index + size_of.pad_1
 
   -- Calculate field size from count
-  local quote_event_grp_count = buffer(offset + index - 2, 1):le_uint()
-  index = index + quote_event_grp_count * 48
+  local quote_event_grp_comp_count = buffer(offset + index - 2, 1):le_uint()
+  index = index + quote_event_grp_comp_count * 48
 
   -- Calculate field size from count
-  local quote_leg_exec_grp_count = buffer(offset + index - 52, 2):le_uint()
-  index = index + quote_leg_exec_grp_count * 32
+  local quote_leg_exec_grp_comp_count = buffer(offset + index - 52, 2):le_uint()
+  index = index + quote_leg_exec_grp_comp_count * 32
 
   return index
 end
@@ -14948,11 +14948,11 @@ end
 dissect.quote_execution_report_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header Me: Struct of 10 fields
-  index, rbc_header_me = dissect.rbc_header_me(buffer, index, packet, parent)
+  -- Rbc Header Me Comp: Struct of 10 fields
+  index, rbc_header_me_comp = dissect.rbc_header_me_comp(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
@@ -14969,14 +14969,14 @@ dissect.quote_execution_report_fields = function(buffer, offset, packet, parent)
   -- Pad 1: 1 Byte
   index, pad_1 = dissect.pad_1(buffer, index, packet, parent)
 
-  -- Quote Event Grp: Struct of 11 fields
+  -- Quote Event Grp Comp: Struct of 11 fields
   for i = 1, no_quote_events do
-    index = dissect.quote_event_grp(buffer, index, packet, parent)
+    index = dissect.quote_event_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Quote Leg Exec Grp: Struct of 7 fields
+  -- Quote Leg Exec Grp Comp: Struct of 7 fields
   for i = 1, no_leg_execs do
-    index = dissect.quote_leg_exec_grp(buffer, index, packet, parent)
+    index = dissect.quote_leg_exec_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -15015,8 +15015,8 @@ dissect.not_affected_security_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Not Affected Securities Grp
-size_of.not_affected_securities_grp = function(buffer, offset)
+-- Calculate size of: Not Affected Securities Grp Comp
+size_of.not_affected_securities_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.not_affected_security_id
@@ -15024,13 +15024,13 @@ size_of.not_affected_securities_grp = function(buffer, offset)
   return index
 end
 
--- Display: Not Affected Securities Grp
-display.not_affected_securities_grp = function(buffer, offset, size, packet, parent)
+-- Display: Not Affected Securities Grp Comp
+display.not_affected_securities_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Not Affected Securities Grp
-dissect.not_affected_securities_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Not Affected Securities Grp Comp
+dissect.not_affected_securities_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Not Affected Security Id: 8 Byte Unsigned Fixed Width Integer
@@ -15039,17 +15039,17 @@ dissect.not_affected_securities_grp_fields = function(buffer, offset, packet, pa
   return index
 end
 
--- Dissect: Not Affected Securities Grp
-dissect.not_affected_securities_grp = function(buffer, offset, packet, parent)
+-- Dissect: Not Affected Securities Grp Comp
+dissect.not_affected_securities_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.not_affected_securities_grp then
-    local length = size_of.not_affected_securities_grp(buffer, offset)
+  if show.not_affected_securities_grp_comp then
+    local length = size_of.not_affected_securities_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.not_affected_securities_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.not_affected_securities_grp, range, display)
+    local display = display.not_affected_securities_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.not_affected_securities_grp_comp, range, display)
   end
 
-  return dissect.not_affected_securities_grp_fields(buffer, offset, packet, parent)
+  return dissect.not_affected_securities_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: No Not Affected Securities
@@ -15096,9 +15096,9 @@ end
 size_of.quote_activation_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.nr_response_header_me(buffer, offset + index)
+  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
 
   index = index + size_of.mass_action_report_id
 
@@ -15107,8 +15107,8 @@ size_of.quote_activation_response = function(buffer, offset)
   index = index + size_of.pad_6
 
   -- Calculate field size from count
-  local not_affected_securities_grp_count = buffer(offset + index - 8, 2):le_uint()
-  index = index + not_affected_securities_grp_count * 8
+  local not_affected_securities_grp_comp_count = buffer(offset + index - 8, 2):le_uint()
+  index = index + not_affected_securities_grp_comp_count * 8
 
   return index
 end
@@ -15122,11 +15122,11 @@ end
 dissect.quote_activation_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Nr Response Header Me: Struct of 8 fields
-  index, nr_response_header_me = dissect.nr_response_header_me(buffer, index, packet, parent)
+  -- Nr Response Header Me Comp: Struct of 8 fields
+  index, nr_response_header_me_comp = dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
   -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer
   index, mass_action_report_id = dissect.mass_action_report_id(buffer, index, packet, parent)
@@ -15137,9 +15137,9 @@ dissect.quote_activation_response_fields = function(buffer, offset, packet, pare
   -- Pad 6: 6 Byte
   index, pad_6 = dissect.pad_6(buffer, index, packet, parent)
 
-  -- Not Affected Securities Grp: Struct of 1 fields
+  -- Not Affected Securities Grp Comp: Struct of 1 fields
   for i = 1, no_not_affected_securities do
-    index = dissect.not_affected_securities_grp(buffer, index, packet, parent)
+    index = dissect.not_affected_securities_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -15233,9 +15233,9 @@ end
 size_of.quote_activation_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.party_id_investment_decision_maker
 
@@ -15267,11 +15267,11 @@ end
 dissect.quote_activation_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer
   index, party_id_investment_decision_maker = dissect.party_id_investment_decision_maker(buffer, index, packet, parent)
@@ -15403,9 +15403,9 @@ end
 size_of.quote_activation_notification = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header_me(buffer, offset + index)
+  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
 
   index = index + size_of.mass_action_report_id
 
@@ -15426,8 +15426,8 @@ size_of.quote_activation_notification = function(buffer, offset)
   index = index + size_of.pad_2
 
   -- Calculate field size from count
-  local not_affected_securities_grp_count = buffer(offset + index - 8, 2):le_uint()
-  index = index + not_affected_securities_grp_count * 8
+  local not_affected_securities_grp_comp_count = buffer(offset + index - 8, 2):le_uint()
+  index = index + not_affected_securities_grp_comp_count * 8
 
   return index
 end
@@ -15441,11 +15441,11 @@ end
 dissect.quote_activation_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header Me: Struct of 10 fields
-  index, rbc_header_me = dissect.rbc_header_me(buffer, index, packet, parent)
+  -- Rbc Header Me Comp: Struct of 10 fields
+  index, rbc_header_me_comp = dissect.rbc_header_me_comp(buffer, index, packet, parent)
 
   -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer
   index, mass_action_report_id = dissect.mass_action_report_id(buffer, index, packet, parent)
@@ -15474,9 +15474,9 @@ dissect.quote_activation_notification_fields = function(buffer, offset, packet, 
   -- Pad 2: 2 Byte
   index, pad_2 = dissect.pad_2(buffer, index, packet, parent)
 
-  -- Not Affected Securities Grp: Struct of 1 fields
+  -- Not Affected Securities Grp Comp: Struct of 1 fields
   for i = 1, no_not_affected_securities do
-    index = dissect.not_affected_securities_grp(buffer, index, packet, parent)
+    index = dissect.not_affected_securities_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -15543,8 +15543,8 @@ dissect.risk_limit_qty = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Risk Limit Qty Grp
-size_of.risk_limit_qty_grp = function(buffer, offset)
+-- Calculate size of: Risk Limit Qty Grp Comp
+size_of.risk_limit_qty_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.risk_limit_qty
@@ -15556,13 +15556,13 @@ size_of.risk_limit_qty_grp = function(buffer, offset)
   return index
 end
 
--- Display: Risk Limit Qty Grp
-display.risk_limit_qty_grp = function(buffer, offset, size, packet, parent)
+-- Display: Risk Limit Qty Grp Comp
+display.risk_limit_qty_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Risk Limit Qty Grp
-dissect.risk_limit_qty_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Risk Limit Qty Grp Comp
+dissect.risk_limit_qty_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Risk Limit Qty: 8 Byte Unsigned Fixed Width Integer
@@ -15577,17 +15577,17 @@ dissect.risk_limit_qty_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Risk Limit Qty Grp
-dissect.risk_limit_qty_grp = function(buffer, offset, packet, parent)
+-- Dissect: Risk Limit Qty Grp Comp
+dissect.risk_limit_qty_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.risk_limit_qty_grp then
-    local length = size_of.risk_limit_qty_grp(buffer, offset)
+  if show.risk_limit_qty_grp_comp then
+    local length = size_of.risk_limit_qty_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.risk_limit_qty_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.risk_limit_qty_grp, range, display)
+    local display = display.risk_limit_qty_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.risk_limit_qty_grp_comp, range, display)
   end
 
-  return dissect.risk_limit_qty_grp_fields(buffer, offset, packet, parent)
+  return dissect.risk_limit_qty_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Party Detail Executing Unit
@@ -15708,9 +15708,9 @@ end
 size_of.pre_trade_risk_limits_definition_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.market_segment_id
 
@@ -15727,8 +15727,8 @@ size_of.pre_trade_risk_limits_definition_request = function(buffer, offset)
   index = index + size_of.pad_1
 
   -- Calculate field size from count
-  local risk_limit_qty_grp_count = buffer(offset + index - 11, 1):le_uint()
-  index = index + risk_limit_qty_grp_count * 16
+  local risk_limit_qty_grp_comp_count = buffer(offset + index - 11, 1):le_uint()
+  index = index + risk_limit_qty_grp_comp_count * 16
 
   return index
 end
@@ -15742,11 +15742,11 @@ end
 dissect.pre_trade_risk_limits_definition_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer
   index, market_segment_id = dissect.market_segment_id(buffer, index, packet, parent)
@@ -15769,9 +15769,9 @@ dissect.pre_trade_risk_limits_definition_request_fields = function(buffer, offse
   -- Pad 1: 1 Byte
   index, pad_1 = dissect.pad_1(buffer, index, packet, parent)
 
-  -- Risk Limit Qty Grp: Struct of 3 fields
+  -- Risk Limit Qty Grp Comp: Struct of 3 fields
   for i = 1, no_risk_limits_qty do
-    index = dissect.risk_limit_qty_grp(buffer, index, packet, parent)
+    index = dissect.risk_limit_qty_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -15889,8 +15889,8 @@ dissect.risk_limit_open_qty = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Risk Limits Rpt Grp
-size_of.risk_limits_rpt_grp = function(buffer, offset)
+-- Calculate size of: Risk Limits Rpt Grp Comp
+size_of.risk_limits_rpt_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.risk_limit_qty
@@ -15912,13 +15912,13 @@ size_of.risk_limits_rpt_grp = function(buffer, offset)
   return index
 end
 
--- Display: Risk Limits Rpt Grp
-display.risk_limits_rpt_grp = function(buffer, offset, size, packet, parent)
+-- Display: Risk Limits Rpt Grp Comp
+display.risk_limits_rpt_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Risk Limits Rpt Grp
-dissect.risk_limits_rpt_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Risk Limits Rpt Grp Comp
+dissect.risk_limits_rpt_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Risk Limit Qty: 8 Byte Unsigned Fixed Width Integer
@@ -15948,17 +15948,17 @@ dissect.risk_limits_rpt_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Risk Limits Rpt Grp
-dissect.risk_limits_rpt_grp = function(buffer, offset, packet, parent)
+-- Dissect: Risk Limits Rpt Grp Comp
+dissect.risk_limits_rpt_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.risk_limits_rpt_grp then
-    local length = size_of.risk_limits_rpt_grp(buffer, offset)
+  if show.risk_limits_rpt_grp_comp then
+    local length = size_of.risk_limits_rpt_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.risk_limits_rpt_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.risk_limits_rpt_grp, range, display)
+    local display = display.risk_limits_rpt_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.risk_limits_rpt_grp_comp, range, display)
   end
 
-  return dissect.risk_limits_rpt_grp_fields(buffer, offset, packet, parent)
+  return dissect.risk_limits_rpt_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: No Risk Limits
@@ -16005,9 +16005,9 @@ end
 size_of.pre_trade_risk_limit_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.nr_response_header_me(buffer, offset + index)
+  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
 
   index = index + size_of.risk_limit_report_id
 
@@ -16024,8 +16024,8 @@ size_of.pre_trade_risk_limit_response = function(buffer, offset)
   index = index + size_of.pad_4
 
   -- Calculate field size from count
-  local risk_limits_rpt_grp_count = buffer(offset + index - 12, 1):le_uint()
-  index = index + risk_limits_rpt_grp_count * 32
+  local risk_limits_rpt_grp_comp_count = buffer(offset + index - 12, 1):le_uint()
+  index = index + risk_limits_rpt_grp_comp_count * 32
 
   return index
 end
@@ -16039,11 +16039,11 @@ end
 dissect.pre_trade_risk_limit_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Nr Response Header Me: Struct of 8 fields
-  index, nr_response_header_me = dissect.nr_response_header_me(buffer, index, packet, parent)
+  -- Nr Response Header Me Comp: Struct of 8 fields
+  index, nr_response_header_me_comp = dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
   -- Risk Limit Report Id: 8 Byte Unsigned Fixed Width Integer
   index, risk_limit_report_id = dissect.risk_limit_report_id(buffer, index, packet, parent)
@@ -16066,9 +16066,9 @@ dissect.pre_trade_risk_limit_response_fields = function(buffer, offset, packet, 
   -- Pad 4: 4 Byte
   index, pad_4 = dissect.pad_4(buffer, index, packet, parent)
 
-  -- Risk Limits Rpt Grp: Struct of 8 fields
+  -- Risk Limits Rpt Grp Comp: Struct of 8 fields
   for i = 1, no_risk_limits do
-    index = dissect.risk_limits_rpt_grp(buffer, index, packet, parent)
+    index = dissect.risk_limits_rpt_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -16091,9 +16091,9 @@ end
 size_of.party_entitlements_update_report = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.transact_time
 
@@ -16127,11 +16127,11 @@ end
 dissect.party_entitlements_update_report_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = dissect.transact_time(buffer, index, packet, parent)
@@ -16297,9 +16297,9 @@ end
 size_of.party_action_report = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.transact_time
 
@@ -16331,11 +16331,11 @@ end
 dissect.party_action_report_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = dissect.transact_time(buffer, index, packet, parent)
@@ -16400,8 +16400,8 @@ dissect.fill_ref_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Instrmnt Leg Exec Grp
-size_of.instrmnt_leg_exec_grp = function(buffer, offset)
+-- Calculate size of: Instrmnt Leg Exec Grp Comp
+size_of.instrmnt_leg_exec_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.leg_security_id
@@ -16421,13 +16421,13 @@ size_of.instrmnt_leg_exec_grp = function(buffer, offset)
   return index
 end
 
--- Display: Instrmnt Leg Exec Grp
-display.instrmnt_leg_exec_grp = function(buffer, offset, size, packet, parent)
+-- Display: Instrmnt Leg Exec Grp Comp
+display.instrmnt_leg_exec_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Instrmnt Leg Exec Grp
-dissect.instrmnt_leg_exec_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Instrmnt Leg Exec Grp Comp
+dissect.instrmnt_leg_exec_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Leg Security Id: 8 Byte Signed Fixed Width Integer
@@ -16454,17 +16454,17 @@ dissect.instrmnt_leg_exec_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Instrmnt Leg Exec Grp
-dissect.instrmnt_leg_exec_grp = function(buffer, offset, packet, parent)
+-- Dissect: Instrmnt Leg Exec Grp Comp
+dissect.instrmnt_leg_exec_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.instrmnt_leg_exec_grp then
-    local length = size_of.instrmnt_leg_exec_grp(buffer, offset)
+  if show.instrmnt_leg_exec_grp_comp then
+    local length = size_of.instrmnt_leg_exec_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.instrmnt_leg_exec_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.instrmnt_leg_exec_grp, range, display)
+    local display = display.instrmnt_leg_exec_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.instrmnt_leg_exec_grp_comp, range, display)
   end
 
-  return dissect.instrmnt_leg_exec_grp_fields(buffer, offset, packet, parent)
+  return dissect.instrmnt_leg_exec_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Fill Liquidity Ind
@@ -16588,8 +16588,8 @@ dissect.fill_px = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Fills Grp
-size_of.fills_grp = function(buffer, offset)
+-- Calculate size of: Fills Grp Comp
+size_of.fills_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.fill_px
@@ -16607,13 +16607,13 @@ size_of.fills_grp = function(buffer, offset)
   return index
 end
 
--- Display: Fills Grp
-display.fills_grp = function(buffer, offset, size, packet, parent)
+-- Display: Fills Grp Comp
+display.fills_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Fills Grp
-dissect.fills_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Fills Grp Comp
+dissect.fills_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Fill Px: 8 Byte Unsigned Fixed Width Integer
@@ -16637,17 +16637,17 @@ dissect.fills_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Fills Grp
-dissect.fills_grp = function(buffer, offset, packet, parent)
+-- Dissect: Fills Grp Comp
+dissect.fills_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.fills_grp then
-    local length = size_of.fills_grp(buffer, offset)
+  if show.fills_grp_comp then
+    local length = size_of.fills_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.fills_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.fills_grp, range, display)
+    local display = display.fills_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.fills_grp_comp, range, display)
   end
 
-  return dissect.fills_grp_fields(buffer, offset, packet, parent)
+  return dissect.fills_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: No Fills
@@ -17003,8 +17003,8 @@ dissect.orig_cl_ord_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Response Header Me
-size_of.response_header_me = function(buffer, offset)
+-- Calculate size of: Response Header Me Comp
+size_of.response_header_me_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.request_time
@@ -17030,13 +17030,13 @@ size_of.response_header_me = function(buffer, offset)
   return index
 end
 
--- Display: Response Header Me
-display.response_header_me = function(buffer, offset, size, packet, parent)
+-- Display: Response Header Me Comp
+display.response_header_me_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Response Header Me
-dissect.response_header_me_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Response Header Me Comp
+dissect.response_header_me_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Request Time: 8 Byte Unsigned Fixed Width Integer
@@ -17072,26 +17072,26 @@ dissect.response_header_me_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Response Header Me
-dissect.response_header_me = function(buffer, offset, packet, parent)
+-- Dissect: Response Header Me Comp
+dissect.response_header_me_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.response_header_me then
-    local length = size_of.response_header_me(buffer, offset)
+  if show.response_header_me_comp then
+    local length = size_of.response_header_me_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.response_header_me(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.response_header_me, range, display)
+    local display = display.response_header_me_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.response_header_me_comp, range, display)
   end
 
-  return dissect.response_header_me_fields(buffer, offset, packet, parent)
+  return dissect.response_header_me_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Exec Response
 size_of.order_exec_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.response_header_me(buffer, offset + index)
+  index = index + size_of.response_header_me_comp(buffer, offset + index)
 
   index = index + size_of.order_id
 
@@ -17136,12 +17136,12 @@ size_of.order_exec_response = function(buffer, offset)
   index = index + size_of.no_fills
 
   -- Calculate field size from count
-  local fills_grp_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + fills_grp_count * 32
+  local fills_grp_comp_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + fills_grp_comp_count * 32
 
   -- Calculate field size from count
-  local instrmnt_leg_exec_grp_count = buffer(offset + index - 44, 2):le_uint()
-  index = index + instrmnt_leg_exec_grp_count * 32
+  local instrmnt_leg_exec_grp_comp_count = buffer(offset + index - 44, 2):le_uint()
+  index = index + instrmnt_leg_exec_grp_comp_count * 32
 
   return index
 end
@@ -17155,11 +17155,11 @@ end
 dissect.order_exec_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Response Header Me: Struct of 10 fields
-  index, response_header_me = dissect.response_header_me(buffer, index, packet, parent)
+  -- Response Header Me Comp: Struct of 10 fields
+  index, response_header_me_comp = dissect.response_header_me_comp(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
@@ -17224,14 +17224,14 @@ dissect.order_exec_response_fields = function(buffer, offset, packet, parent)
   -- No Fills: 1 Byte Unsigned Fixed Width Integer
   index, no_fills = dissect.no_fills(buffer, index, packet, parent)
 
-  -- Fills Grp: Struct of 6 fields
+  -- Fills Grp Comp: Struct of 6 fields
   for i = 1, no_fills do
-    index = dissect.fills_grp(buffer, index, packet, parent)
+    index = dissect.fills_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Instrmnt Leg Exec Grp: Struct of 7 fields
+  -- Instrmnt Leg Exec Grp Comp: Struct of 7 fields
   for i = 1, no_leg_execs do
-    index = dissect.instrmnt_leg_exec_grp(buffer, index, packet, parent)
+    index = dissect.instrmnt_leg_exec_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -17297,8 +17297,8 @@ dissect.leg_account = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Leg Ord Grp
-size_of.leg_ord_grp = function(buffer, offset)
+-- Calculate size of: Leg Ord Grp Comp
+size_of.leg_ord_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.leg_account
@@ -17310,13 +17310,13 @@ size_of.leg_ord_grp = function(buffer, offset)
   return index
 end
 
--- Display: Leg Ord Grp
-display.leg_ord_grp = function(buffer, offset, size, packet, parent)
+-- Display: Leg Ord Grp Comp
+display.leg_ord_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Leg Ord Grp
-dissect.leg_ord_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Leg Ord Grp Comp
+dissect.leg_ord_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Leg Account: 2 Byte Ascii String
@@ -17331,17 +17331,17 @@ dissect.leg_ord_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Leg Ord Grp
-dissect.leg_ord_grp = function(buffer, offset, packet, parent)
+-- Dissect: Leg Ord Grp Comp
+dissect.leg_ord_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.leg_ord_grp then
-    local length = size_of.leg_ord_grp(buffer, offset)
+  if show.leg_ord_grp_comp then
+    local length = size_of.leg_ord_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.leg_ord_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.leg_ord_grp, range, display)
+    local display = display.leg_ord_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.leg_ord_grp_comp, range, display)
   end
 
-  return dissect.leg_ord_grp_fields(buffer, offset, packet, parent)
+  return dissect.leg_ord_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Fix Cl Ord Id
@@ -17569,9 +17569,9 @@ end
 size_of.order_exec_report_broadcast = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header_me(buffer, offset + index)
+  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
 
   index = index + size_of.order_id
 
@@ -17676,16 +17676,16 @@ size_of.order_exec_report_broadcast = function(buffer, offset)
   index = index + size_of.pad_2
 
   -- Calculate field size from count
-  local leg_ord_grp_count = buffer(offset + index - 5, 1):le_uint()
-  index = index + leg_ord_grp_count * 8
+  local leg_ord_grp_comp_count = buffer(offset + index - 5, 1):le_uint()
+  index = index + leg_ord_grp_comp_count * 8
 
   -- Calculate field size from count
-  local fills_grp_count = buffer(offset + index - 14, 1):le_uint()
-  index = index + fills_grp_count * 32
+  local fills_grp_comp_count = buffer(offset + index - 14, 1):le_uint()
+  index = index + fills_grp_comp_count * 32
 
   -- Calculate field size from count
-  local instrmnt_leg_exec_grp_count = buffer(offset + index - 196, 2):le_uint()
-  index = index + instrmnt_leg_exec_grp_count * 32
+  local instrmnt_leg_exec_grp_comp_count = buffer(offset + index - 196, 2):le_uint()
+  index = index + instrmnt_leg_exec_grp_comp_count * 32
 
   return index
 end
@@ -17699,11 +17699,11 @@ end
 dissect.order_exec_report_broadcast_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header Me: Struct of 10 fields
-  index, rbc_header_me = dissect.rbc_header_me(buffer, index, packet, parent)
+  -- Rbc Header Me Comp: Struct of 10 fields
+  index, rbc_header_me_comp = dissect.rbc_header_me_comp(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
@@ -17858,19 +17858,19 @@ dissect.order_exec_report_broadcast_fields = function(buffer, offset, packet, pa
   -- Pad 2: 2 Byte
   index, pad_2 = dissect.pad_2(buffer, index, packet, parent)
 
-  -- Leg Ord Grp: Struct of 3 fields
+  -- Leg Ord Grp Comp: Struct of 3 fields
   for i = 1, no_legs do
-    index = dissect.leg_ord_grp(buffer, index, packet, parent)
+    index = dissect.leg_ord_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Fills Grp: Struct of 6 fields
+  -- Fills Grp Comp: Struct of 6 fields
   for i = 1, no_fills do
-    index = dissect.fills_grp(buffer, index, packet, parent)
+    index = dissect.fills_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Instrmnt Leg Exec Grp: Struct of 7 fields
+  -- Instrmnt Leg Exec Grp Comp: Struct of 7 fields
   for i = 1, no_leg_execs do
-    index = dissect.instrmnt_leg_exec_grp(buffer, index, packet, parent)
+    index = dissect.instrmnt_leg_exec_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -17893,9 +17893,9 @@ end
 size_of.order_exec_notification = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header_me(buffer, offset + index)
+  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
 
   index = index + size_of.order_id
 
@@ -17938,12 +17938,12 @@ size_of.order_exec_notification = function(buffer, offset)
   index = index + size_of.pad_5
 
   -- Calculate field size from count
-  local fills_grp_count = buffer(offset + index - 6, 1):le_uint()
-  index = index + fills_grp_count * 32
+  local fills_grp_comp_count = buffer(offset + index - 6, 1):le_uint()
+  index = index + fills_grp_comp_count * 32
 
   -- Calculate field size from count
-  local instrmnt_leg_exec_grp_count = buffer(offset + index - 68, 2):le_uint()
-  index = index + instrmnt_leg_exec_grp_count * 32
+  local instrmnt_leg_exec_grp_comp_count = buffer(offset + index - 68, 2):le_uint()
+  index = index + instrmnt_leg_exec_grp_comp_count * 32
 
   return index
 end
@@ -17957,11 +17957,11 @@ end
 dissect.order_exec_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header Me: Struct of 10 fields
-  index, rbc_header_me = dissect.rbc_header_me(buffer, index, packet, parent)
+  -- Rbc Header Me Comp: Struct of 10 fields
+  index, rbc_header_me_comp = dissect.rbc_header_me_comp(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
@@ -18023,14 +18023,14 @@ dissect.order_exec_notification_fields = function(buffer, offset, packet, parent
   -- Pad 5: 5 Byte
   index, pad_5 = dissect.pad_5(buffer, index, packet, parent)
 
-  -- Fills Grp: Struct of 6 fields
+  -- Fills Grp Comp: Struct of 6 fields
   for i = 1, no_fills do
-    index = dissect.fills_grp(buffer, index, packet, parent)
+    index = dissect.fills_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Instrmnt Leg Exec Grp: Struct of 7 fields
+  -- Instrmnt Leg Exec Grp Comp: Struct of 7 fields
   for i = 1, no_leg_execs do
-    index = dissect.instrmnt_leg_exec_grp(buffer, index, packet, parent)
+    index = dissect.instrmnt_leg_exec_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -18093,9 +18093,9 @@ end
 size_of.news_broadcast = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.orig_time
 
@@ -18120,11 +18120,11 @@ end
 dissect.news_broadcast_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Orig Time: 8 Byte Unsigned Fixed Width Integer
   index, orig_time = dissect.orig_time(buffer, index, packet, parent)
@@ -18258,9 +18258,9 @@ end
 size_of.new_order_single_short_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.price
 
@@ -18314,11 +18314,11 @@ end
 dissect.new_order_single_short_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
   index, price = dissect.price(buffer, index, packet, parent)
@@ -18400,9 +18400,9 @@ end
 size_of.new_order_single_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.price
 
@@ -18492,11 +18492,11 @@ end
 dissect.new_order_single_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
   index, price = dissect.price(buffer, index, packet, parent)
@@ -18632,9 +18632,9 @@ end
 size_of.new_order_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.response_header_me(buffer, offset + index)
+  index = index + size_of.response_header_me_comp(buffer, offset + index)
 
   index = index + size_of.order_id
 
@@ -18674,11 +18674,11 @@ end
 dissect.new_order_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Response Header Me: Struct of 10 fields
-  index, response_header_me = dissect.response_header_me(buffer, index, packet, parent)
+  -- Response Header Me Comp: Struct of 10 fields
+  index, response_header_me_comp = dissect.response_header_me_comp(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
@@ -18739,9 +18739,9 @@ end
 size_of.new_order_nr_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.nr_response_header_me(buffer, offset + index)
+  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
 
   index = index + size_of.order_id
 
@@ -18777,11 +18777,11 @@ end
 dissect.new_order_nr_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Nr Response Header Me: Struct of 8 fields
-  index, nr_response_header_me = dissect.nr_response_header_me(buffer, index, packet, parent)
+  -- Nr Response Header Me Comp: Struct of 8 fields
+  index, nr_response_header_me_comp = dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
@@ -18836,9 +18836,9 @@ end
 size_of.new_order_complex_short_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.security_id
 
@@ -18896,11 +18896,11 @@ end
 dissect.new_order_complex_short_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
@@ -18988,9 +18988,9 @@ end
 size_of.new_order_complex_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.cl_ord_id
 
@@ -19065,8 +19065,8 @@ size_of.new_order_complex_request = function(buffer, offset)
   index = index + size_of.pad_2
 
   -- Calculate field size from count
-  local leg_ord_grp_count = buffer(offset + index - 3, 1):le_uint()
-  index = index + leg_ord_grp_count * 8
+  local leg_ord_grp_comp_count = buffer(offset + index - 3, 1):le_uint()
+  index = index + leg_ord_grp_comp_count * 8
 
   return index
 end
@@ -19080,11 +19080,11 @@ end
 dissect.new_order_complex_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
   index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
@@ -19194,9 +19194,9 @@ dissect.new_order_complex_request_fields = function(buffer, offset, packet, pare
   -- Pad 2: 2 Byte
   index, pad_2 = dissect.pad_2(buffer, index, packet, parent)
 
-  -- Leg Ord Grp: Struct of 3 fields
+  -- Leg Ord Grp Comp: Struct of 3 fields
   for i = 1, no_legs do
-    index = dissect.leg_ord_grp(buffer, index, packet, parent)
+    index = dissect.leg_ord_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -19215,8 +19215,8 @@ dissect.new_order_complex_request = function(buffer, offset, packet, parent)
   return dissect.new_order_complex_request_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Side Alloc Grp
-size_of.side_alloc_grp = function(buffer, offset)
+-- Calculate size of: Side Alloc Grp Comp
+size_of.side_alloc_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.alloc_qty
@@ -19232,13 +19232,13 @@ size_of.side_alloc_grp = function(buffer, offset)
   return index
 end
 
--- Display: Side Alloc Grp
-display.side_alloc_grp = function(buffer, offset, size, packet, parent)
+-- Display: Side Alloc Grp Comp
+display.side_alloc_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Side Alloc Grp
-dissect.side_alloc_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Side Alloc Grp Comp
+dissect.side_alloc_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer
@@ -19259,26 +19259,26 @@ dissect.side_alloc_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Side Alloc Grp
-dissect.side_alloc_grp = function(buffer, offset, packet, parent)
+-- Dissect: Side Alloc Grp Comp
+dissect.side_alloc_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.side_alloc_grp then
-    local length = size_of.side_alloc_grp(buffer, offset)
+  if show.side_alloc_grp_comp then
+    local length = size_of.side_alloc_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.side_alloc_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.side_alloc_grp, range, display)
+    local display = display.side_alloc_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.side_alloc_grp_comp, range, display)
   end
 
-  return dissect.side_alloc_grp_fields(buffer, offset, packet, parent)
+  return dissect.side_alloc_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Modify Tes Trade Request
 size_of.modify_tes_trade_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.last_px
 
@@ -19315,16 +19315,16 @@ size_of.modify_tes_trade_request = function(buffer, offset)
   index = index + size_of.pad_4
 
   -- Calculate field size from count
-  local side_alloc_grp_count = buffer(offset + index - 46, 1):le_uint()
-  index = index + side_alloc_grp_count * 24
+  local side_alloc_grp_comp_count = buffer(offset + index - 46, 1):le_uint()
+  index = index + side_alloc_grp_comp_count * 24
 
   -- Calculate field size from count
-  local trd_instrmnt_leg_grp_count = buffer(offset + index - 69, 1):le_uint()
-  index = index + trd_instrmnt_leg_grp_count * 16
+  local trd_instrmnt_leg_grp_comp_count = buffer(offset + index - 69, 1):le_uint()
+  index = index + trd_instrmnt_leg_grp_comp_count * 16
 
   -- Calculate field size from count
-  local srqs_related_trade_id_grp_count = buffer(offset + index - 92, 1):le_uint()
-  index = index + srqs_related_trade_id_grp_count * 8
+  local srqs_related_trade_id_grp_comp_count = buffer(offset + index - 92, 1):le_uint()
+  index = index + srqs_related_trade_id_grp_comp_count * 8
 
   return index
 end
@@ -19338,11 +19338,11 @@ end
 dissect.modify_tes_trade_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Unsigned Fixed Width Integer
   index, last_px = dissect.last_px(buffer, index, packet, parent)
@@ -19395,19 +19395,19 @@ dissect.modify_tes_trade_request_fields = function(buffer, offset, packet, paren
   -- Pad 4: 4 Byte
   index, pad_4 = dissect.pad_4(buffer, index, packet, parent)
 
-  -- Side Alloc Grp: Struct of 5 fields
+  -- Side Alloc Grp Comp: Struct of 5 fields
   for i = 1, no_side_allocs do
-    index = dissect.side_alloc_grp(buffer, index, packet, parent)
+    index = dissect.side_alloc_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Trd Instrmnt Leg Grp: Struct of 2 fields
+  -- Trd Instrmnt Leg Grp Comp: Struct of 2 fields
   for i = 1, no_legs do
-    index = dissect.trd_instrmnt_leg_grp(buffer, index, packet, parent)
+    index = dissect.trd_instrmnt_leg_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Srqs Related Trade Id Grp: Struct of 2 fields
+  -- Srqs Related Trade Id Grp Comp: Struct of 2 fields
   for i = 1, no_srqs_related_trade_i_ds do
-    index = dissect.srqs_related_trade_id_grp(buffer, index, packet, parent)
+    index = dissect.srqs_related_trade_id_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -19430,9 +19430,9 @@ end
 size_of.modify_order_single_short_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.cl_ord_id
 
@@ -19488,11 +19488,11 @@ end
 dissect.modify_order_single_short_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
   index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
@@ -19604,9 +19604,9 @@ end
 size_of.modify_order_single_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.order_id
 
@@ -19700,11 +19700,11 @@ end
 dissect.modify_order_single_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
@@ -19846,9 +19846,9 @@ end
 size_of.modify_order_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.response_header_me(buffer, offset + index)
+  index = index + size_of.response_header_me_comp(buffer, offset + index)
 
   index = index + size_of.order_id
 
@@ -19894,11 +19894,11 @@ end
 dissect.modify_order_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Response Header Me: Struct of 10 fields
-  index, response_header_me = dissect.response_header_me(buffer, index, packet, parent)
+  -- Response Header Me Comp: Struct of 10 fields
+  index, response_header_me_comp = dissect.response_header_me_comp(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
@@ -19968,9 +19968,9 @@ end
 size_of.modify_order_nr_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.nr_response_header_me(buffer, offset + index)
+  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
 
   index = index + size_of.order_id
 
@@ -20014,11 +20014,11 @@ end
 dissect.modify_order_nr_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Nr Response Header Me: Struct of 8 fields
-  index, nr_response_header_me = dissect.nr_response_header_me(buffer, index, packet, parent)
+  -- Nr Response Header Me Comp: Struct of 8 fields
+  index, nr_response_header_me_comp = dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
@@ -20085,9 +20085,9 @@ end
 size_of.modify_order_complex_short_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.cl_ord_id
 
@@ -20147,11 +20147,11 @@ end
 dissect.modify_order_complex_short_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
   index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
@@ -20242,9 +20242,9 @@ end
 size_of.modify_order_complex_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.order_id
 
@@ -20325,8 +20325,8 @@ size_of.modify_order_complex_request = function(buffer, offset)
   index = index + size_of.pad_6
 
   -- Calculate field size from count
-  local leg_ord_grp_count = buffer(offset + index - 7, 1):le_uint()
-  index = index + leg_ord_grp_count * 8
+  local leg_ord_grp_comp_count = buffer(offset + index - 7, 1):le_uint()
+  index = index + leg_ord_grp_comp_count * 8
 
   return index
 end
@@ -20340,11 +20340,11 @@ end
 dissect.modify_order_complex_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
@@ -20463,9 +20463,9 @@ dissect.modify_order_complex_request_fields = function(buffer, offset, packet, p
   -- Pad 6: 6 Byte
   index, pad_6 = dissect.pad_6(buffer, index, packet, parent)
 
-  -- Leg Ord Grp: Struct of 3 fields
+  -- Leg Ord Grp Comp: Struct of 3 fields
   for i = 1, no_legs do
-    index = dissect.leg_ord_grp(buffer, index, packet, parent)
+    index = dissect.leg_ord_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -20531,8 +20531,8 @@ dissect.party_sub_id_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Basket Side Alloc Grp
-size_of.basket_side_alloc_grp = function(buffer, offset)
+-- Calculate size of: Basket Side Alloc Grp Comp
+size_of.basket_side_alloc_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.alloc_qty
@@ -20556,13 +20556,13 @@ size_of.basket_side_alloc_grp = function(buffer, offset)
   return index
 end
 
--- Display: Basket Side Alloc Grp
-display.basket_side_alloc_grp = function(buffer, offset, size, packet, parent)
+-- Display: Basket Side Alloc Grp Comp
+display.basket_side_alloc_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Basket Side Alloc Grp
-dissect.basket_side_alloc_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Basket Side Alloc Grp Comp
+dissect.basket_side_alloc_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer
@@ -20595,17 +20595,17 @@ dissect.basket_side_alloc_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Basket Side Alloc Grp
-dissect.basket_side_alloc_grp = function(buffer, offset, packet, parent)
+-- Dissect: Basket Side Alloc Grp Comp
+dissect.basket_side_alloc_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.basket_side_alloc_grp then
-    local length = size_of.basket_side_alloc_grp(buffer, offset)
+  if show.basket_side_alloc_grp_comp then
+    local length = size_of.basket_side_alloc_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.basket_side_alloc_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.basket_side_alloc_grp, range, display)
+    local display = display.basket_side_alloc_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.basket_side_alloc_grp_comp, range, display)
   end
 
-  return dissect.basket_side_alloc_grp_fields(buffer, offset, packet, parent)
+  return dissect.basket_side_alloc_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Effect On Basket
@@ -20682,8 +20682,8 @@ dissect.side_market_segment_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Instrmt Match Side Grp
-size_of.instrmt_match_side_grp = function(buffer, offset)
+-- Calculate size of: Instrmt Match Side Grp Comp
+size_of.instrmt_match_side_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.security_id
@@ -20719,13 +20719,13 @@ size_of.instrmt_match_side_grp = function(buffer, offset)
   return index
 end
 
--- Display: Instrmt Match Side Grp
-display.instrmt_match_side_grp = function(buffer, offset, size, packet, parent)
+-- Display: Instrmt Match Side Grp Comp
+display.instrmt_match_side_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Instrmt Match Side Grp
-dissect.instrmt_match_side_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Instrmt Match Side Grp Comp
+dissect.instrmt_match_side_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
@@ -20776,17 +20776,17 @@ dissect.instrmt_match_side_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Instrmt Match Side Grp
-dissect.instrmt_match_side_grp = function(buffer, offset, packet, parent)
+-- Dissect: Instrmt Match Side Grp Comp
+dissect.instrmt_match_side_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.instrmt_match_side_grp then
-    local length = size_of.instrmt_match_side_grp(buffer, offset)
+  if show.instrmt_match_side_grp_comp then
+    local length = size_of.instrmt_match_side_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.instrmt_match_side_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.instrmt_match_side_grp, range, display)
+    local display = display.instrmt_match_side_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.instrmt_match_side_grp_comp, range, display)
   end
 
-  return dissect.instrmt_match_side_grp_fields(buffer, offset, packet, parent)
+  return dissect.instrmt_match_side_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Root Party Contra Trader
@@ -20859,8 +20859,8 @@ dissect.root_party_sub_id_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Basket Root Party Grp
-size_of.basket_root_party_grp = function(buffer, offset)
+-- Calculate size of: Basket Root Party Grp Comp
+size_of.basket_root_party_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.root_party_sub_id_type
@@ -20876,13 +20876,13 @@ size_of.basket_root_party_grp = function(buffer, offset)
   return index
 end
 
--- Display: Basket Root Party Grp
-display.basket_root_party_grp = function(buffer, offset, size, packet, parent)
+-- Display: Basket Root Party Grp Comp
+display.basket_root_party_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Basket Root Party Grp
-dissect.basket_root_party_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Basket Root Party Grp Comp
+dissect.basket_root_party_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Root Party Sub Id Type: 2 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -20903,17 +20903,17 @@ dissect.basket_root_party_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Basket Root Party Grp
-dissect.basket_root_party_grp = function(buffer, offset, packet, parent)
+-- Dissect: Basket Root Party Grp Comp
+dissect.basket_root_party_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.basket_root_party_grp then
-    local length = size_of.basket_root_party_grp(buffer, offset)
+  if show.basket_root_party_grp_comp then
+    local length = size_of.basket_root_party_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.basket_root_party_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.basket_root_party_grp, range, display)
+    local display = display.basket_root_party_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.basket_root_party_grp_comp, range, display)
   end
 
-  return dissect.basket_root_party_grp_fields(buffer, offset, packet, parent)
+  return dissect.basket_root_party_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Basket Trade Report Text
@@ -21040,9 +21040,9 @@ end
 size_of.modify_basket_trade_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.basket_trd_match_id
 
@@ -21069,16 +21069,16 @@ size_of.modify_basket_trade_request = function(buffer, offset)
   index = index + size_of.pad_6
 
   -- Calculate field size from count
-  local basket_root_party_grp_count = buffer(offset + index - 49, 1):le_uint()
-  index = index + basket_root_party_grp_count * 40
+  local basket_root_party_grp_comp_count = buffer(offset + index - 49, 1):le_uint()
+  index = index + basket_root_party_grp_comp_count * 40
 
   -- Calculate field size from count
-  local instrmt_match_side_grp_count = buffer(offset + index - 88, 1):le_uint()
-  index = index + instrmt_match_side_grp_count * 80
+  local instrmt_match_side_grp_comp_count = buffer(offset + index - 88, 1):le_uint()
+  index = index + instrmt_match_side_grp_comp_count * 80
 
   -- Calculate field size from count
-  local basket_side_alloc_grp_count = buffer(offset + index - 167, 1):le_uint()
-  index = index + basket_side_alloc_grp_count * 32
+  local basket_side_alloc_grp_comp_count = buffer(offset + index - 167, 1):le_uint()
+  index = index + basket_side_alloc_grp_comp_count * 32
 
   return index
 end
@@ -21092,11 +21092,11 @@ end
 dissect.modify_basket_trade_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Basket Trd Match Id: 8 Byte Unsigned Fixed Width Integer
   index, basket_trd_match_id = dissect.basket_trd_match_id(buffer, index, packet, parent)
@@ -21134,19 +21134,19 @@ dissect.modify_basket_trade_request_fields = function(buffer, offset, packet, pa
   -- Pad 6: 6 Byte
   index, pad_6 = dissect.pad_6(buffer, index, packet, parent)
 
-  -- Basket Root Party Grp: Struct of 5 fields
+  -- Basket Root Party Grp Comp: Struct of 5 fields
   for i = 1, no_basket_root_party_grps do
-    index = dissect.basket_root_party_grp(buffer, index, packet, parent)
+    index = dissect.basket_root_party_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Instrmt Match Side Grp: Struct of 15 fields
+  -- Instrmt Match Side Grp Comp: Struct of 15 fields
   for i = 1, no_instrmt_match_sides do
-    index = dissect.instrmt_match_side_grp(buffer, index, packet, parent)
+    index = dissect.instrmt_match_side_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Basket Side Alloc Grp: Struct of 9 fields
+  -- Basket Side Alloc Grp Comp: Struct of 9 fields
   for i = 1, no_basket_side_alloc do
-    index = dissect.basket_side_alloc_grp(buffer, index, packet, parent)
+    index = dissect.basket_side_alloc_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -21342,8 +21342,8 @@ dissect.bid_cxl_size = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Quote Entry Ack Grp
-size_of.quote_entry_ack_grp = function(buffer, offset)
+-- Calculate size of: Quote Entry Ack Grp Comp
+size_of.quote_entry_ack_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.security_id
@@ -21361,13 +21361,13 @@ size_of.quote_entry_ack_grp = function(buffer, offset)
   return index
 end
 
--- Display: Quote Entry Ack Grp
-display.quote_entry_ack_grp = function(buffer, offset, size, packet, parent)
+-- Display: Quote Entry Ack Grp Comp
+display.quote_entry_ack_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Quote Entry Ack Grp
-dissect.quote_entry_ack_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Entry Ack Grp Comp
+dissect.quote_entry_ack_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
@@ -21391,17 +21391,17 @@ dissect.quote_entry_ack_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Quote Entry Ack Grp
-dissect.quote_entry_ack_grp = function(buffer, offset, packet, parent)
+-- Dissect: Quote Entry Ack Grp Comp
+dissect.quote_entry_ack_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.quote_entry_ack_grp then
-    local length = size_of.quote_entry_ack_grp(buffer, offset)
+  if show.quote_entry_ack_grp_comp then
+    local length = size_of.quote_entry_ack_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.quote_entry_ack_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.quote_entry_ack_grp, range, display)
+    local display = display.quote_entry_ack_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.quote_entry_ack_grp_comp, range, display)
   end
 
-  return dissect.quote_entry_ack_grp_fields(buffer, offset, packet, parent)
+  return dissect.quote_entry_ack_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: No Quote Entries
@@ -21448,9 +21448,9 @@ end
 size_of.mass_quote_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.nr_response_header_me(buffer, offset + index)
+  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
 
   index = index + size_of.quote_id
 
@@ -21463,8 +21463,8 @@ size_of.mass_quote_response = function(buffer, offset)
   index = index + size_of.pad_3
 
   -- Calculate field size from count
-  local quote_entry_ack_grp_count = buffer(offset + index - 4, 1):le_uint()
-  index = index + quote_entry_ack_grp_count * 32
+  local quote_entry_ack_grp_comp_count = buffer(offset + index - 4, 1):le_uint()
+  index = index + quote_entry_ack_grp_comp_count * 32
 
   return index
 end
@@ -21478,11 +21478,11 @@ end
 dissect.mass_quote_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Nr Response Header Me: Struct of 8 fields
-  index, nr_response_header_me = dissect.nr_response_header_me(buffer, index, packet, parent)
+  -- Nr Response Header Me Comp: Struct of 8 fields
+  index, nr_response_header_me_comp = dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
   -- Quote Id: 8 Byte Unsigned Fixed Width Integer
   index, quote_id = dissect.quote_id(buffer, index, packet, parent)
@@ -21499,9 +21499,9 @@ dissect.mass_quote_response_fields = function(buffer, offset, packet, parent)
   -- Pad 3: 3 Byte
   index, pad_3 = dissect.pad_3(buffer, index, packet, parent)
 
-  -- Quote Entry Ack Grp: Struct of 6 fields
+  -- Quote Entry Ack Grp Comp: Struct of 6 fields
   for i = 1, no_quote_entries do
-    index = dissect.quote_entry_ack_grp(buffer, index, packet, parent)
+    index = dissect.quote_entry_ack_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -21520,8 +21520,8 @@ dissect.mass_quote_response = function(buffer, offset, packet, parent)
   return dissect.mass_quote_response_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Quote Entry Grp
-size_of.quote_entry_grp = function(buffer, offset)
+-- Calculate size of: Quote Entry Grp Comp
+size_of.quote_entry_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.security_id
@@ -21537,13 +21537,13 @@ size_of.quote_entry_grp = function(buffer, offset)
   return index
 end
 
--- Display: Quote Entry Grp
-display.quote_entry_grp = function(buffer, offset, size, packet, parent)
+-- Display: Quote Entry Grp Comp
+display.quote_entry_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Quote Entry Grp
-dissect.quote_entry_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Entry Grp Comp
+dissect.quote_entry_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
@@ -21564,17 +21564,17 @@ dissect.quote_entry_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Quote Entry Grp
-dissect.quote_entry_grp = function(buffer, offset, packet, parent)
+-- Dissect: Quote Entry Grp Comp
+dissect.quote_entry_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.quote_entry_grp then
-    local length = size_of.quote_entry_grp(buffer, offset)
+  if show.quote_entry_grp_comp then
+    local length = size_of.quote_entry_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.quote_entry_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.quote_entry_grp, range, display)
+    local display = display.quote_entry_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.quote_entry_grp_comp, range, display)
   end
 
-  return dissect.quote_entry_grp_fields(buffer, offset, packet, parent)
+  return dissect.quote_entry_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Quote Size Type
@@ -21608,9 +21608,9 @@ end
 size_of.mass_quote_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.quote_id
 
@@ -21643,8 +21643,8 @@ size_of.mass_quote_request = function(buffer, offset)
   index = index + size_of.pad_6
 
   -- Calculate field size from count
-  local quote_entry_grp_count = buffer(offset + index - 9, 1):le_uint()
-  index = index + quote_entry_grp_count * 40
+  local quote_entry_grp_comp_count = buffer(offset + index - 9, 1):le_uint()
+  index = index + quote_entry_grp_comp_count * 40
 
   return index
 end
@@ -21658,11 +21658,11 @@ end
 dissect.mass_quote_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Quote Id: 8 Byte Unsigned Fixed Width Integer
   index, quote_id = dissect.quote_id(buffer, index, packet, parent)
@@ -21709,9 +21709,9 @@ dissect.mass_quote_request_fields = function(buffer, offset, packet, parent)
   -- Pad 6: 6 Byte
   index, pad_6 = dissect.pad_6(buffer, index, packet, parent)
 
-  -- Quote Entry Grp: Struct of 5 fields
+  -- Quote Entry Grp Comp: Struct of 5 fields
   for i = 1, no_quote_entries do
-    index = dissect.quote_entry_grp(buffer, index, packet, parent)
+    index = dissect.quote_entry_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -21734,9 +21734,9 @@ end
 size_of.mm_parameter_definition_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.nr_response_header_me(buffer, offset + index)
+  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
 
   index = index + size_of.exec_id
 
@@ -21752,11 +21752,11 @@ end
 dissect.mm_parameter_definition_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Nr Response Header Me: Struct of 8 fields
-  index, nr_response_header_me = dissect.nr_response_header_me(buffer, index, packet, parent)
+  -- Nr Response Header Me Comp: Struct of 8 fields
+  index, nr_response_header_me_comp = dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
@@ -21863,9 +21863,9 @@ end
 size_of.mm_parameter_definition_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.exposure_duration
 
@@ -21895,11 +21895,11 @@ end
 dissect.mm_parameter_definition_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Exposure Duration: 8 Byte Signed Fixed Width Integer
   index, exposure_duration = dissect.exposure_duration(buffer, index, packet, parent)
@@ -21945,9 +21945,9 @@ end
 size_of.logout_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.response_header(buffer, offset + index)
+  index = index + size_of.response_header_comp(buffer, offset + index)
 
   return index
 end
@@ -21961,11 +21961,11 @@ end
 dissect.logout_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Response Header: Struct of 4 fields
-  index, response_header = dissect.response_header(buffer, index, packet, parent)
+  -- Response Header Comp: Struct of 4 fields
+  index, response_header_comp = dissect.response_header_comp(buffer, index, packet, parent)
 
   return index
 end
@@ -21987,9 +21987,9 @@ end
 size_of.logout_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   return index
 end
@@ -22003,11 +22003,11 @@ end
 dissect.logout_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   return index
 end
@@ -22149,9 +22149,9 @@ end
 size_of.logon_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.response_header(buffer, offset + index)
+  index = index + size_of.response_header_comp(buffer, offset + index)
 
   index = index + size_of.throttle_time_interval
 
@@ -22185,11 +22185,11 @@ end
 dissect.logon_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Response Header: Struct of 4 fields
-  index, response_header = dissect.response_header(buffer, index, packet, parent)
+  -- Response Header Comp: Struct of 4 fields
+  index, response_header_comp = dissect.response_header_comp(buffer, index, packet, parent)
 
   -- Throttle Time Interval: 8 Byte Signed Fixed Width Integer
   index, throttle_time_interval = dissect.throttle_time_interval(buffer, index, packet, parent)
@@ -22454,9 +22454,9 @@ end
 size_of.logon_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.heart_bt_int
 
@@ -22498,11 +22498,11 @@ end
 dissect.logon_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Heart Bt Int: 4 Byte Unsigned Fixed Width Integer
   index, heart_bt_int = dissect.heart_bt_int(buffer, index, packet, parent)
@@ -22596,9 +22596,9 @@ end
 size_of.legal_notification_broadcast = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.transact_time
 
@@ -22623,11 +22623,11 @@ end
 dissect.legal_notification_broadcast_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = dissect.transact_time(buffer, index, packet, parent)
@@ -22750,8 +22750,8 @@ dissect.party_detail_id_executing_trader = function(buffer, offset, packet, pare
   return offset + length, value
 end
 
--- Calculate size of: Party Details Grp
-size_of.party_details_grp = function(buffer, offset)
+-- Calculate size of: Party Details Grp Comp
+size_of.party_details_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.party_detail_id_executing_trader
@@ -22769,13 +22769,13 @@ size_of.party_details_grp = function(buffer, offset)
   return index
 end
 
--- Display: Party Details Grp
-display.party_details_grp = function(buffer, offset, size, packet, parent)
+-- Display: Party Details Grp Comp
+display.party_details_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Party Details Grp
-dissect.party_details_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Party Details Grp Comp
+dissect.party_details_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Party Detail Id Executing Trader: 4 Byte Unsigned Fixed Width Integer
@@ -22799,17 +22799,17 @@ dissect.party_details_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Party Details Grp
-dissect.party_details_grp = function(buffer, offset, packet, parent)
+-- Dissect: Party Details Grp Comp
+dissect.party_details_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.party_details_grp then
-    local length = size_of.party_details_grp(buffer, offset)
+  if show.party_details_grp_comp then
+    local length = size_of.party_details_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.party_details_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.party_details_grp, range, display)
+    local display = display.party_details_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.party_details_grp_comp, range, display)
   end
 
-  return dissect.party_details_grp_fields(buffer, offset, packet, parent)
+  return dissect.party_details_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: No Party Details
@@ -22856,9 +22856,9 @@ end
 size_of.inquire_user_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.response_header(buffer, offset + index)
+  index = index + size_of.response_header_comp(buffer, offset + index)
 
   index = index + size_of.last_entity_processed
 
@@ -22867,8 +22867,8 @@ size_of.inquire_user_response = function(buffer, offset)
   index = index + size_of.pad_6
 
   -- Calculate field size from count
-  local party_details_grp_count = buffer(offset + index - 8, 2):le_uint()
-  index = index + party_details_grp_count * 16
+  local party_details_grp_comp_count = buffer(offset + index - 8, 2):le_uint()
+  index = index + party_details_grp_comp_count * 16
 
   return index
 end
@@ -22882,11 +22882,11 @@ end
 dissect.inquire_user_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Response Header: Struct of 4 fields
-  index, response_header = dissect.response_header(buffer, index, packet, parent)
+  -- Response Header Comp: Struct of 4 fields
+  index, response_header_comp = dissect.response_header_comp(buffer, index, packet, parent)
 
   -- Last Entity Processed: 16 Byte
   index, last_entity_processed = dissect.last_entity_processed(buffer, index, packet, parent)
@@ -22897,9 +22897,9 @@ dissect.inquire_user_response_fields = function(buffer, offset, packet, parent)
   -- Pad 6: 6 Byte
   index, pad_6 = dissect.pad_6(buffer, index, packet, parent)
 
-  -- Party Details Grp: Struct of 6 fields
+  -- Party Details Grp Comp: Struct of 6 fields
   for i = 1, no_party_details do
-    index = dissect.party_details_grp(buffer, index, packet, parent)
+    index = dissect.party_details_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -22922,9 +22922,9 @@ end
 size_of.inquire_user_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.last_entity_processed
 
@@ -22940,11 +22940,11 @@ end
 dissect.inquire_user_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Last Entity Processed: 16 Byte
   index, last_entity_processed = dissect.last_entity_processed(buffer, index, packet, parent)
@@ -23025,8 +23025,8 @@ dissect.session_mode = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Sessions Grp
-size_of.sessions_grp = function(buffer, offset)
+-- Calculate size of: Sessions Grp Comp
+size_of.sessions_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.party_id_session_id
@@ -23040,13 +23040,13 @@ size_of.sessions_grp = function(buffer, offset)
   return index
 end
 
--- Display: Sessions Grp
-display.sessions_grp = function(buffer, offset, size, packet, parent)
+-- Display: Sessions Grp Comp
+display.sessions_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Sessions Grp
-dissect.sessions_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Sessions Grp Comp
+dissect.sessions_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer
@@ -23064,17 +23064,17 @@ dissect.sessions_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Sessions Grp
-dissect.sessions_grp = function(buffer, offset, packet, parent)
+-- Dissect: Sessions Grp Comp
+dissect.sessions_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.sessions_grp then
-    local length = size_of.sessions_grp(buffer, offset)
+  if show.sessions_grp_comp then
+    local length = size_of.sessions_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.sessions_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.sessions_grp, range, display)
+    local display = display.sessions_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.sessions_grp_comp, range, display)
   end
 
-  return dissect.sessions_grp_fields(buffer, offset, packet, parent)
+  return dissect.sessions_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: No Sessions
@@ -23101,17 +23101,17 @@ end
 size_of.inquire_session_list_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.response_header(buffer, offset + index)
+  index = index + size_of.response_header_comp(buffer, offset + index)
 
   index = index + size_of.no_sessions
 
   index = index + size_of.pad_6
 
   -- Calculate field size from count
-  local sessions_grp_count = buffer(offset + index - 8, 2):le_uint()
-  index = index + sessions_grp_count * 8
+  local sessions_grp_comp_count = buffer(offset + index - 8, 2):le_uint()
+  index = index + sessions_grp_comp_count * 8
 
   return index
 end
@@ -23125,11 +23125,11 @@ end
 dissect.inquire_session_list_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Response Header: Struct of 4 fields
-  index, response_header = dissect.response_header(buffer, index, packet, parent)
+  -- Response Header Comp: Struct of 4 fields
+  index, response_header_comp = dissect.response_header_comp(buffer, index, packet, parent)
 
   -- No Sessions: 2 Byte Unsigned Fixed Width Integer
   index, no_sessions = dissect.no_sessions(buffer, index, packet, parent)
@@ -23137,9 +23137,9 @@ dissect.inquire_session_list_response_fields = function(buffer, offset, packet, 
   -- Pad 6: 6 Byte
   index, pad_6 = dissect.pad_6(buffer, index, packet, parent)
 
-  -- Sessions Grp: Struct of 4 fields
+  -- Sessions Grp Comp: Struct of 4 fields
   for i = 1, no_sessions do
-    index = dissect.sessions_grp(buffer, index, packet, parent)
+    index = dissect.sessions_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -23162,9 +23162,9 @@ end
 size_of.inquire_session_list_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   return index
 end
@@ -23178,11 +23178,11 @@ end
 dissect.inquire_session_list_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   return index
 end
@@ -23224,9 +23224,9 @@ end
 size_of.inquire_pre_trade_risk_limits_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.market_segment_id
 
@@ -23250,11 +23250,11 @@ end
 dissect.inquire_pre_trade_risk_limits_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer
   index, market_segment_id = dissect.market_segment_id(buffer, index, packet, parent)
@@ -23287,8 +23287,8 @@ dissect.inquire_pre_trade_risk_limits_request = function(buffer, offset, packet,
   return dissect.inquire_pre_trade_risk_limits_request_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Mm Parameter Grp
-size_of.mm_parameter_grp = function(buffer, offset)
+-- Calculate size of: Mm Parameter Grp Comp
+size_of.mm_parameter_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.exposure_duration
@@ -23306,13 +23306,13 @@ size_of.mm_parameter_grp = function(buffer, offset)
   return index
 end
 
--- Display: Mm Parameter Grp
-display.mm_parameter_grp = function(buffer, offset, size, packet, parent)
+-- Display: Mm Parameter Grp Comp
+display.mm_parameter_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Mm Parameter Grp
-dissect.mm_parameter_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Mm Parameter Grp Comp
+dissect.mm_parameter_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Exposure Duration: 8 Byte Signed Fixed Width Integer
@@ -23336,17 +23336,17 @@ dissect.mm_parameter_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Mm Parameter Grp
-dissect.mm_parameter_grp = function(buffer, offset, packet, parent)
+-- Dissect: Mm Parameter Grp Comp
+dissect.mm_parameter_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.mm_parameter_grp then
-    local length = size_of.mm_parameter_grp(buffer, offset)
+  if show.mm_parameter_grp_comp then
+    local length = size_of.mm_parameter_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.mm_parameter_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.mm_parameter_grp, range, display)
+    local display = display.mm_parameter_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.mm_parameter_grp_comp, range, display)
   end
 
-  return dissect.mm_parameter_grp_fields(buffer, offset, packet, parent)
+  return dissect.mm_parameter_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: No Mm Parameters
@@ -23393,9 +23393,9 @@ end
 size_of.inquire_mm_parameter_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.nr_response_header_me(buffer, offset + index)
+  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
 
   index = index + size_of.mm_parameter_report_id
 
@@ -23406,8 +23406,8 @@ size_of.inquire_mm_parameter_response = function(buffer, offset)
   index = index + size_of.pad_3
 
   -- Calculate field size from count
-  local mm_parameter_grp_count = buffer(offset + index - 4, 1):le_uint()
-  index = index + mm_parameter_grp_count * 40
+  local mm_parameter_grp_comp_count = buffer(offset + index - 4, 1):le_uint()
+  index = index + mm_parameter_grp_comp_count * 40
 
   return index
 end
@@ -23421,11 +23421,11 @@ end
 dissect.inquire_mm_parameter_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Nr Response Header Me: Struct of 8 fields
-  index, nr_response_header_me = dissect.nr_response_header_me(buffer, index, packet, parent)
+  -- Nr Response Header Me Comp: Struct of 8 fields
+  index, nr_response_header_me_comp = dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
   -- Mm Parameter Report Id: 8 Byte Unsigned Fixed Width Integer
   index, mm_parameter_report_id = dissect.mm_parameter_report_id(buffer, index, packet, parent)
@@ -23439,9 +23439,9 @@ dissect.inquire_mm_parameter_response_fields = function(buffer, offset, packet, 
   -- Pad 3: 3 Byte
   index, pad_3 = dissect.pad_3(buffer, index, packet, parent)
 
-  -- Mm Parameter Grp: Struct of 6 fields
+  -- Mm Parameter Grp Comp: Struct of 6 fields
   for i = 1, no_mm_parameters do
-    index = dissect.mm_parameter_grp(buffer, index, packet, parent)
+    index = dissect.mm_parameter_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -23464,9 +23464,9 @@ end
 size_of.inquire_mm_parameter_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.market_segment_id
 
@@ -23484,11 +23484,11 @@ end
 dissect.inquire_mm_parameter_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer
   index, market_segment_id = dissect.market_segment_id(buffer, index, packet, parent)
@@ -23536,8 +23536,8 @@ dissect.party_id_origination_market = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Enrichment Rules Grp
-size_of.enrichment_rules_grp = function(buffer, offset)
+-- Calculate size of: Enrichment Rules Grp Comp
+size_of.enrichment_rules_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.enrichment_rule_id
@@ -23565,13 +23565,13 @@ size_of.enrichment_rules_grp = function(buffer, offset)
   return index
 end
 
--- Display: Enrichment Rules Grp
-display.enrichment_rules_grp = function(buffer, offset, size, packet, parent)
+-- Display: Enrichment Rules Grp Comp
+display.enrichment_rules_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Enrichment Rules Grp
-dissect.enrichment_rules_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Enrichment Rules Grp Comp
+dissect.enrichment_rules_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Enrichment Rule Id: 2 Byte Unsigned Fixed Width Integer
@@ -23610,17 +23610,17 @@ dissect.enrichment_rules_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Enrichment Rules Grp
-dissect.enrichment_rules_grp = function(buffer, offset, packet, parent)
+-- Dissect: Enrichment Rules Grp Comp
+dissect.enrichment_rules_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.enrichment_rules_grp then
-    local length = size_of.enrichment_rules_grp(buffer, offset)
+  if show.enrichment_rules_grp_comp then
+    local length = size_of.enrichment_rules_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.enrichment_rules_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.enrichment_rules_grp, range, display)
+    local display = display.enrichment_rules_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.enrichment_rules_grp_comp, range, display)
   end
 
-  return dissect.enrichment_rules_grp_fields(buffer, offset, packet, parent)
+  return dissect.enrichment_rules_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: No Enrichment Rules
@@ -23647,9 +23647,9 @@ end
 size_of.inquire_enrichment_rule_id_list_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.response_header(buffer, offset + index)
+  index = index + size_of.response_header_comp(buffer, offset + index)
 
   index = index + size_of.last_entity_processed
 
@@ -23658,8 +23658,8 @@ size_of.inquire_enrichment_rule_id_list_response = function(buffer, offset)
   index = index + size_of.pad_6
 
   -- Calculate field size from count
-  local enrichment_rules_grp_count = buffer(offset + index - 8, 2):le_uint()
-  index = index + enrichment_rules_grp_count * 64
+  local enrichment_rules_grp_comp_count = buffer(offset + index - 8, 2):le_uint()
+  index = index + enrichment_rules_grp_comp_count * 64
 
   return index
 end
@@ -23673,11 +23673,11 @@ end
 dissect.inquire_enrichment_rule_id_list_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Response Header: Struct of 4 fields
-  index, response_header = dissect.response_header(buffer, index, packet, parent)
+  -- Response Header Comp: Struct of 4 fields
+  index, response_header_comp = dissect.response_header_comp(buffer, index, packet, parent)
 
   -- Last Entity Processed: 16 Byte
   index, last_entity_processed = dissect.last_entity_processed(buffer, index, packet, parent)
@@ -23688,9 +23688,9 @@ dissect.inquire_enrichment_rule_id_list_response_fields = function(buffer, offse
   -- Pad 6: 6 Byte
   index, pad_6 = dissect.pad_6(buffer, index, packet, parent)
 
-  -- Enrichment Rules Grp: Struct of 11 fields
+  -- Enrichment Rules Grp Comp: Struct of 11 fields
   for i = 1, no_enrichment_rules do
-    index = dissect.enrichment_rules_grp(buffer, index, packet, parent)
+    index = dissect.enrichment_rules_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -23713,9 +23713,9 @@ end
 size_of.inquire_enrichment_rule_id_list_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.last_entity_processed
 
@@ -23731,11 +23731,11 @@ end
 dissect.inquire_enrichment_rule_id_list_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Last Entity Processed: 16 Byte
   index, last_entity_processed = dissect.last_entity_processed(buffer, index, packet, parent)
@@ -23760,9 +23760,9 @@ end
 size_of.heartbeat_notification = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.notif_header(buffer, offset + index)
+  index = index + size_of.notif_header_comp(buffer, offset + index)
 
   return index
 end
@@ -23776,11 +23776,11 @@ end
 dissect.heartbeat_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Notif Header: Struct of 1 fields
-  index, notif_header = dissect.notif_header(buffer, index, packet, parent)
+  -- Notif Header Comp: Struct of 1 fields
+  index, notif_header_comp = dissect.notif_header_comp(buffer, index, packet, parent)
 
   return index
 end
@@ -23802,7 +23802,7 @@ end
 size_of.heartbeat = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
   return index
 end
@@ -23816,8 +23816,8 @@ end
 dissect.heartbeat_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
   return index
 end
@@ -23839,9 +23839,9 @@ end
 size_of.forced_user_logout_notification = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.notif_header(buffer, offset + index)
+  index = index + size_of.notif_header_comp(buffer, offset + index)
 
   index = index + size_of.user_status
 
@@ -23868,11 +23868,11 @@ end
 dissect.forced_user_logout_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Notif Header: Struct of 1 fields
-  index, notif_header = dissect.notif_header(buffer, index, packet, parent)
+  -- Notif Header Comp: Struct of 1 fields
+  index, notif_header_comp = dissect.notif_header_comp(buffer, index, packet, parent)
 
   -- User Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, user_status = dissect.user_status(buffer, index, packet, parent)
@@ -23912,9 +23912,9 @@ end
 size_of.forced_logout_notification = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.notif_header(buffer, offset + index)
+  index = index + size_of.notif_header_comp(buffer, offset + index)
 
   index = index + size_of.var_text_len
 
@@ -23935,11 +23935,11 @@ end
 dissect.forced_logout_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Notif Header: Struct of 1 fields
-  index, notif_header = dissect.notif_header(buffer, index, packet, parent)
+  -- Notif Header Comp: Struct of 1 fields
+  index, notif_header_comp = dissect.notif_header_comp(buffer, index, packet, parent)
 
   -- Var Text Len: 2 Byte Unsigned Fixed Width Integer
   index, var_text_len = dissect.var_text_len(buffer, index, packet, parent)
@@ -23970,9 +23970,9 @@ end
 size_of.enter_tes_trade_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.security_id
 
@@ -24041,28 +24041,28 @@ size_of.enter_tes_trade_request = function(buffer, offset)
   index = index + size_of.pad_7
 
   -- Calculate field size from count
-  local side_alloc_grp_count = buffer(offset + index - 129, 1):le_uint()
-  index = index + side_alloc_grp_count * 24
+  local side_alloc_grp_comp_count = buffer(offset + index - 129, 1):le_uint()
+  index = index + side_alloc_grp_comp_count * 24
 
   -- Calculate field size from count
-  local trd_instrmnt_leg_grp_count = buffer(offset + index - 151, 1):le_uint()
-  index = index + trd_instrmnt_leg_grp_count * 16
+  local trd_instrmnt_leg_grp_comp_count = buffer(offset + index - 151, 1):le_uint()
+  index = index + trd_instrmnt_leg_grp_comp_count * 16
 
   -- Calculate field size from count
-  local instrument_event_grp_count = buffer(offset + index - 168, 1):le_uint()
-  index = index + instrument_event_grp_count * 8
+  local instrument_event_grp_comp_count = buffer(offset + index - 168, 1):le_uint()
+  index = index + instrument_event_grp_comp_count * 8
 
   -- Calculate field size from count
-  local instrument_attribute_grp_count = buffer(offset + index - 174, 1):le_uint()
-  index = index + instrument_attribute_grp_count * 40
+  local instrument_attribute_grp_comp_count = buffer(offset + index - 174, 1):le_uint()
+  index = index + instrument_attribute_grp_comp_count * 40
 
   -- Calculate field size from count
-  local underlying_stip_grp_count = buffer(offset + index - 213, 1):le_uint()
-  index = index + underlying_stip_grp_count * 40
+  local underlying_stip_grp_comp_count = buffer(offset + index - 213, 1):le_uint()
+  index = index + underlying_stip_grp_comp_count * 40
 
   -- Calculate field size from count
-  local srqs_related_trade_id_grp_count = buffer(offset + index - 264, 1):le_uint()
-  index = index + srqs_related_trade_id_grp_count * 8
+  local srqs_related_trade_id_grp_comp_count = buffer(offset + index - 264, 1):le_uint()
+  index = index + srqs_related_trade_id_grp_comp_count * 8
 
   return index
 end
@@ -24076,11 +24076,11 @@ end
 dissect.enter_tes_trade_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
@@ -24181,34 +24181,34 @@ dissect.enter_tes_trade_request_fields = function(buffer, offset, packet, parent
   -- Pad 7: 7 Byte
   index, pad_7 = dissect.pad_7(buffer, index, packet, parent)
 
-  -- Side Alloc Grp: Struct of 5 fields
+  -- Side Alloc Grp Comp: Struct of 5 fields
   for i = 1, no_side_allocs do
-    index = dissect.side_alloc_grp(buffer, index, packet, parent)
+    index = dissect.side_alloc_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Trd Instrmnt Leg Grp: Struct of 2 fields
+  -- Trd Instrmnt Leg Grp Comp: Struct of 2 fields
   for i = 1, no_legs do
-    index = dissect.trd_instrmnt_leg_grp(buffer, index, packet, parent)
+    index = dissect.trd_instrmnt_leg_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Instrument Event Grp: Struct of 3 fields
+  -- Instrument Event Grp Comp: Struct of 3 fields
   for i = 1, no_events do
-    index = dissect.instrument_event_grp(buffer, index, packet, parent)
+    index = dissect.instrument_event_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Instrument Attribute Grp: Struct of 3 fields
+  -- Instrument Attribute Grp Comp: Struct of 3 fields
   for i = 1, no_instr_attrib do
-    index = dissect.instrument_attribute_grp(buffer, index, packet, parent)
+    index = dissect.instrument_attribute_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Underlying Stip Grp: Struct of 3 fields
+  -- Underlying Stip Grp Comp: Struct of 3 fields
   for i = 1, no_underlying_stips do
-    index = dissect.underlying_stip_grp(buffer, index, packet, parent)
+    index = dissect.underlying_stip_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Srqs Related Trade Id Grp: Struct of 2 fields
+  -- Srqs Related Trade Id Grp Comp: Struct of 2 fields
   for i = 1, no_srqs_related_trade_i_ds do
-    index = dissect.srqs_related_trade_id_grp(buffer, index, packet, parent)
+    index = dissect.srqs_related_trade_id_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -24254,8 +24254,8 @@ dissect.leg_input_source = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Side Cross Leg Grp
-size_of.side_cross_leg_grp = function(buffer, offset)
+-- Calculate size of: Side Cross Leg Grp Comp
+size_of.side_cross_leg_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.leg_input_source
@@ -24269,13 +24269,13 @@ size_of.side_cross_leg_grp = function(buffer, offset)
   return index
 end
 
--- Display: Side Cross Leg Grp
-display.side_cross_leg_grp = function(buffer, offset, size, packet, parent)
+-- Display: Side Cross Leg Grp Comp
+display.side_cross_leg_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Side Cross Leg Grp
-dissect.side_cross_leg_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Side Cross Leg Grp Comp
+dissect.side_cross_leg_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Leg Input Source: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -24293,17 +24293,17 @@ dissect.side_cross_leg_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Side Cross Leg Grp
-dissect.side_cross_leg_grp = function(buffer, offset, packet, parent)
+-- Dissect: Side Cross Leg Grp Comp
+dissect.side_cross_leg_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.side_cross_leg_grp then
-    local length = size_of.side_cross_leg_grp(buffer, offset)
+  if show.side_cross_leg_grp_comp then
+    local length = size_of.side_cross_leg_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.side_cross_leg_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.side_cross_leg_grp, range, display)
+    local display = display.side_cross_leg_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.side_cross_leg_grp_comp, range, display)
   end
 
-  return dissect.side_cross_leg_grp_fields(buffer, offset, packet, parent)
+  return dissect.side_cross_leg_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Side Compliance Text
@@ -24374,8 +24374,8 @@ dissect.maximum_price = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Cross Request Side Grp
-size_of.cross_request_side_grp = function(buffer, offset)
+-- Calculate size of: Cross Request Side Grp Comp
+size_of.cross_request_side_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.party_id_client_id
@@ -24427,13 +24427,13 @@ size_of.cross_request_side_grp = function(buffer, offset)
   return index
 end
 
--- Display: Cross Request Side Grp
-display.cross_request_side_grp = function(buffer, offset, size, packet, parent)
+-- Display: Cross Request Side Grp Comp
+display.cross_request_side_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Cross Request Side Grp
-dissect.cross_request_side_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Cross Request Side Grp Comp
+dissect.cross_request_side_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer
@@ -24508,17 +24508,17 @@ dissect.cross_request_side_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Cross Request Side Grp
-dissect.cross_request_side_grp = function(buffer, offset, packet, parent)
+-- Dissect: Cross Request Side Grp Comp
+dissect.cross_request_side_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.cross_request_side_grp then
-    local length = size_of.cross_request_side_grp(buffer, offset)
+  if show.cross_request_side_grp_comp then
+    local length = size_of.cross_request_side_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cross_request_side_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.cross_request_side_grp, range, display)
+    local display = display.cross_request_side_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.cross_request_side_grp_comp, range, display)
   end
 
-  return dissect.cross_request_side_grp_fields(buffer, offset, packet, parent)
+  return dissect.cross_request_side_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Order Qty Disclosure Instruction
@@ -24632,9 +24632,9 @@ end
 size_of.enter_clip_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.security_id
 
@@ -24665,12 +24665,12 @@ size_of.enter_clip_request = function(buffer, offset)
   index = index + size_of.pad_4
 
   -- Calculate field size from count
-  local cross_request_side_grp_count = buffer(offset + index - 20, 1):le_uint()
-  index = index + cross_request_side_grp_count * 160
+  local cross_request_side_grp_comp_count = buffer(offset + index - 20, 1):le_uint()
+  index = index + cross_request_side_grp_comp_count * 160
 
   -- Calculate field size from count
-  local side_cross_leg_grp_count = buffer(offset + index - 179, 1):le_uint()
-  index = index + side_cross_leg_grp_count * 8
+  local side_cross_leg_grp_comp_count = buffer(offset + index - 179, 1):le_uint()
+  index = index + side_cross_leg_grp_comp_count * 8
 
   return index
 end
@@ -24684,11 +24684,11 @@ end
 dissect.enter_clip_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
@@ -24732,14 +24732,14 @@ dissect.enter_clip_request_fields = function(buffer, offset, packet, parent)
   -- Pad 4: 4 Byte
   index, pad_4 = dissect.pad_4(buffer, index, packet, parent)
 
-  -- Cross Request Side Grp: Struct of 23 fields
+  -- Cross Request Side Grp Comp: Struct of 23 fields
   for i = 1, no_sides do
-    index = dissect.cross_request_side_grp(buffer, index, packet, parent)
+    index = dissect.cross_request_side_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Side Cross Leg Grp: Struct of 4 fields
+  -- Side Cross Leg Grp Comp: Struct of 4 fields
   for i = 1, no_cross_legs do
-    index = dissect.side_cross_leg_grp(buffer, index, packet, parent)
+    index = dissect.side_cross_leg_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -24792,9 +24792,9 @@ end
 size_of.enter_basket_trade_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.market_segment_id
 
@@ -24819,16 +24819,16 @@ size_of.enter_basket_trade_request = function(buffer, offset)
   index = index + size_of.pad_1
 
   -- Calculate field size from count
-  local basket_root_party_grp_count = buffer(offset + index - 44, 1):le_uint()
-  index = index + basket_root_party_grp_count * 40
+  local basket_root_party_grp_comp_count = buffer(offset + index - 44, 1):le_uint()
+  index = index + basket_root_party_grp_comp_count * 40
 
   -- Calculate field size from count
-  local instrmt_match_side_grp_count = buffer(offset + index - 83, 1):le_uint()
-  index = index + instrmt_match_side_grp_count * 80
+  local instrmt_match_side_grp_comp_count = buffer(offset + index - 83, 1):le_uint()
+  index = index + instrmt_match_side_grp_comp_count * 80
 
   -- Calculate field size from count
-  local basket_side_alloc_grp_count = buffer(offset + index - 162, 1):le_uint()
-  index = index + basket_side_alloc_grp_count * 32
+  local basket_side_alloc_grp_comp_count = buffer(offset + index - 162, 1):le_uint()
+  index = index + basket_side_alloc_grp_comp_count * 32
 
   return index
 end
@@ -24842,11 +24842,11 @@ end
 dissect.enter_basket_trade_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer
   index, market_segment_id = dissect.market_segment_id(buffer, index, packet, parent)
@@ -24881,19 +24881,19 @@ dissect.enter_basket_trade_request_fields = function(buffer, offset, packet, par
   -- Pad 1: 1 Byte
   index, pad_1 = dissect.pad_1(buffer, index, packet, parent)
 
-  -- Basket Root Party Grp: Struct of 5 fields
+  -- Basket Root Party Grp Comp: Struct of 5 fields
   for i = 1, no_basket_root_party_grps do
-    index = dissect.basket_root_party_grp(buffer, index, packet, parent)
+    index = dissect.basket_root_party_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Instrmt Match Side Grp: Struct of 15 fields
+  -- Instrmt Match Side Grp Comp: Struct of 15 fields
   for i = 1, no_instrmt_match_sides do
-    index = dissect.instrmt_match_side_grp(buffer, index, packet, parent)
+    index = dissect.instrmt_match_side_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Basket Side Alloc Grp: Struct of 9 fields
+  -- Basket Side Alloc Grp Comp: Struct of 9 fields
   for i = 1, no_basket_side_alloc do
-    index = dissect.basket_side_alloc_grp(buffer, index, packet, parent)
+    index = dissect.basket_side_alloc_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -24916,9 +24916,9 @@ end
 size_of.delete_tes_trade_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.package_id
 
@@ -24948,11 +24948,11 @@ end
 dissect.delete_tes_trade_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Package Id: 4 Byte Unsigned Fixed Width Integer
   index, package_id = dissect.package_id(buffer, index, packet, parent)
@@ -24998,9 +24998,9 @@ end
 size_of.delete_order_single_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.order_id
 
@@ -25038,11 +25038,11 @@ end
 dissect.delete_order_single_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
@@ -25100,9 +25100,9 @@ end
 size_of.delete_order_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.response_header_me(buffer, offset + index)
+  index = index + size_of.response_header_me_comp(buffer, offset + index)
 
   index = index + size_of.order_id
 
@@ -25142,11 +25142,11 @@ end
 dissect.delete_order_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Response Header Me: Struct of 10 fields
-  index, response_header_me = dissect.response_header_me(buffer, index, packet, parent)
+  -- Response Header Me Comp: Struct of 10 fields
+  index, response_header_me_comp = dissect.response_header_me_comp(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
@@ -25207,9 +25207,9 @@ end
 size_of.delete_order_nr_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.nr_response_header_me(buffer, offset + index)
+  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
 
   index = index + size_of.order_id
 
@@ -25249,11 +25249,11 @@ end
 dissect.delete_order_nr_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Nr Response Header Me: Struct of 8 fields
-  index, nr_response_header_me = dissect.nr_response_header_me(buffer, index, packet, parent)
+  -- Nr Response Header Me Comp: Struct of 8 fields
+  index, nr_response_header_me_comp = dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
@@ -25314,9 +25314,9 @@ end
 size_of.delete_order_complex_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.order_id
 
@@ -25354,11 +25354,11 @@ end
 dissect.delete_order_complex_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
@@ -25416,9 +25416,9 @@ end
 size_of.delete_order_broadcast = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header_me(buffer, offset + index)
+  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
 
   index = index + size_of.order_id
 
@@ -25468,11 +25468,11 @@ end
 dissect.delete_order_broadcast_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header Me: Struct of 10 fields
-  index, rbc_header_me = dissect.rbc_header_me(buffer, index, packet, parent)
+  -- Rbc Header Me Comp: Struct of 10 fields
+  index, rbc_header_me_comp = dissect.rbc_header_me_comp(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
@@ -25548,9 +25548,9 @@ end
 size_of.delete_clip_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.order_id
 
@@ -25584,11 +25584,11 @@ end
 dissect.delete_clip_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
@@ -25640,9 +25640,9 @@ end
 size_of.delete_basket_trade_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.basket_trd_match_id
 
@@ -25670,11 +25670,11 @@ end
 dissect.delete_basket_trade_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Basket Trd Match Id: 8 Byte Unsigned Fixed Width Integer
   index, basket_trd_match_id = dissect.basket_trd_match_id(buffer, index, packet, parent)
@@ -25717,9 +25717,9 @@ end
 size_of.delete_all_quote_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.nr_response_header_me(buffer, offset + index)
+  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
 
   index = index + size_of.mass_action_report_id
 
@@ -25728,8 +25728,8 @@ size_of.delete_all_quote_response = function(buffer, offset)
   index = index + size_of.pad_6
 
   -- Calculate field size from count
-  local not_affected_securities_grp_count = buffer(offset + index - 8, 2):le_uint()
-  index = index + not_affected_securities_grp_count * 8
+  local not_affected_securities_grp_comp_count = buffer(offset + index - 8, 2):le_uint()
+  index = index + not_affected_securities_grp_comp_count * 8
 
   return index
 end
@@ -25743,11 +25743,11 @@ end
 dissect.delete_all_quote_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Nr Response Header Me: Struct of 8 fields
-  index, nr_response_header_me = dissect.nr_response_header_me(buffer, index, packet, parent)
+  -- Nr Response Header Me Comp: Struct of 8 fields
+  index, nr_response_header_me_comp = dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
   -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer
   index, mass_action_report_id = dissect.mass_action_report_id(buffer, index, packet, parent)
@@ -25758,9 +25758,9 @@ dissect.delete_all_quote_response_fields = function(buffer, offset, packet, pare
   -- Pad 6: 6 Byte
   index, pad_6 = dissect.pad_6(buffer, index, packet, parent)
 
-  -- Not Affected Securities Grp: Struct of 1 fields
+  -- Not Affected Securities Grp Comp: Struct of 1 fields
   for i = 1, no_not_affected_securities do
-    index = dissect.not_affected_securities_grp(buffer, index, packet, parent)
+    index = dissect.not_affected_securities_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -25783,9 +25783,9 @@ end
 size_of.delete_all_quote_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.party_id_investment_decision_maker
 
@@ -25813,11 +25813,11 @@ end
 dissect.delete_all_quote_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer
   index, party_id_investment_decision_maker = dissect.party_id_investment_decision_maker(buffer, index, packet, parent)
@@ -25900,9 +25900,9 @@ end
 size_of.delete_all_quote_broadcast = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header_me(buffer, offset + index)
+  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
 
   index = index + size_of.mass_action_report_id
 
@@ -25927,8 +25927,8 @@ size_of.delete_all_quote_broadcast = function(buffer, offset)
   index = index + size_of.pad_1
 
   -- Calculate field size from count
-  local not_affected_securities_grp_count = buffer(offset + index - 8, 2):le_uint()
-  index = index + not_affected_securities_grp_count * 8
+  local not_affected_securities_grp_comp_count = buffer(offset + index - 8, 2):le_uint()
+  index = index + not_affected_securities_grp_comp_count * 8
 
   return index
 end
@@ -25942,11 +25942,11 @@ end
 dissect.delete_all_quote_broadcast_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header Me: Struct of 10 fields
-  index, rbc_header_me = dissect.rbc_header_me(buffer, index, packet, parent)
+  -- Rbc Header Me Comp: Struct of 10 fields
+  index, rbc_header_me_comp = dissect.rbc_header_me_comp(buffer, index, packet, parent)
 
   -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer
   index, mass_action_report_id = dissect.mass_action_report_id(buffer, index, packet, parent)
@@ -25981,9 +25981,9 @@ dissect.delete_all_quote_broadcast_fields = function(buffer, offset, packet, par
   -- Pad 1: 1 Byte
   index, pad_1 = dissect.pad_1(buffer, index, packet, parent)
 
-  -- Not Affected Securities Grp: Struct of 1 fields
+  -- Not Affected Securities Grp Comp: Struct of 1 fields
   for i = 1, no_not_affected_securities do
-    index = dissect.not_affected_securities_grp(buffer, index, packet, parent)
+    index = dissect.not_affected_securities_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -26022,8 +26022,8 @@ dissect.affected_order_request_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Affected Order Requests Grp
-size_of.affected_order_requests_grp = function(buffer, offset)
+-- Calculate size of: Affected Order Requests Grp Comp
+size_of.affected_order_requests_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.affected_order_request_id
@@ -26033,13 +26033,13 @@ size_of.affected_order_requests_grp = function(buffer, offset)
   return index
 end
 
--- Display: Affected Order Requests Grp
-display.affected_order_requests_grp = function(buffer, offset, size, packet, parent)
+-- Display: Affected Order Requests Grp Comp
+display.affected_order_requests_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Affected Order Requests Grp
-dissect.affected_order_requests_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Affected Order Requests Grp Comp
+dissect.affected_order_requests_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Affected Order Request Id: 4 Byte Unsigned Fixed Width Integer
@@ -26051,17 +26051,17 @@ dissect.affected_order_requests_grp_fields = function(buffer, offset, packet, pa
   return index
 end
 
--- Dissect: Affected Order Requests Grp
-dissect.affected_order_requests_grp = function(buffer, offset, packet, parent)
+-- Dissect: Affected Order Requests Grp Comp
+dissect.affected_order_requests_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.affected_order_requests_grp then
-    local length = size_of.affected_order_requests_grp(buffer, offset)
+  if show.affected_order_requests_grp_comp then
+    local length = size_of.affected_order_requests_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.affected_order_requests_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.affected_order_requests_grp, range, display)
+    local display = display.affected_order_requests_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.affected_order_requests_grp_comp, range, display)
   end
 
-  return dissect.affected_order_requests_grp_fields(buffer, offset, packet, parent)
+  return dissect.affected_order_requests_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Not Aff Orig Cl Ord Id
@@ -26104,8 +26104,8 @@ dissect.not_affected_order_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Not Affected Orders Grp
-size_of.not_affected_orders_grp = function(buffer, offset)
+-- Calculate size of: Not Affected Orders Grp Comp
+size_of.not_affected_orders_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.not_affected_order_id
@@ -26115,13 +26115,13 @@ size_of.not_affected_orders_grp = function(buffer, offset)
   return index
 end
 
--- Display: Not Affected Orders Grp
-display.not_affected_orders_grp = function(buffer, offset, size, packet, parent)
+-- Display: Not Affected Orders Grp Comp
+display.not_affected_orders_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Not Affected Orders Grp
-dissect.not_affected_orders_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Not Affected Orders Grp Comp
+dissect.not_affected_orders_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Not Affected Order Id: 8 Byte Unsigned Fixed Width Integer
@@ -26133,17 +26133,17 @@ dissect.not_affected_orders_grp_fields = function(buffer, offset, packet, parent
   return index
 end
 
--- Dissect: Not Affected Orders Grp
-dissect.not_affected_orders_grp = function(buffer, offset, packet, parent)
+-- Dissect: Not Affected Orders Grp Comp
+dissect.not_affected_orders_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.not_affected_orders_grp then
-    local length = size_of.not_affected_orders_grp(buffer, offset)
+  if show.not_affected_orders_grp_comp then
+    local length = size_of.not_affected_orders_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.not_affected_orders_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.not_affected_orders_grp, range, display)
+    local display = display.not_affected_orders_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.not_affected_orders_grp_comp, range, display)
   end
 
-  return dissect.not_affected_orders_grp_fields(buffer, offset, packet, parent)
+  return dissect.not_affected_orders_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: No Affected Order Requests
@@ -26190,9 +26190,9 @@ end
 size_of.delete_all_order_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.response_header_me(buffer, offset + index)
+  index = index + size_of.response_header_me_comp(buffer, offset + index)
 
   index = index + size_of.mass_action_report_id
 
@@ -26203,12 +26203,12 @@ size_of.delete_all_order_response = function(buffer, offset)
   index = index + size_of.pad_4
 
   -- Calculate field size from count
-  local not_affected_orders_grp_count = buffer(offset + index - 8, 2):le_uint()
-  index = index + not_affected_orders_grp_count * 16
+  local not_affected_orders_grp_comp_count = buffer(offset + index - 8, 2):le_uint()
+  index = index + not_affected_orders_grp_comp_count * 16
 
   -- Calculate field size from count
-  local affected_order_requests_grp_count = buffer(offset + index - 22, 2):le_uint()
-  index = index + affected_order_requests_grp_count * 8
+  local affected_order_requests_grp_comp_count = buffer(offset + index - 22, 2):le_uint()
+  index = index + affected_order_requests_grp_comp_count * 8
 
   return index
 end
@@ -26222,11 +26222,11 @@ end
 dissect.delete_all_order_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Response Header Me: Struct of 10 fields
-  index, response_header_me = dissect.response_header_me(buffer, index, packet, parent)
+  -- Response Header Me Comp: Struct of 10 fields
+  index, response_header_me_comp = dissect.response_header_me_comp(buffer, index, packet, parent)
 
   -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer
   index, mass_action_report_id = dissect.mass_action_report_id(buffer, index, packet, parent)
@@ -26240,14 +26240,14 @@ dissect.delete_all_order_response_fields = function(buffer, offset, packet, pare
   -- Pad 4: 4 Byte
   index, pad_4 = dissect.pad_4(buffer, index, packet, parent)
 
-  -- Not Affected Orders Grp: Struct of 2 fields
+  -- Not Affected Orders Grp Comp: Struct of 2 fields
   for i = 1, no_not_affected_orders do
-    index = dissect.not_affected_orders_grp(buffer, index, packet, parent)
+    index = dissect.not_affected_orders_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Affected Order Requests Grp: Struct of 2 fields
+  -- Affected Order Requests Grp Comp: Struct of 2 fields
   for i = 1, no_affected_order_requests do
-    index = dissect.affected_order_requests_grp(buffer, index, packet, parent)
+    index = dissect.affected_order_requests_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -26270,9 +26270,9 @@ end
 size_of.delete_all_order_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.security_id
 
@@ -26308,11 +26308,11 @@ end
 dissect.delete_all_order_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
@@ -26367,9 +26367,9 @@ end
 size_of.delete_all_order_quote_event_broadcast = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header_me(buffer, offset + index)
+  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
 
   index = index + size_of.mass_action_report_id
 
@@ -26395,11 +26395,11 @@ end
 dissect.delete_all_order_quote_event_broadcast_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header Me: Struct of 10 fields
-  index, rbc_header_me = dissect.rbc_header_me(buffer, index, packet, parent)
+  -- Rbc Header Me Comp: Struct of 10 fields
+  index, rbc_header_me_comp = dissect.rbc_header_me_comp(buffer, index, packet, parent)
 
   -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer
   index, mass_action_report_id = dissect.mass_action_report_id(buffer, index, packet, parent)
@@ -26439,9 +26439,9 @@ end
 size_of.delete_all_order_nr_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.nr_response_header_me(buffer, offset + index)
+  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
 
   index = index + size_of.mass_action_report_id
 
@@ -26457,11 +26457,11 @@ end
 dissect.delete_all_order_nr_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Nr Response Header Me: Struct of 8 fields
-  index, nr_response_header_me = dissect.nr_response_header_me(buffer, index, packet, parent)
+  -- Nr Response Header Me Comp: Struct of 8 fields
+  index, nr_response_header_me_comp = dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
   -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer
   index, mass_action_report_id = dissect.mass_action_report_id(buffer, index, packet, parent)
@@ -26486,9 +26486,9 @@ end
 size_of.delete_all_order_broadcast = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header_me(buffer, offset + index)
+  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
 
   index = index + size_of.mass_action_report_id
 
@@ -26517,12 +26517,12 @@ size_of.delete_all_order_broadcast = function(buffer, offset)
   index = index + size_of.side
 
   -- Calculate field size from count
-  local not_affected_orders_grp_count = buffer(offset + index - 8, 2):le_uint()
-  index = index + not_affected_orders_grp_count * 16
+  local not_affected_orders_grp_comp_count = buffer(offset + index - 8, 2):le_uint()
+  index = index + not_affected_orders_grp_comp_count * 16
 
   -- Calculate field size from count
-  local affected_order_requests_grp_count = buffer(offset + index - 22, 2):le_uint()
-  index = index + affected_order_requests_grp_count * 8
+  local affected_order_requests_grp_comp_count = buffer(offset + index - 22, 2):le_uint()
+  index = index + affected_order_requests_grp_comp_count * 8
 
   return index
 end
@@ -26536,11 +26536,11 @@ end
 dissect.delete_all_order_broadcast_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header Me: Struct of 10 fields
-  index, rbc_header_me = dissect.rbc_header_me(buffer, index, packet, parent)
+  -- Rbc Header Me Comp: Struct of 10 fields
+  index, rbc_header_me_comp = dissect.rbc_header_me_comp(buffer, index, packet, parent)
 
   -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer
   index, mass_action_report_id = dissect.mass_action_report_id(buffer, index, packet, parent)
@@ -26581,14 +26581,14 @@ dissect.delete_all_order_broadcast_fields = function(buffer, offset, packet, par
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Not Affected Orders Grp: Struct of 2 fields
+  -- Not Affected Orders Grp Comp: Struct of 2 fields
   for i = 1, no_not_affected_orders do
-    index = dissect.not_affected_orders_grp(buffer, index, packet, parent)
+    index = dissect.not_affected_orders_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Affected Order Requests Grp: Struct of 2 fields
+  -- Affected Order Requests Grp Comp: Struct of 2 fields
   for i = 1, no_affected_order_requests do
-    index = dissect.affected_order_requests_grp(buffer, index, packet, parent)
+    index = dissect.affected_order_requests_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -26611,9 +26611,9 @@ end
 size_of.cross_request_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.nr_response_header_me(buffer, offset + index)
+  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
 
   index = index + size_of.exec_id
 
@@ -26629,11 +26629,11 @@ end
 dissect.cross_request_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Nr Response Header Me: Struct of 8 fields
-  index, nr_response_header_me = dissect.nr_response_header_me(buffer, index, packet, parent)
+  -- Nr Response Header Me Comp: Struct of 8 fields
+  index, nr_response_header_me_comp = dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
@@ -26658,9 +26658,9 @@ end
 size_of.cross_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.security_id
 
@@ -26682,11 +26682,11 @@ end
 dissect.cross_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
@@ -26716,8 +26716,8 @@ dissect.cross_request = function(buffer, offset, packet, parent)
   return dissect.cross_request_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Cross Request Ack Side Grp
-size_of.cross_request_ack_side_grp = function(buffer, offset)
+-- Calculate size of: Cross Request Ack Side Grp Comp
+size_of.cross_request_ack_side_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.order_id
@@ -26731,13 +26731,13 @@ size_of.cross_request_ack_side_grp = function(buffer, offset)
   return index
 end
 
--- Display: Cross Request Ack Side Grp
-display.cross_request_ack_side_grp = function(buffer, offset, size, packet, parent)
+-- Display: Cross Request Ack Side Grp Comp
+display.cross_request_ack_side_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Cross Request Ack Side Grp
-dissect.cross_request_ack_side_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Cross Request Ack Side Grp Comp
+dissect.cross_request_ack_side_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
@@ -26755,26 +26755,26 @@ dissect.cross_request_ack_side_grp_fields = function(buffer, offset, packet, par
   return index
 end
 
--- Dissect: Cross Request Ack Side Grp
-dissect.cross_request_ack_side_grp = function(buffer, offset, packet, parent)
+-- Dissect: Cross Request Ack Side Grp Comp
+dissect.cross_request_ack_side_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.cross_request_ack_side_grp then
-    local length = size_of.cross_request_ack_side_grp(buffer, offset)
+  if show.cross_request_ack_side_grp_comp then
+    local length = size_of.cross_request_ack_side_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cross_request_ack_side_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.cross_request_ack_side_grp, range, display)
+    local display = display.cross_request_ack_side_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.cross_request_ack_side_grp_comp, range, display)
   end
 
-  return dissect.cross_request_ack_side_grp_fields(buffer, offset, packet, parent)
+  return dissect.cross_request_ack_side_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Clip Response
 size_of.clip_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.nr_response_header_me(buffer, offset + index)
+  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
 
   index = index + size_of.exec_id
 
@@ -26791,8 +26791,8 @@ size_of.clip_response = function(buffer, offset)
   index = index + size_of.pad_4
 
   -- Calculate field size from count
-  local cross_request_ack_side_grp_count = buffer(offset + index - 12, 1):le_uint()
-  index = index + cross_request_ack_side_grp_count * 16
+  local cross_request_ack_side_grp_comp_count = buffer(offset + index - 12, 1):le_uint()
+  index = index + cross_request_ack_side_grp_comp_count * 16
 
   return index
 end
@@ -26806,11 +26806,11 @@ end
 dissect.clip_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Nr Response Header Me: Struct of 8 fields
-  index, nr_response_header_me = dissect.nr_response_header_me(buffer, index, packet, parent)
+  -- Nr Response Header Me Comp: Struct of 8 fields
+  index, nr_response_header_me_comp = dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
@@ -26833,9 +26833,9 @@ dissect.clip_response_fields = function(buffer, offset, packet, parent)
   -- Pad 4: 4 Byte
   index, pad_4 = dissect.pad_4(buffer, index, packet, parent)
 
-  -- Cross Request Ack Side Grp: Struct of 4 fields
+  -- Cross Request Ack Side Grp Comp: Struct of 4 fields
   for i = 1, no_sides do
-    index = dissect.cross_request_ack_side_grp(buffer, index, packet, parent)
+    index = dissect.cross_request_ack_side_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -26858,9 +26858,9 @@ end
 size_of.clip_execution_notification = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header_me(buffer, offset + index)
+  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
 
   index = index + size_of.order_id
 
@@ -26895,12 +26895,12 @@ size_of.clip_execution_notification = function(buffer, offset)
   index = index + size_of.pad_2
 
   -- Calculate field size from count
-  local fills_grp_count = buffer(offset + index - 3, 1):le_uint()
-  index = index + fills_grp_count * 32
+  local fills_grp_comp_count = buffer(offset + index - 3, 1):le_uint()
+  index = index + fills_grp_comp_count * 32
 
   -- Calculate field size from count
-  local instrmnt_leg_exec_grp_count = buffer(offset + index - 42, 2):le_uint()
-  index = index + instrmnt_leg_exec_grp_count * 32
+  local instrmnt_leg_exec_grp_comp_count = buffer(offset + index - 42, 2):le_uint()
+  index = index + instrmnt_leg_exec_grp_comp_count * 32
 
   return index
 end
@@ -26914,11 +26914,11 @@ end
 dissect.clip_execution_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header Me: Struct of 10 fields
-  index, rbc_header_me = dissect.rbc_header_me(buffer, index, packet, parent)
+  -- Rbc Header Me Comp: Struct of 10 fields
+  index, rbc_header_me_comp = dissect.rbc_header_me_comp(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
@@ -26968,14 +26968,14 @@ dissect.clip_execution_notification_fields = function(buffer, offset, packet, pa
   -- Pad 2: 2 Byte
   index, pad_2 = dissect.pad_2(buffer, index, packet, parent)
 
-  -- Fills Grp: Struct of 6 fields
+  -- Fills Grp Comp: Struct of 6 fields
   for i = 1, no_fills do
-    index = dissect.fills_grp(buffer, index, packet, parent)
+    index = dissect.fills_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Instrmnt Leg Exec Grp: Struct of 7 fields
+  -- Instrmnt Leg Exec Grp Comp: Struct of 7 fields
   for i = 1, no_leg_execs do
-    index = dissect.instrmnt_leg_exec_grp(buffer, index, packet, parent)
+    index = dissect.instrmnt_leg_exec_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -26998,9 +26998,9 @@ end
 size_of.clip_deletion_notification = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header_me(buffer, offset + index)
+  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
 
   index = index + size_of.order_id
 
@@ -27036,11 +27036,11 @@ end
 dissect.clip_deletion_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header Me: Struct of 10 fields
-  index, rbc_header_me = dissect.rbc_header_me(buffer, index, packet, parent)
+  -- Rbc Header Me Comp: Struct of 10 fields
+  index, rbc_header_me_comp = dissect.rbc_header_me_comp(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
@@ -27119,9 +27119,9 @@ end
 size_of.broadcast_error_notification = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.notif_header(buffer, offset + index)
+  index = index + size_of.notif_header_comp(buffer, offset + index)
 
   index = index + size_of.appl_id_status
 
@@ -27150,11 +27150,11 @@ end
 dissect.broadcast_error_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Notif Header: Struct of 1 fields
-  index, notif_header = dissect.notif_header(buffer, index, packet, parent)
+  -- Notif Header Comp: Struct of 1 fields
+  index, notif_header_comp = dissect.notif_header_comp(buffer, index, packet, parent)
 
   -- Appl Id Status: 4 Byte Unsigned Fixed Width Integer Enum with 1 values
   index, appl_id_status = dissect.appl_id_status(buffer, index, packet, parent)
@@ -27197,9 +27197,9 @@ end
 size_of.basket_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.response_header(buffer, offset + index)
+  index = index + size_of.response_header_comp(buffer, offset + index)
 
   index = index + size_of.basket_exec_id
 
@@ -27217,11 +27217,11 @@ end
 dissect.basket_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Response Header: Struct of 4 fields
-  index, response_header = dissect.response_header(buffer, index, packet, parent)
+  -- Response Header Comp: Struct of 4 fields
+  index, response_header_comp = dissect.response_header_comp(buffer, index, packet, parent)
 
   -- Basket Exec Id: 4 Byte Unsigned Fixed Width Integer
   index, basket_exec_id = dissect.basket_exec_id(buffer, index, packet, parent)
@@ -27245,8 +27245,8 @@ dissect.basket_response = function(buffer, offset, packet, parent)
   return dissect.basket_response_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Basket Exec Grp
-size_of.basket_exec_grp = function(buffer, offset)
+-- Calculate size of: Basket Exec Grp Comp
+size_of.basket_exec_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.package_id
@@ -27262,13 +27262,13 @@ size_of.basket_exec_grp = function(buffer, offset)
   return index
 end
 
--- Display: Basket Exec Grp
-display.basket_exec_grp = function(buffer, offset, size, packet, parent)
+-- Display: Basket Exec Grp Comp
+display.basket_exec_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Basket Exec Grp
-dissect.basket_exec_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Basket Exec Grp Comp
+dissect.basket_exec_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Package Id: 4 Byte Unsigned Fixed Width Integer
@@ -27289,26 +27289,26 @@ dissect.basket_exec_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Basket Exec Grp
-dissect.basket_exec_grp = function(buffer, offset, packet, parent)
+-- Dissect: Basket Exec Grp Comp
+dissect.basket_exec_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.basket_exec_grp then
-    local length = size_of.basket_exec_grp(buffer, offset)
+  if show.basket_exec_grp_comp then
+    local length = size_of.basket_exec_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.basket_exec_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.basket_exec_grp, range, display)
+    local display = display.basket_exec_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.basket_exec_grp_comp, range, display)
   end
 
-  return dissect.basket_exec_grp_fields(buffer, offset, packet, parent)
+  return dissect.basket_exec_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Basket Execution Broadcast
 size_of.basket_execution_broadcast = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.basket_trd_match_id
 
@@ -27331,8 +27331,8 @@ size_of.basket_execution_broadcast = function(buffer, offset)
   index = index + size_of.pad_7
 
   -- Calculate field size from count
-  local basket_exec_grp_count = buffer(offset + index - 29, 1):le_uint()
-  index = index + basket_exec_grp_count * 16
+  local basket_exec_grp_comp_count = buffer(offset + index - 29, 1):le_uint()
+  index = index + basket_exec_grp_comp_count * 16
 
   return index
 end
@@ -27346,11 +27346,11 @@ end
 dissect.basket_execution_broadcast_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Basket Trd Match Id: 8 Byte Unsigned Fixed Width Integer
   index, basket_trd_match_id = dissect.basket_trd_match_id(buffer, index, packet, parent)
@@ -27382,9 +27382,9 @@ dissect.basket_execution_broadcast_fields = function(buffer, offset, packet, par
   -- Pad 7: 7 Byte
   index, pad_7 = dissect.pad_7(buffer, index, packet, parent)
 
-  -- Basket Exec Grp: Struct of 5 fields
+  -- Basket Exec Grp Comp: Struct of 5 fields
   for i = 1, no_instrmt_match_sides do
-    index = dissect.basket_exec_grp(buffer, index, packet, parent)
+    index = dissect.basket_exec_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -27407,9 +27407,9 @@ end
 size_of.basket_delete_broadcast = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.basket_trd_match_id
 
@@ -27443,11 +27443,11 @@ end
 dissect.basket_delete_broadcast_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Basket Trd Match Id: 8 Byte Unsigned Fixed Width Integer
   index, basket_trd_match_id = dissect.basket_trd_match_id(buffer, index, packet, parent)
@@ -27519,9 +27519,9 @@ end
 size_of.basket_broadcast = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.basket_trd_match_id
 
@@ -27554,16 +27554,16 @@ size_of.basket_broadcast = function(buffer, offset)
   index = index + size_of.pad_4
 
   -- Calculate field size from count
-  local basket_root_party_grp_count = buffer(offset + index - 47, 1):le_uint()
-  index = index + basket_root_party_grp_count * 40
+  local basket_root_party_grp_comp_count = buffer(offset + index - 47, 1):le_uint()
+  index = index + basket_root_party_grp_comp_count * 40
 
   -- Calculate field size from count
-  local instrmt_match_side_grp_count = buffer(offset + index - 86, 1):le_uint()
-  index = index + instrmt_match_side_grp_count * 80
+  local instrmt_match_side_grp_comp_count = buffer(offset + index - 86, 1):le_uint()
+  index = index + instrmt_match_side_grp_comp_count * 80
 
   -- Calculate field size from count
-  local basket_side_alloc_grp_count = buffer(offset + index - 165, 1):le_uint()
-  index = index + basket_side_alloc_grp_count * 32
+  local basket_side_alloc_grp_comp_count = buffer(offset + index - 165, 1):le_uint()
+  index = index + basket_side_alloc_grp_comp_count * 32
 
   return index
 end
@@ -27577,11 +27577,11 @@ end
 dissect.basket_broadcast_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Basket Trd Match Id: 8 Byte Unsigned Fixed Width Integer
   index, basket_trd_match_id = dissect.basket_trd_match_id(buffer, index, packet, parent)
@@ -27628,19 +27628,19 @@ dissect.basket_broadcast_fields = function(buffer, offset, packet, parent)
   -- Pad 4: 4 Byte
   index, pad_4 = dissect.pad_4(buffer, index, packet, parent)
 
-  -- Basket Root Party Grp: Struct of 5 fields
+  -- Basket Root Party Grp Comp: Struct of 5 fields
   for i = 1, no_basket_root_party_grps_bc do
-    index = dissect.basket_root_party_grp(buffer, index, packet, parent)
+    index = dissect.basket_root_party_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Instrmt Match Side Grp: Struct of 15 fields
+  -- Instrmt Match Side Grp Comp: Struct of 15 fields
   for i = 1, no_instrmt_match_sides do
-    index = dissect.instrmt_match_side_grp(buffer, index, packet, parent)
+    index = dissect.instrmt_match_side_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Basket Side Alloc Grp: Struct of 9 fields
+  -- Basket Side Alloc Grp Comp: Struct of 9 fields
   for i = 1, no_basket_side_alloc do
-    index = dissect.basket_side_alloc_grp(buffer, index, packet, parent)
+    index = dissect.basket_side_alloc_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -27659,8 +27659,8 @@ dissect.basket_broadcast = function(buffer, offset, packet, parent)
   return dissect.basket_broadcast_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Basket Side Alloc Ext Bc Grp
-size_of.basket_side_alloc_ext_bc_grp = function(buffer, offset)
+-- Calculate size of: Basket Side Alloc Ext Bc Grp Comp
+size_of.basket_side_alloc_ext_bc_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.alloc_qty
@@ -27732,13 +27732,13 @@ size_of.basket_side_alloc_ext_bc_grp = function(buffer, offset)
   return index
 end
 
--- Display: Basket Side Alloc Ext Bc Grp
-display.basket_side_alloc_ext_bc_grp = function(buffer, offset, size, packet, parent)
+-- Display: Basket Side Alloc Ext Bc Grp Comp
+display.basket_side_alloc_ext_bc_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Basket Side Alloc Ext Bc Grp
-dissect.basket_side_alloc_ext_bc_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Basket Side Alloc Ext Bc Grp Comp
+dissect.basket_side_alloc_ext_bc_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer
@@ -27843,26 +27843,26 @@ dissect.basket_side_alloc_ext_bc_grp_fields = function(buffer, offset, packet, p
   return index
 end
 
--- Dissect: Basket Side Alloc Ext Bc Grp
-dissect.basket_side_alloc_ext_bc_grp = function(buffer, offset, packet, parent)
+-- Dissect: Basket Side Alloc Ext Bc Grp Comp
+dissect.basket_side_alloc_ext_bc_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.basket_side_alloc_ext_bc_grp then
-    local length = size_of.basket_side_alloc_ext_bc_grp(buffer, offset)
+  if show.basket_side_alloc_ext_bc_grp_comp then
+    local length = size_of.basket_side_alloc_ext_bc_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.basket_side_alloc_ext_bc_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.basket_side_alloc_ext_bc_grp, range, display)
+    local display = display.basket_side_alloc_ext_bc_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.basket_side_alloc_ext_bc_grp_comp, range, display)
   end
 
-  return dissect.basket_side_alloc_ext_bc_grp_fields(buffer, offset, packet, parent)
+  return dissect.basket_side_alloc_ext_bc_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Basket Approve Broadcast
 size_of.basket_approve_broadcast = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.rbc_header(buffer, offset + index)
+  index = index + size_of.rbc_header_comp(buffer, offset + index)
 
   index = index + size_of.basket_trd_match_id
 
@@ -27895,12 +27895,12 @@ size_of.basket_approve_broadcast = function(buffer, offset)
   index = index + size_of.pad_2
 
   -- Calculate field size from count
-  local basket_root_party_grp_count = buffer(offset + index - 50, 1):le_uint()
-  index = index + basket_root_party_grp_count * 40
+  local basket_root_party_grp_comp_count = buffer(offset + index - 50, 1):le_uint()
+  index = index + basket_root_party_grp_comp_count * 40
 
   -- Calculate field size from count
-  local basket_side_alloc_ext_bc_grp_count = buffer(offset + index - 91, 1):le_uint()
-  index = index + basket_side_alloc_ext_bc_grp_count * 200
+  local basket_side_alloc_ext_bc_grp_comp_count = buffer(offset + index - 91, 1):le_uint()
+  index = index + basket_side_alloc_ext_bc_grp_comp_count * 200
 
   return index
 end
@@ -27914,11 +27914,11 @@ end
 dissect.basket_approve_broadcast_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Rbc Header: Struct of 8 fields
-  index, rbc_header = dissect.rbc_header(buffer, index, packet, parent)
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = dissect.rbc_header_comp(buffer, index, packet, parent)
 
   -- Basket Trd Match Id: 8 Byte Unsigned Fixed Width Integer
   index, basket_trd_match_id = dissect.basket_trd_match_id(buffer, index, packet, parent)
@@ -27965,14 +27965,14 @@ dissect.basket_approve_broadcast_fields = function(buffer, offset, packet, paren
   -- Pad 2: 2 Byte
   index, pad_2 = dissect.pad_2(buffer, index, packet, parent)
 
-  -- Basket Root Party Grp: Struct of 5 fields
+  -- Basket Root Party Grp Comp: Struct of 5 fields
   for i = 1, no_basket_root_party_grps do
-    index = dissect.basket_root_party_grp(buffer, index, packet, parent)
+    index = dissect.basket_root_party_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Basket Side Alloc Ext Bc Grp: Struct of 33 fields
+  -- Basket Side Alloc Ext Bc Grp Comp: Struct of 33 fields
   for i = 1, no_basket_side_alloc do
-    index = dissect.basket_side_alloc_ext_bc_grp(buffer, index, packet, parent)
+    index = dissect.basket_side_alloc_ext_bc_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -27995,9 +27995,9 @@ end
 size_of.approve_tes_trade_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.party_id_client_id
 
@@ -28077,11 +28077,11 @@ end
 dissect.approve_tes_trade_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer
   index, party_id_client_id = dissect.party_id_client_id(buffer, index, packet, parent)
@@ -28198,8 +28198,8 @@ dissect.approve_tes_trade_request = function(buffer, offset, packet, parent)
   return dissect.approve_tes_trade_request_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Basket Side Alloc Ext Grp
-size_of.basket_side_alloc_ext_grp = function(buffer, offset)
+-- Calculate size of: Basket Side Alloc Ext Grp Comp
+size_of.basket_side_alloc_ext_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.alloc_qty
@@ -28259,13 +28259,13 @@ size_of.basket_side_alloc_ext_grp = function(buffer, offset)
   return index
 end
 
--- Display: Basket Side Alloc Ext Grp
-display.basket_side_alloc_ext_grp = function(buffer, offset, size, packet, parent)
+-- Display: Basket Side Alloc Ext Grp Comp
+display.basket_side_alloc_ext_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Basket Side Alloc Ext Grp
-dissect.basket_side_alloc_ext_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Basket Side Alloc Ext Grp Comp
+dissect.basket_side_alloc_ext_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer
@@ -28352,26 +28352,26 @@ dissect.basket_side_alloc_ext_grp_fields = function(buffer, offset, packet, pare
   return index
 end
 
--- Dissect: Basket Side Alloc Ext Grp
-dissect.basket_side_alloc_ext_grp = function(buffer, offset, packet, parent)
+-- Dissect: Basket Side Alloc Ext Grp Comp
+dissect.basket_side_alloc_ext_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.basket_side_alloc_ext_grp then
-    local length = size_of.basket_side_alloc_ext_grp(buffer, offset)
+  if show.basket_side_alloc_ext_grp_comp then
+    local length = size_of.basket_side_alloc_ext_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.basket_side_alloc_ext_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.basket_side_alloc_ext_grp, range, display)
+    local display = display.basket_side_alloc_ext_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.basket_side_alloc_ext_grp_comp, range, display)
   end
 
-  return dissect.basket_side_alloc_ext_grp_fields(buffer, offset, packet, parent)
+  return dissect.basket_side_alloc_ext_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Approve Basket Trade Request
 size_of.approve_basket_trade_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.basket_trd_match_id
 
@@ -28396,8 +28396,8 @@ size_of.approve_basket_trade_request = function(buffer, offset)
   index = index + size_of.pad_6
 
   -- Calculate field size from count
-  local basket_side_alloc_ext_grp_count = buffer(offset + index - 67, 1):le_uint()
-  index = index + basket_side_alloc_ext_grp_count * 176
+  local basket_side_alloc_ext_grp_comp_count = buffer(offset + index - 67, 1):le_uint()
+  index = index + basket_side_alloc_ext_grp_comp_count * 176
 
   return index
 end
@@ -28411,11 +28411,11 @@ end
 dissect.approve_basket_trade_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Basket Trd Match Id: 8 Byte Unsigned Fixed Width Integer
   index, basket_trd_match_id = dissect.basket_trd_match_id(buffer, index, packet, parent)
@@ -28450,9 +28450,9 @@ dissect.approve_basket_trade_request_fields = function(buffer, offset, packet, p
   -- Pad 6: 6 Byte
   index, pad_6 = dissect.pad_6(buffer, index, packet, parent)
 
-  -- Basket Side Alloc Ext Grp: Struct of 27 fields
+  -- Basket Side Alloc Ext Grp Comp: Struct of 27 fields
   for i = 1, no_basket_side_alloc do
-    index = dissect.basket_side_alloc_ext_grp(buffer, index, packet, parent)
+    index = dissect.basket_side_alloc_ext_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -28475,9 +28475,9 @@ end
 size_of.amend_basket_trade_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.basket_trd_match_id
 
@@ -28506,16 +28506,16 @@ size_of.amend_basket_trade_request = function(buffer, offset)
   index = index + size_of.pad_5
 
   -- Calculate field size from count
-  local basket_root_party_grp_count = buffer(offset + index - 48, 1):le_uint()
-  index = index + basket_root_party_grp_count * 40
+  local basket_root_party_grp_comp_count = buffer(offset + index - 48, 1):le_uint()
+  index = index + basket_root_party_grp_comp_count * 40
 
   -- Calculate field size from count
-  local instrmt_match_side_grp_count = buffer(offset + index - 87, 1):le_uint()
-  index = index + instrmt_match_side_grp_count * 80
+  local instrmt_match_side_grp_comp_count = buffer(offset + index - 87, 1):le_uint()
+  index = index + instrmt_match_side_grp_comp_count * 80
 
   -- Calculate field size from count
-  local basket_side_alloc_grp_count = buffer(offset + index - 166, 1):le_uint()
-  index = index + basket_side_alloc_grp_count * 32
+  local basket_side_alloc_grp_comp_count = buffer(offset + index - 166, 1):le_uint()
+  index = index + basket_side_alloc_grp_comp_count * 32
 
   return index
 end
@@ -28529,11 +28529,11 @@ end
 dissect.amend_basket_trade_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Basket Trd Match Id: 8 Byte Unsigned Fixed Width Integer
   index, basket_trd_match_id = dissect.basket_trd_match_id(buffer, index, packet, parent)
@@ -28574,19 +28574,19 @@ dissect.amend_basket_trade_request_fields = function(buffer, offset, packet, par
   -- Pad 5: 5 Byte
   index, pad_5 = dissect.pad_5(buffer, index, packet, parent)
 
-  -- Basket Root Party Grp: Struct of 5 fields
+  -- Basket Root Party Grp Comp: Struct of 5 fields
   for i = 1, no_basket_root_party_grps do
-    index = dissect.basket_root_party_grp(buffer, index, packet, parent)
+    index = dissect.basket_root_party_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Instrmt Match Side Grp: Struct of 15 fields
+  -- Instrmt Match Side Grp Comp: Struct of 15 fields
   for i = 1, no_instrmt_match_sides do
-    index = dissect.instrmt_match_side_grp(buffer, index, packet, parent)
+    index = dissect.instrmt_match_side_grp_comp(buffer, index, packet, parent)
   end
 
-  -- Basket Side Alloc Grp: Struct of 9 fields
+  -- Basket Side Alloc Grp Comp: Struct of 9 fields
   for i = 1, no_basket_side_alloc do
-    index = dissect.basket_side_alloc_grp(buffer, index, packet, parent)
+    index = dissect.basket_side_alloc_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -28791,9 +28791,9 @@ end
 size_of.add_flexible_instrument_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.nr_response_header_me(buffer, offset + index)
+  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
 
   index = index + size_of.security_response_id
 
@@ -28831,11 +28831,11 @@ end
 dissect.add_flexible_instrument_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Nr Response Header Me: Struct of 8 fields
-  index, nr_response_header_me = dissect.nr_response_header_me(buffer, index, packet, parent)
+  -- Nr Response Header Me Comp: Struct of 8 fields
+  index, nr_response_header_me_comp = dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
   -- Security Response Id: 8 Byte Unsigned Fixed Width Integer
   index, security_response_id = dissect.security_response_id(buffer, index, packet, parent)
@@ -28893,9 +28893,9 @@ end
 size_of.add_flexible_instrument_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.strike_price
 
@@ -28925,11 +28925,11 @@ end
 dissect.add_flexible_instrument_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Strike Price: 8 Byte Unsigned Fixed Width Integer
   index, strike_price = dissect.strike_price(buffer, index, packet, parent)
@@ -28971,8 +28971,8 @@ dissect.add_flexible_instrument_request = function(buffer, offset, packet, paren
   return dissect.add_flexible_instrument_request_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Instrmt Leg Grp
-size_of.instrmt_leg_grp = function(buffer, offset)
+-- Calculate size of: Instrmt Leg Grp Comp
+size_of.instrmt_leg_grp_comp = function(buffer, offset)
   local index = 0
 
   index = index + size_of.leg_security_id
@@ -28992,13 +28992,13 @@ size_of.instrmt_leg_grp = function(buffer, offset)
   return index
 end
 
--- Display: Instrmt Leg Grp
-display.instrmt_leg_grp = function(buffer, offset, size, packet, parent)
+-- Display: Instrmt Leg Grp Comp
+display.instrmt_leg_grp_comp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Instrmt Leg Grp
-dissect.instrmt_leg_grp_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Instrmt Leg Grp Comp
+dissect.instrmt_leg_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Leg Security Id: 8 Byte Signed Fixed Width Integer
@@ -29025,17 +29025,17 @@ dissect.instrmt_leg_grp_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Instrmt Leg Grp
-dissect.instrmt_leg_grp = function(buffer, offset, packet, parent)
+-- Dissect: Instrmt Leg Grp Comp
+dissect.instrmt_leg_grp_comp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.instrmt_leg_grp then
-    local length = size_of.instrmt_leg_grp(buffer, offset)
+  if show.instrmt_leg_grp_comp then
+    local length = size_of.instrmt_leg_grp_comp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.instrmt_leg_grp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.instrmt_leg_grp, range, display)
+    local display = display.instrmt_leg_grp_comp(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v7_1.fields.instrmt_leg_grp_comp, range, display)
   end
 
-  return dissect.instrmt_leg_grp_fields(buffer, offset, packet, parent)
+  return dissect.instrmt_leg_grp_comp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Implied Market Indicator
@@ -29178,9 +29178,9 @@ end
 size_of.add_complex_instrument_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_out(buffer, offset + index)
+  index = index + size_of.message_header_out_comp(buffer, offset + index)
 
-  index = index + size_of.nr_response_header_me(buffer, offset + index)
+  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
 
   index = index + size_of.low_limit_price
 
@@ -29207,8 +29207,8 @@ size_of.add_complex_instrument_response = function(buffer, offset)
   index = index + size_of.no_legs
 
   -- Calculate field size from count
-  local instrmt_leg_grp_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + instrmt_leg_grp_count * 32
+  local instrmt_leg_grp_comp_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + instrmt_leg_grp_comp_count * 32
 
   return index
 end
@@ -29222,11 +29222,11 @@ end
 dissect.add_complex_instrument_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header Out: Struct of 3 fields
-  index, message_header_out = dissect.message_header_out(buffer, index, packet, parent)
+  -- Message Header Out Comp: Struct of 3 fields
+  index, message_header_out_comp = dissect.message_header_out_comp(buffer, index, packet, parent)
 
-  -- Nr Response Header Me: Struct of 8 fields
-  index, nr_response_header_me = dissect.nr_response_header_me(buffer, index, packet, parent)
+  -- Nr Response Header Me Comp: Struct of 8 fields
+  index, nr_response_header_me_comp = dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
   -- Low Limit Price: 8 Byte Unsigned Fixed Width Integer
   index, low_limit_price = dissect.low_limit_price(buffer, index, packet, parent)
@@ -29264,9 +29264,9 @@ dissect.add_complex_instrument_response_fields = function(buffer, offset, packet
   -- No Legs: 1 Byte Unsigned Fixed Width Integer
   index, no_legs = dissect.no_legs(buffer, index, packet, parent)
 
-  -- Instrmt Leg Grp: Struct of 7 fields
+  -- Instrmt Leg Grp Comp: Struct of 7 fields
   for i = 1, no_legs do
-    index = dissect.instrmt_leg_grp(buffer, index, packet, parent)
+    index = dissect.instrmt_leg_grp_comp(buffer, index, packet, parent)
   end
 
   return index
@@ -29289,9 +29289,9 @@ end
 size_of.add_complex_instrument_request = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header_in(buffer, offset + index)
+  index = index + size_of.message_header_in_comp(buffer, offset + index)
 
-  index = index + size_of.request_header(buffer, offset + index)
+  index = index + size_of.request_header_comp(buffer, offset + index)
 
   index = index + size_of.market_segment_id
 
@@ -29306,8 +29306,8 @@ size_of.add_complex_instrument_request = function(buffer, offset)
   index = index + size_of.pad_2
 
   -- Calculate field size from count
-  local instrmt_leg_grp_count = buffer(offset + index - 23, 1):le_uint()
-  index = index + instrmt_leg_grp_count * 32
+  local instrmt_leg_grp_comp_count = buffer(offset + index - 23, 1):le_uint()
+  index = index + instrmt_leg_grp_comp_count * 32
 
   return index
 end
@@ -29321,11 +29321,11 @@ end
 dissect.add_complex_instrument_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header In: Struct of 4 fields
-  index, message_header_in = dissect.message_header_in(buffer, index, packet, parent)
+  -- Message Header In Comp: Struct of 4 fields
+  index, message_header_in_comp = dissect.message_header_in_comp(buffer, index, packet, parent)
 
-  -- Request Header: Struct of 2 fields
-  index, request_header = dissect.request_header(buffer, index, packet, parent)
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = dissect.request_header_comp(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer
   index, market_segment_id = dissect.market_segment_id(buffer, index, packet, parent)
@@ -29345,9 +29345,9 @@ dissect.add_complex_instrument_request_fields = function(buffer, offset, packet,
   -- Pad 2: 2 Byte
   index, pad_2 = dissect.pad_2(buffer, index, packet, parent)
 
-  -- Instrmt Leg Grp: Struct of 7 fields
+  -- Instrmt Leg Grp Comp: Struct of 7 fields
   for i = 1, no_legs do
-    index = dissect.instrmt_leg_grp(buffer, index, packet, parent)
+    index = dissect.instrmt_leg_grp_comp(buffer, index, packet, parent)
   end
 
   return index
