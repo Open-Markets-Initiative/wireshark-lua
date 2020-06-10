@@ -138,7 +138,8 @@ cme_futures_ilink3_sbe_v8_5.fields.liquidity_flag = ProtoField.new("Liquidity Fl
 cme_futures_ilink3_sbe_v8_5.fields.list_update_action = ProtoField.new("List Update Action", "cme.futures.ilink3.sbe.v8.5.listupdateaction", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.location = ProtoField.new("Location", "cme.futures.ilink3.sbe.v8.5.location", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.managed_order = ProtoField.new("Managed Order", "cme.futures.ilink3.sbe.v8.5.managedorder", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_5.fields.mantissa = ProtoField.new("Mantissa", "cme.futures.ilink3.sbe.v8.5.mantissa", ftypes.INT32)
+cme_futures_ilink3_sbe_v8_5.fields.mantissa32 = ProtoField.new("Mantissa32", "cme.futures.ilink3.sbe.v8.5.mantissa32", ftypes.INT32)
+cme_futures_ilink3_sbe_v8_5.fields.mantissa64 = ProtoField.new("Mantissa64", "cme.futures.ilink3.sbe.v8.5.mantissa64", ftypes.INT64)
 cme_futures_ilink3_sbe_v8_5.fields.manual_order_indicator = ProtoField.new("Manual Order Indicator", "cme.futures.ilink3.sbe.v8.5.manualorderindicator", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_5.fields.market_segment_id = ProtoField.new("Market Segment Id", "cme.futures.ilink3.sbe.v8.5.marketsegmentid", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_5.fields.mass_action_reject_reason = ProtoField.new("Mass Action Reject Reason", "cme.futures.ilink3.sbe.v8.5.massactionrejectreason", ftypes.UINT8)
@@ -2784,27 +2785,27 @@ dissect.exponent = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Mantissa
-size_of.mantissa = 4
+-- Size: Mantissa32
+size_of.mantissa32 = 4
 
--- Display: Mantissa
-display.mantissa = function(value)
+-- Display: Mantissa32
+display.mantissa32 = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Mantissa: No Value ("..value..")"
+    return "Mantissa32: No Value ("..value..")"
   end
 
-  return "Mantissa: "..value
+  return "Mantissa32: "..value
 end
 
--- Dissect: Mantissa
-dissect.mantissa = function(buffer, offset, packet, parent)
-  local length = size_of.mantissa
+-- Dissect: Mantissa32
+dissect.mantissa32 = function(buffer, offset, packet, parent)
+  local length = size_of.mantissa32
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = display.mantissa(value, buffer, offset, packet, parent)
+  local display = display.mantissa32(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_5.fields.mantissa, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_5.fields.mantissa32, range, value, display)
 
   return offset + length, value
 end
@@ -2813,7 +2814,7 @@ end
 size_of.leg_option_delta = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa32
 
   index = index + size_of.exponent
 
@@ -2829,8 +2830,8 @@ end
 dissect.leg_option_delta_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa32: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa32 = dissect.mantissa32(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -9973,7 +9974,7 @@ end
 size_of.risk_free_rate = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa32
 
   index = index + size_of.exponent
 
@@ -9989,8 +9990,8 @@ end
 dissect.risk_free_rate_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa32: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa32 = dissect.mantissa32(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -10015,7 +10016,7 @@ end
 size_of.time_to_expiration = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa32
 
   index = index + size_of.exponent
 
@@ -10031,8 +10032,8 @@ end
 dissect.time_to_expiration_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa32: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa32 = dissect.mantissa32(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -10057,7 +10058,7 @@ end
 size_of.option_delta = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa32
 
   index = index + size_of.exponent
 
@@ -10073,8 +10074,8 @@ end
 dissect.option_delta_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa32: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa32 = dissect.mantissa32(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -10116,11 +10117,36 @@ dissect.underlying_px = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Mantissa64
+size_of.mantissa64 = 8
+
+-- Display: Mantissa64
+display.mantissa64 = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Mantissa64: No Value ("..value..")"
+  end
+
+  return "Mantissa64: "..value
+end
+
+-- Dissect: Mantissa64
+dissect.mantissa64 = function(buffer, offset, packet, parent)
+  local length = size_of.mantissa64
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = display.mantissa64(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_5.fields.mantissa64, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Volatility
 size_of.volatility = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -10136,8 +10162,8 @@ end
 dissect.volatility_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)

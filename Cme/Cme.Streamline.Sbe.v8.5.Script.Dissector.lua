@@ -95,7 +95,8 @@ cme_streamline_sbe_v8_5.fields.m_d_incremental_refresh_trade_blocks_group = Prot
 cme_streamline_sbe_v8_5.fields.m_d_incremental_refresh_trade_blocks_groups = ProtoField.new("M D Incremental Refresh Trade Blocks Groups", "cme.streamline.sbe.v8.5.mdincrementalrefreshtradeblocksgroups", ftypes.STRING)
 cme_streamline_sbe_v8_5.fields.m_d_instrument_definition_eris_leg_group = ProtoField.new("M D Instrument Definition Eris Leg Group", "cme.streamline.sbe.v8.5.mdinstrumentdefinitionerisleggroup", ftypes.STRING)
 cme_streamline_sbe_v8_5.fields.m_d_instrument_definition_eris_leg_groups = ProtoField.new("M D Instrument Definition Eris Leg Groups", "cme.streamline.sbe.v8.5.mdinstrumentdefinitionerisleggroups", ftypes.STRING)
-cme_streamline_sbe_v8_5.fields.mantissa = ProtoField.new("Mantissa", "cme.streamline.sbe.v8.5.mantissa", ftypes.INT32)
+cme_streamline_sbe_v8_5.fields.mantissa32 = ProtoField.new("Mantissa32", "cme.streamline.sbe.v8.5.mantissa32", ftypes.INT32)
+cme_streamline_sbe_v8_5.fields.mantissa64 = ProtoField.new("Mantissa64", "cme.streamline.sbe.v8.5.mantissa64", ftypes.INT64)
 cme_streamline_sbe_v8_5.fields.market_depth = ProtoField.new("Market Depth", "cme.streamline.sbe.v8.5.marketdepth", ftypes.UINT8)
 cme_streamline_sbe_v8_5.fields.market_sector = ProtoField.new("Market Sector", "cme.streamline.sbe.v8.5.marketsector", ftypes.STRING)
 cme_streamline_sbe_v8_5.fields.match_event_indicator = ProtoField.new("Match Event Indicator", "cme.streamline.sbe.v8.5.matcheventindicator", ftypes.STRING)
@@ -730,27 +731,27 @@ dissect.exponent = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Mantissa
-size_of.mantissa = 4
+-- Size: Mantissa64
+size_of.mantissa64 = 8
 
--- Display: Mantissa
-display.mantissa = function(value)
+-- Display: Mantissa64
+display.mantissa64 = function(value)
   -- Check if field has value
-  if value == 2147483647 then
-    return "Mantissa: No Value ("..value..")"
+  if value == 9223372036854775807 then
+    return "Mantissa64: No Value ("..value..")"
   end
 
-  return "Mantissa: "..value
+  return "Mantissa64: "..value
 end
 
--- Dissect: Mantissa
-dissect.mantissa = function(buffer, offset, packet, parent)
-  local length = size_of.mantissa
+-- Dissect: Mantissa64
+dissect.mantissa64 = function(buffer, offset, packet, parent)
+  local length = size_of.mantissa64
   local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.mantissa(value, buffer, offset, packet, parent)
+  local value = range:le_int64()
+  local display = display.mantissa64(value, buffer, offset, packet, parent)
 
-  parent:add(cme_streamline_sbe_v8_5.fields.mantissa, range, value, display)
+  parent:add(cme_streamline_sbe_v8_5.fields.mantissa64, range, value, display)
 
   return offset + length, value
 end
@@ -759,7 +760,7 @@ end
 size_of.interpolation_factor = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -775,8 +776,8 @@ end
 dissect.interpolation_factor_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -956,7 +957,7 @@ end
 size_of.previous_fixing_rate = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -972,8 +973,8 @@ end
 dissect.previous_fixing_rate_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -1266,7 +1267,7 @@ size_of.m_d_instrument_definition_eris_leg_groups = function(buffer, offset)
 
   -- Calculate field size from count
   local m_d_instrument_definition_eris_leg_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_instrument_definition_eris_leg_group_count * 107
+  index = index + m_d_instrument_definition_eris_leg_group_count * 115
 
   return index
 end
@@ -1802,11 +1803,36 @@ dissect.user_defined_instrument = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Mantissa32
+size_of.mantissa32 = 4
+
+-- Display: Mantissa32
+display.mantissa32 = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Mantissa32: No Value ("..value..")"
+  end
+
+  return "Mantissa32: "..value
+end
+
+-- Dissect: Mantissa32
+dissect.mantissa32 = function(buffer, offset, packet, parent)
+  local length = size_of.mantissa32
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = display.mantissa32(value, buffer, offset, packet, parent)
+
+  parent:add(cme_streamline_sbe_v8_5.fields.mantissa32, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Coupon Rate
 size_of.coupon_rate = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa32
 
   index = index + size_of.exponent
 
@@ -1822,8 +1848,8 @@ end
 dissect.coupon_rate_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa32: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa32 = dissect.mantissa32(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -1899,7 +1925,7 @@ end
 size_of.min_price_increment = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -1915,8 +1941,8 @@ end
 dissect.min_price_increment_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -2473,7 +2499,7 @@ end
 size_of.unit_of_measure_qty = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -2489,8 +2515,8 @@ end
 dissect.unit_of_measure_qty_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -2556,7 +2582,7 @@ end
 size_of.strike_price = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -2572,8 +2598,8 @@ end
 dissect.strike_price_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -2837,7 +2863,7 @@ end
 size_of.md_entry_size = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -2853,8 +2879,8 @@ end
 dissect.md_entry_size_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -2880,7 +2906,7 @@ end
 size_of.md_entry_px = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -2896,8 +2922,8 @@ end
 dissect.md_entry_px_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -3159,7 +3185,7 @@ size_of.m_d_incremental_refresh_otc_groups = function(buffer, offset)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_otc_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_otc_group_count * 269
+  index = index + m_d_incremental_refresh_otc_group_count * 285
 
   return index
 end
@@ -3524,7 +3550,7 @@ end
 size_of.cal_fut_px = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -3540,8 +3566,8 @@ end
 dissect.cal_fut_px_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -3726,7 +3752,7 @@ size_of.m_d_incremental_refresh_eris_groups = function(buffer, offset)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_eris_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_eris_group_count * 157
+  index = index + m_d_incremental_refresh_eris_group_count * 169
 
   return index
 end
@@ -4166,7 +4192,7 @@ size_of.m_d_incremental_refresh_trade_blocks_groups = function(buffer, offset)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_trade_blocks_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_trade_blocks_group_count * 261
+  index = index + m_d_incremental_refresh_trade_blocks_group_count * 277
 
   return index
 end
@@ -4332,7 +4358,7 @@ end
 size_of.percent_trading = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -4348,8 +4374,8 @@ end
 dissect.percent_trading_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -4374,7 +4400,7 @@ end
 size_of.net_pct_chg = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -4390,8 +4416,8 @@ end
 dissect.net_pct_chg_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -4416,7 +4442,7 @@ end
 size_of.net_chg_prev_day = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -4432,8 +4458,8 @@ end
 dissect.net_chg_prev_day_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -4458,7 +4484,7 @@ end
 size_of.yield = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -4474,8 +4500,8 @@ end
 dissect.yield_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -4631,7 +4657,7 @@ size_of.m_d_incremental_refresh_indices_groups = function(buffer, offset)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_indices_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_indices_group_count * 153
+  index = index + m_d_incremental_refresh_indices_group_count * 177
 
   return index
 end
@@ -5379,7 +5405,7 @@ end
 size_of.final_settlement_futures_price = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -5395,8 +5421,8 @@ end
 dissect.final_settlement_futures_price_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -5421,7 +5447,7 @@ end
 size_of.settlement_npv = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -5437,8 +5463,8 @@ end
 dissect.settlement_npv_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -5463,7 +5489,7 @@ end
 size_of.d_v_01 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -5479,8 +5505,8 @@ end
 dissect.d_v_01_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -5505,7 +5531,7 @@ end
 size_of.p_v_01 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -5521,8 +5547,8 @@ end
 dissect.p_v_01_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -5572,7 +5598,7 @@ end
 size_of.leg_contract_multiplier = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -5588,8 +5614,8 @@ end
 dissect.leg_contract_multiplier_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -5709,7 +5735,7 @@ end
 size_of.previous_eris_pai = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -5725,8 +5751,8 @@ end
 dissect.previous_eris_pai_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -5776,7 +5802,7 @@ end
 size_of.next_floating_payment_amount = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -5792,8 +5818,8 @@ end
 dissect.next_floating_payment_amount_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -5818,7 +5844,7 @@ end
 size_of.next_fixed_payment_amount = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -5834,8 +5860,8 @@ end
 dissect.next_fixed_payment_amount_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -5885,7 +5911,7 @@ end
 size_of.floating_payment = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -5901,8 +5927,8 @@ end
 dissect.floating_payment_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -5927,7 +5953,7 @@ end
 size_of.fixed_payment = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -5943,8 +5969,8 @@ end
 dissect.fixed_payment_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -5969,7 +5995,7 @@ end
 size_of.fed_funds_rate = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -5985,8 +6011,8 @@ end
 dissect.fed_funds_rate_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -6011,7 +6037,7 @@ end
 size_of.eris_pai = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -6027,8 +6053,8 @@ end
 dissect.eris_pai_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -6053,7 +6079,7 @@ end
 size_of.daily_incremental_eris_pai = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -6069,8 +6095,8 @@ end
 dissect.daily_incremental_eris_pai_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -6095,7 +6121,7 @@ end
 size_of.accrued_coupons = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -6111,8 +6137,8 @@ end
 dissect.accrued_coupons_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -6137,7 +6163,7 @@ end
 size_of.npv = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -6153,8 +6179,8 @@ end
 dissect.npv_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -6179,7 +6205,7 @@ end
 size_of.float_npv = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -6195,8 +6221,8 @@ end
 dissect.float_npv_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -6221,7 +6247,7 @@ end
 size_of.fixed_npv = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -6237,8 +6263,8 @@ end
 dissect.fixed_npv_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -6263,7 +6289,7 @@ end
 size_of.leg_purchase_rate = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -6279,8 +6305,8 @@ end
 dissect.leg_purchase_rate_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -6305,7 +6331,7 @@ end
 size_of.fair_coupon_pct = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa
+  index = index + size_of.mantissa64
 
   index = index + size_of.exponent
 
@@ -6321,8 +6347,8 @@ end
 dissect.fair_coupon_pct_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
+  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
@@ -6668,7 +6694,7 @@ size_of.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups 
 
   -- Calculate field size from count
   local m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_count * 309
+  index = index + m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_count * 401
 
   return index
 end
