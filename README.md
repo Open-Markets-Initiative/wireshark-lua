@@ -115,7 +115,8 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 |[Nasdaq][Nasdaq.Psx.LastSale.Itch.v2.1.Organization] | Psx | LastSale | Itch | [2.1][Nasdaq.Psx.LastSale.Itch.v2.1.Dissector] | 5/3/2018 | 3215 | Untested|
 |[Nasdaq][Nasdaq.Psx.TotalView.Itch.v5.0.Organization] | Psx | TotalView | Itch | [5.0][Nasdaq.Psx.TotalView.Itch.v5.0.Dissector] | 5/3/2018 | 3731 | Untested|
 |[Nasdaq][Nasdaq.Psx.Orders.Ouch.v4.2.Organization] | Psx | Orders | Ouch | [4.2][Nasdaq.Psx.Orders.Ouch.v4.2.Dissector] | 7/8/2019 | 3100 | Untested|
-|[Nasdaq][Nasdaq.Uqdf.Output.Utp.v1.5.Organization] | Uqdf | Output | Utp | [1.5][Nasdaq.Uqdf.Output.Utp.v1.5.Dissector] | 5/1/2020 | 4454 | Untested|
+|[Nasdaq][Nasdaq.Uqdf.Output.Utp.v1.5.Organization] | Uqdf | Output | Utp | [1.5][Nasdaq.Uqdf.Output.Utp.v1.5.Dissector] | 5/1/2020 | 4454 | Verified|
+|[Nasdaq][Nasdaq.Utdf.Output.Utp.v1.5.Organization] | Utdf | Output | Utp | [1.5][Nasdaq.Utdf.Output.Utp.v1.5.Dissector] | 5/1/2020 | 4847 | Untested|
 |[Nyse][Nyse.Equities.OpenBook.Ultra.v2.1.b.Organization] |  Equities | OpenBook | Ultra | [2.1.b][Nyse.Equities.OpenBook.Ultra.v2.1.b.Dissector] | 3/9/2018 | 1471 | Verified|
 |[Nyse][Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.Organization] | Amex Equities | OpenBook | Ultra | [2.1.b][Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.Dissector] | 3/9/2018 | 1477 | Verified|
 |[Nyse][Nyse.Equities.Bbo.Xdp.v2.4.g.Organization] | Equities | Bbo | Xdp | [2.4.g][Nyse.Equities.Bbo.Xdp.v2.4.g.Dissector] | 1/29/2018 | 3042 | Verified|
@@ -139,7 +140,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 |Protocol Count | Generated Lines|
 |--- | ---|
-|101 | 928,661|
+|102 | 933,508|
 
 Note: Our dissector model is still under rapid development.
 
@@ -330,6 +331,8 @@ Enjoy.
 [Nasdaq.Equities.TotalView.Itch.v5.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nasdaq/Nasdaq.Equities.TotalView.Itch.v5.0.Script.Dissector.lua "National Association of Securities Dealers Automated Quotations 5.0 Wireshark Dissector"
 [Nasdaq.Uqdf.Output.Utp.v1.5.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nasdaq "National Association of Securities Dealers Automated Quotations"
 [Nasdaq.Uqdf.Output.Utp.v1.5.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nasdaq/Nasdaq.Uqdf.Output.Utp.v1.5.Script.Dissector.lua "National Association of Securities Dealers Automated Quotations 1.5 Wireshark Dissector"
+[Nasdaq.Utdf.Output.Utp.v1.5.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nasdaq "National Association of Securities Dealers Automated Quotations"
+[Nasdaq.Utdf.Output.Utp.v1.5.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nasdaq/Nasdaq.Utdf.Output.Utp.v1.5.Script.Dissector.lua "National Association of Securities Dealers Automated Quotations 1.5 Wireshark Dissector"
 [Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nyse "New York Stock Exchange"
 [Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nyse/Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.Script.Dissector.lua "New York Stock Exchange 2.1.b Wireshark Dissector"
 [Nyse.Equities.OpenBook.Ultra.v2.1.b.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nyse "New York Stock Exchange"
