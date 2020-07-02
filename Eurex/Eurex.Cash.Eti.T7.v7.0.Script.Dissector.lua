@@ -2196,8 +2196,7 @@ size_of.order_qty = 8
 
 -- Display: Order Qty
 display.order_qty = function(value)
-  local factor = 10000
-  return "Order Qty: "..value:tonumber()/factor
+  return "Order Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Order Qty
@@ -2217,8 +2216,7 @@ size_of.stop_px = 8
 
 -- Display: Stop Px
 display.stop_px = function(value)
-  local factor = 100000000
-  return "Stop Px: "..value:tonumber()/factor
+  return "Stop Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Stop Px
@@ -4253,8 +4251,7 @@ size_of.coupon_rate = 8
 
 -- Display: Coupon Rate
 display.coupon_rate = function(value)
-  local factor = 10000000
-  return "Coupon Rate: "..value:tonumber()/factor
+  return "Coupon Rate: "..value:tonumber()/10000000
 end
 
 -- Dissect: Coupon Rate
@@ -4274,8 +4271,7 @@ size_of.accrued_interes_amt = 8
 
 -- Display: Accrued Interes Amt
 display.accrued_interes_amt = function(value)
-  local factor = 100000000
-  return "Accrued Interes Amt: "..value:tonumber()/factor
+  return "Accrued Interes Amt: "..value:tonumber()/100000000
 end
 
 -- Dissect: Accrued Interes Amt
@@ -4295,8 +4291,7 @@ size_of.side_gross_trade_amt = 8
 
 -- Display: Side Gross Trade Amt
 display.side_gross_trade_amt = function(value)
-  local factor = 100000000
-  return "Side Gross Trade Amt: "..value:tonumber()/factor
+  return "Side Gross Trade Amt: "..value:tonumber()/100000000
 end
 
 -- Dissect: Side Gross Trade Amt
@@ -4316,8 +4311,7 @@ size_of.cum_qty = 8
 
 -- Display: Cum Qty
 display.cum_qty = function(value)
-  local factor = 10000
-  return "Cum Qty: "..value:tonumber()/factor
+  return "Cum Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Cum Qty
@@ -4337,8 +4331,7 @@ size_of.leaves_qty = 8
 
 -- Display: Leaves Qty
 display.leaves_qty = function(value)
-  local factor = 10000
-  return "Leaves Qty: "..value:tonumber()/factor
+  return "Leaves Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Leaves Qty
@@ -4378,8 +4371,7 @@ size_of.settl_curr_fx_rate = 8
 
 -- Display: Settl Curr Fx Rate
 display.settl_curr_fx_rate = function(value)
-  local factor = 100000000
-  return "Settl Curr Fx Rate: "..value:tonumber()/factor
+  return "Settl Curr Fx Rate: "..value:tonumber()/100000000
 end
 
 -- Dissect: Settl Curr Fx Rate
@@ -4399,8 +4391,7 @@ size_of.settl_curr_amt = 8
 
 -- Display: Settl Curr Amt
 display.settl_curr_amt = function(value)
-  local factor = 100000000
-  return "Settl Curr Amt: "..value:tonumber()/factor
+  return "Settl Curr Amt: "..value:tonumber()/100000000
 end
 
 -- Dissect: Settl Curr Amt
@@ -4420,8 +4411,7 @@ size_of.last_qty = 8
 
 -- Display: Last Qty
 display.last_qty = function(value)
-  local factor = 10000
-  return "Last Qty: "..value:tonumber()/factor
+  return "Last Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Last Qty
@@ -4441,8 +4431,7 @@ size_of.last_px = 8
 
 -- Display: Last Px
 display.last_px = function(value)
-  local factor = 100000000
-  return "Last Px: "..value:tonumber()/factor
+  return "Last Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Last Px
@@ -4462,8 +4451,7 @@ size_of.price = 8
 
 -- Display: Price
 display.price = function(value)
-  local factor = 100000000
-  return "Price: "..value:tonumber()/factor
+  return "Price: "..value:tonumber()/100000000
 end
 
 -- Dissect: Price
@@ -6162,8 +6150,7 @@ size_of.alloc_qty = 8
 
 -- Display: Alloc Qty
 display.alloc_qty = function(value)
-  local factor = 10000
-  return "Alloc Qty: "..value:tonumber()/factor
+  return "Alloc Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Alloc Qty
@@ -8540,8 +8527,7 @@ size_of.quote_event_qty = 8
 
 -- Display: Quote Event Qty
 display.quote_event_qty = function(value)
-  local factor = 10000
-  return "Quote Event Qty: "..value:tonumber()/factor
+  return "Quote Event Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Quote Event Qty
@@ -8561,8 +8547,7 @@ size_of.quote_event_px = 8
 
 -- Display: Quote Event Px
 display.quote_event_px = function(value)
-  local factor = 100000000
-  return "Quote Event Px: "..value:tonumber()/factor
+  return "Quote Event Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Quote Event Px
@@ -9831,8 +9816,7 @@ size_of.fill_qty = 8
 
 -- Display: Fill Qty
 display.fill_qty = function(value)
-  local factor = 10000
-  return "Fill Qty: "..value:tonumber()/factor
+  return "Fill Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Fill Qty
@@ -9852,8 +9836,7 @@ size_of.fill_px = 8
 
 -- Display: Fill Px
 display.fill_px = function(value)
-  local factor = 100000000
-  return "Fill Px: "..value:tonumber()/factor
+  return "Fill Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Fill Px
@@ -10012,8 +9995,7 @@ size_of.display_qty = 8
 
 -- Display: Display Qty
 display.display_qty = function(value)
-  local factor = 10000
-  return "Display Qty: "..value:tonumber()/factor
+  return "Display Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Display Qty
@@ -10033,8 +10015,7 @@ size_of.cxl_qty = 8
 
 -- Display: Cxl Qty
 display.cxl_qty = function(value)
-  local factor = 10000
-  return "Cxl Qty: "..value:tonumber()/factor
+  return "Cxl Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Cxl Qty
@@ -10556,8 +10537,7 @@ size_of.peg_offset_value_pct = 8
 
 -- Display: Peg Offset Value Pct
 display.peg_offset_value_pct = function(value)
-  local factor = 10000
-  return "Peg Offset Value Pct: "..value:tonumber()/factor
+  return "Peg Offset Value Pct: "..value:tonumber()/10000
 end
 
 -- Dissect: Peg Offset Value Pct
@@ -10577,8 +10557,7 @@ size_of.peg_offset_value_abs = 8
 
 -- Display: Peg Offset Value Abs
 display.peg_offset_value_abs = function(value)
-  local factor = 100000000
-  return "Peg Offset Value Abs: "..value:tonumber()/factor
+  return "Peg Offset Value Abs: "..value:tonumber()/100000000
 end
 
 -- Dissect: Peg Offset Value Abs
@@ -10598,8 +10577,7 @@ size_of.volume_discovery_price = 8
 
 -- Display: Volume Discovery Price
 display.volume_discovery_price = function(value)
-  local factor = 100000000
-  return "Volume Discovery Price: "..value:tonumber()/factor
+  return "Volume Discovery Price: "..value:tonumber()/100000000
 end
 
 -- Dissect: Volume Discovery Price
@@ -10619,8 +10597,7 @@ size_of.display_high_qty = 8
 
 -- Display: Display High Qty
 display.display_high_qty = function(value)
-  local factor = 10000
-  return "Display High Qty: "..value:tonumber()/factor
+  return "Display High Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Display High Qty
@@ -10640,8 +10617,7 @@ size_of.display_low_qty = 8
 
 -- Display: Display Low Qty
 display.display_low_qty = function(value)
-  local factor = 10000
-  return "Display Low Qty: "..value:tonumber()/factor
+  return "Display Low Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Display Low Qty
@@ -12899,8 +12875,7 @@ size_of.offer_cxl_size = 8
 
 -- Display: Offer Cxl Size
 display.offer_cxl_size = function(value)
-  local factor = 10000
-  return "Offer Cxl Size: "..value:tonumber()/factor
+  return "Offer Cxl Size: "..value:tonumber()/10000
 end
 
 -- Dissect: Offer Cxl Size
@@ -12920,8 +12895,7 @@ size_of.bid_cxl_size = 8
 
 -- Display: Bid Cxl Size
 display.bid_cxl_size = function(value)
-  local factor = 10000
-  return "Bid Cxl Size: "..value:tonumber()/factor
+  return "Bid Cxl Size: "..value:tonumber()/10000
 end
 
 -- Dissect: Bid Cxl Size
@@ -13139,8 +13113,7 @@ size_of.offer_size = 8
 
 -- Display: Offer Size
 display.offer_size = function(value)
-  local factor = 10000
-  return "Offer Size: "..value:tonumber()/factor
+  return "Offer Size: "..value:tonumber()/10000
 end
 
 -- Dissect: Offer Size
@@ -13160,8 +13133,7 @@ size_of.offer_px = 8
 
 -- Display: Offer Px
 display.offer_px = function(value)
-  local factor = 100000000
-  return "Offer Px: "..value:tonumber()/factor
+  return "Offer Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Offer Px
@@ -13181,8 +13153,7 @@ size_of.bid_size = 8
 
 -- Display: Bid Size
 display.bid_size = function(value)
-  local factor = 10000
-  return "Bid Size: "..value:tonumber()/factor
+  return "Bid Size: "..value:tonumber()/10000
 end
 
 -- Dissect: Bid Size
@@ -13202,8 +13173,7 @@ size_of.bid_px = 8
 
 -- Display: Bid Px
 display.bid_px = function(value)
-  local factor = 100000000
-  return "Bid Px: "..value:tonumber()/factor
+  return "Bid Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Bid Px
@@ -14301,8 +14271,7 @@ size_of.event_px = 8
 
 -- Display: Event Px
 display.event_px = function(value)
-  local factor = 100000000
-  return "Event Px: "..value:tonumber()/factor
+  return "Event Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Event Px
@@ -14564,8 +14533,7 @@ size_of.imbalance_qty = 8
 
 -- Display: Imbalance Qty
 display.imbalance_qty = function(value)
-  local factor = 10000
-  return "Imbalance Qty: "..value:tonumber()/factor
+  return "Imbalance Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Imbalance Qty
@@ -14585,8 +14553,7 @@ size_of.potential_exec_volume = 8
 
 -- Display: Potential Exec Volume
 display.potential_exec_volume = function(value)
-  local factor = 10000
-  return "Potential Exec Volume: "..value:tonumber()/factor
+  return "Potential Exec Volume: "..value:tonumber()/10000
 end
 
 -- Dissect: Potential Exec Volume
@@ -16073,8 +16040,7 @@ size_of.peg_offset_value_offer_px = 8
 
 -- Display: Peg Offset Value Offer Px
 display.peg_offset_value_offer_px = function(value)
-  local factor = 100000000
-  return "Peg Offset Value Offer Px: "..value:tonumber()/factor
+  return "Peg Offset Value Offer Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Peg Offset Value Offer Px
@@ -16094,8 +16060,7 @@ size_of.peg_offset_value_bid_px = 8
 
 -- Display: Peg Offset Value Bid Px
 display.peg_offset_value_bid_px = function(value)
-  local factor = 100000000
-  return "Peg Offset Value Bid Px: "..value:tonumber()/factor
+  return "Peg Offset Value Bid Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Peg Offset Value Bid Px
@@ -16115,8 +16080,7 @@ size_of.reserved_offer_size = 8
 
 -- Display: Reserved Offer Size
 display.reserved_offer_size = function(value)
-  local factor = 10000
-  return "Reserved Offer Size: "..value:tonumber()/factor
+  return "Reserved Offer Size: "..value:tonumber()/10000
 end
 
 -- Dissect: Reserved Offer Size
@@ -16136,8 +16100,7 @@ size_of.reserved_bid_size = 8
 
 -- Display: Reserved Bid Size
 display.reserved_bid_size = function(value)
-  local factor = 10000
-  return "Reserved Bid Size: "..value:tonumber()/factor
+  return "Reserved Bid Size: "..value:tonumber()/10000
 end
 
 -- Dissect: Reserved Bid Size
@@ -18001,8 +17964,7 @@ size_of.reserved_size = 8
 
 -- Display: Reserved Size
 display.reserved_size = function(value)
-  local factor = 10000
-  return "Reserved Size: "..value:tonumber()/factor
+  return "Reserved Size: "..value:tonumber()/10000
 end
 
 -- Dissect: Reserved Size

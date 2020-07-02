@@ -46,43 +46,43 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 |[Cboe][Cboe.Options.C1.AuctionFeed.Pitch.v1.1.1.Organization] | Options C1 | AuctionFeed | Pitch | [1.1.1][Cboe.Options.C1.AuctionFeed.Pitch.v1.1.1.Dissector] | 12/6/2018 | 1857 | Verified|
 |[Cboe][Cboe.Options.Edgx.OrderEntry.Boe.v2.10.Organization] | Options Edgx | OrderEntry | Boe | [2.10][Cboe.Options.Edgx.OrderEntry.Boe.v2.10.Dissector] | 12/3/2019 | 44998 | Beta|
 |[Cboe][Cboe.Options.Edgx.AuctionFeed.Pitch.v1.1.1.Organization] | Options Edgx | AuctionFeed | Pitch | [1.1.1][Cboe.Options.Edgx.AuctionFeed.Pitch.v1.1.1.Dissector] | 12/6/2018 | 1301 | Verified|
-|[Cme][Cme.Streamline.Sbe.v9.5.Organization] |  | Streamline | Sbe | [9.5][Cme.Streamline.Sbe.v9.5.Dissector] | 4/4/2018 | 7604 | Untested|
-|[Cme][Cme.Streamline.Sbe.v8.5.Organization] |  | Streamline | Sbe | [8.5][Cme.Streamline.Sbe.v8.5.Dissector] | 6/2/2017 | 7454 | Untested|
-|[Cme][Cme.Futures.iLink3.Sbe.v8.5.Organization] | Futures | iLink3 | Sbe | [8.5][Cme.Futures.iLink3.Sbe.v8.5.Dissector] | 2/27/2020 | 15359 | Untested|
-|[Cme][Cme.Futures.iLink3.Sbe.v8.4.Organization] | Futures | iLink3 | Sbe | [8.4][Cme.Futures.iLink3.Sbe.v8.4.Dissector] | 2/11/2020 | 15292 | Untested|
-|[Cme][Cme.Futures.iLink3.Sbe.v8.3.Organization] | Futures | iLink3 | Sbe | [8.3][Cme.Futures.iLink3.Sbe.v8.3.Dissector] | 1/9/2020 | 15211 | Untested|
-|[Cme][Cme.Futures.iLink3.Sbe.v8.2.Organization] | Futures | iLink3 | Sbe | [8.2][Cme.Futures.iLink3.Sbe.v8.2.Dissector] | 11/5/2019 | 15175 | Verified|
-|[Cme][Cme.Futures.Mdp3.Sbe.v1.9.Organization] | Futures | Mdp3 | Sbe | [1.9][Cme.Futures.Mdp3.Sbe.v1.9.Dissector] | 3/8/2018 | 9426 | Verified|
-|[Cme][Cme.Futures.Mdp3.Sbe.v1.8.Organization] | Futures | Mdp3 | Sbe | [1.8][Cme.Futures.Mdp3.Sbe.v1.8.Dissector] | 7/1/2016 | 8171 | Verified|
-|[Cme][Cme.Futures.Mdp3.Sbe.v1.6.Organization] | Futures | Mdp3 | Sbe | [1.6][Cme.Futures.Mdp3.Sbe.v1.6.Dissector] | 1/9/2016 | 7266 | Verified|
-|[Cme][Cme.Futures.Mdp3.Sbe.v1.5.Organization] | Futures | Mdp3 | Sbe | [1.5][Cme.Futures.Mdp3.Sbe.v1.5.Dissector] | 8/6/2014 | 7251 | Verified|
-|[Cme][Cme.Futures.Mdp3.Sbe.v1.11.Organization] | Futures | Mdp3 | Sbe | [1.11][Cme.Futures.Mdp3.Sbe.v1.11.Dissector] | 3/3/2020 | 10258 | Untested|
-|[Cme][Cme.Futures.Mdp3.Sbe.v1.10.Organization] | Futures | Mdp3 | Sbe | [1.10][Cme.Futures.Mdp3.Sbe.v1.10.Dissector] | 7/26/2019 | 9893 | Untested|
-|[Eurex][Eurex.Cash.Eti.T7.v8.1.Organization] | Cash | Eti | T7 | [8.1][Eurex.Cash.Eti.T7.v8.1.Dissector] | 3/25/2020 | 24050 | Untested|
-|[Eurex][Eurex.Cash.Eti.T7.v7.1.Organization] | Cash | Eti | T7 | [7.1][Eurex.Cash.Eti.T7.v7.1.Dissector] | 5/27/2019 | 22117 | Untested|
-|[Eurex][Eurex.Cash.Eti.T7.v7.0.Organization] | Cash | Eti | T7 | [7.0][Eurex.Cash.Eti.T7.v7.0.Dissector] | 5/22/2017 | 18730 | Untested|
-|[Eurex][Eurex.Cash.Eti.T7.v6.1.Organization] | Cash | Eti | T7 | [6.1][Eurex.Cash.Eti.T7.v6.1.Dissector] | 5/16/2018 | 15736 | Untested|
-|[Eurex][Eurex.Cash.Eti.T7.v6.0.Organization] | Cash | Eti | T7 | [6.0][Eurex.Cash.Eti.T7.v6.0.Dissector] | 10/19/2017 | 15718 | Untested|
-|[Eurex][Eurex.Cash.Eti.T7.v5.0.Organization] | Cash | Eti | T7 | [5.0][Eurex.Cash.Eti.T7.v5.0.Dissector] | 5/22/2017 | 14262 | Untested|
-|[Eurex][Eurex.Cash.Eti.T7.v5.0.Organization] | Cash | Eti | T7 | [5.0][Eurex.Cash.Eti.T7.v5.0.Dissector] | 10/15/2019 | 23946 | Untested|
-|[Eurex][Eurex.Derivatives.Eobi.T7.v8.1.Organization] | Derivatives | Eobi | T7 | [8.1][Eurex.Derivatives.Eobi.T7.v8.1.Dissector] | 3/23/2020 | 5076 | Untested|
-|[Eurex][Eurex.Derivatives.Eobi.T7.v8.0.Organization] | Derivatives | Eobi | T7 | [8.0][Eurex.Derivatives.Eobi.T7.v8.0.Dissector] | 9/23/2019 | 5043 | Untested|
-|[Eurex][Eurex.Derivatives.Eobi.T7.v7.1.Organization] | Derivatives | Eobi | T7 | [7.1][Eurex.Derivatives.Eobi.T7.v7.1.Dissector] | 3/14/2019 | 4546 | Untested|
-|[Eurex][Eurex.Derivatives.Eobi.T7.v7.0.Organization] | Derivatives | Eobi | T7 | [7.0][Eurex.Derivatives.Eobi.T7.v7.0.Dissector] | 8/20/2018 | 4419 | Untested|
-|[Eurex][Eurex.Derivatives.Eobi.T7.v6.1.Organization] | Derivatives | Eobi | T7 | [6.1][Eurex.Derivatives.Eobi.T7.v6.1.Dissector] | 3/20/2018 | 4276 | Untested|
-|[Eurex][Eurex.Derivatives.Eobi.T7.v6.0.Organization] | Derivatives | Eobi | T7 | [6.0][Eurex.Derivatives.Eobi.T7.v6.0.Dissector] | 10/23/2017 | 4273 | Verified|
-|[Eurex][Eurex.Derivatives.Eobi.T7.v5.0.Organization] | Derivatives | Eobi | T7 | [5.0][Eurex.Derivatives.Eobi.T7.v5.0.Dissector] | 6/9/2017 | 4164 | Untested|
-|[Eurex][Eurex.Derivatives.Eobi.T7.v4.0.Organization] | Derivatives | Eobi | T7 | [4.0][Eurex.Derivatives.Eobi.T7.v4.0.Dissector] | 11/11/2016 | 4161 | Untested|
-|[Eurex][Eurex.Derivatives.Eobi.T7.v3.0.Organization] | Derivatives | Eobi | T7 | [3.0][Eurex.Derivatives.Eobi.T7.v3.0.Dissector] | 8/3/2015 | 3917 | Verified|
-|[Eurex][Eurex.Derivatives.Eobi.T7.v2.5.Organization] | Derivatives | Eobi | T7 | [2.5][Eurex.Derivatives.Eobi.T7.v2.5.Dissector] | 11/7/2014 | 3896 | Untested|
-|[Eurex][Eurex.Derivatives.Eti.T7.v8.1.Organization] | Derivatives | Eti | T7 | [8.1][Eurex.Derivatives.Eti.T7.v8.1.Dissector] | 3/25/2020 | 31336 | Untested|
-|[Eurex][Eurex.Derivatives.Eti.T7.v8.0.Organization] | Derivatives | Eti | T7 | [8.0][Eurex.Derivatives.Eti.T7.v8.0.Dissector] | 10/15/2019 | 30758 | Untested|
-|[Eurex][Eurex.Derivatives.Eti.T7.v7.1.Organization] | Derivatives | Eti | T7 | [7.1][Eurex.Derivatives.Eti.T7.v7.1.Dissector] | 5/27/2019 | 29983 | Untested|
-|[Eurex][Eurex.Derivatives.Eti.T7.v7.0.Organization] | Derivatives | Eti | T7 | [7.0][Eurex.Derivatives.Eti.T7.v7.0.Dissector] | 5/22/2017 | 27359 | Untested|
-|[Eurex][Eurex.Derivatives.Eti.T7.v6.1.Organization] | Derivatives | Eti | T7 | [6.1][Eurex.Derivatives.Eti.T7.v6.1.Dissector] | 5/16/2018 | 25108 | Untested|
-|[Eurex][Eurex.Derivatives.Eti.T7.v6.0.Organization] | Derivatives | Eti | T7 | [6.0][Eurex.Derivatives.Eti.T7.v6.0.Dissector] | 10/19/2017 | 24076 | Untested|
-|[Eurex][Eurex.Derivatives.Eti.T7.v5.0.Organization] | Derivatives | Eti | T7 | [5.0][Eurex.Derivatives.Eti.T7.v5.0.Dissector] | 5/22/2017 | 20323 | Untested|
-|[Eurex][Eurex.Derivatives.Eti.T7.v2.5.Organization] | Derivatives | Eti | T7 | [2.5][Eurex.Derivatives.Eti.T7.v2.5.Dissector] | 7/15/2016 | 15703 | Untested|
+|[Cme][Cme.Streamline.Sbe.v9.5.Organization] |  | Streamline | Sbe | [9.5][Cme.Streamline.Sbe.v9.5.Dissector] | 4/4/2018 | 7603 | Untested|
+|[Cme][Cme.Streamline.Sbe.v8.5.Organization] |  | Streamline | Sbe | [8.5][Cme.Streamline.Sbe.v8.5.Dissector] | 6/2/2017 | 7453 | Untested|
+|[Cme][Cme.Futures.iLink3.Sbe.v8.5.Organization] | Futures | iLink3 | Sbe | [8.5][Cme.Futures.iLink3.Sbe.v8.5.Dissector] | 2/27/2020 | 15349 | Untested|
+|[Cme][Cme.Futures.iLink3.Sbe.v8.4.Organization] | Futures | iLink3 | Sbe | [8.4][Cme.Futures.iLink3.Sbe.v8.4.Dissector] | 2/11/2020 | 15282 | Untested|
+|[Cme][Cme.Futures.iLink3.Sbe.v8.3.Organization] | Futures | iLink3 | Sbe | [8.3][Cme.Futures.iLink3.Sbe.v8.3.Dissector] | 1/9/2020 | 15201 | Untested|
+|[Cme][Cme.Futures.iLink3.Sbe.v8.2.Organization] | Futures | iLink3 | Sbe | [8.2][Cme.Futures.iLink3.Sbe.v8.2.Dissector] | 11/5/2019 | 15165 | Verified|
+|[Cme][Cme.Futures.Mdp3.Sbe.v1.9.Organization] | Futures | Mdp3 | Sbe | [1.9][Cme.Futures.Mdp3.Sbe.v1.9.Dissector] | 3/8/2018 | 9411 | Verified|
+|[Cme][Cme.Futures.Mdp3.Sbe.v1.8.Organization] | Futures | Mdp3 | Sbe | [1.8][Cme.Futures.Mdp3.Sbe.v1.8.Dissector] | 7/1/2016 | 8156 | Verified|
+|[Cme][Cme.Futures.Mdp3.Sbe.v1.6.Organization] | Futures | Mdp3 | Sbe | [1.6][Cme.Futures.Mdp3.Sbe.v1.6.Dissector] | 1/9/2016 | 7251 | Verified|
+|[Cme][Cme.Futures.Mdp3.Sbe.v1.5.Organization] | Futures | Mdp3 | Sbe | [1.5][Cme.Futures.Mdp3.Sbe.v1.5.Dissector] | 8/6/2014 | 7236 | Verified|
+|[Cme][Cme.Futures.Mdp3.Sbe.v1.11.Organization] | Futures | Mdp3 | Sbe | [1.11][Cme.Futures.Mdp3.Sbe.v1.11.Dissector] | 3/3/2020 | 10239 | Untested|
+|[Cme][Cme.Futures.Mdp3.Sbe.v1.10.Organization] | Futures | Mdp3 | Sbe | [1.10][Cme.Futures.Mdp3.Sbe.v1.10.Dissector] | 7/26/2019 | 9876 | Untested|
+|[Eurex][Eurex.Cash.Eti.T7.v8.1.Organization] | Cash | Eti | T7 | [8.1][Eurex.Cash.Eti.T7.v8.1.Dissector] | 3/25/2020 | 24007 | Untested|
+|[Eurex][Eurex.Cash.Eti.T7.v7.1.Organization] | Cash | Eti | T7 | [7.1][Eurex.Cash.Eti.T7.v7.1.Dissector] | 5/27/2019 | 22075 | Untested|
+|[Eurex][Eurex.Cash.Eti.T7.v7.0.Organization] | Cash | Eti | T7 | [7.0][Eurex.Cash.Eti.T7.v7.0.Dissector] | 5/22/2017 | 18692 | Untested|
+|[Eurex][Eurex.Cash.Eti.T7.v6.1.Organization] | Cash | Eti | T7 | [6.1][Eurex.Cash.Eti.T7.v6.1.Dissector] | 5/16/2018 | 15722 | Untested|
+|[Eurex][Eurex.Cash.Eti.T7.v6.0.Organization] | Cash | Eti | T7 | [6.0][Eurex.Cash.Eti.T7.v6.0.Dissector] | 10/19/2017 | 15704 | Untested|
+|[Eurex][Eurex.Cash.Eti.T7.v5.0.Organization] | Cash | Eti | T7 | [5.0][Eurex.Cash.Eti.T7.v5.0.Dissector] | 5/22/2017 | 14251 | Untested|
+|[Eurex][Eurex.Cash.Eti.T7.v5.0.Organization] | Cash | Eti | T7 | [5.0][Eurex.Cash.Eti.T7.v5.0.Dissector] | 10/15/2019 | 23903 | Untested|
+|[Eurex][Eurex.Derivatives.Eobi.T7.v8.1.Organization] | Derivatives | Eobi | T7 | [8.1][Eurex.Derivatives.Eobi.T7.v8.1.Dissector] | 3/23/2020 | 5060 | Untested|
+|[Eurex][Eurex.Derivatives.Eobi.T7.v8.0.Organization] | Derivatives | Eobi | T7 | [8.0][Eurex.Derivatives.Eobi.T7.v8.0.Dissector] | 9/23/2019 | 5027 | Untested|
+|[Eurex][Eurex.Derivatives.Eobi.T7.v7.1.Organization] | Derivatives | Eobi | T7 | [7.1][Eurex.Derivatives.Eobi.T7.v7.1.Dissector] | 3/14/2019 | 4530 | Untested|
+|[Eurex][Eurex.Derivatives.Eobi.T7.v7.0.Organization] | Derivatives | Eobi | T7 | [7.0][Eurex.Derivatives.Eobi.T7.v7.0.Dissector] | 8/20/2018 | 4405 | Untested|
+|[Eurex][Eurex.Derivatives.Eobi.T7.v6.1.Organization] | Derivatives | Eobi | T7 | [6.1][Eurex.Derivatives.Eobi.T7.v6.1.Dissector] | 3/20/2018 | 4270 | Untested|
+|[Eurex][Eurex.Derivatives.Eobi.T7.v6.0.Organization] | Derivatives | Eobi | T7 | [6.0][Eurex.Derivatives.Eobi.T7.v6.0.Dissector] | 10/23/2017 | 4267 | Verified|
+|[Eurex][Eurex.Derivatives.Eobi.T7.v5.0.Organization] | Derivatives | Eobi | T7 | [5.0][Eurex.Derivatives.Eobi.T7.v5.0.Dissector] | 6/9/2017 | 4158 | Untested|
+|[Eurex][Eurex.Derivatives.Eobi.T7.v4.0.Organization] | Derivatives | Eobi | T7 | [4.0][Eurex.Derivatives.Eobi.T7.v4.0.Dissector] | 11/11/2016 | 4155 | Untested|
+|[Eurex][Eurex.Derivatives.Eobi.T7.v3.0.Organization] | Derivatives | Eobi | T7 | [3.0][Eurex.Derivatives.Eobi.T7.v3.0.Dissector] | 8/3/2015 | 3911 | Verified|
+|[Eurex][Eurex.Derivatives.Eobi.T7.v2.5.Organization] | Derivatives | Eobi | T7 | [2.5][Eurex.Derivatives.Eobi.T7.v2.5.Dissector] | 11/7/2014 | 3890 | Untested|
+|[Eurex][Eurex.Derivatives.Eti.T7.v8.1.Organization] | Derivatives | Eti | T7 | [8.1][Eurex.Derivatives.Eti.T7.v8.1.Dissector] | 3/25/2020 | 31288 | Untested|
+|[Eurex][Eurex.Derivatives.Eti.T7.v8.0.Organization] | Derivatives | Eti | T7 | [8.0][Eurex.Derivatives.Eti.T7.v8.0.Dissector] | 10/15/2019 | 30711 | Untested|
+|[Eurex][Eurex.Derivatives.Eti.T7.v7.1.Organization] | Derivatives | Eti | T7 | [7.1][Eurex.Derivatives.Eti.T7.v7.1.Dissector] | 5/27/2019 | 29936 | Untested|
+|[Eurex][Eurex.Derivatives.Eti.T7.v7.0.Organization] | Derivatives | Eti | T7 | [7.0][Eurex.Derivatives.Eti.T7.v7.0.Dissector] | 5/22/2017 | 27312 | Untested|
+|[Eurex][Eurex.Derivatives.Eti.T7.v6.1.Organization] | Derivatives | Eti | T7 | [6.1][Eurex.Derivatives.Eti.T7.v6.1.Dissector] | 5/16/2018 | 25087 | Untested|
+|[Eurex][Eurex.Derivatives.Eti.T7.v6.0.Organization] | Derivatives | Eti | T7 | [6.0][Eurex.Derivatives.Eti.T7.v6.0.Dissector] | 10/19/2017 | 24057 | Untested|
+|[Eurex][Eurex.Derivatives.Eti.T7.v5.0.Organization] | Derivatives | Eti | T7 | [5.0][Eurex.Derivatives.Eti.T7.v5.0.Dissector] | 5/22/2017 | 20306 | Untested|
+|[Eurex][Eurex.Derivatives.Eti.T7.v2.5.Organization] | Derivatives | Eti | T7 | [2.5][Eurex.Derivatives.Eti.T7.v2.5.Dissector] | 7/15/2016 | 15690 | Untested|
 |[Ice][Ice.Futures.Mdf.iMpact.v1.1.34.Organization] | Futures | Mdf | iMpact | [1.1.34][Ice.Futures.Mdf.iMpact.v1.1.34.Dissector] | 9/4/2018 | 10214 | Verified|
 |[Ice][Ice.Futures.Mdf.iMpact.v1.1.33.Organization] | Futures | Mdf | iMpact | [1.1.33][Ice.Futures.Mdf.iMpact.v1.1.33.Dissector] | 8/6/2018 | 9971 | Verified|
 |[Ice][Ice.Futures.Mdf.iMpact.v1.1.24.Organization] | Futures | Mdf | iMpact | [1.1.24][Ice.Futures.Mdf.iMpact.v1.1.24.Dissector] | 3/30/2016 | 9047 | Verified|
@@ -140,7 +140,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 |Protocol Count | Generated Lines|
 |--- | ---|
-|102 | 933,508|
+|102 | 932,808|
 
 Note: Our dissector model is still under rapid development.
 

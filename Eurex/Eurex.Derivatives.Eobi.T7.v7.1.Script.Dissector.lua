@@ -431,8 +431,7 @@ size_of.md_entry_size = 8
 
 -- Display: Md Entry Size
 display.md_entry_size = function(value)
-  local factor = 10000
-  return "Md Entry Size: "..value:tonumber()/factor
+  return "Md Entry Size: "..value:tonumber()/10000
 end
 
 -- Dissect: Md Entry Size
@@ -452,8 +451,7 @@ size_of.md_entry_px = 8
 
 -- Display: Md Entry Px
 display.md_entry_px = function(value)
-  local factor = 100000000
-  return "Md Entry Px: "..value:tonumber()/factor
+  return "Md Entry Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Md Entry Px
@@ -641,8 +639,7 @@ size_of.last_px = 8
 
 -- Display: Last Px
 display.last_px = function(value)
-  local factor = 100000000
-  return "Last Px: "..value:tonumber()/factor
+  return "Last Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Last Px
@@ -662,8 +659,7 @@ size_of.last_qty = 8
 
 -- Display: Last Qty
 display.last_qty = function(value)
-  local factor = 10000
-  return "Last Qty: "..value:tonumber()/factor
+  return "Last Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Last Qty
@@ -982,8 +978,7 @@ size_of.offer_size = 8
 
 -- Display: Offer Size
 display.offer_size = function(value)
-  local factor = 10000
-  return "Offer Size: "..value:tonumber()/factor
+  return "Offer Size: "..value:tonumber()/10000
 end
 
 -- Dissect: Offer Size
@@ -1003,8 +998,7 @@ size_of.bid_size = 8
 
 -- Display: Bid Size
 display.bid_size = function(value)
-  local factor = 10000
-  return "Bid Size: "..value:tonumber()/factor
+  return "Bid Size: "..value:tonumber()/10000
 end
 
 -- Dissect: Bid Size
@@ -1024,8 +1018,7 @@ size_of.offer_px = 8
 
 -- Display: Offer Px
 display.offer_px = function(value)
-  local factor = 100000000
-  return "Offer Px: "..value:tonumber()/factor
+  return "Offer Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Offer Px
@@ -1045,8 +1038,7 @@ size_of.bid_px = 8
 
 -- Display: Bid Px
 display.bid_px = function(value)
-  local factor = 100000000
-  return "Bid Px: "..value:tonumber()/factor
+  return "Bid Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Bid Px
@@ -1128,8 +1120,7 @@ size_of.price = 8
 
 -- Display: Price
 display.price = function(value)
-  local factor = 100000000
-  return "Price: "..value:tonumber()/factor
+  return "Price: "..value:tonumber()/100000000
 end
 
 -- Dissect: Price
@@ -1220,8 +1211,7 @@ size_of.display_qty = 8
 
 -- Display: Display Qty
 display.display_qty = function(value)
-  local factor = 10000
-  return "Display Qty: "..value:tonumber()/factor
+  return "Display Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Display Qty
@@ -1849,8 +1839,7 @@ size_of.prev_display_qty = 8
 
 -- Display: Prev Display Qty
 display.prev_display_qty = function(value)
-  local factor = 10000
-  return "Prev Display Qty: "..value:tonumber()/factor
+  return "Prev Display Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Prev Display Qty
@@ -1947,8 +1936,7 @@ size_of.prev_price = 8
 
 -- Display: Prev Price
 display.prev_price = function(value)
-  local factor = 100000000
-  return "Prev Price: "..value:tonumber()/factor
+  return "Prev Price: "..value:tonumber()/100000000
 end
 
 -- Dissect: Prev Price
@@ -2790,8 +2778,7 @@ size_of.resting_cxl_qty = 8
 
 -- Display: Resting Cxl Qty
 display.resting_cxl_qty = function(value)
-  local factor = 10000
-  return "Resting Cxl Qty: "..value:tonumber()/factor
+  return "Resting Cxl Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Resting Cxl Qty
@@ -2811,8 +2798,7 @@ size_of.resting_hidden_qty = 8
 
 -- Display: Resting Hidden Qty
 display.resting_hidden_qty = function(value)
-  local factor = 10000
-  return "Resting Hidden Qty: "..value:tonumber()/factor
+  return "Resting Hidden Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Resting Hidden Qty
@@ -3176,8 +3162,7 @@ size_of.imbalance_qty = 8
 
 -- Display: Imbalance Qty
 display.imbalance_qty = function(value)
-  local factor = 10000
-  return "Imbalance Qty: "..value:tonumber()/factor
+  return "Imbalance Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Imbalance Qty
@@ -3473,8 +3458,7 @@ size_of.leg_price = 8
 
 -- Display: Leg Price
 display.leg_price = function(value)
-  local factor = 100000000
-  return "Leg Price: "..value:tonumber()/factor
+  return "Leg Price: "..value:tonumber()/100000000
 end
 
 -- Dissect: Leg Price

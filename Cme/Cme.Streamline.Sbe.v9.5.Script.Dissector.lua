@@ -1191,8 +1191,7 @@ size_of.notional_percentage_outstanding = 4
 
 -- Display: Notional Percentage Outstanding
 display.notional_percentage_outstanding = function(value)
-  local factor = 10000
-  return "Notional Percentage Outstanding: "..value/factor
+  return "Notional Percentage Outstanding: "..value/10000
 end
 
 -- Dissect: Notional Percentage Outstanding

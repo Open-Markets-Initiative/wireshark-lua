@@ -2063,8 +2063,7 @@ size_of.stop_px = 8
 
 -- Display: Stop Px
 display.stop_px = function(value)
-  local factor = 100000000
-  return "Stop Px: "..value:tonumber()/factor
+  return "Stop Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Stop Px
@@ -3927,8 +3926,7 @@ size_of.settl_curr_fx_rate = 8
 
 -- Display: Settl Curr Fx Rate
 display.settl_curr_fx_rate = function(value)
-  local factor = 100000000
-  return "Settl Curr Fx Rate: "..value:tonumber()/factor
+  return "Settl Curr Fx Rate: "..value:tonumber()/100000000
 end
 
 -- Dissect: Settl Curr Fx Rate
@@ -3948,8 +3946,7 @@ size_of.settl_curr_amt = 8
 
 -- Display: Settl Curr Amt
 display.settl_curr_amt = function(value)
-  local factor = 100000000
-  return "Settl Curr Amt: "..value:tonumber()/factor
+  return "Settl Curr Amt: "..value:tonumber()/100000000
 end
 
 -- Dissect: Settl Curr Amt
@@ -3969,8 +3966,7 @@ size_of.last_px = 8
 
 -- Display: Last Px
 display.last_px = function(value)
-  local factor = 100000000
-  return "Last Px: "..value:tonumber()/factor
+  return "Last Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Last Px
@@ -3990,8 +3986,7 @@ size_of.price = 8
 
 -- Display: Price
 display.price = function(value)
-  local factor = 100000000
-  return "Price: "..value:tonumber()/factor
+  return "Price: "..value:tonumber()/100000000
 end
 
 -- Dissect: Price
@@ -6387,8 +6382,7 @@ size_of.quote_event_px = 8
 
 -- Display: Quote Event Px
 display.quote_event_px = function(value)
-  local factor = 100000000
-  return "Quote Event Px: "..value:tonumber()/factor
+  return "Quote Event Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Quote Event Px
@@ -7719,8 +7713,7 @@ size_of.fill_px = 8
 
 -- Display: Fill Px
 display.fill_px = function(value)
-  local factor = 100000000
-  return "Fill Px: "..value:tonumber()/factor
+  return "Fill Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Fill Px
@@ -8463,8 +8456,7 @@ size_of.peg_offset_value_pct = 8
 
 -- Display: Peg Offset Value Pct
 display.peg_offset_value_pct = function(value)
-  local factor = 10000
-  return "Peg Offset Value Pct: "..value:tonumber()/factor
+  return "Peg Offset Value Pct: "..value:tonumber()/10000
 end
 
 -- Dissect: Peg Offset Value Pct
@@ -8484,8 +8476,7 @@ size_of.peg_offset_value_abs = 8
 
 -- Display: Peg Offset Value Abs
 display.peg_offset_value_abs = function(value)
-  local factor = 100000000
-  return "Peg Offset Value Abs: "..value:tonumber()/factor
+  return "Peg Offset Value Abs: "..value:tonumber()/100000000
 end
 
 -- Dissect: Peg Offset Value Abs
@@ -8505,8 +8496,7 @@ size_of.volume_discovery_price = 8
 
 -- Display: Volume Discovery Price
 display.volume_discovery_price = function(value)
-  local factor = 100000000
-  return "Volume Discovery Price: "..value:tonumber()/factor
+  return "Volume Discovery Price: "..value:tonumber()/100000000
 end
 
 -- Dissect: Volume Discovery Price
@@ -10912,8 +10902,7 @@ size_of.offer_px = 8
 
 -- Display: Offer Px
 display.offer_px = function(value)
-  local factor = 100000000
-  return "Offer Px: "..value:tonumber()/factor
+  return "Offer Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Offer Px
@@ -10933,8 +10922,7 @@ size_of.bid_px = 8
 
 -- Display: Bid Px
 display.bid_px = function(value)
-  local factor = 100000000
-  return "Bid Px: "..value:tonumber()/factor
+  return "Bid Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Bid Px
@@ -13405,8 +13393,7 @@ size_of.peg_offset_value_offer_px = 8
 
 -- Display: Peg Offset Value Offer Px
 display.peg_offset_value_offer_px = function(value)
-  local factor = 100000000
-  return "Peg Offset Value Offer Px: "..value:tonumber()/factor
+  return "Peg Offset Value Offer Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Peg Offset Value Offer Px
@@ -13426,8 +13413,7 @@ size_of.peg_offset_value_bid_px = 8
 
 -- Display: Peg Offset Value Bid Px
 display.peg_offset_value_bid_px = function(value)
-  local factor = 100000000
-  return "Peg Offset Value Bid Px: "..value:tonumber()/factor
+  return "Peg Offset Value Bid Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Peg Offset Value Bid Px

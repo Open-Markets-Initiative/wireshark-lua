@@ -639,7 +639,7 @@ size_of.low_price = 8
 
 -- Display: Low Price
 display.low_price = function(value)
-  return "Low Price: "..value
+  return "Low Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Low Price
@@ -659,7 +659,7 @@ size_of.high_price = 8
 
 -- Display: High Price
 display.high_price = function(value)
-  return "High Price: "..value
+  return "High Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: High Price
@@ -679,7 +679,7 @@ size_of.last_price = 8
 
 -- Display: Last Price
 display.last_price = function(value)
-  return "Last Price: "..value
+  return "Last Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Last Price
@@ -1362,7 +1362,7 @@ size_of.trade_price = 8
 
 -- Display: Trade Price
 display.trade_price = function(value)
-  return "Trade Price: "..value
+  return "Trade Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Trade Price
@@ -2058,7 +2058,7 @@ size_of.trade_price_short = 2
 
 -- Display: Trade Price Short
 display.trade_price_short = function(value)
-  return "Trade Price Short: "..value
+  return "Trade Price Short: "..value/100
 end
 
 -- Dissect: Trade Price Short
@@ -2519,7 +2519,7 @@ size_of.low_indication_price_lower_limit_price_band = 8
 
 -- Display: Low Indication Price Lower Limit Price Band
 display.low_indication_price_lower_limit_price_band = function(value)
-  return "Low Indication Price Lower Limit Price Band: "..value
+  return "Low Indication Price Lower Limit Price Band: "..value:tonumber()/1000000
 end
 
 -- Dissect: Low Indication Price Lower Limit Price Band
@@ -2539,7 +2539,7 @@ size_of.high_indication_price_upper_limit_price_band = 8
 
 -- Display: High Indication Price Upper Limit Price Band
 display.high_indication_price_upper_limit_price_band = function(value)
-  return "High Indication Price Upper Limit Price Band: "..value
+  return "High Indication Price Upper Limit Price Band: "..value:tonumber()/1000000
 end
 
 -- Dissect: High Indication Price Upper Limit Price Band
@@ -3102,7 +3102,7 @@ size_of.auction_collar_lower_threshold_price = 8
 
 -- Display: Auction Collar Lower Threshold Price
 display.auction_collar_lower_threshold_price = function(value)
-  return "Auction Collar Lower Threshold Price: "..value
+  return "Auction Collar Lower Threshold Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Auction Collar Lower Threshold Price
@@ -3122,7 +3122,7 @@ size_of.auction_collar_reference_price = 8
 
 -- Display: Auction Collar Reference Price
 display.auction_collar_reference_price = function(value)
-  return "Auction Collar Reference Price: "..value
+  return "Auction Collar Reference Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Auction Collar Reference Price
@@ -3383,7 +3383,7 @@ size_of.open_price = 8
 
 -- Display: Open Price
 display.open_price = function(value)
-  return "Open Price: "..value
+  return "Open Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Open Price
@@ -3585,7 +3585,7 @@ size_of.previous_close_price = 8
 
 -- Display: Previous Close Price
 display.previous_close_price = function(value)
-  return "Previous Close Price: "..value
+  return "Previous Close Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Previous Close Price

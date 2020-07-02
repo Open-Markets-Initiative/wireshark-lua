@@ -3280,8 +3280,7 @@ size_of.clearing_trade_price = 8
 
 -- Display: Clearing Trade Price
 display.clearing_trade_price = function(value)
-  local factor = 100000000
-  return "Clearing Trade Price: "..value:tonumber()/factor
+  return "Clearing Trade Price: "..value:tonumber()/100000000
 end
 
 -- Dissect: Clearing Trade Price
@@ -3301,8 +3300,7 @@ size_of.side_last_px = 8
 
 -- Display: Side Last Px
 display.side_last_px = function(value)
-  local factor = 100000000
-  return "Side Last Px: "..value:tonumber()/factor
+  return "Side Last Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Side Last Px
@@ -3322,8 +3320,7 @@ size_of.last_px = 8
 
 -- Display: Last Px
 display.last_px = function(value)
-  local factor = 100000000
-  return "Last Px: "..value:tonumber()/factor
+  return "Last Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Last Px
@@ -3343,8 +3340,7 @@ size_of.price = 8
 
 -- Display: Price
 display.price = function(value)
-  local factor = 100000000
-  return "Price: "..value:tonumber()/factor
+  return "Price: "..value:tonumber()/100000000
 end
 
 -- Dissect: Price
@@ -5822,8 +5818,7 @@ size_of.leg_last_px = 8
 
 -- Display: Leg Last Px
 display.leg_last_px = function(value)
-  local factor = 100000000
-  return "Leg Last Px: "..value:tonumber()/factor
+  return "Leg Last Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Leg Last Px
@@ -6121,8 +6116,7 @@ size_of.quote_event_px = 8
 
 -- Display: Quote Event Px
 display.quote_event_px = function(value)
-  local factor = 100000000
-  return "Quote Event Px: "..value:tonumber()/factor
+  return "Quote Event Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Quote Event Px
@@ -7385,8 +7379,7 @@ size_of.fill_px = 8
 
 -- Display: Fill Px
 display.fill_px = function(value)
-  local factor = 100000000
-  return "Fill Px: "..value:tonumber()/factor
+  return "Fill Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Fill Px
@@ -8384,8 +8377,7 @@ size_of.stop_px = 8
 
 -- Display: Stop Px
 display.stop_px = function(value)
-  local factor = 100000000
-  return "Stop Px: "..value:tonumber()/factor
+  return "Stop Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Stop Px
@@ -10848,8 +10840,7 @@ size_of.offer_px = 8
 
 -- Display: Offer Px
 display.offer_px = function(value)
-  local factor = 100000000
-  return "Offer Px: "..value:tonumber()/factor
+  return "Offer Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Offer Px
@@ -10869,8 +10860,7 @@ size_of.bid_px = 8
 
 -- Display: Bid Px
 display.bid_px = function(value)
-  local factor = 100000000
-  return "Bid Px: "..value:tonumber()/factor
+  return "Bid Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Bid Px
@@ -14838,8 +14828,7 @@ size_of.leg_price = 8
 
 -- Display: Leg Price
 display.leg_price = function(value)
-  local factor = 100000000
-  return "Leg Price: "..value:tonumber()/factor
+  return "Leg Price: "..value:tonumber()/100000000
 end
 
 -- Dissect: Leg Price
@@ -15060,8 +15049,7 @@ size_of.high_limit_price = 8
 
 -- Display: High Limit Price
 display.high_limit_price = function(value)
-  local factor = 100000000
-  return "High Limit Price: "..value:tonumber()/factor
+  return "High Limit Price: "..value:tonumber()/100000000
 end
 
 -- Dissect: High Limit Price
@@ -15081,8 +15069,7 @@ size_of.low_limit_price = 8
 
 -- Display: Low Limit Price
 display.low_limit_price = function(value)
-  local factor = 100000000
-  return "Low Limit Price: "..value:tonumber()/factor
+  return "Low Limit Price: "..value:tonumber()/100000000
 end
 
 -- Dissect: Low Limit Price

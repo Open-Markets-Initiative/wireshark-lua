@@ -1187,8 +1187,7 @@ size_of.leg_price = 8
 
 -- Display: Leg Price
 display.leg_price = function(value)
-  local factor = 1000000000
-  return "Leg Price: "..value:tonumber()/factor
+  return "Leg Price: "..value:tonumber()/1000000000
 end
 
 -- Dissect: Leg Price
@@ -3298,8 +3297,7 @@ size_of.order_event_px = 8
 
 -- Display: Order Event Px
 display.order_event_px = function(value)
-  local factor = 1000000000
-  return "Order Event Px: "..value:tonumber()/factor
+  return "Order Event Px: "..value:tonumber()/1000000000
 end
 
 -- Dissect: Order Event Px
@@ -3490,8 +3488,7 @@ size_of.fill_px = 8
 
 -- Display: Fill Px
 display.fill_px = function(value)
-  local factor = 1000000000
-  return "Fill Px: "..value:tonumber()/factor
+  return "Fill Px: "..value:tonumber()/1000000000
 end
 
 -- Dissect: Fill Px
@@ -3807,8 +3804,7 @@ size_of.last_px = 8
 
 -- Display: Last Px
 display.last_px = function(value)
-  local factor = 1000000000
-  return "Last Px: "..value:tonumber()/factor
+  return "Last Px: "..value:tonumber()/1000000000
 end
 
 -- Dissect: Last Px
@@ -4221,8 +4217,7 @@ size_of.leg_last_px = 8
 
 -- Display: Leg Last Px
 display.leg_last_px = function(value)
-  local factor = 1000000000
-  return "Leg Last Px: "..value:tonumber()/factor
+  return "Leg Last Px: "..value:tonumber()/1000000000
 end
 
 -- Dissect: Leg Last Px
@@ -6266,8 +6261,7 @@ size_of.price = 8
 
 -- Display: Price
 display.price = function(value)
-  local factor = 1000000000
-  return "Price: "..value:tonumber()/factor
+  return "Price: "..value:tonumber()/1000000000
 end
 
 -- Dissect: Price
@@ -8298,8 +8292,7 @@ size_of.stop_px = 8
 
 -- Display: Stop Px
 display.stop_px = function(value)
-  local factor = 1000000000
-  return "Stop Px: "..value:tonumber()/factor
+  return "Stop Px: "..value:tonumber()/1000000000
 end
 
 -- Dissect: Stop Px
@@ -9947,8 +9940,7 @@ size_of.underlying_px = 8
 
 -- Display: Underlying Px
 display.underlying_px = function(value)
-  local factor = 1000000000
-  return "Underlying Px: "..value:tonumber()/factor
+  return "Underlying Px: "..value:tonumber()/1000000000
 end
 
 -- Dissect: Underlying Px
@@ -12311,8 +12303,7 @@ size_of.offer_px = 8
 
 -- Display: Offer Px
 display.offer_px = function(value)
-  local factor = 1000000000
-  return "Offer Px: "..value:tonumber()/factor
+  return "Offer Px: "..value:tonumber()/1000000000
 end
 
 -- Dissect: Offer Px
@@ -12332,8 +12323,7 @@ size_of.bid_px = 8
 
 -- Display: Bid Px
 display.bid_px = function(value)
-  local factor = 1000000000
-  return "Bid Px: "..value:tonumber()/factor
+  return "Bid Px: "..value:tonumber()/1000000000
 end
 
 -- Dissect: Bid Px

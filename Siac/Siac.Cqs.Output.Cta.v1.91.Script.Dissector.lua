@@ -425,7 +425,7 @@ size_of.best_offer_price_short = 2
 
 -- Display: Best Offer Price Short
 display.best_offer_price_short = function(value)
-  return "Best Offer Price Short: "..value
+  return "Best Offer Price Short: "..value/100
 end
 
 -- Dissect: Best Offer Price Short
@@ -587,7 +587,7 @@ size_of.best_bid_price_short = 2
 
 -- Display: Best Bid Price Short
 display.best_bid_price_short = function(value)
-  return "Best Bid Price Short: "..value
+  return "Best Bid Price Short: "..value/100
 end
 
 -- Dissect: Best Bid Price Short
@@ -769,7 +769,7 @@ size_of.best_offer_price_long = 8
 
 -- Display: Best Offer Price Long
 display.best_offer_price_long = function(value)
-  return "Best Offer Price Long: "..value
+  return "Best Offer Price Long: "..value:tonumber()/1000000
 end
 
 -- Dissect: Best Offer Price Long
@@ -906,7 +906,7 @@ size_of.best_bid_price_long = 8
 
 -- Display: Best Bid Price Long
 display.best_bid_price_long = function(value)
-  return "Best Bid Price Long: "..value
+  return "Best Bid Price Long: "..value:tonumber()/1000000
 end
 
 -- Dissect: Best Bid Price Long
@@ -1474,7 +1474,7 @@ size_of.finra_best_offer_price = 8
 
 -- Display: Finra Best Offer Price
 display.finra_best_offer_price = function(value)
-  return "Finra Best Offer Price: "..value
+  return "Finra Best Offer Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Finra Best Offer Price
@@ -1534,7 +1534,7 @@ size_of.finra_best_bid_price = 8
 
 -- Display: Finra Best Bid Price
 display.finra_best_bid_price = function(value)
-  return "Finra Best Bid Price: "..value
+  return "Finra Best Bid Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Finra Best Bid Price
@@ -1707,7 +1707,7 @@ size_of.offer_price_long = 8
 
 -- Display: Offer Price Long
 display.offer_price_long = function(value)
-  return "Offer Price Long: "..value
+  return "Offer Price Long: "..value:tonumber()/1000000
 end
 
 -- Dissect: Offer Price Long
@@ -1747,7 +1747,7 @@ size_of.bid_price_long = 8
 
 -- Display: Bid Price Long
 display.bid_price_long = function(value)
-  return "Bid Price Long: "..value
+  return "Bid Price Long: "..value:tonumber()/1000000
 end
 
 -- Dissect: Bid Price Long
@@ -2310,7 +2310,7 @@ size_of.offer_price_short = 2
 
 -- Display: Offer Price Short
 display.offer_price_short = function(value)
-  return "Offer Price Short: "..value
+  return "Offer Price Short: "..value/100
 end
 
 -- Dissect: Offer Price Short
@@ -2350,7 +2350,7 @@ size_of.bid_price_short = 2
 
 -- Display: Bid Price Short
 display.bid_price_short = function(value)
-  return "Bid Price Short: "..value
+  return "Bid Price Short: "..value/100
 end
 
 -- Dissect: Bid Price Short
@@ -2521,7 +2521,7 @@ size_of.offer_price_upper_limit_price_band = 8
 
 -- Display: Offer Price Upper Limit Price Band
 display.offer_price_upper_limit_price_band = function(value)
-  return "Offer Price Upper Limit Price Band: "..value
+  return "Offer Price Upper Limit Price Band: "..value:tonumber()/1000000
 end
 
 -- Dissect: Offer Price Upper Limit Price Band
@@ -2541,7 +2541,7 @@ size_of.bid_price_lower_limit_price_band = 8
 
 -- Display: Bid Price Lower Limit Price Band
 display.bid_price_lower_limit_price_band = function(value)
-  return "Bid Price Lower Limit Price Band: "..value
+  return "Bid Price Lower Limit Price Band: "..value:tonumber()/1000000
 end
 
 -- Dissect: Bid Price Lower Limit Price Band

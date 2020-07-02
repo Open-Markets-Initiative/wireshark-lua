@@ -1005,7 +1005,7 @@ size_of.market_center_ask_price = 8
 
 -- Display: Market Center Ask Price
 display.market_center_ask_price = function(value)
-  return "Market Center Ask Price: "..value
+  return "Market Center Ask Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Market Center Ask Price
@@ -1045,7 +1045,7 @@ size_of.market_center_bid_price = 8
 
 -- Display: Market Center Bid Price
 display.market_center_bid_price = function(value)
-  return "Market Center Bid Price: "..value
+  return "Market Center Bid Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Market Center Bid Price
@@ -1215,7 +1215,7 @@ size_of.national_best_ask_price = 8
 
 -- Display: National Best Ask Price
 display.national_best_ask_price = function(value)
-  return "National Best Ask Price: "..value
+  return "National Best Ask Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: National Best Ask Price
@@ -1275,7 +1275,7 @@ size_of.national_best_bid_price = 8
 
 -- Display: National Best Bid Price
 display.national_best_bid_price = function(value)
-  return "National Best Bid Price: "..value
+  return "National Best Bid Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: National Best Bid Price
@@ -1423,7 +1423,7 @@ size_of.collar_down_price = 8
 
 -- Display: Collar Down Price
 display.collar_down_price = function(value)
-  return "Collar Down Price: "..value
+  return "Collar Down Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Collar Down Price
@@ -1443,7 +1443,7 @@ size_of.collar_up_price = 8
 
 -- Display: Collar Up Price
 display.collar_up_price = function(value)
-  return "Collar Up Price: "..value
+  return "Collar Up Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Collar Up Price
@@ -1463,7 +1463,7 @@ size_of.collar_reference_price = 8
 
 -- Display: Collar Reference Price
 display.collar_reference_price = function(value)
-  return "Collar Reference Price: "..value
+  return "Collar Reference Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Collar Reference Price
@@ -1662,7 +1662,7 @@ size_of.limit_up_price = 8
 
 -- Display: Limit Up Price
 display.limit_up_price = function(value)
-  return "Limit Up Price: "..value
+  return "Limit Up Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Limit Up Price
@@ -1682,7 +1682,7 @@ size_of.limit_down_price = 8
 
 -- Display: Limit Down Price
 display.limit_down_price = function(value)
-  return "Limit Down Price: "..value
+  return "Limit Down Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Limit Down Price
@@ -2803,7 +2803,7 @@ size_of.ask_price = 8
 
 -- Display: Ask Price
 display.ask_price = function(value)
-  return "Ask Price: "..value
+  return "Ask Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Ask Price
@@ -2843,7 +2843,7 @@ size_of.bid_price = 8
 
 -- Display: Bid Price
 display.bid_price = function(value)
-  return "Bid Price: "..value
+  return "Bid Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Bid Price
@@ -3045,7 +3045,7 @@ size_of.best_ask_price = 8
 
 -- Display: Best Ask Price
 display.best_ask_price = function(value)
-  return "Best Ask Price: "..value
+  return "Best Ask Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Best Ask Price
@@ -3105,7 +3105,7 @@ size_of.best_bid_price = 8
 
 -- Display: Best Bid Price
 display.best_bid_price = function(value)
-  return "Best Bid Price: "..value
+  return "Best Bid Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Best Bid Price
@@ -3295,7 +3295,7 @@ size_of.national_best_ask_price_short = 2
 
 -- Display: National Best Ask Price Short
 display.national_best_ask_price_short = function(value)
-  return "National Best Ask Price Short: "..value
+  return "National Best Ask Price Short: "..value/100
 end
 
 -- Dissect: National Best Ask Price Short
@@ -3335,7 +3335,7 @@ size_of.national_best_bid_price_short = 2
 
 -- Display: National Best Bid Price Short
 display.national_best_bid_price_short = function(value)
-  return "National Best Bid Price Short: "..value
+  return "National Best Bid Price Short: "..value/100
 end
 
 -- Dissect: National Best Bid Price Short
@@ -3754,7 +3754,7 @@ size_of.ask_price_short = 2
 
 -- Display: Ask Price Short
 display.ask_price_short = function(value)
-  return "Ask Price Short: "..value
+  return "Ask Price Short: "..value/100
 end
 
 -- Dissect: Ask Price Short
@@ -3794,7 +3794,7 @@ size_of.bid_price_short = 2
 
 -- Display: Bid Price Short
 display.bid_price_short = function(value)
-  return "Bid Price Short: "..value
+  return "Bid Price Short: "..value/100
 end
 
 -- Dissect: Bid Price Short

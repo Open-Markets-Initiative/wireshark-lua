@@ -1348,7 +1348,7 @@ size_of.market_participant_low_price = 8
 
 -- Display: Market Participant Low Price
 display.market_participant_low_price = function(value)
-  return "Market Participant Low Price: "..value
+  return "Market Participant Low Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Market Participant Low Price
@@ -1368,7 +1368,7 @@ size_of.market_participant_high_price = 8
 
 -- Display: Market Participant High Price
 display.market_participant_high_price = function(value)
-  return "Market Participant High Price: "..value
+  return "Market Participant High Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Market Participant High Price
@@ -1435,7 +1435,7 @@ size_of.market_center_closing_price = 8
 
 -- Display: Market Center Closing Price
 display.market_center_closing_price = function(value)
-  return "Market Center Closing Price: "..value
+  return "Market Center Closing Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Market Center Closing Price
@@ -1584,7 +1584,7 @@ size_of.daily_consolidated_closing_price = 8
 
 -- Display: Daily Consolidated Closing Price
 display.daily_consolidated_closing_price = function(value)
-  return "Daily Consolidated Closing Price: "..value
+  return "Daily Consolidated Closing Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Daily Consolidated Closing Price
@@ -1604,7 +1604,7 @@ size_of.daily_consolidated_low_price = 8
 
 -- Display: Daily Consolidated Low Price
 display.daily_consolidated_low_price = function(value)
-  return "Daily Consolidated Low Price: "..value
+  return "Daily Consolidated Low Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Daily Consolidated Low Price
@@ -1624,7 +1624,7 @@ size_of.daily_consolidated_high_price = 8
 
 -- Display: Daily Consolidated High Price
 display.daily_consolidated_high_price = function(value)
-  return "Daily Consolidated High Price: "..value
+  return "Daily Consolidated High Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Daily Consolidated High Price
@@ -1749,7 +1749,7 @@ size_of.collar_down_price = 8
 
 -- Display: Collar Down Price
 display.collar_down_price = function(value)
-  return "Collar Down Price: "..value
+  return "Collar Down Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Collar Down Price
@@ -1769,7 +1769,7 @@ size_of.collar_up_price = 8
 
 -- Display: Collar Up Price
 display.collar_up_price = function(value)
-  return "Collar Up Price: "..value
+  return "Collar Up Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Collar Up Price
@@ -1789,7 +1789,7 @@ size_of.collar_reference_price = 8
 
 -- Display: Collar Reference Price
 display.collar_reference_price = function(value)
-  return "Collar Reference Price: "..value
+  return "Collar Reference Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Collar Reference Price
@@ -1988,7 +1988,7 @@ size_of.limit_up_price = 8
 
 -- Display: Limit Up Price
 display.limit_up_price = function(value)
-  return "Limit Up Price: "..value
+  return "Limit Up Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Limit Up Price
@@ -2008,7 +2008,7 @@ size_of.limit_down_price = 8
 
 -- Display: Limit Down Price
 display.limit_down_price = function(value)
-  return "Limit Down Price: "..value
+  return "Limit Down Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Limit Down Price
@@ -3376,7 +3376,7 @@ size_of.trade_price = 8
 
 -- Display: Trade Price
 display.trade_price = function(value)
-  return "Trade Price: "..value
+  return "Trade Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Trade Price
@@ -3522,7 +3522,7 @@ size_of.market_participant_last_price = 8
 
 -- Display: Market Participant Last Price
 display.market_participant_last_price = function(value)
-  return "Market Participant Last Price: "..value
+  return "Market Participant Last Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Market Participant Last Price
@@ -3587,7 +3587,7 @@ size_of.consolidated_last_price = 8
 
 -- Display: Consolidated Last Price
 display.consolidated_last_price = function(value)
-  return "Consolidated Last Price: "..value
+  return "Consolidated Last Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Consolidated Last Price
@@ -3607,7 +3607,7 @@ size_of.consolidated_low_price = 8
 
 -- Display: Consolidated Low Price
 display.consolidated_low_price = function(value)
-  return "Consolidated Low Price: "..value
+  return "Consolidated Low Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Consolidated Low Price
@@ -3627,7 +3627,7 @@ size_of.consolidated_high_price = 8
 
 -- Display: Consolidated High Price
 display.consolidated_high_price = function(value)
-  return "Consolidated High Price: "..value
+  return "Consolidated High Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Consolidated High Price
@@ -3707,7 +3707,7 @@ size_of.corrected_trade_price = 8
 
 -- Display: Corrected Trade Price
 display.corrected_trade_price = function(value)
-  return "Corrected Trade Price: "..value
+  return "Corrected Trade Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Corrected Trade Price
@@ -3807,7 +3807,7 @@ size_of.original_trade_price = 8
 
 -- Display: Original Trade Price
 display.original_trade_price = function(value)
-  return "Original Trade Price: "..value
+  return "Original Trade Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Original Trade Price
@@ -4199,7 +4199,7 @@ size_of.trade_price_short = 2
 
 -- Display: Trade Price Short
 display.trade_price_short = function(value)
-  return "Trade Price Short: "..value
+  return "Trade Price Short: "..value/100
 end
 
 -- Dissect: Trade Price Short

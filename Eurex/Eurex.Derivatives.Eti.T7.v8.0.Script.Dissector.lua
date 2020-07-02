@@ -2755,8 +2755,7 @@ size_of.leg_qty = 8
 
 -- Display: Leg Qty
 display.leg_qty = function(value)
-  local factor = 10000
-  return "Leg Qty: "..value:tonumber()/factor
+  return "Leg Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Leg Qty
@@ -2776,8 +2775,7 @@ size_of.leg_price = 8
 
 -- Display: Leg Price
 display.leg_price = function(value)
-  local factor = 100000000
-  return "Leg Price: "..value:tonumber()/factor
+  return "Leg Price: "..value:tonumber()/100000000
 end
 
 -- Dissect: Leg Price
@@ -3432,8 +3430,7 @@ size_of.alloc_qty = 8
 
 -- Display: Alloc Qty
 display.alloc_qty = function(value)
-  local factor = 10000
-  return "Alloc Qty: "..value:tonumber()/factor
+  return "Alloc Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Alloc Qty
@@ -4340,8 +4337,7 @@ size_of.underlying_qty = 8
 
 -- Display: Underlying Qty
 display.underlying_qty = function(value)
-  local factor = 10000
-  return "Underlying Qty: "..value:tonumber()/factor
+  return "Underlying Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Underlying Qty
@@ -4361,8 +4357,7 @@ size_of.related_trade_quantity = 8
 
 -- Display: Related Trade Quantity
 display.related_trade_quantity = function(value)
-  local factor = 10000
-  return "Related Trade Quantity: "..value:tonumber()/factor
+  return "Related Trade Quantity: "..value:tonumber()/10000
 end
 
 -- Dissect: Related Trade Quantity
@@ -4382,8 +4377,7 @@ size_of.related_close_price = 8
 
 -- Display: Related Close Price
 display.related_close_price = function(value)
-  local factor = 1000000
-  return "Related Close Price: "..value:tonumber()/factor
+  return "Related Close Price: "..value:tonumber()/1000000
 end
 
 -- Dissect: Related Close Price
@@ -4403,8 +4397,7 @@ size_of.underlying_px = 8
 
 -- Display: Underlying Px
 display.underlying_px = function(value)
-  local factor = 100000000
-  return "Underlying Px: "..value:tonumber()/factor
+  return "Underlying Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Underlying Px
@@ -4444,8 +4437,7 @@ size_of.last_px = 8
 
 -- Display: Last Px
 display.last_px = function(value)
-  local factor = 100000000
-  return "Last Px: "..value:tonumber()/factor
+  return "Last Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Last Px
@@ -6132,8 +6124,7 @@ size_of.cum_qty = 8
 
 -- Display: Cum Qty
 display.cum_qty = function(value)
-  local factor = 10000
-  return "Cum Qty: "..value:tonumber()/factor
+  return "Cum Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Cum Qty
@@ -6153,8 +6144,7 @@ size_of.leaves_qty = 8
 
 -- Display: Leaves Qty
 display.leaves_qty = function(value)
-  local factor = 10000
-  return "Leaves Qty: "..value:tonumber()/factor
+  return "Leaves Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Leaves Qty
@@ -6234,8 +6224,7 @@ size_of.clearing_trade_qty = 8
 
 -- Display: Clearing Trade Qty
 display.clearing_trade_qty = function(value)
-  local factor = 10000
-  return "Clearing Trade Qty: "..value:tonumber()/factor
+  return "Clearing Trade Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Clearing Trade Qty
@@ -6255,8 +6244,7 @@ size_of.clearing_trade_price = 8
 
 -- Display: Clearing Trade Price
 display.clearing_trade_price = function(value)
-  local factor = 100000000
-  return "Clearing Trade Price: "..value:tonumber()/factor
+  return "Clearing Trade Price: "..value:tonumber()/100000000
 end
 
 -- Dissect: Clearing Trade Price
@@ -6276,8 +6264,7 @@ size_of.side_last_qty = 8
 
 -- Display: Side Last Qty
 display.side_last_qty = function(value)
-  local factor = 10000
-  return "Side Last Qty: "..value:tonumber()/factor
+  return "Side Last Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Side Last Qty
@@ -6297,8 +6284,7 @@ size_of.side_last_px = 8
 
 -- Display: Side Last Px
 display.side_last_px = function(value)
-  local factor = 100000000
-  return "Side Last Px: "..value:tonumber()/factor
+  return "Side Last Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Side Last Px
@@ -6318,8 +6304,7 @@ size_of.last_qty = 8
 
 -- Display: Last Qty
 display.last_qty = function(value)
-  local factor = 10000
-  return "Last Qty: "..value:tonumber()/factor
+  return "Last Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Last Qty
@@ -6339,8 +6324,7 @@ size_of.price = 8
 
 -- Display: Price
 display.price = function(value)
-  local factor = 100000000
-  return "Price: "..value:tonumber()/factor
+  return "Price: "..value:tonumber()/100000000
 end
 
 -- Dissect: Price
@@ -10159,8 +10143,7 @@ size_of.order_qty = 8
 
 -- Display: Order Qty
 display.order_qty = function(value)
-  local factor = 10000
-  return "Order Qty: "..value:tonumber()/factor
+  return "Order Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Order Qty
@@ -10180,8 +10163,7 @@ size_of.offer_px = 8
 
 -- Display: Offer Px
 display.offer_px = function(value)
-  local factor = 100000000
-  return "Offer Px: "..value:tonumber()/factor
+  return "Offer Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Offer Px
@@ -10201,8 +10183,7 @@ size_of.bid_px = 8
 
 -- Display: Bid Px
 display.bid_px = function(value)
-  local factor = 100000000
-  return "Bid Px: "..value:tonumber()/factor
+  return "Bid Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Bid Px
@@ -10222,8 +10203,7 @@ size_of.underlying_delta_percentage = 8
 
 -- Display: Underlying Delta Percentage
 display.underlying_delta_percentage = function(value)
-  local factor = 10000
-  return "Underlying Delta Percentage: "..value:tonumber()/factor
+  return "Underlying Delta Percentage: "..value:tonumber()/10000
 end
 
 -- Dissect: Underlying Delta Percentage
@@ -10243,8 +10223,7 @@ size_of.quote_ref_price = 8
 
 -- Display: Quote Ref Price
 display.quote_ref_price = function(value)
-  local factor = 100000000
-  return "Quote Ref Price: "..value:tonumber()/factor
+  return "Quote Ref Price: "..value:tonumber()/100000000
 end
 
 -- Dissect: Quote Ref Price
@@ -10395,8 +10374,7 @@ size_of.underlying_price_stip_value = 8
 
 -- Display: Underlying Price Stip Value
 display.underlying_price_stip_value = function(value)
-  local factor = 100000000
-  return "Underlying Price Stip Value: "..value:tonumber()/factor
+  return "Underlying Price Stip Value: "..value:tonumber()/100000000
 end
 
 -- Dissect: Underlying Price Stip Value
@@ -10774,8 +10752,7 @@ size_of.offer_size = 8
 
 -- Display: Offer Size
 display.offer_size = function(value)
-  local factor = 10000
-  return "Offer Size: "..value:tonumber()/factor
+  return "Offer Size: "..value:tonumber()/10000
 end
 
 -- Dissect: Offer Size
@@ -10795,8 +10772,7 @@ size_of.bid_size = 8
 
 -- Display: Bid Size
 display.bid_size = function(value)
-  local factor = 10000
-  return "Bid Size: "..value:tonumber()/factor
+  return "Bid Size: "..value:tonumber()/10000
 end
 
 -- Dissect: Bid Size
@@ -13450,8 +13426,7 @@ size_of.best_offer_size = 8
 
 -- Display: Best Offer Size
 display.best_offer_size = function(value)
-  local factor = 10000
-  return "Best Offer Size: "..value:tonumber()/factor
+  return "Best Offer Size: "..value:tonumber()/10000
 end
 
 -- Dissect: Best Offer Size
@@ -13471,8 +13446,7 @@ size_of.best_offer_px = 8
 
 -- Display: Best Offer Px
 display.best_offer_px = function(value)
-  local factor = 100000000
-  return "Best Offer Px: "..value:tonumber()/factor
+  return "Best Offer Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Best Offer Px
@@ -13492,8 +13466,7 @@ size_of.best_bid_size = 8
 
 -- Display: Best Bid Size
 display.best_bid_size = function(value)
-  local factor = 10000
-  return "Best Bid Size: "..value:tonumber()/factor
+  return "Best Bid Size: "..value:tonumber()/10000
 end
 
 -- Dissect: Best Bid Size
@@ -13513,8 +13486,7 @@ size_of.best_bid_px = 8
 
 -- Display: Best Bid Px
 display.best_bid_px = function(value)
-  local factor = 100000000
-  return "Best Bid Px: "..value:tonumber()/factor
+  return "Best Bid Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Best Bid Px
@@ -13626,8 +13598,7 @@ size_of.underlying_effective_delta_percentage = 8
 
 -- Display: Underlying Effective Delta Percentage
 display.underlying_effective_delta_percentage = function(value)
-  local factor = 10000
-  return "Underlying Effective Delta Percentage: "..value:tonumber()/factor
+  return "Underlying Effective Delta Percentage: "..value:tonumber()/10000
 end
 
 -- Dissect: Underlying Effective Delta Percentage
@@ -15099,8 +15070,7 @@ size_of.leg_last_qty = 8
 
 -- Display: Leg Last Qty
 display.leg_last_qty = function(value)
-  local factor = 10000
-  return "Leg Last Qty: "..value:tonumber()/factor
+  return "Leg Last Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Leg Last Qty
@@ -15120,8 +15090,7 @@ size_of.leg_last_px = 8
 
 -- Display: Leg Last Px
 display.leg_last_px = function(value)
-  local factor = 100000000
-  return "Leg Last Px: "..value:tonumber()/factor
+  return "Leg Last Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Leg Last Px
@@ -15394,8 +15363,7 @@ size_of.quote_event_qty = 8
 
 -- Display: Quote Event Qty
 display.quote_event_qty = function(value)
-  local factor = 10000
-  return "Quote Event Qty: "..value:tonumber()/factor
+  return "Quote Event Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Quote Event Qty
@@ -15415,8 +15383,7 @@ size_of.quote_event_px = 8
 
 -- Display: Quote Event Px
 display.quote_event_px = function(value)
-  local factor = 100000000
-  return "Quote Event Px: "..value:tonumber()/factor
+  return "Quote Event Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Quote Event Px
@@ -16178,8 +16145,7 @@ size_of.risk_limit_qty = 8
 
 -- Display: Risk Limit Qty
 display.risk_limit_qty = function(value)
-  local factor = 10000
-  return "Risk Limit Qty: "..value:tonumber()/factor
+  return "Risk Limit Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Risk Limit Qty
@@ -16503,8 +16469,7 @@ size_of.risk_limit_net_position_qty = 8
 
 -- Display: Risk Limit Net Position Qty
 display.risk_limit_net_position_qty = function(value)
-  local factor = 10000
-  return "Risk Limit Net Position Qty: "..value:tonumber()/factor
+  return "Risk Limit Net Position Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Risk Limit Net Position Qty
@@ -16524,8 +16489,7 @@ size_of.risk_limit_open_qty = 8
 
 -- Display: Risk Limit Open Qty
 display.risk_limit_open_qty = function(value)
-  local factor = 10000
-  return "Risk Limit Open Qty: "..value:tonumber()/factor
+  return "Risk Limit Open Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Risk Limit Open Qty
@@ -17202,8 +17166,7 @@ size_of.fill_qty = 8
 
 -- Display: Fill Qty
 display.fill_qty = function(value)
-  local factor = 10000
-  return "Fill Qty: "..value:tonumber()/factor
+  return "Fill Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Fill Qty
@@ -17223,8 +17186,7 @@ size_of.fill_px = 8
 
 -- Display: Fill Px
 display.fill_px = function(value)
-  local factor = 100000000
-  return "Fill Px: "..value:tonumber()/factor
+  return "Fill Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Fill Px
@@ -17578,8 +17540,7 @@ size_of.cxl_qty = 8
 
 -- Display: Cxl Qty
 display.cxl_qty = function(value)
-  local factor = 10000
-  return "Cxl Qty: "..value:tonumber()/factor
+  return "Cxl Qty: "..value:tonumber()/10000
 end
 
 -- Dissect: Cxl Qty
@@ -18200,8 +18161,7 @@ size_of.stop_px = 8
 
 -- Display: Stop Px
 display.stop_px = function(value)
-  local factor = 100000000
-  return "Stop Px: "..value:tonumber()/factor
+  return "Stop Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Stop Px
@@ -22041,8 +22001,7 @@ size_of.cxl_size = 8
 
 -- Display: Cxl Size
 display.cxl_size = function(value)
-  local factor = 10000
-  return "Cxl Size: "..value:tonumber()/factor
+  return "Cxl Size: "..value:tonumber()/10000
 end
 
 -- Dissect: Cxl Size
@@ -22537,8 +22496,7 @@ size_of.vega = 8
 
 -- Display: Vega
 display.vega = function(value)
-  local factor = 10000
-  return "Vega: "..value:tonumber()/factor
+  return "Vega: "..value:tonumber()/10000
 end
 
 -- Dissect: Vega
@@ -22558,8 +22516,7 @@ size_of.delta = 8
 
 -- Display: Delta
 display.delta = function(value)
-  local factor = 10000
-  return "Delta: "..value:tonumber()/factor
+  return "Delta: "..value:tonumber()/10000
 end
 
 -- Dissect: Delta
@@ -25093,8 +25050,7 @@ size_of.maximum_price = 8
 
 -- Display: Maximum Price
 display.maximum_price = function(value)
-  local factor = 100000000
-  return "Maximum Price: "..value:tonumber()/factor
+  return "Maximum Price: "..value:tonumber()/100000000
 end
 
 -- Dissect: Maximum Price
@@ -29526,8 +29482,7 @@ size_of.strike_price = 8
 
 -- Display: Strike Price
 display.strike_price = function(value)
-  local factor = 100000000
-  return "Strike Price: "..value:tonumber()/factor
+  return "Strike Price: "..value:tonumber()/100000000
 end
 
 -- Dissect: Strike Price
@@ -29912,8 +29867,7 @@ size_of.high_limit_price = 8
 
 -- Display: High Limit Price
 display.high_limit_price = function(value)
-  local factor = 100000000
-  return "High Limit Price: "..value:tonumber()/factor
+  return "High Limit Price: "..value:tonumber()/100000000
 end
 
 -- Dissect: High Limit Price
@@ -29933,8 +29887,7 @@ size_of.low_limit_price = 8
 
 -- Display: Low Limit Price
 display.low_limit_price = function(value)
-  local factor = 100000000
-  return "Low Limit Price: "..value:tonumber()/factor
+  return "Low Limit Price: "..value:tonumber()/100000000
 end
 
 -- Dissect: Low Limit Price

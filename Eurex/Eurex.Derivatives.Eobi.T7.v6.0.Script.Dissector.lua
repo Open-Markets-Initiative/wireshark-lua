@@ -444,8 +444,7 @@ size_of.md_entry_px = 8
 
 -- Display: Md Entry Px
 display.md_entry_px = function(value)
-  local factor = 100000000
-  return "Md Entry Px: "..value:tonumber()/factor
+  return "Md Entry Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Md Entry Px
@@ -607,8 +606,7 @@ size_of.last_px = 8
 
 -- Display: Last Px
 display.last_px = function(value)
-  local factor = 100000000
-  return "Last Px: "..value:tonumber()/factor
+  return "Last Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Last Px
@@ -986,8 +984,7 @@ size_of.offer_px = 8
 
 -- Display: Offer Px
 display.offer_px = function(value)
-  local factor = 100000000
-  return "Offer Px: "..value:tonumber()/factor
+  return "Offer Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Offer Px
@@ -1007,8 +1004,7 @@ size_of.bid_px = 8
 
 -- Display: Bid Px
 display.bid_px = function(value)
-  local factor = 100000000
-  return "Bid Px: "..value:tonumber()/factor
+  return "Bid Px: "..value:tonumber()/100000000
 end
 
 -- Dissect: Bid Px
@@ -1080,8 +1076,7 @@ size_of.price = 8
 
 -- Display: Price
 display.price = function(value)
-  local factor = 100000000
-  return "Price: "..value:tonumber()/factor
+  return "Price: "..value:tonumber()/100000000
 end
 
 -- Dissect: Price
@@ -1902,8 +1897,7 @@ size_of.prev_price = 8
 
 -- Display: Prev Price
 display.prev_price = function(value)
-  local factor = 100000000
-  return "Prev Price: "..value:tonumber()/factor
+  return "Prev Price: "..value:tonumber()/100000000
 end
 
 -- Dissect: Prev Price

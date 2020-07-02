@@ -1066,8 +1066,7 @@ size_of.md_entry_px = 8
 
 -- Display: Md Entry Px
 display.md_entry_px = function(value)
-  local factor = 10000000
-  return "Md Entry Px: "..value:tonumber()/factor
+  return "Md Entry Px: "..value:tonumber()/10000000
 end
 
 -- Dissect: Md Entry Px
@@ -1563,8 +1562,7 @@ size_of.min_lot_size = 4
 
 -- Display: Min Lot Size
 display.min_lot_size = function(value)
-  local factor = 10000
-  return "Min Lot Size: "..value/factor
+  return "Min Lot Size: "..value/10000
 end
 
 -- Dissect: Min Lot Size
@@ -2242,8 +2240,7 @@ size_of.high_limit_price = 8
 
 -- Display: High Limit Price
 display.high_limit_price = function(value)
-  local factor = 10000000
-  return "High Limit Price: "..value:tonumber()/factor
+  return "High Limit Price: "..value:tonumber()/10000000
 end
 
 -- Dissect: High Limit Price
@@ -2263,8 +2260,7 @@ size_of.low_limit_price = 8
 
 -- Display: Low Limit Price
 display.low_limit_price = function(value)
-  local factor = 10000000
-  return "Low Limit Price: "..value:tonumber()/factor
+  return "Low Limit Price: "..value:tonumber()/10000000
 end
 
 -- Dissect: Low Limit Price
@@ -2401,8 +2397,7 @@ size_of.trading_reference_price = 8
 
 -- Display: Trading Reference Price
 display.trading_reference_price = function(value)
-  local factor = 10000000
-  return "Trading Reference Price: "..value:tonumber()/factor
+  return "Trading Reference Price: "..value:tonumber()/10000000
 end
 
 -- Dissect: Trading Reference Price
@@ -2422,8 +2417,7 @@ size_of.unit_of_measure_qty = 8
 
 -- Display: Unit Of Measure Qty
 display.unit_of_measure_qty = function(value)
-  local factor = 10000000
-  return "Unit Of Measure Qty: "..value:tonumber()/factor
+  return "Unit Of Measure Qty: "..value:tonumber()/10000000
 end
 
 -- Dissect: Unit Of Measure Qty
@@ -2563,8 +2557,7 @@ size_of.display_factor = 8
 
 -- Display: Display Factor
 display.display_factor = function(value)
-  local factor = 10000000
-  return "Display Factor: "..value:tonumber()/factor
+  return "Display Factor: "..value:tonumber()/10000000
 end
 
 -- Dissect: Display Factor
@@ -2584,8 +2577,7 @@ size_of.min_price_increment_amount = 8
 
 -- Display: Min Price Increment Amount
 display.min_price_increment_amount = function(value)
-  local factor = 10000000
-  return "Min Price Increment Amount: "..value:tonumber()/factor
+  return "Min Price Increment Amount: "..value:tonumber()/10000000
 end
 
 -- Dissect: Min Price Increment Amount
@@ -2605,8 +2597,7 @@ size_of.min_price_increment = 8
 
 -- Display: Min Price Increment
 display.min_price_increment = function(value)
-  local factor = 10000000
-  return "Min Price Increment: "..value:tonumber()/factor
+  return "Min Price Increment: "..value:tonumber()/10000000
 end
 
 -- Dissect: Min Price Increment
@@ -2686,8 +2677,7 @@ size_of.min_cab_price = 8
 
 -- Display: Min Cab Price
 display.min_cab_price = function(value)
-  local factor = 10000000
-  return "Min Cab Price: "..value:tonumber()/factor
+  return "Min Cab Price: "..value:tonumber()/10000000
 end
 
 -- Dissect: Min Cab Price
@@ -2747,8 +2737,7 @@ size_of.strike_price = 8
 
 -- Display: Strike Price
 display.strike_price = function(value)
-  local factor = 10000000
-  return "Strike Price: "..value:tonumber()/factor
+  return "Strike Price: "..value:tonumber()/10000000
 end
 
 -- Dissect: Strike Price
@@ -4060,8 +4049,7 @@ size_of.max_price_variation = 8
 
 -- Display: Max Price Variation
 display.max_price_variation = function(value)
-  local factor = 10000000
-  return "Max Price Variation: "..value:tonumber()/factor
+  return "Max Price Variation: "..value:tonumber()/10000000
 end
 
 -- Dissect: Max Price Variation
@@ -5488,8 +5476,7 @@ size_of.leg_option_delta = 4
 
 -- Display: Leg Option Delta
 display.leg_option_delta = function(value)
-  local factor = 10000
-  return "Leg Option Delta: "..value/factor
+  return "Leg Option Delta: "..value/10000
 end
 
 -- Dissect: Leg Option Delta
@@ -5509,8 +5496,7 @@ size_of.leg_price = 8
 
 -- Display: Leg Price
 display.leg_price = function(value)
-  local factor = 10000000
-  return "Leg Price: "..value:tonumber()/factor
+  return "Leg Price: "..value:tonumber()/10000000
 end
 
 -- Dissect: Leg Price
@@ -5703,8 +5689,7 @@ size_of.price_ratio = 8
 
 -- Display: Price Ratio
 display.price_ratio = function(value)
-  local factor = 10000000
-  return "Price Ratio: "..value:tonumber()/factor
+  return "Price Ratio: "..value:tonumber()/10000000
 end
 
 -- Dissect: Price Ratio
