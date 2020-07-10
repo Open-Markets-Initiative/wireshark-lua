@@ -45,7 +45,6 @@ finra_orf_tdds_dfi_v2_0.fields.end_of_retransmission_requests_message = ProtoFie
 finra_orf_tdds_dfi_v2_0.fields.end_of_trade_reporting_message = ProtoField.new("End Of Trade Reporting Message", "finra.orf.tdds.dfi.v2.0.endoftradereportingmessage", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.end_of_transmissions_message = ProtoField.new("End Of Transmissions Message", "finra.orf.tdds.dfi.v2.0.endoftransmissionsmessage", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.execution_datetime = ProtoField.new("Execution Datetime", "finra.orf.tdds.dfi.v2.0.executiondatetime", ftypes.STRING)
-finra_orf_tdds_dfi_v2_0.fields.function = ProtoField.new("Function", "finra.orf.tdds.dfi.v2.0.function", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.general_administrative_message = ProtoField.new("General Administrative Message", "finra.orf.tdds.dfi.v2.0.generaladministrativemessage", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.high_price = ProtoField.new("High Price", "finra.orf.tdds.dfi.v2.0.highprice", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.high_price_denominator = ProtoField.new("High Price Denominator", "finra.orf.tdds.dfi.v2.0.highpricedenominator", ftypes.STRING)
@@ -74,6 +73,7 @@ finra_orf_tdds_dfi_v2_0.fields.packet = ProtoField.new("Packet", "finra.orf.tdds
 finra_orf_tdds_dfi_v2_0.fields.payload = ProtoField.new("Payload", "finra.orf.tdds.dfi.v2.0.payload", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.price_change_indicator = ProtoField.new("Price Change Indicator", "finra.orf.tdds.dfi.v2.0.pricechangeindicator", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.reason_code = ProtoField.new("Reason Code", "finra.orf.tdds.dfi.v2.0.reasoncode", ftypes.STRING)
+finra_orf_tdds_dfi_v2_0.fields.report_function = ProtoField.new("Report Function", "finra.orf.tdds.dfi.v2.0.reportfunction", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.report_volume = ProtoField.new("Report Volume", "finra.orf.tdds.dfi.v2.0.reportvolume", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.report_volume_short = ProtoField.new("Report Volume Short", "finra.orf.tdds.dfi.v2.0.reportvolumeshort", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.reserved = ProtoField.new("Reserved", "finra.orf.tdds.dfi.v2.0.reserved", ftypes.STRING)
@@ -2697,32 +2697,32 @@ dissect.original_trade_information = function(buffer, offset, packet, parent)
   return dissect.original_trade_information_fields(buffer, offset, packet, parent)
 end
 
--- Size: Function
-size_of.function = 1
+-- Size: Report Function
+size_of.report_function = 1
 
--- Display: Function
-display.function = function(value)
+-- Display: Report Function
+display.report_function = function(value)
   if value == "C" then
-    return "Function: Cancel (C)"
+    return "Report Function: Cancel (C)"
   end
   if value == "E" then
-    return "Function: Error (E)"
+    return "Report Function: Error (E)"
   end
   if value == "N" then
-    return "Function: Correction (N)"
+    return "Report Function: Correction (N)"
   end
 
-  return "Function: Unknown("..value..")"
+  return "Report Function: Unknown("..value..")"
 end
 
--- Dissect: Function
-dissect.function = function(buffer, offset, packet, parent)
-  local length = size_of.function
+-- Dissect: Report Function
+dissect.report_function = function(buffer, offset, packet, parent)
+  local length = size_of.report_function
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.function(value, buffer, offset, packet, parent)
+  local display = display.report_function(value, buffer, offset, packet, parent)
 
-  parent:add(finra_orf_tdds_dfi_v2_0.fields.function, range, value, display)
+  parent:add(finra_orf_tdds_dfi_v2_0.fields.report_function, range, value, display)
 
   return offset + length, value
 end
@@ -2759,7 +2759,7 @@ size_of.trade_correction_message = function(buffer, offset)
 
   index = index + size_of.original_message_sequence_number
 
-  index = index + size_of.function
+  index = index + size_of.report_function
 
   index = index + size_of.original_trade_information(buffer, offset + index)
 
@@ -2791,8 +2791,8 @@ dissect.trade_correction_message_fields = function(buffer, offset, packet, paren
   -- Original Message Sequence Number: 8 Byte Ascii String
   index, original_message_sequence_number = dissect.original_message_sequence_number(buffer, index, packet, parent)
 
-  -- Function: 1 Byte Ascii String Enum with 3 values
-  index, function = dissect.function(buffer, index, packet, parent)
+  -- Report Function: 1 Byte Ascii String Enum with 3 values
+  index, report_function = dissect.report_function(buffer, index, packet, parent)
 
   -- Original Trade Information: Struct of 11 fields
   index, original_trade_information = dissect.original_trade_information(buffer, index, packet, parent)
@@ -2831,7 +2831,7 @@ size_of.trade_cancel_error_message = function(buffer, offset)
 
   index = index + size_of.original_message_sequence_number
 
-  index = index + size_of.function
+  index = index + size_of.report_function
 
   index = index + size_of.original_trade_information(buffer, offset + index)
 
@@ -2861,8 +2861,8 @@ dissect.trade_cancel_error_message_fields = function(buffer, offset, packet, par
   -- Original Message Sequence Number: 8 Byte Ascii String
   index, original_message_sequence_number = dissect.original_message_sequence_number(buffer, index, packet, parent)
 
-  -- Function: 1 Byte Ascii String Enum with 3 values
-  index, function = dissect.function(buffer, index, packet, parent)
+  -- Report Function: 1 Byte Ascii String Enum with 3 values
+  index, report_function = dissect.report_function(buffer, index, packet, parent)
 
   -- Original Trade Information: Struct of 11 fields
   index, original_trade_information = dissect.original_trade_information(buffer, index, packet, parent)
