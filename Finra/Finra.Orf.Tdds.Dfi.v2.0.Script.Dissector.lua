@@ -59,6 +59,7 @@ finra_orf_tdds_dfi_v2_0.fields.market_session_close_message = ProtoField.new("Ma
 finra_orf_tdds_dfi_v2_0.fields.market_session_open_message = ProtoField.new("Market Session Open Message", "finra.orf.tdds.dfi.v2.0.marketsessionopenmessage", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.market_wide_circuit_breaker_event_message = ProtoField.new("Market Wide Circuit Breaker Event Message", "finra.orf.tdds.dfi.v2.0.marketwidecircuitbreakereventmessage", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.message = ProtoField.new("Message", "finra.orf.tdds.dfi.v2.0.message", ftypes.STRING)
+finra_orf_tdds_dfi_v2_0.fields.message_category = ProtoField.new("Message Category", "finra.orf.tdds.dfi.v2.0.messagecategory", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.message_header = ProtoField.new("Message Header", "finra.orf.tdds.dfi.v2.0.messageheader", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.message_separator = ProtoField.new("Message Separator", "finra.orf.tdds.dfi.v2.0.messageseparator", ftypes.UINT8)
 finra_orf_tdds_dfi_v2_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "finra.orf.tdds.dfi.v2.0.messagesequencenumber", ftypes.STRING)
@@ -355,7 +356,7 @@ dissect.message_separator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Millisecond
-size_of.millisecond = 2
+size_of.millisecond = 3
 
 -- Display: Millisecond
 display.millisecond = function(value)
@@ -542,7 +543,7 @@ dissect.datetime_fields = function(buffer, offset, packet, parent)
   -- Second: 2 Byte Ascii String
   index, second = dissect.second(buffer, index, packet, parent)
 
-  -- Millisecond: 2 Byte Ascii String
+  -- Millisecond: 3 Byte Ascii String
   index, millisecond = dissect.millisecond(buffer, index, packet, parent)
 
   return index
@@ -645,10 +646,6 @@ end
 size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_category
-
-  index = index + size_of.message_type
-
   index = index + size_of.session_identifier
 
   index = index + size_of.retransmission_requester
@@ -670,12 +667,6 @@ end
 -- Dissect Fields: Message Header
 dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Message Category
-  index, message_category = dissect.message_category(buffer, index, packet, parent)
-
-  -- Message Type
-  index, message_type = dissect.message_type(buffer, index, packet, parent)
 
   -- Session Identifier: 1 Byte Ascii String
   index, session_identifier = dissect.session_identifier(buffer, index, packet, parent)
@@ -726,7 +717,7 @@ end
 dissect.end_of_trade_reporting_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 7 fields
+  -- Message Header: Struct of 5 fields
   index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   return index
@@ -763,7 +754,7 @@ end
 dissect.sequence_number_reset_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 7 fields
+  -- Message Header: Struct of 5 fields
   index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   return index
@@ -800,7 +791,7 @@ end
 dissect.line_integrity_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 7 fields
+  -- Message Header: Struct of 5 fields
   index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   return index
@@ -837,7 +828,7 @@ end
 dissect.end_of_transmissions_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 7 fields
+  -- Message Header: Struct of 5 fields
   index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   return index
@@ -874,7 +865,7 @@ end
 dissect.end_of_retransmission_requests_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 7 fields
+  -- Message Header: Struct of 5 fields
   index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   return index
@@ -911,7 +902,7 @@ end
 dissect.market_session_close_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 7 fields
+  -- Message Header: Struct of 5 fields
   index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   return index
@@ -948,7 +939,7 @@ end
 dissect.market_session_open_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 7 fields
+  -- Message Header: Struct of 5 fields
   index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   return index
@@ -985,7 +976,7 @@ end
 dissect.end_of_day_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 7 fields
+  -- Message Header: Struct of 5 fields
   index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   return index
@@ -1022,7 +1013,7 @@ end
 dissect.start_of_day_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 7 fields
+  -- Message Header: Struct of 5 fields
   index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   return index
@@ -1311,7 +1302,7 @@ dissect.action_datetime_fields = function(buffer, offset, packet, parent)
   -- Second: 2 Byte Ascii String
   index, second = dissect.second(buffer, index, packet, parent)
 
-  -- Millisecond: 2 Byte Ascii String
+  -- Millisecond: 3 Byte Ascii String
   index, millisecond = dissect.millisecond(buffer, index, packet, parent)
 
   return index
@@ -1374,7 +1365,7 @@ end
 dissect.market_wide_circuit_breaker_event_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 7 fields
+  -- Message Header: Struct of 5 fields
   index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   -- Action: 1 Byte Ascii String
@@ -1448,7 +1439,7 @@ end
 dissect.trading_action_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 7 fields
+  -- Message Header: Struct of 5 fields
   index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   -- Security Symbol: 14 Byte Ascii String
@@ -1745,7 +1736,7 @@ end
 dissect.closing_trade_summary_report_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 7 fields
+  -- Message Header: Struct of 5 fields
   index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   -- Security Symbol: 14 Byte Ascii String
@@ -1846,7 +1837,7 @@ end
 dissect.general_administrative_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 7 fields
+  -- Message Header: Struct of 5 fields
   index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   -- Text: 2 Byte Ascii String
@@ -2444,7 +2435,7 @@ dissect.execution_datetime_fields = function(buffer, offset, packet, parent)
   -- Second: 2 Byte Ascii String
   index, second = dissect.second(buffer, index, packet, parent)
 
-  -- Millisecond: 2 Byte Ascii String
+  -- Millisecond: 3 Byte Ascii String
   index, millisecond = dissect.millisecond(buffer, index, packet, parent)
 
   return index
@@ -2779,7 +2770,7 @@ end
 dissect.trade_correction_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 7 fields
+  -- Message Header: Struct of 5 fields
   index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   -- Security Symbol: 14 Byte Ascii String
@@ -2849,7 +2840,7 @@ end
 dissect.trade_cancel_error_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 7 fields
+  -- Message Header: Struct of 5 fields
   index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   -- Security Symbol: 14 Byte Ascii String
@@ -3002,7 +2993,7 @@ end
 dissect.trade_report_long_form_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 7 fields
+  -- Message Header: Struct of 5 fields
   index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   -- Security Symbol: 14 Byte Ascii String
@@ -3120,7 +3111,7 @@ end
 dissect.trade_report_short_form_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 7 fields
+  -- Message Header: Struct of 5 fields
   index, message_header = dissect.message_header(buffer, index, packet, parent)
 
   -- Security Symbol Short: 5 Byte Ascii String
@@ -3307,15 +3298,15 @@ end
 -- Calculate runtime size of: Payload
 size_of.payload = function(buffer, offset, message_category)
   -- Size of Trade
-  if message_category == T then
+  if message_category == "T" then
     return size_of.trade(buffer, offset)
   end
   -- Size of Administrative
-  if message_category == A then
+  if message_category == "A" then
     return size_of.administrative(buffer, offset)
   end
   -- Size of Control
-  if message_category == C then
+  if message_category == "C" then
     return size_of.control(buffer, offset)
   end
 
@@ -3330,15 +3321,15 @@ end
 -- Dissect Branches: Payload
 dissect.payload_branches = function(buffer, offset, packet, parent, message_category)
   -- Dissect Trade
-  if message_category == T then
+  if message_category == "T" then
     return dissect.trade(buffer, offset, packet, parent)
   end
   -- Dissect Administrative
-  if message_category == A then
+  if message_category == "A" then
     return dissect.administrative(buffer, offset, packet, parent)
   end
   -- Dissect Control
-  if message_category == C then
+  if message_category == "C" then
     return dissect.control(buffer, offset, packet, parent)
   end
 
@@ -3365,6 +3356,36 @@ dissect.payload = function(buffer, offset, packet, parent, message_category)
   return dissect.payload_branches(buffer, offset, packet, parent, message_category)
 end
 
+-- Size: Message Category
+size_of.message_category = 1
+
+-- Display: Message Category
+display.message_category = function(value)
+  if value == "T" then
+    return "Message Category: Trade (T)"
+  end
+  if value == "A" then
+    return "Message Category: Administrative (A)"
+  end
+  if value == "C" then
+    return "Message Category: Control (C)"
+  end
+
+  return "Message Category: Unknown("..value..")"
+end
+
+-- Dissect: Message Category
+dissect.message_category = function(buffer, offset, packet, parent)
+  local length = size_of.message_category
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.message_category(value, buffer, offset, packet, parent)
+
+  parent:add(finra_orf_tdds_dfi_v2_0.fields.message_category, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Message
 size_of.message = function(buffer, offset)
   local index = 0
@@ -3373,7 +3394,7 @@ size_of.message = function(buffer, offset)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 0, 0):bytes():tohex(false, " ")
+  local payload_type = buffer(payload_offset - 1, 1):string()
   index = index + size_of.payload(buffer, payload_offset, payload_type)
 
   index = index + size_of.message_separator
@@ -3390,7 +3411,7 @@ end
 dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Category
+  -- Message Category: 1 Byte Ascii String Enum with 3 values
   index, message_category = dissect.message_category(buffer, index, packet, parent)
 
   -- Payload: Runtime Type with 3 branches
