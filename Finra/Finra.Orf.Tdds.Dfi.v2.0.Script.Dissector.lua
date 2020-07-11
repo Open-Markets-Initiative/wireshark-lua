@@ -28,6 +28,7 @@ finra_orf_tdds_dfi_v2_0.fields.administrative_payload = ProtoField.new("Administ
 finra_orf_tdds_dfi_v2_0.fields.as_of_indicator = ProtoField.new("As Of Indicator", "finra.orf.tdds.dfi.v2.0.asofindicator", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.block_soh = ProtoField.new("Block Soh", "finra.orf.tdds.dfi.v2.0.blocksoh", ftypes.UINT8)
 finra_orf_tdds_dfi_v2_0.fields.closing_price = ProtoField.new("Closing Price", "finra.orf.tdds.dfi.v2.0.closingprice", ftypes.STRING)
+finra_orf_tdds_dfi_v2_0.fields.closing_price_denominator = ProtoField.new("Closing Price Denominator", "finra.orf.tdds.dfi.v2.0.closingpricedenominator", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.closing_price_market_center = ProtoField.new("Closing Price Market Center", "finra.orf.tdds.dfi.v2.0.closingpricemarketcenter", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.closing_trade_summary_report_message = ProtoField.new("Closing Trade Summary Report Message", "finra.orf.tdds.dfi.v2.0.closingtradesummaryreportmessage", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.control = ProtoField.new("Control", "finra.orf.tdds.dfi.v2.0.control", ftypes.STRING)
@@ -1662,6 +1663,26 @@ dissect.closing_price = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Closing Price Denominator
+size_of.closing_price_denominator = 1
+
+-- Display: Closing Price Denominator
+display.closing_price_denominator = function(value)
+  return "Closing Price Denominator: "..value
+end
+
+-- Dissect: Closing Price Denominator
+dissect.closing_price_denominator = function(buffer, offset, packet, parent)
+  local length = size_of.closing_price_denominator
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.closing_price_denominator(value, buffer, offset, packet, parent)
+
+  parent:add(finra_orf_tdds_dfi_v2_0.fields.closing_price_denominator, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Closing Price Market Center
 size_of.closing_price_market_center = 1
 
@@ -1790,7 +1811,7 @@ size_of.closing_trade_summary_report_message = function(buffer, offset)
 
   index = index + size_of.closing_price_market_center
 
-  index = index + size_of.closing_price
+  index = index + size_of.closing_price_denominator
 
   index = index + size_of.closing_price
 
@@ -1839,8 +1860,8 @@ dissect.closing_trade_summary_report_message_fields = function(buffer, offset, p
   -- Closing Price Market Center: 1 Byte Ascii String Enum with 3 values
   index, closing_price_market_center = dissect.closing_price_market_center(buffer, index, packet, parent)
 
-  -- Closing Price: 12 Byte Ascii String
-  index, closing_price = dissect.closing_price(buffer, index, packet, parent)
+  -- Closing Price Denominator: 1 Byte Ascii String
+  index, closing_price_denominator = dissect.closing_price_denominator(buffer, index, packet, parent)
 
   -- Closing Price: 12 Byte Ascii String
   index, closing_price = dissect.closing_price(buffer, index, packet, parent)
