@@ -53,6 +53,7 @@ finra_orf_tdds_dfi_v2_0.fields.high_price_denominator = ProtoField.new("High Pri
 finra_orf_tdds_dfi_v2_0.fields.hour = ProtoField.new("Hour", "finra.orf.tdds.dfi.v2.0.hour", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.last_sale_price = ProtoField.new("Last Sale Price", "finra.orf.tdds.dfi.v2.0.lastsaleprice", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.last_sale_price_denominator = ProtoField.new("Last Sale Price Denominator", "finra.orf.tdds.dfi.v2.0.lastsalepricedenominator", ftypes.STRING)
+finra_orf_tdds_dfi_v2_0.fields.last_sale_price_market_center = ProtoField.new("Last Sale Price Market Center", "finra.orf.tdds.dfi.v2.0.lastsalepricemarketcenter", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.line_integrity_message = ProtoField.new("Line Integrity Message", "finra.orf.tdds.dfi.v2.0.lineintegritymessage", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.low_price = ProtoField.new("Low Price", "finra.orf.tdds.dfi.v2.0.lowprice", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.low_price_denominator = ProtoField.new("Low Price Denominator", "finra.orf.tdds.dfi.v2.0.lowpricedenominator", ftypes.STRING)
@@ -578,7 +579,20 @@ size_of.market_center_originator_id = 2
 
 -- Display: Market Center Originator Id
 display.market_center_originator_id = function(value)
-  return "Market Center Originator Id: "..value
+  if value == "E" then
+    return "Market Center Originator Id: Market Center Independent (E)"
+  end
+  if value == "U" then
+    return "Market Center Originator Id: Otc Bulletin Board (U)"
+  end
+  if value == "u" then
+    return "Market Center Originator Id: Other Otc Security (u)"
+  end
+  if value == "F" then
+    return "Market Center Originator Id: Otcbb And Ootc (F)"
+  end
+
+  return "Market Center Originator Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Center Originator Id
@@ -644,18 +658,6 @@ display.session_identifier = function(value)
   if value == "U" then
     return "Session Identifier: Us Market Session (U)"
   end
-  if value == "E" then
-    return "Session Identifier: Market Center Independent (E)"
-  end
-  if value == "U" then
-    return "Session Identifier: Otc Bulletin Board (U)"
-  end
-  if value == "u" then
-    return "Session Identifier: Other Otc Security (u)"
-  end
-  if value == "F" then
-    return "Session Identifier: Otcbb And Ootc (F)"
-  end
 
   return "Session Identifier: Unknown("..value..")"
 end
@@ -698,7 +700,7 @@ end
 dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Identifier: 1 Byte Ascii String Enum with 6 values
+  -- Session Identifier: 1 Byte Ascii String Enum with 2 values
   index, session_identifier = dissect.session_identifier(buffer, index, packet, parent)
 
   -- Retransmission Requester: 2 Byte Ascii String
@@ -707,7 +709,7 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   -- Message Sequence Number: 8 Byte Ascii String
   index, message_sequence_number = dissect.message_sequence_number(buffer, index, packet, parent)
 
-  -- Market Center Originator Id: 2 Byte Ascii String
+  -- Market Center Originator Id: 2 Byte Ascii String Enum with 4 values
   index, market_center_originator_id = dissect.market_center_originator_id(buffer, index, packet, parent)
 
   -- Datetime: Struct of 7 fields
@@ -2154,6 +2156,36 @@ dissect.price_change_indicator = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Last Sale Price Market Center
+size_of.last_sale_price_market_center = 1
+
+-- Display: Last Sale Price Market Center
+display.last_sale_price_market_center = function(value)
+  if value == "U" then
+    return "Last Sale Price Market Center: Otcbb (U)"
+  end
+  if value == "u" then
+    return "Last Sale Price Market Center: Ootc (u)"
+  end
+  if value == " " then
+    return "Last Sale Price Market Center: Not Applicable (<whitespace>)"
+  end
+
+  return "Last Sale Price Market Center: Unknown("..value..")"
+end
+
+-- Dissect: Last Sale Price Market Center
+dissect.last_sale_price_market_center = function(buffer, offset, packet, parent)
+  local length = size_of.last_sale_price_market_center
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.last_sale_price_market_center(value, buffer, offset, packet, parent)
+
+  parent:add(finra_orf_tdds_dfi_v2_0.fields.last_sale_price_market_center, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Last Sale Price
 size_of.last_sale_price = 12
 
@@ -2326,7 +2358,7 @@ dissect.trade_summary_information_fields = function(buffer, offset, packet, pare
   -- Last Sale Price: 12 Byte Ascii String
   index, last_sale_price = dissect.last_sale_price(buffer, index, packet, parent)
 
-  -- Last Sale Price Market Center
+  -- Last Sale Price Market Center: 1 Byte Ascii String Enum with 3 values
   index, last_sale_price_market_center = dissect.last_sale_price_market_center(buffer, index, packet, parent)
 
   -- Total Security Volume: 11 Byte Ascii String
