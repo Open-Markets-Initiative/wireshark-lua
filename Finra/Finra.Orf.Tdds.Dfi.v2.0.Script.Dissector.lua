@@ -25,6 +25,7 @@ finra_orf_tdds_dfi_v2_0.fields.action_datetime = ProtoField.new("Action Datetime
 finra_orf_tdds_dfi_v2_0.fields.administrative = ProtoField.new("Administrative", "finra.orf.tdds.dfi.v2.0.administrative", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "finra.orf.tdds.dfi.v2.0.administrativemessagetype", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.administrative_payload = ProtoField.new("Administrative Payload", "finra.orf.tdds.dfi.v2.0.administrativepayload", ftypes.STRING)
+finra_orf_tdds_dfi_v2_0.fields.as_of_indicator = ProtoField.new("As Of Indicator", "finra.orf.tdds.dfi.v2.0.asofindicator", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.block_soh = ProtoField.new("Block Soh", "finra.orf.tdds.dfi.v2.0.blocksoh", ftypes.UINT8)
 finra_orf_tdds_dfi_v2_0.fields.closing_price = ProtoField.new("Closing Price", "finra.orf.tdds.dfi.v2.0.closingprice", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.closing_price_market_center = ProtoField.new("Closing Price Market Center", "finra.orf.tdds.dfi.v2.0.closingpricemarketcenter", ftypes.STRING)
@@ -67,7 +68,9 @@ finra_orf_tdds_dfi_v2_0.fields.millisecond = ProtoField.new("Millisecond", "finr
 finra_orf_tdds_dfi_v2_0.fields.minute = ProtoField.new("Minute", "finra.orf.tdds.dfi.v2.0.minute", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.month = ProtoField.new("Month", "finra.orf.tdds.dfi.v2.0.month", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.net_change_amount = ProtoField.new("Net Change Amount", "finra.orf.tdds.dfi.v2.0.netchangeamount", ftypes.STRING)
+finra_orf_tdds_dfi_v2_0.fields.net_change_denominator = ProtoField.new("Net Change Denominator", "finra.orf.tdds.dfi.v2.0.netchangedenominator", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.net_change_direction = ProtoField.new("Net Change Direction", "finra.orf.tdds.dfi.v2.0.netchangedirection", ftypes.STRING)
+finra_orf_tdds_dfi_v2_0.fields.original_dissemination_date = ProtoField.new("Original Dissemination Date", "finra.orf.tdds.dfi.v2.0.originaldisseminationdate", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.original_message_sequence_number = ProtoField.new("Original Message Sequence Number", "finra.orf.tdds.dfi.v2.0.originalmessagesequencenumber", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.original_trade_information = ProtoField.new("Original Trade Information", "finra.orf.tdds.dfi.v2.0.originaltradeinformation", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.packet = ProtoField.new("Packet", "finra.orf.tdds.dfi.v2.0.packet", ftypes.STRING)
@@ -129,6 +132,7 @@ show.market_session_open_message = true
 show.market_wide_circuit_breaker_event_message = true
 show.message = true
 show.message_header = true
+show.original_dissemination_date = true
 show.original_trade_information = true
 show.packet = true
 show.sequence_number_reset_message = true
@@ -165,6 +169,7 @@ finra_orf_tdds_dfi_v2_0.prefs.show_market_session_open_message = Pref.bool("Show
 finra_orf_tdds_dfi_v2_0.prefs.show_market_wide_circuit_breaker_event_message = Pref.bool("Show Market Wide Circuit Breaker Event Message", show.market_wide_circuit_breaker_event_message, "Parse and add Market Wide Circuit Breaker Event Message to protocol tree")
 finra_orf_tdds_dfi_v2_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 finra_orf_tdds_dfi_v2_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+finra_orf_tdds_dfi_v2_0.prefs.show_original_dissemination_date = Pref.bool("Show Original Dissemination Date", show.original_dissemination_date, "Parse and add Original Dissemination Date to protocol tree")
 finra_orf_tdds_dfi_v2_0.prefs.show_original_trade_information = Pref.bool("Show Original Trade Information", show.original_trade_information, "Parse and add Original Trade Information to protocol tree")
 finra_orf_tdds_dfi_v2_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 finra_orf_tdds_dfi_v2_0.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
@@ -257,6 +262,10 @@ function finra_orf_tdds_dfi_v2_0.prefs_changed()
   end
   if show.message_header ~= finra_orf_tdds_dfi_v2_0.prefs.show_message_header then
     show.message_header = finra_orf_tdds_dfi_v2_0.prefs.show_message_header
+    changed = true
+  end
+  if show.original_dissemination_date ~= finra_orf_tdds_dfi_v2_0.prefs.show_original_dissemination_date then
+    show.original_dissemination_date = finra_orf_tdds_dfi_v2_0.prefs.show_original_dissemination_date
     changed = true
   end
   if show.original_trade_information ~= finra_orf_tdds_dfi_v2_0.prefs.show_original_trade_information then
@@ -627,7 +636,26 @@ size_of.session_identifier = 1
 
 -- Display: Session Identifier
 display.session_identifier = function(value)
-  return "Session Identifier: "..value
+  if value == "A" then
+    return "Session Identifier: All Market Sessions Or Session Independent (A)"
+  end
+  if value == "U" then
+    return "Session Identifier: Us Market Session (U)"
+  end
+  if value == "E" then
+    return "Session Identifier: Market Center Independent (E)"
+  end
+  if value == "U" then
+    return "Session Identifier: Otc Bulletin Board (U)"
+  end
+  if value == "u" then
+    return "Session Identifier: Other Otc Security (u)"
+  end
+  if value == "F" then
+    return "Session Identifier: Otcbb And Ootc (F)"
+  end
+
+  return "Session Identifier: Unknown("..value..")"
 end
 
 -- Dissect: Session Identifier
@@ -668,7 +696,7 @@ end
 dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Identifier: 1 Byte Ascii String
+  -- Session Identifier: 1 Byte Ascii String Enum with 6 values
   index, session_identifier = dissect.session_identifier(buffer, index, packet, parent)
 
   -- Retransmission Requester: 2 Byte Ascii String
@@ -1326,7 +1354,20 @@ size_of.action = 1
 
 -- Display: Action
 display.action = function(value)
-  return "Action: "..value
+  if value == "H" then
+    return "Action: Trading Halt (H)"
+  end
+  if value == "Q" then
+    return "Action: Quotation Resumption (Q)"
+  end
+  if value == "T" then
+    return "Action: Trading Resumption (T)"
+  end
+  if value == "X" then
+    return "Action: Quotation And Trading Resumption (X)"
+  end
+
+  return "Action: Unknown("..value..")"
 end
 
 -- Dissect: Action
@@ -1368,7 +1409,7 @@ dissect.market_wide_circuit_breaker_event_message_fields = function(buffer, offs
   -- Message Header: Struct of 5 fields
   index, message_header = dissect.message_header(buffer, index, packet, parent)
 
-  -- Action: 1 Byte Ascii String
+  -- Action: 1 Byte Ascii String Enum with 4 values
   index, action = dissect.action(buffer, index, packet, parent)
 
   -- Action Datetime: Struct of 7 fields
@@ -1445,7 +1486,7 @@ dissect.trading_action_message_fields = function(buffer, offset, packet, parent)
   -- Security Symbol: 14 Byte Ascii String
   index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
 
-  -- Action: 1 Byte Ascii String
+  -- Action: 1 Byte Ascii String Enum with 4 values
   index, action = dissect.action(buffer, index, packet, parent)
 
   -- Action Datetime: Struct of 7 fields
@@ -1521,7 +1562,7 @@ dissect.net_change_direction = function(buffer, offset, packet, parent)
 end
 
 -- Size: Net Change Amount
-size_of.net_change_amount = 10
+size_of.net_change_amount = 12
 
 -- Display: Net Change Amount
 display.net_change_amount = function(value)
@@ -1536,6 +1577,26 @@ dissect.net_change_amount = function(buffer, offset, packet, parent)
   local display = display.net_change_amount(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.net_change_amount, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Net Change Denominator
+size_of.net_change_denominator = 1
+
+-- Display: Net Change Denominator
+display.net_change_denominator = function(value)
+  return "Net Change Denominator: "..value
+end
+
+-- Dissect: Net Change Denominator
+dissect.net_change_denominator = function(buffer, offset, packet, parent)
+  local length = size_of.net_change_denominator
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.net_change_denominator(value, buffer, offset, packet, parent)
+
+  parent:add(finra_orf_tdds_dfi_v2_0.fields.net_change_denominator, range, value, display)
 
   return offset + length, value
 end
@@ -1714,7 +1775,7 @@ size_of.closing_trade_summary_report_message = function(buffer, offset)
 
   index = index + size_of.reserved
 
-  index = index + size_of.net_change
+  index = index + size_of.net_change_denominator
 
   index = index + size_of.net_change_amount
 
@@ -1766,10 +1827,10 @@ dissect.closing_trade_summary_report_message_fields = function(buffer, offset, p
   -- Reserved: 1 Byte Ascii String
   index, reserved = dissect.reserved(buffer, index, packet, parent)
 
-  -- Net Change
-  index, net_change = dissect.net_change(buffer, index, packet, parent)
+  -- Net Change Denominator: 1 Byte Ascii String
+  index, net_change_denominator = dissect.net_change_denominator(buffer, index, packet, parent)
 
-  -- Net Change Amount: 10 Byte Ascii String
+  -- Net Change Amount: 12 Byte Ascii String
   index, net_change_amount = dissect.net_change_amount(buffer, index, packet, parent)
 
   -- Net Change Direction: 1 Byte Ascii String Enum with 3 values
@@ -2454,6 +2515,36 @@ dissect.execution_datetime = function(buffer, offset, packet, parent)
   return dissect.execution_datetime_fields(buffer, offset, packet, parent)
 end
 
+-- Size: As Of Indicator
+size_of.as_of_indicator = 1
+
+-- Display: As Of Indicator
+display.as_of_indicator = function(value)
+  if value == "A" then
+    return "As Of Indicator: As Of (A)"
+  end
+  if value == "R" then
+    return "As Of Indicator: Reversal (R)"
+  end
+  if value == " " then
+    return "As Of Indicator: Current Day Transaction (<whitespace>)"
+  end
+
+  return "As Of Indicator: Unknown("..value..")"
+end
+
+-- Dissect: As Of Indicator
+dissect.as_of_indicator = function(buffer, offset, packet, parent)
+  local length = size_of.as_of_indicator
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.as_of_indicator(value, buffer, offset, packet, parent)
+
+  parent:add(finra_orf_tdds_dfi_v2_0.fields.as_of_indicator, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Trade Price
 size_of.trade_price = 12
 
@@ -2564,7 +2655,7 @@ dissect.corrected_trade_information_fields = function(buffer, offset, packet, pa
   -- Currency: 3 Byte Ascii String
   index, currency = dissect.currency(buffer, index, packet, parent)
 
-  -- As Of Indicator
+  -- As Of Indicator: 1 Byte Ascii String Enum with 3 values
   index, as_of_indicator = dissect.as_of_indicator(buffer, index, packet, parent)
 
   -- Execution Datetime: Struct of 7 fields
@@ -2651,7 +2742,7 @@ dissect.original_trade_information_fields = function(buffer, offset, packet, par
   -- Currency: 3 Byte Ascii String
   index, currency = dissect.currency(buffer, index, packet, parent)
 
-  -- As Of Indicator
+  -- As Of Indicator: 1 Byte Ascii String Enum with 3 values
   index, as_of_indicator = dissect.as_of_indicator(buffer, index, packet, parent)
 
   -- Execution Datetime: Struct of 7 fields
@@ -2738,6 +2829,53 @@ dissect.original_message_sequence_number = function(buffer, offset, packet, pare
   return offset + length, value
 end
 
+-- Calculate size of: Original Dissemination Date
+size_of.original_dissemination_date = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.year
+
+  index = index + size_of.month
+
+  index = index + size_of.day
+
+  return index
+end
+
+-- Display: Original Dissemination Date
+display.original_dissemination_date = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Original Dissemination Date
+dissect.original_dissemination_date_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Year: 4 Byte Ascii String
+  index, year = dissect.year(buffer, index, packet, parent)
+
+  -- Month: 2 Byte Ascii String
+  index, month = dissect.month(buffer, index, packet, parent)
+
+  -- Day: 2 Byte Ascii String
+  index, day = dissect.day(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Original Dissemination Date
+dissect.original_dissemination_date = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.original_dissemination_date then
+    local length = size_of.original_dissemination_date(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.original_dissemination_date(buffer, packet, parent)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.original_dissemination_date, range, display)
+  end
+
+  return dissect.original_dissemination_date_fields(buffer, offset, packet, parent)
+end
+
 -- Calculate size of: Trade Correction Message
 size_of.trade_correction_message = function(buffer, offset)
   local index = 0
@@ -2746,7 +2884,7 @@ size_of.trade_correction_message = function(buffer, offset)
 
   index = index + size_of.security_symbol
 
-  index = index + size_of.original_dissemination_date
+  index = index + size_of.original_dissemination_date(buffer, offset + index)
 
   index = index + size_of.original_message_sequence_number
 
@@ -2776,7 +2914,7 @@ dissect.trade_correction_message_fields = function(buffer, offset, packet, paren
   -- Security Symbol: 14 Byte Ascii String
   index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
 
-  -- Original Dissemination Date
+  -- Original Dissemination Date: Struct of 3 fields
   index, original_dissemination_date = dissect.original_dissemination_date(buffer, index, packet, parent)
 
   -- Original Message Sequence Number: 8 Byte Ascii String
@@ -2818,7 +2956,7 @@ size_of.trade_cancel_error_message = function(buffer, offset)
 
   index = index + size_of.security_symbol
 
-  index = index + size_of.original_dissemination_date
+  index = index + size_of.original_dissemination_date(buffer, offset + index)
 
   index = index + size_of.original_message_sequence_number
 
@@ -2846,7 +2984,7 @@ dissect.trade_cancel_error_message_fields = function(buffer, offset, packet, par
   -- Security Symbol: 14 Byte Ascii String
   index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
 
-  -- Original Dissemination Date
+  -- Original Dissemination Date: Struct of 3 fields
   index, original_dissemination_date = dissect.original_dissemination_date(buffer, index, packet, parent)
 
   -- Original Message Sequence Number: 8 Byte Ascii String
@@ -2929,7 +3067,7 @@ dissect.trade_information_fields = function(buffer, offset, packet, parent)
   -- Currency: 3 Byte Ascii String
   index, currency = dissect.currency(buffer, index, packet, parent)
 
-  -- As Of Indicator
+  -- As Of Indicator: 1 Byte Ascii String Enum with 3 values
   index, as_of_indicator = dissect.as_of_indicator(buffer, index, packet, parent)
 
   -- Execution Datetime: Struct of 7 fields
@@ -2977,7 +3115,7 @@ size_of.trade_report_long_form_message = function(buffer, offset)
 
   index = index + size_of.security_symbol
 
-  index = index + size_of.original_dissemination_date
+  index = index + size_of.original_dissemination_date(buffer, offset + index)
 
   index = index + size_of.trade_information(buffer, offset + index)
 
@@ -2999,7 +3137,7 @@ dissect.trade_report_long_form_message_fields = function(buffer, offset, packet,
   -- Security Symbol: 14 Byte Ascii String
   index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
 
-  -- Original Dissemination Date
+  -- Original Dissemination Date: Struct of 3 fields
   index, original_dissemination_date = dissect.original_dissemination_date(buffer, index, packet, parent)
 
   -- Trade Information: Struct of 12 fields
