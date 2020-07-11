@@ -94,6 +94,7 @@ finra_orf_tdds_dfi_v2_0.fields.sequence_number_reset_message = ProtoField.new("S
 finra_orf_tdds_dfi_v2_0.fields.session_identifier = ProtoField.new("Session Identifier", "finra.orf.tdds.dfi.v2.0.sessionidentifier", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.start_of_day_message = ProtoField.new("Start Of Day Message", "finra.orf.tdds.dfi.v2.0.startofdaymessage", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.text = ProtoField.new("Text", "finra.orf.tdds.dfi.v2.0.text", ftypes.STRING)
+finra_orf_tdds_dfi_v2_0.fields.total_security_volume = ProtoField.new("Total Security Volume", "finra.orf.tdds.dfi.v2.0.totalsecurityvolume", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.trade = ProtoField.new("Trade", "finra.orf.tdds.dfi.v2.0.trade", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.trade_cancel_error_message = ProtoField.new("Trade Cancel Error Message", "finra.orf.tdds.dfi.v2.0.tradecancelerrormessage", ftypes.STRING)
 finra_orf_tdds_dfi_v2_0.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "finra.orf.tdds.dfi.v2.0.tradecorrectionmessage", ftypes.STRING)
@@ -1511,6 +1512,26 @@ dissect.trading_action_message = function(buffer, offset, packet, parent)
   return dissect.trading_action_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Total Security Volume
+size_of.total_security_volume = 11
+
+-- Display: Total Security Volume
+display.total_security_volume = function(value)
+  return "Total Security Volume: "..value
+end
+
+-- Dissect: Total Security Volume
+dissect.total_security_volume = function(buffer, offset, packet, parent)
+  local length = size_of.total_security_volume
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.total_security_volume(value, buffer, offset, packet, parent)
+
+  parent:add(finra_orf_tdds_dfi_v2_0.fields.total_security_volume, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Currency
 size_of.currency = 3
 
@@ -1839,7 +1860,7 @@ dissect.closing_trade_summary_report_message_fields = function(buffer, offset, p
   -- Currency: 3 Byte Ascii String
   index, currency = dissect.currency(buffer, index, packet, parent)
 
-  -- Total Security Volume
+  -- Total Security Volume: 11 Byte Ascii String
   index, total_security_volume = dissect.total_security_volume(buffer, index, packet, parent)
 
   return index
@@ -2287,7 +2308,7 @@ dissect.trade_summary_information_fields = function(buffer, offset, packet, pare
   -- Last Sale Price Market Center
   index, last_sale_price_market_center = dissect.last_sale_price_market_center(buffer, index, packet, parent)
 
-  -- Total Security Volume
+  -- Total Security Volume: 11 Byte Ascii String
   index, total_security_volume = dissect.total_security_volume(buffer, index, packet, parent)
 
   -- Price Change Indicator: 1 Byte Ascii String Enum with 8 values
