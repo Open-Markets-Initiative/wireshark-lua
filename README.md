@@ -84,6 +84,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 |[Eurex][Eurex.Derivatives.Eti.T7.v5.0.Organization] | Derivatives | Eti | T7 | [5.0][Eurex.Derivatives.Eti.T7.v5.0.Dissector] | 5/22/2017 | 20306 | Untested|
 |[Eurex][Eurex.Derivatives.Eti.T7.v2.5.Organization] | Derivatives | Eti | T7 | [2.5][Eurex.Derivatives.Eti.T7.v2.5.Dissector] | 7/15/2016 | 15690 | Untested|
 |[Finra][Finra.Orf.Tdds.Dfi.v2.0.Organization] | Orf | Tdds | Dfi | [2.0][Finra.Orf.Tdds.Dfi.v2.0.Dissector] | 9/24/2018 | 3760 | Verified|
+|[Finra][Finra.Otc.Bbds.Dfi.v2018.1A.Organization] | Otc | Bbds | Dfi | [2018.1A][Finra.Otc.Bbds.Dfi.v2018.1A.Dissector] | 5/14/2018 | 2637 | Untested|
 |[Ice][Ice.Futures.Mdf.iMpact.v1.1.34.Organization] | Futures | Mdf | iMpact | [1.1.34][Ice.Futures.Mdf.iMpact.v1.1.34.Dissector] | 9/4/2018 | 10214 | Verified|
 |[Ice][Ice.Futures.Mdf.iMpact.v1.1.33.Organization] | Futures | Mdf | iMpact | [1.1.33][Ice.Futures.Mdf.iMpact.v1.1.33.Dissector] | 8/6/2018 | 9971 | Verified|
 |[Ice][Ice.Futures.Mdf.iMpact.v1.1.24.Organization] | Futures | Mdf | iMpact | [1.1.24][Ice.Futures.Mdf.iMpact.v1.1.24.Dissector] | 3/30/2016 | 9047 | Verified|
@@ -141,7 +142,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 |Protocol Count | Generated Lines|
 |--- | ---|
-|103 | 936,568|
+|104 | 939,205|
 
 Note: Our dissector model is still under rapid development.
 
@@ -268,6 +269,8 @@ Enjoy.
 [Eurex.Derivatives.Eti.T7.v8.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Eurex/Eurex.Derivatives.Eti.T7.v8.1.Script.Dissector.lua "Eurex Exchange 8.1 Wireshark Dissector"
 [Finra.Orf.Tdds.Dfi.v2.0.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Finra "Financial Industry Regulatory Authority"
 [Finra.Orf.Tdds.Dfi.v2.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Finra/Finra.Orf.Tdds.Dfi.v2.0.Script.Dissector.lua "Financial Industry Regulatory Authority 2.0 Wireshark Dissector"
+[Finra.Otc.Bbds.Dfi.v2018.1A.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Finra "Financial Industry Regulatory Authority"
+[Finra.Otc.Bbds.Dfi.v2018.1A.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Finra/Finra.Otc.Bbds.Dfi.v2018.1A.Script.Dissector.lua "Financial Industry Regulatory Authority 2018.1A Wireshark Dissector"
 [Ice.Futures.Mdf.iMpact.v1.1.24.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Ice "Intercontinental Exchange"
 [Ice.Futures.Mdf.iMpact.v1.1.24.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Ice/Ice.Futures.Mdf.iMpact.v1.1.24.Script.Dissector.lua "Intercontinental Exchange 1.1.24 Wireshark Dissector"
 [Ice.Futures.Mdf.iMpact.v1.1.33.Organization]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Ice "Intercontinental Exchange"
