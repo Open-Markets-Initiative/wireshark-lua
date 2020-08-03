@@ -129,6 +129,7 @@ List of data requests: [Untested Protocols](https://github.com/Open-Markets-Init
 The Open Markets Initiative (Omi) is a group of technologists dedicated to enhancing the stability of electronic financial markets using modern development methods.
 
 For a list of OMI Hft projects: [Omi Projects](https://github.com/Open-Markets-Initiative/Directory/tree/master/Projects "Open Markets Initiative Projects")
+
 For details of OMI rules and regulations: [Omi Directory](https://github.com/Open-Markets-Initiative/Directory "Open Markets Initiative Directory")
 ## Disclaimer
 
