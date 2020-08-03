@@ -35,9 +35,6 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 |[Cboe][Cboe.Equities.Edgx.OrderEntry.Boe.v2.3.Organization] | Equities Edgx | OrderEntry | Boe | [2.3][Cboe.Equities.Edgx.OrderEntry.Boe.v2.3.Dissector] | 3/11/2019 | Beta|
 |[Cboe][Cboe.Futures.OrderEntry.Boe.v1.3.Organization] | Futures | OrderEntry | Boe | [1.3][Cboe.Futures.OrderEntry.Boe.v1.3.Dissector] | 4/21/2020 | Beta|
 |[Cboe][Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Organization] | Futures | DepthOfBook | Pitch | [1.1.6][Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Dissector] | 4/8/2019 | Verified|
-|[Cboe][Cboe.Options.MarketDataFeed.Csm.v1.4.2.Organization] | Options | MarketDataFeed | Csm | [1.4.2][Cboe.Options.MarketDataFeed.Csm.v1.4.2.Dissector] | 5/8/2018 | Verified|
-|[Cboe][Cboe.Options.MarketLevel2.Csm.v1.0.4.Organization] | Options | MarketLevel2 | Csm | [1.0.4][Cboe.Options.MarketLevel2.Csm.v1.0.4.Dissector] | 5/8/2018 | Verified|
-|[Cboe][Cboe.Options.OpeningAuction.Csm.v1.0.Organization] | Options | OpeningAuction | Csm | [1.0][Cboe.Options.OpeningAuction.Csm.v1.0.Dissector] | 7/18/2018 | Verified|
 |[Cboe][Cboe.Options.ComplexDepthOfBook.Pitch.v2.1.18.Organization] | Options | ComplexDepthOfBook | Pitch | [2.1.18][Cboe.Options.ComplexDepthOfBook.Pitch.v2.1.18.Dissector] | 1/31/2020 | Untested|
 |[Cboe][Cboe.Options.DepthOfBook.Pitch.v2.39.4.Organization] | Options | DepthOfBook | Pitch | [2.39.4][Cboe.Options.DepthOfBook.Pitch.v2.39.4.Dissector] | 8/21/2018 | Verified|
 |[Cboe][Cboe.Options.Bzx.OrderEntry.Boe.v2.10.Organization] | Options Bzx | OrderEntry | Boe | [2.10][Cboe.Options.Bzx.OrderEntry.Boe.v2.10.Dissector] | 12/3/2019 | Beta|
@@ -108,7 +105,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 |[Siac][Siac.Cts.Output.Cta.v1.91.Organization] | Cts | Output | Cta | [1.91][Siac.Cts.Output.Cta.v1.91.Dissector] | 1/2/2020 | Beta|
 |[Siac][Siac.Opra.Recipient.Obi.v4.0.Organization] | Opra | Recipient | Obi | [4.0][Siac.Opra.Recipient.Obi.v4.0.Dissector] | 1/17/2020 | Untested|
 
-Note: Legacy protocols are in dissector folders
+Note: Obsolete and header only dissectors are in above folders
 
 ## Development
 
@@ -126,13 +123,13 @@ Please report any dissection errors as issues.  Include a small note on the prot
 
 Production packet captures are required for protocol verification.  If your organization has the rights to packet captures, and you wish to make the world a better place, please post captures to this project.
 
-Untested Protocols [Untested Protocols](https://github.com/Open-Markets-Initiative/wireshark-lua/wiki/Data "Unverified Protocol Data List")
+List of data requests: [Untested Protocols](https://github.com/Open-Markets-Initiative/wireshark-lua/wiki/Data "Unverified Protocol Data List")
 ## Open Markets Initiative
 
 The Open Markets Initiative (Omi) is a group of technologists dedicated to enhancing the stability of electronic financial markets using modern development methods.
 
-For full list of OMI projects, rules and regulations: [Omi Directory](https://github.com/Open-Markets-Initiative/Directory "Open Markets Initiative Directory")
-
+For a list of OMI Hft projects: [Omi Projects](https://github.com/Open-Markets-Initiative/Directory/tree/master/Projects "Open Markets Initiative Projects")
+For details of OMI rules and regulations: [Omi Directory](https://github.com/Open-Markets-Initiative/Directory "Open Markets Initiative Directory")
 ## Disclaimer
 
 Any similarities between existing people, places and/or protocols is purely incidental.
