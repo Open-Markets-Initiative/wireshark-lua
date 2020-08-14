@@ -379,7 +379,7 @@ end
 dissect.millisecond = function(buffer, offset, packet, parent)
   local length = size_of.millisecond
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
   local display = display.millisecond(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.millisecond, range, value, display)
@@ -399,7 +399,7 @@ end
 dissect.second = function(buffer, offset, packet, parent)
   local length = size_of.second
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
   local display = display.second(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.second, range, value, display)
@@ -419,7 +419,7 @@ end
 dissect.minute = function(buffer, offset, packet, parent)
   local length = size_of.minute
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
   local display = display.minute(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.minute, range, value, display)
@@ -439,7 +439,7 @@ end
 dissect.hour = function(buffer, offset, packet, parent)
   local length = size_of.hour
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
   local display = display.hour(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.hour, range, value, display)
@@ -459,7 +459,7 @@ end
 dissect.day = function(buffer, offset, packet, parent)
   local length = size_of.day
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
   local display = display.day(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.day, range, value, display)
@@ -479,7 +479,7 @@ end
 dissect.month = function(buffer, offset, packet, parent)
   local length = size_of.month
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
   local display = display.month(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.month, range, value, display)
@@ -499,7 +499,7 @@ end
 dissect.year = function(buffer, offset, packet, parent)
   local length = size_of.year
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
   local display = display.year(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.year, range, value, display)
@@ -619,7 +619,7 @@ end
 dissect.message_sequence_number = function(buffer, offset, packet, parent)
   local length = size_of.message_sequence_number
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
   local display = display.message_sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.message_sequence_number, range, value, display)
@@ -1527,7 +1527,7 @@ end
 dissect.total_security_volume = function(buffer, offset, packet, parent)
   local length = size_of.total_security_volume
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
   local display = display.total_security_volume(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.total_security_volume, range, value, display)
@@ -1597,7 +1597,7 @@ end
 dissect.net_change_amount = function(buffer, offset, packet, parent)
   local length = size_of.net_change_amount
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
   local display = display.net_change_amount(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.net_change_amount, range, value, display)
@@ -1657,7 +1657,7 @@ end
 dissect.closing_price = function(buffer, offset, packet, parent)
   local length = size_of.closing_price
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
   local display = display.closing_price(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.closing_price, range, value, display)
@@ -1727,7 +1727,7 @@ end
 dissect.daily_low_price = function(buffer, offset, packet, parent)
   local length = size_of.daily_low_price
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
   local display = display.daily_low_price(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.daily_low_price, range, value, display)
@@ -1767,7 +1767,7 @@ end
 dissect.daily_high_price = function(buffer, offset, packet, parent)
   local length = size_of.daily_high_price
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
   local display = display.daily_high_price(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.daily_high_price, range, value, display)
@@ -2198,7 +2198,7 @@ end
 dissect.last_sale_price = function(buffer, offset, packet, parent)
   local length = size_of.last_sale_price
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
   local display = display.last_sale_price(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.last_sale_price, range, value, display)
@@ -2238,7 +2238,7 @@ end
 dissect.low_price = function(buffer, offset, packet, parent)
   local length = size_of.low_price
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
   local display = display.low_price(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.low_price, range, value, display)
@@ -2278,7 +2278,7 @@ end
 dissect.high_price = function(buffer, offset, packet, parent)
   local length = size_of.high_price
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
   local display = display.high_price(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.high_price, range, value, display)
@@ -2395,7 +2395,7 @@ end
 dissect.sellers_sale_days = function(buffer, offset, packet, parent)
   local length = size_of.sellers_sale_days
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
   local display = display.sellers_sale_days(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.sellers_sale_days, range, value, display)
@@ -2671,7 +2671,7 @@ end
 dissect.report_volume = function(buffer, offset, packet, parent)
   local length = size_of.report_volume
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
   local display = display.report_volume(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.report_volume, range, value, display)
@@ -2895,7 +2895,7 @@ end
 dissect.original_message_sequence_number = function(buffer, offset, packet, parent)
   local length = size_of.original_message_sequence_number
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
   local display = display.original_message_sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.original_message_sequence_number, range, value, display)
@@ -3245,7 +3245,7 @@ end
 dissect.report_volume_short = function(buffer, offset, packet, parent)
   local length = size_of.report_volume_short
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
   local display = display.report_volume_short(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.report_volume_short, range, value, display)
@@ -3265,7 +3265,7 @@ end
 dissect.trade_price_short = function(buffer, offset, packet, parent)
   local length = size_of.trade_price_short
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
   local display = display.trade_price_short(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_price_short, range, value, display)
