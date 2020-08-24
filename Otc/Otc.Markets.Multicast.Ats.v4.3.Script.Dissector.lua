@@ -3643,7 +3643,7 @@ otc_markets_multicast_ats_v4_3:register_heuristic("udp", otc_markets_multicast_a
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Otc
+--   Organization: Otc Markets
 --   Version: 4.3
 --   Date: Wednesday, December 11, 2019
 --   Specification: OTC Markets Multicast Data Feeds -v4.3.pdf

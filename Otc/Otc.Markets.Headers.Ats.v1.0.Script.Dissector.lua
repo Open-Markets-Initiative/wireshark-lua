@@ -482,7 +482,7 @@ otc_markets_headers_ats_v1_0:register_heuristic("udp", otc_markets_headers_ats_v
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Otc
+--   Organization: Otc Markets
 --   Version: 1.0
 --   Date: Wednesday, December 11, 2019
 --   Specification: OTC Markets Multicast Data Feeds -v4.3.pdf
