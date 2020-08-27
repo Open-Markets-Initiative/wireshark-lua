@@ -3,9 +3,9 @@
 
 ## Australian Securities Exchange
 
-|Division | Data | Protocol | Version | Date | Size | Status | Testing | Specification|
-|--- | --- | --- | --- | --- | --- | --- | --- | ---|
-|Securities | T24 | Itch | [1.13][Asx.Securities.T24.Itch.v1.13.Dissector] | 7/15/2014 | 6049 | Deprecated | Untested | [pdf][Asx.Securities.T24.Itch.v1.13.Pdf]|
+| Division | Data | Protocol | Version | Date | Size | Status | Testing | Specification |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Securities | T24 | Itch | [1.13][Asx.Securities.T24.Itch.v1.13.Dissector] | 7/15/2014 | 6049 | Deprecated | Untested | [pdf][Asx.Securities.T24.Itch.v1.13.Pdf] |
 
 
 Asx: [website](https://www.asx.com.au "Go to Australian Securities Exchange")

@@ -3,10 +3,10 @@
 
 ## Otc Markets
 
-|Division | Data | Protocol | Version | Date | Size | Status | Testing | Specification|
-|--- | --- | --- | --- | --- | --- | --- | --- | ---|
-|Markets | Headers | Ats | [1.0][Otc.Markets.Headers.Ats.v1.0.Dissector] | 12/11/2019 | 500 | Active | Verified | [url][Otc.Markets.Headers.Ats.v1.0.Url] - [pdf][Otc.Markets.Headers.Ats.v1.0.Pdf]|
-|Markets | Multicast | Ats | [4.3][Otc.Markets.Multicast.Ats.v4.3.Dissector] | 12/11/2019 | 3661 | Active | Verified | [url][Otc.Markets.Multicast.Ats.v4.3.Url] - [pdf][Otc.Markets.Multicast.Ats.v4.3.Pdf]|
+| Division | Data | Protocol | Version | Date | Size | Status | Testing | Specification |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Markets | Headers | Ats | [1.0][Otc.Markets.Headers.Ats.v1.0.Dissector] | 12/11/2019 | 500 | Active | Verified | [url][Otc.Markets.Headers.Ats.v1.0.Url] - [pdf][Otc.Markets.Headers.Ats.v1.0.Pdf] |
+| Markets | Multicast | Ats | [4.3][Otc.Markets.Multicast.Ats.v4.3.Dissector] | 12/11/2019 | 3661 | Active | Verified | [url][Otc.Markets.Multicast.Ats.v4.3.Url] - [pdf][Otc.Markets.Multicast.Ats.v4.3.Pdf] |
 
 
 Otc: [website](https://www.Otcmarkets.com "Go to Otc Markets")
