@@ -96,7 +96,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 | [Siac][Siac.Directory] | Cts | Output | Cta | [1.91][Siac.Cts.Output.Cta.v1.91.Dissector] | 1/2/2020 | [Beta][Omi.Glossary.Testing] |
 | [Siac][Siac.Directory] | Opra | Recipient | Obi | [4.0][Siac.Opra.Recipient.Obi.v4.0.Dissector] | 1/17/2020 | [Untested][Omi.Glossary.Testing] |
 
-Obsolete and header dissectors are in dissector directories: 
+Obsolete and header dissectors are in dissector directories: [Asx][Asx.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Eurex][Eurex.Directory], [Finra][Finra.Directory], [Ice][Ice.Directory], [Miax][Miax.Directory], [Nasdaq][Nasdaq.Directory], [Nyse][Nyse.Directory], [Otc][Otc.Directory], [Siac][Siac.Directory]
 
 ## Development
 
