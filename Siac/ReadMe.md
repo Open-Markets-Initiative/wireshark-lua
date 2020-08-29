@@ -4,7 +4,7 @@
 ## Securities Industry Automation Corporation
 
 | Division | Data | Protocol | Version | Date | Size | Status | Testing | Specification |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Cqs | Output | Cta | [1.91][Siac.Cqs.Output.Cta.v1.91.Dissector] | 1/2/2020 | 4603 | [Active][Omi.Glossary.Status] | [Verified][Omi.Glossary.Testing] | [url][Siac.Cqs.Output.Cta.v1.91.Url] - [pdf][Siac.Cqs.Output.Cta.v1.91.Pdf] |
 | Cts | Output | Cta | [1.91][Siac.Cts.Output.Cta.v1.91.Dissector] | 1/2/2020 | 6621 | [Active][Omi.Glossary.Status] | [Beta][Omi.Glossary.Testing] | [url][Siac.Cts.Output.Cta.v1.91.Url] - [pdf][Siac.Cts.Output.Cta.v1.91.Pdf] |
 | Opra | Recipient | Obi | [4.0][Siac.Opra.Recipient.Obi.v4.0.Dissector] | 1/17/2020 | 2927 | [Active][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Siac.Opra.Recipient.Obi.v4.0.Url] - [pdf][Siac.Opra.Recipient.Obi.v4.0.Pdf] |

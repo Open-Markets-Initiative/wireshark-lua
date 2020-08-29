@@ -4,7 +4,7 @@
 ## Australian Securities Exchange
 
 | Division | Data | Protocol | Version | Date | Size | Status | Testing | Specification |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Securities | T24 | Itch | [1.13][Asx.Securities.T24.Itch.v1.13.Dissector] | 7/15/2014 | 6049 | [Deprecated][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [pdf][Asx.Securities.T24.Itch.v1.13.Pdf] |
 
 

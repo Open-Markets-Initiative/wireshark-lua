@@ -4,7 +4,7 @@
 ## New York Stock Exchange
 
 | Division | Data | Protocol | Version | Date | Size | Status | Testing | Specification |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 |  Equities | OpenBook | Ultra | [2.1.b][Nyse.Equities.OpenBook.Ultra.v2.1.b.Dissector] | 3/9/2018 | 1471 | [Active][Omi.Glossary.Status] | [Verified][Omi.Glossary.Testing] | [url][Nyse.Equities.OpenBook.Ultra.v2.1.b.Url] - [pdf][Nyse.Equities.OpenBook.Ultra.v2.1.b.Pdf] |
 | Amex Equities | OpenBook | Ultra | [2.1.b][Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.Dissector] | 3/9/2018 | 1477 | [Active][Omi.Glossary.Status] | [Verified][Omi.Glossary.Testing] | [url][Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.Url] - [pdf][Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.Pdf] |
 | Equities | Bbo | Xdp | [2.4.g][Nyse.Equities.Bbo.Xdp.v2.4.g.Dissector] | 1/29/2018 | 3042 | [Active][Omi.Glossary.Status] | [Verified][Omi.Glossary.Testing] | [url][Nyse.Equities.Bbo.Xdp.v2.4.g.Url] - [pdf][Nyse.Equities.Bbo.Xdp.v2.4.g.Pdf] |

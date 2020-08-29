@@ -4,7 +4,7 @@
 ## Intercontinental Exchange
 
 | Division | Data | Protocol | Version | Date | Size | Status | Testing | Specification |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Futures | Mdf | iMpact | [1.1.34][Ice.Futures.Mdf.iMpact.v1.1.34.Dissector] | 9/4/2018 | 10214 | [Active][Omi.Glossary.Status] | [Verified][Omi.Glossary.Testing] | [pdf][Ice.Futures.Mdf.iMpact.v1.1.34.Pdf] |
 | Futures | Mdf | iMpact | [1.1.33][Ice.Futures.Mdf.iMpact.v1.1.33.Dissector] | 8/6/2018 | 9971 | [Deprecated][Omi.Glossary.Status] | [Verified][Omi.Glossary.Testing] | [pdf][Ice.Futures.Mdf.iMpact.v1.1.33.Pdf] |
 | Futures | Mdf | iMpact | [1.1.24][Ice.Futures.Mdf.iMpact.v1.1.24.Dissector] | 3/30/2016 | 9047 | [Deprecated][Omi.Glossary.Status] | [Verified][Omi.Glossary.Testing] | [pdf][Ice.Futures.Mdf.iMpact.v1.1.24.Pdf] |

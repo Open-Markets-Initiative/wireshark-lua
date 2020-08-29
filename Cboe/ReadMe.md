@@ -4,7 +4,7 @@
 ## Chicago Board Options Exchange
 
 | Division | Data | Protocol | Version | Date | Size | Status | Testing | Specification |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Equities Bzx | OrderEntry | Boe | [2.3][Cboe.Equities.Bzx.OrderEntry.Boe.v2.3.Dissector] | 3/11/2019 | 28991 | [Active][Omi.Glossary.Status] | [Beta][Omi.Glossary.Testing] | [url][Cboe.Equities.Bzx.OrderEntry.Boe.v2.3.Url] - [pdf][Cboe.Equities.Bzx.OrderEntry.Boe.v2.3.Pdf] |
 | Equities Edgx | OrderEntry | Boe | [2.3][Cboe.Equities.Edgx.OrderEntry.Boe.v2.3.Dissector] | 3/11/2019 | 28976 | [Active][Omi.Glossary.Status] | [Beta][Omi.Glossary.Testing] | [url][Cboe.Equities.Edgx.OrderEntry.Boe.v2.3.Url] - [pdf][Cboe.Equities.Edgx.OrderEntry.Boe.v2.3.Pdf] |
 | Futures | OrderEntry | Boe | [1.3][Cboe.Futures.OrderEntry.Boe.v1.3.Dissector] | 4/21/2020 | 32193 | [Active][Omi.Glossary.Status] | [Beta][Omi.Glossary.Testing] | [url][Cboe.Futures.OrderEntry.Boe.v1.3.Url] - [pdf][Cboe.Futures.OrderEntry.Boe.v1.3.Pdf] |

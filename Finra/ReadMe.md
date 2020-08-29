@@ -4,7 +4,7 @@
 ## Financial Industry Regulatory Authority
 
 | Division | Data | Protocol | Version | Date | Size | Status | Testing | Specification |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Orf | Tdds | Dfi | [2.0][Finra.Orf.Tdds.Dfi.v2.0.Dissector] | 9/24/2018 | 3760 | [Active][Omi.Glossary.Status] | [Verified][Omi.Glossary.Testing] | [url][Finra.Orf.Tdds.Dfi.v2.0.Url] - [pdf][Finra.Orf.Tdds.Dfi.v2.0.Pdf] |
 | Otc | Bbds | Dfi | [2018.1A][Finra.Otc.Bbds.Dfi.v2018.1A.Dissector] | 5/14/2018 | 2637 | [Active][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Finra.Otc.Bbds.Dfi.v2018.1A.Url] - [pdf][Finra.Otc.Bbds.Dfi.v2018.1A.Pdf] |
 

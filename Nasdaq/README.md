@@ -4,7 +4,7 @@
 ## National Association of Securities Dealers Automated Quotations
 
 | Division | Data | Protocol | Version | Date | Size | Status | Testing | Specification |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 |  Equities | Orders | Ouch | [4.2][Nasdaq.Equities.Orders.Ouch.v4.2.Dissector] | 7/8/2019 | 3215 | [Active][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Nasdaq.Equities.Orders.Ouch.v4.2.Url] - [pdf][Nasdaq.Equities.Orders.Ouch.v4.2.Pdf] |
 | Bx Equities | TotalView | Itch | [5.0][Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Dissector] | 5/23/2018 | 3739 | [Active][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Url] - [pdf][Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Pdf] |
 | Bx Equities | Orders | Ouch | [4.2][Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Dissector] | 7/8/2019 | 3170 | [Active][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Url] - [pdf][Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Pdf] |

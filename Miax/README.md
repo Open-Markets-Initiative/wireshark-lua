@@ -4,7 +4,7 @@
 ## Miami International Securities Exchange
 
 | Division | Data | Protocol | Version | Date | Size | Status | Testing | Specification |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Options | cTom | Mach | [1.3][Miax.Options.cTom.Mach.v1.3.Dissector] | 3/16/2018 | 3052 | [Active][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Miax.Options.cTom.Mach.v1.3.Url] - [pdf][Miax.Options.cTom.Mach.v1.3.Pdf] |
 | Options | cTom | Mach | [1.1][Miax.Options.cTom.Mach.v1.1.Dissector] | 7/15/2016 | 3040 | [Deprecated][Omi.Glossary.Status] | [Verified][Omi.Glossary.Testing] | [url][Miax.Options.cTom.Mach.v1.1.Url] - [pdf][Miax.Options.cTom.Mach.v1.1.Pdf] |
 | Options | Tom | Mach | [2.3][Miax.Options.Tom.Mach.v2.3.Dissector] | 6/10/2019 | 2955 | [Future][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Miax.Options.Tom.Mach.v2.3.Url] - [pdf][Miax.Options.Tom.Mach.v2.3.Pdf] |
