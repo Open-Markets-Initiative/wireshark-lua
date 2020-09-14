@@ -1,4 +1,4 @@
-[![Finra](https://github.com/Open-Markets-Initiative/Directory/blob/master/Logos/Finra.png)](https://www.finra.org/)
+[![Finra](https://github.com/Open-Markets-Initiative/Directory/blob/master/Images/Finra.png)](https://www.finra.org/)
 
 
 ## Financial Industry Regulatory Authority

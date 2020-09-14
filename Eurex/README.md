@@ -1,4 +1,4 @@
-[![Eurex](https://github.com/Open-Markets-Initiative/Directory/blob/master/Logos/Eurex.png)](https://www.eurexchange.com)
+[![Eurex](https://github.com/Open-Markets-Initiative/Directory/blob/master/Images/Eurex.png)](https://www.eurexchange.com)
 
 
 ## Eurex Exchange

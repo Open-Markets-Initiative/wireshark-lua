@@ -1,4 +1,4 @@
-[![Otc](https://github.com/Open-Markets-Initiative/Directory/blob/master/Logos/Otc.png)](https://www.Otcmarkets.com)
+[![Otc](https://github.com/Open-Markets-Initiative/Directory/blob/master/Images/Otc.png)](https://www.Otcmarkets.com)
 
 
 ## Otc Markets

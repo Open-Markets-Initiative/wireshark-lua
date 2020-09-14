@@ -1,4 +1,4 @@
-[![Siac](https://github.com/Open-Markets-Initiative/Directory/blob/master/Logos/Siac.png)](https://en.wikipedia.org/wiki/Securities_Industry_Automation_Corporation)
+[![Siac](https://github.com/Open-Markets-Initiative/Directory/blob/master/Images/Siac.png)](https://en.wikipedia.org/wiki/Securities_Industry_Automation_Corporation)
 
 
 ## Securities Industry Automation Corporation
