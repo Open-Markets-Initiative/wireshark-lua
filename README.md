@@ -54,6 +54,9 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 | [Finra][Finra.Directory] | Orf | Tdds | Dfi | [2.0][Finra.Orf.Tdds.Dfi.v2.0.Dissector] | 9/24/2018 | [Verified][Omi.Glossary.Testing] |
 | [Finra][Finra.Directory] | Otc | Bbds | Dfi | [2018.1A][Finra.Otc.Bbds.Dfi.v2018.1A.Dissector] | 5/14/2018 | [Untested][Omi.Glossary.Testing] |
 | [Ice][Ice.Directory] | Futures | Mdf | iMpact | [1.1.34][Ice.Futures.Mdf.iMpact.v1.1.34.Dissector] | 9/4/2018 | [Verified][Omi.Glossary.Testing] |
+| [Memx][Memx.Directory] | Equities | MemoirDepthFeed | Sbe | [1.1][Memx.Equities.MemoirDepthFeed.Sbe.v1.1.Dissector] | 7/27/2020 | [Untested][Omi.Glossary.Testing] |
+| [Memx][Memx.Directory] | Equities | MemoirLastSale | Sbe | [1.1][Memx.Equities.MemoirLastSale.Sbe.v1.1.Dissector] | 7/27/2020 | [Untested][Omi.Glossary.Testing] |
+| [Memx][Memx.Directory] | Equities | MemoirTopOfBook | Sbe | [1.1][Memx.Equities.MemoirTopOfBook.Sbe.v1.1.Dissector] | 7/27/2020 | [Untested][Omi.Glossary.Testing] |
 | [Miax][Miax.Directory] | Options | cTom | Mach | [1.3][Miax.Options.cTom.Mach.v1.3.Dissector] | 3/16/2018 | [Untested][Omi.Glossary.Testing] |
 | [Miax][Miax.Directory] | Options | Tom | Mach | [2.3][Miax.Options.Tom.Mach.v2.3.Dissector] | 6/10/2019 | [Untested][Omi.Glossary.Testing] |
 | [Miax][Miax.Directory] | Options | Tom | Mach | [2.2][Miax.Options.Tom.Mach.v2.2.Dissector] | 3/16/2018 | [Untested][Omi.Glossary.Testing] |
@@ -99,7 +102,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 | [Siac][Siac.Directory] | Cts | Output | Cta | [1.91][Siac.Cts.Output.Cta.v1.91.Dissector] | 1/2/2020 | [Beta][Omi.Glossary.Testing] |
 | [Siac][Siac.Directory] | Opra | Recipient | Obi | [4.0][Siac.Opra.Recipient.Obi.v4.0.Dissector] | 1/17/2020 | [Untested][Omi.Glossary.Testing] |
 
-Obsolete and header dissectors are in dissector directories: [Asx][Asx.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Eurex][Eurex.Directory], [Finra][Finra.Directory], [Ice][Ice.Directory], [Miax][Miax.Directory], [Nasdaq][Nasdaq.Directory], [Nyse][Nyse.Directory], [Otc][Otc.Directory], [Siac][Siac.Directory]
+Obsolete and header dissectors are in dissector directories: [Asx][Asx.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Eurex][Eurex.Directory], [Finra][Finra.Directory], [Ice][Ice.Directory], [Miax][Miax.Directory], [Memx][Memx.Directory], [Nasdaq][Nasdaq.Directory], [Nyse][Nyse.Directory], [Otc][Otc.Directory], [Siac][Siac.Directory]
 
 ## Development
 
@@ -107,7 +110,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 109 | 1,004,048 |
+| 112 | 1,009,962 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -142,6 +145,7 @@ Enjoy.
 [Finra.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Finra "Financial Industry Regulatory Authority"
 [Ice.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Ice "Intercontinental Exchange"
 [Miax.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Miax "Miami International Securities Exchange"
+[Memx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Memx "Members Exchange"
 [Nasdaq.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nasdaq "National Association of Securities Dealers Automated Quotations"
 [Nyse.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Nyse "New York Stock Exchange"
 [Otc.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Otc "Otc Markets"
@@ -174,6 +178,9 @@ Enjoy.
 [Miax.Options.Tom.Mach.v2.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Options.Tom.Mach.v2.2.Script.Dissector.lua "Miami International Securities Exchange 2.2 Wireshark Dissector"
 [Miax.Options.Tom.Mach.v2.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Options.Tom.Mach.v2.3.Script.Dissector.lua "Miami International Securities Exchange 2.3 Wireshark Dissector"
 [Miax.Pearl.Tom.Mach.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Pearl.Tom.Mach.v1.0.Script.Dissector.lua "Miami International Securities Exchange 1.0 Wireshark Dissector"
+[Memx.Equities.MemoirDepthFeed.Sbe.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Memx/Memx.Equities.MemoirDepthFeed.Sbe.v1.1.Script.Dissector.lua "Members Exchange 1.1 Wireshark Dissector"
+[Memx.Equities.MemoirLastSale.Sbe.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Memx/Memx.Equities.MemoirLastSale.Sbe.v1.1.Script.Dissector.lua "Members Exchange 1.1 Wireshark Dissector"
+[Memx.Equities.MemoirTopOfBook.Sbe.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Memx/Memx.Equities.MemoirTopOfBook.Sbe.v1.1.Script.Dissector.lua "Members Exchange 1.1 Wireshark Dissector"
 [Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nasdaq/Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Script.Dissector.lua "National Association of Securities Dealers Automated Quotations 5.0 Wireshark Dissector"
 [Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nasdaq/Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Script.Dissector.lua "National Association of Securities Dealers Automated Quotations 4.2 Wireshark Dissector"
 [Nasdaq.Bx.Options.TopOfMarket.Itch.v1.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Nasdaq/Nasdaq.Bx.Options.TopOfMarket.Itch.v1.2.Script.Dissector.lua "National Association of Securities Dealers Automated Quotations 1.2 Wireshark Dissector"
