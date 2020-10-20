@@ -37,6 +37,7 @@ memx_equities_memoirtopofbook_sbe_v1_1.fields.is_test_symbol = ProtoField.new("I
 memx_equities_memoirtopofbook_sbe_v1_1.fields.message = ProtoField.new("Message", "memx.equities.memoirtopofbook.sbe.v1.1.message", ftypes.STRING)
 memx_equities_memoirtopofbook_sbe_v1_1.fields.message_count = ProtoField.new("Message Count", "memx.equities.memoirtopofbook.sbe.v1.1.messagecount", ftypes.UINT16)
 memx_equities_memoirtopofbook_sbe_v1_1.fields.message_length = ProtoField.new("Message Length", "memx.equities.memoirtopofbook.sbe.v1.1.messagelength", ftypes.UINT16)
+memx_equities_memoirtopofbook_sbe_v1_1.fields.message_type = ProtoField.new("Message Type", "memx.equities.memoirtopofbook.sbe.v1.1.messagetype", ftypes.UINT8)
 memx_equities_memoirtopofbook_sbe_v1_1.fields.mpv = ProtoField.new("Mpv", "memx.equities.memoirtopofbook.sbe.v1.1.mpv", ftypes.INT64)
 memx_equities_memoirtopofbook_sbe_v1_1.fields.offer_price = ProtoField.new("Offer Price", "memx.equities.memoirtopofbook.sbe.v1.1.offerprice", ftypes.INT64)
 memx_equities_memoirtopofbook_sbe_v1_1.fields.offer_size = ProtoField.new("Offer Size", "memx.equities.memoirtopofbook.sbe.v1.1.offersize", ftypes.UINT32)
@@ -1551,9 +1552,9 @@ dissect.sequenced_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Sequenced Messages
-size_of.sequenced_messages = function(buffer, offset, block_length)
+size_of.sequenced_messages = function(buffer, offset, message_type)
   -- Size of Sequenced Message
-  if block_length == 2 then
+  if message_type == 2 then
     return size_of.sequenced_message(buffer, offset)
   end
 
@@ -1566,9 +1567,9 @@ display.sequenced_messages = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Branches: Sequenced Messages
-dissect.sequenced_messages_branches = function(buffer, offset, packet, parent, block_length)
+dissect.sequenced_messages_branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Sequenced Message
-  if block_length == 2 then
+  if message_type == 2 then
     return dissect.sequenced_message(buffer, offset, packet, parent)
   end
 
@@ -1576,13 +1577,13 @@ dissect.sequenced_messages_branches = function(buffer, offset, packet, parent, b
 end
 
 -- Dissect: Sequenced Messages
-dissect.sequenced_messages = function(buffer, offset, packet, parent, block_length)
+dissect.sequenced_messages = function(buffer, offset, packet, parent, message_type)
   if not show.sequenced_messages then
-    return dissect.sequenced_messages_branches(buffer, offset, packet, parent, block_length)
+    return dissect.sequenced_messages_branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.sequenced_messages(buffer, offset, block_length)
+  local size = size_of.sequenced_messages(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
@@ -1592,7 +1593,7 @@ dissect.sequenced_messages = function(buffer, offset, packet, parent, block_leng
   local display = display.sequenced_messages(buffer, packet, parent)
   local element = parent:add(memx_equities_memoirtopofbook_sbe_v1_1.fields.sequenced_messages, range, display)
 
-  return dissect.sequenced_messages_branches(buffer, offset, packet, parent, block_length)
+  return dissect.sequenced_messages_branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Size: Sequence Number
@@ -1655,11 +1656,41 @@ dissect.header_length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Message Type
+size_of.message_type = 1
+
+-- Display: Message Type
+display.message_type = function(value)
+  if value == 0 then
+    return "Message Type: Heartbeat Message (0)"
+  end
+  if value == 1 then
+    return "Message Type: Session Shutdown Message (1)"
+  end
+  if value == 2 then
+    return "Message Type: Sequenced Message (2)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+dissect.message_type = function(buffer, offset, packet, parent)
+  local length = size_of.message_type
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = display.message_type(value, buffer, offset, packet, parent)
+
+  parent:add(memx_equities_memoirtopofbook_sbe_v1_1.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Common Header
 size_of.common_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.block_length
+  index = index + size_of.message_type
 
   index = index + size_of.header_length
 
@@ -1679,8 +1710,8 @@ end
 dissect.common_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, block_length = dissect.block_length(buffer, index, packet, parent)
+  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, message_type = dissect.message_type(buffer, index, packet, parent)
 
   -- Header Length: 1 Byte Unsigned Fixed Width Integer
   index, header_length = dissect.header_length(buffer, index, packet, parent)
@@ -1714,11 +1745,11 @@ dissect.packet = function(buffer, packet, parent)
   -- Common Header: Struct of 4 fields
   index, common_header = dissect.common_header(buffer, index, packet, parent)
 
-  -- Dependency element: Block Length
-  local block_length = buffer(index - 19, 2):uint()
+  -- Dependency element: Message Type
+  local message_type = buffer(index - 18, 1):uint()
 
   -- Sequenced Messages: Runtime Type with 1 branches
-  index = dissect.sequenced_messages(buffer, index, packet, parent, block_length)
+  index = dissect.sequenced_messages(buffer, index, packet, parent, message_type)
 
   return index
 end
@@ -1760,7 +1791,7 @@ end
 
 -- Verify Schema Id Field
 verify.schema_id = function(buffer)
-  if 3 == buffer(26, 1):uint() then
+  if 3 == buffer(25, 1):uint() then
     return true
   end
 
@@ -1769,7 +1800,7 @@ end
 
 -- Verify Version Field
 verify.version = function(buffer)
-  if 1 == buffer(27, 2):uint() then
+  if 1 == buffer(26, 2):uint() then
     return true
   end
 

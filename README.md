@@ -42,9 +42,9 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 | [Cboe][Cboe.Directory] | Options C1 | AuctionFeed | Pitch | [1.1.1][Cboe.Options.C1.AuctionFeed.Pitch.v1.1.1.Dissector] | 12/6/2018 | [Verified][Omi.Glossary.Testing] |
 | [Cboe][Cboe.Directory] | Options Edgx | OrderEntry | Boe | [2.10][Cboe.Options.Edgx.OrderEntry.Boe.v2.10.Dissector] | 12/3/2019 | [Beta][Omi.Glossary.Testing] |
 | [Cboe][Cboe.Directory] | Options Edgx | AuctionFeed | Pitch | [1.1.1][Cboe.Options.Edgx.AuctionFeed.Pitch.v1.1.1.Dissector] | 12/6/2018 | [Verified][Omi.Glossary.Testing] |
-| [Cme][Cme.Directory] |  | Streamline | Sbe | [9.5][Cme.Streamline.Sbe.v9.5.Dissector] | 4/4/2018 | [Untested][Omi.Glossary.Testing] |
 | [Cme][Cme.Directory] | Futures | iLink3 | Sbe | [8.5][Cme.Futures.iLink3.Sbe.v8.5.Dissector] | 2/27/2020 | [Untested][Omi.Glossary.Testing] |
 | [Cme][Cme.Directory] | Futures | Mdp3 | Sbe | [1.11][Cme.Futures.Mdp3.Sbe.v1.11.Dissector] | 3/3/2020 | [Untested][Omi.Glossary.Testing] |
+| [Cme][Cme.Directory] | Futures | Streamline | Sbe | [9.5][Cme.Futures.Streamline.Sbe.v9.5.Dissector] | 4/4/2018 | [Untested][Omi.Glossary.Testing] |
 | [Eurex][Eurex.Directory] | Cash | Eti | T7 | [9.0][Eurex.Cash.Eti.T7.v9.0.Dissector] | 8/10/2020 | [Untested][Omi.Glossary.Testing] |
 | [Eurex][Eurex.Directory] | Cash | Eti | T7 | [8.1][Eurex.Cash.Eti.T7.v8.1.Dissector] | 3/25/2020 | [Untested][Omi.Glossary.Testing] |
 | [Eurex][Eurex.Directory] | Derivatives | Eobi | T7 | [9.0][Eurex.Derivatives.Eobi.T7.v9.0.Dissector] | 7/24/2020 | [Untested][Omi.Glossary.Testing] |
@@ -112,7 +112,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 114 | 1,019,692 |
+| 114 | 1,019,925 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -165,7 +165,7 @@ Enjoy.
 [Cboe.Options.Edgx.OrderEntry.Boe.v2.10.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Options.Edgx.OrderEntry.Boe.v2.10.Script.Dissector.lua "Chicago Board Options Exchange 2.10 Wireshark Dissector"
 [Cboe.Options.DepthOfBook.Pitch.v2.39.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Options.DepthOfBook.Pitch.v2.39.4.Script.Dissector.lua "Chicago Board Options Exchange 2.39.4 Wireshark Dissector"
 [Cme.Futures.Mdp3.Sbe.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Futures.Mdp3.Sbe.v1.11.Script.Dissector.lua "Chicago Mercantile Exchange 1.11 Wireshark Dissector"
-[Cme.Streamline.Sbe.v9.5.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Streamline.Sbe.v9.5.Script.Dissector.lua "Chicago Mercantile Exchange 9.5 Wireshark Dissector"
+[Cme.Futures.Streamline.Sbe.v9.5.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Futures.Streamline.Sbe.v9.5.Script.Dissector.lua "Chicago Mercantile Exchange 9.5 Wireshark Dissector"
 [Cme.Futures.iLink3.Sbe.v8.5.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Futures.iLink3.Sbe.v8.5.Script.Dissector.lua "Chicago Mercantile Exchange 8.5 Wireshark Dissector"
 [Eurex.Cash.Eti.T7.v8.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Eurex/Eurex.Cash.Eti.T7.v8.1.Script.Dissector.lua "Eurex Exchange 8.1 Wireshark Dissector"
 [Eurex.Derivatives.Eti.T7.v8.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Eurex/Eurex.Derivatives.Eti.T7.v8.1.Script.Dissector.lua "Eurex Exchange 8.1 Wireshark Dissector"

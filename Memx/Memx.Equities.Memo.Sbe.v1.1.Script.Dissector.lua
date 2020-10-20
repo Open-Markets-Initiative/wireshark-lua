@@ -68,6 +68,7 @@ memx_equities_memo_sbe_v1_1.fields.mass_cancel_reject_message = ProtoField.new("
 memx_equities_memo_sbe_v1_1.fields.mass_cancel_request_message = ProtoField.new("Mass Cancel Request Message", "memx.equities.memo.sbe.v1.1.masscancelrequestmessage", ftypes.STRING)
 memx_equities_memo_sbe_v1_1.fields.message_count = ProtoField.new("Message Count", "memx.equities.memo.sbe.v1.1.messagecount", ftypes.UINT64)
 memx_equities_memo_sbe_v1_1.fields.message_length = ProtoField.new("Message Length", "memx.equities.memo.sbe.v1.1.messagelength", ftypes.UINT16)
+memx_equities_memo_sbe_v1_1.fields.message_type = ProtoField.new("Message Type", "memx.equities.memo.sbe.v1.1.messagetype", ftypes.UINT8)
 memx_equities_memo_sbe_v1_1.fields.min_qty = ProtoField.new("Min Qty", "memx.equities.memo.sbe.v1.1.minqty", ftypes.UINT32)
 memx_equities_memo_sbe_v1_1.fields.mpid = ProtoField.new("Mpid", "memx.equities.memo.sbe.v1.1.mpid", ftypes.STRING)
 memx_equities_memo_sbe_v1_1.fields.new_order_single_message = ProtoField.new("New Order Single Message", "memx.equities.memo.sbe.v1.1.newordersinglemessage", ftypes.STRING)
@@ -4491,61 +4492,61 @@ dissect.login_request_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Data
-size_of.data = function(buffer, offset, block_length)
+size_of.data = function(buffer, offset, message_type)
   -- Size of Login Request Message
-  if block_length == 100 then
+  if message_type == 100 then
     return size_of.login_request_message(buffer, offset)
   end
   -- Size of Replay Request Message
-  if block_length == 101 then
+  if message_type == 101 then
     return size_of.replay_request_message(buffer, offset)
   end
   -- Size of Replay All Request Message
-  if block_length == 102 then
+  if message_type == 102 then
     return size_of.replay_all_request_message(buffer, offset)
   end
   -- Size of Stream Request Message
-  if block_length == 103 then
+  if message_type == 103 then
     return size_of.stream_request_message(buffer, offset)
   end
   -- Size of Unsequenced Message
-  if block_length == 104 then
+  if message_type == 104 then
     return size_of.unsequenced_message(buffer, offset)
   end
   -- Size of Login Accepted Message
-  if block_length == 1 then
+  if message_type == 1 then
     return size_of.login_accepted_message(buffer, offset)
   end
   -- Size of Login Rejected Message
-  if block_length == 2 then
+  if message_type == 2 then
     return size_of.login_rejected_message(buffer, offset)
   end
   -- Size of Replay Begin Message
-  if block_length == 5 then
+  if message_type == 5 then
     return size_of.replay_begin_message(buffer, offset)
   end
   -- Size of Replay Rejected Message
-  if block_length == 6 then
+  if message_type == 6 then
     return size_of.replay_rejected_message(buffer, offset)
   end
   -- Size of Replay Complete Message
-  if block_length == 7 then
+  if message_type == 7 then
     return size_of.replay_complete_message(buffer, offset)
   end
   -- Size of Stream Begin Message
-  if block_length == 8 then
+  if message_type == 8 then
     return size_of.stream_begin_message(buffer, offset)
   end
   -- Size of Stream Rejected Message
-  if block_length == 9 then
+  if message_type == 9 then
     return size_of.stream_rejected_message(buffer, offset)
   end
   -- Size of Stream Complete Message
-  if block_length == 10 then
+  if message_type == 10 then
     return size_of.stream_complete_message(buffer, offset)
   end
   -- Size of Sequenced Message
-  if block_length == 11 then
+  if message_type == 11 then
     return size_of.sequenced_message(buffer, offset)
   end
 
@@ -4558,61 +4559,61 @@ display.data = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Branches: Data
-dissect.data_branches = function(buffer, offset, packet, parent, block_length)
+dissect.data_branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Login Request Message
-  if block_length == 100 then
+  if message_type == 100 then
     return dissect.login_request_message(buffer, offset, packet, parent)
   end
   -- Dissect Replay Request Message
-  if block_length == 101 then
+  if message_type == 101 then
     return dissect.replay_request_message(buffer, offset, packet, parent)
   end
   -- Dissect Replay All Request Message
-  if block_length == 102 then
+  if message_type == 102 then
     return dissect.replay_all_request_message(buffer, offset, packet, parent)
   end
   -- Dissect Stream Request Message
-  if block_length == 103 then
+  if message_type == 103 then
     return dissect.stream_request_message(buffer, offset, packet, parent)
   end
   -- Dissect Unsequenced Message
-  if block_length == 104 then
+  if message_type == 104 then
     return dissect.unsequenced_message(buffer, offset, packet, parent)
   end
   -- Dissect Login Accepted Message
-  if block_length == 1 then
+  if message_type == 1 then
     return dissect.login_accepted_message(buffer, offset, packet, parent)
   end
   -- Dissect Login Rejected Message
-  if block_length == 2 then
+  if message_type == 2 then
     return dissect.login_rejected_message(buffer, offset, packet, parent)
   end
   -- Dissect Replay Begin Message
-  if block_length == 5 then
+  if message_type == 5 then
     return dissect.replay_begin_message(buffer, offset, packet, parent)
   end
   -- Dissect Replay Rejected Message
-  if block_length == 6 then
+  if message_type == 6 then
     return dissect.replay_rejected_message(buffer, offset, packet, parent)
   end
   -- Dissect Replay Complete Message
-  if block_length == 7 then
+  if message_type == 7 then
     return dissect.replay_complete_message(buffer, offset, packet, parent)
   end
   -- Dissect Stream Begin Message
-  if block_length == 8 then
+  if message_type == 8 then
     return dissect.stream_begin_message(buffer, offset, packet, parent)
   end
   -- Dissect Stream Rejected Message
-  if block_length == 9 then
+  if message_type == 9 then
     return dissect.stream_rejected_message(buffer, offset, packet, parent)
   end
   -- Dissect Stream Complete Message
-  if block_length == 10 then
+  if message_type == 10 then
     return dissect.stream_complete_message(buffer, offset, packet, parent)
   end
   -- Dissect Sequenced Message
-  if block_length == 11 then
+  if message_type == 11 then
     return dissect.sequenced_message(buffer, offset, packet, parent)
   end
 
@@ -4620,13 +4621,13 @@ dissect.data_branches = function(buffer, offset, packet, parent, block_length)
 end
 
 -- Dissect: Data
-dissect.data = function(buffer, offset, packet, parent, block_length)
+dissect.data = function(buffer, offset, packet, parent, message_type)
   if not show.data then
-    return dissect.data_branches(buffer, offset, packet, parent, block_length)
+    return dissect.data_branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.data(buffer, offset, block_length)
+  local size = size_of.data(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
@@ -4636,7 +4637,7 @@ dissect.data = function(buffer, offset, packet, parent, block_length)
   local display = display.data(buffer, packet, parent)
   local element = parent:add(memx_equities_memo_sbe_v1_1.fields.data, range, display)
 
-  return dissect.data_branches(buffer, offset, packet, parent, block_length)
+  return dissect.data_branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Size: Message Length
@@ -4659,11 +4660,80 @@ dissect.message_length = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Message Type
+size_of.message_type = 1
+
+-- Display: Message Type
+display.message_type = function(value)
+  if value == 100 then
+    return "Message Type: Login Request (100)"
+  end
+  if value == 101 then
+    return "Message Type: Replay Request (101)"
+  end
+  if value == 102 then
+    return "Message Type: Replay All Request (102)"
+  end
+  if value == 103 then
+    return "Message Type: Stream Request (103)"
+  end
+  if value == 104 then
+    return "Message Type: Unsequenced Message (104)"
+  end
+  if value == 1 then
+    return "Message Type: Login Accepted (1)"
+  end
+  if value == 2 then
+    return "Message Type: Login Rejected (2)"
+  end
+  if value == 3 then
+    return "Message Type: Start Of Session (3)"
+  end
+  if value == 3 then
+    return "Message Type: End Of Session (3)"
+  end
+  if value == 5 then
+    return "Message Type: Replay Begin (5)"
+  end
+  if value == 6 then
+    return "Message Type: Replay Rejected (6)"
+  end
+  if value == 7 then
+    return "Message Type: Replay Complete (7)"
+  end
+  if value == 8 then
+    return "Message Type: Stream Begin (8)"
+  end
+  if value == 9 then
+    return "Message Type: Stream Rejected (9)"
+  end
+  if value == 10 then
+    return "Message Type: Stream Complete (10)"
+  end
+  if value == 11 then
+    return "Message Type: Sequenced Message (11)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+dissect.message_type = function(buffer, offset, packet, parent)
+  local length = size_of.message_type
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = display.message_type(value, buffer, offset, packet, parent)
+
+  parent:add(memx_equities_memo_sbe_v1_1.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Common Header
 size_of.common_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.block_length
+  index = index + size_of.message_type
 
   index = index + size_of.message_length
 
@@ -4679,8 +4749,8 @@ end
 dissect.common_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer Enum with 16 values
-  index, block_length = dissect.block_length(buffer, index, packet, parent)
+  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
+  index, message_type = dissect.message_type(buffer, index, packet, parent)
 
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
   index, message_length = dissect.message_length(buffer, index, packet, parent)
@@ -4708,11 +4778,11 @@ dissect.packet = function(buffer, packet, parent)
   -- Common Header: Struct of 2 fields
   index, common_header = dissect.common_header(buffer, index, packet, parent)
 
-  -- Dependency element: Block Length
-  local block_length = buffer(index - 4, 2):uint()
+  -- Dependency element: Message Type
+  local message_type = buffer(index - 3, 1):uint()
 
   -- Data: Runtime Type with 14 branches
-  index = dissect.data(buffer, index, packet, parent, block_length)
+  index = dissect.data(buffer, index, packet, parent, message_type)
 
   return index
 end
@@ -4754,7 +4824,7 @@ end
 
 -- Verify Schema Id Field
 verify.schema_id = function(buffer)
-  if 1 == buffer(53, 1):uint() then
+  if 1 == buffer(52, 1):uint() then
     return true
   end
 
@@ -4763,7 +4833,7 @@ end
 
 -- Verify Version Field
 verify.version = function(buffer)
-  if 1 == buffer(54, 2):uint() then
+  if 1 == buffer(53, 2):uint() then
     return true
   end
 
@@ -4772,7 +4842,7 @@ end
 
 -- Verify Schema Id Field
 verify.schema_id = function(buffer)
-  if 1 == buffer(1468, 1):uint() then
+  if 1 == buffer(1467, 1):uint() then
     return true
   end
 
@@ -4781,7 +4851,7 @@ end
 
 -- Verify Version Field
 verify.version = function(buffer)
-  if 1 == buffer(1469, 2):uint() then
+  if 1 == buffer(1468, 2):uint() then
     return true
   end
 
