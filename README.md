@@ -62,7 +62,9 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 | [Miax][Miax.Directory] | Options | cTom | Mach | [1.3][Miax.Options.cTom.Mach.v1.3.Dissector] | 3/16/2018 | [Untested][Omi.Glossary.Testing] |
 | [Miax][Miax.Directory] | Options | Tom | Mach | [2.3][Miax.Options.Tom.Mach.v2.3.Dissector] | 6/10/2019 | [Untested][Omi.Glossary.Testing] |
 | [Miax][Miax.Directory] | Options | Tom | Mach | [2.2][Miax.Options.Tom.Mach.v2.2.Dissector] | 3/16/2018 | [Untested][Omi.Glossary.Testing] |
-| [Miax][Miax.Directory] | Pearl | Tom | Mach | [1.0][Miax.Pearl.Tom.Mach.v1.0.Dissector] | 2/27/2017 | [Untested][Omi.Glossary.Testing] |
+| [Miax][Miax.Directory] | Pearl Equities | Dom | Mach | [1.3.a][Miax.Pearl.Equities.Dom.Mach.v1.3.a.Dissector] | 11/5/2020 | [Untested][Omi.Glossary.Testing] |
+| [Miax][Miax.Directory] | Pearl Equities | TopOfMarket | Mach | [1.1.a][Miax.Pearl.Equities.TopOfMarket.Mach.v1.1.a.Dissector] | 11/5/2020 | [Untested][Omi.Glossary.Testing] |
+| [Miax][Miax.Directory] | Pearl Options | TopOfMarket | Mach | [1.0][Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Dissector] | 2/27/2017 | [Untested][Omi.Glossary.Testing] |
 | [Nasdaq][Nasdaq.Directory] |  Equities | Orders | Ouch | [4.2][Nasdaq.Equities.Orders.Ouch.v4.2.Dissector] | 7/8/2019 | [Untested][Omi.Glossary.Testing] |
 | [Nasdaq][Nasdaq.Directory] | Bx Equities | TotalView | Itch | [5.0][Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Dissector] | 5/23/2018 | [Untested][Omi.Glossary.Testing] |
 | [Nasdaq][Nasdaq.Directory] | Bx Equities | Orders | Ouch | [4.2][Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Dissector] | 7/8/2019 | [Untested][Omi.Glossary.Testing] |
@@ -112,7 +114,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 114 | 1,019,925 |
+| 116 | 1,023,516 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -179,7 +181,9 @@ Enjoy.
 [Miax.Options.cTom.Mach.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Options.cTom.Mach.v1.3.Script.Dissector.lua "Miami International Securities Exchange 1.3 Wireshark Dissector"
 [Miax.Options.Tom.Mach.v2.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Options.Tom.Mach.v2.2.Script.Dissector.lua "Miami International Securities Exchange 2.2 Wireshark Dissector"
 [Miax.Options.Tom.Mach.v2.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Options.Tom.Mach.v2.3.Script.Dissector.lua "Miami International Securities Exchange 2.3 Wireshark Dissector"
-[Miax.Pearl.Tom.Mach.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Pearl.Tom.Mach.v1.0.Script.Dissector.lua "Miami International Securities Exchange 1.0 Wireshark Dissector"
+[Miax.Pearl.Equities.Dom.Mach.v1.3.a.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Pearl.Equities.Dom.Mach.v1.3.a.Script.Dissector.lua "Miami International Securities Exchange 1.3.a Wireshark Dissector"
+[Miax.Pearl.Equities.TopOfMarket.Mach.v1.1.a.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Pearl.Equities.TopOfMarket.Mach.v1.1.a.Script.Dissector.lua "Miami International Securities Exchange 1.1.a Wireshark Dissector"
+[Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Script.Dissector.lua "Miami International Securities Exchange 1.0 Wireshark Dissector"
 [Memx.Equities.MemoirDepthFeed.Sbe.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Memx/Memx.Equities.MemoirDepthFeed.Sbe.v1.1.Script.Dissector.lua "Members Exchange 1.1 Wireshark Dissector"
 [Memx.Equities.MemoirLastSale.Sbe.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Memx/Memx.Equities.MemoirLastSale.Sbe.v1.1.Script.Dissector.lua "Members Exchange 1.1 Wireshark Dissector"
 [Memx.Equities.MemoirTopOfBook.Sbe.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Memx/Memx.Equities.MemoirTopOfBook.Sbe.v1.1.Script.Dissector.lua "Members Exchange 1.1 Wireshark Dissector"

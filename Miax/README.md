@@ -10,7 +10,9 @@
 | Options | Tom | Mach | [2.3][Miax.Options.Tom.Mach.v2.3.Dissector] | 6/10/2019 | 2955 | [Future][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Miax.Options.Tom.Mach.v2.3.Url] - [pdf][Miax.Options.Tom.Mach.v2.3.Pdf] |
 | Options | Tom | Mach | [2.2][Miax.Options.Tom.Mach.v2.2.Dissector] | 3/16/2018 | 2895 | [Active][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Miax.Options.Tom.Mach.v2.2.Url] - [pdf][Miax.Options.Tom.Mach.v2.2.Pdf] |
 | Options | Tom | Mach | [1.9][Miax.Options.Tom.Mach.v1.9.Dissector] | 1/15/2016 | 2801 | [Deprecated][Omi.Glossary.Status] | [Verified][Omi.Glossary.Testing] | [url][Miax.Options.Tom.Mach.v1.9.Url] - [pdf][Miax.Options.Tom.Mach.v1.9.Pdf] |
-| Pearl | Tom | Mach | [1.0][Miax.Pearl.Tom.Mach.v1.0.Dissector] | 2/27/2017 | 2855 | [Active][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Miax.Pearl.Tom.Mach.v1.0.Url] - [pdf][Miax.Pearl.Tom.Mach.v1.0.Pdf] |
+| Pearl Equities | Dom | Mach | [1.3.a][Miax.Pearl.Equities.Dom.Mach.v1.3.a.Dissector] | 11/5/2020 | 1896 | [Active][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Miax.Pearl.Equities.Dom.Mach.v1.3.a.Url] - [pdf][Miax.Pearl.Equities.Dom.Mach.v1.3.a.Pdf] |
+| Pearl Equities | TopOfMarket | Mach | [1.1.a][Miax.Pearl.Equities.TopOfMarket.Mach.v1.1.a.Dissector] | 11/5/2020 | 1695 | [Active][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Miax.Pearl.Equities.TopOfMarket.Mach.v1.1.a.Url] - [pdf][Miax.Pearl.Equities.TopOfMarket.Mach.v1.1.a.Pdf] |
+| Pearl Options | TopOfMarket | Mach | [1.0][Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Dissector] | 2/27/2017 | 2855 | [Active][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Url] - [pdf][Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Pdf] |
 
 
 Miax: [website](https://www.miaxoptions.com/ "Go to Miami International Securities Exchange")
@@ -34,6 +36,12 @@ Miax: [website](https://www.miaxoptions.com/ "Go to Miami International Securiti
 [Miax.Options.Tom.Mach.v2.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Options.Tom.Mach.v2.3.Script.Dissector.lua "Miami International Securities Exchange 2.3 Wireshark Dissector"
 [Miax.Options.Tom.Mach.v2.3.Url]: https://www.miaxoptions.com/interface-specifications "Specification url"
 [Miax.Options.Tom.Mach.v2.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Miax/Miax.Options.Tom.Mach.v2.3.pdf "Miami International Securities Exchange 2.3 Pdf"
-[Miax.Pearl.Tom.Mach.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Pearl.Tom.Mach.v1.0.Script.Dissector.lua "Miami International Securities Exchange 1.0 Wireshark Dissector"
-[Miax.Pearl.Tom.Mach.v1.0.Url]: https://www.miaxoptions.com/interface-specifications/pearl "Specification url"
-[Miax.Pearl.Tom.Mach.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Miax/Miax.Pearl.Tom.Mach.v1.0.pdf "Miami International Securities Exchange 1.0 Pdf"
+[Miax.Pearl.Equities.Dom.Mach.v1.3.a.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Pearl.Equities.Dom.Mach.v1.3.a.Script.Dissector.lua "Miami International Securities Exchange 1.3.a Wireshark Dissector"
+[Miax.Pearl.Equities.Dom.Mach.v1.3.a.Url]: https://www.miaxequities.com/interface-specifications/pearl-equities "Specification url"
+[Miax.Pearl.Equities.Dom.Mach.v1.3.a.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Miax/Miax.Pearl.Equities.DepthOfMarket.Mach.v1.3.a.pdf "Miami International Securities Exchange 1.3.a Pdf"
+[Miax.Pearl.Equities.TopOfMarket.Mach.v1.1.a.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Pearl.Equities.TopOfMarket.Mach.v1.1.a.Script.Dissector.lua "Miami International Securities Exchange 1.1.a Wireshark Dissector"
+[Miax.Pearl.Equities.TopOfMarket.Mach.v1.1.a.Url]: https://www.miaxequities.com/interface-specifications/pearl-equities "Specification url"
+[Miax.Pearl.Equities.TopOfMarket.Mach.v1.1.a.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Miax/Miax.Pearl.Equities.TopOfMarket.Mach.v1.1.a.Pdf "Miami International Securities Exchange 1.1.a Pdf"
+[Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Script.Dissector.lua "Miami International Securities Exchange 1.0 Wireshark Dissector"
+[Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Url]: https://www.miaxoptions.com/interface-specifications/pearl "Specification url"
+[Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Miax/Miax.Pearl.Options.TopOfMarket.Mach.v1.0.pdf "Miami International Securities Exchange 1.0 Pdf"
