@@ -5,8 +5,8 @@
 
 | Division | Data | Protocol | Version | Date | Size | Status | Testing | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Options | cTom | Mach | [1.3][Miax.Options.cTom.Mach.v1.3.Dissector] | 3/16/2018 | 3052 | [Active][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Miax.Options.cTom.Mach.v1.3.Url] - [pdf][Miax.Options.cTom.Mach.v1.3.Pdf] |
-| Options | cTom | Mach | [1.1][Miax.Options.cTom.Mach.v1.1.Dissector] | 7/15/2016 | 3040 | [Deprecated][Omi.Glossary.Status] | [Verified][Omi.Glossary.Testing] | [url][Miax.Options.cTom.Mach.v1.1.Url] - [pdf][Miax.Options.cTom.Mach.v1.1.Pdf] |
+| Options | ComplexTopOfMarket | Mach | [1.3][Miax.Options.ComplexTopOfMarket.Mach.v1.3.Dissector] | 3/16/2018 | 3056 | [Active][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Miax.Options.ComplexTopOfMarket.Mach.v1.3.Url] - [pdf][Miax.Options.ComplexTopOfMarket.Mach.v1.3.Pdf] |
+| Options | ComplexTopOfMarket | Mach | [1.1][Miax.Options.ComplexTopOfMarket.Mach.v1.1.Dissector] | 7/15/2016 | 3044 | [Deprecated][Omi.Glossary.Status] | [Verified][Omi.Glossary.Testing] | [url][Miax.Options.ComplexTopOfMarket.Mach.v1.1.Url] - [pdf][Miax.Options.ComplexTopOfMarket.Mach.v1.1.Pdf] |
 | Options | Tom | Mach | [2.3][Miax.Options.Tom.Mach.v2.3.Dissector] | 6/10/2019 | 2955 | [Future][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Miax.Options.Tom.Mach.v2.3.Url] - [pdf][Miax.Options.Tom.Mach.v2.3.Pdf] |
 | Options | Tom | Mach | [2.2][Miax.Options.Tom.Mach.v2.2.Dissector] | 3/16/2018 | 2895 | [Active][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Miax.Options.Tom.Mach.v2.2.Url] - [pdf][Miax.Options.Tom.Mach.v2.2.Pdf] |
 | Options | Tom | Mach | [1.9][Miax.Options.Tom.Mach.v1.9.Dissector] | 1/15/2016 | 2801 | [Deprecated][Omi.Glossary.Status] | [Verified][Omi.Glossary.Testing] | [url][Miax.Options.Tom.Mach.v1.9.Url] - [pdf][Miax.Options.Tom.Mach.v1.9.Pdf] |
@@ -21,12 +21,12 @@ Miax: [website](https://www.miaxoptions.com/ "Go to Miami International Securiti
 [Omi.Glossary.Status]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Status.md "Protocol Deployment Status"
 [Omi.Glossary.Testing]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Protocol Testing Status"
 
-[Miax.Options.cTom.Mach.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Options.cTom.Mach.v1.1.Script.Dissector.lua "Miami International Securities Exchange 1.1 Wireshark Dissector"
-[Miax.Options.cTom.Mach.v1.1.Url]: https://www.miaxoptions.com/interface-specifications "Specification url"
-[Miax.Options.cTom.Mach.v1.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Miax/Miax.Options.cTom.Mach.v1.1.pdf "Miami International Securities Exchange 1.1 Pdf"
-[Miax.Options.cTom.Mach.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Options.cTom.Mach.v1.3.Script.Dissector.lua "Miami International Securities Exchange 1.3 Wireshark Dissector"
-[Miax.Options.cTom.Mach.v1.3.Url]: https://www.miaxoptions.com/interface-specifications "Specification url"
-[Miax.Options.cTom.Mach.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Miax/Miax.Options.cTom.Mach.v1.3.pdf "Miami International Securities Exchange 1.3 Pdf"
+[Miax.Options.ComplexTopOfMarket.Mach.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Options.ComplexTopOfMarket.Mach.v1.1.Script.Dissector.lua "Miami International Securities Exchange 1.1 Wireshark Dissector"
+[Miax.Options.ComplexTopOfMarket.Mach.v1.1.Url]: https://www.miaxoptions.com/interface-specifications "Specification url"
+[Miax.Options.ComplexTopOfMarket.Mach.v1.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Miax/Miax.Options.ComplexTopOfMarket.Mach.v1.1.pdf "Miami International Securities Exchange 1.1 Pdf"
+[Miax.Options.ComplexTopOfMarket.Mach.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Options.ComplexTopOfMarket.Mach.v1.3.Script.Dissector.lua "Miami International Securities Exchange 1.3 Wireshark Dissector"
+[Miax.Options.ComplexTopOfMarket.Mach.v1.3.Url]: https://www.miaxoptions.com/interface-specifications "Specification url"
+[Miax.Options.ComplexTopOfMarket.Mach.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Miax/Miax.Options.ComplexTopOfMarket.Mach.v1.3.pdf "Miami International Securities Exchange 1.3 Pdf"
 [Miax.Options.Tom.Mach.v1.9.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Options.Tom.Mach.v1.9.Script.Dissector.lua "Miami International Securities Exchange 1.9 Wireshark Dissector"
 [Miax.Options.Tom.Mach.v1.9.Url]: https://www.miaxoptions.com/interface-specifications "Specification url"
 [Miax.Options.Tom.Mach.v1.9.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Miax/Miax.Options.Tom.Mach.v1.1.pdf "Miami International Securities Exchange 1.9 Pdf"

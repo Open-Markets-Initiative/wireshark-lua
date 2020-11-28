@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Miax Options cTom Mach 1.1 Protocol
-local miax_options_ctom_mach_v1_1 = Proto("Miax.Options.cTom.Mach.v1.1.Lua", "Miax Options cTom Mach 1.1")
+-- Miax Options ComplexTopOfMarket Mach 1.3 Protocol
+local miax_options_complextopofmarket_mach_v1_3 = Proto("Miax.Options.ComplexTopOfMarket.Mach.v1.3.Lua", "Miax Options ComplexTopOfMarket Mach 1.3")
 
 -- Component Tables
 local show = {}
@@ -19,210 +19,210 @@ local verify = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax Options cTom Mach 1.1 Fields
-miax_options_ctom_mach_v1_1.fields.active_on_miax = ProtoField.new("Active On Miax", "miax.options.ctom.mach.v1.1.activeonmiax", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.application_message = ProtoField.new("Application Message", "miax.options.ctom.mach.v1.1.applicationmessage", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.bid_condition = ProtoField.new("Bid Condition", "miax.options.ctom.mach.v1.1.bidcondition", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.bid_reserved_2 = ProtoField.new("Bid Reserved 2", "miax.options.ctom.mach.v1.1.bidreserved2", ftypes.BYTES)
-miax_options_ctom_mach_v1_1.fields.bid_reserved_4 = ProtoField.new("Bid Reserved 4", "miax.options.ctom.mach.v1.1.bidreserved4", ftypes.BYTES)
-miax_options_ctom_mach_v1_1.fields.call_or_put = ProtoField.new("Call Or Put", "miax.options.ctom.mach.v1.1.callorput", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.closing_time = ProtoField.new("Closing Time", "miax.options.ctom.mach.v1.1.closingtime", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.compact_bid_price = ProtoField.new("Compact Bid Price", "miax.options.ctom.mach.v1.1.compactbidprice", ftypes.INT16)
-miax_options_ctom_mach_v1_1.fields.compact_bid_size = ProtoField.new("Compact Bid Size", "miax.options.ctom.mach.v1.1.compactbidsize", ftypes.UINT16)
-miax_options_ctom_mach_v1_1.fields.compact_offer_price = ProtoField.new("Compact Offer Price", "miax.options.ctom.mach.v1.1.compactofferprice", ftypes.INT16)
-miax_options_ctom_mach_v1_1.fields.compact_offer_size = ProtoField.new("Compact Offer Size", "miax.options.ctom.mach.v1.1.compactoffersize", ftypes.UINT16)
-miax_options_ctom_mach_v1_1.fields.compact_price = ProtoField.new("Compact Price", "miax.options.ctom.mach.v1.1.compactprice", ftypes.INT16)
-miax_options_ctom_mach_v1_1.fields.compact_size = ProtoField.new("Compact Size", "miax.options.ctom.mach.v1.1.compactsize", ftypes.UINT16)
-miax_options_ctom_mach_v1_1.fields.complex_double_sided_top_of_market_compact_message = ProtoField.new("Complex Double Sided Top Of Market Compact Message", "miax.options.ctom.mach.v1.1.complexdoublesidedtopofmarketcompactmessage", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.complex_strategy_definition_message = ProtoField.new("Complex Strategy Definition Message", "miax.options.ctom.mach.v1.1.complexstrategydefinitionmessage", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.complex_top_of_market_bid_compact_message = ProtoField.new("Complex Top Of Market Bid Compact Message", "miax.options.ctom.mach.v1.1.complextopofmarketbidcompactmessage", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.complex_top_of_market_offer_compact_message = ProtoField.new("Complex Top Of Market Offer Compact Message", "miax.options.ctom.mach.v1.1.complextopofmarketoffercompactmessage", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.data = ProtoField.new("Data", "miax.options.ctom.mach.v1.1.data", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.event_reason = ProtoField.new("Event Reason", "miax.options.ctom.mach.v1.1.eventreason", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.expected_event_time_nano_seconds_part = ProtoField.new("Expected Event Time Nano Seconds Part", "miax.options.ctom.mach.v1.1.expectedeventtimenanosecondspart", ftypes.UINT32)
-miax_options_ctom_mach_v1_1.fields.expiration_date = ProtoField.new("Expiration Date", "miax.options.ctom.mach.v1.1.expirationdate", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.leg_definition = ProtoField.new("Leg Definition", "miax.options.ctom.mach.v1.1.legdefinition", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "miax.options.ctom.mach.v1.1.legratioqty", ftypes.UINT16)
-miax_options_ctom_mach_v1_1.fields.leg_side = ProtoField.new("Leg Side", "miax.options.ctom.mach.v1.1.legside", ftypes.UINT8)
-miax_options_ctom_mach_v1_1.fields.liquidity_acceptance_increment_indicator = ProtoField.new("Liquidity Acceptance Increment Indicator", "miax.options.ctom.mach.v1.1.liquidityacceptanceincrementindicator", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.long_term_option = ProtoField.new("Long Term Option", "miax.options.ctom.mach.v1.1.longtermoption", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.message = ProtoField.new("Message", "miax.options.ctom.mach.v1.1.message", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.message_type = ProtoField.new("Message Type", "miax.options.ctom.mach.v1.1.messagetype", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.miax_bbo_posting_increment_indicator = ProtoField.new("Miax Bbo Posting Increment Indicator", "miax.options.ctom.mach.v1.1.miaxbbopostingincrementindicator", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.net_price = ProtoField.new("Net Price", "miax.options.ctom.mach.v1.1.netprice", ftypes.INT64)
-miax_options_ctom_mach_v1_1.fields.notification_time = ProtoField.new("Notification Time", "miax.options.ctom.mach.v1.1.notificationtime", ftypes.UINT32)
-miax_options_ctom_mach_v1_1.fields.number_of_legs = ProtoField.new("Number Of Legs", "miax.options.ctom.mach.v1.1.numberoflegs", ftypes.UINT8)
-miax_options_ctom_mach_v1_1.fields.offer_condition = ProtoField.new("Offer Condition", "miax.options.ctom.mach.v1.1.offercondition", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.offer_reserved_2 = ProtoField.new("Offer Reserved 2", "miax.options.ctom.mach.v1.1.offerreserved2", ftypes.BYTES)
-miax_options_ctom_mach_v1_1.fields.offer_reserved_4 = ProtoField.new("Offer Reserved 4", "miax.options.ctom.mach.v1.1.offerreserved4", ftypes.BYTES)
-miax_options_ctom_mach_v1_1.fields.opening_time = ProtoField.new("Opening Time", "miax.options.ctom.mach.v1.1.openingtime", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.opening_underlying_market_code = ProtoField.new("Opening Underlying Market Code", "miax.options.ctom.mach.v1.1.openingunderlyingmarketcode", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.packet = ProtoField.new("Packet", "miax.options.ctom.mach.v1.1.packet", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.packet_length = ProtoField.new("Packet Length", "miax.options.ctom.mach.v1.1.packetlength", ftypes.UINT16)
-miax_options_ctom_mach_v1_1.fields.packet_type = ProtoField.new("Packet Type", "miax.options.ctom.mach.v1.1.packettype", ftypes.UINT8)
-miax_options_ctom_mach_v1_1.fields.payload = ProtoField.new("Payload", "miax.options.ctom.mach.v1.1.payload", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.priority_quote_width = ProtoField.new("Priority Quote Width", "miax.options.ctom.mach.v1.1.priorityquotewidth", ftypes.UINT32)
-miax_options_ctom_mach_v1_1.fields.product_add_update_time = ProtoField.new("Product Add Update Time", "miax.options.ctom.mach.v1.1.productaddupdatetime", ftypes.UINT32)
-miax_options_ctom_mach_v1_1.fields.product_id = ProtoField.new("Product Id", "miax.options.ctom.mach.v1.1.productid", ftypes.UINT32)
-miax_options_ctom_mach_v1_1.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.options.ctom.mach.v1.1.reserved1", ftypes.BYTES)
-miax_options_ctom_mach_v1_1.fields.reserved_10 = ProtoField.new("Reserved 10", "miax.options.ctom.mach.v1.1.reserved10", ftypes.BYTES)
-miax_options_ctom_mach_v1_1.fields.reserved_16 = ProtoField.new("Reserved 16", "miax.options.ctom.mach.v1.1.reserved16", ftypes.BYTES)
-miax_options_ctom_mach_v1_1.fields.reserved_2 = ProtoField.new("Reserved 2", "miax.options.ctom.mach.v1.1.reserved2", ftypes.BYTES)
-miax_options_ctom_mach_v1_1.fields.reserved_4 = ProtoField.new("Reserved 4", "miax.options.ctom.mach.v1.1.reserved4", ftypes.BYTES)
-miax_options_ctom_mach_v1_1.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.options.ctom.mach.v1.1.reserved8", ftypes.BYTES)
-miax_options_ctom_mach_v1_1.fields.restricted_option = ProtoField.new("Restricted Option", "miax.options.ctom.mach.v1.1.restrictedoption", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.seconds_part = ProtoField.new("Seconds Part", "miax.options.ctom.mach.v1.1.secondspart", ftypes.UINT32)
-miax_options_ctom_mach_v1_1.fields.security_symbol = ProtoField.new("Security Symbol", "miax.options.ctom.mach.v1.1.securitysymbol", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.sequence_number = ProtoField.new("Sequence Number", "miax.options.ctom.mach.v1.1.sequencenumber", ftypes.UINT64)
-miax_options_ctom_mach_v1_1.fields.series_update = ProtoField.new("Series Update", "miax.options.ctom.mach.v1.1.seriesupdate", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.session_id = ProtoField.new("Session Id", "miax.options.ctom.mach.v1.1.sessionid", ftypes.UINT32)
-miax_options_ctom_mach_v1_1.fields.session_number = ProtoField.new("Session Number", "miax.options.ctom.mach.v1.1.sessionnumber", ftypes.UINT8)
-miax_options_ctom_mach_v1_1.fields.strategy_add_time = ProtoField.new("Strategy Add Time", "miax.options.ctom.mach.v1.1.strategyaddtime", ftypes.UINT32)
-miax_options_ctom_mach_v1_1.fields.strategy_id = ProtoField.new("Strategy Id", "miax.options.ctom.mach.v1.1.strategyid", ftypes.UINT32)
-miax_options_ctom_mach_v1_1.fields.strategy_trade_message = ProtoField.new("Strategy Trade Message", "miax.options.ctom.mach.v1.1.strategytrademessage", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.strike_price = ProtoField.new("Strike Price", "miax.options.ctom.mach.v1.1.strikeprice", ftypes.UINT32)
-miax_options_ctom_mach_v1_1.fields.system_state_message = ProtoField.new("System State Message", "miax.options.ctom.mach.v1.1.systemstatemessage", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.system_status = ProtoField.new("System Status", "miax.options.ctom.mach.v1.1.systemstatus", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.system_time_message = ProtoField.new("System Time Message", "miax.options.ctom.mach.v1.1.systemtimemessage", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.timestamp = ProtoField.new("Timestamp", "miax.options.ctom.mach.v1.1.timestamp", ftypes.UINT32)
-miax_options_ctom_mach_v1_1.fields.top_of_market_quote_condition = ProtoField.new("Top Of Market Quote Condition", "miax.options.ctom.mach.v1.1.topofmarketquotecondition", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.trade_condition = ProtoField.new("Trade Condition", "miax.options.ctom.mach.v1.1.tradecondition", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.trade_id = ProtoField.new("Trade Id", "miax.options.ctom.mach.v1.1.tradeid", ftypes.UINT32)
-miax_options_ctom_mach_v1_1.fields.trade_size = ProtoField.new("Trade Size", "miax.options.ctom.mach.v1.1.tradesize", ftypes.UINT32)
-miax_options_ctom_mach_v1_1.fields.trading_status = ProtoField.new("Trading Status", "miax.options.ctom.mach.v1.1.tradingstatus", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "miax.options.ctom.mach.v1.1.underlyingsymbol", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.underlying_trading_status_message = ProtoField.new("Underlying Trading Status Message", "miax.options.ctom.mach.v1.1.underlyingtradingstatusmessage", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.update_reason = ProtoField.new("Update Reason", "miax.options.ctom.mach.v1.1.updatereason", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.version = ProtoField.new("Version", "miax.options.ctom.mach.v1.1.version", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.wide_bid_price = ProtoField.new("Wide Bid Price", "miax.options.ctom.mach.v1.1.widebidprice", ftypes.INT64)
-miax_options_ctom_mach_v1_1.fields.wide_bid_size = ProtoField.new("Wide Bid Size", "miax.options.ctom.mach.v1.1.widebidsize", ftypes.UINT32)
-miax_options_ctom_mach_v1_1.fields.wide_complex_double_sided_top_of_market_message = ProtoField.new("Wide Complex Double Sided Top Of Market Message", "miax.options.ctom.mach.v1.1.widecomplexdoublesidedtopofmarketmessage", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.wide_complex_top_of_market_bid_message = ProtoField.new("Wide Complex Top Of Market Bid Message", "miax.options.ctom.mach.v1.1.widecomplextopofmarketbidmessage", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.wide_complex_top_of_market_offer_message = ProtoField.new("Wide Complex Top Of Market Offer Message", "miax.options.ctom.mach.v1.1.widecomplextopofmarketoffermessage", ftypes.STRING)
-miax_options_ctom_mach_v1_1.fields.wide_offer_price = ProtoField.new("Wide Offer Price", "miax.options.ctom.mach.v1.1.wideofferprice", ftypes.INT64)
-miax_options_ctom_mach_v1_1.fields.wide_offer_size = ProtoField.new("Wide Offer Size", "miax.options.ctom.mach.v1.1.wideoffersize", ftypes.UINT32)
-miax_options_ctom_mach_v1_1.fields.wide_price = ProtoField.new("Wide Price", "miax.options.ctom.mach.v1.1.wideprice", ftypes.INT64)
-miax_options_ctom_mach_v1_1.fields.wide_size = ProtoField.new("Wide Size", "miax.options.ctom.mach.v1.1.widesize", ftypes.UINT32)
+-- Miax Options ComplexTopOfMarket Mach 1.3 Fields
+miax_options_complextopofmarket_mach_v1_3.fields.active_on_miax = ProtoField.new("Active On Miax", "miax.options.complextopofmarket.mach.v1.3.activeonmiax", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.application_message = ProtoField.new("Application Message", "miax.options.complextopofmarket.mach.v1.3.applicationmessage", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.bid_condition = ProtoField.new("Bid Condition", "miax.options.complextopofmarket.mach.v1.3.bidcondition", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.bid_price_2 = ProtoField.new("Bid Price 2", "miax.options.complextopofmarket.mach.v1.3.bidprice2", ftypes.INT16)
+miax_options_complextopofmarket_mach_v1_3.fields.bid_price_8 = ProtoField.new("Bid Price 8", "miax.options.complextopofmarket.mach.v1.3.bidprice8", ftypes.INT64)
+miax_options_complextopofmarket_mach_v1_3.fields.bid_priority_customer_size_2 = ProtoField.new("Bid Priority Customer Size 2", "miax.options.complextopofmarket.mach.v1.3.bidprioritycustomersize2", ftypes.UINT16)
+miax_options_complextopofmarket_mach_v1_3.fields.bid_priority_customer_size_4 = ProtoField.new("Bid Priority Customer Size 4", "miax.options.complextopofmarket.mach.v1.3.bidprioritycustomersize4", ftypes.UINT32)
+miax_options_complextopofmarket_mach_v1_3.fields.bid_size_2 = ProtoField.new("Bid Size 2", "miax.options.complextopofmarket.mach.v1.3.bidsize2", ftypes.UINT16)
+miax_options_complextopofmarket_mach_v1_3.fields.bid_size_4 = ProtoField.new("Bid Size 4", "miax.options.complextopofmarket.mach.v1.3.bidsize4", ftypes.UINT32)
+miax_options_complextopofmarket_mach_v1_3.fields.call_or_put = ProtoField.new("Call Or Put", "miax.options.complextopofmarket.mach.v1.3.callorput", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.closing_time = ProtoField.new("Closing Time", "miax.options.complextopofmarket.mach.v1.3.closingtime", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.complex_double_sided_top_of_market_compact_message = ProtoField.new("Complex Double Sided Top Of Market Compact Message", "miax.options.complextopofmarket.mach.v1.3.complexdoublesidedtopofmarketcompactmessage", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.complex_double_sided_top_of_market_wide_message = ProtoField.new("Complex Double Sided Top Of Market Wide Message", "miax.options.complextopofmarket.mach.v1.3.complexdoublesidedtopofmarketwidemessage", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.complex_strategy_definition_message = ProtoField.new("Complex Strategy Definition Message", "miax.options.complextopofmarket.mach.v1.3.complexstrategydefinitionmessage", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.complex_top_of_market_bid_compact_message = ProtoField.new("Complex Top Of Market Bid Compact Message", "miax.options.complextopofmarket.mach.v1.3.complextopofmarketbidcompactmessage", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.complex_top_of_market_bid_wide_message = ProtoField.new("Complex Top Of Market Bid Wide Message", "miax.options.complextopofmarket.mach.v1.3.complextopofmarketbidwidemessage", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.complex_top_of_market_offer_compact_message = ProtoField.new("Complex Top Of Market Offer Compact Message", "miax.options.complextopofmarket.mach.v1.3.complextopofmarketoffercompactmessage", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.complex_top_of_market_offer_wide_message = ProtoField.new("Complex Top Of Market Offer Wide Message", "miax.options.complextopofmarket.mach.v1.3.complextopofmarketofferwidemessage", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.data = ProtoField.new("Data", "miax.options.complextopofmarket.mach.v1.3.data", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.event_reason = ProtoField.new("Event Reason", "miax.options.complextopofmarket.mach.v1.3.eventreason", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.expected_event_time_nano_seconds = ProtoField.new("Expected Event Time Nano Seconds", "miax.options.complextopofmarket.mach.v1.3.expectedeventtimenanoseconds", ftypes.UINT32)
+miax_options_complextopofmarket_mach_v1_3.fields.expected_event_time_seconds = ProtoField.new("Expected Event Time Seconds", "miax.options.complextopofmarket.mach.v1.3.expectedeventtimeseconds", ftypes.UINT32)
+miax_options_complextopofmarket_mach_v1_3.fields.expiration_date = ProtoField.new("Expiration Date", "miax.options.complextopofmarket.mach.v1.3.expirationdate", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.leg_definition = ProtoField.new("Leg Definition", "miax.options.complextopofmarket.mach.v1.3.legdefinition", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "miax.options.complextopofmarket.mach.v1.3.legratioqty", ftypes.UINT16)
+miax_options_complextopofmarket_mach_v1_3.fields.leg_side = ProtoField.new("Leg Side", "miax.options.complextopofmarket.mach.v1.3.legside", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.liquidity_acceptance_increment_indicator = ProtoField.new("Liquidity Acceptance Increment Indicator", "miax.options.complextopofmarket.mach.v1.3.liquidityacceptanceincrementindicator", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.long_term_option = ProtoField.new("Long Term Option", "miax.options.complextopofmarket.mach.v1.3.longtermoption", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.message = ProtoField.new("Message", "miax.options.complextopofmarket.mach.v1.3.message", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.message_type = ProtoField.new("Message Type", "miax.options.complextopofmarket.mach.v1.3.messagetype", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.miax_bbo_posting_increment_indicator = ProtoField.new("Miax Bbo Posting Increment Indicator", "miax.options.complextopofmarket.mach.v1.3.miaxbbopostingincrementindicator", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.net_price = ProtoField.new("Net Price", "miax.options.complextopofmarket.mach.v1.3.netprice", ftypes.INT64)
+miax_options_complextopofmarket_mach_v1_3.fields.notification_time = ProtoField.new("Notification Time", "miax.options.complextopofmarket.mach.v1.3.notificationtime", ftypes.UINT32)
+miax_options_complextopofmarket_mach_v1_3.fields.number_of_legs = ProtoField.new("Number Of Legs", "miax.options.complextopofmarket.mach.v1.3.numberoflegs", ftypes.UINT8)
+miax_options_complextopofmarket_mach_v1_3.fields.offer_condition = ProtoField.new("Offer Condition", "miax.options.complextopofmarket.mach.v1.3.offercondition", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.offer_price_2 = ProtoField.new("Offer Price 2", "miax.options.complextopofmarket.mach.v1.3.offerprice2", ftypes.INT16)
+miax_options_complextopofmarket_mach_v1_3.fields.offer_price_8 = ProtoField.new("Offer Price 8", "miax.options.complextopofmarket.mach.v1.3.offerprice8", ftypes.INT64)
+miax_options_complextopofmarket_mach_v1_3.fields.offer_priority_customer_size_2 = ProtoField.new("Offer Priority Customer Size 2", "miax.options.complextopofmarket.mach.v1.3.offerprioritycustomersize2", ftypes.UINT16)
+miax_options_complextopofmarket_mach_v1_3.fields.offer_priority_customer_size_4 = ProtoField.new("Offer Priority Customer Size 4", "miax.options.complextopofmarket.mach.v1.3.offerprioritycustomersize4", ftypes.UINT32)
+miax_options_complextopofmarket_mach_v1_3.fields.offer_size_2 = ProtoField.new("Offer Size 2", "miax.options.complextopofmarket.mach.v1.3.offersize2", ftypes.UINT16)
+miax_options_complextopofmarket_mach_v1_3.fields.offer_size_4 = ProtoField.new("Offer Size 4", "miax.options.complextopofmarket.mach.v1.3.offersize4", ftypes.UINT32)
+miax_options_complextopofmarket_mach_v1_3.fields.opening_time = ProtoField.new("Opening Time", "miax.options.complextopofmarket.mach.v1.3.openingtime", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.opening_underlying_market_code = ProtoField.new("Opening Underlying Market Code", "miax.options.complextopofmarket.mach.v1.3.openingunderlyingmarketcode", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.packet = ProtoField.new("Packet", "miax.options.complextopofmarket.mach.v1.3.packet", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.packet_length = ProtoField.new("Packet Length", "miax.options.complextopofmarket.mach.v1.3.packetlength", ftypes.UINT16)
+miax_options_complextopofmarket_mach_v1_3.fields.packet_type = ProtoField.new("Packet Type", "miax.options.complextopofmarket.mach.v1.3.packettype", ftypes.UINT8)
+miax_options_complextopofmarket_mach_v1_3.fields.payload = ProtoField.new("Payload", "miax.options.complextopofmarket.mach.v1.3.payload", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.price_2 = ProtoField.new("Price 2", "miax.options.complextopofmarket.mach.v1.3.price2", ftypes.INT16)
+miax_options_complextopofmarket_mach_v1_3.fields.price_8 = ProtoField.new("Price 8", "miax.options.complextopofmarket.mach.v1.3.price8", ftypes.INT64)
+miax_options_complextopofmarket_mach_v1_3.fields.priority_customer_size_2 = ProtoField.new("Priority Customer Size 2", "miax.options.complextopofmarket.mach.v1.3.prioritycustomersize2", ftypes.UINT16)
+miax_options_complextopofmarket_mach_v1_3.fields.priority_customer_size_4 = ProtoField.new("Priority Customer Size 4", "miax.options.complextopofmarket.mach.v1.3.prioritycustomersize4", ftypes.UINT32)
+miax_options_complextopofmarket_mach_v1_3.fields.priority_quote_width = ProtoField.new("Priority Quote Width", "miax.options.complextopofmarket.mach.v1.3.priorityquotewidth", ftypes.UINT32)
+miax_options_complextopofmarket_mach_v1_3.fields.product_add_update_time = ProtoField.new("Product Add Update Time", "miax.options.complextopofmarket.mach.v1.3.productaddupdatetime", ftypes.UINT32)
+miax_options_complextopofmarket_mach_v1_3.fields.product_id = ProtoField.new("Product Id", "miax.options.complextopofmarket.mach.v1.3.productid", ftypes.UINT32)
+miax_options_complextopofmarket_mach_v1_3.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.options.complextopofmarket.mach.v1.3.reserved1", ftypes.BYTES)
+miax_options_complextopofmarket_mach_v1_3.fields.reserved_10 = ProtoField.new("Reserved 10", "miax.options.complextopofmarket.mach.v1.3.reserved10", ftypes.BYTES)
+miax_options_complextopofmarket_mach_v1_3.fields.reserved_16 = ProtoField.new("Reserved 16", "miax.options.complextopofmarket.mach.v1.3.reserved16", ftypes.BYTES)
+miax_options_complextopofmarket_mach_v1_3.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.options.complextopofmarket.mach.v1.3.reserved8", ftypes.UINT64)
+miax_options_complextopofmarket_mach_v1_3.fields.restricted_option = ProtoField.new("Restricted Option", "miax.options.complextopofmarket.mach.v1.3.restrictedoption", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.security_symbol = ProtoField.new("Security Symbol", "miax.options.complextopofmarket.mach.v1.3.securitysymbol", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.sequence_number = ProtoField.new("Sequence Number", "miax.options.complextopofmarket.mach.v1.3.sequencenumber", ftypes.UINT64)
+miax_options_complextopofmarket_mach_v1_3.fields.session_id = ProtoField.new("Session Id", "miax.options.complextopofmarket.mach.v1.3.sessionid", ftypes.UINT32)
+miax_options_complextopofmarket_mach_v1_3.fields.session_number = ProtoField.new("Session Number", "miax.options.complextopofmarket.mach.v1.3.sessionnumber", ftypes.UINT8)
+miax_options_complextopofmarket_mach_v1_3.fields.simple_series_update_message = ProtoField.new("Simple Series Update Message", "miax.options.complextopofmarket.mach.v1.3.simpleseriesupdatemessage", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.size_2 = ProtoField.new("Size 2", "miax.options.complextopofmarket.mach.v1.3.size2", ftypes.UINT16)
+miax_options_complextopofmarket_mach_v1_3.fields.size_4 = ProtoField.new("Size 4", "miax.options.complextopofmarket.mach.v1.3.size4", ftypes.UINT32)
+miax_options_complextopofmarket_mach_v1_3.fields.strategy_add_time = ProtoField.new("Strategy Add Time", "miax.options.complextopofmarket.mach.v1.3.strategyaddtime", ftypes.UINT32)
+miax_options_complextopofmarket_mach_v1_3.fields.strategy_id = ProtoField.new("Strategy Id", "miax.options.complextopofmarket.mach.v1.3.strategyid", ftypes.UINT32)
+miax_options_complextopofmarket_mach_v1_3.fields.strategy_last_sale_message = ProtoField.new("Strategy Last Sale Message", "miax.options.complextopofmarket.mach.v1.3.strategylastsalemessage", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.strike_price = ProtoField.new("Strike Price", "miax.options.complextopofmarket.mach.v1.3.strikeprice", ftypes.UINT32)
+miax_options_complextopofmarket_mach_v1_3.fields.system_state_message = ProtoField.new("System State Message", "miax.options.complextopofmarket.mach.v1.3.systemstatemessage", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.system_status = ProtoField.new("System Status", "miax.options.complextopofmarket.mach.v1.3.systemstatus", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.system_time_message = ProtoField.new("System Time Message", "miax.options.complextopofmarket.mach.v1.3.systemtimemessage", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.timestamp = ProtoField.new("Timestamp", "miax.options.complextopofmarket.mach.v1.3.timestamp", ftypes.UINT32)
+miax_options_complextopofmarket_mach_v1_3.fields.top_of_market_quote_condition = ProtoField.new("Top Of Market Quote Condition", "miax.options.complextopofmarket.mach.v1.3.topofmarketquotecondition", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.trade_condition = ProtoField.new("Trade Condition", "miax.options.complextopofmarket.mach.v1.3.tradecondition", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.trade_id = ProtoField.new("Trade Id", "miax.options.complextopofmarket.mach.v1.3.tradeid", ftypes.UINT32)
+miax_options_complextopofmarket_mach_v1_3.fields.trade_size = ProtoField.new("Trade Size", "miax.options.complextopofmarket.mach.v1.3.tradesize", ftypes.UINT32)
+miax_options_complextopofmarket_mach_v1_3.fields.trading_status = ProtoField.new("Trading Status", "miax.options.complextopofmarket.mach.v1.3.tradingstatus", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "miax.options.complextopofmarket.mach.v1.3.underlyingsymbol", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.underlying_trading_status_notification_message = ProtoField.new("Underlying Trading Status Notification Message", "miax.options.complextopofmarket.mach.v1.3.underlyingtradingstatusnotificationmessage", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.update_reason = ProtoField.new("Update Reason", "miax.options.complextopofmarket.mach.v1.3.updatereason", ftypes.STRING)
+miax_options_complextopofmarket_mach_v1_3.fields.version = ProtoField.new("Version", "miax.options.complextopofmarket.mach.v1.3.version", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Miax Options cTom Mach 1.1 Element Dissection Options
+-- Miax Options ComplexTopOfMarket Mach 1.3 Element Dissection Options
 show.application_message = true
 show.complex_double_sided_top_of_market_compact_message = true
+show.complex_double_sided_top_of_market_wide_message = true
 show.complex_strategy_definition_message = true
 show.complex_top_of_market_bid_compact_message = true
+show.complex_top_of_market_bid_wide_message = true
 show.complex_top_of_market_offer_compact_message = true
+show.complex_top_of_market_offer_wide_message = true
 show.leg_definition = true
 show.message = true
 show.packet = true
-show.series_update = true
-show.strategy_trade_message = true
+show.simple_series_update_message = true
+show.strategy_last_sale_message = true
 show.system_state_message = true
 show.system_time_message = true
-show.underlying_trading_status_message = true
-show.wide_complex_double_sided_top_of_market_message = true
-show.wide_complex_top_of_market_bid_message = true
-show.wide_complex_top_of_market_offer_message = true
+show.underlying_trading_status_notification_message = true
 show.data = false
 show.payload = false
 
--- Register Miax Options cTom Mach 1.1 Show Options
-miax_options_ctom_mach_v1_1.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
-miax_options_ctom_mach_v1_1.prefs.show_complex_double_sided_top_of_market_compact_message = Pref.bool("Show Complex Double Sided Top Of Market Compact Message", show.complex_double_sided_top_of_market_compact_message, "Parse and add Complex Double Sided Top Of Market Compact Message to protocol tree")
-miax_options_ctom_mach_v1_1.prefs.show_complex_strategy_definition_message = Pref.bool("Show Complex Strategy Definition Message", show.complex_strategy_definition_message, "Parse and add Complex Strategy Definition Message to protocol tree")
-miax_options_ctom_mach_v1_1.prefs.show_complex_top_of_market_bid_compact_message = Pref.bool("Show Complex Top Of Market Bid Compact Message", show.complex_top_of_market_bid_compact_message, "Parse and add Complex Top Of Market Bid Compact Message to protocol tree")
-miax_options_ctom_mach_v1_1.prefs.show_complex_top_of_market_offer_compact_message = Pref.bool("Show Complex Top Of Market Offer Compact Message", show.complex_top_of_market_offer_compact_message, "Parse and add Complex Top Of Market Offer Compact Message to protocol tree")
-miax_options_ctom_mach_v1_1.prefs.show_leg_definition = Pref.bool("Show Leg Definition", show.leg_definition, "Parse and add Leg Definition to protocol tree")
-miax_options_ctom_mach_v1_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-miax_options_ctom_mach_v1_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-miax_options_ctom_mach_v1_1.prefs.show_series_update = Pref.bool("Show Series Update", show.series_update, "Parse and add Series Update to protocol tree")
-miax_options_ctom_mach_v1_1.prefs.show_strategy_trade_message = Pref.bool("Show Strategy Trade Message", show.strategy_trade_message, "Parse and add Strategy Trade Message to protocol tree")
-miax_options_ctom_mach_v1_1.prefs.show_system_state_message = Pref.bool("Show System State Message", show.system_state_message, "Parse and add System State Message to protocol tree")
-miax_options_ctom_mach_v1_1.prefs.show_system_time_message = Pref.bool("Show System Time Message", show.system_time_message, "Parse and add System Time Message to protocol tree")
-miax_options_ctom_mach_v1_1.prefs.show_underlying_trading_status_message = Pref.bool("Show Underlying Trading Status Message", show.underlying_trading_status_message, "Parse and add Underlying Trading Status Message to protocol tree")
-miax_options_ctom_mach_v1_1.prefs.show_wide_complex_double_sided_top_of_market_message = Pref.bool("Show Wide Complex Double Sided Top Of Market Message", show.wide_complex_double_sided_top_of_market_message, "Parse and add Wide Complex Double Sided Top Of Market Message to protocol tree")
-miax_options_ctom_mach_v1_1.prefs.show_wide_complex_top_of_market_bid_message = Pref.bool("Show Wide Complex Top Of Market Bid Message", show.wide_complex_top_of_market_bid_message, "Parse and add Wide Complex Top Of Market Bid Message to protocol tree")
-miax_options_ctom_mach_v1_1.prefs.show_wide_complex_top_of_market_offer_message = Pref.bool("Show Wide Complex Top Of Market Offer Message", show.wide_complex_top_of_market_offer_message, "Parse and add Wide Complex Top Of Market Offer Message to protocol tree")
-miax_options_ctom_mach_v1_1.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
-miax_options_ctom_mach_v1_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+-- Register Miax Options ComplexTopOfMarket Mach 1.3 Show Options
+miax_options_complextopofmarket_mach_v1_3.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
+miax_options_complextopofmarket_mach_v1_3.prefs.show_complex_double_sided_top_of_market_compact_message = Pref.bool("Show Complex Double Sided Top Of Market Compact Message", show.complex_double_sided_top_of_market_compact_message, "Parse and add Complex Double Sided Top Of Market Compact Message to protocol tree")
+miax_options_complextopofmarket_mach_v1_3.prefs.show_complex_double_sided_top_of_market_wide_message = Pref.bool("Show Complex Double Sided Top Of Market Wide Message", show.complex_double_sided_top_of_market_wide_message, "Parse and add Complex Double Sided Top Of Market Wide Message to protocol tree")
+miax_options_complextopofmarket_mach_v1_3.prefs.show_complex_strategy_definition_message = Pref.bool("Show Complex Strategy Definition Message", show.complex_strategy_definition_message, "Parse and add Complex Strategy Definition Message to protocol tree")
+miax_options_complextopofmarket_mach_v1_3.prefs.show_complex_top_of_market_bid_compact_message = Pref.bool("Show Complex Top Of Market Bid Compact Message", show.complex_top_of_market_bid_compact_message, "Parse and add Complex Top Of Market Bid Compact Message to protocol tree")
+miax_options_complextopofmarket_mach_v1_3.prefs.show_complex_top_of_market_bid_wide_message = Pref.bool("Show Complex Top Of Market Bid Wide Message", show.complex_top_of_market_bid_wide_message, "Parse and add Complex Top Of Market Bid Wide Message to protocol tree")
+miax_options_complextopofmarket_mach_v1_3.prefs.show_complex_top_of_market_offer_compact_message = Pref.bool("Show Complex Top Of Market Offer Compact Message", show.complex_top_of_market_offer_compact_message, "Parse and add Complex Top Of Market Offer Compact Message to protocol tree")
+miax_options_complextopofmarket_mach_v1_3.prefs.show_complex_top_of_market_offer_wide_message = Pref.bool("Show Complex Top Of Market Offer Wide Message", show.complex_top_of_market_offer_wide_message, "Parse and add Complex Top Of Market Offer Wide Message to protocol tree")
+miax_options_complextopofmarket_mach_v1_3.prefs.show_leg_definition = Pref.bool("Show Leg Definition", show.leg_definition, "Parse and add Leg Definition to protocol tree")
+miax_options_complextopofmarket_mach_v1_3.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+miax_options_complextopofmarket_mach_v1_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+miax_options_complextopofmarket_mach_v1_3.prefs.show_simple_series_update_message = Pref.bool("Show Simple Series Update Message", show.simple_series_update_message, "Parse and add Simple Series Update Message to protocol tree")
+miax_options_complextopofmarket_mach_v1_3.prefs.show_strategy_last_sale_message = Pref.bool("Show Strategy Last Sale Message", show.strategy_last_sale_message, "Parse and add Strategy Last Sale Message to protocol tree")
+miax_options_complextopofmarket_mach_v1_3.prefs.show_system_state_message = Pref.bool("Show System State Message", show.system_state_message, "Parse and add System State Message to protocol tree")
+miax_options_complextopofmarket_mach_v1_3.prefs.show_system_time_message = Pref.bool("Show System Time Message", show.system_time_message, "Parse and add System Time Message to protocol tree")
+miax_options_complextopofmarket_mach_v1_3.prefs.show_underlying_trading_status_notification_message = Pref.bool("Show Underlying Trading Status Notification Message", show.underlying_trading_status_notification_message, "Parse and add Underlying Trading Status Notification Message to protocol tree")
+miax_options_complextopofmarket_mach_v1_3.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
+miax_options_complextopofmarket_mach_v1_3.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function miax_options_ctom_mach_v1_1.prefs_changed()
+function miax_options_complextopofmarket_mach_v1_3.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.application_message ~= miax_options_ctom_mach_v1_1.prefs.show_application_message then
-    show.application_message = miax_options_ctom_mach_v1_1.prefs.show_application_message
+  if show.application_message ~= miax_options_complextopofmarket_mach_v1_3.prefs.show_application_message then
+    show.application_message = miax_options_complextopofmarket_mach_v1_3.prefs.show_application_message
     changed = true
   end
-  if show.complex_double_sided_top_of_market_compact_message ~= miax_options_ctom_mach_v1_1.prefs.show_complex_double_sided_top_of_market_compact_message then
-    show.complex_double_sided_top_of_market_compact_message = miax_options_ctom_mach_v1_1.prefs.show_complex_double_sided_top_of_market_compact_message
+  if show.complex_double_sided_top_of_market_compact_message ~= miax_options_complextopofmarket_mach_v1_3.prefs.show_complex_double_sided_top_of_market_compact_message then
+    show.complex_double_sided_top_of_market_compact_message = miax_options_complextopofmarket_mach_v1_3.prefs.show_complex_double_sided_top_of_market_compact_message
     changed = true
   end
-  if show.complex_strategy_definition_message ~= miax_options_ctom_mach_v1_1.prefs.show_complex_strategy_definition_message then
-    show.complex_strategy_definition_message = miax_options_ctom_mach_v1_1.prefs.show_complex_strategy_definition_message
+  if show.complex_double_sided_top_of_market_wide_message ~= miax_options_complextopofmarket_mach_v1_3.prefs.show_complex_double_sided_top_of_market_wide_message then
+    show.complex_double_sided_top_of_market_wide_message = miax_options_complextopofmarket_mach_v1_3.prefs.show_complex_double_sided_top_of_market_wide_message
     changed = true
   end
-  if show.complex_top_of_market_bid_compact_message ~= miax_options_ctom_mach_v1_1.prefs.show_complex_top_of_market_bid_compact_message then
-    show.complex_top_of_market_bid_compact_message = miax_options_ctom_mach_v1_1.prefs.show_complex_top_of_market_bid_compact_message
+  if show.complex_strategy_definition_message ~= miax_options_complextopofmarket_mach_v1_3.prefs.show_complex_strategy_definition_message then
+    show.complex_strategy_definition_message = miax_options_complextopofmarket_mach_v1_3.prefs.show_complex_strategy_definition_message
     changed = true
   end
-  if show.complex_top_of_market_offer_compact_message ~= miax_options_ctom_mach_v1_1.prefs.show_complex_top_of_market_offer_compact_message then
-    show.complex_top_of_market_offer_compact_message = miax_options_ctom_mach_v1_1.prefs.show_complex_top_of_market_offer_compact_message
+  if show.complex_top_of_market_bid_compact_message ~= miax_options_complextopofmarket_mach_v1_3.prefs.show_complex_top_of_market_bid_compact_message then
+    show.complex_top_of_market_bid_compact_message = miax_options_complextopofmarket_mach_v1_3.prefs.show_complex_top_of_market_bid_compact_message
     changed = true
   end
-  if show.leg_definition ~= miax_options_ctom_mach_v1_1.prefs.show_leg_definition then
-    show.leg_definition = miax_options_ctom_mach_v1_1.prefs.show_leg_definition
+  if show.complex_top_of_market_bid_wide_message ~= miax_options_complextopofmarket_mach_v1_3.prefs.show_complex_top_of_market_bid_wide_message then
+    show.complex_top_of_market_bid_wide_message = miax_options_complextopofmarket_mach_v1_3.prefs.show_complex_top_of_market_bid_wide_message
     changed = true
   end
-  if show.message ~= miax_options_ctom_mach_v1_1.prefs.show_message then
-    show.message = miax_options_ctom_mach_v1_1.prefs.show_message
+  if show.complex_top_of_market_offer_compact_message ~= miax_options_complextopofmarket_mach_v1_3.prefs.show_complex_top_of_market_offer_compact_message then
+    show.complex_top_of_market_offer_compact_message = miax_options_complextopofmarket_mach_v1_3.prefs.show_complex_top_of_market_offer_compact_message
     changed = true
   end
-  if show.packet ~= miax_options_ctom_mach_v1_1.prefs.show_packet then
-    show.packet = miax_options_ctom_mach_v1_1.prefs.show_packet
+  if show.complex_top_of_market_offer_wide_message ~= miax_options_complextopofmarket_mach_v1_3.prefs.show_complex_top_of_market_offer_wide_message then
+    show.complex_top_of_market_offer_wide_message = miax_options_complextopofmarket_mach_v1_3.prefs.show_complex_top_of_market_offer_wide_message
     changed = true
   end
-  if show.series_update ~= miax_options_ctom_mach_v1_1.prefs.show_series_update then
-    show.series_update = miax_options_ctom_mach_v1_1.prefs.show_series_update
+  if show.leg_definition ~= miax_options_complextopofmarket_mach_v1_3.prefs.show_leg_definition then
+    show.leg_definition = miax_options_complextopofmarket_mach_v1_3.prefs.show_leg_definition
     changed = true
   end
-  if show.strategy_trade_message ~= miax_options_ctom_mach_v1_1.prefs.show_strategy_trade_message then
-    show.strategy_trade_message = miax_options_ctom_mach_v1_1.prefs.show_strategy_trade_message
+  if show.message ~= miax_options_complextopofmarket_mach_v1_3.prefs.show_message then
+    show.message = miax_options_complextopofmarket_mach_v1_3.prefs.show_message
     changed = true
   end
-  if show.system_state_message ~= miax_options_ctom_mach_v1_1.prefs.show_system_state_message then
-    show.system_state_message = miax_options_ctom_mach_v1_1.prefs.show_system_state_message
+  if show.packet ~= miax_options_complextopofmarket_mach_v1_3.prefs.show_packet then
+    show.packet = miax_options_complextopofmarket_mach_v1_3.prefs.show_packet
     changed = true
   end
-  if show.system_time_message ~= miax_options_ctom_mach_v1_1.prefs.show_system_time_message then
-    show.system_time_message = miax_options_ctom_mach_v1_1.prefs.show_system_time_message
+  if show.simple_series_update_message ~= miax_options_complextopofmarket_mach_v1_3.prefs.show_simple_series_update_message then
+    show.simple_series_update_message = miax_options_complextopofmarket_mach_v1_3.prefs.show_simple_series_update_message
     changed = true
   end
-  if show.underlying_trading_status_message ~= miax_options_ctom_mach_v1_1.prefs.show_underlying_trading_status_message then
-    show.underlying_trading_status_message = miax_options_ctom_mach_v1_1.prefs.show_underlying_trading_status_message
+  if show.strategy_last_sale_message ~= miax_options_complextopofmarket_mach_v1_3.prefs.show_strategy_last_sale_message then
+    show.strategy_last_sale_message = miax_options_complextopofmarket_mach_v1_3.prefs.show_strategy_last_sale_message
     changed = true
   end
-  if show.wide_complex_double_sided_top_of_market_message ~= miax_options_ctom_mach_v1_1.prefs.show_wide_complex_double_sided_top_of_market_message then
-    show.wide_complex_double_sided_top_of_market_message = miax_options_ctom_mach_v1_1.prefs.show_wide_complex_double_sided_top_of_market_message
+  if show.system_state_message ~= miax_options_complextopofmarket_mach_v1_3.prefs.show_system_state_message then
+    show.system_state_message = miax_options_complextopofmarket_mach_v1_3.prefs.show_system_state_message
     changed = true
   end
-  if show.wide_complex_top_of_market_bid_message ~= miax_options_ctom_mach_v1_1.prefs.show_wide_complex_top_of_market_bid_message then
-    show.wide_complex_top_of_market_bid_message = miax_options_ctom_mach_v1_1.prefs.show_wide_complex_top_of_market_bid_message
+  if show.system_time_message ~= miax_options_complextopofmarket_mach_v1_3.prefs.show_system_time_message then
+    show.system_time_message = miax_options_complextopofmarket_mach_v1_3.prefs.show_system_time_message
     changed = true
   end
-  if show.wide_complex_top_of_market_offer_message ~= miax_options_ctom_mach_v1_1.prefs.show_wide_complex_top_of_market_offer_message then
-    show.wide_complex_top_of_market_offer_message = miax_options_ctom_mach_v1_1.prefs.show_wide_complex_top_of_market_offer_message
+  if show.underlying_trading_status_notification_message ~= miax_options_complextopofmarket_mach_v1_3.prefs.show_underlying_trading_status_notification_message then
+    show.underlying_trading_status_notification_message = miax_options_complextopofmarket_mach_v1_3.prefs.show_underlying_trading_status_notification_message
     changed = true
   end
-  if show.data ~= miax_options_ctom_mach_v1_1.prefs.show_data then
-    show.data = miax_options_ctom_mach_v1_1.prefs.show_data
+  if show.data ~= miax_options_complextopofmarket_mach_v1_3.prefs.show_data then
+    show.data = miax_options_complextopofmarket_mach_v1_3.prefs.show_data
     changed = true
   end
-  if show.payload ~= miax_options_ctom_mach_v1_1.prefs.show_payload then
-    show.payload = miax_options_ctom_mach_v1_1.prefs.show_payload
+  if show.payload ~= miax_options_complextopofmarket_mach_v1_3.prefs.show_payload then
+    show.payload = miax_options_complextopofmarket_mach_v1_3.prefs.show_payload
     changed = true
   end
 
@@ -234,45 +234,45 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Miax Options cTom Mach 1.1
+-- Dissect Miax Options ComplexTopOfMarket Mach 1.3
 -----------------------------------------------------------------------
 
--- Size: Expected Event Time Nano Seconds Part
-size_of.expected_event_time_nano_seconds_part = 4
+-- Size: Expected Event Time Nano Seconds
+size_of.expected_event_time_nano_seconds = 4
 
--- Display: Expected Event Time Nano Seconds Part
-display.expected_event_time_nano_seconds_part = function(value)
-  return "Expected Event Time Nano Seconds Part: "..value
+-- Display: Expected Event Time Nano Seconds
+display.expected_event_time_nano_seconds = function(value)
+  return "Expected Event Time Nano Seconds: "..value
 end
 
--- Dissect: Expected Event Time Nano Seconds Part
-dissect.expected_event_time_nano_seconds_part = function(buffer, offset, packet, parent)
-  local length = size_of.expected_event_time_nano_seconds_part
+-- Dissect: Expected Event Time Nano Seconds
+dissect.expected_event_time_nano_seconds = function(buffer, offset, packet, parent)
+  local length = size_of.expected_event_time_nano_seconds
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.expected_event_time_nano_seconds_part(value, buffer, offset, packet, parent)
+  local display = display.expected_event_time_nano_seconds(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.expected_event_time_nano_seconds_part, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.expected_event_time_nano_seconds, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Seconds Part
-size_of.seconds_part = 4
+-- Size: Expected Event Time Seconds
+size_of.expected_event_time_seconds = 4
 
--- Display: Seconds Part
-display.seconds_part = function(value)
-  return "Seconds Part: "..value
+-- Display: Expected Event Time Seconds
+display.expected_event_time_seconds = function(value)
+  return "Expected Event Time Seconds: "..value
 end
 
--- Dissect: Seconds Part
-dissect.seconds_part = function(buffer, offset, packet, parent)
-  local length = size_of.seconds_part
+-- Dissect: Expected Event Time Seconds
+dissect.expected_event_time_seconds = function(buffer, offset, packet, parent)
+  local length = size_of.expected_event_time_seconds
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.seconds_part(value, buffer, offset, packet, parent)
+  local display = display.expected_event_time_seconds(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.seconds_part, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.expected_event_time_seconds, range, value, display)
 
   return offset + length, value
 end
@@ -299,7 +299,7 @@ dissect.event_reason = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.event_reason(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.event_reason, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.event_reason, range, value, display)
 
   return offset + length, value
 end
@@ -329,7 +329,7 @@ dissect.trading_status = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.trading_status, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.trading_status, range, value, display)
 
   return offset + length, value
 end
@@ -349,7 +349,7 @@ dissect.underlying_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.underlying_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.underlying_symbol, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.underlying_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -369,13 +369,13 @@ dissect.timestamp = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.timestamp, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
 
--- Calculate size of: Underlying Trading Status Message
-size_of.underlying_trading_status_message = function(buffer, offset)
+-- Calculate size of: Underlying Trading Status Notification Message
+size_of.underlying_trading_status_notification_message = function(buffer, offset)
   local index = 0
 
   index = index + size_of.timestamp
@@ -386,20 +386,20 @@ size_of.underlying_trading_status_message = function(buffer, offset)
 
   index = index + size_of.event_reason
 
-  index = index + size_of.seconds_part
+  index = index + size_of.expected_event_time_seconds
 
-  index = index + size_of.expected_event_time_nano_seconds_part
+  index = index + size_of.expected_event_time_nano_seconds
 
   return index
 end
 
--- Display: Underlying Trading Status Message
-display.underlying_trading_status_message = function(buffer, offset, size, packet, parent)
+-- Display: Underlying Trading Status Notification Message
+display.underlying_trading_status_notification_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Underlying Trading Status Message
-dissect.underlying_trading_status_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Underlying Trading Status Notification Message
+dissect.underlying_trading_status_notification_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
@@ -414,26 +414,26 @@ dissect.underlying_trading_status_message_fields = function(buffer, offset, pack
   -- Event Reason: 1 Byte Ascii String Enum with 2 values
   index, event_reason = dissect.event_reason(buffer, index, packet, parent)
 
-  -- Seconds Part: 4 Byte Unsigned Fixed Width Integer
-  index, seconds_part = dissect.seconds_part(buffer, index, packet, parent)
+  -- Expected Event Time Seconds: 4 Byte Unsigned Fixed Width Integer
+  index, expected_event_time_seconds = dissect.expected_event_time_seconds(buffer, index, packet, parent)
 
-  -- Expected Event Time Nano Seconds Part: 4 Byte Unsigned Fixed Width Integer
-  index, expected_event_time_nano_seconds_part = dissect.expected_event_time_nano_seconds_part(buffer, index, packet, parent)
+  -- Expected Event Time Nano Seconds: 4 Byte Unsigned Fixed Width Integer
+  index, expected_event_time_nano_seconds = dissect.expected_event_time_nano_seconds(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Underlying Trading Status Message
-dissect.underlying_trading_status_message = function(buffer, offset, packet, parent)
+-- Dissect: Underlying Trading Status Notification Message
+dissect.underlying_trading_status_notification_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.underlying_trading_status_message then
-    local length = size_of.underlying_trading_status_message(buffer, offset)
+  if show.underlying_trading_status_notification_message then
+    local length = size_of.underlying_trading_status_notification_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.underlying_trading_status_message(buffer, packet, parent)
-    parent = parent:add(miax_options_ctom_mach_v1_1.fields.underlying_trading_status_message, range, display)
+    local display = display.underlying_trading_status_notification_message(buffer, packet, parent)
+    parent = parent:add(miax_options_complextopofmarket_mach_v1_3.fields.underlying_trading_status_notification_message, range, display)
   end
 
-  return dissect.underlying_trading_status_message_fields(buffer, offset, packet, parent)
+  return dissect.underlying_trading_status_notification_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Reserved 16
@@ -451,7 +451,7 @@ dissect.reserved_16 = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved_16(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.reserved_16, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.reserved_16, range, value, display)
 
   return offset + length, value
 end
@@ -478,7 +478,7 @@ dissect.trade_condition = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trade_condition(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.trade_condition, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.trade_condition, range, value, display)
 
   return offset + length, value
 end
@@ -498,7 +498,7 @@ dissect.trade_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.trade_size(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.trade_size, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.trade_size, range, value, display)
 
   return offset + length, value
 end
@@ -518,7 +518,7 @@ dissect.net_price = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.net_price(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.net_price, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.net_price, range, value, display)
 
   return offset + length, value
 end
@@ -538,7 +538,7 @@ dissect.trade_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.trade_id, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.trade_id, range, value, display)
 
   return offset + length, value
 end
@@ -558,13 +558,13 @@ dissect.strategy_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.strategy_id(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.strategy_id, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.strategy_id, range, value, display)
 
   return offset + length, value
 end
 
--- Calculate size of: Strategy Trade Message
-size_of.strategy_trade_message = function(buffer, offset)
+-- Calculate size of: Strategy Last Sale Message
+size_of.strategy_last_sale_message = function(buffer, offset)
   local index = 0
 
   index = index + size_of.timestamp
@@ -584,13 +584,13 @@ size_of.strategy_trade_message = function(buffer, offset)
   return index
 end
 
--- Display: Strategy Trade Message
-display.strategy_trade_message = function(buffer, offset, size, packet, parent)
+-- Display: Strategy Last Sale Message
+display.strategy_last_sale_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Strategy Trade Message
-dissect.strategy_trade_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Strategy Last Sale Message
+dissect.strategy_last_sale_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
@@ -617,17 +617,17 @@ dissect.strategy_trade_message_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Strategy Trade Message
-dissect.strategy_trade_message = function(buffer, offset, packet, parent)
+-- Dissect: Strategy Last Sale Message
+dissect.strategy_last_sale_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.strategy_trade_message then
-    local length = size_of.strategy_trade_message(buffer, offset)
+  if show.strategy_last_sale_message then
+    local length = size_of.strategy_last_sale_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.strategy_trade_message(buffer, packet, parent)
-    parent = parent:add(miax_options_ctom_mach_v1_1.fields.strategy_trade_message, range, display)
+    local display = display.strategy_last_sale_message(buffer, packet, parent)
+    parent = parent:add(miax_options_complextopofmarket_mach_v1_3.fields.strategy_last_sale_message, range, display)
   end
 
-  return dissect.strategy_trade_message_fields(buffer, offset, packet, parent)
+  return dissect.strategy_last_sale_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Offer Condition
@@ -667,67 +667,67 @@ dissect.offer_condition = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.offer_condition(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.offer_condition, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.offer_condition, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Offer Reserved 4
-size_of.offer_reserved_4 = 4
+-- Size: Offer Priority Customer Size 4
+size_of.offer_priority_customer_size_4 = 4
 
--- Display: Offer Reserved 4
-display.offer_reserved_4 = function(value)
-  return "Offer Reserved 4: "..value
+-- Display: Offer Priority Customer Size 4
+display.offer_priority_customer_size_4 = function(value)
+  return "Offer Priority Customer Size 4: "..value
 end
 
--- Dissect: Offer Reserved 4
-dissect.offer_reserved_4 = function(buffer, offset, packet, parent)
-  local length = size_of.offer_reserved_4
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = display.offer_reserved_4(value, buffer, offset, packet, parent)
-
-  parent:add(miax_options_ctom_mach_v1_1.fields.offer_reserved_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Wide Offer Size
-size_of.wide_offer_size = 4
-
--- Display: Wide Offer Size
-display.wide_offer_size = function(value)
-  return "Wide Offer Size: "..value
-end
-
--- Dissect: Wide Offer Size
-dissect.wide_offer_size = function(buffer, offset, packet, parent)
-  local length = size_of.wide_offer_size
+-- Dissect: Offer Priority Customer Size 4
+dissect.offer_priority_customer_size_4 = function(buffer, offset, packet, parent)
+  local length = size_of.offer_priority_customer_size_4
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.wide_offer_size(value, buffer, offset, packet, parent)
+  local display = display.offer_priority_customer_size_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.wide_offer_size, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.offer_priority_customer_size_4, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Wide Offer Price
-size_of.wide_offer_price = 8
+-- Size: Offer Size 4
+size_of.offer_size_4 = 4
 
--- Display: Wide Offer Price
-display.wide_offer_price = function(value)
-  return "Wide Offer Price: "..value
+-- Display: Offer Size 4
+display.offer_size_4 = function(value)
+  return "Offer Size 4: "..value
 end
 
--- Dissect: Wide Offer Price
-dissect.wide_offer_price = function(buffer, offset, packet, parent)
-  local length = size_of.wide_offer_price
+-- Dissect: Offer Size 4
+dissect.offer_size_4 = function(buffer, offset, packet, parent)
+  local length = size_of.offer_size_4
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.offer_size_4(value, buffer, offset, packet, parent)
+
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.offer_size_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Offer Price 8
+size_of.offer_price_8 = 8
+
+-- Display: Offer Price 8
+display.offer_price_8 = function(value)
+  return "Offer Price 8: "..value
+end
+
+-- Dissect: Offer Price 8
+dissect.offer_price_8 = function(buffer, offset, packet, parent)
+  local length = size_of.offer_price_8
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.wide_offer_price(value, buffer, offset, packet, parent)
+  local display = display.offer_price_8(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.wide_offer_price, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.offer_price_8, range, value, display)
 
   return offset + length, value
 end
@@ -769,105 +769,105 @@ dissect.bid_condition = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.bid_condition(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.bid_condition, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.bid_condition, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Bid Reserved 4
-size_of.bid_reserved_4 = 4
+-- Size: Bid Priority Customer Size 4
+size_of.bid_priority_customer_size_4 = 4
 
--- Display: Bid Reserved 4
-display.bid_reserved_4 = function(value)
-  return "Bid Reserved 4: "..value
+-- Display: Bid Priority Customer Size 4
+display.bid_priority_customer_size_4 = function(value)
+  return "Bid Priority Customer Size 4: "..value
 end
 
--- Dissect: Bid Reserved 4
-dissect.bid_reserved_4 = function(buffer, offset, packet, parent)
-  local length = size_of.bid_reserved_4
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = display.bid_reserved_4(value, buffer, offset, packet, parent)
-
-  parent:add(miax_options_ctom_mach_v1_1.fields.bid_reserved_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Wide Bid Size
-size_of.wide_bid_size = 4
-
--- Display: Wide Bid Size
-display.wide_bid_size = function(value)
-  return "Wide Bid Size: "..value
-end
-
--- Dissect: Wide Bid Size
-dissect.wide_bid_size = function(buffer, offset, packet, parent)
-  local length = size_of.wide_bid_size
+-- Dissect: Bid Priority Customer Size 4
+dissect.bid_priority_customer_size_4 = function(buffer, offset, packet, parent)
+  local length = size_of.bid_priority_customer_size_4
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.wide_bid_size(value, buffer, offset, packet, parent)
+  local display = display.bid_priority_customer_size_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.wide_bid_size, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.bid_priority_customer_size_4, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Wide Bid Price
-size_of.wide_bid_price = 8
+-- Size: Bid Size 4
+size_of.bid_size_4 = 4
 
--- Display: Wide Bid Price
-display.wide_bid_price = function(value)
-  return "Wide Bid Price: "..value
+-- Display: Bid Size 4
+display.bid_size_4 = function(value)
+  return "Bid Size 4: "..value
 end
 
--- Dissect: Wide Bid Price
-dissect.wide_bid_price = function(buffer, offset, packet, parent)
-  local length = size_of.wide_bid_price
+-- Dissect: Bid Size 4
+dissect.bid_size_4 = function(buffer, offset, packet, parent)
+  local length = size_of.bid_size_4
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.bid_size_4(value, buffer, offset, packet, parent)
+
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.bid_size_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Bid Price 8
+size_of.bid_price_8 = 8
+
+-- Display: Bid Price 8
+display.bid_price_8 = function(value)
+  return "Bid Price 8: "..value
+end
+
+-- Dissect: Bid Price 8
+dissect.bid_price_8 = function(buffer, offset, packet, parent)
+  local length = size_of.bid_price_8
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.wide_bid_price(value, buffer, offset, packet, parent)
+  local display = display.bid_price_8(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.wide_bid_price, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.bid_price_8, range, value, display)
 
   return offset + length, value
 end
 
--- Calculate size of: Wide Complex Double Sided Top Of Market Message
-size_of.wide_complex_double_sided_top_of_market_message = function(buffer, offset)
+-- Calculate size of: Complex Double Sided Top Of Market Wide Message
+size_of.complex_double_sided_top_of_market_wide_message = function(buffer, offset)
   local index = 0
 
   index = index + size_of.timestamp
 
   index = index + size_of.strategy_id
 
-  index = index + size_of.wide_bid_price
+  index = index + size_of.bid_price_8
 
-  index = index + size_of.wide_bid_size
+  index = index + size_of.bid_size_4
 
-  index = index + size_of.bid_reserved_4
+  index = index + size_of.bid_priority_customer_size_4
 
   index = index + size_of.bid_condition
 
-  index = index + size_of.wide_offer_price
+  index = index + size_of.offer_price_8
 
-  index = index + size_of.wide_offer_size
+  index = index + size_of.offer_size_4
 
-  index = index + size_of.offer_reserved_4
+  index = index + size_of.offer_priority_customer_size_4
 
   index = index + size_of.offer_condition
 
   return index
 end
 
--- Display: Wide Complex Double Sided Top Of Market Message
-display.wide_complex_double_sided_top_of_market_message = function(buffer, offset, size, packet, parent)
+-- Display: Complex Double Sided Top Of Market Wide Message
+display.complex_double_sided_top_of_market_wide_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Wide Complex Double Sided Top Of Market Message
-dissect.wide_complex_double_sided_top_of_market_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Complex Double Sided Top Of Market Wide Message
+dissect.complex_double_sided_top_of_market_wide_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
@@ -876,26 +876,26 @@ dissect.wide_complex_double_sided_top_of_market_message_fields = function(buffer
   -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
   index, strategy_id = dissect.strategy_id(buffer, index, packet, parent)
 
-  -- Wide Bid Price: 8 Byte Signed Fixed Width Integer
-  index, wide_bid_price = dissect.wide_bid_price(buffer, index, packet, parent)
+  -- Bid Price 8: 8 Byte Signed Fixed Width Integer
+  index, bid_price_8 = dissect.bid_price_8(buffer, index, packet, parent)
 
-  -- Wide Bid Size: 4 Byte Unsigned Fixed Width Integer
-  index, wide_bid_size = dissect.wide_bid_size(buffer, index, packet, parent)
+  -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
+  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
 
-  -- Bid Reserved 4: 4 Byte
-  index, bid_reserved_4 = dissect.bid_reserved_4(buffer, index, packet, parent)
+  -- Bid Priority Customer Size 4: 4 Byte Unsigned Fixed Width Integer
+  index, bid_priority_customer_size_4 = dissect.bid_priority_customer_size_4(buffer, index, packet, parent)
 
   -- Bid Condition: 1 Byte Ascii String Enum with 7 values
   index, bid_condition = dissect.bid_condition(buffer, index, packet, parent)
 
-  -- Wide Offer Price: 8 Byte Signed Fixed Width Integer
-  index, wide_offer_price = dissect.wide_offer_price(buffer, index, packet, parent)
+  -- Offer Price 8: 8 Byte Signed Fixed Width Integer
+  index, offer_price_8 = dissect.offer_price_8(buffer, index, packet, parent)
 
-  -- Wide Offer Size: 4 Byte Unsigned Fixed Width Integer
-  index, wide_offer_size = dissect.wide_offer_size(buffer, index, packet, parent)
+  -- Offer Size 4: 4 Byte Unsigned Fixed Width Integer
+  index, offer_size_4 = dissect.offer_size_4(buffer, index, packet, parent)
 
-  -- Offer Reserved 4: 4 Byte
-  index, offer_reserved_4 = dissect.offer_reserved_4(buffer, index, packet, parent)
+  -- Offer Priority Customer Size 4: 4 Byte Unsigned Fixed Width Integer
+  index, offer_priority_customer_size_4 = dissect.offer_priority_customer_size_4(buffer, index, packet, parent)
 
   -- Offer Condition: 1 Byte Ascii String Enum with 7 values
   index, offer_condition = dissect.offer_condition(buffer, index, packet, parent)
@@ -903,135 +903,135 @@ dissect.wide_complex_double_sided_top_of_market_message_fields = function(buffer
   return index
 end
 
--- Dissect: Wide Complex Double Sided Top Of Market Message
-dissect.wide_complex_double_sided_top_of_market_message = function(buffer, offset, packet, parent)
+-- Dissect: Complex Double Sided Top Of Market Wide Message
+dissect.complex_double_sided_top_of_market_wide_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.wide_complex_double_sided_top_of_market_message then
-    local length = size_of.wide_complex_double_sided_top_of_market_message(buffer, offset)
+  if show.complex_double_sided_top_of_market_wide_message then
+    local length = size_of.complex_double_sided_top_of_market_wide_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.wide_complex_double_sided_top_of_market_message(buffer, packet, parent)
-    parent = parent:add(miax_options_ctom_mach_v1_1.fields.wide_complex_double_sided_top_of_market_message, range, display)
+    local display = display.complex_double_sided_top_of_market_wide_message(buffer, packet, parent)
+    parent = parent:add(miax_options_complextopofmarket_mach_v1_3.fields.complex_double_sided_top_of_market_wide_message, range, display)
   end
 
-  return dissect.wide_complex_double_sided_top_of_market_message_fields(buffer, offset, packet, parent)
+  return dissect.complex_double_sided_top_of_market_wide_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Offer Reserved 2
-size_of.offer_reserved_2 = 2
+-- Size: Offer Priority Customer Size 2
+size_of.offer_priority_customer_size_2 = 2
 
--- Display: Offer Reserved 2
-display.offer_reserved_2 = function(value)
-  return "Offer Reserved 2: "..value
+-- Display: Offer Priority Customer Size 2
+display.offer_priority_customer_size_2 = function(value)
+  return "Offer Priority Customer Size 2: "..value
 end
 
--- Dissect: Offer Reserved 2
-dissect.offer_reserved_2 = function(buffer, offset, packet, parent)
-  local length = size_of.offer_reserved_2
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = display.offer_reserved_2(value, buffer, offset, packet, parent)
-
-  parent:add(miax_options_ctom_mach_v1_1.fields.offer_reserved_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Compact Offer Size
-size_of.compact_offer_size = 2
-
--- Display: Compact Offer Size
-display.compact_offer_size = function(value)
-  return "Compact Offer Size: "..value
-end
-
--- Dissect: Compact Offer Size
-dissect.compact_offer_size = function(buffer, offset, packet, parent)
-  local length = size_of.compact_offer_size
+-- Dissect: Offer Priority Customer Size 2
+dissect.offer_priority_customer_size_2 = function(buffer, offset, packet, parent)
+  local length = size_of.offer_priority_customer_size_2
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.compact_offer_size(value, buffer, offset, packet, parent)
+  local display = display.offer_priority_customer_size_2(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.compact_offer_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Compact Offer Price
-size_of.compact_offer_price = 2
-
--- Display: Compact Offer Price
-display.compact_offer_price = function(value)
-  return "Compact Offer Price: "..value
-end
-
--- Dissect: Compact Offer Price
-dissect.compact_offer_price = function(buffer, offset, packet, parent)
-  local length = size_of.compact_offer_price
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.compact_offer_price(value, buffer, offset, packet, parent)
-
-  parent:add(miax_options_ctom_mach_v1_1.fields.compact_offer_price, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.offer_priority_customer_size_2, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Bid Reserved 2
-size_of.bid_reserved_2 = 2
+-- Size: Offer Size 2
+size_of.offer_size_2 = 2
 
--- Display: Bid Reserved 2
-display.bid_reserved_2 = function(value)
-  return "Bid Reserved 2: "..value
+-- Display: Offer Size 2
+display.offer_size_2 = function(value)
+  return "Offer Size 2: "..value
 end
 
--- Dissect: Bid Reserved 2
-dissect.bid_reserved_2 = function(buffer, offset, packet, parent)
-  local length = size_of.bid_reserved_2
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = display.bid_reserved_2(value, buffer, offset, packet, parent)
-
-  parent:add(miax_options_ctom_mach_v1_1.fields.bid_reserved_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Compact Bid Size
-size_of.compact_bid_size = 2
-
--- Display: Compact Bid Size
-display.compact_bid_size = function(value)
-  return "Compact Bid Size: "..value
-end
-
--- Dissect: Compact Bid Size
-dissect.compact_bid_size = function(buffer, offset, packet, parent)
-  local length = size_of.compact_bid_size
+-- Dissect: Offer Size 2
+dissect.offer_size_2 = function(buffer, offset, packet, parent)
+  local length = size_of.offer_size_2
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.compact_bid_size(value, buffer, offset, packet, parent)
+  local display = display.offer_size_2(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.compact_bid_size, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.offer_size_2, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Compact Bid Price
-size_of.compact_bid_price = 2
+-- Size: Offer Price 2
+size_of.offer_price_2 = 2
 
--- Display: Compact Bid Price
-display.compact_bid_price = function(value)
-  return "Compact Bid Price: "..value
+-- Display: Offer Price 2
+display.offer_price_2 = function(value)
+  return "Offer Price 2: "..value
 end
 
--- Dissect: Compact Bid Price
-dissect.compact_bid_price = function(buffer, offset, packet, parent)
-  local length = size_of.compact_bid_price
+-- Dissect: Offer Price 2
+dissect.offer_price_2 = function(buffer, offset, packet, parent)
+  local length = size_of.offer_price_2
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = display.compact_bid_price(value, buffer, offset, packet, parent)
+  local display = display.offer_price_2(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.compact_bid_price, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.offer_price_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Bid Priority Customer Size 2
+size_of.bid_priority_customer_size_2 = 2
+
+-- Display: Bid Priority Customer Size 2
+display.bid_priority_customer_size_2 = function(value)
+  return "Bid Priority Customer Size 2: "..value
+end
+
+-- Dissect: Bid Priority Customer Size 2
+dissect.bid_priority_customer_size_2 = function(buffer, offset, packet, parent)
+  local length = size_of.bid_priority_customer_size_2
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.bid_priority_customer_size_2(value, buffer, offset, packet, parent)
+
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.bid_priority_customer_size_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Bid Size 2
+size_of.bid_size_2 = 2
+
+-- Display: Bid Size 2
+display.bid_size_2 = function(value)
+  return "Bid Size 2: "..value
+end
+
+-- Dissect: Bid Size 2
+dissect.bid_size_2 = function(buffer, offset, packet, parent)
+  local length = size_of.bid_size_2
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.bid_size_2(value, buffer, offset, packet, parent)
+
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.bid_size_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Bid Price 2
+size_of.bid_price_2 = 2
+
+-- Display: Bid Price 2
+display.bid_price_2 = function(value)
+  return "Bid Price 2: "..value
+end
+
+-- Dissect: Bid Price 2
+dissect.bid_price_2 = function(buffer, offset, packet, parent)
+  local length = size_of.bid_price_2
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = display.bid_price_2(value, buffer, offset, packet, parent)
+
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.bid_price_2, range, value, display)
 
   return offset + length, value
 end
@@ -1044,19 +1044,19 @@ size_of.complex_double_sided_top_of_market_compact_message = function(buffer, of
 
   index = index + size_of.strategy_id
 
-  index = index + size_of.compact_bid_price
+  index = index + size_of.bid_price_2
 
-  index = index + size_of.compact_bid_size
+  index = index + size_of.bid_size_2
 
-  index = index + size_of.bid_reserved_2
+  index = index + size_of.bid_priority_customer_size_2
 
   index = index + size_of.bid_condition
 
-  index = index + size_of.compact_offer_price
+  index = index + size_of.offer_price_2
 
-  index = index + size_of.compact_offer_size
+  index = index + size_of.offer_size_2
 
-  index = index + size_of.offer_reserved_2
+  index = index + size_of.offer_priority_customer_size_2
 
   index = index + size_of.offer_condition
 
@@ -1078,26 +1078,26 @@ dissect.complex_double_sided_top_of_market_compact_message_fields = function(buf
   -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
   index, strategy_id = dissect.strategy_id(buffer, index, packet, parent)
 
-  -- Compact Bid Price: 2 Byte Signed Fixed Width Integer
-  index, compact_bid_price = dissect.compact_bid_price(buffer, index, packet, parent)
+  -- Bid Price 2: 2 Byte Signed Fixed Width Integer
+  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
 
-  -- Compact Bid Size: 2 Byte Unsigned Fixed Width Integer
-  index, compact_bid_size = dissect.compact_bid_size(buffer, index, packet, parent)
+  -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
+  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
 
-  -- Bid Reserved 2: 2 Byte
-  index, bid_reserved_2 = dissect.bid_reserved_2(buffer, index, packet, parent)
+  -- Bid Priority Customer Size 2: 2 Byte Unsigned Fixed Width Integer
+  index, bid_priority_customer_size_2 = dissect.bid_priority_customer_size_2(buffer, index, packet, parent)
 
   -- Bid Condition: 1 Byte Ascii String Enum with 7 values
   index, bid_condition = dissect.bid_condition(buffer, index, packet, parent)
 
-  -- Compact Offer Price: 2 Byte Signed Fixed Width Integer
-  index, compact_offer_price = dissect.compact_offer_price(buffer, index, packet, parent)
+  -- Offer Price 2: 2 Byte Signed Fixed Width Integer
+  index, offer_price_2 = dissect.offer_price_2(buffer, index, packet, parent)
 
-  -- Compact Offer Size: 2 Byte Unsigned Fixed Width Integer
-  index, compact_offer_size = dissect.compact_offer_size(buffer, index, packet, parent)
+  -- Offer Size 2: 2 Byte Unsigned Fixed Width Integer
+  index, offer_size_2 = dissect.offer_size_2(buffer, index, packet, parent)
 
-  -- Offer Reserved 2: 2 Byte
-  index, offer_reserved_2 = dissect.offer_reserved_2(buffer, index, packet, parent)
+  -- Offer Priority Customer Size 2: 2 Byte Unsigned Fixed Width Integer
+  index, offer_priority_customer_size_2 = dissect.offer_priority_customer_size_2(buffer, index, packet, parent)
 
   -- Offer Condition: 1 Byte Ascii String Enum with 7 values
   index, offer_condition = dissect.offer_condition(buffer, index, packet, parent)
@@ -1112,7 +1112,7 @@ dissect.complex_double_sided_top_of_market_compact_message = function(buffer, of
     local length = size_of.complex_double_sided_top_of_market_compact_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.complex_double_sided_top_of_market_compact_message(buffer, packet, parent)
-    parent = parent:add(miax_options_ctom_mach_v1_1.fields.complex_double_sided_top_of_market_compact_message, range, display)
+    parent = parent:add(miax_options_complextopofmarket_mach_v1_3.fields.complex_double_sided_top_of_market_compact_message, range, display)
   end
 
   return dissect.complex_double_sided_top_of_market_compact_message_fields(buffer, offset, packet, parent)
@@ -1123,14 +1123,26 @@ size_of.top_of_market_quote_condition = 1
 
 -- Display: Top Of Market Quote Condition
 display.top_of_market_quote_condition = function(value)
-  if value == "H" then
-    return "Top Of Market Quote Condition: Halted (H)"
+  if value == "A" then
+    return "Top Of Market Quote Condition: Regular (A)"
   end
-  if value == "R" then
-    return "Top Of Market Quote Condition: Resumed (R)"
+  if value == "T" then
+    return "Top Of Market Quote Condition: Trading Halt (T)"
   end
-  if value == "O" then
-    return "Top Of Market Quote Condition: Opened (O)"
+  if value == "W" then
+    return "Top Of Market Quote Condition: Wide (W)"
+  end
+  if value == "S" then
+    return "Top Of Market Quote Condition: Simple Auction (S)"
+  end
+  if value == "C" then
+    return "Top Of Market Quote Condition: Complex Auction (C)"
+  end
+  if value == "M" then
+    return "Top Of Market Quote Condition: Simple Market Protection (M)"
+  end
+  if value == "L" then
+    return "Top Of Market Quote Condition: Leg Market Protection (L)"
   end
 
   return "Top Of Market Quote Condition: Unknown("..value..")"
@@ -1143,97 +1155,97 @@ dissect.top_of_market_quote_condition = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.top_of_market_quote_condition(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.top_of_market_quote_condition, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.top_of_market_quote_condition, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Reserved 4
-size_of.reserved_4 = 4
+-- Size: Priority Customer Size 4
+size_of.priority_customer_size_4 = 4
 
--- Display: Reserved 4
-display.reserved_4 = function(value)
-  return "Reserved 4: "..value
+-- Display: Priority Customer Size 4
+display.priority_customer_size_4 = function(value)
+  return "Priority Customer Size 4: "..value
 end
 
--- Dissect: Reserved 4
-dissect.reserved_4 = function(buffer, offset, packet, parent)
-  local length = size_of.reserved_4
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = display.reserved_4(value, buffer, offset, packet, parent)
-
-  parent:add(miax_options_ctom_mach_v1_1.fields.reserved_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Wide Size
-size_of.wide_size = 4
-
--- Display: Wide Size
-display.wide_size = function(value)
-  return "Wide Size: "..value
-end
-
--- Dissect: Wide Size
-dissect.wide_size = function(buffer, offset, packet, parent)
-  local length = size_of.wide_size
+-- Dissect: Priority Customer Size 4
+dissect.priority_customer_size_4 = function(buffer, offset, packet, parent)
+  local length = size_of.priority_customer_size_4
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.wide_size(value, buffer, offset, packet, parent)
+  local display = display.priority_customer_size_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.wide_size, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.priority_customer_size_4, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Wide Price
-size_of.wide_price = 8
+-- Size: Size 4
+size_of.size_4 = 4
 
--- Display: Wide Price
-display.wide_price = function(value)
-  return "Wide Price: "..value
+-- Display: Size 4
+display.size_4 = function(value)
+  return "Size 4: "..value
 end
 
--- Dissect: Wide Price
-dissect.wide_price = function(buffer, offset, packet, parent)
-  local length = size_of.wide_price
+-- Dissect: Size 4
+dissect.size_4 = function(buffer, offset, packet, parent)
+  local length = size_of.size_4
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.size_4(value, buffer, offset, packet, parent)
+
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.size_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Price 8
+size_of.price_8 = 8
+
+-- Display: Price 8
+display.price_8 = function(value)
+  return "Price 8: "..value
+end
+
+-- Dissect: Price 8
+dissect.price_8 = function(buffer, offset, packet, parent)
+  local length = size_of.price_8
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.wide_price(value, buffer, offset, packet, parent)
+  local display = display.price_8(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.wide_price, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.price_8, range, value, display)
 
   return offset + length, value
 end
 
--- Calculate size of: Wide Complex Top Of Market Offer Message
-size_of.wide_complex_top_of_market_offer_message = function(buffer, offset)
+-- Calculate size of: Complex Top Of Market Offer Wide Message
+size_of.complex_top_of_market_offer_wide_message = function(buffer, offset)
   local index = 0
 
   index = index + size_of.timestamp
 
   index = index + size_of.strategy_id
 
-  index = index + size_of.wide_price
+  index = index + size_of.price_8
 
-  index = index + size_of.wide_size
+  index = index + size_of.size_4
 
-  index = index + size_of.reserved_4
+  index = index + size_of.priority_customer_size_4
 
   index = index + size_of.top_of_market_quote_condition
 
   return index
 end
 
--- Display: Wide Complex Top Of Market Offer Message
-display.wide_complex_top_of_market_offer_message = function(buffer, offset, size, packet, parent)
+-- Display: Complex Top Of Market Offer Wide Message
+display.complex_top_of_market_offer_wide_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Wide Complex Top Of Market Offer Message
-dissect.wide_complex_top_of_market_offer_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Complex Top Of Market Offer Wide Message
+dissect.complex_top_of_market_offer_wide_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
@@ -1242,60 +1254,60 @@ dissect.wide_complex_top_of_market_offer_message_fields = function(buffer, offse
   -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
   index, strategy_id = dissect.strategy_id(buffer, index, packet, parent)
 
-  -- Wide Price: 8 Byte Signed Fixed Width Integer
-  index, wide_price = dissect.wide_price(buffer, index, packet, parent)
+  -- Price 8: 8 Byte Signed Fixed Width Integer
+  index, price_8 = dissect.price_8(buffer, index, packet, parent)
 
-  -- Wide Size: 4 Byte Unsigned Fixed Width Integer
-  index, wide_size = dissect.wide_size(buffer, index, packet, parent)
+  -- Size 4: 4 Byte Unsigned Fixed Width Integer
+  index, size_4 = dissect.size_4(buffer, index, packet, parent)
 
-  -- Reserved 4: 4 Byte
-  index, reserved_4 = dissect.reserved_4(buffer, index, packet, parent)
+  -- Priority Customer Size 4: 4 Byte Unsigned Fixed Width Integer
+  index, priority_customer_size_4 = dissect.priority_customer_size_4(buffer, index, packet, parent)
 
-  -- Top Of Market Quote Condition: 1 Byte Ascii String Enum with 3 values
+  -- Top Of Market Quote Condition: 1 Byte Ascii String Enum with 7 values
   index, top_of_market_quote_condition = dissect.top_of_market_quote_condition(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Wide Complex Top Of Market Offer Message
-dissect.wide_complex_top_of_market_offer_message = function(buffer, offset, packet, parent)
+-- Dissect: Complex Top Of Market Offer Wide Message
+dissect.complex_top_of_market_offer_wide_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.wide_complex_top_of_market_offer_message then
-    local length = size_of.wide_complex_top_of_market_offer_message(buffer, offset)
+  if show.complex_top_of_market_offer_wide_message then
+    local length = size_of.complex_top_of_market_offer_wide_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.wide_complex_top_of_market_offer_message(buffer, packet, parent)
-    parent = parent:add(miax_options_ctom_mach_v1_1.fields.wide_complex_top_of_market_offer_message, range, display)
+    local display = display.complex_top_of_market_offer_wide_message(buffer, packet, parent)
+    parent = parent:add(miax_options_complextopofmarket_mach_v1_3.fields.complex_top_of_market_offer_wide_message, range, display)
   end
 
-  return dissect.wide_complex_top_of_market_offer_message_fields(buffer, offset, packet, parent)
+  return dissect.complex_top_of_market_offer_wide_message_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Wide Complex Top Of Market Bid Message
-size_of.wide_complex_top_of_market_bid_message = function(buffer, offset)
+-- Calculate size of: Complex Top Of Market Bid Wide Message
+size_of.complex_top_of_market_bid_wide_message = function(buffer, offset)
   local index = 0
 
   index = index + size_of.timestamp
 
   index = index + size_of.strategy_id
 
-  index = index + size_of.wide_price
+  index = index + size_of.price_8
 
-  index = index + size_of.wide_size
+  index = index + size_of.size_4
 
-  index = index + size_of.reserved_4
+  index = index + size_of.priority_customer_size_4
 
   index = index + size_of.top_of_market_quote_condition
 
   return index
 end
 
--- Display: Wide Complex Top Of Market Bid Message
-display.wide_complex_top_of_market_bid_message = function(buffer, offset, size, packet, parent)
+-- Display: Complex Top Of Market Bid Wide Message
+display.complex_top_of_market_bid_wide_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Wide Complex Top Of Market Bid Message
-dissect.wide_complex_top_of_market_bid_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Complex Top Of Market Bid Wide Message
+dissect.complex_top_of_market_bid_wide_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
@@ -1304,90 +1316,90 @@ dissect.wide_complex_top_of_market_bid_message_fields = function(buffer, offset,
   -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
   index, strategy_id = dissect.strategy_id(buffer, index, packet, parent)
 
-  -- Wide Price: 8 Byte Signed Fixed Width Integer
-  index, wide_price = dissect.wide_price(buffer, index, packet, parent)
+  -- Price 8: 8 Byte Signed Fixed Width Integer
+  index, price_8 = dissect.price_8(buffer, index, packet, parent)
 
-  -- Wide Size: 4 Byte Unsigned Fixed Width Integer
-  index, wide_size = dissect.wide_size(buffer, index, packet, parent)
+  -- Size 4: 4 Byte Unsigned Fixed Width Integer
+  index, size_4 = dissect.size_4(buffer, index, packet, parent)
 
-  -- Reserved 4: 4 Byte
-  index, reserved_4 = dissect.reserved_4(buffer, index, packet, parent)
+  -- Priority Customer Size 4: 4 Byte Unsigned Fixed Width Integer
+  index, priority_customer_size_4 = dissect.priority_customer_size_4(buffer, index, packet, parent)
 
-  -- Top Of Market Quote Condition: 1 Byte Ascii String Enum with 3 values
+  -- Top Of Market Quote Condition: 1 Byte Ascii String Enum with 7 values
   index, top_of_market_quote_condition = dissect.top_of_market_quote_condition(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Wide Complex Top Of Market Bid Message
-dissect.wide_complex_top_of_market_bid_message = function(buffer, offset, packet, parent)
+-- Dissect: Complex Top Of Market Bid Wide Message
+dissect.complex_top_of_market_bid_wide_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.wide_complex_top_of_market_bid_message then
-    local length = size_of.wide_complex_top_of_market_bid_message(buffer, offset)
+  if show.complex_top_of_market_bid_wide_message then
+    local length = size_of.complex_top_of_market_bid_wide_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.wide_complex_top_of_market_bid_message(buffer, packet, parent)
-    parent = parent:add(miax_options_ctom_mach_v1_1.fields.wide_complex_top_of_market_bid_message, range, display)
+    local display = display.complex_top_of_market_bid_wide_message(buffer, packet, parent)
+    parent = parent:add(miax_options_complextopofmarket_mach_v1_3.fields.complex_top_of_market_bid_wide_message, range, display)
   end
 
-  return dissect.wide_complex_top_of_market_bid_message_fields(buffer, offset, packet, parent)
+  return dissect.complex_top_of_market_bid_wide_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Reserved 2
-size_of.reserved_2 = 2
+-- Size: Priority Customer Size 2
+size_of.priority_customer_size_2 = 2
 
--- Display: Reserved 2
-display.reserved_2 = function(value)
-  return "Reserved 2: "..value
+-- Display: Priority Customer Size 2
+display.priority_customer_size_2 = function(value)
+  return "Priority Customer Size 2: "..value
 end
 
--- Dissect: Reserved 2
-dissect.reserved_2 = function(buffer, offset, packet, parent)
-  local length = size_of.reserved_2
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = display.reserved_2(value, buffer, offset, packet, parent)
-
-  parent:add(miax_options_ctom_mach_v1_1.fields.reserved_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Compact Size
-size_of.compact_size = 2
-
--- Display: Compact Size
-display.compact_size = function(value)
-  return "Compact Size: "..value
-end
-
--- Dissect: Compact Size
-dissect.compact_size = function(buffer, offset, packet, parent)
-  local length = size_of.compact_size
+-- Dissect: Priority Customer Size 2
+dissect.priority_customer_size_2 = function(buffer, offset, packet, parent)
+  local length = size_of.priority_customer_size_2
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.compact_size(value, buffer, offset, packet, parent)
+  local display = display.priority_customer_size_2(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.compact_size, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.priority_customer_size_2, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Compact Price
-size_of.compact_price = 2
+-- Size: Size 2
+size_of.size_2 = 2
 
--- Display: Compact Price
-display.compact_price = function(value)
-  return "Compact Price: "..value
+-- Display: Size 2
+display.size_2 = function(value)
+  return "Size 2: "..value
 end
 
--- Dissect: Compact Price
-dissect.compact_price = function(buffer, offset, packet, parent)
-  local length = size_of.compact_price
+-- Dissect: Size 2
+dissect.size_2 = function(buffer, offset, packet, parent)
+  local length = size_of.size_2
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.size_2(value, buffer, offset, packet, parent)
+
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.size_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Price 2
+size_of.price_2 = 2
+
+-- Display: Price 2
+display.price_2 = function(value)
+  return "Price 2: "..value
+end
+
+-- Dissect: Price 2
+dissect.price_2 = function(buffer, offset, packet, parent)
+  local length = size_of.price_2
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = display.compact_price(value, buffer, offset, packet, parent)
+  local display = display.price_2(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.compact_price, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.price_2, range, value, display)
 
   return offset + length, value
 end
@@ -1400,11 +1412,11 @@ size_of.complex_top_of_market_offer_compact_message = function(buffer, offset)
 
   index = index + size_of.strategy_id
 
-  index = index + size_of.compact_price
+  index = index + size_of.price_2
 
-  index = index + size_of.compact_size
+  index = index + size_of.size_2
 
-  index = index + size_of.reserved_2
+  index = index + size_of.priority_customer_size_2
 
   index = index + size_of.top_of_market_quote_condition
 
@@ -1426,16 +1438,16 @@ dissect.complex_top_of_market_offer_compact_message_fields = function(buffer, of
   -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
   index, strategy_id = dissect.strategy_id(buffer, index, packet, parent)
 
-  -- Compact Price: 2 Byte Signed Fixed Width Integer
-  index, compact_price = dissect.compact_price(buffer, index, packet, parent)
+  -- Price 2: 2 Byte Signed Fixed Width Integer
+  index, price_2 = dissect.price_2(buffer, index, packet, parent)
 
-  -- Compact Size: 2 Byte Unsigned Fixed Width Integer
-  index, compact_size = dissect.compact_size(buffer, index, packet, parent)
+  -- Size 2: 2 Byte Unsigned Fixed Width Integer
+  index, size_2 = dissect.size_2(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
-  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
+  -- Priority Customer Size 2: 2 Byte Unsigned Fixed Width Integer
+  index, priority_customer_size_2 = dissect.priority_customer_size_2(buffer, index, packet, parent)
 
-  -- Top Of Market Quote Condition: 1 Byte Ascii String Enum with 3 values
+  -- Top Of Market Quote Condition: 1 Byte Ascii String Enum with 7 values
   index, top_of_market_quote_condition = dissect.top_of_market_quote_condition(buffer, index, packet, parent)
 
   return index
@@ -1448,7 +1460,7 @@ dissect.complex_top_of_market_offer_compact_message = function(buffer, offset, p
     local length = size_of.complex_top_of_market_offer_compact_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.complex_top_of_market_offer_compact_message(buffer, packet, parent)
-    parent = parent:add(miax_options_ctom_mach_v1_1.fields.complex_top_of_market_offer_compact_message, range, display)
+    parent = parent:add(miax_options_complextopofmarket_mach_v1_3.fields.complex_top_of_market_offer_compact_message, range, display)
   end
 
   return dissect.complex_top_of_market_offer_compact_message_fields(buffer, offset, packet, parent)
@@ -1462,11 +1474,11 @@ size_of.complex_top_of_market_bid_compact_message = function(buffer, offset)
 
   index = index + size_of.strategy_id
 
-  index = index + size_of.compact_price
+  index = index + size_of.price_2
 
-  index = index + size_of.compact_size
+  index = index + size_of.size_2
 
-  index = index + size_of.reserved_2
+  index = index + size_of.priority_customer_size_2
 
   index = index + size_of.top_of_market_quote_condition
 
@@ -1488,16 +1500,16 @@ dissect.complex_top_of_market_bid_compact_message_fields = function(buffer, offs
   -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
   index, strategy_id = dissect.strategy_id(buffer, index, packet, parent)
 
-  -- Compact Price: 2 Byte Signed Fixed Width Integer
-  index, compact_price = dissect.compact_price(buffer, index, packet, parent)
+  -- Price 2: 2 Byte Signed Fixed Width Integer
+  index, price_2 = dissect.price_2(buffer, index, packet, parent)
 
-  -- Compact Size: 2 Byte Unsigned Fixed Width Integer
-  index, compact_size = dissect.compact_size(buffer, index, packet, parent)
+  -- Size 2: 2 Byte Unsigned Fixed Width Integer
+  index, size_2 = dissect.size_2(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
-  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
+  -- Priority Customer Size 2: 2 Byte Unsigned Fixed Width Integer
+  index, priority_customer_size_2 = dissect.priority_customer_size_2(buffer, index, packet, parent)
 
-  -- Top Of Market Quote Condition: 1 Byte Ascii String Enum with 3 values
+  -- Top Of Market Quote Condition: 1 Byte Ascii String Enum with 7 values
   index, top_of_market_quote_condition = dissect.top_of_market_quote_condition(buffer, index, packet, parent)
 
   return index
@@ -1510,7 +1522,7 @@ dissect.complex_top_of_market_bid_compact_message = function(buffer, offset, pac
     local length = size_of.complex_top_of_market_bid_compact_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.complex_top_of_market_bid_compact_message(buffer, packet, parent)
-    parent = parent:add(miax_options_ctom_mach_v1_1.fields.complex_top_of_market_bid_compact_message, range, display)
+    parent = parent:add(miax_options_complextopofmarket_mach_v1_3.fields.complex_top_of_market_bid_compact_message, range, display)
   end
 
   return dissect.complex_top_of_market_bid_compact_message_fields(buffer, offset, packet, parent)
@@ -1544,7 +1556,7 @@ dissect.system_status = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.system_status(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.system_status, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.system_status, range, value, display)
 
   return offset + length, value
 end
@@ -1564,7 +1576,7 @@ dissect.session_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.session_id(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.session_id, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.session_id, range, value, display)
 
   return offset + length, value
 end
@@ -1584,7 +1596,7 @@ dissect.version = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.version(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.version, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -1604,7 +1616,7 @@ dissect.notification_time = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.notification_time(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.notification_time, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.notification_time, range, value, display)
 
   return offset + length, value
 end
@@ -1655,7 +1667,7 @@ dissect.system_state_message = function(buffer, offset, packet, parent)
     local length = size_of.system_state_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.system_state_message(buffer, packet, parent)
-    parent = parent:add(miax_options_ctom_mach_v1_1.fields.system_state_message, range, display)
+    parent = parent:add(miax_options_complextopofmarket_mach_v1_3.fields.system_state_message, range, display)
   end
 
   return dissect.system_state_message_fields(buffer, offset, packet, parent)
@@ -1673,10 +1685,10 @@ end
 dissect.reserved_8 = function(buffer, offset, packet, parent)
   local length = size_of.reserved_8
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:le_uint64()
   local display = display.reserved_8(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.reserved_8, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.reserved_8, range, value, display)
 
   return offset + length, value
 end
@@ -1686,10 +1698,10 @@ size_of.leg_side = 1
 
 -- Display: Leg Side
 display.leg_side = function(value)
-  if value == B then
+  if value == "B" then
     return "Leg Side: Bid (B)"
   end
-  if value == A then
+  if value == "A" then
     return "Leg Side: Ask (A)"
   end
 
@@ -1700,10 +1712,10 @@ end
 dissect.leg_side = function(buffer, offset, packet, parent)
   local length = size_of.leg_side
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:string()
   local display = display.leg_side(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.leg_side, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.leg_side, range, value, display)
 
   return offset + length, value
 end
@@ -1723,7 +1735,7 @@ dissect.leg_ratio_qty = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.leg_ratio_qty(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.leg_ratio_qty, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.leg_ratio_qty, range, value, display)
 
   return offset + length, value
 end
@@ -1743,7 +1755,7 @@ dissect.product_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.product_id(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.product_id, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.product_id, range, value, display)
 
   return offset + length, value
 end
@@ -1778,10 +1790,10 @@ dissect.leg_definition_fields = function(buffer, offset, packet, parent)
   -- Leg Ratio Qty: 2 Byte Unsigned Fixed Width Integer
   index, leg_ratio_qty = dissect.leg_ratio_qty(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Leg Side: 1 Byte Ascii String Enum with 2 values
   index, leg_side = dissect.leg_side(buffer, index, packet, parent)
 
-  -- Reserved 8: 8 Byte
+  -- Reserved 8: 8 Byte Unsigned Fixed Width Integer
   index, reserved_8 = dissect.reserved_8(buffer, index, packet, parent)
 
   return index
@@ -1794,7 +1806,7 @@ dissect.leg_definition = function(buffer, offset, packet, parent)
     local length = size_of.leg_definition(buffer, offset)
     local range = buffer(offset, length)
     local display = display.leg_definition(buffer, packet, parent)
-    parent = parent:add(miax_options_ctom_mach_v1_1.fields.leg_definition, range, display)
+    parent = parent:add(miax_options_complextopofmarket_mach_v1_3.fields.leg_definition, range, display)
   end
 
   return dissect.leg_definition_fields(buffer, offset, packet, parent)
@@ -1815,7 +1827,7 @@ dissect.number_of_legs = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.number_of_legs(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.number_of_legs, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.number_of_legs, range, value, display)
 
   return offset + length, value
 end
@@ -1835,7 +1847,7 @@ dissect.reserved_10 = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved_10(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.reserved_10, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.reserved_10, range, value, display)
 
   return offset + length, value
 end
@@ -1862,7 +1874,7 @@ dissect.update_reason = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.update_reason(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.update_reason, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.update_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1882,7 +1894,7 @@ dissect.reserved_1 = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved_1(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.reserved_1, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -1909,7 +1921,7 @@ dissect.active_on_miax = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.active_on_miax(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.active_on_miax, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.active_on_miax, range, value, display)
 
   return offset + length, value
 end
@@ -1929,7 +1941,7 @@ dissect.strategy_add_time = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.strategy_add_time(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.strategy_add_time, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.strategy_add_time, range, value, display)
 
   return offset + length, value
 end
@@ -1954,7 +1966,9 @@ size_of.complex_strategy_definition_message = function(buffer, offset)
 
   index = index + size_of.number_of_legs
 
-  index = index + size_of.leg_definition(buffer, offset + index)
+  -- Calculate field size from count
+  local leg_definition_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + leg_definition_count * 15
 
   return index
 end
@@ -1993,19 +2007,21 @@ dissect.complex_strategy_definition_message_fields = function(buffer, offset, pa
   index, number_of_legs = dissect.number_of_legs(buffer, index, packet, parent)
 
   -- Leg Definition: Struct of 4 fields
-  index, leg_definition = dissect.leg_definition(buffer, index, packet, parent)
+  for i = 1, number_of_legs do
+    index = dissect.leg_definition(buffer, index, packet, parent)
+  end
 
   return index
 end
 
 -- Dissect: Complex Strategy Definition Message
 dissect.complex_strategy_definition_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.complex_strategy_definition_message then
     local length = size_of.complex_strategy_definition_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.complex_strategy_definition_message(buffer, packet, parent)
-    parent = parent:add(miax_options_ctom_mach_v1_1.fields.complex_strategy_definition_message, range, display)
+    parent = parent:add(miax_options_complextopofmarket_mach_v1_3.fields.complex_strategy_definition_message, range, display)
   end
 
   return dissect.complex_strategy_definition_message_fields(buffer, offset, packet, parent)
@@ -2026,7 +2042,7 @@ dissect.priority_quote_width = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.priority_quote_width(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.priority_quote_width, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.priority_quote_width, range, value, display)
 
   return offset + length, value
 end
@@ -2098,7 +2114,7 @@ dissect.opening_underlying_market_code = function(buffer, offset, packet, parent
   local value = range:string()
   local display = display.opening_underlying_market_code(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.opening_underlying_market_code, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.opening_underlying_market_code, range, value, display)
 
   return offset + length, value
 end
@@ -2112,10 +2128,10 @@ display.liquidity_acceptance_increment_indicator = function(value)
     return "Liquidity Acceptance Increment Indicator: Penny (P)"
   end
   if value == "N" then
-    return "Liquidity Acceptance Increment Indicator: Nickel (N)"
+    return "Liquidity Acceptance Increment Indicator: Penny Or Nickel (N)"
   end
   if value == "D" then
-    return "Liquidity Acceptance Increment Indicator: Dime (D)"
+    return "Liquidity Acceptance Increment Indicator: Nickel Or Dime (D)"
   end
 
   return "Liquidity Acceptance Increment Indicator: Unknown("..value..")"
@@ -2128,7 +2144,7 @@ dissect.liquidity_acceptance_increment_indicator = function(buffer, offset, pack
   local value = range:string()
   local display = display.liquidity_acceptance_increment_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.liquidity_acceptance_increment_indicator, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.liquidity_acceptance_increment_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2142,10 +2158,10 @@ display.miax_bbo_posting_increment_indicator = function(value)
     return "Miax Bbo Posting Increment Indicator: Penny (P)"
   end
   if value == "N" then
-    return "Miax Bbo Posting Increment Indicator: Nickel (N)"
+    return "Miax Bbo Posting Increment Indicator: Penny Or Nickel (N)"
   end
   if value == "D" then
-    return "Miax Bbo Posting Increment Indicator: Dime (D)"
+    return "Miax Bbo Posting Increment Indicator: Nickel Or Dime (D)"
   end
 
   return "Miax Bbo Posting Increment Indicator: Unknown("..value..")"
@@ -2158,7 +2174,7 @@ dissect.miax_bbo_posting_increment_indicator = function(buffer, offset, packet, 
   local value = range:string()
   local display = display.miax_bbo_posting_increment_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.miax_bbo_posting_increment_indicator, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.miax_bbo_posting_increment_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2185,7 +2201,7 @@ dissect.long_term_option = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.long_term_option(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.long_term_option, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.long_term_option, range, value, display)
 
   return offset + length, value
 end
@@ -2212,7 +2228,7 @@ dissect.restricted_option = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.restricted_option(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.restricted_option, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.restricted_option, range, value, display)
 
   return offset + length, value
 end
@@ -2232,7 +2248,7 @@ dissect.closing_time = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.closing_time(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.closing_time, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.closing_time, range, value, display)
 
   return offset + length, value
 end
@@ -2252,7 +2268,7 @@ dissect.opening_time = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.opening_time(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.opening_time, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.opening_time, range, value, display)
 
   return offset + length, value
 end
@@ -2279,7 +2295,7 @@ dissect.call_or_put = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.call_or_put(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.call_or_put, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.call_or_put, range, value, display)
 
   return offset + length, value
 end
@@ -2299,7 +2315,7 @@ dissect.strike_price = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.strike_price(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.strike_price, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.strike_price, range, value, display)
 
   return offset + length, value
 end
@@ -2319,7 +2335,7 @@ dissect.expiration_date = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.expiration_date(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.expiration_date, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.expiration_date, range, value, display)
 
   return offset + length, value
 end
@@ -2339,7 +2355,7 @@ dissect.security_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.security_symbol, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.security_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -2359,13 +2375,13 @@ dissect.product_add_update_time = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.product_add_update_time(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.product_add_update_time, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.product_add_update_time, range, value, display)
 
   return offset + length, value
 end
 
--- Calculate size of: Series Update
-size_of.series_update = function(buffer, offset)
+-- Calculate size of: Simple Series Update Message
+size_of.simple_series_update_message = function(buffer, offset)
   local index = 0
 
   index = index + size_of.product_add_update_time
@@ -2405,13 +2421,13 @@ size_of.series_update = function(buffer, offset)
   return index
 end
 
--- Display: Series Update
-display.series_update = function(buffer, offset, size, packet, parent)
+-- Display: Simple Series Update Message
+display.simple_series_update_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Series Update
-dissect.series_update_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Simple Series Update Message
+dissect.simple_series_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Product Add Update Time: 4 Byte Unsigned Fixed Width Integer
@@ -2462,23 +2478,23 @@ dissect.series_update_fields = function(buffer, offset, packet, parent)
   -- Priority Quote Width: 4 Byte Unsigned Fixed Width Integer
   index, priority_quote_width = dissect.priority_quote_width(buffer, index, packet, parent)
 
-  -- Reserved 8: 8 Byte
+  -- Reserved 8: 8 Byte Unsigned Fixed Width Integer
   index, reserved_8 = dissect.reserved_8(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Series Update
-dissect.series_update = function(buffer, offset, packet, parent)
+-- Dissect: Simple Series Update Message
+dissect.simple_series_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.series_update then
-    local length = size_of.series_update(buffer, offset)
+  if show.simple_series_update_message then
+    local length = size_of.simple_series_update_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.series_update(buffer, packet, parent)
-    parent = parent:add(miax_options_ctom_mach_v1_1.fields.series_update, range, display)
+    local display = display.simple_series_update_message(buffer, packet, parent)
+    parent = parent:add(miax_options_complextopofmarket_mach_v1_3.fields.simple_series_update_message, range, display)
   end
 
-  return dissect.series_update_fields(buffer, offset, packet, parent)
+  return dissect.simple_series_update_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: System Time Message
@@ -2512,7 +2528,7 @@ dissect.system_time_message = function(buffer, offset, packet, parent)
     local length = size_of.system_time_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.system_time_message(buffer, packet, parent)
-    parent = parent:add(miax_options_ctom_mach_v1_1.fields.system_time_message, range, display)
+    parent = parent:add(miax_options_complextopofmarket_mach_v1_3.fields.system_time_message, range, display)
   end
 
   return dissect.system_time_message_fields(buffer, offset, packet, parent)
@@ -2524,9 +2540,9 @@ size_of.data = function(buffer, offset, message_type)
   if message_type == "1" then
     return size_of.system_time_message(buffer, offset)
   end
-  -- Size of Series Update
+  -- Size of Simple Series Update Message
   if message_type == "P" then
-    return size_of.series_update(buffer, offset)
+    return size_of.simple_series_update_message(buffer, offset)
   end
   -- Size of Complex Strategy Definition Message
   if message_type == "C" then
@@ -2544,29 +2560,29 @@ size_of.data = function(buffer, offset, message_type)
   if message_type == "o" then
     return size_of.complex_top_of_market_offer_compact_message(buffer, offset)
   end
-  -- Size of Wide Complex Top Of Market Bid Message
+  -- Size of Complex Top Of Market Bid Wide Message
   if message_type == "e" then
-    return size_of.wide_complex_top_of_market_bid_message(buffer, offset)
+    return size_of.complex_top_of_market_bid_wide_message(buffer, offset)
   end
-  -- Size of Wide Complex Top Of Market Offer Message
+  -- Size of Complex Top Of Market Offer Wide Message
   if message_type == "f" then
-    return size_of.wide_complex_top_of_market_offer_message(buffer, offset)
+    return size_of.complex_top_of_market_offer_wide_message(buffer, offset)
   end
   -- Size of Complex Double Sided Top Of Market Compact Message
   if message_type == "m" then
     return size_of.complex_double_sided_top_of_market_compact_message(buffer, offset)
   end
-  -- Size of Wide Complex Double Sided Top Of Market Message
+  -- Size of Complex Double Sided Top Of Market Wide Message
   if message_type == "w" then
-    return size_of.wide_complex_double_sided_top_of_market_message(buffer, offset)
+    return size_of.complex_double_sided_top_of_market_wide_message(buffer, offset)
   end
-  -- Size of Strategy Trade Message
+  -- Size of Strategy Last Sale Message
   if message_type == "t" then
-    return size_of.strategy_trade_message(buffer, offset)
+    return size_of.strategy_last_sale_message(buffer, offset)
   end
-  -- Size of Underlying Trading Status Message
+  -- Size of Underlying Trading Status Notification Message
   if message_type == "H" then
-    return size_of.underlying_trading_status_message(buffer, offset)
+    return size_of.underlying_trading_status_notification_message(buffer, offset)
   end
 
   return 0
@@ -2583,9 +2599,9 @@ dissect.data_branches = function(buffer, offset, packet, parent, message_type)
   if message_type == "1" then
     return dissect.system_time_message(buffer, offset, packet, parent)
   end
-  -- Dissect Series Update
+  -- Dissect Simple Series Update Message
   if message_type == "P" then
-    return dissect.series_update(buffer, offset, packet, parent)
+    return dissect.simple_series_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Strategy Definition Message
   if message_type == "C" then
@@ -2603,29 +2619,29 @@ dissect.data_branches = function(buffer, offset, packet, parent, message_type)
   if message_type == "o" then
     return dissect.complex_top_of_market_offer_compact_message(buffer, offset, packet, parent)
   end
-  -- Dissect Wide Complex Top Of Market Bid Message
+  -- Dissect Complex Top Of Market Bid Wide Message
   if message_type == "e" then
-    return dissect.wide_complex_top_of_market_bid_message(buffer, offset, packet, parent)
+    return dissect.complex_top_of_market_bid_wide_message(buffer, offset, packet, parent)
   end
-  -- Dissect Wide Complex Top Of Market Offer Message
+  -- Dissect Complex Top Of Market Offer Wide Message
   if message_type == "f" then
-    return dissect.wide_complex_top_of_market_offer_message(buffer, offset, packet, parent)
+    return dissect.complex_top_of_market_offer_wide_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Double Sided Top Of Market Compact Message
   if message_type == "m" then
     return dissect.complex_double_sided_top_of_market_compact_message(buffer, offset, packet, parent)
   end
-  -- Dissect Wide Complex Double Sided Top Of Market Message
+  -- Dissect Complex Double Sided Top Of Market Wide Message
   if message_type == "w" then
-    return dissect.wide_complex_double_sided_top_of_market_message(buffer, offset, packet, parent)
+    return dissect.complex_double_sided_top_of_market_wide_message(buffer, offset, packet, parent)
   end
-  -- Dissect Strategy Trade Message
+  -- Dissect Strategy Last Sale Message
   if message_type == "t" then
-    return dissect.strategy_trade_message(buffer, offset, packet, parent)
+    return dissect.strategy_last_sale_message(buffer, offset, packet, parent)
   end
-  -- Dissect Underlying Trading Status Message
+  -- Dissect Underlying Trading Status Notification Message
   if message_type == "H" then
-    return dissect.underlying_trading_status_message(buffer, offset, packet, parent)
+    return dissect.underlying_trading_status_notification_message(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2646,7 +2662,7 @@ dissect.data = function(buffer, offset, packet, parent, message_type)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.data(buffer, packet, parent)
-  local element = parent:add(miax_options_ctom_mach_v1_1.fields.data, range, display)
+  local element = parent:add(miax_options_complextopofmarket_mach_v1_3.fields.data, range, display)
 
   return dissect.data_branches(buffer, offset, packet, parent, message_type)
 end
@@ -2660,7 +2676,7 @@ display.message_type = function(value)
     return "Message Type: System Time Message (1)"
   end
   if value == "P" then
-    return "Message Type: Series Update (P)"
+    return "Message Type: Simple Series Update Message (P)"
   end
   if value == "C" then
     return "Message Type: Complex Strategy Definition Message (C)"
@@ -2675,22 +2691,22 @@ display.message_type = function(value)
     return "Message Type: Complex Top Of Market Offer Compact Message (o)"
   end
   if value == "e" then
-    return "Message Type: Wide Complex Top Of Market Bid Message (e)"
+    return "Message Type: Complex Top Of Market Bid Wide Message (e)"
   end
   if value == "f" then
-    return "Message Type: Wide Complex Top Of Market Offer Message (f)"
+    return "Message Type: Complex Top Of Market Offer Wide Message (f)"
   end
   if value == "m" then
     return "Message Type: Complex Double Sided Top Of Market Compact Message (m)"
   end
   if value == "w" then
-    return "Message Type: Wide Complex Double Sided Top Of Market Message (w)"
+    return "Message Type: Complex Double Sided Top Of Market Wide Message (w)"
   end
   if value == "t" then
-    return "Message Type: Strategy Trade Message (t)"
+    return "Message Type: Strategy Last Sale Message (t)"
   end
   if value == "H" then
-    return "Message Type: Underlying Trading Status Message (H)"
+    return "Message Type: Underlying Trading Status Notification Message (H)"
   end
 
   return "Message Type: Unknown("..value..")"
@@ -2703,7 +2719,7 @@ dissect.message_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.message_type, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -2747,7 +2763,7 @@ dissect.application_message = function(buffer, offset, packet, parent)
     local length = size_of.application_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.application_message(buffer, packet, parent)
-    parent = parent:add(miax_options_ctom_mach_v1_1.fields.application_message, range, display)
+    parent = parent:add(miax_options_complextopofmarket_mach_v1_3.fields.application_message, range, display)
   end
 
   return dissect.application_message_fields(buffer, offset, packet, parent)
@@ -2793,7 +2809,7 @@ dissect.payload = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.payload(buffer, packet, parent)
-  local element = parent:add(miax_options_ctom_mach_v1_1.fields.payload, range, display)
+  local element = parent:add(miax_options_complextopofmarket_mach_v1_3.fields.payload, range, display)
 
   return dissect.payload_branches(buffer, offset, packet, parent, packet_type)
 end
@@ -2813,7 +2829,7 @@ dissect.session_number = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.session_number(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.session_number, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.session_number, range, value, display)
 
   return offset + length, value
 end
@@ -2846,7 +2862,7 @@ dissect.packet_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.packet_type(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.packet_type, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -2866,7 +2882,7 @@ dissect.packet_length = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.packet_length(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.packet_length, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.packet_length, range, value, display)
 
   return offset + length, value
 end
@@ -2886,7 +2902,7 @@ dissect.sequence_number = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_ctom_mach_v1_1.fields.sequence_number, range, value, display)
+  parent:add(miax_options_complextopofmarket_mach_v1_3.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -2945,7 +2961,7 @@ dissect.message = function(buffer, offset, packet, parent)
     local length = size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.message(buffer, packet, parent)
-    parent = parent:add(miax_options_ctom_mach_v1_1.fields.message, range, display)
+    parent = parent:add(miax_options_complextopofmarket_mach_v1_3.fields.message, range, display)
   end
 
   return dissect.message_fields(buffer, offset, packet, parent)
@@ -2972,23 +2988,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function miax_options_ctom_mach_v1_1.init()
+function miax_options_complextopofmarket_mach_v1_3.init()
 end
 
--- Dissector for Miax Options cTom Mach 1.1
-function miax_options_ctom_mach_v1_1.dissector(buffer, packet, parent)
+-- Dissector for Miax Options ComplexTopOfMarket Mach 1.3
+function miax_options_complextopofmarket_mach_v1_3.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = miax_options_ctom_mach_v1_1.name
+  packet.cols.protocol = miax_options_complextopofmarket_mach_v1_3.name
 
   -- Dissect protocol
-  local protocol = parent:add(miax_options_ctom_mach_v1_1, buffer(), miax_options_ctom_mach_v1_1.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(miax_options_complextopofmarket_mach_v1_3, buffer(), miax_options_complextopofmarket_mach_v1_3.description, "("..buffer:len().." Bytes)")
   local protocol_size = dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, miax_options_ctom_mach_v1_1)
+udp_table:add(65333, miax_options_complextopofmarket_mach_v1_3)
 
 
 -----------------------------------------------------------------------
@@ -2996,25 +3012,25 @@ udp_table:add(65333, miax_options_ctom_mach_v1_1)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.miax_options_ctom_mach_v1_1_packet_size = function(buffer)
+verify.miax_options_complextopofmarket_mach_v1_3_packet_size = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Miax Options cTom Mach 1.1
-local function miax_options_ctom_mach_v1_1_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Miax Options ComplexTopOfMarket Mach 1.3
+local function miax_options_complextopofmarket_mach_v1_3_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.miax_options_ctom_mach_v1_1_packet_size(buffer) then return false end
+  if not verify.miax_options_complextopofmarket_mach_v1_3_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = miax_options_ctom_mach_v1_1
-  miax_options_ctom_mach_v1_1.dissector(buffer, packet, parent)
+  packet.conversation = miax_options_complextopofmarket_mach_v1_3
+  miax_options_complextopofmarket_mach_v1_3.dissector(buffer, packet, parent)
 
   return true
 end
 
--- Register Heuristic for Miax Options cTom Mach 1.1
-miax_options_ctom_mach_v1_1:register_heuristic("udp", miax_options_ctom_mach_v1_1_heuristic)
+-- Register Heuristic for Miax Options ComplexTopOfMarket Mach 1.3
+miax_options_complextopofmarket_mach_v1_3:register_heuristic("udp", miax_options_complextopofmarket_mach_v1_3_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.
@@ -3023,9 +3039,9 @@ miax_options_ctom_mach_v1_1:register_heuristic("udp", miax_options_ctom_mach_v1_
 -- 
 -- Protocol:
 --   Organization: Miami International Securities Exchange
---   Version: 1.1
---   Date: Friday, July 15, 2016
---   Specification: Complex_Top_Of_Market_Feed_cToM_v1_1.pdf
+--   Version: 1.3
+--   Date: Friday, March 16, 2018
+--   Specification: Complex_Top_Of_Market_Feed_cToM_v1_3.pdf
 -- 
 -- Script:
 --   Generator: 1.5.0.0
