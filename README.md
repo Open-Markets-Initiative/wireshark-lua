@@ -31,6 +31,8 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 
 | Organization | Division | Data | Protocol | Version | Date | Testing |
 | --- | --- | --- | --- | --- | --- | --- |
+| [Asx][Asx.Directory] | Securities | SR8 | Itch | [2.0][Asx.Securities.SR8.Itch.v2.0.Dissector] | 4/1/2015 | [Untested][Omi.Glossary.Testing] |
+| [Asx][Asx.Directory] | Securities | SR8 | Ouch | [2.0][Asx.Securities.SR8.Ouch.v2.0.Dissector] | 4/1/2015 | [Untested][Omi.Glossary.Testing] |
 | [Cboe][Cboe.Directory] | Equities Bzx | OrderEntry | Boe | [2.3][Cboe.Equities.Bzx.OrderEntry.Boe.v2.3.Dissector] | 3/11/2019 | [Beta][Omi.Glossary.Testing] |
 | [Cboe][Cboe.Directory] | Equities Edgx | OrderEntry | Boe | [2.3][Cboe.Equities.Edgx.OrderEntry.Boe.v2.3.Dissector] | 3/11/2019 | [Beta][Omi.Glossary.Testing] |
 | [Cboe][Cboe.Directory] | Futures | OrderEntry | Boe | [1.3][Cboe.Futures.OrderEntry.Boe.v1.3.Dissector] | 4/21/2020 | [Beta][Omi.Glossary.Testing] |
@@ -114,7 +116,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 116 | 1,021,198 |
+| 118 | 1,026,905 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -155,6 +157,8 @@ Enjoy.
 [Otc.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Otc "Otc Markets"
 [Siac.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Siac "Securities Industry Automation Corporation"
 
+[Asx.Securities.SR8.Itch.v2.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Asx/Asx.Securities.SR8.Itch.v2.0.Script.Dissector.lua "Australian Securities Exchange 2.0 Wireshark Dissector"
+[Asx.Securities.SR8.Ouch.v2.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Asx/Asx.Securities.SR8.Ouch.v2.0.Script.Dissector.lua "Australian Securities Exchange 2.0 Wireshark Dissector"
 [Cboe.Equities.Bzx.OrderEntry.Boe.v2.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Equities.Bzx.OrderEntry.Boe.v2.3.Script.Dissector.lua "Chicago Board Options Exchange 2.3 Wireshark Dissector"
 [Cboe.Equities.Edgx.OrderEntry.Boe.v2.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Equities.Edgx.OrderEntry.Boe.v2.3.Script.Dissector.lua "Chicago Board Options Exchange 2.3 Wireshark Dissector"
 [Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Script.Dissector.lua "Chicago Board Options Exchange 1.1.6 Wireshark Dissector"
