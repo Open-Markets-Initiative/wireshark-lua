@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Miax Options Tom Mach 1.9 Protocol
-local miax_options_tom_mach_v1_9 = Proto("Miax.Options.Tom.Mach.v1.9.Lua", "Miax Options Tom Mach 1.9")
+-- Miax Options TopOfMarket Mach 2.3 Protocol
+local miax_options_topofmarket_mach_v2_3 = Proto("Miax.Options.TopOfMarket.Mach.v2.3.Lua", "Miax Options TopOfMarket Mach 2.3")
 
 -- Component Tables
 local show = {}
@@ -19,197 +19,197 @@ local verify = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax Options Tom Mach 1.9 Fields
-miax_options_tom_mach_v1_9.fields.active_on_miax = ProtoField.new("Active On Miax", "miax.options.tom.mach.v1.9.activeonmiax", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.application_message = ProtoField.new("Application Message", "miax.options.tom.mach.v1.9.applicationmessage", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.bid_condition = ProtoField.new("Bid Condition", "miax.options.tom.mach.v1.9.bidcondition", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.bid_price_2 = ProtoField.new("Bid Price 2", "miax.options.tom.mach.v1.9.bidprice2", ftypes.UINT16)
-miax_options_tom_mach_v1_9.fields.bid_price_4 = ProtoField.new("Bid Price 4", "miax.options.tom.mach.v1.9.bidprice4", ftypes.UINT32)
-miax_options_tom_mach_v1_9.fields.bid_priority_customer_size_2 = ProtoField.new("Bid Priority Customer Size 2", "miax.options.tom.mach.v1.9.bidprioritycustomersize2", ftypes.UINT16)
-miax_options_tom_mach_v1_9.fields.bid_priority_customer_size_4 = ProtoField.new("Bid Priority Customer Size 4", "miax.options.tom.mach.v1.9.bidprioritycustomersize4", ftypes.UINT32)
-miax_options_tom_mach_v1_9.fields.bid_size_2 = ProtoField.new("Bid Size 2", "miax.options.tom.mach.v1.9.bidsize2", ftypes.UINT16)
-miax_options_tom_mach_v1_9.fields.bid_size_4 = ProtoField.new("Bid Size 4", "miax.options.tom.mach.v1.9.bidsize4", ftypes.UINT32)
-miax_options_tom_mach_v1_9.fields.call_or_put = ProtoField.new("Call Or Put", "miax.options.tom.mach.v1.9.callorput", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.closing_time = ProtoField.new("Closing Time", "miax.options.tom.mach.v1.9.closingtime", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.correction_number = ProtoField.new("Correction Number", "miax.options.tom.mach.v1.9.correctionnumber", ftypes.UINT8)
-miax_options_tom_mach_v1_9.fields.data = ProtoField.new("Data", "miax.options.tom.mach.v1.9.data", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.double_sided_top_of_market_compact_message = ProtoField.new("Double Sided Top Of Market Compact Message", "miax.options.tom.mach.v1.9.doublesidedtopofmarketcompactmessage", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.event_reason = ProtoField.new("Event Reason", "miax.options.tom.mach.v1.9.eventreason", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.expected_event_time_nano_seconds_part = ProtoField.new("Expected Event Time Nano Seconds Part", "miax.options.tom.mach.v1.9.expectedeventtimenanosecondspart", ftypes.UINT32)
-miax_options_tom_mach_v1_9.fields.expiration_date = ProtoField.new("Expiration Date", "miax.options.tom.mach.v1.9.expirationdate", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.liquidity_acceptance_increment_indicator = ProtoField.new("Liquidity Acceptance Increment Indicator", "miax.options.tom.mach.v1.9.liquidityacceptanceincrementindicator", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.long_term_option = ProtoField.new("Long Term Option", "miax.options.tom.mach.v1.9.longtermoption", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.mbbo_condition = ProtoField.new("Mbbo Condition", "miax.options.tom.mach.v1.9.mbbocondition", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.mbbo_price_2 = ProtoField.new("Mbbo Price 2", "miax.options.tom.mach.v1.9.mbboprice2", ftypes.UINT16)
-miax_options_tom_mach_v1_9.fields.mbbo_price_4 = ProtoField.new("Mbbo Price 4", "miax.options.tom.mach.v1.9.mbboprice4", ftypes.UINT32)
-miax_options_tom_mach_v1_9.fields.mbbo_priority_customer_size_2 = ProtoField.new("Mbbo Priority Customer Size 2", "miax.options.tom.mach.v1.9.mbboprioritycustomersize2", ftypes.UINT16)
-miax_options_tom_mach_v1_9.fields.mbbo_priority_customer_size_4 = ProtoField.new("Mbbo Priority Customer Size 4", "miax.options.tom.mach.v1.9.mbboprioritycustomersize4", ftypes.UINT32)
-miax_options_tom_mach_v1_9.fields.mbbo_size_2 = ProtoField.new("Mbbo Size 2", "miax.options.tom.mach.v1.9.mbbosize2", ftypes.UINT16)
-miax_options_tom_mach_v1_9.fields.mbbo_size_4 = ProtoField.new("Mbbo Size 4", "miax.options.tom.mach.v1.9.mbbosize4", ftypes.UINT32)
-miax_options_tom_mach_v1_9.fields.message = ProtoField.new("Message", "miax.options.tom.mach.v1.9.message", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.message_type = ProtoField.new("Message Type", "miax.options.tom.mach.v1.9.messagetype", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.miax_bbo_posting_increment_indicator = ProtoField.new("Miax Bbo Posting Increment Indicator", "miax.options.tom.mach.v1.9.miaxbbopostingincrementindicator", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.notification_time = ProtoField.new("Notification Time", "miax.options.tom.mach.v1.9.notificationtime", ftypes.UINT32)
-miax_options_tom_mach_v1_9.fields.offer_condition = ProtoField.new("Offer Condition", "miax.options.tom.mach.v1.9.offercondition", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.offer_price_2 = ProtoField.new("Offer Price 2", "miax.options.tom.mach.v1.9.offerprice2", ftypes.UINT16)
-miax_options_tom_mach_v1_9.fields.offer_price_4 = ProtoField.new("Offer Price 4", "miax.options.tom.mach.v1.9.offerprice4", ftypes.UINT32)
-miax_options_tom_mach_v1_9.fields.offer_priority_customer_size_2 = ProtoField.new("Offer Priority Customer Size 2", "miax.options.tom.mach.v1.9.offerprioritycustomersize2", ftypes.UINT16)
-miax_options_tom_mach_v1_9.fields.offer_priority_customer_size_4 = ProtoField.new("Offer Priority Customer Size 4", "miax.options.tom.mach.v1.9.offerprioritycustomersize4", ftypes.UINT32)
-miax_options_tom_mach_v1_9.fields.offer_size_2 = ProtoField.new("Offer Size 2", "miax.options.tom.mach.v1.9.offersize2", ftypes.UINT16)
-miax_options_tom_mach_v1_9.fields.offer_size_4 = ProtoField.new("Offer Size 4", "miax.options.tom.mach.v1.9.offersize4", ftypes.UINT32)
-miax_options_tom_mach_v1_9.fields.opening_time = ProtoField.new("Opening Time", "miax.options.tom.mach.v1.9.openingtime", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.opening_underlying_market_code = ProtoField.new("Opening Underlying Market Code", "miax.options.tom.mach.v1.9.openingunderlyingmarketcode", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.packet = ProtoField.new("Packet", "miax.options.tom.mach.v1.9.packet", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.packet_length = ProtoField.new("Packet Length", "miax.options.tom.mach.v1.9.packetlength", ftypes.UINT16)
-miax_options_tom_mach_v1_9.fields.packet_type = ProtoField.new("Packet Type", "miax.options.tom.mach.v1.9.packettype", ftypes.UINT8)
-miax_options_tom_mach_v1_9.fields.payload = ProtoField.new("Payload", "miax.options.tom.mach.v1.9.payload", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.priority_quote_width = ProtoField.new("Priority Quote Width", "miax.options.tom.mach.v1.9.priorityquotewidth", ftypes.UINT32)
-miax_options_tom_mach_v1_9.fields.product_add_update_time = ProtoField.new("Product Add Update Time", "miax.options.tom.mach.v1.9.productaddupdatetime", ftypes.UINT32)
-miax_options_tom_mach_v1_9.fields.product_id = ProtoField.new("Product Id", "miax.options.tom.mach.v1.9.productid", ftypes.UINT32)
-miax_options_tom_mach_v1_9.fields.reference_correction_number = ProtoField.new("Reference Correction Number", "miax.options.tom.mach.v1.9.referencecorrectionnumber", ftypes.UINT8)
-miax_options_tom_mach_v1_9.fields.reference_trade_id = ProtoField.new("Reference Trade Id", "miax.options.tom.mach.v1.9.referencetradeid", ftypes.UINT32)
-miax_options_tom_mach_v1_9.fields.reserved = ProtoField.new("Reserved", "miax.options.tom.mach.v1.9.reserved", ftypes.UINT64)
-miax_options_tom_mach_v1_9.fields.restricted_option = ProtoField.new("Restricted Option", "miax.options.tom.mach.v1.9.restrictedoption", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.seconds_part = ProtoField.new("Seconds Part", "miax.options.tom.mach.v1.9.secondspart", ftypes.UINT32)
-miax_options_tom_mach_v1_9.fields.security_symbol = ProtoField.new("Security Symbol", "miax.options.tom.mach.v1.9.securitysymbol", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.sequence_number = ProtoField.new("Sequence Number", "miax.options.tom.mach.v1.9.sequencenumber", ftypes.UINT64)
-miax_options_tom_mach_v1_9.fields.series_update = ProtoField.new("Series Update", "miax.options.tom.mach.v1.9.seriesupdate", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.session_id = ProtoField.new("Session Id", "miax.options.tom.mach.v1.9.sessionid", ftypes.UINT32)
-miax_options_tom_mach_v1_9.fields.session_number = ProtoField.new("Session Number", "miax.options.tom.mach.v1.9.sessionnumber", ftypes.UINT8)
-miax_options_tom_mach_v1_9.fields.strike_price = ProtoField.new("Strike Price", "miax.options.tom.mach.v1.9.strikeprice", ftypes.UINT32)
-miax_options_tom_mach_v1_9.fields.system_state_message = ProtoField.new("System State Message", "miax.options.tom.mach.v1.9.systemstatemessage", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.system_status = ProtoField.new("System Status", "miax.options.tom.mach.v1.9.systemstatus", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.system_time_message = ProtoField.new("System Time Message", "miax.options.tom.mach.v1.9.systemtimemessage", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.timestamp = ProtoField.new("Timestamp", "miax.options.tom.mach.v1.9.timestamp", ftypes.UINT32)
-miax_options_tom_mach_v1_9.fields.to_m_version = ProtoField.new("To M Version", "miax.options.tom.mach.v1.9.tomversion", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.top_of_market_bid_compact_message = ProtoField.new("Top Of Market Bid Compact Message", "miax.options.tom.mach.v1.9.topofmarketbidcompactmessage", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.top_of_market_offer_compact_message = ProtoField.new("Top Of Market Offer Compact Message", "miax.options.tom.mach.v1.9.topofmarketoffercompactmessage", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.options.tom.mach.v1.9.tradecancelmessage", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.trade_condition = ProtoField.new("Trade Condition", "miax.options.tom.mach.v1.9.tradecondition", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.trade_id = ProtoField.new("Trade Id", "miax.options.tom.mach.v1.9.tradeid", ftypes.UINT32)
-miax_options_tom_mach_v1_9.fields.trade_message = ProtoField.new("Trade Message", "miax.options.tom.mach.v1.9.trademessage", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.trade_price = ProtoField.new("Trade Price", "miax.options.tom.mach.v1.9.tradeprice", ftypes.UINT32)
-miax_options_tom_mach_v1_9.fields.trade_size = ProtoField.new("Trade Size", "miax.options.tom.mach.v1.9.tradesize", ftypes.UINT32)
-miax_options_tom_mach_v1_9.fields.trading_status = ProtoField.new("Trading Status", "miax.options.tom.mach.v1.9.tradingstatus", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "miax.options.tom.mach.v1.9.underlyingsymbol", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.underlying_trading_status_message = ProtoField.new("Underlying Trading Status Message", "miax.options.tom.mach.v1.9.underlyingtradingstatusmessage", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.wide_double_sided_top_of_market_message = ProtoField.new("Wide Double Sided Top Of Market Message", "miax.options.tom.mach.v1.9.widedoublesidedtopofmarketmessage", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.wide_top_of_market_bid_message = ProtoField.new("Wide Top Of Market Bid Message", "miax.options.tom.mach.v1.9.widetopofmarketbidmessage", ftypes.STRING)
-miax_options_tom_mach_v1_9.fields.wide_top_of_market_offer_message = ProtoField.new("Wide Top Of Market Offer Message", "miax.options.tom.mach.v1.9.widetopofmarketoffermessage", ftypes.STRING)
+-- Miax Options TopOfMarket Mach 2.3 Fields
+miax_options_topofmarket_mach_v2_3.fields.active_on_miax = ProtoField.new("Active On Miax", "miax.options.topofmarket.mach.v2.3.activeonmiax", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.application_message = ProtoField.new("Application Message", "miax.options.topofmarket.mach.v2.3.applicationmessage", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.bid_condition = ProtoField.new("Bid Condition", "miax.options.topofmarket.mach.v2.3.bidcondition", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.bid_price_2 = ProtoField.new("Bid Price 2", "miax.options.topofmarket.mach.v2.3.bidprice2", ftypes.UINT16)
+miax_options_topofmarket_mach_v2_3.fields.bid_price_4 = ProtoField.new("Bid Price 4", "miax.options.topofmarket.mach.v2.3.bidprice4", ftypes.UINT32)
+miax_options_topofmarket_mach_v2_3.fields.bid_priority_customer_size_2 = ProtoField.new("Bid Priority Customer Size 2", "miax.options.topofmarket.mach.v2.3.bidprioritycustomersize2", ftypes.UINT16)
+miax_options_topofmarket_mach_v2_3.fields.bid_priority_customer_size_4 = ProtoField.new("Bid Priority Customer Size 4", "miax.options.topofmarket.mach.v2.3.bidprioritycustomersize4", ftypes.UINT32)
+miax_options_topofmarket_mach_v2_3.fields.bid_size_2 = ProtoField.new("Bid Size 2", "miax.options.topofmarket.mach.v2.3.bidsize2", ftypes.UINT16)
+miax_options_topofmarket_mach_v2_3.fields.bid_size_4 = ProtoField.new("Bid Size 4", "miax.options.topofmarket.mach.v2.3.bidsize4", ftypes.UINT32)
+miax_options_topofmarket_mach_v2_3.fields.call_or_put = ProtoField.new("Call Or Put", "miax.options.topofmarket.mach.v2.3.callorput", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.closing_time = ProtoField.new("Closing Time", "miax.options.topofmarket.mach.v2.3.closingtime", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.correction_number = ProtoField.new("Correction Number", "miax.options.topofmarket.mach.v2.3.correctionnumber", ftypes.UINT8)
+miax_options_topofmarket_mach_v2_3.fields.data = ProtoField.new("Data", "miax.options.topofmarket.mach.v2.3.data", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.event_reason = ProtoField.new("Event Reason", "miax.options.topofmarket.mach.v2.3.eventreason", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.expected_event_time_nano_seconds = ProtoField.new("Expected Event Time Nano Seconds", "miax.options.topofmarket.mach.v2.3.expectedeventtimenanoseconds", ftypes.UINT32)
+miax_options_topofmarket_mach_v2_3.fields.expected_event_time_seconds = ProtoField.new("Expected Event Time Seconds", "miax.options.topofmarket.mach.v2.3.expectedeventtimeseconds", ftypes.UINT32)
+miax_options_topofmarket_mach_v2_3.fields.expiration_date = ProtoField.new("Expiration Date", "miax.options.topofmarket.mach.v2.3.expirationdate", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.last_sale_message = ProtoField.new("Last Sale Message", "miax.options.topofmarket.mach.v2.3.lastsalemessage", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.liquidity_acceptance_increment_indicator = ProtoField.new("Liquidity Acceptance Increment Indicator", "miax.options.topofmarket.mach.v2.3.liquidityacceptanceincrementindicator", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.long_term_option = ProtoField.new("Long Term Option", "miax.options.topofmarket.mach.v2.3.longtermoption", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.mbbo_condition = ProtoField.new("Mbbo Condition", "miax.options.topofmarket.mach.v2.3.mbbocondition", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.mbbo_price_2 = ProtoField.new("Mbbo Price 2", "miax.options.topofmarket.mach.v2.3.mbboprice2", ftypes.UINT16)
+miax_options_topofmarket_mach_v2_3.fields.mbbo_price_4 = ProtoField.new("Mbbo Price 4", "miax.options.topofmarket.mach.v2.3.mbboprice4", ftypes.UINT32)
+miax_options_topofmarket_mach_v2_3.fields.mbbo_priority_customer_size_2 = ProtoField.new("Mbbo Priority Customer Size 2", "miax.options.topofmarket.mach.v2.3.mbboprioritycustomersize2", ftypes.UINT16)
+miax_options_topofmarket_mach_v2_3.fields.mbbo_priority_customer_size_4 = ProtoField.new("Mbbo Priority Customer Size 4", "miax.options.topofmarket.mach.v2.3.mbboprioritycustomersize4", ftypes.UINT32)
+miax_options_topofmarket_mach_v2_3.fields.mbbo_size_2 = ProtoField.new("Mbbo Size 2", "miax.options.topofmarket.mach.v2.3.mbbosize2", ftypes.UINT16)
+miax_options_topofmarket_mach_v2_3.fields.mbbo_size_4 = ProtoField.new("Mbbo Size 4", "miax.options.topofmarket.mach.v2.3.mbbosize4", ftypes.UINT32)
+miax_options_topofmarket_mach_v2_3.fields.message = ProtoField.new("Message", "miax.options.topofmarket.mach.v2.3.message", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.message_type = ProtoField.new("Message Type", "miax.options.topofmarket.mach.v2.3.messagetype", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.miax_bbo_posting_increment_indicator = ProtoField.new("Miax Bbo Posting Increment Indicator", "miax.options.topofmarket.mach.v2.3.miaxbbopostingincrementindicator", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.notification_time = ProtoField.new("Notification Time", "miax.options.topofmarket.mach.v2.3.notificationtime", ftypes.UINT32)
+miax_options_topofmarket_mach_v2_3.fields.offer_condition = ProtoField.new("Offer Condition", "miax.options.topofmarket.mach.v2.3.offercondition", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.offer_price_2 = ProtoField.new("Offer Price 2", "miax.options.topofmarket.mach.v2.3.offerprice2", ftypes.UINT16)
+miax_options_topofmarket_mach_v2_3.fields.offer_price_4 = ProtoField.new("Offer Price 4", "miax.options.topofmarket.mach.v2.3.offerprice4", ftypes.UINT32)
+miax_options_topofmarket_mach_v2_3.fields.offer_priority_customer_size_2 = ProtoField.new("Offer Priority Customer Size 2", "miax.options.topofmarket.mach.v2.3.offerprioritycustomersize2", ftypes.UINT16)
+miax_options_topofmarket_mach_v2_3.fields.offer_priority_customer_size_4 = ProtoField.new("Offer Priority Customer Size 4", "miax.options.topofmarket.mach.v2.3.offerprioritycustomersize4", ftypes.UINT32)
+miax_options_topofmarket_mach_v2_3.fields.offer_size_2 = ProtoField.new("Offer Size 2", "miax.options.topofmarket.mach.v2.3.offersize2", ftypes.UINT16)
+miax_options_topofmarket_mach_v2_3.fields.offer_size_4 = ProtoField.new("Offer Size 4", "miax.options.topofmarket.mach.v2.3.offersize4", ftypes.UINT32)
+miax_options_topofmarket_mach_v2_3.fields.opening_time = ProtoField.new("Opening Time", "miax.options.topofmarket.mach.v2.3.openingtime", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.opening_underlying_market_code = ProtoField.new("Opening Underlying Market Code", "miax.options.topofmarket.mach.v2.3.openingunderlyingmarketcode", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.packet = ProtoField.new("Packet", "miax.options.topofmarket.mach.v2.3.packet", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.packet_length = ProtoField.new("Packet Length", "miax.options.topofmarket.mach.v2.3.packetlength", ftypes.UINT16)
+miax_options_topofmarket_mach_v2_3.fields.packet_type = ProtoField.new("Packet Type", "miax.options.topofmarket.mach.v2.3.packettype", ftypes.UINT8)
+miax_options_topofmarket_mach_v2_3.fields.payload = ProtoField.new("Payload", "miax.options.topofmarket.mach.v2.3.payload", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.priority_quote_width = ProtoField.new("Priority Quote Width", "miax.options.topofmarket.mach.v2.3.priorityquotewidth", ftypes.UINT32)
+miax_options_topofmarket_mach_v2_3.fields.product_add_update_time = ProtoField.new("Product Add Update Time", "miax.options.topofmarket.mach.v2.3.productaddupdatetime", ftypes.UINT32)
+miax_options_topofmarket_mach_v2_3.fields.product_id = ProtoField.new("Product Id", "miax.options.topofmarket.mach.v2.3.productid", ftypes.UINT32)
+miax_options_topofmarket_mach_v2_3.fields.reference_correction_number = ProtoField.new("Reference Correction Number", "miax.options.topofmarket.mach.v2.3.referencecorrectionnumber", ftypes.UINT8)
+miax_options_topofmarket_mach_v2_3.fields.reference_trade_id = ProtoField.new("Reference Trade Id", "miax.options.topofmarket.mach.v2.3.referencetradeid", ftypes.UINT32)
+miax_options_topofmarket_mach_v2_3.fields.reserved = ProtoField.new("Reserved", "miax.options.topofmarket.mach.v2.3.reserved", ftypes.UINT64)
+miax_options_topofmarket_mach_v2_3.fields.restricted_option = ProtoField.new("Restricted Option", "miax.options.topofmarket.mach.v2.3.restrictedoption", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.security_symbol = ProtoField.new("Security Symbol", "miax.options.topofmarket.mach.v2.3.securitysymbol", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.sequence_number = ProtoField.new("Sequence Number", "miax.options.topofmarket.mach.v2.3.sequencenumber", ftypes.UINT64)
+miax_options_topofmarket_mach_v2_3.fields.session_id = ProtoField.new("Session Id", "miax.options.topofmarket.mach.v2.3.sessionid", ftypes.UINT32)
+miax_options_topofmarket_mach_v2_3.fields.session_number = ProtoField.new("Session Number", "miax.options.topofmarket.mach.v2.3.sessionnumber", ftypes.UINT8)
+miax_options_topofmarket_mach_v2_3.fields.simple_double_sided_top_of_market_compact_message = ProtoField.new("Simple Double Sided Top Of Market Compact Message", "miax.options.topofmarket.mach.v2.3.simpledoublesidedtopofmarketcompactmessage", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.simple_double_sided_top_of_market_wide_message = ProtoField.new("Simple Double Sided Top Of Market Wide Message", "miax.options.topofmarket.mach.v2.3.simpledoublesidedtopofmarketwidemessage", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.simple_series_update_message = ProtoField.new("Simple Series Update Message", "miax.options.topofmarket.mach.v2.3.simpleseriesupdatemessage", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.simple_top_of_market_bid_compact_message = ProtoField.new("Simple Top Of Market Bid Compact Message", "miax.options.topofmarket.mach.v2.3.simpletopofmarketbidcompactmessage", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.simple_top_of_market_bid_wide_message = ProtoField.new("Simple Top Of Market Bid Wide Message", "miax.options.topofmarket.mach.v2.3.simpletopofmarketbidwidemessage", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.simple_top_of_market_offer_compact_message = ProtoField.new("Simple Top Of Market Offer Compact Message", "miax.options.topofmarket.mach.v2.3.simpletopofmarketoffercompactmessage", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.simple_top_of_market_offer_wide_message = ProtoField.new("Simple Top Of Market Offer Wide Message", "miax.options.topofmarket.mach.v2.3.simpletopofmarketofferwidemessage", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.strike_price = ProtoField.new("Strike Price", "miax.options.topofmarket.mach.v2.3.strikeprice", ftypes.UINT32)
+miax_options_topofmarket_mach_v2_3.fields.system_state_message = ProtoField.new("System State Message", "miax.options.topofmarket.mach.v2.3.systemstatemessage", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.system_status = ProtoField.new("System Status", "miax.options.topofmarket.mach.v2.3.systemstatus", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.system_time_message = ProtoField.new("System Time Message", "miax.options.topofmarket.mach.v2.3.systemtimemessage", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.timestamp = ProtoField.new("Timestamp", "miax.options.topofmarket.mach.v2.3.timestamp", ftypes.UINT32)
+miax_options_topofmarket_mach_v2_3.fields.to_m_version = ProtoField.new("To M Version", "miax.options.topofmarket.mach.v2.3.tomversion", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.options.topofmarket.mach.v2.3.tradecancelmessage", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.trade_condition = ProtoField.new("Trade Condition", "miax.options.topofmarket.mach.v2.3.tradecondition", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.trade_id = ProtoField.new("Trade Id", "miax.options.topofmarket.mach.v2.3.tradeid", ftypes.UINT32)
+miax_options_topofmarket_mach_v2_3.fields.trade_price = ProtoField.new("Trade Price", "miax.options.topofmarket.mach.v2.3.tradeprice", ftypes.UINT32)
+miax_options_topofmarket_mach_v2_3.fields.trade_size = ProtoField.new("Trade Size", "miax.options.topofmarket.mach.v2.3.tradesize", ftypes.UINT32)
+miax_options_topofmarket_mach_v2_3.fields.trading_status = ProtoField.new("Trading Status", "miax.options.topofmarket.mach.v2.3.tradingstatus", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "miax.options.topofmarket.mach.v2.3.underlyingsymbol", ftypes.STRING)
+miax_options_topofmarket_mach_v2_3.fields.underlying_trading_status_notification_message = ProtoField.new("Underlying Trading Status Notification Message", "miax.options.topofmarket.mach.v2.3.underlyingtradingstatusnotificationmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Miax Options Tom Mach 1.9 Element Dissection Options
+-- Miax Options TopOfMarket Mach 2.3 Element Dissection Options
 show.application_message = true
-show.double_sided_top_of_market_compact_message = true
+show.last_sale_message = true
 show.message = true
 show.packet = true
-show.series_update = true
+show.simple_double_sided_top_of_market_compact_message = true
+show.simple_double_sided_top_of_market_wide_message = true
+show.simple_series_update_message = true
+show.simple_top_of_market_bid_compact_message = true
+show.simple_top_of_market_bid_wide_message = true
+show.simple_top_of_market_offer_compact_message = true
+show.simple_top_of_market_offer_wide_message = true
 show.system_state_message = true
 show.system_time_message = true
-show.top_of_market_bid_compact_message = true
-show.top_of_market_offer_compact_message = true
 show.trade_cancel_message = true
-show.trade_message = true
-show.underlying_trading_status_message = true
-show.wide_double_sided_top_of_market_message = true
-show.wide_top_of_market_bid_message = true
-show.wide_top_of_market_offer_message = true
+show.underlying_trading_status_notification_message = true
 show.data = false
 show.payload = false
 
--- Register Miax Options Tom Mach 1.9 Show Options
-miax_options_tom_mach_v1_9.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
-miax_options_tom_mach_v1_9.prefs.show_double_sided_top_of_market_compact_message = Pref.bool("Show Double Sided Top Of Market Compact Message", show.double_sided_top_of_market_compact_message, "Parse and add Double Sided Top Of Market Compact Message to protocol tree")
-miax_options_tom_mach_v1_9.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-miax_options_tom_mach_v1_9.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-miax_options_tom_mach_v1_9.prefs.show_series_update = Pref.bool("Show Series Update", show.series_update, "Parse and add Series Update to protocol tree")
-miax_options_tom_mach_v1_9.prefs.show_system_state_message = Pref.bool("Show System State Message", show.system_state_message, "Parse and add System State Message to protocol tree")
-miax_options_tom_mach_v1_9.prefs.show_system_time_message = Pref.bool("Show System Time Message", show.system_time_message, "Parse and add System Time Message to protocol tree")
-miax_options_tom_mach_v1_9.prefs.show_top_of_market_bid_compact_message = Pref.bool("Show Top Of Market Bid Compact Message", show.top_of_market_bid_compact_message, "Parse and add Top Of Market Bid Compact Message to protocol tree")
-miax_options_tom_mach_v1_9.prefs.show_top_of_market_offer_compact_message = Pref.bool("Show Top Of Market Offer Compact Message", show.top_of_market_offer_compact_message, "Parse and add Top Of Market Offer Compact Message to protocol tree")
-miax_options_tom_mach_v1_9.prefs.show_trade_cancel_message = Pref.bool("Show Trade Cancel Message", show.trade_cancel_message, "Parse and add Trade Cancel Message to protocol tree")
-miax_options_tom_mach_v1_9.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-miax_options_tom_mach_v1_9.prefs.show_underlying_trading_status_message = Pref.bool("Show Underlying Trading Status Message", show.underlying_trading_status_message, "Parse and add Underlying Trading Status Message to protocol tree")
-miax_options_tom_mach_v1_9.prefs.show_wide_double_sided_top_of_market_message = Pref.bool("Show Wide Double Sided Top Of Market Message", show.wide_double_sided_top_of_market_message, "Parse and add Wide Double Sided Top Of Market Message to protocol tree")
-miax_options_tom_mach_v1_9.prefs.show_wide_top_of_market_bid_message = Pref.bool("Show Wide Top Of Market Bid Message", show.wide_top_of_market_bid_message, "Parse and add Wide Top Of Market Bid Message to protocol tree")
-miax_options_tom_mach_v1_9.prefs.show_wide_top_of_market_offer_message = Pref.bool("Show Wide Top Of Market Offer Message", show.wide_top_of_market_offer_message, "Parse and add Wide Top Of Market Offer Message to protocol tree")
-miax_options_tom_mach_v1_9.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
-miax_options_tom_mach_v1_9.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+-- Register Miax Options TopOfMarket Mach 2.3 Show Options
+miax_options_topofmarket_mach_v2_3.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
+miax_options_topofmarket_mach_v2_3.prefs.show_last_sale_message = Pref.bool("Show Last Sale Message", show.last_sale_message, "Parse and add Last Sale Message to protocol tree")
+miax_options_topofmarket_mach_v2_3.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+miax_options_topofmarket_mach_v2_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+miax_options_topofmarket_mach_v2_3.prefs.show_simple_double_sided_top_of_market_compact_message = Pref.bool("Show Simple Double Sided Top Of Market Compact Message", show.simple_double_sided_top_of_market_compact_message, "Parse and add Simple Double Sided Top Of Market Compact Message to protocol tree")
+miax_options_topofmarket_mach_v2_3.prefs.show_simple_double_sided_top_of_market_wide_message = Pref.bool("Show Simple Double Sided Top Of Market Wide Message", show.simple_double_sided_top_of_market_wide_message, "Parse and add Simple Double Sided Top Of Market Wide Message to protocol tree")
+miax_options_topofmarket_mach_v2_3.prefs.show_simple_series_update_message = Pref.bool("Show Simple Series Update Message", show.simple_series_update_message, "Parse and add Simple Series Update Message to protocol tree")
+miax_options_topofmarket_mach_v2_3.prefs.show_simple_top_of_market_bid_compact_message = Pref.bool("Show Simple Top Of Market Bid Compact Message", show.simple_top_of_market_bid_compact_message, "Parse and add Simple Top Of Market Bid Compact Message to protocol tree")
+miax_options_topofmarket_mach_v2_3.prefs.show_simple_top_of_market_bid_wide_message = Pref.bool("Show Simple Top Of Market Bid Wide Message", show.simple_top_of_market_bid_wide_message, "Parse and add Simple Top Of Market Bid Wide Message to protocol tree")
+miax_options_topofmarket_mach_v2_3.prefs.show_simple_top_of_market_offer_compact_message = Pref.bool("Show Simple Top Of Market Offer Compact Message", show.simple_top_of_market_offer_compact_message, "Parse and add Simple Top Of Market Offer Compact Message to protocol tree")
+miax_options_topofmarket_mach_v2_3.prefs.show_simple_top_of_market_offer_wide_message = Pref.bool("Show Simple Top Of Market Offer Wide Message", show.simple_top_of_market_offer_wide_message, "Parse and add Simple Top Of Market Offer Wide Message to protocol tree")
+miax_options_topofmarket_mach_v2_3.prefs.show_system_state_message = Pref.bool("Show System State Message", show.system_state_message, "Parse and add System State Message to protocol tree")
+miax_options_topofmarket_mach_v2_3.prefs.show_system_time_message = Pref.bool("Show System Time Message", show.system_time_message, "Parse and add System Time Message to protocol tree")
+miax_options_topofmarket_mach_v2_3.prefs.show_trade_cancel_message = Pref.bool("Show Trade Cancel Message", show.trade_cancel_message, "Parse and add Trade Cancel Message to protocol tree")
+miax_options_topofmarket_mach_v2_3.prefs.show_underlying_trading_status_notification_message = Pref.bool("Show Underlying Trading Status Notification Message", show.underlying_trading_status_notification_message, "Parse and add Underlying Trading Status Notification Message to protocol tree")
+miax_options_topofmarket_mach_v2_3.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
+miax_options_topofmarket_mach_v2_3.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function miax_options_tom_mach_v1_9.prefs_changed()
+function miax_options_topofmarket_mach_v2_3.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.application_message ~= miax_options_tom_mach_v1_9.prefs.show_application_message then
-    show.application_message = miax_options_tom_mach_v1_9.prefs.show_application_message
+  if show.application_message ~= miax_options_topofmarket_mach_v2_3.prefs.show_application_message then
+    show.application_message = miax_options_topofmarket_mach_v2_3.prefs.show_application_message
     changed = true
   end
-  if show.double_sided_top_of_market_compact_message ~= miax_options_tom_mach_v1_9.prefs.show_double_sided_top_of_market_compact_message then
-    show.double_sided_top_of_market_compact_message = miax_options_tom_mach_v1_9.prefs.show_double_sided_top_of_market_compact_message
+  if show.last_sale_message ~= miax_options_topofmarket_mach_v2_3.prefs.show_last_sale_message then
+    show.last_sale_message = miax_options_topofmarket_mach_v2_3.prefs.show_last_sale_message
     changed = true
   end
-  if show.message ~= miax_options_tom_mach_v1_9.prefs.show_message then
-    show.message = miax_options_tom_mach_v1_9.prefs.show_message
+  if show.message ~= miax_options_topofmarket_mach_v2_3.prefs.show_message then
+    show.message = miax_options_topofmarket_mach_v2_3.prefs.show_message
     changed = true
   end
-  if show.packet ~= miax_options_tom_mach_v1_9.prefs.show_packet then
-    show.packet = miax_options_tom_mach_v1_9.prefs.show_packet
+  if show.packet ~= miax_options_topofmarket_mach_v2_3.prefs.show_packet then
+    show.packet = miax_options_topofmarket_mach_v2_3.prefs.show_packet
     changed = true
   end
-  if show.series_update ~= miax_options_tom_mach_v1_9.prefs.show_series_update then
-    show.series_update = miax_options_tom_mach_v1_9.prefs.show_series_update
+  if show.simple_double_sided_top_of_market_compact_message ~= miax_options_topofmarket_mach_v2_3.prefs.show_simple_double_sided_top_of_market_compact_message then
+    show.simple_double_sided_top_of_market_compact_message = miax_options_topofmarket_mach_v2_3.prefs.show_simple_double_sided_top_of_market_compact_message
     changed = true
   end
-  if show.system_state_message ~= miax_options_tom_mach_v1_9.prefs.show_system_state_message then
-    show.system_state_message = miax_options_tom_mach_v1_9.prefs.show_system_state_message
+  if show.simple_double_sided_top_of_market_wide_message ~= miax_options_topofmarket_mach_v2_3.prefs.show_simple_double_sided_top_of_market_wide_message then
+    show.simple_double_sided_top_of_market_wide_message = miax_options_topofmarket_mach_v2_3.prefs.show_simple_double_sided_top_of_market_wide_message
     changed = true
   end
-  if show.system_time_message ~= miax_options_tom_mach_v1_9.prefs.show_system_time_message then
-    show.system_time_message = miax_options_tom_mach_v1_9.prefs.show_system_time_message
+  if show.simple_series_update_message ~= miax_options_topofmarket_mach_v2_3.prefs.show_simple_series_update_message then
+    show.simple_series_update_message = miax_options_topofmarket_mach_v2_3.prefs.show_simple_series_update_message
     changed = true
   end
-  if show.top_of_market_bid_compact_message ~= miax_options_tom_mach_v1_9.prefs.show_top_of_market_bid_compact_message then
-    show.top_of_market_bid_compact_message = miax_options_tom_mach_v1_9.prefs.show_top_of_market_bid_compact_message
+  if show.simple_top_of_market_bid_compact_message ~= miax_options_topofmarket_mach_v2_3.prefs.show_simple_top_of_market_bid_compact_message then
+    show.simple_top_of_market_bid_compact_message = miax_options_topofmarket_mach_v2_3.prefs.show_simple_top_of_market_bid_compact_message
     changed = true
   end
-  if show.top_of_market_offer_compact_message ~= miax_options_tom_mach_v1_9.prefs.show_top_of_market_offer_compact_message then
-    show.top_of_market_offer_compact_message = miax_options_tom_mach_v1_9.prefs.show_top_of_market_offer_compact_message
+  if show.simple_top_of_market_bid_wide_message ~= miax_options_topofmarket_mach_v2_3.prefs.show_simple_top_of_market_bid_wide_message then
+    show.simple_top_of_market_bid_wide_message = miax_options_topofmarket_mach_v2_3.prefs.show_simple_top_of_market_bid_wide_message
     changed = true
   end
-  if show.trade_cancel_message ~= miax_options_tom_mach_v1_9.prefs.show_trade_cancel_message then
-    show.trade_cancel_message = miax_options_tom_mach_v1_9.prefs.show_trade_cancel_message
+  if show.simple_top_of_market_offer_compact_message ~= miax_options_topofmarket_mach_v2_3.prefs.show_simple_top_of_market_offer_compact_message then
+    show.simple_top_of_market_offer_compact_message = miax_options_topofmarket_mach_v2_3.prefs.show_simple_top_of_market_offer_compact_message
     changed = true
   end
-  if show.trade_message ~= miax_options_tom_mach_v1_9.prefs.show_trade_message then
-    show.trade_message = miax_options_tom_mach_v1_9.prefs.show_trade_message
+  if show.simple_top_of_market_offer_wide_message ~= miax_options_topofmarket_mach_v2_3.prefs.show_simple_top_of_market_offer_wide_message then
+    show.simple_top_of_market_offer_wide_message = miax_options_topofmarket_mach_v2_3.prefs.show_simple_top_of_market_offer_wide_message
     changed = true
   end
-  if show.underlying_trading_status_message ~= miax_options_tom_mach_v1_9.prefs.show_underlying_trading_status_message then
-    show.underlying_trading_status_message = miax_options_tom_mach_v1_9.prefs.show_underlying_trading_status_message
+  if show.system_state_message ~= miax_options_topofmarket_mach_v2_3.prefs.show_system_state_message then
+    show.system_state_message = miax_options_topofmarket_mach_v2_3.prefs.show_system_state_message
     changed = true
   end
-  if show.wide_double_sided_top_of_market_message ~= miax_options_tom_mach_v1_9.prefs.show_wide_double_sided_top_of_market_message then
-    show.wide_double_sided_top_of_market_message = miax_options_tom_mach_v1_9.prefs.show_wide_double_sided_top_of_market_message
+  if show.system_time_message ~= miax_options_topofmarket_mach_v2_3.prefs.show_system_time_message then
+    show.system_time_message = miax_options_topofmarket_mach_v2_3.prefs.show_system_time_message
     changed = true
   end
-  if show.wide_top_of_market_bid_message ~= miax_options_tom_mach_v1_9.prefs.show_wide_top_of_market_bid_message then
-    show.wide_top_of_market_bid_message = miax_options_tom_mach_v1_9.prefs.show_wide_top_of_market_bid_message
+  if show.trade_cancel_message ~= miax_options_topofmarket_mach_v2_3.prefs.show_trade_cancel_message then
+    show.trade_cancel_message = miax_options_topofmarket_mach_v2_3.prefs.show_trade_cancel_message
     changed = true
   end
-  if show.wide_top_of_market_offer_message ~= miax_options_tom_mach_v1_9.prefs.show_wide_top_of_market_offer_message then
-    show.wide_top_of_market_offer_message = miax_options_tom_mach_v1_9.prefs.show_wide_top_of_market_offer_message
+  if show.underlying_trading_status_notification_message ~= miax_options_topofmarket_mach_v2_3.prefs.show_underlying_trading_status_notification_message then
+    show.underlying_trading_status_notification_message = miax_options_topofmarket_mach_v2_3.prefs.show_underlying_trading_status_notification_message
     changed = true
   end
-  if show.data ~= miax_options_tom_mach_v1_9.prefs.show_data then
-    show.data = miax_options_tom_mach_v1_9.prefs.show_data
+  if show.data ~= miax_options_topofmarket_mach_v2_3.prefs.show_data then
+    show.data = miax_options_topofmarket_mach_v2_3.prefs.show_data
     changed = true
   end
-  if show.payload ~= miax_options_tom_mach_v1_9.prefs.show_payload then
-    show.payload = miax_options_tom_mach_v1_9.prefs.show_payload
+  if show.payload ~= miax_options_topofmarket_mach_v2_3.prefs.show_payload then
+    show.payload = miax_options_topofmarket_mach_v2_3.prefs.show_payload
     changed = true
   end
 
@@ -221,45 +221,45 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Miax Options Tom Mach 1.9
+-- Dissect Miax Options TopOfMarket Mach 2.3
 -----------------------------------------------------------------------
 
--- Size: Expected Event Time Nano Seconds Part
-size_of.expected_event_time_nano_seconds_part = 4
+-- Size: Expected Event Time Nano Seconds
+size_of.expected_event_time_nano_seconds = 4
 
--- Display: Expected Event Time Nano Seconds Part
-display.expected_event_time_nano_seconds_part = function(value)
-  return "Expected Event Time Nano Seconds Part: "..value
+-- Display: Expected Event Time Nano Seconds
+display.expected_event_time_nano_seconds = function(value)
+  return "Expected Event Time Nano Seconds: "..value
 end
 
--- Dissect: Expected Event Time Nano Seconds Part
-dissect.expected_event_time_nano_seconds_part = function(buffer, offset, packet, parent)
-  local length = size_of.expected_event_time_nano_seconds_part
+-- Dissect: Expected Event Time Nano Seconds
+dissect.expected_event_time_nano_seconds = function(buffer, offset, packet, parent)
+  local length = size_of.expected_event_time_nano_seconds
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.expected_event_time_nano_seconds_part(value, buffer, offset, packet, parent)
+  local display = display.expected_event_time_nano_seconds(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.expected_event_time_nano_seconds_part, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.expected_event_time_nano_seconds, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Seconds Part
-size_of.seconds_part = 4
+-- Size: Expected Event Time Seconds
+size_of.expected_event_time_seconds = 4
 
--- Display: Seconds Part
-display.seconds_part = function(value)
-  return "Seconds Part: "..value
+-- Display: Expected Event Time Seconds
+display.expected_event_time_seconds = function(value)
+  return "Expected Event Time Seconds: "..value
 end
 
--- Dissect: Seconds Part
-dissect.seconds_part = function(buffer, offset, packet, parent)
-  local length = size_of.seconds_part
+-- Dissect: Expected Event Time Seconds
+dissect.expected_event_time_seconds = function(buffer, offset, packet, parent)
+  local length = size_of.expected_event_time_seconds
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.seconds_part(value, buffer, offset, packet, parent)
+  local display = display.expected_event_time_seconds(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.seconds_part, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.expected_event_time_seconds, range, value, display)
 
   return offset + length, value
 end
@@ -286,7 +286,7 @@ dissect.event_reason = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.event_reason(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.event_reason, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.event_reason, range, value, display)
 
   return offset + length, value
 end
@@ -316,7 +316,7 @@ dissect.trading_status = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.trading_status, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.trading_status, range, value, display)
 
   return offset + length, value
 end
@@ -336,7 +336,7 @@ dissect.underlying_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.underlying_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.underlying_symbol, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.underlying_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -356,13 +356,13 @@ dissect.timestamp = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.timestamp, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
 
--- Calculate size of: Underlying Trading Status Message
-size_of.underlying_trading_status_message = function(buffer, offset)
+-- Calculate size of: Underlying Trading Status Notification Message
+size_of.underlying_trading_status_notification_message = function(buffer, offset)
   local index = 0
 
   index = index + size_of.timestamp
@@ -373,20 +373,20 @@ size_of.underlying_trading_status_message = function(buffer, offset)
 
   index = index + size_of.event_reason
 
-  index = index + size_of.seconds_part
+  index = index + size_of.expected_event_time_seconds
 
-  index = index + size_of.expected_event_time_nano_seconds_part
+  index = index + size_of.expected_event_time_nano_seconds
 
   return index
 end
 
--- Display: Underlying Trading Status Message
-display.underlying_trading_status_message = function(buffer, offset, size, packet, parent)
+-- Display: Underlying Trading Status Notification Message
+display.underlying_trading_status_notification_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Underlying Trading Status Message
-dissect.underlying_trading_status_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Underlying Trading Status Notification Message
+dissect.underlying_trading_status_notification_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
@@ -401,26 +401,26 @@ dissect.underlying_trading_status_message_fields = function(buffer, offset, pack
   -- Event Reason: 1 Byte Ascii String Enum with 2 values
   index, event_reason = dissect.event_reason(buffer, index, packet, parent)
 
-  -- Seconds Part: 4 Byte Unsigned Fixed Width Integer
-  index, seconds_part = dissect.seconds_part(buffer, index, packet, parent)
+  -- Expected Event Time Seconds: 4 Byte Unsigned Fixed Width Integer
+  index, expected_event_time_seconds = dissect.expected_event_time_seconds(buffer, index, packet, parent)
 
-  -- Expected Event Time Nano Seconds Part: 4 Byte Unsigned Fixed Width Integer
-  index, expected_event_time_nano_seconds_part = dissect.expected_event_time_nano_seconds_part(buffer, index, packet, parent)
+  -- Expected Event Time Nano Seconds: 4 Byte Unsigned Fixed Width Integer
+  index, expected_event_time_nano_seconds = dissect.expected_event_time_nano_seconds(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Underlying Trading Status Message
-dissect.underlying_trading_status_message = function(buffer, offset, packet, parent)
+-- Dissect: Underlying Trading Status Notification Message
+dissect.underlying_trading_status_notification_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.underlying_trading_status_message then
-    local length = size_of.underlying_trading_status_message(buffer, offset)
+  if show.underlying_trading_status_notification_message then
+    local length = size_of.underlying_trading_status_notification_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.underlying_trading_status_message(buffer, packet, parent)
-    parent = parent:add(miax_options_tom_mach_v1_9.fields.underlying_trading_status_message, range, display)
+    local display = display.underlying_trading_status_notification_message(buffer, packet, parent)
+    parent = parent:add(miax_options_topofmarket_mach_v2_3.fields.underlying_trading_status_notification_message, range, display)
   end
 
-  return dissect.underlying_trading_status_message_fields(buffer, offset, packet, parent)
+  return dissect.underlying_trading_status_notification_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Condition
@@ -428,8 +428,131 @@ size_of.trade_condition = 1
 
 -- Display: Trade Condition
 display.trade_condition = function(value)
+  if value == " " then
+    return "Trade Condition: Regular (<whitespace>)"
+  end
   if value == "A" then
-    return "Trade Condition: Cancel Of Trade (A)"
+    return "Trade Condition: Cancel Of Trade Previously Reported Other Than As The Last Or Opening (A)"
+  end
+  if value == "B" then
+    return "Trade Condition: Late And Is Out Of Sequence (B)"
+  end
+  if value == "C" then
+    return "Trade Condition: Cancel Of The Last Reported Trade (C)"
+  end
+  if value == "D" then
+    return "Trade Condition: Late And Is In Correct Sequence (D)"
+  end
+  if value == "E" then
+    return "Trade Condition: Cancel Of The First Reported Trade (E)"
+  end
+  if value == "F" then
+    return "Trade Condition: Late Report Of The Opening Trade And Is Out Of Sequence (F)"
+  end
+  if value == "G" then
+    return "Trade Condition: Cancel Of The Only Reported Trade (G)"
+  end
+  if value == "H" then
+    return "Trade Condition: Late Report Of The Opening Trade And Is In Correct Sequence (H)"
+  end
+  if value == "I" then
+    return "Trade Condition: Reserved (I)"
+  end
+  if value == "J" then
+    return "Trade Condition: Reopening Of An Option (J)"
+  end
+  if value == "K" then
+    return "Trade Condition: Reserved (K)"
+  end
+  if value == "L" then
+    return "Trade Condition: A Buy And A Sell In The Same Class (L)"
+  end
+  if value == "M" then
+    return "Trade Condition: A Buy And A Sell In A Put And A Call (M)"
+  end
+  if value == "N" then
+    return "Trade Condition: Reserved (N)"
+  end
+  if value == "O" then
+    return "Trade Condition: Reserved (O)"
+  end
+  if value == "P" then
+    return "Trade Condition: Buy Or Sell Of A Call Or Put (P)"
+  end
+  if value == "Q" then
+    return "Trade Condition: Buy Of A Call And A Sell Of A Put For The Same Underlying Stock Or Index (Q)"
+  end
+  if value == "R" then
+    return "Trade Condition: Execution Of An Order Which Was Stopped At A Price That Did Not Constitute A Trade Through On Another Market At The Time Of The Stop (R)"
+  end
+  if value == "S" then
+    return "Trade Condition: Execution Of An Iso Order (S)"
+  end
+  if value == "T" then
+    return "Trade Condition: Reserved (T)"
+  end
+  if value == "X" then
+    return "Trade Condition: Trade Through Exempt (X)"
+  end
+  if value == "a" then
+    return "Trade Condition: Paired Prime (a)"
+  end
+  if value == "b" then
+    return "Trade Condition: Reserved (b)"
+  end
+  if value == "c" then
+    return "Trade Condition: Prime Customer To Customer Cross Or Prime Qcc (c)"
+  end
+  if value == "d" then
+    return "Trade Condition: Reserved (d)"
+  end
+  if value == "e" then
+    return "Trade Condition: Reserved (e)"
+  end
+  if value == "f" then
+    return "Trade Condition: Complex Transaction That Is Not Complex Stocktied And Does Not Involve Legging (f)"
+  end
+  if value == "g" then
+    return "Trade Condition: Complex Prime Transaction That Is Not Complex Stocktied And Does Not Involve Legging (g)"
+  end
+  if value == "h" then
+    return "Trade Condition: Complex Prime Customer To Customer Cross Or Complex Prime Qcc Transaction That Is Not Complex Stocktied (h)"
+  end
+  if value == "i" then
+    return "Trade Condition: Reserved (i)"
+  end
+  if value == "j" then
+    return "Trade Condition: Complex Legging Transaction That Is Not Complex Stocktied (j)"
+  end
+  if value == "k" then
+    return "Trade Condition: Complex Prime Stocktied Transaction That Does Not Involve Legging (k)"
+  end
+  if value == "l" then
+    return "Trade Condition: Complex Prime Legging Transaction That Is Not Complex Stocktied (l)"
+  end
+  if value == "m" then
+    return "Trade Condition: Reserved (m)"
+  end
+  if value == "n" then
+    return "Trade Condition: Complex Stocktied Transaction That Does Not Involve Legging (n)"
+  end
+  if value == "o" then
+    return "Trade Condition: Complex Customer To Customer Cross Stocktied Or Complex Qcc Stocktied Transaction (o)"
+  end
+  if value == "p" then
+    return "Trade Condition: Reserved (p)"
+  end
+  if value == "q" then
+    return "Trade Condition: Reserved (q)"
+  end
+  if value == "r" then
+    return "Trade Condition: Reserved (r)"
+  end
+  if value == "s" then
+    return "Trade Condition: Reserved (s)"
+  end
+  if value == "t" then
+    return "Trade Condition: Reserved (t)"
   end
 
   return "Trade Condition: Unknown("..value..")"
@@ -442,7 +565,7 @@ dissect.trade_condition = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trade_condition(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.trade_condition, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.trade_condition, range, value, display)
 
   return offset + length, value
 end
@@ -462,7 +585,7 @@ dissect.trade_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.trade_size(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.trade_size, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.trade_size, range, value, display)
 
   return offset + length, value
 end
@@ -482,7 +605,7 @@ dissect.trade_price = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.trade_price(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.trade_price, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.trade_price, range, value, display)
 
   return offset + length, value
 end
@@ -502,7 +625,7 @@ dissect.correction_number = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.correction_number(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.correction_number, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.correction_number, range, value, display)
 
   return offset + length, value
 end
@@ -522,7 +645,7 @@ dissect.trade_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.trade_id, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.trade_id, range, value, display)
 
   return offset + length, value
 end
@@ -542,7 +665,7 @@ dissect.product_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.product_id(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.product_id, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.product_id, range, value, display)
 
   return offset + length, value
 end
@@ -595,7 +718,7 @@ dissect.trade_cancel_message_fields = function(buffer, offset, packet, parent)
   -- Trade Size: 4 Byte Unsigned Fixed Width Integer
   index, trade_size = dissect.trade_size(buffer, index, packet, parent)
 
-  -- Trade Condition: 1 Byte Ascii String Enum with 1 values
+  -- Trade Condition: 1 Byte Ascii String Enum with 42 values
   index, trade_condition = dissect.trade_condition(buffer, index, packet, parent)
 
   return index
@@ -608,7 +731,7 @@ dissect.trade_cancel_message = function(buffer, offset, packet, parent)
     local length = size_of.trade_cancel_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.trade_cancel_message(buffer, packet, parent)
-    parent = parent:add(miax_options_tom_mach_v1_9.fields.trade_cancel_message, range, display)
+    parent = parent:add(miax_options_topofmarket_mach_v2_3.fields.trade_cancel_message, range, display)
   end
 
   return dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
@@ -629,7 +752,7 @@ dissect.reference_correction_number = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.reference_correction_number(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.reference_correction_number, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.reference_correction_number, range, value, display)
 
   return offset + length, value
 end
@@ -649,13 +772,13 @@ dissect.reference_trade_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.reference_trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.reference_trade_id, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.reference_trade_id, range, value, display)
 
   return offset + length, value
 end
 
--- Calculate size of: Trade Message
-size_of.trade_message = function(buffer, offset)
+-- Calculate size of: Last Sale Message
+size_of.last_sale_message = function(buffer, offset)
   local index = 0
 
   index = index + size_of.timestamp
@@ -679,13 +802,13 @@ size_of.trade_message = function(buffer, offset)
   return index
 end
 
--- Display: Trade Message
-display.trade_message = function(buffer, offset, size, packet, parent)
+-- Display: Last Sale Message
+display.last_sale_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Trade Message
-dissect.trade_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Last Sale Message
+dissect.last_sale_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
@@ -712,23 +835,23 @@ dissect.trade_message_fields = function(buffer, offset, packet, parent)
   -- Trade Size: 4 Byte Unsigned Fixed Width Integer
   index, trade_size = dissect.trade_size(buffer, index, packet, parent)
 
-  -- Trade Condition: 1 Byte Ascii String Enum with 1 values
+  -- Trade Condition: 1 Byte Ascii String Enum with 42 values
   index, trade_condition = dissect.trade_condition(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Trade Message
-dissect.trade_message = function(buffer, offset, packet, parent)
+-- Dissect: Last Sale Message
+dissect.last_sale_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.trade_message then
-    local length = size_of.trade_message(buffer, offset)
+  if show.last_sale_message then
+    local length = size_of.last_sale_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_message(buffer, packet, parent)
-    parent = parent:add(miax_options_tom_mach_v1_9.fields.trade_message, range, display)
+    local display = display.last_sale_message(buffer, packet, parent)
+    parent = parent:add(miax_options_topofmarket_mach_v2_3.fields.last_sale_message, range, display)
   end
 
-  return dissect.trade_message_fields(buffer, offset, packet, parent)
+  return dissect.last_sale_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Offer Condition
@@ -745,6 +868,9 @@ display.offer_condition = function(value)
   if value == "C" then
     return "Offer Condition: Not Firm (C)"
   end
+  if value == "R" then
+    return "Offer Condition: Reserved (R)"
+  end
   if value == "T" then
     return "Offer Condition: Trading Halt (T)"
   end
@@ -759,7 +885,7 @@ dissect.offer_condition = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.offer_condition(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.offer_condition, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.offer_condition, range, value, display)
 
   return offset + length, value
 end
@@ -779,7 +905,7 @@ dissect.offer_priority_customer_size_4 = function(buffer, offset, packet, parent
   local value = range:le_uint()
   local display = display.offer_priority_customer_size_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.offer_priority_customer_size_4, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.offer_priority_customer_size_4, range, value, display)
 
   return offset + length, value
 end
@@ -799,7 +925,7 @@ dissect.offer_size_4 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.offer_size_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.offer_size_4, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.offer_size_4, range, value, display)
 
   return offset + length, value
 end
@@ -819,7 +945,7 @@ dissect.offer_price_4 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.offer_price_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.offer_price_4, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.offer_price_4, range, value, display)
 
   return offset + length, value
 end
@@ -838,6 +964,9 @@ display.bid_condition = function(value)
   if value == "C" then
     return "Bid Condition: Not Firm (C)"
   end
+  if value == "R" then
+    return "Bid Condition: Reserved (R)"
+  end
   if value == "T" then
     return "Bid Condition: Trading Halt (T)"
   end
@@ -852,7 +981,7 @@ dissect.bid_condition = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.bid_condition(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.bid_condition, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.bid_condition, range, value, display)
 
   return offset + length, value
 end
@@ -872,7 +1001,7 @@ dissect.bid_priority_customer_size_4 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.bid_priority_customer_size_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.bid_priority_customer_size_4, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.bid_priority_customer_size_4, range, value, display)
 
   return offset + length, value
 end
@@ -892,7 +1021,7 @@ dissect.bid_size_4 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.bid_size_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.bid_size_4, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.bid_size_4, range, value, display)
 
   return offset + length, value
 end
@@ -912,13 +1041,13 @@ dissect.bid_price_4 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.bid_price_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.bid_price_4, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.bid_price_4, range, value, display)
 
   return offset + length, value
 end
 
--- Calculate size of: Wide Double Sided Top Of Market Message
-size_of.wide_double_sided_top_of_market_message = function(buffer, offset)
+-- Calculate size of: Simple Double Sided Top Of Market Wide Message
+size_of.simple_double_sided_top_of_market_wide_message = function(buffer, offset)
   local index = 0
 
   index = index + size_of.timestamp
@@ -944,13 +1073,13 @@ size_of.wide_double_sided_top_of_market_message = function(buffer, offset)
   return index
 end
 
--- Display: Wide Double Sided Top Of Market Message
-display.wide_double_sided_top_of_market_message = function(buffer, offset, size, packet, parent)
+-- Display: Simple Double Sided Top Of Market Wide Message
+display.simple_double_sided_top_of_market_wide_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Wide Double Sided Top Of Market Message
-dissect.wide_double_sided_top_of_market_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Simple Double Sided Top Of Market Wide Message
+dissect.simple_double_sided_top_of_market_wide_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
@@ -968,7 +1097,7 @@ dissect.wide_double_sided_top_of_market_message_fields = function(buffer, offset
   -- Bid Priority Customer Size 4: 4 Byte Unsigned Fixed Width Integer
   index, bid_priority_customer_size_4 = dissect.bid_priority_customer_size_4(buffer, index, packet, parent)
 
-  -- Bid Condition: 1 Byte Ascii String Enum with 4 values
+  -- Bid Condition: 1 Byte Ascii String Enum with 5 values
   index, bid_condition = dissect.bid_condition(buffer, index, packet, parent)
 
   -- Offer Price 4: 4 Byte Unsigned Fixed Width Integer
@@ -980,23 +1109,23 @@ dissect.wide_double_sided_top_of_market_message_fields = function(buffer, offset
   -- Offer Priority Customer Size 4: 4 Byte Unsigned Fixed Width Integer
   index, offer_priority_customer_size_4 = dissect.offer_priority_customer_size_4(buffer, index, packet, parent)
 
-  -- Offer Condition: 1 Byte Ascii String Enum with 4 values
+  -- Offer Condition: 1 Byte Ascii String Enum with 5 values
   index, offer_condition = dissect.offer_condition(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Wide Double Sided Top Of Market Message
-dissect.wide_double_sided_top_of_market_message = function(buffer, offset, packet, parent)
+-- Dissect: Simple Double Sided Top Of Market Wide Message
+dissect.simple_double_sided_top_of_market_wide_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.wide_double_sided_top_of_market_message then
-    local length = size_of.wide_double_sided_top_of_market_message(buffer, offset)
+  if show.simple_double_sided_top_of_market_wide_message then
+    local length = size_of.simple_double_sided_top_of_market_wide_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.wide_double_sided_top_of_market_message(buffer, packet, parent)
-    parent = parent:add(miax_options_tom_mach_v1_9.fields.wide_double_sided_top_of_market_message, range, display)
+    local display = display.simple_double_sided_top_of_market_wide_message(buffer, packet, parent)
+    parent = parent:add(miax_options_topofmarket_mach_v2_3.fields.simple_double_sided_top_of_market_wide_message, range, display)
   end
 
-  return dissect.wide_double_sided_top_of_market_message_fields(buffer, offset, packet, parent)
+  return dissect.simple_double_sided_top_of_market_wide_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Offer Priority Customer Size 2
@@ -1014,7 +1143,7 @@ dissect.offer_priority_customer_size_2 = function(buffer, offset, packet, parent
   local value = range:le_uint()
   local display = display.offer_priority_customer_size_2(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.offer_priority_customer_size_2, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.offer_priority_customer_size_2, range, value, display)
 
   return offset + length, value
 end
@@ -1034,7 +1163,7 @@ dissect.offer_size_2 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.offer_size_2(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.offer_size_2, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.offer_size_2, range, value, display)
 
   return offset + length, value
 end
@@ -1054,7 +1183,7 @@ dissect.offer_price_2 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.offer_price_2(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.offer_price_2, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.offer_price_2, range, value, display)
 
   return offset + length, value
 end
@@ -1074,7 +1203,7 @@ dissect.bid_priority_customer_size_2 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.bid_priority_customer_size_2(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.bid_priority_customer_size_2, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.bid_priority_customer_size_2, range, value, display)
 
   return offset + length, value
 end
@@ -1094,7 +1223,7 @@ dissect.bid_size_2 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.bid_size_2(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.bid_size_2, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.bid_size_2, range, value, display)
 
   return offset + length, value
 end
@@ -1114,13 +1243,13 @@ dissect.bid_price_2 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.bid_price_2(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.bid_price_2, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.bid_price_2, range, value, display)
 
   return offset + length, value
 end
 
--- Calculate size of: Double Sided Top Of Market Compact Message
-size_of.double_sided_top_of_market_compact_message = function(buffer, offset)
+-- Calculate size of: Simple Double Sided Top Of Market Compact Message
+size_of.simple_double_sided_top_of_market_compact_message = function(buffer, offset)
   local index = 0
 
   index = index + size_of.timestamp
@@ -1146,13 +1275,13 @@ size_of.double_sided_top_of_market_compact_message = function(buffer, offset)
   return index
 end
 
--- Display: Double Sided Top Of Market Compact Message
-display.double_sided_top_of_market_compact_message = function(buffer, offset, size, packet, parent)
+-- Display: Simple Double Sided Top Of Market Compact Message
+display.simple_double_sided_top_of_market_compact_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Double Sided Top Of Market Compact Message
-dissect.double_sided_top_of_market_compact_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Simple Double Sided Top Of Market Compact Message
+dissect.simple_double_sided_top_of_market_compact_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
@@ -1170,7 +1299,7 @@ dissect.double_sided_top_of_market_compact_message_fields = function(buffer, off
   -- Bid Priority Customer Size 2: 2 Byte Unsigned Fixed Width Integer
   index, bid_priority_customer_size_2 = dissect.bid_priority_customer_size_2(buffer, index, packet, parent)
 
-  -- Bid Condition: 1 Byte Ascii String Enum with 4 values
+  -- Bid Condition: 1 Byte Ascii String Enum with 5 values
   index, bid_condition = dissect.bid_condition(buffer, index, packet, parent)
 
   -- Offer Price 2: 2 Byte Unsigned Fixed Width Integer
@@ -1182,23 +1311,23 @@ dissect.double_sided_top_of_market_compact_message_fields = function(buffer, off
   -- Offer Priority Customer Size 2: 2 Byte Unsigned Fixed Width Integer
   index, offer_priority_customer_size_2 = dissect.offer_priority_customer_size_2(buffer, index, packet, parent)
 
-  -- Offer Condition: 1 Byte Ascii String Enum with 4 values
+  -- Offer Condition: 1 Byte Ascii String Enum with 5 values
   index, offer_condition = dissect.offer_condition(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Double Sided Top Of Market Compact Message
-dissect.double_sided_top_of_market_compact_message = function(buffer, offset, packet, parent)
+-- Dissect: Simple Double Sided Top Of Market Compact Message
+dissect.simple_double_sided_top_of_market_compact_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.double_sided_top_of_market_compact_message then
-    local length = size_of.double_sided_top_of_market_compact_message(buffer, offset)
+  if show.simple_double_sided_top_of_market_compact_message then
+    local length = size_of.simple_double_sided_top_of_market_compact_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.double_sided_top_of_market_compact_message(buffer, packet, parent)
-    parent = parent:add(miax_options_tom_mach_v1_9.fields.double_sided_top_of_market_compact_message, range, display)
+    local display = display.simple_double_sided_top_of_market_compact_message(buffer, packet, parent)
+    parent = parent:add(miax_options_topofmarket_mach_v2_3.fields.simple_double_sided_top_of_market_compact_message, range, display)
   end
 
-  return dissect.double_sided_top_of_market_compact_message_fields(buffer, offset, packet, parent)
+  return dissect.simple_double_sided_top_of_market_compact_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Mbbo Condition
@@ -1215,6 +1344,9 @@ display.mbbo_condition = function(value)
   if value == "C" then
     return "Mbbo Condition: Not Firm (C)"
   end
+  if value == "R" then
+    return "Mbbo Condition: Reserved (R)"
+  end
   if value == "T" then
     return "Mbbo Condition: Trading Halt (T)"
   end
@@ -1229,7 +1361,7 @@ dissect.mbbo_condition = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.mbbo_condition(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.mbbo_condition, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.mbbo_condition, range, value, display)
 
   return offset + length, value
 end
@@ -1249,7 +1381,7 @@ dissect.mbbo_priority_customer_size_4 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.mbbo_priority_customer_size_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.mbbo_priority_customer_size_4, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.mbbo_priority_customer_size_4, range, value, display)
 
   return offset + length, value
 end
@@ -1269,7 +1401,7 @@ dissect.mbbo_size_4 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.mbbo_size_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.mbbo_size_4, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.mbbo_size_4, range, value, display)
 
   return offset + length, value
 end
@@ -1289,13 +1421,13 @@ dissect.mbbo_price_4 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.mbbo_price_4(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.mbbo_price_4, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.mbbo_price_4, range, value, display)
 
   return offset + length, value
 end
 
--- Calculate size of: Wide Top Of Market Offer Message
-size_of.wide_top_of_market_offer_message = function(buffer, offset)
+-- Calculate size of: Simple Top Of Market Offer Wide Message
+size_of.simple_top_of_market_offer_wide_message = function(buffer, offset)
   local index = 0
 
   index = index + size_of.timestamp
@@ -1313,13 +1445,13 @@ size_of.wide_top_of_market_offer_message = function(buffer, offset)
   return index
 end
 
--- Display: Wide Top Of Market Offer Message
-display.wide_top_of_market_offer_message = function(buffer, offset, size, packet, parent)
+-- Display: Simple Top Of Market Offer Wide Message
+display.simple_top_of_market_offer_wide_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Wide Top Of Market Offer Message
-dissect.wide_top_of_market_offer_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Simple Top Of Market Offer Wide Message
+dissect.simple_top_of_market_offer_wide_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
@@ -1337,27 +1469,27 @@ dissect.wide_top_of_market_offer_message_fields = function(buffer, offset, packe
   -- Mbbo Priority Customer Size 4: 4 Byte Unsigned Fixed Width Integer
   index, mbbo_priority_customer_size_4 = dissect.mbbo_priority_customer_size_4(buffer, index, packet, parent)
 
-  -- Mbbo Condition: 1 Byte Ascii String Enum with 4 values
+  -- Mbbo Condition: 1 Byte Ascii String Enum with 5 values
   index, mbbo_condition = dissect.mbbo_condition(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Wide Top Of Market Offer Message
-dissect.wide_top_of_market_offer_message = function(buffer, offset, packet, parent)
+-- Dissect: Simple Top Of Market Offer Wide Message
+dissect.simple_top_of_market_offer_wide_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.wide_top_of_market_offer_message then
-    local length = size_of.wide_top_of_market_offer_message(buffer, offset)
+  if show.simple_top_of_market_offer_wide_message then
+    local length = size_of.simple_top_of_market_offer_wide_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.wide_top_of_market_offer_message(buffer, packet, parent)
-    parent = parent:add(miax_options_tom_mach_v1_9.fields.wide_top_of_market_offer_message, range, display)
+    local display = display.simple_top_of_market_offer_wide_message(buffer, packet, parent)
+    parent = parent:add(miax_options_topofmarket_mach_v2_3.fields.simple_top_of_market_offer_wide_message, range, display)
   end
 
-  return dissect.wide_top_of_market_offer_message_fields(buffer, offset, packet, parent)
+  return dissect.simple_top_of_market_offer_wide_message_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Wide Top Of Market Bid Message
-size_of.wide_top_of_market_bid_message = function(buffer, offset)
+-- Calculate size of: Simple Top Of Market Bid Wide Message
+size_of.simple_top_of_market_bid_wide_message = function(buffer, offset)
   local index = 0
 
   index = index + size_of.timestamp
@@ -1375,13 +1507,13 @@ size_of.wide_top_of_market_bid_message = function(buffer, offset)
   return index
 end
 
--- Display: Wide Top Of Market Bid Message
-display.wide_top_of_market_bid_message = function(buffer, offset, size, packet, parent)
+-- Display: Simple Top Of Market Bid Wide Message
+display.simple_top_of_market_bid_wide_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Wide Top Of Market Bid Message
-dissect.wide_top_of_market_bid_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Simple Top Of Market Bid Wide Message
+dissect.simple_top_of_market_bid_wide_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
@@ -1399,23 +1531,23 @@ dissect.wide_top_of_market_bid_message_fields = function(buffer, offset, packet,
   -- Mbbo Priority Customer Size 4: 4 Byte Unsigned Fixed Width Integer
   index, mbbo_priority_customer_size_4 = dissect.mbbo_priority_customer_size_4(buffer, index, packet, parent)
 
-  -- Mbbo Condition: 1 Byte Ascii String Enum with 4 values
+  -- Mbbo Condition: 1 Byte Ascii String Enum with 5 values
   index, mbbo_condition = dissect.mbbo_condition(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Wide Top Of Market Bid Message
-dissect.wide_top_of_market_bid_message = function(buffer, offset, packet, parent)
+-- Dissect: Simple Top Of Market Bid Wide Message
+dissect.simple_top_of_market_bid_wide_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.wide_top_of_market_bid_message then
-    local length = size_of.wide_top_of_market_bid_message(buffer, offset)
+  if show.simple_top_of_market_bid_wide_message then
+    local length = size_of.simple_top_of_market_bid_wide_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.wide_top_of_market_bid_message(buffer, packet, parent)
-    parent = parent:add(miax_options_tom_mach_v1_9.fields.wide_top_of_market_bid_message, range, display)
+    local display = display.simple_top_of_market_bid_wide_message(buffer, packet, parent)
+    parent = parent:add(miax_options_topofmarket_mach_v2_3.fields.simple_top_of_market_bid_wide_message, range, display)
   end
 
-  return dissect.wide_top_of_market_bid_message_fields(buffer, offset, packet, parent)
+  return dissect.simple_top_of_market_bid_wide_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Mbbo Priority Customer Size 2
@@ -1433,7 +1565,7 @@ dissect.mbbo_priority_customer_size_2 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.mbbo_priority_customer_size_2(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.mbbo_priority_customer_size_2, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.mbbo_priority_customer_size_2, range, value, display)
 
   return offset + length, value
 end
@@ -1453,7 +1585,7 @@ dissect.mbbo_size_2 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.mbbo_size_2(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.mbbo_size_2, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.mbbo_size_2, range, value, display)
 
   return offset + length, value
 end
@@ -1473,13 +1605,13 @@ dissect.mbbo_price_2 = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.mbbo_price_2(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.mbbo_price_2, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.mbbo_price_2, range, value, display)
 
   return offset + length, value
 end
 
--- Calculate size of: Top Of Market Offer Compact Message
-size_of.top_of_market_offer_compact_message = function(buffer, offset)
+-- Calculate size of: Simple Top Of Market Offer Compact Message
+size_of.simple_top_of_market_offer_compact_message = function(buffer, offset)
   local index = 0
 
   index = index + size_of.timestamp
@@ -1497,13 +1629,13 @@ size_of.top_of_market_offer_compact_message = function(buffer, offset)
   return index
 end
 
--- Display: Top Of Market Offer Compact Message
-display.top_of_market_offer_compact_message = function(buffer, offset, size, packet, parent)
+-- Display: Simple Top Of Market Offer Compact Message
+display.simple_top_of_market_offer_compact_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Top Of Market Offer Compact Message
-dissect.top_of_market_offer_compact_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Simple Top Of Market Offer Compact Message
+dissect.simple_top_of_market_offer_compact_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
@@ -1521,27 +1653,27 @@ dissect.top_of_market_offer_compact_message_fields = function(buffer, offset, pa
   -- Mbbo Priority Customer Size 2: 2 Byte Unsigned Fixed Width Integer
   index, mbbo_priority_customer_size_2 = dissect.mbbo_priority_customer_size_2(buffer, index, packet, parent)
 
-  -- Mbbo Condition: 1 Byte Ascii String Enum with 4 values
+  -- Mbbo Condition: 1 Byte Ascii String Enum with 5 values
   index, mbbo_condition = dissect.mbbo_condition(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Top Of Market Offer Compact Message
-dissect.top_of_market_offer_compact_message = function(buffer, offset, packet, parent)
+-- Dissect: Simple Top Of Market Offer Compact Message
+dissect.simple_top_of_market_offer_compact_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.top_of_market_offer_compact_message then
-    local length = size_of.top_of_market_offer_compact_message(buffer, offset)
+  if show.simple_top_of_market_offer_compact_message then
+    local length = size_of.simple_top_of_market_offer_compact_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.top_of_market_offer_compact_message(buffer, packet, parent)
-    parent = parent:add(miax_options_tom_mach_v1_9.fields.top_of_market_offer_compact_message, range, display)
+    local display = display.simple_top_of_market_offer_compact_message(buffer, packet, parent)
+    parent = parent:add(miax_options_topofmarket_mach_v2_3.fields.simple_top_of_market_offer_compact_message, range, display)
   end
 
-  return dissect.top_of_market_offer_compact_message_fields(buffer, offset, packet, parent)
+  return dissect.simple_top_of_market_offer_compact_message_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Top Of Market Bid Compact Message
-size_of.top_of_market_bid_compact_message = function(buffer, offset)
+-- Calculate size of: Simple Top Of Market Bid Compact Message
+size_of.simple_top_of_market_bid_compact_message = function(buffer, offset)
   local index = 0
 
   index = index + size_of.timestamp
@@ -1559,13 +1691,13 @@ size_of.top_of_market_bid_compact_message = function(buffer, offset)
   return index
 end
 
--- Display: Top Of Market Bid Compact Message
-display.top_of_market_bid_compact_message = function(buffer, offset, size, packet, parent)
+-- Display: Simple Top Of Market Bid Compact Message
+display.simple_top_of_market_bid_compact_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Top Of Market Bid Compact Message
-dissect.top_of_market_bid_compact_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Simple Top Of Market Bid Compact Message
+dissect.simple_top_of_market_bid_compact_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
@@ -1583,23 +1715,23 @@ dissect.top_of_market_bid_compact_message_fields = function(buffer, offset, pack
   -- Mbbo Priority Customer Size 2: 2 Byte Unsigned Fixed Width Integer
   index, mbbo_priority_customer_size_2 = dissect.mbbo_priority_customer_size_2(buffer, index, packet, parent)
 
-  -- Mbbo Condition: 1 Byte Ascii String Enum with 4 values
+  -- Mbbo Condition: 1 Byte Ascii String Enum with 5 values
   index, mbbo_condition = dissect.mbbo_condition(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Top Of Market Bid Compact Message
-dissect.top_of_market_bid_compact_message = function(buffer, offset, packet, parent)
+-- Dissect: Simple Top Of Market Bid Compact Message
+dissect.simple_top_of_market_bid_compact_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.top_of_market_bid_compact_message then
-    local length = size_of.top_of_market_bid_compact_message(buffer, offset)
+  if show.simple_top_of_market_bid_compact_message then
+    local length = size_of.simple_top_of_market_bid_compact_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.top_of_market_bid_compact_message(buffer, packet, parent)
-    parent = parent:add(miax_options_tom_mach_v1_9.fields.top_of_market_bid_compact_message, range, display)
+    local display = display.simple_top_of_market_bid_compact_message(buffer, packet, parent)
+    parent = parent:add(miax_options_topofmarket_mach_v2_3.fields.simple_top_of_market_bid_compact_message, range, display)
   end
 
-  return dissect.top_of_market_bid_compact_message_fields(buffer, offset, packet, parent)
+  return dissect.simple_top_of_market_bid_compact_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: System Status
@@ -1619,12 +1751,6 @@ display.system_status = function(value)
   if value == "2" then
     return "System Status: End Of Test Session (2)"
   end
-  if value == "B" then
-    return "System Status: Top Bid (B)"
-  end
-  if value == "O" then
-    return "System Status: Top Offer (O)"
-  end
 
   return "System Status: Unknown("..value..")"
 end
@@ -1636,7 +1762,7 @@ dissect.system_status = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.system_status(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.system_status, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.system_status, range, value, display)
 
   return offset + length, value
 end
@@ -1656,7 +1782,7 @@ dissect.session_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.session_id(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.session_id, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.session_id, range, value, display)
 
   return offset + length, value
 end
@@ -1676,7 +1802,7 @@ dissect.to_m_version = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.to_m_version(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.to_m_version, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.to_m_version, range, value, display)
 
   return offset + length, value
 end
@@ -1696,7 +1822,7 @@ dissect.notification_time = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.notification_time(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.notification_time, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.notification_time, range, value, display)
 
   return offset + length, value
 end
@@ -1734,7 +1860,7 @@ dissect.system_state_message_fields = function(buffer, offset, packet, parent)
   -- Session Id: 4 Byte Unsigned Fixed Width Integer
   index, session_id = dissect.session_id(buffer, index, packet, parent)
 
-  -- System Status: 1 Byte Ascii String Enum with 6 values
+  -- System Status: 1 Byte Ascii String Enum with 4 values
   index, system_status = dissect.system_status(buffer, index, packet, parent)
 
   return index
@@ -1747,7 +1873,7 @@ dissect.system_state_message = function(buffer, offset, packet, parent)
     local length = size_of.system_state_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.system_state_message(buffer, packet, parent)
-    parent = parent:add(miax_options_tom_mach_v1_9.fields.system_state_message, range, display)
+    parent = parent:add(miax_options_topofmarket_mach_v2_3.fields.system_state_message, range, display)
   end
 
   return dissect.system_state_message_fields(buffer, offset, packet, parent)
@@ -1768,7 +1894,7 @@ dissect.reserved = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.reserved(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.reserved, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.reserved, range, value, display)
 
   return offset + length, value
 end
@@ -1788,7 +1914,7 @@ dissect.priority_quote_width = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.priority_quote_width(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.priority_quote_width, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.priority_quote_width, range, value, display)
 
   return offset + length, value
 end
@@ -1860,7 +1986,7 @@ dissect.opening_underlying_market_code = function(buffer, offset, packet, parent
   local value = range:string()
   local display = display.opening_underlying_market_code(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.opening_underlying_market_code, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.opening_underlying_market_code, range, value, display)
 
   return offset + length, value
 end
@@ -1874,10 +2000,10 @@ display.liquidity_acceptance_increment_indicator = function(value)
     return "Liquidity Acceptance Increment Indicator: Penny (P)"
   end
   if value == "N" then
-    return "Liquidity Acceptance Increment Indicator: Nickel (N)"
+    return "Liquidity Acceptance Increment Indicator: Penny Or Nickel (N)"
   end
   if value == "D" then
-    return "Liquidity Acceptance Increment Indicator: Dime (D)"
+    return "Liquidity Acceptance Increment Indicator: Nickel Or Dime (D)"
   end
 
   return "Liquidity Acceptance Increment Indicator: Unknown("..value..")"
@@ -1890,7 +2016,7 @@ dissect.liquidity_acceptance_increment_indicator = function(buffer, offset, pack
   local value = range:string()
   local display = display.liquidity_acceptance_increment_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.liquidity_acceptance_increment_indicator, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.liquidity_acceptance_increment_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1904,10 +2030,10 @@ display.miax_bbo_posting_increment_indicator = function(value)
     return "Miax Bbo Posting Increment Indicator: Penny (P)"
   end
   if value == "N" then
-    return "Miax Bbo Posting Increment Indicator: Nickel (N)"
+    return "Miax Bbo Posting Increment Indicator: Penny Or Nickel (N)"
   end
   if value == "D" then
-    return "Miax Bbo Posting Increment Indicator: Dime (D)"
+    return "Miax Bbo Posting Increment Indicator: Nickel Or Dime (D)"
   end
 
   return "Miax Bbo Posting Increment Indicator: Unknown("..value..")"
@@ -1920,7 +2046,7 @@ dissect.miax_bbo_posting_increment_indicator = function(buffer, offset, packet, 
   local value = range:string()
   local display = display.miax_bbo_posting_increment_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.miax_bbo_posting_increment_indicator, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.miax_bbo_posting_increment_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1930,7 +2056,14 @@ size_of.active_on_miax = 1
 
 -- Display: Active On Miax
 display.active_on_miax = function(value)
-  return "Active On Miax: "..value
+  if value == "A" then
+    return "Active On Miax: Active (A)"
+  end
+  if value == "I" then
+    return "Active On Miax: Inactive (I)"
+  end
+
+  return "Active On Miax: Unknown("..value..")"
 end
 
 -- Dissect: Active On Miax
@@ -1940,7 +2073,7 @@ dissect.active_on_miax = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.active_on_miax(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.active_on_miax, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.active_on_miax, range, value, display)
 
   return offset + length, value
 end
@@ -1950,7 +2083,14 @@ size_of.long_term_option = 1
 
 -- Display: Long Term Option
 display.long_term_option = function(value)
-  return "Long Term Option: "..value
+  if value == "Y" then
+    return "Long Term Option: Far Month Expiration (Y)"
+  end
+  if value == "N" then
+    return "Long Term Option: Near Month Expiration (N)"
+  end
+
+  return "Long Term Option: Unknown("..value..")"
 end
 
 -- Dissect: Long Term Option
@@ -1960,7 +2100,7 @@ dissect.long_term_option = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.long_term_option(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.long_term_option, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.long_term_option, range, value, display)
 
   return offset + length, value
 end
@@ -1970,7 +2110,14 @@ size_of.restricted_option = 1
 
 -- Display: Restricted Option
 display.restricted_option = function(value)
-  return "Restricted Option: "..value
+  if value == "Y" then
+    return "Restricted Option: Accept Position Closing (Y)"
+  end
+  if value == "N" then
+    return "Restricted Option: Accept Open And Close (N)"
+  end
+
+  return "Restricted Option: Unknown("..value..")"
 end
 
 -- Dissect: Restricted Option
@@ -1980,7 +2127,7 @@ dissect.restricted_option = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.restricted_option(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.restricted_option, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.restricted_option, range, value, display)
 
   return offset + length, value
 end
@@ -2000,7 +2147,7 @@ dissect.closing_time = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.closing_time(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.closing_time, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.closing_time, range, value, display)
 
   return offset + length, value
 end
@@ -2020,7 +2167,7 @@ dissect.opening_time = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.opening_time(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.opening_time, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.opening_time, range, value, display)
 
   return offset + length, value
 end
@@ -2030,7 +2177,14 @@ size_of.call_or_put = 1
 
 -- Display: Call Or Put
 display.call_or_put = function(value)
-  return "Call Or Put: "..value
+  if value == "C" then
+    return "Call Or Put: Call (C)"
+  end
+  if value == "P" then
+    return "Call Or Put: Put (P)"
+  end
+
+  return "Call Or Put: Unknown("..value..")"
 end
 
 -- Dissect: Call Or Put
@@ -2040,7 +2194,7 @@ dissect.call_or_put = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.call_or_put(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.call_or_put, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.call_or_put, range, value, display)
 
   return offset + length, value
 end
@@ -2060,7 +2214,7 @@ dissect.strike_price = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.strike_price(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.strike_price, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.strike_price, range, value, display)
 
   return offset + length, value
 end
@@ -2080,7 +2234,7 @@ dissect.expiration_date = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.expiration_date(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.expiration_date, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.expiration_date, range, value, display)
 
   return offset + length, value
 end
@@ -2100,7 +2254,7 @@ dissect.security_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.security_symbol, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.security_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -2120,13 +2274,13 @@ dissect.product_add_update_time = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.product_add_update_time(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.product_add_update_time, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.product_add_update_time, range, value, display)
 
   return offset + length, value
 end
 
--- Calculate size of: Series Update
-size_of.series_update = function(buffer, offset)
+-- Calculate size of: Simple Series Update Message
+size_of.simple_series_update_message = function(buffer, offset)
   local index = 0
 
   index = index + size_of.product_add_update_time
@@ -2166,13 +2320,13 @@ size_of.series_update = function(buffer, offset)
   return index
 end
 
--- Display: Series Update
-display.series_update = function(buffer, offset, size, packet, parent)
+-- Display: Simple Series Update Message
+display.simple_series_update_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Series Update
-dissect.series_update_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Simple Series Update Message
+dissect.simple_series_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Product Add Update Time: 4 Byte Unsigned Fixed Width Integer
@@ -2193,7 +2347,7 @@ dissect.series_update_fields = function(buffer, offset, packet, parent)
   -- Strike Price: 4 Byte Unsigned Fixed Width Integer
   index, strike_price = dissect.strike_price(buffer, index, packet, parent)
 
-  -- Call Or Put: 1 Byte Ascii String
+  -- Call Or Put: 1 Byte Ascii String Enum with 2 values
   index, call_or_put = dissect.call_or_put(buffer, index, packet, parent)
 
   -- Opening Time: 8 Byte Ascii String
@@ -2202,13 +2356,13 @@ dissect.series_update_fields = function(buffer, offset, packet, parent)
   -- Closing Time: 8 Byte Ascii String
   index, closing_time = dissect.closing_time(buffer, index, packet, parent)
 
-  -- Restricted Option: 1 Byte Ascii String
+  -- Restricted Option: 1 Byte Ascii String Enum with 2 values
   index, restricted_option = dissect.restricted_option(buffer, index, packet, parent)
 
-  -- Long Term Option: 1 Byte Ascii String
+  -- Long Term Option: 1 Byte Ascii String Enum with 2 values
   index, long_term_option = dissect.long_term_option(buffer, index, packet, parent)
 
-  -- Active On Miax: 1 Byte Ascii String
+  -- Active On Miax: 1 Byte Ascii String Enum with 2 values
   index, active_on_miax = dissect.active_on_miax(buffer, index, packet, parent)
 
   -- Miax Bbo Posting Increment Indicator: 1 Byte Ascii String Enum with 3 values
@@ -2229,17 +2383,17 @@ dissect.series_update_fields = function(buffer, offset, packet, parent)
   return index
 end
 
--- Dissect: Series Update
-dissect.series_update = function(buffer, offset, packet, parent)
+-- Dissect: Simple Series Update Message
+dissect.simple_series_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.series_update then
-    local length = size_of.series_update(buffer, offset)
+  if show.simple_series_update_message then
+    local length = size_of.simple_series_update_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.series_update(buffer, packet, parent)
-    parent = parent:add(miax_options_tom_mach_v1_9.fields.series_update, range, display)
+    local display = display.simple_series_update_message(buffer, packet, parent)
+    parent = parent:add(miax_options_topofmarket_mach_v2_3.fields.simple_series_update_message, range, display)
   end
 
-  return dissect.series_update_fields(buffer, offset, packet, parent)
+  return dissect.simple_series_update_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: System Time Message
@@ -2273,7 +2427,7 @@ dissect.system_time_message = function(buffer, offset, packet, parent)
     local length = size_of.system_time_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.system_time_message(buffer, packet, parent)
-    parent = parent:add(miax_options_tom_mach_v1_9.fields.system_time_message, range, display)
+    parent = parent:add(miax_options_topofmarket_mach_v2_3.fields.system_time_message, range, display)
   end
 
   return dissect.system_time_message_fields(buffer, offset, packet, parent)
@@ -2285,49 +2439,49 @@ size_of.data = function(buffer, offset, message_type)
   if message_type == "1" then
     return size_of.system_time_message(buffer, offset)
   end
-  -- Size of Series Update
+  -- Size of Simple Series Update Message
   if message_type == "P" then
-    return size_of.series_update(buffer, offset)
+    return size_of.simple_series_update_message(buffer, offset)
   end
   -- Size of System State Message
   if message_type == "S" then
     return size_of.system_state_message(buffer, offset)
   end
-  -- Size of Top Of Market Bid Compact Message
+  -- Size of Simple Top Of Market Bid Compact Message
   if message_type == "B" then
-    return size_of.top_of_market_bid_compact_message(buffer, offset)
+    return size_of.simple_top_of_market_bid_compact_message(buffer, offset)
   end
-  -- Size of Top Of Market Offer Compact Message
+  -- Size of Simple Top Of Market Offer Compact Message
   if message_type == "O" then
-    return size_of.top_of_market_offer_compact_message(buffer, offset)
+    return size_of.simple_top_of_market_offer_compact_message(buffer, offset)
   end
-  -- Size of Wide Top Of Market Bid Message
+  -- Size of Simple Top Of Market Bid Wide Message
   if message_type == "W" then
-    return size_of.wide_top_of_market_bid_message(buffer, offset)
+    return size_of.simple_top_of_market_bid_wide_message(buffer, offset)
   end
-  -- Size of Wide Top Of Market Offer Message
+  -- Size of Simple Top Of Market Offer Wide Message
   if message_type == "A" then
-    return size_of.wide_top_of_market_offer_message(buffer, offset)
+    return size_of.simple_top_of_market_offer_wide_message(buffer, offset)
   end
-  -- Size of Double Sided Top Of Market Compact Message
+  -- Size of Simple Double Sided Top Of Market Compact Message
   if message_type == "d" then
-    return size_of.double_sided_top_of_market_compact_message(buffer, offset)
+    return size_of.simple_double_sided_top_of_market_compact_message(buffer, offset)
   end
-  -- Size of Wide Double Sided Top Of Market Message
+  -- Size of Simple Double Sided Top Of Market Wide Message
   if message_type == "D" then
-    return size_of.wide_double_sided_top_of_market_message(buffer, offset)
+    return size_of.simple_double_sided_top_of_market_wide_message(buffer, offset)
   end
-  -- Size of Trade Message
+  -- Size of Last Sale Message
   if message_type == "T" then
-    return size_of.trade_message(buffer, offset)
+    return size_of.last_sale_message(buffer, offset)
   end
   -- Size of Trade Cancel Message
   if message_type == "X" then
     return size_of.trade_cancel_message(buffer, offset)
   end
-  -- Size of Underlying Trading Status Message
+  -- Size of Underlying Trading Status Notification Message
   if message_type == "H" then
-    return size_of.underlying_trading_status_message(buffer, offset)
+    return size_of.underlying_trading_status_notification_message(buffer, offset)
   end
 
   return 0
@@ -2344,49 +2498,49 @@ dissect.data_branches = function(buffer, offset, packet, parent, message_type)
   if message_type == "1" then
     return dissect.system_time_message(buffer, offset, packet, parent)
   end
-  -- Dissect Series Update
+  -- Dissect Simple Series Update Message
   if message_type == "P" then
-    return dissect.series_update(buffer, offset, packet, parent)
+    return dissect.simple_series_update_message(buffer, offset, packet, parent)
   end
   -- Dissect System State Message
   if message_type == "S" then
     return dissect.system_state_message(buffer, offset, packet, parent)
   end
-  -- Dissect Top Of Market Bid Compact Message
+  -- Dissect Simple Top Of Market Bid Compact Message
   if message_type == "B" then
-    return dissect.top_of_market_bid_compact_message(buffer, offset, packet, parent)
+    return dissect.simple_top_of_market_bid_compact_message(buffer, offset, packet, parent)
   end
-  -- Dissect Top Of Market Offer Compact Message
+  -- Dissect Simple Top Of Market Offer Compact Message
   if message_type == "O" then
-    return dissect.top_of_market_offer_compact_message(buffer, offset, packet, parent)
+    return dissect.simple_top_of_market_offer_compact_message(buffer, offset, packet, parent)
   end
-  -- Dissect Wide Top Of Market Bid Message
+  -- Dissect Simple Top Of Market Bid Wide Message
   if message_type == "W" then
-    return dissect.wide_top_of_market_bid_message(buffer, offset, packet, parent)
+    return dissect.simple_top_of_market_bid_wide_message(buffer, offset, packet, parent)
   end
-  -- Dissect Wide Top Of Market Offer Message
+  -- Dissect Simple Top Of Market Offer Wide Message
   if message_type == "A" then
-    return dissect.wide_top_of_market_offer_message(buffer, offset, packet, parent)
+    return dissect.simple_top_of_market_offer_wide_message(buffer, offset, packet, parent)
   end
-  -- Dissect Double Sided Top Of Market Compact Message
+  -- Dissect Simple Double Sided Top Of Market Compact Message
   if message_type == "d" then
-    return dissect.double_sided_top_of_market_compact_message(buffer, offset, packet, parent)
+    return dissect.simple_double_sided_top_of_market_compact_message(buffer, offset, packet, parent)
   end
-  -- Dissect Wide Double Sided Top Of Market Message
+  -- Dissect Simple Double Sided Top Of Market Wide Message
   if message_type == "D" then
-    return dissect.wide_double_sided_top_of_market_message(buffer, offset, packet, parent)
+    return dissect.simple_double_sided_top_of_market_wide_message(buffer, offset, packet, parent)
   end
-  -- Dissect Trade Message
+  -- Dissect Last Sale Message
   if message_type == "T" then
-    return dissect.trade_message(buffer, offset, packet, parent)
+    return dissect.last_sale_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Cancel Message
   if message_type == "X" then
     return dissect.trade_cancel_message(buffer, offset, packet, parent)
   end
-  -- Dissect Underlying Trading Status Message
+  -- Dissect Underlying Trading Status Notification Message
   if message_type == "H" then
-    return dissect.underlying_trading_status_message(buffer, offset, packet, parent)
+    return dissect.underlying_trading_status_notification_message(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2407,7 +2561,7 @@ dissect.data = function(buffer, offset, packet, parent, message_type)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.data(buffer, packet, parent)
-  local element = parent:add(miax_options_tom_mach_v1_9.fields.data, range, display)
+  local element = parent:add(miax_options_topofmarket_mach_v2_3.fields.data, range, display)
 
   return dissect.data_branches(buffer, offset, packet, parent, message_type)
 end
@@ -2421,37 +2575,37 @@ display.message_type = function(value)
     return "Message Type: System Time Message (1)"
   end
   if value == "P" then
-    return "Message Type: Series Update (P)"
+    return "Message Type: Simple Series Update Message (P)"
   end
   if value == "S" then
     return "Message Type: System State Message (S)"
   end
   if value == "B" then
-    return "Message Type: Top Of Market Bid Compact Message (B)"
+    return "Message Type: Simple Top Of Market Bid Compact Message (B)"
   end
   if value == "O" then
-    return "Message Type: Top Of Market Offer Compact Message (O)"
+    return "Message Type: Simple Top Of Market Offer Compact Message (O)"
   end
   if value == "W" then
-    return "Message Type: Wide Top Of Market Bid Message (W)"
+    return "Message Type: Simple Top Of Market Bid Wide Message (W)"
   end
   if value == "A" then
-    return "Message Type: Wide Top Of Market Offer Message (A)"
+    return "Message Type: Simple Top Of Market Offer Wide Message (A)"
   end
   if value == "d" then
-    return "Message Type: Double Sided Top Of Market Compact Message (d)"
+    return "Message Type: Simple Double Sided Top Of Market Compact Message (d)"
   end
   if value == "D" then
-    return "Message Type: Wide Double Sided Top Of Market Message (D)"
+    return "Message Type: Simple Double Sided Top Of Market Wide Message (D)"
   end
   if value == "T" then
-    return "Message Type: Trade Message (T)"
+    return "Message Type: Last Sale Message (T)"
   end
   if value == "X" then
     return "Message Type: Trade Cancel Message (X)"
   end
   if value == "H" then
-    return "Message Type: Underlying Trading Status Message (H)"
+    return "Message Type: Underlying Trading Status Notification Message (H)"
   end
 
   return "Message Type: Unknown("..value..")"
@@ -2464,7 +2618,7 @@ dissect.message_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.message_type, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -2508,7 +2662,7 @@ dissect.application_message = function(buffer, offset, packet, parent)
     local length = size_of.application_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.application_message(buffer, packet, parent)
-    parent = parent:add(miax_options_tom_mach_v1_9.fields.application_message, range, display)
+    parent = parent:add(miax_options_topofmarket_mach_v2_3.fields.application_message, range, display)
   end
 
   return dissect.application_message_fields(buffer, offset, packet, parent)
@@ -2554,7 +2708,7 @@ dissect.payload = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.payload(buffer, packet, parent)
-  local element = parent:add(miax_options_tom_mach_v1_9.fields.payload, range, display)
+  local element = parent:add(miax_options_topofmarket_mach_v2_3.fields.payload, range, display)
 
   return dissect.payload_branches(buffer, offset, packet, parent, packet_type)
 end
@@ -2574,7 +2728,7 @@ dissect.session_number = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.session_number(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.session_number, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.session_number, range, value, display)
 
   return offset + length, value
 end
@@ -2607,7 +2761,7 @@ dissect.packet_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.packet_type(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.packet_type, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -2627,7 +2781,7 @@ dissect.packet_length = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.packet_length(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.packet_length, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.packet_length, range, value, display)
 
   return offset + length, value
 end
@@ -2647,7 +2801,7 @@ dissect.sequence_number = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(miax_options_tom_mach_v1_9.fields.sequence_number, range, value, display)
+  parent:add(miax_options_topofmarket_mach_v2_3.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -2706,7 +2860,7 @@ dissect.message = function(buffer, offset, packet, parent)
     local length = size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.message(buffer, packet, parent)
-    parent = parent:add(miax_options_tom_mach_v1_9.fields.message, range, display)
+    parent = parent:add(miax_options_topofmarket_mach_v2_3.fields.message, range, display)
   end
 
   return dissect.message_fields(buffer, offset, packet, parent)
@@ -2733,23 +2887,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function miax_options_tom_mach_v1_9.init()
+function miax_options_topofmarket_mach_v2_3.init()
 end
 
--- Dissector for Miax Options Tom Mach 1.9
-function miax_options_tom_mach_v1_9.dissector(buffer, packet, parent)
+-- Dissector for Miax Options TopOfMarket Mach 2.3
+function miax_options_topofmarket_mach_v2_3.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = miax_options_tom_mach_v1_9.name
+  packet.cols.protocol = miax_options_topofmarket_mach_v2_3.name
 
   -- Dissect protocol
-  local protocol = parent:add(miax_options_tom_mach_v1_9, buffer(), miax_options_tom_mach_v1_9.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(miax_options_topofmarket_mach_v2_3, buffer(), miax_options_topofmarket_mach_v2_3.description, "("..buffer:len().." Bytes)")
   local protocol_size = dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, miax_options_tom_mach_v1_9)
+udp_table:add(65333, miax_options_topofmarket_mach_v2_3)
 
 
 -----------------------------------------------------------------------
@@ -2757,25 +2911,25 @@ udp_table:add(65333, miax_options_tom_mach_v1_9)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.miax_options_tom_mach_v1_9_packet_size = function(buffer)
+verify.miax_options_topofmarket_mach_v2_3_packet_size = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Miax Options Tom Mach 1.9
-local function miax_options_tom_mach_v1_9_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Miax Options TopOfMarket Mach 2.3
+local function miax_options_topofmarket_mach_v2_3_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.miax_options_tom_mach_v1_9_packet_size(buffer) then return false end
+  if not verify.miax_options_topofmarket_mach_v2_3_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = miax_options_tom_mach_v1_9
-  miax_options_tom_mach_v1_9.dissector(buffer, packet, parent)
+  packet.conversation = miax_options_topofmarket_mach_v2_3
+  miax_options_topofmarket_mach_v2_3.dissector(buffer, packet, parent)
 
   return true
 end
 
--- Register Heuristic for Miax Options Tom Mach 1.9
-miax_options_tom_mach_v1_9:register_heuristic("udp", miax_options_tom_mach_v1_9_heuristic)
+-- Register Heuristic for Miax Options TopOfMarket Mach 2.3
+miax_options_topofmarket_mach_v2_3:register_heuristic("udp", miax_options_topofmarket_mach_v2_3_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.
@@ -2784,9 +2938,9 @@ miax_options_tom_mach_v1_9:register_heuristic("udp", miax_options_tom_mach_v1_9_
 -- 
 -- Protocol:
 --   Organization: Miami International Securities Exchange
---   Version: 1.9
---   Date: Friday, January 15, 2016
---   Specification: Top_Of_Market_Feed_ToM_v1_9.pdf
+--   Version: 2.3
+--   Date: Monday, June 10, 2019
+--   Specification: Top_Of_Market_Feed_ToM_v2.3.pdf
 -- 
 -- Script:
 --   Generator: 1.5.0.0

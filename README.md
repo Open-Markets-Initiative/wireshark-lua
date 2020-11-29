@@ -60,8 +60,8 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 | [Memx][Memx.Directory] | Equities | MemoirLastSale | Sbe | [1.1][Memx.Equities.MemoirLastSale.Sbe.v1.1.Dissector] | 7/27/2020 | [Untested][Omi.Glossary.Testing] |
 | [Memx][Memx.Directory] | Equities | MemoirTopOfBook | Sbe | [1.1][Memx.Equities.MemoirTopOfBook.Sbe.v1.1.Dissector] | 7/27/2020 | [Untested][Omi.Glossary.Testing] |
 | [Miax][Miax.Directory] | Options | ComplexTopOfMarket | Mach | [1.3][Miax.Options.ComplexTopOfMarket.Mach.v1.3.Dissector] | 3/16/2018 | [Untested][Omi.Glossary.Testing] |
-| [Miax][Miax.Directory] | Options | Tom | Mach | [2.3][Miax.Options.Tom.Mach.v2.3.Dissector] | 6/10/2019 | [Untested][Omi.Glossary.Testing] |
-| [Miax][Miax.Directory] | Options | Tom | Mach | [2.2][Miax.Options.Tom.Mach.v2.2.Dissector] | 3/16/2018 | [Untested][Omi.Glossary.Testing] |
+| [Miax][Miax.Directory] | Options | TopOfMarket | Mach | [2.3][Miax.Options.TopOfMarket.Mach.v2.3.Dissector] | 6/10/2019 | [Untested][Omi.Glossary.Testing] |
+| [Miax][Miax.Directory] | Options | TopOfMarket | Mach | [2.2][Miax.Options.TopOfMarket.Mach.v2.2.Dissector] | 3/16/2018 | [Untested][Omi.Glossary.Testing] |
 | [Miax][Miax.Directory] | Pearl Equities | DepthOfMarket | Mach | [1.3.a][Miax.Pearl.Equities.DepthOfMarket.Mach.v1.3.a.Dissector] | 11/5/2020 | [Untested][Omi.Glossary.Testing] |
 | [Miax][Miax.Directory] | Pearl Equities | TopOfMarket | Mach | [1.1.a][Miax.Pearl.Equities.TopOfMarket.Mach.v1.1.a.Dissector] | 11/5/2020 | [Untested][Omi.Glossary.Testing] |
 | [Miax][Miax.Directory] | Pearl Options | TopOfMarket | Mach | [1.0][Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Dissector] | 2/27/2017 | [Untested][Omi.Glossary.Testing] |
@@ -114,7 +114,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 116 | 1,023,665 |
+| 116 | 1,021,198 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -179,8 +179,8 @@ Enjoy.
 [Finra.Otc.Bbds.Dfi.v2018.1A.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Finra/Finra.Otc.Bbds.Dfi.v2018.1A.Script.Dissector.lua "Financial Industry Regulatory Authority 2018.1A Wireshark Dissector"
 [Ice.Futures.Mdf.iMpact.v1.1.34.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Ice/Ice.Futures.Mdf.iMpact.v1.1.34.Script.Dissector.lua "Intercontinental Exchange 1.1.34 Wireshark Dissector"
 [Miax.Options.ComplexTopOfMarket.Mach.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Options.ComplexTopOfMarket.Mach.v1.3.Script.Dissector.lua "Miami International Securities Exchange 1.3 Wireshark Dissector"
-[Miax.Options.Tom.Mach.v2.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Options.Tom.Mach.v2.2.Script.Dissector.lua "Miami International Securities Exchange 2.2 Wireshark Dissector"
-[Miax.Options.Tom.Mach.v2.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Options.Tom.Mach.v2.3.Script.Dissector.lua "Miami International Securities Exchange 2.3 Wireshark Dissector"
+[Miax.Options.TopOfMarket.Mach.v2.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Options.TopOfMarket.Mach.v2.2.Script.Dissector.lua "Miami International Securities Exchange 2.2 Wireshark Dissector"
+[Miax.Options.TopOfMarket.Mach.v2.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Options.TopOfMarket.Mach.v2.3.Script.Dissector.lua "Miami International Securities Exchange 2.3 Wireshark Dissector"
 [Miax.Pearl.Equities.DepthOfMarket.Mach.v1.3.a.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Pearl.Equities.DepthOfMarket.Mach.v1.3.a.Script.Dissector.lua "Miami International Securities Exchange 1.3.a Wireshark Dissector"
 [Miax.Pearl.Equities.TopOfMarket.Mach.v1.1.a.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Pearl.Equities.TopOfMarket.Mach.v1.1.a.Script.Dissector.lua "Miami International Securities Exchange 1.1.a Wireshark Dissector"
 [Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Miax/Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Script.Dissector.lua "Miami International Securities Exchange 1.0 Wireshark Dissector"
