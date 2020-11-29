@@ -32,10 +32,13 @@ miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.lot_size = ProtoField.new("
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.market_state = ProtoField.new("Market State", "miax.pearl.equities.depthofmarket.mach.v1.3.a.marketstate", ftypes.UINT8)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.message = ProtoField.new("Message", "miax.pearl.equities.depthofmarket.mach.v1.3.a.message", ftypes.STRING)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.message_type = ProtoField.new("Message Type", "miax.pearl.equities.depthofmarket.mach.v1.3.a.messagetype", ftypes.STRING)
+miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.modify_order_flags = ProtoField.new("Modify Order Flags", "miax.pearl.equities.depthofmarket.mach.v1.3.a.modifyorderflags", ftypes.STRING)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.modify_order_message = ProtoField.new("Modify Order Message", "miax.pearl.equities.depthofmarket.mach.v1.3.a.modifyordermessage", ftypes.STRING)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.opening_time = ProtoField.new("Opening Time", "miax.pearl.equities.depthofmarket.mach.v1.3.a.openingtime", ftypes.STRING)
+miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.order_execution_flags = ProtoField.new("Order Execution Flags", "miax.pearl.equities.depthofmarket.mach.v1.3.a.orderexecutionflags", ftypes.STRING)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.order_execution_message = ProtoField.new("Order Execution Message", "miax.pearl.equities.depthofmarket.mach.v1.3.a.orderexecutionmessage", ftypes.STRING)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.order_id = ProtoField.new("Order Id", "miax.pearl.equities.depthofmarket.mach.v1.3.a.orderid", ftypes.UINT64)
+miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.order_position = ProtoField.new("Order Position", "miax.pearl.equities.depthofmarket.mach.v1.3.a.orderposition", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.order_side = ProtoField.new("Order Side", "miax.pearl.equities.depthofmarket.mach.v1.3.a.orderside", ftypes.STRING)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.packet = ProtoField.new("Packet", "miax.pearl.equities.depthofmarket.mach.v1.3.a.packet", ftypes.STRING)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.packet_length = ProtoField.new("Packet Length", "miax.pearl.equities.depthofmarket.mach.v1.3.a.packetlength", ftypes.UINT16)
@@ -43,6 +46,7 @@ miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.packet_type = ProtoField.ne
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.payload = ProtoField.new("Payload", "miax.pearl.equities.depthofmarket.mach.v1.3.a.payload", ftypes.STRING)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.price = ProtoField.new("Price", "miax.pearl.equities.depthofmarket.mach.v1.3.a.price", ftypes.UINT64)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.primary_market_code = ProtoField.new("Primary Market Code", "miax.pearl.equities.depthofmarket.mach.v1.3.a.primarymarketcode", ftypes.STRING)
+miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.reportable = ProtoField.new("Reportable", "miax.pearl.equities.depthofmarket.mach.v1.3.a.reportable", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.reserved = ProtoField.new("Reserved", "miax.pearl.equities.depthofmarket.mach.v1.3.a.reserved", ftypes.UINT8)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.security_trading_status_notification_message = ProtoField.new("Security Trading Status Notification Message", "miax.pearl.equities.depthofmarket.mach.v1.3.a.securitytradingstatusnotificationmessage", ftypes.STRING)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearl.equities.depthofmarket.mach.v1.3.a.sequencenumber", ftypes.UINT64)
@@ -60,9 +64,11 @@ miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.test_security_indicator = P
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.ticker_symbol = ProtoField.new("Ticker Symbol", "miax.pearl.equities.depthofmarket.mach.v1.3.a.tickersymbol", ftypes.STRING)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.timestamp = ProtoField.new("Timestamp", "miax.pearl.equities.depthofmarket.mach.v1.3.a.timestamp", ftypes.UINT32)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.pearl.equities.depthofmarket.mach.v1.3.a.tradecancelmessage", ftypes.STRING)
+miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.trade_flags = ProtoField.new("Trade Flags", "miax.pearl.equities.depthofmarket.mach.v1.3.a.tradeflags", ftypes.STRING)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.trade_id = ProtoField.new("Trade Id", "miax.pearl.equities.depthofmarket.mach.v1.3.a.tradeid", ftypes.UINT64)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.trade_message = ProtoField.new("Trade Message", "miax.pearl.equities.depthofmarket.mach.v1.3.a.trademessage", ftypes.STRING)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.trading_status = ProtoField.new("Trading Status", "miax.pearl.equities.depthofmarket.mach.v1.3.a.tradingstatus", ftypes.UINT8)
+miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.undefined = ProtoField.new("Undefined", "miax.pearl.equities.depthofmarket.mach.v1.3.a.undefined", ftypes.UINT8, nil, base.DEC, "0xFE")
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -73,7 +79,9 @@ show.add_order_message = true
 show.application_message = true
 show.delete_order_message = true
 show.message = true
+show.modify_order_flags = true
 show.modify_order_message = true
+show.order_execution_flags = true
 show.order_execution_message = true
 show.packet = true
 show.security_trading_status_notification_message = true
@@ -82,6 +90,7 @@ show.symbol_update_message = true
 show.system_state_message = true
 show.system_time_message = true
 show.trade_cancel_message = true
+show.trade_flags = true
 show.trade_message = true
 show.data = false
 show.payload = false
@@ -91,7 +100,9 @@ miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_add_order_message = Pre
 miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
 miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_delete_order_message = Pref.bool("Show Delete Order Message", show.delete_order_message, "Parse and add Delete Order Message to protocol tree")
 miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_modify_order_flags = Pref.bool("Show Modify Order Flags", show.modify_order_flags, "Parse and add Modify Order Flags to protocol tree")
 miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_modify_order_message = Pref.bool("Show Modify Order Message", show.modify_order_message, "Parse and add Modify Order Message to protocol tree")
+miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_order_execution_flags = Pref.bool("Show Order Execution Flags", show.order_execution_flags, "Parse and add Order Execution Flags to protocol tree")
 miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_order_execution_message = Pref.bool("Show Order Execution Message", show.order_execution_message, "Parse and add Order Execution Message to protocol tree")
 miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_security_trading_status_notification_message = Pref.bool("Show Security Trading Status Notification Message", show.security_trading_status_notification_message, "Parse and add Security Trading Status Notification Message to protocol tree")
@@ -100,6 +111,7 @@ miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_symbol_update_message =
 miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_system_state_message = Pref.bool("Show System State Message", show.system_state_message, "Parse and add System State Message to protocol tree")
 miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_system_time_message = Pref.bool("Show System Time Message", show.system_time_message, "Parse and add System Time Message to protocol tree")
 miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_trade_cancel_message = Pref.bool("Show Trade Cancel Message", show.trade_cancel_message, "Parse and add Trade Cancel Message to protocol tree")
+miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_trade_flags = Pref.bool("Show Trade Flags", show.trade_flags, "Parse and add Trade Flags to protocol tree")
 miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
 miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
 miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
@@ -125,8 +137,16 @@ function miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs_changed()
     show.message = miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_message
     changed = true
   end
+  if show.modify_order_flags ~= miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_modify_order_flags then
+    show.modify_order_flags = miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_modify_order_flags
+    changed = true
+  end
   if show.modify_order_message ~= miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_modify_order_message then
     show.modify_order_message = miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_modify_order_message
+    changed = true
+  end
+  if show.order_execution_flags ~= miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_order_execution_flags then
+    show.order_execution_flags = miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_order_execution_flags
     changed = true
   end
   if show.order_execution_message ~= miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_order_execution_message then
@@ -159,6 +179,10 @@ function miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs_changed()
   end
   if show.trade_cancel_message ~= miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_trade_cancel_message then
     show.trade_cancel_message = miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_trade_cancel_message
+    changed = true
+  end
+  if show.trade_flags ~= miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_trade_flags then
+    show.trade_flags = miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_trade_flags
     changed = true
   end
   if show.trade_message ~= miax_pearl_equities_depthofmarket_mach_v1_3_a.prefs.show_trade_message then
@@ -367,6 +391,45 @@ dissect.trade_cancel_message = function(buffer, offset, packet, parent)
   return dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Trade Flags
+size_of.trade_flags = 1
+
+-- Display: Trade Flags
+display.trade_flags = function(buffer, packet, parent)
+  local display = ""
+
+  -- Is Reportable flag set?
+  if buffer:bitfield(7) > 0 then
+    display = display.."Reportable|"
+  end
+
+  return display:sub(1, -2)
+end
+
+-- Dissect Bit Fields: Trade Flags
+dissect.trade_flags_bits = function(buffer, offset, packet, parent)
+
+  -- Undefined: 7 Bit
+  parent:add(miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.undefined, buffer(offset, 1))
+
+  -- Reportable: 1 Bit
+  parent:add(miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.reportable, buffer(offset, 1))
+end
+
+-- Dissect: Trade Flags
+dissect.trade_flags = function(buffer, offset, packet, parent)
+  local size = 1
+  local range = buffer(offset, size)
+  local display = display.trade_flags(range, packet, parent)
+  local element = parent:add(miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.trade_flags, range, display)
+
+  if show.trade_flags then
+    dissect.trade_flags_bits(buffer, offset, packet, element)
+  end
+
+  return offset + 1, range
+end
+
 -- Calculate size of: Trade Message
 size_of.trade_message = function(buffer, offset)
   local index = 0
@@ -415,7 +478,7 @@ dissect.trade_message_fields = function(buffer, offset, packet, parent)
   -- Size: 4 Byte Unsigned Fixed Width Integer
   index, size = dissect.size(buffer, index, packet, parent)
 
-  -- Trade Flags
+  -- Trade Flags: Struct of 2 fields
   index, trade_flags = dissect.trade_flags(buffer, index, packet, parent)
 
   return index
@@ -432,6 +495,45 @@ dissect.trade_message = function(buffer, offset, packet, parent)
   end
 
   return dissect.trade_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Order Execution Flags
+size_of.order_execution_flags = 1
+
+-- Display: Order Execution Flags
+display.order_execution_flags = function(buffer, packet, parent)
+  local display = ""
+
+  -- Is Reportable flag set?
+  if buffer:bitfield(7) > 0 then
+    display = display.."Reportable|"
+  end
+
+  return display:sub(1, -2)
+end
+
+-- Dissect Bit Fields: Order Execution Flags
+dissect.order_execution_flags_bits = function(buffer, offset, packet, parent)
+
+  -- Undefined: 7 Bit
+  parent:add(miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.undefined, buffer(offset, 1))
+
+  -- Reportable: 1 Bit
+  parent:add(miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.reportable, buffer(offset, 1))
+end
+
+-- Dissect: Order Execution Flags
+dissect.order_execution_flags = function(buffer, offset, packet, parent)
+  local size = 1
+  local range = buffer(offset, size)
+  local display = display.order_execution_flags(range, packet, parent)
+  local element = parent:add(miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.order_execution_flags, range, display)
+
+  if show.order_execution_flags then
+    dissect.order_execution_flags_bits(buffer, offset, packet, element)
+  end
+
+  return offset + 1, range
 end
 
 -- Size: Order Id
@@ -502,7 +604,7 @@ dissect.order_execution_message_fields = function(buffer, offset, packet, parent
   -- Size: 4 Byte Unsigned Fixed Width Integer
   index, size = dissect.size(buffer, index, packet, parent)
 
-  -- Order Execution Flags
+  -- Order Execution Flags: Struct of 2 fields
   index, order_execution_flags = dissect.order_execution_flags(buffer, index, packet, parent)
 
   return index
@@ -568,6 +670,45 @@ dissect.delete_order_message = function(buffer, offset, packet, parent)
   return dissect.delete_order_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Modify Order Flags
+size_of.modify_order_flags = 1
+
+-- Display: Modify Order Flags
+display.modify_order_flags = function(buffer, packet, parent)
+  local display = ""
+
+  -- Is Order Position flag set?
+  if buffer:bitfield(7) > 0 then
+    display = display.."Order Position|"
+  end
+
+  return display:sub(1, -2)
+end
+
+-- Dissect Bit Fields: Modify Order Flags
+dissect.modify_order_flags_bits = function(buffer, offset, packet, parent)
+
+  -- Undefined: 7 Bit
+  parent:add(miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.undefined, buffer(offset, 1))
+
+  -- Order Position: 1 Bit
+  parent:add(miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.order_position, buffer(offset, 1))
+end
+
+-- Dissect: Modify Order Flags
+dissect.modify_order_flags = function(buffer, offset, packet, parent)
+  local size = 1
+  local range = buffer(offset, size)
+  local display = display.modify_order_flags(range, packet, parent)
+  local element = parent:add(miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.modify_order_flags, range, display)
+
+  if show.modify_order_flags then
+    dissect.modify_order_flags_bits(buffer, offset, packet, element)
+  end
+
+  return offset + 1, range
+end
+
 -- Calculate size of: Modify Order Message
 size_of.modify_order_message = function(buffer, offset)
   local index = 0
@@ -611,7 +752,7 @@ dissect.modify_order_message_fields = function(buffer, offset, packet, parent)
   -- Size: 4 Byte Unsigned Fixed Width Integer
   index, size = dissect.size(buffer, index, packet, parent)
 
-  -- Modify Order Flags
+  -- Modify Order Flags: Struct of 2 fields
   index, modify_order_flags = dissect.modify_order_flags(buffer, index, packet, parent)
 
   return index
