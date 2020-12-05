@@ -5,6 +5,7 @@
 
 | Division | Data | Protocol | Version | Date | Size | Status | Testing | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
+| Futures | iLink3 | Sbe | [8.6][Cme.Futures.iLink3.Sbe.v8.6.Dissector] | 10/13/2020 | 16215 | [Future][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Cme.Futures.iLink3.Sbe.v8.6.Url] - [xml][Cme.Futures.iLink3.Sbe.v8.6.Xml] |
 | Futures | iLink3 | Sbe | [8.5][Cme.Futures.iLink3.Sbe.v8.5.Dissector] | 2/27/2020 | 15349 | [Active][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Cme.Futures.iLink3.Sbe.v8.5.Url] - [xml][Cme.Futures.iLink3.Sbe.v8.5.Xml] |
 | Futures | iLink3 | Sbe | [8.4][Cme.Futures.iLink3.Sbe.v8.4.Dissector] | 2/11/2020 | 15282 | [Deprecated][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Cme.Futures.iLink3.Sbe.v8.4.Url] - [xml][Cme.Futures.iLink3.Sbe.v8.4.Xml] |
 | Futures | iLink3 | Sbe | [8.3][Cme.Futures.iLink3.Sbe.v8.3.Dissector] | 1/9/2020 | 15201 | [Deprecated][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Cme.Futures.iLink3.Sbe.v8.3.Url] - [xml][Cme.Futures.iLink3.Sbe.v8.3.Xml] |
@@ -67,3 +68,6 @@ Cme: [website](http://www.cmegroup.com/ "Go to Chicago Mercantile Exchange")
 [Cme.Futures.iLink3.Sbe.v8.5.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Futures.iLink3.Sbe.v8.5.Script.Dissector.lua "Chicago Mercantile Exchange 8.5 Wireshark Dissector"
 [Cme.Futures.iLink3.Sbe.v8.5.Url]: https://www.cmegroup.com/confluence/display/EPICSANDBOX/iLink+3+-+Simple+Binary+Encoding "Specification url"
 [Cme.Futures.iLink3.Sbe.v8.5.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Cme/Cme.Futures.iLink3.Sbe.v8.5.xml "Chicago Mercantile Exchange 8.5 Xml"
+[Cme.Futures.iLink3.Sbe.v8.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Futures.iLink3.Sbe.v8.6.Script.Dissector.lua "Chicago Mercantile Exchange 8.6 Wireshark Dissector"
+[Cme.Futures.iLink3.Sbe.v8.6.Url]: https://www.cmegroup.com/confluence/display/EPICSANDBOX/iLink+3+-+Simple+Binary+Encoding "Specification url"
+[Cme.Futures.iLink3.Sbe.v8.6.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Cme/Cme.Futures.iLink3.Sbe.v8.6.xml "Chicago Mercantile Exchange 8.6 Xml"
