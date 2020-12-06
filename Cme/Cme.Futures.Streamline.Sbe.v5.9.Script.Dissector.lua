@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Cme Futures Streamline Sbe 9.5 Protocol
-local cme_futures_streamline_sbe_v9_5 = Proto("Cme.Futures.Streamline.Sbe.v9.5.Lua", "Cme Futures Streamline Sbe 9.5")
+-- Cme Futures Streamline Sbe 5.9 Protocol
+local cme_futures_streamline_sbe_v5_9 = Proto("Cme.Futures.Streamline.Sbe.v5.9.Lua", "Cme Futures Streamline Sbe 5.9")
 
 -- Component Tables
 local show = {}
@@ -19,201 +19,201 @@ local verify = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cme Futures Streamline Sbe 9.5 Fields
-cme_futures_streamline_sbe_v9_5.fields.accrual_days = ProtoField.new("Accrual Days", "cme.futures.streamline.sbe.v9.5.accrualdays", ftypes.UINT32)
-cme_futures_streamline_sbe_v9_5.fields.accrued_coupons = ProtoField.new("Accrued Coupons", "cme.futures.streamline.sbe.v9.5.accruedcoupons", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.actual = ProtoField.new("Actual", "cme.futures.streamline.sbe.v9.5.actual", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
-cme_futures_streamline_sbe_v9_5.fields.admin_login_315 = ProtoField.new("Admin Login 315", "cme.futures.streamline.sbe.v9.5.adminlogin315", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.admin_logout_316 = ProtoField.new("Admin Logout 316", "cme.futures.streamline.sbe.v9.5.adminlogout316", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.aggressor_side = ProtoField.new("Aggressor Side", "cme.futures.streamline.sbe.v9.5.aggressorside", ftypes.UINT8)
-cme_futures_streamline_sbe_v9_5.fields.appl_id = ProtoField.new("Appl Id", "cme.futures.streamline.sbe.v9.5.applid", ftypes.UINT16)
-cme_futures_streamline_sbe_v9_5.fields.batch_total_messages = ProtoField.new("Batch Total Messages", "cme.futures.streamline.sbe.v9.5.batchtotalmessages", ftypes.UINT16)
-cme_futures_streamline_sbe_v9_5.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.futures.streamline.sbe.v9.5.binarypacketheader", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.block_length = ProtoField.new("Block Length", "cme.futures.streamline.sbe.v9.5.blocklength", ftypes.UINT16)
-cme_futures_streamline_sbe_v9_5.fields.cal_fut_px = ProtoField.new("Cal Fut Px", "cme.futures.streamline.sbe.v9.5.calfutpx", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.coupon_rate = ProtoField.new("Coupon Rate", "cme.futures.streamline.sbe.v9.5.couponrate", ftypes.INT32)
-cme_futures_streamline_sbe_v9_5.fields.currency = ProtoField.new("Currency", "cme.futures.streamline.sbe.v9.5.currency", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.d_v_01 = ProtoField.new("D V 01", "cme.futures.streamline.sbe.v9.5.dv01", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.daily_incremental_eris_pai = ProtoField.new("Daily Incremental Eris Pai", "cme.futures.streamline.sbe.v9.5.dailyincrementalerispai", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.day = ProtoField.new("Day", "cme.futures.streamline.sbe.v9.5.day", ftypes.UINT8)
-cme_futures_streamline_sbe_v9_5.fields.end_of_event = ProtoField.new("End Of Event", "cme.futures.streamline.sbe.v9.5.endofevent", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
-cme_futures_streamline_sbe_v9_5.fields.eris_pai = ProtoField.new("Eris Pai", "cme.futures.streamline.sbe.v9.5.erispai", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.event_time = ProtoField.new("Event Time", "cme.futures.streamline.sbe.v9.5.eventtime", ftypes.UINT64)
-cme_futures_streamline_sbe_v9_5.fields.event_type = ProtoField.new("Event Type", "cme.futures.streamline.sbe.v9.5.eventtype", ftypes.UINT8)
-cme_futures_streamline_sbe_v9_5.fields.events_group = ProtoField.new("Events Group", "cme.futures.streamline.sbe.v9.5.eventsgroup", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.events_groups = ProtoField.new("Events Groups", "cme.futures.streamline.sbe.v9.5.eventsgroups", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.exponent = ProtoField.new("Exponent", "cme.futures.streamline.sbe.v9.5.exponent", ftypes.INT8)
-cme_futures_streamline_sbe_v9_5.fields.fair_coupon_pct = ProtoField.new("Fair Coupon Pct", "cme.futures.streamline.sbe.v9.5.faircouponpct", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.fed_funds_date = ProtoField.new("Fed Funds Date", "cme.futures.streamline.sbe.v9.5.fedfundsdate", ftypes.UINT16)
-cme_futures_streamline_sbe_v9_5.fields.fed_funds_rate = ProtoField.new("Fed Funds Rate", "cme.futures.streamline.sbe.v9.5.fedfundsrate", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.final_daily = ProtoField.new("Final Daily", "cme.futures.streamline.sbe.v9.5.finaldaily", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
-cme_futures_streamline_sbe_v9_5.fields.final_settlement_futures_price = ProtoField.new("Final Settlement Futures Price", "cme.futures.streamline.sbe.v9.5.finalsettlementfuturesprice", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.fixed_npv = ProtoField.new("Fixed Npv", "cme.futures.streamline.sbe.v9.5.fixednpv", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.fixed_payment = ProtoField.new("Fixed Payment", "cme.futures.streamline.sbe.v9.5.fixedpayment", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.float_npv = ProtoField.new("Float Npv", "cme.futures.streamline.sbe.v9.5.floatnpv", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.floating_payment = ProtoField.new("Floating Payment", "cme.futures.streamline.sbe.v9.5.floatingpayment", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.group_size = ProtoField.new("Group Size", "cme.futures.streamline.sbe.v9.5.groupsize", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.group_size_encoding = ProtoField.new("Group Size Encoding", "cme.futures.streamline.sbe.v9.5.groupsizeencoding", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.headline = ProtoField.new("Headline", "cme.futures.streamline.sbe.v9.5.headline", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.heart_bt_int = ProtoField.new("Heart Bt Int", "cme.futures.streamline.sbe.v9.5.heartbtint", ftypes.INT8)
-cme_futures_streamline_sbe_v9_5.fields.inst_attrib_group = ProtoField.new("Inst Attrib Group", "cme.futures.streamline.sbe.v9.5.instattribgroup", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.inst_attrib_groups = ProtoField.new("Inst Attrib Groups", "cme.futures.streamline.sbe.v9.5.instattribgroups", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.inst_attrib_type = ProtoField.new("Inst Attrib Type", "cme.futures.streamline.sbe.v9.5.instattribtype", ftypes.UINT8)
-cme_futures_streamline_sbe_v9_5.fields.inst_attrib_value = ProtoField.new("Inst Attrib Value", "cme.futures.streamline.sbe.v9.5.instattribvalue", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.interpolation_factor = ProtoField.new("Interpolation Factor", "cme.futures.streamline.sbe.v9.5.interpolationfactor", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.last_implied_msg = ProtoField.new("Last Implied Msg", "cme.futures.streamline.sbe.v9.5.lastimpliedmsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
-cme_futures_streamline_sbe_v9_5.fields.last_quote_msg = ProtoField.new("Last Quote Msg", "cme.futures.streamline.sbe.v9.5.lastquotemsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
-cme_futures_streamline_sbe_v9_5.fields.last_stats_msg = ProtoField.new("Last Stats Msg", "cme.futures.streamline.sbe.v9.5.laststatsmsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
-cme_futures_streamline_sbe_v9_5.fields.last_trade_msg = ProtoField.new("Last Trade Msg", "cme.futures.streamline.sbe.v9.5.lasttrademsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
-cme_futures_streamline_sbe_v9_5.fields.last_volume_msg = ProtoField.new("Last Volume Msg", "cme.futures.streamline.sbe.v9.5.lastvolumemsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
-cme_futures_streamline_sbe_v9_5.fields.leg_benchmark_curve_name = ProtoField.new("Leg Benchmark Curve Name", "cme.futures.streamline.sbe.v9.5.legbenchmarkcurvename", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.leg_contract_multiplier = ProtoField.new("Leg Contract Multiplier", "cme.futures.streamline.sbe.v9.5.legcontractmultiplier", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.leg_credit_rating = ProtoField.new("Leg Credit Rating", "cme.futures.streamline.sbe.v9.5.legcreditrating", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.leg_currency = ProtoField.new("Leg Currency", "cme.futures.streamline.sbe.v9.5.legcurrency", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.leg_date_offset = ProtoField.new("Leg Date Offset", "cme.futures.streamline.sbe.v9.5.legdateoffset", ftypes.INT8)
-cme_futures_streamline_sbe_v9_5.fields.leg_pay_frequencey = ProtoField.new("Leg Pay Frequencey", "cme.futures.streamline.sbe.v9.5.legpayfrequencey", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.leg_purchase_rate = ProtoField.new("Leg Purchase Rate", "cme.futures.streamline.sbe.v9.5.legpurchaserate", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cme.futures.streamline.sbe.v9.5.legratioqty", ftypes.INT32)
-cme_futures_streamline_sbe_v9_5.fields.leg_ref_id = ProtoField.new("Leg Ref Id", "cme.futures.streamline.sbe.v9.5.legrefid", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.leg_security_group = ProtoField.new("Leg Security Group", "cme.futures.streamline.sbe.v9.5.legsecuritygroup", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.leg_security_type = ProtoField.new("Leg Security Type", "cme.futures.streamline.sbe.v9.5.legsecuritytype", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.leg_side = ProtoField.new("Leg Side", "cme.futures.streamline.sbe.v9.5.legside", ftypes.UINT8)
-cme_futures_streamline_sbe_v9_5.fields.leg_symbol = ProtoField.new("Leg Symbol", "cme.futures.streamline.sbe.v9.5.legsymbol", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.lines_of_text_group = ProtoField.new("Lines Of Text Group", "cme.futures.streamline.sbe.v9.5.linesoftextgroup", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.lines_of_text_groups = ProtoField.new("Lines Of Text Groups", "cme.futures.streamline.sbe.v9.5.linesoftextgroups", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.m_d_feed_types_group = ProtoField.new("M D Feed Types Group", "cme.futures.streamline.sbe.v9.5.mdfeedtypesgroup", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.m_d_feed_types_groups = ProtoField.new("M D Feed Types Groups", "cme.futures.streamline.sbe.v9.5.mdfeedtypesgroups", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.m_d_incremental_refresh_eris_group = ProtoField.new("M D Incremental Refresh Eris Group", "cme.futures.streamline.sbe.v9.5.mdincrementalrefresherisgroup", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.m_d_incremental_refresh_eris_groups = ProtoField.new("M D Incremental Refresh Eris Groups", "cme.futures.streamline.sbe.v9.5.mdincrementalrefresherisgroups", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group = ProtoField.new("M D Incremental Refresh Eris Reference Data And Daily Statistics Group", "cme.futures.streamline.sbe.v9.5.mdincrementalrefresherisreferencedataanddailystatisticsgroup", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups = ProtoField.new("M D Incremental Refresh Eris Reference Data And Daily Statistics Groups", "cme.futures.streamline.sbe.v9.5.mdincrementalrefresherisreferencedataanddailystatisticsgroups", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.m_d_incremental_refresh_indices_group = ProtoField.new("M D Incremental Refresh Indices Group", "cme.futures.streamline.sbe.v9.5.mdincrementalrefreshindicesgroup", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.m_d_incremental_refresh_indices_groups = ProtoField.new("M D Incremental Refresh Indices Groups", "cme.futures.streamline.sbe.v9.5.mdincrementalrefreshindicesgroups", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.m_d_incremental_refresh_otc_group = ProtoField.new("M D Incremental Refresh Otc Group", "cme.futures.streamline.sbe.v9.5.mdincrementalrefreshotcgroup", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.m_d_incremental_refresh_otc_groups = ProtoField.new("M D Incremental Refresh Otc Groups", "cme.futures.streamline.sbe.v9.5.mdincrementalrefreshotcgroups", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.m_d_incremental_refresh_trade_blocks_group = ProtoField.new("M D Incremental Refresh Trade Blocks Group", "cme.futures.streamline.sbe.v9.5.mdincrementalrefreshtradeblocksgroup", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.m_d_incremental_refresh_trade_blocks_groups = ProtoField.new("M D Incremental Refresh Trade Blocks Groups", "cme.futures.streamline.sbe.v9.5.mdincrementalrefreshtradeblocksgroups", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.m_d_instrument_definition_eris_leg_group = ProtoField.new("M D Instrument Definition Eris Leg Group", "cme.futures.streamline.sbe.v9.5.mdinstrumentdefinitionerisleggroup", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.m_d_instrument_definition_eris_leg_groups = ProtoField.new("M D Instrument Definition Eris Leg Groups", "cme.futures.streamline.sbe.v9.5.mdinstrumentdefinitionerisleggroups", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.mantissa32 = ProtoField.new("Mantissa32", "cme.futures.streamline.sbe.v9.5.mantissa32", ftypes.INT32)
-cme_futures_streamline_sbe_v9_5.fields.mantissa64 = ProtoField.new("Mantissa64", "cme.futures.streamline.sbe.v9.5.mantissa64", ftypes.INT64)
-cme_futures_streamline_sbe_v9_5.fields.market_depth = ProtoField.new("Market Depth", "cme.futures.streamline.sbe.v9.5.marketdepth", ftypes.UINT8)
-cme_futures_streamline_sbe_v9_5.fields.market_sector = ProtoField.new("Market Sector", "cme.futures.streamline.sbe.v9.5.marketsector", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.match_event_indicator = ProtoField.new("Match Event Indicator", "cme.futures.streamline.sbe.v9.5.matcheventindicator", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.maturity_date = ProtoField.new("Maturity Date", "cme.futures.streamline.sbe.v9.5.maturitydate", ftypes.UINT16)
-cme_futures_streamline_sbe_v9_5.fields.maturity_month_year = ProtoField.new("Maturity Month Year", "cme.futures.streamline.sbe.v9.5.maturitymonthyear", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.md_entry_code = ProtoField.new("Md Entry Code", "cme.futures.streamline.sbe.v9.5.mdentrycode", ftypes.UINT8)
-cme_futures_streamline_sbe_v9_5.fields.md_entry_date = ProtoField.new("Md Entry Date", "cme.futures.streamline.sbe.v9.5.mdentrydate", ftypes.INT32)
-cme_futures_streamline_sbe_v9_5.fields.md_entry_id = ProtoField.new("Md Entry Id", "cme.futures.streamline.sbe.v9.5.mdentryid", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.md_entry_position_no = ProtoField.new("Md Entry Position No", "cme.futures.streamline.sbe.v9.5.mdentrypositionno", ftypes.INT32)
-cme_futures_streamline_sbe_v9_5.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.futures.streamline.sbe.v9.5.mdentrypx", ftypes.INT64)
-cme_futures_streamline_sbe_v9_5.fields.md_entry_size = ProtoField.new("Md Entry Size", "cme.futures.streamline.sbe.v9.5.mdentrysize", ftypes.UINT64)
-cme_futures_streamline_sbe_v9_5.fields.md_entry_time = ProtoField.new("Md Entry Time", "cme.futures.streamline.sbe.v9.5.mdentrytime", ftypes.INT32)
-cme_futures_streamline_sbe_v9_5.fields.md_entry_type = ProtoField.new("Md Entry Type", "cme.futures.streamline.sbe.v9.5.mdentrytype", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.md_feed_type = ProtoField.new("Md Feed Type", "cme.futures.streamline.sbe.v9.5.mdfeedtype", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.md_incremental_refresh_eris_351 = ProtoField.new("Md Incremental Refresh Eris 351", "cme.futures.streamline.sbe.v9.5.mdincrementalrefresheris351", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.md_incremental_refresh_eris_353 = ProtoField.new("Md Incremental Refresh Eris 353", "cme.futures.streamline.sbe.v9.5.mdincrementalrefresheris353", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.md_incremental_refresh_eris_reference_data_and_daily_statistics_333 = ProtoField.new("Md Incremental Refresh Eris Reference Data And Daily Statistics 333", "cme.futures.streamline.sbe.v9.5.mdincrementalrefresherisreferencedataanddailystatistics333", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.md_incremental_refresh_indices_348 = ProtoField.new("Md Incremental Refresh Indices 348", "cme.futures.streamline.sbe.v9.5.mdincrementalrefreshindices348", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.md_incremental_refresh_ot_c_356 = ProtoField.new("Md Incremental Refresh Ot C 356", "cme.futures.streamline.sbe.v9.5.mdincrementalrefreshotc356", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.md_incremental_refresh_ot_c_366 = ProtoField.new("Md Incremental Refresh Ot C 366", "cme.futures.streamline.sbe.v9.5.mdincrementalrefreshotc366", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.md_incremental_refresh_trade_blocks_340 = ProtoField.new("Md Incremental Refresh Trade Blocks 340", "cme.futures.streamline.sbe.v9.5.mdincrementalrefreshtradeblocks340", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.md_incremental_refresh_trade_blocks_349 = ProtoField.new("Md Incremental Refresh Trade Blocks 349", "cme.futures.streamline.sbe.v9.5.mdincrementalrefreshtradeblocks349", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.md_incremental_refresh_trade_blocks_365 = ProtoField.new("Md Incremental Refresh Trade Blocks 365", "cme.futures.streamline.sbe.v9.5.mdincrementalrefreshtradeblocks365", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.md_instrument_definition_eris_363 = ProtoField.new("Md Instrument Definition Eris 363", "cme.futures.streamline.sbe.v9.5.mdinstrumentdefinitioneris363", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.md_instrument_definition_indices_347 = ProtoField.new("Md Instrument Definition Indices 347", "cme.futures.streamline.sbe.v9.5.mdinstrumentdefinitionindices347", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.md_news_indices_339 = ProtoField.new("Md News Indices 339", "cme.futures.streamline.sbe.v9.5.mdnewsindices339", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.md_update_action = ProtoField.new("Md Update Action", "cme.futures.streamline.sbe.v9.5.mdupdateaction", ftypes.UINT8)
-cme_futures_streamline_sbe_v9_5.fields.message = ProtoField.new("Message", "cme.futures.streamline.sbe.v9.5.message", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.message_header = ProtoField.new("Message Header", "cme.futures.streamline.sbe.v9.5.messageheader", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.futures.streamline.sbe.v9.5.messagesequencenumber", ftypes.UINT32)
-cme_futures_streamline_sbe_v9_5.fields.message_size = ProtoField.new("Message Size", "cme.futures.streamline.sbe.v9.5.messagesize", ftypes.UINT16)
-cme_futures_streamline_sbe_v9_5.fields.min_price_increment = ProtoField.new("Min Price Increment", "cme.futures.streamline.sbe.v9.5.minpriceincrement", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.month = ProtoField.new("Month", "cme.futures.streamline.sbe.v9.5.month", ftypes.UINT8)
-cme_futures_streamline_sbe_v9_5.fields.net_chg_prev_day = ProtoField.new("Net Chg Prev Day", "cme.futures.streamline.sbe.v9.5.netchgprevday", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.net_pct_chg = ProtoField.new("Net Pct Chg", "cme.futures.streamline.sbe.v9.5.netpctchg", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.next_fixed_payment_amount = ProtoField.new("Next Fixed Payment Amount", "cme.futures.streamline.sbe.v9.5.nextfixedpaymentamount", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.next_fixed_payment_date = ProtoField.new("Next Fixed Payment Date", "cme.futures.streamline.sbe.v9.5.nextfixedpaymentdate", ftypes.UINT16)
-cme_futures_streamline_sbe_v9_5.fields.next_floating_payment_amount = ProtoField.new("Next Floating Payment Amount", "cme.futures.streamline.sbe.v9.5.nextfloatingpaymentamount", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.next_floating_payment_date = ProtoField.new("Next Floating Payment Date", "cme.futures.streamline.sbe.v9.5.nextfloatingpaymentdate", ftypes.UINT16)
-cme_futures_streamline_sbe_v9_5.fields.nominal = ProtoField.new("Nominal", "cme.futures.streamline.sbe.v9.5.nominal", ftypes.UINT64)
-cme_futures_streamline_sbe_v9_5.fields.notional_percentage_outstanding = ProtoField.new("Notional Percentage Outstanding", "cme.futures.streamline.sbe.v9.5.notionalpercentageoutstanding", ftypes.INT32)
-cme_futures_streamline_sbe_v9_5.fields.npv = ProtoField.new("Npv", "cme.futures.streamline.sbe.v9.5.npv", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.null_value = ProtoField.new("Null Value", "cme.futures.streamline.sbe.v9.5.nullvalue", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
-cme_futures_streamline_sbe_v9_5.fields.num_in_group = ProtoField.new("Num In Group", "cme.futures.streamline.sbe.v9.5.numingroup", ftypes.UINT8)
-cme_futures_streamline_sbe_v9_5.fields.number_of_orders = ProtoField.new("Number Of Orders", "cme.futures.streamline.sbe.v9.5.numberoforders", ftypes.INT32)
-cme_futures_streamline_sbe_v9_5.fields.open_close_settl_flag = ProtoField.new("Open Close Settl Flag", "cme.futures.streamline.sbe.v9.5.openclosesettlflag", ftypes.UINT8)
-cme_futures_streamline_sbe_v9_5.fields.orig_time = ProtoField.new("Orig Time", "cme.futures.streamline.sbe.v9.5.origtime", ftypes.UINT64)
-cme_futures_streamline_sbe_v9_5.fields.p_v_01 = ProtoField.new("P V 01", "cme.futures.streamline.sbe.v9.5.pv01", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.packet = ProtoField.new("Packet", "cme.futures.streamline.sbe.v9.5.packet", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.payload = ProtoField.new("Payload", "cme.futures.streamline.sbe.v9.5.payload", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.percent_trading = ProtoField.new("Percent Trading", "cme.futures.streamline.sbe.v9.5.percenttrading", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.previous_eris_pai = ProtoField.new("Previous Eris Pai", "cme.futures.streamline.sbe.v9.5.previouserispai", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.previous_fixing_date = ProtoField.new("Previous Fixing Date", "cme.futures.streamline.sbe.v9.5.previousfixingdate", ftypes.UINT16)
-cme_futures_streamline_sbe_v9_5.fields.previous_fixing_rate = ProtoField.new("Previous Fixing Rate", "cme.futures.streamline.sbe.v9.5.previousfixingrate", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.price_type = ProtoField.new("Price Type", "cme.futures.streamline.sbe.v9.5.pricetype", ftypes.UINT16)
-cme_futures_streamline_sbe_v9_5.fields.product = ProtoField.new("Product", "cme.futures.streamline.sbe.v9.5.product", ftypes.INT8)
-cme_futures_streamline_sbe_v9_5.fields.product_complex = ProtoField.new("Product Complex", "cme.futures.streamline.sbe.v9.5.productcomplex", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.put_or_call = ProtoField.new("Put Or Call", "cme.futures.streamline.sbe.v9.5.putorcall", ftypes.UINT8)
-cme_futures_streamline_sbe_v9_5.fields.quote_condition = ProtoField.new("Quote Condition", "cme.futures.streamline.sbe.v9.5.quotecondition", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.quote_req_id = ProtoField.new("Quote Req Id", "cme.futures.streamline.sbe.v9.5.quotereqid", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.quote_request_345 = ProtoField.new("Quote Request 345", "cme.futures.streamline.sbe.v9.5.quoterequest345", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.rate_descriptor = ProtoField.new("Rate Descriptor", "cme.futures.streamline.sbe.v9.5.ratedescriptor", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.rate_type = ProtoField.new("Rate Type", "cme.futures.streamline.sbe.v9.5.ratetype", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.recovery_msg = ProtoField.new("Recovery Msg", "cme.futures.streamline.sbe.v9.5.recoverymsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
-cme_futures_streamline_sbe_v9_5.fields.reference_id = ProtoField.new("Reference Id", "cme.futures.streamline.sbe.v9.5.referenceid", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.related_sym_group = ProtoField.new("Related Sym Group", "cme.futures.streamline.sbe.v9.5.relatedsymgroup", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.related_sym_groups = ProtoField.new("Related Sym Groups", "cme.futures.streamline.sbe.v9.5.relatedsymgroups", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.reserved = ProtoField.new("Reserved", "cme.futures.streamline.sbe.v9.5.reserved", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
-cme_futures_streamline_sbe_v9_5.fields.reserved_bits = ProtoField.new("Reserved Bits", "cme.futures.streamline.sbe.v9.5.reservedbits", ftypes.UINT8, nil, base.DEC, "0x78")
-cme_futures_streamline_sbe_v9_5.fields.restructuring_type = ProtoField.new("Restructuring Type", "cme.futures.streamline.sbe.v9.5.restructuringtype", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.rounded = ProtoField.new("Rounded", "cme.futures.streamline.sbe.v9.5.rounded", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
-cme_futures_streamline_sbe_v9_5.fields.rpt_seq = ProtoField.new("Rpt Seq", "cme.futures.streamline.sbe.v9.5.rptseq", ftypes.UINT32)
-cme_futures_streamline_sbe_v9_5.fields.schema_id = ProtoField.new("Schema Id", "cme.futures.streamline.sbe.v9.5.schemaid", ftypes.UINT16)
-cme_futures_streamline_sbe_v9_5.fields.sector_group = ProtoField.new("Sector Group", "cme.futures.streamline.sbe.v9.5.sectorgroup", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.sector_sub_group = ProtoField.new("Sector Sub Group", "cme.futures.streamline.sbe.v9.5.sectorsubgroup", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.security_alt_id = ProtoField.new("Security Alt Id", "cme.futures.streamline.sbe.v9.5.securityaltid", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.security_alt_id_group = ProtoField.new("Security Alt Id Group", "cme.futures.streamline.sbe.v9.5.securityaltidgroup", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.security_alt_id_groups = ProtoField.new("Security Alt Id Groups", "cme.futures.streamline.sbe.v9.5.securityaltidgroups", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.security_alt_id_source = ProtoField.new("Security Alt Id Source", "cme.futures.streamline.sbe.v9.5.securityaltidsource", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.security_description = ProtoField.new("Security Description", "cme.futures.streamline.sbe.v9.5.securitydescription", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.security_exchange = ProtoField.new("Security Exchange", "cme.futures.streamline.sbe.v9.5.securityexchange", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.security_group = ProtoField.new("Security Group", "cme.futures.streamline.sbe.v9.5.securitygroup", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.security_id = ProtoField.new("Security Id", "cme.futures.streamline.sbe.v9.5.securityid", ftypes.UINT64)
-cme_futures_streamline_sbe_v9_5.fields.security_sub_type = ProtoField.new("Security Sub Type", "cme.futures.streamline.sbe.v9.5.securitysubtype", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.security_type = ProtoField.new("Security Type", "cme.futures.streamline.sbe.v9.5.securitytype", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.security_update_action = ProtoField.new("Security Update Action", "cme.futures.streamline.sbe.v9.5.securityupdateaction", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.sending_time = ProtoField.new("Sending Time", "cme.futures.streamline.sbe.v9.5.sendingtime", ftypes.UINT64)
-cme_futures_streamline_sbe_v9_5.fields.seniority = ProtoField.new("Seniority", "cme.futures.streamline.sbe.v9.5.seniority", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.settl_date = ProtoField.new("Settl Date", "cme.futures.streamline.sbe.v9.5.settldate", ftypes.UINT16)
-cme_futures_streamline_sbe_v9_5.fields.settl_price_type = ProtoField.new("Settl Price Type", "cme.futures.streamline.sbe.v9.5.settlpricetype", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.settlement_npv = ProtoField.new("Settlement Npv", "cme.futures.streamline.sbe.v9.5.settlementnpv", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.strategy_link_id = ProtoField.new("Strategy Link Id", "cme.futures.streamline.sbe.v9.5.strategylinkid", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.strike_price = ProtoField.new("Strike Price", "cme.futures.streamline.sbe.v9.5.strikeprice", ftypes.INT64)
-cme_futures_streamline_sbe_v9_5.fields.symbol = ProtoField.new("Symbol", "cme.futures.streamline.sbe.v9.5.symbol", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.template_id = ProtoField.new("Template Id", "cme.futures.streamline.sbe.v9.5.templateid", ftypes.UINT16)
-cme_futures_streamline_sbe_v9_5.fields.text = ProtoField.new("Text", "cme.futures.streamline.sbe.v9.5.text", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.trade_date = ProtoField.new("Trade Date", "cme.futures.streamline.sbe.v9.5.tradedate", ftypes.UINT16)
-cme_futures_streamline_sbe_v9_5.fields.trade_id = ProtoField.new("Trade Id", "cme.futures.streamline.sbe.v9.5.tradeid", ftypes.INT32)
-cme_futures_streamline_sbe_v9_5.fields.trading_reference_date = ProtoField.new("Trading Reference Date", "cme.futures.streamline.sbe.v9.5.tradingreferencedate", ftypes.UINT16)
-cme_futures_streamline_sbe_v9_5.fields.transact_time = ProtoField.new("Transact Time", "cme.futures.streamline.sbe.v9.5.transacttime", ftypes.UINT64)
-cme_futures_streamline_sbe_v9_5.fields.trd_type = ProtoField.new("Trd Type", "cme.futures.streamline.sbe.v9.5.trdtype", ftypes.UINT8)
-cme_futures_streamline_sbe_v9_5.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "cme.futures.streamline.sbe.v9.5.unitofmeasure", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.unit_of_measure_currency = ProtoField.new("Unit Of Measure Currency", "cme.futures.streamline.sbe.v9.5.unitofmeasurecurrency", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.unit_of_measure_qty = ProtoField.new("Unit Of Measure Qty", "cme.futures.streamline.sbe.v9.5.unitofmeasureqty", ftypes.INT64)
-cme_futures_streamline_sbe_v9_5.fields.user_defined_instrument = ProtoField.new("User Defined Instrument", "cme.futures.streamline.sbe.v9.5.userdefinedinstrument", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.version = ProtoField.new("Version", "cme.futures.streamline.sbe.v9.5.version", ftypes.UINT16)
-cme_futures_streamline_sbe_v9_5.fields.vol_type = ProtoField.new("Vol Type", "cme.futures.streamline.sbe.v9.5.voltype", ftypes.UINT16)
-cme_futures_streamline_sbe_v9_5.fields.week = ProtoField.new("Week", "cme.futures.streamline.sbe.v9.5.week", ftypes.UINT8)
-cme_futures_streamline_sbe_v9_5.fields.year = ProtoField.new("Year", "cme.futures.streamline.sbe.v9.5.year", ftypes.UINT16)
-cme_futures_streamline_sbe_v9_5.fields.yield = ProtoField.new("Yield", "cme.futures.streamline.sbe.v9.5.yield", ftypes.STRING)
-cme_futures_streamline_sbe_v9_5.fields.yield_type = ProtoField.new("Yield Type", "cme.futures.streamline.sbe.v9.5.yieldtype", ftypes.STRING)
+-- Cme Futures Streamline Sbe 5.9 Fields
+cme_futures_streamline_sbe_v5_9.fields.accrual_days = ProtoField.new("Accrual Days", "cme.futures.streamline.sbe.v5.9.accrualdays", ftypes.UINT32)
+cme_futures_streamline_sbe_v5_9.fields.accrued_coupons = ProtoField.new("Accrued Coupons", "cme.futures.streamline.sbe.v5.9.accruedcoupons", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.actual = ProtoField.new("Actual", "cme.futures.streamline.sbe.v5.9.actual", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
+cme_futures_streamline_sbe_v5_9.fields.admin_login_315 = ProtoField.new("Admin Login 315", "cme.futures.streamline.sbe.v5.9.adminlogin315", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.admin_logout_316 = ProtoField.new("Admin Logout 316", "cme.futures.streamline.sbe.v5.9.adminlogout316", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.aggressor_side = ProtoField.new("Aggressor Side", "cme.futures.streamline.sbe.v5.9.aggressorside", ftypes.UINT8)
+cme_futures_streamline_sbe_v5_9.fields.appl_id = ProtoField.new("Appl Id", "cme.futures.streamline.sbe.v5.9.applid", ftypes.UINT16)
+cme_futures_streamline_sbe_v5_9.fields.batch_total_messages = ProtoField.new("Batch Total Messages", "cme.futures.streamline.sbe.v5.9.batchtotalmessages", ftypes.UINT16)
+cme_futures_streamline_sbe_v5_9.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.futures.streamline.sbe.v5.9.binarypacketheader", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.block_length = ProtoField.new("Block Length", "cme.futures.streamline.sbe.v5.9.blocklength", ftypes.UINT16)
+cme_futures_streamline_sbe_v5_9.fields.cal_fut_px = ProtoField.new("Cal Fut Px", "cme.futures.streamline.sbe.v5.9.calfutpx", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.coupon_rate = ProtoField.new("Coupon Rate", "cme.futures.streamline.sbe.v5.9.couponrate", ftypes.INT32)
+cme_futures_streamline_sbe_v5_9.fields.currency = ProtoField.new("Currency", "cme.futures.streamline.sbe.v5.9.currency", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.d_v_01 = ProtoField.new("D V 01", "cme.futures.streamline.sbe.v5.9.dv01", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.daily_incremental_eris_pai = ProtoField.new("Daily Incremental Eris Pai", "cme.futures.streamline.sbe.v5.9.dailyincrementalerispai", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.day = ProtoField.new("Day", "cme.futures.streamline.sbe.v5.9.day", ftypes.UINT8)
+cme_futures_streamline_sbe_v5_9.fields.end_of_event = ProtoField.new("End Of Event", "cme.futures.streamline.sbe.v5.9.endofevent", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
+cme_futures_streamline_sbe_v5_9.fields.eris_pai = ProtoField.new("Eris Pai", "cme.futures.streamline.sbe.v5.9.erispai", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.event_time = ProtoField.new("Event Time", "cme.futures.streamline.sbe.v5.9.eventtime", ftypes.UINT64)
+cme_futures_streamline_sbe_v5_9.fields.event_type = ProtoField.new("Event Type", "cme.futures.streamline.sbe.v5.9.eventtype", ftypes.UINT8)
+cme_futures_streamline_sbe_v5_9.fields.events_group = ProtoField.new("Events Group", "cme.futures.streamline.sbe.v5.9.eventsgroup", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.events_groups = ProtoField.new("Events Groups", "cme.futures.streamline.sbe.v5.9.eventsgroups", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.exponent = ProtoField.new("Exponent", "cme.futures.streamline.sbe.v5.9.exponent", ftypes.INT8)
+cme_futures_streamline_sbe_v5_9.fields.fair_coupon_pct = ProtoField.new("Fair Coupon Pct", "cme.futures.streamline.sbe.v5.9.faircouponpct", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.fed_funds_date = ProtoField.new("Fed Funds Date", "cme.futures.streamline.sbe.v5.9.fedfundsdate", ftypes.UINT16)
+cme_futures_streamline_sbe_v5_9.fields.fed_funds_rate = ProtoField.new("Fed Funds Rate", "cme.futures.streamline.sbe.v5.9.fedfundsrate", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.final_daily = ProtoField.new("Final Daily", "cme.futures.streamline.sbe.v5.9.finaldaily", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
+cme_futures_streamline_sbe_v5_9.fields.final_settlement_futures_price = ProtoField.new("Final Settlement Futures Price", "cme.futures.streamline.sbe.v5.9.finalsettlementfuturesprice", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.fixed_npv = ProtoField.new("Fixed Npv", "cme.futures.streamline.sbe.v5.9.fixednpv", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.fixed_payment = ProtoField.new("Fixed Payment", "cme.futures.streamline.sbe.v5.9.fixedpayment", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.float_npv = ProtoField.new("Float Npv", "cme.futures.streamline.sbe.v5.9.floatnpv", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.floating_payment = ProtoField.new("Floating Payment", "cme.futures.streamline.sbe.v5.9.floatingpayment", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.group_size = ProtoField.new("Group Size", "cme.futures.streamline.sbe.v5.9.groupsize", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.group_size_encoding = ProtoField.new("Group Size Encoding", "cme.futures.streamline.sbe.v5.9.groupsizeencoding", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.headline = ProtoField.new("Headline", "cme.futures.streamline.sbe.v5.9.headline", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.heart_bt_int = ProtoField.new("Heart Bt Int", "cme.futures.streamline.sbe.v5.9.heartbtint", ftypes.INT8)
+cme_futures_streamline_sbe_v5_9.fields.inst_attrib_group = ProtoField.new("Inst Attrib Group", "cme.futures.streamline.sbe.v5.9.instattribgroup", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.inst_attrib_groups = ProtoField.new("Inst Attrib Groups", "cme.futures.streamline.sbe.v5.9.instattribgroups", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.inst_attrib_type = ProtoField.new("Inst Attrib Type", "cme.futures.streamline.sbe.v5.9.instattribtype", ftypes.UINT8)
+cme_futures_streamline_sbe_v5_9.fields.inst_attrib_value = ProtoField.new("Inst Attrib Value", "cme.futures.streamline.sbe.v5.9.instattribvalue", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.interpolation_factor = ProtoField.new("Interpolation Factor", "cme.futures.streamline.sbe.v5.9.interpolationfactor", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.last_implied_msg = ProtoField.new("Last Implied Msg", "cme.futures.streamline.sbe.v5.9.lastimpliedmsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
+cme_futures_streamline_sbe_v5_9.fields.last_quote_msg = ProtoField.new("Last Quote Msg", "cme.futures.streamline.sbe.v5.9.lastquotemsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
+cme_futures_streamline_sbe_v5_9.fields.last_stats_msg = ProtoField.new("Last Stats Msg", "cme.futures.streamline.sbe.v5.9.laststatsmsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
+cme_futures_streamline_sbe_v5_9.fields.last_trade_msg = ProtoField.new("Last Trade Msg", "cme.futures.streamline.sbe.v5.9.lasttrademsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
+cme_futures_streamline_sbe_v5_9.fields.last_volume_msg = ProtoField.new("Last Volume Msg", "cme.futures.streamline.sbe.v5.9.lastvolumemsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
+cme_futures_streamline_sbe_v5_9.fields.leg_benchmark_curve_name = ProtoField.new("Leg Benchmark Curve Name", "cme.futures.streamline.sbe.v5.9.legbenchmarkcurvename", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.leg_contract_multiplier = ProtoField.new("Leg Contract Multiplier", "cme.futures.streamline.sbe.v5.9.legcontractmultiplier", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.leg_credit_rating = ProtoField.new("Leg Credit Rating", "cme.futures.streamline.sbe.v5.9.legcreditrating", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.leg_currency = ProtoField.new("Leg Currency", "cme.futures.streamline.sbe.v5.9.legcurrency", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.leg_date_offset = ProtoField.new("Leg Date Offset", "cme.futures.streamline.sbe.v5.9.legdateoffset", ftypes.INT8)
+cme_futures_streamline_sbe_v5_9.fields.leg_pay_frequencey = ProtoField.new("Leg Pay Frequencey", "cme.futures.streamline.sbe.v5.9.legpayfrequencey", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.leg_purchase_rate = ProtoField.new("Leg Purchase Rate", "cme.futures.streamline.sbe.v5.9.legpurchaserate", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cme.futures.streamline.sbe.v5.9.legratioqty", ftypes.INT32)
+cme_futures_streamline_sbe_v5_9.fields.leg_ref_id = ProtoField.new("Leg Ref Id", "cme.futures.streamline.sbe.v5.9.legrefid", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.leg_security_group = ProtoField.new("Leg Security Group", "cme.futures.streamline.sbe.v5.9.legsecuritygroup", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.leg_security_type = ProtoField.new("Leg Security Type", "cme.futures.streamline.sbe.v5.9.legsecuritytype", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.leg_side = ProtoField.new("Leg Side", "cme.futures.streamline.sbe.v5.9.legside", ftypes.UINT8)
+cme_futures_streamline_sbe_v5_9.fields.leg_symbol = ProtoField.new("Leg Symbol", "cme.futures.streamline.sbe.v5.9.legsymbol", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.lines_of_text_group = ProtoField.new("Lines Of Text Group", "cme.futures.streamline.sbe.v5.9.linesoftextgroup", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.lines_of_text_groups = ProtoField.new("Lines Of Text Groups", "cme.futures.streamline.sbe.v5.9.linesoftextgroups", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.m_d_feed_types_group = ProtoField.new("M D Feed Types Group", "cme.futures.streamline.sbe.v5.9.mdfeedtypesgroup", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.m_d_feed_types_groups = ProtoField.new("M D Feed Types Groups", "cme.futures.streamline.sbe.v5.9.mdfeedtypesgroups", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.m_d_incremental_refresh_eris_group = ProtoField.new("M D Incremental Refresh Eris Group", "cme.futures.streamline.sbe.v5.9.mdincrementalrefresherisgroup", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.m_d_incremental_refresh_eris_groups = ProtoField.new("M D Incremental Refresh Eris Groups", "cme.futures.streamline.sbe.v5.9.mdincrementalrefresherisgroups", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group = ProtoField.new("M D Incremental Refresh Eris Reference Data And Daily Statistics Group", "cme.futures.streamline.sbe.v5.9.mdincrementalrefresherisreferencedataanddailystatisticsgroup", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups = ProtoField.new("M D Incremental Refresh Eris Reference Data And Daily Statistics Groups", "cme.futures.streamline.sbe.v5.9.mdincrementalrefresherisreferencedataanddailystatisticsgroups", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.m_d_incremental_refresh_indices_group = ProtoField.new("M D Incremental Refresh Indices Group", "cme.futures.streamline.sbe.v5.9.mdincrementalrefreshindicesgroup", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.m_d_incremental_refresh_indices_groups = ProtoField.new("M D Incremental Refresh Indices Groups", "cme.futures.streamline.sbe.v5.9.mdincrementalrefreshindicesgroups", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.m_d_incremental_refresh_otc_group = ProtoField.new("M D Incremental Refresh Otc Group", "cme.futures.streamline.sbe.v5.9.mdincrementalrefreshotcgroup", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.m_d_incremental_refresh_otc_groups = ProtoField.new("M D Incremental Refresh Otc Groups", "cme.futures.streamline.sbe.v5.9.mdincrementalrefreshotcgroups", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.m_d_incremental_refresh_trade_blocks_group = ProtoField.new("M D Incremental Refresh Trade Blocks Group", "cme.futures.streamline.sbe.v5.9.mdincrementalrefreshtradeblocksgroup", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.m_d_incremental_refresh_trade_blocks_groups = ProtoField.new("M D Incremental Refresh Trade Blocks Groups", "cme.futures.streamline.sbe.v5.9.mdincrementalrefreshtradeblocksgroups", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.m_d_instrument_definition_eris_leg_group = ProtoField.new("M D Instrument Definition Eris Leg Group", "cme.futures.streamline.sbe.v5.9.mdinstrumentdefinitionerisleggroup", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.m_d_instrument_definition_eris_leg_groups = ProtoField.new("M D Instrument Definition Eris Leg Groups", "cme.futures.streamline.sbe.v5.9.mdinstrumentdefinitionerisleggroups", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.mantissa32 = ProtoField.new("Mantissa32", "cme.futures.streamline.sbe.v5.9.mantissa32", ftypes.INT32)
+cme_futures_streamline_sbe_v5_9.fields.mantissa64 = ProtoField.new("Mantissa64", "cme.futures.streamline.sbe.v5.9.mantissa64", ftypes.INT64)
+cme_futures_streamline_sbe_v5_9.fields.market_depth = ProtoField.new("Market Depth", "cme.futures.streamline.sbe.v5.9.marketdepth", ftypes.UINT8)
+cme_futures_streamline_sbe_v5_9.fields.market_sector = ProtoField.new("Market Sector", "cme.futures.streamline.sbe.v5.9.marketsector", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.match_event_indicator = ProtoField.new("Match Event Indicator", "cme.futures.streamline.sbe.v5.9.matcheventindicator", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.maturity_date = ProtoField.new("Maturity Date", "cme.futures.streamline.sbe.v5.9.maturitydate", ftypes.UINT16)
+cme_futures_streamline_sbe_v5_9.fields.maturity_month_year = ProtoField.new("Maturity Month Year", "cme.futures.streamline.sbe.v5.9.maturitymonthyear", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.md_entry_code = ProtoField.new("Md Entry Code", "cme.futures.streamline.sbe.v5.9.mdentrycode", ftypes.UINT8)
+cme_futures_streamline_sbe_v5_9.fields.md_entry_date = ProtoField.new("Md Entry Date", "cme.futures.streamline.sbe.v5.9.mdentrydate", ftypes.INT32)
+cme_futures_streamline_sbe_v5_9.fields.md_entry_id = ProtoField.new("Md Entry Id", "cme.futures.streamline.sbe.v5.9.mdentryid", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.md_entry_position_no = ProtoField.new("Md Entry Position No", "cme.futures.streamline.sbe.v5.9.mdentrypositionno", ftypes.INT32)
+cme_futures_streamline_sbe_v5_9.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.futures.streamline.sbe.v5.9.mdentrypx", ftypes.INT64)
+cme_futures_streamline_sbe_v5_9.fields.md_entry_size = ProtoField.new("Md Entry Size", "cme.futures.streamline.sbe.v5.9.mdentrysize", ftypes.UINT64)
+cme_futures_streamline_sbe_v5_9.fields.md_entry_time = ProtoField.new("Md Entry Time", "cme.futures.streamline.sbe.v5.9.mdentrytime", ftypes.INT32)
+cme_futures_streamline_sbe_v5_9.fields.md_entry_type = ProtoField.new("Md Entry Type", "cme.futures.streamline.sbe.v5.9.mdentrytype", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.md_feed_type = ProtoField.new("Md Feed Type", "cme.futures.streamline.sbe.v5.9.mdfeedtype", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.md_incremental_refresh_eris_351 = ProtoField.new("Md Incremental Refresh Eris 351", "cme.futures.streamline.sbe.v5.9.mdincrementalrefresheris351", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.md_incremental_refresh_eris_353 = ProtoField.new("Md Incremental Refresh Eris 353", "cme.futures.streamline.sbe.v5.9.mdincrementalrefresheris353", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.md_incremental_refresh_eris_reference_data_and_daily_statistics_333 = ProtoField.new("Md Incremental Refresh Eris Reference Data And Daily Statistics 333", "cme.futures.streamline.sbe.v5.9.mdincrementalrefresherisreferencedataanddailystatistics333", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.md_incremental_refresh_indices_348 = ProtoField.new("Md Incremental Refresh Indices 348", "cme.futures.streamline.sbe.v5.9.mdincrementalrefreshindices348", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.md_incremental_refresh_ot_c_356 = ProtoField.new("Md Incremental Refresh Ot C 356", "cme.futures.streamline.sbe.v5.9.mdincrementalrefreshotc356", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.md_incremental_refresh_ot_c_366 = ProtoField.new("Md Incremental Refresh Ot C 366", "cme.futures.streamline.sbe.v5.9.mdincrementalrefreshotc366", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.md_incremental_refresh_trade_blocks_340 = ProtoField.new("Md Incremental Refresh Trade Blocks 340", "cme.futures.streamline.sbe.v5.9.mdincrementalrefreshtradeblocks340", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.md_incremental_refresh_trade_blocks_349 = ProtoField.new("Md Incremental Refresh Trade Blocks 349", "cme.futures.streamline.sbe.v5.9.mdincrementalrefreshtradeblocks349", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.md_incremental_refresh_trade_blocks_365 = ProtoField.new("Md Incremental Refresh Trade Blocks 365", "cme.futures.streamline.sbe.v5.9.mdincrementalrefreshtradeblocks365", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.md_instrument_definition_eris_363 = ProtoField.new("Md Instrument Definition Eris 363", "cme.futures.streamline.sbe.v5.9.mdinstrumentdefinitioneris363", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.md_instrument_definition_indices_347 = ProtoField.new("Md Instrument Definition Indices 347", "cme.futures.streamline.sbe.v5.9.mdinstrumentdefinitionindices347", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.md_news_indices_339 = ProtoField.new("Md News Indices 339", "cme.futures.streamline.sbe.v5.9.mdnewsindices339", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.md_update_action = ProtoField.new("Md Update Action", "cme.futures.streamline.sbe.v5.9.mdupdateaction", ftypes.UINT8)
+cme_futures_streamline_sbe_v5_9.fields.message = ProtoField.new("Message", "cme.futures.streamline.sbe.v5.9.message", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.message_header = ProtoField.new("Message Header", "cme.futures.streamline.sbe.v5.9.messageheader", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.futures.streamline.sbe.v5.9.messagesequencenumber", ftypes.UINT32)
+cme_futures_streamline_sbe_v5_9.fields.message_size = ProtoField.new("Message Size", "cme.futures.streamline.sbe.v5.9.messagesize", ftypes.UINT16)
+cme_futures_streamline_sbe_v5_9.fields.min_price_increment = ProtoField.new("Min Price Increment", "cme.futures.streamline.sbe.v5.9.minpriceincrement", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.month = ProtoField.new("Month", "cme.futures.streamline.sbe.v5.9.month", ftypes.UINT8)
+cme_futures_streamline_sbe_v5_9.fields.net_chg_prev_day = ProtoField.new("Net Chg Prev Day", "cme.futures.streamline.sbe.v5.9.netchgprevday", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.net_pct_chg = ProtoField.new("Net Pct Chg", "cme.futures.streamline.sbe.v5.9.netpctchg", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.next_fixed_payment_amount = ProtoField.new("Next Fixed Payment Amount", "cme.futures.streamline.sbe.v5.9.nextfixedpaymentamount", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.next_fixed_payment_date = ProtoField.new("Next Fixed Payment Date", "cme.futures.streamline.sbe.v5.9.nextfixedpaymentdate", ftypes.UINT16)
+cme_futures_streamline_sbe_v5_9.fields.next_floating_payment_amount = ProtoField.new("Next Floating Payment Amount", "cme.futures.streamline.sbe.v5.9.nextfloatingpaymentamount", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.next_floating_payment_date = ProtoField.new("Next Floating Payment Date", "cme.futures.streamline.sbe.v5.9.nextfloatingpaymentdate", ftypes.UINT16)
+cme_futures_streamline_sbe_v5_9.fields.nominal = ProtoField.new("Nominal", "cme.futures.streamline.sbe.v5.9.nominal", ftypes.UINT64)
+cme_futures_streamline_sbe_v5_9.fields.notional_percentage_outstanding = ProtoField.new("Notional Percentage Outstanding", "cme.futures.streamline.sbe.v5.9.notionalpercentageoutstanding", ftypes.INT32)
+cme_futures_streamline_sbe_v5_9.fields.npv = ProtoField.new("Npv", "cme.futures.streamline.sbe.v5.9.npv", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.null_value = ProtoField.new("Null Value", "cme.futures.streamline.sbe.v5.9.nullvalue", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
+cme_futures_streamline_sbe_v5_9.fields.num_in_group = ProtoField.new("Num In Group", "cme.futures.streamline.sbe.v5.9.numingroup", ftypes.UINT8)
+cme_futures_streamline_sbe_v5_9.fields.number_of_orders = ProtoField.new("Number Of Orders", "cme.futures.streamline.sbe.v5.9.numberoforders", ftypes.INT32)
+cme_futures_streamline_sbe_v5_9.fields.open_close_settl_flag = ProtoField.new("Open Close Settl Flag", "cme.futures.streamline.sbe.v5.9.openclosesettlflag", ftypes.UINT8)
+cme_futures_streamline_sbe_v5_9.fields.orig_time = ProtoField.new("Orig Time", "cme.futures.streamline.sbe.v5.9.origtime", ftypes.UINT64)
+cme_futures_streamline_sbe_v5_9.fields.p_v_01 = ProtoField.new("P V 01", "cme.futures.streamline.sbe.v5.9.pv01", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.packet = ProtoField.new("Packet", "cme.futures.streamline.sbe.v5.9.packet", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.payload = ProtoField.new("Payload", "cme.futures.streamline.sbe.v5.9.payload", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.percent_trading = ProtoField.new("Percent Trading", "cme.futures.streamline.sbe.v5.9.percenttrading", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.previous_eris_pai = ProtoField.new("Previous Eris Pai", "cme.futures.streamline.sbe.v5.9.previouserispai", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.previous_fixing_date = ProtoField.new("Previous Fixing Date", "cme.futures.streamline.sbe.v5.9.previousfixingdate", ftypes.UINT16)
+cme_futures_streamline_sbe_v5_9.fields.previous_fixing_rate = ProtoField.new("Previous Fixing Rate", "cme.futures.streamline.sbe.v5.9.previousfixingrate", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.price_type = ProtoField.new("Price Type", "cme.futures.streamline.sbe.v5.9.pricetype", ftypes.UINT16)
+cme_futures_streamline_sbe_v5_9.fields.product = ProtoField.new("Product", "cme.futures.streamline.sbe.v5.9.product", ftypes.INT8)
+cme_futures_streamline_sbe_v5_9.fields.product_complex = ProtoField.new("Product Complex", "cme.futures.streamline.sbe.v5.9.productcomplex", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.put_or_call = ProtoField.new("Put Or Call", "cme.futures.streamline.sbe.v5.9.putorcall", ftypes.UINT8)
+cme_futures_streamline_sbe_v5_9.fields.quote_condition = ProtoField.new("Quote Condition", "cme.futures.streamline.sbe.v5.9.quotecondition", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.quote_req_id = ProtoField.new("Quote Req Id", "cme.futures.streamline.sbe.v5.9.quotereqid", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.quote_request_345 = ProtoField.new("Quote Request 345", "cme.futures.streamline.sbe.v5.9.quoterequest345", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.rate_descriptor = ProtoField.new("Rate Descriptor", "cme.futures.streamline.sbe.v5.9.ratedescriptor", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.rate_type = ProtoField.new("Rate Type", "cme.futures.streamline.sbe.v5.9.ratetype", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.recovery_msg = ProtoField.new("Recovery Msg", "cme.futures.streamline.sbe.v5.9.recoverymsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
+cme_futures_streamline_sbe_v5_9.fields.reference_id = ProtoField.new("Reference Id", "cme.futures.streamline.sbe.v5.9.referenceid", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.related_sym_group = ProtoField.new("Related Sym Group", "cme.futures.streamline.sbe.v5.9.relatedsymgroup", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.related_sym_groups = ProtoField.new("Related Sym Groups", "cme.futures.streamline.sbe.v5.9.relatedsymgroups", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.reserved = ProtoField.new("Reserved", "cme.futures.streamline.sbe.v5.9.reserved", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
+cme_futures_streamline_sbe_v5_9.fields.reserved_bits = ProtoField.new("Reserved Bits", "cme.futures.streamline.sbe.v5.9.reservedbits", ftypes.UINT8, nil, base.DEC, "0x78")
+cme_futures_streamline_sbe_v5_9.fields.restructuring_type = ProtoField.new("Restructuring Type", "cme.futures.streamline.sbe.v5.9.restructuringtype", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.rounded = ProtoField.new("Rounded", "cme.futures.streamline.sbe.v5.9.rounded", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
+cme_futures_streamline_sbe_v5_9.fields.rpt_seq = ProtoField.new("Rpt Seq", "cme.futures.streamline.sbe.v5.9.rptseq", ftypes.UINT32)
+cme_futures_streamline_sbe_v5_9.fields.schema_id = ProtoField.new("Schema Id", "cme.futures.streamline.sbe.v5.9.schemaid", ftypes.UINT16)
+cme_futures_streamline_sbe_v5_9.fields.sector_group = ProtoField.new("Sector Group", "cme.futures.streamline.sbe.v5.9.sectorgroup", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.sector_sub_group = ProtoField.new("Sector Sub Group", "cme.futures.streamline.sbe.v5.9.sectorsubgroup", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.security_alt_id = ProtoField.new("Security Alt Id", "cme.futures.streamline.sbe.v5.9.securityaltid", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.security_alt_id_group = ProtoField.new("Security Alt Id Group", "cme.futures.streamline.sbe.v5.9.securityaltidgroup", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.security_alt_id_groups = ProtoField.new("Security Alt Id Groups", "cme.futures.streamline.sbe.v5.9.securityaltidgroups", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.security_alt_id_source = ProtoField.new("Security Alt Id Source", "cme.futures.streamline.sbe.v5.9.securityaltidsource", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.security_description = ProtoField.new("Security Description", "cme.futures.streamline.sbe.v5.9.securitydescription", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.security_exchange = ProtoField.new("Security Exchange", "cme.futures.streamline.sbe.v5.9.securityexchange", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.security_group = ProtoField.new("Security Group", "cme.futures.streamline.sbe.v5.9.securitygroup", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.security_id = ProtoField.new("Security Id", "cme.futures.streamline.sbe.v5.9.securityid", ftypes.UINT64)
+cme_futures_streamline_sbe_v5_9.fields.security_sub_type = ProtoField.new("Security Sub Type", "cme.futures.streamline.sbe.v5.9.securitysubtype", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.security_type = ProtoField.new("Security Type", "cme.futures.streamline.sbe.v5.9.securitytype", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.security_update_action = ProtoField.new("Security Update Action", "cme.futures.streamline.sbe.v5.9.securityupdateaction", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.sending_time = ProtoField.new("Sending Time", "cme.futures.streamline.sbe.v5.9.sendingtime", ftypes.UINT64)
+cme_futures_streamline_sbe_v5_9.fields.seniority = ProtoField.new("Seniority", "cme.futures.streamline.sbe.v5.9.seniority", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.settl_date = ProtoField.new("Settl Date", "cme.futures.streamline.sbe.v5.9.settldate", ftypes.UINT16)
+cme_futures_streamline_sbe_v5_9.fields.settl_price_type = ProtoField.new("Settl Price Type", "cme.futures.streamline.sbe.v5.9.settlpricetype", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.settlement_npv = ProtoField.new("Settlement Npv", "cme.futures.streamline.sbe.v5.9.settlementnpv", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.strategy_link_id = ProtoField.new("Strategy Link Id", "cme.futures.streamline.sbe.v5.9.strategylinkid", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.strike_price = ProtoField.new("Strike Price", "cme.futures.streamline.sbe.v5.9.strikeprice", ftypes.INT64)
+cme_futures_streamline_sbe_v5_9.fields.symbol = ProtoField.new("Symbol", "cme.futures.streamline.sbe.v5.9.symbol", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.template_id = ProtoField.new("Template Id", "cme.futures.streamline.sbe.v5.9.templateid", ftypes.UINT16)
+cme_futures_streamline_sbe_v5_9.fields.text = ProtoField.new("Text", "cme.futures.streamline.sbe.v5.9.text", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.trade_date = ProtoField.new("Trade Date", "cme.futures.streamline.sbe.v5.9.tradedate", ftypes.UINT16)
+cme_futures_streamline_sbe_v5_9.fields.trade_id = ProtoField.new("Trade Id", "cme.futures.streamline.sbe.v5.9.tradeid", ftypes.INT32)
+cme_futures_streamline_sbe_v5_9.fields.trading_reference_date = ProtoField.new("Trading Reference Date", "cme.futures.streamline.sbe.v5.9.tradingreferencedate", ftypes.UINT16)
+cme_futures_streamline_sbe_v5_9.fields.transact_time = ProtoField.new("Transact Time", "cme.futures.streamline.sbe.v5.9.transacttime", ftypes.UINT64)
+cme_futures_streamline_sbe_v5_9.fields.trd_type = ProtoField.new("Trd Type", "cme.futures.streamline.sbe.v5.9.trdtype", ftypes.UINT8)
+cme_futures_streamline_sbe_v5_9.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "cme.futures.streamline.sbe.v5.9.unitofmeasure", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.unit_of_measure_currency = ProtoField.new("Unit Of Measure Currency", "cme.futures.streamline.sbe.v5.9.unitofmeasurecurrency", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.unit_of_measure_qty = ProtoField.new("Unit Of Measure Qty", "cme.futures.streamline.sbe.v5.9.unitofmeasureqty", ftypes.INT64)
+cme_futures_streamline_sbe_v5_9.fields.user_defined_instrument = ProtoField.new("User Defined Instrument", "cme.futures.streamline.sbe.v5.9.userdefinedinstrument", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.version = ProtoField.new("Version", "cme.futures.streamline.sbe.v5.9.version", ftypes.UINT16)
+cme_futures_streamline_sbe_v5_9.fields.vol_type = ProtoField.new("Vol Type", "cme.futures.streamline.sbe.v5.9.voltype", ftypes.UINT16)
+cme_futures_streamline_sbe_v5_9.fields.week = ProtoField.new("Week", "cme.futures.streamline.sbe.v5.9.week", ftypes.UINT8)
+cme_futures_streamline_sbe_v5_9.fields.year = ProtoField.new("Year", "cme.futures.streamline.sbe.v5.9.year", ftypes.UINT16)
+cme_futures_streamline_sbe_v5_9.fields.yield = ProtoField.new("Yield", "cme.futures.streamline.sbe.v5.9.yield", ftypes.STRING)
+cme_futures_streamline_sbe_v5_9.fields.yield_type = ProtoField.new("Yield Type", "cme.futures.streamline.sbe.v5.9.yieldtype", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Cme Futures Streamline Sbe 9.5 Element Dissection Options
+-- Cme Futures Streamline Sbe 5.9 Element Dissection Options
 show.accrued_coupons = true
 show.admin_login_315 = true
 show.admin_logout_316 = true
@@ -296,416 +296,416 @@ show.unit_of_measure_qty = true
 show.yield = true
 show.payload = false
 
--- Register Cme Futures Streamline Sbe 9.5 Show Options
-cme_futures_streamline_sbe_v9_5.prefs.show_accrued_coupons = Pref.bool("Show Accrued Coupons", show.accrued_coupons, "Parse and add Accrued Coupons to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_admin_login_315 = Pref.bool("Show Admin Login 315", show.admin_login_315, "Parse and add Admin Login 315 to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_admin_logout_316 = Pref.bool("Show Admin Logout 316", show.admin_logout_316, "Parse and add Admin Logout 316 to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_binary_packet_header = Pref.bool("Show Binary Packet Header", show.binary_packet_header, "Parse and add Binary Packet Header to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_cal_fut_px = Pref.bool("Show Cal Fut Px", show.cal_fut_px, "Parse and add Cal Fut Px to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_coupon_rate = Pref.bool("Show Coupon Rate", show.coupon_rate, "Parse and add Coupon Rate to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_d_v_01 = Pref.bool("Show D V 01", show.d_v_01, "Parse and add D V 01 to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_daily_incremental_eris_pai = Pref.bool("Show Daily Incremental Eris Pai", show.daily_incremental_eris_pai, "Parse and add Daily Incremental Eris Pai to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_eris_pai = Pref.bool("Show Eris Pai", show.eris_pai, "Parse and add Eris Pai to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_events_group = Pref.bool("Show Events Group", show.events_group, "Parse and add Events Group to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_events_groups = Pref.bool("Show Events Groups", show.events_groups, "Parse and add Events Groups to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_fair_coupon_pct = Pref.bool("Show Fair Coupon Pct", show.fair_coupon_pct, "Parse and add Fair Coupon Pct to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_fed_funds_rate = Pref.bool("Show Fed Funds Rate", show.fed_funds_rate, "Parse and add Fed Funds Rate to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_final_settlement_futures_price = Pref.bool("Show Final Settlement Futures Price", show.final_settlement_futures_price, "Parse and add Final Settlement Futures Price to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_fixed_npv = Pref.bool("Show Fixed Npv", show.fixed_npv, "Parse and add Fixed Npv to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_fixed_payment = Pref.bool("Show Fixed Payment", show.fixed_payment, "Parse and add Fixed Payment to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_float_npv = Pref.bool("Show Float Npv", show.float_npv, "Parse and add Float Npv to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_floating_payment = Pref.bool("Show Floating Payment", show.floating_payment, "Parse and add Floating Payment to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_group_size = Pref.bool("Show Group Size", show.group_size, "Parse and add Group Size to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_group_size_encoding = Pref.bool("Show Group Size Encoding", show.group_size_encoding, "Parse and add Group Size Encoding to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_inst_attrib_group = Pref.bool("Show Inst Attrib Group", show.inst_attrib_group, "Parse and add Inst Attrib Group to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_inst_attrib_groups = Pref.bool("Show Inst Attrib Groups", show.inst_attrib_groups, "Parse and add Inst Attrib Groups to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_interpolation_factor = Pref.bool("Show Interpolation Factor", show.interpolation_factor, "Parse and add Interpolation Factor to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_leg_contract_multiplier = Pref.bool("Show Leg Contract Multiplier", show.leg_contract_multiplier, "Parse and add Leg Contract Multiplier to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_leg_purchase_rate = Pref.bool("Show Leg Purchase Rate", show.leg_purchase_rate, "Parse and add Leg Purchase Rate to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_lines_of_text_group = Pref.bool("Show Lines Of Text Group", show.lines_of_text_group, "Parse and add Lines Of Text Group to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_lines_of_text_groups = Pref.bool("Show Lines Of Text Groups", show.lines_of_text_groups, "Parse and add Lines Of Text Groups to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_m_d_feed_types_group = Pref.bool("Show M D Feed Types Group", show.m_d_feed_types_group, "Parse and add M D Feed Types Group to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_m_d_feed_types_groups = Pref.bool("Show M D Feed Types Groups", show.m_d_feed_types_groups, "Parse and add M D Feed Types Groups to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_eris_group = Pref.bool("Show M D Incremental Refresh Eris Group", show.m_d_incremental_refresh_eris_group, "Parse and add M D Incremental Refresh Eris Group to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_eris_groups = Pref.bool("Show M D Incremental Refresh Eris Groups", show.m_d_incremental_refresh_eris_groups, "Parse and add M D Incremental Refresh Eris Groups to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group = Pref.bool("Show M D Incremental Refresh Eris Reference Data And Daily Statistics Group", show.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group, "Parse and add M D Incremental Refresh Eris Reference Data And Daily Statistics Group to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups = Pref.bool("Show M D Incremental Refresh Eris Reference Data And Daily Statistics Groups", show.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups, "Parse and add M D Incremental Refresh Eris Reference Data And Daily Statistics Groups to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_indices_group = Pref.bool("Show M D Incremental Refresh Indices Group", show.m_d_incremental_refresh_indices_group, "Parse and add M D Incremental Refresh Indices Group to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_indices_groups = Pref.bool("Show M D Incremental Refresh Indices Groups", show.m_d_incremental_refresh_indices_groups, "Parse and add M D Incremental Refresh Indices Groups to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_otc_group = Pref.bool("Show M D Incremental Refresh Otc Group", show.m_d_incremental_refresh_otc_group, "Parse and add M D Incremental Refresh Otc Group to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_otc_groups = Pref.bool("Show M D Incremental Refresh Otc Groups", show.m_d_incremental_refresh_otc_groups, "Parse and add M D Incremental Refresh Otc Groups to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_trade_blocks_group = Pref.bool("Show M D Incremental Refresh Trade Blocks Group", show.m_d_incremental_refresh_trade_blocks_group, "Parse and add M D Incremental Refresh Trade Blocks Group to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_trade_blocks_groups = Pref.bool("Show M D Incremental Refresh Trade Blocks Groups", show.m_d_incremental_refresh_trade_blocks_groups, "Parse and add M D Incremental Refresh Trade Blocks Groups to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_m_d_instrument_definition_eris_leg_group = Pref.bool("Show M D Instrument Definition Eris Leg Group", show.m_d_instrument_definition_eris_leg_group, "Parse and add M D Instrument Definition Eris Leg Group to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_m_d_instrument_definition_eris_leg_groups = Pref.bool("Show M D Instrument Definition Eris Leg Groups", show.m_d_instrument_definition_eris_leg_groups, "Parse and add M D Instrument Definition Eris Leg Groups to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_match_event_indicator = Pref.bool("Show Match Event Indicator", show.match_event_indicator, "Parse and add Match Event Indicator to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_maturity_month_year = Pref.bool("Show Maturity Month Year", show.maturity_month_year, "Parse and add Maturity Month Year to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_md_entry_px = Pref.bool("Show Md Entry Px", show.md_entry_px, "Parse and add Md Entry Px to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_md_entry_size = Pref.bool("Show Md Entry Size", show.md_entry_size, "Parse and add Md Entry Size to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_eris_351 = Pref.bool("Show Md Incremental Refresh Eris 351", show.md_incremental_refresh_eris_351, "Parse and add Md Incremental Refresh Eris 351 to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_eris_353 = Pref.bool("Show Md Incremental Refresh Eris 353", show.md_incremental_refresh_eris_353, "Parse and add Md Incremental Refresh Eris 353 to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_eris_reference_data_and_daily_statistics_333 = Pref.bool("Show Md Incremental Refresh Eris Reference Data And Daily Statistics 333", show.md_incremental_refresh_eris_reference_data_and_daily_statistics_333, "Parse and add Md Incremental Refresh Eris Reference Data And Daily Statistics 333 to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_indices_348 = Pref.bool("Show Md Incremental Refresh Indices 348", show.md_incremental_refresh_indices_348, "Parse and add Md Incremental Refresh Indices 348 to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_ot_c_356 = Pref.bool("Show Md Incremental Refresh Ot C 356", show.md_incremental_refresh_ot_c_356, "Parse and add Md Incremental Refresh Ot C 356 to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_ot_c_366 = Pref.bool("Show Md Incremental Refresh Ot C 366", show.md_incremental_refresh_ot_c_366, "Parse and add Md Incremental Refresh Ot C 366 to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_trade_blocks_340 = Pref.bool("Show Md Incremental Refresh Trade Blocks 340", show.md_incremental_refresh_trade_blocks_340, "Parse and add Md Incremental Refresh Trade Blocks 340 to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_trade_blocks_349 = Pref.bool("Show Md Incremental Refresh Trade Blocks 349", show.md_incremental_refresh_trade_blocks_349, "Parse and add Md Incremental Refresh Trade Blocks 349 to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_trade_blocks_365 = Pref.bool("Show Md Incremental Refresh Trade Blocks 365", show.md_incremental_refresh_trade_blocks_365, "Parse and add Md Incremental Refresh Trade Blocks 365 to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_md_instrument_definition_eris_363 = Pref.bool("Show Md Instrument Definition Eris 363", show.md_instrument_definition_eris_363, "Parse and add Md Instrument Definition Eris 363 to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_md_instrument_definition_indices_347 = Pref.bool("Show Md Instrument Definition Indices 347", show.md_instrument_definition_indices_347, "Parse and add Md Instrument Definition Indices 347 to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_md_news_indices_339 = Pref.bool("Show Md News Indices 339", show.md_news_indices_339, "Parse and add Md News Indices 339 to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_min_price_increment = Pref.bool("Show Min Price Increment", show.min_price_increment, "Parse and add Min Price Increment to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_net_chg_prev_day = Pref.bool("Show Net Chg Prev Day", show.net_chg_prev_day, "Parse and add Net Chg Prev Day to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_net_pct_chg = Pref.bool("Show Net Pct Chg", show.net_pct_chg, "Parse and add Net Pct Chg to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_next_fixed_payment_amount = Pref.bool("Show Next Fixed Payment Amount", show.next_fixed_payment_amount, "Parse and add Next Fixed Payment Amount to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_next_floating_payment_amount = Pref.bool("Show Next Floating Payment Amount", show.next_floating_payment_amount, "Parse and add Next Floating Payment Amount to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_npv = Pref.bool("Show Npv", show.npv, "Parse and add Npv to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_p_v_01 = Pref.bool("Show P V 01", show.p_v_01, "Parse and add P V 01 to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_percent_trading = Pref.bool("Show Percent Trading", show.percent_trading, "Parse and add Percent Trading to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_previous_eris_pai = Pref.bool("Show Previous Eris Pai", show.previous_eris_pai, "Parse and add Previous Eris Pai to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_previous_fixing_rate = Pref.bool("Show Previous Fixing Rate", show.previous_fixing_rate, "Parse and add Previous Fixing Rate to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_quote_request_345 = Pref.bool("Show Quote Request 345", show.quote_request_345, "Parse and add Quote Request 345 to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_related_sym_group = Pref.bool("Show Related Sym Group", show.related_sym_group, "Parse and add Related Sym Group to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_related_sym_groups = Pref.bool("Show Related Sym Groups", show.related_sym_groups, "Parse and add Related Sym Groups to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_security_alt_id_group = Pref.bool("Show Security Alt Id Group", show.security_alt_id_group, "Parse and add Security Alt Id Group to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_security_alt_id_groups = Pref.bool("Show Security Alt Id Groups", show.security_alt_id_groups, "Parse and add Security Alt Id Groups to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_settl_price_type = Pref.bool("Show Settl Price Type", show.settl_price_type, "Parse and add Settl Price Type to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_settlement_npv = Pref.bool("Show Settlement Npv", show.settlement_npv, "Parse and add Settlement Npv to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_strike_price = Pref.bool("Show Strike Price", show.strike_price, "Parse and add Strike Price to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_unit_of_measure_qty = Pref.bool("Show Unit Of Measure Qty", show.unit_of_measure_qty, "Parse and add Unit Of Measure Qty to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_yield = Pref.bool("Show Yield", show.yield, "Parse and add Yield to protocol tree")
-cme_futures_streamline_sbe_v9_5.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+-- Register Cme Futures Streamline Sbe 5.9 Show Options
+cme_futures_streamline_sbe_v5_9.prefs.show_accrued_coupons = Pref.bool("Show Accrued Coupons", show.accrued_coupons, "Parse and add Accrued Coupons to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_admin_login_315 = Pref.bool("Show Admin Login 315", show.admin_login_315, "Parse and add Admin Login 315 to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_admin_logout_316 = Pref.bool("Show Admin Logout 316", show.admin_logout_316, "Parse and add Admin Logout 316 to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_binary_packet_header = Pref.bool("Show Binary Packet Header", show.binary_packet_header, "Parse and add Binary Packet Header to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_cal_fut_px = Pref.bool("Show Cal Fut Px", show.cal_fut_px, "Parse and add Cal Fut Px to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_coupon_rate = Pref.bool("Show Coupon Rate", show.coupon_rate, "Parse and add Coupon Rate to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_d_v_01 = Pref.bool("Show D V 01", show.d_v_01, "Parse and add D V 01 to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_daily_incremental_eris_pai = Pref.bool("Show Daily Incremental Eris Pai", show.daily_incremental_eris_pai, "Parse and add Daily Incremental Eris Pai to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_eris_pai = Pref.bool("Show Eris Pai", show.eris_pai, "Parse and add Eris Pai to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_events_group = Pref.bool("Show Events Group", show.events_group, "Parse and add Events Group to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_events_groups = Pref.bool("Show Events Groups", show.events_groups, "Parse and add Events Groups to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_fair_coupon_pct = Pref.bool("Show Fair Coupon Pct", show.fair_coupon_pct, "Parse and add Fair Coupon Pct to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_fed_funds_rate = Pref.bool("Show Fed Funds Rate", show.fed_funds_rate, "Parse and add Fed Funds Rate to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_final_settlement_futures_price = Pref.bool("Show Final Settlement Futures Price", show.final_settlement_futures_price, "Parse and add Final Settlement Futures Price to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_fixed_npv = Pref.bool("Show Fixed Npv", show.fixed_npv, "Parse and add Fixed Npv to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_fixed_payment = Pref.bool("Show Fixed Payment", show.fixed_payment, "Parse and add Fixed Payment to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_float_npv = Pref.bool("Show Float Npv", show.float_npv, "Parse and add Float Npv to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_floating_payment = Pref.bool("Show Floating Payment", show.floating_payment, "Parse and add Floating Payment to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_group_size = Pref.bool("Show Group Size", show.group_size, "Parse and add Group Size to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_group_size_encoding = Pref.bool("Show Group Size Encoding", show.group_size_encoding, "Parse and add Group Size Encoding to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_inst_attrib_group = Pref.bool("Show Inst Attrib Group", show.inst_attrib_group, "Parse and add Inst Attrib Group to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_inst_attrib_groups = Pref.bool("Show Inst Attrib Groups", show.inst_attrib_groups, "Parse and add Inst Attrib Groups to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_interpolation_factor = Pref.bool("Show Interpolation Factor", show.interpolation_factor, "Parse and add Interpolation Factor to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_leg_contract_multiplier = Pref.bool("Show Leg Contract Multiplier", show.leg_contract_multiplier, "Parse and add Leg Contract Multiplier to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_leg_purchase_rate = Pref.bool("Show Leg Purchase Rate", show.leg_purchase_rate, "Parse and add Leg Purchase Rate to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_lines_of_text_group = Pref.bool("Show Lines Of Text Group", show.lines_of_text_group, "Parse and add Lines Of Text Group to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_lines_of_text_groups = Pref.bool("Show Lines Of Text Groups", show.lines_of_text_groups, "Parse and add Lines Of Text Groups to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_m_d_feed_types_group = Pref.bool("Show M D Feed Types Group", show.m_d_feed_types_group, "Parse and add M D Feed Types Group to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_m_d_feed_types_groups = Pref.bool("Show M D Feed Types Groups", show.m_d_feed_types_groups, "Parse and add M D Feed Types Groups to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_eris_group = Pref.bool("Show M D Incremental Refresh Eris Group", show.m_d_incremental_refresh_eris_group, "Parse and add M D Incremental Refresh Eris Group to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_eris_groups = Pref.bool("Show M D Incremental Refresh Eris Groups", show.m_d_incremental_refresh_eris_groups, "Parse and add M D Incremental Refresh Eris Groups to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group = Pref.bool("Show M D Incremental Refresh Eris Reference Data And Daily Statistics Group", show.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group, "Parse and add M D Incremental Refresh Eris Reference Data And Daily Statistics Group to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups = Pref.bool("Show M D Incremental Refresh Eris Reference Data And Daily Statistics Groups", show.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups, "Parse and add M D Incremental Refresh Eris Reference Data And Daily Statistics Groups to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_indices_group = Pref.bool("Show M D Incremental Refresh Indices Group", show.m_d_incremental_refresh_indices_group, "Parse and add M D Incremental Refresh Indices Group to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_indices_groups = Pref.bool("Show M D Incremental Refresh Indices Groups", show.m_d_incremental_refresh_indices_groups, "Parse and add M D Incremental Refresh Indices Groups to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_otc_group = Pref.bool("Show M D Incremental Refresh Otc Group", show.m_d_incremental_refresh_otc_group, "Parse and add M D Incremental Refresh Otc Group to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_otc_groups = Pref.bool("Show M D Incremental Refresh Otc Groups", show.m_d_incremental_refresh_otc_groups, "Parse and add M D Incremental Refresh Otc Groups to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_trade_blocks_group = Pref.bool("Show M D Incremental Refresh Trade Blocks Group", show.m_d_incremental_refresh_trade_blocks_group, "Parse and add M D Incremental Refresh Trade Blocks Group to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_trade_blocks_groups = Pref.bool("Show M D Incremental Refresh Trade Blocks Groups", show.m_d_incremental_refresh_trade_blocks_groups, "Parse and add M D Incremental Refresh Trade Blocks Groups to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_m_d_instrument_definition_eris_leg_group = Pref.bool("Show M D Instrument Definition Eris Leg Group", show.m_d_instrument_definition_eris_leg_group, "Parse and add M D Instrument Definition Eris Leg Group to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_m_d_instrument_definition_eris_leg_groups = Pref.bool("Show M D Instrument Definition Eris Leg Groups", show.m_d_instrument_definition_eris_leg_groups, "Parse and add M D Instrument Definition Eris Leg Groups to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_match_event_indicator = Pref.bool("Show Match Event Indicator", show.match_event_indicator, "Parse and add Match Event Indicator to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_maturity_month_year = Pref.bool("Show Maturity Month Year", show.maturity_month_year, "Parse and add Maturity Month Year to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_md_entry_px = Pref.bool("Show Md Entry Px", show.md_entry_px, "Parse and add Md Entry Px to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_md_entry_size = Pref.bool("Show Md Entry Size", show.md_entry_size, "Parse and add Md Entry Size to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_eris_351 = Pref.bool("Show Md Incremental Refresh Eris 351", show.md_incremental_refresh_eris_351, "Parse and add Md Incremental Refresh Eris 351 to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_eris_353 = Pref.bool("Show Md Incremental Refresh Eris 353", show.md_incremental_refresh_eris_353, "Parse and add Md Incremental Refresh Eris 353 to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_eris_reference_data_and_daily_statistics_333 = Pref.bool("Show Md Incremental Refresh Eris Reference Data And Daily Statistics 333", show.md_incremental_refresh_eris_reference_data_and_daily_statistics_333, "Parse and add Md Incremental Refresh Eris Reference Data And Daily Statistics 333 to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_indices_348 = Pref.bool("Show Md Incremental Refresh Indices 348", show.md_incremental_refresh_indices_348, "Parse and add Md Incremental Refresh Indices 348 to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_ot_c_356 = Pref.bool("Show Md Incremental Refresh Ot C 356", show.md_incremental_refresh_ot_c_356, "Parse and add Md Incremental Refresh Ot C 356 to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_ot_c_366 = Pref.bool("Show Md Incremental Refresh Ot C 366", show.md_incremental_refresh_ot_c_366, "Parse and add Md Incremental Refresh Ot C 366 to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_trade_blocks_340 = Pref.bool("Show Md Incremental Refresh Trade Blocks 340", show.md_incremental_refresh_trade_blocks_340, "Parse and add Md Incremental Refresh Trade Blocks 340 to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_trade_blocks_349 = Pref.bool("Show Md Incremental Refresh Trade Blocks 349", show.md_incremental_refresh_trade_blocks_349, "Parse and add Md Incremental Refresh Trade Blocks 349 to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_trade_blocks_365 = Pref.bool("Show Md Incremental Refresh Trade Blocks 365", show.md_incremental_refresh_trade_blocks_365, "Parse and add Md Incremental Refresh Trade Blocks 365 to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_md_instrument_definition_eris_363 = Pref.bool("Show Md Instrument Definition Eris 363", show.md_instrument_definition_eris_363, "Parse and add Md Instrument Definition Eris 363 to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_md_instrument_definition_indices_347 = Pref.bool("Show Md Instrument Definition Indices 347", show.md_instrument_definition_indices_347, "Parse and add Md Instrument Definition Indices 347 to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_md_news_indices_339 = Pref.bool("Show Md News Indices 339", show.md_news_indices_339, "Parse and add Md News Indices 339 to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_min_price_increment = Pref.bool("Show Min Price Increment", show.min_price_increment, "Parse and add Min Price Increment to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_net_chg_prev_day = Pref.bool("Show Net Chg Prev Day", show.net_chg_prev_day, "Parse and add Net Chg Prev Day to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_net_pct_chg = Pref.bool("Show Net Pct Chg", show.net_pct_chg, "Parse and add Net Pct Chg to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_next_fixed_payment_amount = Pref.bool("Show Next Fixed Payment Amount", show.next_fixed_payment_amount, "Parse and add Next Fixed Payment Amount to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_next_floating_payment_amount = Pref.bool("Show Next Floating Payment Amount", show.next_floating_payment_amount, "Parse and add Next Floating Payment Amount to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_npv = Pref.bool("Show Npv", show.npv, "Parse and add Npv to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_p_v_01 = Pref.bool("Show P V 01", show.p_v_01, "Parse and add P V 01 to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_percent_trading = Pref.bool("Show Percent Trading", show.percent_trading, "Parse and add Percent Trading to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_previous_eris_pai = Pref.bool("Show Previous Eris Pai", show.previous_eris_pai, "Parse and add Previous Eris Pai to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_previous_fixing_rate = Pref.bool("Show Previous Fixing Rate", show.previous_fixing_rate, "Parse and add Previous Fixing Rate to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_quote_request_345 = Pref.bool("Show Quote Request 345", show.quote_request_345, "Parse and add Quote Request 345 to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_related_sym_group = Pref.bool("Show Related Sym Group", show.related_sym_group, "Parse and add Related Sym Group to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_related_sym_groups = Pref.bool("Show Related Sym Groups", show.related_sym_groups, "Parse and add Related Sym Groups to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_security_alt_id_group = Pref.bool("Show Security Alt Id Group", show.security_alt_id_group, "Parse and add Security Alt Id Group to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_security_alt_id_groups = Pref.bool("Show Security Alt Id Groups", show.security_alt_id_groups, "Parse and add Security Alt Id Groups to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_settl_price_type = Pref.bool("Show Settl Price Type", show.settl_price_type, "Parse and add Settl Price Type to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_settlement_npv = Pref.bool("Show Settlement Npv", show.settlement_npv, "Parse and add Settlement Npv to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_strike_price = Pref.bool("Show Strike Price", show.strike_price, "Parse and add Strike Price to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_unit_of_measure_qty = Pref.bool("Show Unit Of Measure Qty", show.unit_of_measure_qty, "Parse and add Unit Of Measure Qty to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_yield = Pref.bool("Show Yield", show.yield, "Parse and add Yield to protocol tree")
+cme_futures_streamline_sbe_v5_9.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function cme_futures_streamline_sbe_v9_5.prefs_changed()
+function cme_futures_streamline_sbe_v5_9.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.accrued_coupons ~= cme_futures_streamline_sbe_v9_5.prefs.show_accrued_coupons then
-    show.accrued_coupons = cme_futures_streamline_sbe_v9_5.prefs.show_accrued_coupons
+  if show.accrued_coupons ~= cme_futures_streamline_sbe_v5_9.prefs.show_accrued_coupons then
+    show.accrued_coupons = cme_futures_streamline_sbe_v5_9.prefs.show_accrued_coupons
     changed = true
   end
-  if show.admin_login_315 ~= cme_futures_streamline_sbe_v9_5.prefs.show_admin_login_315 then
-    show.admin_login_315 = cme_futures_streamline_sbe_v9_5.prefs.show_admin_login_315
+  if show.admin_login_315 ~= cme_futures_streamline_sbe_v5_9.prefs.show_admin_login_315 then
+    show.admin_login_315 = cme_futures_streamline_sbe_v5_9.prefs.show_admin_login_315
     changed = true
   end
-  if show.admin_logout_316 ~= cme_futures_streamline_sbe_v9_5.prefs.show_admin_logout_316 then
-    show.admin_logout_316 = cme_futures_streamline_sbe_v9_5.prefs.show_admin_logout_316
+  if show.admin_logout_316 ~= cme_futures_streamline_sbe_v5_9.prefs.show_admin_logout_316 then
+    show.admin_logout_316 = cme_futures_streamline_sbe_v5_9.prefs.show_admin_logout_316
     changed = true
   end
-  if show.binary_packet_header ~= cme_futures_streamline_sbe_v9_5.prefs.show_binary_packet_header then
-    show.binary_packet_header = cme_futures_streamline_sbe_v9_5.prefs.show_binary_packet_header
+  if show.binary_packet_header ~= cme_futures_streamline_sbe_v5_9.prefs.show_binary_packet_header then
+    show.binary_packet_header = cme_futures_streamline_sbe_v5_9.prefs.show_binary_packet_header
     changed = true
   end
-  if show.cal_fut_px ~= cme_futures_streamline_sbe_v9_5.prefs.show_cal_fut_px then
-    show.cal_fut_px = cme_futures_streamline_sbe_v9_5.prefs.show_cal_fut_px
+  if show.cal_fut_px ~= cme_futures_streamline_sbe_v5_9.prefs.show_cal_fut_px then
+    show.cal_fut_px = cme_futures_streamline_sbe_v5_9.prefs.show_cal_fut_px
     changed = true
   end
-  if show.coupon_rate ~= cme_futures_streamline_sbe_v9_5.prefs.show_coupon_rate then
-    show.coupon_rate = cme_futures_streamline_sbe_v9_5.prefs.show_coupon_rate
+  if show.coupon_rate ~= cme_futures_streamline_sbe_v5_9.prefs.show_coupon_rate then
+    show.coupon_rate = cme_futures_streamline_sbe_v5_9.prefs.show_coupon_rate
     changed = true
   end
-  if show.d_v_01 ~= cme_futures_streamline_sbe_v9_5.prefs.show_d_v_01 then
-    show.d_v_01 = cme_futures_streamline_sbe_v9_5.prefs.show_d_v_01
+  if show.d_v_01 ~= cme_futures_streamline_sbe_v5_9.prefs.show_d_v_01 then
+    show.d_v_01 = cme_futures_streamline_sbe_v5_9.prefs.show_d_v_01
     changed = true
   end
-  if show.daily_incremental_eris_pai ~= cme_futures_streamline_sbe_v9_5.prefs.show_daily_incremental_eris_pai then
-    show.daily_incremental_eris_pai = cme_futures_streamline_sbe_v9_5.prefs.show_daily_incremental_eris_pai
+  if show.daily_incremental_eris_pai ~= cme_futures_streamline_sbe_v5_9.prefs.show_daily_incremental_eris_pai then
+    show.daily_incremental_eris_pai = cme_futures_streamline_sbe_v5_9.prefs.show_daily_incremental_eris_pai
     changed = true
   end
-  if show.eris_pai ~= cme_futures_streamline_sbe_v9_5.prefs.show_eris_pai then
-    show.eris_pai = cme_futures_streamline_sbe_v9_5.prefs.show_eris_pai
+  if show.eris_pai ~= cme_futures_streamline_sbe_v5_9.prefs.show_eris_pai then
+    show.eris_pai = cme_futures_streamline_sbe_v5_9.prefs.show_eris_pai
     changed = true
   end
-  if show.events_group ~= cme_futures_streamline_sbe_v9_5.prefs.show_events_group then
-    show.events_group = cme_futures_streamline_sbe_v9_5.prefs.show_events_group
+  if show.events_group ~= cme_futures_streamline_sbe_v5_9.prefs.show_events_group then
+    show.events_group = cme_futures_streamline_sbe_v5_9.prefs.show_events_group
     changed = true
   end
-  if show.events_groups ~= cme_futures_streamline_sbe_v9_5.prefs.show_events_groups then
-    show.events_groups = cme_futures_streamline_sbe_v9_5.prefs.show_events_groups
+  if show.events_groups ~= cme_futures_streamline_sbe_v5_9.prefs.show_events_groups then
+    show.events_groups = cme_futures_streamline_sbe_v5_9.prefs.show_events_groups
     changed = true
   end
-  if show.fair_coupon_pct ~= cme_futures_streamline_sbe_v9_5.prefs.show_fair_coupon_pct then
-    show.fair_coupon_pct = cme_futures_streamline_sbe_v9_5.prefs.show_fair_coupon_pct
+  if show.fair_coupon_pct ~= cme_futures_streamline_sbe_v5_9.prefs.show_fair_coupon_pct then
+    show.fair_coupon_pct = cme_futures_streamline_sbe_v5_9.prefs.show_fair_coupon_pct
     changed = true
   end
-  if show.fed_funds_rate ~= cme_futures_streamline_sbe_v9_5.prefs.show_fed_funds_rate then
-    show.fed_funds_rate = cme_futures_streamline_sbe_v9_5.prefs.show_fed_funds_rate
+  if show.fed_funds_rate ~= cme_futures_streamline_sbe_v5_9.prefs.show_fed_funds_rate then
+    show.fed_funds_rate = cme_futures_streamline_sbe_v5_9.prefs.show_fed_funds_rate
     changed = true
   end
-  if show.final_settlement_futures_price ~= cme_futures_streamline_sbe_v9_5.prefs.show_final_settlement_futures_price then
-    show.final_settlement_futures_price = cme_futures_streamline_sbe_v9_5.prefs.show_final_settlement_futures_price
+  if show.final_settlement_futures_price ~= cme_futures_streamline_sbe_v5_9.prefs.show_final_settlement_futures_price then
+    show.final_settlement_futures_price = cme_futures_streamline_sbe_v5_9.prefs.show_final_settlement_futures_price
     changed = true
   end
-  if show.fixed_npv ~= cme_futures_streamline_sbe_v9_5.prefs.show_fixed_npv then
-    show.fixed_npv = cme_futures_streamline_sbe_v9_5.prefs.show_fixed_npv
+  if show.fixed_npv ~= cme_futures_streamline_sbe_v5_9.prefs.show_fixed_npv then
+    show.fixed_npv = cme_futures_streamline_sbe_v5_9.prefs.show_fixed_npv
     changed = true
   end
-  if show.fixed_payment ~= cme_futures_streamline_sbe_v9_5.prefs.show_fixed_payment then
-    show.fixed_payment = cme_futures_streamline_sbe_v9_5.prefs.show_fixed_payment
+  if show.fixed_payment ~= cme_futures_streamline_sbe_v5_9.prefs.show_fixed_payment then
+    show.fixed_payment = cme_futures_streamline_sbe_v5_9.prefs.show_fixed_payment
     changed = true
   end
-  if show.float_npv ~= cme_futures_streamline_sbe_v9_5.prefs.show_float_npv then
-    show.float_npv = cme_futures_streamline_sbe_v9_5.prefs.show_float_npv
+  if show.float_npv ~= cme_futures_streamline_sbe_v5_9.prefs.show_float_npv then
+    show.float_npv = cme_futures_streamline_sbe_v5_9.prefs.show_float_npv
     changed = true
   end
-  if show.floating_payment ~= cme_futures_streamline_sbe_v9_5.prefs.show_floating_payment then
-    show.floating_payment = cme_futures_streamline_sbe_v9_5.prefs.show_floating_payment
+  if show.floating_payment ~= cme_futures_streamline_sbe_v5_9.prefs.show_floating_payment then
+    show.floating_payment = cme_futures_streamline_sbe_v5_9.prefs.show_floating_payment
     changed = true
   end
-  if show.group_size ~= cme_futures_streamline_sbe_v9_5.prefs.show_group_size then
-    show.group_size = cme_futures_streamline_sbe_v9_5.prefs.show_group_size
+  if show.group_size ~= cme_futures_streamline_sbe_v5_9.prefs.show_group_size then
+    show.group_size = cme_futures_streamline_sbe_v5_9.prefs.show_group_size
     changed = true
   end
-  if show.group_size_encoding ~= cme_futures_streamline_sbe_v9_5.prefs.show_group_size_encoding then
-    show.group_size_encoding = cme_futures_streamline_sbe_v9_5.prefs.show_group_size_encoding
+  if show.group_size_encoding ~= cme_futures_streamline_sbe_v5_9.prefs.show_group_size_encoding then
+    show.group_size_encoding = cme_futures_streamline_sbe_v5_9.prefs.show_group_size_encoding
     changed = true
   end
-  if show.inst_attrib_group ~= cme_futures_streamline_sbe_v9_5.prefs.show_inst_attrib_group then
-    show.inst_attrib_group = cme_futures_streamline_sbe_v9_5.prefs.show_inst_attrib_group
+  if show.inst_attrib_group ~= cme_futures_streamline_sbe_v5_9.prefs.show_inst_attrib_group then
+    show.inst_attrib_group = cme_futures_streamline_sbe_v5_9.prefs.show_inst_attrib_group
     changed = true
   end
-  if show.inst_attrib_groups ~= cme_futures_streamline_sbe_v9_5.prefs.show_inst_attrib_groups then
-    show.inst_attrib_groups = cme_futures_streamline_sbe_v9_5.prefs.show_inst_attrib_groups
+  if show.inst_attrib_groups ~= cme_futures_streamline_sbe_v5_9.prefs.show_inst_attrib_groups then
+    show.inst_attrib_groups = cme_futures_streamline_sbe_v5_9.prefs.show_inst_attrib_groups
     changed = true
   end
-  if show.interpolation_factor ~= cme_futures_streamline_sbe_v9_5.prefs.show_interpolation_factor then
-    show.interpolation_factor = cme_futures_streamline_sbe_v9_5.prefs.show_interpolation_factor
+  if show.interpolation_factor ~= cme_futures_streamline_sbe_v5_9.prefs.show_interpolation_factor then
+    show.interpolation_factor = cme_futures_streamline_sbe_v5_9.prefs.show_interpolation_factor
     changed = true
   end
-  if show.leg_contract_multiplier ~= cme_futures_streamline_sbe_v9_5.prefs.show_leg_contract_multiplier then
-    show.leg_contract_multiplier = cme_futures_streamline_sbe_v9_5.prefs.show_leg_contract_multiplier
+  if show.leg_contract_multiplier ~= cme_futures_streamline_sbe_v5_9.prefs.show_leg_contract_multiplier then
+    show.leg_contract_multiplier = cme_futures_streamline_sbe_v5_9.prefs.show_leg_contract_multiplier
     changed = true
   end
-  if show.leg_purchase_rate ~= cme_futures_streamline_sbe_v9_5.prefs.show_leg_purchase_rate then
-    show.leg_purchase_rate = cme_futures_streamline_sbe_v9_5.prefs.show_leg_purchase_rate
+  if show.leg_purchase_rate ~= cme_futures_streamline_sbe_v5_9.prefs.show_leg_purchase_rate then
+    show.leg_purchase_rate = cme_futures_streamline_sbe_v5_9.prefs.show_leg_purchase_rate
     changed = true
   end
-  if show.lines_of_text_group ~= cme_futures_streamline_sbe_v9_5.prefs.show_lines_of_text_group then
-    show.lines_of_text_group = cme_futures_streamline_sbe_v9_5.prefs.show_lines_of_text_group
+  if show.lines_of_text_group ~= cme_futures_streamline_sbe_v5_9.prefs.show_lines_of_text_group then
+    show.lines_of_text_group = cme_futures_streamline_sbe_v5_9.prefs.show_lines_of_text_group
     changed = true
   end
-  if show.lines_of_text_groups ~= cme_futures_streamline_sbe_v9_5.prefs.show_lines_of_text_groups then
-    show.lines_of_text_groups = cme_futures_streamline_sbe_v9_5.prefs.show_lines_of_text_groups
+  if show.lines_of_text_groups ~= cme_futures_streamline_sbe_v5_9.prefs.show_lines_of_text_groups then
+    show.lines_of_text_groups = cme_futures_streamline_sbe_v5_9.prefs.show_lines_of_text_groups
     changed = true
   end
-  if show.m_d_feed_types_group ~= cme_futures_streamline_sbe_v9_5.prefs.show_m_d_feed_types_group then
-    show.m_d_feed_types_group = cme_futures_streamline_sbe_v9_5.prefs.show_m_d_feed_types_group
+  if show.m_d_feed_types_group ~= cme_futures_streamline_sbe_v5_9.prefs.show_m_d_feed_types_group then
+    show.m_d_feed_types_group = cme_futures_streamline_sbe_v5_9.prefs.show_m_d_feed_types_group
     changed = true
   end
-  if show.m_d_feed_types_groups ~= cme_futures_streamline_sbe_v9_5.prefs.show_m_d_feed_types_groups then
-    show.m_d_feed_types_groups = cme_futures_streamline_sbe_v9_5.prefs.show_m_d_feed_types_groups
+  if show.m_d_feed_types_groups ~= cme_futures_streamline_sbe_v5_9.prefs.show_m_d_feed_types_groups then
+    show.m_d_feed_types_groups = cme_futures_streamline_sbe_v5_9.prefs.show_m_d_feed_types_groups
     changed = true
   end
-  if show.m_d_incremental_refresh_eris_group ~= cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_eris_group then
-    show.m_d_incremental_refresh_eris_group = cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_eris_group
+  if show.m_d_incremental_refresh_eris_group ~= cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_eris_group then
+    show.m_d_incremental_refresh_eris_group = cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_eris_group
     changed = true
   end
-  if show.m_d_incremental_refresh_eris_groups ~= cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_eris_groups then
-    show.m_d_incremental_refresh_eris_groups = cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_eris_groups
+  if show.m_d_incremental_refresh_eris_groups ~= cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_eris_groups then
+    show.m_d_incremental_refresh_eris_groups = cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_eris_groups
     changed = true
   end
-  if show.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group ~= cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group then
-    show.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group = cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group
+  if show.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group ~= cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group then
+    show.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group = cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group
     changed = true
   end
-  if show.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups ~= cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups then
-    show.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups = cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups
+  if show.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups ~= cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups then
+    show.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups = cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups
     changed = true
   end
-  if show.m_d_incremental_refresh_indices_group ~= cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_indices_group then
-    show.m_d_incremental_refresh_indices_group = cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_indices_group
+  if show.m_d_incremental_refresh_indices_group ~= cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_indices_group then
+    show.m_d_incremental_refresh_indices_group = cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_indices_group
     changed = true
   end
-  if show.m_d_incremental_refresh_indices_groups ~= cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_indices_groups then
-    show.m_d_incremental_refresh_indices_groups = cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_indices_groups
+  if show.m_d_incremental_refresh_indices_groups ~= cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_indices_groups then
+    show.m_d_incremental_refresh_indices_groups = cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_indices_groups
     changed = true
   end
-  if show.m_d_incremental_refresh_otc_group ~= cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_otc_group then
-    show.m_d_incremental_refresh_otc_group = cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_otc_group
+  if show.m_d_incremental_refresh_otc_group ~= cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_otc_group then
+    show.m_d_incremental_refresh_otc_group = cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_otc_group
     changed = true
   end
-  if show.m_d_incremental_refresh_otc_groups ~= cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_otc_groups then
-    show.m_d_incremental_refresh_otc_groups = cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_otc_groups
+  if show.m_d_incremental_refresh_otc_groups ~= cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_otc_groups then
+    show.m_d_incremental_refresh_otc_groups = cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_otc_groups
     changed = true
   end
-  if show.m_d_incremental_refresh_trade_blocks_group ~= cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_trade_blocks_group then
-    show.m_d_incremental_refresh_trade_blocks_group = cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_trade_blocks_group
+  if show.m_d_incremental_refresh_trade_blocks_group ~= cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_trade_blocks_group then
+    show.m_d_incremental_refresh_trade_blocks_group = cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_trade_blocks_group
     changed = true
   end
-  if show.m_d_incremental_refresh_trade_blocks_groups ~= cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_trade_blocks_groups then
-    show.m_d_incremental_refresh_trade_blocks_groups = cme_futures_streamline_sbe_v9_5.prefs.show_m_d_incremental_refresh_trade_blocks_groups
+  if show.m_d_incremental_refresh_trade_blocks_groups ~= cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_trade_blocks_groups then
+    show.m_d_incremental_refresh_trade_blocks_groups = cme_futures_streamline_sbe_v5_9.prefs.show_m_d_incremental_refresh_trade_blocks_groups
     changed = true
   end
-  if show.m_d_instrument_definition_eris_leg_group ~= cme_futures_streamline_sbe_v9_5.prefs.show_m_d_instrument_definition_eris_leg_group then
-    show.m_d_instrument_definition_eris_leg_group = cme_futures_streamline_sbe_v9_5.prefs.show_m_d_instrument_definition_eris_leg_group
+  if show.m_d_instrument_definition_eris_leg_group ~= cme_futures_streamline_sbe_v5_9.prefs.show_m_d_instrument_definition_eris_leg_group then
+    show.m_d_instrument_definition_eris_leg_group = cme_futures_streamline_sbe_v5_9.prefs.show_m_d_instrument_definition_eris_leg_group
     changed = true
   end
-  if show.m_d_instrument_definition_eris_leg_groups ~= cme_futures_streamline_sbe_v9_5.prefs.show_m_d_instrument_definition_eris_leg_groups then
-    show.m_d_instrument_definition_eris_leg_groups = cme_futures_streamline_sbe_v9_5.prefs.show_m_d_instrument_definition_eris_leg_groups
+  if show.m_d_instrument_definition_eris_leg_groups ~= cme_futures_streamline_sbe_v5_9.prefs.show_m_d_instrument_definition_eris_leg_groups then
+    show.m_d_instrument_definition_eris_leg_groups = cme_futures_streamline_sbe_v5_9.prefs.show_m_d_instrument_definition_eris_leg_groups
     changed = true
   end
-  if show.match_event_indicator ~= cme_futures_streamline_sbe_v9_5.prefs.show_match_event_indicator then
-    show.match_event_indicator = cme_futures_streamline_sbe_v9_5.prefs.show_match_event_indicator
+  if show.match_event_indicator ~= cme_futures_streamline_sbe_v5_9.prefs.show_match_event_indicator then
+    show.match_event_indicator = cme_futures_streamline_sbe_v5_9.prefs.show_match_event_indicator
     changed = true
   end
-  if show.maturity_month_year ~= cme_futures_streamline_sbe_v9_5.prefs.show_maturity_month_year then
-    show.maturity_month_year = cme_futures_streamline_sbe_v9_5.prefs.show_maturity_month_year
+  if show.maturity_month_year ~= cme_futures_streamline_sbe_v5_9.prefs.show_maturity_month_year then
+    show.maturity_month_year = cme_futures_streamline_sbe_v5_9.prefs.show_maturity_month_year
     changed = true
   end
-  if show.md_entry_px ~= cme_futures_streamline_sbe_v9_5.prefs.show_md_entry_px then
-    show.md_entry_px = cme_futures_streamline_sbe_v9_5.prefs.show_md_entry_px
+  if show.md_entry_px ~= cme_futures_streamline_sbe_v5_9.prefs.show_md_entry_px then
+    show.md_entry_px = cme_futures_streamline_sbe_v5_9.prefs.show_md_entry_px
     changed = true
   end
-  if show.md_entry_size ~= cme_futures_streamline_sbe_v9_5.prefs.show_md_entry_size then
-    show.md_entry_size = cme_futures_streamline_sbe_v9_5.prefs.show_md_entry_size
+  if show.md_entry_size ~= cme_futures_streamline_sbe_v5_9.prefs.show_md_entry_size then
+    show.md_entry_size = cme_futures_streamline_sbe_v5_9.prefs.show_md_entry_size
     changed = true
   end
-  if show.md_incremental_refresh_eris_351 ~= cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_eris_351 then
-    show.md_incremental_refresh_eris_351 = cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_eris_351
+  if show.md_incremental_refresh_eris_351 ~= cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_eris_351 then
+    show.md_incremental_refresh_eris_351 = cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_eris_351
     changed = true
   end
-  if show.md_incremental_refresh_eris_353 ~= cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_eris_353 then
-    show.md_incremental_refresh_eris_353 = cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_eris_353
+  if show.md_incremental_refresh_eris_353 ~= cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_eris_353 then
+    show.md_incremental_refresh_eris_353 = cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_eris_353
     changed = true
   end
-  if show.md_incremental_refresh_eris_reference_data_and_daily_statistics_333 ~= cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_eris_reference_data_and_daily_statistics_333 then
-    show.md_incremental_refresh_eris_reference_data_and_daily_statistics_333 = cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_eris_reference_data_and_daily_statistics_333
+  if show.md_incremental_refresh_eris_reference_data_and_daily_statistics_333 ~= cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_eris_reference_data_and_daily_statistics_333 then
+    show.md_incremental_refresh_eris_reference_data_and_daily_statistics_333 = cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_eris_reference_data_and_daily_statistics_333
     changed = true
   end
-  if show.md_incremental_refresh_indices_348 ~= cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_indices_348 then
-    show.md_incremental_refresh_indices_348 = cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_indices_348
+  if show.md_incremental_refresh_indices_348 ~= cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_indices_348 then
+    show.md_incremental_refresh_indices_348 = cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_indices_348
     changed = true
   end
-  if show.md_incremental_refresh_ot_c_356 ~= cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_ot_c_356 then
-    show.md_incremental_refresh_ot_c_356 = cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_ot_c_356
+  if show.md_incremental_refresh_ot_c_356 ~= cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_ot_c_356 then
+    show.md_incremental_refresh_ot_c_356 = cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_ot_c_356
     changed = true
   end
-  if show.md_incremental_refresh_ot_c_366 ~= cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_ot_c_366 then
-    show.md_incremental_refresh_ot_c_366 = cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_ot_c_366
+  if show.md_incremental_refresh_ot_c_366 ~= cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_ot_c_366 then
+    show.md_incremental_refresh_ot_c_366 = cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_ot_c_366
     changed = true
   end
-  if show.md_incremental_refresh_trade_blocks_340 ~= cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_trade_blocks_340 then
-    show.md_incremental_refresh_trade_blocks_340 = cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_trade_blocks_340
+  if show.md_incremental_refresh_trade_blocks_340 ~= cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_trade_blocks_340 then
+    show.md_incremental_refresh_trade_blocks_340 = cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_trade_blocks_340
     changed = true
   end
-  if show.md_incremental_refresh_trade_blocks_349 ~= cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_trade_blocks_349 then
-    show.md_incremental_refresh_trade_blocks_349 = cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_trade_blocks_349
+  if show.md_incremental_refresh_trade_blocks_349 ~= cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_trade_blocks_349 then
+    show.md_incremental_refresh_trade_blocks_349 = cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_trade_blocks_349
     changed = true
   end
-  if show.md_incremental_refresh_trade_blocks_365 ~= cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_trade_blocks_365 then
-    show.md_incremental_refresh_trade_blocks_365 = cme_futures_streamline_sbe_v9_5.prefs.show_md_incremental_refresh_trade_blocks_365
+  if show.md_incremental_refresh_trade_blocks_365 ~= cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_trade_blocks_365 then
+    show.md_incremental_refresh_trade_blocks_365 = cme_futures_streamline_sbe_v5_9.prefs.show_md_incremental_refresh_trade_blocks_365
     changed = true
   end
-  if show.md_instrument_definition_eris_363 ~= cme_futures_streamline_sbe_v9_5.prefs.show_md_instrument_definition_eris_363 then
-    show.md_instrument_definition_eris_363 = cme_futures_streamline_sbe_v9_5.prefs.show_md_instrument_definition_eris_363
+  if show.md_instrument_definition_eris_363 ~= cme_futures_streamline_sbe_v5_9.prefs.show_md_instrument_definition_eris_363 then
+    show.md_instrument_definition_eris_363 = cme_futures_streamline_sbe_v5_9.prefs.show_md_instrument_definition_eris_363
     changed = true
   end
-  if show.md_instrument_definition_indices_347 ~= cme_futures_streamline_sbe_v9_5.prefs.show_md_instrument_definition_indices_347 then
-    show.md_instrument_definition_indices_347 = cme_futures_streamline_sbe_v9_5.prefs.show_md_instrument_definition_indices_347
+  if show.md_instrument_definition_indices_347 ~= cme_futures_streamline_sbe_v5_9.prefs.show_md_instrument_definition_indices_347 then
+    show.md_instrument_definition_indices_347 = cme_futures_streamline_sbe_v5_9.prefs.show_md_instrument_definition_indices_347
     changed = true
   end
-  if show.md_news_indices_339 ~= cme_futures_streamline_sbe_v9_5.prefs.show_md_news_indices_339 then
-    show.md_news_indices_339 = cme_futures_streamline_sbe_v9_5.prefs.show_md_news_indices_339
+  if show.md_news_indices_339 ~= cme_futures_streamline_sbe_v5_9.prefs.show_md_news_indices_339 then
+    show.md_news_indices_339 = cme_futures_streamline_sbe_v5_9.prefs.show_md_news_indices_339
     changed = true
   end
-  if show.message ~= cme_futures_streamline_sbe_v9_5.prefs.show_message then
-    show.message = cme_futures_streamline_sbe_v9_5.prefs.show_message
+  if show.message ~= cme_futures_streamline_sbe_v5_9.prefs.show_message then
+    show.message = cme_futures_streamline_sbe_v5_9.prefs.show_message
     changed = true
   end
-  if show.message_header ~= cme_futures_streamline_sbe_v9_5.prefs.show_message_header then
-    show.message_header = cme_futures_streamline_sbe_v9_5.prefs.show_message_header
+  if show.message_header ~= cme_futures_streamline_sbe_v5_9.prefs.show_message_header then
+    show.message_header = cme_futures_streamline_sbe_v5_9.prefs.show_message_header
     changed = true
   end
-  if show.min_price_increment ~= cme_futures_streamline_sbe_v9_5.prefs.show_min_price_increment then
-    show.min_price_increment = cme_futures_streamline_sbe_v9_5.prefs.show_min_price_increment
+  if show.min_price_increment ~= cme_futures_streamline_sbe_v5_9.prefs.show_min_price_increment then
+    show.min_price_increment = cme_futures_streamline_sbe_v5_9.prefs.show_min_price_increment
     changed = true
   end
-  if show.net_chg_prev_day ~= cme_futures_streamline_sbe_v9_5.prefs.show_net_chg_prev_day then
-    show.net_chg_prev_day = cme_futures_streamline_sbe_v9_5.prefs.show_net_chg_prev_day
+  if show.net_chg_prev_day ~= cme_futures_streamline_sbe_v5_9.prefs.show_net_chg_prev_day then
+    show.net_chg_prev_day = cme_futures_streamline_sbe_v5_9.prefs.show_net_chg_prev_day
     changed = true
   end
-  if show.net_pct_chg ~= cme_futures_streamline_sbe_v9_5.prefs.show_net_pct_chg then
-    show.net_pct_chg = cme_futures_streamline_sbe_v9_5.prefs.show_net_pct_chg
+  if show.net_pct_chg ~= cme_futures_streamline_sbe_v5_9.prefs.show_net_pct_chg then
+    show.net_pct_chg = cme_futures_streamline_sbe_v5_9.prefs.show_net_pct_chg
     changed = true
   end
-  if show.next_fixed_payment_amount ~= cme_futures_streamline_sbe_v9_5.prefs.show_next_fixed_payment_amount then
-    show.next_fixed_payment_amount = cme_futures_streamline_sbe_v9_5.prefs.show_next_fixed_payment_amount
+  if show.next_fixed_payment_amount ~= cme_futures_streamline_sbe_v5_9.prefs.show_next_fixed_payment_amount then
+    show.next_fixed_payment_amount = cme_futures_streamline_sbe_v5_9.prefs.show_next_fixed_payment_amount
     changed = true
   end
-  if show.next_floating_payment_amount ~= cme_futures_streamline_sbe_v9_5.prefs.show_next_floating_payment_amount then
-    show.next_floating_payment_amount = cme_futures_streamline_sbe_v9_5.prefs.show_next_floating_payment_amount
+  if show.next_floating_payment_amount ~= cme_futures_streamline_sbe_v5_9.prefs.show_next_floating_payment_amount then
+    show.next_floating_payment_amount = cme_futures_streamline_sbe_v5_9.prefs.show_next_floating_payment_amount
     changed = true
   end
-  if show.npv ~= cme_futures_streamline_sbe_v9_5.prefs.show_npv then
-    show.npv = cme_futures_streamline_sbe_v9_5.prefs.show_npv
+  if show.npv ~= cme_futures_streamline_sbe_v5_9.prefs.show_npv then
+    show.npv = cme_futures_streamline_sbe_v5_9.prefs.show_npv
     changed = true
   end
-  if show.p_v_01 ~= cme_futures_streamline_sbe_v9_5.prefs.show_p_v_01 then
-    show.p_v_01 = cme_futures_streamline_sbe_v9_5.prefs.show_p_v_01
+  if show.p_v_01 ~= cme_futures_streamline_sbe_v5_9.prefs.show_p_v_01 then
+    show.p_v_01 = cme_futures_streamline_sbe_v5_9.prefs.show_p_v_01
     changed = true
   end
-  if show.packet ~= cme_futures_streamline_sbe_v9_5.prefs.show_packet then
-    show.packet = cme_futures_streamline_sbe_v9_5.prefs.show_packet
+  if show.packet ~= cme_futures_streamline_sbe_v5_9.prefs.show_packet then
+    show.packet = cme_futures_streamline_sbe_v5_9.prefs.show_packet
     changed = true
   end
-  if show.percent_trading ~= cme_futures_streamline_sbe_v9_5.prefs.show_percent_trading then
-    show.percent_trading = cme_futures_streamline_sbe_v9_5.prefs.show_percent_trading
+  if show.percent_trading ~= cme_futures_streamline_sbe_v5_9.prefs.show_percent_trading then
+    show.percent_trading = cme_futures_streamline_sbe_v5_9.prefs.show_percent_trading
     changed = true
   end
-  if show.previous_eris_pai ~= cme_futures_streamline_sbe_v9_5.prefs.show_previous_eris_pai then
-    show.previous_eris_pai = cme_futures_streamline_sbe_v9_5.prefs.show_previous_eris_pai
+  if show.previous_eris_pai ~= cme_futures_streamline_sbe_v5_9.prefs.show_previous_eris_pai then
+    show.previous_eris_pai = cme_futures_streamline_sbe_v5_9.prefs.show_previous_eris_pai
     changed = true
   end
-  if show.previous_fixing_rate ~= cme_futures_streamline_sbe_v9_5.prefs.show_previous_fixing_rate then
-    show.previous_fixing_rate = cme_futures_streamline_sbe_v9_5.prefs.show_previous_fixing_rate
+  if show.previous_fixing_rate ~= cme_futures_streamline_sbe_v5_9.prefs.show_previous_fixing_rate then
+    show.previous_fixing_rate = cme_futures_streamline_sbe_v5_9.prefs.show_previous_fixing_rate
     changed = true
   end
-  if show.quote_request_345 ~= cme_futures_streamline_sbe_v9_5.prefs.show_quote_request_345 then
-    show.quote_request_345 = cme_futures_streamline_sbe_v9_5.prefs.show_quote_request_345
+  if show.quote_request_345 ~= cme_futures_streamline_sbe_v5_9.prefs.show_quote_request_345 then
+    show.quote_request_345 = cme_futures_streamline_sbe_v5_9.prefs.show_quote_request_345
     changed = true
   end
-  if show.related_sym_group ~= cme_futures_streamline_sbe_v9_5.prefs.show_related_sym_group then
-    show.related_sym_group = cme_futures_streamline_sbe_v9_5.prefs.show_related_sym_group
+  if show.related_sym_group ~= cme_futures_streamline_sbe_v5_9.prefs.show_related_sym_group then
+    show.related_sym_group = cme_futures_streamline_sbe_v5_9.prefs.show_related_sym_group
     changed = true
   end
-  if show.related_sym_groups ~= cme_futures_streamline_sbe_v9_5.prefs.show_related_sym_groups then
-    show.related_sym_groups = cme_futures_streamline_sbe_v9_5.prefs.show_related_sym_groups
+  if show.related_sym_groups ~= cme_futures_streamline_sbe_v5_9.prefs.show_related_sym_groups then
+    show.related_sym_groups = cme_futures_streamline_sbe_v5_9.prefs.show_related_sym_groups
     changed = true
   end
-  if show.security_alt_id_group ~= cme_futures_streamline_sbe_v9_5.prefs.show_security_alt_id_group then
-    show.security_alt_id_group = cme_futures_streamline_sbe_v9_5.prefs.show_security_alt_id_group
+  if show.security_alt_id_group ~= cme_futures_streamline_sbe_v5_9.prefs.show_security_alt_id_group then
+    show.security_alt_id_group = cme_futures_streamline_sbe_v5_9.prefs.show_security_alt_id_group
     changed = true
   end
-  if show.security_alt_id_groups ~= cme_futures_streamline_sbe_v9_5.prefs.show_security_alt_id_groups then
-    show.security_alt_id_groups = cme_futures_streamline_sbe_v9_5.prefs.show_security_alt_id_groups
+  if show.security_alt_id_groups ~= cme_futures_streamline_sbe_v5_9.prefs.show_security_alt_id_groups then
+    show.security_alt_id_groups = cme_futures_streamline_sbe_v5_9.prefs.show_security_alt_id_groups
     changed = true
   end
-  if show.settl_price_type ~= cme_futures_streamline_sbe_v9_5.prefs.show_settl_price_type then
-    show.settl_price_type = cme_futures_streamline_sbe_v9_5.prefs.show_settl_price_type
+  if show.settl_price_type ~= cme_futures_streamline_sbe_v5_9.prefs.show_settl_price_type then
+    show.settl_price_type = cme_futures_streamline_sbe_v5_9.prefs.show_settl_price_type
     changed = true
   end
-  if show.settlement_npv ~= cme_futures_streamline_sbe_v9_5.prefs.show_settlement_npv then
-    show.settlement_npv = cme_futures_streamline_sbe_v9_5.prefs.show_settlement_npv
+  if show.settlement_npv ~= cme_futures_streamline_sbe_v5_9.prefs.show_settlement_npv then
+    show.settlement_npv = cme_futures_streamline_sbe_v5_9.prefs.show_settlement_npv
     changed = true
   end
-  if show.strike_price ~= cme_futures_streamline_sbe_v9_5.prefs.show_strike_price then
-    show.strike_price = cme_futures_streamline_sbe_v9_5.prefs.show_strike_price
+  if show.strike_price ~= cme_futures_streamline_sbe_v5_9.prefs.show_strike_price then
+    show.strike_price = cme_futures_streamline_sbe_v5_9.prefs.show_strike_price
     changed = true
   end
-  if show.unit_of_measure_qty ~= cme_futures_streamline_sbe_v9_5.prefs.show_unit_of_measure_qty then
-    show.unit_of_measure_qty = cme_futures_streamline_sbe_v9_5.prefs.show_unit_of_measure_qty
+  if show.unit_of_measure_qty ~= cme_futures_streamline_sbe_v5_9.prefs.show_unit_of_measure_qty then
+    show.unit_of_measure_qty = cme_futures_streamline_sbe_v5_9.prefs.show_unit_of_measure_qty
     changed = true
   end
-  if show.yield ~= cme_futures_streamline_sbe_v9_5.prefs.show_yield then
-    show.yield = cme_futures_streamline_sbe_v9_5.prefs.show_yield
+  if show.yield ~= cme_futures_streamline_sbe_v5_9.prefs.show_yield then
+    show.yield = cme_futures_streamline_sbe_v5_9.prefs.show_yield
     changed = true
   end
-  if show.payload ~= cme_futures_streamline_sbe_v9_5.prefs.show_payload then
-    show.payload = cme_futures_streamline_sbe_v9_5.prefs.show_payload
+  if show.payload ~= cme_futures_streamline_sbe_v5_9.prefs.show_payload then
+    show.payload = cme_futures_streamline_sbe_v5_9.prefs.show_payload
     changed = true
   end
 
@@ -717,7 +717,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Cme Futures Streamline Sbe 9.5
+-- Dissect Cme Futures Streamline Sbe 5.9
 -----------------------------------------------------------------------
 
 -- Size: Reference Id
@@ -735,7 +735,7 @@ dissect.reference_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.reference_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.reference_id, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.reference_id, range, value, display)
 
   return offset + length, value
 end
@@ -760,7 +760,7 @@ dissect.vol_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.vol_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.vol_type, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.vol_type, range, value, display)
 
   return offset + length, value
 end
@@ -780,7 +780,7 @@ dissect.security_sub_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_sub_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.security_sub_type, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.security_sub_type, range, value, display)
 
   return offset + length, value
 end
@@ -800,7 +800,7 @@ dissect.product_complex = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.product_complex(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.product_complex, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.product_complex, range, value, display)
 
   return offset + length, value
 end
@@ -820,7 +820,7 @@ dissect.sector_sub_group = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.sector_sub_group(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.sector_sub_group, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.sector_sub_group, range, value, display)
 
   return offset + length, value
 end
@@ -840,7 +840,7 @@ dissect.sector_group = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.sector_group(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.sector_group, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.sector_group, range, value, display)
 
   return offset + length, value
 end
@@ -860,7 +860,7 @@ dissect.market_sector = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.market_sector(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.market_sector, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.market_sector, range, value, display)
 
   return offset + length, value
 end
@@ -880,7 +880,7 @@ dissect.quote_condition = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.quote_condition(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.quote_condition, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.quote_condition, range, value, display)
 
   return offset + length, value
 end
@@ -905,7 +905,7 @@ dissect.settl_date = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.settl_date(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.settl_date, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.settl_date, range, value, display)
 
   return offset + length, value
 end
@@ -930,7 +930,7 @@ dissect.price_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.price_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.price_type, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.price_type, range, value, display)
 
   return offset + length, value
 end
@@ -955,7 +955,7 @@ dissect.open_close_settl_flag = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.open_close_settl_flag(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.open_close_settl_flag, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.open_close_settl_flag, range, value, display)
 
   return offset + length, value
 end
@@ -980,7 +980,7 @@ dissect.md_entry_date = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.md_entry_date(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.md_entry_date, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.md_entry_date, range, value, display)
 
   return offset + length, value
 end
@@ -1005,7 +1005,7 @@ dissect.exponent = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.exponent(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.exponent, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.exponent, range, value, display)
 
   return offset + length, value
 end
@@ -1030,7 +1030,7 @@ dissect.mantissa64 = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.mantissa64(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.mantissa64, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.mantissa64, range, value, display)
 
   return offset + length, value
 end
@@ -1072,7 +1072,7 @@ dissect.unit_of_measure_qty = function(buffer, offset, packet, parent)
     local range = buffer(offset, length)
     local value = range:le_int64()
     local display = display.unit_of_measure_qty(buffer, offset, value, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.unit_of_measure_qty, range, value, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.unit_of_measure_qty, range, value, display)
   end
 
   return dissect.unit_of_measure_qty_fields(buffer, offset, packet, parent)
@@ -1093,7 +1093,7 @@ dissect.unit_of_measure_currency = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.unit_of_measure_currency(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.unit_of_measure_currency, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.unit_of_measure_currency, range, value, display)
 
   return offset + length, value
 end
@@ -1113,7 +1113,7 @@ dissect.unit_of_measure = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.unit_of_measure(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.unit_of_measure, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.unit_of_measure, range, value, display)
 
   return offset + length, value
 end
@@ -1155,7 +1155,7 @@ dissect.strike_price = function(buffer, offset, packet, parent)
     local range = buffer(offset, length)
     local value = range:le_int64()
     local display = display.strike_price(buffer, offset, value, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.strike_price, range, value, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.strike_price, range, value, display)
   end
 
   return dissect.strike_price_fields(buffer, offset, packet, parent)
@@ -1181,7 +1181,7 @@ dissect.put_or_call = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.put_or_call(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.put_or_call, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.put_or_call, range, value, display)
 
   return offset + length, value
 end
@@ -1201,7 +1201,7 @@ dissect.notional_percentage_outstanding = function(buffer, offset, packet, paren
   local value = range:le_int()
   local display = display.notional_percentage_outstanding(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.notional_percentage_outstanding, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.notional_percentage_outstanding, range, value, display)
 
   return offset + length, value
 end
@@ -1221,7 +1221,7 @@ dissect.seniority = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.seniority(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.seniority, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.seniority, range, value, display)
 
   return offset + length, value
 end
@@ -1241,7 +1241,7 @@ dissect.restructuring_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.restructuring_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.restructuring_type, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.restructuring_type, range, value, display)
 
   return offset + length, value
 end
@@ -1266,7 +1266,7 @@ dissect.mantissa32 = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.mantissa32(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.mantissa32, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.mantissa32, range, value, display)
 
   return offset + length, value
 end
@@ -1308,7 +1308,7 @@ dissect.coupon_rate = function(buffer, offset, packet, parent)
     local range = buffer(offset, length)
     local value = range:le_int()
     local display = display.coupon_rate(buffer, offset, value, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.coupon_rate, range, value, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.coupon_rate, range, value, display)
   end
 
   return dissect.coupon_rate_fields(buffer, offset, packet, parent)
@@ -1334,7 +1334,7 @@ dissect.maturity_date = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.maturity_date(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.maturity_date, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.maturity_date, range, value, display)
 
   return offset + length, value
 end
@@ -1359,7 +1359,7 @@ dissect.product = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.product(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.product, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.product, range, value, display)
 
   return offset + length, value
 end
@@ -1379,7 +1379,7 @@ dissect.security_exchange = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_exchange(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.security_exchange, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.security_exchange, range, value, display)
 
   return offset + length, value
 end
@@ -1404,7 +1404,7 @@ dissect.week = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.week(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.week, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.week, range, value, display)
 
   return offset + length, value
 end
@@ -1429,7 +1429,7 @@ dissect.day = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.day(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.day, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.day, range, value, display)
 
   return offset + length, value
 end
@@ -1454,7 +1454,7 @@ dissect.month = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.month(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.month, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.month, range, value, display)
 
   return offset + length, value
 end
@@ -1479,7 +1479,7 @@ dissect.year = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.year(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.year, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.year, range, value, display)
 
   return offset + length, value
 end
@@ -1530,7 +1530,7 @@ dissect.maturity_month_year = function(buffer, offset, packet, parent)
     local length = size_of.maturity_month_year(buffer, offset)
     local range = buffer(offset, length)
     local display = display.maturity_month_year(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.maturity_month_year, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.maturity_month_year, range, display)
   end
 
   return dissect.maturity_month_year_fields(buffer, offset, packet, parent)
@@ -1551,7 +1551,7 @@ dissect.security_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.security_type, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.security_type, range, value, display)
 
   return offset + length, value
 end
@@ -1571,7 +1571,7 @@ dissect.security_group = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_group(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.security_group, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.security_group, range, value, display)
 
   return offset + length, value
 end
@@ -1591,7 +1591,7 @@ dissect.symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.symbol, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1633,7 +1633,7 @@ dissect.md_entry_size = function(buffer, offset, packet, parent)
     local range = buffer(offset, length)
     local value = range:le_uint64()
     local display = display.md_entry_size(buffer, offset, value, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.md_entry_size, range, value, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.md_entry_size, range, value, display)
   end
 
   return dissect.md_entry_size_fields(buffer, offset, packet, parent)
@@ -1676,7 +1676,7 @@ dissect.md_entry_px = function(buffer, offset, packet, parent)
     local range = buffer(offset, length)
     local value = range:le_int64()
     local display = display.md_entry_px(buffer, offset, value, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.md_entry_px, range, value, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.md_entry_px, range, value, display)
   end
 
   return dissect.md_entry_px_fields(buffer, offset, packet, parent)
@@ -1697,7 +1697,7 @@ dissect.rpt_seq = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.rpt_seq(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.rpt_seq, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.rpt_seq, range, value, display)
 
   return offset + length, value
 end
@@ -1717,7 +1717,7 @@ dissect.md_entry_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.md_entry_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.md_entry_type, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.md_entry_type, range, value, display)
 
   return offset + length, value
 end
@@ -1908,7 +1908,7 @@ dissect.m_d_incremental_refresh_otc_group = function(buffer, offset, packet, par
     local length = size_of.m_d_incremental_refresh_otc_group(buffer, offset)
     local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_otc_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.m_d_incremental_refresh_otc_group, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.m_d_incremental_refresh_otc_group, range, display)
   end
 
   return dissect.m_d_incremental_refresh_otc_group_fields(buffer, offset, packet, parent)
@@ -1929,7 +1929,7 @@ dissect.num_in_group = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.num_in_group(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.num_in_group, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.num_in_group, range, value, display)
 
   return offset + length, value
 end
@@ -1949,7 +1949,7 @@ dissect.block_length = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.block_length(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.block_length, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.block_length, range, value, display)
 
   return offset + length, value
 end
@@ -1990,7 +1990,7 @@ dissect.group_size = function(buffer, offset, packet, parent)
     local length = size_of.group_size(buffer, offset)
     local range = buffer(offset, length)
     local display = display.group_size(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.group_size, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.group_size, range, display)
   end
 
   return dissect.group_size_fields(buffer, offset, packet, parent)
@@ -2039,7 +2039,7 @@ dissect.m_d_incremental_refresh_otc_groups = function(buffer, offset, packet, pa
     local length = size_of.m_d_incremental_refresh_otc_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_otc_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.m_d_incremental_refresh_otc_groups, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.m_d_incremental_refresh_otc_groups, range, display)
   end
 
   return dissect.m_d_incremental_refresh_otc_groups_fields(buffer, offset, packet, parent)
@@ -2065,7 +2065,7 @@ dissect.batch_total_messages = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.batch_total_messages(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.batch_total_messages, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.batch_total_messages, range, value, display)
 
   return offset + length, value
 end
@@ -2117,28 +2117,28 @@ end
 dissect.match_event_indicator_bits = function(buffer, offset, packet, parent)
 
   -- End Of Event: 1 Bit
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.end_of_event, buffer(offset, 1))
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.end_of_event, buffer(offset, 1))
 
   -- Reserved: 1 Bit
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.reserved, buffer(offset, 1))
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.reserved, buffer(offset, 1))
 
   -- Recovery Msg: 1 Bit
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.recovery_msg, buffer(offset, 1))
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.recovery_msg, buffer(offset, 1))
 
   -- Last Implied Msg: 1 Bit
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.last_implied_msg, buffer(offset, 1))
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.last_implied_msg, buffer(offset, 1))
 
   -- Last Stats Msg: 1 Bit
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.last_stats_msg, buffer(offset, 1))
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.last_stats_msg, buffer(offset, 1))
 
   -- Last Quote Msg: 1 Bit
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.last_quote_msg, buffer(offset, 1))
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.last_quote_msg, buffer(offset, 1))
 
   -- Last Volume Msg: 1 Bit
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.last_volume_msg, buffer(offset, 1))
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.last_volume_msg, buffer(offset, 1))
 
   -- Last Trade Msg: 1 Bit
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.last_trade_msg, buffer(offset, 1))
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.last_trade_msg, buffer(offset, 1))
 end
 
 -- Dissect: Match Event Indicator
@@ -2146,7 +2146,7 @@ dissect.match_event_indicator = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
   local display = display.match_event_indicator(range, packet, parent)
-  local element = parent:add(cme_futures_streamline_sbe_v9_5.fields.match_event_indicator, range, display)
+  local element = parent:add(cme_futures_streamline_sbe_v5_9.fields.match_event_indicator, range, display)
 
   if show.match_event_indicator then
     dissect.match_event_indicator_bits(buffer, offset, packet, element)
@@ -2175,7 +2175,7 @@ dissect.trade_date = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.trade_date(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.trade_date, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.trade_date, range, value, display)
 
   return offset + length, value
 end
@@ -2200,7 +2200,7 @@ dissect.transact_time = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.transact_time(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.transact_time, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.transact_time, range, value, display)
 
   return offset + length, value
 end
@@ -2256,7 +2256,7 @@ dissect.md_incremental_refresh_ot_c_366 = function(buffer, offset, packet, paren
     local length = size_of.md_incremental_refresh_ot_c_366(buffer, offset)
     local range = buffer(offset, length)
     local display = display.md_incremental_refresh_ot_c_366(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.md_incremental_refresh_ot_c_366, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.md_incremental_refresh_ot_c_366, range, display)
   end
 
   return dissect.md_incremental_refresh_ot_c_366_fields(buffer, offset, packet, parent)
@@ -2277,7 +2277,7 @@ dissect.leg_ref_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.leg_ref_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.leg_ref_id, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.leg_ref_id, range, value, display)
 
   return offset + length, value
 end
@@ -2297,7 +2297,7 @@ dissect.strategy_link_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.strategy_link_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.strategy_link_id, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.strategy_link_id, range, value, display)
 
   return offset + length, value
 end
@@ -2317,7 +2317,7 @@ dissect.md_entry_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.md_entry_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.md_entry_id, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.md_entry_id, range, value, display)
 
   return offset + length, value
 end
@@ -2342,7 +2342,7 @@ dissect.trd_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.trd_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.trd_type, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.trd_type, range, value, display)
 
   return offset + length, value
 end
@@ -2375,7 +2375,7 @@ dissect.aggressor_side = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.aggressor_side(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.aggressor_side, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.aggressor_side, range, value, display)
 
   return offset + length, value
 end
@@ -2395,7 +2395,7 @@ dissect.trade_id = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.trade_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.trade_id, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.trade_id, range, value, display)
 
   return offset + length, value
 end
@@ -2420,7 +2420,7 @@ dissect.number_of_orders = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.number_of_orders(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.number_of_orders, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.number_of_orders, range, value, display)
 
   return offset + length, value
 end
@@ -2445,7 +2445,7 @@ dissect.security_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.security_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.security_id, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.security_id, range, value, display)
 
   return offset + length, value
 end
@@ -2484,7 +2484,7 @@ dissect.md_update_action = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.md_update_action(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.md_update_action, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.md_update_action, range, value, display)
 
   return offset + length, value
 end
@@ -2660,7 +2660,7 @@ dissect.m_d_incremental_refresh_trade_blocks_group = function(buffer, offset, pa
     local length = size_of.m_d_incremental_refresh_trade_blocks_group(buffer, offset)
     local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_trade_blocks_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.m_d_incremental_refresh_trade_blocks_group, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.m_d_incremental_refresh_trade_blocks_group, range, display)
   end
 
   return dissect.m_d_incremental_refresh_trade_blocks_group_fields(buffer, offset, packet, parent)
@@ -2709,7 +2709,7 @@ dissect.m_d_incremental_refresh_trade_blocks_groups = function(buffer, offset, p
     local length = size_of.m_d_incremental_refresh_trade_blocks_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_trade_blocks_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.m_d_incremental_refresh_trade_blocks_groups, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.m_d_incremental_refresh_trade_blocks_groups, range, display)
   end
 
   return dissect.m_d_incremental_refresh_trade_blocks_groups_fields(buffer, offset, packet, parent)
@@ -2766,7 +2766,7 @@ dissect.md_incremental_refresh_trade_blocks_365 = function(buffer, offset, packe
     local length = size_of.md_incremental_refresh_trade_blocks_365(buffer, offset)
     local range = buffer(offset, length)
     local display = display.md_incremental_refresh_trade_blocks_365(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.md_incremental_refresh_trade_blocks_365, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.md_incremental_refresh_trade_blocks_365, range, display)
   end
 
   return dissect.md_incremental_refresh_trade_blocks_365_fields(buffer, offset, packet, parent)
@@ -2808,7 +2808,7 @@ dissect.interpolation_factor = function(buffer, offset, packet, parent)
     local length = size_of.interpolation_factor(buffer, offset)
     local range = buffer(offset, length)
     local display = display.interpolation_factor(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.interpolation_factor, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.interpolation_factor, range, display)
   end
 
   return dissect.interpolation_factor_fields(buffer, offset, packet, parent)
@@ -2834,7 +2834,7 @@ dissect.leg_date_offset = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.leg_date_offset(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.leg_date_offset, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.leg_date_offset, range, value, display)
 
   return offset + length, value
 end
@@ -2854,7 +2854,7 @@ dissect.leg_security_group = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.leg_security_group(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.leg_security_group, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.leg_security_group, range, value, display)
 
   return offset + length, value
 end
@@ -2874,7 +2874,7 @@ dissect.leg_security_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.leg_security_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.leg_security_type, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.leg_security_type, range, value, display)
 
   return offset + length, value
 end
@@ -2894,7 +2894,7 @@ dissect.leg_currency = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.leg_currency(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.leg_currency, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.leg_currency, range, value, display)
 
   return offset + length, value
 end
@@ -2919,7 +2919,7 @@ dissect.leg_side = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.leg_side(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.leg_side, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.leg_side, range, value, display)
 
   return offset + length, value
 end
@@ -2944,7 +2944,7 @@ dissect.leg_ratio_qty = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.leg_ratio_qty(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.leg_ratio_qty, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.leg_ratio_qty, range, value, display)
 
   return offset + length, value
 end
@@ -2964,7 +2964,7 @@ dissect.leg_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.leg_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.leg_symbol, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.leg_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -3005,7 +3005,7 @@ dissect.previous_fixing_rate = function(buffer, offset, packet, parent)
     local length = size_of.previous_fixing_rate(buffer, offset)
     local range = buffer(offset, length)
     local display = display.previous_fixing_rate(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.previous_fixing_rate, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.previous_fixing_rate, range, display)
   end
 
   return dissect.previous_fixing_rate_fields(buffer, offset, packet, parent)
@@ -3026,7 +3026,7 @@ dissect.leg_pay_frequencey = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.leg_pay_frequencey(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.leg_pay_frequencey, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.leg_pay_frequencey, range, value, display)
 
   return offset + length, value
 end
@@ -3051,7 +3051,7 @@ dissect.previous_fixing_date = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.previous_fixing_date(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.previous_fixing_date, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.previous_fixing_date, range, value, display)
 
   return offset + length, value
 end
@@ -3071,7 +3071,7 @@ dissect.rate_descriptor = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.rate_descriptor(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.rate_descriptor, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.rate_descriptor, range, value, display)
 
   return offset + length, value
 end
@@ -3091,7 +3091,7 @@ dissect.leg_benchmark_curve_name = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.leg_benchmark_curve_name(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.leg_benchmark_curve_name, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.leg_benchmark_curve_name, range, value, display)
 
   return offset + length, value
 end
@@ -3187,7 +3187,7 @@ dissect.m_d_instrument_definition_eris_leg_group = function(buffer, offset, pack
     local length = size_of.m_d_instrument_definition_eris_leg_group(buffer, offset)
     local range = buffer(offset, length)
     local display = display.m_d_instrument_definition_eris_leg_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.m_d_instrument_definition_eris_leg_group, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.m_d_instrument_definition_eris_leg_group, range, display)
   end
 
   return dissect.m_d_instrument_definition_eris_leg_group_fields(buffer, offset, packet, parent)
@@ -3236,7 +3236,7 @@ dissect.m_d_instrument_definition_eris_leg_groups = function(buffer, offset, pac
     local length = size_of.m_d_instrument_definition_eris_leg_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.m_d_instrument_definition_eris_leg_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.m_d_instrument_definition_eris_leg_groups, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.m_d_instrument_definition_eris_leg_groups, range, display)
   end
 
   return dissect.m_d_instrument_definition_eris_leg_groups_fields(buffer, offset, packet, parent)
@@ -3257,7 +3257,7 @@ dissect.security_alt_id_source = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_alt_id_source(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.security_alt_id_source, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.security_alt_id_source, range, value, display)
 
   return offset + length, value
 end
@@ -3277,7 +3277,7 @@ dissect.security_alt_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_alt_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.security_alt_id, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.security_alt_id, range, value, display)
 
   return offset + length, value
 end
@@ -3318,7 +3318,7 @@ dissect.security_alt_id_group = function(buffer, offset, packet, parent)
     local length = size_of.security_alt_id_group(buffer, offset)
     local range = buffer(offset, length)
     local display = display.security_alt_id_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.security_alt_id_group, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.security_alt_id_group, range, display)
   end
 
   return dissect.security_alt_id_group_fields(buffer, offset, packet, parent)
@@ -3367,7 +3367,7 @@ dissect.security_alt_id_groups = function(buffer, offset, packet, parent)
     local length = size_of.security_alt_id_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.security_alt_id_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.security_alt_id_groups, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.security_alt_id_groups, range, display)
   end
 
   return dissect.security_alt_id_groups_fields(buffer, offset, packet, parent)
@@ -3393,7 +3393,7 @@ dissect.event_time = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.event_time(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.event_time, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.event_time, range, value, display)
 
   return offset + length, value
 end
@@ -3418,7 +3418,7 @@ dissect.event_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.event_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.event_type, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.event_type, range, value, display)
 
   return offset + length, value
 end
@@ -3459,7 +3459,7 @@ dissect.events_group = function(buffer, offset, packet, parent)
     local length = size_of.events_group(buffer, offset)
     local range = buffer(offset, length)
     local display = display.events_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.events_group, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.events_group, range, display)
   end
 
   return dissect.events_group_fields(buffer, offset, packet, parent)
@@ -3501,7 +3501,7 @@ dissect.group_size_encoding = function(buffer, offset, packet, parent)
     local length = size_of.group_size_encoding(buffer, offset)
     local range = buffer(offset, length)
     local display = display.group_size_encoding(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.group_size_encoding, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.group_size_encoding, range, display)
   end
 
   return dissect.group_size_encoding_fields(buffer, offset, packet, parent)
@@ -3550,7 +3550,7 @@ dissect.events_groups = function(buffer, offset, packet, parent)
     local length = size_of.events_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.events_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.events_groups, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.events_groups, range, display)
   end
 
   return dissect.events_groups_fields(buffer, offset, packet, parent)
@@ -3576,7 +3576,7 @@ dissect.market_depth = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.market_depth(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.market_depth, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.market_depth, range, value, display)
 
   return offset + length, value
 end
@@ -3596,7 +3596,7 @@ dissect.md_feed_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.md_feed_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.md_feed_type, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.md_feed_type, range, value, display)
 
   return offset + length, value
 end
@@ -3637,7 +3637,7 @@ dissect.m_d_feed_types_group = function(buffer, offset, packet, parent)
     local length = size_of.m_d_feed_types_group(buffer, offset)
     local range = buffer(offset, length)
     local display = display.m_d_feed_types_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.m_d_feed_types_group, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.m_d_feed_types_group, range, display)
   end
 
   return dissect.m_d_feed_types_group_fields(buffer, offset, packet, parent)
@@ -3686,7 +3686,7 @@ dissect.m_d_feed_types_groups = function(buffer, offset, packet, parent)
     local length = size_of.m_d_feed_types_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.m_d_feed_types_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.m_d_feed_types_groups, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.m_d_feed_types_groups, range, display)
   end
 
   return dissect.m_d_feed_types_groups_fields(buffer, offset, packet, parent)
@@ -3712,7 +3712,7 @@ dissect.appl_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.appl_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.appl_id, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.appl_id, range, value, display)
 
   return offset + length, value
 end
@@ -3732,7 +3732,7 @@ dissect.user_defined_instrument = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.user_defined_instrument(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.user_defined_instrument, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.user_defined_instrument, range, value, display)
 
   return offset + length, value
 end
@@ -3752,7 +3752,7 @@ dissect.rate_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.rate_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.rate_type, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.rate_type, range, value, display)
 
   return offset + length, value
 end
@@ -3782,7 +3782,7 @@ dissect.security_update_action = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_update_action(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.security_update_action, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.security_update_action, range, value, display)
 
   return offset + length, value
 end
@@ -3823,7 +3823,7 @@ dissect.min_price_increment = function(buffer, offset, packet, parent)
     local length = size_of.min_price_increment(buffer, offset)
     local range = buffer(offset, length)
     local display = display.min_price_increment(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.min_price_increment, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.min_price_increment, range, display)
   end
 
   return dissect.min_price_increment_fields(buffer, offset, packet, parent)
@@ -3844,7 +3844,7 @@ dissect.currency = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.currency(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.currency, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.currency, range, value, display)
 
   return offset + length, value
 end
@@ -3960,7 +3960,7 @@ dissect.md_instrument_definition_eris_363 = function(buffer, offset, packet, par
     local length = size_of.md_instrument_definition_eris_363(buffer, offset)
     local range = buffer(offset, length)
     local display = display.md_instrument_definition_eris_363(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.md_instrument_definition_eris_363, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.md_instrument_definition_eris_363, range, display)
   end
 
   return dissect.md_instrument_definition_eris_363_fields(buffer, offset, packet, parent)
@@ -4017,7 +4017,7 @@ dissect.md_incremental_refresh_ot_c_356 = function(buffer, offset, packet, paren
     local length = size_of.md_incremental_refresh_ot_c_356(buffer, offset)
     local range = buffer(offset, length)
     local display = display.md_incremental_refresh_ot_c_356(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.md_incremental_refresh_ot_c_356, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.md_incremental_refresh_ot_c_356, range, display)
   end
 
   return dissect.md_incremental_refresh_ot_c_356_fields(buffer, offset, packet, parent)
@@ -4043,7 +4043,7 @@ dissect.md_entry_position_no = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.md_entry_position_no(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.md_entry_position_no, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.md_entry_position_no, range, value, display)
 
   return offset + length, value
 end
@@ -4084,7 +4084,7 @@ dissect.cal_fut_px = function(buffer, offset, packet, parent)
     local length = size_of.cal_fut_px(buffer, offset)
     local range = buffer(offset, length)
     local display = display.cal_fut_px(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.cal_fut_px, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.cal_fut_px, range, display)
   end
 
   return dissect.cal_fut_px_fields(buffer, offset, packet, parent)
@@ -4201,7 +4201,7 @@ dissect.m_d_incremental_refresh_eris_group = function(buffer, offset, packet, pa
     local length = size_of.m_d_incremental_refresh_eris_group(buffer, offset)
     local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_eris_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.m_d_incremental_refresh_eris_group, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.m_d_incremental_refresh_eris_group, range, display)
   end
 
   return dissect.m_d_incremental_refresh_eris_group_fields(buffer, offset, packet, parent)
@@ -4250,7 +4250,7 @@ dissect.m_d_incremental_refresh_eris_groups = function(buffer, offset, packet, p
     local length = size_of.m_d_incremental_refresh_eris_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_eris_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.m_d_incremental_refresh_eris_groups, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.m_d_incremental_refresh_eris_groups, range, display)
   end
 
   return dissect.m_d_incremental_refresh_eris_groups_fields(buffer, offset, packet, parent)
@@ -4302,7 +4302,7 @@ dissect.md_incremental_refresh_eris_353 = function(buffer, offset, packet, paren
     local length = size_of.md_incremental_refresh_eris_353(buffer, offset)
     local range = buffer(offset, length)
     local display = display.md_incremental_refresh_eris_353(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.md_incremental_refresh_eris_353, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.md_incremental_refresh_eris_353, range, display)
   end
 
   return dissect.md_incremental_refresh_eris_353_fields(buffer, offset, packet, parent)
@@ -4354,7 +4354,7 @@ dissect.md_incremental_refresh_eris_351 = function(buffer, offset, packet, paren
     local length = size_of.md_incremental_refresh_eris_351(buffer, offset)
     local range = buffer(offset, length)
     local display = display.md_incremental_refresh_eris_351(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.md_incremental_refresh_eris_351, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.md_incremental_refresh_eris_351, range, display)
   end
 
   return dissect.md_incremental_refresh_eris_351_fields(buffer, offset, packet, parent)
@@ -4411,7 +4411,7 @@ dissect.md_incremental_refresh_trade_blocks_349 = function(buffer, offset, packe
     local length = size_of.md_incremental_refresh_trade_blocks_349(buffer, offset)
     local range = buffer(offset, length)
     local display = display.md_incremental_refresh_trade_blocks_349(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.md_incremental_refresh_trade_blocks_349, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.md_incremental_refresh_trade_blocks_349, range, display)
   end
 
   return dissect.md_incremental_refresh_trade_blocks_349_fields(buffer, offset, packet, parent)
@@ -4437,7 +4437,7 @@ dissect.md_entry_time = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.md_entry_time(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.md_entry_time, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.md_entry_time, range, value, display)
 
   return offset + length, value
 end
@@ -4476,7 +4476,7 @@ dissect.md_entry_code = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.md_entry_code(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.md_entry_code, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.md_entry_code, range, value, display)
 
   return offset + length, value
 end
@@ -4517,7 +4517,7 @@ dissect.percent_trading = function(buffer, offset, packet, parent)
     local length = size_of.percent_trading(buffer, offset)
     local range = buffer(offset, length)
     local display = display.percent_trading(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.percent_trading, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.percent_trading, range, display)
   end
 
   return dissect.percent_trading_fields(buffer, offset, packet, parent)
@@ -4559,7 +4559,7 @@ dissect.net_pct_chg = function(buffer, offset, packet, parent)
     local length = size_of.net_pct_chg(buffer, offset)
     local range = buffer(offset, length)
     local display = display.net_pct_chg(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.net_pct_chg, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.net_pct_chg, range, display)
   end
 
   return dissect.net_pct_chg_fields(buffer, offset, packet, parent)
@@ -4601,7 +4601,7 @@ dissect.net_chg_prev_day = function(buffer, offset, packet, parent)
     local length = size_of.net_chg_prev_day(buffer, offset)
     local range = buffer(offset, length)
     local display = display.net_chg_prev_day(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.net_chg_prev_day, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.net_chg_prev_day, range, display)
   end
 
   return dissect.net_chg_prev_day_fields(buffer, offset, packet, parent)
@@ -4643,7 +4643,7 @@ dissect.yield = function(buffer, offset, packet, parent)
     local length = size_of.yield(buffer, offset)
     local range = buffer(offset, length)
     local display = display.yield(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.yield, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.yield, range, display)
   end
 
   return dissect.yield_fields(buffer, offset, packet, parent)
@@ -4664,7 +4664,7 @@ dissect.yield_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.yield_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.yield_type, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.yield_type, range, value, display)
 
   return offset + length, value
 end
@@ -4770,7 +4770,7 @@ dissect.m_d_incremental_refresh_indices_group = function(buffer, offset, packet,
     local length = size_of.m_d_incremental_refresh_indices_group(buffer, offset)
     local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_indices_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.m_d_incremental_refresh_indices_group, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.m_d_incremental_refresh_indices_group, range, display)
   end
 
   return dissect.m_d_incremental_refresh_indices_group_fields(buffer, offset, packet, parent)
@@ -4819,7 +4819,7 @@ dissect.m_d_incremental_refresh_indices_groups = function(buffer, offset, packet
     local length = size_of.m_d_incremental_refresh_indices_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_indices_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.m_d_incremental_refresh_indices_groups, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.m_d_incremental_refresh_indices_groups, range, display)
   end
 
   return dissect.m_d_incremental_refresh_indices_groups_fields(buffer, offset, packet, parent)
@@ -4876,7 +4876,7 @@ dissect.md_incremental_refresh_indices_348 = function(buffer, offset, packet, pa
     local length = size_of.md_incremental_refresh_indices_348(buffer, offset)
     local range = buffer(offset, length)
     local display = display.md_incremental_refresh_indices_348(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.md_incremental_refresh_indices_348, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.md_incremental_refresh_indices_348, range, display)
   end
 
   return dissect.md_incremental_refresh_indices_348_fields(buffer, offset, packet, parent)
@@ -4897,7 +4897,7 @@ dissect.inst_attrib_value = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.inst_attrib_value(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.inst_attrib_value, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.inst_attrib_value, range, value, display)
 
   return offset + length, value
 end
@@ -4917,7 +4917,7 @@ dissect.inst_attrib_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.inst_attrib_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.inst_attrib_type, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.inst_attrib_type, range, value, display)
 
   return offset + length, value
 end
@@ -4958,7 +4958,7 @@ dissect.inst_attrib_group = function(buffer, offset, packet, parent)
     local length = size_of.inst_attrib_group(buffer, offset)
     local range = buffer(offset, length)
     local display = display.inst_attrib_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.inst_attrib_group, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.inst_attrib_group, range, display)
   end
 
   return dissect.inst_attrib_group_fields(buffer, offset, packet, parent)
@@ -5007,7 +5007,7 @@ dissect.inst_attrib_groups = function(buffer, offset, packet, parent)
     local length = size_of.inst_attrib_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.inst_attrib_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.inst_attrib_groups, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.inst_attrib_groups, range, display)
   end
 
   return dissect.inst_attrib_groups_fields(buffer, offset, packet, parent)
@@ -5084,7 +5084,7 @@ dissect.md_instrument_definition_indices_347 = function(buffer, offset, packet, 
     local length = size_of.md_instrument_definition_indices_347(buffer, offset)
     local range = buffer(offset, length)
     local display = display.md_instrument_definition_indices_347(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.md_instrument_definition_indices_347, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.md_instrument_definition_indices_347, range, display)
   end
 
   return dissect.md_instrument_definition_indices_347_fields(buffer, offset, packet, parent)
@@ -5121,7 +5121,7 @@ dissect.related_sym_group = function(buffer, offset, packet, parent)
     local length = size_of.related_sym_group(buffer, offset)
     local range = buffer(offset, length)
     local display = display.related_sym_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.related_sym_group, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.related_sym_group, range, display)
   end
 
   return dissect.related_sym_group_fields(buffer, offset, packet, parent)
@@ -5170,7 +5170,7 @@ dissect.related_sym_groups = function(buffer, offset, packet, parent)
     local length = size_of.related_sym_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.related_sym_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.related_sym_groups, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.related_sym_groups, range, display)
   end
 
   return dissect.related_sym_groups_fields(buffer, offset, packet, parent)
@@ -5191,7 +5191,7 @@ dissect.quote_req_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.quote_req_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.quote_req_id, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.quote_req_id, range, value, display)
 
   return offset + length, value
 end
@@ -5242,7 +5242,7 @@ dissect.quote_request_345 = function(buffer, offset, packet, parent)
     local length = size_of.quote_request_345(buffer, offset)
     local range = buffer(offset, length)
     local display = display.quote_request_345(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.quote_request_345, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.quote_request_345, range, display)
   end
 
   return dissect.quote_request_345_fields(buffer, offset, packet, parent)
@@ -5294,7 +5294,7 @@ dissect.md_incremental_refresh_trade_blocks_340 = function(buffer, offset, packe
     local length = size_of.md_incremental_refresh_trade_blocks_340(buffer, offset)
     local range = buffer(offset, length)
     local display = display.md_incremental_refresh_trade_blocks_340(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.md_incremental_refresh_trade_blocks_340, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.md_incremental_refresh_trade_blocks_340, range, display)
   end
 
   return dissect.md_incremental_refresh_trade_blocks_340_fields(buffer, offset, packet, parent)
@@ -5315,7 +5315,7 @@ dissect.text = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.text(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.text, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -5351,7 +5351,7 @@ dissect.lines_of_text_group = function(buffer, offset, packet, parent)
     local length = size_of.lines_of_text_group(buffer, offset)
     local range = buffer(offset, length)
     local display = display.lines_of_text_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.lines_of_text_group, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.lines_of_text_group, range, display)
   end
 
   return dissect.lines_of_text_group_fields(buffer, offset, packet, parent)
@@ -5400,7 +5400,7 @@ dissect.lines_of_text_groups = function(buffer, offset, packet, parent)
     local length = size_of.lines_of_text_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.lines_of_text_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.lines_of_text_groups, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.lines_of_text_groups, range, display)
   end
 
   return dissect.lines_of_text_groups_fields(buffer, offset, packet, parent)
@@ -5426,7 +5426,7 @@ dissect.orig_time = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.orig_time(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.orig_time, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.orig_time, range, value, display)
 
   return offset + length, value
 end
@@ -5446,7 +5446,7 @@ dissect.headline = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.headline(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.headline, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.headline, range, value, display)
 
   return offset + length, value
 end
@@ -5502,7 +5502,7 @@ dissect.md_news_indices_339 = function(buffer, offset, packet, parent)
     local length = size_of.md_news_indices_339(buffer, offset)
     local range = buffer(offset, length)
     local display = display.md_news_indices_339(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.md_news_indices_339, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.md_news_indices_339, range, display)
   end
 
   return dissect.md_news_indices_339_fields(buffer, offset, packet, parent)
@@ -5523,7 +5523,7 @@ dissect.security_description = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.security_description(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.security_description, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.security_description, range, value, display)
 
   return offset + length, value
 end
@@ -5564,7 +5564,7 @@ dissect.final_settlement_futures_price = function(buffer, offset, packet, parent
     local length = size_of.final_settlement_futures_price(buffer, offset)
     local range = buffer(offset, length)
     local display = display.final_settlement_futures_price(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.final_settlement_futures_price, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.final_settlement_futures_price, range, display)
   end
 
   return dissect.final_settlement_futures_price_fields(buffer, offset, packet, parent)
@@ -5606,7 +5606,7 @@ dissect.settlement_npv = function(buffer, offset, packet, parent)
     local length = size_of.settlement_npv(buffer, offset)
     local range = buffer(offset, length)
     local display = display.settlement_npv(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.settlement_npv, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.settlement_npv, range, display)
   end
 
   return dissect.settlement_npv_fields(buffer, offset, packet, parent)
@@ -5648,7 +5648,7 @@ dissect.d_v_01 = function(buffer, offset, packet, parent)
     local length = size_of.d_v_01(buffer, offset)
     local range = buffer(offset, length)
     local display = display.d_v_01(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.d_v_01, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.d_v_01, range, display)
   end
 
   return dissect.d_v_01_fields(buffer, offset, packet, parent)
@@ -5690,7 +5690,7 @@ dissect.p_v_01 = function(buffer, offset, packet, parent)
     local length = size_of.p_v_01(buffer, offset)
     local range = buffer(offset, length)
     local display = display.p_v_01(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.p_v_01, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.p_v_01, range, display)
   end
 
   return dissect.p_v_01_fields(buffer, offset, packet, parent)
@@ -5716,7 +5716,7 @@ dissect.next_floating_payment_date = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.next_floating_payment_date(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.next_floating_payment_date, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.next_floating_payment_date, range, value, display)
 
   return offset + length, value
 end
@@ -5757,7 +5757,7 @@ dissect.leg_contract_multiplier = function(buffer, offset, packet, parent)
     local length = size_of.leg_contract_multiplier(buffer, offset)
     local range = buffer(offset, length)
     local display = display.leg_contract_multiplier(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.leg_contract_multiplier, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.leg_contract_multiplier, range, display)
   end
 
   return dissect.leg_contract_multiplier_fields(buffer, offset, packet, parent)
@@ -5778,7 +5778,7 @@ dissect.leg_credit_rating = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.leg_credit_rating(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.leg_credit_rating, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.leg_credit_rating, range, value, display)
 
   return offset + length, value
 end
@@ -5803,7 +5803,7 @@ dissect.nominal = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.nominal(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.nominal, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.nominal, range, value, display)
 
   return offset + length, value
 end
@@ -5828,7 +5828,7 @@ dissect.accrual_days = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.accrual_days(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.accrual_days, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.accrual_days, range, value, display)
 
   return offset + length, value
 end
@@ -5853,7 +5853,7 @@ dissect.fed_funds_date = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.fed_funds_date(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.fed_funds_date, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.fed_funds_date, range, value, display)
 
   return offset + length, value
 end
@@ -5894,7 +5894,7 @@ dissect.previous_eris_pai = function(buffer, offset, packet, parent)
     local length = size_of.previous_eris_pai(buffer, offset)
     local range = buffer(offset, length)
     local display = display.previous_eris_pai(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.previous_eris_pai, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.previous_eris_pai, range, display)
   end
 
   return dissect.previous_eris_pai_fields(buffer, offset, packet, parent)
@@ -5920,7 +5920,7 @@ dissect.trading_reference_date = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.trading_reference_date(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.trading_reference_date, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.trading_reference_date, range, value, display)
 
   return offset + length, value
 end
@@ -5961,7 +5961,7 @@ dissect.next_floating_payment_amount = function(buffer, offset, packet, parent)
     local length = size_of.next_floating_payment_amount(buffer, offset)
     local range = buffer(offset, length)
     local display = display.next_floating_payment_amount(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.next_floating_payment_amount, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.next_floating_payment_amount, range, display)
   end
 
   return dissect.next_floating_payment_amount_fields(buffer, offset, packet, parent)
@@ -6003,7 +6003,7 @@ dissect.next_fixed_payment_amount = function(buffer, offset, packet, parent)
     local length = size_of.next_fixed_payment_amount(buffer, offset)
     local range = buffer(offset, length)
     local display = display.next_fixed_payment_amount(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.next_fixed_payment_amount, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.next_fixed_payment_amount, range, display)
   end
 
   return dissect.next_fixed_payment_amount_fields(buffer, offset, packet, parent)
@@ -6029,7 +6029,7 @@ dissect.next_fixed_payment_date = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.next_fixed_payment_date(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.next_fixed_payment_date, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.next_fixed_payment_date, range, value, display)
 
   return offset + length, value
 end
@@ -6070,7 +6070,7 @@ dissect.floating_payment = function(buffer, offset, packet, parent)
     local length = size_of.floating_payment(buffer, offset)
     local range = buffer(offset, length)
     local display = display.floating_payment(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.floating_payment, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.floating_payment, range, display)
   end
 
   return dissect.floating_payment_fields(buffer, offset, packet, parent)
@@ -6112,7 +6112,7 @@ dissect.fixed_payment = function(buffer, offset, packet, parent)
     local length = size_of.fixed_payment(buffer, offset)
     local range = buffer(offset, length)
     local display = display.fixed_payment(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.fixed_payment, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.fixed_payment, range, display)
   end
 
   return dissect.fixed_payment_fields(buffer, offset, packet, parent)
@@ -6154,7 +6154,7 @@ dissect.fed_funds_rate = function(buffer, offset, packet, parent)
     local length = size_of.fed_funds_rate(buffer, offset)
     local range = buffer(offset, length)
     local display = display.fed_funds_rate(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.fed_funds_rate, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.fed_funds_rate, range, display)
   end
 
   return dissect.fed_funds_rate_fields(buffer, offset, packet, parent)
@@ -6196,7 +6196,7 @@ dissect.eris_pai = function(buffer, offset, packet, parent)
     local length = size_of.eris_pai(buffer, offset)
     local range = buffer(offset, length)
     local display = display.eris_pai(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.eris_pai, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.eris_pai, range, display)
   end
 
   return dissect.eris_pai_fields(buffer, offset, packet, parent)
@@ -6238,7 +6238,7 @@ dissect.daily_incremental_eris_pai = function(buffer, offset, packet, parent)
     local length = size_of.daily_incremental_eris_pai(buffer, offset)
     local range = buffer(offset, length)
     local display = display.daily_incremental_eris_pai(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.daily_incremental_eris_pai, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.daily_incremental_eris_pai, range, display)
   end
 
   return dissect.daily_incremental_eris_pai_fields(buffer, offset, packet, parent)
@@ -6280,7 +6280,7 @@ dissect.accrued_coupons = function(buffer, offset, packet, parent)
     local length = size_of.accrued_coupons(buffer, offset)
     local range = buffer(offset, length)
     local display = display.accrued_coupons(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.accrued_coupons, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.accrued_coupons, range, display)
   end
 
   return dissect.accrued_coupons_fields(buffer, offset, packet, parent)
@@ -6322,7 +6322,7 @@ dissect.npv = function(buffer, offset, packet, parent)
     local length = size_of.npv(buffer, offset)
     local range = buffer(offset, length)
     local display = display.npv(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.npv, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.npv, range, display)
   end
 
   return dissect.npv_fields(buffer, offset, packet, parent)
@@ -6364,7 +6364,7 @@ dissect.float_npv = function(buffer, offset, packet, parent)
     local length = size_of.float_npv(buffer, offset)
     local range = buffer(offset, length)
     local display = display.float_npv(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.float_npv, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.float_npv, range, display)
   end
 
   return dissect.float_npv_fields(buffer, offset, packet, parent)
@@ -6406,7 +6406,7 @@ dissect.fixed_npv = function(buffer, offset, packet, parent)
     local length = size_of.fixed_npv(buffer, offset)
     local range = buffer(offset, length)
     local display = display.fixed_npv(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.fixed_npv, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.fixed_npv, range, display)
   end
 
   return dissect.fixed_npv_fields(buffer, offset, packet, parent)
@@ -6448,7 +6448,7 @@ dissect.leg_purchase_rate = function(buffer, offset, packet, parent)
     local length = size_of.leg_purchase_rate(buffer, offset)
     local range = buffer(offset, length)
     local display = display.leg_purchase_rate(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.leg_purchase_rate, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.leg_purchase_rate, range, display)
   end
 
   return dissect.leg_purchase_rate_fields(buffer, offset, packet, parent)
@@ -6490,7 +6490,7 @@ dissect.fair_coupon_pct = function(buffer, offset, packet, parent)
     local length = size_of.fair_coupon_pct(buffer, offset)
     local range = buffer(offset, length)
     local display = display.fair_coupon_pct(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.fair_coupon_pct, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.fair_coupon_pct, range, display)
   end
 
   return dissect.fair_coupon_pct_fields(buffer, offset, packet, parent)
@@ -6527,19 +6527,19 @@ end
 dissect.settl_price_type_bits = function(buffer, offset, packet, parent)
 
   -- Null Value: 1 Bit
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.null_value, buffer(offset, 1))
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.null_value, buffer(offset, 1))
 
   -- Reserved Bits: 4 Bit
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.reserved_bits, buffer(offset, 1))
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.reserved_bits, buffer(offset, 1))
 
   -- Rounded: 1 Bit
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.rounded, buffer(offset, 1))
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.rounded, buffer(offset, 1))
 
   -- Actual: 1 Bit
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.actual, buffer(offset, 1))
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.actual, buffer(offset, 1))
 
   -- Final Daily: 1 Bit
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.final_daily, buffer(offset, 1))
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.final_daily, buffer(offset, 1))
 end
 
 -- Dissect: Settl Price Type
@@ -6547,7 +6547,7 @@ dissect.settl_price_type = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
   local display = display.settl_price_type(range, packet, parent)
-  local element = parent:add(cme_futures_streamline_sbe_v9_5.fields.settl_price_type, range, display)
+  local element = parent:add(cme_futures_streamline_sbe_v5_9.fields.settl_price_type, range, display)
 
   if show.settl_price_type then
     dissect.settl_price_type_bits(buffer, offset, packet, element)
@@ -6807,7 +6807,7 @@ dissect.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group =
     local length = size_of.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group(buffer, offset)
     local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group, range, display)
   end
 
   return dissect.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_fields(buffer, offset, packet, parent)
@@ -6856,7 +6856,7 @@ dissect.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups 
     local length = size_of.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups(buffer, offset)
     local range = buffer(offset, length)
     local display = display.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups, range, display)
   end
 
   return dissect.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups_fields(buffer, offset, packet, parent)
@@ -6908,7 +6908,7 @@ dissect.md_incremental_refresh_eris_reference_data_and_daily_statistics_333 = fu
     local length = size_of.md_incremental_refresh_eris_reference_data_and_daily_statistics_333(buffer, offset)
     local range = buffer(offset, length)
     local display = display.md_incremental_refresh_eris_reference_data_and_daily_statistics_333(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.md_incremental_refresh_eris_reference_data_and_daily_statistics_333, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.md_incremental_refresh_eris_reference_data_and_daily_statistics_333, range, display)
   end
 
   return dissect.md_incremental_refresh_eris_reference_data_and_daily_statistics_333_fields(buffer, offset, packet, parent)
@@ -6945,7 +6945,7 @@ dissect.admin_logout_316 = function(buffer, offset, packet, parent)
     local length = size_of.admin_logout_316(buffer, offset)
     local range = buffer(offset, length)
     local display = display.admin_logout_316(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.admin_logout_316, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.admin_logout_316, range, display)
   end
 
   return dissect.admin_logout_316_fields(buffer, offset, packet, parent)
@@ -6966,7 +6966,7 @@ dissect.heart_bt_int = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.heart_bt_int(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.heart_bt_int, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.heart_bt_int, range, value, display)
 
   return offset + length, value
 end
@@ -7002,7 +7002,7 @@ dissect.admin_login_315 = function(buffer, offset, packet, parent)
     local length = size_of.admin_login_315(buffer, offset)
     local range = buffer(offset, length)
     local display = display.admin_login_315(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.admin_login_315, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.admin_login_315, range, display)
   end
 
   return dissect.admin_login_315_fields(buffer, offset, packet, parent)
@@ -7167,7 +7167,7 @@ dissect.payload = function(buffer, offset, packet, parent, template_id)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.payload(buffer, packet, parent)
-  local element = parent:add(cme_futures_streamline_sbe_v9_5.fields.payload, range, display)
+  local element = parent:add(cme_futures_streamline_sbe_v5_9.fields.payload, range, display)
 
   return dissect.payload_branches(buffer, offset, packet, parent, template_id)
 end
@@ -7187,7 +7187,7 @@ dissect.version = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.version(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.version, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -7207,7 +7207,7 @@ dissect.schema_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.schema_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.schema_id, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.schema_id, range, value, display)
 
   return offset + length, value
 end
@@ -7276,7 +7276,7 @@ dissect.template_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.template_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.template_id, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.template_id, range, value, display)
 
   return offset + length, value
 end
@@ -7327,7 +7327,7 @@ dissect.message_header = function(buffer, offset, packet, parent)
     local length = size_of.message_header(buffer, offset)
     local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.message_header, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.message_header, range, display)
   end
 
   return dissect.message_header_fields(buffer, offset, packet, parent)
@@ -7348,7 +7348,7 @@ dissect.message_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.message_size(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.message_size, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.message_size, range, value, display)
 
   return offset + length, value
 end
@@ -7400,7 +7400,7 @@ dissect.message = function(buffer, offset, packet, parent)
     local length = size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.message(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.message, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.message, range, display)
   end
 
   return dissect.message_fields(buffer, offset, packet, parent)
@@ -7421,7 +7421,7 @@ dissect.sending_time = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.sending_time(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.sending_time, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.sending_time, range, value, display)
 
   return offset + length, value
 end
@@ -7441,7 +7441,7 @@ dissect.message_sequence_number = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.message_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v9_5.fields.message_sequence_number, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_9.fields.message_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -7482,7 +7482,7 @@ dissect.binary_packet_header = function(buffer, offset, packet, parent)
     local length = size_of.binary_packet_header(buffer, offset)
     local range = buffer(offset, length)
     local display = display.binary_packet_header(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v9_5.fields.binary_packet_header, range, display)
+    parent = parent:add(cme_futures_streamline_sbe_v5_9.fields.binary_packet_header, range, display)
   end
 
   return dissect.binary_packet_header_fields(buffer, offset, packet, parent)
@@ -7512,23 +7512,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function cme_futures_streamline_sbe_v9_5.init()
+function cme_futures_streamline_sbe_v5_9.init()
 end
 
--- Dissector for Cme Futures Streamline Sbe 9.5
-function cme_futures_streamline_sbe_v9_5.dissector(buffer, packet, parent)
+-- Dissector for Cme Futures Streamline Sbe 5.9
+function cme_futures_streamline_sbe_v5_9.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = cme_futures_streamline_sbe_v9_5.name
+  packet.cols.protocol = cme_futures_streamline_sbe_v5_9.name
 
   -- Dissect protocol
-  local protocol = parent:add(cme_futures_streamline_sbe_v9_5, buffer(), cme_futures_streamline_sbe_v9_5.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(cme_futures_streamline_sbe_v5_9, buffer(), cme_futures_streamline_sbe_v5_9.description, "("..buffer:len().." Bytes)")
   local protocol_size = dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, cme_futures_streamline_sbe_v9_5)
+udp_table:add(65333, cme_futures_streamline_sbe_v5_9)
 
 
 -----------------------------------------------------------------------
@@ -7536,7 +7536,7 @@ udp_table:add(65333, cme_futures_streamline_sbe_v9_5)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.cme_futures_streamline_sbe_v9_5_packet_size = function(buffer)
+verify.cme_futures_streamline_sbe_v5_9_packet_size = function(buffer)
 
   return true
 end
@@ -7559,10 +7559,10 @@ verify.version = function(buffer)
   return false
 end
 
--- Dissector Heuristic for Cme Futures Streamline Sbe 9.5
-local function cme_futures_streamline_sbe_v9_5_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Cme Futures Streamline Sbe 5.9
+local function cme_futures_streamline_sbe_v5_9_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.cme_futures_streamline_sbe_v9_5_packet_size(buffer) then return false end
+  if not verify.cme_futures_streamline_sbe_v5_9_packet_size(buffer) then return false end
 
   -- Verify Schema Id
   if not verify.schema_id(buffer) then return false end
@@ -7571,14 +7571,14 @@ local function cme_futures_streamline_sbe_v9_5_heuristic(buffer, packet, parent)
   if not verify.version(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = cme_futures_streamline_sbe_v9_5
-  cme_futures_streamline_sbe_v9_5.dissector(buffer, packet, parent)
+  packet.conversation = cme_futures_streamline_sbe_v5_9
+  cme_futures_streamline_sbe_v5_9.dissector(buffer, packet, parent)
 
   return true
 end
 
--- Register Heuristic for Cme Futures Streamline Sbe 9.5
-cme_futures_streamline_sbe_v9_5:register_heuristic("udp", cme_futures_streamline_sbe_v9_5_heuristic)
+-- Register Heuristic for Cme Futures Streamline Sbe 5.9
+cme_futures_streamline_sbe_v5_9:register_heuristic("udp", cme_futures_streamline_sbe_v5_9_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.
@@ -7587,7 +7587,7 @@ cme_futures_streamline_sbe_v9_5:register_heuristic("udp", cme_futures_streamline
 -- 
 -- Protocol:
 --   Organization: Chicago Mercantile Exchange
---   Version: 9.5
+--   Version: 5.9
 --   Date: Wednesday, April 4, 2018
 -- 
 -- Script:
