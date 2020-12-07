@@ -16,6 +16,7 @@
 | Futures | Mdp3 | Sbe | [1.5][Cme.Futures.Mdp3.Sbe.v1.5.Dissector] | 8/6/2014 | 7236 | [Deprecated][Omi.Glossary.Status] | [Verified][Omi.Glossary.Testing] | [url][Cme.Futures.Mdp3.Sbe.v1.5.Url] - [xml][Cme.Futures.Mdp3.Sbe.v1.5.Xml] - [ftp][Cme.Futures.Mdp3.Sbe.v1.5.Ftp] |
 | Futures | Mdp3 | Sbe | [1.11][Cme.Futures.Mdp3.Sbe.v1.11.Dissector] | 3/3/2020 | 10239 | [Future][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Cme.Futures.Mdp3.Sbe.v1.11.Url] - [xml][Cme.Futures.Mdp3.Sbe.v1.11.Xml] - [ftp][Cme.Futures.Mdp3.Sbe.v1.11.Ftp] |
 | Futures | Mdp3 | Sbe | [1.10][Cme.Futures.Mdp3.Sbe.v1.10.Dissector] | 7/26/2019 | 9876 | [Deprecated][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Cme.Futures.Mdp3.Sbe.v1.10.Url] - [xml][Cme.Futures.Mdp3.Sbe.v1.10.Xml] - [ftp][Cme.Futures.Mdp3.Sbe.v1.10.Ftp] |
+| Futures | Settlements | Sbe | [7.0][Cme.Futures.Settlements.Sbe.v7.0.Dissector] | 12/3/2018 | 2474 | [Active][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Cme.Futures.Settlements.Sbe.v7.0.Url] - [xml][Cme.Futures.Settlements.Sbe.v7.0.Xml] |
 | Futures | Streamline | Sbe | [5.9][Cme.Futures.Streamline.Sbe.v5.9.Dissector] | 4/4/2018 | 7603 | [Active][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Cme.Futures.Streamline.Sbe.v5.9.Url] - [xml][Cme.Futures.Streamline.Sbe.v5.9.Xml] |
 | Futures | Streamline | Sbe | [5.8][Cme.Futures.Streamline.Sbe.v5.8.Dissector] | 6/2/2017 | 7453 | [Deprecated][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Cme.Futures.Streamline.Sbe.v5.8.Url] - [xml][Cme.Futures.Streamline.Sbe.v5.8.Xml] |
 
@@ -56,6 +57,9 @@ Cme: [website](http://www.cmegroup.com/ "Go to Chicago Mercantile Exchange")
 [Cme.Futures.Streamline.Sbe.v5.9.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Futures.Streamline.Sbe.v5.9.Script.Dissector.lua "Chicago Mercantile Exchange 5.9 Wireshark Dissector"
 [Cme.Futures.Streamline.Sbe.v5.9.Url]: https://www.cmegroup.com/confluence/display/EPICSANDBOX/SBE+-+Streamlined+Market+Data "Specification url"
 [Cme.Futures.Streamline.Sbe.v5.9.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Cme/Cme.Futures.Streamline.Sbe.v5.9.xml "Chicago Mercantile Exchange 5.9 Xml"
+[Cme.Futures.Settlements.Sbe.v7.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Futures.Settlements.Sbe.v7.0.Script.Dissector.lua "Chicago Mercantile Exchange 7.0 Wireshark Dissector"
+[Cme.Futures.Settlements.Sbe.v7.0.Url]: https://www.cmegroup.com/confluence/display/EPICSANDBOX/SBE+-+Streamlined+Market+Data "Specification url"
+[Cme.Futures.Settlements.Sbe.v7.0.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Cme/Cme.Futures.Settlements.Sbe.v7.0.xml "Chicago Mercantile Exchange 7.0 Xml"
 [Cme.Futures.iLink3.Sbe.v8.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Futures.iLink3.Sbe.v8.2.Script.Dissector.lua "Chicago Mercantile Exchange 8.2 Wireshark Dissector"
 [Cme.Futures.iLink3.Sbe.v8.2.Url]: https://www.cmegroup.com/confluence/display/EPICSANDBOX/iLink+3+-+Simple+Binary+Encoding "Specification url"
 [Cme.Futures.iLink3.Sbe.v8.2.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Cme/Cme.Futures.iLink3.Sbe.v8.2.xml "Chicago Mercantile Exchange 8.2 Xml"
