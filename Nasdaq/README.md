@@ -1,4 +1,4 @@
-[![Nasdaq](https://github.com/Open-Markets-Initiative/Directory/blob/master/Images/Nasdaq.png)](https://www.nasdaq.com)
+[![Nasdaq](https://github.com/Open-Markets-Initiative/Directory/blob/master/Images/Nasdaq.png)](https://www.nasdaq.com/)
 
 
 ## National Association of Securities Dealers Automated Quotations
@@ -32,7 +32,7 @@
 | Utdf | Output | Utp | [1.5][Nasdaq.Utdf.Output.Utp.v1.5.Dissector] | 5/1/2020 | 4847 | [Active][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Nasdaq.Utdf.Output.Utp.v1.5.Url] - [pdf][Nasdaq.Utdf.Output.Utp.v1.5.Pdf] |
 
 
-Nasdaq: [website](https://www.nasdaq.com "Go to National Association of Securities Dealers Automated Quotations")
+Nasdaq: [website](https://www.nasdaq.com/ "Go to National Association of Securities Dealers Automated Quotations")
 
 
 [Omi.Glossary.Status]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Status.md "Protocol Deployment Status"

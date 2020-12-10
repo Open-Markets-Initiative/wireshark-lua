@@ -5,7 +5,7 @@
 
 | Division | Data | Protocol | Version | Date | Size | Status | Testing | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Securities | Ntp | Itch | [1.05][Asx.Securities.Ntp.Itch.v1.05.Dissector] | 12/1/2017 | 5425 | [Active][Omi.Glossary.Status] | [Verified][Omi.Glossary.Testing] | [pdf][Asx.Securities.Ntp.Itch.v1.05.Pdf] |
+| Securities | Ntp | Itch | [1.05][Asx.Securities.Ntp.Itch.v1.05.Dissector] | 12/1/2017 | 5530 | [Active][Omi.Glossary.Status] | [Verified][Omi.Glossary.Testing] | [pdf][Asx.Securities.Ntp.Itch.v1.05.Pdf] |
 | Securities | SR8 | Itch | [2.0][Asx.Securities.SR8.Itch.v2.0.Dissector] | 4/1/2015 | 2978 | [Deprecated][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [pdf][Asx.Securities.SR8.Itch.v2.0.Pdf] |
 | Securities | T24 | Itch | [1.13][Asx.Securities.T24.Itch.v1.13.Dissector] | 7/15/2014 | 6049 | [Deprecated][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [pdf][Asx.Securities.T24.Itch.v1.13.Pdf] |
 | Securities | SR8 | Ouch | [2.0][Asx.Securities.SR8.Ouch.v2.0.Dissector] | 4/1/2015 | 2729 | [Deprecated][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [pdf][Asx.Securities.SR8.Ouch.v2.0.Pdf] |

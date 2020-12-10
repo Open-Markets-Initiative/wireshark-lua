@@ -120,6 +120,7 @@ asx_securities_ntp_itch_v1_05.fields.ratio_leg_4 = ProtoField.new("Ratio Leg 4",
 asx_securities_ntp_itch_v1_05.fields.ratio_leg_5 = ProtoField.new("Ratio Leg 5", "asx.securities.ntp.itch.v1.05.ratioleg5", ftypes.UINT32)
 asx_securities_ntp_itch_v1_05.fields.ratio_leg_6 = ProtoField.new("Ratio Leg 6", "asx.securities.ntp.itch.v1.05.ratioleg6", ftypes.UINT32)
 asx_securities_ntp_itch_v1_05.fields.request_for_quote_message = ProtoField.new("Request For Quote Message", "asx.securities.ntp.itch.v1.05.requestforquotemessage", ftypes.STRING)
+asx_securities_ntp_itch_v1_05.fields.rfq_side = ProtoField.new("Rfq Side", "asx.securities.ntp.itch.v1.05.rfqside", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.seconds = ProtoField.new("Seconds", "asx.securities.ntp.itch.v1.05.seconds", ftypes.UINT32)
 asx_securities_ntp_itch_v1_05.fields.seconds_message = ProtoField.new("Seconds Message", "asx.securities.ntp.itch.v1.05.secondsmessage", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.seller_combination_trade_id = ProtoField.new("Seller Combination Trade Id", "asx.securities.ntp.itch.v1.05.sellercombinationtradeid", ftypes.UINT64)
@@ -775,29 +776,35 @@ dissect.quantity = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Side
-size_of.side = 1
+-- Size: Rfq Side
+size_of.rfq_side = 1
 
--- Display: Side
-display.side = function(value)
-  if value == "S" then
-    return "Side: Sell (S)"
+-- Display: Rfq Side
+display.rfq_side = function(value)
+  if value == "T" then
+    return "Rfq Side: Two Sided Quote (T)"
   end
   if value == "B" then
-    return "Side: Buy (B)"
+    return "Rfq Side: Bid Quote (B)"
+  end
+  if value == "S" then
+    return "Rfq Side: Ask Quote (S)"
+  end
+  if value == "X" then
+    return "Rfq Side: Crossing (X)"
   end
 
-  return "Side: Unknown("..value..")"
+  return "Rfq Side: Unknown("..value..")"
 end
 
--- Dissect: Side
-dissect.side = function(buffer, offset, packet, parent)
-  local length = size_of.side
+-- Dissect: Rfq Side
+dissect.rfq_side = function(buffer, offset, packet, parent)
+  local length = size_of.rfq_side
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.side(value, buffer, offset, packet, parent)
+  local display = display.rfq_side(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_ntp_itch_v1_05.fields.side, range, value, display)
+  parent:add(asx_securities_ntp_itch_v1_05.fields.rfq_side, range, value, display)
 
   return offset + length, value
 end
@@ -812,7 +819,7 @@ size_of.request_for_quote_message = function(buffer, offset)
 
   index = index + size_of.tradeable_instrument_id
 
-  index = index + size_of.side
+  index = index + size_of.rfq_side
 
   index = index + size_of.quantity
 
@@ -837,8 +844,8 @@ dissect.request_for_quote_message_fields = function(buffer, offset, packet, pare
   -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
   index, tradeable_instrument_id = dissect.tradeable_instrument_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  -- Rfq Side: 1 Byte Ascii String Enum with 4 values
+  index, rfq_side = dissect.rfq_side(buffer, index, packet, parent)
 
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
   index, quantity = dissect.quantity(buffer, index, packet, parent)
@@ -1509,7 +1516,14 @@ size_of.seller_side = 1
 
 -- Display: Seller Side
 display.seller_side = function(value)
-  return "Seller Side: "..value
+  if value == "S" then
+    return "Seller Side: Sell (S)"
+  end
+  if value == "B" then
+    return "Seller Side: Buy (B)"
+  end
+
+  return "Seller Side: Unknown("..value..")"
 end
 
 -- Dissect: Seller Side
@@ -1609,7 +1623,14 @@ size_of.buyer_side = 1
 
 -- Display: Buyer Side
 display.buyer_side = function(value)
-  return "Buyer Side: "..value
+  if value == "S" then
+    return "Buyer Side: Sell (S)"
+  end
+  if value == "B" then
+    return "Buyer Side: Buy (B)"
+  end
+
+  return "Buyer Side: Unknown("..value..")"
 end
 
 -- Dissect: Buyer Side
@@ -1689,7 +1710,44 @@ size_of.trade_type = 1
 
 -- Display: Trade Type
 display.trade_type = function(value)
-  return "Trade Type: "..value
+  if value == "T" then
+    return "Trade Type: Normal Trade (T)"
+  end
+  if value == "t" then
+    return "Trade Type: Normal Cross (t)"
+  end
+  if value == "L" then
+    return "Trade Type: Auction Trade (L)"
+  end
+  if value == "l" then
+    return "Trade Type: Auction Cross (l)"
+  end
+  if value == "S" then
+    return "Trade Type: Combination To Underlying Trade (S)"
+  end
+  if value == "s" then
+    return "Trade Type: Combination To Underlying Cross (s)"
+  end
+  if value == "R" then
+    return "Trade Type: Combination To Combination Trade (R)"
+  end
+  if value == "r" then
+    return "Trade Type: Combination To Combination Cross (r)"
+  end
+  if value == "A" then
+    return "Trade Type: Strip To Strip Trade (A)"
+  end
+  if value == "a" then
+    return "Trade Type: Strip To Strip Cross (a)"
+  end
+  if value == "B" then
+    return "Trade Type: Strip To Outright Trade (B)"
+  end
+  if value == "b" then
+    return "Trade Type: Strip To Outright Cross (b)"
+  end
+
+  return "Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Type
@@ -1763,7 +1821,7 @@ dissect.combination_trade_executed_message_fields = function(buffer, offset, pac
   -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
   index, tradeable_instrument_id = dissect.tradeable_instrument_id(buffer, index, packet, parent)
 
-  -- Trade Type: 1 Byte Ascii String
+  -- Trade Type: 1 Byte Ascii String Enum with 12 values
   index, trade_type = dissect.trade_type(buffer, index, packet, parent)
 
   -- Trade Id: 8 Byte Unsigned Fixed Width Integer
@@ -1778,7 +1836,7 @@ dissect.combination_trade_executed_message_fields = function(buffer, offset, pac
   -- Buyer Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
   index, buyer_tradeable_instrument_id = dissect.buyer_tradeable_instrument_id(buffer, index, packet, parent)
 
-  -- Buyer Side: 1 Byte Ascii String
+  -- Buyer Side: 1 Byte Ascii String Enum with 2 values
   index, buyer_side = dissect.buyer_side(buffer, index, packet, parent)
 
   -- Buyer Order Id: 8 Byte Unsigned Fixed Width Integer
@@ -1793,7 +1851,7 @@ dissect.combination_trade_executed_message_fields = function(buffer, offset, pac
   -- Seller Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
   index, seller_tradeable_instrument_id = dissect.seller_tradeable_instrument_id(buffer, index, packet, parent)
 
-  -- Seller Side: 1 Byte Ascii String
+  -- Seller Side: 1 Byte Ascii String Enum with 2 values
   index, seller_side = dissect.seller_side(buffer, index, packet, parent)
 
   -- Seller Order Id: 8 Byte Unsigned Fixed Width Integer
@@ -1926,7 +1984,7 @@ dissect.trade_executed_message_fields = function(buffer, offset, packet, parent)
   -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
   index, tradeable_instrument_id = dissect.tradeable_instrument_id(buffer, index, packet, parent)
 
-  -- Trade Type: 1 Byte Ascii String
+  -- Trade Type: 1 Byte Ascii String Enum with 12 values
   index, trade_type = dissect.trade_type(buffer, index, packet, parent)
 
   -- Trade Id: 8 Byte Unsigned Fixed Width Integer
@@ -1979,6 +2037,33 @@ dissect.order_id = function(buffer, offset, packet, parent)
   local display = display.order_id(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_ntp_itch_v1_05.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Side
+size_of.side = 1
+
+-- Display: Side
+display.side = function(value)
+  if value == "S" then
+    return "Side: Sell (S)"
+  end
+  if value == "B" then
+    return "Side: Buy (B)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+dissect.side = function(buffer, offset, packet, parent)
+  local length = size_of.side
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.side(value, buffer, offset, packet, parent)
+
+  parent:add(asx_securities_ntp_itch_v1_05.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -2249,7 +2334,14 @@ size_of.opposite_side = 1
 
 -- Display: Opposite Side
 display.opposite_side = function(value)
-  return "Opposite Side: "..value
+  if value == "S" then
+    return "Opposite Side: Sell (S)"
+  end
+  if value == "B" then
+    return "Opposite Side: Buy (B)"
+  end
+
+  return "Opposite Side: Unknown("..value..")"
 end
 
 -- Dissect: Opposite Side
@@ -2366,7 +2458,7 @@ dissect.combination_order_executed_message_fields = function(buffer, offset, pac
   -- Quantity Remaining: 4 Byte Unsigned Fixed Width Integer
   index, quantity_remaining = dissect.quantity_remaining(buffer, index, packet, parent)
 
-  -- Trade Type: 1 Byte Ascii String
+  -- Trade Type: 1 Byte Ascii String Enum with 12 values
   index, trade_type = dissect.trade_type(buffer, index, packet, parent)
 
   -- Trade Id: 8 Byte Unsigned Fixed Width Integer
@@ -2381,7 +2473,7 @@ dissect.combination_order_executed_message_fields = function(buffer, offset, pac
   -- Opposite Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
   index, opposite_tradeable_instrument_id = dissect.opposite_tradeable_instrument_id(buffer, index, packet, parent)
 
-  -- Opposite Side: 1 Byte Ascii String
+  -- Opposite Side: 1 Byte Ascii String Enum with 2 values
   index, opposite_side = dissect.opposite_side(buffer, index, packet, parent)
 
   -- Opposite Order Id: 8 Byte Unsigned Fixed Width Integer
@@ -2462,7 +2554,7 @@ dissect.auction_order_executed_message_fields = function(buffer, offset, packet,
   -- Quantity Remaining: 4 Byte Unsigned Fixed Width Integer
   index, quantity_remaining = dissect.quantity_remaining(buffer, index, packet, parent)
 
-  -- Trade Type: 1 Byte Ascii String
+  -- Trade Type: 1 Byte Ascii String Enum with 12 values
   index, trade_type = dissect.trade_type(buffer, index, packet, parent)
 
   -- Trade Id: 8 Byte Unsigned Fixed Width Integer
@@ -2571,7 +2663,7 @@ dissect.order_executed_message_fields = function(buffer, offset, packet, parent)
   -- Quantity Remaining: 4 Byte Unsigned Fixed Width Integer
   index, quantity_remaining = dissect.quantity_remaining(buffer, index, packet, parent)
 
-  -- Trade Type: 1 Byte Ascii String
+  -- Trade Type: 1 Byte Ascii String Enum with 12 values
   index, trade_type = dissect.trade_type(buffer, index, packet, parent)
 
   -- Trade Id: 8 Byte Unsigned Fixed Width Integer
@@ -2801,7 +2893,26 @@ size_of.session_state = 1
 
 -- Display: Session State
 display.session_state = function(value)
-  return "Session State: "..value
+  if value == "P" then
+    return "Session State: Pre Open (P)"
+  end
+  if value == "O" then
+    return "Session State: Opened (O)"
+  end
+  if value == "R" then
+    return "Session State: Regulatory Halt (R)"
+  end
+  if value == "H" then
+    return "Session State: Halted (H)"
+  end
+  if value == "C" then
+    return "Session State: Closed (C)"
+  end
+  if value == "M" then
+    return "Session State: Maintenance (M)"
+  end
+
+  return "Session State: Unknown("..value..")"
 end
 
 -- Dissect: Session State
@@ -2849,7 +2960,7 @@ dissect.order_book_state_message_fields = function(buffer, offset, packet, paren
   -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
   index, tradeable_instrument_id = dissect.tradeable_instrument_id(buffer, index, packet, parent)
 
-  -- Session State: 1 Byte Ascii String
+  -- Session State: 1 Byte Ascii String Enum with 6 values
   index, session_state = dissect.session_state(buffer, index, packet, parent)
 
   return index
@@ -4646,12 +4757,6 @@ display.event_code = function(value)
   if value == "C" then
     return "Event Code: Business Trade Date Has Ended (C)"
   end
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
 
   return "Event Code: Unknown("..value..")"
 end
@@ -4696,7 +4801,7 @@ dissect.end_of_business_trade_date_message_fields = function(buffer, offset, pac
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
-  -- Event Code: 1 Byte Ascii String Enum with 3 values
+  -- Event Code: 1 Byte Ascii String Enum with 1 values
   index, event_code = dissect.event_code(buffer, index, packet, parent)
 
   return index
