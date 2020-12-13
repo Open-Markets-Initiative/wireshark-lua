@@ -1,4 +1,4 @@
-[![Cme](https://github.com/Open-Markets-Initiative/Directory/blob/master/Images/Cme.png)](http://www.cmegroup.com/)
+[![Cme](https://github.com/Open-Markets-Initiative/Directory/blob/master/Images/Cme.png)](http://www.cmegroup.com)
 
 
 ## Chicago Mercantile Exchange
@@ -21,7 +21,7 @@
 | Futures | Streamline | Sbe | [5.8][Cme.Futures.Streamline.Sbe.v5.8.Dissector] | 6/2/2017 | 7453 | [Deprecated][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Cme.Futures.Streamline.Sbe.v5.8.Url] - [xml][Cme.Futures.Streamline.Sbe.v5.8.Xml] |
 
 
-Cme: [website](http://www.cmegroup.com/ "Go to Chicago Mercantile Exchange")
+Cme: [website](http://www.cmegroup.com "Go to Chicago Mercantile Exchange")
 
 
 [Omi.Glossary.Status]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Status.md "Protocol Deployment Status"
