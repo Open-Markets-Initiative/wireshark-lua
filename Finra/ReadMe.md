@@ -1,4 +1,4 @@
-[![Finra](https://github.com/Open-Markets-Initiative/Directory/blob/master/Images/Finra.png)](https://www.finra.org/)
+[![Finra](https://github.com/Open-Markets-Initiative/Directory/blob/master/Images/Finra.png)](https://www.finra.org)
 
 
 ## Financial Industry Regulatory Authority
@@ -9,7 +9,7 @@
 | Otc | Bbds | Dfi | [2018.1A][Finra.Otc.Bbds.Dfi.v2018.1A.Dissector] | 5/14/2018 | 2637 | [Active][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Finra.Otc.Bbds.Dfi.v2018.1A.Url] - [pdf][Finra.Otc.Bbds.Dfi.v2018.1A.Pdf] |
 
 
-Finra: [website](https://www.finra.org/ "Go to Financial Industry Regulatory Authority")
+Finra: [website](https://www.finra.org "Go to Financial Industry Regulatory Authority")
 
 
 [Omi.Glossary.Status]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Status.md "Protocol Deployment Status"

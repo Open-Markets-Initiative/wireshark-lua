@@ -1,4 +1,4 @@
-[![Miax](https://github.com/Open-Markets-Initiative/Directory/blob/master/Images/Miax.png)](https://www.miaxoptions.com/)
+[![Miax](https://github.com/Open-Markets-Initiative/Directory/blob/master/Images/Miax.png)](https://www.miaxoptions.com)
 
 
 ## Miami International Securities Exchange
@@ -15,7 +15,7 @@
 | Pearl Options | TopOfMarket | Mach | [1.0][Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Dissector] | 2/27/2017 | 2855 | [Active][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Url] - [pdf][Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Pdf] |
 
 
-Miax: [website](https://www.miaxoptions.com/ "Go to Miami International Securities Exchange")
+Miax: [website](https://www.miaxoptions.com "Go to Miami International Securities Exchange")
 
 
 [Omi.Glossary.Status]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Status.md "Protocol Deployment Status"

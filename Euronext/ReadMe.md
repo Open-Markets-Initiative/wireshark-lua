@@ -1,4 +1,4 @@
-[![Euronext](https://github.com/Open-Markets-Initiative/Directory/blob/master/Images/Euronext.png)](https://en.wikipedia.org/wiki/Euronext)
+[![Euronext](https://github.com/Open-Markets-Initiative/Directory/blob/master/Images/Euronext.png)](https://www.euronext.com)
 
 
 ## European New Exchange Technology
@@ -8,7 +8,7 @@
 | Optiq | OrderEntryGateway | Sbe | [4.2.2][Euronext.Optiq.OrderEntryGateway.Sbe.v4.2.2.Dissector] | 9/25/2020 | 8788 | [Active][Omi.Glossary.Status] | [Untested][Omi.Glossary.Testing] | [url][Euronext.Optiq.OrderEntryGateway.Sbe.v4.2.2.Url] - [pdf][Euronext.Optiq.OrderEntryGateway.Sbe.v4.2.2.Pdf] - [xml][Euronext.Optiq.OrderEntryGateway.Sbe.v4.2.2.Xml] |
 
 
-Euronext: [website](https://en.wikipedia.org/wiki/Euronext "Go to European New Exchange Technology")
+Euronext: [website](https://www.euronext.com "Go to European New Exchange Technology")
 
 
 [Omi.Glossary.Status]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Status.md "Protocol Deployment Status"
