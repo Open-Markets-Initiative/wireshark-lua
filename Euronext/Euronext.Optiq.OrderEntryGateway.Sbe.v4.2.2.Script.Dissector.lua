@@ -107,6 +107,7 @@ euronext_optiq_orderentrygateway_sbe_v4_2_2.fields.lp_role = ProtoField.new("Lp 
 euronext_optiq_orderentrygateway_sbe_v4_2_2.fields.mass_cancel_ack_message = ProtoField.new("Mass Cancel Ack Message", "euronext.optiq.orderentrygateway.sbe.v4.2.2.masscancelackmessage", ftypes.STRING)
 euronext_optiq_orderentrygateway_sbe_v4_2_2.fields.mass_cancel_message = ProtoField.new("Mass Cancel Message", "euronext.optiq.orderentrygateway.sbe.v4.2.2.masscancelmessage", ftypes.STRING)
 euronext_optiq_orderentrygateway_sbe_v4_2_2.fields.maturity = ProtoField.new("Maturity", "euronext.optiq.orderentrygateway.sbe.v4.2.2.maturity", ftypes.STRING)
+euronext_optiq_orderentrygateway_sbe_v4_2_2.fields.message = ProtoField.new("Message", "euronext.optiq.orderentrygateway.sbe.v4.2.2.message", ftypes.STRING)
 euronext_optiq_orderentrygateway_sbe_v4_2_2.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.orderentrygateway.sbe.v4.2.2.messageheader", ftypes.STRING)
 euronext_optiq_orderentrygateway_sbe_v4_2_2.fields.message_price_notation = ProtoField.new("Message Price Notation", "euronext.optiq.orderentrygateway.sbe.v4.2.2.messagepricenotation", ftypes.UINT8)
 euronext_optiq_orderentrygateway_sbe_v4_2_2.fields.mi_cof_secondary_listing = ProtoField.new("Mi Cof Secondary Listing", "euronext.optiq.orderentrygateway.sbe.v4.2.2.micofsecondarylisting", ftypes.STRING)
@@ -240,6 +241,7 @@ show.logon_reject_message = true
 show.logout_message = true
 show.mass_cancel_ack_message = true
 show.mass_cancel_message = true
+show.message = true
 show.message_header = true
 show.mm_protection_ack_message = true
 show.mm_protection_request_message = true
@@ -294,6 +296,7 @@ euronext_optiq_orderentrygateway_sbe_v4_2_2.prefs.show_logon_reject_message = Pr
 euronext_optiq_orderentrygateway_sbe_v4_2_2.prefs.show_logout_message = Pref.bool("Show Logout Message", show.logout_message, "Parse and add Logout Message to protocol tree")
 euronext_optiq_orderentrygateway_sbe_v4_2_2.prefs.show_mass_cancel_ack_message = Pref.bool("Show Mass Cancel Ack Message", show.mass_cancel_ack_message, "Parse and add Mass Cancel Ack Message to protocol tree")
 euronext_optiq_orderentrygateway_sbe_v4_2_2.prefs.show_mass_cancel_message = Pref.bool("Show Mass Cancel Message", show.mass_cancel_message, "Parse and add Mass Cancel Message to protocol tree")
+euronext_optiq_orderentrygateway_sbe_v4_2_2.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 euronext_optiq_orderentrygateway_sbe_v4_2_2.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 euronext_optiq_orderentrygateway_sbe_v4_2_2.prefs.show_mm_protection_ack_message = Pref.bool("Show Mm Protection Ack Message", show.mm_protection_ack_message, "Parse and add Mm Protection Ack Message to protocol tree")
 euronext_optiq_orderentrygateway_sbe_v4_2_2.prefs.show_mm_protection_request_message = Pref.bool("Show Mm Protection Request Message", show.mm_protection_request_message, "Parse and add Mm Protection Request Message to protocol tree")
@@ -419,6 +422,10 @@ function euronext_optiq_orderentrygateway_sbe_v4_2_2.prefs_changed()
   end
   if show.mass_cancel_message ~= euronext_optiq_orderentrygateway_sbe_v4_2_2.prefs.show_mass_cancel_message then
     show.mass_cancel_message = euronext_optiq_orderentrygateway_sbe_v4_2_2.prefs.show_mass_cancel_message
+    changed = true
+  end
+  if show.message ~= euronext_optiq_orderentrygateway_sbe_v4_2_2.prefs.show_message then
+    show.message = euronext_optiq_orderentrygateway_sbe_v4_2_2.prefs.show_message
     changed = true
   end
   if show.message_header ~= euronext_optiq_orderentrygateway_sbe_v4_2_2.prefs.show_message_header then
@@ -8671,9 +8678,30 @@ dissect.frame = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Dissect Packet
-dissect.packet = function(buffer, packet, parent)
+-- Calculate size of: Message
+size_of.message = function(buffer, offset)
   local index = 0
+
+  index = index + size_of.frame
+
+  index = index + size_of.message_header(buffer, offset + index)
+
+  -- Calculate runtime size of Payload field
+  local payload_offset = offset + index
+  local payload_type = buffer(payload_offset - 6, 2):le_uint()
+  index = index + size_of.payload(buffer, payload_offset, payload_type)
+
+  return index
+end
+
+-- Display: Message
+display.message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Message
+dissect.message_fields = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Frame: 2 Byte Unsigned Fixed Width Integer
   index, frame = dissect.frame(buffer, index, packet, parent)
@@ -8686,6 +8714,34 @@ dissect.packet = function(buffer, packet, parent)
 
   -- Payload: Runtime Type with 51 branches
   index = dissect.payload(buffer, index, packet, parent, template_id)
+
+  return index
+end
+
+-- Dissect: Message
+dissect.message = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.message then
+    local length = size_of.message(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.message(buffer, packet, parent)
+    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v4_2_2.fields.message, range, display)
+  end
+
+  return dissect.message_fields(buffer, offset, packet, parent)
+end
+
+-- Dissect Packet
+dissect.packet = function(buffer, packet, parent)
+  local index = 0
+
+  -- Message: Struct of 3 fields
+  local end_of_payload = buffer:len()
+
+  -- Message: Struct of 3 fields
+  while index < end_of_payload do
+    index = dissect.message(buffer, index, packet, parent)
+  end
 
   return index
 end
