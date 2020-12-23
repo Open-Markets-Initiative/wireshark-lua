@@ -3,7 +3,7 @@
 
 ## Intercontinental Exchange
 
-| Division | Data | Protocol | Version | Date | Size | [status][Omi.Glossary.Status] | Testing | Specification |
+| Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Futures | [Mdf][Ice.Futures.Mdf.iMpact.v1.1.34.Dissector] | iMpact | [1.1.34][Ice.Futures.Mdf.iMpact.v1.1.34.Dissector] | 9/4/2018 | 10214 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Ice.Futures.Mdf.iMpact.v1.1.34.Pdf] |
 | Futures | [Mdf][Ice.Futures.Mdf.iMpact.v1.1.33.Dissector] | iMpact | [1.1.33][Ice.Futures.Mdf.iMpact.v1.1.33.Dissector] | 8/6/2018 | 9971 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Ice.Futures.Mdf.iMpact.v1.1.33.Pdf] |
@@ -13,16 +13,16 @@
 Ice: [website](https://www.theice.com "Go to Intercontinental Exchange")
 
 
-[Omi.Glossary.Status]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Status.md "Protocol Deployment Status"
-[Omi.Glossary.Status.Active]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Status.md "Protocol Deployment Status: Protocol is in active production"
-[Omi.Glossary.Status.Deprecated]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Status.md "Protocol Deployment Status: Protocol is no longer in active use"
-[Omi.Glossary.Status.Future]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Status.md "Protocol Deployment Status: Protocol is not deployed to an active production environment"
-[Omi.Glossary.Status.Unknown]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Status.md "Protocol Deployment Status: Protocol deployment status is unknown"
-[Omi.Glossary.Testing]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Protocol Testing Status"
-[Omi.Glossary.Testing.Verified]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Protocol Testing Status: Protocol has been tested on live data"
-[Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Protocol Testing Status: Protocol has been tested on live data but contains known issues"
-[Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Protocol Testing Status: Protocol has been tested on live data but contains known issues"
-[Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Protocol Testing Status: Protocol has not been tested due to lack of data"
+[Omi.Glossary.Status]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Status.md "Deployment Status"
+[Omi.Glossary.Status.Active]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Status.md "Deployment Status: Protocol is in active production"
+[Omi.Glossary.Status.Deprecated]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Status.md "Deployment Status: Protocol is no longer in active use"
+[Omi.Glossary.Status.Future]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Status.md "Deployment Status: Protocol is not yet deployed to an active production environment"
+[Omi.Glossary.Status.Unknown]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Status.md "Deployment Status: Protocol deployment status is unknown"
+[Omi.Glossary.Testing]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Testing Status"
+[Omi.Glossary.Testing.Verified]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Testing Status: Protocol has been tested on live data"
+[Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
+[Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
+[Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Testing Status: Protocol has not been tested due to lack of data"
 
 [Ice.Futures.Mdf.iMpact.v1.1.24.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Ice/Ice.Futures.Mdf.iMpact.v1.1.24.Script.Dissector.lua "Ice Futures Mdf iMpact v1.1.24 Wireshark Dissector"
 [Ice.Futures.Mdf.iMpact.v1.1.24.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Ice/Ice.Futures.Mdf.iMpact.v1.1.24.pdf "Intercontinental Exchange 1.1.24 Pdf"

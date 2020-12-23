@@ -29,7 +29,7 @@ Note: Some packets contain enough information to programmatically determine the 
 For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.org/docs/wsug_html_chunked/ChCustProtocolDissectionSection.html "Wireshark Protocol Selection Documentation")
 ## Active Protocols
 
-| Organization | Division | Data | Protocol | Version | Date | Testing |
+| Organization | Division | Data | Protocol | Version | Date | [Testing][Omi.Glossary.Testing] |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Asx][Asx.Directory] | Securities | [Ntp][Asx.Securities.Ntp.Itch.v1.05.Dissector] | Itch | [1.05][Asx.Securities.Ntp.Itch.v1.05.Dissector] | 12/1/2017 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Cboe][Cboe.Directory] | Equities Bzx | [OrderEntry][Cboe.Equities.Bzx.OrderEntry.Boe.v2.3.Dissector] | Boe | [2.3][Cboe.Equities.Bzx.OrderEntry.Boe.v2.3.Dissector] | 3/11/2019 | [Beta][Omi.Glossary.Testing.Beta] |
@@ -143,11 +143,11 @@ Enjoy.
 [Omi Projects]: https://github.com/Open-Markets-Initiative/Directory/tree/master/Projects "Open Markets Initiative Projects"
 [Omi Rules and Regulations]: https://github.com/Open-Markets-Initiative/Directory/tree/master/License "Open Markets Initiative Rules and Regulations"
 
-[Omi.Glossary.Testing]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Protocol Testing Status"
-[Omi.Glossary.Testing.Verified]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Protocol Testing Status: Protocol has been tested on live data"
-[Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Protocol Testing Status: Protocol has been tested on live data but contains known issues"
-[Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Protocol Testing Status: Protocol has been tested on live data but contains known issues"
-[Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Protocol Testing Status: Protocol has not been tested due to lack of data"
+[Omi.Glossary.Testing]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Testing Status"
+[Omi.Glossary.Testing.Verified]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Testing Status: Protocol has been tested on live data"
+[Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
+[Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
+[Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Testing Status: Protocol has not been tested due to lack of data"
 
 [Asx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Asx "Australian Securities Exchange"
 [Cboe.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Cboe "Chicago Board Options Exchange"
