@@ -13,16 +13,16 @@
 Siac: [website](https://en.wikipedia.org/wiki/Securities_Industry_Automation_Corporation "Go to Securities Industry Automation Corporation")
 
 
-[Omi.Glossary.Status]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Status.md "Deployment Status"
+[Omi.Glossary.Status]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Status.md "Protocol Deployment Status"
 [Omi.Glossary.Status.Active]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Status.md "Deployment Status: Protocol is in active production"
 [Omi.Glossary.Status.Deprecated]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Status.md "Deployment Status: Protocol is no longer in active use"
 [Omi.Glossary.Status.Future]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Status.md "Deployment Status: Protocol is not yet deployed to an active production environment"
 [Omi.Glossary.Status.Unknown]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Status.md "Deployment Status: Protocol deployment status is unknown"
-[Omi.Glossary.Testing]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Testing Status"
+[Omi.Glossary.Testing]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Protocol Testing Status"
 [Omi.Glossary.Testing.Verified]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Testing Status: Protocol has been tested on live data"
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
-[Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
-[Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Testing Status: Protocol has not been tested due to lack of data"
+[Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
+[Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 
 [Siac.Opra.Recipient.Obi.v4.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Siac/Siac.Opra.Recipient.Obi.v4.0.Script.Dissector.lua "Siac Opra Recipient Obi v4.0 Wireshark Dissector"
 [Siac.Opra.Recipient.Obi.v4.0.Url]: https://www.opraplan.com/document-library "Specification url"

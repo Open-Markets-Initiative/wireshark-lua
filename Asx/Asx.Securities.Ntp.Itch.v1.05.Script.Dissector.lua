@@ -30,6 +30,7 @@ asx_securities_ntp_itch_v1_05.fields.auction_order_executed_message = ProtoField
 asx_securities_ntp_itch_v1_05.fields.basis_of_quotation = ProtoField.new("Basis Of Quotation", "asx.securities.ntp.itch.v1.05.basisofquotation", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.bid_quantity = ProtoField.new("Bid Quantity", "asx.securities.ntp.itch.v1.05.bidquantity", ftypes.UINT64)
 asx_securities_ntp_itch_v1_05.fields.block_lot_size = ProtoField.new("Block Lot Size", "asx.securities.ntp.itch.v1.05.blocklotsize", ftypes.UINT32)
+asx_securities_ntp_itch_v1_05.fields.bundle_leg = ProtoField.new("Bundle Leg", "asx.securities.ntp.itch.v1.05.bundleleg", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.bundles_symbol_directory = ProtoField.new("Bundles Symbol Directory", "asx.securities.ntp.itch.v1.05.bundlessymboldirectory", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.buyer_combination_trade_id = ProtoField.new("Buyer Combination Trade Id", "asx.securities.ntp.itch.v1.05.buyercombinationtradeid", ftypes.UINT64)
 asx_securities_ntp_itch_v1_05.fields.buyer_order_id = ProtoField.new("Buyer Order Id", "asx.securities.ntp.itch.v1.05.buyerorderid", ftypes.UINT64)
@@ -37,6 +38,7 @@ asx_securities_ntp_itch_v1_05.fields.buyer_participant_id = ProtoField.new("Buye
 asx_securities_ntp_itch_v1_05.fields.buyer_side = ProtoField.new("Buyer Side", "asx.securities.ntp.itch.v1.05.buyerside", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.buyer_tradeable_instrument_id = ProtoField.new("Buyer Tradeable Instrument Id", "asx.securities.ntp.itch.v1.05.buyertradeableinstrumentid", ftypes.UINT32)
 asx_securities_ntp_itch_v1_05.fields.cfi_code = ProtoField.new("Cfi Code", "asx.securities.ntp.itch.v1.05.cficode", ftypes.STRING)
+asx_securities_ntp_itch_v1_05.fields.combination_leg = ProtoField.new("Combination Leg", "asx.securities.ntp.itch.v1.05.combinationleg", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.combination_order_executed_message = ProtoField.new("Combination Order Executed Message", "asx.securities.ntp.itch.v1.05.combinationorderexecutedmessage", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.combination_symbol_directory_message = ProtoField.new("Combination Symbol Directory Message", "asx.securities.ntp.itch.v1.05.combinationsymboldirectorymessage", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.combination_trade_executed_message = ProtoField.new("Combination Trade Executed Message", "asx.securities.ntp.itch.v1.05.combinationtradeexecutedmessage", ftypes.STRING)
@@ -102,23 +104,13 @@ asx_securities_ntp_itch_v1_05.fields.payments_per_year = ProtoField.new("Payment
 asx_securities_ntp_itch_v1_05.fields.price = ProtoField.new("Price", "asx.securities.ntp.itch.v1.05.price", ftypes.INT64)
 asx_securities_ntp_itch_v1_05.fields.price_display_decimals = ProtoField.new("Price Display Decimals", "asx.securities.ntp.itch.v1.05.pricedisplaydecimals", ftypes.UINT8)
 asx_securities_ntp_itch_v1_05.fields.price_fractional_denominator = ProtoField.new("Price Fractional Denominator", "asx.securities.ntp.itch.v1.05.pricefractionaldenominator", ftypes.UINT32)
-asx_securities_ntp_itch_v1_05.fields.price_leg_1 = ProtoField.new("Price Leg 1", "asx.securities.ntp.itch.v1.05.priceleg1", ftypes.INT64)
-asx_securities_ntp_itch_v1_05.fields.price_leg_2 = ProtoField.new("Price Leg 2", "asx.securities.ntp.itch.v1.05.priceleg2", ftypes.INT64)
-asx_securities_ntp_itch_v1_05.fields.price_leg_3 = ProtoField.new("Price Leg 3", "asx.securities.ntp.itch.v1.05.priceleg3", ftypes.INT64)
-asx_securities_ntp_itch_v1_05.fields.price_leg_4 = ProtoField.new("Price Leg 4", "asx.securities.ntp.itch.v1.05.priceleg4", ftypes.INT64)
-asx_securities_ntp_itch_v1_05.fields.price_leg_5 = ProtoField.new("Price Leg 5", "asx.securities.ntp.itch.v1.05.priceleg5", ftypes.INT64)
-asx_securities_ntp_itch_v1_05.fields.price_leg_6 = ProtoField.new("Price Leg 6", "asx.securities.ntp.itch.v1.05.priceleg6", ftypes.INT64)
+asx_securities_ntp_itch_v1_05.fields.price_leg = ProtoField.new("Price Leg", "asx.securities.ntp.itch.v1.05.priceleg", ftypes.INT64)
 asx_securities_ntp_itch_v1_05.fields.price_method = ProtoField.new("Price Method", "asx.securities.ntp.itch.v1.05.pricemethod", ftypes.UINT8)
 asx_securities_ntp_itch_v1_05.fields.price_minimum_tick = ProtoField.new("Price Minimum Tick", "asx.securities.ntp.itch.v1.05.priceminimumtick", ftypes.UINT32)
 asx_securities_ntp_itch_v1_05.fields.prior_day_settlement = ProtoField.new("Prior Day Settlement", "asx.securities.ntp.itch.v1.05.priordaysettlement", ftypes.INT64)
 asx_securities_ntp_itch_v1_05.fields.quantity = ProtoField.new("Quantity", "asx.securities.ntp.itch.v1.05.quantity", ftypes.UINT32)
 asx_securities_ntp_itch_v1_05.fields.quantity_remaining = ProtoField.new("Quantity Remaining", "asx.securities.ntp.itch.v1.05.quantityremaining", ftypes.UINT32)
-asx_securities_ntp_itch_v1_05.fields.ratio_leg_1 = ProtoField.new("Ratio Leg 1", "asx.securities.ntp.itch.v1.05.ratioleg1", ftypes.UINT32)
-asx_securities_ntp_itch_v1_05.fields.ratio_leg_2 = ProtoField.new("Ratio Leg 2", "asx.securities.ntp.itch.v1.05.ratioleg2", ftypes.UINT32)
-asx_securities_ntp_itch_v1_05.fields.ratio_leg_3 = ProtoField.new("Ratio Leg 3", "asx.securities.ntp.itch.v1.05.ratioleg3", ftypes.UINT32)
-asx_securities_ntp_itch_v1_05.fields.ratio_leg_4 = ProtoField.new("Ratio Leg 4", "asx.securities.ntp.itch.v1.05.ratioleg4", ftypes.UINT32)
-asx_securities_ntp_itch_v1_05.fields.ratio_leg_5 = ProtoField.new("Ratio Leg 5", "asx.securities.ntp.itch.v1.05.ratioleg5", ftypes.UINT32)
-asx_securities_ntp_itch_v1_05.fields.ratio_leg_6 = ProtoField.new("Ratio Leg 6", "asx.securities.ntp.itch.v1.05.ratioleg6", ftypes.UINT32)
+asx_securities_ntp_itch_v1_05.fields.ratio_leg = ProtoField.new("Ratio Leg", "asx.securities.ntp.itch.v1.05.ratioleg", ftypes.UINT32)
 asx_securities_ntp_itch_v1_05.fields.request_for_quote_message = ProtoField.new("Request For Quote Message", "asx.securities.ntp.itch.v1.05.requestforquotemessage", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.rfq_side = ProtoField.new("Rfq Side", "asx.securities.ntp.itch.v1.05.rfqside", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.seconds = ProtoField.new("Seconds", "asx.securities.ntp.itch.v1.05.seconds", ftypes.UINT32)
@@ -132,12 +124,7 @@ asx_securities_ntp_itch_v1_05.fields.sequence = ProtoField.new("Sequence", "asx.
 asx_securities_ntp_itch_v1_05.fields.session = ProtoField.new("Session", "asx.securities.ntp.itch.v1.05.session", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.session_state = ProtoField.new("Session State", "asx.securities.ntp.itch.v1.05.sessionstate", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.side = ProtoField.new("Side", "asx.securities.ntp.itch.v1.05.side", ftypes.STRING)
-asx_securities_ntp_itch_v1_05.fields.side_leg_1 = ProtoField.new("Side Leg 1", "asx.securities.ntp.itch.v1.05.sideleg1", ftypes.STRING)
-asx_securities_ntp_itch_v1_05.fields.side_leg_2 = ProtoField.new("Side Leg 2", "asx.securities.ntp.itch.v1.05.sideleg2", ftypes.STRING)
-asx_securities_ntp_itch_v1_05.fields.side_leg_3 = ProtoField.new("Side Leg 3", "asx.securities.ntp.itch.v1.05.sideleg3", ftypes.STRING)
-asx_securities_ntp_itch_v1_05.fields.side_leg_4 = ProtoField.new("Side Leg 4", "asx.securities.ntp.itch.v1.05.sideleg4", ftypes.STRING)
-asx_securities_ntp_itch_v1_05.fields.side_leg_5 = ProtoField.new("Side Leg 5", "asx.securities.ntp.itch.v1.05.sideleg5", ftypes.STRING)
-asx_securities_ntp_itch_v1_05.fields.side_leg_6 = ProtoField.new("Side Leg 6", "asx.securities.ntp.itch.v1.05.sideleg6", ftypes.STRING)
+asx_securities_ntp_itch_v1_05.fields.side_leg = ProtoField.new("Side Leg", "asx.securities.ntp.itch.v1.05.sideleg", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.source_id = ProtoField.new("Source Id", "asx.securities.ntp.itch.v1.05.sourceid", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.strike = ProtoField.new("Strike", "asx.securities.ntp.itch.v1.05.strike", ftypes.INT64)
 asx_securities_ntp_itch_v1_05.fields.strike_price_decimal_position = ProtoField.new("Strike Price Decimal Position", "asx.securities.ntp.itch.v1.05.strikepricedecimalposition", ftypes.UINT8)
@@ -155,12 +142,7 @@ asx_securities_ntp_itch_v1_05.fields.trade_id = ProtoField.new("Trade Id", "asx.
 asx_securities_ntp_itch_v1_05.fields.trade_price = ProtoField.new("Trade Price", "asx.securities.ntp.itch.v1.05.tradeprice", ftypes.INT64)
 asx_securities_ntp_itch_v1_05.fields.trade_type = ProtoField.new("Trade Type", "asx.securities.ntp.itch.v1.05.tradetype", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.tradeable_instrument_id = ProtoField.new("Tradeable Instrument Id", "asx.securities.ntp.itch.v1.05.tradeableinstrumentid", ftypes.UINT32)
-asx_securities_ntp_itch_v1_05.fields.tradeable_instrument_id_leg_1 = ProtoField.new("Tradeable Instrument Id Leg 1", "asx.securities.ntp.itch.v1.05.tradeableinstrumentidleg1", ftypes.UINT32)
-asx_securities_ntp_itch_v1_05.fields.tradeable_instrument_id_leg_2 = ProtoField.new("Tradeable Instrument Id Leg 2", "asx.securities.ntp.itch.v1.05.tradeableinstrumentidleg2", ftypes.UINT32)
-asx_securities_ntp_itch_v1_05.fields.tradeable_instrument_id_leg_3 = ProtoField.new("Tradeable Instrument Id Leg 3", "asx.securities.ntp.itch.v1.05.tradeableinstrumentidleg3", ftypes.UINT32)
-asx_securities_ntp_itch_v1_05.fields.tradeable_instrument_id_leg_4 = ProtoField.new("Tradeable Instrument Id Leg 4", "asx.securities.ntp.itch.v1.05.tradeableinstrumentidleg4", ftypes.UINT32)
-asx_securities_ntp_itch_v1_05.fields.tradeable_instrument_id_leg_5 = ProtoField.new("Tradeable Instrument Id Leg 5", "asx.securities.ntp.itch.v1.05.tradeableinstrumentidleg5", ftypes.UINT32)
-asx_securities_ntp_itch_v1_05.fields.tradeable_instrument_id_leg_6 = ProtoField.new("Tradeable Instrument Id Leg 6", "asx.securities.ntp.itch.v1.05.tradeableinstrumentidleg6", ftypes.UINT32)
+asx_securities_ntp_itch_v1_05.fields.tradeable_instrument_id_leg = ProtoField.new("Tradeable Instrument Id Leg", "asx.securities.ntp.itch.v1.05.tradeableinstrumentidleg", ftypes.UINT32)
 asx_securities_ntp_itch_v1_05.fields.underlying_tradeable_instrument_id = ProtoField.new("Underlying Tradeable Instrument Id", "asx.securities.ntp.itch.v1.05.underlyingtradeableinstrumentid", ftypes.UINT32)
 asx_securities_ntp_itch_v1_05.fields.voi_trade_date = ProtoField.new("Voi Trade Date", "asx.securities.ntp.itch.v1.05.voitradedate", ftypes.UINT16)
 asx_securities_ntp_itch_v1_05.fields.volatility = ProtoField.new("Volatility", "asx.securities.ntp.itch.v1.05.volatility", ftypes.UINT64)
@@ -174,7 +156,9 @@ asx_securities_ntp_itch_v1_05.fields.volume_and_open_interest_message = ProtoFie
 show.add_order_message = true
 show.anomalous_order_threshold_publish_message = true
 show.auction_order_executed_message = true
+show.bundle_leg = true
 show.bundles_symbol_directory = true
+show.combination_leg = true
 show.combination_order_executed_message = true
 show.combination_symbol_directory_message = true
 show.combination_trade_executed_message = true
@@ -207,7 +191,9 @@ show.payload = false
 asx_securities_ntp_itch_v1_05.prefs.show_add_order_message = Pref.bool("Show Add Order Message", show.add_order_message, "Parse and add Add Order Message to protocol tree")
 asx_securities_ntp_itch_v1_05.prefs.show_anomalous_order_threshold_publish_message = Pref.bool("Show Anomalous Order Threshold Publish Message", show.anomalous_order_threshold_publish_message, "Parse and add Anomalous Order Threshold Publish Message to protocol tree")
 asx_securities_ntp_itch_v1_05.prefs.show_auction_order_executed_message = Pref.bool("Show Auction Order Executed Message", show.auction_order_executed_message, "Parse and add Auction Order Executed Message to protocol tree")
+asx_securities_ntp_itch_v1_05.prefs.show_bundle_leg = Pref.bool("Show Bundle Leg", show.bundle_leg, "Parse and add Bundle Leg to protocol tree")
 asx_securities_ntp_itch_v1_05.prefs.show_bundles_symbol_directory = Pref.bool("Show Bundles Symbol Directory", show.bundles_symbol_directory, "Parse and add Bundles Symbol Directory to protocol tree")
+asx_securities_ntp_itch_v1_05.prefs.show_combination_leg = Pref.bool("Show Combination Leg", show.combination_leg, "Parse and add Combination Leg to protocol tree")
 asx_securities_ntp_itch_v1_05.prefs.show_combination_order_executed_message = Pref.bool("Show Combination Order Executed Message", show.combination_order_executed_message, "Parse and add Combination Order Executed Message to protocol tree")
 asx_securities_ntp_itch_v1_05.prefs.show_combination_symbol_directory_message = Pref.bool("Show Combination Symbol Directory Message", show.combination_symbol_directory_message, "Parse and add Combination Symbol Directory Message to protocol tree")
 asx_securities_ntp_itch_v1_05.prefs.show_combination_trade_executed_message = Pref.bool("Show Combination Trade Executed Message", show.combination_trade_executed_message, "Parse and add Combination Trade Executed Message to protocol tree")
@@ -253,8 +239,16 @@ function asx_securities_ntp_itch_v1_05.prefs_changed()
     show.auction_order_executed_message = asx_securities_ntp_itch_v1_05.prefs.show_auction_order_executed_message
     changed = true
   end
+  if show.bundle_leg ~= asx_securities_ntp_itch_v1_05.prefs.show_bundle_leg then
+    show.bundle_leg = asx_securities_ntp_itch_v1_05.prefs.show_bundle_leg
+    changed = true
+  end
   if show.bundles_symbol_directory ~= asx_securities_ntp_itch_v1_05.prefs.show_bundles_symbol_directory then
     show.bundles_symbol_directory = asx_securities_ntp_itch_v1_05.prefs.show_bundles_symbol_directory
+    changed = true
+  end
+  if show.combination_leg ~= asx_securities_ntp_itch_v1_05.prefs.show_combination_leg then
+    show.combination_leg = asx_securities_ntp_itch_v1_05.prefs.show_combination_leg
     changed = true
   end
   if show.combination_order_executed_message ~= asx_securities_ntp_itch_v1_05.prefs.show_combination_order_executed_message then
@@ -2979,6 +2973,148 @@ dissect.order_book_state_message = function(buffer, offset, packet, parent)
   return dissect.order_book_state_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Price Leg
+size_of.price_leg = 8
+
+-- Display: Price Leg
+display.price_leg = function(value)
+  return "Price Leg: "..value
+end
+
+-- Dissect: Price Leg
+dissect.price_leg = function(buffer, offset, packet, parent)
+  local length = size_of.price_leg
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = display.price_leg(value, buffer, offset, packet, parent)
+
+  parent:add(asx_securities_ntp_itch_v1_05.fields.price_leg, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Ratio Leg
+size_of.ratio_leg = 4
+
+-- Display: Ratio Leg
+display.ratio_leg = function(value)
+  return "Ratio Leg: "..value
+end
+
+-- Dissect: Ratio Leg
+dissect.ratio_leg = function(buffer, offset, packet, parent)
+  local length = size_of.ratio_leg
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = display.ratio_leg(value, buffer, offset, packet, parent)
+
+  parent:add(asx_securities_ntp_itch_v1_05.fields.ratio_leg, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Side Leg
+size_of.side_leg = 1
+
+-- Display: Side Leg
+display.side_leg = function(value)
+  if value == " " then
+    return "Side Leg: Not Defined (<whitespace>)"
+  end
+  if value == "B" then
+    return "Side Leg: Buy (B)"
+  end
+  if value == "S" then
+    return "Side Leg: Sell (S)"
+  end
+
+  return "Side Leg: Unknown("..value..")"
+end
+
+-- Dissect: Side Leg
+dissect.side_leg = function(buffer, offset, packet, parent)
+  local length = size_of.side_leg
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.side_leg(value, buffer, offset, packet, parent)
+
+  parent:add(asx_securities_ntp_itch_v1_05.fields.side_leg, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Tradeable Instrument Id Leg
+size_of.tradeable_instrument_id_leg = 4
+
+-- Display: Tradeable Instrument Id Leg
+display.tradeable_instrument_id_leg = function(value)
+  return "Tradeable Instrument Id Leg: "..value
+end
+
+-- Dissect: Tradeable Instrument Id Leg
+dissect.tradeable_instrument_id_leg = function(buffer, offset, packet, parent)
+  local length = size_of.tradeable_instrument_id_leg
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = display.tradeable_instrument_id_leg(value, buffer, offset, packet, parent)
+
+  parent:add(asx_securities_ntp_itch_v1_05.fields.tradeable_instrument_id_leg, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate size of: Bundle Leg
+size_of.bundle_leg = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tradeable_instrument_id_leg
+
+  index = index + size_of.side_leg
+
+  index = index + size_of.ratio_leg
+
+  index = index + size_of.price_leg
+
+  return index
+end
+
+-- Display: Bundle Leg
+display.bundle_leg = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Bundle Leg
+dissect.bundle_leg_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Tradeable Instrument Id Leg: 4 Byte Unsigned Fixed Width Integer
+  index, tradeable_instrument_id_leg = dissect.tradeable_instrument_id_leg(buffer, index, packet, parent)
+
+  -- Side Leg: 1 Byte Ascii String Enum with 3 values
+  index, side_leg = dissect.side_leg(buffer, index, packet, parent)
+
+  -- Ratio Leg: 4 Byte Unsigned Fixed Width Integer
+  index, ratio_leg = dissect.ratio_leg(buffer, index, packet, parent)
+
+  -- Price Leg: 8 Byte Signed Fixed Width Integer
+  index, price_leg = dissect.price_leg(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bundle Leg
+dissect.bundle_leg = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.bundle_leg then
+    local length = size_of.bundle_leg(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.bundle_leg(buffer, packet, parent)
+    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.bundle_leg, range, display)
+  end
+
+  return dissect.bundle_leg_fields(buffer, offset, packet, parent)
+end
+
 -- Size: Legs
 size_of.legs = 1
 
@@ -3178,7 +3314,7 @@ size_of.bundles_symbol_directory = function(buffer, offset)
 
   index = index + size_of.legs
 
-  index = index + size_of.leg
+  index = index + 20 * size_of.bundle_leg(buffer, offset + index)
 
   return index
 end
@@ -3225,8 +3361,10 @@ dissect.bundles_symbol_directory_fields = function(buffer, offset, packet, paren
   -- Legs: 1 Byte Unsigned Fixed Width Integer
   index, legs = dissect.legs(buffer, index, packet, parent)
 
-  -- Leg
-  index, leg = dissect.leg(buffer, index, packet, parent)
+  -- Array Count Of: Bundle Leg
+  for i = 1, 20 do
+    index = dissect.bundle_leg(buffer, index, packet, parent)
+  end
 
   return index
 end
@@ -3244,484 +3382,56 @@ dissect.bundles_symbol_directory = function(buffer, offset, packet, parent)
   return dissect.bundles_symbol_directory_fields(buffer, offset, packet, parent)
 end
 
--- Size: Price Leg 6
-size_of.price_leg_6 = 8
+-- Calculate size of: Combination Leg
+size_of.combination_leg = function(buffer, offset)
+  local index = 0
 
--- Display: Price Leg 6
-display.price_leg_6 = function(value)
-  return "Price Leg 6: "..value
+  index = index + size_of.tradeable_instrument_id_leg
+
+  index = index + size_of.side_leg
+
+  index = index + size_of.ratio_leg
+
+  index = index + size_of.price_leg
+
+  return index
 end
 
--- Dissect: Price Leg 6
-dissect.price_leg_6 = function(buffer, offset, packet, parent)
-  local length = size_of.price_leg_6
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = display.price_leg_6(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_ntp_itch_v1_05.fields.price_leg_6, range, value, display)
-
-  return offset + length, value
+-- Display: Combination Leg
+display.combination_leg = function(buffer, offset, size, packet, parent)
+  return ""
 end
 
--- Size: Ratio Leg 6
-size_of.ratio_leg_6 = 4
+-- Dissect Fields: Combination Leg
+dissect.combination_leg_fields = function(buffer, offset, packet, parent)
+  local index = offset
 
--- Display: Ratio Leg 6
-display.ratio_leg_6 = function(value)
-  return "Ratio Leg 6: "..value
+  -- Tradeable Instrument Id Leg: 4 Byte Unsigned Fixed Width Integer
+  index, tradeable_instrument_id_leg = dissect.tradeable_instrument_id_leg(buffer, index, packet, parent)
+
+  -- Side Leg: 1 Byte Ascii String Enum with 3 values
+  index, side_leg = dissect.side_leg(buffer, index, packet, parent)
+
+  -- Ratio Leg: 4 Byte Unsigned Fixed Width Integer
+  index, ratio_leg = dissect.ratio_leg(buffer, index, packet, parent)
+
+  -- Price Leg: 8 Byte Signed Fixed Width Integer
+  index, price_leg = dissect.price_leg(buffer, index, packet, parent)
+
+  return index
 end
 
--- Dissect: Ratio Leg 6
-dissect.ratio_leg_6 = function(buffer, offset, packet, parent)
-  local length = size_of.ratio_leg_6
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = display.ratio_leg_6(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_ntp_itch_v1_05.fields.ratio_leg_6, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Side Leg 6
-size_of.side_leg_6 = 1
-
--- Display: Side Leg 6
-display.side_leg_6 = function(value)
-  return "Side Leg 6: "..value
-end
-
--- Dissect: Side Leg 6
-dissect.side_leg_6 = function(buffer, offset, packet, parent)
-  local length = size_of.side_leg_6
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.side_leg_6(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_ntp_itch_v1_05.fields.side_leg_6, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Tradeable Instrument Id Leg 6
-size_of.tradeable_instrument_id_leg_6 = 4
-
--- Display: Tradeable Instrument Id Leg 6
-display.tradeable_instrument_id_leg_6 = function(value)
-  return "Tradeable Instrument Id Leg 6: "..value
-end
-
--- Dissect: Tradeable Instrument Id Leg 6
-dissect.tradeable_instrument_id_leg_6 = function(buffer, offset, packet, parent)
-  local length = size_of.tradeable_instrument_id_leg_6
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = display.tradeable_instrument_id_leg_6(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_ntp_itch_v1_05.fields.tradeable_instrument_id_leg_6, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Price Leg 5
-size_of.price_leg_5 = 8
-
--- Display: Price Leg 5
-display.price_leg_5 = function(value)
-  return "Price Leg 5: "..value
-end
-
--- Dissect: Price Leg 5
-dissect.price_leg_5 = function(buffer, offset, packet, parent)
-  local length = size_of.price_leg_5
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = display.price_leg_5(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_ntp_itch_v1_05.fields.price_leg_5, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Ratio Leg 5
-size_of.ratio_leg_5 = 4
-
--- Display: Ratio Leg 5
-display.ratio_leg_5 = function(value)
-  return "Ratio Leg 5: "..value
-end
-
--- Dissect: Ratio Leg 5
-dissect.ratio_leg_5 = function(buffer, offset, packet, parent)
-  local length = size_of.ratio_leg_5
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = display.ratio_leg_5(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_ntp_itch_v1_05.fields.ratio_leg_5, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Side Leg 5
-size_of.side_leg_5 = 1
-
--- Display: Side Leg 5
-display.side_leg_5 = function(value)
-  return "Side Leg 5: "..value
-end
-
--- Dissect: Side Leg 5
-dissect.side_leg_5 = function(buffer, offset, packet, parent)
-  local length = size_of.side_leg_5
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.side_leg_5(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_ntp_itch_v1_05.fields.side_leg_5, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Tradeable Instrument Id Leg 5
-size_of.tradeable_instrument_id_leg_5 = 4
-
--- Display: Tradeable Instrument Id Leg 5
-display.tradeable_instrument_id_leg_5 = function(value)
-  return "Tradeable Instrument Id Leg 5: "..value
-end
-
--- Dissect: Tradeable Instrument Id Leg 5
-dissect.tradeable_instrument_id_leg_5 = function(buffer, offset, packet, parent)
-  local length = size_of.tradeable_instrument_id_leg_5
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = display.tradeable_instrument_id_leg_5(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_ntp_itch_v1_05.fields.tradeable_instrument_id_leg_5, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Price Leg 4
-size_of.price_leg_4 = 8
-
--- Display: Price Leg 4
-display.price_leg_4 = function(value)
-  return "Price Leg 4: "..value
-end
-
--- Dissect: Price Leg 4
-dissect.price_leg_4 = function(buffer, offset, packet, parent)
-  local length = size_of.price_leg_4
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = display.price_leg_4(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_ntp_itch_v1_05.fields.price_leg_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Ratio Leg 4
-size_of.ratio_leg_4 = 4
-
--- Display: Ratio Leg 4
-display.ratio_leg_4 = function(value)
-  return "Ratio Leg 4: "..value
-end
-
--- Dissect: Ratio Leg 4
-dissect.ratio_leg_4 = function(buffer, offset, packet, parent)
-  local length = size_of.ratio_leg_4
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = display.ratio_leg_4(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_ntp_itch_v1_05.fields.ratio_leg_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Side Leg 4
-size_of.side_leg_4 = 1
-
--- Display: Side Leg 4
-display.side_leg_4 = function(value)
-  return "Side Leg 4: "..value
-end
-
--- Dissect: Side Leg 4
-dissect.side_leg_4 = function(buffer, offset, packet, parent)
-  local length = size_of.side_leg_4
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.side_leg_4(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_ntp_itch_v1_05.fields.side_leg_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Tradeable Instrument Id Leg 4
-size_of.tradeable_instrument_id_leg_4 = 4
-
--- Display: Tradeable Instrument Id Leg 4
-display.tradeable_instrument_id_leg_4 = function(value)
-  return "Tradeable Instrument Id Leg 4: "..value
-end
-
--- Dissect: Tradeable Instrument Id Leg 4
-dissect.tradeable_instrument_id_leg_4 = function(buffer, offset, packet, parent)
-  local length = size_of.tradeable_instrument_id_leg_4
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = display.tradeable_instrument_id_leg_4(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_ntp_itch_v1_05.fields.tradeable_instrument_id_leg_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Price Leg 3
-size_of.price_leg_3 = 8
-
--- Display: Price Leg 3
-display.price_leg_3 = function(value)
-  return "Price Leg 3: "..value
-end
-
--- Dissect: Price Leg 3
-dissect.price_leg_3 = function(buffer, offset, packet, parent)
-  local length = size_of.price_leg_3
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = display.price_leg_3(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_ntp_itch_v1_05.fields.price_leg_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Ratio Leg 3
-size_of.ratio_leg_3 = 4
-
--- Display: Ratio Leg 3
-display.ratio_leg_3 = function(value)
-  return "Ratio Leg 3: "..value
-end
-
--- Dissect: Ratio Leg 3
-dissect.ratio_leg_3 = function(buffer, offset, packet, parent)
-  local length = size_of.ratio_leg_3
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = display.ratio_leg_3(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_ntp_itch_v1_05.fields.ratio_leg_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Side Leg 3
-size_of.side_leg_3 = 1
-
--- Display: Side Leg 3
-display.side_leg_3 = function(value)
-  return "Side Leg 3: "..value
-end
-
--- Dissect: Side Leg 3
-dissect.side_leg_3 = function(buffer, offset, packet, parent)
-  local length = size_of.side_leg_3
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.side_leg_3(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_ntp_itch_v1_05.fields.side_leg_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Tradeable Instrument Id Leg 3
-size_of.tradeable_instrument_id_leg_3 = 4
-
--- Display: Tradeable Instrument Id Leg 3
-display.tradeable_instrument_id_leg_3 = function(value)
-  return "Tradeable Instrument Id Leg 3: "..value
-end
-
--- Dissect: Tradeable Instrument Id Leg 3
-dissect.tradeable_instrument_id_leg_3 = function(buffer, offset, packet, parent)
-  local length = size_of.tradeable_instrument_id_leg_3
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = display.tradeable_instrument_id_leg_3(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_ntp_itch_v1_05.fields.tradeable_instrument_id_leg_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Price Leg 2
-size_of.price_leg_2 = 8
-
--- Display: Price Leg 2
-display.price_leg_2 = function(value)
-  return "Price Leg 2: "..value
-end
-
--- Dissect: Price Leg 2
-dissect.price_leg_2 = function(buffer, offset, packet, parent)
-  local length = size_of.price_leg_2
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = display.price_leg_2(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_ntp_itch_v1_05.fields.price_leg_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Ratio Leg 2
-size_of.ratio_leg_2 = 4
-
--- Display: Ratio Leg 2
-display.ratio_leg_2 = function(value)
-  return "Ratio Leg 2: "..value
-end
-
--- Dissect: Ratio Leg 2
-dissect.ratio_leg_2 = function(buffer, offset, packet, parent)
-  local length = size_of.ratio_leg_2
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = display.ratio_leg_2(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_ntp_itch_v1_05.fields.ratio_leg_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Side Leg 2
-size_of.side_leg_2 = 1
-
--- Display: Side Leg 2
-display.side_leg_2 = function(value)
-  return "Side Leg 2: "..value
-end
-
--- Dissect: Side Leg 2
-dissect.side_leg_2 = function(buffer, offset, packet, parent)
-  local length = size_of.side_leg_2
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.side_leg_2(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_ntp_itch_v1_05.fields.side_leg_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Tradeable Instrument Id Leg 2
-size_of.tradeable_instrument_id_leg_2 = 4
-
--- Display: Tradeable Instrument Id Leg 2
-display.tradeable_instrument_id_leg_2 = function(value)
-  return "Tradeable Instrument Id Leg 2: "..value
-end
-
--- Dissect: Tradeable Instrument Id Leg 2
-dissect.tradeable_instrument_id_leg_2 = function(buffer, offset, packet, parent)
-  local length = size_of.tradeable_instrument_id_leg_2
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = display.tradeable_instrument_id_leg_2(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_ntp_itch_v1_05.fields.tradeable_instrument_id_leg_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Price Leg 1
-size_of.price_leg_1 = 8
-
--- Display: Price Leg 1
-display.price_leg_1 = function(value)
-  return "Price Leg 1: "..value
-end
-
--- Dissect: Price Leg 1
-dissect.price_leg_1 = function(buffer, offset, packet, parent)
-  local length = size_of.price_leg_1
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = display.price_leg_1(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_ntp_itch_v1_05.fields.price_leg_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Ratio Leg 1
-size_of.ratio_leg_1 = 4
-
--- Display: Ratio Leg 1
-display.ratio_leg_1 = function(value)
-  return "Ratio Leg 1: "..value
-end
-
--- Dissect: Ratio Leg 1
-dissect.ratio_leg_1 = function(buffer, offset, packet, parent)
-  local length = size_of.ratio_leg_1
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = display.ratio_leg_1(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_ntp_itch_v1_05.fields.ratio_leg_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Side Leg 1
-size_of.side_leg_1 = 1
-
--- Display: Side Leg 1
-display.side_leg_1 = function(value)
-  return "Side Leg 1: "..value
-end
-
--- Dissect: Side Leg 1
-dissect.side_leg_1 = function(buffer, offset, packet, parent)
-  local length = size_of.side_leg_1
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.side_leg_1(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_ntp_itch_v1_05.fields.side_leg_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Tradeable Instrument Id Leg 1
-size_of.tradeable_instrument_id_leg_1 = 4
-
--- Display: Tradeable Instrument Id Leg 1
-display.tradeable_instrument_id_leg_1 = function(value)
-  return "Tradeable Instrument Id Leg 1: "..value
-end
-
--- Dissect: Tradeable Instrument Id Leg 1
-dissect.tradeable_instrument_id_leg_1 = function(buffer, offset, packet, parent)
-  local length = size_of.tradeable_instrument_id_leg_1
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = display.tradeable_instrument_id_leg_1(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_ntp_itch_v1_05.fields.tradeable_instrument_id_leg_1, range, value, display)
-
-  return offset + length, value
+-- Dissect: Combination Leg
+dissect.combination_leg = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.combination_leg then
+    local length = size_of.combination_leg(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.combination_leg(buffer, packet, parent)
+    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.combination_leg, range, display)
+  end
+
+  return dissect.combination_leg_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Combination Symbol Directory Message
@@ -3750,53 +3460,7 @@ size_of.combination_symbol_directory_message = function(buffer, offset)
 
   index = index + size_of.legs
 
-  index = index + size_of.tradeable_instrument_id_leg_1
-
-  index = index + size_of.side_leg_1
-
-  index = index + size_of.ratio_leg_1
-
-  index = index + size_of.price_leg_1
-
-  index = index + size_of.tradeable_instrument_id_leg_2
-
-  index = index + size_of.side_leg_2
-
-  index = index + size_of.ratio_leg_2
-
-  index = index + size_of.price_leg_2
-
-  index = index + size_of.tradeable_instrument_id_leg_3
-
-  index = index + size_of.side_leg_3
-
-  index = index + size_of.ratio_leg_3
-
-  index = index + size_of.price_leg_3
-
-  index = index + size_of.tradeable_instrument_id_leg_4
-
-  index = index + size_of.side_leg_4
-
-  index = index + size_of.ratio_leg_4
-
-  index = index + size_of.price_leg_4
-
-  index = index + size_of.tradeable_instrument_id_leg_5
-
-  index = index + size_of.side_leg_5
-
-  index = index + size_of.ratio_leg_5
-
-  index = index + size_of.price_leg_5
-
-  index = index + size_of.tradeable_instrument_id_leg_6
-
-  index = index + size_of.side_leg_6
-
-  index = index + size_of.ratio_leg_6
-
-  index = index + size_of.price_leg_6
+  index = index + 6 * size_of.combination_leg(buffer, offset + index)
 
   return index
 end
@@ -3843,77 +3507,10 @@ dissect.combination_symbol_directory_message_fields = function(buffer, offset, p
   -- Legs: 1 Byte Unsigned Fixed Width Integer
   index, legs = dissect.legs(buffer, index, packet, parent)
 
-  -- Tradeable Instrument Id Leg 1: 4 Byte Unsigned Fixed Width Integer
-  index, tradeable_instrument_id_leg_1 = dissect.tradeable_instrument_id_leg_1(buffer, index, packet, parent)
-
-  -- Side Leg 1: 1 Byte Ascii String
-  index, side_leg_1 = dissect.side_leg_1(buffer, index, packet, parent)
-
-  -- Ratio Leg 1: 4 Byte Unsigned Fixed Width Integer
-  index, ratio_leg_1 = dissect.ratio_leg_1(buffer, index, packet, parent)
-
-  -- Price Leg 1: 8 Byte Signed Fixed Width Integer
-  index, price_leg_1 = dissect.price_leg_1(buffer, index, packet, parent)
-
-  -- Tradeable Instrument Id Leg 2: 4 Byte Unsigned Fixed Width Integer
-  index, tradeable_instrument_id_leg_2 = dissect.tradeable_instrument_id_leg_2(buffer, index, packet, parent)
-
-  -- Side Leg 2: 1 Byte Ascii String
-  index, side_leg_2 = dissect.side_leg_2(buffer, index, packet, parent)
-
-  -- Ratio Leg 2: 4 Byte Unsigned Fixed Width Integer
-  index, ratio_leg_2 = dissect.ratio_leg_2(buffer, index, packet, parent)
-
-  -- Price Leg 2: 8 Byte Signed Fixed Width Integer
-  index, price_leg_2 = dissect.price_leg_2(buffer, index, packet, parent)
-
-  -- Tradeable Instrument Id Leg 3: 4 Byte Unsigned Fixed Width Integer
-  index, tradeable_instrument_id_leg_3 = dissect.tradeable_instrument_id_leg_3(buffer, index, packet, parent)
-
-  -- Side Leg 3: 1 Byte Ascii String
-  index, side_leg_3 = dissect.side_leg_3(buffer, index, packet, parent)
-
-  -- Ratio Leg 3: 4 Byte Unsigned Fixed Width Integer
-  index, ratio_leg_3 = dissect.ratio_leg_3(buffer, index, packet, parent)
-
-  -- Price Leg 3: 8 Byte Signed Fixed Width Integer
-  index, price_leg_3 = dissect.price_leg_3(buffer, index, packet, parent)
-
-  -- Tradeable Instrument Id Leg 4: 4 Byte Unsigned Fixed Width Integer
-  index, tradeable_instrument_id_leg_4 = dissect.tradeable_instrument_id_leg_4(buffer, index, packet, parent)
-
-  -- Side Leg 4: 1 Byte Ascii String
-  index, side_leg_4 = dissect.side_leg_4(buffer, index, packet, parent)
-
-  -- Ratio Leg 4: 4 Byte Unsigned Fixed Width Integer
-  index, ratio_leg_4 = dissect.ratio_leg_4(buffer, index, packet, parent)
-
-  -- Price Leg 4: 8 Byte Signed Fixed Width Integer
-  index, price_leg_4 = dissect.price_leg_4(buffer, index, packet, parent)
-
-  -- Tradeable Instrument Id Leg 5: 4 Byte Unsigned Fixed Width Integer
-  index, tradeable_instrument_id_leg_5 = dissect.tradeable_instrument_id_leg_5(buffer, index, packet, parent)
-
-  -- Side Leg 5: 1 Byte Ascii String
-  index, side_leg_5 = dissect.side_leg_5(buffer, index, packet, parent)
-
-  -- Ratio Leg 5: 4 Byte Unsigned Fixed Width Integer
-  index, ratio_leg_5 = dissect.ratio_leg_5(buffer, index, packet, parent)
-
-  -- Price Leg 5: 8 Byte Signed Fixed Width Integer
-  index, price_leg_5 = dissect.price_leg_5(buffer, index, packet, parent)
-
-  -- Tradeable Instrument Id Leg 6: 4 Byte Unsigned Fixed Width Integer
-  index, tradeable_instrument_id_leg_6 = dissect.tradeable_instrument_id_leg_6(buffer, index, packet, parent)
-
-  -- Side Leg 6: 1 Byte Ascii String
-  index, side_leg_6 = dissect.side_leg_6(buffer, index, packet, parent)
-
-  -- Ratio Leg 6: 4 Byte Unsigned Fixed Width Integer
-  index, ratio_leg_6 = dissect.ratio_leg_6(buffer, index, packet, parent)
-
-  -- Price Leg 6: 8 Byte Signed Fixed Width Integer
-  index, price_leg_6 = dissect.price_leg_6(buffer, index, packet, parent)
+  -- Array Count Of: Combination Leg
+  for i = 1, 6 do
+    index = dissect.combination_leg(buffer, index, packet, parent)
+  end
 
   return index
 end
