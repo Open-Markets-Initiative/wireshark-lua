@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Lse Millennium Level 2 Mitch 11.9 Protocol
-local lse_millennium_level_2_mitch_v11_9 = Proto("Lse.Millennium.Level 2.Mitch.v11.9.Lua", "Lse Millennium Level 2 Mitch 11.9")
+-- Lse Millennium Level2 Mitch 11.9 Protocol
+local lse_millennium_level2_mitch_v11_9 = Proto("Lse.Millennium.Level2.Mitch.v11.9.Lua", "Lse Millennium Level2 Mitch 11.9")
 
 -- Component Tables
 local show = {}
@@ -19,93 +19,93 @@ local verify = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Lse Millennium Level 2 Mitch 11.9 Fields
-lse_millennium_level_2_mitch_v11_9.fields.add_attributed_order_message = ProtoField.new("Add Attributed Order Message", "lse.millennium.level 2.mitch.v11.9.addattributedordermessage", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.add_order_message = ProtoField.new("Add Order Message", "lse.millennium.level 2.mitch.v11.9.addordermessage", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.amnd = ProtoField.new("Amnd", "lse.millennium.level 2.mitch.v11.9.amnd", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
-lse_millennium_level_2_mitch_v11_9.fields.attribution = ProtoField.new("Attribution", "lse.millennium.level 2.mitch.v11.9.attribution", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.auction_info_message = ProtoField.new("Auction Info Message", "lse.millennium.level 2.mitch.v11.9.auctioninfomessage", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.auction_trade_message = ProtoField.new("Auction Trade Message", "lse.millennium.level 2.mitch.v11.9.auctiontrademessage", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.auction_type = ProtoField.new("Auction Type", "lse.millennium.level 2.mitch.v11.9.auctiontype", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.book_type = ProtoField.new("Book Type", "lse.millennium.level 2.mitch.v11.9.booktype", ftypes.UINT8)
-lse_millennium_level_2_mitch_v11_9.fields.buy_limit_price = ProtoField.new("Buy Limit Price", "lse.millennium.level 2.mitch.v11.9.buylimitprice", ftypes.INT64)
-lse_millennium_level_2_mitch_v11_9.fields.buy_limit_size = ProtoField.new("Buy Limit Size", "lse.millennium.level 2.mitch.v11.9.buylimitsize", ftypes.UINT32)
-lse_millennium_level_2_mitch_v11_9.fields.canc = ProtoField.new("Canc", "lse.millennium.level 2.mitch.v11.9.canc", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
-lse_millennium_level_2_mitch_v11_9.fields.cross_type = ProtoField.new("Cross Type", "lse.millennium.level 2.mitch.v11.9.crosstype", ftypes.UINT8)
-lse_millennium_level_2_mitch_v11_9.fields.currency = ProtoField.new("Currency", "lse.millennium.level 2.mitch.v11.9.currency", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.display_quantity = ProtoField.new("Display Quantity", "lse.millennium.level 2.mitch.v11.9.displayquantity", ftypes.UINT32)
-lse_millennium_level_2_mitch_v11_9.fields.event_code = ProtoField.new("Event Code", "lse.millennium.level 2.mitch.v11.9.eventcode", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.executed_quantity = ProtoField.new("Executed Quantity", "lse.millennium.level 2.mitch.v11.9.executedquantity", ftypes.UINT32)
-lse_millennium_level_2_mitch_v11_9.fields.firm_quote = ProtoField.new("Firm Quote", "lse.millennium.level 2.mitch.v11.9.firmquote", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
-lse_millennium_level_2_mitch_v11_9.fields.flags = ProtoField.new("Flags", "lse.millennium.level 2.mitch.v11.9.flags", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.instrument_id = ProtoField.new("Instrument Id", "lse.millennium.level 2.mitch.v11.9.instrumentid", ftypes.UINT32)
-lse_millennium_level_2_mitch_v11_9.fields.isin = ProtoField.new("Isin", "lse.millennium.level 2.mitch.v11.9.isin", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.length = ProtoField.new("Length", "lse.millennium.level 2.mitch.v11.9.length", ftypes.UINT16)
-lse_millennium_level_2_mitch_v11_9.fields.market_data_group = ProtoField.new("Market Data Group", "lse.millennium.level 2.mitch.v11.9.marketdatagroup", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.market_order = ProtoField.new("Market Order", "lse.millennium.level 2.mitch.v11.9.marketorder", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
-lse_millennium_level_2_mitch_v11_9.fields.message = ProtoField.new("Message", "lse.millennium.level 2.mitch.v11.9.message", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.message_count = ProtoField.new("Message Count", "lse.millennium.level 2.mitch.v11.9.messagecount", ftypes.UINT8)
-lse_millennium_level_2_mitch_v11_9.fields.message_header = ProtoField.new("Message Header", "lse.millennium.level 2.mitch.v11.9.messageheader", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.message_length = ProtoField.new("Message Length", "lse.millennium.level 2.mitch.v11.9.messagelength", ftypes.UINT8)
-lse_millennium_level_2_mitch_v11_9.fields.message_type = ProtoField.new("Message Type", "lse.millennium.level 2.mitch.v11.9.messagetype", ftypes.UINT8)
-lse_millennium_level_2_mitch_v11_9.fields.nanosecond = ProtoField.new("Nanosecond", "lse.millennium.level 2.mitch.v11.9.nanosecond", ftypes.UINT32)
-lse_millennium_level_2_mitch_v11_9.fields.new_end_time = ProtoField.new("New End Time", "lse.millennium.level 2.mitch.v11.9.newendtime", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.new_price = ProtoField.new("New Price", "lse.millennium.level 2.mitch.v11.9.newprice", ftypes.INT64)
-lse_millennium_level_2_mitch_v11_9.fields.new_quantity = ProtoField.new("New Quantity", "lse.millennium.level 2.mitch.v11.9.newquantity", ftypes.UINT32)
-lse_millennium_level_2_mitch_v11_9.fields.open_close_price_indicator = ProtoField.new("Open Close Price Indicator", "lse.millennium.level 2.mitch.v11.9.openclosepriceindicator", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.order_book_clear_message = ProtoField.new("Order Book Clear Message", "lse.millennium.level 2.mitch.v11.9.orderbookclearmessage", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.order_deleted_message = ProtoField.new("Order Deleted Message", "lse.millennium.level 2.mitch.v11.9.orderdeletedmessage", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.order_executed_message = ProtoField.new("Order Executed Message", "lse.millennium.level 2.mitch.v11.9.orderexecutedmessage", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.order_executed_with_price_size_message = ProtoField.new("Order Executed With Price Size Message", "lse.millennium.level 2.mitch.v11.9.orderexecutedwithpricesizemessage", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.order_id = ProtoField.new("Order Id", "lse.millennium.level 2.mitch.v11.9.orderid", ftypes.UINT64)
-lse_millennium_level_2_mitch_v11_9.fields.order_modified_message = ProtoField.new("Order Modified Message", "lse.millennium.level 2.mitch.v11.9.ordermodifiedmessage", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.packet = ProtoField.new("Packet", "lse.millennium.level 2.mitch.v11.9.packet", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.paired_quantity = ProtoField.new("Paired Quantity", "lse.millennium.level 2.mitch.v11.9.pairedquantity", ftypes.UINT32)
-lse_millennium_level_2_mitch_v11_9.fields.payload = ProtoField.new("Payload", "lse.millennium.level 2.mitch.v11.9.payload", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.previous_close_price = ProtoField.new("Previous Close Price", "lse.millennium.level 2.mitch.v11.9.previouscloseprice", ftypes.INT64)
-lse_millennium_level_2_mitch_v11_9.fields.price = ProtoField.new("Price", "lse.millennium.level 2.mitch.v11.9.price", ftypes.INT64)
-lse_millennium_level_2_mitch_v11_9.fields.printable = ProtoField.new("Printable", "lse.millennium.level 2.mitch.v11.9.printable", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.priority_flag = ProtoField.new("Priority Flag", "lse.millennium.level 2.mitch.v11.9.priorityflag", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
-lse_millennium_level_2_mitch_v11_9.fields.private_rfq = ProtoField.new("Private Rfq", "lse.millennium.level 2.mitch.v11.9.privaterfq", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
-lse_millennium_level_2_mitch_v11_9.fields.pt_mod_flags = ProtoField.new("Pt Mod Flags", "lse.millennium.level 2.mitch.v11.9.ptmodflags", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.quantity = ProtoField.new("Quantity", "lse.millennium.level 2.mitch.v11.9.quantity", ftypes.UINT32)
-lse_millennium_level_2_mitch_v11_9.fields.reason = ProtoField.new("Reason", "lse.millennium.level 2.mitch.v11.9.reason", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.reserved = ProtoField.new("Reserved", "lse.millennium.level 2.mitch.v11.9.reserved", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.reserved_a = ProtoField.new("Reserved A", "lse.millennium.level 2.mitch.v11.9.reserveda", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.reserved_alpha = ProtoField.new("Reserved Alpha", "lse.millennium.level 2.mitch.v11.9.reservedalpha", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.reserved_b = ProtoField.new("Reserved B", "lse.millennium.level 2.mitch.v11.9.reservedb", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.reserved_byte = ProtoField.new("Reserved Byte", "lse.millennium.level 2.mitch.v11.9.reservedbyte", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.seconds = ProtoField.new("Seconds", "lse.millennium.level 2.mitch.v11.9.seconds", ftypes.UINT32)
-lse_millennium_level_2_mitch_v11_9.fields.sedol = ProtoField.new("Sedol", "lse.millennium.level 2.mitch.v11.9.sedol", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.segment = ProtoField.new("Segment", "lse.millennium.level 2.mitch.v11.9.segment", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.sell_limit_price = ProtoField.new("Sell Limit Price", "lse.millennium.level 2.mitch.v11.9.selllimitprice", ftypes.INT64)
-lse_millennium_level_2_mitch_v11_9.fields.sell_limit_size = ProtoField.new("Sell Limit Size", "lse.millennium.level 2.mitch.v11.9.selllimitsize", ftypes.UINT32)
-lse_millennium_level_2_mitch_v11_9.fields.sequence_number = ProtoField.new("Sequence Number", "lse.millennium.level 2.mitch.v11.9.sequencenumber", ftypes.UINT32)
-lse_millennium_level_2_mitch_v11_9.fields.session_change_reason = ProtoField.new("Session Change Reason", "lse.millennium.level 2.mitch.v11.9.sessionchangereason", ftypes.UINT8)
-lse_millennium_level_2_mitch_v11_9.fields.side = ProtoField.new("Side", "lse.millennium.level 2.mitch.v11.9.side", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.statistic_type = ProtoField.new("Statistic Type", "lse.millennium.level 2.mitch.v11.9.statistictype", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.statistics_message = ProtoField.new("Statistics Message", "lse.millennium.level 2.mitch.v11.9.statisticsmessage", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.sub_book = ProtoField.new("Sub Book", "lse.millennium.level 2.mitch.v11.9.subbook", ftypes.UINT8)
-lse_millennium_level_2_mitch_v11_9.fields.symbol_directory_message = ProtoField.new("Symbol Directory Message", "lse.millennium.level 2.mitch.v11.9.symboldirectorymessage", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.symbol_status = ProtoField.new("Symbol Status", "lse.millennium.level 2.mitch.v11.9.symbolstatus", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.symbol_status_message = ProtoField.new("Symbol Status Message", "lse.millennium.level 2.mitch.v11.9.symbolstatusmessage", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.system_event_message = ProtoField.new("System Event Message", "lse.millennium.level 2.mitch.v11.9.systemeventmessage", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.time_message = ProtoField.new("Time Message", "lse.millennium.level 2.mitch.v11.9.timemessage", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.top_of_book_message = ProtoField.new("Top Of Book Message", "lse.millennium.level 2.mitch.v11.9.topofbookmessage", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.trade_match_id = ProtoField.new("Trade Match Id", "lse.millennium.level 2.mitch.v11.9.tradematchid", ftypes.UINT64)
-lse_millennium_level_2_mitch_v11_9.fields.trade_message = ProtoField.new("Trade Message", "lse.millennium.level 2.mitch.v11.9.trademessage", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.trading_status = ProtoField.new("Trading Status", "lse.millennium.level 2.mitch.v11.9.tradingstatus", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.underlying = ProtoField.new("Underlying", "lse.millennium.level 2.mitch.v11.9.underlying", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.unit_header = ProtoField.new("Unit Header", "lse.millennium.level 2.mitch.v11.9.unitheader", ftypes.STRING)
-lse_millennium_level_2_mitch_v11_9.fields.unused_1 = ProtoField.new("Unused 1", "lse.millennium.level 2.mitch.v11.9.unused1", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
-lse_millennium_level_2_mitch_v11_9.fields.unused_3 = ProtoField.new("Unused 3", "lse.millennium.level 2.mitch.v11.9.unused3", ftypes.UINT8, nil, base.DEC, "0x70")
-lse_millennium_level_2_mitch_v11_9.fields.unused_6 = ProtoField.new("Unused 6", "lse.millennium.level 2.mitch.v11.9.unused6", ftypes.UINT8, nil, base.DEC, "0x3F")
+-- Lse Millennium Level2 Mitch 11.9 Fields
+lse_millennium_level2_mitch_v11_9.fields.add_attributed_order_message = ProtoField.new("Add Attributed Order Message", "lse.millennium.level2.mitch.v11.9.addattributedordermessage", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.add_order_message = ProtoField.new("Add Order Message", "lse.millennium.level2.mitch.v11.9.addordermessage", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.amnd = ProtoField.new("Amnd", "lse.millennium.level2.mitch.v11.9.amnd", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
+lse_millennium_level2_mitch_v11_9.fields.attribution = ProtoField.new("Attribution", "lse.millennium.level2.mitch.v11.9.attribution", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.auction_info_message = ProtoField.new("Auction Info Message", "lse.millennium.level2.mitch.v11.9.auctioninfomessage", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.auction_trade_message = ProtoField.new("Auction Trade Message", "lse.millennium.level2.mitch.v11.9.auctiontrademessage", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.auction_type = ProtoField.new("Auction Type", "lse.millennium.level2.mitch.v11.9.auctiontype", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.book_type = ProtoField.new("Book Type", "lse.millennium.level2.mitch.v11.9.booktype", ftypes.UINT8)
+lse_millennium_level2_mitch_v11_9.fields.buy_limit_price = ProtoField.new("Buy Limit Price", "lse.millennium.level2.mitch.v11.9.buylimitprice", ftypes.INT64)
+lse_millennium_level2_mitch_v11_9.fields.buy_limit_size = ProtoField.new("Buy Limit Size", "lse.millennium.level2.mitch.v11.9.buylimitsize", ftypes.UINT32)
+lse_millennium_level2_mitch_v11_9.fields.canc = ProtoField.new("Canc", "lse.millennium.level2.mitch.v11.9.canc", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
+lse_millennium_level2_mitch_v11_9.fields.cross_type = ProtoField.new("Cross Type", "lse.millennium.level2.mitch.v11.9.crosstype", ftypes.UINT8)
+lse_millennium_level2_mitch_v11_9.fields.currency = ProtoField.new("Currency", "lse.millennium.level2.mitch.v11.9.currency", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.display_quantity = ProtoField.new("Display Quantity", "lse.millennium.level2.mitch.v11.9.displayquantity", ftypes.UINT32)
+lse_millennium_level2_mitch_v11_9.fields.event_code = ProtoField.new("Event Code", "lse.millennium.level2.mitch.v11.9.eventcode", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.executed_quantity = ProtoField.new("Executed Quantity", "lse.millennium.level2.mitch.v11.9.executedquantity", ftypes.UINT32)
+lse_millennium_level2_mitch_v11_9.fields.firm_quote = ProtoField.new("Firm Quote", "lse.millennium.level2.mitch.v11.9.firmquote", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
+lse_millennium_level2_mitch_v11_9.fields.flags = ProtoField.new("Flags", "lse.millennium.level2.mitch.v11.9.flags", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.instrument_id = ProtoField.new("Instrument Id", "lse.millennium.level2.mitch.v11.9.instrumentid", ftypes.UINT32)
+lse_millennium_level2_mitch_v11_9.fields.isin = ProtoField.new("Isin", "lse.millennium.level2.mitch.v11.9.isin", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.length = ProtoField.new("Length", "lse.millennium.level2.mitch.v11.9.length", ftypes.UINT16)
+lse_millennium_level2_mitch_v11_9.fields.market_data_group = ProtoField.new("Market Data Group", "lse.millennium.level2.mitch.v11.9.marketdatagroup", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.market_order = ProtoField.new("Market Order", "lse.millennium.level2.mitch.v11.9.marketorder", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
+lse_millennium_level2_mitch_v11_9.fields.message = ProtoField.new("Message", "lse.millennium.level2.mitch.v11.9.message", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.message_count = ProtoField.new("Message Count", "lse.millennium.level2.mitch.v11.9.messagecount", ftypes.UINT8)
+lse_millennium_level2_mitch_v11_9.fields.message_header = ProtoField.new("Message Header", "lse.millennium.level2.mitch.v11.9.messageheader", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.message_length = ProtoField.new("Message Length", "lse.millennium.level2.mitch.v11.9.messagelength", ftypes.UINT8)
+lse_millennium_level2_mitch_v11_9.fields.message_type = ProtoField.new("Message Type", "lse.millennium.level2.mitch.v11.9.messagetype", ftypes.UINT8)
+lse_millennium_level2_mitch_v11_9.fields.nanosecond = ProtoField.new("Nanosecond", "lse.millennium.level2.mitch.v11.9.nanosecond", ftypes.UINT32)
+lse_millennium_level2_mitch_v11_9.fields.new_end_time = ProtoField.new("New End Time", "lse.millennium.level2.mitch.v11.9.newendtime", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.new_price = ProtoField.new("New Price", "lse.millennium.level2.mitch.v11.9.newprice", ftypes.INT64)
+lse_millennium_level2_mitch_v11_9.fields.new_quantity = ProtoField.new("New Quantity", "lse.millennium.level2.mitch.v11.9.newquantity", ftypes.UINT32)
+lse_millennium_level2_mitch_v11_9.fields.open_close_price_indicator = ProtoField.new("Open Close Price Indicator", "lse.millennium.level2.mitch.v11.9.openclosepriceindicator", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.order_book_clear_message = ProtoField.new("Order Book Clear Message", "lse.millennium.level2.mitch.v11.9.orderbookclearmessage", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.order_deleted_message = ProtoField.new("Order Deleted Message", "lse.millennium.level2.mitch.v11.9.orderdeletedmessage", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.order_executed_message = ProtoField.new("Order Executed Message", "lse.millennium.level2.mitch.v11.9.orderexecutedmessage", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.order_executed_with_price_size_message = ProtoField.new("Order Executed With Price Size Message", "lse.millennium.level2.mitch.v11.9.orderexecutedwithpricesizemessage", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.order_id = ProtoField.new("Order Id", "lse.millennium.level2.mitch.v11.9.orderid", ftypes.UINT64)
+lse_millennium_level2_mitch_v11_9.fields.order_modified_message = ProtoField.new("Order Modified Message", "lse.millennium.level2.mitch.v11.9.ordermodifiedmessage", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.packet = ProtoField.new("Packet", "lse.millennium.level2.mitch.v11.9.packet", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.paired_quantity = ProtoField.new("Paired Quantity", "lse.millennium.level2.mitch.v11.9.pairedquantity", ftypes.UINT32)
+lse_millennium_level2_mitch_v11_9.fields.payload = ProtoField.new("Payload", "lse.millennium.level2.mitch.v11.9.payload", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.previous_close_price = ProtoField.new("Previous Close Price", "lse.millennium.level2.mitch.v11.9.previouscloseprice", ftypes.INT64)
+lse_millennium_level2_mitch_v11_9.fields.price = ProtoField.new("Price", "lse.millennium.level2.mitch.v11.9.price", ftypes.INT64)
+lse_millennium_level2_mitch_v11_9.fields.printable = ProtoField.new("Printable", "lse.millennium.level2.mitch.v11.9.printable", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.priority_flag = ProtoField.new("Priority Flag", "lse.millennium.level2.mitch.v11.9.priorityflag", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
+lse_millennium_level2_mitch_v11_9.fields.private_rfq = ProtoField.new("Private Rfq", "lse.millennium.level2.mitch.v11.9.privaterfq", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
+lse_millennium_level2_mitch_v11_9.fields.pt_mod_flags = ProtoField.new("Pt Mod Flags", "lse.millennium.level2.mitch.v11.9.ptmodflags", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.quantity = ProtoField.new("Quantity", "lse.millennium.level2.mitch.v11.9.quantity", ftypes.UINT32)
+lse_millennium_level2_mitch_v11_9.fields.reason = ProtoField.new("Reason", "lse.millennium.level2.mitch.v11.9.reason", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.reserved = ProtoField.new("Reserved", "lse.millennium.level2.mitch.v11.9.reserved", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.reserved_a = ProtoField.new("Reserved A", "lse.millennium.level2.mitch.v11.9.reserveda", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.reserved_alpha = ProtoField.new("Reserved Alpha", "lse.millennium.level2.mitch.v11.9.reservedalpha", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.reserved_b = ProtoField.new("Reserved B", "lse.millennium.level2.mitch.v11.9.reservedb", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.reserved_byte = ProtoField.new("Reserved Byte", "lse.millennium.level2.mitch.v11.9.reservedbyte", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.seconds = ProtoField.new("Seconds", "lse.millennium.level2.mitch.v11.9.seconds", ftypes.UINT32)
+lse_millennium_level2_mitch_v11_9.fields.sedol = ProtoField.new("Sedol", "lse.millennium.level2.mitch.v11.9.sedol", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.segment = ProtoField.new("Segment", "lse.millennium.level2.mitch.v11.9.segment", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.sell_limit_price = ProtoField.new("Sell Limit Price", "lse.millennium.level2.mitch.v11.9.selllimitprice", ftypes.INT64)
+lse_millennium_level2_mitch_v11_9.fields.sell_limit_size = ProtoField.new("Sell Limit Size", "lse.millennium.level2.mitch.v11.9.selllimitsize", ftypes.UINT32)
+lse_millennium_level2_mitch_v11_9.fields.sequence_number = ProtoField.new("Sequence Number", "lse.millennium.level2.mitch.v11.9.sequencenumber", ftypes.UINT32)
+lse_millennium_level2_mitch_v11_9.fields.session_change_reason = ProtoField.new("Session Change Reason", "lse.millennium.level2.mitch.v11.9.sessionchangereason", ftypes.UINT8)
+lse_millennium_level2_mitch_v11_9.fields.side = ProtoField.new("Side", "lse.millennium.level2.mitch.v11.9.side", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.statistic_type = ProtoField.new("Statistic Type", "lse.millennium.level2.mitch.v11.9.statistictype", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.statistics_message = ProtoField.new("Statistics Message", "lse.millennium.level2.mitch.v11.9.statisticsmessage", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.sub_book = ProtoField.new("Sub Book", "lse.millennium.level2.mitch.v11.9.subbook", ftypes.UINT8)
+lse_millennium_level2_mitch_v11_9.fields.symbol_directory_message = ProtoField.new("Symbol Directory Message", "lse.millennium.level2.mitch.v11.9.symboldirectorymessage", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.symbol_status = ProtoField.new("Symbol Status", "lse.millennium.level2.mitch.v11.9.symbolstatus", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.symbol_status_message = ProtoField.new("Symbol Status Message", "lse.millennium.level2.mitch.v11.9.symbolstatusmessage", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.system_event_message = ProtoField.new("System Event Message", "lse.millennium.level2.mitch.v11.9.systemeventmessage", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.time_message = ProtoField.new("Time Message", "lse.millennium.level2.mitch.v11.9.timemessage", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.top_of_book_message = ProtoField.new("Top Of Book Message", "lse.millennium.level2.mitch.v11.9.topofbookmessage", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.trade_match_id = ProtoField.new("Trade Match Id", "lse.millennium.level2.mitch.v11.9.tradematchid", ftypes.UINT64)
+lse_millennium_level2_mitch_v11_9.fields.trade_message = ProtoField.new("Trade Message", "lse.millennium.level2.mitch.v11.9.trademessage", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.trading_status = ProtoField.new("Trading Status", "lse.millennium.level2.mitch.v11.9.tradingstatus", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.underlying = ProtoField.new("Underlying", "lse.millennium.level2.mitch.v11.9.underlying", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.unit_header = ProtoField.new("Unit Header", "lse.millennium.level2.mitch.v11.9.unitheader", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.unused_1 = ProtoField.new("Unused 1", "lse.millennium.level2.mitch.v11.9.unused1", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
+lse_millennium_level2_mitch_v11_9.fields.unused_3 = ProtoField.new("Unused 3", "lse.millennium.level2.mitch.v11.9.unused3", ftypes.UINT8, nil, base.DEC, "0x70")
+lse_millennium_level2_mitch_v11_9.fields.unused_6 = ProtoField.new("Unused 6", "lse.millennium.level2.mitch.v11.9.unused6", ftypes.UINT8, nil, base.DEC, "0x3F")
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Lse Millennium Level 2 Mitch 11.9 Element Dissection Options
+-- Lse Millennium Level2 Mitch 11.9 Element Dissection Options
 show.add_attributed_order_message = true
 show.add_order_message = true
 show.auction_info_message = true
@@ -130,126 +130,126 @@ show.trade_message = true
 show.unit_header = true
 show.payload = false
 
--- Register Lse Millennium Level 2 Mitch 11.9 Show Options
-lse_millennium_level_2_mitch_v11_9.prefs.show_add_attributed_order_message = Pref.bool("Show Add Attributed Order Message", show.add_attributed_order_message, "Parse and add Add Attributed Order Message to protocol tree")
-lse_millennium_level_2_mitch_v11_9.prefs.show_add_order_message = Pref.bool("Show Add Order Message", show.add_order_message, "Parse and add Add Order Message to protocol tree")
-lse_millennium_level_2_mitch_v11_9.prefs.show_auction_info_message = Pref.bool("Show Auction Info Message", show.auction_info_message, "Parse and add Auction Info Message to protocol tree")
-lse_millennium_level_2_mitch_v11_9.prefs.show_auction_trade_message = Pref.bool("Show Auction Trade Message", show.auction_trade_message, "Parse and add Auction Trade Message to protocol tree")
-lse_millennium_level_2_mitch_v11_9.prefs.show_flags = Pref.bool("Show Flags", show.flags, "Parse and add Flags to protocol tree")
-lse_millennium_level_2_mitch_v11_9.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-lse_millennium_level_2_mitch_v11_9.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-lse_millennium_level_2_mitch_v11_9.prefs.show_order_book_clear_message = Pref.bool("Show Order Book Clear Message", show.order_book_clear_message, "Parse and add Order Book Clear Message to protocol tree")
-lse_millennium_level_2_mitch_v11_9.prefs.show_order_deleted_message = Pref.bool("Show Order Deleted Message", show.order_deleted_message, "Parse and add Order Deleted Message to protocol tree")
-lse_millennium_level_2_mitch_v11_9.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
-lse_millennium_level_2_mitch_v11_9.prefs.show_order_executed_with_price_size_message = Pref.bool("Show Order Executed With Price Size Message", show.order_executed_with_price_size_message, "Parse and add Order Executed With Price Size Message to protocol tree")
-lse_millennium_level_2_mitch_v11_9.prefs.show_order_modified_message = Pref.bool("Show Order Modified Message", show.order_modified_message, "Parse and add Order Modified Message to protocol tree")
-lse_millennium_level_2_mitch_v11_9.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-lse_millennium_level_2_mitch_v11_9.prefs.show_pt_mod_flags = Pref.bool("Show Pt Mod Flags", show.pt_mod_flags, "Parse and add Pt Mod Flags to protocol tree")
-lse_millennium_level_2_mitch_v11_9.prefs.show_statistics_message = Pref.bool("Show Statistics Message", show.statistics_message, "Parse and add Statistics Message to protocol tree")
-lse_millennium_level_2_mitch_v11_9.prefs.show_symbol_directory_message = Pref.bool("Show Symbol Directory Message", show.symbol_directory_message, "Parse and add Symbol Directory Message to protocol tree")
-lse_millennium_level_2_mitch_v11_9.prefs.show_symbol_status_message = Pref.bool("Show Symbol Status Message", show.symbol_status_message, "Parse and add Symbol Status Message to protocol tree")
-lse_millennium_level_2_mitch_v11_9.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-lse_millennium_level_2_mitch_v11_9.prefs.show_time_message = Pref.bool("Show Time Message", show.time_message, "Parse and add Time Message to protocol tree")
-lse_millennium_level_2_mitch_v11_9.prefs.show_top_of_book_message = Pref.bool("Show Top Of Book Message", show.top_of_book_message, "Parse and add Top Of Book Message to protocol tree")
-lse_millennium_level_2_mitch_v11_9.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-lse_millennium_level_2_mitch_v11_9.prefs.show_unit_header = Pref.bool("Show Unit Header", show.unit_header, "Parse and add Unit Header to protocol tree")
-lse_millennium_level_2_mitch_v11_9.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+-- Register Lse Millennium Level2 Mitch 11.9 Show Options
+lse_millennium_level2_mitch_v11_9.prefs.show_add_attributed_order_message = Pref.bool("Show Add Attributed Order Message", show.add_attributed_order_message, "Parse and add Add Attributed Order Message to protocol tree")
+lse_millennium_level2_mitch_v11_9.prefs.show_add_order_message = Pref.bool("Show Add Order Message", show.add_order_message, "Parse and add Add Order Message to protocol tree")
+lse_millennium_level2_mitch_v11_9.prefs.show_auction_info_message = Pref.bool("Show Auction Info Message", show.auction_info_message, "Parse and add Auction Info Message to protocol tree")
+lse_millennium_level2_mitch_v11_9.prefs.show_auction_trade_message = Pref.bool("Show Auction Trade Message", show.auction_trade_message, "Parse and add Auction Trade Message to protocol tree")
+lse_millennium_level2_mitch_v11_9.prefs.show_flags = Pref.bool("Show Flags", show.flags, "Parse and add Flags to protocol tree")
+lse_millennium_level2_mitch_v11_9.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+lse_millennium_level2_mitch_v11_9.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+lse_millennium_level2_mitch_v11_9.prefs.show_order_book_clear_message = Pref.bool("Show Order Book Clear Message", show.order_book_clear_message, "Parse and add Order Book Clear Message to protocol tree")
+lse_millennium_level2_mitch_v11_9.prefs.show_order_deleted_message = Pref.bool("Show Order Deleted Message", show.order_deleted_message, "Parse and add Order Deleted Message to protocol tree")
+lse_millennium_level2_mitch_v11_9.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
+lse_millennium_level2_mitch_v11_9.prefs.show_order_executed_with_price_size_message = Pref.bool("Show Order Executed With Price Size Message", show.order_executed_with_price_size_message, "Parse and add Order Executed With Price Size Message to protocol tree")
+lse_millennium_level2_mitch_v11_9.prefs.show_order_modified_message = Pref.bool("Show Order Modified Message", show.order_modified_message, "Parse and add Order Modified Message to protocol tree")
+lse_millennium_level2_mitch_v11_9.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+lse_millennium_level2_mitch_v11_9.prefs.show_pt_mod_flags = Pref.bool("Show Pt Mod Flags", show.pt_mod_flags, "Parse and add Pt Mod Flags to protocol tree")
+lse_millennium_level2_mitch_v11_9.prefs.show_statistics_message = Pref.bool("Show Statistics Message", show.statistics_message, "Parse and add Statistics Message to protocol tree")
+lse_millennium_level2_mitch_v11_9.prefs.show_symbol_directory_message = Pref.bool("Show Symbol Directory Message", show.symbol_directory_message, "Parse and add Symbol Directory Message to protocol tree")
+lse_millennium_level2_mitch_v11_9.prefs.show_symbol_status_message = Pref.bool("Show Symbol Status Message", show.symbol_status_message, "Parse and add Symbol Status Message to protocol tree")
+lse_millennium_level2_mitch_v11_9.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
+lse_millennium_level2_mitch_v11_9.prefs.show_time_message = Pref.bool("Show Time Message", show.time_message, "Parse and add Time Message to protocol tree")
+lse_millennium_level2_mitch_v11_9.prefs.show_top_of_book_message = Pref.bool("Show Top Of Book Message", show.top_of_book_message, "Parse and add Top Of Book Message to protocol tree")
+lse_millennium_level2_mitch_v11_9.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
+lse_millennium_level2_mitch_v11_9.prefs.show_unit_header = Pref.bool("Show Unit Header", show.unit_header, "Parse and add Unit Header to protocol tree")
+lse_millennium_level2_mitch_v11_9.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function lse_millennium_level_2_mitch_v11_9.prefs_changed()
+function lse_millennium_level2_mitch_v11_9.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_attributed_order_message ~= lse_millennium_level_2_mitch_v11_9.prefs.show_add_attributed_order_message then
-    show.add_attributed_order_message = lse_millennium_level_2_mitch_v11_9.prefs.show_add_attributed_order_message
+  if show.add_attributed_order_message ~= lse_millennium_level2_mitch_v11_9.prefs.show_add_attributed_order_message then
+    show.add_attributed_order_message = lse_millennium_level2_mitch_v11_9.prefs.show_add_attributed_order_message
     changed = true
   end
-  if show.add_order_message ~= lse_millennium_level_2_mitch_v11_9.prefs.show_add_order_message then
-    show.add_order_message = lse_millennium_level_2_mitch_v11_9.prefs.show_add_order_message
+  if show.add_order_message ~= lse_millennium_level2_mitch_v11_9.prefs.show_add_order_message then
+    show.add_order_message = lse_millennium_level2_mitch_v11_9.prefs.show_add_order_message
     changed = true
   end
-  if show.auction_info_message ~= lse_millennium_level_2_mitch_v11_9.prefs.show_auction_info_message then
-    show.auction_info_message = lse_millennium_level_2_mitch_v11_9.prefs.show_auction_info_message
+  if show.auction_info_message ~= lse_millennium_level2_mitch_v11_9.prefs.show_auction_info_message then
+    show.auction_info_message = lse_millennium_level2_mitch_v11_9.prefs.show_auction_info_message
     changed = true
   end
-  if show.auction_trade_message ~= lse_millennium_level_2_mitch_v11_9.prefs.show_auction_trade_message then
-    show.auction_trade_message = lse_millennium_level_2_mitch_v11_9.prefs.show_auction_trade_message
+  if show.auction_trade_message ~= lse_millennium_level2_mitch_v11_9.prefs.show_auction_trade_message then
+    show.auction_trade_message = lse_millennium_level2_mitch_v11_9.prefs.show_auction_trade_message
     changed = true
   end
-  if show.flags ~= lse_millennium_level_2_mitch_v11_9.prefs.show_flags then
-    show.flags = lse_millennium_level_2_mitch_v11_9.prefs.show_flags
+  if show.flags ~= lse_millennium_level2_mitch_v11_9.prefs.show_flags then
+    show.flags = lse_millennium_level2_mitch_v11_9.prefs.show_flags
     changed = true
   end
-  if show.message ~= lse_millennium_level_2_mitch_v11_9.prefs.show_message then
-    show.message = lse_millennium_level_2_mitch_v11_9.prefs.show_message
+  if show.message ~= lse_millennium_level2_mitch_v11_9.prefs.show_message then
+    show.message = lse_millennium_level2_mitch_v11_9.prefs.show_message
     changed = true
   end
-  if show.message_header ~= lse_millennium_level_2_mitch_v11_9.prefs.show_message_header then
-    show.message_header = lse_millennium_level_2_mitch_v11_9.prefs.show_message_header
+  if show.message_header ~= lse_millennium_level2_mitch_v11_9.prefs.show_message_header then
+    show.message_header = lse_millennium_level2_mitch_v11_9.prefs.show_message_header
     changed = true
   end
-  if show.order_book_clear_message ~= lse_millennium_level_2_mitch_v11_9.prefs.show_order_book_clear_message then
-    show.order_book_clear_message = lse_millennium_level_2_mitch_v11_9.prefs.show_order_book_clear_message
+  if show.order_book_clear_message ~= lse_millennium_level2_mitch_v11_9.prefs.show_order_book_clear_message then
+    show.order_book_clear_message = lse_millennium_level2_mitch_v11_9.prefs.show_order_book_clear_message
     changed = true
   end
-  if show.order_deleted_message ~= lse_millennium_level_2_mitch_v11_9.prefs.show_order_deleted_message then
-    show.order_deleted_message = lse_millennium_level_2_mitch_v11_9.prefs.show_order_deleted_message
+  if show.order_deleted_message ~= lse_millennium_level2_mitch_v11_9.prefs.show_order_deleted_message then
+    show.order_deleted_message = lse_millennium_level2_mitch_v11_9.prefs.show_order_deleted_message
     changed = true
   end
-  if show.order_executed_message ~= lse_millennium_level_2_mitch_v11_9.prefs.show_order_executed_message then
-    show.order_executed_message = lse_millennium_level_2_mitch_v11_9.prefs.show_order_executed_message
+  if show.order_executed_message ~= lse_millennium_level2_mitch_v11_9.prefs.show_order_executed_message then
+    show.order_executed_message = lse_millennium_level2_mitch_v11_9.prefs.show_order_executed_message
     changed = true
   end
-  if show.order_executed_with_price_size_message ~= lse_millennium_level_2_mitch_v11_9.prefs.show_order_executed_with_price_size_message then
-    show.order_executed_with_price_size_message = lse_millennium_level_2_mitch_v11_9.prefs.show_order_executed_with_price_size_message
+  if show.order_executed_with_price_size_message ~= lse_millennium_level2_mitch_v11_9.prefs.show_order_executed_with_price_size_message then
+    show.order_executed_with_price_size_message = lse_millennium_level2_mitch_v11_9.prefs.show_order_executed_with_price_size_message
     changed = true
   end
-  if show.order_modified_message ~= lse_millennium_level_2_mitch_v11_9.prefs.show_order_modified_message then
-    show.order_modified_message = lse_millennium_level_2_mitch_v11_9.prefs.show_order_modified_message
+  if show.order_modified_message ~= lse_millennium_level2_mitch_v11_9.prefs.show_order_modified_message then
+    show.order_modified_message = lse_millennium_level2_mitch_v11_9.prefs.show_order_modified_message
     changed = true
   end
-  if show.packet ~= lse_millennium_level_2_mitch_v11_9.prefs.show_packet then
-    show.packet = lse_millennium_level_2_mitch_v11_9.prefs.show_packet
+  if show.packet ~= lse_millennium_level2_mitch_v11_9.prefs.show_packet then
+    show.packet = lse_millennium_level2_mitch_v11_9.prefs.show_packet
     changed = true
   end
-  if show.pt_mod_flags ~= lse_millennium_level_2_mitch_v11_9.prefs.show_pt_mod_flags then
-    show.pt_mod_flags = lse_millennium_level_2_mitch_v11_9.prefs.show_pt_mod_flags
+  if show.pt_mod_flags ~= lse_millennium_level2_mitch_v11_9.prefs.show_pt_mod_flags then
+    show.pt_mod_flags = lse_millennium_level2_mitch_v11_9.prefs.show_pt_mod_flags
     changed = true
   end
-  if show.statistics_message ~= lse_millennium_level_2_mitch_v11_9.prefs.show_statistics_message then
-    show.statistics_message = lse_millennium_level_2_mitch_v11_9.prefs.show_statistics_message
+  if show.statistics_message ~= lse_millennium_level2_mitch_v11_9.prefs.show_statistics_message then
+    show.statistics_message = lse_millennium_level2_mitch_v11_9.prefs.show_statistics_message
     changed = true
   end
-  if show.symbol_directory_message ~= lse_millennium_level_2_mitch_v11_9.prefs.show_symbol_directory_message then
-    show.symbol_directory_message = lse_millennium_level_2_mitch_v11_9.prefs.show_symbol_directory_message
+  if show.symbol_directory_message ~= lse_millennium_level2_mitch_v11_9.prefs.show_symbol_directory_message then
+    show.symbol_directory_message = lse_millennium_level2_mitch_v11_9.prefs.show_symbol_directory_message
     changed = true
   end
-  if show.symbol_status_message ~= lse_millennium_level_2_mitch_v11_9.prefs.show_symbol_status_message then
-    show.symbol_status_message = lse_millennium_level_2_mitch_v11_9.prefs.show_symbol_status_message
+  if show.symbol_status_message ~= lse_millennium_level2_mitch_v11_9.prefs.show_symbol_status_message then
+    show.symbol_status_message = lse_millennium_level2_mitch_v11_9.prefs.show_symbol_status_message
     changed = true
   end
-  if show.system_event_message ~= lse_millennium_level_2_mitch_v11_9.prefs.show_system_event_message then
-    show.system_event_message = lse_millennium_level_2_mitch_v11_9.prefs.show_system_event_message
+  if show.system_event_message ~= lse_millennium_level2_mitch_v11_9.prefs.show_system_event_message then
+    show.system_event_message = lse_millennium_level2_mitch_v11_9.prefs.show_system_event_message
     changed = true
   end
-  if show.time_message ~= lse_millennium_level_2_mitch_v11_9.prefs.show_time_message then
-    show.time_message = lse_millennium_level_2_mitch_v11_9.prefs.show_time_message
+  if show.time_message ~= lse_millennium_level2_mitch_v11_9.prefs.show_time_message then
+    show.time_message = lse_millennium_level2_mitch_v11_9.prefs.show_time_message
     changed = true
   end
-  if show.top_of_book_message ~= lse_millennium_level_2_mitch_v11_9.prefs.show_top_of_book_message then
-    show.top_of_book_message = lse_millennium_level_2_mitch_v11_9.prefs.show_top_of_book_message
+  if show.top_of_book_message ~= lse_millennium_level2_mitch_v11_9.prefs.show_top_of_book_message then
+    show.top_of_book_message = lse_millennium_level2_mitch_v11_9.prefs.show_top_of_book_message
     changed = true
   end
-  if show.trade_message ~= lse_millennium_level_2_mitch_v11_9.prefs.show_trade_message then
-    show.trade_message = lse_millennium_level_2_mitch_v11_9.prefs.show_trade_message
+  if show.trade_message ~= lse_millennium_level2_mitch_v11_9.prefs.show_trade_message then
+    show.trade_message = lse_millennium_level2_mitch_v11_9.prefs.show_trade_message
     changed = true
   end
-  if show.unit_header ~= lse_millennium_level_2_mitch_v11_9.prefs.show_unit_header then
-    show.unit_header = lse_millennium_level_2_mitch_v11_9.prefs.show_unit_header
+  if show.unit_header ~= lse_millennium_level2_mitch_v11_9.prefs.show_unit_header then
+    show.unit_header = lse_millennium_level2_mitch_v11_9.prefs.show_unit_header
     changed = true
   end
-  if show.payload ~= lse_millennium_level_2_mitch_v11_9.prefs.show_payload then
-    show.payload = lse_millennium_level_2_mitch_v11_9.prefs.show_payload
+  if show.payload ~= lse_millennium_level2_mitch_v11_9.prefs.show_payload then
+    show.payload = lse_millennium_level2_mitch_v11_9.prefs.show_payload
     changed = true
   end
 
@@ -261,7 +261,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Lse Millennium Level 2 Mitch 11.9
+-- Dissect Lse Millennium Level2 Mitch 11.9
 -----------------------------------------------------------------------
 
 -- Size: Sell Limit Size
@@ -279,7 +279,7 @@ dissect.sell_limit_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.sell_limit_size(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.sell_limit_size, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.sell_limit_size, range, value, display)
 
   return offset + length, value
 end
@@ -299,7 +299,7 @@ dissect.sell_limit_price = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.sell_limit_price(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.sell_limit_price, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.sell_limit_price, range, value, display)
 
   return offset + length, value
 end
@@ -319,7 +319,7 @@ dissect.buy_limit_size = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.buy_limit_size(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.buy_limit_size, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.buy_limit_size, range, value, display)
 
   return offset + length, value
 end
@@ -339,7 +339,7 @@ dissect.buy_limit_price = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.buy_limit_price(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.buy_limit_price, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.buy_limit_price, range, value, display)
 
   return offset + length, value
 end
@@ -359,7 +359,7 @@ dissect.instrument_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.instrument_id(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.instrument_id, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.instrument_id, range, value, display)
 
   return offset + length, value
 end
@@ -379,7 +379,7 @@ dissect.nanosecond = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.nanosecond(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.nanosecond, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.nanosecond, range, value, display)
 
   return offset + length, value
 end
@@ -440,7 +440,7 @@ dissect.top_of_book_message = function(buffer, offset, packet, parent)
     local length = size_of.top_of_book_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.top_of_book_message(buffer, packet, parent)
-    parent = parent:add(lse_millennium_level_2_mitch_v11_9.fields.top_of_book_message, range, display)
+    parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.top_of_book_message, range, display)
   end
 
   return dissect.top_of_book_message_fields(buffer, offset, packet, parent)
@@ -461,7 +461,7 @@ dissect.reserved = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.reserved(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.reserved, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.reserved, range, value, display)
 
   return offset + length, value
 end
@@ -506,7 +506,7 @@ dissect.open_close_price_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.open_close_price_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.open_close_price_indicator, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.open_close_price_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -526,7 +526,7 @@ dissect.price = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.price(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.price, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -553,7 +553,7 @@ dissect.statistic_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.statistic_type(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.statistic_type, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.statistic_type, range, value, display)
 
   return offset + length, value
 end
@@ -573,7 +573,7 @@ dissect.reserved_b = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.reserved_b(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.reserved_b, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.reserved_b, range, value, display)
 
   return offset + length, value
 end
@@ -593,7 +593,7 @@ dissect.reserved_a = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.reserved_a(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.reserved_a, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.reserved_a, range, value, display)
 
   return offset + length, value
 end
@@ -664,7 +664,7 @@ dissect.statistics_message = function(buffer, offset, packet, parent)
     local length = size_of.statistics_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.statistics_message(buffer, packet, parent)
-    parent = parent:add(lse_millennium_level_2_mitch_v11_9.fields.statistics_message, range, display)
+    parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.statistics_message, range, display)
   end
 
   return dissect.statistics_message_fields(buffer, offset, packet, parent)
@@ -707,7 +707,7 @@ dissect.auction_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.auction_type(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.auction_type, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.auction_type, range, value, display)
 
   return offset + length, value
 end
@@ -727,7 +727,7 @@ dissect.paired_quantity = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.paired_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.paired_quantity, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.paired_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -803,7 +803,7 @@ dissect.auction_info_message = function(buffer, offset, packet, parent)
     local length = size_of.auction_info_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.auction_info_message(buffer, packet, parent)
-    parent = parent:add(lse_millennium_level_2_mitch_v11_9.fields.auction_info_message, range, display)
+    parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.auction_info_message, range, display)
   end
 
   return dissect.auction_info_message_fields(buffer, offset, packet, parent)
@@ -832,13 +832,13 @@ end
 dissect.pt_mod_flags_bits = function(buffer, offset, packet, parent)
 
   -- Canc: 1 Bit
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.canc, buffer(offset, 1))
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.canc, buffer(offset, 1))
 
   -- Amnd: 1 Bit
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.amnd, buffer(offset, 1))
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.amnd, buffer(offset, 1))
 
   -- Unused 6: 6 Bit
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.unused_6, buffer(offset, 1))
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.unused_6, buffer(offset, 1))
 end
 
 -- Dissect: Pt Mod Flags
@@ -846,7 +846,7 @@ dissect.pt_mod_flags = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
   local display = display.pt_mod_flags(range, packet, parent)
-  local element = parent:add(lse_millennium_level_2_mitch_v11_9.fields.pt_mod_flags, range, display)
+  local element = parent:add(lse_millennium_level2_mitch_v11_9.fields.pt_mod_flags, range, display)
 
   if show.pt_mod_flags then
     dissect.pt_mod_flags_bits(buffer, offset, packet, element)
@@ -870,7 +870,7 @@ dissect.trade_match_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.trade_match_id(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.trade_match_id, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.trade_match_id, range, value, display)
 
   return offset + length, value
 end
@@ -890,7 +890,7 @@ dissect.quantity = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.quantity(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.quantity, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.quantity, range, value, display)
 
   return offset + length, value
 end
@@ -966,7 +966,7 @@ dissect.auction_trade_message = function(buffer, offset, packet, parent)
     local length = size_of.auction_trade_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.auction_trade_message(buffer, packet, parent)
-    parent = parent:add(lse_millennium_level_2_mitch_v11_9.fields.auction_trade_message, range, display)
+    parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.auction_trade_message, range, display)
   end
 
   return dissect.auction_trade_message_fields(buffer, offset, packet, parent)
@@ -994,7 +994,7 @@ dissect.sub_book = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.sub_book(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.sub_book, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.sub_book, range, value, display)
 
   return offset + length, value
 end
@@ -1030,7 +1030,7 @@ dissect.cross_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.cross_type(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.cross_type, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.cross_type, range, value, display)
 
   return offset + length, value
 end
@@ -1050,7 +1050,7 @@ dissect.executed_quantity = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.executed_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.executed_quantity, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.executed_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1131,7 +1131,7 @@ dissect.trade_message = function(buffer, offset, packet, parent)
     local length = size_of.trade_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.trade_message(buffer, packet, parent)
-    parent = parent:add(lse_millennium_level_2_mitch_v11_9.fields.trade_message, range, display)
+    parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.trade_message, range, display)
   end
 
   return dissect.trade_message_fields(buffer, offset, packet, parent)
@@ -1159,7 +1159,7 @@ dissect.printable = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.printable(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.printable, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.printable, range, value, display)
 
   return offset + length, value
 end
@@ -1179,7 +1179,7 @@ dissect.display_quantity = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.display_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.display_quantity, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.display_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1199,7 +1199,7 @@ dissect.order_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.order_id, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -1265,7 +1265,7 @@ dissect.order_executed_with_price_size_message = function(buffer, offset, packet
     local length = size_of.order_executed_with_price_size_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.order_executed_with_price_size_message(buffer, packet, parent)
-    parent = parent:add(lse_millennium_level_2_mitch_v11_9.fields.order_executed_with_price_size_message, range, display)
+    parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.order_executed_with_price_size_message, range, display)
   end
 
   return dissect.order_executed_with_price_size_message_fields(buffer, offset, packet, parent)
@@ -1317,7 +1317,7 @@ dissect.order_executed_message = function(buffer, offset, packet, parent)
     local length = size_of.order_executed_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.order_executed_message(buffer, packet, parent)
-    parent = parent:add(lse_millennium_level_2_mitch_v11_9.fields.order_executed_message, range, display)
+    parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.order_executed_message, range, display)
   end
 
   return dissect.order_executed_message_fields(buffer, offset, packet, parent)
@@ -1358,22 +1358,22 @@ end
 dissect.flags_bits = function(buffer, offset, packet, parent)
 
   -- Priority Flag: 1 Bit
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.priority_flag, buffer(offset, 1))
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.priority_flag, buffer(offset, 1))
 
   -- Unused 3: 3 Bit
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.unused_3, buffer(offset, 1))
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.unused_3, buffer(offset, 1))
 
   -- Market Order: 1 Bit
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.market_order, buffer(offset, 1))
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.market_order, buffer(offset, 1))
 
   -- Firm Quote: 1 Bit
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.firm_quote, buffer(offset, 1))
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.firm_quote, buffer(offset, 1))
 
   -- Private Rfq: 1 Bit
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.private_rfq, buffer(offset, 1))
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.private_rfq, buffer(offset, 1))
 
   -- Unused 1: 1 Bit
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.unused_1, buffer(offset, 1))
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.unused_1, buffer(offset, 1))
 end
 
 -- Dissect: Flags
@@ -1381,7 +1381,7 @@ dissect.flags = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
   local display = display.flags(range, packet, parent)
-  local element = parent:add(lse_millennium_level_2_mitch_v11_9.fields.flags, range, display)
+  local element = parent:add(lse_millennium_level2_mitch_v11_9.fields.flags, range, display)
 
   if show.flags then
     dissect.flags_bits(buffer, offset, packet, element)
@@ -1441,7 +1441,7 @@ dissect.order_book_clear_message = function(buffer, offset, packet, parent)
     local length = size_of.order_book_clear_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.order_book_clear_message(buffer, packet, parent)
-    parent = parent:add(lse_millennium_level_2_mitch_v11_9.fields.order_book_clear_message, range, display)
+    parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.order_book_clear_message, range, display)
   end
 
   return dissect.order_book_clear_message_fields(buffer, offset, packet, parent)
@@ -1462,7 +1462,7 @@ dissect.new_price = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.new_price(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.new_price, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.new_price, range, value, display)
 
   return offset + length, value
 end
@@ -1482,7 +1482,7 @@ dissect.new_quantity = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.new_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.new_quantity, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.new_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1538,7 +1538,7 @@ dissect.order_modified_message = function(buffer, offset, packet, parent)
     local length = size_of.order_modified_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.order_modified_message(buffer, packet, parent)
-    parent = parent:add(lse_millennium_level_2_mitch_v11_9.fields.order_modified_message, range, display)
+    parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.order_modified_message, range, display)
   end
 
   return dissect.order_modified_message_fields(buffer, offset, packet, parent)
@@ -1590,7 +1590,7 @@ dissect.order_deleted_message = function(buffer, offset, packet, parent)
     local length = size_of.order_deleted_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.order_deleted_message(buffer, packet, parent)
-    parent = parent:add(lse_millennium_level_2_mitch_v11_9.fields.order_deleted_message, range, display)
+    parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.order_deleted_message, range, display)
   end
 
   return dissect.order_deleted_message_fields(buffer, offset, packet, parent)
@@ -1611,7 +1611,7 @@ dissect.attribution = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.attribution(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.attribution, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.attribution, range, value, display)
 
   return offset + length, value
 end
@@ -1638,7 +1638,7 @@ dissect.side = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.side(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.side, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -1719,7 +1719,7 @@ dissect.add_attributed_order_message = function(buffer, offset, packet, parent)
     local length = size_of.add_attributed_order_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.add_attributed_order_message(buffer, packet, parent)
-    parent = parent:add(lse_millennium_level_2_mitch_v11_9.fields.add_attributed_order_message, range, display)
+    parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.add_attributed_order_message, range, display)
   end
 
   return dissect.add_attributed_order_message_fields(buffer, offset, packet, parent)
@@ -1801,7 +1801,7 @@ dissect.add_order_message = function(buffer, offset, packet, parent)
     local length = size_of.add_order_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.add_order_message(buffer, packet, parent)
-    parent = parent:add(lse_millennium_level_2_mitch_v11_9.fields.add_order_message, range, display)
+    parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.add_order_message, range, display)
   end
 
   return dissect.add_order_message_fields(buffer, offset, packet, parent)
@@ -1832,7 +1832,7 @@ dissect.book_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.book_type(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.book_type, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.book_type, range, value, display)
 
   return offset + length, value
 end
@@ -1852,7 +1852,7 @@ dissect.new_end_time = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.new_end_time(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.new_end_time, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.new_end_time, range, value, display)
 
   return offset + length, value
 end
@@ -1891,7 +1891,7 @@ dissect.session_change_reason = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.session_change_reason(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.session_change_reason, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.session_change_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1911,7 +1911,7 @@ dissect.reason = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.reason(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.reason, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.reason, range, value, display)
 
   return offset + length, value
 end
@@ -1995,7 +1995,7 @@ dissect.trading_status = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.trading_status, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.trading_status, range, value, display)
 
   return offset + length, value
 end
@@ -2076,7 +2076,7 @@ dissect.symbol_status_message = function(buffer, offset, packet, parent)
     local length = size_of.symbol_status_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.symbol_status_message(buffer, packet, parent)
-    parent = parent:add(lse_millennium_level_2_mitch_v11_9.fields.symbol_status_message, range, display)
+    parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.symbol_status_message, range, display)
   end
 
   return dissect.symbol_status_message_fields(buffer, offset, packet, parent)
@@ -2097,7 +2097,7 @@ dissect.previous_close_price = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.previous_close_price(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.previous_close_price, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.previous_close_price, range, value, display)
 
   return offset + length, value
 end
@@ -2117,7 +2117,7 @@ dissect.reserved_alpha = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.reserved_alpha(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.reserved_alpha, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.reserved_alpha, range, value, display)
 
   return offset + length, value
 end
@@ -2137,7 +2137,7 @@ dissect.reserved_byte = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.reserved_byte(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.reserved_byte, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.reserved_byte, range, value, display)
 
   return offset + length, value
 end
@@ -2157,7 +2157,7 @@ dissect.currency = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.currency(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.currency, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.currency, range, value, display)
 
   return offset + length, value
 end
@@ -2177,7 +2177,7 @@ dissect.underlying = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.underlying(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.underlying, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.underlying, range, value, display)
 
   return offset + length, value
 end
@@ -2197,7 +2197,7 @@ dissect.segment = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.segment(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.segment, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.segment, range, value, display)
 
   return offset + length, value
 end
@@ -2217,7 +2217,7 @@ dissect.sedol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.sedol(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.sedol, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.sedol, range, value, display)
 
   return offset + length, value
 end
@@ -2237,7 +2237,7 @@ dissect.isin = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.isin(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.isin, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.isin, range, value, display)
 
   return offset + length, value
 end
@@ -2270,7 +2270,7 @@ dissect.symbol_status = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.symbol_status(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.symbol_status, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.symbol_status, range, value, display)
 
   return offset + length, value
 end
@@ -2366,7 +2366,7 @@ dissect.symbol_directory_message = function(buffer, offset, packet, parent)
     local length = size_of.symbol_directory_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.symbol_directory_message(buffer, packet, parent)
-    parent = parent:add(lse_millennium_level_2_mitch_v11_9.fields.symbol_directory_message, range, display)
+    parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.symbol_directory_message, range, display)
   end
 
   return dissect.symbol_directory_message_fields(buffer, offset, packet, parent)
@@ -2394,7 +2394,7 @@ dissect.event_code = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.event_code(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.event_code, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.event_code, range, value, display)
 
   return offset + length, value
 end
@@ -2435,7 +2435,7 @@ dissect.system_event_message = function(buffer, offset, packet, parent)
     local length = size_of.system_event_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.system_event_message(buffer, packet, parent)
-    parent = parent:add(lse_millennium_level_2_mitch_v11_9.fields.system_event_message, range, display)
+    parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.system_event_message, range, display)
   end
 
   return dissect.system_event_message_fields(buffer, offset, packet, parent)
@@ -2456,7 +2456,7 @@ dissect.seconds = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.seconds(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.seconds, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.seconds, range, value, display)
 
   return offset + length, value
 end
@@ -2492,7 +2492,7 @@ dissect.time_message = function(buffer, offset, packet, parent)
     local length = size_of.time_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.time_message(buffer, packet, parent)
-    parent = parent:add(lse_millennium_level_2_mitch_v11_9.fields.time_message, range, display)
+    parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.time_message, range, display)
   end
 
   return dissect.time_message_fields(buffer, offset, packet, parent)
@@ -2658,7 +2658,7 @@ dissect.payload = function(buffer, offset, packet, parent, message_type)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.payload(buffer, packet, parent)
-  local element = parent:add(lse_millennium_level_2_mitch_v11_9.fields.payload, range, display)
+  local element = parent:add(lse_millennium_level2_mitch_v11_9.fields.payload, range, display)
 
   return dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
@@ -2727,7 +2727,7 @@ dissect.message_type = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.message_type, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -2747,7 +2747,7 @@ dissect.message_length = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.message_length, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -2788,7 +2788,7 @@ dissect.message_header = function(buffer, offset, packet, parent)
     local length = size_of.message_header(buffer, offset)
     local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
-    parent = parent:add(lse_millennium_level_2_mitch_v11_9.fields.message_header, range, display)
+    parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.message_header, range, display)
   end
 
   return dissect.message_header_fields(buffer, offset, packet, parent)
@@ -2836,7 +2836,7 @@ dissect.message = function(buffer, offset, packet, parent)
     local length = size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.message(buffer, packet, parent)
-    parent = parent:add(lse_millennium_level_2_mitch_v11_9.fields.message, range, display)
+    parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.message, range, display)
   end
 
   return dissect.message_fields(buffer, offset, packet, parent)
@@ -2857,7 +2857,7 @@ dissect.sequence_number = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.sequence_number, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -2877,7 +2877,7 @@ dissect.market_data_group = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.market_data_group(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.market_data_group, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.market_data_group, range, value, display)
 
   return offset + length, value
 end
@@ -2897,7 +2897,7 @@ dissect.message_count = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.message_count, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -2917,7 +2917,7 @@ dissect.length = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.length(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level_2_mitch_v11_9.fields.length, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.length, range, value, display)
 
   return offset + length, value
 end
@@ -2968,7 +2968,7 @@ dissect.unit_header = function(buffer, offset, packet, parent)
     local length = size_of.unit_header(buffer, offset)
     local range = buffer(offset, length)
     local display = display.unit_header(buffer, packet, parent)
-    parent = parent:add(lse_millennium_level_2_mitch_v11_9.fields.unit_header, range, display)
+    parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.unit_header, range, display)
   end
 
   return dissect.unit_header_fields(buffer, offset, packet, parent)
@@ -2998,23 +2998,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function lse_millennium_level_2_mitch_v11_9.init()
+function lse_millennium_level2_mitch_v11_9.init()
 end
 
--- Dissector for Lse Millennium Level 2 Mitch 11.9
-function lse_millennium_level_2_mitch_v11_9.dissector(buffer, packet, parent)
+-- Dissector for Lse Millennium Level2 Mitch 11.9
+function lse_millennium_level2_mitch_v11_9.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = lse_millennium_level_2_mitch_v11_9.name
+  packet.cols.protocol = lse_millennium_level2_mitch_v11_9.name
 
   -- Dissect protocol
-  local protocol = parent:add(lse_millennium_level_2_mitch_v11_9, buffer(), lse_millennium_level_2_mitch_v11_9.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(lse_millennium_level2_mitch_v11_9, buffer(), lse_millennium_level2_mitch_v11_9.description, "("..buffer:len().." Bytes)")
   local protocol_size = dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, lse_millennium_level_2_mitch_v11_9)
+udp_table:add(65333, lse_millennium_level2_mitch_v11_9)
 
 
 -----------------------------------------------------------------------
@@ -3022,25 +3022,25 @@ udp_table:add(65333, lse_millennium_level_2_mitch_v11_9)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.lse_millennium_level_2_mitch_v11_9_packet_size = function(buffer)
+verify.lse_millennium_level2_mitch_v11_9_packet_size = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Lse Millennium Level 2 Mitch 11.9
-local function lse_millennium_level_2_mitch_v11_9_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Lse Millennium Level2 Mitch 11.9
+local function lse_millennium_level2_mitch_v11_9_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.lse_millennium_level_2_mitch_v11_9_packet_size(buffer) then return false end
+  if not verify.lse_millennium_level2_mitch_v11_9_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = lse_millennium_level_2_mitch_v11_9
-  lse_millennium_level_2_mitch_v11_9.dissector(buffer, packet, parent)
+  packet.conversation = lse_millennium_level2_mitch_v11_9
+  lse_millennium_level2_mitch_v11_9.dissector(buffer, packet, parent)
 
   return true
 end
 
--- Register Heuristic for Lse Millennium Level 2 Mitch 11.9
-lse_millennium_level_2_mitch_v11_9:register_heuristic("udp", lse_millennium_level_2_mitch_v11_9_heuristic)
+-- Register Heuristic for Lse Millennium Level2 Mitch 11.9
+lse_millennium_level2_mitch_v11_9:register_heuristic("udp", lse_millennium_level2_mitch_v11_9_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.
