@@ -70,11 +70,11 @@ lse_millennium_level2_mitch_v11_9.fields.private_rfq = ProtoField.new("Private R
 lse_millennium_level2_mitch_v11_9.fields.pt_mod_flags = ProtoField.new("Pt Mod Flags", "lse.millennium.level2.mitch.v11.9.ptmodflags", ftypes.STRING)
 lse_millennium_level2_mitch_v11_9.fields.quantity = ProtoField.new("Quantity", "lse.millennium.level2.mitch.v11.9.quantity", ftypes.UINT32)
 lse_millennium_level2_mitch_v11_9.fields.reason = ProtoField.new("Reason", "lse.millennium.level2.mitch.v11.9.reason", ftypes.STRING)
-lse_millennium_level2_mitch_v11_9.fields.reserved = ProtoField.new("Reserved", "lse.millennium.level2.mitch.v11.9.reserved", ftypes.STRING)
 lse_millennium_level2_mitch_v11_9.fields.reserved_a = ProtoField.new("Reserved A", "lse.millennium.level2.mitch.v11.9.reserveda", ftypes.STRING)
 lse_millennium_level2_mitch_v11_9.fields.reserved_alpha = ProtoField.new("Reserved Alpha", "lse.millennium.level2.mitch.v11.9.reservedalpha", ftypes.STRING)
 lse_millennium_level2_mitch_v11_9.fields.reserved_b = ProtoField.new("Reserved B", "lse.millennium.level2.mitch.v11.9.reservedb", ftypes.STRING)
 lse_millennium_level2_mitch_v11_9.fields.reserved_byte = ProtoField.new("Reserved Byte", "lse.millennium.level2.mitch.v11.9.reservedbyte", ftypes.STRING)
+lse_millennium_level2_mitch_v11_9.fields.reserved_uint_32 = ProtoField.new("Reserved Uint 32", "lse.millennium.level2.mitch.v11.9.reserveduint32", ftypes.UINT32)
 lse_millennium_level2_mitch_v11_9.fields.seconds = ProtoField.new("Seconds", "lse.millennium.level2.mitch.v11.9.seconds", ftypes.UINT32)
 lse_millennium_level2_mitch_v11_9.fields.sedol = ProtoField.new("Sedol", "lse.millennium.level2.mitch.v11.9.sedol", ftypes.STRING)
 lse_millennium_level2_mitch_v11_9.fields.segment = ProtoField.new("Segment", "lse.millennium.level2.mitch.v11.9.segment", ftypes.STRING)
@@ -446,22 +446,22 @@ dissect.top_of_book_message = function(buffer, offset, packet, parent)
   return dissect.top_of_book_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Reserved
-size_of.reserved = 10
+-- Size: Reserved Byte
+size_of.reserved_byte = 1
 
--- Display: Reserved
-display.reserved = function(value)
-  return "Reserved: "..value
+-- Display: Reserved Byte
+display.reserved_byte = function(value)
+  return "Reserved Byte: "..value
 end
 
--- Dissect: Reserved
-dissect.reserved = function(buffer, offset, packet, parent)
-  local length = size_of.reserved
+-- Dissect: Reserved Byte
+dissect.reserved_byte = function(buffer, offset, packet, parent)
+  local length = size_of.reserved_byte
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.reserved(value, buffer, offset, packet, parent)
+  local display = display.reserved_byte(value, buffer, offset, packet, parent)
 
-  parent:add(lse_millennium_level2_mitch_v11_9.fields.reserved, range, value, display)
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.reserved_byte, range, value, display)
 
   return offset + length, value
 end
@@ -616,7 +616,7 @@ size_of.statistics_message = function(buffer, offset)
 
   index = index + size_of.open_close_price_indicator
 
-  index = index + size_of.reserved
+  index = index + size_of.reserved_byte
 
   return index
 end
@@ -651,8 +651,8 @@ dissect.statistics_message_fields = function(buffer, offset, packet, parent)
   -- Open Close Price Indicator: 1 Byte Ascii String Enum with 8 values
   index, open_close_price_indicator = dissect.open_close_price_indicator(buffer, index, packet, parent)
 
-  -- Reserved: 10 Byte Ascii String
-  index, reserved = dissect.reserved(buffer, index, packet, parent)
+  -- Reserved Byte: 1 Byte Ascii String
+  index, reserved_byte = dissect.reserved_byte(buffer, index, packet, parent)
 
   return index
 end
@@ -712,6 +712,26 @@ dissect.auction_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Reserved Uint 32
+size_of.reserved_uint_32 = 4
+
+-- Display: Reserved Uint 32
+display.reserved_uint_32 = function(value)
+  return "Reserved Uint 32: "..value
+end
+
+-- Dissect: Reserved Uint 32
+dissect.reserved_uint_32 = function(buffer, offset, packet, parent)
+  local length = size_of.reserved_uint_32
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.reserved_uint_32(value, buffer, offset, packet, parent)
+
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.reserved_uint_32, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Paired Quantity
 size_of.paired_quantity = 4
 
@@ -740,9 +760,9 @@ size_of.auction_info_message = function(buffer, offset)
 
   index = index + size_of.paired_quantity
 
-  index = index + size_of.reserved
+  index = index + size_of.reserved_uint_32
 
-  index = index + size_of.reserved
+  index = index + size_of.reserved_byte
 
   index = index + size_of.instrument_id
 
@@ -772,11 +792,11 @@ dissect.auction_info_message_fields = function(buffer, offset, packet, parent)
   -- Paired Quantity: 4 Byte Unsigned Fixed Width Integer
   index, paired_quantity = dissect.paired_quantity(buffer, index, packet, parent)
 
-  -- Reserved: 10 Byte Ascii String
-  index, reserved = dissect.reserved(buffer, index, packet, parent)
+  -- Reserved Uint 32: 4 Byte Unsigned Fixed Width Integer
+  index, reserved_uint_32 = dissect.reserved_uint_32(buffer, index, packet, parent)
 
-  -- Reserved: 10 Byte Ascii String
-  index, reserved = dissect.reserved(buffer, index, packet, parent)
+  -- Reserved Byte: 1 Byte Ascii String
+  index, reserved_byte = dissect.reserved_byte(buffer, index, packet, parent)
 
   -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
   index, instrument_id = dissect.instrument_id(buffer, index, packet, parent)
@@ -1725,6 +1745,26 @@ dissect.add_attributed_order_message = function(buffer, offset, packet, parent)
   return dissect.add_attributed_order_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Reserved Alpha
+size_of.reserved_alpha = 4
+
+-- Display: Reserved Alpha
+display.reserved_alpha = function(value)
+  return "Reserved Alpha: "..value
+end
+
+-- Dissect: Reserved Alpha
+dissect.reserved_alpha = function(buffer, offset, packet, parent)
+  local length = size_of.reserved_alpha
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.reserved_alpha(value, buffer, offset, packet, parent)
+
+  parent:add(lse_millennium_level2_mitch_v11_9.fields.reserved_alpha, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Add Order Message
 size_of.add_order_message = function(buffer, offset)
   local index = 0
@@ -1747,7 +1787,7 @@ size_of.add_order_message = function(buffer, offset)
 
   index = index + size_of.flags
 
-  index = index + size_of.reserved
+  index = index + size_of.reserved_alpha
 
   return index
 end
@@ -1788,8 +1828,8 @@ dissect.add_order_message_fields = function(buffer, offset, packet, parent)
   -- Flags: Struct of 6 fields
   index, flags = dissect.flags(buffer, index, packet, parent)
 
-  -- Reserved: 10 Byte Ascii String
-  index, reserved = dissect.reserved(buffer, index, packet, parent)
+  -- Reserved Alpha: 4 Byte Ascii String
+  index, reserved_alpha = dissect.reserved_alpha(buffer, index, packet, parent)
 
   return index
 end
@@ -2098,46 +2138,6 @@ dissect.previous_close_price = function(buffer, offset, packet, parent)
   local display = display.previous_close_price(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.previous_close_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Reserved Alpha
-size_of.reserved_alpha = 4
-
--- Display: Reserved Alpha
-display.reserved_alpha = function(value)
-  return "Reserved Alpha: "..value
-end
-
--- Dissect: Reserved Alpha
-dissect.reserved_alpha = function(buffer, offset, packet, parent)
-  local length = size_of.reserved_alpha
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.reserved_alpha(value, buffer, offset, packet, parent)
-
-  parent:add(lse_millennium_level2_mitch_v11_9.fields.reserved_alpha, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Reserved Byte
-size_of.reserved_byte = 1
-
--- Display: Reserved Byte
-display.reserved_byte = function(value)
-  return "Reserved Byte: "..value
-end
-
--- Dissect: Reserved Byte
-dissect.reserved_byte = function(buffer, offset, packet, parent)
-  local length = size_of.reserved_byte
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.reserved_byte(value, buffer, offset, packet, parent)
-
-  parent:add(lse_millennium_level2_mitch_v11_9.fields.reserved_byte, range, value, display)
 
   return offset + length, value
 end
