@@ -5,7 +5,7 @@
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Equities | [UdpHeader][Iex.Equities.UdpHeader.IexTp.v1.0.Dissector] | IexTp | [1.0][Iex.Equities.UdpHeader.IexTp.v1.0.Dissector] | 2/27/2018 | 605 | [Active][Omi.Glossary.Status.Active] | [Tested][Omi.Glossary.Testing.Tested] | [url][Iex.Equities.UdpHeader.IexTp.v1.0.Url] - [pdf][Iex.Equities.UdpHeader.IexTp.v1.0.Pdf] |
+| Equities | [UdpHeader][Iex.Equities.UdpHeader.IexTp.v1.0.Dissector] | IexTp | [1.0][Iex.Equities.UdpHeader.IexTp.v1.0.Dissector] | 9/20/2015 | 605 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.Equities.UdpHeader.IexTp.v1.0.Url] - [pdf][Iex.Equities.UdpHeader.IexTp.v1.0.Pdf] |
 
 
 Iex: [website](https://iextrading.com/ "Go to Investors Exchange")
@@ -24,4 +24,4 @@ Iex: [website](https://iextrading.com/ "Go to Investors Exchange")
 
 [Iex.Equities.UdpHeader.IexTp.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Iex/Iex.Equities.UdpHeader.IexTp.v1.0.Script.Dissector.lua "Iex Equities UdpHeader IexTp v1.0 Wireshark Dissector"
 [Iex.Equities.UdpHeader.IexTp.v1.0.Url]: https://iextrading.com/trading/market-data/ "Specification url"
-[Iex.Equities.UdpHeader.IexTp.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Iex/Iex.Equities.Deep.IexTp.v1.0.pdf "Investors Exchange 1.0 Pdf"
+[Iex.Equities.UdpHeader.IexTp.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Iex/Iex.Equities.IexTp.v1.0.pdf "Investors Exchange 1.0 Pdf"

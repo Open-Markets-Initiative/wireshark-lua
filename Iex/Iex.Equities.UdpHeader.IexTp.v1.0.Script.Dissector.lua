@@ -589,8 +589,8 @@ iex_equities_udpheader_iextp_v1_0:register_heuristic("udp", iex_equities_udphead
 -- Protocol:
 --   Organization: Investors Exchange
 --   Version: 1.0
---   Date: Tuesday, February 27, 2018
---   Specification: IEX DEEP Specification.pdf
+--   Date: Sunday, September 20, 2015
+--   Specification: IEX Transport Specification.pdf
 -- 
 -- Script:
 --   Generator: 1.5.0.0
