@@ -31,7 +31,7 @@ nasdaq_ise_ordercombofeed_itch_v1_1.fields.complex_strategy_order_on_book_messag
 nasdaq_ise_ordercombofeed_itch_v1_1.fields.count = ProtoField.new("Count", "nasdaq.ise.ordercombofeed.itch.v1.1.count", ftypes.UINT16)
 nasdaq_ise_ordercombofeed_itch_v1_1.fields.current_day = ProtoField.new("Current Day", "nasdaq.ise.ordercombofeed.itch.v1.1.currentday", ftypes.UINT8)
 nasdaq_ise_ordercombofeed_itch_v1_1.fields.current_month = ProtoField.new("Current Month", "nasdaq.ise.ordercombofeed.itch.v1.1.currentmonth", ftypes.UINT8)
-nasdaq_ise_ordercombofeed_itch_v1_1.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.ise.ordercombofeed.itch.v1.1.currenttradingstate", ftypes.UINT8)
+nasdaq_ise_ordercombofeed_itch_v1_1.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.ise.ordercombofeed.itch.v1.1.currenttradingstate", ftypes.STRING)
 nasdaq_ise_ordercombofeed_itch_v1_1.fields.current_year = ProtoField.new("Current Year", "nasdaq.ise.ordercombofeed.itch.v1.1.currentyear", ftypes.UINT16)
 nasdaq_ise_ordercombofeed_itch_v1_1.fields.event_code = ProtoField.new("Event Code", "nasdaq.ise.ordercombofeed.itch.v1.1.eventcode", ftypes.STRING)
 nasdaq_ise_ordercombofeed_itch_v1_1.fields.exec_flag = ProtoField.new("Exec Flag", "nasdaq.ise.ordercombofeed.itch.v1.1.execflag", ftypes.STRING)
@@ -954,10 +954,10 @@ size_of.current_trading_state = 1
 
 -- Display: Current Trading State
 display.current_trading_state = function(value)
-  if value == H then
+  if value == "H" then
     return "Current Trading State: Halt In Effect (H)"
   end
-  if value == T then
+  if value == "T" then
     return "Current Trading State: Trading Resumed (T)"
   end
 
@@ -968,7 +968,7 @@ end
 dissect.current_trading_state = function(buffer, offset, packet, parent)
   local length = size_of.current_trading_state
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:string()
   local display = display.current_trading_state(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.current_trading_state, range, value, display)
@@ -1004,7 +1004,7 @@ dissect.strategy_trading_action_message_fields = function(buffer, offset, packet
   -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
   index, strategy_id = dissect.strategy_id(buffer, index, packet, parent)
 
-  -- Current Trading State: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Current Trading State: 1 Byte Ascii String Enum with 2 values
   index, current_trading_state = dissect.current_trading_state(buffer, index, packet, parent)
 
   return index
