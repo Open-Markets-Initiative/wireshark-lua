@@ -43,6 +43,7 @@ nasdaq_ise_ordercombofeed_itch_v1_1.fields.giveup = ProtoField.new("Giveup", "na
 nasdaq_ise_ordercombofeed_itch_v1_1.fields.leg_id = ProtoField.new("Leg Id", "nasdaq.ise.ordercombofeed.itch.v1.1.legid", ftypes.UINT8)
 nasdaq_ise_ordercombofeed_itch_v1_1.fields.leg_information = ProtoField.new("Leg Information", "nasdaq.ise.ordercombofeed.itch.v1.1.leginformation", ftypes.STRING)
 nasdaq_ise_ordercombofeed_itch_v1_1.fields.leg_ratio = ProtoField.new("Leg Ratio", "nasdaq.ise.ordercombofeed.itch.v1.1.legratio", ftypes.UINT32)
+nasdaq_ise_ordercombofeed_itch_v1_1.fields.leg_side = ProtoField.new("Leg Side", "nasdaq.ise.ordercombofeed.itch.v1.1.legside", ftypes.STRING)
 nasdaq_ise_ordercombofeed_itch_v1_1.fields.length = ProtoField.new("Length", "nasdaq.ise.ordercombofeed.itch.v1.1.length", ftypes.UINT16)
 nasdaq_ise_ordercombofeed_itch_v1_1.fields.message = ProtoField.new("Message", "nasdaq.ise.ordercombofeed.itch.v1.1.message", ftypes.STRING)
 nasdaq_ise_ordercombofeed_itch_v1_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.ise.ordercombofeed.itch.v1.1.messageheader", ftypes.STRING)
@@ -1043,6 +1044,33 @@ dissect.leg_ratio = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Leg Side
+size_of.leg_side = 1
+
+-- Display: Leg Side
+display.leg_side = function(value)
+  if value == "B" then
+    return "Leg Side: Buy (B)"
+  end
+  if value == "S" then
+    return "Leg Side: Sell (S)"
+  end
+
+  return "Leg Side: Unknown("..value..")"
+end
+
+-- Dissect: Leg Side
+dissect.leg_side = function(buffer, offset, packet, parent)
+  local length = size_of.leg_side
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.leg_side(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.leg_side, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Option Type
 size_of.option_type = 1
 
@@ -1233,7 +1261,7 @@ size_of.leg_information = function(buffer, offset)
 
   index = index + size_of.option_type
 
-  index = index + size_of.side
+  index = index + size_of.leg_side
 
   index = index + size_of.leg_ratio
 
@@ -1273,8 +1301,8 @@ dissect.leg_information_fields = function(buffer, offset, packet, parent)
   -- Option Type: 1 Byte Ascii String Enum with 3 values
   index, option_type = dissect.option_type(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  -- Leg Side: 1 Byte Ascii String Enum with 2 values
+  index, leg_side = dissect.leg_side(buffer, index, packet, parent)
 
   -- Leg Ratio: 4 Byte Unsigned Fixed Width Integer
   index, leg_ratio = dissect.leg_ratio(buffer, index, packet, parent)
