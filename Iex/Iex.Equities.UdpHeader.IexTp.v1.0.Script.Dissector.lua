@@ -29,7 +29,7 @@ iex_equities_udpheader_iextp_v1_0.fields.message_data = ProtoField.new("Message 
 iex_equities_udpheader_iextp_v1_0.fields.message_header = ProtoField.new("Message Header", "iex.equities.udpheader.iextp.v1.0.messageheader", ftypes.STRING)
 iex_equities_udpheader_iextp_v1_0.fields.message_length = ProtoField.new("Message Length", "iex.equities.udpheader.iextp.v1.0.messagelength", ftypes.UINT16)
 iex_equities_udpheader_iextp_v1_0.fields.message_protocol_id = ProtoField.new("Message Protocol Id", "iex.equities.udpheader.iextp.v1.0.messageprotocolid", ftypes.UINT16)
-iex_equities_udpheader_iextp_v1_0.fields.message_type = ProtoField.new("Message Type", "iex.equities.udpheader.iextp.v1.0.messagetype", ftypes.UINT8)
+iex_equities_udpheader_iextp_v1_0.fields.message_type = ProtoField.new("Message Type", "iex.equities.udpheader.iextp.v1.0.messagetype", ftypes.STRING)
 iex_equities_udpheader_iextp_v1_0.fields.packet = ProtoField.new("Packet", "iex.equities.udpheader.iextp.v1.0.packet", ftypes.STRING)
 iex_equities_udpheader_iextp_v1_0.fields.payload_length = ProtoField.new("Payload Length", "iex.equities.udpheader.iextp.v1.0.payloadlength", ftypes.UINT16)
 iex_equities_udpheader_iextp_v1_0.fields.reserved = ProtoField.new("Reserved", "iex.equities.udpheader.iextp.v1.0.reserved", ftypes.BYTES)
@@ -115,7 +115,7 @@ end
 dissect.message_type = function(buffer, offset, packet, parent)
   local length = size_of.message_type
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(iex_equities_udpheader_iextp_v1_0.fields.message_type, range, value, display)
@@ -166,7 +166,7 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
   index, message_length = dissect.message_length(buffer, index, packet, parent)
 
-  -- Message Type: 1 Byte Unsigned Fixed Width Integer
+  -- Message Type: 1 Byte Ascii String
   index, message_type = dissect.message_type(buffer, index, packet, parent)
 
   return index
