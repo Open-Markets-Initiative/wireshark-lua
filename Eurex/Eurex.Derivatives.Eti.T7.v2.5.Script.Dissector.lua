@@ -15674,7 +15674,7 @@ eurex_derivatives_eti_t7_v2_5:register_heuristic("tcp", eurex_derivatives_eti_t7
 -- Protocol:
 --   Organization: Eurex Exchange
 --   Version: 2.5
---   Date: Friday, July 15, 2016
+--   Date: Friday, November 7, 2014
 --   Specification: eurex_eti_manual_V251.pdf
 -- 
 -- Script:
