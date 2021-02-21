@@ -3141,7 +3141,41 @@ size_of.md_security_trading_status = 1
 
 -- Display: Md Security Trading Status
 display.md_security_trading_status = function(value)
-  return "Md Security Trading Status: "..value
+  if value == 2 then
+    return "Md Security Trading Status: Trading Halt (2)"
+  end
+  if value == 4 then
+    return "Md Security Trading Status: Close (4)"
+  end
+  if value == 15 then
+    return "Md Security Trading Status: New Price Indication (15)"
+  end
+  if value == 17 then
+    return "Md Security Trading Status: Ready To Trade (17)"
+  end
+  if value == 18 then
+    return "Md Security Trading Status: Not Available For Trading (18)"
+  end
+  if value == 20 then
+    return "Md Security Trading Status: Unknownor Invalid (20)"
+  end
+  if value == 21 then
+    return "Md Security Trading Status: Pre Open (21)"
+  end
+  if value == 24 then
+    return "Md Security Trading Status: Pre Cross (24)"
+  end
+  if value == 25 then
+    return "Md Security Trading Status: Cross (25)"
+  end
+  if value == 26 then
+    return "Md Security Trading Status: Post Close (26)"
+  end
+  if value == 103 then
+    return "Md Security Trading Status: No Change (103)"
+  end
+
+  return "Md Security Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Md Security Trading Status
@@ -3351,7 +3385,7 @@ dissect.md_instrument_definition_option_41_fields = function(buffer, offset, pac
   -- Last Update Time: 8 Byte Unsigned Fixed Width Integer
   index, last_update_time = dissect.last_update_time(buffer, index, packet, parent)
 
-  -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer
+  -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, md_security_trading_status = dissect.md_security_trading_status(buffer, index, packet, parent)
 
   -- Appl Id: 2 Byte Signed Fixed Width Integer
@@ -3782,14 +3816,47 @@ display.md_entry_type = function(value)
   if value == "1" then
     return "Md Entry Type: Offer (1)"
   end
+  if value == "E" then
+    return "Md Entry Type: Implied Bid (E)"
+  end
+  if value == "F" then
+    return "Md Entry Type: Implied Offer (F)"
+  end
+  if value == "J" then
+    return "Md Entry Type: Book Reset (J)"
+  end
+  if value == "6" then
+    return "Md Entry Type: Settlement Price (6)"
+  end
+  if value == "B" then
+    return "Md Entry Type: Cleared Volume (B)"
+  end
+  if value == "C" then
+    return "Md Entry Type: Open Interest (C)"
+  end
+  if value == "W" then
+    return "Md Entry Type: Fixing Price (W)"
+  end
+  if value == "4" then
+    return "Md Entry Type: Open Price (4)"
+  end
+  if value == "7" then
+    return "Md Entry Type: High Trade (7)"
+  end
+  if value == "8" then
+    return "Md Entry Type: Low Trade (8)"
+  end
+  if value == "N" then
+    return "Md Entry Type: Highest Bid (N)"
+  end
+  if value == "O" then
+    return "Md Entry Type: Lowest Offer (O)"
+  end
   if value == "2" then
     return "Md Entry Type: Trade (2)"
   end
   if value == "4" then
     return "Md Entry Type: Opening Price (4)"
-  end
-  if value == "6" then
-    return "Md Entry Type: Settlement Price (6)"
   end
   if value == "7" then
     return "Md Entry Type: Trading Session High Price (7)"
@@ -3800,15 +3867,6 @@ display.md_entry_type = function(value)
   if value == "B" then
     return "Md Entry Type: Trade Volume (B)"
   end
-  if value == "C" then
-    return "Md Entry Type: Open Interest (C)"
-  end
-  if value == "E" then
-    return "Md Entry Type: Implied Bid (E)"
-  end
-  if value == "F" then
-    return "Md Entry Type: Implied Offer (F)"
-  end
   if value == "J" then
     return "Md Entry Type: Empty Book (J)"
   end
@@ -3817,9 +3875,6 @@ display.md_entry_type = function(value)
   end
   if value == "O" then
     return "Md Entry Type: Session Low Offer (O)"
-  end
-  if value == "W" then
-    return "Md Entry Type: Fixing Price (W)"
   end
   if value == "e" then
     return "Md Entry Type: Electronic Volume (e)"
@@ -3976,7 +4031,7 @@ dissect.snapshot_full_refresh_group_fields = function(buffer, offset, packet, pa
   -- Settl Price Type: Struct of 6 fields
   index, settl_price_type = dissect.settl_price_type(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 17 values
+  -- Md Entry Type: 1 Byte Ascii String Enum with 24 values
   index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
 
   return index
@@ -4170,7 +4225,7 @@ dissect.snapshot_full_refresh_38_fields = function(buffer, offset, packet, paren
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
-  -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer
+  -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, md_security_trading_status = dissect.md_security_trading_status(buffer, index, packet, parent)
 
   -- High Limit Price: 8 Byte Signed Fixed Width Integer
@@ -4602,7 +4657,7 @@ dissect.m_d_incremental_refresh_session_statistics_group_fields = function(buffe
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, md_update_action = dissect.md_update_action(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 17 values
+  -- Md Entry Type: 1 Byte Ascii String Enum with 24 values
   index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
 
   -- Padding 5: 5 Byte
@@ -4958,7 +5013,7 @@ dissect.m_d_incremental_refresh_daily_statistics_group_fields = function(buffer,
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, md_update_action = dissect.md_update_action(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 17 values
+  -- Md Entry Type: 1 Byte Ascii String Enum with 24 values
   index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
 
   -- Padding 7: 7 Byte
@@ -5136,7 +5191,7 @@ dissect.m_d_incremental_refresh_book_group_fields = function(buffer, offset, pac
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, md_update_action = dissect.md_update_action(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 17 values
+  -- Md Entry Type: 1 Byte Ascii String Enum with 24 values
   index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
 
   -- Padding 5: 5 Byte
@@ -5836,7 +5891,7 @@ dissect.md_instrument_definition_spread_29_fields = function(buffer, offset, pac
   -- Last Update Time: 8 Byte Unsigned Fixed Width Integer
   index, last_update_time = dissect.last_update_time(buffer, index, packet, parent)
 
-  -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer
+  -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, md_security_trading_status = dissect.md_security_trading_status(buffer, index, packet, parent)
 
   -- Appl Id: 2 Byte Signed Fixed Width Integer
@@ -6238,7 +6293,7 @@ dissect.md_instrument_definition_future_27_fields = function(buffer, offset, pac
   -- Last Update Time: 8 Byte Unsigned Fixed Width Integer
   index, last_update_time = dissect.last_update_time(buffer, index, packet, parent)
 
-  -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer
+  -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, md_security_trading_status = dissect.md_security_trading_status(buffer, index, packet, parent)
 
   -- Appl Id: 2 Byte Signed Fixed Width Integer

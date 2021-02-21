@@ -1469,12 +1469,20 @@ size_of.event_type = 1
 
 -- Display: Event Type
 display.event_type = function(value)
-  -- Check if field has value
+  if value == 5 then
+    return "Event Type: Activation (5)"
+  end
+  if value == 6 then
+    return "Event Type: Deletion (6)"
+  end
+  if value == 120 then
+    return "Event Type: Modification (120)"
+  end
   if value == 255 then
-    return "Event Type: No Value ("..value..")"
+    return "Event Type: Event Type (255)"
   end
 
-  return "Event Type: "..value
+  return "Event Type: Unknown("..value..")"
 end
 
 -- Dissect: Event Type
@@ -1509,7 +1517,7 @@ end
 dissect.events_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Event Type: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, event_type = dissect.event_type(buffer, index, packet, parent)
 
   -- Event Time: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -2969,7 +2977,38 @@ size_of.md_entry_type = 1
 
 -- Display: Md Entry Type
 display.md_entry_type = function(value)
-  return "Md Entry Type: "..value
+  if value == "0" then
+    return "Md Entry Type: Bid (0)"
+  end
+  if value == "1" then
+    return "Md Entry Type: Offer (1)"
+  end
+  if value == "2" then
+    return "Md Entry Type: Trade (2)"
+  end
+  if value == "3" then
+    return "Md Entry Type: Index Value (3)"
+  end
+  if value == "4" then
+    return "Md Entry Type: Opening Value (4)"
+  end
+  if value == "5" then
+    return "Md Entry Type: Closing Price (5)"
+  end
+  if value == "6" then
+    return "Md Entry Type: Settlement Price (6)"
+  end
+  if value == "7" then
+    return "Md Entry Type: Session High Price (7)"
+  end
+  if value == "8" then
+    return "Md Entry Type: Session Low Price (8)"
+  end
+  if value == "e" then
+    return "Md Entry Type: Trade Volume (e)"
+  end
+
+  return "Md Entry Type: Unknown("..value..")"
 end
 
 -- Dissect: Md Entry Type
@@ -3064,7 +3103,7 @@ end
 dissect.m_d_incremental_refresh_otc_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Entry Type: 1 Byte Ascii String
+  -- Md Entry Type: 1 Byte Ascii String Enum with 10 values
   index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
@@ -3679,7 +3718,7 @@ dissect.m_d_incremental_refresh_eris_group_fields = function(buffer, offset, pac
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, md_update_action = dissect.md_update_action(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String
+  -- Md Entry Type: 1 Byte Ascii String Enum with 10 values
   index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
@@ -4587,7 +4626,7 @@ end
 dissect.m_d_incremental_refresh_indices_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Entry Type: 1 Byte Ascii String
+  -- Md Entry Type: 1 Byte Ascii String Enum with 10 values
   index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
@@ -6537,7 +6576,7 @@ dissect.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_f
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, md_update_action = dissect.md_update_action(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String
+  -- Md Entry Type: 1 Byte Ascii String Enum with 10 values
   index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer

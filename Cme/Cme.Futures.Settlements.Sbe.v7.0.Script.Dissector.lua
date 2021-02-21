@@ -274,7 +274,17 @@ size_of.high_px_ind = 1
 
 -- Display: High Px Ind
 display.high_px_ind = function(value)
-  return "High Px Ind: "..value
+  if value == "A" then
+    return "High Px Ind: Ask (A)"
+  end
+  if value == "B" then
+    return "High Px Ind: Bid (B)"
+  end
+  if value == "T" then
+    return "High Px Ind: Trade (T)"
+  end
+
+  return "High Px Ind: Unknown("..value..")"
 end
 
 -- Dissect: High Px Ind
@@ -386,7 +396,17 @@ size_of.low_px_ind = 1
 
 -- Display: Low Px Ind
 display.low_px_ind = function(value)
-  return "Low Px Ind: "..value
+  if value == "A" then
+    return "Low Px Ind: Ask (A)"
+  end
+  if value == "B" then
+    return "Low Px Ind: Bid (B)"
+  end
+  if value == "T" then
+    return "Low Px Ind: Trade (T)"
+  end
+
+  return "Low Px Ind: Unknown("..value..")"
 end
 
 -- Dissect: Low Px Ind
@@ -1063,13 +1083,13 @@ dissect.m_d_incremental_refresh_high_low_group_fields = function(buffer, offset,
   -- Low Px: Struct of 2 fields
   index, low_px = dissect.low_px(buffer, index, packet, parent)
 
-  -- Low Px Ind: 1 Byte Ascii String
+  -- Low Px Ind: 1 Byte Ascii String Enum with 3 values
   index, low_px_ind = dissect.low_px_ind(buffer, index, packet, parent)
 
   -- High Px: Struct of 2 fields
   index, high_px = dissect.high_px(buffer, index, packet, parent)
 
-  -- High Px Ind: 1 Byte Ascii String
+  -- High Px Ind: 1 Byte Ascii String Enum with 3 values
   index, high_px_ind = dissect.high_px_ind(buffer, index, packet, parent)
 
   -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
@@ -1289,7 +1309,14 @@ size_of.open_close_settl_flag = 1
 
 -- Display: Open Close Settl Flag
 display.open_close_settl_flag = function(value)
-  return "Open Close Settl Flag: "..value
+  if value == 3 then
+    return "Open Close Settl Flag: Estimated (3)"
+  end
+  if value == 4 then
+    return "Open Close Settl Flag: Actual Adjusted (4)"
+  end
+
+  return "Open Close Settl Flag: Unknown("..value..")"
 end
 
 -- Dissect: Open Close Settl Flag
@@ -1459,7 +1486,7 @@ dissect.m_d_incremental_refresh_voi_group_fields = function(buffer, offset, pack
   -- Open Interest Qty: 4 Byte Unsigned Fixed Width Integer Nullable
   index, open_interest_qty = dissect.open_interest_qty(buffer, index, packet, parent)
 
-  -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer
+  -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, open_close_settl_flag = dissect.open_close_settl_flag(buffer, index, packet, parent)
 
   -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
