@@ -3199,6 +3199,9 @@ display.md_security_trading_status = function(value)
   if value == 103 then
     return "Md Security Trading Status: No Change (103)"
   end
+  if value == 255 then
+    return "Md Security Trading Status: No Value (255)"
+  end
 
   return "Md Security Trading Status: Unknown("..value..")"
 end
@@ -3412,7 +3415,7 @@ dissect.md_instrument_definition_option_41_fields = function(buffer, offset, pac
   -- Last Update Time: 8 Byte Unsigned Fixed Width Integer
   index, last_update_time = dissect.last_update_time(buffer, index, packet, parent)
 
-  -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
   index, md_security_trading_status = dissect.md_security_trading_status(buffer, index, packet, parent)
 
   -- Appl Id: 2 Byte Signed Fixed Width Integer
@@ -4221,7 +4224,7 @@ dissect.snapshot_full_refresh_38_fields = function(buffer, offset, packet, paren
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
-  -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
   index, md_security_trading_status = dissect.md_security_trading_status(buffer, index, packet, parent)
 
   -- High Limit Price: 8 Byte Signed Fixed Width Integer
@@ -5889,7 +5892,7 @@ dissect.md_instrument_definition_spread_29_fields = function(buffer, offset, pac
   -- Last Update Time: 8 Byte Unsigned Fixed Width Integer
   index, last_update_time = dissect.last_update_time(buffer, index, packet, parent)
 
-  -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
   index, md_security_trading_status = dissect.md_security_trading_status(buffer, index, packet, parent)
 
   -- Appl Id: 2 Byte Signed Fixed Width Integer
@@ -6296,7 +6299,7 @@ dissect.md_instrument_definition_future_27_fields = function(buffer, offset, pac
   -- Last Update Time: 8 Byte Unsigned Fixed Width Integer
   index, last_update_time = dissect.last_update_time(buffer, index, packet, parent)
 
-  -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
   index, md_security_trading_status = dissect.md_security_trading_status(buffer, index, packet, parent)
 
   -- Appl Id: 2 Byte Signed Fixed Width Integer

@@ -3444,7 +3444,7 @@ display.event_type = function(value)
     return "Event Type: Modification (120)"
   end
   if value == 255 then
-    return "Event Type: Event Type (255)"
+    return "Event Type: No Value (255)"
   end
 
   return "Event Type: Unknown("..value..")"
