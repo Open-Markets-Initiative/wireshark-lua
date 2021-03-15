@@ -1191,6 +1191,10 @@ size_of.notional_percentage_outstanding = 4
 
 -- Display: Notional Percentage Outstanding
 display.notional_percentage_outstanding = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Notional Percentage Outstanding: No Value ("..value..")"
+  end
   return "Notional Percentage Outstanding: "..value/10000
 end
 
@@ -1839,7 +1843,7 @@ dissect.m_d_incremental_refresh_otc_group_fields = function(buffer, offset, pack
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
   index, rpt_seq = dissect.rpt_seq(buffer, index, packet, parent)
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer: Struct of 2 fields
+  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
   index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable: Struct of 2 fields
@@ -1866,7 +1870,7 @@ dissect.m_d_incremental_refresh_otc_group_fields = function(buffer, offset, pack
   -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
 
-  -- Coupon Rate: 4 Byte Signed Fixed Width Integer: Struct of 2 fields
+  -- Coupon Rate: 4 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
   index, coupon_rate = dissect.coupon_rate(buffer, index, packet, parent)
 
   -- Restructuring Type: 2 Byte Ascii String
@@ -1875,13 +1879,13 @@ dissect.m_d_incremental_refresh_otc_group_fields = function(buffer, offset, pack
   -- Seniority: 2 Byte Ascii String
   index, seniority = dissect.seniority(buffer, index, packet, parent)
 
-  -- Notional Percentage Outstanding: 4 Byte Signed Fixed Width Integer
+  -- Notional Percentage Outstanding: 4 Byte Signed Fixed Width Integer Nullable
   index, notional_percentage_outstanding = dissect.notional_percentage_outstanding(buffer, index, packet, parent)
 
   -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Nullable
   index, put_or_call = dissect.put_or_call(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer: Struct of 2 fields
+  -- Strike Price: 8 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
   index, strike_price = dissect.strike_price(buffer, index, packet, parent)
 
   -- Unit Of Measure: 5 Byte Ascii String
@@ -1890,7 +1894,7 @@ dissect.m_d_incremental_refresh_otc_group_fields = function(buffer, offset, pack
   -- Unit Of Measure Currency: 3 Byte Ascii String
   index, unit_of_measure_currency = dissect.unit_of_measure_currency(buffer, index, packet, parent)
 
-  -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer: Struct of 2 fields
+  -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
   index, unit_of_measure_qty = dissect.unit_of_measure_qty(buffer, index, packet, parent)
 
   -- Md Entry Date: 4 Byte Signed Fixed Width Integer Nullable
@@ -2603,7 +2607,7 @@ dissect.m_d_incremental_refresh_trade_blocks_group_fields = function(buffer, off
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
   index, rpt_seq = dissect.rpt_seq(buffer, index, packet, parent)
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer: Struct of 2 fields
+  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
   index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable: Struct of 2 fields
@@ -2645,10 +2649,10 @@ dissect.m_d_incremental_refresh_trade_blocks_group_fields = function(buffer, off
   -- Unit Of Measure Currency: 3 Byte Ascii String
   index, unit_of_measure_currency = dissect.unit_of_measure_currency(buffer, index, packet, parent)
 
-  -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer: Struct of 2 fields
+  -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
   index, unit_of_measure_qty = dissect.unit_of_measure_qty(buffer, index, packet, parent)
 
-  -- Coupon Rate: 4 Byte Signed Fixed Width Integer: Struct of 2 fields
+  -- Coupon Rate: 4 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
   index, coupon_rate = dissect.coupon_rate(buffer, index, packet, parent)
 
   -- Price Type: 2 Byte Unsigned Fixed Width Integer Nullable
@@ -2663,7 +2667,7 @@ dissect.m_d_incremental_refresh_trade_blocks_group_fields = function(buffer, off
   -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Nullable
   index, put_or_call = dissect.put_or_call(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer: Struct of 2 fields
+  -- Strike Price: 8 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
   index, strike_price = dissect.strike_price(buffer, index, packet, parent)
 
   -- Restructuring Type: 2 Byte Ascii String
@@ -3968,7 +3972,7 @@ dissect.md_instrument_definition_eris_363_fields = function(buffer, offset, pack
   -- Rate Type: 2 Byte Ascii String
   index, rate_type = dissect.rate_type(buffer, index, packet, parent)
 
-  -- Coupon Rate: 4 Byte Signed Fixed Width Integer: Struct of 2 fields
+  -- Coupon Rate: 4 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
   index, coupon_rate = dissect.coupon_rate(buffer, index, packet, parent)
 
   -- User Defined Instrument: 1 Byte Ascii String
@@ -4188,7 +4192,7 @@ dissect.m_d_incremental_refresh_eris_group_fields = function(buffer, offset, pac
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
   index, rpt_seq = dissect.rpt_seq(buffer, index, packet, parent)
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer: Struct of 2 fields
+  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
   index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable: Struct of 2 fields
@@ -4760,7 +4764,7 @@ dissect.m_d_incremental_refresh_indices_group_fields = function(buffer, offset, 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
   index, rpt_seq = dissect.rpt_seq(buffer, index, packet, parent)
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer: Struct of 2 fields
+  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
   index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable: Struct of 2 fields
@@ -6710,7 +6714,7 @@ dissect.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_f
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
   index, rpt_seq = dissect.rpt_seq(buffer, index, packet, parent)
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer: Struct of 2 fields
+  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
   index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Nullable
@@ -6746,7 +6750,7 @@ dissect.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_f
   -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
 
-  -- Coupon Rate: 4 Byte Signed Fixed Width Integer: Struct of 2 fields
+  -- Coupon Rate: 4 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
   index, coupon_rate = dissect.coupon_rate(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable

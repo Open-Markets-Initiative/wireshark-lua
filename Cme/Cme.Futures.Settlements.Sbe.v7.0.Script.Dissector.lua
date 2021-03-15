@@ -1698,6 +1698,10 @@ size_of.md_entry_px = 8
 
 -- Display: Md Entry Px
 display.md_entry_px = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Md Entry Px: No Value ("..value..")"
+  end
   return "Md Entry Px: "..value:tonumber()/1000000000
 end
 
@@ -1919,7 +1923,7 @@ dissect.m_d_incremental_refresh_settle_group_fields = function(buffer, offset, p
   -- Formatted Last Px: Struct of 2 fields
   index, formatted_last_px = dissect.formatted_last_px(buffer, index, packet, parent)
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable
   index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 7 fields

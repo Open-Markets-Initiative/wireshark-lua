@@ -39,16 +39,17 @@ cme_futures_ilink3_sbe_v8_5.fields.cancelled_symbol = ProtoField.new("Cancelled 
 cme_futures_ilink3_sbe_v8_5.fields.clearing_account_type = ProtoField.new("Clearing Account Type", "cme.futures.ilink3.sbe.v8.5.clearingaccounttype", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_5.fields.clearing_trade_price_type = ProtoField.new("Clearing Trade Price Type", "cme.futures.ilink3.sbe.v8.5.clearingtradepricetype", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_5.fields.clordid = ProtoField.new("ClOrdId", "cme.futures.ilink3.sbe.v8.5.clordid", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_5.fields.cmta_give_up_cd = ProtoField.new("Cmta Give Up Cd", "cme.futures.ilink3.sbe.v8.5.cmtagiveupcd", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.cmta_giveup_cd = ProtoField.new("Cmta Giveup Cd", "cme.futures.ilink3.sbe.v8.5.cmtagiveupcd", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.credentials = ProtoField.new("Credentials", "cme.futures.ilink3.sbe.v8.5.credentials", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.cross_id = ProtoField.new("Cross Id", "cme.futures.ilink3.sbe.v8.5.crossid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_5.fields.cross_type = ProtoField.new("Cross Type", "cme.futures.ilink3.sbe.v8.5.crosstype", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_5.fields.cross_type = ProtoField.new("Cross Type", "cme.futures.ilink3.sbe.v8.5.crosstype", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_5.fields.cum_qty = ProtoField.new("Cum Qty", "cme.futures.ilink3.sbe.v8.5.cumqty", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_5.fields.currency = ProtoField.new("Currency", "cme.futures.ilink3.sbe.v8.5.currency", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.cust_order_capacity = ProtoField.new("Cust Order Capacity", "cme.futures.ilink3.sbe.v8.5.custordercapacity", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_5.fields.cust_order_handling_inst = ProtoField.new("Cust Order Handling Inst", "cme.futures.ilink3.sbe.v8.5.custorderhandlinginst", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.cxl_quantity = ProtoField.new("Cxl Quantity", "cme.futures.ilink3.sbe.v8.5.cxlquantity", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_5.fields.cxl_rej_reason = ProtoField.new("Cxl Rej Reason", "cme.futures.ilink3.sbe.v8.5.cxlrejreason", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_5.fields.data_length = ProtoField.new("Data Length", "cme.futures.ilink3.sbe.v8.5.datalength", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_5.fields.day = ProtoField.new("Day", "cme.futures.ilink3.sbe.v8.5.day", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_5.fields.delay_duration = ProtoField.new("Delay Duration", "cme.futures.ilink3.sbe.v8.5.delayduration", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_5.fields.delay_to_time = ProtoField.new("Delay To Time", "cme.futures.ilink3.sbe.v8.5.delaytotime", ftypes.UINT64)
@@ -133,7 +134,6 @@ cme_futures_ilink3_sbe_v8_5.fields.leg_security_id = ProtoField.new("Leg Securit
 cme_futures_ilink3_sbe_v8_5.fields.leg_side = ProtoField.new("Leg Side", "cme.futures.ilink3.sbe.v8.5.legside", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_5.fields.leg_trade_id = ProtoField.new("Leg Trade Id", "cme.futures.ilink3.sbe.v8.5.legtradeid", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_5.fields.leg_trade_ref_id = ProtoField.new("Leg Trade Ref Id", "cme.futures.ilink3.sbe.v8.5.legtraderefid", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_5.fields.length = ProtoField.new("Length", "cme.futures.ilink3.sbe.v8.5.length", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_5.fields.liquidity_flag = ProtoField.new("Liquidity Flag", "cme.futures.ilink3.sbe.v8.5.liquidityflag", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_5.fields.list_update_action = ProtoField.new("List Update Action", "cme.futures.ilink3.sbe.v8.5.listupdateaction", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_5.fields.location = ProtoField.new("Location", "cme.futures.ilink3.sbe.v8.5.location", ftypes.STRING)
@@ -2978,6 +2978,10 @@ size_of.leg_price = 8
 
 -- Display: Leg Price
 display.leg_price = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Leg Price: No Value ("..value..")"
+  end
   return "Leg Price: "..value:tonumber()/1000000000
 end
 
@@ -3019,7 +3023,7 @@ end
 dissect.security_definition_response_leg_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Leg Price: 8 Byte Signed Fixed Width Integer
+  -- Leg Price: 8 Byte Signed Fixed Width Integer Nullable
   index, leg_price = dissect.leg_price(buffer, index, packet, parent)
 
   -- Leg Option Delta: Struct of 2 fields
@@ -3781,7 +3785,7 @@ end
 dissect.security_definition_request_leg_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Leg Price: 8 Byte Signed Fixed Width Integer
+  -- Leg Price: 8 Byte Signed Fixed Width Integer Nullable
   index, leg_price = dissect.leg_price(buffer, index, packet, parent)
 
   -- Leg Security Id: 4 Byte Signed Fixed Width Integer
@@ -6587,6 +6591,10 @@ size_of.price = 8
 
 -- Display: Price
 display.price = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Price: No Value ("..value..")"
+  end
   return "Price: "..value:tonumber()/1000000000
 end
 
@@ -6680,7 +6688,7 @@ dissect.new_order_cross_544_fields = function(buffer, offset, packet, parent)
   -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = dissect.price(buffer, index, packet, parent)
 
   -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer
@@ -7466,32 +7474,32 @@ dissect.cust_order_handling_inst = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Cmta Give Up Cd
-size_of.cmta_give_up_cd = 1
+-- Size: Cmta Giveup Cd
+size_of.cmta_giveup_cd = 1
 
--- Display: Cmta Give Up Cd
-display.cmta_give_up_cd = function(value)
+-- Display: Cmta Giveup Cd
+display.cmta_giveup_cd = function(value)
   if value == "G" then
-    return "Cmta Give Up Cd: Give Up (G)"
+    return "Cmta Giveup Cd: Give Up (G)"
   end
   if value == "S" then
-    return "Cmta Give Up Cd: Sg Xoffset (S)"
+    return "Cmta Giveup Cd: Sg Xoffset (S)"
   end
   if value == "0" then
-    return "Cmta Give Up Cd: No Value (0)"
+    return "Cmta Giveup Cd: No Value (0)"
   end
 
-  return "Cmta Give Up Cd: Unknown("..value..")"
+  return "Cmta Giveup Cd: Unknown("..value..")"
 end
 
--- Dissect: Cmta Give Up Cd
-dissect.cmta_give_up_cd = function(buffer, offset, packet, parent)
-  local length = size_of.cmta_give_up_cd
+-- Dissect: Cmta Giveup Cd
+dissect.cmta_giveup_cd = function(buffer, offset, packet, parent)
+  local length = size_of.cmta_giveup_cd
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.cmta_give_up_cd(value, buffer, offset, packet, parent)
+  local display = display.cmta_giveup_cd(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_5.fields.cmta_give_up_cd, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_5.fields.cmta_giveup_cd, range, value, display)
 
   return offset + length, value
 end
@@ -7807,7 +7815,7 @@ size_of.party_details_list_report_538 = function(buffer, offset)
 
   index = index + size_of.clearing_trade_price_type
 
-  index = index + size_of.cmta_give_up_cd
+  index = index + size_of.cmta_giveup_cd
 
   index = index + size_of.cust_order_handling_inst
 
@@ -7880,8 +7888,8 @@ dissect.party_details_list_report_538_fields = function(buffer, offset, packet, 
   -- Clearing Trade Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, clearing_trade_price_type = dissect.clearing_trade_price_type(buffer, index, packet, parent)
 
-  -- Cmta Give Up Cd: 1 Byte Ascii String Enum with 3 values
-  index, cmta_give_up_cd = dissect.cmta_give_up_cd(buffer, index, packet, parent)
+  -- Cmta Giveup Cd: 1 Byte Ascii String Enum with 3 values
+  index, cmta_giveup_cd = dissect.cmta_giveup_cd(buffer, index, packet, parent)
 
   -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 7 values
   index, cust_order_handling_inst = dissect.cust_order_handling_inst(buffer, index, packet, parent)
@@ -8569,7 +8577,7 @@ size_of.cross_type = 1
 -- Display: Cross Type
 display.cross_type = function(value)
   -- Check if field has value
-  if value == "255" then
+  if value == 255 then
     return "Cross Type: No Value ("..value..")"
   end
 
@@ -8580,7 +8588,7 @@ end
 dissect.cross_type = function(buffer, offset, packet, parent)
   local length = size_of.cross_type
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:le_uint()
   local display = display.cross_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_5.fields.cross_type, range, value, display)
@@ -8764,6 +8772,10 @@ size_of.stop_px = 8
 
 -- Display: Stop Px
 display.stop_px = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Stop Px: No Value ("..value..")"
+  end
   return "Stop Px: "..value:tonumber()/1000000000
 end
 
@@ -8888,10 +8900,10 @@ dissect.execution_report_cancel_534_fields = function(buffer, offset, packet, pa
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = dissect.price(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer
+  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = dissect.stop_px(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -8954,7 +8966,7 @@ dissect.execution_report_cancel_534_fields = function(buffer, offset, packet, pa
   -- Exec Restatement Reason: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, exec_restatement_reason = dissect.exec_restatement_reason(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Ascii String Nullable
+  -- Cross Type: 1 Byte Unsigned Fixed Width Integer Nullable
   index, cross_type = dissect.cross_type(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
@@ -9279,10 +9291,10 @@ dissect.execution_report_status_532_fields = function(buffer, offset, packet, pa
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = dissect.price(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer
+  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = dissect.stop_px(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -9351,7 +9363,7 @@ dissect.execution_report_status_532_fields = function(buffer, offset, packet, pa
   -- Last Rpt Requested: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, last_rpt_requested = dissect.last_rpt_requested(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Ascii String Nullable
+  -- Cross Type: 1 Byte Unsigned Fixed Width Integer Nullable
   index, cross_type = dissect.cross_type(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
@@ -9494,10 +9506,10 @@ dissect.execution_report_modify_531_fields = function(buffer, offset, packet, pa
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = dissect.price(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer
+  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = dissect.stop_px(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -9560,7 +9572,7 @@ dissect.execution_report_modify_531_fields = function(buffer, offset, packet, pa
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Ascii String Nullable
+  -- Cross Type: 1 Byte Unsigned Fixed Width Integer Nullable
   index, cross_type = dissect.cross_type(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
@@ -10465,6 +10477,10 @@ size_of.underlying_px = 8
 
 -- Display: Underlying Px
 display.underlying_px = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Underlying Px: No Value ("..value..")"
+  end
   return "Underlying Px: "..value:tonumber()/1000000000
 end
 
@@ -10646,7 +10662,7 @@ dissect.execution_report_trade_spread_leg_527_fields = function(buffer, offset, 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Underlying Px: 8 Byte Signed Fixed Width Integer
+  -- Underlying Px: 8 Byte Signed Fixed Width Integer Nullable
   index, underlying_px = dissect.underlying_px(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -11092,10 +11108,10 @@ dissect.execution_report_trade_spread_526_fields = function(buffer, offset, pack
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = dissect.price(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer
+  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = dissect.stop_px(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -11167,7 +11183,7 @@ dissect.execution_report_trade_spread_526_fields = function(buffer, offset, pack
   -- Aggressor Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, aggressor_indicator = dissect.aggressor_indicator(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Ascii String Nullable
+  -- Cross Type: 1 Byte Unsigned Fixed Width Integer Nullable
   index, cross_type = dissect.cross_type(buffer, index, packet, parent)
 
   -- Total Num Securities: 1 Byte Unsigned Fixed Width Integer
@@ -11492,10 +11508,10 @@ dissect.execution_report_trade_outright_525_fields = function(buffer, offset, pa
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = dissect.price(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer
+  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = dissect.stop_px(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -11570,7 +11586,7 @@ dissect.execution_report_trade_outright_525_fields = function(buffer, offset, pa
   -- Aggressor Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, aggressor_indicator = dissect.aggressor_indicator(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Ascii String Nullable
+  -- Cross Type: 1 Byte Unsigned Fixed Width Integer Nullable
   index, cross_type = dissect.cross_type(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
@@ -11714,10 +11730,10 @@ dissect.execution_report_elimination_524_fields = function(buffer, offset, packe
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = dissect.price(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer
+  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = dissect.stop_px(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -11771,7 +11787,7 @@ dissect.execution_report_elimination_524_fields = function(buffer, offset, packe
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, poss_retrans_flag = dissect.poss_retrans_flag(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Ascii String Nullable
+  -- Cross Type: 1 Byte Unsigned Fixed Width Integer Nullable
   index, cross_type = dissect.cross_type(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
@@ -11937,10 +11953,10 @@ dissect.execution_report_reject_523_fields = function(buffer, offset, packet, pa
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = dissect.price(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer
+  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = dissect.stop_px(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -12000,7 +12016,7 @@ dissect.execution_report_reject_523_fields = function(buffer, offset, packet, pa
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Ascii String Nullable
+  -- Cross Type: 1 Byte Unsigned Fixed Width Integer Nullable
   index, cross_type = dissect.cross_type(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
@@ -12142,10 +12158,10 @@ dissect.execution_report_new_522_fields = function(buffer, offset, packet, paren
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = dissect.price(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer
+  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = dissect.stop_px(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -12202,7 +12218,7 @@ dissect.execution_report_new_522_fields = function(buffer, offset, packet, paren
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Ascii String Nullable
+  -- Cross Type: 1 Byte Unsigned Fixed Width Integer Nullable
   index, cross_type = dissect.cross_type(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
@@ -12578,7 +12594,7 @@ size_of.party_details_definition_request_ack_519 = function(buffer, offset)
 
   index = index + size_of.clearing_trade_price_type
 
-  index = index + size_of.cmta_give_up_cd
+  index = index + size_of.cmta_giveup_cd
 
   index = index + size_of.cust_order_handling_inst
 
@@ -12649,8 +12665,8 @@ dissect.party_details_definition_request_ack_519_fields = function(buffer, offse
   -- Clearing Trade Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, clearing_trade_price_type = dissect.clearing_trade_price_type(buffer, index, packet, parent)
 
-  -- Cmta Give Up Cd: 1 Byte Ascii String Enum with 3 values
-  index, cmta_give_up_cd = dissect.cmta_give_up_cd(buffer, index, packet, parent)
+  -- Cmta Giveup Cd: 1 Byte Ascii String Enum with 3 values
+  index, cmta_giveup_cd = dissect.cmta_giveup_cd(buffer, index, packet, parent)
 
   -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 7 values
   index, cust_order_handling_inst = dissect.cust_order_handling_inst(buffer, index, packet, parent)
@@ -12713,7 +12729,7 @@ size_of.party_details_definition_request_518 = function(buffer, offset)
 
   index = index + size_of.self_match_prevention_id
 
-  index = index + size_of.cmta_give_up_cd
+  index = index + size_of.cmta_giveup_cd
 
   index = index + size_of.cust_order_capacity
 
@@ -12768,8 +12784,8 @@ dissect.party_details_definition_request_518_fields = function(buffer, offset, p
   -- Self Match Prevention Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, self_match_prevention_id = dissect.self_match_prevention_id(buffer, index, packet, parent)
 
-  -- Cmta Give Up Cd: 1 Byte Ascii String Enum with 3 values
-  index, cmta_give_up_cd = dissect.cmta_give_up_cd(buffer, index, packet, parent)
+  -- Cmta Giveup Cd: 1 Byte Ascii String Enum with 3 values
+  index, cmta_giveup_cd = dissect.cmta_giveup_cd(buffer, index, packet, parent)
 
   -- Cust Order Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, cust_order_capacity = dissect.cust_order_capacity(buffer, index, packet, parent)
@@ -12847,6 +12863,10 @@ size_of.offer_px = 8
 
 -- Display: Offer Px
 display.offer_px = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Offer Px: No Value ("..value..")"
+  end
   return "Offer Px: "..value:tonumber()/1000000000
 end
 
@@ -12867,6 +12887,10 @@ size_of.bid_px = 8
 
 -- Display: Bid Px
 display.bid_px = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Bid Px: No Value ("..value..")"
+  end
   return "Bid Px: "..value:tonumber()/1000000000
 end
 
@@ -12914,10 +12938,10 @@ end
 dissect.mass_quote_entry_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Bid Px: 8 Byte Signed Fixed Width Integer
+  -- Bid Px: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_px = dissect.bid_px(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Signed Fixed Width Integer
+  -- Offer Px: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_px = dissect.offer_px(buffer, index, packet, parent)
 
   -- Quote Entry Id: 4 Byte Unsigned Fixed Width Integer
@@ -13310,7 +13334,7 @@ end
 dissect.order_cancel_replace_request_515_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = dissect.price(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -13337,7 +13361,7 @@ dissect.order_cancel_replace_request_515_fields = function(buffer, offset, packe
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer
+  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = dissect.stop_px(buffer, index, packet, parent)
 
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
@@ -13463,7 +13487,7 @@ end
 dissect.new_order_single_514_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = dissect.price(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -13493,7 +13517,7 @@ dissect.new_order_single_514_fields = function(buffer, offset, packet, parent)
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
   index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer
+  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = dissect.stop_px(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
@@ -14337,22 +14361,22 @@ dissect.var_data = function(buffer, offset, packet, parent, size)
   return offset + size
 end
 
--- Size: Length
-size_of.length = 2
+-- Size: Data Length
+size_of.data_length = 2
 
--- Display: Length
-display.length = function(value)
-  return "Length: "..value
+-- Display: Data Length
+display.data_length = function(value)
+  return "Data Length: "..value
 end
 
--- Dissect: Length
-dissect.length = function(buffer, offset, packet, parent)
-  local length = size_of.length
+-- Dissect: Data Length
+dissect.data_length = function(buffer, offset, packet, parent)
+  local length = size_of.data_length
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.length(value, buffer, offset, packet, parent)
+  local display = display.data_length(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_5.fields.length, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_5.fields.data_length, range, value, display)
 
   return offset + length, value
 end
@@ -14361,7 +14385,7 @@ end
 size_of.credentials = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.length
+  index = index + size_of.data_length
 
   -- Parse runtime size of: Var Data
   index = index + buffer(offset + index - 2, 2):le_uint()
@@ -14378,11 +14402,11 @@ end
 dissect.credentials_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Length: 2 Byte Unsigned Fixed Width Integer
-  index, length = dissect.length(buffer, index, packet, parent)
+  -- Data Length: 2 Byte Unsigned Fixed Width Integer
+  index, data_length = dissect.data_length(buffer, index, packet, parent)
 
   -- Var Data: 1 Byte Ascii String
-  index = dissect.var_data(buffer, index, packet, parent, length)
+  index = dissect.var_data(buffer, index, packet, parent, data_length)
 
   return index
 end

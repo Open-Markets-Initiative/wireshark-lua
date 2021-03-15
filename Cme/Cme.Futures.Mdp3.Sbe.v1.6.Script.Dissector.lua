@@ -1066,6 +1066,10 @@ size_of.md_entry_px = 8
 
 -- Display: Md Entry Px
 display.md_entry_px = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Md Entry Px: No Value ("..value..")"
+  end
   return "Md Entry Px: "..value:tonumber()/10000000
 end
 
@@ -1113,7 +1117,7 @@ end
 dissect.m_d_incremental_refresh_trade_summary_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable
   index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
@@ -1562,6 +1566,10 @@ size_of.min_lot_size = 4
 
 -- Display: Min Lot Size
 display.min_lot_size = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Min Lot Size: No Value ("..value..")"
+  end
   return "Min Lot Size: "..value/10000
 end
 
@@ -1620,7 +1628,7 @@ dissect.lot_type_rules_group_fields = function(buffer, offset, packet, parent)
   -- Lot Type: 1 Byte Signed Fixed Width Integer
   index, lot_type = dissect.lot_type(buffer, index, packet, parent)
 
-  -- Min Lot Size: 4 Byte Signed Fixed Width Integer
+  -- Min Lot Size: 4 Byte Signed Fixed Width Integer Nullable
   index, min_lot_size = dissect.min_lot_size(buffer, index, packet, parent)
 
   return index
@@ -2265,6 +2273,10 @@ size_of.high_limit_price = 8
 
 -- Display: High Limit Price
 display.high_limit_price = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "High Limit Price: No Value ("..value..")"
+  end
   return "High Limit Price: "..value:tonumber()/10000000
 end
 
@@ -2285,6 +2297,10 @@ size_of.low_limit_price = 8
 
 -- Display: Low Limit Price
 display.low_limit_price = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Low Limit Price: No Value ("..value..")"
+  end
   return "Low Limit Price: "..value:tonumber()/10000000
 end
 
@@ -2422,6 +2438,10 @@ size_of.trading_reference_price = 8
 
 -- Display: Trading Reference Price
 display.trading_reference_price = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Trading Reference Price: No Value ("..value..")"
+  end
   return "Trading Reference Price: "..value:tonumber()/10000000
 end
 
@@ -2442,6 +2462,10 @@ size_of.unit_of_measure_qty = 8
 
 -- Display: Unit Of Measure Qty
 display.unit_of_measure_qty = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Unit Of Measure Qty: No Value ("..value..")"
+  end
   return "Unit Of Measure Qty: "..value:tonumber()/10000000
 end
 
@@ -2602,6 +2626,10 @@ size_of.min_price_increment_amount = 8
 
 -- Display: Min Price Increment Amount
 display.min_price_increment_amount = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Min Price Increment Amount: No Value ("..value..")"
+  end
   return "Min Price Increment Amount: "..value:tonumber()/10000000
 end
 
@@ -2622,6 +2650,10 @@ size_of.min_price_increment = 8
 
 -- Display: Min Price Increment
 display.min_price_increment = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Min Price Increment: No Value ("..value..")"
+  end
   return "Min Price Increment: "..value:tonumber()/10000000
 end
 
@@ -2702,6 +2734,10 @@ size_of.min_cab_price = 8
 
 -- Display: Min Cab Price
 display.min_cab_price = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Min Cab Price: No Value ("..value..")"
+  end
   return "Min Cab Price: "..value:tonumber()/10000000
 end
 
@@ -2762,6 +2798,10 @@ size_of.strike_price = 8
 
 -- Display: Strike Price
 display.strike_price = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Strike Price: No Value ("..value..")"
+  end
   return "Strike Price: "..value:tonumber()/10000000
 end
 
@@ -3457,7 +3497,7 @@ dissect.md_instrument_definition_option_41_fields = function(buffer, offset, pac
   -- Currency: 3 Byte Ascii String
   index, currency = dissect.currency(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer
+  -- Strike Price: 8 Byte Signed Fixed Width Integer Nullable
   index, strike_price = dissect.strike_price(buffer, index, packet, parent)
 
   -- Strike Currency: 3 Byte Ascii String
@@ -3466,7 +3506,7 @@ dissect.md_instrument_definition_option_41_fields = function(buffer, offset, pac
   -- Settl Currency: 3 Byte Ascii String
   index, settl_currency = dissect.settl_currency(buffer, index, packet, parent)
 
-  -- Min Cab Price: 8 Byte Signed Fixed Width Integer
+  -- Min Cab Price: 8 Byte Signed Fixed Width Integer Nullable
   index, min_cab_price = dissect.min_cab_price(buffer, index, packet, parent)
 
   -- Match Algorithm: 1 Byte Ascii String
@@ -3478,10 +3518,10 @@ dissect.md_instrument_definition_option_41_fields = function(buffer, offset, pac
   -- Max Trade Vol: 4 Byte Unsigned Fixed Width Integer
   index, max_trade_vol = dissect.max_trade_vol(buffer, index, packet, parent)
 
-  -- Min Price Increment: 8 Byte Signed Fixed Width Integer
+  -- Min Price Increment: 8 Byte Signed Fixed Width Integer Nullable
   index, min_price_increment = dissect.min_price_increment(buffer, index, packet, parent)
 
-  -- Min Price Increment Amount: 8 Byte Signed Fixed Width Integer
+  -- Min Price Increment Amount: 8 Byte Signed Fixed Width Integer Nullable
   index, min_price_increment_amount = dissect.min_price_increment_amount(buffer, index, packet, parent)
 
   -- Display Factor: 8 Byte Signed Fixed Width Integer
@@ -3502,10 +3542,10 @@ dissect.md_instrument_definition_option_41_fields = function(buffer, offset, pac
   -- Unit Of Measure: 30 Byte Ascii String
   index, unit_of_measure = dissect.unit_of_measure(buffer, index, packet, parent)
 
-  -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer
+  -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, unit_of_measure_qty = dissect.unit_of_measure_qty(buffer, index, packet, parent)
 
-  -- Trading Reference Price: 8 Byte Signed Fixed Width Integer
+  -- Trading Reference Price: 8 Byte Signed Fixed Width Integer Nullable
   index, trading_reference_price = dissect.trading_reference_price(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 6 fields
@@ -3517,10 +3557,10 @@ dissect.md_instrument_definition_option_41_fields = function(buffer, offset, pac
   -- Open Interest Qty: 4 Byte Signed Fixed Width Integer Nullable
   index, open_interest_qty = dissect.open_interest_qty(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer
+  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
   index, low_limit_price = dissect.low_limit_price(buffer, index, packet, parent)
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer
+  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
   index, high_limit_price = dissect.high_limit_price(buffer, index, packet, parent)
 
   -- User Defined Instrument: 1 Byte Ascii String
@@ -4009,7 +4049,7 @@ end
 dissect.snapshot_full_refresh_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable
   index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
@@ -4103,6 +4143,10 @@ size_of.max_price_variation = 8
 
 -- Display: Max Price Variation
 display.max_price_variation = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Max Price Variation: No Value ("..value..")"
+  end
   return "Max Price Variation: "..value:tonumber()/10000000
 end
 
@@ -4227,13 +4271,13 @@ dissect.snapshot_full_refresh_38_fields = function(buffer, offset, packet, paren
   -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
   index, md_security_trading_status = dissect.md_security_trading_status(buffer, index, packet, parent)
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer
+  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
   index, high_limit_price = dissect.high_limit_price(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer
+  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
   index, low_limit_price = dissect.low_limit_price(buffer, index, packet, parent)
 
-  -- Max Price Variation: 8 Byte Signed Fixed Width Integer
+  -- Max Price Variation: 8 Byte Signed Fixed Width Integer Nullable
   index, max_price_variation = dissect.max_price_variation(buffer, index, packet, parent)
 
   -- Snapshot Full Refresh Groups: Struct of 2 fields
@@ -4467,7 +4511,7 @@ end
 dissect.m_d_incremental_refresh_trade_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable
   index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
@@ -4641,7 +4685,7 @@ end
 dissect.m_d_incremental_refresh_session_statistics_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable
   index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -4805,13 +4849,13 @@ end
 dissect.m_d_incremental_refresh_limits_banding_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer
+  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
   index, high_limit_price = dissect.high_limit_price(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer
+  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
   index, low_limit_price = dissect.low_limit_price(buffer, index, packet, parent)
 
-  -- Max Price Variation: 8 Byte Signed Fixed Width Integer
+  -- Max Price Variation: 8 Byte Signed Fixed Width Integer Nullable
   index, max_price_variation = dissect.max_price_variation(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -4991,7 +5035,7 @@ end
 dissect.m_d_incremental_refresh_daily_statistics_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable
   index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
@@ -5169,7 +5213,7 @@ end
 dissect.m_d_incremental_refresh_book_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer
+  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable
   index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
@@ -5530,6 +5574,10 @@ size_of.leg_option_delta = 4
 
 -- Display: Leg Option Delta
 display.leg_option_delta = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Leg Option Delta: No Value ("..value..")"
+  end
   return "Leg Option Delta: "..value/10000
 end
 
@@ -5550,6 +5598,10 @@ size_of.leg_price = 8
 
 -- Display: Leg Price
 display.leg_price = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Leg Price: No Value ("..value..")"
+  end
   return "Leg Price: "..value:tonumber()/10000000
 end
 
@@ -5667,10 +5719,10 @@ dissect.m_d_instrument_definition_spread_leg_group_fields = function(buffer, off
   -- Leg Ratio Qty: 1 Byte Signed Fixed Width Integer
   index, leg_ratio_qty = dissect.leg_ratio_qty(buffer, index, packet, parent)
 
-  -- Leg Price: 8 Byte Signed Fixed Width Integer
+  -- Leg Price: 8 Byte Signed Fixed Width Integer Nullable
   index, leg_price = dissect.leg_price(buffer, index, packet, parent)
 
-  -- Leg Option Delta: 4 Byte Signed Fixed Width Integer
+  -- Leg Option Delta: 4 Byte Signed Fixed Width Integer Nullable
   index, leg_option_delta = dissect.leg_option_delta(buffer, index, packet, parent)
 
   return index
@@ -5743,6 +5795,10 @@ size_of.price_ratio = 8
 
 -- Display: Price Ratio
 display.price_ratio = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Price Ratio: No Value ("..value..")"
+  end
   return "Price Ratio: "..value:tonumber()/10000000
 end
 
@@ -5946,7 +6002,7 @@ dissect.md_instrument_definition_spread_29_fields = function(buffer, offset, pac
   -- Max Trade Vol: 4 Byte Unsigned Fixed Width Integer
   index, max_trade_vol = dissect.max_trade_vol(buffer, index, packet, parent)
 
-  -- Min Price Increment: 8 Byte Signed Fixed Width Integer
+  -- Min Price Increment: 8 Byte Signed Fixed Width Integer Nullable
   index, min_price_increment = dissect.min_price_increment(buffer, index, packet, parent)
 
   -- Display Factor: 8 Byte Signed Fixed Width Integer
@@ -5955,7 +6011,7 @@ dissect.md_instrument_definition_spread_29_fields = function(buffer, offset, pac
   -- Price Display Format: 1 Byte Unsigned Fixed Width Integer Nullable
   index, price_display_format = dissect.price_display_format(buffer, index, packet, parent)
 
-  -- Price Ratio: 8 Byte Signed Fixed Width Integer
+  -- Price Ratio: 8 Byte Signed Fixed Width Integer Nullable
   index, price_ratio = dissect.price_ratio(buffer, index, packet, parent)
 
   -- Tick Rule: 1 Byte Signed Fixed Width Integer Nullable
@@ -5964,7 +6020,7 @@ dissect.md_instrument_definition_spread_29_fields = function(buffer, offset, pac
   -- Unit Of Measure: 30 Byte Ascii String
   index, unit_of_measure = dissect.unit_of_measure(buffer, index, packet, parent)
 
-  -- Trading Reference Price: 8 Byte Signed Fixed Width Integer
+  -- Trading Reference Price: 8 Byte Signed Fixed Width Integer Nullable
   index, trading_reference_price = dissect.trading_reference_price(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 6 fields
@@ -5976,13 +6032,13 @@ dissect.md_instrument_definition_spread_29_fields = function(buffer, offset, pac
   -- Cleared Volume: 4 Byte Signed Fixed Width Integer Nullable
   index, cleared_volume = dissect.cleared_volume(buffer, index, packet, parent)
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer
+  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
   index, high_limit_price = dissect.high_limit_price(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer
+  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
   index, low_limit_price = dissect.low_limit_price(buffer, index, packet, parent)
 
-  -- Max Price Variation: 8 Byte Signed Fixed Width Integer
+  -- Max Price Variation: 8 Byte Signed Fixed Width Integer Nullable
   index, max_price_variation = dissect.max_price_variation(buffer, index, packet, parent)
 
   -- Main Fraction: 1 Byte Unsigned Fixed Width Integer Nullable
@@ -6350,7 +6406,7 @@ dissect.md_instrument_definition_future_27_fields = function(buffer, offset, pac
   -- Max Trade Vol: 4 Byte Unsigned Fixed Width Integer
   index, max_trade_vol = dissect.max_trade_vol(buffer, index, packet, parent)
 
-  -- Min Price Increment: 8 Byte Signed Fixed Width Integer
+  -- Min Price Increment: 8 Byte Signed Fixed Width Integer Nullable
   index, min_price_increment = dissect.min_price_increment(buffer, index, packet, parent)
 
   -- Display Factor: 8 Byte Signed Fixed Width Integer
@@ -6368,10 +6424,10 @@ dissect.md_instrument_definition_future_27_fields = function(buffer, offset, pac
   -- Unit Of Measure: 30 Byte Ascii String
   index, unit_of_measure = dissect.unit_of_measure(buffer, index, packet, parent)
 
-  -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer
+  -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, unit_of_measure_qty = dissect.unit_of_measure_qty(buffer, index, packet, parent)
 
-  -- Trading Reference Price: 8 Byte Signed Fixed Width Integer
+  -- Trading Reference Price: 8 Byte Signed Fixed Width Integer Nullable
   index, trading_reference_price = dissect.trading_reference_price(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 6 fields
@@ -6383,13 +6439,13 @@ dissect.md_instrument_definition_future_27_fields = function(buffer, offset, pac
   -- Cleared Volume: 4 Byte Signed Fixed Width Integer Nullable
   index, cleared_volume = dissect.cleared_volume(buffer, index, packet, parent)
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer
+  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
   index, high_limit_price = dissect.high_limit_price(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer
+  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
   index, low_limit_price = dissect.low_limit_price(buffer, index, packet, parent)
 
-  -- Max Price Variation: 8 Byte Signed Fixed Width Integer
+  -- Max Price Variation: 8 Byte Signed Fixed Width Integer Nullable
   index, max_price_variation = dissect.max_price_variation(buffer, index, packet, parent)
 
   -- Decay Quantity: 4 Byte Signed Fixed Width Integer Nullable
@@ -6410,7 +6466,7 @@ dissect.md_instrument_definition_future_27_fields = function(buffer, offset, pac
   -- Flow Schedule Type: 1 Byte Signed Fixed Width Integer Nullable
   index, flow_schedule_type = dissect.flow_schedule_type(buffer, index, packet, parent)
 
-  -- Min Price Increment Amount: 8 Byte Signed Fixed Width Integer
+  -- Min Price Increment Amount: 8 Byte Signed Fixed Width Integer Nullable
   index, min_price_increment_amount = dissect.min_price_increment_amount(buffer, index, packet, parent)
 
   -- User Defined Instrument: 1 Byte Ascii String
