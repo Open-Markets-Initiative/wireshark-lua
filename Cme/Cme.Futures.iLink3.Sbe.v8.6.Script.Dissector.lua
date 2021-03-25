@@ -211,9 +211,9 @@ cme_futures_ilink3_sbe_v8_6.fields.order_mass_status_request_530 = ProtoField.ne
 cme_futures_ilink3_sbe_v8_6.fields.order_qty = ProtoField.new("Order Qty", "cme.futures.ilink3.sbe.v8.6.orderqty", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_6.fields.order_request_id = ProtoField.new("Order Request Id", "cme.futures.ilink3.sbe.v8.6.orderrequestid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_6.fields.order_status_request_533 = ProtoField.new("Order Status Request 533", "cme.futures.ilink3.sbe.v8.6.orderstatusrequest533", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_6.fields.orig_ci_ord_id = ProtoField.new("Orig Ci Ord Id", "cme.futures.ilink3.sbe.v8.6.origciordid", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_6.fields.orig_secondary_execution_id = ProtoField.new("Orig Secondary Execution Id", "cme.futures.ilink3.sbe.v8.6.origsecondaryexecutionid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_6.fields.orig_side_trade_id = ProtoField.new("Orig Side Trade Id", "cme.futures.ilink3.sbe.v8.6.origsidetradeid", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_6.fields.origclordid = ProtoField.new("OrigClOrdId", "cme.futures.ilink3.sbe.v8.6.origclordid", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_6.fields.original_order_event_exec_id = ProtoField.new("Original Order Event Exec Id", "cme.futures.ilink3.sbe.v8.6.originalordereventexecid", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_6.fields.ownership = ProtoField.new("Ownership", "cme.futures.ilink3.sbe.v8.6.ownership", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_6.fields.packet = ProtoField.new("Packet", "cme.futures.ilink3.sbe.v8.6.packet", ftypes.STRING)
@@ -2995,22 +2995,22 @@ dissect.affected_order_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: OrigClOrdId
-size_of.origclordid = 20
+-- Size: Orig Ci Ord Id
+size_of.orig_ci_ord_id = 20
 
--- Display: OrigClOrdId
-display.origclordid = function(value)
-  return "OrigClOrdId: "..value
+-- Display: Orig Ci Ord Id
+display.orig_ci_ord_id = function(value)
+  return "Orig Ci Ord Id: "..value
 end
 
--- Dissect: OrigClOrdId
-dissect.origclordid = function(buffer, offset, packet, parent)
-  local length = size_of.origclordid
+-- Dissect: Orig Ci Ord Id
+dissect.orig_ci_ord_id = function(buffer, offset, packet, parent)
+  local length = size_of.orig_ci_ord_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.origclordid(value, buffer, offset, packet, parent)
+  local display = display.orig_ci_ord_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_6.fields.origclordid, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_6.fields.orig_ci_ord_id, range, value, display)
 
   return offset + length, value
 end
@@ -3019,7 +3019,7 @@ end
 size_of.affected_orders_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.origclordid
+  index = index + size_of.orig_ci_ord_id
 
   index = index + size_of.affected_order_id
 
@@ -3037,8 +3037,8 @@ end
 dissect.affected_orders_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- OrigClOrdId: 20 Byte Ascii String
-  index, origclordid = dissect.origclordid(buffer, index, packet, parent)
+  -- Orig Ci Ord Id: 20 Byte Ascii String
+  index, orig_ci_ord_id = dissect.orig_ci_ord_id(buffer, index, packet, parent)
 
   -- Affected Order Id: 8 Byte Unsigned Fixed Width Integer
   index, affected_order_id = dissect.affected_order_id(buffer, index, packet, parent)
