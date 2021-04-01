@@ -947,7 +947,7 @@ end
 dissect.md_entry_type = function(buffer, offset, packet, parent)
   local length = size_of.md_entry_type
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.md_entry_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.md_entry_type, range, value, display)
@@ -2263,6 +2263,11 @@ size_of.related_symbol = 20
 
 -- Display: Related Symbol
 display.related_symbol = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Related Symbol: No Value"
+  end
+
   return "Related Symbol: "..value
 end
 
@@ -2270,7 +2275,7 @@ end
 dissect.related_symbol = function(buffer, offset, packet, parent)
   local length = size_of.related_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.related_symbol(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.related_symbol, range, value, display)
@@ -2394,6 +2399,11 @@ size_of.underlying_symbol = 20
 
 -- Display: Underlying Symbol
 display.underlying_symbol = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Underlying Symbol: No Value"
+  end
+
   return "Underlying Symbol: "..value
 end
 
@@ -2401,7 +2411,7 @@ end
 dissect.underlying_symbol = function(buffer, offset, packet, parent)
   local length = size_of.underlying_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.underlying_symbol(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.underlying_symbol, range, value, display)
@@ -2971,6 +2981,11 @@ size_of.md_feed_type = 3
 
 -- Display: Md Feed Type
 display.md_feed_type = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Md Feed Type: No Value"
+  end
+
   return "Md Feed Type: "..value
 end
 
@@ -2978,7 +2993,7 @@ end
 dissect.md_feed_type = function(buffer, offset, packet, parent)
   local length = size_of.md_feed_type
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.md_feed_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.md_feed_type, range, value, display)
@@ -3245,6 +3260,11 @@ size_of.market_set = 6
 
 -- Display: Market Set
 display.market_set = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Market Set: No Value"
+  end
+
   return "Market Set: "..value
 end
 
@@ -3252,7 +3272,7 @@ end
 dissect.market_set = function(buffer, offset, packet, parent)
   local length = size_of.market_set
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.market_set(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.market_set, range, value, display)
@@ -3265,6 +3285,11 @@ size_of.risk_set = 6
 
 -- Display: Risk Set
 display.risk_set = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Risk Set: No Value"
+  end
+
   return "Risk Set: "..value
 end
 
@@ -3272,7 +3297,7 @@ end
 dissect.risk_set = function(buffer, offset, packet, parent)
   local length = size_of.risk_set
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.risk_set(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.risk_set, range, value, display)
@@ -3292,7 +3317,7 @@ end
 dissect.user_defined_instrument = function(buffer, offset, packet, parent)
   local length = size_of.user_defined_instrument
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.user_defined_instrument(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.user_defined_instrument, range, value, display)
@@ -3305,6 +3330,11 @@ size_of.price_quote_method = 5
 
 -- Display: Price Quote Method
 display.price_quote_method = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Price Quote Method: No Value"
+  end
+
   return "Price Quote Method: "..value
 end
 
@@ -3312,7 +3342,7 @@ end
 dissect.price_quote_method = function(buffer, offset, packet, parent)
   local length = size_of.price_quote_method
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.price_quote_method(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.price_quote_method, range, value, display)
@@ -3392,7 +3422,7 @@ end
 dissect.security_sub_type = function(buffer, offset, packet, parent)
   local length = size_of.security_sub_type
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.security_sub_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.security_sub_type, range, value, display)
@@ -3405,6 +3435,11 @@ size_of.termination_type = 8
 
 -- Display: Termination Type
 display.termination_type = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Termination Type: No Value"
+  end
+
   return "Termination Type: "..value
 end
 
@@ -3412,7 +3447,7 @@ end
 dissect.termination_type = function(buffer, offset, packet, parent)
   local length = size_of.termination_type
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.termination_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.termination_type, range, value, display)
@@ -3475,6 +3510,11 @@ size_of.party_role_clearing_org = 5
 
 -- Display: Party Role Clearing Org
 display.party_role_clearing_org = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Role Clearing Org: No Value"
+  end
+
   return "Party Role Clearing Org: "..value
 end
 
@@ -3482,7 +3522,7 @@ end
 dissect.party_role_clearing_org = function(buffer, offset, packet, parent)
   local length = size_of.party_role_clearing_org
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.party_role_clearing_org(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.party_role_clearing_org, range, value, display)
@@ -3495,6 +3535,11 @@ size_of.financial_instrument_full_name = 35
 
 -- Display: Financial Instrument Full Name
 display.financial_instrument_full_name = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Financial Instrument Full Name: No Value"
+  end
+
   return "Financial Instrument Full Name: "..value
 end
 
@@ -3502,7 +3547,7 @@ end
 dissect.financial_instrument_full_name = function(buffer, offset, packet, parent)
   local length = size_of.financial_instrument_full_name
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.financial_instrument_full_name(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.financial_instrument_full_name, range, value, display)
@@ -3563,6 +3608,11 @@ size_of.unit_of_measure = 30
 
 -- Display: Unit Of Measure
 display.unit_of_measure = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Unit Of Measure: No Value"
+  end
+
   return "Unit Of Measure: "..value
 end
 
@@ -3570,7 +3620,7 @@ end
 dissect.unit_of_measure = function(buffer, offset, packet, parent)
   local length = size_of.unit_of_measure
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.unit_of_measure(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.unit_of_measure, range, value, display)
@@ -3674,7 +3724,7 @@ end
 dissect.match_algorithm = function(buffer, offset, packet, parent)
   local length = size_of.match_algorithm
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.match_algorithm(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.match_algorithm, range, value, display)
@@ -3687,6 +3737,11 @@ size_of.settl_currency = 3
 
 -- Display: Settl Currency
 display.settl_currency = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Settl Currency: No Value"
+  end
+
   return "Settl Currency: "..value
 end
 
@@ -3694,7 +3749,7 @@ end
 dissect.settl_currency = function(buffer, offset, packet, parent)
   local length = size_of.settl_currency
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.settl_currency(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.settl_currency, range, value, display)
@@ -3707,6 +3762,11 @@ size_of.currency = 3
 
 -- Display: Currency
 display.currency = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Currency: No Value"
+  end
+
   return "Currency: "..value
 end
 
@@ -3714,7 +3774,7 @@ end
 dissect.currency = function(buffer, offset, packet, parent)
   local length = size_of.currency
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.currency(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.currency, range, value, display)
@@ -3727,6 +3787,11 @@ size_of.cfi_code = 6
 
 -- Display: Cfi Code
 display.cfi_code = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Cfi Code: No Value"
+  end
+
   return "Cfi Code: "..value
 end
 
@@ -3734,7 +3799,7 @@ end
 dissect.cfi_code = function(buffer, offset, packet, parent)
   local length = size_of.cfi_code
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.cfi_code(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.cfi_code, range, value, display)
@@ -3747,6 +3812,11 @@ size_of.security_type = 6
 
 -- Display: Security Type
 display.security_type = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Type: No Value"
+  end
+
   return "Security Type: "..value
 end
 
@@ -3754,7 +3824,7 @@ end
 dissect.security_type = function(buffer, offset, packet, parent)
   local length = size_of.security_type
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.security_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.security_type, range, value, display)
@@ -3767,6 +3837,11 @@ size_of.symbol = 20
 
 -- Display: Symbol
 display.symbol = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
   return "Symbol: "..value
 end
 
@@ -3774,7 +3849,7 @@ end
 dissect.symbol = function(buffer, offset, packet, parent)
   local length = size_of.symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.symbol, range, value, display)
@@ -3787,6 +3862,11 @@ size_of.asset = 6
 
 -- Display: Asset
 display.asset = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Asset: No Value"
+  end
+
   return "Asset: "..value
 end
 
@@ -3794,7 +3874,7 @@ end
 dissect.asset = function(buffer, offset, packet, parent)
   local length = size_of.asset
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.asset(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.asset, range, value, display)
@@ -3807,6 +3887,11 @@ size_of.security_group = 6
 
 -- Display: Security Group
 display.security_group = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Group: No Value"
+  end
+
   return "Security Group: "..value
 end
 
@@ -3814,7 +3899,7 @@ end
 dissect.security_group = function(buffer, offset, packet, parent)
   local length = size_of.security_group
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.security_group(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.security_group, range, value, display)
@@ -3827,6 +3912,11 @@ size_of.security_exchange = 4
 
 -- Display: Security Exchange
 display.security_exchange = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Exchange: No Value"
+  end
+
   return "Security Exchange: "..value
 end
 
@@ -3834,7 +3924,7 @@ end
 dissect.security_exchange = function(buffer, offset, packet, parent)
   local length = size_of.security_exchange
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.security_exchange(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.security_exchange, range, value, display)
@@ -4006,7 +4096,7 @@ end
 dissect.security_update_action = function(buffer, offset, packet, parent)
   local length = size_of.security_update_action
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.security_update_action(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.security_update_action, range, value, display)
@@ -4346,6 +4436,11 @@ size_of.security_alt_id = 12
 
 -- Display: Security Alt Id
 display.security_alt_id = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Alt Id: No Value"
+  end
+
   return "Security Alt Id: "..value
 end
 
@@ -4353,7 +4448,7 @@ end
 dissect.security_alt_id = function(buffer, offset, packet, parent)
   local length = size_of.security_alt_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.security_alt_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.security_alt_id, range, value, display)
@@ -4366,6 +4461,11 @@ size_of.issuer = 25
 
 -- Display: Issuer
 display.issuer = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Issuer: No Value"
+  end
+
   return "Issuer: "..value
 end
 
@@ -4373,7 +4473,7 @@ end
 dissect.issuer = function(buffer, offset, packet, parent)
   local length = size_of.issuer
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.issuer(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.issuer, range, value, display)
@@ -4386,6 +4486,11 @@ size_of.country_of_issue = 2
 
 -- Display: Country Of Issue
 display.country_of_issue = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Country Of Issue: No Value"
+  end
+
   return "Country Of Issue: "..value
 end
 
@@ -4393,7 +4498,7 @@ end
 dissect.country_of_issue = function(buffer, offset, packet, parent)
   local length = size_of.country_of_issue
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.country_of_issue(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.country_of_issue, range, value, display)
@@ -4406,6 +4511,11 @@ size_of.coupon_day_count = 20
 
 -- Display: Coupon Day Count
 display.coupon_day_count = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Coupon Day Count: No Value"
+  end
+
   return "Coupon Day Count: "..value
 end
 
@@ -4413,7 +4523,7 @@ end
 dissect.coupon_day_count = function(buffer, offset, packet, parent)
   local length = size_of.coupon_day_count
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.coupon_day_count(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.coupon_day_count, range, value, display)
@@ -4451,6 +4561,11 @@ size_of.coupon_frequency_unit = 3
 
 -- Display: Coupon Frequency Unit
 display.coupon_frequency_unit = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Coupon Frequency Unit: No Value"
+  end
+
   return "Coupon Frequency Unit: "..value
 end
 
@@ -4458,7 +4573,7 @@ end
 dissect.coupon_frequency_unit = function(buffer, offset, packet, parent)
   local length = size_of.coupon_frequency_unit
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.coupon_frequency_unit(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.coupon_frequency_unit, range, value, display)
@@ -5773,6 +5888,11 @@ size_of.strike_currency = 3
 
 -- Display: Strike Currency
 display.strike_currency = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Strike Currency: No Value"
+  end
+
   return "Strike Currency: "..value
 end
 
@@ -5780,7 +5900,7 @@ end
 dissect.strike_currency = function(buffer, offset, packet, parent)
   local length = size_of.strike_currency
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.strike_currency(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.strike_currency, range, value, display)
@@ -8789,6 +8909,11 @@ size_of.quote_req_id = 23
 
 -- Display: Quote Req Id
 display.quote_req_id = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Quote Req Id: No Value"
+  end
+
   return "Quote Req Id: "..value
 end
 
@@ -8796,7 +8921,7 @@ end
 dissect.quote_req_id = function(buffer, offset, packet, parent)
   local length = size_of.quote_req_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.quote_req_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.quote_req_id, range, value, display)
@@ -9101,6 +9226,11 @@ size_of.text = 180
 
 -- Display: Text
 display.text = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Text: No Value"
+  end
+
   return "Text: "..value
 end
 
@@ -9108,7 +9238,7 @@ end
 dissect.text = function(buffer, offset, packet, parent)
   local length = size_of.text
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.text(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_10.fields.text, range, value, display)

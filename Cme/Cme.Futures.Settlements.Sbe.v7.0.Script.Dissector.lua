@@ -291,7 +291,7 @@ end
 dissect.high_px_ind = function(buffer, offset, packet, parent)
   local length = size_of.high_px_ind
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.high_px_ind(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_settlements_sbe_v7_0.fields.high_px_ind, range, value, display)
@@ -413,7 +413,7 @@ end
 dissect.low_px_ind = function(buffer, offset, packet, parent)
   local length = size_of.low_px_ind
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.low_px_ind(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_settlements_sbe_v7_0.fields.low_px_ind, range, value, display)
@@ -518,6 +518,11 @@ size_of.symbol = 20
 
 -- Display: Symbol
 display.symbol = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
   return "Symbol: "..value
 end
 
@@ -525,7 +530,7 @@ end
 dissect.symbol = function(buffer, offset, packet, parent)
   local length = size_of.symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_settlements_sbe_v7_0.fields.symbol, range, value, display)
@@ -690,6 +695,11 @@ size_of.underlying_security_exchange = 8
 
 -- Display: Underlying Security Exchange
 display.underlying_security_exchange = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Underlying Security Exchange: No Value"
+  end
+
   return "Underlying Security Exchange: "..value
 end
 
@@ -697,7 +707,7 @@ end
 dissect.underlying_security_exchange = function(buffer, offset, packet, parent)
   local length = size_of.underlying_security_exchange
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.underlying_security_exchange(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_settlements_sbe_v7_0.fields.underlying_security_exchange, range, value, display)
@@ -710,6 +720,11 @@ size_of.underlying_security_type = 6
 
 -- Display: Underlying Security Type
 display.underlying_security_type = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Underlying Security Type: No Value"
+  end
+
   return "Underlying Security Type: "..value
 end
 
@@ -717,7 +732,7 @@ end
 dissect.underlying_security_type = function(buffer, offset, packet, parent)
   local length = size_of.underlying_security_type
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.underlying_security_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_settlements_sbe_v7_0.fields.underlying_security_type, range, value, display)
@@ -730,6 +745,11 @@ size_of.underlying_clearing_product_code = 12
 
 -- Display: Underlying Clearing Product Code
 display.underlying_clearing_product_code = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Underlying Clearing Product Code: No Value"
+  end
+
   return "Underlying Clearing Product Code: "..value
 end
 
@@ -737,7 +757,7 @@ end
 dissect.underlying_clearing_product_code = function(buffer, offset, packet, parent)
   local length = size_of.underlying_clearing_product_code
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.underlying_clearing_product_code(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_settlements_sbe_v7_0.fields.underlying_clearing_product_code, range, value, display)
@@ -899,6 +919,11 @@ size_of.security_exchange = 8
 
 -- Display: Security Exchange
 display.security_exchange = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Exchange: No Value"
+  end
+
   return "Security Exchange: "..value
 end
 
@@ -906,7 +931,7 @@ end
 dissect.security_exchange = function(buffer, offset, packet, parent)
   local length = size_of.security_exchange
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.security_exchange(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_settlements_sbe_v7_0.fields.security_exchange, range, value, display)
@@ -919,6 +944,11 @@ size_of.security_type = 6
 
 -- Display: Security Type
 display.security_type = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Type: No Value"
+  end
+
   return "Security Type: "..value
 end
 
@@ -926,7 +956,7 @@ end
 dissect.security_type = function(buffer, offset, packet, parent)
   local length = size_of.security_type
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.security_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_settlements_sbe_v7_0.fields.security_type, range, value, display)
@@ -939,6 +969,11 @@ size_of.clearing_product_code = 12
 
 -- Display: Clearing Product Code
 display.clearing_product_code = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Clearing Product Code: No Value"
+  end
+
   return "Clearing Product Code: "..value
 end
 
@@ -946,7 +981,7 @@ end
 dissect.clearing_product_code = function(buffer, offset, packet, parent)
   local length = size_of.clearing_product_code
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.clearing_product_code(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_settlements_sbe_v7_0.fields.clearing_product_code, range, value, display)
@@ -1038,7 +1073,7 @@ dissect.m_d_incremental_refresh_high_low_group_fields = function(buffer, offset,
   -- Product Guid: 8 Byte Unsigned Fixed Width Integer Nullable
   index, product_guid = dissect.product_guid(buffer, index, packet, parent)
 
-  -- Clearing Product Code: 12 Byte Ascii String
+  -- Clearing Product Code: 12 Byte Ascii String Nullable
   index, clearing_product_code = dissect.clearing_product_code(buffer, index, packet, parent)
 
   -- Security Type: 6 Byte Ascii String
@@ -1059,7 +1094,7 @@ dissect.m_d_incremental_refresh_high_low_group_fields = function(buffer, offset,
   -- Underlying Product Guid: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_product_guid = dissect.underlying_product_guid(buffer, index, packet, parent)
 
-  -- Underlying Clearing Product Code: 12 Byte Ascii String
+  -- Underlying Clearing Product Code: 12 Byte Ascii String Nullable
   index, underlying_clearing_product_code = dissect.underlying_clearing_product_code(buffer, index, packet, parent)
 
   -- Underlying Security Type: 6 Byte Ascii String
@@ -1438,7 +1473,7 @@ dissect.m_d_incremental_refresh_voi_group_fields = function(buffer, offset, pack
   -- Product Guid: 8 Byte Unsigned Fixed Width Integer Nullable
   index, product_guid = dissect.product_guid(buffer, index, packet, parent)
 
-  -- Clearing Product Code: 12 Byte Ascii String
+  -- Clearing Product Code: 12 Byte Ascii String Nullable
   index, clearing_product_code = dissect.clearing_product_code(buffer, index, packet, parent)
 
   -- Security Type: 6 Byte Ascii String
@@ -1459,7 +1494,7 @@ dissect.m_d_incremental_refresh_voi_group_fields = function(buffer, offset, pack
   -- Underlying Product Guid: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_product_guid = dissect.underlying_product_guid(buffer, index, packet, parent)
 
-  -- Underlying Clearing Product Code: 12 Byte Ascii String
+  -- Underlying Clearing Product Code: 12 Byte Ascii String Nullable
   index, underlying_clearing_product_code = dissect.underlying_clearing_product_code(buffer, index, packet, parent)
 
   -- Underlying Security Type: 6 Byte Ascii String
@@ -1604,6 +1639,11 @@ size_of.md_statistic_desc = 40
 
 -- Display: Md Statistic Desc
 display.md_statistic_desc = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Md Statistic Desc: No Value"
+  end
+
   return "Md Statistic Desc: "..value
 end
 
@@ -1611,7 +1651,7 @@ end
 dissect.md_statistic_desc = function(buffer, offset, packet, parent)
   local length = size_of.md_statistic_desc
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.md_statistic_desc(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_settlements_sbe_v7_0.fields.md_statistic_desc, range, value, display)
@@ -1771,7 +1811,7 @@ end
 dissect.md_entry_type = function(buffer, offset, packet, parent)
   local length = size_of.md_entry_type
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.md_entry_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_settlements_sbe_v7_0.fields.md_entry_type, range, value, display)
@@ -1878,7 +1918,7 @@ dissect.m_d_incremental_refresh_settle_group_fields = function(buffer, offset, p
   -- Product Guid: 8 Byte Unsigned Fixed Width Integer Nullable
   index, product_guid = dissect.product_guid(buffer, index, packet, parent)
 
-  -- Clearing Product Code: 12 Byte Ascii String
+  -- Clearing Product Code: 12 Byte Ascii String Nullable
   index, clearing_product_code = dissect.clearing_product_code(buffer, index, packet, parent)
 
   -- Security Type: 6 Byte Ascii String
@@ -1899,7 +1939,7 @@ dissect.m_d_incremental_refresh_settle_group_fields = function(buffer, offset, p
   -- Underlying Product Guid: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_product_guid = dissect.underlying_product_guid(buffer, index, packet, parent)
 
-  -- Underlying Clearing Product Code: 12 Byte Ascii String
+  -- Underlying Clearing Product Code: 12 Byte Ascii String Nullable
   index, underlying_clearing_product_code = dissect.underlying_clearing_product_code(buffer, index, packet, parent)
 
   -- Underlying Security Type: 6 Byte Ascii String

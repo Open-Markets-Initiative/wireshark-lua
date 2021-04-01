@@ -725,6 +725,11 @@ size_of.reference_id = 50
 
 -- Display: Reference Id
 display.reference_id = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Reference Id: No Value"
+  end
+
   return "Reference Id: "..value
 end
 
@@ -732,7 +737,7 @@ end
 dissect.reference_id = function(buffer, offset, packet, parent)
   local length = size_of.reference_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.reference_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.reference_id, range, value, display)
@@ -770,6 +775,11 @@ size_of.security_sub_type = 2
 
 -- Display: Security Sub Type
 display.security_sub_type = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Sub Type: No Value"
+  end
+
   return "Security Sub Type: "..value
 end
 
@@ -777,7 +787,7 @@ end
 dissect.security_sub_type = function(buffer, offset, packet, parent)
   local length = size_of.security_sub_type
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.security_sub_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.security_sub_type, range, value, display)
@@ -790,6 +800,11 @@ size_of.product_complex = 26
 
 -- Display: Product Complex
 display.product_complex = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Product Complex: No Value"
+  end
+
   return "Product Complex: "..value
 end
 
@@ -797,7 +812,7 @@ end
 dissect.product_complex = function(buffer, offset, packet, parent)
   local length = size_of.product_complex
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.product_complex(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.product_complex, range, value, display)
@@ -810,6 +825,11 @@ size_of.sector_sub_group = 26
 
 -- Display: Sector Sub Group
 display.sector_sub_group = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Sector Sub Group: No Value"
+  end
+
   return "Sector Sub Group: "..value
 end
 
@@ -817,7 +837,7 @@ end
 dissect.sector_sub_group = function(buffer, offset, packet, parent)
   local length = size_of.sector_sub_group
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.sector_sub_group(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.sector_sub_group, range, value, display)
@@ -830,6 +850,11 @@ size_of.sector_group = 2
 
 -- Display: Sector Group
 display.sector_group = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Sector Group: No Value"
+  end
+
   return "Sector Group: "..value
 end
 
@@ -837,7 +862,7 @@ end
 dissect.sector_group = function(buffer, offset, packet, parent)
   local length = size_of.sector_group
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.sector_group(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.sector_group, range, value, display)
@@ -850,6 +875,11 @@ size_of.market_sector = 26
 
 -- Display: Market Sector
 display.market_sector = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Market Sector: No Value"
+  end
+
   return "Market Sector: "..value
 end
 
@@ -857,7 +887,7 @@ end
 dissect.market_sector = function(buffer, offset, packet, parent)
   local length = size_of.market_sector
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.market_sector(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.market_sector, range, value, display)
@@ -877,7 +907,7 @@ end
 dissect.quote_condition = function(buffer, offset, packet, parent)
   local length = size_of.quote_condition
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.quote_condition(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.quote_condition, range, value, display)
@@ -1083,6 +1113,11 @@ size_of.unit_of_measure_currency = 3
 
 -- Display: Unit Of Measure Currency
 display.unit_of_measure_currency = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Unit Of Measure Currency: No Value"
+  end
+
   return "Unit Of Measure Currency: "..value
 end
 
@@ -1090,7 +1125,7 @@ end
 dissect.unit_of_measure_currency = function(buffer, offset, packet, parent)
   local length = size_of.unit_of_measure_currency
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.unit_of_measure_currency(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.unit_of_measure_currency, range, value, display)
@@ -1103,6 +1138,11 @@ size_of.unit_of_measure = 5
 
 -- Display: Unit Of Measure
 display.unit_of_measure = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Unit Of Measure: No Value"
+  end
+
   return "Unit Of Measure: "..value
 end
 
@@ -1110,7 +1150,7 @@ end
 dissect.unit_of_measure = function(buffer, offset, packet, parent)
   local length = size_of.unit_of_measure
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.unit_of_measure(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.unit_of_measure, range, value, display)
@@ -1215,6 +1255,11 @@ size_of.seniority = 2
 
 -- Display: Seniority
 display.seniority = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Seniority: No Value"
+  end
+
   return "Seniority: "..value
 end
 
@@ -1222,7 +1267,7 @@ end
 dissect.seniority = function(buffer, offset, packet, parent)
   local length = size_of.seniority
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.seniority(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.seniority, range, value, display)
@@ -1235,6 +1280,11 @@ size_of.restructuring_type = 2
 
 -- Display: Restructuring Type
 display.restructuring_type = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Restructuring Type: No Value"
+  end
+
   return "Restructuring Type: "..value
 end
 
@@ -1242,7 +1292,7 @@ end
 dissect.restructuring_type = function(buffer, offset, packet, parent)
   local length = size_of.restructuring_type
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.restructuring_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.restructuring_type, range, value, display)
@@ -1373,6 +1423,11 @@ size_of.security_exchange = 4
 
 -- Display: Security Exchange
 display.security_exchange = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Exchange: No Value"
+  end
+
   return "Security Exchange: "..value
 end
 
@@ -1380,7 +1435,7 @@ end
 dissect.security_exchange = function(buffer, offset, packet, parent)
   local length = size_of.security_exchange
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.security_exchange(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.security_exchange, range, value, display)
@@ -1545,6 +1600,11 @@ size_of.security_type = 4
 
 -- Display: Security Type
 display.security_type = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Type: No Value"
+  end
+
   return "Security Type: "..value
 end
 
@@ -1552,7 +1612,7 @@ end
 dissect.security_type = function(buffer, offset, packet, parent)
   local length = size_of.security_type
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.security_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.security_type, range, value, display)
@@ -1565,6 +1625,11 @@ size_of.security_group = 12
 
 -- Display: Security Group
 display.security_group = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Group: No Value"
+  end
+
   return "Security Group: "..value
 end
 
@@ -1572,7 +1637,7 @@ end
 dissect.security_group = function(buffer, offset, packet, parent)
   local length = size_of.security_group
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.security_group(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.security_group, range, value, display)
@@ -1585,6 +1650,11 @@ size_of.symbol = 50
 
 -- Display: Symbol
 display.symbol = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
   return "Symbol: "..value
 end
 
@@ -1592,7 +1662,7 @@ end
 dissect.symbol = function(buffer, offset, packet, parent)
   local length = size_of.symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.symbol, range, value, display)
@@ -1749,7 +1819,7 @@ end
 dissect.md_entry_type = function(buffer, offset, packet, parent)
   local length = size_of.md_entry_type
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.md_entry_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.md_entry_type, range, value, display)
@@ -1849,19 +1919,19 @@ dissect.m_d_incremental_refresh_otc_group_fields = function(buffer, offset, pack
   -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable: Struct of 2 fields
   index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
 
-  -- Symbol: 50 Byte Ascii String
+  -- Symbol: 50 Byte Ascii String Nullable
   index, symbol = dissect.symbol(buffer, index, packet, parent)
 
-  -- Security Group: 12 Byte Ascii String
+  -- Security Group: 12 Byte Ascii String Nullable
   index, security_group = dissect.security_group(buffer, index, packet, parent)
 
-  -- Security Type: 4 Byte Ascii String
+  -- Security Type: 4 Byte Ascii String Nullable
   index, security_type = dissect.security_type(buffer, index, packet, parent)
 
   -- Maturity Month Year: Struct of 4 fields
   index, maturity_month_year = dissect.maturity_month_year(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
+  -- Security Exchange: 4 Byte Ascii String Nullable
   index, security_exchange = dissect.security_exchange(buffer, index, packet, parent)
 
   -- Product: 1 Byte Signed Fixed Width Integer Nullable
@@ -1873,10 +1943,10 @@ dissect.m_d_incremental_refresh_otc_group_fields = function(buffer, offset, pack
   -- Coupon Rate: 4 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
   index, coupon_rate = dissect.coupon_rate(buffer, index, packet, parent)
 
-  -- Restructuring Type: 2 Byte Ascii String
+  -- Restructuring Type: 2 Byte Ascii String Nullable
   index, restructuring_type = dissect.restructuring_type(buffer, index, packet, parent)
 
-  -- Seniority: 2 Byte Ascii String
+  -- Seniority: 2 Byte Ascii String Nullable
   index, seniority = dissect.seniority(buffer, index, packet, parent)
 
   -- Notional Percentage Outstanding: 4 Byte Signed Fixed Width Integer Nullable
@@ -1888,10 +1958,10 @@ dissect.m_d_incremental_refresh_otc_group_fields = function(buffer, offset, pack
   -- Strike Price: 8 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
   index, strike_price = dissect.strike_price(buffer, index, packet, parent)
 
-  -- Unit Of Measure: 5 Byte Ascii String
+  -- Unit Of Measure: 5 Byte Ascii String Nullable
   index, unit_of_measure = dissect.unit_of_measure(buffer, index, packet, parent)
 
-  -- Unit Of Measure Currency: 3 Byte Ascii String
+  -- Unit Of Measure Currency: 3 Byte Ascii String Nullable
   index, unit_of_measure_currency = dissect.unit_of_measure_currency(buffer, index, packet, parent)
 
   -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
@@ -1912,25 +1982,25 @@ dissect.m_d_incremental_refresh_otc_group_fields = function(buffer, offset, pack
   -- Quote Condition: 1 Byte Ascii String
   index, quote_condition = dissect.quote_condition(buffer, index, packet, parent)
 
-  -- Market Sector: 26 Byte Ascii String
+  -- Market Sector: 26 Byte Ascii String Nullable
   index, market_sector = dissect.market_sector(buffer, index, packet, parent)
 
-  -- Sector Group: 2 Byte Ascii String
+  -- Sector Group: 2 Byte Ascii String Nullable
   index, sector_group = dissect.sector_group(buffer, index, packet, parent)
 
-  -- Sector Sub Group: 26 Byte Ascii String
+  -- Sector Sub Group: 26 Byte Ascii String Nullable
   index, sector_sub_group = dissect.sector_sub_group(buffer, index, packet, parent)
 
-  -- Product Complex: 26 Byte Ascii String
+  -- Product Complex: 26 Byte Ascii String Nullable
   index, product_complex = dissect.product_complex(buffer, index, packet, parent)
 
-  -- Security Sub Type: 2 Byte Ascii String
+  -- Security Sub Type: 2 Byte Ascii String Nullable
   index, security_sub_type = dissect.security_sub_type(buffer, index, packet, parent)
 
   -- Vol Type: 2 Byte Unsigned Fixed Width Integer Nullable
   index, vol_type = dissect.vol_type(buffer, index, packet, parent)
 
-  -- Reference Id: 50 Byte Ascii String
+  -- Reference Id: 50 Byte Ascii String Nullable
   index, reference_id = dissect.reference_id(buffer, index, packet, parent)
 
   return index
@@ -2302,6 +2372,11 @@ size_of.leg_ref_id = 17
 
 -- Display: Leg Ref Id
 display.leg_ref_id = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Leg Ref Id: No Value"
+  end
+
   return "Leg Ref Id: "..value
 end
 
@@ -2309,7 +2384,7 @@ end
 dissect.leg_ref_id = function(buffer, offset, packet, parent)
   local length = size_of.leg_ref_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.leg_ref_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.leg_ref_id, range, value, display)
@@ -2322,6 +2397,11 @@ size_of.strategy_link_id = 26
 
 -- Display: Strategy Link Id
 display.strategy_link_id = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Strategy Link Id: No Value"
+  end
+
   return "Strategy Link Id: "..value
 end
 
@@ -2329,7 +2409,7 @@ end
 dissect.strategy_link_id = function(buffer, offset, packet, parent)
   local length = size_of.strategy_link_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.strategy_link_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.strategy_link_id, range, value, display)
@@ -2342,6 +2422,11 @@ size_of.md_entry_id = 26
 
 -- Display: Md Entry Id
 display.md_entry_id = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Md Entry Id: No Value"
+  end
+
   return "Md Entry Id: "..value
 end
 
@@ -2349,7 +2434,7 @@ end
 dissect.md_entry_id = function(buffer, offset, packet, parent)
   local length = size_of.md_entry_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.md_entry_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.md_entry_id, range, value, display)
@@ -2622,31 +2707,31 @@ dissect.m_d_incremental_refresh_trade_blocks_group_fields = function(buffer, off
   -- Aggressor Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, aggressor_side = dissect.aggressor_side(buffer, index, packet, parent)
 
-  -- Symbol: 50 Byte Ascii String
+  -- Symbol: 50 Byte Ascii String Nullable
   index, symbol = dissect.symbol(buffer, index, packet, parent)
 
-  -- Security Group: 12 Byte Ascii String
+  -- Security Group: 12 Byte Ascii String Nullable
   index, security_group = dissect.security_group(buffer, index, packet, parent)
 
-  -- Security Type: 4 Byte Ascii String
+  -- Security Type: 4 Byte Ascii String Nullable
   index, security_type = dissect.security_type(buffer, index, packet, parent)
 
-  -- Security Sub Type: 2 Byte Ascii String
+  -- Security Sub Type: 2 Byte Ascii String Nullable
   index, security_sub_type = dissect.security_sub_type(buffer, index, packet, parent)
 
   -- Maturity Month Year: Struct of 4 fields
   index, maturity_month_year = dissect.maturity_month_year(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
+  -- Security Exchange: 4 Byte Ascii String Nullable
   index, security_exchange = dissect.security_exchange(buffer, index, packet, parent)
 
   -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
 
-  -- Unit Of Measure: 5 Byte Ascii String
+  -- Unit Of Measure: 5 Byte Ascii String Nullable
   index, unit_of_measure = dissect.unit_of_measure(buffer, index, packet, parent)
 
-  -- Unit Of Measure Currency: 3 Byte Ascii String
+  -- Unit Of Measure Currency: 3 Byte Ascii String Nullable
   index, unit_of_measure_currency = dissect.unit_of_measure_currency(buffer, index, packet, parent)
 
   -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
@@ -2661,7 +2746,7 @@ dissect.m_d_incremental_refresh_trade_blocks_group_fields = function(buffer, off
   -- Trd Type: 1 Byte Unsigned Fixed Width Integer Nullable
   index, trd_type = dissect.trd_type(buffer, index, packet, parent)
 
-  -- Md Entry Id: 26 Byte Ascii String
+  -- Md Entry Id: 26 Byte Ascii String Nullable
   index, md_entry_id = dissect.md_entry_id(buffer, index, packet, parent)
 
   -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Nullable
@@ -2670,19 +2755,19 @@ dissect.m_d_incremental_refresh_trade_blocks_group_fields = function(buffer, off
   -- Strike Price: 8 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
   index, strike_price = dissect.strike_price(buffer, index, packet, parent)
 
-  -- Restructuring Type: 2 Byte Ascii String
+  -- Restructuring Type: 2 Byte Ascii String Nullable
   index, restructuring_type = dissect.restructuring_type(buffer, index, packet, parent)
 
-  -- Seniority: 2 Byte Ascii String
+  -- Seniority: 2 Byte Ascii String Nullable
   index, seniority = dissect.seniority(buffer, index, packet, parent)
 
-  -- Reference Id: 50 Byte Ascii String
+  -- Reference Id: 50 Byte Ascii String Nullable
   index, reference_id = dissect.reference_id(buffer, index, packet, parent)
 
-  -- Strategy Link Id: 26 Byte Ascii String
+  -- Strategy Link Id: 26 Byte Ascii String Nullable
   index, strategy_link_id = dissect.strategy_link_id(buffer, index, packet, parent)
 
-  -- Leg Ref Id: 17 Byte Ascii String
+  -- Leg Ref Id: 17 Byte Ascii String Nullable
   index, leg_ref_id = dissect.leg_ref_id(buffer, index, packet, parent)
 
   return index
@@ -2879,6 +2964,11 @@ size_of.leg_security_group = 12
 
 -- Display: Leg Security Group
 display.leg_security_group = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Leg Security Group: No Value"
+  end
+
   return "Leg Security Group: "..value
 end
 
@@ -2886,7 +2976,7 @@ end
 dissect.leg_security_group = function(buffer, offset, packet, parent)
   local length = size_of.leg_security_group
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.leg_security_group(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.leg_security_group, range, value, display)
@@ -2899,6 +2989,11 @@ size_of.leg_security_type = 8
 
 -- Display: Leg Security Type
 display.leg_security_type = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Leg Security Type: No Value"
+  end
+
   return "Leg Security Type: "..value
 end
 
@@ -2906,7 +3001,7 @@ end
 dissect.leg_security_type = function(buffer, offset, packet, parent)
   local length = size_of.leg_security_type
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.leg_security_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.leg_security_type, range, value, display)
@@ -2919,6 +3014,11 @@ size_of.leg_currency = 3
 
 -- Display: Leg Currency
 display.leg_currency = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Leg Currency: No Value"
+  end
+
   return "Leg Currency: "..value
 end
 
@@ -2926,7 +3026,7 @@ end
 dissect.leg_currency = function(buffer, offset, packet, parent)
   local length = size_of.leg_currency
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.leg_currency(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.leg_currency, range, value, display)
@@ -2989,6 +3089,11 @@ size_of.leg_symbol = 50
 
 -- Display: Leg Symbol
 display.leg_symbol = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Leg Symbol: No Value"
+  end
+
   return "Leg Symbol: "..value
 end
 
@@ -2996,7 +3101,7 @@ end
 dissect.leg_symbol = function(buffer, offset, packet, parent)
   local length = size_of.leg_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.leg_symbol(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.leg_symbol, range, value, display)
@@ -3051,6 +3156,11 @@ size_of.leg_pay_frequencey = 3
 
 -- Display: Leg Pay Frequencey
 display.leg_pay_frequencey = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Leg Pay Frequencey: No Value"
+  end
+
   return "Leg Pay Frequencey: "..value
 end
 
@@ -3058,7 +3168,7 @@ end
 dissect.leg_pay_frequencey = function(buffer, offset, packet, parent)
   local length = size_of.leg_pay_frequencey
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.leg_pay_frequencey(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.leg_pay_frequencey, range, value, display)
@@ -3096,6 +3206,11 @@ size_of.rate_descriptor = 8
 
 -- Display: Rate Descriptor
 display.rate_descriptor = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Rate Descriptor: No Value"
+  end
+
   return "Rate Descriptor: "..value
 end
 
@@ -3103,7 +3218,7 @@ end
 dissect.rate_descriptor = function(buffer, offset, packet, parent)
   local length = size_of.rate_descriptor
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.rate_descriptor(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.rate_descriptor, range, value, display)
@@ -3116,6 +3231,11 @@ size_of.leg_benchmark_curve_name = 5
 
 -- Display: Leg Benchmark Curve Name
 display.leg_benchmark_curve_name = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Leg Benchmark Curve Name: No Value"
+  end
+
   return "Leg Benchmark Curve Name: "..value
 end
 
@@ -3123,7 +3243,7 @@ end
 dissect.leg_benchmark_curve_name = function(buffer, offset, packet, parent)
   local length = size_of.leg_benchmark_curve_name
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.leg_benchmark_curve_name(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.leg_benchmark_curve_name, range, value, display)
@@ -3173,22 +3293,22 @@ end
 dissect.m_d_instrument_definition_eris_leg_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Leg Benchmark Curve Name: 5 Byte Ascii String
+  -- Leg Benchmark Curve Name: 5 Byte Ascii String Nullable
   index, leg_benchmark_curve_name = dissect.leg_benchmark_curve_name(buffer, index, packet, parent)
 
-  -- Rate Descriptor: 8 Byte Ascii String
+  -- Rate Descriptor: 8 Byte Ascii String Nullable
   index, rate_descriptor = dissect.rate_descriptor(buffer, index, packet, parent)
 
   -- Previous Fixing Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, previous_fixing_date = dissect.previous_fixing_date(buffer, index, packet, parent)
 
-  -- Leg Pay Frequencey: 3 Byte Ascii String
+  -- Leg Pay Frequencey: 3 Byte Ascii String Nullable
   index, leg_pay_frequencey = dissect.leg_pay_frequencey(buffer, index, packet, parent)
 
   -- Previous Fixing Rate: Struct of 2 fields
   index, previous_fixing_rate = dissect.previous_fixing_rate(buffer, index, packet, parent)
 
-  -- Leg Symbol: 50 Byte Ascii String
+  -- Leg Symbol: 50 Byte Ascii String Nullable
   index, leg_symbol = dissect.leg_symbol(buffer, index, packet, parent)
 
   -- Leg Ratio Qty: 4 Byte Signed Fixed Width Integer Nullable
@@ -3200,10 +3320,10 @@ dissect.m_d_instrument_definition_eris_leg_group_fields = function(buffer, offse
   -- Leg Currency: 3 Byte Ascii String
   index, leg_currency = dissect.leg_currency(buffer, index, packet, parent)
 
-  -- Leg Security Type: 8 Byte Ascii String
+  -- Leg Security Type: 8 Byte Ascii String Nullable
   index, leg_security_type = dissect.leg_security_type(buffer, index, packet, parent)
 
-  -- Leg Security Group: 12 Byte Ascii String
+  -- Leg Security Group: 12 Byte Ascii String Nullable
   index, leg_security_group = dissect.leg_security_group(buffer, index, packet, parent)
 
   -- Leg Date Offset: 1 Byte Signed Fixed Width Integer Nullable
@@ -3289,7 +3409,7 @@ end
 dissect.security_alt_id_source = function(buffer, offset, packet, parent)
   local length = size_of.security_alt_id_source
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.security_alt_id_source(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.security_alt_id_source, range, value, display)
@@ -3302,6 +3422,11 @@ size_of.security_alt_id = 26
 
 -- Display: Security Alt Id
 display.security_alt_id = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Alt Id: No Value"
+  end
+
   return "Security Alt Id: "..value
 end
 
@@ -3309,7 +3434,7 @@ end
 dissect.security_alt_id = function(buffer, offset, packet, parent)
   local length = size_of.security_alt_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.security_alt_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.security_alt_id, range, value, display)
@@ -3337,7 +3462,7 @@ end
 dissect.security_alt_id_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Alt Id: 26 Byte Ascii String
+  -- Security Alt Id: 26 Byte Ascii String Nullable
   index, security_alt_id = dissect.security_alt_id(buffer, index, packet, parent)
 
   -- Security Alt Id Source: 1 Byte Ascii String
@@ -3629,6 +3754,11 @@ size_of.md_feed_type = 2
 
 -- Display: Md Feed Type
 display.md_feed_type = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Md Feed Type: No Value"
+  end
+
   return "Md Feed Type: "..value
 end
 
@@ -3636,7 +3766,7 @@ end
 dissect.md_feed_type = function(buffer, offset, packet, parent)
   local length = size_of.md_feed_type
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.md_feed_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.md_feed_type, range, value, display)
@@ -3664,7 +3794,7 @@ end
 dissect.m_d_feed_types_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Feed Type: 2 Byte Ascii String
+  -- Md Feed Type: 2 Byte Ascii String Nullable
   index, md_feed_type = dissect.md_feed_type(buffer, index, packet, parent)
 
   -- Market Depth: 1 Byte Unsigned Fixed Width Integer Nullable
@@ -3765,6 +3895,11 @@ size_of.user_defined_instrument = 1
 
 -- Display: User Defined Instrument
 display.user_defined_instrument = function(value)
+  -- Check if field has value
+  if value == "zeroed" then
+    return "User Defined Instrument: No Value ("..value..")"
+  end
+
   return "User Defined Instrument: "..value
 end
 
@@ -3772,7 +3907,7 @@ end
 dissect.user_defined_instrument = function(buffer, offset, packet, parent)
   local length = size_of.user_defined_instrument
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.user_defined_instrument(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.user_defined_instrument, range, value, display)
@@ -3785,6 +3920,11 @@ size_of.rate_type = 2
 
 -- Display: Rate Type
 display.rate_type = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Rate Type: No Value"
+  end
+
   return "Rate Type: "..value
 end
 
@@ -3792,7 +3932,7 @@ end
 dissect.rate_type = function(buffer, offset, packet, parent)
   local length = size_of.rate_type
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.rate_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.rate_type, range, value, display)
@@ -3822,7 +3962,7 @@ end
 dissect.security_update_action = function(buffer, offset, packet, parent)
   local length = size_of.security_update_action
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.security_update_action(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.security_update_action, range, value, display)
@@ -3877,6 +4017,11 @@ size_of.currency = 3
 
 -- Display: Currency
 display.currency = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Currency: No Value"
+  end
+
   return "Currency: "..value
 end
 
@@ -3884,7 +4029,7 @@ end
 dissect.currency = function(buffer, offset, packet, parent)
   local length = size_of.currency
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.currency(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.currency, range, value, display)
@@ -3942,19 +4087,19 @@ end
 dissect.md_instrument_definition_eris_363_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Group: 12 Byte Ascii String
+  -- Security Group: 12 Byte Ascii String Nullable
   index, security_group = dissect.security_group(buffer, index, packet, parent)
 
-  -- Symbol: 50 Byte Ascii String
+  -- Symbol: 50 Byte Ascii String Nullable
   index, symbol = dissect.symbol(buffer, index, packet, parent)
 
-  -- Security Type: 4 Byte Ascii String
+  -- Security Type: 4 Byte Ascii String Nullable
   index, security_type = dissect.security_type(buffer, index, packet, parent)
 
   -- Product: 1 Byte Signed Fixed Width Integer Nullable
   index, product = dissect.product(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
+  -- Security Exchange: 4 Byte Ascii String Nullable
   index, security_exchange = dissect.security_exchange(buffer, index, packet, parent)
 
   -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
@@ -3969,13 +4114,13 @@ dissect.md_instrument_definition_eris_363_fields = function(buffer, offset, pack
   -- Security Update Action: 1 Byte Ascii String Enum with 3 values
   index, security_update_action = dissect.security_update_action(buffer, index, packet, parent)
 
-  -- Rate Type: 2 Byte Ascii String
+  -- Rate Type: 2 Byte Ascii String Nullable
   index, rate_type = dissect.rate_type(buffer, index, packet, parent)
 
   -- Coupon Rate: 4 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
   index, coupon_rate = dissect.coupon_rate(buffer, index, packet, parent)
 
-  -- User Defined Instrument: 1 Byte Ascii String
+  -- User Defined Instrument: 1 Byte Ascii String Nullable
   index, user_defined_instrument = dissect.user_defined_instrument(buffer, index, packet, parent)
 
   -- Appl Id: 2 Byte Unsigned Fixed Width Integer Nullable
@@ -4213,16 +4358,16 @@ dissect.m_d_incremental_refresh_eris_group_fields = function(buffer, offset, pac
   -- Aggressor Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, aggressor_side = dissect.aggressor_side(buffer, index, packet, parent)
 
-  -- Symbol: 50 Byte Ascii String
+  -- Symbol: 50 Byte Ascii String Nullable
   index, symbol = dissect.symbol(buffer, index, packet, parent)
 
-  -- Security Group: 12 Byte Ascii String
+  -- Security Group: 12 Byte Ascii String Nullable
   index, security_group = dissect.security_group(buffer, index, packet, parent)
 
-  -- Security Type: 4 Byte Ascii String
+  -- Security Type: 4 Byte Ascii String Nullable
   index, security_type = dissect.security_type(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
+  -- Security Exchange: 4 Byte Ascii String Nullable
   index, security_exchange = dissect.security_exchange(buffer, index, packet, parent)
 
   -- Product: 1 Byte Signed Fixed Width Integer Nullable
@@ -4231,7 +4376,7 @@ dissect.m_d_incremental_refresh_eris_group_fields = function(buffer, offset, pac
   -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
 
-  -- Reference Id: 50 Byte Ascii String
+  -- Reference Id: 50 Byte Ascii String Nullable
   index, reference_id = dissect.reference_id(buffer, index, packet, parent)
 
   return index
@@ -4697,6 +4842,11 @@ size_of.yield_type = 8
 
 -- Display: Yield Type
 display.yield_type = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Yield Type: No Value"
+  end
+
   return "Yield Type: "..value
 end
 
@@ -4704,7 +4854,7 @@ end
 dissect.yield_type = function(buffer, offset, packet, parent)
   local length = size_of.yield_type
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.yield_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.yield_type, range, value, display)
@@ -4770,13 +4920,13 @@ dissect.m_d_incremental_refresh_indices_group_fields = function(buffer, offset, 
   -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable: Struct of 2 fields
   index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
 
-  -- Symbol: 50 Byte Ascii String
+  -- Symbol: 50 Byte Ascii String Nullable
   index, symbol = dissect.symbol(buffer, index, packet, parent)
 
   -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Nullable
   index, open_close_settl_flag = dissect.open_close_settl_flag(buffer, index, packet, parent)
 
-  -- Yield Type: 8 Byte Ascii String
+  -- Yield Type: 8 Byte Ascii String Nullable
   index, yield_type = dissect.yield_type(buffer, index, packet, parent)
 
   -- Yield: Struct of 2 fields
@@ -4800,7 +4950,7 @@ dissect.m_d_incremental_refresh_indices_group_fields = function(buffer, offset, 
   -- Md Entry Time: 4 Byte Signed Fixed Width Integer Nullable
   index, md_entry_time = dissect.md_entry_time(buffer, index, packet, parent)
 
-  -- Reference Id: 50 Byte Ascii String
+  -- Reference Id: 50 Byte Ascii String Nullable
   index, reference_id = dissect.reference_id(buffer, index, packet, parent)
 
   return index
@@ -4897,7 +5047,7 @@ dissect.md_incremental_refresh_indices_348_fields = function(buffer, offset, pac
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
-  -- Md Feed Type: 2 Byte Ascii String
+  -- Md Feed Type: 2 Byte Ascii String Nullable
   index, md_feed_type = dissect.md_feed_type(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
@@ -4930,6 +5080,11 @@ size_of.inst_attrib_value = 100
 
 -- Display: Inst Attrib Value
 display.inst_attrib_value = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Inst Attrib Value: No Value"
+  end
+
   return "Inst Attrib Value: "..value
 end
 
@@ -4937,7 +5092,7 @@ end
 dissect.inst_attrib_value = function(buffer, offset, packet, parent)
   local length = size_of.inst_attrib_value
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.inst_attrib_value(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.inst_attrib_value, range, value, display)
@@ -4988,7 +5143,7 @@ dissect.inst_attrib_group_fields = function(buffer, offset, packet, parent)
   -- Inst Attrib Type: 1 Byte Unsigned Fixed Width Integer
   index, inst_attrib_type = dissect.inst_attrib_type(buffer, index, packet, parent)
 
-  -- Inst Attrib Value: 100 Byte Ascii String
+  -- Inst Attrib Value: 100 Byte Ascii String Nullable
   index, inst_attrib_value = dissect.inst_attrib_value(buffer, index, packet, parent)
 
   return index
@@ -5090,13 +5245,13 @@ end
 dissect.md_instrument_definition_indices_347_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol: 50 Byte Ascii String
+  -- Symbol: 50 Byte Ascii String Nullable
   index, symbol = dissect.symbol(buffer, index, packet, parent)
 
   -- Product: 1 Byte Signed Fixed Width Integer Nullable
   index, product = dissect.product(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
+  -- Security Exchange: 4 Byte Ascii String Nullable
   index, security_exchange = dissect.security_exchange(buffer, index, packet, parent)
 
   -- Currency: 3 Byte Ascii String
@@ -5105,7 +5260,7 @@ dissect.md_instrument_definition_indices_347_fields = function(buffer, offset, p
   -- Security Update Action: 1 Byte Ascii String Enum with 3 values
   index, security_update_action = dissect.security_update_action(buffer, index, packet, parent)
 
-  -- Md Feed Type: 2 Byte Ascii String
+  -- Md Feed Type: 2 Byte Ascii String Nullable
   index, md_feed_type = dissect.md_feed_type(buffer, index, packet, parent)
 
   -- Appl Id: 2 Byte Unsigned Fixed Width Integer Nullable
@@ -5151,7 +5306,7 @@ end
 dissect.related_sym_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol: 50 Byte Ascii String
+  -- Symbol: 50 Byte Ascii String Nullable
   index, symbol = dissect.symbol(buffer, index, packet, parent)
 
   return index
@@ -5224,6 +5379,11 @@ size_of.quote_req_id = 26
 
 -- Display: Quote Req Id
 display.quote_req_id = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Quote Req Id: No Value"
+  end
+
   return "Quote Req Id: "..value
 end
 
@@ -5231,7 +5391,7 @@ end
 dissect.quote_req_id = function(buffer, offset, packet, parent)
   local length = size_of.quote_req_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.quote_req_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.quote_req_id, range, value, display)
@@ -5269,7 +5429,7 @@ dissect.quote_request_345_fields = function(buffer, offset, packet, parent)
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
-  -- Quote Req Id: 26 Byte Ascii String
+  -- Quote Req Id: 26 Byte Ascii String Nullable
   index, quote_req_id = dissect.quote_req_id(buffer, index, packet, parent)
 
   -- Related Sym Groups: Struct of 2 fields
@@ -5348,6 +5508,11 @@ size_of.text = 180
 
 -- Display: Text
 display.text = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Text: No Value"
+  end
+
   return "Text: "..value
 end
 
@@ -5355,7 +5520,7 @@ end
 dissect.text = function(buffer, offset, packet, parent)
   local length = size_of.text
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.text(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.text, range, value, display)
@@ -5479,6 +5644,11 @@ size_of.headline = 50
 
 -- Display: Headline
 display.headline = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Headline: No Value"
+  end
+
   return "Headline: "..value
 end
 
@@ -5486,7 +5656,7 @@ end
 dissect.headline = function(buffer, offset, packet, parent)
   local length = size_of.headline
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.headline(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.headline, range, value, display)
@@ -5520,13 +5690,13 @@ end
 dissect.md_news_indices_339_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Headline: 50 Byte Ascii String
+  -- Headline: 50 Byte Ascii String Nullable
   index, headline = dissect.headline(buffer, index, packet, parent)
 
   -- Orig Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, orig_time = dissect.orig_time(buffer, index, packet, parent)
 
-  -- Md Feed Type: 2 Byte Ascii String
+  -- Md Feed Type: 2 Byte Ascii String Nullable
   index, md_feed_type = dissect.md_feed_type(buffer, index, packet, parent)
 
   -- Related Sym Groups: Struct of 2 fields
@@ -5556,6 +5726,11 @@ size_of.security_description = 30
 
 -- Display: Security Description
 display.security_description = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Description: No Value"
+  end
+
   return "Security Description: "..value
 end
 
@@ -5563,7 +5738,7 @@ end
 dissect.security_description = function(buffer, offset, packet, parent)
   local length = size_of.security_description
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.security_description(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.security_description, range, value, display)
@@ -5811,6 +5986,11 @@ size_of.leg_credit_rating = 6
 
 -- Display: Leg Credit Rating
 display.leg_credit_rating = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Leg Credit Rating: No Value"
+  end
+
   return "Leg Credit Rating: "..value
 end
 
@@ -5818,7 +5998,7 @@ end
 dissect.leg_credit_rating = function(buffer, offset, packet, parent)
   local length = size_of.leg_credit_rating
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:stringz()
   local display = display.leg_credit_rating(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_9.fields.leg_credit_rating, range, value, display)
@@ -6726,25 +6906,25 @@ dissect.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_f
   -- Cal Fut Px: Struct of 2 fields
   index, cal_fut_px = dissect.cal_fut_px(buffer, index, packet, parent)
 
-  -- Reference Id: 50 Byte Ascii String
+  -- Reference Id: 50 Byte Ascii String Nullable
   index, reference_id = dissect.reference_id(buffer, index, packet, parent)
 
   -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable: Struct of 2 fields
   index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
 
-  -- Symbol: 50 Byte Ascii String
+  -- Symbol: 50 Byte Ascii String Nullable
   index, symbol = dissect.symbol(buffer, index, packet, parent)
 
-  -- Security Group: 12 Byte Ascii String
+  -- Security Group: 12 Byte Ascii String Nullable
   index, security_group = dissect.security_group(buffer, index, packet, parent)
 
   -- Product: 1 Byte Signed Fixed Width Integer Nullable
   index, product = dissect.product(buffer, index, packet, parent)
 
-  -- Security Type: 4 Byte Ascii String
+  -- Security Type: 4 Byte Ascii String Nullable
   index, security_type = dissect.security_type(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
+  -- Security Exchange: 4 Byte Ascii String Nullable
   index, security_exchange = dissect.security_exchange(buffer, index, packet, parent)
 
   -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
@@ -6816,7 +6996,7 @@ dissect.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_f
   -- Nominal: 8 Byte Unsigned Fixed Width Integer Nullable
   index, nominal = dissect.nominal(buffer, index, packet, parent)
 
-  -- Leg Credit Rating: 6 Byte Ascii String
+  -- Leg Credit Rating: 6 Byte Ascii String Nullable
   index, leg_credit_rating = dissect.leg_credit_rating(buffer, index, packet, parent)
 
   -- Leg Contract Multiplier: Struct of 2 fields
@@ -6837,7 +7017,7 @@ dissect.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_f
   -- Final Settlement Futures Price: Struct of 2 fields
   index, final_settlement_futures_price = dissect.final_settlement_futures_price(buffer, index, packet, parent)
 
-  -- Security Description: 30 Byte Ascii String
+  -- Security Description: 30 Byte Ascii String Nullable
   index, security_description = dissect.security_description(buffer, index, packet, parent)
 
   return index
