@@ -1345,7 +1345,7 @@ display.side = function(value)
   if value == "S" then
     return "Side: Sell (S)"
   end
-  if value == "" then
+  if value == " " then
     return "Side: Hidden (<whitespace>)"
   end
 
