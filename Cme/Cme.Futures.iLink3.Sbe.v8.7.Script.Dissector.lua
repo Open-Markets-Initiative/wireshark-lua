@@ -155,6 +155,7 @@ cme_futures_ilink3_sbe_v8_7.fields.mass_action_report_id = ProtoField.new("Mass 
 cme_futures_ilink3_sbe_v8_7.fields.mass_action_response = ProtoField.new("Mass Action Response", "cme.futures.ilink3.sbe.v8.7.massactionresponse", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_7.fields.mass_action_scope = ProtoField.new("Mass Action Scope", "cme.futures.ilink3.sbe.v8.7.massactionscope", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_7.fields.mass_cancel_request_type = ProtoField.new("Mass Cancel Request Type", "cme.futures.ilink3.sbe.v8.7.masscancelrequesttype", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_7.fields.mass_cancel_tif = ProtoField.new("Mass Cancel Tif", "cme.futures.ilink3.sbe.v8.7.masscanceltif", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_7.fields.mass_quote_517 = ProtoField.new("Mass Quote 517", "cme.futures.ilink3.sbe.v8.7.massquote517", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_7.fields.mass_quote_ack_545 = ProtoField.new("Mass Quote Ack 545", "cme.futures.ilink3.sbe.v8.7.massquoteack545", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_7.fields.mass_quote_ack_entry_group = ProtoField.new("Mass Quote Ack Entry Group", "cme.futures.ilink3.sbe.v8.7.massquoteackentrygroup", ftypes.STRING)
@@ -163,6 +164,7 @@ cme_futures_ilink3_sbe_v8_7.fields.mass_quote_entry_group = ProtoField.new("Mass
 cme_futures_ilink3_sbe_v8_7.fields.mass_quote_entry_groups = ProtoField.new("Mass Quote Entry Groups", "cme.futures.ilink3.sbe.v8.7.massquoteentrygroups", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_7.fields.mass_status_req_id = ProtoField.new("Mass Status Req Id", "cme.futures.ilink3.sbe.v8.7.massstatusreqid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_7.fields.mass_status_req_type = ProtoField.new("Mass Status Req Type", "cme.futures.ilink3.sbe.v8.7.massstatusreqtype", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_7.fields.mass_status_tif = ProtoField.new("Mass Status Tif", "cme.futures.ilink3.sbe.v8.7.massstatustif", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_7.fields.maturity_date = ProtoField.new("Maturity Date", "cme.futures.ilink3.sbe.v8.7.maturitydate", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_7.fields.maturity_month_year = ProtoField.new("Maturity Month Year", "cme.futures.ilink3.sbe.v8.7.maturitymonthyear", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_7.fields.max_no_of_substitutions = ProtoField.new("Max No Of Substitutions", "cme.futures.ilink3.sbe.v8.7.maxnoofsubstitutions", ftypes.UINT8)
@@ -332,6 +334,7 @@ cme_futures_ilink3_sbe_v8_7.fields.tot_no_quote_entries = ProtoField.new("Tot No
 cme_futures_ilink3_sbe_v8_7.fields.tot_num_parties = ProtoField.new("Tot Num Parties", "cme.futures.ilink3.sbe.v8.7.totnumparties", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_7.fields.total_affected_orders = ProtoField.new("Total Affected Orders", "cme.futures.ilink3.sbe.v8.7.totalaffectedorders", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_7.fields.total_num_securities = ProtoField.new("Total Num Securities", "cme.futures.ilink3.sbe.v8.7.totalnumsecurities", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_7.fields.trade_addendum = ProtoField.new("Trade Addendum", "cme.futures.ilink3.sbe.v8.7.tradeaddendum", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_7.fields.trade_date = ProtoField.new("Trade Date", "cme.futures.ilink3.sbe.v8.7.tradedate", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_7.fields.trade_link_id = ProtoField.new("Trade Link Id", "cme.futures.ilink3.sbe.v8.7.tradelinkid", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_7.fields.trading_system_name = ProtoField.new("Trading System Name", "cme.futures.ilink3.sbe.v8.7.tradingsystemname", ftypes.STRING)
@@ -1303,15 +1306,6 @@ display.time_in_force = function(value)
   if value == 99 then
     return "Time In Force: Good For Session (99)"
   end
-  if value == 1 then
-    return "Time In Force: Gtc (1)"
-  end
-  if value == 6 then
-    return "Time In Force: Gtd (6)"
-  end
-  if value == 99 then
-    return "Time In Force: Gfs (99)"
-  end
   if value == 255 then
     return "Time In Force: No Value (255)"
   end
@@ -1990,7 +1984,7 @@ dissect.execution_report_pending_replace_565_fields = function(buffer, offset, p
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -2165,7 +2159,7 @@ dissect.execution_report_pending_cancel_564_fields = function(buffer, offset, pa
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -3140,6 +3134,36 @@ dissect.affected_orders_groups = function(buffer, offset, packet, parent)
   return dissect.affected_orders_groups_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Mass Cancel Tif
+size_of.mass_cancel_tif = 1
+
+-- Display: Mass Cancel Tif
+display.mass_cancel_tif = function(value)
+  if value == 0 then
+    return "Mass Cancel Tif: Day (0)"
+  end
+  if value == 1 then
+    return "Mass Cancel Tif: Good Till Cancel (1)"
+  end
+  if value == 6 then
+    return "Mass Cancel Tif: Good Till Date (6)"
+  end
+
+  return "Mass Cancel Tif: Unknown("..value..")"
+end
+
+-- Dissect: Mass Cancel Tif
+dissect.mass_cancel_tif = function(buffer, offset, packet, parent)
+  local length = size_of.mass_cancel_tif
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.mass_cancel_tif(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_7.fields.mass_cancel_tif, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Mass Cancel Request Type
 size_of.mass_cancel_request_type = 1
 
@@ -3423,7 +3447,7 @@ size_of.order_mass_action_report_562 = function(buffer, offset)
 
   index = index + size_of.ord_type
 
-  index = index + size_of.time_in_force
+  index = index + size_of.mass_cancel_tif
 
   index = index + size_of.split_msg
 
@@ -3513,8 +3537,8 @@ dissect.order_mass_action_report_562_fields = function(buffer, offset, packet, p
   -- Ord Type: 1 Byte Ascii String Enum with 7 values
   index, ord_type = dissect.ord_type(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
+  -- Mass Cancel Tif: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, mass_cancel_tif = dissect.mass_cancel_tif(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, split_msg = dissect.split_msg(buffer, index, packet, parent)
@@ -3698,7 +3722,7 @@ dissect.leg_option_delta_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa32, exponent
 end
 
 -- Dissect: Leg Option Delta
@@ -4798,38 +4822,35 @@ dissect.order_event_reason = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Order Event Type
-size_of.order_event_type = 1
+-- Size: Trade Addendum
+size_of.trade_addendum = 1
 
--- Display: Order Event Type
-display.order_event_type = function(value)
+-- Display: Trade Addendum
+display.trade_addendum = function(value)
   if value == 4 then
-    return "Order Event Type: Partially Filled (4)"
+    return "Trade Addendum: Partially Filled (4)"
   end
   if value == 5 then
-    return "Order Event Type: Filled (5)"
+    return "Trade Addendum: Filled (5)"
   end
   if value == 100 then
-    return "Order Event Type: Trade Cancel (100)"
+    return "Trade Addendum: Trade Cancel (100)"
   end
   if value == 101 then
-    return "Order Event Type: Trade Correction (101)"
-  end
-  if value == 255 then
-    return "Order Event Type: No Value (255)"
+    return "Trade Addendum: Trade Correction (101)"
   end
 
-  return "Order Event Type: Unknown("..value..")"
+  return "Trade Addendum: Unknown("..value..")"
 end
 
--- Dissect: Order Event Type
-dissect.order_event_type = function(buffer, offset, packet, parent)
-  local length = size_of.order_event_type
+-- Dissect: Trade Addendum
+dissect.trade_addendum = function(buffer, offset, packet, parent)
+  local length = size_of.trade_addendum
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.order_event_type(value, buffer, offset, packet, parent)
+  local display = display.trade_addendum(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_7.fields.order_event_type, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_7.fields.trade_addendum, range, value, display)
 
   return offset + length, value
 end
@@ -4931,7 +4952,7 @@ size_of.execution_report_trade_addendum_spread_leg_order_event_group = function(
 
   index = index + size_of.order_event_qty
 
-  index = index + size_of.order_event_type
+  index = index + size_of.trade_addendum
 
   index = index + size_of.order_event_reason
 
@@ -4961,8 +4982,8 @@ dissect.execution_report_trade_addendum_spread_leg_order_event_group_fields = fu
   -- Order Event Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_event_qty = dissect.order_event_qty(buffer, index, packet, parent)
 
-  -- Order Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, order_event_type = dissect.order_event_type(buffer, index, packet, parent)
+  -- Trade Addendum: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, trade_addendum = dissect.trade_addendum(buffer, index, packet, parent)
 
   -- Order Event Reason: 1 Byte Unsigned Fixed Width Integer
   index, order_event_reason = dissect.order_event_reason(buffer, index, packet, parent)
@@ -5272,7 +5293,7 @@ dissect.gross_trade_amt_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Gross Trade Amt
@@ -5314,7 +5335,7 @@ dissect.calculated_ccy_last_qty_fields = function(buffer, offset, packet, parent
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Calculated Ccy Last Qty
@@ -5778,7 +5799,7 @@ size_of.execution_report_trade_addendum_spread_order_event_group = function(buff
 
   index = index + size_of.order_event_qty
 
-  index = index + size_of.order_event_type
+  index = index + size_of.trade_addendum
 
   index = index + size_of.order_event_reason
 
@@ -5808,8 +5829,8 @@ dissect.execution_report_trade_addendum_spread_order_event_group_fields = functi
   -- Order Event Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_event_qty = dissect.order_event_qty(buffer, index, packet, parent)
 
-  -- Order Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, order_event_type = dissect.order_event_type(buffer, index, packet, parent)
+  -- Trade Addendum: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, trade_addendum = dissect.trade_addendum(buffer, index, packet, parent)
 
   -- Order Event Reason: 1 Byte Unsigned Fixed Width Integer
   index, order_event_reason = dissect.order_event_reason(buffer, index, packet, parent)
@@ -6546,7 +6567,7 @@ dissect.contra_calculated_ccy_last_qty_fields = function(buffer, offset, packet,
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Contra Calculated Ccy Last Qty
@@ -6588,7 +6609,7 @@ dissect.contra_gross_trade_amt_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Contra Gross Trade Amt
@@ -6616,7 +6637,7 @@ size_of.execution_report_trade_addendum_outright_order_event_group = function(bu
 
   index = index + size_of.order_event_qty
 
-  index = index + size_of.order_event_type
+  index = index + size_of.trade_addendum
 
   index = index + size_of.order_event_reason
 
@@ -6650,8 +6671,8 @@ dissect.execution_report_trade_addendum_outright_order_event_group_fields = func
   -- Order Event Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_event_qty = dissect.order_event_qty(buffer, index, packet, parent)
 
-  -- Order Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, order_event_type = dissect.order_event_type(buffer, index, packet, parent)
+  -- Trade Addendum: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, trade_addendum = dissect.trade_addendum(buffer, index, packet, parent)
 
   -- Order Event Reason: 1 Byte Unsigned Fixed Width Integer
   index, order_event_reason = dissect.order_event_reason(buffer, index, packet, parent)
@@ -9857,7 +9878,7 @@ dissect.execution_report_cancel_534_fields = function(buffer, offset, packet, pa
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -10242,7 +10263,7 @@ dissect.execution_report_status_532_fields = function(buffer, offset, packet, pa
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -10456,7 +10477,7 @@ dissect.execution_report_modify_531_fields = function(buffer, offset, packet, pa
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -10506,6 +10527,39 @@ dissect.execution_report_modify_531 = function(buffer, offset, packet, parent)
   end
 
   return dissect.execution_report_modify_531_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Mass Status Tif
+size_of.mass_status_tif = 1
+
+-- Display: Mass Status Tif
+display.mass_status_tif = function(value)
+  if value == 0 then
+    return "Mass Status Tif: Day (0)"
+  end
+  if value == 1 then
+    return "Mass Status Tif: Gtc (1)"
+  end
+  if value == 6 then
+    return "Mass Status Tif: Gtd (6)"
+  end
+  if value == 99 then
+    return "Mass Status Tif: Gfs (99)"
+  end
+
+  return "Mass Status Tif: Unknown("..value..")"
+end
+
+-- Dissect: Mass Status Tif
+dissect.mass_status_tif = function(buffer, offset, packet, parent)
+  local length = size_of.mass_status_tif
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.mass_status_tif(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_7.fields.mass_status_tif, range, value, display)
+
+  return offset + length, value
 end
 
 -- Size: Ord Status Req Type
@@ -10594,7 +10648,7 @@ size_of.order_mass_status_request_530 = function(buffer, offset)
 
   index = index + size_of.ord_status_req_type
 
-  index = index + size_of.time_in_force
+  index = index + size_of.mass_status_tif
 
   index = index + size_of.market_segment_id
 
@@ -10643,8 +10697,8 @@ dissect.order_mass_status_request_530_fields = function(buffer, offset, packet, 
   -- Ord Status Req Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, ord_status_req_type = dissect.ord_status_req_type(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
+  -- Mass Status Tif: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, mass_status_tif = dissect.mass_status_tif(buffer, index, packet, parent)
 
   -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer Nullable
   index, market_segment_id = dissect.market_segment_id(buffer, index, packet, parent)
@@ -10697,7 +10751,7 @@ size_of.order_mass_action_request_529 = function(buffer, offset)
 
   index = index + size_of.ord_type
 
-  index = index + size_of.time_in_force
+  index = index + size_of.mass_cancel_tif
 
   index = index + size_of.liquidity_flag
 
@@ -10755,8 +10809,8 @@ dissect.order_mass_action_request_529_fields = function(buffer, offset, packet, 
   -- Ord Type: 1 Byte Ascii String Enum with 7 values
   index, ord_type = dissect.ord_type(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
+  -- Mass Cancel Tif: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, mass_cancel_tif = dissect.mass_cancel_tif(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, liquidity_flag = dissect.liquidity_flag(buffer, index, packet, parent)
@@ -11134,6 +11188,36 @@ dissect.quote_cancel_528 = function(buffer, offset, packet, parent)
   return dissect.quote_cancel_528_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Order Event Type
+size_of.order_event_type = 1
+
+-- Display: Order Event Type
+display.order_event_type = function(value)
+  if value == 4 then
+    return "Order Event Type: Partially Filled (4)"
+  end
+  if value == 5 then
+    return "Order Event Type: Filled (5)"
+  end
+  if value == 255 then
+    return "Order Event Type: No Value (255)"
+  end
+
+  return "Order Event Type: Unknown("..value..")"
+end
+
+-- Dissect: Order Event Type
+dissect.order_event_type = function(buffer, offset, packet, parent)
+  local length = size_of.order_event_type
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.order_event_type(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_7.fields.order_event_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Execution Report Trade Spread Leg Order Event Group
 size_of.execution_report_trade_spread_leg_order_event_group = function(buffer, offset)
   local index = 0
@@ -11174,7 +11258,7 @@ dissect.execution_report_trade_spread_leg_order_event_group_fields = function(bu
   -- Order Event Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_event_qty = dissect.order_event_qty(buffer, index, packet, parent)
 
-  -- Order Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Order Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, order_event_type = dissect.order_event_type(buffer, index, packet, parent)
 
   -- Order Event Reason: 1 Byte Unsigned Fixed Width Integer
@@ -11271,7 +11355,7 @@ dissect.risk_free_rate_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa32, exponent
 end
 
 -- Dissect: Risk Free Rate
@@ -11313,7 +11397,7 @@ dissect.time_to_expiration_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa32, exponent
 end
 
 -- Dissect: Time To Expiration
@@ -11355,7 +11439,7 @@ dissect.option_delta_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa32, exponent
 end
 
 -- Dissect: Option Delta
@@ -11421,7 +11505,7 @@ dissect.volatility_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Volatility
@@ -11664,7 +11748,7 @@ dissect.execution_report_trade_spread_order_event_group_fields = function(buffer
   -- Order Event Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_event_qty = dissect.order_event_qty(buffer, index, packet, parent)
 
-  -- Order Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Order Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, order_event_type = dissect.order_event_type(buffer, index, packet, parent)
 
   -- Order Event Reason: 1 Byte Unsigned Fixed Width Integer
@@ -12060,7 +12144,7 @@ dissect.execution_report_trade_spread_526_fields = function(buffer, offset, pack
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -12159,7 +12243,7 @@ dissect.execution_report_trade_outright_order_event_group_fields = function(buff
   -- Order Event Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_event_qty = dissect.order_event_qty(buffer, index, packet, parent)
 
-  -- Order Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Order Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, order_event_type = dissect.order_event_type(buffer, index, packet, parent)
 
   -- Order Event Reason: 1 Byte Unsigned Fixed Width Integer
@@ -12489,7 +12573,7 @@ dissect.execution_report_trade_outright_525_fields = function(buffer, offset, pa
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -12719,7 +12803,7 @@ dissect.execution_report_elimination_524_fields = function(buffer, offset, packe
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -12950,7 +13034,7 @@ dissect.execution_report_reject_523_fields = function(buffer, offset, packet, pa
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -13157,7 +13241,7 @@ dissect.execution_report_new_522_fields = function(buffer, offset, packet, paren
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -14356,7 +14440,7 @@ dissect.order_cancel_replace_request_515_fields = function(buffer, offset, packe
   -- Ord Type: 1 Byte Ascii String Enum with 7 values
   index, ord_type = dissect.ord_type(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -14511,7 +14595,7 @@ dissect.new_order_single_514_fields = function(buffer, offset, packet, parent)
   -- Ord Type: 1 Byte Ascii String Enum with 7 values
   index, ord_type = dissect.ord_type(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values

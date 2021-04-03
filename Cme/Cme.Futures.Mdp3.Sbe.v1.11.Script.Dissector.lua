@@ -142,6 +142,9 @@ cme_futures_mdp3_sbe_v1_11.fields.md_display_qty = ProtoField.new("Md Display Qt
 cme_futures_mdp3_sbe_v1_11.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.futures.mdp3.sbe.v1.11.mdentrypx", ftypes.INT64)
 cme_futures_mdp3_sbe_v1_11.fields.md_entry_size = ProtoField.new("Md Entry Size", "cme.futures.mdp3.sbe.v1.11.mdentrysize", ftypes.INT32)
 cme_futures_mdp3_sbe_v1_11.fields.md_entry_type = ProtoField.new("Md Entry Type", "cme.futures.mdp3.sbe.v1.11.mdentrytype", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_11.fields.md_entry_type_book = ProtoField.new("Md Entry Type Book", "cme.futures.mdp3.sbe.v1.11.mdentrytypebook", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_11.fields.md_entry_type_daily_statistics = ProtoField.new("Md Entry Type Daily Statistics", "cme.futures.mdp3.sbe.v1.11.mdentrytypedailystatistics", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_11.fields.md_entry_type_statistics = ProtoField.new("Md Entry Type Statistics", "cme.futures.mdp3.sbe.v1.11.mdentrytypestatistics", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_11.fields.md_feed_type = ProtoField.new("Md Feed Type", "cme.futures.mdp3.sbe.v1.11.mdfeedtype", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_11.fields.md_incremental_refresh_book_46 = ProtoField.new("Md Incremental Refresh Book 46", "cme.futures.mdp3.sbe.v1.11.mdincrementalrefreshbook46", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_11.fields.md_incremental_refresh_daily_statistics_49 = ProtoField.new("Md Incremental Refresh Daily Statistics 49", "cme.futures.mdp3.sbe.v1.11.mdincrementalrefreshdailystatistics49", ftypes.STRING)
@@ -284,6 +287,7 @@ cme_futures_mdp3_sbe_v1_11.fields.variable_product_eligibility = ProtoField.new(
 cme_futures_mdp3_sbe_v1_11.fields.version = ProtoField.new("Version", "cme.futures.mdp3.sbe.v1.11.version", ftypes.UINT16)
 cme_futures_mdp3_sbe_v1_11.fields.volatility_quoted_option = ProtoField.new("Volatility Quoted Option", "cme.futures.mdp3.sbe.v1.11.volatilityquotedoption", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00001000")
 cme_futures_mdp3_sbe_v1_11.fields.week = ProtoField.new("Week", "cme.futures.mdp3.sbe.v1.11.week", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_11.fields.workup_trading_status = ProtoField.new("Workup Trading Status", "cme.futures.mdp3.sbe.v1.11.workuptradingstatus", ftypes.UINT8)
 cme_futures_mdp3_sbe_v1_11.fields.year = ProtoField.new("Year", "cme.futures.mdp3.sbe.v1.11.year", ftypes.UINT16)
 cme_futures_mdp3_sbe_v1_11.fields.zero_price_outright_eligible = ProtoField.new("Zero Price Outright Eligible", "cme.futures.mdp3.sbe.v1.11.zeropriceoutrighteligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00004000")
 
@@ -1438,6 +1442,30 @@ display.md_entry_type = function(value)
   if value == "1" then
     return "Md Entry Type: Offer (1)"
   end
+  if value == "2" then
+    return "Md Entry Type: Trade (2)"
+  end
+  if value == "4" then
+    return "Md Entry Type: Open Price (4)"
+  end
+  if value == "6" then
+    return "Md Entry Type: Settlement Price (6)"
+  end
+  if value == "7" then
+    return "Md Entry Type: Trading Session High Price (7)"
+  end
+  if value == "8" then
+    return "Md Entry Type: Trading Session Low Price (8)"
+  end
+  if value == "9" then
+    return "Md Entry Type: Vwap (9)"
+  end
+  if value == "B" then
+    return "Md Entry Type: Cleared Volume (B)"
+  end
+  if value == "C" then
+    return "Md Entry Type: Open Interest (C)"
+  end
   if value == "E" then
     return "Md Entry Type: Implied Bid (E)"
   end
@@ -1447,50 +1475,14 @@ display.md_entry_type = function(value)
   if value == "J" then
     return "Md Entry Type: Book Reset (J)"
   end
-  if value == "6" then
-    return "Md Entry Type: Settlement Price (6)"
-  end
-  if value == "B" then
-    return "Md Entry Type: Cleared Volume (B)"
-  end
-  if value == "C" then
-    return "Md Entry Type: Open Interest (C)"
-  end
-  if value == "W" then
-    return "Md Entry Type: Fixing Price (W)"
-  end
-  if value == "4" then
-    return "Md Entry Type: Open Price (4)"
-  end
-  if value == "7" then
-    return "Md Entry Type: High Trade (7)"
-  end
-  if value == "8" then
-    return "Md Entry Type: Low Trade (8)"
-  end
-  if value == "9" then
-    return "Md Entry Type: Vwap (9)"
-  end
-  if value == "N" then
-    return "Md Entry Type: Highest Bid (N)"
-  end
-  if value == "O" then
-    return "Md Entry Type: Lowest Offer (O)"
-  end
-  if value == "2" then
-    return "Md Entry Type: Trade (2)"
-  end
-  if value == "7" then
-    return "Md Entry Type: Trading Session High Price (7)"
-  end
-  if value == "8" then
-    return "Md Entry Type: Trading Session Low Price (8)"
-  end
   if value == "N" then
     return "Md Entry Type: Session High Bid (N)"
   end
   if value == "O" then
     return "Md Entry Type: Session Low Offer (O)"
+  end
+  if value == "W" then
+    return "Md Entry Type: Fixing Price (W)"
   end
   if value == "e" then
     return "Md Entry Type: Electronic Volume (e)"
@@ -1732,7 +1724,7 @@ dissect.snapshot_full_refresh_tcp_group_fields = function(buffer, offset, packet
   -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, open_close_settl_flag = dissect.open_close_settl_flag(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 22 values
+  -- Md Entry Type: 1 Byte Ascii String Enum with 18 values
   index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
 
   -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
@@ -2232,65 +2224,35 @@ dissect.halt_reason = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Security Trading Status
-size_of.security_trading_status = 1
+-- Size: Workup Trading Status
+size_of.workup_trading_status = 1
 
--- Display: Security Trading Status
-display.security_trading_status = function(value)
-  if value == 2 then
-    return "Security Trading Status: Trading Halt (2)"
-  end
-  if value == 4 then
-    return "Security Trading Status: Close (4)"
-  end
-  if value == 15 then
-    return "Security Trading Status: New Price Indication (15)"
-  end
+-- Display: Workup Trading Status
+display.workup_trading_status = function(value)
   if value == 17 then
-    return "Security Trading Status: Ready To Trade (17)"
+    return "Workup Trading Status: Ready To Trade (17)"
   end
   if value == 18 then
-    return "Security Trading Status: Not Available For Trading (18)"
-  end
-  if value == 20 then
-    return "Security Trading Status: Unknownor Invalid (20)"
-  end
-  if value == 21 then
-    return "Security Trading Status: Pre Open (21)"
-  end
-  if value == 24 then
-    return "Security Trading Status: Pre Cross (24)"
-  end
-  if value == 25 then
-    return "Security Trading Status: Cross (25)"
-  end
-  if value == 26 then
-    return "Security Trading Status: Post Close (26)"
-  end
-  if value == 103 then
-    return "Security Trading Status: No Change (103)"
+    return "Workup Trading Status: Not Available For Trading (18)"
   end
   if value == 201 then
-    return "Security Trading Status: Private Workup (201)"
+    return "Workup Trading Status: Private Workup (201)"
   end
   if value == 202 then
-    return "Security Trading Status: Public Workup (202)"
-  end
-  if value == 255 then
-    return "Security Trading Status: No Value (255)"
+    return "Workup Trading Status: Public Workup (202)"
   end
 
-  return "Security Trading Status: Unknown("..value..")"
+  return "Workup Trading Status: Unknown("..value..")"
 end
 
--- Dissect: Security Trading Status
-dissect.security_trading_status = function(buffer, offset, packet, parent)
-  local length = size_of.security_trading_status
+-- Dissect: Workup Trading Status
+dissect.workup_trading_status = function(buffer, offset, packet, parent)
+  local length = size_of.workup_trading_status
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.security_trading_status(value, buffer, offset, packet, parent)
+  local display = display.workup_trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_mdp3_sbe_v1_11.fields.security_trading_status, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_11.fields.workup_trading_status, range, value, display)
 
   return offset + length, value
 end
@@ -2356,7 +2318,7 @@ size_of.security_status_workup_60 = function(buffer, offset)
 
   index = index + size_of.trade_link_id
 
-  index = index + size_of.security_trading_status
+  index = index + size_of.workup_trading_status
 
   index = index + size_of.halt_reason
 
@@ -2394,8 +2356,8 @@ dissect.security_status_workup_60_fields = function(buffer, offset, packet, pare
   -- Trade Link Id: 4 Byte Unsigned Fixed Width Integer
   index, trade_link_id = dissect.trade_link_id(buffer, index, packet, parent)
 
-  -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
-  index, security_trading_status = dissect.security_trading_status(buffer, index, packet, parent)
+  -- Workup Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, workup_trading_status = dissect.workup_trading_status(buffer, index, packet, parent)
 
   -- Halt Reason: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, halt_reason = dissect.halt_reason(buffer, index, packet, parent)
@@ -2420,6 +2382,42 @@ dissect.security_status_workup_60 = function(buffer, offset, packet, parent)
   end
 
   return dissect.security_status_workup_60_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Md Entry Type Book
+size_of.md_entry_type_book = 1
+
+-- Display: Md Entry Type Book
+display.md_entry_type_book = function(value)
+  if value == "0" then
+    return "Md Entry Type Book: Bid (0)"
+  end
+  if value == "1" then
+    return "Md Entry Type Book: Offer (1)"
+  end
+  if value == "E" then
+    return "Md Entry Type Book: Implied Bid (E)"
+  end
+  if value == "F" then
+    return "Md Entry Type Book: Implied Offer (F)"
+  end
+  if value == "J" then
+    return "Md Entry Type Book: Book Reset (J)"
+  end
+
+  return "Md Entry Type Book: Unknown("..value..")"
+end
+
+-- Dissect: Md Entry Type Book
+dissect.md_entry_type_book = function(buffer, offset, packet, parent)
+  local length = size_of.md_entry_type_book
+  local range = buffer(offset, length)
+  local value = range:stringz()
+  local display = display.md_entry_type_book(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_11.fields.md_entry_type_book, range, value, display)
+
+  return offset + length, value
 end
 
 -- Size: Md Display Qty
@@ -2484,7 +2482,7 @@ size_of.snapshot_refresh_top_orders_group = function(buffer, offset)
 
   index = index + size_of.md_display_qty
 
-  index = index + size_of.md_entry_type
+  index = index + size_of.md_entry_type_book
 
   return index
 end
@@ -2510,8 +2508,8 @@ dissect.snapshot_refresh_top_orders_group_fields = function(buffer, offset, pack
   -- Md Display Qty: 4 Byte Signed Fixed Width Integer Nullable
   index, md_display_qty = dissect.md_display_qty(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 22 values
-  index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
+  -- Md Entry Type Book: 1 Byte Ascii String Enum with 5 values
+  index, md_entry_type_book = dissect.md_entry_type_book(buffer, index, packet, parent)
 
   return index
 end
@@ -7083,7 +7081,7 @@ size_of.snapshot_full_refresh_order_book_group = function(buffer, offset)
 
   index = index + size_of.md_display_qty
 
-  index = index + size_of.md_entry_type
+  index = index + size_of.md_entry_type_book
 
   return index
 end
@@ -7109,8 +7107,8 @@ dissect.snapshot_full_refresh_order_book_group_fields = function(buffer, offset,
   -- Md Display Qty: 4 Byte Signed Fixed Width Integer Nullable
   index, md_display_qty = dissect.md_display_qty(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 22 values
-  index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
+  -- Md Entry Type Book: 1 Byte Ascii String Enum with 5 values
+  index, md_entry_type_book = dissect.md_entry_type_book(buffer, index, packet, parent)
 
   return index
 end
@@ -7357,7 +7355,7 @@ dissect.snapshot_full_refresh_group_fields = function(buffer, offset, packet, pa
   -- Settl Price Type: Struct of 6 fields
   index, settl_price_type = dissect.settl_price_type(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 22 values
+  -- Md Entry Type: 1 Byte Ascii String Enum with 18 values
   index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
 
   return index
@@ -7557,6 +7555,45 @@ dissect.padding_1 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Md Entry Type Statistics
+size_of.md_entry_type_statistics = 1
+
+-- Display: Md Entry Type Statistics
+display.md_entry_type_statistics = function(value)
+  if value == "4" then
+    return "Md Entry Type Statistics: Open Price (4)"
+  end
+  if value == "7" then
+    return "Md Entry Type Statistics: High Trade (7)"
+  end
+  if value == "8" then
+    return "Md Entry Type Statistics: Low Trade (8)"
+  end
+  if value == "9" then
+    return "Md Entry Type Statistics: Vwap (9)"
+  end
+  if value == "N" then
+    return "Md Entry Type Statistics: Highest Bid (N)"
+  end
+  if value == "O" then
+    return "Md Entry Type Statistics: Lowest Offer (O)"
+  end
+
+  return "Md Entry Type Statistics: Unknown("..value..")"
+end
+
+-- Dissect: Md Entry Type Statistics
+dissect.md_entry_type_statistics = function(buffer, offset, packet, parent)
+  local length = size_of.md_entry_type_statistics
+  local range = buffer(offset, length)
+  local value = range:stringz()
+  local display = display.md_entry_type_statistics(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_11.fields.md_entry_type_statistics, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Md Update Action
 size_of.md_update_action = 1
 
@@ -7610,7 +7647,7 @@ size_of.m_d_incremental_refresh_session_statistics_group = function(buffer, offs
 
   index = index + size_of.md_update_action
 
-  index = index + size_of.md_entry_type
+  index = index + size_of.md_entry_type_statistics
 
   index = index + size_of.md_entry_size
 
@@ -7643,8 +7680,8 @@ dissect.m_d_incremental_refresh_session_statistics_group_fields = function(buffe
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, md_update_action = dissect.md_update_action(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 22 values
-  index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
+  -- Md Entry Type Statistics: 1 Byte Ascii String Enum with 6 values
+  index, md_entry_type_statistics = dissect.md_entry_type_statistics(buffer, index, packet, parent)
 
   -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
   index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
@@ -7947,6 +7984,39 @@ dissect.padding_7 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Md Entry Type Daily Statistics
+size_of.md_entry_type_daily_statistics = 1
+
+-- Display: Md Entry Type Daily Statistics
+display.md_entry_type_daily_statistics = function(value)
+  if value == "6" then
+    return "Md Entry Type Daily Statistics: Settlement Price (6)"
+  end
+  if value == "B" then
+    return "Md Entry Type Daily Statistics: Cleared Volume (B)"
+  end
+  if value == "C" then
+    return "Md Entry Type Daily Statistics: Open Interest (C)"
+  end
+  if value == "W" then
+    return "Md Entry Type Daily Statistics: Fixing Price (W)"
+  end
+
+  return "Md Entry Type Daily Statistics: Unknown("..value..")"
+end
+
+-- Dissect: Md Entry Type Daily Statistics
+dissect.md_entry_type_daily_statistics = function(buffer, offset, packet, parent)
+  local length = size_of.md_entry_type_daily_statistics
+  local range = buffer(offset, length)
+  local value = range:stringz()
+  local display = display.md_entry_type_daily_statistics(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_11.fields.md_entry_type_daily_statistics, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: M D Incremental Refresh Daily Statistics Group
 size_of.m_d_incremental_refresh_daily_statistics_group = function(buffer, offset)
   local index = 0
@@ -7965,7 +8035,7 @@ size_of.m_d_incremental_refresh_daily_statistics_group = function(buffer, offset
 
   index = index + size_of.md_update_action
 
-  index = index + size_of.md_entry_type
+  index = index + size_of.md_entry_type_daily_statistics
 
   index = index + size_of.padding_7
 
@@ -8002,8 +8072,8 @@ dissect.m_d_incremental_refresh_daily_statistics_group_fields = function(buffer,
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, md_update_action = dissect.md_update_action(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 22 values
-  index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
+  -- Md Entry Type Daily Statistics: 1 Byte Ascii String Enum with 4 values
+  index, md_entry_type_daily_statistics = dissect.md_entry_type_daily_statistics(buffer, index, packet, parent)
 
   -- Padding 7: 7 Byte
   index, padding_7 = dissect.padding_7(buffer, index, packet, parent)
@@ -8605,7 +8675,7 @@ size_of.m_d_incremental_refresh_order_book_group = function(buffer, offset)
 
   index = index + size_of.md_update_action
 
-  index = index + size_of.md_entry_type
+  index = index + size_of.md_entry_type_book
 
   index = index + size_of.padding_6
 
@@ -8639,8 +8709,8 @@ dissect.m_d_incremental_refresh_order_book_group_fields = function(buffer, offse
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, md_update_action = dissect.md_update_action(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 22 values
-  index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
+  -- Md Entry Type Book: 1 Byte Ascii String Enum with 5 values
+  index, md_entry_type_book = dissect.md_entry_type_book(buffer, index, packet, parent)
 
   -- Padding 6: 6 Byte
   index, padding_6 = dissect.padding_6(buffer, index, packet, parent)
@@ -8946,7 +9016,7 @@ size_of.m_d_incremental_refresh_book_group = function(buffer, offset)
 
   index = index + size_of.md_update_action
 
-  index = index + size_of.md_entry_type
+  index = index + size_of.md_entry_type_book
 
   index = index + size_of.tradeable_size
 
@@ -8985,8 +9055,8 @@ dissect.m_d_incremental_refresh_book_group_fields = function(buffer, offset, pac
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, md_update_action = dissect.md_update_action(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 22 values
-  index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
+  -- Md Entry Type Book: 1 Byte Ascii String Enum with 5 values
+  index, md_entry_type_book = dissect.md_entry_type_book(buffer, index, packet, parent)
 
   -- Tradeable Size: 4 Byte Signed Fixed Width Integer Nullable
   index, tradeable_size = dissect.tradeable_size(buffer, index, packet, parent)
@@ -9530,6 +9600,69 @@ dissect.md_incremental_refresh_volume_37 = function(buffer, offset, packet, pare
   end
 
   return dissect.md_incremental_refresh_volume_37_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Security Trading Status
+size_of.security_trading_status = 1
+
+-- Display: Security Trading Status
+display.security_trading_status = function(value)
+  if value == 2 then
+    return "Security Trading Status: Trading Halt (2)"
+  end
+  if value == 4 then
+    return "Security Trading Status: Close (4)"
+  end
+  if value == 15 then
+    return "Security Trading Status: New Price Indication (15)"
+  end
+  if value == 17 then
+    return "Security Trading Status: Ready To Trade (17)"
+  end
+  if value == 18 then
+    return "Security Trading Status: Not Available For Trading (18)"
+  end
+  if value == 20 then
+    return "Security Trading Status: Unknownor Invalid (20)"
+  end
+  if value == 21 then
+    return "Security Trading Status: Pre Open (21)"
+  end
+  if value == 24 then
+    return "Security Trading Status: Pre Cross (24)"
+  end
+  if value == 25 then
+    return "Security Trading Status: Cross (25)"
+  end
+  if value == 26 then
+    return "Security Trading Status: Post Close (26)"
+  end
+  if value == 103 then
+    return "Security Trading Status: No Change (103)"
+  end
+  if value == 201 then
+    return "Security Trading Status: Private Workup (201)"
+  end
+  if value == 202 then
+    return "Security Trading Status: Public Workup (202)"
+  end
+  if value == 255 then
+    return "Security Trading Status: No Value (255)"
+  end
+
+  return "Security Trading Status: Unknown("..value..")"
+end
+
+-- Dissect: Security Trading Status
+dissect.security_trading_status = function(buffer, offset, packet, parent)
+  local length = size_of.security_trading_status
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.security_trading_status(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_11.fields.security_trading_status, range, value, display)
+
+  return offset + length, value
 end
 
 -- Calculate size of: Security Status 30

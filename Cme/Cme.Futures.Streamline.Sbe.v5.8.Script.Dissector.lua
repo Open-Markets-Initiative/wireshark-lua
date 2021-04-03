@@ -782,7 +782,7 @@ dissect.interpolation_factor_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Interpolation Factor
@@ -999,7 +999,7 @@ dissect.previous_fixing_rate_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Previous Fixing Rate
@@ -1898,8 +1898,8 @@ size_of.coupon_rate = function(buffer, offset)
 end
 
 -- Display: Coupon Rate
-display.coupon_rate = function(buffer, offset, value, packet, parent)
-  return "Coupon Rate: "..value
+display.coupon_rate = function(buffer, offset, size, packet, parent)
+  return ""
 end
 
 -- Dissect Fields: Coupon Rate
@@ -1912,7 +1912,7 @@ dissect.coupon_rate_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa32, exponent
 end
 
 -- Dissect: Coupon Rate
@@ -1921,9 +1921,8 @@ dissect.coupon_rate = function(buffer, offset, packet, parent)
   if show.coupon_rate then
     local length = size_of.coupon_rate(buffer, offset)
     local range = buffer(offset, length)
-    local value = range:le_int()
-    local display = display.coupon_rate(buffer, offset, value, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v5_8.fields.coupon_rate, range, value, display)
+    local display = display.coupon_rate(buffer, packet, parent)
+    parent = parent:add(cme_futures_streamline_sbe_v5_8.fields.coupon_rate, range, display)
   end
 
   return dissect.coupon_rate_fields(buffer, offset, packet, parent)
@@ -2010,7 +2009,7 @@ dissect.min_price_increment_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Min Price Increment
@@ -2625,8 +2624,8 @@ size_of.unit_of_measure_qty = function(buffer, offset)
 end
 
 -- Display: Unit Of Measure Qty
-display.unit_of_measure_qty = function(buffer, offset, value, packet, parent)
-  return "Unit Of Measure Qty: "..value
+display.unit_of_measure_qty = function(buffer, offset, size, packet, parent)
+  return ""
 end
 
 -- Dissect Fields: Unit Of Measure Qty
@@ -2639,7 +2638,7 @@ dissect.unit_of_measure_qty_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Unit Of Measure Qty
@@ -2648,9 +2647,8 @@ dissect.unit_of_measure_qty = function(buffer, offset, packet, parent)
   if show.unit_of_measure_qty then
     local length = size_of.unit_of_measure_qty(buffer, offset)
     local range = buffer(offset, length)
-    local value = range:le_int64()
-    local display = display.unit_of_measure_qty(buffer, offset, value, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v5_8.fields.unit_of_measure_qty, range, value, display)
+    local display = display.unit_of_measure_qty(buffer, packet, parent)
+    parent = parent:add(cme_futures_streamline_sbe_v5_8.fields.unit_of_measure_qty, range, display)
   end
 
   return dissect.unit_of_measure_qty_fields(buffer, offset, packet, parent)
@@ -2718,8 +2716,8 @@ size_of.strike_price = function(buffer, offset)
 end
 
 -- Display: Strike Price
-display.strike_price = function(buffer, offset, value, packet, parent)
-  return "Strike Price: "..value
+display.strike_price = function(buffer, offset, size, packet, parent)
+  return ""
 end
 
 -- Dissect Fields: Strike Price
@@ -2732,7 +2730,7 @@ dissect.strike_price_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Strike Price
@@ -2741,9 +2739,8 @@ dissect.strike_price = function(buffer, offset, packet, parent)
   if show.strike_price then
     local length = size_of.strike_price(buffer, offset)
     local range = buffer(offset, length)
-    local value = range:le_int64()
-    local display = display.strike_price(buffer, offset, value, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v5_8.fields.strike_price, range, value, display)
+    local display = display.strike_price(buffer, packet, parent)
+    parent = parent:add(cme_futures_streamline_sbe_v5_8.fields.strike_price, range, display)
   end
 
   return dissect.strike_price_fields(buffer, offset, packet, parent)
@@ -3012,8 +3009,8 @@ size_of.md_entry_size = function(buffer, offset)
 end
 
 -- Display: Md Entry Size
-display.md_entry_size = function(buffer, offset, value, packet, parent)
-  return "Md Entry Size: "..value
+display.md_entry_size = function(buffer, offset, size, packet, parent)
+  return ""
 end
 
 -- Dissect Fields: Md Entry Size
@@ -3026,7 +3023,7 @@ dissect.md_entry_size_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Md Entry Size
@@ -3035,9 +3032,8 @@ dissect.md_entry_size = function(buffer, offset, packet, parent)
   if show.md_entry_size then
     local length = size_of.md_entry_size(buffer, offset)
     local range = buffer(offset, length)
-    local value = range:le_uint64()
-    local display = display.md_entry_size(buffer, offset, value, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v5_8.fields.md_entry_size, range, value, display)
+    local display = display.md_entry_size(buffer, packet, parent)
+    parent = parent:add(cme_futures_streamline_sbe_v5_8.fields.md_entry_size, range, display)
   end
 
   return dissect.md_entry_size_fields(buffer, offset, packet, parent)
@@ -3055,8 +3051,8 @@ size_of.md_entry_px = function(buffer, offset)
 end
 
 -- Display: Md Entry Px
-display.md_entry_px = function(buffer, offset, value, packet, parent)
-  return "Md Entry Px: "..value
+display.md_entry_px = function(buffer, offset, size, packet, parent)
+  return ""
 end
 
 -- Dissect Fields: Md Entry Px
@@ -3069,7 +3065,7 @@ dissect.md_entry_px_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Md Entry Px
@@ -3078,9 +3074,8 @@ dissect.md_entry_px = function(buffer, offset, packet, parent)
   if show.md_entry_px then
     local length = size_of.md_entry_px(buffer, offset)
     local range = buffer(offset, length)
-    local value = range:le_int64()
-    local display = display.md_entry_px(buffer, offset, value, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v5_8.fields.md_entry_px, range, value, display)
+    local display = display.md_entry_px(buffer, packet, parent)
+    parent = parent:add(cme_futures_streamline_sbe_v5_8.fields.md_entry_px, range, display)
   end
 
   return dissect.md_entry_px_fields(buffer, offset, packet, parent)
@@ -3744,7 +3739,7 @@ dissect.cal_fut_px_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Cal Fut Px
@@ -4567,7 +4562,7 @@ dissect.percent_trading_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Percent Trading
@@ -4609,7 +4604,7 @@ dissect.net_pct_chg_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Net Pct Chg
@@ -4651,7 +4646,7 @@ dissect.net_chg_prev_day_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Net Chg Prev Day
@@ -4693,7 +4688,7 @@ dissect.yield_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Yield
@@ -5644,7 +5639,7 @@ dissect.final_settlement_futures_price_fields = function(buffer, offset, packet,
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Final Settlement Futures Price
@@ -5686,7 +5681,7 @@ dissect.settlement_npv_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Settlement Npv
@@ -5728,7 +5723,7 @@ dissect.d_v_01_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: D V 01
@@ -5770,7 +5765,7 @@ dissect.p_v_01_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: P V 01
@@ -5837,7 +5832,7 @@ dissect.leg_contract_multiplier_fields = function(buffer, offset, packet, parent
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Leg Contract Multiplier
@@ -5979,7 +5974,7 @@ dissect.previous_eris_pai_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Previous Eris Pai
@@ -6046,7 +6041,7 @@ dissect.next_floating_payment_amount_fields = function(buffer, offset, packet, p
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Next Floating Payment Amount
@@ -6088,7 +6083,7 @@ dissect.next_fixed_payment_amount_fields = function(buffer, offset, packet, pare
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Next Fixed Payment Amount
@@ -6155,7 +6150,7 @@ dissect.floating_payment_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Floating Payment
@@ -6197,7 +6192,7 @@ dissect.fixed_payment_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Fixed Payment
@@ -6239,7 +6234,7 @@ dissect.fed_funds_rate_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Fed Funds Rate
@@ -6281,7 +6276,7 @@ dissect.eris_pai_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Eris Pai
@@ -6323,7 +6318,7 @@ dissect.daily_incremental_eris_pai_fields = function(buffer, offset, packet, par
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Daily Incremental Eris Pai
@@ -6365,7 +6360,7 @@ dissect.accrued_coupons_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Accrued Coupons
@@ -6407,7 +6402,7 @@ dissect.npv_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Npv
@@ -6449,7 +6444,7 @@ dissect.float_npv_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Float Npv
@@ -6491,7 +6486,7 @@ dissect.fixed_npv_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Fixed Npv
@@ -6533,7 +6528,7 @@ dissect.leg_purchase_rate_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Leg Purchase Rate
@@ -6575,7 +6570,7 @@ dissect.fair_coupon_pct_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa64, exponent
 end
 
 -- Dissect: Fair Coupon Pct

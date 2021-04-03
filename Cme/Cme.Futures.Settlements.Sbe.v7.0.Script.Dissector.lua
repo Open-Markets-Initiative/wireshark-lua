@@ -375,7 +375,7 @@ dissect.high_px_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa, exponent
 end
 
 -- Dissect: High Px
@@ -447,7 +447,7 @@ dissect.low_px_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa, exponent
 end
 
 -- Dissect: Low Px
@@ -816,7 +816,7 @@ dissect.strike_price_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa, exponent
 end
 
 -- Dissect: Strike Price
@@ -1783,7 +1783,7 @@ dissect.formatted_last_px_fields = function(buffer, offset, packet, parent)
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index
+  return index, mantissa, exponent
 end
 
 -- Dissect: Formatted Last Px
